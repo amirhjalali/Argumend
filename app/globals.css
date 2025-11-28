@@ -1,27 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import 'katex/dist/katex.min.css';
-@import 'tailwindcss';
 
-@theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-
-  /* Backgrounds */
-  --color-void: #050505;
-  --color-card: #0F0F10;
-  --color-subtle: #1A1A1C;
-
-  /* Text */
-  --color-primary: #EDEDED;
-  --color-secondary: #A1A1AA;
-  --color-muted: #52525B;
-
-  /* Semantic Accents */
-  --color-accent-truth: #00E5FF;
-  --color-accent-doubt: #FF9500;
-  --color-accent-crux: #10B981;
-  --color-accent-danger: #EF4444;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
