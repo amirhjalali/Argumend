@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
-import { Pillar } from "@/types/logic";
+import { Pillar, IconName } from "@/types/logic";
+import type { LucideIcon } from "lucide-react";
 
 interface PillarCardProps {
   pillar: Pillar;
@@ -10,9 +11,19 @@ interface PillarCardProps {
   layoutId: string;
 }
 
-export function PillarCard({ pillar, onClick, layoutId }: PillarCardProps) {
-  // Dynamically get the icon component
-  const IconComponent = (LucideIcons as any)[pillar.icon_name] || LucideIcons.HelpCircle;
+// Type-safe icon mapping
+const ICON_MAP: Record<IconName, LucideIcon> = {
+  Target: LucideIcons.Target,
+  Zap: LucideIcons.Zap,
+  HelpCircle: LucideIcons.HelpCircle,
+  Shield: LucideIcons.Shield,
+  Atom: LucideIcons.Atom,
+  Telescope: LucideIcons.Telescope,
+  Microscope: LucideIcons.Microscope,
+};
+
+export function PillarCard({ pillar, onClick, layoutId }: PillarCardProps): JSX.Element {
+  const IconComponent = ICON_MAP[pillar.icon_name] ?? LucideIcons.HelpCircle;
 
   return (
     <motion.div

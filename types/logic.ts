@@ -1,30 +1,32 @@
 export type TopicStatus = 'settled' | 'contested' | 'highly_speculative';
 
+export type IconName = 'Target' | 'Zap' | 'HelpCircle' | 'Shield' | 'Atom' | 'Telescope' | 'Microscope';
+
 export interface Crux {
-  id: string;
-  title: string; // e.g., "The Retroreflector Test"
-  description: string; // The explanation of the test
-  methodology: string; // Step-by-step verification method
-  equation?: string; // LaTeX string if applicable
-  verification_status: 'verified' | 'theoretical' | 'impossible';
-  cost_to_verify: string; // e.g. "$0 (Data Analysis)" or "$50M (New Probe)"
+  readonly id: string;
+  readonly title: string; // e.g., "The Retroreflector Test"
+  readonly description: string; // The explanation of the test
+  readonly methodology: string; // Step-by-step verification method
+  readonly equation?: string; // LaTeX string if applicable
+  readonly verification_status: 'verified' | 'theoretical' | 'impossible';
+  readonly cost_to_verify: string; // e.g. "$0 (Data Analysis)" or "$50M (New Probe)"
 }
 
 export interface Pillar {
-  id: string;
-  title: string; // e.g., "The Physical Trace"
-  short_summary: string;
-  icon_name: string; // mapping to Lucide icon
-  skeptic_premise: string; // Steel-manned argument against
-  proponent_rebuttal: string; // The scientific defense
-  crux: Crux; // The definitive way to solve this specific pillar
+  readonly id: string;
+  readonly title: string; // e.g., "The Physical Trace"
+  readonly short_summary: string;
+  readonly icon_name: IconName; // mapping to Lucide icon
+  readonly skeptic_premise: string; // Steel-manned argument against
+  readonly proponent_rebuttal: string; // The scientific defense
+  readonly crux: Crux; // The definitive way to solve this specific pillar
 }
 
 export interface Topic {
-  id: string;
-  title: string; // e.g., "The Moon Landing"
-  meta_claim: string;
-  confidence_score: number; // 0 to 100
-  status: TopicStatus;
-  pillars: Pillar[];
+  readonly id: string;
+  readonly title: string; // e.g., "The Moon Landing"
+  readonly meta_claim: string;
+  readonly confidence_score: number; // 0 to 100
+  readonly status: TopicStatus;
+  readonly pillars: readonly Pillar[];
 }

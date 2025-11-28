@@ -13,14 +13,36 @@
 
 html,
 body {
-  font-family: var(--font-geist-sans);
-  background-color: #050505;
-  color: #EDEDED;
+  font-family: Inter, system-ui, sans-serif;
   overflow-x: hidden;
+}
+
+@layer base {
+  body {
+    @apply bg-void text-primary;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus indicators for accessibility */
+*:focus-visible {
+  outline: 2px solid theme('colors.accent.truth');
+  outline-offset: 2px;
+  border-radius: 4px;
 }

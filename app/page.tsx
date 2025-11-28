@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { moonLanding } from "@/data/topics";
 import { Pillar } from "@/types/logic";
 import { ConfidenceMeter } from "@/components/ConfidenceMeter";
@@ -26,7 +26,7 @@ export default function HomePage() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-8 py-16">
+      <main id="main-content" className="max-w-7xl mx-auto px-8 py-16">
         {/* Hero Section */}
         <motion.div
           className="mb-16 text-center"
@@ -110,12 +110,14 @@ export default function HomePage() {
       </main>
 
       {/* Deep Dive Modal */}
-      {selectedPillar && (
-        <DeepDiveModal
-          pillar={selectedPillar}
-          onClose={() => setSelectedPillar(null)}
-        />
-      )}
+      <AnimatePresence mode="wait">
+        {selectedPillar && (
+          <DeepDiveModal
+            pillar={selectedPillar}
+            onClose={() => setSelectedPillar(null)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
