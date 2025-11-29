@@ -9,42 +9,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Backgrounds - Stoic/Classical Theme
-        agora: "#FDFCF8", // Warm off-white parchment
-        stone: "#E5E5E0", // Light stone grey
-        marble: "#F4F4F0", // Clean marble
+        // Backgrounds - LessWrong Style
+        canvas: "#F2F2F2", // Light grey page background
+        paper: "#FFFFFF",  // Clean white cards
         
-        // Cards & Surfaces
-        parchment: "#FDFCF8",
-        "parchment-dark": "#F2F0E6",
-        
-        // Text - Classical Discourse
-        primary: "#2C2C2C", // Dark charcoal, softer than black
-        secondary: "#595959", // Medium grey
-        muted: "#8C8C8C", // Light grey
+        // Text
+        primary: "#2A2A2A", // Soft black
+        secondary: "#666666", // Medium grey
+        muted: "#8F8F8F", // Light grey
 
-        // Accents - Classical Elements
+        // Accents - LW Inspired
         accent: {
-          logos: "#2C3E50",    // Deep Navy (Logic/Truth) - replaces 'truth'
-          pathos: "#8B4513",   // Saddle Brown/Clay (Emotion/Doubt) - replaces 'doubt'
-          ethos: "#556B2F",    // Olive Green (Character/Crux) - replaces 'crux'
-          gold: "#C5A059",     // Antique Gold (Highlight)
-          marble: "#E5E5E0",   // Stone accent
+          main: "#5BA150", // LW Green (Logic/Truth/Score)
+          link: "#3C6B2E", // Darker green for interaction
+          warn: "#E5A02F", // Warm yellow/orange
+          error: "#D93025", // Standard red
         },
       },
       fontFamily: {
-        serif: ["Cinzel", "Merriweather", "serif"],
-        sans: ["Lato", "Inter", "system-ui", "sans-serif"],
-        mono: ["Courier Prime", "monospace"], // Typewriter feel
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'paper-texture': "url('/paper-texture.png')", // Placeholder for potential texture
+        serif: ["Crimson Pro", "Georgia", "serif"], // For body text, headers
+        sans: ["Source Sans Pro", "Verdana", "sans-serif"], // For UI elements, metadata
+        mono: ["Inconsolata", "monospace"],
       },
       boxShadow: {
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        'engraved': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+        'lw': '0 1px 2px rgba(0, 0, 0, 0.08)',
+        'lw-hover': '0 4px 12px rgba(0, 0, 0, 0.12)',
       },
       backdropBlur: {
         xs: '2px',

@@ -3,62 +3,31 @@
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData, NodeVariant } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
-import { ArrowDownRight, FlaskConical, Layers2 } from "lucide-react";
+import { ArrowDown, BookOpen, ChevronRight } from "lucide-react";
 
-const VARIANT_TOKENS: Record<
+// Simpler variant mapping for LW style - mostly unified, just subtle accents
+const VARIANT_STYLES: Record<
   NodeVariant,
-  { border: string; accent: string; label: string; bg: string }
+  { label: string; accentClass: string }
 > = {
-  meta: {
-    border: "border-accent-logos",
-    accent: "text-accent-logos",
-    label: "Meta",
-    bg: "bg-parchment",
-  },
-  pillar: {
-    border: "border-accent-logos/20",
-    accent: "text-accent-logos",
-    label: "Pillar",
-    bg: "bg-parchment",
-  },
-  skeptic: {
-    border: "border-accent-pathos/30",
-    accent: "text-accent-pathos",
-    label: "Skeptic",
-    bg: "bg-parchment",
-  },
-  proponent: {
-    border: "border-accent-logos/30",
-    accent: "text-accent-logos",
-    label: "Proponent",
-    bg: "bg-parchment",
-  },
-  crux: {
-    border: "border-accent-ethos/40",
-    accent: "text-accent-ethos",
-    label: "Crux",
-    bg: "bg-parchment-dark",
-  },
-  evidence: {
-    border: "border-accent-logos/20",
-    accent: "text-accent-logos",
-    label: "Evidence",
-    bg: "bg-parchment",
-  },
+  meta: { label: "Meta", accentClass: "text-accent-main" },
+  pillar: { label: "Pillar", accentClass: "text-primary" },
+  skeptic: { label: "Skeptic Argument", accentClass: "text-accent-warn" }, // Warning color for skepticism
+  proponent: { label: "Counter Argument", accentClass: "text-accent-main" },
+  crux: { label: "Crux", accentClass: "text-accent-link" },
+  evidence: { label: "Evidence", accentClass: "text-accent-main" },
 };
 
 export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const expandNode = useLogicGraph((state) => state.expandNode);
   const openCrux = useLogicGraph((state) => state.openCrux);
   const expanded = useLogicGraph((state) => state.expandedNodes[id]);
-  const tokens = VARIANT_TOKENS[data.variant ?? "pillar"];
+  const style = VARIANT_STYLES[data.variant ?? "pillar"];
 
   const canOpenCrux = data.variant === "crux" && data.detail;
 
   return (
-    <div
-      className={`relative w-[320px] rounded-sm border ${tokens.border} ${tokens.bg} p-6 shadow-card transition-shadow hover:shadow-card-hover`}
-    >
+    <div className="relative w-[320px] bg-paper rounded shadow-lw transition-all hover:shadow-lw-hover">
       <Handle
         type="target"
         position={Position.Top}
@@ -72,55 +41,52 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         isConnectable={false}
       />
 
-      <div className="mb-4 flex items-center justify-between border-b border-black/5 pb-3">
-        <span
-          className={`text-xs font-bold uppercase tracking-[0.2em] font-sans ${tokens.accent}`}
-        >
-          {tokens.label}
-        </span>
-        {data.subtitle && (
-          <span className="text-xs text-muted font-serif italic">
-            {data.subtitle}
+      <div className="p-5">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-2">
+          <span className={`text-[10px] font-sans font-bold uppercase tracking-wider ${style.accentClass}`}>
+            {style.label}
           </span>
+          {data.subtitle && (
+            <span className="text-[10px] text-secondary font-sans uppercase tracking-wider">
+              {data.subtitle}
+            </span>
+          )}
+        </div>
+
+        {/* Title */}
+        <h3 className="text-xl font-serif text-primary mb-3 leading-tight">
+          {data.title}
+        </h3>
+
+        {/* Content */}
+        {data.content && (
+          <p className="text-base text-primary/80 font-serif leading-relaxed mb-4">
+            {data.content}
+          </p>
         )}
-      </div>
 
-      <h3 className="text-xl font-bold leading-snug text-primary font-serif">
-        {data.title}
-      </h3>
-
-      {data.content && (
-        <p className="mt-3 text-sm text-secondary leading-relaxed font-sans">
-          {data.content}
-        </p>
-      )}
-
-      <div className="mt-6 flex flex-col gap-3">
-        <button
-          className="inline-flex items-center justify-between rounded-sm border border-black/10 bg-white/50 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-secondary transition hover:border-accent-logos hover:text-accent-logos disabled:opacity-40 disabled:cursor-not-allowed font-sans"
-          onClick={() => expandNode(id)}
-          disabled={expanded}
-        >
-          {expanded ? "Expanded" : "Expand Argument"}
-          <ArrowDownRight className="h-3 w-3" />
-        </button>
-
-        {canOpenCrux && (
+        {/* Actions */}
+        <div className="flex items-center gap-4 pt-3 border-t border-gray-100">
           <button
-            className="inline-flex items-center justify-between rounded-sm border border-accent-ethos/30 bg-accent-ethos/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-ethos transition hover:bg-accent-ethos/10 font-sans"
-            onClick={() => openCrux(id)}
+            className="flex items-center gap-1 text-xs font-sans font-semibold text-secondary hover:text-primary transition-colors disabled:opacity-40"
+            onClick={() => expandNode(id)}
+            disabled={expanded}
           >
-            View Crux
-            <FlaskConical className="h-3 w-3" />
+            {expanded ? "Expanded" : "Expand"}
+            <ArrowDown className="h-3 w-3" />
           </button>
-        )}
 
-        {!canOpenCrux && data.variant === "evidence" && (
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent-logos/60 font-sans">
-            <Layers2 className="h-3 w-3" />
-            Evidence Stream
-          </div>
-        )}
+          {canOpenCrux && (
+            <button
+              className="flex items-center gap-1 text-xs font-sans font-semibold text-accent-link hover:text-accent-main transition-colors"
+              onClick={() => openCrux(id)}
+            >
+              View Crux
+              <BookOpen className="h-3 w-3" />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

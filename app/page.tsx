@@ -53,15 +53,15 @@ function CanvasExperience() {
 
   return (
     <div className="star-chart relative flex h-screen w-screen flex-col text-primary">
-      <div className="pointer-events-none absolute left-10 top-10 z-20 max-w-lg space-y-3">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-logos/80 font-sans">
-          Argumend · Logic Map
+      <div className="pointer-events-none absolute left-10 top-10 z-20 max-w-lg space-y-2">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-secondary font-sans">
+          Argumend Logic Map
         </p>
-        <h1 className="text-5xl font-bold tracking-tight text-accent-logos font-serif">
+        <h1 className="text-4xl font-serif font-normal tracking-tight text-primary">
           The Moon Landing
         </h1>
-        <p className="text-sm text-secondary font-serif italic">
-          Start at the Meta Node. Explore pillars, skeptic vectors, and the definitive tests that resolve them.
+        <p className="text-base text-secondary font-serif leading-relaxed">
+          Explore the logical structure of the argument.
         </p>
       </div>
 
@@ -84,28 +84,28 @@ function CanvasExperience() {
         fitView
       >
         <Background
-          color="#2C3E50"
+          color="#E5E5E5"
           gap={40}
           size={1}
           variant={BackgroundVariant.Dots}
-          className="opacity-5"
+          className=""
         />
-        <Controls position="bottom-left" className="!bg-white !border !border-black/10 !shadow-sm !text-black" />
+        <Controls position="bottom-left" className="!bg-white !border !border-gray-200 !shadow-lw !text-secondary !rounded" />
       </ReactFlow>
 
       <div className="pointer-events-none absolute bottom-10 left-10 z-20">
-        <div className="flex items-center gap-6 rounded-sm border border-black/5 bg-white px-6 py-4 text-sm text-secondary shadow-sm">
+        <div className="flex items-center gap-6 rounded bg-white border border-gray-200 px-5 py-3 text-sm text-secondary shadow-lw">
           <div className="flex items-center gap-2">
-            <Compass className="h-4 w-4 text-accent-logos" />
-            <span className="font-sans font-bold text-xs uppercase tracking-wide">Pan</span>
+            <Compass className="h-4 w-4" />
+            <span className="font-sans font-semibold text-xs uppercase">Pan</span>
           </div>
           <div className="flex items-center gap-2">
-            <MousePointerClick className="h-4 w-4 text-accent-pathos" />
-            <span className="font-sans font-bold text-xs uppercase tracking-wide">Expand</span>
+            <MousePointerClick className="h-4 w-4" />
+            <span className="font-sans font-semibold text-xs uppercase">Expand</span>
           </div>
           <div className="flex items-center gap-2">
-            <ScanLine className="h-4 w-4 text-accent-ethos" />
-            <span className="font-sans font-bold text-xs uppercase tracking-wide">Inspect</span>
+            <ScanLine className="h-4 w-4" />
+            <span className="font-sans font-semibold text-xs uppercase">Inspect</span>
           </div>
         </div>
       </div>
