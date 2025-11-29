@@ -1,6 +1,7 @@
 "use client";
 
-import { logicBlueprint } from "@/data/logicBlueprint";
+import { generateBlueprint } from "@/data/logicBlueprint";
+import { moonLanding, topics } from "@/data/topics";
 import { getChildPosition } from "@/lib/layout";
 import type {
   BlueprintNode,
@@ -41,6 +42,10 @@ type GraphStore = {
   selectedCrux: CruxSelection | null;
   focusTargets: string[];
   sequence: number;
+  currentTopicId: string;
+  
+  // Actions
+  setTopic: (topicId: string) => void;
   expandNode: (nodeId: string) => void;
   openCrux: (nodeId: string) => void;
   closeCrux: () => void;
@@ -62,17 +67,11 @@ const EDGE_STYLE: Partial<Edge> = {
   },
 };
 
-const rootBlueprint =
-  logicBlueprint["root"] ?? ({
-    id: "root",
-    variant: "meta",
-    title: "ARGUMEND",
-    subtitle: "Meta Claim",
-    content: "Define a topic to begin the infinite canvas.",
-    score: 0,
-  } satisfies BlueprintNode);
+// Initialize with Moon Landing
+const initialBlueprint = generateBlueprint(moonLanding);
+const rootBlueprint = initialBlueprint["root"];
 
-const rootNode: LogicNode = {
+const initialRootNode: LogicNode = {
   id: rootBlueprint.id,
   type: "metaNode",
   position: { x: 0, y: 0 },
@@ -99,16 +98,26 @@ function buildEdge(source: string, target: string): Edge {
   };
 }
 
+// Helper to get blueprint for current topic
+// Note: In a real app, we might store the blueprint in state or a ref
+// Here we'll regenerate it or cache it outside.
+// For simplicity, let's just use a getBlueprint function that looks up the topic.
+function getBlueprintForTopic(topicId: string) {
+  const topic = topics.find(t => t.id === topicId) ?? moonLanding;
+  return generateBlueprint(topic);
+}
+
 function resolveChildTemplates(
   nodeId: string,
   parentNode: LogicNode,
   sequence: number,
+  currentBlueprint: Record<string, BlueprintNode>
 ): { templates: ChildTemplate[]; nextSequence: number } {
-  const blueprint = logicBlueprint[nodeId];
-  if (blueprint?.children?.length) {
-    const templates = blueprint.children
+  const blueprintNode = currentBlueprint[nodeId];
+  if (blueprintNode?.children?.length) {
+    const templates = blueprintNode.children
       .map((child) => {
-        const childBlueprint = logicBlueprint[child.id];
+        const childBlueprint = currentBlueprint[child.id];
         if (!childBlueprint) {
           return null;
         }
@@ -122,14 +131,10 @@ function resolveChildTemplates(
     return { templates, nextSequence: sequence };
   }
 
-  // Return empty templates to prevent infinite generation
   return { templates: [], nextSequence: sequence };
 }
 
-
-// Fallback generation removed to prevent infinite "filler" content
-// If a node has no defined children in logicBlueprint, it is a leaf node.
-
+// ... (createNodesFromTemplates remains the same)
 function createNodesFromTemplates(
   parentNode: LogicNode,
   templates: ChildTemplate[],
@@ -161,24 +166,54 @@ function createNodesFromTemplates(
 }
 
 export const useLogicGraph = create<GraphStore>((set, get) => ({
-  nodes: [rootNode],
+  nodes: [initialRootNode],
   edges: [],
   expandedNodes: {},
   selectedCrux: null,
   focusTargets: ["root"],
   sequence: 0,
+  currentTopicId: moonLanding.id,
+
+  setTopic: (topicId: string) => {
+    const topic = topics.find((t) => t.id === topicId);
+    if (!topic) return;
+
+    const newBlueprint = generateBlueprint(topic);
+    const newRootBlueprint = newBlueprint["root"];
+    
+    const newRootNode: LogicNode = {
+      id: newRootBlueprint.id,
+      type: "metaNode",
+      position: { x: 0, y: 0 },
+      data: mapBlueprintToData(newRootBlueprint),
+    };
+
+    set({
+      currentTopicId: topicId,
+      nodes: [newRootNode],
+      edges: [],
+      expandedNodes: {},
+      selectedCrux: null,
+      focusTargets: ["root"],
+      sequence: 0,
+    });
+  },
 
   expandNode: (nodeId: string) => {
-    const { expandedNodes, nodes, edges, sequence } = get();
+    const { expandedNodes, nodes, edges, sequence, currentTopicId } = get();
     if (expandedNodes[nodeId]) return;
 
     const parentNode = nodes.find((node) => node.id === nodeId);
     if (!parentNode) return;
 
+    // Get the blueprint for the current active topic
+    const currentBlueprint = getBlueprintForTopic(currentTopicId);
+
     const { templates, nextSequence } = resolveChildTemplates(
       nodeId,
       parentNode,
       sequence,
+      currentBlueprint
     );
 
     if (!templates.length) return;
@@ -197,6 +232,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
     });
   },
 
+  // ... (rest of actions remain same)
   openCrux: (nodeId: string) => {
     const node = get().nodes.find((item) => item.id === nodeId);
     if (!node) return;

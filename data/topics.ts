@@ -46,4 +46,49 @@ export const moonLanding: Topic = {
   ],
 };
 
-export const topics: Topic[] = [moonLanding];
+export const simulationHypothesis: Topic = {
+  id: 'simulation-hypothesis',
+  title: 'The Simulation Hypothesis',
+  meta_claim: 'We are almost certainly living in a computer simulation run by a post-human civilization.',
+  confidence_score: 33.3,
+  status: 'contested',
+  pillars: [
+    {
+      id: 'substrate-independence',
+      title: 'Substrate Independence',
+      short_summary: 'Consciousness is computable and not tied to biological neurons.',
+      image_url: '',
+      icon_name: 'Atom',
+      skeptic_premise: 'Qualia and consciousness may require specific biological physics (Penrose-Hameroff) that cannot be simulated on binary logic gates.',
+      proponent_rebuttal: 'Neurons are just information processors. If we map the I/O of a brain perfectly, the resulting system must be conscious.',
+      crux: {
+        id: 'whole-brain-emulation',
+        title: 'Whole Brain Emulation',
+        description: 'Can we upload a nematode brain? If we simulate a C. elegans nervous system and it behaves indistinguishably from a biological one, substrate independence is likely true.',
+        methodology: 'Scan a nematode brain connectome. Run it on silicon. Compare behavior (chemotaxis) to biological worm.',
+        verification_status: 'theoretical',
+        cost_to_verify: '$100M (Connectome projects underway)',
+      },
+    },
+    {
+      id: 'ancestor-simulations',
+      title: 'Ancestor Simulations',
+      short_summary: 'Post-humans would have vast computing power and a desire to run historical sims.',
+      image_url: '',
+      icon_name: 'Telescope',
+      skeptic_premise: 'Advanced civilizations might lose interest in history, or energy limits might make detailed simulations wasteful.',
+      proponent_rebuttal: 'Even if only 1% of civilizations run 1% of their capacity as sims, the number of simulated souls vastly outnumbers biological ones.',
+      crux: {
+        id: 'computational-limits',
+        title: 'The pixelation of physics',
+        description: 'If we are in a simulation, space-time might be discrete (pixelated) at the Planck scale to save memory.',
+        methodology: 'Look for anisotropy in high-energy cosmic rays. If space is a grid, rays should travel differently along axes.',
+        equation: 'E_{GZK} \\approx 5 \\times 10^{19} eV',
+        verification_status: 'theoretical',
+        cost_to_verify: '$0 (Analyzing Fermilab data)',
+      },
+    },
+  ],
+};
+
+export const topics: Topic[] = [moonLanding, simulationHypothesis];
