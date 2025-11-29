@@ -98,31 +98,28 @@ const makeEdge = (source: string, target: string): Edge => ({
   ...EDGE_STYLE,
 });
 
+const PILLAR_VERTICAL_GAP = 360;
+const PILLAR_INITIAL_OFFSET = 360;
+
 const buildPillarNode = (
   pillar: Pillar,
   index: number,
-  total: number,
-): LogicNode => {
-  const spread = Math.max(total - 1, 1);
-  const angle = (index - spread / 2) * 0.6;
-  const radius = 420;
-
-  return {
-    id: `pillar-${pillar.id}`,
-    type: "argumentNode",
-    position: {
-      x: Math.cos(angle) * radius,
-      y: Math.sin(angle) * radius,
-    },
-    data: {
-      pillarId: pillar.id,
-      title: pillar.title,
-      summary: pillar.short_summary,
-      imageUrl: pillar.image_url,
-      variant: "pillar",
-    },
-  };
-};
+  _total: number,
+): LogicNode => ({
+  id: `pillar-${pillar.id}`,
+  type: "argumentNode",
+  position: {
+    x: 0,
+    y: PILLAR_INITIAL_OFFSET + index * PILLAR_VERTICAL_GAP,
+  },
+  data: {
+    pillarId: pillar.id,
+    title: pillar.title,
+    summary: pillar.short_summary,
+    imageUrl: pillar.image_url,
+    variant: "pillar",
+  },
+});
 
 const buildPillarNodes = (): LogicNode[] =>
   moonLanding.pillars.map((pillar, index) =>
@@ -130,9 +127,9 @@ const buildPillarNodes = (): LogicNode[] =>
   );
 
 const branchOffset = {
-  x: 260,
-  y: 140,
-  cruxX: 540,
+  lateral: 280,
+  drop: 200,
+  cruxDrop: 520,
 };
 
 const buildBranchNodes = (
@@ -143,8 +140,8 @@ const buildBranchNodes = (
     id: `pillar-${pillar.id}-skeptic`,
     type: "argumentNode",
     position: {
-      x: basePosition.x + branchOffset.x,
-      y: basePosition.y - branchOffset.y,
+      x: basePosition.x - branchOffset.lateral,
+      y: basePosition.y + branchOffset.drop,
     },
     data: {
       pillarId: pillar.id,
@@ -157,8 +154,8 @@ const buildBranchNodes = (
     id: `pillar-${pillar.id}-proponent`,
     type: "argumentNode",
     position: {
-      x: basePosition.x + branchOffset.x,
-      y: basePosition.y + branchOffset.y,
+      x: basePosition.x + branchOffset.lateral,
+      y: basePosition.y + branchOffset.drop,
     },
     data: {
       pillarId: pillar.id,
@@ -171,8 +168,8 @@ const buildBranchNodes = (
     id: `pillar-${pillar.id}-crux`,
     type: "cruxNode",
     position: {
-      x: basePosition.x + branchOffset.cruxX,
-      y: basePosition.y,
+      x: basePosition.x,
+      y: basePosition.y + branchOffset.cruxDrop,
     },
     data: {
       pillarId: pillar.id,
