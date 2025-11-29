@@ -121,19 +121,6 @@ function CanvasExperience() {
             </div>
           </div>
 
-          <div className="pointer-events-auto absolute right-12 top-12 z-30 max-w-sm rounded-[28px] border border-white/15 bg-white/10 px-6 py-6 text-white shadow-[0_25px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl">
-            <p className="text-[11px] uppercase tracking-[0.45em] text-white/70">Solstice Season</p>
-            <h3 className="mt-2 font-serif text-[32px] leading-tight">Celebrate the longest night</h3>
-            <p className="mt-3 text-sm text-white/80">
-              Visit a megameetup at a major city, or host a gathering for your friends on the night of the 21st.
-              Community rituals keep our discourse humane.
-            </p>
-            <div className="mt-5 flex gap-3 text-sm font-semibold">
-              <span className="rounded-full bg-white/20 px-3 py-1">Berkeley — Dec 6</span>
-              <span className="rounded-full bg-white/20 px-3 py-1">New York — Dec 20</span>
-            </div>
-          </div>
-
           {currentTopic && (
             <div className="pointer-events-auto absolute right-12 bottom-16 z-30 w-[360px] rounded-[28px] border border-white/15 bg-[#0B1327]/85 px-6 py-6 text-white shadow-[0_25px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl">
               <p className="text-[11px] uppercase tracking-[0.45em] text-white/70">Meta Claim</p>
