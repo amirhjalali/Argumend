@@ -2,10 +2,10 @@
 
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData } from "@/types/graph";
-import { Handle, NodeProps, Position } from "@xyflow/react";
+import { Handle, Node, NodeProps, Position } from "@xyflow/react";
 import { Plus, Sparkles } from "lucide-react";
 
-export function MetaNode({ id, data }: NodeProps<LogicNodeData>) {
+export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const expanded = useLogicGraph((state) => state.expandedNodes[id]);
   const expandNode = useLogicGraph((state) => state.expandNode);
 
@@ -14,52 +14,54 @@ export function MetaNode({ id, data }: NodeProps<LogicNodeData>) {
   }
 
   return (
-    <div className="relative w-[360px] rounded-3xl border border-accent-truth/40 bg-void/85 p-6 shadow-glow-truth backdrop-blur-xl">
+    <div className="relative w-[360px] rounded-sm border-2 border-accent-logos/10 bg-parchment p-6 shadow-card font-serif">
       <Handle
         type="source"
         position={Position.Bottom}
         className="logic-handle"
         isConnectable={false}
       />
-      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-truth/40 via-transparent to-accent-purple/30 opacity-70 blur-3xl" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-accent-logos/80" />
       <div className="relative flex flex-col gap-5">
-        <div className="flex items-center gap-4">
-          <div className="rounded-2xl bg-white/5 p-3 text-accent-truth ring-1 ring-white/10">
-            <Sparkles className="h-6 w-6" />
+        <div className="flex items-center gap-4 border-b border-accent-logos/10 pb-4">
+          <div className="p-2 text-accent-logos">
+            <Sparkles className="h-6 w-6" strokeWidth={1.5} />
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-secondary">
+            <p className="text-xs uppercase tracking-[0.2em] text-accent-logos/60 font-sans font-bold">
               Meta Claim
             </p>
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-bold tracking-tight text-accent-logos">
               {data.title}
             </h2>
           </div>
         </div>
 
         {data.content && (
-          <p className="text-sm text-secondary leading-relaxed">
+          <p className="text-sm text-primary/80 leading-relaxed font-sans">
             {data.content}
           </p>
         )}
 
         {typeof data.score === "number" && (
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="text-xs uppercase tracking-[0.4em] text-secondary">
-              Confidence
-            </p>
-            <p className="text-4xl font-bold text-accent-truth">
-              {data.score.toFixed(1)}%
-            </p>
+          <div className="bg-accent-logos/5 p-4 border border-accent-logos/10 rounded-sm">
+            <div className="flex items-baseline justify-between">
+              <p className="text-xs uppercase tracking-[0.2em] text-accent-logos/60 font-sans font-bold">
+                Confidence
+              </p>
+              <p className="text-3xl font-bold text-accent-logos font-serif">
+                {data.score.toFixed(1)}%
+              </p>
+            </div>
           </div>
         )}
 
         <button
-          className="group inline-flex items-center justify-center gap-2 rounded-2xl border border-accent-crux/40 bg-accent-crux/10 px-4 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-accent-crux transition hover:bg-accent-crux/20 disabled:cursor-not-allowed disabled:opacity-40"
+          className="group inline-flex items-center justify-center gap-2 rounded-sm border border-accent-logos text-accent-logos px-4 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-accent-logos hover:text-parchment transition-all font-sans disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={() => expandNode(id)}
           disabled={expanded}
         >
-          {expanded ? "Constellation Online" : "Deploy Pillars"}
+          {expanded ? "Logic Deployed" : "Examine Logic"}
           <Plus className="h-4 w-4 transition group-hover:rotate-90" />
         </button>
       </div>
