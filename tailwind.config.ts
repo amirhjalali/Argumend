@@ -9,38 +9,42 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Backgrounds - Modern gradient base
-        void: "#0A0A0F",
-        card: "#1A1A2E",
-        subtle: "#16213E",
+        // Backgrounds - Stoic/Classical Theme
+        agora: "#FDFCF8", // Warm off-white parchment
+        stone: "#E5E5E0", // Light stone grey
+        marble: "#F4F4F0", // Clean marble
+        
+        // Cards & Surfaces
+        parchment: "#FDFCF8",
+        "parchment-dark": "#F2F0E6",
+        
+        // Text - Classical Discourse
+        primary: "#2C2C2C", // Dark charcoal, softer than black
+        secondary: "#595959", // Medium grey
+        muted: "#8C8C8C", // Light grey
 
-        // Text
-        primary: "#FFFFFF",
-        secondary: "#B4B4C5",
-        muted: "#6B6B80",
-
-        // Vibrant Modern Accents
+        // Accents - Classical Elements
         accent: {
-          truth: "#00D9FF",    // Bright cyan
-          doubt: "#FF6B00",    // Vibrant orange
-          crux: "#00FFA3",     // Electric green
-          danger: "#FF3366",   // Hot pink
-          purple: "#A855F7",   // Purple for variety
+          logos: "#2C3E50",    // Deep Navy (Logic/Truth) - replaces 'truth'
+          pathos: "#8B4513",   // Saddle Brown/Clay (Emotion/Doubt) - replaces 'doubt'
+          ethos: "#556B2F",    // Olive Green (Character/Crux) - replaces 'crux'
+          gold: "#C5A059",     // Antique Gold (Highlight)
+          marble: "#E5E5E0",   // Stone accent
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "Roboto Mono", "monospace"],
+        serif: ["Cinzel", "Merriweather", "serif"],
+        sans: ["Lato", "Inter", "system-ui", "sans-serif"],
+        mono: ["Courier Prime", "monospace"], // Typewriter feel
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-mesh': 'radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.3) 0px, transparent 50%), radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.3) 0px, transparent 50%), radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 0.3) 0px, transparent 50%), radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 0.3) 0px, transparent 50%), radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.3) 0px, transparent 50%), radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.3) 0px, transparent 50%), radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.3) 0px, transparent 50%)',
+        'paper-texture': "url('/paper-texture.png')", // Placeholder for potential texture
       },
       boxShadow: {
-        'glow-truth': '0 0 20px rgba(0, 217, 255, 0.5)',
-        'glow-doubt': '0 0 20px rgba(255, 107, 0, 0.5)',
-        'glow-crux': '0 0 20px rgba(0, 255, 163, 0.5)',
-        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'engraved': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       },
       backdropBlur: {
         xs: '2px',

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Courier+Prime:wght@400;700&display=swap');
 @import 'katex/dist/katex.min.css';
 
 @tailwind base;
@@ -13,13 +13,17 @@
 
 html,
 body {
-  font-family: Inter, system-ui, sans-serif;
+  font-family: 'Lato', system-ui, sans-serif;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
 }
 
 @layer base {
   body {
-    @apply bg-void text-primary;
+    @apply bg-agora text-primary selection:bg-accent-gold/30;
   }
 }
 
@@ -29,13 +33,10 @@ body {
   }
 
   .star-chart {
-    background-color: #050505;
+    background-color: #FDFCF8;
     background-image:
-      radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-      radial-gradient(circle at 80% 0%, rgba(0, 217, 255, 0.08) 1px, transparent 1px),
-      radial-gradient(circle at 50% 100%, rgba(0, 255, 163, 0.05) 2px, transparent 2px);
-    background-size: 120px 120px, 180px 180px, 220px 220px;
-    background-blend-mode: screen;
+      radial-gradient(circle at 50% 50%, rgba(44, 62, 80, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }
 
@@ -52,9 +53,9 @@ body {
 
 /* Focus indicators for accessibility */
 *:focus-visible {
-  outline: 2px solid theme('colors.accent.truth');
+  outline: 2px solid theme('colors.accent.gold');
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .react-flow__pane {
@@ -66,27 +67,23 @@ body {
 }
 
 .react-flow__edge-path {
-  stroke-linecap: round;
+  stroke-linecap: square; /* Changed from round for sharper look */
 }
 
 .logic-edge path {
-  stroke: #00d9ff;
-  stroke-width: 2px;
-  stroke-dasharray: 14;
-  animation: logic-flow 1.4s linear infinite;
-  filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.4));
+  stroke: #2C3E50; /* accent-logos */
+  stroke-width: 1px; /* Thinner, ink-like */
+  stroke-dasharray: 0; /* Solid line, like ink */
+  /* Removed animated flow for more static/stoic feel, can re-add slower later if needed */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
 
 .logic-handle {
-  width: 14px !important;
-  height: 14px !important;
-  border: 2px solid rgba(0, 217, 255, 0.6) !important;
-  background: rgba(5, 5, 5, 0.9) !important;
-  box-shadow: 0 0 12px rgba(0, 217, 255, 0.4);
+  width: 10px !important;
+  height: 10px !important;
+  border: 2px solid #2C3E50 !important;
+  background: #FDFCF8 !important;
+  border-radius: 0 !important; /* Square handles */
+  box-shadow: none;
 }
 
-@keyframes logic-flow {
-  to {
-    stroke-dashoffset: -28;
-  }
-}
