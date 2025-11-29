@@ -9,31 +9,43 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Backgrounds - LessWrong Style
-        canvas: "#F2F2F2", // Light grey page background
-        paper: "#FFFFFF",  // Clean white cards
-        
-        // Text
-        primary: "#2A2A2A", // Soft black
-        secondary: "#666666", // Medium grey
-        muted: "#8F8F8F", // Light grey
-
-        // Accents - LW Inspired
+        canvas: "#F8F5EE",
+        paper: "#FFFDF7",
+        primary: "#1F1E1C",
+        secondary: "#5C625A",
+        muted: "#918375",
+        border: "#DED7C5",
         accent: {
-          main: "#5BA150", // LW Green (Logic/Truth/Score)
-          link: "#3C6B2E", // Darker green for interaction
-          warn: "#E5A02F", // Warm yellow/orange
-          error: "#D93025", // Standard red
+          main: "#5F8F65",
+          link: "#2F5937",
+          warn: "#D29D3A",
+          error: "#C8513C",
+        },
+        lw: {
+          sand: "#F8F5EE",
+          parchment: "#F1EDE0",
+          veil: "#F8F1E3",
+          border: "#DED7C5",
+          night: "#0C1222",
+          sage: "#5F8F65",
         },
       },
       fontFamily: {
-        serif: ["Crimson Pro", "Georgia", "serif"], // For body text, headers
-        sans: ["Source Sans Pro", "Verdana", "sans-serif"], // For UI elements, metadata
-        mono: ["Inconsolata", "monospace"],
+        serif: ["Newsreader", "Palatino", "Book Antiqua", "serif"],
+        sans: [
+          "Public Sans",
+          "Gill Sans",
+          "Gill Sans MT",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+        mono: ["IBM Plex Mono", "SFMono-Regular", "monospace"],
       },
       boxShadow: {
-        'lw': '0 1px 2px rgba(0, 0, 0, 0.08)',
-        'lw-hover': '0 4px 12px rgba(0, 0, 0, 0.12)',
+        lw: "0 1px 2px rgba(17, 24, 39, 0.08)",
+        "lw-hover": "0 8px 30px rgba(23, 20, 18, 0.12)",
+        "lw-panel": "0 20px 45px rgba(16, 14, 12, 0.18)",
       },
       backdropBlur: {
         xs: '2px',

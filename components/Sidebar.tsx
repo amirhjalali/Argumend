@@ -1,6 +1,16 @@
 "use client";
 
-import { BookOpen, ChevronRight } from "lucide-react";
+import {
+  BookOpen,
+  CalendarDays,
+  Compass,
+  Home,
+  Layers3,
+  LibraryBig,
+  Lightbulb,
+  MapPinned,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Topic } from "@/types/logic";
 
 interface SidebarProps {
@@ -9,58 +19,150 @@ interface SidebarProps {
   onSelectTopic: (topicId: string) => void;
 }
 
+type NavItem = {
+  label: string;
+  description: string;
+  icon: LucideIcon;
+};
+
+const primaryNav: NavItem[] = [
+  {
+    label: "Home",
+    description: "Personalized frontpage",
+    icon: Home,
+  },
+  {
+    label: "All Posts",
+    description: "Community firehose",
+    icon: Layers3,
+  },
+  {
+    label: "Concepts",
+    description: "Core rationality canon",
+    icon: Lightbulb,
+  },
+];
+
+const libraryNav: NavItem[] = [
+  {
+    label: "Sequences",
+    description: "Curated long-form routes",
+    icon: LibraryBig,
+  },
+  {
+    label: "Best Of",
+    description: "High-signal classics",
+    icon: BookOpen,
+  },
+  {
+    label: "Logic Maps",
+    description: "Visual blueprints",
+    icon: MapPinned,
+  },
+];
+
+const communityEvents = [
+  { name: "Symbolic Regression", date: "Thu Dec 4", location: "Online" },
+  { name: "Berkeley Solstice Weekend", date: "Fri Dec 5", location: "Berkeley" },
+  { name: "Freiburg Meetup", date: "Mon Dec 1", location: "Freiburg" },
+];
+
 export function Sidebar({ topics, currentTopicId, onSelectTopic }: SidebarProps) {
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 h-full flex flex-col shadow-lw z-20">
-      <div className="p-6 border-b border-gray-100">
-        <div className="flex items-center gap-2 mb-1">
-          <BookOpen className="h-5 w-5 text-primary" />
-          <h1 className="text-xl font-serif font-bold text-primary tracking-tight">
-            Argumend
-          </h1>
+    <aside className="relative hidden h-full w-[280px] shrink-0 flex-col border-r border-lw-border/70 bg-gradient-to-r from-lw-sand via-lw-veil to-transparent px-6 py-8 text-primary lg:flex">
+      <div className="absolute right-0 top-0 h-full w-10 bg-gradient-to-r from-transparent via-lw-veil/70 to-transparent pointer-events-none" />
+
+      <div className="flex items-center gap-3">
+        <div className="rounded-full bg-white/70 p-3 text-accent-main shadow-lw">
+          <Compass className="h-5 w-5" />
         </div>
-        <p className="text-xs text-secondary font-sans uppercase tracking-wider pl-7">
-          Rational Discourse
-        </p>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.6em] text-primary">ARGUMEND</p>
+          <p className="text-[10px] uppercase tracking-[0.35em] text-secondary">Rational Cartography</p>
+        </div>
       </div>
 
-      <nav className="flex-1 overflow-y-auto py-4">
-        <div className="px-6 mb-2">
-          <h2 className="text-xs font-sans font-bold uppercase tracking-widest text-muted">
-            Topics
-          </h2>
+      <section className="mt-8 space-y-3">
+        {primaryNav.map((item) => (
+          <button
+            key={item.label}
+            className="flex w-full items-start gap-3 rounded-lg border border-transparent bg-white/40 px-3 py-2 text-left shadow-sm transition hover:border-primary/20 hover:bg-white/70"
+          >
+            <div className="rounded-md bg-white/70 p-2 text-accent-main">
+              <item.icon className="h-4 w-4" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">{item.label}</p>
+              <p className="text-xs text-secondary">{item.description}</p>
+            </div>
+          </button>
+        ))}
+      </section>
+
+      <section className="mt-8 space-y-3 border-t border-lw-border/70 pt-6">
+        {libraryNav.map((item) => (
+          <button
+            key={item.label}
+            className="flex w-full items-start gap-3 rounded-lg border border-transparent px-3 py-2 text-left transition hover:border-primary/20 hover:bg-white/70"
+          >
+            <div className="rounded-md bg-white/40 p-2 text-secondary">
+              <item.icon className="h-4 w-4" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-secondary">{item.label}</p>
+              <p className="text-xs text-muted">{item.description}</p>
+            </div>
+          </button>
+        ))}
+      </section>
+
+      <section className="mt-8 border-t border-lw-border/70 pt-6">
+        <div className="mb-3 flex items-center justify-between">
+          <p className="text-[11px] uppercase tracking-[0.3em] text-secondary">Logic Maps</p>
+          <span className="text-[11px] font-semibold uppercase text-accent-main">Browse</span>
         </div>
-        <ul className="space-y-1">
+        <ul className="space-y-2">
           {topics.map((topic) => {
             const isActive = topic.id === currentTopicId;
             return (
               <li key={topic.id}>
                 <button
                   onClick={() => onSelectTopic(topic.id)}
-                  className={`w-full text-left px-6 py-3 flex items-center justify-between group transition-colors
-                    ${
-                      isActive
-                        ? "bg-gray-50 border-l-4 border-accent-main text-primary font-semibold"
-                        : "text-secondary hover:bg-gray-50 hover:text-primary border-l-4 border-transparent"
-                    }
-                  `}
+                  className={`flex w-full items-center justify-between rounded-md border px-3 py-2 text-left text-sm transition ${
+                    isActive
+                      ? "border-primary bg-white text-primary"
+                      : "border-transparent bg-white/40 text-secondary hover:border-lw-border/70 hover:bg-white"
+                  }`}
                 >
-                  <span className="font-sans text-sm truncate">{topic.title}</span>
-                  {isActive && <ChevronRight className="h-4 w-4 text-accent-main" />}
+                  <span className="truncate font-semibold">{topic.title}</span>
+                  <span className="text-xs uppercase tracking-[0.3em] text-muted">view</span>
                 </button>
               </li>
             );
           })}
         </ul>
-      </nav>
+      </section>
 
-      <div className="p-6 border-t border-gray-100">
-        <div className="text-xs text-muted font-sans leading-relaxed">
-          &copy; 2025 Argumend.<br />
-          Inspired by LessWrong.
+      <section className="mt-8 border-t border-lw-border/70 pt-6">
+        <div className="mb-3 flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-secondary">
+          <CalendarDays className="h-3 w-3" />
+          Community Events
         </div>
+        <ul className="space-y-3 text-sm text-secondary">
+          {communityEvents.map((event) => (
+            <li key={event.name} className="rounded-md bg-white/50 px-3 py-2">
+              <p className="font-semibold text-primary">{event.name}</p>
+              <p className="text-xs uppercase tracking-[0.2em]">
+                {event.date} • {event.location}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <div className="mt-auto border-t border-lw-border/70 pt-6 text-xs text-secondary">
+        &copy; 2025 ARGUMEND. Rational discourse infrastructure.
       </div>
     </aside>
   );
 }
-
