@@ -45,7 +45,7 @@ type GraphStore = {
   openCrux: (nodeId: string) => void;
   closeCrux: () => void;
   consumeFocusTargets: () => void;
-  onNodesChange: (changes: NodeChange<LogicNodeData>[]) => void;
+  onNodesChange: (changes: NodeChange<LogicNode>[]) => void;
 };
 
 const DEFAULT_CHILD_SLOTS: ChildSlot[] = ["left", "right", "center"];
@@ -122,49 +122,13 @@ function resolveChildTemplates(
     return { templates, nextSequence: sequence };
   }
 
-  return generateFallbackTemplates(parentNode, sequence);
+  // Return empty templates to prevent infinite generation
+  return { templates: [], nextSequence: sequence };
 }
 
-function generateFallbackTemplates(
-  parentNode: LogicNode,
-  sequence: number,
-): { templates: ChildTemplate[]; nextSequence: number } {
-  const parentData = parentNode.data as LogicNodeData;
-  let counter = sequence;
 
-  const templates: ChildTemplate[] = DEFAULT_CHILD_SLOTS.map((slot) => {
-    const id = `${parentNode.id}-${slot}-${counter++}`;
-    const variant =
-      slot === "left"
-        ? "skeptic"
-        : slot === "right"
-          ? "proponent"
-          : parentData.variant === "crux"
-            ? "evidence"
-            : "pillar";
-    const descriptor =
-      slot === "center"
-        ? "Sub-pillar"
-        : slot === "left"
-          ? "Skeptic Vector"
-          : "Proponent Vector";
-    return {
-      id,
-      slot,
-      data: {
-        variant,
-        title:
-          slot === "center"
-            ? `${descriptor} of ${parentData.title}`
-            : `${descriptor}: ${parentData.title}`,
-        subtitle: "Generated Branch",
-        content: `Extend the ${descriptor.toLowerCase()} for "${parentData.title}". Continue expanding to push the logic deeper.`,
-      },
-    };
-  });
-
-  return { templates, nextSequence: counter };
-}
+// Fallback generation removed to prevent infinite "filler" content
+// If a node has no defined children in logicBlueprint, it is a leaf node.
 
 function createNodesFromTemplates(
   parentNode: LogicNode,
@@ -246,7 +210,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
 
   consumeFocusTargets: () => set({ focusTargets: [] }),
 
-  onNodesChange: (changes: NodeChange<LogicNodeData>[]) =>
+  onNodesChange: (changes: NodeChange<LogicNode>[]) =>
     set((state) => ({
       nodes: applyNodeChanges(changes, state.nodes),
     })),

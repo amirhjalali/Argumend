@@ -33,6 +33,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     subtitle: "Meta Doubt",
     content:
       "Conspiracy narratives claim Apollo was staged on a soundstage to win the Space Race and mask rocket failures.",
+    children: [], // Explicitly no children to prevent fallback generation
   },
   "root-proponent": {
     id: "root-proponent",
@@ -41,6 +42,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     subtitle: "Global Evidence",
     content:
       "Telemetry, lunar samples, and independent tracking by Jodrell Bank, Madrid, and Parkes observatories all corroborate the landings.",
+    children: [], // Explicitly no children to prevent fallback generation
   },
   [radiation.id]: {
     id: radiation.id,
@@ -60,6 +62,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     title: "Van Allen Belt Alarm",
     subtitle: radiation.title,
     content: radiation.skeptic_premise,
+    children: [],
   },
   [`${radiation.id}-proponent`]: {
     id: `${radiation.id}-proponent`,
@@ -67,6 +70,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     title: "Trajectory as Shielding",
     subtitle: radiation.title,
     content: radiation.proponent_rebuttal,
+    children: [],
   },
   [radiationCruxId]: {
     id: radiationCruxId,
@@ -94,6 +98,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     subtitle: radiation.crux.title,
     content:
       "Skeptics claim telemetry tapes were fabricated or scrubbed, so dose readouts cannot be trusted.",
+    children: [],
   },
   [`${radiationCruxId}-records`]: {
     id: `${radiationCruxId}-records`,
@@ -102,6 +107,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     subtitle: radiation.crux.title,
     content:
       "Explorer, Luna, and Apollo 11 dosimeter logs are archived at NSSDC and MIT, letting independent labs re-run the integrations.",
+    children: [],
   },
   [retroreflector.id]: {
     id: retroreflector.id,
@@ -122,6 +128,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     subtitle: retroreflector.title,
     content:
       "If humans went to the Moon, skeptics ask why modern telescopes cannot image landers or flags from Earth.",
+    children: [],
   },
   [`${retroreflector.id}-proponent`]: {
     id: `${retroreflector.id}-proponent`,
@@ -130,6 +137,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     subtitle: retroreflector.title,
     content:
       "Diffraction limits prevent optical imaging, but the ability to ping corner-cube retroreflectors is unique to an engineered array.",
+    children: [],
   },
   [retroCruxId]: {
     id: retroCruxId,
@@ -157,6 +165,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     subtitle: retroreflector.crux.title,
     content:
       "Some argue that unmanned Soviet rovers also carried reflectors, so pings do not prove a crewed mission.",
+    children: [],
   },
   [`${retroCruxId}-records`]: {
     id: `${retroCruxId}-records`,
@@ -165,6 +174,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     subtitle: retroreflector.crux.title,
     content:
       "Apollo arrays return sharply peaked signals with known orientation and polarization, unlike Lunokhod plates that have decayed.",
+    children: [],
   },
   [`evidence-${retroreflector.id}`]: {
     id: `evidence-${retroreflector.id}`,
@@ -173,6 +183,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     subtitle: "Evidence Stream",
     content:
       "The APOLLO project publishes photon return counts per pulse. Anyone with a 3.5 m telescope and ruby laser can replicate the experiment.",
+    children: [],
   },
 };
 
