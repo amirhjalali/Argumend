@@ -21,10 +21,15 @@ export function CruxDrawer() {
           />
           <motion.aside
             className="fixed right-0 top-0 z-50 h-full w-full max-w-md border-l border-black/5 bg-parchment p-8 text-primary shadow-2xl font-sans"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 120, damping: 20 }}
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 100, 
+              damping: 25, 
+              mass: 1.2 // Adds a bit of "weight" to the movement
+            }}
           >
             <div className="flex items-start justify-between border-b border-black/5 pb-6">
               <div>
