@@ -27,6 +27,16 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .star-chart {
+    background-color: #050505;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      radial-gradient(circle at 80% 0%, rgba(0, 217, 255, 0.08) 1px, transparent 1px),
+      radial-gradient(circle at 50% 100%, rgba(0, 255, 163, 0.05) 2px, transparent 2px);
+    background-size: 120px 120px, 180px 180px, 220px 220px;
+    background-blend-mode: screen;
+  }
 }
 
 /* Reduced motion support */
@@ -45,4 +55,30 @@ body {
   outline: 2px solid theme('colors.accent.truth');
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+.react-flow__pane {
+  cursor: grab;
+}
+
+.react-flow__pane:active {
+  cursor: grabbing;
+}
+
+.react-flow__edge-path {
+  stroke-linecap: round;
+}
+
+.logic-edge path {
+  stroke: #00d9ff;
+  stroke-width: 2px;
+  stroke-dasharray: 14;
+  animation: logic-flow 1.4s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.4));
+}
+
+@keyframes logic-flow {
+  to {
+    stroke-dashoffset: -28;
+  }
 }

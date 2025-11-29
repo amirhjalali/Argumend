@@ -16,6 +16,7 @@ export interface Pillar {
   readonly id: string;
   readonly title: string; // e.g., "The Physical Trace"
   readonly short_summary: string;
+  readonly image_url?: string;
   readonly icon_name: IconName; // mapping to Lucide icon
   readonly skeptic_premise: string; // Steel-manned argument against
   readonly proponent_rebuttal: string; // The scientific defense
