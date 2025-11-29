@@ -1,5 +1,6 @@
 "use client";
 
+import { InteractiveContent } from "@/components/InteractiveContent";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData, NodeVariant } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
@@ -61,9 +62,11 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
         {/* Content */}
         {data.content && (
-          <p className="text-base text-primary/80 font-serif leading-relaxed mb-4">
-            {data.content}
-          </p>
+          <InteractiveContent 
+            content={data.content} 
+            concepts={data.concepts} 
+            nodeId={id} 
+          />
         )}
 
         {/* Actions */}

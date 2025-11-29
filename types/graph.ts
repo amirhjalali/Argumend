@@ -16,6 +16,13 @@ export interface CruxDetail {
   cost: string;
 }
 
+export interface ConceptData {
+  targetId: string;
+  title: string;
+  description: string;
+  image?: string;
+}
+
 export interface LogicNodeData {
   variant: NodeVariant;
   title: string;
@@ -23,6 +30,8 @@ export interface LogicNodeData {
   subtitle?: string;
   score?: number;
   detail?: CruxDetail;
+  concepts?: Record<string, ConceptData>;
+  [key: string]: unknown;
 }
 
 export interface BlueprintChildLink {

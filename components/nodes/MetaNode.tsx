@@ -1,5 +1,6 @@
 "use client";
 
+import { InteractiveContent } from "@/components/InteractiveContent";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
@@ -35,9 +36,11 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
         {/* Content */}
         {data.content && (
-          <p className="text-lg text-primary/90 leading-relaxed font-serif mb-6">
-            {data.content}
-          </p>
+          <InteractiveContent 
+            content={data.content} 
+            concepts={data.concepts} 
+            nodeId={id} 
+          />
         )}
 
         {/* Footer: Score & Action */}

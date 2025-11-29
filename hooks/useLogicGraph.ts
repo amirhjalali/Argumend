@@ -7,6 +7,7 @@ import type {
   BlueprintNode,
   ChildSlot,
   LogicNodeData,
+  ConceptData,
 } from "@/types/graph";
 import {
   Edge,
@@ -47,6 +48,7 @@ type GraphStore = {
   // Actions
   setTopic: (topicId: string) => void;
   expandNode: (nodeId: string) => void;
+  spawnConceptNode: (sourceNodeId: string, concept: ConceptData) => void;
   openCrux: (nodeId: string) => void;
   closeCrux: () => void;
   consumeFocusTargets: () => void;
@@ -229,6 +231,54 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       expandedNodes: { ...expandedNodes, [nodeId]: true },
       focusTargets: childNodes.map((node) => node.id),
       sequence: nextSequence,
+    });
+  },
+
+  spawnConceptNode: (sourceNodeId: string, concept: ConceptData) => {
+    const { nodes, edges } = get();
+    
+    // Check if node already exists
+    const existingNode = nodes.find((n) => n.id === concept.targetId);
+    if (existingNode) {
+      set({ focusTargets: [concept.targetId] });
+      return;
+    }
+
+    const sourceNode = nodes.find((n) => n.id === sourceNodeId);
+    if (!sourceNode) return;
+
+    // Calculate position: Right + ~400px, with slight random Y offset
+    const randomOffset = Math.random() * 100 - 50;
+    const position = {
+      x: sourceNode.position.x + 400,
+      y: sourceNode.position.y + randomOffset,
+    };
+
+    const newNode: LogicNode = {
+      id: concept.targetId,
+      type: "richNode",
+      position,
+      data: {
+        variant: "pillar", // Default to pillar style for concepts
+        title: concept.title,
+        content: concept.description,
+        subtitle: "Context",
+      },
+    };
+
+    const newEdge: Edge = {
+      id: `edge-${sourceNodeId}-${concept.targetId}`,
+      source: sourceNodeId,
+      target: concept.targetId,
+      type: "bezier",
+      animated: false,
+      style: { strokeDasharray: "5,5", stroke: "#B0B0B0" }, // Dotted line for definitions
+    };
+
+    set({
+      nodes: [...nodes, newNode],
+      edges: [...edges, newEdge],
+      focusTargets: [concept.targetId],
     });
   },
 
