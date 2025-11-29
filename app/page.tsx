@@ -11,9 +11,8 @@ import {
   useReactFlow,
 } from "@xyflow/react";
 import { CruxDrawer } from "@/components/CruxDrawer";
-import { ArgumentNode } from "@/components/nodes/ArgumentNode";
-import { CruxNode } from "@/components/nodes/CruxNode";
 import { MetaNode } from "@/components/nodes/MetaNode";
+import { RichNode } from "@/components/nodes/RichNode";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { Compass, ScanLine, MousePointerClick } from "lucide-react";
 
@@ -21,8 +20,7 @@ function CanvasExperience() {
   const nodeTypes = useMemo(
     () => ({
       metaNode: MetaNode,
-      argumentNode: ArgumentNode,
-      cruxNode: CruxNode,
+      richNode: RichNode,
     }),
     [],
   );
@@ -62,8 +60,8 @@ function CanvasExperience() {
           The Moon Landing
         </h1>
         <p className="text-sm text-secondary">
-          Start at the Meta Node. Expand outward to surface the pillars,
-          skeptic vectors, and crux tests.
+          Start at the Meta Node. Expand downward to surface pillars,
+          skeptic vectors, crux tests, and evidence streams.
         </p>
       </div>
 

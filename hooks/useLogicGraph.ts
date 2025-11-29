@@ -1,7 +1,12 @@
 "use client";
 
-import { moonLanding } from "@/data/topics";
-import type { Pillar } from "@/types/logic";
+import { logicBlueprint } from "@/data/logicBlueprint";
+import { getChildPosition } from "@/lib/layout";
+import type {
+  BlueprintNode,
+  ChildSlot,
+  LogicNodeData,
+} from "@/types/graph";
 import {
   Edge,
   MarkerType,
@@ -11,39 +16,13 @@ import {
 } from "@xyflow/react";
 import { create } from "zustand";
 
-export type MetaNodeData = {
-  label: string;
-  score: number;
+type LogicNode = Node<LogicNodeData>;
+
+type ChildTemplate = {
+  id: string;
+  slot: ChildSlot;
+  data: LogicNodeData;
 };
-
-export type ArgumentNodeVariant = "pillar" | "skeptic" | "proponent";
-
-export type ArgumentNodeData = {
-  pillarId: string;
-  title: string;
-  summary?: string;
-  imageUrl?: string;
-  variant: ArgumentNodeVariant;
-  body?: string;
-};
-
-export type CruxNodeData = {
-  pillarId: string;
-  pillarTitle: string;
-  title: string;
-  description: string;
-  methodology: string;
-  equation?: string;
-  status: string;
-  cost: string;
-};
-
-export type LogicNodeData =
-  | MetaNodeData
-  | ArgumentNodeData
-  | CruxNodeData;
-
-export type LogicNode = Node<LogicNodeData>;
 
 type CruxSelection = {
   pillarTitle: string;
@@ -61,26 +40,18 @@ type GraphStore = {
   expandedNodes: Record<string, boolean>;
   selectedCrux: CruxSelection | null;
   focusTargets: string[];
-  expandRoot: () => void;
-  expandPillar: (pillarId: string) => void;
-  openCrux: (pillarId: string) => void;
+  sequence: number;
+  expandNode: (nodeId: string) => void;
+  openCrux: (nodeId: string) => void;
   closeCrux: () => void;
   consumeFocusTargets: () => void;
   onNodesChange: (changes: NodeChange<LogicNodeData>[]) => void;
 };
 
-const rootNode: LogicNode = {
-  id: "root",
-  type: "metaNode",
-  position: { x: 0, y: 0 },
-  data: {
-    label: moonLanding.title,
-    score: moonLanding.confidence_score,
-  },
-};
+const DEFAULT_CHILD_SLOTS: ChildSlot[] = ["left", "right", "center"];
 
 const EDGE_STYLE: Partial<Edge> = {
-  type: "smoothstep",
+  type: "bezier",
   animated: true,
   className: "logic-edge",
   markerEnd: {
@@ -91,98 +62,129 @@ const EDGE_STYLE: Partial<Edge> = {
   },
 };
 
-const makeEdge = (source: string, target: string): Edge => ({
-  id: `edge-${source}-${target}`,
-  source,
-  target,
-  ...EDGE_STYLE,
-});
+const rootBlueprint =
+  logicBlueprint["root"] ?? ({
+    id: "root",
+    variant: "meta",
+    title: "ARGUMEND",
+    subtitle: "Meta Claim",
+    content: "Define a topic to begin the infinite canvas.",
+    score: 0,
+  } satisfies BlueprintNode);
 
-const PILLAR_VERTICAL_GAP = 360;
-const PILLAR_INITIAL_OFFSET = 360;
-
-const buildPillarNode = (
-  pillar: Pillar,
-  index: number,
-  _total: number,
-): LogicNode => ({
-  id: `pillar-${pillar.id}`,
-  type: "argumentNode",
-  position: {
-    x: 0,
-    y: PILLAR_INITIAL_OFFSET + index * PILLAR_VERTICAL_GAP,
-  },
-  data: {
-    pillarId: pillar.id,
-    title: pillar.title,
-    summary: pillar.short_summary,
-    imageUrl: pillar.image_url,
-    variant: "pillar",
-  },
-});
-
-const buildPillarNodes = (): LogicNode[] =>
-  moonLanding.pillars.map((pillar, index) =>
-    buildPillarNode(pillar, index, moonLanding.pillars.length),
-  );
-
-const branchOffset = {
-  lateral: 280,
-  drop: 200,
-  cruxDrop: 520,
+const rootNode: LogicNode = {
+  id: rootBlueprint.id,
+  type: "metaNode",
+  position: { x: 0, y: 0 },
+  data: mapBlueprintToData(rootBlueprint),
 };
 
-const buildBranchNodes = (
-  pillar: Pillar,
-  basePosition: { x: number; y: number },
-): LogicNode[] => [
-  {
-    id: `pillar-${pillar.id}-skeptic`,
-    type: "argumentNode",
-    position: {
-      x: basePosition.x - branchOffset.lateral,
-      y: basePosition.y + branchOffset.drop,
+function mapBlueprintToData(blueprint: BlueprintNode): LogicNodeData {
+  return {
+    variant: blueprint.variant,
+    title: blueprint.title,
+    content: blueprint.content,
+    subtitle: blueprint.subtitle,
+    score: blueprint.score,
+    detail: blueprint.detail,
+  };
+}
+
+function buildEdge(source: string, target: string): Edge {
+  return {
+    id: `edge-${source}-${target}`,
+    source,
+    target,
+    ...EDGE_STYLE,
+  };
+}
+
+function resolveChildTemplates(
+  nodeId: string,
+  parentNode: LogicNode,
+  sequence: number,
+): { templates: ChildTemplate[]; nextSequence: number } {
+  const blueprint = logicBlueprint[nodeId];
+  if (blueprint?.children?.length) {
+    const templates = blueprint.children
+      .map((child) => {
+        const childBlueprint = logicBlueprint[child.id];
+        if (!childBlueprint) {
+          return null;
+        }
+        return {
+          id: child.id,
+          slot: child.slot,
+          data: mapBlueprintToData(childBlueprint),
+        };
+      })
+      .filter(Boolean) as ChildTemplate[];
+    return { templates, nextSequence: sequence };
+  }
+
+  return generateFallbackTemplates(parentNode, sequence);
+}
+
+function generateFallbackTemplates(
+  parentNode: LogicNode,
+  sequence: number,
+): { templates: ChildTemplate[]; nextSequence: number } {
+  const parentData = parentNode.data as LogicNodeData;
+  let counter = sequence;
+
+  const templates: ChildTemplate[] = DEFAULT_CHILD_SLOTS.map((slot) => {
+    const id = `${parentNode.id}-${slot}-${counter++}`;
+    const variant =
+      slot === "left"
+        ? "skeptic"
+        : slot === "right"
+          ? "proponent"
+          : parentData.variant === "crux"
+            ? "evidence"
+            : "pillar";
+    const descriptor =
+      slot === "center"
+        ? "Sub-pillar"
+        : slot === "left"
+          ? "Skeptic Vector"
+          : "Proponent Vector";
+    return {
+      id,
+      slot,
+      data: {
+        variant,
+        title:
+          slot === "center"
+            ? `${descriptor} of ${parentData.title}`
+            : `${descriptor}: ${parentData.title}`,
+        subtitle: "Generated Branch",
+        content: `Extend the ${descriptor.toLowerCase()} for "${parentData.title}". Continue expanding to push the logic deeper.`,
+      },
+    };
+  });
+
+  return { templates, nextSequence: counter };
+}
+
+function createNodesFromTemplates(
+  parentNode: LogicNode,
+  templates: ChildTemplate[],
+): { nodes: LogicNode[]; edges: Edge[] } {
+  return templates.reduce(
+    (acc, template) => {
+      const position = getChildPosition(parentNode.position, template.slot);
+      acc.nodes.push({
+        id: template.id,
+        type: template.data.variant === "meta" ? "metaNode" : "richNode",
+        position,
+        data: template.data,
+      });
+      acc.edges.push(buildEdge(parentNode.id, template.id));
+      return acc;
     },
-    data: {
-      pillarId: pillar.id,
-      title: "Skeptic Vector",
-      variant: "skeptic",
-      body: pillar.skeptic_premise,
-    },
-  },
-  {
-    id: `pillar-${pillar.id}-proponent`,
-    type: "argumentNode",
-    position: {
-      x: basePosition.x + branchOffset.lateral,
-      y: basePosition.y + branchOffset.drop,
-    },
-    data: {
-      pillarId: pillar.id,
-      title: "Proponent Response",
-      variant: "proponent",
-      body: pillar.proponent_rebuttal,
-    },
-  },
-  {
-    id: `pillar-${pillar.id}-crux`,
-    type: "cruxNode",
-    position: {
-      x: basePosition.x,
-      y: basePosition.y + branchOffset.cruxDrop,
-    },
-    data: {
-      pillarId: pillar.id,
-      pillarTitle: pillar.title,
-      title: pillar.crux.title,
-      description: pillar.crux.description,
-      methodology: pillar.crux.methodology,
-      equation: pillar.crux.equation,
-      status: pillar.crux.verification_status,
-      cost: pillar.crux.cost_to_verify,
-    },
-  },
-];
+    { nodes: [] as LogicNode[], edges: [] as Edge[] },
+  );
+}
 
 export const useLogicGraph = create<GraphStore>((set, get) => ({
   nodes: [rootNode],
@@ -190,65 +192,52 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
   expandedNodes: {},
   selectedCrux: null,
   focusTargets: ["root"],
+  sequence: 0,
 
-  expandRoot: () => {
-    const { expandedNodes, nodes, edges } = get();
-    if (expandedNodes.root) return;
+  expandNode: (nodeId: string) => {
+    const { expandedNodes, nodes, edges, sequence } = get();
+    if (expandedNodes[nodeId]) return;
 
-    const pillars = buildPillarNodes();
-    const pillarEdges = pillars.map((pillar) => makeEdge("root", pillar.id));
+    const parentNode = nodes.find((node) => node.id === nodeId);
+    if (!parentNode) return;
 
-    set({
-      nodes: [...nodes, ...pillars],
-      edges: [...edges, ...pillarEdges],
-      expandedNodes: { ...expandedNodes, root: true },
-      focusTargets: ["root", ...pillars.map((pillar) => pillar.id)],
-    });
-  },
-
-  expandPillar: (pillarId: string) => {
-    const { expandedNodes, nodes, edges } = get();
-    const nodeKey = `pillar-${pillarId}`;
-
-    if (expandedNodes[nodeKey]) return;
-
-    const pillarData = moonLanding.pillars.find(
-      (pillar) => pillar.id === pillarId,
+    const { templates, nextSequence } = resolveChildTemplates(
+      nodeId,
+      parentNode,
+      sequence,
     );
-    const pillarNode = nodes.find((node) => node.id === nodeKey);
 
-    if (!pillarData || !pillarNode) return;
+    if (!templates.length) return;
 
-    const branchNodes = buildBranchNodes(pillarData, pillarNode.position);
-
-    const branchEdges = [
-      makeEdge(nodeKey, `pillar-${pillarId}-skeptic`),
-      makeEdge(nodeKey, `pillar-${pillarId}-proponent`),
-      makeEdge(`pillar-${pillarId}-skeptic`, `pillar-${pillarId}-crux`),
-      makeEdge(`pillar-${pillarId}-proponent`, `pillar-${pillarId}-crux`),
-    ];
+    const { nodes: childNodes, edges: childEdges } = createNodesFromTemplates(
+      parentNode,
+      templates,
+    );
 
     set({
-      nodes: [...nodes, ...branchNodes],
-      edges: [...edges, ...branchEdges],
-      expandedNodes: { ...expandedNodes, [nodeKey]: true },
-      focusTargets: branchNodes.map((node) => node.id),
+      nodes: [...nodes, ...childNodes],
+      edges: [...edges, ...childEdges],
+      expandedNodes: { ...expandedNodes, [nodeId]: true },
+      focusTargets: childNodes.map((node) => node.id),
+      sequence: nextSequence,
     });
   },
 
-  openCrux: (pillarId: string) => {
-    const pillar = moonLanding.pillars.find((p) => p.id === pillarId);
-    if (!pillar) return;
+  openCrux: (nodeId: string) => {
+    const node = get().nodes.find((item) => item.id === nodeId);
+    if (!node) return;
+    const data = node.data as LogicNodeData;
+    if (!data.detail) return;
 
     set({
       selectedCrux: {
-        pillarTitle: pillar.title,
-        title: pillar.crux.title,
-        description: pillar.crux.description,
-        methodology: pillar.crux.methodology,
-        equation: pillar.crux.equation,
-        cost: pillar.crux.cost_to_verify,
-        status: pillar.crux.verification_status,
+        pillarTitle: data.subtitle ?? data.title,
+        title: data.title,
+        description: data.detail.description,
+        methodology: data.detail.methodology,
+        equation: data.detail.equation,
+        cost: data.detail.cost,
+        status: data.detail.status,
       },
     });
   },
@@ -262,5 +251,4 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       nodes: applyNodeChanges(changes, state.nodes),
     })),
 }));
-
 
