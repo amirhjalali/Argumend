@@ -135,8 +135,18 @@ function createNodesFromTemplates(
   templates: ChildTemplate[],
 ): { nodes: LogicNode[]; edges: Edge[] } {
   return templates.reduce(
-    (acc, template) => {
-      const position = getChildPosition(parentNode.position, template.slot);
+    (acc, template, index) => {
+      // Need to count siblings in the same slot to calculate offset
+      const siblingsInSlot = templates.filter(t => t.slot === template.slot);
+      const indexInSlot = siblingsInSlot.indexOf(template);
+      
+      const position = getChildPosition(
+        parentNode.position, 
+        template.slot,
+        indexInSlot,
+        siblingsInSlot.length
+      );
+
       acc.nodes.push({
         id: template.id,
         type: template.data.variant === "meta" ? "metaNode" : "richNode",

@@ -4,20 +4,29 @@ import type { ChildSlot } from "@/types/graph";
 export const VERTICAL_GAP = 300;
 export const HORIZONTAL_GAP = 400;
 
-const SLOT_OFFSETS: Record<ChildSlot, XYPosition> = {
-  left: { x: -HORIZONTAL_GAP, y: VERTICAL_GAP },
-  center: { x: 0, y: VERTICAL_GAP },
-  right: { x: HORIZONTAL_GAP, y: VERTICAL_GAP },
-};
-
 export function getChildPosition(
   parent: XYPosition,
   slot: ChildSlot,
+  indexInSlot: number = 0,
+  totalInSlot: number = 1
 ): XYPosition {
-  const offset = SLOT_OFFSETS[slot] ?? SLOT_OFFSETS.center;
+  // Calculate total width needed for siblings in this slot
+  const siblingsWidth = (totalInSlot - 1) * HORIZONTAL_GAP;
+  const startX = -(siblingsWidth / 2);
+  const relativeX = startX + indexInSlot * HORIZONTAL_GAP;
+
+  let offsetX = 0;
+  if (slot === "left") offsetX = -HORIZONTAL_GAP * 1.2; // Push further left
+  if (slot === "right") offsetX = HORIZONTAL_GAP * 1.2; // Push further right
+  
+  // Center slot stays centered relative to parent, but spreads siblings
+  if (slot === "center") {
+    offsetX = 0;
+  }
+
   return {
-    x: parent.x + offset.x,
-    y: parent.y + offset.y,
+    x: parent.x + offsetX + (slot === "center" ? relativeX : 0),
+    y: parent.y + VERTICAL_GAP,
   };
 }
 
