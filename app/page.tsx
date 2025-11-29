@@ -5,6 +5,7 @@ import "@xyflow/react/dist/style.css";
 import { useEffect, useMemo } from "react";
 import {
   Background,
+  BackgroundVariant,
   Controls,
   ReactFlow,
   ReactFlowProvider,
@@ -51,17 +52,16 @@ function CanvasExperience() {
   }, [consumeFocusTargets, focusTargets, nodes, reactFlow]);
 
   return (
-    <div className="star-chart relative flex h-screen w-screen flex-col text-white">
+    <div className="star-chart relative flex h-screen w-screen flex-col text-primary">
       <div className="pointer-events-none absolute left-10 top-10 z-20 max-w-lg space-y-3">
-        <p className="text-xs font-mono uppercase tracking-[0.5em] text-accent-truth">
-          Argumend · Infinite Logic Map
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-logos/80 font-sans">
+          Argumend · Logic Map
         </p>
-        <h1 className="text-5xl font-semibold tracking-tight">
+        <h1 className="text-5xl font-bold tracking-tight text-accent-logos font-serif">
           The Moon Landing
         </h1>
-        <p className="text-sm text-secondary">
-          Start at the Meta Node. Expand downward to surface pillars,
-          skeptic vectors, crux tests, and evidence streams.
+        <p className="text-sm text-secondary font-serif italic">
+          Start at the Meta Node. Explore pillars, skeptic vectors, and the definitive tests that resolve them.
         </p>
       </div>
 
@@ -70,8 +70,8 @@ function CanvasExperience() {
         nodes={nodes}
         edges={edges}
         nodeTypes={nodeTypes}
-        defaultViewport={{ x: -200, y: 0, zoom: 0.6 }}
-        minZoom={0.15}
+        defaultViewport={{ x: -200, y: 0, zoom: 0.8 }}
+        minZoom={0.2}
         maxZoom={1.6}
         nodesDraggable
         nodesConnectable={false}
@@ -84,27 +84,28 @@ function CanvasExperience() {
         fitView
       >
         <Background
-          color="#1f2130"
-          gap={26}
-          size={1.6}
-          variant="dots"
+          color="#2C3E50"
+          gap={40}
+          size={1}
+          variant={BackgroundVariant.Dots}
+          className="opacity-5"
         />
-        <Controls position="bottom-left" className="!bg-black/40" />
+        <Controls position="bottom-left" className="!bg-white !border !border-black/10 !shadow-sm !text-black" />
       </ReactFlow>
 
       <div className="pointer-events-none absolute bottom-10 left-10 z-20">
-        <div className="flex items-center gap-6 rounded-3xl border border-white/5 bg-black/50 px-6 py-4 text-sm text-secondary backdrop-blur-xl">
+        <div className="flex items-center gap-6 rounded-sm border border-black/5 bg-white px-6 py-4 text-sm text-secondary shadow-sm">
           <div className="flex items-center gap-2">
-            <Compass className="h-4 w-4 text-accent-truth" />
-            Pan to explore
+            <Compass className="h-4 w-4 text-accent-logos" />
+            <span className="font-sans font-bold text-xs uppercase tracking-wide">Pan</span>
           </div>
           <div className="flex items-center gap-2">
-            <MousePointerClick className="h-4 w-4 text-accent-crux" />
-            Click nodes to expand
+            <MousePointerClick className="h-4 w-4 text-accent-pathos" />
+            <span className="font-sans font-bold text-xs uppercase tracking-wide">Expand</span>
           </div>
           <div className="flex items-center gap-2">
-            <ScanLine className="h-4 w-4 text-accent-purple" />
-            Crux opens drawer
+            <ScanLine className="h-4 w-4 text-accent-ethos" />
+            <span className="font-sans font-bold text-xs uppercase tracking-wide">Inspect</span>
           </div>
         </div>
       </div>
