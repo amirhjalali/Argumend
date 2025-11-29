@@ -14,7 +14,7 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   }
 
   return (
-    <div className="relative w-[360px] rounded-sm border-2 border-accent-logos/10 bg-parchment p-6 shadow-card font-serif">
+    <div className="relative w-[320px] rounded-sm border-2 border-accent-logos/10 bg-parchment p-6 shadow-card font-serif scale-90 origin-top">
       <Handle
         type="source"
         position={Position.Bottom}

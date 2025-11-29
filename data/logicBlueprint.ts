@@ -32,8 +32,12 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     title: "Skeptic Thesis",
     subtitle: "Meta Doubt",
     content:
-      "Conspiracy narratives claim Apollo was staged on a soundstage to win the Space Race and mask rocket failures.",
-    children: [], // Explicitly no children to prevent fallback generation
+      "Conspiracy narratives claim Apollo was staged on a soundstage to win the Space Race and mask rocket failures. They argue inconsistencies in photos and physics betray the deception.",
+    children: [
+      { id: "skeptic-shadows", slot: "left" },
+      { id: "skeptic-flag", slot: "right" },
+      { id: "skeptic-motive", slot: "center" },
+    ],
   },
   "root-proponent": {
     id: "root-proponent",
@@ -41,8 +45,60 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     title: "Scientific Consensus",
     subtitle: "Global Evidence",
     content:
-      "Telemetry, lunar samples, and independent tracking by Jodrell Bank, Madrid, and Parkes observatories all corroborate the landings.",
-    children: [], // Explicitly no children to prevent fallback generation
+      "Telemetry, lunar samples, and independent tracking by Jodrell Bank, Madrid, and Parkes observatories all corroborate the landings. Thousands of technicians would have had to remain silent.",
+    children: [
+      { id: "proponent-tracking", slot: "left" },
+      { id: "proponent-samples", slot: "right" },
+      { id: "proponent-scale", slot: "center" },
+    ],
+  },
+  "skeptic-shadows": {
+    id: "skeptic-shadows",
+    variant: "skeptic",
+    title: "Shadow Anomalies",
+    subtitle: "Lighting Physics",
+    content: "Skeptics point to non-parallel shadows in photos, suggesting multiple studio light sources rather than the single Sun.",
+    children: [],
+  },
+  "skeptic-flag": {
+    id: "skeptic-flag",
+    variant: "skeptic",
+    title: "Waving Flag",
+    subtitle: "Vacuum Physics",
+    content: "The US flag appears to ripple in videos. In a vacuum, there is no air to cause movement, implying an atmosphere (studio).",
+    children: [],
+  },
+  "skeptic-motive": {
+    id: "skeptic-motive",
+    variant: "skeptic",
+    title: "Geopolitical Motive",
+    subtitle: "Cold War Context",
+    content: "The US was losing the space race to the USSR. Faking the landing was a desperate measure to claim ideological victory.",
+    children: [],
+  },
+  "proponent-tracking": {
+    id: "proponent-tracking",
+    variant: "proponent",
+    title: "Independent Tracking",
+    subtitle: "Third Party Verification",
+    content: "Soviet radar and amateur radio operators tracked the Apollo transmissions to the Moon. If it were fake, the USSR would have exposed it immediately.",
+    children: [],
+  },
+  "proponent-samples": {
+    id: "proponent-samples",
+    variant: "proponent",
+    title: "Lunar Geology",
+    subtitle: "Material Evidence",
+    content: "Apollo brought back 842 lbs of rock. These rocks contain micro-crater impacts from micrometeoroids that can only form in a vacuum over millions of years.",
+    children: [],
+  },
+  "proponent-scale": {
+    id: "proponent-scale",
+    variant: "proponent",
+    title: "Operational Scale",
+    subtitle: "Logistical Impossibility",
+    content: "Over 400,000 people worked on Apollo. Keeping a secret of that magnitude without a single whistleblower for 50 years is statistically impossible.",
+    children: [],
   },
   [radiation.id]: {
     id: radiation.id,
@@ -61,7 +117,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     variant: "skeptic",
     title: "Van Allen Belt Alarm",
     subtitle: radiation.title,
-    content: radiation.skeptic_premise,
+    content: "James Van Allen himself warned of the deadly radiation belts. Skeptics argue NASA had no shielding technology capable of protecting astronauts from lethal doses during transit.",
     children: [],
   },
   [`${radiation.id}-proponent`]: {
@@ -69,7 +125,7 @@ export const logicBlueprint: Record<string, BlueprintNode> = {
     variant: "proponent",
     title: "Trajectory as Shielding",
     subtitle: radiation.title,
-    content: radiation.proponent_rebuttal,
+    content: "The mission trajectory was specifically designed to bypass the inner (most intense) belt and pass quickly through the thinner outer belt, limiting total exposure to safe levels.",
     children: [],
   },
   [radiationCruxId]: {

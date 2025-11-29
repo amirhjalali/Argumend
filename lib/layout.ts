@@ -1,8 +1,8 @@
 import type { XYPosition } from "@xyflow/react";
 import type { ChildSlot } from "@/types/graph";
 
-export const VERTICAL_GAP = 300;
-export const HORIZONTAL_GAP = 400;
+export const VERTICAL_GAP = 250;
+export const HORIZONTAL_GAP = 380;
 
 export function getChildPosition(
   parent: XYPosition,
