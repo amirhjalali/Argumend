@@ -17,8 +17,7 @@ import { RichNode } from "@/components/nodes/RichNode";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
-import { PostFeed } from "@/components/PostFeed";
-import { Compass, ScanLine, MousePointerClick } from "lucide-react";
+import { ArrowRight, Compass, MousePointerClick, ScanLine } from "lucide-react";
 import { topics } from "@/data/topics";
 
 function CanvasExperience() {
@@ -39,6 +38,12 @@ function CanvasExperience() {
   );
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const setTopic = useLogicGraph((state) => state.setTopic);
+
+  const currentTopic = useMemo(
+    () => topics.find((topic) => topic.id === currentTopicId) ?? topics[0],
+    [currentTopicId],
+  );
+  const leadPillars = currentTopic?.pillars?.slice(0, 2) ?? [];
 
   const reactFlow = useReactFlow();
 
@@ -61,78 +66,116 @@ function CanvasExperience() {
     <div className="flex h-screen w-screen overflow-hidden bg-canvas text-primary">
       <Sidebar topics={topics} currentTopicId={currentTopicId} onSelectTopic={setTopic} />
 
-      <div className="flex flex-1 flex-col overflow-hidden">
+      <div className="relative flex flex-1 flex-col overflow-hidden bg-[#050B1F]">
         <TopBar />
 
-        <div className="flex flex-1 overflow-hidden">
-          <PostFeed />
+        <div className="relative flex-1 overflow-hidden">
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-64 bg-gradient-to-r from-canvas via-lw-parchment/80 to-transparent" />
+          <ReactFlow
+            className="h-full w-full"
+            nodes={nodes}
+            edges={edges}
+            nodeTypes={nodeTypes}
+            defaultViewport={{ x: -200, y: 0, zoom: 0.8 }}
+            minZoom={0.2}
+            maxZoom={1.6}
+            nodesDraggable
+            nodesConnectable={false}
+            elementsSelectable={false}
+            zoomOnScroll
+            panOnScroll
+            panOnDrag
+            zoomOnDoubleClick={false}
+            onNodesChange={onNodesChange}
+            fitView
+          >
+            <Background
+              color="#2B3B57"
+              gap={40}
+              size={1}
+              variant={BackgroundVariant.Dots}
+              className=""
+            />
+            <Controls
+              position="bottom-left"
+              className="!bg-white/70 !border !border-white/20 !shadow-lw !text-secondary !rounded-full"
+            />
+          </ReactFlow>
 
-          <div className="relative flex-1 overflow-hidden bg-gradient-to-br from-[#050B1F] via-[#101B33] to-[#1F2D46]">
-            <ReactFlow
-              className="z-10 h-full w-full"
-              nodes={nodes}
-              edges={edges}
-              nodeTypes={nodeTypes}
-              defaultViewport={{ x: -200, y: 0, zoom: 0.8 }}
-              minZoom={0.2}
-              maxZoom={1.6}
-              nodesDraggable
-              nodesConnectable={false}
-              elementsSelectable={false}
-              zoomOnScroll
-              panOnScroll
-              panOnDrag
-              zoomOnDoubleClick={false}
-              onNodesChange={onNodesChange}
-              fitView
-            >
-              <Background
-                color="#2B3B57"
-                gap={40}
-                size={1}
-                variant={BackgroundVariant.Dots}
-                className=""
-              />
-              <Controls
-                position="bottom-left"
-                className="!bg-white/80 !border !border-white/30 !shadow-lw !text-secondary !rounded-full"
-              />
-            </ReactFlow>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-[#050B1F]" />
 
-            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#050B1F] via-transparent" />
-
-            <div className="pointer-events-none absolute bottom-10 left-10 z-20">
-              <div className="flex items-center gap-4 rounded-full border border-white/30 bg-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white backdrop-blur">
-                <div className="flex items-center gap-2">
-                  <Compass className="h-3.5 w-3.5" />
-                  <span>Pan</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MousePointerClick className="h-3.5 w-3.5" />
-                  <span>Expand</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <ScanLine className="h-3.5 w-3.5" />
-                  <span>Inspect</span>
-                </div>
+          <div className="pointer-events-none absolute bottom-10 left-12 z-30">
+            <div className="flex items-center gap-4 rounded-full border border-white/30 bg-white/15 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.4em] text-white backdrop-blur">
+              <div className="flex items-center gap-2">
+                <Compass className="h-3.5 w-3.5" />
+                <span>Pan</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MousePointerClick className="h-3.5 w-3.5" />
+                <span>Expand</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ScanLine className="h-3.5 w-3.5" />
+                <span>Inspect</span>
               </div>
             </div>
-
-            <div className="pointer-events-auto absolute right-10 top-14 z-20 max-w-sm rounded-2xl border border-white/20 bg-white/10 px-6 py-6 text-white backdrop-blur">
-              <p className="text-xs uppercase tracking-[0.4em] text-white/80">Solstice Season</p>
-              <h3 className="mt-2 font-serif text-3xl">Celebrate the longest night</h3>
-              <p className="mt-2 text-sm text-white/80">
-                Visit a megameetup at a major city, or host a gathering for your friends on the night of the
-                21st. Community rituals keep our discourse humane.
-              </p>
-              <div className="mt-4 flex gap-3 text-sm font-semibold">
-                <span className="rounded-full bg-white/20 px-3 py-1">Berkeley — Dec 6</span>
-                <span className="rounded-full bg-white/20 px-3 py-1">New York — Dec 20</span>
-              </div>
-            </div>
-
-            <CruxDrawer />
           </div>
+
+          <div className="pointer-events-auto absolute right-12 top-12 z-30 max-w-sm rounded-[28px] border border-white/15 bg-white/10 px-6 py-6 text-white shadow-[0_25px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+            <p className="text-[11px] uppercase tracking-[0.45em] text-white/70">Solstice Season</p>
+            <h3 className="mt-2 font-serif text-[32px] leading-tight">Celebrate the longest night</h3>
+            <p className="mt-3 text-sm text-white/80">
+              Visit a megameetup at a major city, or host a gathering for your friends on the night of the 21st.
+              Community rituals keep our discourse humane.
+            </p>
+            <div className="mt-5 flex gap-3 text-sm font-semibold">
+              <span className="rounded-full bg-white/20 px-3 py-1">Berkeley — Dec 6</span>
+              <span className="rounded-full bg-white/20 px-3 py-1">New York — Dec 20</span>
+            </div>
+          </div>
+
+          {currentTopic && (
+            <div className="pointer-events-auto absolute right-12 bottom-16 z-30 w-[360px] rounded-[28px] border border-white/15 bg-[#0B1327]/85 px-6 py-6 text-white shadow-[0_25px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+              <p className="text-[11px] uppercase tracking-[0.45em] text-white/70">Meta Claim</p>
+              <h3 className="mt-2 font-serif text-[30px] leading-tight">{currentTopic.title}</h3>
+              <p className="mt-2 text-sm text-white/80">{currentTopic.meta_claim}</p>
+
+              <div className="mt-4 grid grid-cols-2 gap-4 text-[11px] uppercase tracking-[0.3em] text-white/60">
+                <div>
+                  <p>Confidence</p>
+                  <p className="mt-2 font-serif text-3xl text-white">
+                    {Math.round(currentTopic.confidence_score)}
+                    <span className="text-sm align-top">%</span>
+                  </p>
+                </div>
+                <div>
+                  <p>Status</p>
+                  <p className="mt-2 text-lg font-semibold capitalize text-white">{currentTopic.status}</p>
+                </div>
+              </div>
+
+              {leadPillars.length > 0 && (
+                <div className="mt-4">
+                  <p className="text-[11px] uppercase tracking-[0.3em] text-white/70">Key Pillars</p>
+                  <ul className="mt-2 space-y-1 text-sm text-white/85">
+                    {leadPillars.map((pillar) => (
+                      <li key={pillar.id} className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent-main" />
+                        <span>{pillar.title}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <button className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
+                View analysis
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+
+          <CruxDrawer />
         </div>
       </div>
     </div>
