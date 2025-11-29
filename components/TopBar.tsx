@@ -1,41 +1,101 @@
 "use client";
 
-import { LogIn, PenSquare, Search } from "lucide-react";
-import { useState } from "react";
+import { Menu, Search, MapPin, Settings } from "lucide-react";
 
-export function TopBar() {
-  const [query, setQuery] = useState("");
+interface TopBarProps {
+  onMenuClick?: () => void;
+}
 
+const filters = ["Latest", "Enriched", "Recommended"] as const;
+const activeFilter = "Enriched";
+
+export function TopBar({ onMenuClick }: TopBarProps) {
   return (
-    <header className="flex items-center justify-between border-b border-lw-border/70 bg-white/80 px-8 py-4 backdrop-blur-lg shadow-lw sticky top-0 z-30">
-      <div className="flex items-baseline gap-4 text-xs uppercase tracking-[0.4em] text-secondary">
-        <span className="text-sm font-semibold text-primary">ARGUMEND</span>
-        <span className="tracking-[0.3em] text-muted">Evidence Atlas</span>
-      </div>
+    <header className="sticky top-0 z-30 border-b border-[#DCD3C3] bg-gradient-to-r from-[#F8F4EA]/95 via-[#F4EDE1]/95 to-[#F0E8D9]/95 shadow-[0_6px_24px_rgba(18,16,14,0.12)] backdrop-blur">
+      <div className="flex items-center justify-between px-5 py-3">
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={onMenuClick}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E1D7C6] bg-white/80 text-[#5E5647] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B8AE98] lg:hidden"
+            aria-label="Toggle navigation"
+          >
+            <Menu className="h-5 w-5" strokeWidth={2.4} />
+          </button>
 
-      <div className="flex flex-1 items-center justify-end gap-4">
-        <div className="relative w-1/2 min-w-[240px] max-w-md">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
-          <input
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search claims, authors, or tags"
-            className="w-full rounded-full border border-lw-border/80 bg-white/70 py-2 pl-10 pr-4 text-sm text-primary placeholder:text-muted focus:border-accent-main focus:outline-none focus:ring-0"
-          />
+          <div className="flex flex-col">
+            <span className="text-xs font-semibold uppercase tracking-[0.75em] text-[#B0A58E]">
+              LessWrong Style
+            </span>
+            <div className="flex items-baseline gap-3">
+              <span className="font-serif text-[24px] font-semibold tracking-[0.35em] text-[#1F1D1A]">
+                ARGUMEND
+              </span>
+              <span className="text-xs font-semibold tracking-[0.45em] text-[#B0A58E]">LW</span>
+            </div>
+          </div>
         </div>
 
-        <button className="inline-flex items-center gap-2 rounded-full border border-lw-border/80 px-4 py-2 text-sm font-semibold text-secondary transition hover:border-accent-main hover:text-primary">
-          <PenSquare className="h-4 w-4" />
-          Write
-        </button>
+        <div className="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.35em] text-[#8E8575] lg:flex">
+          <span>Community</span>
+          <span>Sequences</span>
+          <span>Events</span>
+        </div>
 
-        <button className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition hover:bg-accent-main">
-          <LogIn className="h-4 w-4" />
-          Log In
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E1D7C6] bg-white/80 text-[#5E5647] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B8AE98]"
+            aria-label="Search"
+          >
+            <Search className="h-5 w-5" strokeWidth={2.4} />
+          </button>
+          <button
+            type="button"
+            className="text-xs font-semibold uppercase tracking-[0.4em] text-[#6F6657] transition hover:text-[#1F1D1A]"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+
+      <div className="px-5 pb-3">
+        <div className="flex flex-wrap items-center gap-2">
+          {filters.map((filter) => {
+            const isActive = filter === activeFilter;
+            return (
+              <button
+                key={filter}
+                type="button"
+                className={`rounded-full border px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] transition ${
+                  isActive
+                    ? "border-white/60 bg-white text-[#1F1D1A] shadow-[0_4px_14px_rgba(18,16,14,0.15)]"
+                    : "border-transparent bg-transparent text-[#8E8575] hover:border-white/50 hover:bg-white/40 hover:text-[#1F1D1A]"
+                }`}
+              >
+                {filter}
+              </button>
+            );
+          })}
+
+          <div className="ml-auto flex items-center gap-2">
+            <button
+              type="button"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E1D7C6] bg-white/70 text-[#6F6657] transition hover:bg-white"
+              aria-label="Choose location"
+            >
+              <MapPin className="h-4 w-4" strokeWidth={2.2} />
+            </button>
+            <button
+              type="button"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E1D7C6] bg-white/70 text-[#6F6657] transition hover:bg-white"
+              aria-label="Feed settings"
+            >
+              <Settings className="h-4 w-4" strokeWidth={2.2} />
+            </button>
+          </div>
+        </div>
       </div>
     </header>
   );
 }
-
