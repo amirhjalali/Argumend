@@ -30,12 +30,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
         >
           <Search className="h-5 w-5" strokeWidth={2.2} />
         </button>
-        <button
-          className="text-xs font-semibold uppercase tracking-[0.45em] text-[#1f1d19] transition hover:text-black"
-          type="button"
-        >
-          Login
-        </button>
+
       </div>
     </header>
   );
