@@ -139,7 +139,7 @@ function CanvasExperience() {
               <MiniMap
                 pannable
                 zoomable
-                className="logic-minimap"
+                className="logic-minimap hidden md:block"
                 style={{
                   position: "absolute",
                   width: 200,
