@@ -15,7 +15,7 @@ export function InteractiveContent({ content, concepts, nodeId }: InteractiveCon
 
   if (!concepts || Object.keys(concepts).length === 0) {
     return (
-      <p className="text-base text-primary/80 font-serif leading-relaxed mb-4">
+      <p className="text-sm font-sans leading-relaxed text-secondary">
         {content}
       </p>
     );
@@ -25,7 +25,7 @@ export function InteractiveContent({ content, concepts, nodeId }: InteractiveCon
   const parts = content.split(/(\{.*?\})/g);
 
   return (
-    <p className="text-base text-primary/80 font-serif leading-relaxed mb-4">
+    <p className="text-sm font-sans leading-relaxed text-secondary">
       {parts.map((part, index) => {
         if (part.startsWith("{") && part.endsWith("}")) {
           const keyword = part.slice(1, -1);
@@ -39,7 +39,7 @@ export function InteractiveContent({ content, concepts, nodeId }: InteractiveCon
                   e.stopPropagation();
                   spawnConceptNode(nodeId, concept);
                 }}
-                className="inline-flex items-center px-1.5 py-0.5 mx-1 rounded bg-gray-100 text-accent-link border border-gray-200 text-sm font-mono cursor-pointer hover:bg-accent-main/10 transition-colors align-baseline"
+                className="mx-0.5 inline-flex items-center rounded-md border border-accent-link/30 bg-accent-link/10 px-1 text-sm font-medium text-accent-link transition-colors hover:bg-accent-link/20"
                 title={`Expand concept: ${concept.title}`}
               >
                 {keyword}
@@ -54,4 +54,3 @@ export function InteractiveContent({ content, concepts, nodeId }: InteractiveCon
     </p>
   );
 }
-

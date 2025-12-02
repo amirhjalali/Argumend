@@ -1,219 +1,120 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { MapPin } from "lucide-react";
-import { Topic } from "@/types/logic";
 import {
-  LWBookIcon,
-  LWCommunityIcon,
-  LWListIcon,
-  LWQuestionIcon,
-  LWSunIcon,
-} from "@/components/icons/LessWrongGlyphs";
+  BookOpen,
+  Compass,
+  Globe,
+  HelpCircle,
+  Layers,
+  ListChecks,
+  Menu,
+  Users,
+  X,
+} from "lucide-react";
+
+const PRIMARY_NAV = [
+  { label: "Home", icon: Compass, active: true },
+  { label: "All Posts", icon: ListChecks },
+  { label: "Concepts", icon: Layers },
+  { label: "Library", icon: BookOpen },
+  { label: "Community", icon: Users },
+  { label: "About", icon: HelpCircle },
+];
+
+const LIBRARY_LINKS = [
+  "Sequence Highlights",
+  "Rationality: A-Z",
+  "The Codex",
+  "HPMOR",
+];
+
+const FOOTER_LINKS = ["Leaderboard", "About", "FAQ"];
 
 interface SidebarProps {
-  topics: Topic[];
-  currentTopicId: string;
-  onSelectTopic: (topicId: string) => void;
-  isOpen?: boolean;
-  onClose?: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-const iconRail = [
-  { label: "Home", icon: LWSunIcon },
-  { label: "All Posts", icon: LWListIcon },
-  { label: "Library", icon: LWBookIcon },
-  { label: "Community", icon: LWCommunityIcon },
-  { label: "About", icon: LWQuestionIcon },
-];
-
-const primaryNav = ["Home", "All Posts", "Concepts"];
-
-const libraryNav = [
-  { label: "Library", variant: "section" as const },
-  { label: "Best of LessWrong" },
-  { label: "Sequence Highlights" },
-  { label: "Rationality: A-Z" },
-  { label: "The Codex" },
-  { label: "HPMOR" },
-];
-
-const communityEvents = [
-  { name: "Symbolic Regression, Sparsific...", date: "Thu Dec 4", location: "Online" },
-  { name: "Berkeley Solstice Weekend", date: "Fri Dec 5", location: "Berkeley" },
-  { name: "12/01/25 Monday Social 7pm-...", date: "Mon Dec 1", location: "Houston" },
-  { name: "Freiburg - If Anyone Builds It, ...", date: "Fri Dec 5", location: "Freiburg im Breisgau" },
-];
-
-const footerLinks = ["Subscribe (RSS/Email)", "LW the Album", "Leaderboard", "About", "FAQ"];
-
-export function Sidebar(props: SidebarProps) {
-  const { isOpen = false, onClose } = props;
-
-  return (
-    <>
-      <aside className="relative hidden h-full w-[350px] flex-shrink-0 border-r border-[#E3DAC7] bg-[#F6F1E5] lg:flex">
-        <SidebarContent {...props} />
-      </aside>
-
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 z-40 bg-black/15 backdrop-blur-xs lg:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={onClose}
-            />
-            <motion.aside
-              className="fixed inset-y-0 left-0 z-50 w-[300px] bg-[#F6F1E5] shadow-[12px_0_35px_rgba(17,15,12,0.18)] border-r border-[#E3DAC7] lg:hidden"
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", stiffness: 280, damping: 32 }}
-            >
-              <SidebarContent {...props} />
-            </motion.aside>
-          </>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
-
-function SidebarContent({
-  topics,
-  currentTopicId,
-  onSelectTopic,
+export function Sidebar({
+  isOpen,
   onClose,
 }: SidebarProps) {
-  const handleTopicSelect = (topicId: string) => {
-    onSelectTopic(topicId);
-    onClose?.();
+  const handleOverlayClick = () => {
+    if (isOpen) onClose();
   };
 
   return (
-    <div className="flex h-full w-full">
-      <div className="flex w-[86px] flex-col items-center gap-4 border-r border-[#E3DAC7] bg-gradient-to-b from-[#FBF7F0] to-[#F2ECE1] py-8">
-        {iconRail.map((item) => (
+    <>
+      <div
+        className={`fixed inset-0 z-30 bg-black/25 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={handleOverlayClick}
+      />
+      <aside
+        className={`fixed inset-y-0 left-0 z-40 flex w-[280px] flex-col bg-transparent p-6 text-primary transition-transform duration-300 md:static md:translate-x-0 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="mb-6 flex items-center justify-between md:hidden">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-secondary">
+            <Menu className="h-4 w-4" />
+            Menu
+          </div>
           <button
-            type="button"
-            key={item.label}
-            className="group flex h-12 w-12 items-center justify-center rounded-full border border-[#E4DCCB] bg-white/60 text-[#7B7260] shadow-inner transition hover:bg-white hover:text-[#1E1C19]"
+            onClick={onClose}
+            aria-label="Close sidebar"
+            className="rounded-full border border-white/60 bg-white/70 p-2 text-secondary transition hover:text-primary"
           >
-            <item.icon className="h-5 w-5" />
-            <span className="sr-only">{item.label}</span>
+            <X className="h-4 w-4" />
           </button>
-        ))}
-      </div>
+        </div>
 
-      <div className="flex flex-1 flex-col bg-[#F6F1E5]">
-        <div className="flex-1 space-y-8 overflow-y-auto px-6 py-8">
-          <nav className="space-y-3">
-            {primaryNav.map((label) => (
-              <button
-                type="button"
-                key={label}
-                className="w-full text-left text-[15px] font-semibold tracking-wide text-[#1F1D1A] transition hover:text-black"
-              >
-                {label}
-              </button>
-            ))}
-          </nav>
+        <nav className="space-y-1 pb-8">
+          {PRIMARY_NAV.map(({ label, icon: Icon, active }) => (
+            <button
+              key={label}
+              className={`group flex w-full items-center gap-3 rounded-md px-1 py-2 text-lg font-serif tracking-tight transition-colors focus-visible:outline-none ${
+                active ? "text-primary" : "text-[#6a5f56] hover:text-primary"
+              }`}
+              type="button"
+            >
+              <Icon className="h-5 w-5 text-inherit" strokeWidth={1.4} />
+              <span>{label}</span>
+            </button>
+          ))}
+        </nav>
 
-          <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#9C9181]">
-              Library
-            </p>
-            <nav className="space-y-1 text-sm">
-              {libraryNav.map((item) => (
-                <button
-                  type="button"
-                  key={item.label}
-                  className={`w-full text-left transition ${
-                    item.variant === "section"
-                      ? "font-semibold text-[#1F1D1A]"
-                      : "pl-4 text-[#7F7567] hover:text-[#1F1D1A]"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </nav>
-          </div>
-
-          <div>
-            <div className="mb-4 flex items-center gap-3">
-              <MapPin className="h-4 w-4 text-[#9C9181]" strokeWidth={1.8} />
-              <span className="text-[15px] font-semibold text-[#1F1D1A]">Community Events</span>
-            </div>
-            <ul className="space-y-3">
-              {communityEvents.map((event) => (
-                <li key={event.name}>
-                  <p className="text-sm font-semibold text-[#1F1D1A] leading-snug">{event.name}</p>
-                  <p className="text-xs text-[#8C8374]">
-                    {event.date} • {event.location}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="border-t border-[#E4DCCB] pt-6">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#9C9181]">
-              Logic Maps
-            </p>
-            <ul className="space-y-2">
-              {topics.map((topic) => {
-                const isActive = topic.id === currentTopicId;
-                return (
-                  <li key={topic.id}>
-                    <button
-                      type="button"
-                      onClick={() => handleTopicSelect(topic.id)}
-                      className={`w-full text-left text-sm transition ${
-                        isActive
-                          ? "text-[#1F1D1A] font-semibold"
-                          : "text-[#7F7567] hover:text-[#1F1D1A]"
-                      }`}
-                    >
-                      {topic.title}
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <div className="space-y-2 text-sm text-[#8C8374]">
-            {footerLinks.map((link) => (
-              <button
-                type="button"
+        <section className="pb-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#ada395]">
+            Library
+          </p>
+          <ul className="mt-3 space-y-2 text-base text-[#4e473f]">
+            {LIBRARY_LINKS.map((link) => (
+              <li
                 key={link}
-                className="block w-full text-left transition hover:text-[#1F1D1A]"
+                className="cursor-pointer font-serif tracking-tight hover:text-primary"
               >
                 {link}
-              </button>
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </section>
 
-        <div className="border-t border-[#E1D7C6] px-6 py-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1C1B19] font-serif text-lg text-white">
-              N
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#1F1D1A]">
-                Nebulous
-              </p>
-              <p className="text-xs text-[#8C8374]">View profile</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <hr className="my-6 border-t border-white/20" />
+
+        <ul className="space-y-2 text-sm text-[#4f4a44]">
+          {FOOTER_LINKS.map((link) => (
+            <li
+              key={link}
+              className="cursor-pointer font-sans tracking-wide text-[#6f655c] hover:text-primary"
+            >
+              {link}
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </>
   );
 }
 

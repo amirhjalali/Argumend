@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,600;0,700&family=Merriweather+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 @import 'katex/dist/katex.min.css';
 
 @tailwind base;
@@ -13,24 +13,55 @@
 
 html,
 body {
-  font-family: 'Merriweather Sans', system-ui, sans-serif;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
   overflow-x: hidden;
-  background-color: #FDFBF7;
-  color: #2D2D2D;
+  background-color: #f4f1eb;
+  color: #1f1f1d;
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 55%),
+    linear-gradient(120deg, rgba(244, 240, 233, 0.95), rgba(214, 208, 197, 0.85)),
+    url("/images/lw-background.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.55;
+  filter: saturate(0.75);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.7), transparent 60%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Merriweather', serif;
+  font-family: 'EB Garamond', serif;
+  letter-spacing: -0.01em;
 }
 
 p {
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   line-height: 1.6;
 }
 
 @layer base {
   body {
-    @apply bg-canvas text-primary selection:bg-accent-link/10 selection:text-accent-link antialiased;
+    @apply bg-canvas text-primary selection:bg-accent-link/15 selection:text-accent-link antialiased;
   }
 }
 
@@ -51,19 +82,46 @@ p {
 
 .react-flow__edge-path {
   stroke-linecap: round;
-  stroke-width: 1.5px;
+  stroke-width: 1.3px;
 }
 
 .logic-edge path {
-  stroke: #9CA3AF; /* Gray-400 */
-  filter: none;
+  stroke: rgba(111, 128, 123, 0.6);
+  filter: drop-shadow(0 0 8px rgba(78, 87, 83, 0.25));
 }
 
 .logic-handle {
   width: 10px !important;
   height: 10px !important;
-  border: 1px solid #D1D5DB !important;
-  background: #FFFFFF !important;
+  border: 1px solid rgba(112, 122, 118, 0.4) !important;
+  background: #fffdfa !important;
   border-radius: 50% !important;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 10px rgba(15, 12, 8, 0.12);
+}
+
+.logic-minimap {
+  border-radius: 18px !important;
+  overflow: hidden;
+  border: 1px solid rgba(210, 197, 179, 0.8) !important;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.85), rgba(244, 239, 232, 0.9)) !important;
+  box-shadow: 0 20px 45px rgba(38, 31, 23, 0.18);
+}
+
+.logic-minimap .react-flow__minimap-mask {
+  fill: rgba(255, 255, 255, 0.6) !important;
+}
+
+.logic-minimap svg {
+  border-radius: 18px;
+}
+
+.lw-glass {
+  backdrop-filter: blur(16px);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 25px 70px rgba(42, 34, 25, 0.15);
+}
+
+.lw-pill {
+  @apply uppercase tracking-[0.2em] text-[10px] text-secondary;
 }

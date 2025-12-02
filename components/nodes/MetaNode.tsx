@@ -4,7 +4,7 @@ import { InteractiveContent } from "@/components/InteractiveContent";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
-import { Plus, ChevronRight } from "lucide-react";
+import { ChevronRight, ExternalLink } from "lucide-react";
 
 export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const expanded = useLogicGraph((state) => state.expandedNodes[id]);
@@ -15,53 +15,94 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   }
 
   return (
-    <div className="relative w-[360px] bg-paper rounded shadow-lw transition-shadow hover:shadow-lw-hover scale-90 origin-top">
+    <div className="relative w-[420px] rounded-2xl border border-white/50 bg-paper/95 shadow-lw transition-shadow hover:border-white/80 hover:shadow-[0px_25px_60px_rgba(40,30,20,0.18)]">
       <Handle
         type="source"
         position={Position.Bottom}
+        id="bottom"
+        className="logic-handle"
+        isConnectable={false}
+      />
+      <Handle
+        type="source"
+        position={Position.Right}
+        id="right"
         className="logic-handle"
         isConnectable={false}
       />
       
-      <div className="p-6">
+      {data.imageUrl && (
+        <div className="h-56 w-full overflow-hidden rounded-t-2xl border-b border-white/40">
+           {/* eslint-disable-next-line @next/next/no-img-element */}
+           <img src={data.imageUrl} alt="" className="w-full h-full object-cover" />
+        </div>
+      )}
+
+      <div className="space-y-6 p-8">
         {/* Header: Meta Claim Label & Title */}
-        <div className="mb-4">
-          <p className="text-[10px] uppercase tracking-wider text-secondary font-sans font-semibold mb-1">
+        <div className="mb-6">
+          <p className="mb-2 text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-accent-main">
             Meta Claim
           </p>
-          <h2 className="text-3xl font-serif font-normal text-primary leading-tight">
+          <h2 className="text-3xl font-serif font-bold leading-tight text-primary">
             {data.title}
           </h2>
         </div>
 
         {/* Content */}
         {data.content && (
-          <InteractiveContent 
-            content={data.content} 
-            concepts={data.concepts} 
-            nodeId={id} 
-          />
+          <div className="text-base font-sans leading-relaxed text-secondary">
+            <InteractiveContent 
+              content={data.content} 
+              concepts={data.concepts} 
+              nodeId={id} 
+            />
+          </div>
+        )}
+
+        {/* References */}
+        {data.references && data.references.length > 0 && (
+          <div className="border-t border-white/40 pt-4">
+             <p className="mb-2 text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-muted">
+              Key Sources
+            </p>
+             <ul className="space-y-2">
+              {data.references.map((ref, i) => (
+                <li key={i} className="text-xs font-serif text-secondary">
+                  <a 
+                    href={ref.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-start gap-1 leading-tight text-secondary transition-colors hover:text-accent-link"
+                  >
+                    {ref.title}
+                    {ref.url && <ExternalLink className="h-3 w-3 opacity-40 flex-shrink-0 mt-0.5" />}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
 
         {/* Footer: Score & Action */}
-        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+        <div className="flex items-center justify-between border-t border-white/40 pt-5">
           {typeof data.score === "number" && (
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-sans font-bold text-accent-main">
-                {data.score.toFixed(0)}
+            <div className="flex items-center gap-3">
+              <span className="font-sans text-4xl font-bold text-accent-main">
+                {data.score.toFixed(0)}%
               </span>
-              <span className="text-xs text-secondary font-sans uppercase tracking-wide">
-                Confidence
+              <span className="font-sans text-xs uppercase leading-tight tracking-[0.3em] text-secondary">
+                Confidence<br/>Score
               </span>
             </div>
           )}
 
           <button
-            className="flex items-center gap-1 text-accent-link hover:text-accent-main transition-colors text-sm font-sans font-semibold uppercase tracking-wide disabled:opacity-50"
+            className="flex items-center gap-2 rounded-full border border-white/60 px-4 py-2 text-sm font-semibold text-secondary transition-all hover:border-accent-main/40 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
             onClick={() => expandNode(id)}
             disabled={expanded}
           >
-            {expanded ? "Expanded" : "Read More"}
+            {expanded ? "Graph Expanded" : "View Analysis"}
             {expanded ? null : <ChevronRight className="h-4 w-4" />}
           </button>
         </div>

@@ -1,9 +1,35 @@
 import { BlueprintNode } from "@/types/graph";
 import { Topic } from "@/types/logic";
+import { moonLanding } from "./topics";
 
 export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
   const rootId = "root";
   
+  // Custom logic for Moon Landing to match the requested "Screenshot" style with questions
+  const isMoonLanding = topic.id === 'moon-landing';
+
+  const rootChildren = [];
+  
+  // 1. Add "Logic Map" nodes (Questions/Inquiries) to the RIGHT
+  if (isMoonLanding) {
+    rootChildren.push(
+      { id: "q1", slot: "right" as const },
+      { id: "q2", slot: "right" as const },
+      { id: "q3", slot: "right" as const }
+    );
+  } else {
+    // Default generic structure
+    rootChildren.push(
+      { id: "root-skeptic", slot: "right" as const },
+      { id: "root-proponent", slot: "right" as const }
+    );
+  }
+
+  // 2. Add Pillars vertically BELOW (Center slot)
+  topic.pillars.forEach(p => {
+    rootChildren.push({ id: p.id, slot: "center" as const });
+  });
+
   const blueprint: Record<string, BlueprintNode> = {
     [rootId]: {
       id: rootId,
@@ -12,36 +38,66 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
       subtitle: "Meta Claim",
       content: topic.meta_claim,
       score: topic.confidence_score,
-      children: [
-        { id: "root-skeptic", slot: "left" },
-        { id: "root-proponent", slot: "right" },
-        // Map pillars to center slots - currently simplified to first pillar for center
-        // In a real multi-pillar layout, we'd map them all
-        ...topic.pillars.map((p, i) => ({ 
-          id: p.id, 
-          slot: "center" as const 
-        }))
-      ],
+      imageUrl: isMoonLanding ? "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=60" : undefined,
+      references: isMoonLanding ? [
+        { title: "NASA Mission Report (Apollo 11)", url: "https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html" },
+        { title: "LRO Imagery Verification", url: "https://www.nasa.gov/mission_pages/LRO/main/index.html" }
+      ] : [],
+      children: rootChildren,
     },
-    "root-skeptic": {
+  };
+
+  // Add the Logic Map Nodes (Questions)
+  if (isMoonLanding) {
+    blueprint["q1"] = {
+      id: "q1",
+      variant: "question",
+      title: "Where is the physical evidence?",
+      subtitle: "Inquiry",
+      content: "What specific physical traces remain on the lunar surface that can be verified from Earth today?",
+      imageUrl: "https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&w=800&q=60",
+      references: [
+         { title: "Laser Ranging Retroreflector Experiment", url: "https://en.wikipedia.org/wiki/Lunar_Laser_Ranging_experiment" }
+      ],
+      children: [] 
+    };
+    blueprint["q2"] = {
+      id: "q2",
+      variant: "question",
+      title: "How was radiation handled?",
+      subtitle: "Inquiry",
+      content: "How did the astronauts survive the lethal Van Allen radiation belts without heavy shielding?",
+      children: []
+    };
+    blueprint["q3"] = {
+      id: "q3",
+      variant: "question",
+      title: "Why haven't we returned?",
+      subtitle: "Inquiry",
+      content: "If the technology existed in 1969, what economic or political factors have prevented a return mission?",
+      children: []
+    };
+  } else {
+    // Default nodes
+    blueprint["root-skeptic"] = {
       id: "root-skeptic",
       variant: "skeptic",
       title: "Skeptic Thesis",
       subtitle: "Meta Doubt",
       content: "Arguments challenging the core premise.",
       children: [],
-    },
-    "root-proponent": {
+    };
+    blueprint["root-proponent"] = {
       id: "root-proponent",
       variant: "proponent",
       title: "Proponent Thesis",
       subtitle: "Meta Support",
       content: "Arguments supporting the core premise.",
       children: [],
-    },
-  };
+    };
+  }
 
-  // Generate nodes for each pillar
+  // Generate nodes for each pillar (Vertical Stack)
   topic.pillars.forEach((pillar) => {
     const cruxId = `crux-${pillar.crux.id}`;
     
@@ -49,38 +105,20 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
       id: pillar.id,
       variant: "pillar",
       title: pillar.title,
-      subtitle: "Pillar Node",
+      subtitle: "Foundational Pillar",
       content: pillar.short_summary,
+      imageUrl: pillar.image_url,
       children: [
-        { id: `${pillar.id}-skeptic`, slot: "left" },
-        { id: `${pillar.id}-proponent`, slot: "right" },
-        { id: cruxId, slot: "center" },
+        // Pillars can have their own logic too, but let's keep it simple: Crux below
+        { id: cruxId, slot: "center" }
       ],
-    };
-
-    blueprint[`${pillar.id}-skeptic`] = {
-      id: `${pillar.id}-skeptic`,
-      variant: "skeptic",
-      title: "Skeptic Premise",
-      subtitle: pillar.title,
-      content: pillar.skeptic_premise,
-      children: [],
-    };
-
-    blueprint[`${pillar.id}-proponent`] = {
-      id: `${pillar.id}-proponent`,
-      variant: "proponent",
-      title: "Proponent Rebuttal",
-      subtitle: pillar.title,
-      content: pillar.proponent_rebuttal,
-      children: [],
     };
 
     blueprint[cruxId] = {
       id: cruxId,
       variant: "crux",
       title: pillar.crux.title,
-      subtitle: pillar.title,
+      subtitle: "Verification Crux",
       content: pillar.crux.description,
       detail: {
         description: pillar.crux.description,
@@ -96,8 +134,4 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
   return blueprint;
 }
 
-// Keep the old export for backward compatibility if needed, or just initial state
-import { moonLanding } from "./topics";
 export const logicBlueprint = generateBlueprint(moonLanding);
-
-

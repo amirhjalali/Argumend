@@ -1,8 +1,9 @@
 import type { XYPosition } from "@xyflow/react";
 import type { ChildSlot } from "@/types/graph";
 
-export const VERTICAL_GAP = 250;
-export const HORIZONTAL_GAP = 380;
+export const VERTICAL_GAP = 280;
+export const HORIZONTAL_GAP = 520; // Wider to match larger cards
+export const COLLISION_PADDING = 0.65;
 
 export function getChildPosition(
   parent: XYPosition,
@@ -10,24 +11,31 @@ export function getChildPosition(
   indexInSlot: number = 0,
   totalInSlot: number = 1
 ): XYPosition {
-  // Calculate total width needed for siblings in this slot
-  const siblingsWidth = (totalInSlot - 1) * HORIZONTAL_GAP;
-  const startX = -(siblingsWidth / 2);
-  const relativeX = startX + indexInSlot * HORIZONTAL_GAP;
-
-  let offsetX = 0;
-  if (slot === "left") offsetX = -HORIZONTAL_GAP * 1.2; // Push further left
-  if (slot === "right") offsetX = HORIZONTAL_GAP * 1.2; // Push further right
   
-  // Center slot stays centered relative to parent, but spreads siblings
+  // Pillars: Vertically below, spread horizontally
   if (slot === "center") {
-    offsetX = 0;
+    const siblingsWidth = (totalInSlot - 1) * HORIZONTAL_GAP;
+    const startX = -(siblingsWidth / 2);
+    const relativeX = startX + indexInSlot * HORIZONTAL_GAP;
+    
+    return {
+      x: parent.x + relativeX,
+      y: parent.y + VERTICAL_GAP * 1.7 // More gap for pillars section
+    };
   }
 
+  // Logic Map: Horizontally to the side, spread vertically
+  const isRight = slot === "right";
+  // Use a much larger horizontal gap to separate the columns distinctly
+  const horizontalOffset = isRight ? HORIZONTAL_GAP * 1.2 : -HORIZONTAL_GAP * 1.2;
+  
+  // Spread vertically centered around parent
+  const siblingsHeight = (totalInSlot - 1) * (VERTICAL_GAP * 0.85);
+  const startY = -(siblingsHeight / 2);
+  const relativeY = startY + indexInSlot * (VERTICAL_GAP * 0.85);
+
   return {
-    x: parent.x + offsetX + (slot === "center" ? relativeX : 0),
-    y: parent.y + VERTICAL_GAP,
+    x: parent.x + horizontalOffset,
+    y: parent.y + relativeY
   };
 }
-
-

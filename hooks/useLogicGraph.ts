@@ -2,7 +2,12 @@
 
 import { generateBlueprint } from "@/data/logicBlueprint";
 import { moonLanding, topics } from "@/data/topics";
-import { getChildPosition } from "@/lib/layout";
+import {
+  COLLISION_PADDING,
+  HORIZONTAL_GAP,
+  VERTICAL_GAP,
+  getChildPosition,
+} from "@/lib/layout";
 import type {
   BlueprintNode,
   ChildSlot,
@@ -14,6 +19,7 @@ import {
   MarkerType,
   Node,
   NodeChange,
+  XYPosition,
   applyNodeChanges,
 } from "@xyflow/react";
 import { create } from "zustand";
@@ -55,8 +61,6 @@ type GraphStore = {
   onNodesChange: (changes: NodeChange<LogicNode>[]) => void;
 };
 
-const DEFAULT_CHILD_SLOTS: ChildSlot[] = ["left", "right", "center"];
-
 const EDGE_STYLE: Partial<Edge> = {
   type: "bezier",
   animated: true,
@@ -88,22 +92,33 @@ function mapBlueprintToData(blueprint: BlueprintNode): LogicNodeData {
     subtitle: blueprint.subtitle,
     score: blueprint.score,
     detail: blueprint.detail,
+    imageUrl: blueprint.imageUrl,
+    references: blueprint.references,
   };
 }
 
-function buildEdge(source: string, target: string): Edge {
+function buildEdge(source: string, target: string, slot: ChildSlot): Edge {
+  let sourceHandle = "bottom";
+  let targetHandle = "top";
+
+  // If moving right (Logic Map), connect Right -> Left
+  if (slot === "right") {
+    sourceHandle = "right";
+    targetHandle = "left";
+  }
+  // Pillars (center) use default bottom->top
+  
   return {
     id: `edge-${source}-${target}`,
     source,
     target,
+    sourceHandle,
+    targetHandle,
     ...EDGE_STYLE,
   };
 }
 
 // Helper to get blueprint for current topic
-// Note: In a real app, we might store the blueprint in state or a ref
-// Here we'll regenerate it or cache it outside.
-// For simplicity, let's just use a getBlueprint function that looks up the topic.
 function getBlueprintForTopic(topicId: string) {
   const topic = topics.find(t => t.id === topicId) ?? moonLanding;
   return generateBlueprint(topic);
@@ -136,10 +151,36 @@ function resolveChildTemplates(
   return { templates: [], nextSequence: sequence };
 }
 
-// ... (createNodesFromTemplates remains the same)
+function avoidCollisions(
+  position: XYPosition,
+  placedNodes: LogicNode[],
+): XYPosition {
+  const minX = HORIZONTAL_GAP * 0.3;
+  const minY = VERTICAL_GAP * COLLISION_PADDING;
+  let adjusted = { ...position };
+  let guard = 0;
+
+  const overlaps = (pos: XYPosition) =>
+    placedNodes.some((node) => {
+      if (!node.position) return false;
+      return (
+        Math.abs(node.position.x - pos.x) < minX &&
+        Math.abs(node.position.y - pos.y) < minY
+      );
+    });
+
+  while (overlaps(adjusted) && guard < 12) {
+    adjusted = { ...adjusted, y: adjusted.y + minY };
+    guard += 1;
+  }
+
+  return adjusted;
+}
+
 function createNodesFromTemplates(
   parentNode: LogicNode,
   templates: ChildTemplate[],
+  existingNodes: LogicNode[],
 ): { nodes: LogicNode[]; edges: Edge[] } {
   return templates.reduce(
     (acc, template, index) => {
@@ -154,13 +195,18 @@ function createNodesFromTemplates(
         siblingsInSlot.length
       );
 
+      const adjustedPosition = avoidCollisions(
+        position,
+        [...existingNodes, ...acc.nodes],
+      );
+
       acc.nodes.push({
         id: template.id,
         type: template.data.variant === "meta" ? "metaNode" : "richNode",
-        position,
+        position: adjustedPosition,
         data: template.data,
       });
-      acc.edges.push(buildEdge(parentNode.id, template.id));
+      acc.edges.push(buildEdge(parentNode.id, template.id, template.slot));
       return acc;
     },
     { nodes: [] as LogicNode[], edges: [] as Edge[] },
@@ -223,6 +269,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
     const { nodes: childNodes, edges: childEdges } = createNodesFromTemplates(
       parentNode,
       templates,
+      nodes,
     );
 
     set({
@@ -270,6 +317,8 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       id: `edge-${sourceNodeId}-${concept.targetId}`,
       source: sourceNodeId,
       target: concept.targetId,
+      sourceHandle: 'right', // Concepts branch to right
+      targetHandle: 'left',
       type: "bezier",
       animated: false,
       style: { strokeDasharray: "5,5", stroke: "#B0B0B0" }, // Dotted line for definitions
@@ -282,7 +331,6 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
     });
   },
 
-  // ... (rest of actions remain same)
   openCrux: (nodeId: string) => {
     const node = get().nodes.find((item) => item.id === nodeId);
     if (!node) return;
@@ -311,4 +359,3 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       nodes: applyNodeChanges(changes, state.nodes),
     })),
 }));
-

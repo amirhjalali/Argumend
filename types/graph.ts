@@ -4,7 +4,8 @@ export type NodeVariant =
   | "skeptic"
   | "proponent"
   | "crux"
-  | "evidence";
+  | "evidence"
+  | "question"; // Added for logic map questions
 
 export type ChildSlot = "left" | "center" | "right";
 
@@ -23,6 +24,12 @@ export interface ConceptData {
   image?: string;
 }
 
+export interface Reference {
+  title: string;
+  url?: string;
+  source?: string;
+}
+
 export interface LogicNodeData {
   variant: NodeVariant;
   title: string;
@@ -31,6 +38,8 @@ export interface LogicNodeData {
   score?: number;
   detail?: CruxDetail;
   concepts?: Record<string, ConceptData>;
+  imageUrl?: string; // Added for screenshot look
+  references?: Reference[]; // Added for screenshot look
   [key: string]: unknown;
 }
 
@@ -43,5 +52,3 @@ export interface BlueprintNode extends LogicNodeData {
   id: string;
   children?: BlueprintChildLink[];
 }
-
-

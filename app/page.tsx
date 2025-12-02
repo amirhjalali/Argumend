@@ -7,17 +7,19 @@ import {
   Background,
   BackgroundVariant,
   Controls,
+  MiniMap,
   ReactFlow,
   ReactFlowProvider,
   useReactFlow,
 } from "@xyflow/react";
+import type { Node } from "@xyflow/react";
 import { CruxDrawer } from "@/components/CruxDrawer";
 import { MetaNode } from "@/components/nodes/MetaNode";
 import { RichNode } from "@/components/nodes/RichNode";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
-import { topics } from "@/data/topics";
+import type { LogicNodeData } from "@/types/graph";
 
 function CanvasExperience() {
   const nodeTypes = useMemo(
@@ -28,7 +30,7 @@ function CanvasExperience() {
     [],
   );
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const nodes = useLogicGraph((state) => state.nodes);
   const edges = useLogicGraph((state) => state.edges);
@@ -38,15 +40,24 @@ function CanvasExperience() {
     (state) => state.consumeFocusTargets,
   );
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
-  const setTopic = useLogicGraph((state) => state.setTopic);
-
-  const currentTopic = useMemo(
-    () => topics.find((topic) => topic.id === currentTopicId) ?? topics[0],
-    [currentTopicId],
-  );
-  const leadPillars = currentTopic?.pillars?.slice(0, 2) ?? [];
 
   const reactFlow = useReactFlow();
+
+  const getMiniMapColor = (node: Node<LogicNodeData>) => {
+    switch (node?.data?.variant) {
+      case "meta":
+        return "#e9d7c2";
+      case "skeptic":
+        return "#c97a62";
+      case "crux":
+        return "#6db0ff";
+      case "proponent":
+      case "evidence":
+        return "#91c8b3";
+      default:
+        return "#a8b5c3";
+    }
+  };
 
   useEffect(() => {
     if (!focusTargets.length) return;
@@ -64,51 +75,80 @@ function CanvasExperience() {
   }, [consumeFocusTargets, focusTargets, nodes, reactFlow]);
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-canvas text-primary font-sans">
-      <Sidebar
-        topics={topics}
-        currentTopicId={currentTopicId}
-        onSelectTopic={setTopic}
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
+    <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
+      <TopBar onMenuClick={() => setIsSidebarOpen((prev) => !prev)} />
 
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <TopBar onMenuClick={() => setIsSidebarOpen(true)} />
-
-        <div className="relative flex-1 overflow-hidden bg-canvas">
-          <ReactFlow
-            className="h-full w-full"
-            nodes={nodes}
-            edges={edges}
-            nodeTypes={nodeTypes}
-            defaultViewport={{ x: -200, y: 0, zoom: 0.8 }}
-            minZoom={0.2}
-            maxZoom={1.6}
-            nodesDraggable
-            nodesConnectable={false}
-            elementsSelectable={false}
-            zoomOnScroll
-            panOnScroll
-            panOnDrag
-            zoomOnDoubleClick={false}
-            onNodesChange={onNodesChange}
-            fitView
+      <div className="flex min-h-0 flex-1">
+        <div
+          className={`relative h-full overflow-hidden transition-[width] duration-300 ease-in-out ${
+            isSidebarOpen ? "w-[280px]" : "w-0"
+          }`}
+        >
+          <div
+            className={`h-full transition-transform duration-300 ease-in-out ${
+              isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
           >
-            <Background
-              color="#D1D5DB"
-              gap={24}
-              size={2}
-              variant={BackgroundVariant.Dots}
-              className="opacity-50"
+            <Sidebar
+              isOpen={isSidebarOpen}
+              onClose={() => setIsSidebarOpen(false)}
             />
-            <Controls
-              position="bottom-left"
-              className="!bg-white !border !border-gray-200 !shadow-lg !text-gray-600 !rounded-full m-4"
-            />
-          </ReactFlow>
+          </div>
+        </div>
 
-          <CruxDrawer />
+        <div className="flex-1 min-h-0 px-0 pb-4 pt-0 md:px-0">
+          <div className="relative h-full min-h-[80vh] overflow-hidden border-y border-white/40 bg-transparent">
+            <ReactFlow
+              className="h-full w-full"
+              nodes={nodes}
+              edges={edges}
+              nodeTypes={nodeTypes}
+              defaultViewport={{ x: -200, y: 0, zoom: 0.8 }}
+              minZoom={0.2}
+              maxZoom={1.6}
+              nodesDraggable
+              nodesConnectable={false}
+              elementsSelectable={false}
+              zoomOnScroll
+              panOnScroll
+              panOnDrag
+              zoomOnDoubleClick={false}
+              onNodesChange={onNodesChange}
+              fitView
+            >
+              <Background
+                color="#d4cec4"
+                gap={30}
+                size={1.6}
+                variant={BackgroundVariant.Dots}
+                className="opacity-60"
+              />
+              <Controls
+                position="bottom-left"
+                className="m-4 !rounded-full !border-white/60 !bg-white/80 !text-secondary"
+              />
+              <MiniMap
+                pannable
+                zoomable
+                className="logic-minimap"
+                style={{
+                  position: "absolute",
+                  width: 220,
+                  height: 140,
+                  borderRadius: 18,
+                  bottom: 48,
+                  right: 44,
+                  zIndex: 50,
+                  pointerEvents: "auto",
+                }}
+                nodeColor={getMiniMapColor}
+                nodeStrokeColor={() => "#d6cdbf"}
+                maskColor="rgba(255, 255, 255, 0.6)"
+              />
+            </ReactFlow>
+
+            <CruxDrawer />
+          </div>
         </div>
       </div>
     </div>

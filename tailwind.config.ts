@@ -9,32 +9,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // New "Warm Paper" Palette
-        canvas: "#FDFBF7", // App Background (Warm off-white)
-        sidebar: "#F2EFE9", // Sidebar Background (Darker beige)
-        paper: "#FFFFFF", // Node Background (White)
-        
-        // Text
-        primary: "#2D2D2D", // Soft Black
-        secondary: "#6B7280", // Gray-500
-        muted: "#9CA3AF", // Gray-400
+        canvas: "#f4f1eb", // LessWrong parchment
+        sidebar: "#efe9df", // Sidebar backdrop
+        panel: "#fdfaf6", // Cards / panels
+        paper: "#fefdfb", // Lightweight paper for nodes
+        overlay: "#e7e0d5",
 
-        // Accents
+        primary: "#1f1f1d",
+        secondary: "#6d645c",
+        muted: "#9c9288",
+
         accent: {
-          main: "#059669", // Emerald-600 (Truth/Proponent)
-          warn: "#D97706", // Amber-600 (Doubt/Skeptic)
-          link: "#2563EB", // Royal Blue (Links/Action)
-          error: "#EF4444", // Red-500
+          main: "#4f7b77", // Teal action
+          warn: "#b39664", // Gold highlights
+          link: "#6b8c84", // Sage/teal links
+          error: "#c4584d",
         },
       },
       fontFamily: {
-        serif: ["Merriweather", "Georgia", "serif"],
-        sans: ["Merriweather Sans", "sans-serif"],
+        serif: ["EB Garamond", "Georgia", "serif"],
+        sans: ["Source Sans 3", "system-ui", "sans-serif"],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       boxShadow: {
-        lw: "0 1px 2px rgba(0, 0, 0, 0.05)",
-        "lw-hover": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        lw: "0 12px 40px rgba(32, 25, 16, 0.07)",
+        "lw-hover": "0 18px 48px rgba(32, 25, 16, 0.12)",
         card: "0 2px 8px -2px rgba(0,0,0,0.1)",
       },
       backdropBlur: {
