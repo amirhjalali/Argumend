@@ -99,20 +99,52 @@ p {
   box-shadow: 0 3px 10px rgba(15, 12, 8, 0.12);
 }
 
+/* Minimap - "Map Legend" Style */
 .logic-minimap {
-  border-radius: 18px !important;
+  border-radius: 4px !important;
   overflow: hidden;
-  border: 1px solid rgba(210, 197, 179, 0.8) !important;
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.85), rgba(244, 239, 232, 0.9)) !important;
-  box-shadow: 0 20px 45px rgba(38, 31, 23, 0.18);
+  border: 2px solid #d6cdbf !important;
+  background-color: #f4f1eb !important; /* Match canvas */
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 0 20px rgba(168, 162, 158, 0.2) !important; /* Inner shadow for depth */
 }
 
 .logic-minimap .react-flow__minimap-mask {
-  fill: rgba(255, 255, 255, 0.6) !important;
+  fill: rgba(244, 241, 235, 0.7) !important;
 }
 
 .logic-minimap svg {
-  border-radius: 18px;
+  border-radius: 2px;
+}
+
+/* Controls - "Stone/Paper" Style */
+.react-flow__controls {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid #e7e0d5 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background-color: #fdfaf6 !important;
+  border-bottom: 1px solid #e7e0d5 !important;
+  color: #6d645c !important;
+  transition: all 0.2s ease;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: #f4f1eb !important;
+  color: #1f1f1d !important;
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor !important;
 }
 
 .lw-glass {

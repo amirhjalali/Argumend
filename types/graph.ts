@@ -40,6 +40,7 @@ export interface LogicNodeData {
   concepts?: Record<string, ConceptData>;
   imageUrl?: string; // Added for screenshot look
   references?: Reference[]; // Added for screenshot look
+  hasChildren?: boolean; // Added for leaf node logic
   [key: string]: unknown;
 }
 

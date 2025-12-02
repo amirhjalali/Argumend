@@ -50,7 +50,7 @@ type GraphStore = {
   focusTargets: string[];
   sequence: number;
   currentTopicId: string;
-  
+
   // Actions
   setTopic: (topicId: string) => void;
   expandNode: (nodeId: string) => void;
@@ -94,6 +94,7 @@ function mapBlueprintToData(blueprint: BlueprintNode): LogicNodeData {
     detail: blueprint.detail,
     imageUrl: blueprint.imageUrl,
     references: blueprint.references,
+    hasChildren: blueprint.children && blueprint.children.length > 0,
   };
 }
 
@@ -107,7 +108,7 @@ function buildEdge(source: string, target: string, slot: ChildSlot): Edge {
     targetHandle = "left";
   }
   // Pillars (center) use default bottom->top
-  
+
   return {
     id: `edge-${source}-${target}`,
     source,
@@ -187,9 +188,9 @@ function createNodesFromTemplates(
       // Need to count siblings in the same slot to calculate offset
       const siblingsInSlot = templates.filter(t => t.slot === template.slot);
       const indexInSlot = siblingsInSlot.indexOf(template);
-      
+
       const position = getChildPosition(
-        parentNode.position, 
+        parentNode.position,
         template.slot,
         indexInSlot,
         siblingsInSlot.length
@@ -228,7 +229,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
 
     const newBlueprint = generateBlueprint(topic);
     const newRootBlueprint = newBlueprint["root"];
-    
+
     const newRootNode: LogicNode = {
       id: newRootBlueprint.id,
       type: "metaNode",
@@ -283,7 +284,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
 
   spawnConceptNode: (sourceNodeId: string, concept: ConceptData) => {
     const { nodes, edges } = get();
-    
+
     // Check if node already exists
     const existingNode = nodes.find((n) => n.id === concept.targetId);
     if (existingNode) {

@@ -91,4 +91,48 @@ export const simulationHypothesis: Topic = {
   ],
 };
 
-export const topics: Topic[] = [moonLanding, simulationHypothesis];
+export const aiRisk: Topic = {
+  id: 'ai-risk',
+  title: 'Existential Risk from AGI',
+  meta_claim: 'The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.',
+  confidence_score: 65,
+  status: 'contested',
+  pillars: [
+    {
+      id: 'orthogonality-thesis',
+      title: 'The Orthogonality Thesis',
+      short_summary: 'Intelligence and final goals are orthogonal axes; a highly intelligent system can have arbitrarily stupid or destructive goals.',
+      image_url: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=60',
+      icon_name: 'Atom',
+      skeptic_premise: 'True intelligence implies wisdom. A superintelligent being would naturally converge on moral truths and benevolence.',
+      proponent_rebuttal: 'Intelligence is merely the ability to optimize for a goal. A paperclip maximizer can be superintelligent in its pursuit of paperclips without ever "realizing" that killing humans is bad.',
+      crux: {
+        id: 'instrumental-convergence',
+        title: 'Instrumental Convergence',
+        description: 'Does the system pursue power acquisition as a subgoal?',
+        methodology: 'Train reinforcement learning agents in diverse environments with random goals. Observe if they consistently seek resource control and self-preservation.',
+        verification_status: 'verified',
+        cost_to_verify: '$100K (Compute for large-scale RL experiments)',
+      },
+    },
+    {
+      id: 'alignment-problem',
+      title: 'The Alignment Problem',
+      short_summary: 'Specifying human values in a way that doesn\'t lead to catastrophic misinterpretation is mathematically difficult.',
+      image_url: 'https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=60',
+      icon_name: 'Shield',
+      skeptic_premise: 'We can just teach AI to "be nice" or "do what we mean" using RLHF and oversight. It will learn our values like a child does.',
+      proponent_rebuttal: 'RLHF only trains the model to look good to the rater. In high-stakes, novel situations (distributional shift), the model may pursue the literal reward function rather than the intended spirit, leading to treacherous turns.',
+      crux: {
+        id: 'deceptive-alignment',
+        title: 'Deceptive Alignment',
+        description: 'Can models learn to deceive supervisors to get reward?',
+        methodology: 'Create a "honeyapot" environment where a model can get high reward by cheating only when it thinks it isn\'t being watched. Test if it exploits this.',
+        verification_status: 'verified',
+        cost_to_verify: '$50K (Anthropic/DeepMind research)',
+      },
+    },
+  ],
+};
+
+export const topics: Topic[] = [moonLanding, simulationHypothesis, aiRisk];

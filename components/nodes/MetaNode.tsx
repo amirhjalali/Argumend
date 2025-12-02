@@ -30,11 +30,11 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         className="logic-handle"
         isConnectable={false}
       />
-      
+
       {data.imageUrl && (
         <div className="h-56 w-full overflow-hidden rounded-t-2xl border-b border-white/40">
-           {/* eslint-disable-next-line @next/next/no-img-element */}
-           <img src={data.imageUrl} alt="" className="w-full h-full object-cover" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={data.imageUrl} alt="" className="w-full h-full object-cover" />
         </div>
       )}
 
@@ -52,10 +52,10 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         {/* Content */}
         {data.content && (
           <div className="text-base font-sans leading-relaxed text-secondary">
-            <InteractiveContent 
-              content={data.content} 
-              concepts={data.concepts} 
-              nodeId={id} 
+            <InteractiveContent
+              content={data.content}
+              concepts={data.concepts}
+              nodeId={id}
             />
           </div>
         )}
@@ -63,16 +63,16 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         {/* References */}
         {data.references && data.references.length > 0 && (
           <div className="border-t border-white/40 pt-4">
-             <p className="mb-2 text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-muted">
+            <p className="mb-2 text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-muted">
               Key Sources
             </p>
-             <ul className="space-y-2">
+            <ul className="space-y-2">
               {data.references.map((ref, i) => (
                 <li key={i} className="text-xs font-serif text-secondary">
-                  <a 
-                    href={ref.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={ref.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-start gap-1 leading-tight text-secondary transition-colors hover:text-accent-link"
                   >
                     {ref.title}
@@ -92,19 +92,25 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
                 {data.score.toFixed(0)}%
               </span>
               <span className="font-sans text-xs uppercase leading-tight tracking-[0.3em] text-secondary">
-                Confidence<br/>Score
+                Confidence<br />Score
               </span>
             </div>
           )}
 
-          <button
-            className="flex items-center gap-2 rounded-full border border-white/60 px-4 py-2 text-sm font-semibold text-secondary transition-all hover:border-accent-main/40 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={() => expandNode(id)}
-            disabled={expanded}
-          >
-            {expanded ? "Graph Expanded" : "View Analysis"}
-            {expanded ? null : <ChevronRight className="h-4 w-4" />}
-          </button>
+          {data.hasChildren ? (
+            <button
+              className="flex items-center gap-2 rounded-full border border-white/60 px-4 py-2 text-sm font-semibold text-secondary transition-all hover:border-accent-main/40 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+              onClick={() => expandNode(id)}
+              disabled={expanded}
+            >
+              {expanded ? "Graph Expanded" : "View Analysis"}
+              {expanded ? null : <ChevronRight className="h-4 w-4" />}
+            </button>
+          ) : (
+            <div className="flex items-center gap-2 rounded-full border border-transparent px-4 py-2 text-sm font-semibold text-muted opacity-50 cursor-default">
+              End of Line
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -40,6 +40,7 @@ function CanvasExperience() {
     (state) => state.consumeFocusTargets,
   );
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
+  const setTopic = useLogicGraph((state) => state.setTopic);
 
   const reactFlow = useReactFlow();
 
@@ -80,18 +81,18 @@ function CanvasExperience() {
 
       <div className="flex min-h-0 flex-1">
         <div
-          className={`relative h-full overflow-hidden transition-[width] duration-300 ease-in-out ${
-            isSidebarOpen ? "w-[280px]" : "w-0"
-          }`}
+          className={`relative h-full overflow-hidden transition-[width] duration-300 ease-in-out ${isSidebarOpen ? "w-[280px]" : "w-0"
+            }`}
         >
           <div
-            className={`h-full transition-transform duration-300 ease-in-out ${
-              isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+            className={`h-full transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
           >
             <Sidebar
               isOpen={isSidebarOpen}
               onClose={() => setIsSidebarOpen(false)}
+              currentTopicId={currentTopicId}
+              onTopicSelect={setTopic}
             />
           </div>
         </div>
@@ -125,7 +126,8 @@ function CanvasExperience() {
               />
               <Controls
                 position="bottom-left"
-                className="m-4 !rounded-full !border-white/60 !bg-white/80 !text-secondary"
+                className="m-4"
+                showInteractive={false}
               />
               <MiniMap
                 pannable
@@ -133,17 +135,16 @@ function CanvasExperience() {
                 className="logic-minimap"
                 style={{
                   position: "absolute",
-                  width: 220,
-                  height: 140,
-                  borderRadius: 18,
+                  width: 200,
+                  height: 150,
                   bottom: 48,
                   right: 44,
                   zIndex: 50,
                   pointerEvents: "auto",
                 }}
                 nodeColor={getMiniMapColor}
-                nodeStrokeColor={() => "#d6cdbf"}
-                maskColor="rgba(255, 255, 255, 0.6)"
+                nodeStrokeColor={() => "transparent"}
+                maskColor="rgba(244, 241, 235, 0.7)"
               />
             </ReactFlow>
 

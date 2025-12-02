@@ -11,6 +11,7 @@ import {
   Users,
   X,
 } from "lucide-react";
+import { topics } from "@/data/topics";
 
 const PRIMARY_NAV = [
   { label: "Home", icon: Compass, active: true },
@@ -21,40 +22,42 @@ const PRIMARY_NAV = [
   { label: "About", icon: HelpCircle },
 ];
 
-const LIBRARY_LINKS = [
-  "Sequence Highlights",
-  "Rationality: A-Z",
-  "The Codex",
-  "HPMOR",
-];
-
 const FOOTER_LINKS = ["Leaderboard", "About", "FAQ"];
 
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  currentTopicId: string;
+  onTopicSelect: (id: string) => void;
 }
 
 export function Sidebar({
   isOpen,
   onClose,
+  currentTopicId,
+  onTopicSelect,
 }: SidebarProps) {
   const handleOverlayClick = () => {
     if (isOpen) onClose();
   };
 
+  const handleTopicClick = (id: string) => {
+    onTopicSelect(id);
+    if (window.innerWidth < 768) {
+      onClose();
+    }
+  };
+
   return (
     <>
       <div
-        className={`fixed inset-0 z-30 bg-black/25 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
+        className={`fixed inset-0 z-30 bg-black/25 backdrop-blur-sm transition-opacity duration-300 md:hidden ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
         onClick={handleOverlayClick}
       />
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex w-[280px] flex-col bg-transparent p-6 text-primary transition-transform duration-300 md:static md:translate-x-0 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed inset-y-0 left-0 z-40 flex w-[280px] flex-col bg-transparent p-6 text-primary transition-transform duration-300 md:static md:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="mb-6 flex items-center justify-between md:hidden">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-secondary">
@@ -74,9 +77,8 @@ export function Sidebar({
           {PRIMARY_NAV.map(({ label, icon: Icon, active }) => (
             <button
               key={label}
-              className={`group flex w-full items-center gap-3 rounded-md px-1 py-2 text-lg font-serif tracking-tight transition-colors focus-visible:outline-none ${
-                active ? "text-primary" : "text-[#6a5f56] hover:text-primary"
-              }`}
+              className={`group flex w-full items-center gap-3 rounded-md px-1 py-2 text-lg font-serif tracking-tight transition-colors focus-visible:outline-none ${active ? "text-primary" : "text-[#6a5f56] hover:text-primary"
+                }`}
               type="button"
             >
               <Icon className="h-5 w-5 text-inherit" strokeWidth={1.4} />
@@ -87,15 +89,17 @@ export function Sidebar({
 
         <section className="pb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#ada395]">
-            Library
+            Featured Debates
           </p>
           <ul className="mt-3 space-y-2 text-base text-[#4e473f]">
-            {LIBRARY_LINKS.map((link) => (
+            {topics.map((topic) => (
               <li
-                key={link}
-                className="cursor-pointer font-serif tracking-tight hover:text-primary"
+                key={topic.id}
+                className={`cursor-pointer font-serif tracking-tight transition-colors hover:text-primary ${currentTopicId === topic.id ? "text-primary font-medium" : ""
+                  }`}
+                onClick={() => handleTopicClick(topic.id)}
               >
-                {link}
+                {topic.title}
               </li>
             ))}
           </ul>

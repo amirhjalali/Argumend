@@ -45,7 +45,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         className="logic-handle"
         isConnectable={false}
       />
-      
+
       <Handle
         type="source"
         position={Position.Bottom}
@@ -64,8 +64,8 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
       {/* Optional Image */}
       {data.imageUrl && (
         <div className="h-40 w-full overflow-hidden rounded-t-2xl border-b border-white/40">
-           {/* eslint-disable-next-line @next/next/no-img-element */}
-           <img src={data.imageUrl} alt="" className="w-full h-full object-cover opacity-95 hover:opacity-100 transition-opacity" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={data.imageUrl} alt="" className="w-full h-full object-cover opacity-95 hover:opacity-100 transition-opacity" />
         </div>
       )}
 
@@ -90,10 +90,10 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         {/* Content - Inter Sans, readable line-height */}
         {data.content && (
           <div className="mb-4 text-sm font-sans leading-relaxed text-secondary">
-            <InteractiveContent 
-              content={data.content} 
-              concepts={data.concepts} 
-              nodeId={id} 
+            <InteractiveContent
+              content={data.content}
+              concepts={data.concepts}
+              nodeId={id}
             />
           </div>
         )}
@@ -107,10 +107,10 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
             <ul className="space-y-2">
               {data.references.map((ref, i) => (
                 <li key={i} className="text-xs font-serif text-secondary">
-                  <a 
-                    href={ref.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={ref.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-start gap-1 leading-tight transition-colors hover:text-accent-link"
                   >
                     {ref.title}
@@ -124,14 +124,20 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
         {/* Actions */}
         <div className="mt-2 flex items-center gap-3 border-t border-white/40 pt-4">
-          <button
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-white/60 px-3 py-1.5 text-xs font-medium text-secondary transition-all hover:border-accent-main/35 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={() => expandNode(id)}
-            disabled={expanded}
-          >
-            {expanded ? "Expanded" : "Expand"}
-            <ArrowDown className="h-3 w-3 text-muted" />
-          </button>
+          {data.hasChildren ? (
+            <button
+              className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-white/60 px-3 py-1.5 text-xs font-medium text-secondary transition-all hover:border-accent-main/35 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+              onClick={() => expandNode(id)}
+              disabled={expanded}
+            >
+              {expanded ? "Expanded" : "Expand"}
+              <ArrowDown className="h-3 w-3 text-muted" />
+            </button>
+          ) : (
+            <div className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-transparent px-3 py-1.5 text-xs font-medium text-muted opacity-50 cursor-default">
+              End of Line
+            </div>
+          )}
 
           {canOpenCrux && (
             <button
