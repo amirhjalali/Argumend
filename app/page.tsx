@@ -132,7 +132,7 @@ function CanvasExperience() {
                 className="opacity-60"
               />
               <Controls
-                position="bottom-left"
+                position="top-right"
                 className="m-4"
                 showInteractive={false}
               />
