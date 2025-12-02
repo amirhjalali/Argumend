@@ -51,19 +51,7 @@ export function Sidebar({
       className={`flex h-full w-[280px] flex-col bg-transparent p-6 text-primary transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
     >
-      <div className="mb-6 flex items-center justify-between md:hidden">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-secondary">
-          <Menu className="h-4 w-4" />
-          Menu
-        </div>
-        <button
-          onClick={onClose}
-          aria-label="Close sidebar"
-          className="rounded-full border border-white/60 bg-white/70 p-2 text-secondary transition hover:text-primary"
-        >
-          <X className="h-4 w-4" />
-        </button>
-      </div>
+
 
       <nav className="space-y-1 pb-8">
         {PRIMARY_NAV.map(({ label, icon: Icon, active }) => (
