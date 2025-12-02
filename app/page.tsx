@@ -86,7 +86,7 @@ function CanvasExperience() {
     <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
       <TopBar onMenuClick={() => setIsSidebarOpen((prev) => !prev)} />
 
-      <div className="flex min-h-0 flex-1">
+      <div className="flex min-h-0 flex-1 overflow-hidden">
         <div
           className={`relative h-full overflow-hidden transition-[width] duration-300 ease-in-out ${isSidebarOpen ? "w-[280px]" : "w-0"
             }`}
@@ -104,7 +104,7 @@ function CanvasExperience() {
           </div>
         </div>
 
-        <div className="flex-1 min-h-0 px-0 pb-4 pt-0 md:px-0">
+        <div className="min-h-0 w-full flex-shrink-0 px-0 pb-4 pt-0 transition-all duration-300 ease-in-out md:w-auto md:flex-1 md:px-0">
           <div className="relative h-full min-h-[80vh] overflow-hidden border-y border-white/40 bg-transparent">
             <ReactFlow
               className="h-full w-full"
