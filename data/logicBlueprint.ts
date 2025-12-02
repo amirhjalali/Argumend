@@ -4,12 +4,12 @@ import { moonLanding } from "./topics";
 
 export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
   const rootId = "root";
-  
+
   // Custom logic for Moon Landing to match the requested "Screenshot" style with questions
   const isMoonLanding = topic.id === 'moon-landing';
 
   const rootChildren = [];
-  
+
   // 1. Add "Logic Map" nodes (Questions/Inquiries) to the RIGHT
   if (isMoonLanding) {
     rootChildren.push(
@@ -57,9 +57,9 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
       content: "What specific physical traces remain on the lunar surface that can be verified from Earth today?",
       imageUrl: "https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&w=800&q=60",
       references: [
-         { title: "Laser Ranging Retroreflector Experiment", url: "https://en.wikipedia.org/wiki/Lunar_Laser_Ranging_experiment" }
+        { title: "Laser Ranging Retroreflector Experiment", url: "https://en.wikipedia.org/wiki/Lunar_Laser_Ranging_experiment" }
       ],
-      children: [] 
+      children: []
     };
     blueprint["q2"] = {
       id: "q2",
@@ -67,6 +67,7 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
       title: "How was radiation handled?",
       subtitle: "Inquiry",
       content: "How did the astronauts survive the lethal Van Allen radiation belts without heavy shielding?",
+      imageUrl: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=60",
       children: []
     };
     blueprint["q3"] = {
@@ -75,6 +76,7 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
       title: "Why haven't we returned?",
       subtitle: "Inquiry",
       content: "If the technology existed in 1969, what economic or political factors have prevented a return mission?",
+      imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=60",
       children: []
     };
   } else {
@@ -100,7 +102,7 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
   // Generate nodes for each pillar (Vertical Stack)
   topic.pillars.forEach((pillar) => {
     const cruxId = `crux-${pillar.crux.id}`;
-    
+
     blueprint[pillar.id] = {
       id: pillar.id,
       variant: "pillar",

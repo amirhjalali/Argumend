@@ -13,7 +13,7 @@ import {
   useReactFlow,
 } from "@xyflow/react";
 import type { Node } from "@xyflow/react";
-import { CruxDrawer } from "@/components/CruxDrawer";
+import { CruxModal } from "@/components/CruxModal";
 import { MetaNode } from "@/components/nodes/MetaNode";
 import { RichNode } from "@/components/nodes/RichNode";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
@@ -148,7 +148,7 @@ function CanvasExperience() {
               />
             </ReactFlow>
 
-            <CruxDrawer />
+            <CruxModal />
           </div>
         </div>
       </div>
