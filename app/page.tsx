@@ -88,7 +88,7 @@ function CanvasExperience() {
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
         <div
-          className={`relative h-full overflow-hidden transition-[width] duration-300 ease-in-out ${isSidebarOpen ? "w-[280px]" : "w-0"
+          className={`relative h-full overflow-hidden transition-[width] duration-300 ease-in-out ${isSidebarOpen ? "w-[240px]" : "w-0"
             }`}
         >
           <div

@@ -48,7 +48,7 @@ export function Sidebar({
 
   return (
     <aside
-      className="flex h-full w-[280px] flex-col bg-transparent p-6 text-primary"
+      className="flex h-full w-[240px] flex-col bg-white/30 backdrop-blur-md p-6 text-primary shadow-[1px_0_20px_rgba(0,0,0,0.05)]"
     >
 
 
