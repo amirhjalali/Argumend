@@ -48,8 +48,7 @@ export function Sidebar({
 
   return (
     <aside
-      className={`flex h-full w-[280px] flex-col bg-transparent p-6 text-primary transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+      className="flex h-full w-[280px] flex-col bg-transparent p-6 text-primary"
     >
 
 
