@@ -44,6 +44,19 @@ const topicConfigs: Record<string, {
       { id: "q2", title: "Can we control a superintelligence?", content: "Once an AI surpasses human intelligence, what mechanisms could keep it under human control or oversight?", imageUrl: "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=60" },
       { id: "q3", title: "How soon could AGI emerge?", content: "What are the most credible timelines for achieving artificial general intelligence, and how do they affect our preparation window?", imageUrl: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=60" }
     ]
+  },
+  'free-will': {
+    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=60',
+    references: [
+      { title: "Libet's Original Experiment (1983)", url: "https://en.wikipedia.org/wiki/Benjamin_Libet#Libet's_experiment" },
+      { title: "Stanford Encyclopedia: Free Will", url: "https://plato.stanford.edu/entries/freewill/" },
+      { title: "Sam Harris: Free Will (2012)", url: "https://www.samharris.org/books/free-will" }
+    ],
+    questions: [
+      { id: "q1", title: "Is our sense of agency an illusion?", content: "When we feel we 'choose' an action, is that feeling causally effective or merely a byproduct of unconscious neural processes?", imageUrl: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=60", references: [{ title: "The Illusion of Conscious Will (Wegner)", url: "https://en.wikipedia.org/wiki/The_Illusion_of_Conscious_Will" }] },
+      { id: "q2", title: "Does determinism undermine responsibility?", content: "If our choices are the inevitable result of prior causes, can we meaningfully hold people accountable for their actions?", imageUrl: "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=800&q=60" },
+      { id: "q3", title: "What would 'genuine' choice require?", content: "For free will to be 'real,' what conditions must be met? Could any physical system satisfy those conditions?", imageUrl: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=60" }
+    ]
   }
 };
 

@@ -174,4 +174,68 @@ export const aiRisk: Topic = {
   ],
 };
 
-export const topics: Topic[] = [moonLanding, simulationHypothesis, aiRisk];
+export const freeWill: Topic = {
+  id: 'free-will',
+  title: 'Free Will',
+  meta_claim: 'Human beings possess genuine free will—the ability to have done otherwise in any given situation.',
+  confidence_score: 45,
+  status: 'contested',
+  pillars: [
+    {
+      id: 'neuroscience-evidence',
+      title: 'The Neuroscience Evidence',
+      short_summary: 'Brain activity precedes conscious awareness of decisions, suggesting choices are determined before we "decide."',
+      image_url: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=60',
+      icon_name: 'Microscope',
+      skeptic_premise: 'Libet\'s experiments show readiness potential begins 350-500ms before conscious intention. Our sense of "choosing" is a post-hoc narrative constructed by the brain.',
+      proponent_rebuttal: 'Libet\'s subjects could still veto the action in the final 150ms (the "free won\'t"). Readiness potential may represent preparation of options, not determination. Consciousness may be the arena where competing neural assemblies vie for action selection.',
+      crux: {
+        id: 'veto-power',
+        title: 'The Veto Power Test',
+        description: 'If subjects can consistently abort actions after readiness potential but before motor execution, this preserves a meaningful role for conscious will.',
+        methodology: 'Replicate Libet with modern fMRI and more precise timing. Train subjects to veto at various stages. Map neural correlates of successful vetoes.',
+        equation: 'P(\\text{veto} | RP_{detected}) > 0 \\implies \\text{Free Won\'t Exists}',
+        verification_status: 'theoretical',
+        cost_to_verify: '$200K (fMRI study with sufficient statistical power)',
+      },
+    },
+    {
+      id: 'causal-determinism',
+      title: 'Causal Determinism',
+      short_summary: 'If every event is caused by prior events according to natural laws, then our choices are the inevitable result of initial conditions.',
+      image_url: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=60',
+      icon_name: 'Target',
+      skeptic_premise: 'The universe is governed by deterministic physical laws (or probabilistic quantum laws). Every neuron firing was determined by the Big Bang. There is no room for libertarian free will.',
+      proponent_rebuttal: 'Determinism does not preclude free will—it may enable it. Compatibilists argue that "free" means acting from your own desires and reasoning, not from external coercion. Quantum indeterminacy may provide genuine openness at the neural level.',
+      crux: {
+        id: 'quantum-mind',
+        title: 'The Quantum Mind Hypothesis',
+        description: 'If quantum effects play a functional role in neural decision-making (Penrose-Hameroff microtubules), true randomness could break causal determination.',
+        methodology: 'Test for quantum coherence in neural microtubules at biologically relevant temperatures. Measure whether decoherence times exceed neural firing intervals.',
+        equation: '\\tau_{decoherence} > \\tau_{neural} \\implies \\text{Quantum Effects Possible}',
+        verification_status: 'theoretical',
+        cost_to_verify: '$5M (Quantum biology lab experiments)',
+      },
+    },
+    {
+      id: 'moral-responsibility',
+      title: 'Moral Responsibility',
+      short_summary: 'Our entire system of praise, blame, and justice presupposes that people could have chosen otherwise.',
+      image_url: 'https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=800&q=60',
+      icon_name: 'Shield',
+      skeptic_premise: 'If criminals could not have done otherwise given their genes, upbringing, and circumstances, retributive punishment is unjust. We should focus only on rehabilitation and deterrence.',
+      proponent_rebuttal: 'Even if determinism is true, holding people responsible has pragmatic value—it shapes future behavior through social feedback. The concept of "could have done otherwise" can be reinterpreted as "would have done otherwise if they had different reasons."',
+      crux: {
+        id: 'manipulation-argument',
+        title: 'The Manipulation Argument',
+        description: 'Thought experiments: If a scientist could control your neural states to guarantee an action, you would not be responsible. But how is this different from nature doing the same through genes and environment?',
+        methodology: 'Survey moral intuitions across cultures about manipulated vs. natural agents. Test whether people distinguish between determination by external manipulation vs. internal character.',
+        equation: 'R(\\text{manipulated}) \\neq R(\\text{natural}) \\implies \\text{Source Matters}',
+        verification_status: 'theoretical',
+        cost_to_verify: '$50K (Cross-cultural experimental philosophy studies)',
+      },
+    },
+  ],
+};
+
+export const topics: Topic[] = [moonLanding, simulationHypothesis, aiRisk, freeWill];
