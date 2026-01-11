@@ -4,7 +4,7 @@ import { InteractiveContent } from "@/components/InteractiveContent";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
-import { ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronRight, ScrollText, Landmark } from "lucide-react";
 
 export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const expanded = useLogicGraph((state) => state.expandedNodes[id]);
@@ -41,9 +41,12 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
       <div className="space-y-6 p-8">
         {/* Header: Meta Claim Label & Title */}
         <div className="mb-6">
-          <p className="mb-2 text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-accent-main">
-            Meta Claim
-          </p>
+          <div className="mb-2 flex items-center gap-2">
+            <Landmark className="h-4 w-4 text-accent-main" strokeWidth={1.5} />
+            <p className="text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-accent-main">
+              Meta Claim
+            </p>
+          </div>
           <h2 className="text-3xl font-serif font-bold leading-tight text-primary">
             {data.title}
           </h2>
@@ -62,10 +65,13 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
         {/* References */}
         {data.references && data.references.length > 0 && (
-          <div className="border-t border-white/40 pt-4">
-            <p className="mb-2 text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-muted">
-              Key Sources
-            </p>
+          <div className="border-t border-stone-200 pt-4">
+            <div className="mb-2 flex items-center gap-1.5">
+              <ScrollText className="h-3 w-3 text-stone-400" strokeWidth={1.5} />
+              <p className="text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-stone-400">
+                Key Sources
+              </p>
+            </div>
             <ul className="space-y-2">
               {data.references.map((ref, i) => (
                 <li key={i} className="text-xs font-serif text-secondary">
@@ -76,7 +82,7 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
                     className="flex items-start gap-1 leading-tight text-secondary transition-colors hover:text-accent-link"
                   >
                     {ref.title}
-                    {ref.url && <ExternalLink className="h-3 w-3 opacity-40 flex-shrink-0 mt-0.5" />}
+                    {ref.url && <ScrollText className="h-3 w-3 opacity-40 flex-shrink-0 mt-0.5" />}
                   </a>
                 </li>
               ))}
@@ -85,13 +91,13 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         )}
 
         {/* Footer: Score & Action */}
-        <div className="flex items-center justify-between border-t border-white/40 pt-5">
+        <div className="flex items-center justify-between border-t border-stone-200 pt-5">
           {typeof data.score === "number" && (
             <div className="flex items-center gap-3">
-              <span className="font-sans text-4xl font-bold text-accent-main">
+              <span className="font-serif text-4xl font-bold text-stone-700">
                 {data.score.toFixed(0)}%
               </span>
-              <span className="font-sans text-xs uppercase leading-tight tracking-[0.3em] text-secondary">
+              <span className="font-sans text-xs uppercase leading-tight tracking-[0.3em] text-stone-500">
                 Confidence<br />Score
               </span>
             </div>
@@ -99,7 +105,7 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
           {data.hasChildren ? (
             <button
-              className="flex items-center gap-2 rounded-full border border-white/60 px-4 py-2 text-sm font-semibold text-secondary transition-all hover:border-accent-main/40 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex items-center gap-2 rounded-sm border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-600 transition-all hover:border-stone-400 hover:text-stone-800 disabled:cursor-not-allowed disabled:opacity-50"
               onClick={() => expandNode(id)}
               disabled={expanded}
             >
@@ -107,8 +113,8 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
               {expanded ? null : <ChevronRight className="h-4 w-4" />}
             </button>
           ) : (
-            <div className="flex items-center gap-2 rounded-full border border-transparent px-4 py-2 text-sm font-semibold text-muted opacity-50 cursor-default">
-              End of Line
+            <div className="flex items-center gap-2 rounded-sm border border-transparent px-4 py-2 text-sm font-semibold text-stone-400 cursor-default">
+              Terminus
             </div>
           )}
         </div>

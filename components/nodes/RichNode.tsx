@@ -4,20 +4,30 @@ import { InteractiveContent } from "@/components/InteractiveContent";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData, NodeVariant } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
-import { ArrowDown, BookOpen, ExternalLink } from "lucide-react";
+import {
+  ChevronDown,
+  Scale,
+  ScrollText,
+  Landmark,
+  MessageCircleQuestion,
+  Swords,
+  Shield,
+  FileText,
+  type LucideIcon
+} from "lucide-react";
 
-// Simpler variant mapping for LW style - mostly unified, just subtle accents
+// Classical variant styling with icons
 const VARIANT_STYLES: Record<
   NodeVariant,
-  { label: string; accentClass: string }
+  { label: string; accentClass: string; Icon: LucideIcon }
 > = {
-  meta: { label: "Meta", accentClass: "text-accent-main" },
-  pillar: { label: "Pillar", accentClass: "text-primary" },
-  skeptic: { label: "Skeptic Argument", accentClass: "text-accent-warn" }, // Warning color for skepticism
-  proponent: { label: "Counter Argument", accentClass: "text-accent-main" },
-  crux: { label: "Crux", accentClass: "text-accent-link" },
-  evidence: { label: "Evidence", accentClass: "text-accent-main" },
-  question: { label: "Inquiry", accentClass: "text-secondary" },
+  meta: { label: "Meta", accentClass: "text-accent-main", Icon: Landmark },
+  pillar: { label: "Pillar", accentClass: "text-stone-600", Icon: Landmark },
+  skeptic: { label: "Skeptic", accentClass: "text-amber-700", Icon: Swords },
+  proponent: { label: "Proponent", accentClass: "text-accent-main", Icon: Shield },
+  crux: { label: "Crux", accentClass: "text-accent-link", Icon: Scale },
+  evidence: { label: "Evidence", accentClass: "text-accent-main", Icon: ScrollText },
+  question: { label: "Inquiry", accentClass: "text-stone-500", Icon: MessageCircleQuestion },
 };
 
 export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
@@ -70,11 +80,14 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
       )}
 
       <div className="p-5">
-        {/* Header */}
+        {/* Header with Icon */}
         <div className="mb-3 flex items-center justify-between">
-          <span className={`text-[10px] font-sans font-bold uppercase tracking-[0.35em] ${style.accentClass}`}>
-            {style.label}
-          </span>
+          <div className="flex items-center gap-2">
+            <style.Icon className={`h-3.5 w-3.5 ${style.accentClass}`} strokeWidth={1.5} />
+            <span className={`text-[10px] font-sans font-bold uppercase tracking-[0.35em] ${style.accentClass}`}>
+              {style.label}
+            </span>
+          </div>
           {data.subtitle && (
             <span className="text-[10px] font-sans uppercase tracking-[0.35em] text-secondary">
               {data.subtitle}
@@ -100,10 +113,13 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
         {/* References */}
         {data.references && data.references.length > 0 && (
-          <div className="mt-4 border-t border-white/40 pt-3">
-            <p className="mb-2 text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-muted">
-              References
-            </p>
+          <div className="mt-4 border-t border-stone-200 pt-3">
+            <div className="mb-2 flex items-center gap-1.5">
+              <FileText className="h-3 w-3 text-stone-400" strokeWidth={1.5} />
+              <p className="text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-stone-400">
+                Sources
+              </p>
+            </div>
             <ul className="space-y-2">
               {data.references.map((ref, i) => (
                 <li key={i} className="text-xs font-serif text-secondary">
@@ -114,7 +130,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
                     className="flex items-start gap-1 leading-tight transition-colors hover:text-accent-link"
                   >
                     {ref.title}
-                    {ref.url && <ExternalLink className="h-3 w-3 opacity-40 flex-shrink-0 mt-0.5" />}
+                    {ref.url && <ScrollText className="h-3 w-3 opacity-40 flex-shrink-0 mt-0.5" />}
                   </a>
                 </li>
               ))}
@@ -123,29 +139,29 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         )}
 
         {/* Actions */}
-        <div className="mt-2 flex items-center gap-3 border-t border-white/40 pt-4">
+        <div className="mt-2 flex items-center gap-3 border-t border-stone-200 pt-4">
           {data.hasChildren ? (
             <button
-              className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-white/60 px-3 py-1.5 text-xs font-medium text-secondary transition-all hover:border-accent-main/35 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex flex-1 items-center justify-center gap-1.5 rounded-sm border border-stone-300 px-3 py-1.5 text-xs font-medium text-stone-600 transition-all hover:border-stone-400 hover:text-stone-800 disabled:cursor-not-allowed disabled:opacity-50"
               onClick={() => expandNode(id)}
               disabled={expanded}
             >
               {expanded ? "Expanded" : "Expand"}
-              <ArrowDown className="h-3 w-3 text-muted" />
+              <ChevronDown className="h-3 w-3" />
             </button>
           ) : (
-            <div className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-transparent px-3 py-1.5 text-xs font-medium text-muted opacity-50 cursor-default">
-              End of Line
+            <div className="flex flex-1 items-center justify-center gap-1.5 rounded-sm border border-transparent px-3 py-1.5 text-xs font-medium text-stone-400 cursor-default">
+              Terminus
             </div>
           )}
 
           {canOpenCrux && (
             <button
-              className="flex flex-1 items-center justify-center gap-1.5 rounded-full border border-accent-link/50 bg-accent-link/10 px-3 py-1.5 text-xs font-medium text-accent-link transition-all hover:bg-accent-link/15"
+              className="flex flex-1 items-center justify-center gap-1.5 rounded-sm border border-accent-link/50 bg-accent-link/10 px-3 py-1.5 text-xs font-medium text-accent-link transition-all hover:bg-accent-link/20"
               onClick={() => openCrux(id)}
             >
               View Crux
-              <BookOpen className="h-3 w-3" />
+              <Scale className="h-3 w-3" />
             </button>
           )}
         </div>
