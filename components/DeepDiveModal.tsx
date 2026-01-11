@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { X, Sparkles } from "lucide-react";
+import { X, Scale } from "lucide-react";
 import { Pillar } from "@/types/logic";
 import { useState, useEffect, useRef } from "react";
 import { InlineMath } from "react-katex";
@@ -11,36 +11,34 @@ interface DeepDiveModalProps {
   onClose: () => void;
 }
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1], // Custom "quint" easing for smoother, weightier feel
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
     },
-    exit: { 
-      opacity: 0, 
-      scale: 0.95, 
-      transition: { duration: 0.4, ease: "easeInOut" } 
-    }
-  };
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.3, ease: "easeInOut" }
+  }
+};
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { 
-        duration: 0.8, 
-        ease: [0.22, 1, 0.36, 1] 
-      },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
     },
-  };
+  },
+};
 
 export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
   const [cruxRevealed, setCruxRevealed] = useState(false);
@@ -111,7 +109,8 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-accent-logos/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-8"
+      transition={{ duration: 0.3 }}
+      className="fixed inset-0 bg-stone-900/50 z-50 flex items-center justify-center p-4 sm:p-8"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -120,82 +119,83 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
       <motion.div
         ref={modalRef}
         layoutId={`pillar-${pillar.id}`}
-        className="relative bg-parchment border border-accent-logos/20 rounded-sm
-                   max-w-6xl w-full max-h-[90vh] overflow-y-auto shadow-2xl font-sans"
+        className="relative bg-[#faf8f5] border-2 border-stone-300 rounded-sm max-w-5xl w-full max-h-[90vh] overflow-y-auto font-sans"
+        style={{
+          boxShadow: "0 0 0 1px #d6cdbf, 0 0 0 4px #faf8f5, 0 0 0 5px #d6cdbf, 0 30px 90px rgba(30,25,20,0.35)"
+        }}
         onClick={(e) => e.stopPropagation()}
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.9 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 30 }}
+        transition={{ type: "tween", duration: 0.4, ease: "easeOut" }}
       >
-        {/* Top Bar - Stoic Accent */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-accent-logos"></div>
-
         {/* Close Button */}
         <motion.button
           onClick={onClose}
-          className="absolute top-6 right-6 p-3 rounded-sm bg-white border border-black/10 hover:border-accent-logos z-10 group transition-colors"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="absolute top-6 right-6 p-2 rounded-sm bg-[#faf8f5] border border-stone-300 hover:border-stone-400 hover:bg-stone-100 z-10 transition-colors"
           aria-label="Close dialog"
         >
-          <X className="w-5 h-5 text-secondary group-hover:text-accent-logos transition-colors" aria-hidden="true" />
+          <X className="w-5 h-5 text-stone-500 hover:text-stone-700" aria-hidden="true" />
         </motion.button>
 
         {/* Header */}
-        <div className="p-8 sm:p-12 border-b border-black/5 bg-parchment-dark">
+        <div className="p-8 sm:p-10 border-b-2 border-stone-300 bg-gradient-to-b from-[#f4f1eb] to-[#faf8f5]">
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 mb-3">
+            Foundational Pillar
+          </p>
           <motion.h2
             id="modal-title"
-            className="text-4xl sm:text-5xl font-bold tracking-tight mb-4 text-accent-logos font-serif"
-            initial={{ opacity: 0, y: -20 }}
+            className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 text-stone-800 font-serif"
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.15 }}
           >
             {pillar.title}
           </motion.h2>
           <motion.p
-            className="text-lg text-secondary font-serif italic"
+            className="text-base text-stone-600 font-serif italic"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.2 }}
           >
             {pillar.short_summary}
           </motion.p>
         </div>
 
-        {/* Split View: Doubt vs Defense */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-black/5">
+        {/* Split View: Skeptic vs Proponent */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-stone-200">
           {/* Left: The Skeptic */}
           <motion.div
-            className="p-8 sm:p-10 border-r border-black/5 bg-white relative"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
+            className="p-8 sm:p-10 md:border-r border-stone-200 bg-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.25 }}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-accent-pathos"></div>
-              <h3 className="text-xl font-bold text-accent-pathos font-serif tracking-wide">
-                THE SKEPTIC
+            <div className="flex items-center gap-3 mb-5 border-b border-stone-200 pb-3">
+              <div className="h-px w-6 bg-amber-600"></div>
+              <h3 className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-amber-700">
+                The Skeptic
               </h3>
             </div>
-            <p className="text-primary/80 leading-relaxed text-lg font-serif">
+            <p className="text-stone-700 leading-relaxed text-base font-serif">
               &ldquo;{pillar.skeptic_premise}&rdquo;
             </p>
           </motion.div>
 
           {/* Right: The Proponent */}
           <motion.div
-            className="p-8 sm:p-10 bg-parchment relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
+            className="p-8 sm:p-10 bg-stone-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-accent-logos"></div>
-              <h3 className="text-xl font-bold text-accent-logos font-serif tracking-wide">
-                THE PROPONENT
+            <div className="flex items-center gap-3 mb-5 border-b border-stone-200 pb-3">
+              <div className="h-px w-6 bg-accent-main"></div>
+              <h3 className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-accent-main">
+                The Proponent
               </h3>
             </div>
-            <p className="text-primary/80 leading-relaxed text-lg font-serif">
+            <p className="text-stone-700 leading-relaxed text-base font-serif">
               &ldquo;{pillar.proponent_rebuttal}&rdquo;
             </p>
           </motion.div>
@@ -203,34 +203,29 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
 
         {/* The Crux Section */}
         <motion.div
-          className="p-8 sm:p-12 bg-parchment-dark relative"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          className="p-8 sm:p-10 bg-gradient-to-b from-stone-50 to-[#faf8f5]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.35 }}
         >
-          <div className="flex items-center gap-4 mb-8">
-            <div className="p-3 rounded-sm bg-white border border-black/5">
-              <Sparkles className="w-6 h-6 text-accent-ethos" />
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-2.5 rounded-sm bg-white border border-stone-200">
+              <Scale className="w-5 h-5 text-stone-600" />
             </div>
-            <h3 className="text-2xl font-bold text-accent-logos font-serif tracking-tight">
-              THE DEFINITIVE TEST
+            <h3 className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-600">
+              The Crux of Verification
             </h3>
           </div>
 
           {!cruxRevealed ? (
             <motion.button
               onClick={() => setCruxRevealed(true)}
-              className="relative px-10 py-5 bg-accent-logos text-parchment font-bold rounded-sm
-                         hover:bg-accent-logos/90 transition-all font-sans tracking-widest text-sm group overflow-hidden border border-accent-logos"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="px-8 py-4 bg-stone-800 text-stone-100 font-sans font-semibold rounded-sm
+                         hover:bg-stone-700 transition-colors tracking-wider text-sm border border-stone-800"
               aria-expanded="false"
               aria-controls="crux-content"
             >
-              <span className="relative z-10 flex items-center gap-3">
-                REVEAL THE TEST
-                <Sparkles className="w-4 h-4" />
-              </span>
+              REVEAL THE TEST
             </motion.button>
           ) : (
             <motion.div
@@ -238,26 +233,26 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="space-y-8"
+              className="space-y-6"
               aria-live="polite"
             >
               <motion.div variants={itemVariants}>
-                <h4 className="text-2xl font-bold text-accent-logos mb-3 font-serif">
+                <h4 className="text-2xl font-bold text-stone-800 mb-3 font-serif">
                   {pillar.crux.title}
                 </h4>
-                <p className="text-secondary text-lg leading-relaxed">
+                <p className="text-stone-600 text-base leading-relaxed font-serif">
                   {pillar.crux.description}
                 </p>
               </motion.div>
 
               <motion.div
                 variants={itemVariants}
-                className="bg-white p-8 rounded-sm border border-black/5"
+                className="bg-white p-6 rounded-sm border border-stone-200"
               >
-                <h5 className="text-sm font-bold text-accent-ethos mb-4 font-sans uppercase tracking-widest flex items-center gap-2">
-                  Methodology
+                <h5 className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 mb-4">
+                  The Method
                 </h5>
-                <p className="text-primary leading-relaxed font-serif text-base italic">
+                <p className="text-stone-700 leading-relaxed font-serif text-base">
                   {pillar.crux.methodology}
                 </p>
               </motion.div>
@@ -265,12 +260,12 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
               {pillar.crux.equation && (
                 <motion.div
                   variants={itemVariants}
-                  className="bg-white p-8 rounded-sm border border-black/5"
+                  className="bg-white p-6 rounded-sm border-2 border-stone-200"
                 >
-                  <h5 className="text-sm font-bold text-accent-logos mb-6 font-sans uppercase tracking-widest flex items-center gap-2">
-                    Mathematical Model
+                  <h5 className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 mb-4">
+                    Mathematical Form
                   </h5>
-                  <div className="text-3xl text-accent-logos font-mono overflow-x-auto p-4 bg-parchment rounded-sm border border-black/5">
+                  <div className="text-xl text-stone-800 overflow-x-auto py-4 flex justify-center">
                     <InlineMath math={pillar.crux.equation} />
                   </div>
                 </motion.div>
@@ -278,21 +273,21 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
 
               <motion.div
                 variants={itemVariants}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-black/5"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-stone-200"
               >
-                <div className="p-6 rounded-sm bg-white border border-black/5">
-                  <div className="text-xs text-secondary font-sans uppercase tracking-wider mb-2 font-bold">
+                <div className="p-5 rounded-sm bg-gradient-to-b from-white to-stone-50 border border-stone-200 text-center">
+                  <div className="text-[10px] text-stone-500 font-sans uppercase tracking-[0.35em] mb-2 font-semibold">
                     Verification Status
                   </div>
-                  <div className="text-accent-ethos font-bold font-serif text-lg">
-                    {pillar.crux.verification_status.toUpperCase()}
+                  <div className="text-stone-700 font-bold font-serif text-lg capitalize">
+                    {pillar.crux.verification_status}
                   </div>
                 </div>
-                <div className="p-6 rounded-sm bg-white border border-black/5">
-                  <div className="text-xs text-secondary font-sans uppercase tracking-wider mb-2 font-bold">
+                <div className="p-5 rounded-sm bg-gradient-to-b from-white to-stone-50 border border-stone-200 text-center">
+                  <div className="text-[10px] text-stone-500 font-sans uppercase tracking-[0.35em] mb-2 font-semibold">
                     Cost to Verify
                   </div>
-                  <div className="text-accent-logos font-serif text-lg font-bold">
+                  <div className="text-amber-700 font-serif text-lg font-bold">
                     {pillar.crux.cost_to_verify}
                   </div>
                 </div>
