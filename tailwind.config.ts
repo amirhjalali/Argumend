@@ -36,9 +36,6 @@ const config: Config = {
         "lw-hover": "0 18px 48px rgba(32, 25, 16, 0.12)",
         card: "0 2px 8px -2px rgba(0,0,0,0.1)",
       },
-      backdropBlur: {
-        xs: '2px',
-      },
     },
   },
   plugins: [],

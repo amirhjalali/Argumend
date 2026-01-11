@@ -147,13 +147,6 @@ p {
   fill: currentColor !important;
 }
 
-.lw-glass {
-  backdrop-filter: blur(16px);
-  background-color: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 25px 70px rgba(42, 34, 25, 0.15);
-}
-
 .lw-pill {
   @apply uppercase tracking-[0.2em] text-[10px] text-secondary;
 }

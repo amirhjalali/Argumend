@@ -48,7 +48,7 @@ export function Sidebar({
 
   return (
     <aside
-      className="flex h-full w-[240px] flex-col bg-white/5 backdrop-blur-md p-6 text-primary border-r border-white/10"
+      className="flex h-full w-[240px] flex-col bg-sidebar p-6 text-primary border-r border-stone-200"
     >
 
 
@@ -84,7 +84,7 @@ export function Sidebar({
         </ul>
       </section>
 
-      <hr className="my-6 border-t border-white/20" />
+      <hr className="my-6 border-t border-stone-200" />
 
       <ul className="space-y-2 text-sm text-[#4f4a44]">
         {FOOTER_LINKS.map((link) => (
