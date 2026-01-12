@@ -174,6 +174,70 @@ export const aiRisk: Topic = {
   ],
 };
 
+export const climateChange: Topic = {
+  id: 'climate-change',
+  title: 'Climate Change',
+  meta_claim: 'Climate change is primarily caused by human activity.',
+  confidence_score: 95,
+  status: 'settled',
+  pillars: [
+    {
+      id: 'isotopic-fingerprint',
+      title: 'The Isotopic Fingerprint',
+      short_summary: 'Carbon isotope ratios in atmospheric CO₂ prove fossil fuel origin.',
+      image_url: 'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=800&q=60',
+      icon_name: 'Atom',
+      skeptic_premise: 'CO₂ levels have fluctuated naturally throughout Earth\'s history. The current rise could be from ocean outgassing, volcanic activity, or other natural carbon cycle variations. Correlation with industrialization doesn\'t prove causation.',
+      proponent_rebuttal: 'Fossil fuels have a distinct isotopic signature—they\'re depleted in ¹³C because plants preferentially absorb lighter ¹²C. Since 1850, atmospheric δ¹³C has dropped precisely as predicted if fossil carbon is the source. This isn\'t correlation—it\'s a chemical fingerprint. Additionally, oxygen levels are dropping at the exact ratio expected from combustion (O₂ consumed per CO₂ produced), and ocean pH is declining as CO₂ dissolves. Three independent chemical signatures all point to burning fossil fuels.',
+      crux: {
+        id: 'suess-effect',
+        title: 'The Suess Effect Measurement',
+        description: 'Measure the decline in atmospheric δ¹³C ratio over time to confirm fossil fuel origin.',
+        methodology: 'Extract CO₂ from ice cores (pre-industrial baseline). Compare to modern atmospheric samples. Calculate δ¹³C shift and match to fossil fuel burning rate.',
+        equation: '\\delta^{13}C = \\left(\\frac{(^{13}C/^{12}C)_{sample}}{(^{13}C/^{12}C)_{standard}} - 1\\right) \\times 1000\\text{‰}',
+        verification_status: 'verified',
+        cost_to_verify: '$50K (ice core analysis + mass spectrometry)',
+      },
+    },
+    {
+      id: 'temperature-attribution',
+      title: 'The Temperature Attribution',
+      short_summary: 'Observed warming patterns match greenhouse gas predictions, not natural cycles.',
+      image_url: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60',
+      icon_name: 'Telescope',
+      skeptic_premise: 'Climate models are unreliable—they failed to predict the \'hiatus\' of 1998-2014 and consistently run hotter than observations. The warming could be natural variability we don\'t fully understand. Medieval Warm Period and Roman Climate Optimum show temperatures can shift without human influence.',
+      proponent_rebuttal: 'Climate models successfully hindcast the entire 20th century temperature record, including the mid-century cooling from aerosols. The \'hiatus\' was within model uncertainty bounds and is now understood as Pacific Decadal Oscillation masking. Crucially, models predict specific \'fingerprints\': stratospheric cooling while troposphere warms (greenhouse signature), nights warming faster than days, and polar amplification. All three fingerprints are observed. Natural forcing alone produces a flat or cooling trend for 1950-present—only adding anthropogenic forcing matches reality.',
+      crux: {
+        id: 'fingerprint-detection',
+        title: 'The Fingerprint Detection Test',
+        description: 'Detect greenhouse-specific warming patterns vs solar/volcanic patterns.',
+        methodology: 'Run climate models with natural forcing only (solar + volcanic). Run models with anthropogenic forcing only (GHG + aerosols). Run combined forcing. Statistical detection of which pattern matches observed record.',
+        equation: 'y(t) = \\beta_1 X_{natural}(t) + \\beta_2 X_{anthropogenic}(t) + \\varepsilon(t)',
+        verification_status: 'verified',
+        cost_to_verify: '$500K (supercomputer time + multi-model ensemble)',
+      },
+    },
+    {
+      id: 'natural-factors-elimination',
+      title: 'The Natural Factors Elimination',
+      short_summary: 'Solar activity, volcanic cycles, and orbital variations cannot explain the observed warming trend.',
+      image_url: 'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=60',
+      icon_name: 'Shield',
+      skeptic_premise: 'The Sun drives Earth\'s climate—small changes in solar output could have outsized effects through cosmic ray modulation or UV-ozone interactions. We\'ve only been measuring solar irradiance directly since 1978. Historical correlations between solar cycles and climate are well-documented. Perhaps we\'re underestimating natural variability.',
+      proponent_rebuttal: 'Solar irradiance has been flat or slightly declining since 1980 while temperatures accelerated upward—the correlation broke. Cosmic ray flux shows no trend matching temperature. Volcanic eruptions cause temporary cooling (Pinatubo 1991 clearly visible), confirming models work, but there\'s no volcanic trend to explain warming. Orbital (Milankovitch) cycles operate on 10,000+ year timescales and currently favor slight cooling. When you sum all natural factors, you get near-zero forcing since 1950. The energy imbalance (0.5-1 W/m²) measured by satellites requires an additional forcing—greenhouse gases are the only candidate that fits.',
+      crux: {
+        id: 'energy-budget-closure',
+        title: 'The Energy Budget Closure Test',
+        description: 'Account for all energy inputs and outputs to identify the forcing source.',
+        methodology: 'Measure incoming solar radiation (satellites). Measure outgoing longwave radiation (satellites). Calculate ocean heat uptake (Argo floats). Sum all known natural forcings. Identify residual requiring anthropogenic explanation.',
+        equation: '\\Delta Q = F - \\lambda \\Delta T',
+        verification_status: 'verified',
+        cost_to_verify: '$2M (satellite data + Argo network analysis)',
+      },
+    },
+  ],
+};
+
 export const freeWill: Topic = {
   id: 'free-will',
   title: 'Free Will',
@@ -238,4 +302,4 @@ export const freeWill: Topic = {
   ],
 };
 
-export const topics: Topic[] = [moonLanding, simulationHypothesis, aiRisk, freeWill];
+export const topics: Topic[] = [moonLanding, simulationHypothesis, aiRisk, freeWill, climateChange];
