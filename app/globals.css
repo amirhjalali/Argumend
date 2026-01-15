@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 @import 'katex/dist/katex.min.css';
 
 @tailwind base;
@@ -18,6 +18,9 @@ body {
   background-color: #f4f1eb;
   color: #1f1f1d;
   min-height: 100%;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -25,43 +28,98 @@ body {
   isolation: isolate;
 }
 
+/* Refined background with subtle texture */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 55%),
-    linear-gradient(120deg, rgba(244, 240, 233, 0.95), rgba(214, 208, 197, 0.85)),
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.8), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(255, 252, 247, 0.6), transparent 40%),
+    linear-gradient(135deg, rgba(244, 240, 233, 0.98), rgba(228, 222, 211, 0.92)),
     url("/images/lw-background.jpg");
   background-size: cover;
   background-position: center;
-  opacity: 0.55;
-  filter: saturate(0.75);
+  opacity: 0.5;
+  filter: saturate(0.7) contrast(0.95);
   z-index: -2;
 }
 
+/* Subtle noise texture overlay */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.7), transparent 60%);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.015;
   z-index: -1;
   pointer-events: none;
 }
 
+/* Typography refinements */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'EB Garamond', serif;
-  letter-spacing: -0.01em;
+  font-family: 'EB Garamond', Georgia, serif;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.25;
 }
 
 p {
   font-family: 'Source Sans 3', sans-serif;
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4cec4;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bdb5ab;
+  background-clip: content-box;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(79, 123, 119, 0.15);
+  color: #3d5f5c;
 }
 
 @layer base {
   body {
-    @apply bg-canvas text-primary selection:bg-accent-link/15 selection:text-accent-link antialiased;
+    @apply bg-canvas text-primary antialiased;
   }
 }
 
@@ -71,7 +129,10 @@ p {
   }
 }
 
-/* React Flow Customization */
+/* ═══════════════════════════════════════════════════════════════════════════
+   React Flow Customization - Refined Classical Style
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 .react-flow__pane {
   cursor: grab;
 }
@@ -80,35 +141,46 @@ p {
   cursor: grabbing;
 }
 
+/* Edge styling */
 .react-flow__edge-path {
   stroke-linecap: round;
-  stroke-width: 1.3px;
+  stroke-width: 1.5px;
 }
 
 .logic-edge path {
-  stroke: rgba(111, 128, 123, 0.6);
-  filter: drop-shadow(0 0 8px rgba(78, 87, 83, 0.25));
+  stroke: rgba(111, 128, 123, 0.5);
+  filter: drop-shadow(0 1px 3px rgba(78, 87, 83, 0.15));
 }
 
+/* Handle styling */
 .logic-handle {
   width: 10px !important;
   height: 10px !important;
-  border: 1px solid rgba(112, 122, 118, 0.4) !important;
-  background: #fffdfa !important;
+  border: 1.5px solid rgba(112, 122, 118, 0.35) !important;
+  background: linear-gradient(135deg, #fffdfb, #f8f5f0) !important;
   border-radius: 50% !important;
-  box-shadow: 0 3px 10px rgba(15, 12, 8, 0.12);
+  box-shadow:
+    0 2px 6px rgba(15, 12, 8, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  transition: all 0.2s ease !important;
 }
 
-/* Minimap - "Map Legend" Style */
+.logic-handle:hover {
+  border-color: rgba(79, 123, 119, 0.5) !important;
+  transform: scale(1.15);
+}
+
+/* Minimap - Refined "Map Legend" Style */
 .logic-minimap {
-  border-radius: 4px !important;
+  border-radius: 8px !important;
   overflow: hidden;
-  border: 2px solid #d6cdbf !important;
-  background-color: #f4f1eb !important; /* Match canvas */
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06),
-    inset 0 0 20px rgba(168, 162, 158, 0.2) !important; /* Inner shadow for depth */
+  border: 1px solid #ddd5c8 !important;
+  background: linear-gradient(135deg, #f8f5f0, #f4f1eb) !important;
+  box-shadow:
+    0 4px 12px -2px rgba(0, 0, 0, 0.08),
+    0 2px 4px -1px rgba(0, 0, 0, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+    inset 0 0 20px rgba(168, 162, 158, 0.1) !important;
 }
 
 .logic-minimap .react-flow__minimap-mask {
@@ -116,22 +188,27 @@ p {
 }
 
 .logic-minimap svg {
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
-/* Controls - "Stone/Paper" Style */
+/* Controls - Elegant Floating Style */
 .react-flow__controls {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-  border: 1px solid #e7e0d5 !important;
-  border-radius: 8px !important;
+  box-shadow:
+    0 4px 12px -2px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid #e8e0d4 !important;
+  border-radius: 10px !important;
   overflow: hidden;
+  background: transparent !important;
 }
 
 .react-flow__controls-button {
-  background-color: #fdfaf6 !important;
-  border-bottom: 1px solid #e7e0d5 !important;
-  color: #6d645c !important;
-  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #fffcf8, #f8f5f0) !important;
+  border-bottom: 1px solid #ebe6de !important;
+  color: #7a7268 !important;
+  transition: all 0.2s ease !important;
+  width: 32px !important;
+  height: 32px !important;
 }
 
 .react-flow__controls-button:last-child {
@@ -139,14 +216,44 @@ p {
 }
 
 .react-flow__controls-button:hover {
-  background-color: #f4f1eb !important;
-  color: #1f1f1d !important;
+  background: linear-gradient(135deg, #f8f5f0, #f0ebe3) !important;
+  color: #3d3a36 !important;
+}
+
+.react-flow__controls-button:active {
+  background: #ebe6de !important;
 }
 
 .react-flow__controls-button svg {
   fill: currentColor !important;
+  width: 14px !important;
+  height: 14px !important;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   Utility Classes
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 .lw-pill {
-  @apply uppercase tracking-[0.2em] text-[10px] text-secondary;
+  @apply uppercase tracking-[0.2em] text-[10px] text-secondary font-semibold;
+}
+
+/* Focus ring styling */
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4f7b77]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4f1eb];
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, [role="button"] {
+  transition: all 0.2s ease;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.1);
 }

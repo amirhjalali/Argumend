@@ -87,13 +87,17 @@ function CanvasExperience() {
       <TopBar onMenuClick={() => setIsSidebarOpen((prev) => !prev)} />
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
+        {/* Sidebar Container - smooth slide animation */}
         <div
-          className={`relative h-full overflow-hidden transition-[width] duration-300 ease-in-out ${isSidebarOpen ? "w-[240px]" : "w-0"
-            }`}
+          className={`relative flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            isSidebarOpen ? "w-[260px]" : "w-0"
+          }`}
         >
+          {/* Sidebar - slides in from left */}
           <div
-            className={`h-full transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-              }`}
+            className={`absolute inset-y-0 left-0 w-[260px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
           >
             <Sidebar
               isOpen={isSidebarOpen}
@@ -102,10 +106,24 @@ function CanvasExperience() {
               onTopicSelect={setTopic}
             />
           </div>
+
+          {/* Shadow overlay when sidebar is open - adds depth */}
+          <div
+            className={`absolute inset-y-0 right-0 w-4 pointer-events-none transition-opacity duration-300 ${
+              isSidebarOpen ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              background: "linear-gradient(to right, rgba(0,0,0,0.04), transparent)",
+            }}
+          />
         </div>
 
-        <div className="min-h-0 w-full flex-shrink-0 px-0 pb-4 pt-0 transition-all duration-300 ease-in-out md:w-auto md:flex-1 md:px-0">
-          <div className="relative h-full min-h-[80vh] overflow-hidden border-y border-white/40 bg-transparent">
+        {/* Canvas Area */}
+        <div className="relative flex-1 min-w-0">
+          {/* Canvas inner shadow for depth */}
+          <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_4px_0_12px_-4px_rgba(0,0,0,0.06)]" />
+
+          <div className="h-full">
             <ReactFlow
               className="h-full w-full"
               nodes={nodes}
@@ -125,11 +143,11 @@ function CanvasExperience() {
               fitView
             >
               <Background
-                color="#d4cec4"
-                gap={30}
-                size={1.6}
+                color="#cdc6bb"
+                gap={24}
+                size={1.2}
                 variant={BackgroundVariant.Dots}
-                className="opacity-60"
+                className="opacity-50"
               />
               <Controls
                 position="top-right"
@@ -142,22 +160,30 @@ function CanvasExperience() {
                 className="logic-minimap hidden md:block"
                 style={{
                   position: "absolute",
-                  width: 200,
-                  height: 150,
-                  bottom: 48,
-                  right: 44,
+                  width: 180,
+                  height: 120,
+                  bottom: 24,
+                  right: 24,
                   zIndex: 50,
                   pointerEvents: "auto",
                 }}
                 nodeColor={getMiniMapColor}
                 nodeStrokeColor={() => "transparent"}
-                maskColor="rgba(244, 241, 235, 0.7)"
+                maskColor="rgba(244, 241, 235, 0.75)"
               />
             </ReactFlow>
 
             <CruxModal />
           </div>
         </div>
+
+        {/* Mobile overlay when sidebar is open */}
+        {isSidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/20 backdrop-blur-[1px] z-30 md:hidden transition-opacity duration-300"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        )}
       </div>
     </div>
   );
