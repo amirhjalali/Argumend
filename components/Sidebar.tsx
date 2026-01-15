@@ -2,14 +2,26 @@
 
 import Link from "next/link";
 import {
+  BookOpen,
   Compass,
   HelpCircle,
+  Layers,
+  ListChecks,
+  Users,
 } from "lucide-react";
 import { topics } from "@/data/topics";
 
 const PRIMARY_NAV = [
   { label: "Home", icon: Compass, href: "/" },
+  { label: "All Topics", icon: ListChecks, href: "/topics" },
+  { label: "Concepts", icon: Layers, href: "/concepts" },
+  { label: "Library", icon: BookOpen, href: "/library" },
+  { label: "Community", icon: Users, href: "/community" },
   { label: "About", icon: HelpCircle, href: "/about" },
+];
+
+const FOOTER_LINKS = [
+  { label: "FAQ", href: "/faq" },
 ];
 
 interface SidebarProps {
@@ -71,6 +83,20 @@ export function Sidebar({
         </ul>
       </section>
 
+      <div className="mt-auto pt-6 border-t border-stone-200">
+        <ul className="space-y-2 text-sm">
+          {FOOTER_LINKS.map(({ label, href }) => (
+            <li key={label}>
+              <Link
+                href={href}
+                className="font-sans tracking-wide text-[#6f655c] hover:text-primary transition-colors"
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </aside>
   );
 }
