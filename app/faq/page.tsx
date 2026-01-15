@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+"use client";
+
+import { AppShell } from "@/components/AppShell";
 
 const faqs = [
   {
@@ -46,30 +47,22 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-[#f5f0e8]">
-      <div className="mx-auto max-w-3xl px-6 py-16">
-        <Link
-          href="/"
-          className="mb-12 inline-flex items-center gap-2 text-sm text-[#6a5f56] hover:text-[#3d3a36] transition-colors"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Canvas
-        </Link>
-
+    <AppShell>
+      <div className="mx-auto max-w-3xl px-8 py-12">
         <h1 className="font-serif text-4xl tracking-tight text-[#3d3a36] mb-4">
           Frequently Asked Questions
         </h1>
-        <p className="text-lg text-[#6a5f56] mb-12">
+        <p className="text-lg text-[#6a5f56] mb-10">
           Common questions about the platform and our methodology.
         </p>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg p-6 shadow-sm border border-stone-200"
+              className="bg-white/80 rounded-xl p-5 border border-[#e8e0d4]"
             >
-              <h2 className="font-serif text-lg text-[#3d3a36] mb-3">
+              <h2 className="font-serif text-lg text-[#3d3a36] mb-2">
                 {faq.question}
               </h2>
               <p className="text-[#4e473f] leading-relaxed">
@@ -79,12 +72,12 @@ export default function FAQPage() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-stone-300">
+        <div className="mt-12 pt-8 border-t border-stone-200">
           <p className="text-sm text-[#6a5f56]">
             Have a question not answered here? Visit the Community page to learn how to reach us.
           </p>
         </div>
       </div>
-    </div>
+    </AppShell>
   );
 }

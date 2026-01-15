@@ -1,5 +1,7 @@
-import Link from "next/link";
-import { ArrowLeft, Target, Layers, FlaskConical, Scale } from "lucide-react";
+"use client";
+
+import { Target, Layers, FlaskConical, Scale } from "lucide-react";
+import { AppShell } from "@/components/AppShell";
 
 const concepts = [
   {
@@ -30,32 +32,24 @@ const concepts = [
 
 export default function ConceptsPage() {
   return (
-    <div className="min-h-screen bg-[#f5f0e8]">
-      <div className="mx-auto max-w-3xl px-6 py-16">
-        <Link
-          href="/"
-          className="mb-12 inline-flex items-center gap-2 text-sm text-[#6a5f56] hover:text-[#3d3a36] transition-colors"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Canvas
-        </Link>
-
+    <AppShell>
+      <div className="mx-auto max-w-3xl px-8 py-12">
         <h1 className="font-serif text-4xl tracking-tight text-[#3d3a36] mb-4">
           Key Concepts
         </h1>
-        <p className="text-lg text-[#6a5f56] mb-12">
+        <p className="text-lg text-[#6a5f56] mb-10">
           Understanding the framework behind structured argumentation.
         </p>
 
-        <div className="space-y-8">
+        <div className="space-y-5">
           {concepts.map((concept) => (
             <div
               key={concept.title}
-              className="bg-white rounded-lg p-6 shadow-sm border border-stone-200"
+              className="bg-white/80 rounded-xl p-6 border border-[#e8e0d4]"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#f5f0e8] rounded-lg">
-                  <concept.icon className="h-6 w-6 text-[#3d3a36]" />
+                <div className="p-3 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] rounded-lg border border-[#e8e0d4]">
+                  <concept.icon className="h-5 w-5 text-[#4f7b77]" strokeWidth={1.8} />
                 </div>
                 <div>
                   <h2 className="font-serif text-xl text-[#3d3a36] mb-1">
@@ -73,7 +67,7 @@ export default function ConceptsPage() {
           ))}
         </div>
 
-        <div className="mt-12 bg-white rounded-lg p-6 shadow-sm border border-stone-200">
+        <div className="mt-10 bg-white/80 rounded-xl p-6 border border-[#e8e0d4]">
           <h2 className="font-serif text-xl text-[#3d3a36] mb-3">
             The Methodology
           </h2>
@@ -81,31 +75,31 @@ export default function ConceptsPage() {
             Our approach draws from several traditions:
           </p>
           <ul className="space-y-2 text-[#4e473f]">
-            <li className="flex items-start gap-2">
-              <span className="text-[#6a5f56]">&bull;</span>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4f7b77] mt-2 flex-shrink-0" />
               <span><strong>Steel-manning</strong> — presenting the strongest version of opposing arguments</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-[#6a5f56]">&bull;</span>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4f7b77] mt-2 flex-shrink-0" />
               <span><strong>Crux identification</strong> — finding the precise point where disagreements hinge</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-[#6a5f56]">&bull;</span>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4f7b77] mt-2 flex-shrink-0" />
               <span><strong>Bayesian reasoning</strong> — updating confidence based on evidence</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-[#6a5f56]">&bull;</span>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4f7b77] mt-2 flex-shrink-0" />
               <span><strong>Falsificationism</strong> — focusing on what could prove a claim wrong</span>
             </li>
           </ul>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-stone-300">
+        <div className="mt-12 pt-8 border-t border-stone-200">
           <p className="text-sm text-[#6a5f56]">
             These concepts form the backbone of productive disagreement.
           </p>
         </div>
       </div>
-    </div>
+    </AppShell>
   );
 }

@@ -1,5 +1,7 @@
-import Link from "next/link";
-import { ArrowLeft, MessageSquare, Shield, Scale, Lightbulb } from "lucide-react";
+"use client";
+
+import { MessageSquare, Shield, Scale, Lightbulb } from "lucide-react";
+import { AppShell } from "@/components/AppShell";
 
 const principles = [
   {
@@ -41,42 +43,34 @@ const contributing = [
 
 export default function CommunityPage() {
   return (
-    <div className="min-h-screen bg-[#f5f0e8]">
-      <div className="mx-auto max-w-3xl px-6 py-16">
-        <Link
-          href="/"
-          className="mb-12 inline-flex items-center gap-2 text-sm text-[#6a5f56] hover:text-[#3d3a36] transition-colors"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Canvas
-        </Link>
-
+    <AppShell>
+      <div className="mx-auto max-w-3xl px-8 py-12">
         <h1 className="font-serif text-4xl tracking-tight text-[#3d3a36] mb-4">
           Community
         </h1>
-        <p className="text-lg text-[#6a5f56] mb-12">
+        <p className="text-lg text-[#6a5f56] mb-10">
           Guidelines for productive discourse and how to contribute.
         </p>
 
-        <section className="mb-12">
-          <h2 className="font-serif text-2xl text-[#3d3a36] mb-6">
+        <section className="mb-10">
+          <h2 className="font-serif text-2xl text-[#3d3a36] mb-5">
             Discussion Principles
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {principles.map((principle) => (
               <div
                 key={principle.title}
-                className="bg-white rounded-lg p-5 shadow-sm border border-stone-200"
+                className="bg-white/80 rounded-xl p-5 border border-[#e8e0d4]"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-2 bg-[#f5f0e8] rounded-lg">
-                    <principle.icon className="h-5 w-5 text-[#3d3a36]" />
+                  <div className="p-2.5 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] rounded-lg border border-[#e8e0d4]">
+                    <principle.icon className="h-4 w-4 text-[#4f7b77]" strokeWidth={1.8} />
                   </div>
                   <div>
                     <h3 className="font-serif text-lg text-[#3d3a36] mb-1">
                       {principle.title}
                     </h3>
-                    <p className="text-[#4e473f]">
+                    <p className="text-[#4e473f] leading-relaxed">
                       {principle.description}
                     </p>
                   </div>
@@ -86,17 +80,17 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        <section className="mb-12">
-          <h2 className="font-serif text-2xl text-[#3d3a36] mb-6">
+        <section className="mb-10">
+          <h2 className="font-serif text-2xl text-[#3d3a36] mb-5">
             How to Contribute
           </h2>
-          <div className="bg-white rounded-lg shadow-sm border border-stone-200 divide-y divide-stone-100">
+          <div className="bg-white/80 rounded-xl border border-[#e8e0d4] divide-y divide-[#e8e0d4]">
             {contributing.map((item) => (
               <div key={item.title} className="p-5">
                 <h3 className="font-serif text-lg text-[#3d3a36] mb-2">
                   {item.title}
                 </h3>
-                <p className="text-[#4e473f]">
+                <p className="text-[#4e473f] leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -104,7 +98,7 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        <section className="bg-[#3d3a36] text-white rounded-lg p-6">
+        <section className="bg-gradient-to-br from-[#3d3a36] to-[#2a2826] text-white rounded-xl p-6">
           <h2 className="font-serif text-xl mb-3">
             The Ideological Turing Test
           </h2>
@@ -116,12 +110,12 @@ export default function CommunityPage() {
           </p>
         </section>
 
-        <div className="mt-12 pt-8 border-t border-stone-300">
+        <div className="mt-12 pt-8 border-t border-stone-200">
           <p className="text-sm text-[#6a5f56]">
             Good discourse is a skill. These principles help us practice it together.
           </p>
         </div>
       </div>
-    </div>
+    </AppShell>
   );
 }

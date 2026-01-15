@@ -1,18 +1,11 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+"use client";
+
+import { AppShell } from "@/components/AppShell";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#f5f0e8]">
-      <div className="mx-auto max-w-2xl px-6 py-16">
-        <Link
-          href="/"
-          className="mb-12 inline-flex items-center gap-2 text-sm text-[#6a5f56] hover:text-[#3d3a36] transition-colors"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Topics
-        </Link>
-
+    <AppShell>
+      <div className="mx-auto max-w-2xl px-8 py-12">
         <h1 className="font-serif text-4xl tracking-tight text-[#3d3a36] mb-8">
           About Argumend
         </h1>
@@ -63,6 +56,6 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-    </div>
+    </AppShell>
   );
 }

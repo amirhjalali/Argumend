@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Search, Sparkles } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 
 interface TopBarProps {
   onMenuClick?: () => void;
@@ -21,12 +21,6 @@ export function TopBar({ onMenuClick }: TopBarProps) {
         </button>
 
         <Link href="/" className="group flex items-center gap-3">
-          {/* Logo mark */}
-          <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#4f7b77] to-[#3d5f5c] shadow-[0_2px_8px_rgba(79,123,119,0.3),inset_0_1px_0_rgba(255,255,255,0.15)]">
-            <Sparkles className="h-4 w-4 text-white/90" strokeWidth={2} />
-          </div>
-
-          {/* Wordmark */}
           <div className="flex flex-col">
             <span className="font-serif text-xl font-medium tracking-[0.12em] text-primary leading-none">
               ARGUMEND
