@@ -57,6 +57,19 @@ const topicConfigs: Record<string, {
       { id: "q2", title: "Does determinism undermine responsibility?", content: "If our choices are the inevitable result of prior causes, can we meaningfully hold people accountable for their actions?", imageUrl: "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=800&q=60" },
       { id: "q3", title: "What would 'genuine' choice require?", content: "For free will to be 'real,' what conditions must be met? Could any physical system satisfy those conditions?", imageUrl: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=60" }
     ]
+  },
+  'climate-change': {
+    imageUrl: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60',
+    references: [
+      { title: "IPCC Sixth Assessment Report (2021)", url: "https://www.ipcc.ch/assessment-report/ar6/" },
+      { title: "NASA Climate Evidence", url: "https://climate.nasa.gov/evidence/" },
+      { title: "The Suess Effect Explained", url: "https://en.wikipedia.org/wiki/Suess_effect" }
+    ],
+    questions: [
+      { id: "q1", title: "How do we know CO₂ is from humans?", content: "What specific evidence distinguishes human-produced CO₂ from natural sources like volcanic activity or ocean outgassing?", imageUrl: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=800&q=60", references: [{ title: "Carbon Isotope Analysis", url: "https://www.esrl.noaa.gov/gmd/outreach/isotopes/" }] },
+      { id: "q2", title: "Why trust climate models?", content: "Climate models have been criticized for running 'too hot.' How do we validate model predictions against observations?", imageUrl: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60" },
+      { id: "q3", title: "Could the Sun be responsible?", content: "Solar activity has historically correlated with climate. Why do scientists rule out the Sun as the primary driver of recent warming?", imageUrl: "https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=60" }
+    ]
   }
 };
 
