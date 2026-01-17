@@ -87,11 +87,21 @@ function CanvasExperience() {
       <TopBar onMenuClick={() => setIsSidebarOpen((prev) => !prev)} />
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
-        {/* Sidebar Container - smooth slide animation */}
+        {/* Mobile overlay when sidebar is open - below sidebar */}
         <div
-          className={`relative flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-            isSidebarOpen ? "w-[260px]" : "w-0"
+          className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
+            isSidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
+          onClick={() => setIsSidebarOpen(false)}
+        />
+
+        {/* Sidebar Container - fixed on mobile, relative on desktop */}
+        <div
+          className={`
+            fixed md:relative inset-y-0 left-0 z-40 md:z-auto
+            flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+            ${isSidebarOpen ? "w-[260px]" : "w-0 md:w-0"}
+          `}
         >
           {/* Sidebar - slides in from left */}
           <div
@@ -107,9 +117,9 @@ function CanvasExperience() {
             />
           </div>
 
-          {/* Shadow overlay when sidebar is open - adds depth */}
+          {/* Shadow overlay when sidebar is open - adds depth (desktop only) */}
           <div
-            className={`absolute inset-y-0 right-0 w-4 pointer-events-none transition-opacity duration-300 ${
+            className={`hidden md:block absolute inset-y-0 right-0 w-4 pointer-events-none transition-opacity duration-300 ${
               isSidebarOpen ? "opacity-100" : "opacity-0"
             }`}
             style={{
@@ -176,14 +186,6 @@ function CanvasExperience() {
             <CruxModal />
           </div>
         </div>
-
-        {/* Mobile overlay when sidebar is open */}
-        {isSidebarOpen && (
-          <div
-            className="fixed inset-0 bg-black/20 backdrop-blur-[1px] z-30 md:hidden transition-opacity duration-300"
-            onClick={() => setIsSidebarOpen(false)}
-          />
-        )}
       </div>
     </div>
   );
