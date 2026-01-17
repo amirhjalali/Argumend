@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   BookOpen,
   Compass,
+  Eye,
   HelpCircle,
   Layers,
   ListChecks,
@@ -18,6 +19,7 @@ const PRIMARY_NAV = [
   { label: "Home", icon: Compass, href: "/" },
   { label: "All Topics", icon: ListChecks, href: "/topics" },
   { label: "Concepts", icon: Layers, href: "/concepts" },
+  { label: "Perspectives", icon: Eye, href: "/perspectives" },
   { label: "Library", icon: BookOpen, href: "/library" },
   { label: "Community", icon: Users, href: "/community" },
   { label: "About", icon: HelpCircle, href: "/about" },
