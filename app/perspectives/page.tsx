@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AppShell } from "@/components/AppShell";
 import { Clock, Rewind, Users, MessageCircle, Target, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 interface Scene {
   id: string;
@@ -31,27 +32,15 @@ const scenes: Scene[] = [
       </p>
     ),
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#c9a67a]/20 to-[#8b7355]/30 rounded-2xl" />
-        <div className="relative z-10 text-center">
-          <div className="flex items-end justify-center gap-8 mb-8">
-            {/* Aggressor figure */}
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-[#c4584d]/80 mb-2" />
-              <div className="w-12 h-24 rounded-t-full bg-[#c4584d]/60" />
-              <span className="mt-3 text-sm font-medium text-[#c4584d]">Aggressor</span>
-            </div>
-            {/* Push action */}
-            <div className="text-4xl text-[#8b7355] -mx-4 mb-12">→</div>
-            {/* Victim figure (falling) */}
-            <div className="flex flex-col items-center rotate-[25deg] translate-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#4f7b77]/80 mb-2" />
-              <div className="w-12 h-24 rounded-t-full bg-[#4f7b77]/60" />
-              <span className="mt-3 text-sm font-medium text-[#4f7b77] -rotate-[25deg]">Victim</span>
-            </div>
-          </div>
-          <p className="text-sm text-[#6a5f56] italic">&ldquo;I saw the whole thing.&rdquo;</p>
-        </div>
+      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
+        <Image
+          src="/images/perspectives/moment.png"
+          alt="The Aggressor pushing The Victim on a busy street"
+          fill
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
+        />
       </div>
     ),
     bgClass: "from-[#f5f0e8] to-[#ebe4d8]",
@@ -74,30 +63,15 @@ const scenes: Scene[] = [
       </p>
     ),
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#7a9a8a]/20 to-[#5a7a6a]/30 rounded-2xl" />
-        <div className="relative z-10 text-center">
-          <div className="flex items-end justify-center gap-8 mb-8">
-            {/* Person A - defending */}
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-[#4f7b77]/80 mb-2" />
-              <div className="w-12 h-24 rounded-t-full bg-[#4f7b77]/60" />
-              <span className="mt-3 text-sm font-medium text-[#4f7b77]">Defending?</span>
-            </div>
-            {/* Bag being grabbed */}
-            <div className="flex flex-col items-center -mx-4">
-              <div className="w-8 h-10 bg-[#8b7355] rounded-md mb-1" />
-              <span className="text-xs text-[#6a5f56]">bag</span>
-            </div>
-            {/* Person B - grabbing */}
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-[#c4584d]/80 mb-2" />
-              <div className="w-12 h-24 rounded-t-full bg-[#c4584d]/60" />
-              <span className="mt-3 text-sm font-medium text-[#c4584d]">Stealing?</span>
-            </div>
-          </div>
-          <p className="text-sm text-[#6a5f56] italic">&ldquo;Wait, I didn&apos;t see that part...&rdquo;</p>
-        </div>
+      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
+        <Image
+          src="/images/perspectives/rewind.png"
+          alt="30 seconds earlier: Struggle over a bag"
+          fill
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
+        />
       </div>
     ),
     bgClass: "from-[#f0ebe4] to-[#e5ddd0]",
@@ -120,29 +94,15 @@ const scenes: Scene[] = [
       </p>
     ),
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#a89a7a]/20 to-[#8a7a5a]/30 rounded-2xl" />
-        <div className="relative z-10 text-center">
-          <div className="flex items-center justify-center gap-6 mb-8">
-            {/* Timeline showing the real sequence */}
-            <div className="flex flex-col items-center p-4 bg-white/50 rounded-xl">
-              <Clock className="h-6 w-6 text-[#6a5f56] mb-2" />
-              <span className="text-xs text-[#6a5f56]">First:</span>
-              <span className="text-sm font-medium text-[#c4584d]">Pickpocket</span>
-            </div>
-            <div className="text-2xl text-[#8b7355]">→</div>
-            <div className="flex flex-col items-center p-4 bg-white/50 rounded-xl">
-              <span className="text-xs text-[#6a5f56]">Then:</span>
-              <span className="text-sm font-medium text-[#4f7b77]">Recovery</span>
-            </div>
-            <div className="text-2xl text-[#8b7355]">→</div>
-            <div className="flex flex-col items-center p-4 bg-white/50 rounded-xl">
-              <span className="text-xs text-[#6a5f56]">Finally:</span>
-              <span className="text-sm font-medium text-[#8b7355]">The shove</span>
-            </div>
-          </div>
-          <p className="text-sm text-[#6a5f56] italic">&ldquo;I only arrived at the end...&rdquo;</p>
-        </div>
+      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
+        <Image
+          src="/images/perspectives/context.png"
+          alt="2 minutes earlier: The pickpocket revealed"
+          fill
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
+        />
       </div>
     ),
     bgClass: "from-[#ebe6de] to-[#dfd8cc]",
@@ -165,31 +125,15 @@ const scenes: Scene[] = [
       </p>
     ),
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#8a8a9a]/20 to-[#6a6a7a]/30 rounded-2xl" />
-        <div className="relative z-10 text-center">
-          <div className="flex items-center justify-center gap-12 mb-8">
-            {/* The scene (small) */}
-            <div className="flex items-center gap-2 p-4 bg-white/30 rounded-xl opacity-60">
-              <div className="w-8 h-8 rounded-full bg-[#4f7b77]/60" />
-              <div className="w-4 h-5 bg-[#8b7355] rounded" />
-              <div className="w-8 h-8 rounded-full bg-[#c4584d]/60" />
-            </div>
-            {/* The witness */}
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full bg-[#6a6a7a]/80 mb-2 flex items-center justify-center">
-                <span className="text-3xl">👁️</span>
-              </div>
-              <span className="text-sm font-medium text-[#6a6a7a]">Witness C</span>
-              <div className="mt-3 p-3 bg-white/50 rounded-lg max-w-48">
-                <p className="text-xs text-[#4e473f] italic">
-                  &ldquo;They were both grabbing the bag and shoving each other.
-                  Looked like a mutual fight to me.&rdquo;
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
+        <Image
+          src="/images/perspectives/witness.png"
+          alt="Third witness watching from a cafe"
+          fill
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
+        />
       </div>
     ),
     bgClass: "from-[#e8e4de] to-[#dcd6ce]",
@@ -214,40 +158,15 @@ const scenes: Scene[] = [
       </p>
     ),
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#9a8a7a]/20 to-[#7a6a5a]/30 rounded-2xl" />
-        <div className="relative z-10">
-          {/* Branching quotes */}
-          <div className="flex flex-col items-center gap-4">
-            <div className="p-3 bg-white/70 rounded-lg border border-[#ddd5c8] shadow-sm">
-              <p className="text-sm text-[#4e473f]">Original: &ldquo;A shove&rdquo;</p>
-            </div>
-            <div className="text-xl text-[#8b7355]">↓</div>
-            <div className="flex gap-4">
-              <div className="p-2 bg-white/50 rounded-lg border border-[#ddd5c8] rotate-[-5deg]">
-                <p className="text-xs text-[#6a5f56]">&ldquo;A fight&rdquo;</p>
-              </div>
-              <div className="p-2 bg-white/50 rounded-lg border border-[#ddd5c8] rotate-[3deg]">
-                <p className="text-xs text-[#6a5f56]">&ldquo;An attack&rdquo;</p>
-              </div>
-            </div>
-            <div className="text-xl text-[#8b7355]">↓</div>
-            <div className="flex gap-3 flex-wrap justify-center max-w-80">
-              <div className="p-2 bg-white/30 rounded border border-[#ddd5c8]/50 rotate-[-8deg]">
-                <p className="text-[10px] text-[#8a8279]">&ldquo;robbery&rdquo;</p>
-              </div>
-              <div className="p-2 bg-white/30 rounded border border-[#ddd5c8]/50 rotate-[5deg]">
-                <p className="text-[10px] text-[#8a8279]">&ldquo;gang related&rdquo;</p>
-              </div>
-              <div className="p-2 bg-white/30 rounded border border-[#ddd5c8]/50 rotate-[-3deg]">
-                <p className="text-[10px] text-[#8a8279]">&ldquo;a knife&rdquo;</p>
-              </div>
-              <div className="p-2 bg-white/30 rounded border border-[#ddd5c8]/50 rotate-[7deg]">
-                <p className="text-[10px] text-[#8a8279]">&ldquo;hospitalized&rdquo;</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
+        <Image
+          src="/images/perspectives/rumors.png"
+          alt="Rumors spreading and distorting the truth"
+          fill
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
+        />
       </div>
     ),
     bgClass: "from-[#e5e0d8] to-[#d8d0c4]",
@@ -272,30 +191,15 @@ const scenes: Scene[] = [
       </p>
     ),
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#7a7a8a]/20 to-[#5a5a6a]/30 rounded-2xl" />
-        <div className="relative z-10">
-          <div className="grid grid-cols-3 gap-6">
-            {/* Journalist */}
-            <div className="flex flex-col items-center p-4 bg-white/50 rounded-xl">
-              <div className="text-3xl mb-2">📰</div>
-              <span className="text-sm font-medium text-[#4e473f]">Journalist</span>
-              <p className="text-xs text-[#6a5f56] text-center mt-2 italic">&ldquo;Violence erupts on Main St&rdquo;</p>
-            </div>
-            {/* Friend */}
-            <div className="flex flex-col items-center p-4 bg-white/50 rounded-xl">
-              <div className="text-3xl mb-2">🤝</div>
-              <span className="text-sm font-medium text-[#4e473f]">The Friend</span>
-              <p className="text-xs text-[#6a5f56] text-center mt-2 italic">&ldquo;They were defending themselves&rdquo;</p>
-            </div>
-            {/* Shop owner */}
-            <div className="flex flex-col items-center p-4 bg-white/50 rounded-xl">
-              <div className="text-3xl mb-2">🏪</div>
-              <span className="text-sm font-medium text-[#4e473f]">Shop Owner</span>
-              <p className="text-xs text-[#6a5f56] text-center mt-2 italic">&ldquo;Both causing trouble&rdquo;</p>
-            </div>
-          </div>
-        </div>
+      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
+        <Image
+          src="/images/perspectives/motivated.png"
+          alt="Different perspectives: Journalist, Friend, Shop Owner"
+          fill
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
+        />
       </div>
     ),
     bgClass: "from-[#e0dcd4] to-[#d4cec4]",
@@ -327,14 +231,15 @@ const scenes: Scene[] = [
       </div>
     ),
     illustration: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#4f7b77]/10 to-[#3d5f5c]/20 rounded-2xl" />
-        <div className="relative z-10 text-center">
-          <div className="text-6xl mb-6">🔮</div>
-          <p className="text-lg font-serif text-[#3d3a36] max-w-64">
-            Truth emerges from the intersection of perspectives, not from any single vantage point.
-          </p>
-        </div>
+      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
+        <Image
+          src="/images/perspectives/synthesis.png"
+          alt="Truth emerging from the intersection of perspectives"
+          fill
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
+        />
       </div>
     ),
     bgClass: "from-[#f5f0e8] to-[#ebe6de]",
@@ -344,9 +249,8 @@ const scenes: Scene[] = [
 function Scene({ scene, isVisible }: { scene: Scene; isVisible: boolean }) {
   return (
     <div
-      className={`min-h-[100vh] flex items-center justify-center px-4 py-16 transition-opacity duration-700 ${
-        isVisible ? "opacity-100" : "opacity-40"
-      } bg-gradient-to-b ${scene.bgClass}`}
+      className={`min-h-[100vh] flex items-center justify-center px-4 py-16 transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-40"
+        } bg-gradient-to-b ${scene.bgClass}`}
     >
       <div className="max-w-5xl w-full grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Text content */}
