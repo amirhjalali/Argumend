@@ -86,7 +86,7 @@ const scenes: Scene[] = [
     content: (
       <p className="text-xl leading-relaxed">
         Two minutes before. The &ldquo;thief&rdquo; is actually the original owner.
-        Their wallet was pickpocketed. They spotted the thief and grabbed it back.
+        Their bag was snatched. They spotted the thief and grabbed it back.
         <br /><br />
         <span className="text-[#3d3a36] font-semibold">They weren&apos;t stealing. They were recovering.</span>
         <br /><br />
@@ -262,6 +262,7 @@ function Scene({ scene, isVisible }: { scene: Scene; isVisible: boolean }) {
                   {scene.icon}
                 </div>
               )}
+              <span className="text-sm font-medium text-[#c4584d]">The Snatch</span>
               <span className="text-sm font-medium uppercase tracking-[0.15em] text-[#4f7b77]">
                 {scene.label}
               </span>
