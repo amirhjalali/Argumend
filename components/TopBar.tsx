@@ -26,7 +26,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
               ARGUMEND
             </span>
             <span className="text-[9px] font-sans font-medium uppercase tracking-[0.25em] text-[#9a918a] leading-none mt-0.5">
-              Logic Mapping
+              Beyond Winning
             </span>
           </div>
         </Link>
