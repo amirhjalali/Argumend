@@ -1,6 +1,7 @@
 "use client";
 
 import { InteractiveContent } from "@/components/InteractiveContent";
+import { ConfidenceGauge } from "@/components/ConfidenceGauge";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
@@ -93,19 +94,12 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         {/* Footer: Score & Action */}
         <div className="flex items-center justify-between border-t border-stone-200 pt-5">
           {typeof data.score === "number" && (
-            <div className="flex items-center gap-3">
-              <span className="font-serif text-4xl font-bold text-stone-700">
-                {data.score.toFixed(0)}%
-              </span>
-              <span className="font-sans text-xs uppercase leading-tight tracking-[0.3em] text-stone-500">
-                Confidence<br />Score
-              </span>
-            </div>
+            <ConfidenceGauge score={data.score} size={100} />
           )}
 
           {data.hasChildren ? (
             <button
-              className="flex items-center gap-2 rounded-sm border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-600 transition-all hover:border-stone-400 hover:text-stone-800 disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-accent-main to-evidence px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-accent-main/20 transition-all hover:shadow-lg hover:shadow-accent-main/30 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
               onClick={() => expandNode(id)}
               disabled={expanded}
             >
@@ -113,7 +107,7 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
               {expanded ? null : <ChevronRight className="h-4 w-4" />}
             </button>
           ) : (
-            <div className="flex items-center gap-2 rounded-sm border border-transparent px-4 py-2 text-sm font-semibold text-stone-400 cursor-default">
+            <div className="flex items-center gap-2 rounded-lg border border-stone-200 px-5 py-2.5 text-sm font-semibold text-stone-400 cursor-default">
               Terminus
             </div>
           )}

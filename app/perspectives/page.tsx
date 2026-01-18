@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AppShell } from "@/components/AppShell";
-import { Clock, Rewind, Users, MessageCircle, Target, Sparkles } from "lucide-react";
+import { Clock, Rewind, Users, MessageCircle, Target, Sparkles, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 interface Scene {
   id: string;
@@ -12,9 +13,10 @@ interface Scene {
   title: string;
   subtitle?: string;
   content: React.ReactNode;
-  illustration: React.ReactNode;
+  imageSrc: string;
+  imageAlt: string;
   crossed?: string;
-  bgClass: string;
+  accentColor: string;
 }
 
 const scenes: Scene[] = [
@@ -23,27 +25,17 @@ const scenes: Scene[] = [
     title: "The Moment",
     subtitle: "What you see is what happened. Obviously.",
     content: (
-      <p className="text-xl leading-relaxed">
+      <p className="text-xl md:text-2xl leading-relaxed">
         A busy street corner. Two people. One shoves the other to the ground.
         <br /><br />
-        <span className="text-[#3d3a36] font-semibold">The aggressor. The victim.</span>
+        <span className="text-primary font-semibold">The aggressor. The victim.</span>
         <br />
         It&apos;s obvious who&apos;s at fault.
       </p>
     ),
-    illustration: (
-      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
-        <Image
-          src="/images/perspectives/moment.png"
-          alt="The Aggressor pushing The Victim on a busy street"
-          fill
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
-        />
-      </div>
-    ),
-    bgClass: "from-[#f5f0e8] to-[#ebe4d8]",
+    imageSrc: "/images/perspectives/moment.png",
+    imageAlt: "The Aggressor pushing The Victim on a busy street",
+    accentColor: "#a23b3b",
   },
   {
     id: "30-seconds",
@@ -53,28 +45,18 @@ const scenes: Scene[] = [
     subtitle: "What happened just before that moment?",
     crossed: "The aggressor.",
     content: (
-      <p className="text-xl leading-relaxed">
+      <p className="text-xl md:text-2xl leading-relaxed">
         Rewind. The &ldquo;victim&rdquo; had grabbed the other person&apos;s bag.
         They were trying to take something.
         <br /><br />
-        The shove wasn&apos;t aggression—<span className="text-[#3d3a36] font-semibold">it was defense</span>.
+        The shove wasn&apos;t aggression—<span className="text-primary font-semibold">it was defense</span>.
         <br /><br />
-        <span className="text-[#6a5f56] italic">Who&apos;s the aggressor now?</span>
+        <span className="text-secondary italic">Who&apos;s the aggressor now?</span>
       </p>
     ),
-    illustration: (
-      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
-        <Image
-          src="/images/perspectives/rewind.png"
-          alt="30 seconds earlier: Struggle over a bag"
-          fill
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
-        />
-      </div>
-    ),
-    bgClass: "from-[#f0ebe4] to-[#e5ddd0]",
+    imageSrc: "/images/perspectives/rewind.png",
+    imageAlt: "30 seconds earlier: Struggle over a bag",
+    accentColor: "#c9a227",
   },
   {
     id: "2-minutes",
@@ -84,28 +66,18 @@ const scenes: Scene[] = [
     subtitle: "Go back further. The story transforms again.",
     crossed: "Stealing.",
     content: (
-      <p className="text-xl leading-relaxed">
+      <p className="text-xl md:text-2xl leading-relaxed">
         Two minutes before. The &ldquo;thief&rdquo; is actually the original owner.
         Their bag was snatched. They spotted the thief and grabbed it back.
         <br /><br />
-        <span className="text-[#3d3a36] font-semibold">They weren&apos;t stealing. They were recovering.</span>
+        <span className="text-primary font-semibold">They weren&apos;t stealing. They were recovering.</span>
         <br /><br />
         The &ldquo;defender&rdquo; was the actual thief, reacting to being caught.
       </p>
     ),
-    illustration: (
-      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
-        <Image
-          src="/images/perspectives/context.png"
-          alt="2 minutes earlier: The pickpocket revealed"
-          fill
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
-        />
-      </div>
-    ),
-    bgClass: "from-[#ebe6de] to-[#dfd8cc]",
+    imageSrc: "/images/perspectives/context.png",
+    imageAlt: "2 minutes earlier: The pickpocket revealed",
+    accentColor: "#2d7a6f",
   },
   {
     id: "third-witness",
@@ -114,29 +86,19 @@ const scenes: Scene[] = [
     title: "A Third Witness",
     subtitle: "Same moment. Different eyes. Different truth.",
     content: (
-      <p className="text-xl leading-relaxed">
+      <p className="text-xl md:text-2xl leading-relaxed">
         A third person saw the incident. They arrived mid-scene.
         <br /><br />
         To them, both people were fighting over a bag.
-        <span className="text-[#3d3a36] font-semibold"> Mutual combat. Both at fault.</span>
+        <span className="text-primary font-semibold"> Mutual combat. Both at fault.</span>
         <br /><br />
         They didn&apos;t see who started it. They didn&apos;t see the pickpocket.
         They saw exactly what happened—and understood none of it.
       </p>
     ),
-    illustration: (
-      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
-        <Image
-          src="/images/perspectives/witness.png"
-          alt="Third witness watching from a cafe"
-          fill
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
-        />
-      </div>
-    ),
-    bgClass: "from-[#e8e4de] to-[#dcd6ce]",
+    imageSrc: "/images/perspectives/witness.png",
+    imageAlt: "Third witness watching from a cafe",
+    accentColor: "#6b5b95",
   },
   {
     id: "rumors",
@@ -145,31 +107,21 @@ const scenes: Scene[] = [
     title: "The Rumors Spread",
     subtitle: "By the time it reaches you, what's left of the original?",
     content: (
-      <p className="text-xl leading-relaxed">
+      <p className="text-xl md:text-2xl leading-relaxed">
         The story travels. Each retelling adds, removes, embellishes.
         <br /><br />
-        <span className="text-[#6a5f56] italic">&ldquo;I heard someone got attacked...&rdquo;</span>
+        <span className="text-secondary italic">&ldquo;I heard someone got attacked...&rdquo;</span>
         <br />
-        <span className="text-[#6a5f56] italic">&ldquo;My friend said it was a robbery gone wrong...&rdquo;</span>
+        <span className="text-secondary italic">&ldquo;My friend said it was a robbery gone wrong...&rdquo;</span>
         <br />
-        <span className="text-[#6a5f56] italic">&ldquo;Apparently there was a knife involved...&rdquo;</span>
+        <span className="text-secondary italic">&ldquo;Apparently there was a knife involved...&rdquo;</span>
         <br /><br />
-        <span className="text-[#3d3a36] font-semibold">None of this happened.</span> But now it&apos;s part of the story.
+        <span className="text-primary font-semibold">None of this happened.</span> But now it&apos;s part of the story.
       </p>
     ),
-    illustration: (
-      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
-        <Image
-          src="/images/perspectives/rumors.png"
-          alt="Rumors spreading and distorting the truth"
-          fill
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
-        />
-      </div>
-    ),
-    bgClass: "from-[#e5e0d8] to-[#d8d0c4]",
+    imageSrc: "/images/perspectives/rumors.png",
+    imageAlt: "Rumors spreading and distorting the truth",
+    accentColor: "#b85c38",
   },
   {
     id: "motivated",
@@ -178,7 +130,7 @@ const scenes: Scene[] = [
     title: "The Motivated Actors",
     subtitle: "Everyone tells the story that serves their needs.",
     content: (
-      <p className="text-xl leading-relaxed">
+      <p className="text-xl md:text-2xl leading-relaxed">
         The same incident. Different storytellers. Different purposes.
         <br /><br />
         The <span className="font-semibold">journalist</span> needs drama: &ldquo;Street violence erupts.&rdquo;
@@ -187,22 +139,12 @@ const scenes: Scene[] = [
         <br />
         The <span className="font-semibold">shop owner</span> wants them both gone: &ldquo;Troublemakers, both of them.&rdquo;
         <br /><br />
-        <span className="text-[#6a5f56] italic">None are lying, exactly. All are selecting.</span>
+        <span className="text-secondary italic">None are lying, exactly. All are selecting.</span>
       </p>
     ),
-    illustration: (
-      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
-        <Image
-          src="/images/perspectives/motivated.png"
-          alt="Different perspectives: Journalist, Friend, Shop Owner"
-          fill
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
-        />
-      </div>
-    ),
-    bgClass: "from-[#e0dcd4] to-[#d4cec4]",
+    imageSrc: "/images/perspectives/motivated.png",
+    imageAlt: "Different perspectives: Journalist, Friend, Shop Owner",
+    accentColor: "#4a6741",
   },
   {
     id: "synthesis",
@@ -211,17 +153,17 @@ const scenes: Scene[] = [
     subtitle: "The lesson",
     content: (
       <div className="text-center">
-        <p className="text-2xl leading-relaxed mb-8 text-[#3d3a36]">
+        <p className="text-2xl md:text-3xl leading-relaxed mb-8 text-primary">
           Every witness told the truth—<em>their</em> truth.
           <br />
           Shaped by when they arrived, what they noticed, who they knew, what they needed.
         </p>
-        <p className="text-xl leading-relaxed text-[#4e473f] mb-8">
+        <p className="text-xl md:text-2xl leading-relaxed text-secondary mb-8">
           Ideas aren&apos;t identities. They&apos;re lenses.
           <br />
-          <span className="font-semibold">Pick them up. Set them down. Trade them for better ones.</span>
+          <span className="font-semibold text-primary">Pick them up. Set them down. Trade them for better ones.</span>
         </p>
-        <p className="text-lg text-[#6a5f56]">
+        <p className="text-lg md:text-xl text-muted">
           When someone disagrees with you, they&apos;re not attacking <em>you</em>.
           <br />
           They&apos;re offering a view from a different angle.
@@ -230,151 +172,288 @@ const scenes: Scene[] = [
         </p>
       </div>
     ),
-    illustration: (
-      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white/50">
-        <Image
-          src="/images/perspectives/synthesis.png"
-          alt="Truth emerging from the intersection of perspectives"
-          fill
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
-        />
-      </div>
-    ),
-    bgClass: "from-[#f5f0e8] to-[#ebe6de]",
+    imageSrc: "/images/perspectives/synthesis.png",
+    imageAlt: "Truth emerging from the intersection of perspectives",
+    accentColor: "#2d7a6f",
   },
 ];
 
-function Scene({ scene, isVisible }: { scene: Scene; isVisible: boolean }) {
+// Animated strikethrough component
+function AnimatedStrikethrough({ text, isVisible }: { text: string; isVisible: boolean }) {
+  return (
+    <span className="relative inline-block">
+      <span className="text-xl text-muted">{text}</span>
+      <motion.span
+        className="absolute left-0 top-1/2 h-[3px] bg-crux/70 rounded-full"
+        initial={{ width: 0 }}
+        animate={{ width: isVisible ? "100%" : 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+      />
+    </span>
+  );
+}
+
+// Scene component with staggered animations
+function Scene({ scene, index }: { scene: Scene; index: number }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const isEven = index % 2 === 0;
+
   return (
     <div
-      className={`min-h-[100vh] flex items-center justify-center px-4 py-16 transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-40"
-        } bg-gradient-to-b ${scene.bgClass}`}
+      ref={ref}
+      className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 relative overflow-hidden"
+      style={{
+        background: `linear-gradient(180deg,
+          ${index === 0 ? '#f5f0e8' : '#ebe6de'} 0%,
+          ${index === scenes.length - 1 ? '#f5f0e8' : '#e5ddd0'} 100%)`
+      }}
     >
-      <div className="max-w-5xl w-full grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      {/* Accent line decoration */}
+      <motion.div
+        className="absolute left-0 top-0 bottom-0 w-1"
+        style={{ backgroundColor: scene.accentColor }}
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: isInView ? 1 : 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      />
+
+      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 md:gap-20 items-center">
         {/* Text content */}
-        <div className="order-2 md:order-1">
+        <motion.div
+          className={`${isEven ? "md:order-1" : "md:order-2"}`}
+          initial={{ opacity: 0, x: isEven ? -60 : 60 }}
+          animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : (isEven ? -60 : 60) }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           {scene.label && (
-            <div className="flex items-center gap-2 mb-4">
+            <motion.div
+              className="flex items-center gap-3 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               {scene.icon && (
-                <div className="p-2 bg-[#4f7b77]/10 rounded-lg text-[#4f7b77]">
-                  {scene.icon}
+                <div
+                  className="p-3 rounded-xl"
+                  style={{ backgroundColor: `${scene.accentColor}15` }}
+                >
+                  <div style={{ color: scene.accentColor }}>{scene.icon}</div>
                 </div>
               )}
-              <span className="text-sm font-medium text-[#c4584d]">The Snatch</span>
-              <span className="text-sm font-medium uppercase tracking-[0.15em] text-[#4f7b77]">
+              <span
+                className="text-sm font-bold uppercase tracking-[0.2em]"
+                style={{ color: scene.accentColor }}
+              >
                 {scene.label}
               </span>
-            </div>
+            </motion.div>
           )}
 
           {scene.crossed && (
-            <p className="text-lg text-[#9a918a] line-through decoration-[#c4584d]/60 decoration-2 mb-2">
-              {scene.crossed}
-            </p>
+            <motion.div
+              className="mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isInView ? 1 : 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <AnimatedStrikethrough text={scene.crossed} isVisible={isInView} />
+            </motion.div>
           )}
 
-          <h2 className="font-serif text-4xl md:text-5xl text-[#3d3a36] mb-3">
+          <motion.h2
+            className="font-serif text-4xl md:text-6xl text-primary mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             {scene.title}
-          </h2>
+          </motion.h2>
 
           {scene.subtitle && (
-            <p className="text-xl text-[#6a5f56] mb-6">{scene.subtitle}</p>
+            <motion.p
+              className="text-xl md:text-2xl text-secondary mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              {scene.subtitle}
+            </motion.p>
           )}
 
-          <div className="text-[#4e473f]">{scene.content}</div>
-        </div>
+          <motion.div
+            className="text-secondary"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            {scene.content}
+          </motion.div>
+        </motion.div>
 
-        {/* Illustration */}
-        <div className="order-1 md:order-2 h-72 md:h-96">
-          {scene.illustration}
-        </div>
+        {/* Illustration with parallax */}
+        <motion.div
+          className={`${isEven ? "md:order-2" : "md:order-1"} h-[400px] md:h-[500px]`}
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          animate={{
+            opacity: isInView ? 1 : 0,
+            scale: isInView ? 1 : 0.9,
+            y: isInView ? 0 : 40
+          }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        >
+          <div
+            className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl"
+            style={{
+              boxShadow: `0 25px 80px -20px ${scene.accentColor}40`,
+              border: `4px solid ${scene.accentColor}20`
+            }}
+          >
+            <Image
+              src={scene.imageSrc}
+              alt={scene.imageAlt}
+              fill
+              className="object-cover"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOM8V+qBwAEQAHeYfXo2AAAAABJRU5ErkJggg=="
+            />
+            {/* Gradient overlay */}
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                background: `linear-gradient(135deg, ${scene.accentColor}00 0%, ${scene.accentColor}40 100%)`
+              }}
+            />
+          </div>
+        </motion.div>
       </div>
     </div>
   );
 }
 
 export default function PerspectivesPage() {
-  const [visibleScenes, setVisibleScenes] = useState<Set<string>>(new Set());
-  const sceneRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const id = entry.target.getAttribute("data-scene-id");
-          if (id) {
-            setVisibleScenes((prev) => {
-              const next = new Set(prev);
-              if (entry.isIntersecting) {
-                next.add(id);
-              }
-              return next;
-            });
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
-
-    sceneRefs.current.forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   return (
     <AppShell>
-      {/* Hero */}
-      <div className="min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-[#f5f0e8] to-[#f0ebe4] px-4">
-        <div className="text-center max-w-2xl">
-          <h1 className="font-serif text-5xl md:text-6xl text-[#3d3a36] mb-6">
-            Perspectives
-          </h1>
-          <p className="text-xl text-[#6a5f56] mb-8">
-            A scroll-driven story about why you are not your ideas—<br className="hidden md:inline" />
-            and why that&apos;s liberating.
-          </p>
-          <div className="flex items-center justify-center gap-2 text-[#9a918a]">
-            <span className="text-sm">Scroll to begin</span>
-            <span className="animate-bounce">↓</span>
-          </div>
+      {/* Hero with parallax */}
+      <motion.div
+        ref={heroRef}
+        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#f8f5f0] to-[#f0ebe4] px-4 relative overflow-hidden"
+        style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
+      >
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.03]"
+            style={{ background: "radial-gradient(circle, #2d7a6f 0%, transparent 70%)" }}
+            animate={{ scale: [1, 1.1, 1], rotate: [0, 10, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full opacity-[0.03]"
+            style={{ background: "radial-gradient(circle, #c9a227 0%, transparent 70%)" }}
+            animate={{ scale: [1.1, 1, 1.1], rotate: [0, -10, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
-      </div>
+
+        <div className="text-center max-w-4xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <h1 className="display-text text-primary mb-8">
+              Perspectives
+            </h1>
+          </motion.div>
+
+          <motion.p
+            className="text-xl md:text-2xl text-secondary mb-12 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            A scroll-driven story about why you are not your ideas—
+            <br className="hidden md:inline" />
+            and why that&apos;s liberating.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col items-center gap-2 text-muted"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <span className="text-sm font-medium tracking-wide">Scroll to begin</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChevronDown className="h-6 w-6" />
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.div>
 
       {/* Scenes */}
-      {scenes.map((scene) => (
-        <div
-          key={scene.id}
-          ref={(el) => {
-            if (el) sceneRefs.current.set(scene.id, el);
-          }}
-          data-scene-id={scene.id}
-        >
-          <Scene scene={scene} isVisible={visibleScenes.has(scene.id)} />
-        </div>
+      {scenes.map((scene, index) => (
+        <Scene key={scene.id} scene={scene} index={index} />
       ))}
 
       {/* CTA */}
-      <div className="min-h-[50vh] flex items-center justify-center bg-gradient-to-b from-[#ebe6de] to-[#f5f0e8] px-4">
+      <motion.div
+        className="min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-[#e5ddd0] to-[#f5f0e8] px-4"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="text-center max-w-xl">
-          <h2 className="font-serif text-3xl text-[#3d3a36] mb-4">
+          <motion.h2
+            className="font-serif text-4xl md:text-5xl text-primary mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             Ready to explore?
-          </h2>
-          <p className="text-lg text-[#6a5f56] mb-8">
-            See how different perspectives play out on real topics—<br />
+          </motion.h2>
+          <motion.p
+            className="text-lg md:text-xl text-secondary mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            See how different perspectives play out on real topics—
+            <br />
             and find where your own views might have blind spots.
-          </p>
-          <a
+          </motion.p>
+          <motion.a
             href="/topics"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#4f7b77] text-white rounded-lg font-medium hover:bg-[#3d5f5c] transition-colors"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-accent-main to-evidence text-white rounded-xl font-bold text-lg shadow-lg shadow-accent-main/25 transition-all hover:shadow-xl hover:shadow-accent-main/30 hover:-translate-y-1"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             Explore Topics
-          </a>
+            <ChevronDown className="h-5 w-5 rotate-[-90deg]" />
+          </motion.a>
         </div>
-      </div>
+      </motion.div>
     </AppShell>
   );
 }

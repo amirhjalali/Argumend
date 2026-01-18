@@ -16,18 +16,18 @@ import {
   type LucideIcon
 } from "lucide-react";
 
-// Classical variant styling with icons
+// Bold variant styling with semantic colors
 const VARIANT_STYLES: Record<
   NodeVariant,
-  { label: string; accentClass: string; Icon: LucideIcon }
+  { label: string; accentClass: string; borderClass: string; bgClass: string; Icon: LucideIcon }
 > = {
-  meta: { label: "Meta", accentClass: "text-accent-main", Icon: Landmark },
-  pillar: { label: "Pillar", accentClass: "text-stone-600", Icon: Landmark },
-  skeptic: { label: "Skeptic", accentClass: "text-amber-700", Icon: Swords },
-  proponent: { label: "Proponent", accentClass: "text-accent-main", Icon: Shield },
-  crux: { label: "Crux", accentClass: "text-accent-link", Icon: Scale },
-  evidence: { label: "Evidence", accentClass: "text-accent-main", Icon: ScrollText },
-  question: { label: "Inquiry", accentClass: "text-stone-500", Icon: MessageCircleQuestion },
+  meta: { label: "Meta", accentClass: "text-accent-main", borderClass: "border-l-accent-main", bgClass: "bg-accent-main/5", Icon: Landmark },
+  pillar: { label: "Pillar", accentClass: "text-stone-600", borderClass: "border-l-stone-400", bgClass: "bg-stone-50", Icon: Landmark },
+  skeptic: { label: "Skeptic", accentClass: "text-skeptic", borderClass: "border-l-skeptic", bgClass: "bg-skeptic/5", Icon: Swords },
+  proponent: { label: "Proponent", accentClass: "text-evidence", borderClass: "border-l-evidence", bgClass: "bg-evidence/5", Icon: Shield },
+  crux: { label: "Crux", accentClass: "text-crux", borderClass: "border-l-crux", bgClass: "bg-crux/5", Icon: Scale },
+  evidence: { label: "Evidence", accentClass: "text-evidence", borderClass: "border-l-evidence", bgClass: "bg-evidence/5", Icon: ScrollText },
+  question: { label: "Inquiry", accentClass: "text-stone-500", borderClass: "border-l-stone-300", bgClass: "bg-stone-50", Icon: MessageCircleQuestion },
 };
 
 export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
@@ -39,7 +39,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const canOpenCrux = data.variant === "crux" && data.detail;
 
   return (
-    <div className="relative w-[320px] rounded-2xl border border-white/40 bg-paper/95 shadow-lw transition-all hover:border-white/80 hover:shadow-[0_22px_60px_rgba(40,30,20,0.18)]">
+    <div className={`relative w-[320px] rounded-2xl border border-white/40 border-l-4 ${style.borderClass} bg-paper/95 shadow-lw transition-all hover:border-white/80 hover:shadow-[0_22px_60px_rgba(40,30,20,0.18)]`}>
       {/* Handles for various layout directions - styled as solid dots in globals.css */}
       <Handle
         type="target"
@@ -81,18 +81,20 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
       <div className="p-5">
         {/* Header with Icon */}
-        <div className="mb-3 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <style.Icon className={`h-3.5 w-3.5 ${style.accentClass}`} strokeWidth={1.5} />
-            <span className={`text-[10px] font-sans font-bold uppercase tracking-[0.35em] ${style.accentClass}`}>
-              {style.label}
-            </span>
+        <div className={`-mx-5 -mt-5 mb-4 px-5 py-3 rounded-t-2xl ${style.bgClass} border-b border-stone-100`}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <style.Icon className={`h-4 w-4 ${style.accentClass}`} strokeWidth={2} />
+              <span className={`text-[11px] font-sans font-bold uppercase tracking-[0.25em] ${style.accentClass}`}>
+                {style.label}
+              </span>
+            </div>
+            {data.subtitle && (
+              <span className="text-[10px] font-sans uppercase tracking-[0.35em] text-secondary">
+                {data.subtitle}
+              </span>
+            )}
           </div>
-          {data.subtitle && (
-            <span className="text-[10px] font-sans uppercase tracking-[0.35em] text-secondary">
-              {data.subtitle}
-            </span>
-          )}
         </div>
 
         {/* Title - Serif Bold */}
@@ -157,11 +159,11 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
           {canOpenCrux && (
             <button
-              className="flex flex-1 items-center justify-center gap-1.5 rounded-sm border border-accent-link/50 bg-accent-link/10 px-3 py-1.5 text-xs font-medium text-accent-link transition-all hover:bg-accent-link/20"
+              className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border-2 border-crux bg-crux/10 px-3 py-2 text-xs font-bold text-crux transition-all hover:bg-crux hover:text-white hover:shadow-lg hover:shadow-crux/25"
               onClick={() => openCrux(id)}
             >
               View Crux
-              <Scale className="h-3 w-3" />
+              <Scale className="h-3.5 w-3.5" />
             </button>
           )}
         </div>

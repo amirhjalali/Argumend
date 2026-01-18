@@ -38,13 +38,13 @@ export function AppShell({ children }: AppShellProps) {
         <div
           className={`
             fixed md:relative inset-y-0 left-0 z-40 md:z-auto
-            flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+            flex-shrink-0 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]
             ${isSidebarOpen ? "w-[260px]" : "w-0 md:w-0"}
           `}
         >
-          {/* Sidebar - slides in from left */}
+          {/* Sidebar - slides in from left with spring easing */}
           <div
-            className={`absolute inset-y-0 left-0 w-[260px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            className={`absolute inset-y-0 left-0 w-[260px] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >

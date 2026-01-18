@@ -20,10 +20,32 @@ const config: Config = {
         muted: "#9c9288",
 
         accent: {
-          main: "#4f7b77", // Teal action
-          warn: "#b39664", // Gold highlights
-          link: "#6b8c84", // Sage/teal links
+          main: "#2d7a6f", // Vivid teal - punchy action color
+          warn: "#c9a227", // Rich gold - confidence/highlights
+          link: "#3d8b7a", // Stronger teal links
           error: "#c4584d",
+        },
+
+        // Bold semantic colors for graph elements
+        crux: {
+          DEFAULT: "#a23b3b", // Deep crimson for cruxes
+          light: "#c45c5c",
+          dark: "#7a2929",
+        },
+        evidence: {
+          DEFAULT: "#2d7a6f", // Vivid teal for evidence
+          light: "#4a9e91",
+          dark: "#1d5a52",
+        },
+        skeptic: {
+          DEFAULT: "#b85c38", // Warm terracotta for skeptic
+          light: "#d4805c",
+          dark: "#8a4429",
+        },
+        score: {
+          high: "#2d7a6f", // High confidence - teal
+          mid: "#c9a227", // Mid confidence - gold
+          low: "#b85c38", // Low confidence - terracotta
         },
       },
       fontFamily: {

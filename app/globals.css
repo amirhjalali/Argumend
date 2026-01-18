@@ -45,43 +45,70 @@ body::before {
   z-index: -2;
 }
 
-/* Subtle noise texture overlay */
+/* Perceptible noise texture overlay */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.035;
   z-index: -1;
   pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
-/* Typography refinements */
+/* Typography refinements - BOLD hierarchy */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'EB Garamond', Georgia, serif;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.03em;
   font-weight: 500;
 }
 
 h1 {
-  font-size: 2.5rem;
-  line-height: 1.15;
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 400;
 }
 
 h2 {
-  font-size: 1.875rem;
-  line-height: 1.2;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
 }
 
 h3 {
-  font-size: 1.5rem;
-  line-height: 1.25;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
 }
 
 p {
   font-family: 'Source Sans 3', sans-serif;
-  line-height: 1.65;
-  letter-spacing: 0.005em;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* Display text for hero sections */
+.display-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(4rem, 12vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+
+/* Pull quote styling */
+.pull-quote {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  font-style: italic;
+  color: #3d3a36;
+  border-left: 4px solid #c9a227;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
 }
 
 /* Smooth scrolling */
@@ -130,7 +157,7 @@ html {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   React Flow Customization - Refined Classical Style
+   React Flow Customization - Parchment Map Aesthetic
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .react-flow__pane {
@@ -141,74 +168,114 @@ html {
   cursor: grabbing;
 }
 
+/* Canvas vignette effect */
+.react-flow__viewport {
+  position: relative;
+}
+
+.react-flow {
+  position: relative;
+}
+
+.react-flow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(180, 168, 150, 0.15) 100%
+  );
+  z-index: 100;
+}
+
 /* Edge styling */
 .react-flow__edge-path {
   stroke-linecap: round;
-  stroke-width: 1.5px;
+  stroke-width: 2px;
 }
 
 .logic-edge path {
-  stroke: rgba(111, 128, 123, 0.5);
-  filter: drop-shadow(0 1px 3px rgba(78, 87, 83, 0.15));
+  stroke: rgba(100, 115, 110, 0.6);
+  filter: drop-shadow(0 2px 4px rgba(78, 87, 83, 0.2));
 }
 
-/* Handle styling */
+/* Handle styling - brass finish */
 .logic-handle {
-  width: 10px !important;
-  height: 10px !important;
-  border: 1.5px solid rgba(112, 122, 118, 0.35) !important;
-  background: linear-gradient(135deg, #fffdfb, #f8f5f0) !important;
+  width: 12px !important;
+  height: 12px !important;
+  border: 2px solid #b39664 !important;
+  background: linear-gradient(135deg, #e8dcc8, #d4c8b4) !important;
   border-radius: 50% !important;
   box-shadow:
-    0 2px 6px rgba(15, 12, 8, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    0 2px 6px rgba(15, 12, 8, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
   transition: all 0.2s ease !important;
 }
 
 .logic-handle:hover {
-  border-color: rgba(79, 123, 119, 0.5) !important;
-  transform: scale(1.15);
+  border-color: #c9a227 !important;
+  background: linear-gradient(135deg, #f0e4d0, #e0d4c0) !important;
+  transform: scale(1.2);
+  box-shadow:
+    0 4px 12px rgba(201, 162, 39, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
 }
 
-/* Minimap - Refined "Map Legend" Style */
+/* Minimap - Antique Map Legend Style */
 .logic-minimap {
-  border-radius: 8px !important;
+  border-radius: 12px !important;
   overflow: hidden;
-  border: 1px solid #ddd5c8 !important;
-  background: linear-gradient(135deg, #f8f5f0, #f4f1eb) !important;
+  border: 2px solid #c9b896 !important;
+  background: linear-gradient(135deg, #f8f3e8, #f0ebe0) !important;
   box-shadow:
-    0 4px 12px -2px rgba(0, 0, 0, 0.08),
-    0 2px 4px -1px rgba(0, 0, 0, 0.04),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-    inset 0 0 20px rgba(168, 162, 158, 0.1) !important;
+    0 8px 24px -4px rgba(0, 0, 0, 0.12),
+    0 4px 8px -2px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+    inset 0 0 30px rgba(168, 152, 130, 0.15) !important;
+}
+
+.logic-minimap::before {
+  content: "MAP";
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #a09080;
+  z-index: 10;
 }
 
 .logic-minimap .react-flow__minimap-mask {
-  fill: rgba(244, 241, 235, 0.7) !important;
+  fill: rgba(244, 238, 228, 0.75) !important;
 }
 
 .logic-minimap svg {
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
-/* Controls - Elegant Floating Style */
+/* Controls - Brass Instrument Style */
 .react-flow__controls {
   box-shadow:
-    0 4px 12px -2px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.04) !important;
-  border: 1px solid #e8e0d4 !important;
-  border-radius: 10px !important;
+    0 8px 24px -4px rgba(0, 0, 0, 0.15),
+    0 4px 8px -2px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  border: 2px solid #c9b896 !important;
+  border-radius: 12px !important;
   overflow: hidden;
-  background: transparent !important;
+  background: linear-gradient(180deg, #f8f3e8, #ebe4d8) !important;
 }
 
 .react-flow__controls-button {
-  background: linear-gradient(135deg, #fffcf8, #f8f5f0) !important;
-  border-bottom: 1px solid #ebe6de !important;
-  color: #7a7268 !important;
+  background: linear-gradient(180deg, #f8f3e8, #f0ebe0) !important;
+  border-bottom: 1px solid #ddd5c8 !important;
+  color: #8a7a68 !important;
   transition: all 0.2s ease !important;
-  width: 32px !important;
-  height: 32px !important;
+  width: 36px !important;
+  height: 36px !important;
 }
 
 .react-flow__controls-button:last-child {
@@ -216,18 +283,19 @@ html {
 }
 
 .react-flow__controls-button:hover {
-  background: linear-gradient(135deg, #f8f5f0, #f0ebe3) !important;
-  color: #3d3a36 !important;
+  background: linear-gradient(180deg, #f0ebe3, #e8e0d4) !important;
+  color: #5a4a38 !important;
 }
 
 .react-flow__controls-button:active {
-  background: #ebe6de !important;
+  background: linear-gradient(180deg, #e8e0d4, #ddd5c8) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
 .react-flow__controls-button svg {
   fill: currentColor !important;
-  width: 14px !important;
-  height: 14px !important;
+  width: 16px !important;
+  height: 16px !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
