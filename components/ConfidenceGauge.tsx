@@ -12,11 +12,11 @@ export function ConfidenceGauge({ score, size = 120 }: ConfidenceGaugeProps) {
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
-  // Color based on score - gold/copper spectrum
+  // Color based on score - rich gold/copper spectrum
   const getColor = () => {
-    if (score >= 80) return { main: "#c9a227", light: "#e0bc4c" }; // Gold - high confidence
-    if (score >= 50) return { main: "#b87333", light: "#d4943a" }; // Copper - medium confidence
-    return { main: "#8b4513", light: "#a0522d" }; // Saddle brown - low confidence
+    if (score >= 80) return { main: "#D4A012", light: "#E8B923" }; // Metallic gold
+    if (score >= 50) return { main: "#CF7B3E", light: "#E09555" }; // Rich copper
+    return { main: "#8B5A3C", light: "#A67350" }; // Warm brown
   };
 
   const colors = getColor();
@@ -62,15 +62,21 @@ export function ConfidenceGauge({ score, size = 120 }: ConfidenceGaugeProps) {
       {/* Score text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <motion.span
-          className="font-serif text-3xl font-bold"
-          style={{ color: colors.main }}
+          className="font-serif font-bold leading-none"
+          style={{
+            color: colors.main,
+            fontSize: size * 0.22,
+          }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           {score}%
         </motion.span>
-        <span className="text-[9px] font-sans uppercase tracking-[0.2em] text-muted mt-0.5">
+        <span
+          className="font-sans uppercase tracking-[0.15em] text-muted"
+          style={{ fontSize: size * 0.07, marginTop: size * 0.02 }}
+        >
           Confidence
         </span>
       </div>

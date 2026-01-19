@@ -72,13 +72,13 @@ export function NavigationPath() {
   const getVariantColor = (variant: string) => {
     switch (variant) {
       case "meta":
-        return "#c9a227";
+        return "#D4A012";
       case "proponent":
-        return "#c9a227";
+        return "#D4A012";
       case "skeptic":
-        return "#8b4513";
+        return "#8B5A3C";
       case "evidence":
-        return "#b87333";
+        return "#CF7B3E";
       case "crux":
         return "#a23b3b";
       default:
@@ -89,7 +89,7 @@ export function NavigationPath() {
   return (
     <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 max-w-[600px]">
       <div className="flex items-center gap-1 rounded-xl border-2 border-[#c9b896] bg-gradient-to-br from-[#f8f3e8]/95 to-[#f0ebe0]/95 px-3 py-2 shadow-md backdrop-blur-sm">
-        <Home className="h-3.5 w-3.5 text-[#c9a227] flex-shrink-0" />
+        <Home className="h-3.5 w-3.5 text-[#D4A012] flex-shrink-0" />
 
         {path.map((item, index) => (
           <div key={item.id} className="flex items-center">
@@ -111,7 +111,7 @@ export function NavigationPath() {
                 {item.title.length > 25 ? `${item.title.slice(0, 25)}...` : item.title}
               </span>
               {index === path.length - 1 && (
-                <Target className="h-3 w-3 text-[#c9a227] flex-shrink-0" />
+                <Target className="h-3 w-3 text-[#D4A012] flex-shrink-0" />
               )}
             </button>
           </div>

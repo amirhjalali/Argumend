@@ -138,10 +138,10 @@ html {
   background-clip: content-box;
 }
 
-/* Selection styling - gold tones */
+/* Selection styling - rich gold tones */
 ::selection {
-  background: rgba(201, 162, 39, 0.2);
-  color: #8b6914;
+  background: rgba(212, 160, 18, 0.2);
+  color: #A65F2A;
 }
 
 @layer base {
@@ -190,23 +190,23 @@ html {
   z-index: 100;
 }
 
-/* Edge styling - warm copper/gold tones */
+/* Edge styling - rich gold/copper tones */
 .react-flow__edge-path {
   stroke-linecap: round;
   stroke-width: 2.5px;
-  stroke: rgba(184, 115, 51, 0.5);
-  filter: drop-shadow(0 1px 2px rgba(139, 90, 43, 0.15));
+  stroke: rgba(207, 123, 62, 0.55);
+  filter: drop-shadow(0 1px 2px rgba(166, 95, 42, 0.15));
   transition: stroke 0.3s ease, stroke-width 0.3s ease;
 }
 
 .react-flow__edge:hover .react-flow__edge-path {
-  stroke: rgba(201, 162, 39, 0.8);
+  stroke: rgba(212, 160, 18, 0.85);
   stroke-width: 3px;
 }
 
 .logic-edge path {
-  stroke: rgba(184, 115, 51, 0.45);
-  filter: drop-shadow(0 2px 4px rgba(139, 90, 43, 0.2));
+  stroke: rgba(207, 123, 62, 0.5);
+  filter: drop-shadow(0 2px 4px rgba(166, 95, 42, 0.2));
 }
 
 /* Handle styling - brass finish */
@@ -236,13 +236,13 @@ html {
 .logic-minimap {
   border-radius: 14px !important;
   overflow: hidden;
-  border: 2px solid #c9a227 !important;
+  border: 2px solid #D4A012 !important;
   background: linear-gradient(145deg, #faf6ed, #f0ebe0) !important;
   box-shadow:
     0 10px 30px -4px rgba(0, 0, 0, 0.15),
     0 4px 10px -2px rgba(0, 0, 0, 0.08),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-    inset 0 0 40px rgba(201, 162, 39, 0.08) !important;
+    inset 0 0 40px rgba(212, 160, 18, 0.08) !important;
 }
 
 .logic-minimap::before {
@@ -254,7 +254,7 @@ html {
   font-size: 7px;
   font-weight: 700;
   letter-spacing: 0.2em;
-  color: #b87333;
+  color: #CF7B3E;
   z-index: 10;
   background: linear-gradient(to right, transparent, #faf6ed 20%, #faf6ed 80%, transparent);
   padding: 0 8px;
@@ -262,7 +262,7 @@ html {
 
 .logic-minimap .react-flow__minimap-mask {
   fill: rgba(244, 238, 228, 0.6) !important;
-  stroke: rgba(201, 162, 39, 0.3);
+  stroke: rgba(212, 160, 18, 0.3);
   stroke-width: 2px;
 }
 
@@ -326,9 +326,9 @@ html {
   @apply uppercase tracking-[0.2em] text-[10px] text-secondary font-semibold;
 }
 
-/* Focus ring styling - gold tones */
+/* Focus ring styling - rich gold tones */
 .focus-ring {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a227]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4f1eb];
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A012]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4f1eb];
 }
 
 /* Smooth transitions for all interactive elements */
@@ -350,9 +350,9 @@ button, a, [role="button"] {
    Node Clustering Visual Cues - Semantic Glow Effects
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* Meta nodes - Gold glow */
+/* Meta nodes - Metallic gold glow */
 .react-flow__node[data-id="root"] {
-  filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.15));
+  filter: drop-shadow(0 0 20px rgba(212, 160, 18, 0.15));
 }
 
 /* All nodes get subtle semantic shadows on hover for visual grouping */
@@ -386,5 +386,5 @@ button, a, [role="button"] {
 }
 
 .react-flow__node:hover {
-  filter: drop-shadow(0 8px 20px rgba(139, 90, 43, 0.2));
+  filter: drop-shadow(0 8px 20px rgba(207, 123, 62, 0.2));
 }

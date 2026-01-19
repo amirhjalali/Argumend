@@ -99,7 +99,7 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
           {data.hasChildren ? (
             <button
-              className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#c9a227] to-[#b87333] px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-[#c9a227]/25 transition-all hover:shadow-lg hover:shadow-[#c9a227]/35 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
+              className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-[#D4A012]/30 transition-all hover:shadow-lg hover:shadow-[#D4A012]/40 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
               onClick={() => expandNode(id)}
               disabled={expanded}
             >

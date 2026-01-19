@@ -17,25 +17,25 @@ const LEGEND_ITEMS = [
   {
     label: "Meta Claim",
     description: "The central thesis being analyzed",
-    color: "#c9a227",
+    color: "#D4A012",
     Icon: Landmark,
   },
   {
     label: "Proponent",
     description: "Arguments supporting the claim",
-    color: "#c9a227",
+    color: "#D4A012",
     Icon: Shield,
   },
   {
     label: "Skeptic",
     description: "Counter-arguments and critiques",
-    color: "#8b4513",
+    color: "#8B5A3C",
     Icon: Swords,
   },
   {
     label: "Evidence",
     description: "Supporting data and references",
-    color: "#b87333",
+    color: "#CF7B3E",
     Icon: ScrollText,
   },
   {
@@ -118,9 +118,9 @@ export function MapLegend() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             onClick={() => setIsOpen(true)}
-            className="flex items-center gap-2 rounded-xl border-2 border-[#c9b896] bg-gradient-to-br from-[#f8f3e8] to-[#f0ebe0] px-3 py-2 text-xs font-semibold text-secondary shadow-md transition-all hover:border-[#c9a227] hover:shadow-lg"
+            className="flex items-center gap-2 rounded-xl border-2 border-[#c9b896] bg-gradient-to-br from-[#f8f3e8] to-[#f0ebe0] px-3 py-2 text-xs font-semibold text-secondary shadow-md transition-all hover:border-[#D4A012] hover:shadow-lg"
           >
-            <Info className="h-4 w-4 text-[#c9a227]" />
+            <Info className="h-4 w-4 text-[#D4A012]" />
             <span>Legend</span>
           </motion.button>
         )}

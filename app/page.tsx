@@ -57,15 +57,15 @@ function CanvasExperience() {
   const getMiniMapColor = (node: Node<LogicNodeData>) => {
     switch (node?.data?.variant) {
       case "meta":
-        return "#c9a227"; // Gold for meta
+        return "#D4A012"; // Metallic gold for meta
       case "skeptic":
-        return "#8b4513"; // Saddle brown for skeptic
+        return "#8B5A3C"; // Warm brown for skeptic
       case "crux":
         return "#a23b3b"; // Crimson for crux
       case "proponent":
-        return "#c9a227"; // Gold for proponent
+        return "#D4A012"; // Metallic gold for proponent
       case "evidence":
-        return "#b87333"; // Copper for evidence
+        return "#CF7B3E"; // Rich copper for evidence
       default:
         return "#a8a095"; // Warm gray for others
     }
