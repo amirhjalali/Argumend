@@ -16,7 +16,7 @@ import {
   type LucideIcon
 } from "lucide-react";
 
-// Bold variant styling with semantic colors
+// Bold variant styling with semantic colors - gold/copper palette
 const VARIANT_STYLES: Record<
   NodeVariant,
   { label: string; accentClass: string; borderClass: string; bgClass: string; Icon: LucideIcon }
@@ -24,7 +24,7 @@ const VARIANT_STYLES: Record<
   meta: { label: "Meta", accentClass: "text-accent-main", borderClass: "border-l-accent-main", bgClass: "bg-accent-main/5", Icon: Landmark },
   pillar: { label: "Pillar", accentClass: "text-stone-600", borderClass: "border-l-stone-400", bgClass: "bg-stone-50", Icon: Landmark },
   skeptic: { label: "Skeptic", accentClass: "text-skeptic", borderClass: "border-l-skeptic", bgClass: "bg-skeptic/5", Icon: Swords },
-  proponent: { label: "Proponent", accentClass: "text-evidence", borderClass: "border-l-evidence", bgClass: "bg-evidence/5", Icon: Shield },
+  proponent: { label: "Proponent", accentClass: "text-proponent", borderClass: "border-l-proponent", bgClass: "bg-proponent/5", Icon: Shield },
   crux: { label: "Crux", accentClass: "text-crux", borderClass: "border-l-crux", bgClass: "bg-crux/5", Icon: Scale },
   evidence: { label: "Evidence", accentClass: "text-evidence", borderClass: "border-l-evidence", bgClass: "bg-evidence/5", Icon: ScrollText },
   question: { label: "Inquiry", accentClass: "text-stone-500", borderClass: "border-l-stone-300", bgClass: "bg-stone-50", Icon: MessageCircleQuestion },

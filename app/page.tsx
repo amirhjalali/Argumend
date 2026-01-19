@@ -19,6 +19,9 @@ import { RichNode } from "@/components/nodes/RichNode";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
+import { MapLegend } from "@/components/MapLegend";
+import { ZoomIndicator } from "@/components/ZoomIndicator";
+import { NavigationPath } from "@/components/NavigationPath";
 import type { LogicNodeData } from "@/types/graph";
 
 function CanvasExperience() {
@@ -54,16 +57,17 @@ function CanvasExperience() {
   const getMiniMapColor = (node: Node<LogicNodeData>) => {
     switch (node?.data?.variant) {
       case "meta":
-        return "#e9d7c2";
+        return "#c9a227"; // Gold for meta
       case "skeptic":
-        return "#c97a62";
+        return "#8b4513"; // Saddle brown for skeptic
       case "crux":
-        return "#6db0ff";
+        return "#a23b3b"; // Crimson for crux
       case "proponent":
+        return "#c9a227"; // Gold for proponent
       case "evidence":
-        return "#91c8b3";
+        return "#b87333"; // Copper for evidence
       default:
-        return "#a8b5c3";
+        return "#a8a095"; // Warm gray for others
     }
   };
 
@@ -161,7 +165,7 @@ function CanvasExperience() {
               />
               <Controls
                 position="top-right"
-                className="m-4"
+                className="m-4 hidden"
                 showInteractive={false}
               />
               <MiniMap
@@ -181,6 +185,9 @@ function CanvasExperience() {
                 nodeStrokeColor={() => "transparent"}
                 maskColor="rgba(244, 241, 235, 0.75)"
               />
+              <ZoomIndicator />
+              <MapLegend />
+              <NavigationPath />
             </ReactFlow>
 
             <CruxModal />

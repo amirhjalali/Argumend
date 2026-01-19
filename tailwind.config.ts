@@ -20,9 +20,9 @@ const config: Config = {
         muted: "#9c9288",
 
         accent: {
-          main: "#2d7a6f", // Vivid teal - punchy action color
+          main: "#b87333", // Warm copper - punchy action color
           warn: "#c9a227", // Rich gold - confidence/highlights
-          link: "#3d8b7a", // Stronger teal links
+          link: "#d4943a", // Burnished gold links
           error: "#c4584d",
         },
 
@@ -33,19 +33,24 @@ const config: Config = {
           dark: "#7a2929",
         },
         evidence: {
-          DEFAULT: "#2d7a6f", // Vivid teal for evidence
-          light: "#4a9e91",
-          dark: "#1d5a52",
+          DEFAULT: "#b87333", // Warm copper for evidence
+          light: "#d4943a", // Burnished gold
+          dark: "#8b5a2b", // Deep bronze
+        },
+        proponent: {
+          DEFAULT: "#c9a227", // Rich gold for proponent
+          light: "#e0bc4c",
+          dark: "#a68820",
         },
         skeptic: {
-          DEFAULT: "#b85c38", // Warm terracotta for skeptic
-          light: "#d4805c",
-          dark: "#8a4429",
+          DEFAULT: "#8b4513", // Saddle brown for skeptic (earthy contrast)
+          light: "#a0522d", // Sienna
+          dark: "#5c3317", // Dark brown
         },
         score: {
-          high: "#2d7a6f", // High confidence - teal
-          mid: "#c9a227", // Mid confidence - gold
-          low: "#b85c38", // Low confidence - terracotta
+          high: "#c9a227", // High confidence - gold
+          mid: "#b87333", // Mid confidence - copper
+          low: "#8b4513", // Low confidence - saddle brown
         },
       },
       fontFamily: {

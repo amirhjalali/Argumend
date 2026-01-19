@@ -12,11 +12,11 @@ export function ConfidenceGauge({ score, size = 120 }: ConfidenceGaugeProps) {
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
-  // Color based on score
+  // Color based on score - gold/copper spectrum
   const getColor = () => {
-    if (score >= 80) return { main: "#2d7a6f", light: "#4a9e91" }; // Teal
-    if (score >= 50) return { main: "#c9a227", light: "#e0bc4c" }; // Gold
-    return { main: "#b85c38", light: "#d4805c" }; // Terracotta
+    if (score >= 80) return { main: "#c9a227", light: "#e0bc4c" }; // Gold - high confidence
+    if (score >= 50) return { main: "#b87333", light: "#d4943a" }; // Copper - medium confidence
+    return { main: "#8b4513", light: "#a0522d" }; // Saddle brown - low confidence
   };
 
   const colors = getColor();

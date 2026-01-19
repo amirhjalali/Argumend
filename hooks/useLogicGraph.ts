@@ -67,9 +67,9 @@ const EDGE_STYLE: Partial<Edge> = {
   className: "logic-edge",
   markerEnd: {
     type: MarkerType.ArrowClosed,
-    color: "#00D9FF",
-    width: 20,
-    height: 20,
+    color: "#b87333", // Copper arrow
+    width: 18,
+    height: 18,
   },
 };
 
