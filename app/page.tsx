@@ -22,6 +22,8 @@ import { TopBar } from "@/components/TopBar";
 import { MapLegend } from "@/components/MapLegend";
 import { ZoomIndicator } from "@/components/ZoomIndicator";
 import { NavigationPath } from "@/components/NavigationPath";
+import { WelcomeOverlay } from "@/components/WelcomeOverlay";
+import { TopicIntroPanel } from "@/components/TopicIntroPanel";
 import type { LogicNodeData } from "@/types/graph";
 
 function CanvasExperience() {
@@ -188,6 +190,7 @@ function CanvasExperience() {
               <ZoomIndicator />
               <MapLegend />
               <NavigationPath />
+              <TopicIntroPanel />
             </ReactFlow>
 
             <CruxModal />
@@ -202,6 +205,7 @@ export default function HomePage() {
   return (
     <ReactFlowProvider>
       <CanvasExperience />
+      <WelcomeOverlay />
     </ReactFlowProvider>
   );
 }

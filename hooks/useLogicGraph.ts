@@ -58,6 +58,7 @@ type GraphStore = {
   openCrux: (nodeId: string) => void;
   closeCrux: () => void;
   consumeFocusTargets: () => void;
+  setFocusTargets: (targets: string[]) => void;
   onNodesChange: (changes: NodeChange<LogicNode>[]) => void;
 };
 
@@ -354,6 +355,8 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
   closeCrux: () => set({ selectedCrux: null }),
 
   consumeFocusTargets: () => set({ focusTargets: [] }),
+
+  setFocusTargets: (targets: string[]) => set({ focusTargets: targets }),
 
   onNodesChange: (changes: NodeChange<LogicNode>[]) =>
     set((state) => ({
