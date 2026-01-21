@@ -16,7 +16,10 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   }
 
   return (
-    <div className="relative w-[420px] rounded-2xl border border-white/50 bg-paper/95 shadow-lw transition-shadow hover:border-white/80 hover:shadow-[0px_25px_60px_rgba(40,30,20,0.18)]">
+    <div className="relative w-[420px] rounded-2xl border border-stone-200/80 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08),0_12px_40px_-8px_rgba(0,0,0,0.06)] transition-all duration-300 hover:border-[#D4A012]/30 hover:shadow-[0_8px_30px_-6px_rgba(212,160,18,0.15),0_20px_50px_-10px_rgba(0,0,0,0.1)]">
+      {/* Subtle top accent line */}
+      <div className="absolute top-0 left-4 right-4 h-[2px] bg-gradient-to-r from-transparent via-[#D4A012] to-transparent rounded-full" />
+
       <Handle
         type="source"
         position={Position.Bottom}
@@ -33,22 +36,28 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
       />
 
       {data.imageUrl && (
-        <div className="h-56 w-full overflow-hidden rounded-t-2xl border-b border-white/40">
+        <div className="relative h-48 w-full overflow-hidden rounded-t-2xl">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={data.imageUrl} alt="" className="w-full h-full object-cover" />
+          <img src={data.imageUrl} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
+          {/* Vignette effect */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.1)_100%)]" />
         </div>
       )}
 
-      <div className="space-y-6 p-8">
+      <div className="space-y-5 p-7">
         {/* Header: Meta Claim Label & Title */}
-        <div className="mb-6">
-          <div className="mb-2 flex items-center gap-2">
-            <Landmark className="h-4 w-4 text-accent-main" strokeWidth={1.5} />
-            <p className="text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-accent-main">
+        <div className="mb-5">
+          <div className="mb-3 flex items-center gap-2">
+            <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-[#D4A012]/15 to-[#CF7B3E]/10">
+              <Landmark className="h-4 w-4 text-[#D4A012]" strokeWidth={1.5} />
+            </div>
+            <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[#B8890F]">
               Meta Claim
             </p>
           </div>
-          <h2 className="text-3xl font-serif font-bold leading-tight text-primary">
+          <h2 className="text-2xl font-serif font-normal leading-snug text-primary tracking-tight">
             {data.title}
           </h2>
         </div>

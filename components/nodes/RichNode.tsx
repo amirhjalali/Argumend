@@ -41,7 +41,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const isCrux = data.variant === "crux";
 
   return (
-    <div className={`relative w-[340px] rounded-2xl border border-white/40 border-l-4 ${style.borderClass} bg-paper/95 shadow-lw transition-all hover:border-white/80 hover:shadow-[0_22px_60px_rgba(40,30,20,0.18)]`}>
+    <div className={`relative w-[340px] rounded-2xl border border-stone-200/70 border-l-4 ${style.borderClass} bg-white shadow-[0_2px_12px_-3px_rgba(0,0,0,0.06),0_8px_24px_-6px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_6px_20px_-4px_rgba(0,0,0,0.08),0_14px_36px_-8px_rgba(0,0,0,0.06)]`}>
       {/* Handles for various layout directions */}
       <Handle type="target" position={Position.Top} id="top" className="logic-handle" isConnectable={false} />
       <Handle type="target" position={Position.Left} id="left" className="logic-handle" isConnectable={false} />
@@ -58,24 +58,29 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
       <div className="p-5">
         {/* Header with Icon */}
-        <div className={`-mx-5 -mt-5 mb-4 px-5 py-3 rounded-t-2xl ${style.bgClass} border-b border-stone-100`}>
+        <div className={`-mx-5 -mt-5 mb-4 px-5 py-3 rounded-t-2xl ${style.bgClass} border-b border-stone-100/80`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <style.Icon className="h-4 w-4" style={{ color: style.accentColor }} strokeWidth={2} />
-              <span className="text-[11px] font-sans font-bold uppercase tracking-[0.2em]" style={{ color: style.accentColor }}>
+              <div
+                className="w-6 h-6 rounded-md flex items-center justify-center"
+                style={{ backgroundColor: `${style.accentColor}18` }}
+              >
+                <style.Icon className="h-3.5 w-3.5" style={{ color: style.accentColor }} strokeWidth={2} />
+              </div>
+              <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em]" style={{ color: style.accentColor }}>
                 {style.label}
               </span>
             </div>
             {style.tagline && (
-              <span className="text-[9px] font-sans italic text-secondary">
+              <span className="text-[9px] font-sans text-stone-400 italic">
                 {style.tagline}
               </span>
             )}
           </div>
         </div>
 
-        {/* Title - Serif Bold */}
-        <h3 className="mb-3 font-serif text-lg font-bold leading-tight text-primary">
+        {/* Title - Serif, lighter weight */}
+        <h3 className="mb-3 font-serif text-[17px] font-normal leading-snug text-primary tracking-tight">
           {data.title}
         </h3>
 

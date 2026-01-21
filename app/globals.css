@@ -57,58 +57,97 @@ body::after {
   mix-blend-mode: multiply;
 }
 
-/* Typography refinements - BOLD hierarchy */
+/* Typography refinements - LessWrong-inspired elegance */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'EB Garamond', Georgia, serif;
-  letter-spacing: -0.03em;
-  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
 }
 
 h1 {
-  font-size: clamp(3rem, 8vw, 5rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   font-weight: 400;
 }
 
 h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+h4 {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 p {
   font-family: 'Source Sans 3', sans-serif;
-  line-height: 1.7;
-  letter-spacing: 0.01em;
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.005em;
+  color: rgba(31, 31, 29, 0.85);
+}
+
+/* Larger body text for long-form reading */
+.prose p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+/* Small caps for labels */
+.small-caps {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  font-weight: 500;
 }
 
 /* Display text for hero sections */
 .display-text {
   font-family: 'EB Garamond', Georgia, serif;
-  font-size: clamp(4rem, 12vw, 7rem);
-  line-height: 0.95;
-  letter-spacing: -0.05em;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
   font-weight: 400;
 }
 
 /* Pull quote styling */
 .pull-quote {
   font-family: 'EB Garamond', Georgia, serif;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
   font-style: italic;
-  color: #3d3a36;
-  border-left: 4px solid #c9a227;
-  padding-left: 1.5rem;
-  margin: 2rem 0;
+  color: #4a453e;
+  border-left: 3px solid #D4A012;
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+/* Subtle text for metadata */
+.text-subtle {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  color: #9c9288;
+}
+
+/* Label styling - consistent uppercase treatment */
+.label-text {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 /* Smooth scrolling */
@@ -190,23 +229,34 @@ html {
   z-index: 100;
 }
 
-/* Edge styling - rich gold/copper tones */
+/* Edge styling - refined gold/copper tones */
 .react-flow__edge-path {
   stroke-linecap: round;
-  stroke-width: 2.5px;
-  stroke: rgba(207, 123, 62, 0.55);
-  filter: drop-shadow(0 1px 2px rgba(166, 95, 42, 0.15));
-  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+  stroke-width: 2px;
+  stroke: rgba(207, 123, 62, 0.4);
+  filter: drop-shadow(0 1px 2px rgba(166, 95, 42, 0.1));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .react-flow__edge:hover .react-flow__edge-path {
-  stroke: rgba(212, 160, 18, 0.85);
-  stroke-width: 3px;
+  stroke: rgba(212, 160, 18, 0.7);
+  stroke-width: 2.5px;
+  filter: drop-shadow(0 2px 6px rgba(212, 160, 18, 0.25));
 }
 
 .logic-edge path {
-  stroke: rgba(207, 123, 62, 0.5);
-  filter: drop-shadow(0 2px 4px rgba(166, 95, 42, 0.2));
+  stroke: rgba(207, 123, 62, 0.35);
+  filter: drop-shadow(0 1px 3px rgba(166, 95, 42, 0.12));
+}
+
+/* Edge animation pulse */
+@keyframes edgePulse {
+  0%, 100% { stroke-opacity: 0.35; }
+  50% { stroke-opacity: 0.5; }
+}
+
+.react-flow__edge-path {
+  animation: edgePulse 3s ease-in-out infinite;
 }
 
 /* Handle styling - brass finish */
@@ -333,7 +383,60 @@ html {
 
 /* Smooth transitions for all interactive elements */
 button, a, [role="button"] {
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Primary button hover enhancement */
+.btn-primary {
+  @apply relative overflow-hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(100%);
+}
+
+/* Subtle lift effect for cards */
+.card-lift {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid #D4A012;
+  outline-offset: 2px;
+}
+
+/* Link underline animation */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
 }
 
 /* Card hover effect */
