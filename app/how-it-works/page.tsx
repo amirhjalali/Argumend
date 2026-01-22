@@ -20,7 +20,7 @@ const nodeTypes = [
   {
     icon: Landmark,
     name: "Meta Claim",
-    color: "#D4A012",
+    color: "#2563eb",
     description: "The central topic being examined. Everything branches from here.",
     example: "\"Nuclear power is safe and effective\"",
   },
@@ -84,17 +84,17 @@ const steps = [
 export default function HowItWorksPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-4xl px-6 md:px-8 py-12 md:py-16">
+      <div className="mx-auto max-w-4xl px-6 md:px-8 py-14 md:py-20">
         {/* Hero */}
-        <div className="mb-12 md:mb-16 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4A012] mb-4">
+        <div className="mb-14 md:mb-20 text-center">
+          <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#D4A012] mb-5">
             How It Works
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-tight text-primary mb-6 leading-[1.1]">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Mapping arguments,<br />
             <span className="text-[#CF7B3E]">not winning them</span>
           </h1>
-          <p className="text-lg md:text-xl text-secondary leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-secondary leading-[1.7] max-w-2xl mx-auto">
             Argumend transforms complex debates into visual maps. See the strongest arguments
             on all sides, trace claims to their sources, and find the questions that would actually
             change minds.
@@ -102,15 +102,15 @@ export default function HowItWorksPage() {
         </div>
 
         {/* Quick Start Steps */}
-        <section className="mb-16 md:mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-8 text-center">
+        <section className="mb-16 md:mb-24">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-10 text-center">
             Get started in 4 steps
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {steps.map((step, i) => (
               <div
                 key={step.number}
-                className="group relative flex gap-4 p-5 rounded-2xl bg-white border border-stone-200 hover:border-[#D4A012]/30 hover:shadow-lg transition-all duration-300"
+                className="group relative flex gap-4 p-5 md:p-6 rounded-2xl bg-gradient-to-br from-white to-stone-50/50 border border-stone-200/80 hover:border-[#D4A012]/30 hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,0.08)] transition-all duration-300"
               >
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#D4A012]/20 to-[#CF7B3E]/10 flex items-center justify-center">
@@ -133,11 +133,11 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Visual Map Example */}
-        <section className="mb-16 md:mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-4 text-center">
+        <section className="mb-16 md:mb-24">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-3 text-center">
             Anatomy of an argument map
           </h2>
-          <p className="text-secondary text-center mb-8 max-w-xl mx-auto">
+          <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Every topic is structured the same way. Learn to read the map once, navigate any debate.
           </p>
 
@@ -163,7 +163,7 @@ export default function HowItWorksPage() {
             <div className="relative z-10 flex flex-col items-center gap-12">
               {/* Meta Node */}
               <div className="flex flex-col items-center">
-                <div className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#D4A012] to-[#E8B923] text-white font-semibold shadow-lg">
+                <div className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white font-semibold shadow-lg">
                   <div className="flex items-center gap-2">
                     <Landmark className="h-4 w-4" />
                     <span>Meta Claim</span>
@@ -209,15 +209,15 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Node Types Reference */}
-        <section className="mb-16 md:mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-8 text-center">
+        <section className="mb-16 md:mb-24">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-10 text-center">
             Understanding node types
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {nodeTypes.map((type) => (
               <div
                 key={type.name}
-                className="flex flex-col md:flex-row md:items-start gap-4 p-5 rounded-xl bg-white border border-stone-200"
+                className="flex flex-col md:flex-row md:items-start gap-4 p-5 md:p-6 rounded-xl bg-gradient-to-br from-white to-stone-50/50 border border-stone-200/80 transition-all duration-200 hover:border-stone-300 hover:shadow-sm"
                 style={{ borderLeftWidth: "4px", borderLeftColor: type.color }}
               >
                 <div
@@ -237,14 +237,14 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Confidence Scores */}
-        <section className="mb-16 md:mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-4 text-center">
+        <section className="mb-16 md:mb-24">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-3 text-center">
             Reading confidence scores
           </h2>
-          <p className="text-secondary text-center mb-8 max-w-xl mx-auto">
+          <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             We don't claim certainty. Confidence scores reflect the weight of available evidence.
           </p>
-          <div className="bg-gradient-to-br from-[#D4A012]/10 via-[#CF7B3E]/5 to-transparent rounded-2xl p-6 md:p-8">
+          <div className="bg-gradient-to-br from-[#D4A012]/[0.07] via-[#CF7B3E]/[0.03] to-transparent rounded-2xl p-6 md:p-8 border border-[#D4A012]/10">
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center p-4">
                 <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#D4A012] to-[#E8B923] flex items-center justify-center">
@@ -292,9 +292,9 @@ export default function HowItWorksPage() {
         </section>
 
         {/* CTA */}
-        <section className="text-center py-8 border-t border-stone-200">
+        <section className="text-center py-10 border-t border-stone-200/80">
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to explore?</h3>
-          <p className="text-secondary mb-6">Pick a controversial topic. Find the crux. Update your beliefs.</p>
+          <p className="text-secondary mb-7">Pick a controversial topic. Find the crux. Update your beliefs.</p>
           <a
             href="/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] text-white font-semibold shadow-lg shadow-[#D4A012]/20 hover:shadow-xl hover:shadow-[#D4A012]/30 hover:-translate-y-0.5 transition-all"

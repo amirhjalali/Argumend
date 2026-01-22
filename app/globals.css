@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
 @import 'katex/dist/katex.min.css';
 
 @tailwind base;
@@ -13,7 +13,7 @@
 
 html,
 body {
-  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   overflow-x: hidden;
   background-color: #f4f1eb;
   color: #1f1f1d;
@@ -28,30 +28,26 @@ body {
   isolation: isolate;
 }
 
-/* Refined background with subtle texture */
+/* Rich atmospheric background - warm parchment with depth */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.8), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(255, 252, 247, 0.6), transparent 40%),
-    linear-gradient(135deg, rgba(244, 240, 233, 0.98), rgba(228, 222, 211, 0.92)),
-    url("/images/lw-background.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.5;
-  filter: saturate(0.7) contrast(0.95);
+    radial-gradient(ellipse at 15% 5%, rgba(212, 160, 18, 0.04), transparent 50%),
+    radial-gradient(ellipse at 85% 85%, rgba(207, 123, 62, 0.03), transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 252, 247, 0.7), transparent 70%),
+    linear-gradient(160deg, #f6f2eb 0%, #ede8df 40%, #e8e2d8 100%);
   z-index: -2;
 }
 
-/* Perceptible noise texture overlay */
+/* Fine grain texture overlay for tactile depth */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.028;
   z-index: -1;
   pointer-events: none;
   mix-blend-mode: multiply;
@@ -91,7 +87,7 @@ h4 {
 }
 
 p {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
   line-height: 1.75;
   letter-spacing: 0.005em;
@@ -135,7 +131,7 @@ p {
 
 /* Subtle text for metadata */
 .text-subtle {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.8125rem;
   letter-spacing: 0.02em;
   color: #9c9288;
@@ -143,7 +139,7 @@ p {
 
 /* Label styling - consistent uppercase treatment */
 .label-text {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -207,13 +203,18 @@ html {
   cursor: grabbing;
 }
 
-/* Canvas vignette effect */
+/* Canvas depth and vignette */
 .react-flow__viewport {
   position: relative;
 }
 
 .react-flow {
   position: relative;
+  background: radial-gradient(
+    ellipse 120% 100% at 50% 40%,
+    rgba(253, 250, 246, 0.4) 0%,
+    transparent 60%
+  );
 }
 
 .react-flow::after {
@@ -221,11 +222,10 @@ html {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 50%,
-    rgba(180, 168, 150, 0.15) 100%
-  );
+  background:
+    radial-gradient(ellipse at center, transparent 45%, rgba(180, 168, 150, 0.12) 100%),
+    radial-gradient(ellipse at 20% 20%, rgba(212, 160, 18, 0.02) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 80%, rgba(207, 123, 62, 0.02) 0%, transparent 40%);
   z-index: 100;
 }
 
@@ -249,14 +249,15 @@ html {
   filter: drop-shadow(0 1px 3px rgba(166, 95, 42, 0.12));
 }
 
-/* Edge animation pulse */
-@keyframes edgePulse {
-  0%, 100% { stroke-opacity: 0.35; }
-  50% { stroke-opacity: 0.5; }
+/* Edge animation - gentle flow pulse */
+@keyframes edgeFlow {
+  0%, 100% { stroke-opacity: 0.35; stroke-dashoffset: 0; }
+  50% { stroke-opacity: 0.55; }
 }
 
 .react-flow__edge-path {
-  animation: edgePulse 3s ease-in-out infinite;
+  animation: edgeFlow 4s ease-in-out infinite;
+  stroke-dasharray: none;
 }
 
 /* Handle styling - brass finish */
@@ -536,11 +537,12 @@ button, a, [role="button"] {
   opacity: 0.4 !important;
 }
 
-/* Smooth node transitions */
+/* Smooth node transitions with rich hover depth */
 .react-flow__node {
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .react-flow__node:hover {
-  filter: drop-shadow(0 8px 20px rgba(207, 123, 62, 0.2));
+  filter: drop-shadow(0 12px 28px rgba(30, 24, 18, 0.12)) drop-shadow(0 4px 8px rgba(30, 24, 18, 0.06));
+  transform: translateY(-2px);
 }

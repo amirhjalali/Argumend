@@ -9,7 +9,7 @@ interface TopBarProps {
 
 export function TopBar({ onMenuClick }: TopBarProps) {
   return (
-    <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-gradient-to-b from-[#fffcf8] to-[#faf7f2] px-4 md:px-6 py-3 text-primary border-b border-[#e8e0d4] shadow-[0_1px_3px_rgba(30,24,18,0.04),0_4px_12px_rgba(30,24,18,0.02)]">
+    <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#fdfaf6]/95 backdrop-blur-md px-4 md:px-6 py-3 text-primary border-b border-[#e8e0d4]/80 shadow-[0_1px_2px_rgba(30,24,18,0.04)]">
       {/* Left: Menu + Logo */}
       <div className="flex items-center gap-3 md:gap-5">
         <button
@@ -22,10 +22,10 @@ export function TopBar({ onMenuClick }: TopBarProps) {
 
         <Link href="/" className="group flex items-center gap-3">
           <div className="flex flex-col">
-            <span className="font-serif text-lg md:text-xl font-medium tracking-[0.08em] text-primary leading-none">
+            <span className="font-serif text-lg md:text-xl font-medium tracking-[0.12em] text-primary leading-none">
               ARGUMEND
             </span>
-            <span className="text-[10px] md:text-[11px] font-sans font-medium uppercase tracking-[0.15em] text-[#D4A012] leading-none mt-0.5">
+            <span className="text-[10px] md:text-[11px] font-sans font-semibold uppercase tracking-[0.18em] text-[#D4A012]/80 leading-none mt-1">
               Map the Truth
             </span>
           </div>

@@ -69,47 +69,47 @@ const quotes = [
 export default function AboutPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl px-6 md:px-8 py-12 md:py-16">
+      <div className="mx-auto max-w-3xl px-6 md:px-8 py-14 md:py-20">
         {/* Hero */}
-        <div className="mb-12 md:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4A012] mb-4">
+        <div className="mb-14 md:mb-20">
+          <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#D4A012] mb-5">
             About Argumend
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-tight text-primary mb-6 leading-[1.1]">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             What if we could disagree<br />
             <span className="text-[#D4A012]">without destroying each other?</span>
           </h1>
-          <p className="text-lg md:text-xl text-secondary leading-relaxed">
+          <p className="text-lg md:text-xl text-secondary leading-[1.7] max-w-2xl">
             Most debates generate heat, not light. We yell past each other, strawman positions we don't understand,
             and walk away more certain—and more divided—than before.
           </p>
         </div>
 
         {/* Pull Quote */}
-        <blockquote className="my-10 md:my-12 py-6 border-l-4 border-[#D4A012] pl-6 bg-gradient-to-r from-[#D4A012]/5 to-transparent rounded-r-xl">
-          <p className="font-serif text-xl md:text-2xl text-primary italic leading-relaxed">
+        <blockquote className="my-12 md:my-16 py-8 border-l-[3px] border-[#D4A012] pl-7 md:pl-8 bg-gradient-to-r from-[#D4A012]/[0.04] to-transparent rounded-r-xl">
+          <p className="font-serif text-xl md:text-2xl text-primary italic leading-[1.6]">
             &ldquo;The goal is not to win debates, but to converge on truth—together.&rdquo;
           </p>
         </blockquote>
 
         {/* Why It Matters */}
-        <section className="mb-12 md:mb-16">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-4">Why this matters</h2>
-          <p className="text-lg text-secondary leading-relaxed mb-8">
+        <section className="mb-14 md:mb-20">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-3">Why this matters</h2>
+          <p className="text-lg text-secondary leading-[1.7] mb-8">
             Bad epistemics aren't just intellectually frustrating. They cause real harm.
           </p>
 
-          <div className="grid gap-4">
+          <div className="grid gap-3">
             {stakes.map((stake) => (
               <div
                 key={stake.title}
-                className="flex items-start gap-4 p-4 rounded-xl bg-stone-50 border border-stone-200"
+                className="flex items-start gap-4 p-5 rounded-xl bg-gradient-to-br from-stone-50 to-white border border-stone-200/80 transition-all duration-200 hover:border-stone-300 hover:shadow-sm"
               >
-                <div className="w-10 h-10 rounded-lg bg-stone-100 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-stone-100/80 flex items-center justify-center flex-shrink-0">
                   <stake.icon className="h-5 w-5 text-stone-500" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-primary mb-1">{stake.title}</h3>
+                  <h3 className="font-semibold text-primary mb-1.5">{stake.title}</h3>
                   <p className="text-sm text-secondary leading-relaxed">{stake.description}</p>
                 </div>
               </div>
@@ -118,9 +118,9 @@ export default function AboutPage() {
         </section>
 
         {/* Our Approach */}
-        <section className="mb-12 md:mb-16">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-4">A different approach</h2>
-          <p className="text-lg text-secondary leading-relaxed mb-6">
+        <section className="mb-14 md:mb-20">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-3">A different approach</h2>
+          <p className="text-lg text-secondary leading-[1.7] mb-7">
             Argumend maps controversial topics visually, breaking each one into:
           </p>
           <ul className="space-y-4 text-base md:text-lg text-secondary mb-6">
@@ -144,18 +144,18 @@ export default function AboutPage() {
         </section>
 
         {/* Principles Grid */}
-        <section className="mb-12 md:mb-16">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-6 md:mb-8">Core principles</h2>
+        <section className="mb-14 md:mb-20">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-8 md:mb-10">Core principles</h2>
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {principles.map((principle) => (
               <div
                 key={principle.title}
-                className="group relative bg-white rounded-2xl p-5 md:p-6 border border-stone-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                className="group relative bg-gradient-to-br from-white to-stone-50/50 rounded-2xl p-5 md:p-6 border border-stone-200/80 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,0.08)] hover:-translate-y-1"
                 style={{ borderLeftWidth: "4px", borderLeftColor: principle.color }}
               >
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: `${principle.color}15` }}
+                  style={{ backgroundColor: `${principle.color}12` }}
                 >
                   <principle.icon
                     className="h-5 w-5"
@@ -164,16 +164,16 @@ export default function AboutPage() {
                   />
                 </div>
                 <h3 className="font-serif text-lg md:text-xl text-primary mb-2">{principle.title}</h3>
-                <p className="text-sm md:text-base text-secondary leading-relaxed">{principle.description}</p>
+                <p className="text-[14px] md:text-[15px] text-secondary leading-relaxed">{principle.description}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Philosophy */}
-        <section className="mb-12 md:mb-16">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-4">Philosophy</h2>
-          <div className="space-y-4 text-base md:text-lg text-secondary leading-relaxed">
+        <section className="mb-14 md:mb-20">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-5">Philosophy</h2>
+          <div className="space-y-5 text-base md:text-lg text-secondary leading-[1.75]">
             <p>
               We draw from the rationalist tradition—Socratic questioning, Bayesian updating, the principle
               of charity. But we're not trying to win converts to a worldview. We're trying to build a
@@ -198,7 +198,7 @@ export default function AboutPage() {
         </section>
 
         {/* Confidence Explainer */}
-        <section className="bg-gradient-to-br from-[#D4A012]/10 via-[#CF7B3E]/5 to-transparent rounded-2xl p-6 md:p-8 mb-10 md:mb-12">
+        <section className="bg-gradient-to-br from-[#D4A012]/[0.07] via-[#CF7B3E]/[0.03] to-transparent rounded-2xl p-6 md:p-8 mb-12 md:mb-16 border border-[#D4A012]/10">
           <h2 className="font-serif text-xl md:text-2xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
             We don't claim to know the truth. We estimate how confident we should be based on available evidence.
@@ -232,8 +232,8 @@ export default function AboutPage() {
         </section>
 
         {/* Voices of Reason */}
-        <section className="mb-12 md:mb-16">
-          <div className="flex items-center gap-2 mb-6">
+        <section className="mb-14 md:mb-20">
+          <div className="flex items-center gap-2.5 mb-8">
             <Quote className="h-5 w-5 text-[#D4A012]" strokeWidth={1.5} />
             <h2 className="font-serif text-2xl md:text-3xl text-primary">Voices of reason</h2>
           </div>
@@ -241,7 +241,7 @@ export default function AboutPage() {
             {quotes.map((quote, i) => (
               <div
                 key={i}
-                className="relative p-5 rounded-xl bg-gradient-to-br from-stone-50 to-white border border-stone-200"
+                className="relative p-6 rounded-xl bg-gradient-to-br from-stone-50/80 to-white border border-stone-200/80 transition-all duration-200 hover:border-stone-300"
               >
                 <Quote className="absolute top-4 right-4 h-8 w-8 text-stone-200" strokeWidth={1} />
                 <p className="font-serif text-lg text-primary leading-relaxed mb-3 pr-8">
@@ -262,9 +262,9 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="text-center py-8 border-t border-stone-200">
+        <section className="text-center py-10 border-t border-stone-200/80">
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to think differently?</h3>
-          <p className="text-secondary mb-6">Pick a topic. Explore the map. Find the crux.</p>
+          <p className="text-secondary mb-7">Pick a topic. Explore the map. Find the crux.</p>
           <a
             href="/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] text-white font-semibold shadow-lg shadow-[#D4A012]/20 hover:shadow-xl hover:shadow-[#D4A012]/30 hover:-translate-y-0.5 transition-all"

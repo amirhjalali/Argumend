@@ -59,12 +59,12 @@ export function Sidebar({
   };
 
   return (
-    <aside className="relative flex h-full w-[260px] flex-col bg-gradient-to-b from-[#faf7f2] to-[#f5f1ea] text-primary">
-      {/* Subtle right border with gradient */}
-      <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#e8e0d4] via-[#ddd5c8] to-[#e8e0d4]" />
+    <aside className="relative flex h-full w-[260px] flex-col bg-gradient-to-b from-[#fdfaf6] via-[#f8f4ee] to-[#f3efe8] text-primary">
+      {/* Right border - refined gradient with warmth */}
+      <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#d4cec4] to-transparent" />
 
-      {/* Inner shadow for depth */}
-      <div className="absolute inset-0 pointer-events-none shadow-[inset_-8px_0_16px_-8px_rgba(0,0,0,0.03)]" />
+      {/* Subtle atmospheric gradient overlay */}
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-[#D4A012]/[0.02] via-transparent to-[#CF7B3E]/[0.02]" />
 
       <div className="relative flex-1 overflow-y-auto overflow-x-hidden px-5 py-6">
         {/* Primary Navigation */}
