@@ -23,7 +23,7 @@ const VARIANT_STYLES: Record<
   NodeVariant,
   { label: string; accentColor: string; borderClass: string; bgClass: string; Icon: LucideIcon; tagline?: string }
 > = {
-  meta: { label: "Meta Claim", accentColor: "#D4A012", borderClass: "border-l-[#D4A012]", bgClass: "bg-[#D4A012]/5", Icon: Landmark },
+  meta: { label: "Meta Claim", accentColor: "#2563eb", borderClass: "border-l-[#2563eb]", bgClass: "bg-[#2563eb]/5", Icon: Landmark },
   pillar: { label: "Pillar", accentColor: "#78716c", borderClass: "border-l-stone-400", bgClass: "bg-stone-50", Icon: Landmark, tagline: "Core argument" },
   skeptic: { label: "Skeptic", accentColor: "#8B5A3C", borderClass: "border-l-[#8B5A3C]", bgClass: "bg-[#8B5A3C]/5", Icon: Swords, tagline: "The strongest objection" },
   proponent: { label: "Proponent", accentColor: "#D4A012", borderClass: "border-l-[#D4A012]", bgClass: "bg-[#D4A012]/5", Icon: Shield, tagline: "The response" },
@@ -127,14 +127,21 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
           </div>
         )}
 
-        {/* References with Hoverable Citation Cards */}
+        {/* Evidence Sources - promoted to first-class element */}
         {data.references && data.references.length > 0 && (
-          <div className="mt-4 border-t border-stone-200 pt-3">
-            <div className="mb-2 flex items-center gap-1.5">
-              <FileText className="h-3.5 w-3.5 text-stone-400" strokeWidth={1.5} />
-              <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.15em] text-stone-500">
-                Sources ({data.references.length})
-              </p>
+          <div className="mt-4 -mx-5 -mb-5 px-5 py-4 bg-gradient-to-b from-stone-50/80 to-stone-100/60 border-t border-stone-200 rounded-b-2xl">
+            <div className="mb-3 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center justify-center w-5 h-5 rounded-full bg-[#CF7B3E]/15">
+                  <FileText className="h-3 w-3 text-[#CF7B3E]" strokeWidth={2} />
+                </div>
+                <span className="text-[12px] font-sans font-bold text-stone-700">
+                  Evidence
+                </span>
+              </div>
+              <span className="flex items-center justify-center min-w-[22px] h-5 rounded-full bg-[#CF7B3E]/15 px-1.5 text-[11px] font-bold text-[#CF7B3E] tabular-nums">
+                {data.references.length}
+              </span>
             </div>
             <ul className="space-y-2">
               {data.references.map((ref, i) => (
@@ -150,7 +157,11 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         <div className="mt-3 flex items-center gap-3 border-t border-stone-200 pt-4">
           {data.hasChildren ? (
             <button
-              className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-stone-300 px-3 py-2 text-xs font-semibold text-stone-600 transition-all hover:border-stone-400 hover:bg-stone-50 hover:text-stone-800 disabled:cursor-not-allowed disabled:opacity-50"
+              className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-2.5 text-xs font-bold transition-all disabled:cursor-not-allowed disabled:opacity-50 ${
+                expanded
+                  ? "border border-stone-200 text-stone-500 bg-stone-50"
+                  : "border-2 border-stone-400 text-stone-700 bg-white shadow-sm hover:border-stone-600 hover:bg-stone-50 hover:shadow-md hover:-translate-y-0.5"
+              }`}
               onClick={() => expandNode(id)}
               disabled={expanded}
             >

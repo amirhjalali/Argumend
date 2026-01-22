@@ -70,15 +70,19 @@ export function TopicIntroPanel() {
 
   const methodology = getMethodology(topic.confidence_score);
 
+  // Check if any nodes have been expanded
+  const expandedNodes = useLogicGraph((state) => state.expandedNodes);
+  const hasExpandedAny = Object.values(expandedNodes).some(Boolean);
+
   return (
     <AnimatePresence>
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="absolute top-4 left-1/2 -translate-x-1/2 z-20 w-[90%] max-w-lg"
+        className="absolute z-20 top-auto bottom-3 left-1/2 -translate-x-1/2 w-[94%] max-w-md md:top-4 md:bottom-auto md:max-w-lg"
       >
-        <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-stone-200 overflow-hidden">
+        <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-stone-200 overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#D4A012]/10 to-[#CF7B3E]/5 border-b border-stone-100">
             <div className="flex items-center gap-2">
@@ -206,9 +210,9 @@ export function TopicIntroPanel() {
                     </AnimatePresence>
                   </div>
 
-                  {/* Steel-man vs Rebuttal Preview */}
+                  {/* Steel-man vs Rebuttal Preview (hidden on mobile to save space) */}
                   {firstPillar && (
-                    <div className="mb-4">
+                    <div className="mb-4 hidden md:block">
                       <button
                         onClick={() => setShowDebatePreview(!showDebatePreview)}
                         className="w-full flex items-center justify-between text-left mb-2"
@@ -296,14 +300,24 @@ export function TopicIntroPanel() {
                     </div>
                   )}
 
-                  {/* Action */}
-                  <button
-                    onClick={handleFocusCrux}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] text-white text-sm font-semibold shadow-md shadow-[#a23b3b]/20 hover:shadow-lg hover:shadow-[#a23b3b]/30 hover:-translate-y-0.5 transition-all"
-                  >
-                    Find the Crux
-                    <Scale className="h-4 w-4" />
-                  </button>
+                  {/* Contextual Action - demote "Find the Crux" until graph is expanded */}
+                  {hasExpandedAny && cruxNode ? (
+                    <button
+                      onClick={handleFocusCrux}
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] text-white text-sm font-semibold shadow-md shadow-[#a23b3b]/20 hover:shadow-lg hover:shadow-[#a23b3b]/30 hover:-translate-y-0.5 transition-all"
+                    >
+                      Find the Crux
+                      <Scale className="h-4 w-4" />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setIsVisible(false)}
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] text-white text-sm font-semibold shadow-md shadow-[#D4A012]/20 hover:shadow-lg hover:shadow-[#D4A012]/30 hover:-translate-y-0.5 transition-all"
+                    >
+                      Explore the Map
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+                  )}
                 </div>
               </motion.div>
             )}

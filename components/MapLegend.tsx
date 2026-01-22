@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Landmark,
@@ -11,14 +11,15 @@ import {
   MessageCircleQuestion,
   Info,
   X,
+  Crown,
 } from "lucide-react";
 
 const LEGEND_ITEMS = [
   {
     label: "Meta Claim",
     description: "The central thesis being analyzed",
-    color: "#D4A012",
-    Icon: Landmark,
+    color: "#2563eb",
+    Icon: Crown,
   },
   {
     label: "Proponent",
@@ -53,19 +54,28 @@ const LEGEND_ITEMS = [
 ];
 
 export function MapLegend() {
-  const [isOpen, setIsOpen] = useState(true); // Open by default for discoverability
+  // Open by default on desktop; on mobile, auto-collapse after 4 seconds
+  const [isOpen, setIsOpen] = useState(true);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.innerWidth < 768) {
+      const timer = setTimeout(() => setIsOpen(false), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   return (
-    <div className="absolute bottom-6 left-6 z-50">
+    <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 z-50">
       <AnimatePresence mode="wait">
         {isOpen ? (
           <motion.div
             key="legend"
-            initial={{ opacity: 1, y: 0, scale: 1 }} // No animation on initial render
+            initial={{ opacity: 1, y: 0, scale: 1 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="w-72 rounded-xl border border-stone-200 bg-white/95 backdrop-blur-sm p-4 shadow-lg"
+            className="w-56 md:w-72 rounded-xl border border-stone-200 bg-white/95 backdrop-blur-sm p-3 md:p-4 shadow-lg max-h-[40vh] md:max-h-none overflow-y-auto"
           >
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-serif text-base font-semibold text-primary">

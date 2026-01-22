@@ -6,7 +6,6 @@ import { useEffect, useMemo, useState } from "react";
 import {
   Background,
   BackgroundVariant,
-  Controls,
   MiniMap,
   ReactFlow,
   ReactFlowProvider,
@@ -59,7 +58,7 @@ function CanvasExperience() {
   const getMiniMapColor = (node: Node<LogicNodeData>) => {
     switch (node?.data?.variant) {
       case "meta":
-        return "#D4A012"; // Metallic gold for meta
+        return "#2563eb"; // Blue for meta claim (distinct from proponent)
       case "skeptic":
         return "#8B5A3C"; // Warm brown for skeptic
       case "crux":
@@ -139,6 +138,14 @@ function CanvasExperience() {
           {/* Canvas inner shadow for depth */}
           <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_4px_0_12px_-4px_rgba(0,0,0,0.06)]" />
 
+          {/* Map extent edge hints - subtle fade on edges to suggest more content */}
+          <div className="absolute inset-0 pointer-events-none z-[5]">
+            <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[#f4f1eb]/60 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#f4f1eb]/60 to-transparent" />
+            <div className="absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-[#f4f1eb]/40 to-transparent" />
+            <div className="absolute top-0 bottom-0 right-0 w-8 bg-gradient-to-l from-[#f4f1eb]/40 to-transparent" />
+          </div>
+
           <div className="h-full">
             <ReactFlow
               className="h-full w-full"
@@ -165,23 +172,16 @@ function CanvasExperience() {
                 variant={BackgroundVariant.Dots}
                 className="opacity-50"
               />
-              <Controls
-                position="top-right"
-                className="m-4 hidden"
-                showInteractive={false}
-              />
+              {/* Single MiniMap for orientation only - not interactive to avoid competing with ZoomIndicator */}
               <MiniMap
-                pannable
-                zoomable
                 className="logic-minimap hidden md:block"
                 style={{
                   position: "absolute",
-                  width: 180,
-                  height: 120,
+                  width: 160,
+                  height: 100,
                   bottom: 24,
                   right: 24,
-                  zIndex: 50,
-                  pointerEvents: "auto",
+                  zIndex: 40,
                 }}
                 nodeColor={getMiniMapColor}
                 nodeStrokeColor={() => "transparent"}
