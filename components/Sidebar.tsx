@@ -105,7 +105,7 @@ export function Sidebar({
         <section className="pb-6">
           <div className="flex items-center gap-2 px-3 mb-4">
             <Zap className="h-3.5 w-3.5 text-[#D4A012]" strokeWidth={2} />
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#a09689]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#7a736a]">
               Explore Topics
             </p>
           </div>
@@ -135,7 +135,7 @@ export function Sidebar({
 
                     {/* Confidence badge with semantic color */}
                     <span
-                      className="flex-shrink-0 text-[11px] font-mono tabular-nums font-medium"
+                      className="flex-shrink-0 text-[12px] font-mono tabular-nums font-semibold"
                       style={{ color: isSelected ? "#D4A012" : confidenceColor }}
                     >
                       {topic.confidence_score}%

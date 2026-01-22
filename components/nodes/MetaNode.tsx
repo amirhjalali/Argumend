@@ -1,11 +1,12 @@
 "use client";
 
 import { InteractiveContent } from "@/components/InteractiveContent";
+import { CitationCard } from "@/components/CitationCard";
 import { ConfidenceGauge } from "@/components/ConfidenceGauge";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
-import { ChevronRight, ScrollText, Landmark } from "lucide-react";
+import { ChevronRight, ScrollText, Landmark, FileText } from "lucide-react";
 
 export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const expanded = useLogicGraph((state) => state.expandedNodes[id]);
@@ -53,7 +54,7 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
             <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-[#D4A012]/15 to-[#CF7B3E]/10">
               <Landmark className="h-4 w-4 text-[#D4A012]" strokeWidth={1.5} />
             </div>
-            <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[#B8890F]">
+            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.15em] text-[#B8890F]">
               Meta Claim
             </p>
           </div>
@@ -73,27 +74,19 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
           </div>
         )}
 
-        {/* References */}
+        {/* References with Hoverable Citation Cards */}
         {data.references && data.references.length > 0 && (
           <div className="border-t border-stone-200 pt-4">
-            <div className="mb-2 flex items-center gap-1.5">
-              <ScrollText className="h-3 w-3 text-stone-400" strokeWidth={1.5} />
-              <p className="text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-stone-400">
-                Key Sources
+            <div className="mb-3 flex items-center gap-1.5">
+              <FileText className="h-3.5 w-3.5 text-stone-400" strokeWidth={1.5} />
+              <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.15em] text-stone-500">
+                Key Sources ({data.references.length})
               </p>
             </div>
             <ul className="space-y-2">
               {data.references.map((ref, i) => (
-                <li key={i} className="text-xs font-serif text-secondary">
-                  <a
-                    href={ref.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-1 leading-tight text-secondary transition-colors hover:text-accent-link"
-                  >
-                    {ref.title}
-                    {ref.url && <ScrollText className="h-3 w-3 opacity-40 flex-shrink-0 mt-0.5" />}
-                  </a>
+                <li key={i}>
+                  <CitationCard reference={ref} index={i + 1} />
                 </li>
               ))}
             </ul>

@@ -373,7 +373,7 @@ html {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .lw-pill {
-  @apply uppercase tracking-[0.2em] text-[10px] text-secondary font-semibold;
+  @apply uppercase tracking-[0.15em] text-[11px] text-stone-500 font-semibold;
 }
 
 /* Focus ring styling - rich gold tones */
@@ -437,6 +437,59 @@ button, a, [role="button"] {
 
 .link-underline:hover::after {
   width: 100%;
+}
+
+/* CSS animations for no-JS resilience */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 1.5s ease-in-out infinite;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-bounce-slow {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Card hover effect */

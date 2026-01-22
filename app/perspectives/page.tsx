@@ -367,41 +367,31 @@ export default function PerspectivesPage() {
         </div>
 
         <div className="text-center max-w-4xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
+          {/* No-JS fallback: content is visible by default, animations enhance */}
+          <div className="animate-fade-in-up">
             <h1 className="display-text text-primary mb-8">
               Perspectives
             </h1>
-          </motion.div>
+          </div>
 
-          <motion.p
-            className="text-xl md:text-2xl text-secondary mb-12 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+          <p
+            className="text-xl md:text-2xl text-secondary mb-12 max-w-2xl mx-auto animate-fade-in-up"
+            style={{ animationDelay: '0.2s' }}
           >
             A scroll-driven story about why you are not your ideas—
             <br className="hidden md:inline" />
             and why that&apos;s liberating.
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="flex flex-col items-center gap-2 text-muted"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+          <div
+            className="flex flex-col items-center gap-2 text-muted animate-fade-in"
+            style={{ animationDelay: '0.5s' }}
           >
             <span className="text-sm font-medium tracking-wide">Scroll to begin</span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            >
+            <div className="animate-bounce-slow">
               <ChevronDown className="h-6 w-6" />
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </motion.div>
 

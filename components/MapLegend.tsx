@@ -53,7 +53,7 @@ const LEGEND_ITEMS = [
 ];
 
 export function MapLegend() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true); // Open by default for discoverability
 
   return (
     <div className="absolute bottom-6 left-6 z-50">
@@ -61,28 +61,29 @@ export function MapLegend() {
         {isOpen ? (
           <motion.div
             key="legend"
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            initial={{ opacity: 1, y: 0, scale: 1 }} // No animation on initial render
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="w-64 rounded-xl border-2 border-[#c9b896] bg-gradient-to-br from-[#f8f3e8] to-[#f0ebe0] p-4 shadow-lg"
+            className="w-72 rounded-xl border border-stone-200 bg-white/95 backdrop-blur-sm p-4 shadow-lg"
           >
-            <div className="mb-3 flex items-center justify-between">
-              <h3 className="font-serif text-sm font-bold text-primary">
-                Map Legend
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="font-serif text-base font-semibold text-primary">
+                How to Read This Map
               </h3>
               <button
                 onClick={() => setIsOpen(false)}
-                className="rounded-full p-1 text-muted transition-colors hover:bg-stone-200 hover:text-primary"
+                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-600"
+                aria-label="Collapse legend"
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <div className="space-y-2.5">
+            <div className="space-y-3">
               {LEGEND_ITEMS.map((item) => (
-                <div key={item.label} className="flex items-start gap-2.5">
+                <div key={item.label} className="flex items-start gap-3">
                   <div
-                    className="mt-0.5 flex h-5 w-5 items-center justify-center rounded"
+                    className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-md flex-shrink-0"
                     style={{ backgroundColor: `${item.color}15` }}
                   >
                     <item.Icon
@@ -91,23 +92,23 @@ export function MapLegend() {
                       strokeWidth={2}
                     />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <p
-                      className="text-xs font-semibold"
+                      className="text-[13px] font-semibold leading-tight"
                       style={{ color: item.color }}
                     >
                       {item.label}
                     </p>
-                    <p className="text-[10px] leading-tight text-secondary">
+                    <p className="text-[12px] leading-snug text-stone-500 mt-0.5">
                       {item.description}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-3 border-t border-stone-300 pt-3">
-              <p className="text-[10px] text-muted">
-                <span className="font-semibold">Tip:</span> Click nodes to expand and explore the argument map.
+            <div className="mt-4 border-t border-stone-200 pt-3">
+              <p className="text-[12px] text-stone-500">
+                <span className="font-semibold text-stone-600">Tip:</span> Click &ldquo;Explore&rdquo; on nodes to reveal deeper arguments.
               </p>
             </div>
           </motion.div>

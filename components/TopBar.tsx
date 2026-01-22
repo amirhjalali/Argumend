@@ -25,7 +25,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
             <span className="font-serif text-lg md:text-xl font-medium tracking-[0.08em] text-primary leading-none">
               ARGUMEND
             </span>
-            <span className="text-[8px] md:text-[9px] font-sans font-medium uppercase tracking-[0.2em] text-[#D4A012] leading-none mt-0.5">
+            <span className="text-[10px] md:text-[11px] font-sans font-medium uppercase tracking-[0.15em] text-[#D4A012] leading-none mt-0.5">
               Map the Truth
             </span>
           </div>

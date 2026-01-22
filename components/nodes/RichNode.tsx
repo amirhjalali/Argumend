@@ -1,6 +1,7 @@
 "use client";
 
 import { InteractiveContent } from "@/components/InteractiveContent";
+import { CitationCard } from "@/components/CitationCard";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData, NodeVariant } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
@@ -67,12 +68,12 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
               >
                 <style.Icon className="h-3.5 w-3.5" style={{ color: style.accentColor }} strokeWidth={2} />
               </div>
-              <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em]" style={{ color: style.accentColor }}>
+              <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: style.accentColor }}>
                 {style.label}
               </span>
             </div>
             {style.tagline && (
-              <span className="text-[9px] font-sans text-stone-400 italic">
+              <span className="text-[11px] font-sans text-stone-500 italic">
                 {style.tagline}
               </span>
             )}
@@ -109,7 +110,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
             </p>
             {data.detail.status && (
               <div className="mt-2 flex items-center gap-2">
-                <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                <span className={`text-[11px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full ${
                   data.detail.status === "verified"
                     ? "bg-[#D4A012]/20 text-[#8B6914]"
                     : data.detail.status === "theoretical"
@@ -118,7 +119,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
                 }`}>
                   {data.detail.status}
                 </span>
-                <span className="text-[10px] text-secondary">
+                <span className="text-[11px] text-stone-500">
                   Cost: {data.detail.cost}
                 </span>
               </div>
@@ -126,27 +127,19 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
           </div>
         )}
 
-        {/* References */}
+        {/* References with Hoverable Citation Cards */}
         {data.references && data.references.length > 0 && (
           <div className="mt-4 border-t border-stone-200 pt-3">
             <div className="mb-2 flex items-center gap-1.5">
-              <FileText className="h-3 w-3 text-stone-400" strokeWidth={1.5} />
-              <p className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-stone-400">
-                Sources
+              <FileText className="h-3.5 w-3.5 text-stone-400" strokeWidth={1.5} />
+              <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.15em] text-stone-500">
+                Sources ({data.references.length})
               </p>
             </div>
-            <ul className="space-y-1.5">
+            <ul className="space-y-2">
               {data.references.map((ref, i) => (
-                <li key={i} className="text-xs font-sans text-secondary">
-                  <a
-                    href={ref.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-1 leading-tight transition-colors hover:text-[#CF7B3E]"
-                  >
-                    {ref.title}
-                    {ref.url && <ScrollText className="h-3 w-3 opacity-40 flex-shrink-0 mt-0.5" />}
-                  </a>
+                <li key={i}>
+                  <CitationCard reference={ref} index={i + 1} />
                 </li>
               ))}
             </ul>
