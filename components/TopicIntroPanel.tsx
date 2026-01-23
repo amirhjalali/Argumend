@@ -52,8 +52,6 @@ export function TopicIntroPanel() {
     setShowDebatePreview(false);
   }, [currentTopicId]);
 
-  if (!topic || !isVisible) return null;
-
   const handleFocusCrux = () => {
     if (cruxNode) {
       // Use the store's focus mechanism
@@ -68,7 +66,7 @@ export function TopicIntroPanel() {
     return CONFIDENCE_METHODOLOGY.low;
   };
 
-  const methodology = getMethodology(topic.confidence_score);
+  const methodology = topic ? getMethodology(topic.confidence_score) : CONFIDENCE_METHODOLOGY.low;
 
   // Check if any nodes have been expanded
   const expandedNodes = useLogicGraph((state) => state.expandedNodes);
@@ -76,7 +74,9 @@ export function TopicIntroPanel() {
 
   return (
     <AnimatePresence>
+      {topic && isVisible && (
       <motion.div
+        key="topic-intro-panel"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
@@ -323,6 +323,7 @@ export function TopicIntroPanel() {
           </AnimatePresence>
         </div>
       </motion.div>
+      )}
     </AnimatePresence>
   );
 }

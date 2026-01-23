@@ -28,25 +28,18 @@ body {
   isolation: isolate;
 }
 
-/* Warm parchment background with subtle gradient */
+/* Warm background with subtle watercolor texture */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, #f5f2ec 0%, #eee9e1 100%);
+  background-image:
+    linear-gradient(180deg, rgba(246, 243, 238, 0.92) 0%, rgba(240, 237, 231, 0.88) 100%),
+    url("/images/lw-background.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.6) contrast(0.95);
   z-index: -2;
-}
-
-/* Paper grain texture - subtle organic fiber noise */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.4;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
 }
 
 /* Typography refinements - LessWrong-inspired elegance */
@@ -148,7 +141,6 @@ html {
 
 .react-flow__pane {
   cursor: grab;
-  background: linear-gradient(145deg, #f3efe8 0%, #ebe6de 50%, #f0ece5 100%);
 }
 
 .react-flow__pane:active {
