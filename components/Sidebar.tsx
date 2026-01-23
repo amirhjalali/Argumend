@@ -57,7 +57,7 @@ export function Sidebar({
   };
 
   return (
-    <aside className="relative flex h-full w-[260px] flex-col bg-[#f8f5ef] text-primary border-r border-stone-200/70">
+    <aside className="relative flex h-full w-[260px] flex-col bg-transparent text-primary">
 
       <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5">
         {/* Primary Navigation */}
@@ -87,7 +87,7 @@ export function Sidebar({
         </nav>
 
         {/* Divider */}
-        <div className="h-px bg-stone-200 mb-5" />
+        <div className="h-px bg-stone-200/50 mb-5" />
 
         {/* Featured Topics */}
         <section className="pb-5">
@@ -124,7 +124,7 @@ export function Sidebar({
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-3 border-t border-stone-200">
+      <div className="px-4 py-3 border-t border-stone-200/50">
         <div className="flex items-center justify-between">
           <ul className="flex items-center gap-3">
             {FOOTER_LINKS.map(({ label, href }) => (

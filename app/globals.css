@@ -28,18 +28,30 @@ body {
   isolation: isolate;
 }
 
-/* Warm background with subtle watercolor texture */
+/* Warm background with watercolor accent (top-right corner, like LessWrong) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image:
-    linear-gradient(180deg, rgba(246, 243, 238, 0.92) 0%, rgba(240, 237, 231, 0.88) 100%),
-    url("/images/lw-background.jpg");
-  background-size: cover;
-  background-position: center;
-  filter: saturate(0.6) contrast(0.95);
+  background-color: #f4f1eb;
   z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background-image: url("/images/lw-background.jpg");
+  background-size: cover;
+  background-position: center right;
+  mask-image: linear-gradient(to left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 50%, transparent 100%);
+  filter: saturate(0.5) contrast(0.95);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Typography refinements - LessWrong-inspired elegance */

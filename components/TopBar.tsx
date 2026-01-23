@@ -9,7 +9,7 @@ interface TopBarProps {
 
 export function TopBar({ onMenuClick }: TopBarProps) {
   return (
-    <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f8f5ef]/95 backdrop-blur-[2px] px-4 md:px-6 py-3 text-primary border-b border-stone-200/70">
+    <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40">
       {/* Left: Menu + Logo */}
       <div className="flex items-center gap-3 md:gap-5">
         <button

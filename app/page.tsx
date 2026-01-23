@@ -122,21 +122,10 @@ function CanvasExperience() {
             />
           </div>
 
-          {/* Shadow overlay when sidebar is open - adds depth (desktop only) */}
-          <div
-            className={`hidden md:block absolute inset-y-0 right-0 w-4 pointer-events-none transition-opacity duration-300 ${
-              isSidebarOpen ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              background: "linear-gradient(to right, rgba(0,0,0,0.04), transparent)",
-            }}
-          />
         </div>
 
         {/* Canvas Area */}
         <div className="relative flex-1 min-w-0">
-          {/* Canvas inner shadow for depth */}
-          <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_4px_0_12px_-4px_rgba(0,0,0,0.06)]" />
 
           {/* Map extent edge hints - subtle fade on edges to suggest more content */}
           <div className="absolute inset-0 pointer-events-none z-[5]">
