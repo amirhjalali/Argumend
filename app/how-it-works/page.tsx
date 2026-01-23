@@ -87,12 +87,12 @@ export default function HowItWorksPage() {
       <div className="mx-auto max-w-4xl px-6 md:px-8 py-14 md:py-20">
         {/* Hero */}
         <div className="mb-14 md:mb-20 text-center">
-          <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#D4A012] mb-5">
+          <p className="text-[12px] font-medium text-stone-400 mb-4">
             How It Works
           </p>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Mapping arguments,<br />
-            <span className="text-[#CF7B3E]">not winning them</span>
+            <span className="text-stone-500">not winning them</span>
           </h1>
           <p className="text-lg md:text-xl text-secondary leading-[1.7] max-w-2xl mx-auto">
             Argumend transforms complex debates into visual maps. See the strongest arguments
@@ -110,7 +110,7 @@ export default function HowItWorksPage() {
             {steps.map((step, i) => (
               <div
                 key={step.number}
-                className="group relative flex gap-4 p-5 md:p-6 rounded-2xl bg-gradient-to-br from-white to-stone-50/50 border border-stone-200/80 hover:border-[#D4A012]/30 hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,0.08)] transition-all duration-300"
+                className="flex gap-4 p-5 rounded-lg bg-white border border-stone-200"
               >
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#D4A012]/20 to-[#CF7B3E]/10 flex items-center justify-center">
@@ -217,7 +217,7 @@ export default function HowItWorksPage() {
             {nodeTypes.map((type) => (
               <div
                 key={type.name}
-                className="flex flex-col md:flex-row md:items-start gap-4 p-5 md:p-6 rounded-xl bg-gradient-to-br from-white to-stone-50/50 border border-stone-200/80 transition-all duration-200 hover:border-stone-300 hover:shadow-sm"
+                className="flex flex-col md:flex-row md:items-start gap-4 p-5 rounded-lg bg-white border border-stone-200"
                 style={{ borderLeftWidth: "4px", borderLeftColor: type.color }}
               >
                 <div
@@ -244,35 +244,29 @@ export default function HowItWorksPage() {
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             We don't claim certainty. Confidence scores reflect the weight of available evidence.
           </p>
-          <div className="bg-gradient-to-br from-[#D4A012]/[0.07] via-[#CF7B3E]/[0.03] to-transparent rounded-2xl p-6 md:p-8 border border-[#D4A012]/10">
+          <div className="bg-stone-50 rounded-lg p-6 md:p-8 border border-stone-200">
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center p-4">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#D4A012] to-[#E8B923] flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">90%+</span>
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-primary mb-1">Settled</h3>
-                <p className="text-sm text-secondary">Overwhelming evidence. Scientific consensus.</p>
+              <div className="p-4">
+                <p className="font-mono text-2xl font-medium text-stone-800 mb-2">90%+</p>
+                <h3 className="font-serif text-base text-primary mb-1">Settled</h3>
+                <p className="text-sm text-stone-500">Overwhelming evidence. Scientific consensus.</p>
               </div>
-              <div className="text-center p-4">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#CF7B3E] to-[#E09555] flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">50-80%</span>
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-primary mb-1">Probable</h3>
-                <p className="text-sm text-secondary">Good evidence, some uncertainty remains.</p>
+              <div className="p-4">
+                <p className="font-mono text-2xl font-medium text-stone-800 mb-2">50-80%</p>
+                <h3 className="font-serif text-base text-primary mb-1">Probable</h3>
+                <p className="text-sm text-stone-500">Good evidence, some uncertainty remains.</p>
               </div>
-              <div className="text-center p-4">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#8B5A3C] to-[#A67350] flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">&lt;50%</span>
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-primary mb-1">Contested</h3>
-                <p className="text-sm text-secondary">Genuine uncertainty. Reasonable people disagree.</p>
+              <div className="p-4">
+                <p className="font-mono text-2xl font-medium text-stone-800 mb-2">&lt;50%</p>
+                <h3 className="font-serif text-base text-primary mb-1">Contested</h3>
+                <p className="text-sm text-stone-500">Genuine uncertainty. Reasonable people disagree.</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* The Philosophy */}
-        <section className="mb-12 md:mb-16 bg-stone-50 rounded-2xl p-6 md:p-8 border border-stone-200">
+        <section className="mb-12 md:mb-16 bg-stone-50 rounded-lg p-6 md:p-8 border border-stone-200">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#a23b3b]/20 to-[#a23b3b]/5 flex items-center justify-center flex-shrink-0">
               <Target className="h-6 w-6 text-[#a23b3b]" strokeWidth={1.5} />
@@ -297,10 +291,10 @@ export default function HowItWorksPage() {
           <p className="text-secondary mb-7">Pick a controversial topic. Find the crux. Update your beliefs.</p>
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] text-white font-semibold shadow-lg shadow-[#D4A012]/20 hover:shadow-xl hover:shadow-[#D4A012]/30 hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
           >
             Start Mapping
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-3.5 w-3.5" />
           </a>
         </section>
       </div>

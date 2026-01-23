@@ -10,8 +10,6 @@ import {
   Layers,
   ListChecks,
   Users,
-  ChevronRight,
-  Zap,
   Map,
 } from "lucide-react";
 import { topics } from "@/data/topics";
@@ -59,97 +57,64 @@ export function Sidebar({
   };
 
   return (
-    <aside className="relative flex h-full w-[260px] flex-col bg-gradient-to-b from-[#fdfaf6] via-[#f8f4ee] to-[#f3efe8] text-primary">
-      {/* Right border - refined gradient with warmth */}
-      <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#d4cec4] to-transparent" />
+    <aside className="relative flex h-full w-[260px] flex-col bg-[#faf8f4] text-primary border-r border-stone-200">
 
-      {/* Subtle atmospheric gradient overlay */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-[#D4A012]/[0.02] via-transparent to-[#CF7B3E]/[0.02]" />
-
-      <div className="relative flex-1 overflow-y-auto overflow-x-hidden px-5 py-6">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5">
         {/* Primary Navigation */}
-        <nav className="space-y-0.5 pb-6">
+        <nav className="space-y-0.5 pb-5">
           {PRIMARY_NAV.map(({ label, icon: Icon, href }) => {
             const isActive = isActiveRoute(href);
             return (
               <Link
                 key={label}
                 href={href}
-                className={`group relative flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-[15px] font-medium transition-all duration-200 ${
+                className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[14px] transition-colors ${
                   isActive
-                    ? "bg-[#D4A012]/10 text-[#8B6914]"
-                    : "text-[#6d645c] hover:bg-[#ebe6de] hover:text-primary"
+                    ? "bg-stone-100 text-stone-900 font-medium"
+                    : "text-stone-500 hover:text-stone-800 hover:bg-stone-50"
                 }`}
               >
-                {/* Active indicator */}
-                {isActive && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-full bg-[#D4A012]" />
-                )}
-
                 <Icon
-                  className={`h-[18px] w-[18px] transition-colors duration-200 ${
-                    isActive ? "text-[#D4A012]" : "text-[#9a918a] group-hover:text-[#6d645c]"
+                  className={`h-4 w-4 ${
+                    isActive ? "text-stone-700" : "text-stone-400"
                   }`}
                   strokeWidth={1.8}
                 />
-                <span className="font-sans">{label}</span>
+                <span>{label}</span>
               </Link>
             );
           })}
         </nav>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-[#ddd5c8] to-transparent mb-6" />
+        <div className="h-px bg-stone-200 mb-5" />
 
         {/* Featured Topics */}
-        <section className="pb-6">
-          <div className="flex items-center gap-2 px-3 mb-4">
-            <Zap className="h-3.5 w-3.5 text-[#D4A012]" strokeWidth={2} />
-            <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#7a736a]">
-              Explore Topics
-            </p>
-          </div>
+        <section className="pb-5">
+          <p className="text-[11px] font-medium text-stone-400 px-3 mb-3 tracking-wide">
+            Topics
+          </p>
 
-          <ul className="space-y-1">
+          <ul className="space-y-0.5">
             {topics.map((topic) => {
               const isSelected = currentTopicId === topic.id;
-              const confidenceColor = topic.confidence_score >= 80 ? "#D4A012" : topic.confidence_score >= 50 ? "#CF7B3E" : "#8B5A3C";
               return (
                 <li key={topic.id}>
                   <button
                     onClick={() => handleTopicClick(topic.id)}
-                    className={`group relative flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-200 ${
+                    className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-left transition-colors ${
                       isSelected
-                        ? "bg-[#D4A012]/10 text-[#8B6914]"
-                        : "text-[#5a5347] hover:bg-[#ebe6de] hover:text-primary"
+                        ? "bg-stone-100 text-stone-900"
+                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-50"
                     }`}
                   >
-                    {/* Selected indicator */}
-                    {isSelected && (
-                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-full bg-[#D4A012]" />
-                    )}
-
-                    <span className="font-serif text-[15px] tracking-tight flex-1 truncate">
+                    <span className="font-serif text-[14px] flex-1 truncate">
                       {topic.title}
                     </span>
 
-                    {/* Confidence badge with semantic color */}
-                    <span
-                      className="flex-shrink-0 text-[12px] font-mono tabular-nums font-semibold"
-                      style={{ color: isSelected ? "#D4A012" : confidenceColor }}
-                    >
+                    <span className="flex-shrink-0 text-[11px] font-mono tabular-nums text-stone-400">
                       {topic.confidence_score}%
                     </span>
-
-                    {/* Hover arrow */}
-                    <ChevronRight
-                      className={`h-3.5 w-3.5 transition-all duration-200 ${
-                        isSelected
-                          ? "text-[#D4A012] opacity-100"
-                          : "text-[#a09689] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
-                      }`}
-                      strokeWidth={2}
-                    />
                   </button>
                 </li>
               );
@@ -159,22 +124,21 @@ export function Sidebar({
       </div>
 
       {/* Footer */}
-      <div className="relative px-5 py-4 border-t border-[#e8e0d4] bg-[#f5f1ea]/80">
+      <div className="px-4 py-3 border-t border-stone-200">
         <div className="flex items-center justify-between">
-          <ul className="flex items-center gap-4">
+          <ul className="flex items-center gap-3">
             {FOOTER_LINKS.map(({ label, href }) => (
               <li key={label}>
                 <Link
                   href={href}
-                  className="text-[13px] font-medium text-[#9a918a] hover:text-[#6d645c] transition-colors duration-200"
+                  className="text-[12px] text-stone-400 hover:text-stone-600 transition-colors"
                 >
                   {label}
                 </Link>
               </li>
             ))}
           </ul>
-
-          <span className="text-[10px] font-mono text-[#bdb5ab] tracking-wider">
+          <span className="text-[10px] font-mono text-stone-300">
             v1.0
           </span>
         </div>

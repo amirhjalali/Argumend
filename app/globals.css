@@ -28,29 +28,13 @@ body {
   isolation: isolate;
 }
 
-/* Rich atmospheric background - warm parchment with depth */
+/* Subtle warm background */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image:
-    radial-gradient(ellipse at 15% 5%, rgba(212, 160, 18, 0.04), transparent 50%),
-    radial-gradient(ellipse at 85% 85%, rgba(207, 123, 62, 0.03), transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgba(255, 252, 247, 0.7), transparent 70%),
-    linear-gradient(160deg, #f6f2eb 0%, #ede8df 40%, #e8e2d8 100%);
+  background: linear-gradient(180deg, #f6f3ee 0%, #f0ede7 100%);
   z-index: -2;
-}
-
-/* Fine grain texture overlay for tactile depth */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.028;
-  z-index: -1;
-  pointer-events: none;
-  mix-blend-mode: multiply;
 }
 
 /* Typography refinements - LessWrong-inspired elegance */
@@ -100,51 +84,6 @@ p {
   line-height: 1.8;
 }
 
-/* Small caps for labels */
-.small-caps {
-  font-variant: small-caps;
-  letter-spacing: 0.05em;
-  font-weight: 500;
-}
-
-/* Display text for hero sections */
-.display-text {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: clamp(3rem, 10vw, 5.5rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  font-weight: 400;
-}
-
-/* Pull quote styling */
-.pull-quote {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  line-height: 1.4;
-  letter-spacing: -0.015em;
-  font-style: italic;
-  color: #4a453e;
-  border-left: 3px solid #D4A012;
-  padding-left: 1.25rem;
-  margin: 1.5rem 0;
-}
-
-/* Subtle text for metadata */
-.text-subtle {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.8125rem;
-  letter-spacing: 0.02em;
-  color: #9c9288;
-}
-
-/* Label styling - consistent uppercase treatment */
-.label-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
 
 /* Smooth scrolling */
 html {
@@ -173,10 +112,10 @@ html {
   background-clip: content-box;
 }
 
-/* Selection styling - rich gold tones */
+/* Selection styling */
 ::selection {
-  background: rgba(212, 160, 18, 0.2);
-  color: #A65F2A;
+  background: rgba(37, 99, 235, 0.12);
+  color: inherit;
 }
 
 @layer base {
@@ -203,150 +142,78 @@ html {
   cursor: grabbing;
 }
 
-/* Canvas depth and vignette */
+/* Canvas */
 .react-flow__viewport {
   position: relative;
 }
 
-.react-flow {
-  position: relative;
-  background: radial-gradient(
-    ellipse 120% 100% at 50% 40%,
-    rgba(253, 250, 246, 0.4) 0%,
-    transparent 60%
-  );
-}
-
-.react-flow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at center, transparent 45%, rgba(180, 168, 150, 0.12) 100%),
-    radial-gradient(ellipse at 20% 20%, rgba(212, 160, 18, 0.02) 0%, transparent 40%),
-    radial-gradient(ellipse at 80% 80%, rgba(207, 123, 62, 0.02) 0%, transparent 40%);
-  z-index: 100;
-}
-
-/* Edge styling - refined gold/copper tones */
+/* Edge styling */
 .react-flow__edge-path {
   stroke-linecap: round;
-  stroke-width: 2px;
-  stroke: rgba(207, 123, 62, 0.4);
-  filter: drop-shadow(0 1px 2px rgba(166, 95, 42, 0.1));
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  stroke-width: 1.5px;
+  stroke: rgba(168, 162, 158, 0.5);
+  transition: stroke 0.2s ease;
 }
 
 .react-flow__edge:hover .react-flow__edge-path {
-  stroke: rgba(212, 160, 18, 0.7);
-  stroke-width: 2.5px;
-  filter: drop-shadow(0 2px 6px rgba(212, 160, 18, 0.25));
+  stroke: rgba(120, 113, 108, 0.7);
 }
 
 .logic-edge path {
-  stroke: rgba(207, 123, 62, 0.35);
-  filter: drop-shadow(0 1px 3px rgba(166, 95, 42, 0.12));
+  stroke: rgba(168, 162, 158, 0.4);
 }
 
-/* Edge animation - gentle flow pulse */
-@keyframes edgeFlow {
-  0%, 100% { stroke-opacity: 0.35; stroke-dashoffset: 0; }
-  50% { stroke-opacity: 0.55; }
-}
-
-.react-flow__edge-path {
-  animation: edgeFlow 4s ease-in-out infinite;
-  stroke-dasharray: none;
-}
-
-/* Handle styling - brass finish */
+/* Handle styling */
 .logic-handle {
-  width: 12px !important;
-  height: 12px !important;
-  border: 2px solid #b39664 !important;
-  background: linear-gradient(135deg, #e8dcc8, #d4c8b4) !important;
+  width: 8px !important;
+  height: 8px !important;
+  border: 1.5px solid #d6d3d1 !important;
+  background: white !important;
   border-radius: 50% !important;
-  box-shadow:
-    0 2px 6px rgba(15, 12, 8, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
-  transition: all 0.2s ease !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease !important;
 }
 
 .logic-handle:hover {
-  border-color: #c9a227 !important;
-  background: linear-gradient(135deg, #f0e4d0, #e0d4c0) !important;
-  transform: scale(1.2);
-  box-shadow:
-    0 4px 12px rgba(201, 162, 39, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  border-color: #a8a29e !important;
 }
 
-/* Minimap - Enhanced Antique Map Style with better contrast */
+/* Minimap */
 .logic-minimap {
-  border-radius: 14px !important;
+  border-radius: 8px !important;
   overflow: hidden;
-  border: 2px solid #D4A012 !important;
-  background: linear-gradient(145deg, #faf6ed, #f0ebe0) !important;
-  box-shadow:
-    0 10px 30px -4px rgba(0, 0, 0, 0.15),
-    0 4px 10px -2px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-    inset 0 0 40px rgba(212, 160, 18, 0.08) !important;
-}
-
-.logic-minimap::before {
-  content: "OVERVIEW";
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 7px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: #CF7B3E;
-  z-index: 10;
-  background: linear-gradient(to right, transparent, #faf6ed 20%, #faf6ed 80%, transparent);
-  padding: 0 8px;
+  border: 1px solid #e7e5e4 !important;
+  background: white !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
 }
 
 .logic-minimap .react-flow__minimap-mask {
-  fill: rgba(244, 238, 228, 0.6) !important;
-  stroke: rgba(212, 160, 18, 0.3);
-  stroke-width: 2px;
+  fill: rgba(245, 245, 244, 0.7) !important;
+  stroke: #d6d3d1;
+  stroke-width: 1px;
 }
 
 .logic-minimap .react-flow__minimap-node {
-  rx: 3;
-  ry: 3;
-  stroke-width: 1px;
-  stroke: rgba(0, 0, 0, 0.1);
+  rx: 2;
+  ry: 2;
+  stroke-width: 0;
 }
 
-.logic-minimap svg {
-  border-radius: 10px;
-}
-
-/* Controls - Brass Instrument Style */
+/* Controls */
 .react-flow__controls {
-  box-shadow:
-    0 8px 24px -4px rgba(0, 0, 0, 0.15),
-    0 4px 8px -2px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
-  border: 2px solid #c9b896 !important;
-  border-radius: 12px !important;
+  border: 1px solid #e7e5e4 !important;
+  border-radius: 6px !important;
   overflow: hidden;
-  background: linear-gradient(180deg, #f8f3e8, #ebe4d8) !important;
+  background: white !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
 }
 
 .react-flow__controls-button {
-  background: linear-gradient(180deg, #f8f3e8, #f0ebe0) !important;
-  border-bottom: 1px solid #ddd5c8 !important;
-  color: #8a7a68 !important;
-  transition: all 0.2s ease !important;
-  width: 36px !important;
-  height: 36px !important;
+  background: white !important;
+  border-bottom: 1px solid #f5f5f4 !important;
+  color: #78716c !important;
+  width: 32px !important;
+  height: 32px !important;
 }
 
 .react-flow__controls-button:last-child {
@@ -354,91 +221,24 @@ html {
 }
 
 .react-flow__controls-button:hover {
-  background: linear-gradient(180deg, #f0ebe3, #e8e0d4) !important;
-  color: #5a4a38 !important;
-}
-
-.react-flow__controls-button:active {
-  background: linear-gradient(180deg, #e8e0d4, #ddd5c8) !important;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  background: #f5f5f4 !important;
+  color: #44403c !important;
 }
 
 .react-flow__controls-button svg {
   fill: currentColor !important;
-  width: 16px !important;
-  height: 16px !important;
+  width: 14px !important;
+  height: 14px !important;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Utility Classes
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-.lw-pill {
-  @apply uppercase tracking-[0.15em] text-[11px] text-stone-500 font-semibold;
-}
-
-/* Focus ring styling - rich gold tones */
-.focus-ring {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A012]/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4f1eb];
-}
-
-/* Smooth transitions for all interactive elements */
-button, a, [role="button"] {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Primary button hover enhancement */
-.btn-primary {
-  @apply relative overflow-hidden;
-}
-
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.5s ease;
-}
-
-.btn-primary:hover::before {
-  transform: translateX(100%);
-}
-
-/* Subtle lift effect for cards */
-.card-lift {
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-lift:hover {
-  transform: translateY(-2px);
-}
+/* Utility Classes */
 
 /* Focus states */
 :focus-visible {
-  outline: 2px solid #D4A012;
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
-/* Link underline animation */
-.link-underline {
-  position: relative;
-}
-
-.link-underline::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: width 0.25s ease;
-}
-
-.link-underline:hover::after {
-  width: 100%;
-}
 
 /* CSS animations for no-JS resilience */
 @keyframes fadeInUp {
@@ -493,56 +293,12 @@ button, a, [role="button"] {
   }
 }
 
-/* Card hover effect */
-.card-hover {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+/* Background grid */
+.react-flow__background {
+  opacity: 0.35 !important;
 }
 
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.1);
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   Node Clustering Visual Cues - Semantic Glow Effects
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* Meta nodes - Metallic gold glow */
-.react-flow__node[data-id="root"] {
-  filter: drop-shadow(0 0 20px rgba(212, 160, 18, 0.15));
-}
-
-/* All nodes get subtle semantic shadows on hover for visual grouping */
+/* Nodes */
 .react-flow__node:hover {
   z-index: 1000 !important;
-}
-
-/* Node type indicator ring - adds visual grouping cue */
-.react-flow__node::before {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 20px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.react-flow__node:hover::before {
-  opacity: 1;
-}
-
-/* Background grid enhancement for visual regions */
-.react-flow__background {
-  opacity: 0.4 !important;
-}
-
-/* Smooth node transitions with rich hover depth */
-.react-flow__node {
-  transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.react-flow__node:hover {
-  filter: drop-shadow(0 12px 28px rgba(30, 24, 18, 0.12)) drop-shadow(0 4px 8px rgba(30, 24, 18, 0.06));
-  transform: translateY(-2px);
 }

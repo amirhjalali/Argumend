@@ -81,11 +81,11 @@ export function WelcomeOverlay() {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-900/60 backdrop-blur-sm p-4"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.97, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: "spring", duration: 0.5 }}
-            className="relative w-full max-w-lg bg-white rounded-2xl shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25),0_12px_30px_-8px_rgba(0,0,0,0.15)] overflow-hidden"
+            exit={{ opacity: 0, scale: 0.97, y: 12 }}
+            transition={{ type: "spring", duration: 0.4, bounce: 0.15 }}
+            className="relative w-full max-w-lg bg-white rounded-xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] overflow-hidden border border-stone-200/60"
           >
             {/* Close button */}
             <button
@@ -96,51 +96,51 @@ export function WelcomeOverlay() {
             </button>
 
             {/* Progress dots */}
-            <div className="absolute top-6 left-1/2 -translate-x-1/2 flex gap-2">
+            <div className="absolute top-5 left-1/2 -translate-x-1/2 flex gap-1.5">
               {STEPS.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrentStep(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  className={`h-1.5 rounded-full transition-all duration-200 ${
                     i === currentStep
-                      ? "w-6 bg-[#D4A012]"
+                      ? "w-5 bg-stone-800"
                       : i < currentStep
-                      ? "w-2 bg-[#D4A012]/50"
-                      : "w-2 bg-stone-300"
+                      ? "w-1.5 bg-stone-400"
+                      : "w-1.5 bg-stone-200"
                   }`}
                 />
               ))}
             </div>
 
             {/* Content */}
-            <div className="pt-16 pb-6 px-8">
+            <div className="pt-14 pb-6 px-7">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentStep}
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 15 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
+                  exit={{ opacity: 0, x: -15 }}
+                  transition={{ duration: 0.2 }}
                 >
                   {/* Icon */}
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#D4A012]/20 to-[#CF7B3E]/10 flex items-center justify-center">
-                      <step.icon className="h-8 w-8 text-[#D4A012]" strokeWidth={1.5} />
+                  <div className="flex justify-center mb-5">
+                    <div className="w-12 h-12 rounded-lg bg-stone-100 flex items-center justify-center">
+                      <step.icon className="h-6 w-6 text-stone-600" strokeWidth={1.5} />
                     </div>
                   </div>
 
                   {/* Text */}
-                  <div className="text-center mb-8">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D4A012] mb-2">
+                  <div className="text-center mb-7">
+                    <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
                       {step.highlight}
                     </p>
-                    <h2 className="font-serif text-2xl md:text-3xl text-primary mb-2">
+                    <h2 className="font-serif text-2xl text-primary mb-2">
                       {step.title}
                     </h2>
-                    <p className="text-sm text-[#8B5A3C] font-medium mb-4">
+                    <p className="text-sm text-stone-500 mb-4">
                       {step.subtitle}
                     </p>
-                    <p className="text-secondary leading-relaxed">
+                    <p className="text-[15px] text-stone-600 leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -153,21 +153,18 @@ export function WelcomeOverlay() {
                   onClick={handleSkip}
                   className="text-sm text-stone-400 hover:text-stone-600 transition-colors"
                 >
-                  Skip intro
+                  Skip
                 </button>
 
                 <button
                   onClick={handleNext}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] text-white font-semibold shadow-lg shadow-[#D4A012]/20 hover:shadow-xl hover:shadow-[#D4A012]/30 hover:-translate-y-0.5 transition-all"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
                 >
-                  {isLastStep ? "Start Exploring" : "Next"}
-                  <ArrowRight className="h-4 w-4" />
+                  {isLastStep ? "Start Exploring" : "Continue"}
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </button>
               </div>
             </div>
-
-            {/* Decorative footer */}
-            <div className="h-1 bg-gradient-to-r from-[#D4A012] via-[#CF7B3E] to-[#a23b3b]" />
           </motion.div>
         </motion.div>
       )}

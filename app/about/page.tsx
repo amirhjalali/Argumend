@@ -72,12 +72,12 @@ export default function AboutPage() {
       <div className="mx-auto max-w-3xl px-6 md:px-8 py-14 md:py-20">
         {/* Hero */}
         <div className="mb-14 md:mb-20">
-          <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#D4A012] mb-5">
-            About Argumend
+          <p className="text-[12px] font-medium text-stone-400 mb-4">
+            About
           </p>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             What if we could disagree<br />
-            <span className="text-[#D4A012]">without destroying each other?</span>
+            <span className="text-stone-500">without destroying each other?</span>
           </h1>
           <p className="text-lg md:text-xl text-secondary leading-[1.7] max-w-2xl">
             Most debates generate heat, not light. We yell past each other, strawman positions we don't understand,
@@ -86,7 +86,7 @@ export default function AboutPage() {
         </div>
 
         {/* Pull Quote */}
-        <blockquote className="my-12 md:my-16 py-8 border-l-[3px] border-[#D4A012] pl-7 md:pl-8 bg-gradient-to-r from-[#D4A012]/[0.04] to-transparent rounded-r-xl">
+        <blockquote className="my-12 md:my-16 py-6 border-l-2 border-stone-300 pl-6 md:pl-7">
           <p className="font-serif text-xl md:text-2xl text-primary italic leading-[1.6]">
             &ldquo;The goal is not to win debates, but to converge on truth—together.&rdquo;
           </p>
@@ -103,7 +103,7 @@ export default function AboutPage() {
             {stakes.map((stake) => (
               <div
                 key={stake.title}
-                className="flex items-start gap-4 p-5 rounded-xl bg-gradient-to-br from-stone-50 to-white border border-stone-200/80 transition-all duration-200 hover:border-stone-300 hover:shadow-sm"
+                className="flex items-start gap-4 p-4 rounded-lg bg-stone-50 border border-stone-200"
               >
                 <div className="w-10 h-10 rounded-lg bg-stone-100/80 flex items-center justify-center flex-shrink-0">
                   <stake.icon className="h-5 w-5 text-stone-500" strokeWidth={1.5} />
@@ -150,7 +150,7 @@ export default function AboutPage() {
             {principles.map((principle) => (
               <div
                 key={principle.title}
-                className="group relative bg-gradient-to-br from-white to-stone-50/50 rounded-2xl p-5 md:p-6 border border-stone-200/80 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,0.08)] hover:-translate-y-1"
+                className="bg-white rounded-lg p-5 md:p-6 border border-stone-200"
                 style={{ borderLeftWidth: "4px", borderLeftColor: principle.color }}
               >
                 <div
@@ -198,34 +198,34 @@ export default function AboutPage() {
         </section>
 
         {/* Confidence Explainer */}
-        <section className="bg-gradient-to-br from-[#D4A012]/[0.07] via-[#CF7B3E]/[0.03] to-transparent rounded-2xl p-6 md:p-8 mb-12 md:mb-16 border border-[#D4A012]/10">
+        <section className="bg-stone-50 rounded-lg p-6 md:p-8 mb-12 md:mb-16 border border-stone-200">
           <h2 className="font-serif text-xl md:text-2xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
             We don't claim to know the truth. We estimate how confident we should be based on available evidence.
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <span className="w-16 h-8 rounded-full bg-gradient-to-r from-[#D4A012] to-[#E8B923] flex items-center justify-center text-white text-sm font-bold shadow-sm">
+              <span className="w-14 text-center text-sm font-mono font-medium text-stone-700">
                 90%+
               </span>
-              <p className="text-sm text-secondary">
-                <strong className="text-primary">Settled</strong> — Overwhelming evidence, scientific consensus
+              <p className="text-sm text-stone-600">
+                <strong className="text-stone-900">Settled</strong> — Overwhelming evidence, scientific consensus
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="w-16 h-8 rounded-full bg-gradient-to-r from-[#CF7B3E] to-[#E09555] flex items-center justify-center text-white text-sm font-bold shadow-sm">
+              <span className="w-14 text-center text-sm font-mono font-medium text-stone-700">
                 50-80%
               </span>
-              <p className="text-sm text-secondary">
-                <strong className="text-primary">Probable</strong> — Good evidence, some uncertainty remains
+              <p className="text-sm text-stone-600">
+                <strong className="text-stone-900">Probable</strong> — Good evidence, some uncertainty remains
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="w-16 h-8 rounded-full bg-gradient-to-r from-[#8B5A3C] to-[#A67350] flex items-center justify-center text-white text-sm font-bold shadow-sm">
+              <span className="w-14 text-center text-sm font-mono font-medium text-stone-700">
                 &lt;50%
               </span>
-              <p className="text-sm text-secondary">
-                <strong className="text-primary">Contested</strong> — Genuine uncertainty, reasonable people disagree
+              <p className="text-sm text-stone-600">
+                <strong className="text-stone-900">Contested</strong> — Genuine uncertainty, reasonable people disagree
               </p>
             </div>
           </div>
@@ -241,7 +241,7 @@ export default function AboutPage() {
             {quotes.map((quote, i) => (
               <div
                 key={i}
-                className="relative p-6 rounded-xl bg-gradient-to-br from-stone-50/80 to-white border border-stone-200/80 transition-all duration-200 hover:border-stone-300"
+                className="relative p-5 rounded-lg border border-stone-200"
               >
                 <Quote className="absolute top-4 right-4 h-8 w-8 text-stone-200" strokeWidth={1} />
                 <p className="font-serif text-lg text-primary leading-relaxed mb-3 pr-8">
@@ -267,10 +267,10 @@ export default function AboutPage() {
           <p className="text-secondary mb-7">Pick a topic. Explore the map. Find the crux.</p>
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] text-white font-semibold shadow-lg shadow-[#D4A012]/20 hover:shadow-xl hover:shadow-[#D4A012]/30 hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
           >
             Start Exploring
-            <Scale className="h-4 w-4" />
+            <Scale className="h-3.5 w-3.5" />
           </a>
         </section>
 

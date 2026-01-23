@@ -42,7 +42,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const isCrux = data.variant === "crux";
 
   return (
-    <div className={`relative w-[340px] rounded-2xl border border-stone-200/70 border-l-4 ${style.borderClass} bg-white shadow-[0_2px_12px_-3px_rgba(0,0,0,0.06),0_8px_24px_-6px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_6px_20px_-4px_rgba(0,0,0,0.08),0_14px_36px_-8px_rgba(0,0,0,0.06)]`}>
+    <div className={`relative w-[340px] rounded-xl border border-stone-200 border-l-[3px] ${style.borderClass} bg-white shadow-sm`}>
       {/* Handles for various layout directions */}
       <Handle type="target" position={Position.Top} id="top" className="logic-handle" isConnectable={false} />
       <Handle type="target" position={Position.Left} id="left" className="logic-handle" isConnectable={false} />
@@ -51,32 +51,20 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
       {/* Optional Image */}
       {data.imageUrl && (
-        <div className="h-40 w-full overflow-hidden rounded-t-2xl border-b border-white/40">
+        <div className="h-36 w-full overflow-hidden rounded-t-xl border-b border-stone-100">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={data.imageUrl} alt="" className="w-full h-full object-cover opacity-95 hover:opacity-100 transition-opacity" />
+          <img src={data.imageUrl} alt="" className="w-full h-full object-cover" />
         </div>
       )}
 
       <div className="p-5">
         {/* Header with Icon */}
-        <div className={`-mx-5 -mt-5 mb-4 px-5 py-3 rounded-t-2xl ${style.bgClass} border-b border-stone-100/80`}>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div
-                className="w-6 h-6 rounded-md flex items-center justify-center"
-                style={{ backgroundColor: `${style.accentColor}18` }}
-              >
-                <style.Icon className="h-3.5 w-3.5" style={{ color: style.accentColor }} strokeWidth={2} />
-              </div>
-              <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: style.accentColor }}>
-                {style.label}
-              </span>
-            </div>
-            {style.tagline && (
-              <span className="text-[11px] font-sans text-stone-500 italic">
-                {style.tagline}
-              </span>
-            )}
+        <div className="-mx-5 -mt-5 mb-4 px-5 py-2.5 rounded-t-xl border-b border-stone-100">
+          <div className="flex items-center gap-2">
+            <style.Icon className="h-3.5 w-3.5" style={{ color: style.accentColor }} strokeWidth={1.8} />
+            <span className="text-[11px] font-sans font-medium text-stone-500">
+              {style.label}
+            </span>
           </div>
         </div>
 
@@ -127,23 +115,16 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
           </div>
         )}
 
-        {/* Evidence Sources - promoted to first-class element */}
+        {/* Evidence Sources */}
         {data.references && data.references.length > 0 && (
-          <div className="mt-4 -mx-5 -mb-5 px-5 py-4 bg-gradient-to-b from-stone-50/80 to-stone-100/60 border-t border-stone-200 rounded-b-2xl">
-            <div className="mb-3 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="flex items-center justify-center w-5 h-5 rounded-full bg-[#CF7B3E]/15">
-                  <FileText className="h-3 w-3 text-[#CF7B3E]" strokeWidth={2} />
-                </div>
-                <span className="text-[12px] font-sans font-bold text-stone-700">
-                  Evidence
-                </span>
-              </div>
-              <span className="flex items-center justify-center min-w-[22px] h-5 rounded-full bg-[#CF7B3E]/15 px-1.5 text-[11px] font-bold text-[#CF7B3E] tabular-nums">
-                {data.references.length}
+          <div className="mt-3 -mx-5 -mb-5 px-5 py-3 border-t border-stone-100 rounded-b-xl bg-stone-50/50">
+            <div className="mb-2 flex items-center gap-1.5">
+              <FileText className="h-3 w-3 text-stone-400" strokeWidth={1.8} />
+              <span className="text-[11px] font-medium text-stone-500">
+                Sources ({data.references.length})
               </span>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5">
               {data.references.map((ref, i) => (
                 <li key={i}>
                   <CitationCard reference={ref} index={i + 1} />
@@ -154,33 +135,33 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         )}
 
         {/* Actions */}
-        <div className="mt-3 flex items-center gap-3 border-t border-stone-200 pt-4">
+        <div className="mt-3 flex items-center gap-2 border-t border-stone-100 pt-3">
           {data.hasChildren ? (
             <button
-              className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-2.5 text-xs font-bold transition-all disabled:cursor-not-allowed disabled:opacity-50 ${
+              className={`flex flex-1 items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
                 expanded
-                  ? "border border-stone-200 text-stone-500 bg-stone-50"
-                  : "border-2 border-stone-400 text-stone-700 bg-white shadow-sm hover:border-stone-600 hover:bg-stone-50 hover:shadow-md hover:-translate-y-0.5"
+                  ? "text-stone-400 bg-stone-50"
+                  : "text-stone-700 bg-stone-100 hover:bg-stone-200"
               }`}
               onClick={() => expandNode(id)}
               disabled={expanded}
             >
               {expanded ? "Expanded" : "Explore"}
-              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${expanded ? "rotate-180" : ""}`} />
+              <ChevronDown className={`h-3 w-3 transition-transform ${expanded ? "rotate-180" : ""}`} />
             </button>
           ) : (
-            <div className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-transparent px-3 py-2 text-xs font-medium text-stone-400 cursor-default">
-              End of branch
+            <div className="flex flex-1 items-center justify-center px-3 py-2 text-[11px] text-stone-300">
+              Leaf node
             </div>
           )}
 
           {canOpenCrux && (
             <button
-              className="flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] px-3 py-2 text-xs font-bold text-white shadow-md shadow-[#a23b3b]/20 transition-all hover:shadow-lg hover:shadow-[#a23b3b]/30 hover:-translate-y-0.5"
+              className="flex flex-1 items-center justify-center gap-1.5 rounded-md bg-[#a23b3b] px-3 py-2 text-xs font-medium text-white hover:bg-[#8a3232] transition-colors"
               onClick={() => openCrux(id)}
             >
               Deep Dive
-              <Scale className="h-3.5 w-3.5" />
+              <Scale className="h-3 w-3" />
             </button>
           )}
         </div>

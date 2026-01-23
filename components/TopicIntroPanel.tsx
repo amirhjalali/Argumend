@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Scale, ChevronRight, Sparkles, Info, Swords, Shield, ChevronDown, HelpCircle } from "lucide-react";
+import { X, Scale, ChevronRight, Info, Swords, Shield, ChevronDown, HelpCircle } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { topics } from "@/data/topics";
 
@@ -84,11 +84,10 @@ export function TopicIntroPanel() {
       >
         <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-stone-200 overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#D4A012]/10 to-[#CF7B3E]/5 border-b border-stone-100">
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-stone-100">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-[#D4A012]" strokeWidth={2} />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#8B6914]">
-                Now Exploring
+              <span className="text-[11px] font-medium text-stone-400 tracking-wide">
+                Topic
               </span>
             </div>
             <div className="flex items-center gap-1">
@@ -300,22 +299,22 @@ export function TopicIntroPanel() {
                     </div>
                   )}
 
-                  {/* Contextual Action - demote "Find the Crux" until graph is expanded */}
+                  {/* Contextual Action */}
                   {hasExpandedAny && cruxNode ? (
                     <button
                       onClick={handleFocusCrux}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] text-white text-sm font-semibold shadow-md shadow-[#a23b3b]/20 hover:shadow-lg hover:shadow-[#a23b3b]/30 hover:-translate-y-0.5 transition-all"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#a23b3b] text-white text-sm font-medium hover:bg-[#8a3232] transition-colors"
                     >
                       Find the Crux
-                      <Scale className="h-4 w-4" />
+                      <Scale className="h-3.5 w-3.5" />
                     </button>
                   ) : (
                     <button
                       onClick={() => setIsVisible(false)}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] text-white text-sm font-semibold shadow-md shadow-[#D4A012]/20 hover:shadow-lg hover:shadow-[#D4A012]/30 hover:-translate-y-0.5 transition-all"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
                     >
                       Explore the Map
-                      <ChevronRight className="h-4 w-4" />
+                      <ChevronRight className="h-3.5 w-3.5" />
                     </button>
                   )}
                 </div>
