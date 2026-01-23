@@ -82,7 +82,7 @@ export function TopicIntroPanel() {
         exit={{ opacity: 0, y: -20 }}
         className="absolute z-20 top-auto bottom-3 left-1/2 -translate-x-1/2 w-[94%] max-w-md md:top-4 md:bottom-auto md:max-w-lg"
       >
-        <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-stone-200 overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
+        <div className="bg-[#fefcf9]/95 backdrop-blur-sm rounded-2xl shadow-[0_4px_16px_rgba(120,100,80,0.1)] border border-stone-200/70 overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-2.5 border-b border-stone-100">
             <div className="flex items-center gap-2">

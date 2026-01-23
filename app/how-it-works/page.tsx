@@ -110,7 +110,7 @@ export default function HowItWorksPage() {
             {steps.map((step, i) => (
               <div
                 key={step.number}
-                className="flex gap-4 p-5 rounded-lg bg-white border border-stone-200"
+                className="flex gap-4 p-5 rounded-lg bg-[#fefcf9] border border-stone-200/70"
               >
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#D4A012]/20 to-[#CF7B3E]/10 flex items-center justify-center">
@@ -142,7 +142,7 @@ export default function HowItWorksPage() {
           </p>
 
           {/* Simple visual diagram */}
-          <div className="relative bg-gradient-to-br from-stone-50 to-white rounded-2xl border border-stone-200 p-8 md:p-12 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] rounded-2xl border border-stone-200/70 p-8 md:p-12 overflow-hidden">
             {/* Connection lines (simplified) */}
             <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
               <defs>
@@ -217,7 +217,7 @@ export default function HowItWorksPage() {
             {nodeTypes.map((type) => (
               <div
                 key={type.name}
-                className="flex flex-col md:flex-row md:items-start gap-4 p-5 rounded-lg bg-white border border-stone-200"
+                className="flex flex-col md:flex-row md:items-start gap-4 p-5 rounded-lg bg-[#fefcf9] border border-stone-200/70"
                 style={{ borderLeftWidth: "4px", borderLeftColor: type.color }}
               >
                 <div
@@ -244,7 +244,7 @@ export default function HowItWorksPage() {
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             We don't claim certainty. Confidence scores reflect the weight of available evidence.
           </p>
-          <div className="bg-stone-50 rounded-lg p-6 md:p-8 border border-stone-200">
+          <div className="bg-[#faf8f3] rounded-lg p-6 md:p-8 border border-stone-200/70">
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-4">
                 <p className="font-mono text-2xl font-medium text-stone-800 mb-2">90%+</p>
@@ -266,7 +266,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* The Philosophy */}
-        <section className="mb-12 md:mb-16 bg-stone-50 rounded-lg p-6 md:p-8 border border-stone-200">
+        <section className="mb-12 md:mb-16 bg-[#faf8f3] rounded-lg p-6 md:p-8 border border-stone-200/70">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#a23b3b]/20 to-[#a23b3b]/5 flex items-center justify-center flex-shrink-0">
               <Target className="h-6 w-6 text-[#a23b3b]" strokeWidth={1.5} />

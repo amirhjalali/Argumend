@@ -57,7 +57,7 @@ export function Sidebar({
   };
 
   return (
-    <aside className="relative flex h-full w-[260px] flex-col bg-[#faf8f4] text-primary border-r border-stone-200">
+    <aside className="relative flex h-full w-[260px] flex-col bg-[#f8f5ef] text-primary border-r border-stone-200/70">
 
       <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5">
         {/* Primary Navigation */}

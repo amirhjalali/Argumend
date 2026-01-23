@@ -85,7 +85,7 @@ export function WelcomeOverlay() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.97, y: 12 }}
             transition={{ type: "spring", duration: 0.4, bounce: 0.15 }}
-            className="relative w-full max-w-lg bg-white rounded-xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] overflow-hidden border border-stone-200/60"
+            className="relative w-full max-w-lg bg-[#fefcf9] rounded-xl shadow-[0_20px_50px_-10px_rgba(80,60,40,0.15)] overflow-hidden border border-stone-200/60"
           >
             {/* Close button */}
             <button

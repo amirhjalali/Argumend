@@ -28,13 +28,25 @@ body {
   isolation: isolate;
 }
 
-/* Subtle warm background */
+/* Warm parchment background with subtle gradient */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, #f6f3ee 0%, #f0ede7 100%);
+  background: linear-gradient(180deg, #f5f2ec 0%, #eee9e1 100%);
   z-index: -2;
+}
+
+/* Paper grain texture - subtle organic fiber noise */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
 }
 
 /* Typography refinements - LessWrong-inspired elegance */
@@ -136,6 +148,7 @@ html {
 
 .react-flow__pane {
   cursor: grab;
+  background: linear-gradient(145deg, #f3efe8 0%, #ebe6de 50%, #f0ece5 100%);
 }
 
 .react-flow__pane:active {
@@ -182,9 +195,9 @@ html {
 .logic-minimap {
   border-radius: 8px !important;
   overflow: hidden;
-  border: 1px solid #e7e5e4 !important;
-  background: white !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid rgba(214, 211, 209, 0.6) !important;
+  background: #fefcf9 !important;
+  box-shadow: 0 1px 4px rgba(120, 100, 80, 0.08) !important;
 }
 
 .logic-minimap .react-flow__minimap-mask {
@@ -201,16 +214,16 @@ html {
 
 /* Controls */
 .react-flow__controls {
-  border: 1px solid #e7e5e4 !important;
+  border: 1px solid rgba(214, 211, 209, 0.6) !important;
   border-radius: 6px !important;
   overflow: hidden;
-  background: white !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  background: #fefcf9 !important;
+  box-shadow: 0 1px 4px rgba(120, 100, 80, 0.08) !important;
 }
 
 .react-flow__controls-button {
-  background: white !important;
-  border-bottom: 1px solid #f5f5f4 !important;
+  background: #fefcf9 !important;
+  border-bottom: 1px solid #f0ece5 !important;
   color: #78716c !important;
   width: 32px !important;
   height: 32px !important;
@@ -221,7 +234,7 @@ html {
 }
 
 .react-flow__controls-button:hover {
-  background: #f5f5f4 !important;
+  background: #f5f2ec !important;
   color: #44403c !important;
 }
 
@@ -293,9 +306,9 @@ html {
   }
 }
 
-/* Background grid */
+/* Canvas background dots */
 .react-flow__background {
-  opacity: 0.35 !important;
+  opacity: 0.3 !important;
 }
 
 /* Nodes */

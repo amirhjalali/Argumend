@@ -140,10 +140,10 @@ function CanvasExperience() {
 
           {/* Map extent edge hints - subtle fade on edges to suggest more content */}
           <div className="absolute inset-0 pointer-events-none z-[5]">
-            <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[#f4f1eb]/60 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#f4f1eb]/60 to-transparent" />
-            <div className="absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-[#f4f1eb]/40 to-transparent" />
-            <div className="absolute top-0 bottom-0 right-0 w-8 bg-gradient-to-l from-[#f4f1eb]/40 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#eee9e1]/70 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#eee9e1]/70 to-transparent" />
+            <div className="absolute top-0 bottom-0 left-0 w-10 bg-gradient-to-r from-[#eee9e1]/50 to-transparent" />
+            <div className="absolute top-0 bottom-0 right-0 w-10 bg-gradient-to-l from-[#eee9e1]/50 to-transparent" />
           </div>
 
           <div className="h-full">

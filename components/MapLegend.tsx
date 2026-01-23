@@ -75,7 +75,7 @@ export function MapLegend() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="w-52 md:w-64 rounded-lg border border-stone-200 bg-white p-3 md:p-4 shadow-sm max-h-[40vh] md:max-h-none overflow-y-auto"
+            className="w-52 md:w-64 rounded-lg border border-stone-200/70 bg-[#fefcf9] p-3 md:p-4 shadow-[0_2px_8px_rgba(120,100,80,0.08)] max-h-[40vh] md:max-h-none overflow-y-auto"
           >
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-serif text-base font-semibold text-primary">

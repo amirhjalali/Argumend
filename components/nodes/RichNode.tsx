@@ -42,7 +42,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const isCrux = data.variant === "crux";
 
   return (
-    <div className={`relative w-[340px] rounded-xl border border-stone-200 border-l-[3px] ${style.borderClass} bg-white shadow-sm`}>
+    <div className={`relative w-[340px] rounded-xl border border-stone-200/80 border-l-[3px] ${style.borderClass} bg-[#fefcf9] shadow-[0_1px_3px_rgba(120,100,80,0.08)]`}>
       {/* Handles for various layout directions */}
       <Handle type="target" position={Position.Top} id="top" className="logic-handle" isConnectable={false} />
       <Handle type="target" position={Position.Left} id="left" className="logic-handle" isConnectable={false} />

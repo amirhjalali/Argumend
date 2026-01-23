@@ -103,7 +103,7 @@ export default function AboutPage() {
             {stakes.map((stake) => (
               <div
                 key={stake.title}
-                className="flex items-start gap-4 p-4 rounded-lg bg-stone-50 border border-stone-200"
+                className="flex items-start gap-4 p-4 rounded-lg bg-[#faf8f3] border border-stone-200/70"
               >
                 <div className="w-10 h-10 rounded-lg bg-stone-100/80 flex items-center justify-center flex-shrink-0">
                   <stake.icon className="h-5 w-5 text-stone-500" strokeWidth={1.5} />
@@ -150,7 +150,7 @@ export default function AboutPage() {
             {principles.map((principle) => (
               <div
                 key={principle.title}
-                className="bg-white rounded-lg p-5 md:p-6 border border-stone-200"
+                className="bg-[#fefcf9] rounded-lg p-5 md:p-6 border border-stone-200/70"
                 style={{ borderLeftWidth: "4px", borderLeftColor: principle.color }}
               >
                 <div
