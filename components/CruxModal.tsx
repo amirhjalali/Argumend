@@ -23,19 +23,16 @@ export function CruxModal() {
                         transition={{ duration: 0.3 }}
                         onClick={closeCrux}
                     />
-                    {/* Modal - classical tablet/scroll aesthetic */}
+                    {/* Modal - refined scholarly aesthetic */}
                     <motion.div
-                        className="relative w-full max-w-2xl overflow-hidden rounded-sm border-2 border-stone-300 bg-[#faf8f5] shadow-[0_25px_80px_rgba(30,25,20,0.3)]"
-                        style={{
-                            boxShadow: "0 0 0 1px #d6cdbf, 0 0 0 4px #faf8f5, 0 0 0 5px #d6cdbf, 0 25px 80px rgba(30,25,20,0.3)"
-                        }}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 30 }}
-                        transition={{ type: "tween", duration: 0.4, ease: "easeOut" }}
+                        className="relative w-full max-w-2xl overflow-hidden rounded-xl border border-stone-200/80 bg-[#fefcf9] shadow-[0_25px_60px_rgba(80,60,40,0.2)]"
+                        initial={{ opacity: 0, scale: 0.96, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.96, y: 20 }}
+                        transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
                     >
-                        {/* Header - classical border style */}
-                        <div className="flex items-start justify-between border-b-2 border-stone-300 bg-gradient-to-b from-[#f4f1eb] to-[#faf8f5] px-8 py-6">
+                        {/* Header */}
+                        <div className="flex items-start justify-between border-b border-stone-200 px-8 py-6">
                             <div>
                                 <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500">
                                     Crux of Verification
@@ -49,7 +46,7 @@ export function CruxModal() {
                             </div>
                             <button
                                 onClick={closeCrux}
-                                className="rounded-sm border border-stone-300 bg-[#faf8f5] p-2 text-stone-500 transition-colors hover:border-stone-400 hover:bg-stone-100 hover:text-stone-700"
+                                className="rounded-lg p-2 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-600"
                                 aria-label="Close crux details"
                             >
                                 <X className="h-5 w-5" />
@@ -60,7 +57,7 @@ export function CruxModal() {
                         <div className="max-h-[70vh] overflow-y-auto px-8 py-8">
                             <div className="grid gap-8 md:grid-cols-2">
                                 <section className="space-y-4">
-                                    <div className="flex items-center gap-3 border-b border-stone-300 pb-2">
+                                    <div className="flex items-center gap-3 border-b border-stone-200 pb-2">
                                         <Scale className="h-4 w-4 text-stone-600" strokeWidth={1.5} />
                                         <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-600">
                                             The Question
@@ -72,7 +69,7 @@ export function CruxModal() {
                                 </section>
 
                                 <section className="space-y-4">
-                                    <div className="flex items-center gap-3 border-b border-stone-300 pb-2">
+                                    <div className="flex items-center gap-3 border-b border-stone-200 pb-2">
                                         <ScrollText className="h-4 w-4 text-stone-600" strokeWidth={1.5} />
                                         <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-600">
                                             The Method
@@ -89,7 +86,7 @@ export function CruxModal() {
                                     <p className="mb-3 text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500">
                                         Mathematical Form
                                     </p>
-                                    <div className="flex items-center justify-center rounded-sm border-2 border-stone-200 bg-white py-6">
+                                    <div className="flex items-center justify-center rounded-lg border border-stone-200 bg-white/80 py-6">
                                         <span className="font-serif text-lg text-stone-800">
                                             <InlineMath math={selectedCrux.equation} />
                                         </span>
@@ -98,7 +95,7 @@ export function CruxModal() {
                             )}
 
                             <div className="mt-8 grid grid-cols-2 gap-6">
-                                <div className="rounded-sm border border-stone-200 bg-gradient-to-b from-white to-stone-50 p-5 text-center">
+                                <div className="rounded-lg border border-stone-200 bg-stone-50/50 p-5 text-center">
                                     <p className="mb-2 text-[10px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500">
                                         Verification Status
                                     </p>
@@ -106,7 +103,7 @@ export function CruxModal() {
                                         {selectedCrux.status}
                                     </p>
                                 </div>
-                                <div className="rounded-sm border border-stone-200 bg-gradient-to-b from-white to-stone-50 p-5 text-center">
+                                <div className="rounded-lg border border-stone-200 bg-stone-50/50 p-5 text-center">
                                     <p className="mb-2 text-[10px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500">
                                         Cost to Verify
                                     </p>

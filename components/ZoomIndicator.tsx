@@ -29,7 +29,7 @@ export function ZoomIndicator() {
 
   return (
     <div className="absolute top-4 left-4 z-50">
-      <div className="flex items-center gap-1 rounded-xl border-2 border-[#c9b896] bg-gradient-to-br from-[#f8f3e8] to-[#f0ebe0] p-1 shadow-md">
+      <div className="flex items-center gap-1 rounded-lg border border-stone-200/60 bg-[#fefcf9]/90 backdrop-blur-sm p-1 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
         <button
           onClick={() => zoomOut()}
           className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary transition-colors hover:bg-stone-200 hover:text-primary"
@@ -52,7 +52,7 @@ export function ZoomIndicator() {
           <Plus className="h-4 w-4" />
         </button>
 
-        <div className="mx-1 h-6 w-px bg-stone-300" />
+        <div className="mx-1 h-5 w-px bg-stone-200" />
 
         <button
           onClick={() => fitView({ padding: 0.2, duration: 500 })}

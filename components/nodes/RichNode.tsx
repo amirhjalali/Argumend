@@ -42,7 +42,10 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const isCrux = data.variant === "crux";
 
   return (
-    <div className={`relative w-[340px] rounded-xl border border-stone-200/80 border-l-[3px] ${style.borderClass} bg-[#fefcf9] shadow-[0_1px_3px_rgba(120,100,80,0.08)]`}>
+    <div
+      className={`relative w-[340px] rounded-xl border border-stone-200/80 border-l-[3px] ${style.borderClass} bg-[#fefcf9] shadow-[0_1px_3px_rgba(120,100,80,0.08)] transition-shadow duration-200 hover:shadow-[0_4px_16px_rgba(120,100,80,0.12)] node-enter`}
+      style={{ animationDelay: `${((data.birthOrder as number) ?? 0) * 80}ms` }}
+    >
       {/* Handles for various layout directions */}
       <Handle type="target" position={Position.Top} id="top" className="logic-handle" isConnectable={false} />
       <Handle type="target" position={Position.Left} id="left" className="logic-handle" isConnectable={false} />

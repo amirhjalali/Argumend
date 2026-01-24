@@ -17,7 +17,9 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   }
 
   return (
-    <div className="relative w-[420px] rounded-xl border border-stone-200/80 border-t-2 border-t-[#2563eb] bg-[#fefcf9] shadow-[0_2px_6px_rgba(120,100,80,0.1)]">
+    <div
+      className="relative w-[420px] rounded-xl border border-stone-200/80 border-t-2 border-t-[#2563eb] bg-[#fefcf9] shadow-[0_2px_6px_rgba(120,100,80,0.1)] transition-shadow duration-200 hover:shadow-[0_6px_20px_rgba(120,100,80,0.14)] node-enter"
+    >
 
       <Handle
         type="source"

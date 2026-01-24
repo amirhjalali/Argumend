@@ -75,7 +75,7 @@ export function MapLegend() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="w-52 md:w-64 rounded-lg border border-stone-200/70 bg-[#fefcf9] p-3 md:p-4 shadow-[0_2px_8px_rgba(120,100,80,0.08)] max-h-[40vh] md:max-h-none overflow-y-auto"
+            className="w-52 md:w-64 rounded-lg border border-stone-200/60 bg-[#fefcf9]/95 backdrop-blur-sm p-3 md:p-4 shadow-[0_2px_8px_rgba(120,100,80,0.08)] max-h-[40vh] md:max-h-none overflow-y-auto"
           >
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-serif text-base font-semibold text-primary">
@@ -129,7 +129,7 @@ export function MapLegend() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="flex items-center gap-1.5 rounded-md border border-stone-200 bg-white px-2.5 py-1.5 text-xs text-stone-500 shadow-sm hover:border-stone-300 transition-colors"
+            className="flex items-center gap-1.5 rounded-lg border border-stone-200/60 bg-[#fefcf9]/90 backdrop-blur-sm px-2.5 py-1.5 text-xs text-stone-500 shadow-[0_2px_8px_rgba(120,100,80,0.08)] hover:border-stone-300 transition-colors"
           >
             <Info className="h-3.5 w-3.5 text-stone-400" />
             <span>Legend</span>

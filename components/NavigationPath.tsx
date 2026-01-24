@@ -88,7 +88,7 @@ export function NavigationPath() {
 
   return (
     <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 max-w-[600px]">
-      <div className="flex items-center gap-1 rounded-xl border-2 border-[#c9b896] bg-gradient-to-br from-[#f8f3e8]/95 to-[#f0ebe0]/95 px-3 py-2 shadow-md backdrop-blur-sm">
+      <div className="flex items-center gap-1 rounded-lg border border-stone-200/60 bg-[#fefcf9]/90 backdrop-blur-sm px-3 py-2 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
         <Home className="h-3.5 w-3.5 text-[#D4A012] flex-shrink-0" />
 
         {path.map((item, index) => (

@@ -12,6 +12,7 @@ const STEPS = [
     description:
       "Most debates generate heat, not light. We're building something different: a map of human knowledge that shows you not just what people believe, but why they believe it—and what evidence would change their minds.",
     highlight: "Beyond Winning",
+    tint: "#D4A012",
   },
   {
     icon: Lightbulb,
@@ -20,6 +21,7 @@ const STEPS = [
     description:
       "Each controversial topic is broken into Pillars—the core claims that matter. Explore the strongest arguments on all sides, traced to their sources. No strawmen. No cheap shots.",
     highlight: "Steel-manned arguments",
+    tint: "#CF7B3E",
   },
   {
     icon: Scale,
@@ -28,6 +30,7 @@ const STEPS = [
     description:
       "A 99% confidence score means overwhelming evidence. 45% means genuinely contested. We never pretend to know more than we do. Hover over any score to see how we calculated it.",
     highlight: "Calibrated confidence",
+    tint: "#2563eb",
   },
   {
     icon: Target,
@@ -36,6 +39,7 @@ const STEPS = [
     description:
       "Every disagreement has a crux—the specific evidence that would resolve it. We make that explicit. If you walk away with nothing else, you'll know exactly what question to investigate.",
     highlight: "What would change your mind?",
+    tint: "#a23b3b",
   },
 ];
 
@@ -124,8 +128,11 @@ export function WelcomeOverlay() {
                 >
                   {/* Icon */}
                   <div className="flex justify-center mb-5">
-                    <div className="w-12 h-12 rounded-lg bg-stone-100 flex items-center justify-center">
-                      <step.icon className="h-6 w-6 text-stone-600" strokeWidth={1.5} />
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ backgroundColor: `${step.tint}12` }}
+                    >
+                      <step.icon className="h-6 w-6" style={{ color: step.tint }} strokeWidth={1.5} />
                     </div>
                   </div>
 

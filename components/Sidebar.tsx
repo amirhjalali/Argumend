@@ -70,8 +70,8 @@ export function Sidebar({
                 href={href}
                 className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[14px] transition-colors ${
                   isActive
-                    ? "bg-stone-100 text-stone-900 font-medium"
-                    : "text-stone-500 hover:text-stone-800 hover:bg-stone-50"
+                    ? "text-stone-900 font-medium border-l-2 border-stone-800 pl-[10px]"
+                    : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
                 }`}
               >
                 <Icon
@@ -104,8 +104,8 @@ export function Sidebar({
                     onClick={() => handleTopicClick(topic.id)}
                     className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-left transition-colors ${
                       isSelected
-                        ? "bg-stone-100 text-stone-900"
-                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-50"
+                        ? "text-stone-900 font-medium border-l-2 border-[#D4A012] pl-[10px]"
+                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
                     }`}
                   >
                     <span className="font-serif text-[14px] flex-1 truncate">

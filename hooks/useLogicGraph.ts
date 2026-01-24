@@ -62,16 +62,14 @@ type GraphStore = {
   onNodesChange: (changes: NodeChange<LogicNode>[]) => void;
 };
 
-const EDGE_STYLE: Partial<Edge> = {
-  type: "bezier",
-  animated: true,
-  className: "logic-edge",
-  markerEnd: {
-    type: MarkerType.ArrowClosed,
-    color: "#CF7B3E", // Rich copper arrow
-    width: 18,
-    height: 18,
-  },
+const VARIANT_EDGE_COLORS: Record<string, string> = {
+  meta: "#2563eb",
+  skeptic: "#8B5A3C",
+  proponent: "#D4A012",
+  crux: "#a23b3b",
+  evidence: "#CF7B3E",
+  question: "#6b5b95",
+  pillar: "#78716c",
 };
 
 // Initialize with Moon Landing
@@ -99,7 +97,7 @@ function mapBlueprintToData(blueprint: BlueprintNode): LogicNodeData {
   };
 }
 
-function buildEdge(source: string, target: string, slot: ChildSlot): Edge {
+function buildEdge(source: string, target: string, slot: ChildSlot, targetVariant?: string): Edge {
   let sourceHandle = "bottom";
   let targetHandle = "top";
 
@@ -110,13 +108,24 @@ function buildEdge(source: string, target: string, slot: ChildSlot): Edge {
   }
   // Pillars (center) use default bottom->top
 
+  const edgeColor = VARIANT_EDGE_COLORS[targetVariant || "pillar"] || "#78716c";
+
   return {
     id: `edge-${source}-${target}`,
     source,
     target,
     sourceHandle,
     targetHandle,
-    ...EDGE_STYLE,
+    type: "bezier",
+    animated: true,
+    className: "logic-edge",
+    style: { stroke: edgeColor, strokeOpacity: 0.5 },
+    markerEnd: {
+      type: MarkerType.ArrowClosed,
+      color: edgeColor,
+      width: 18,
+      height: 18,
+    },
   };
 }
 
@@ -206,9 +215,9 @@ function createNodesFromTemplates(
         id: template.id,
         type: template.data.variant === "meta" ? "metaNode" : "richNode",
         position: adjustedPosition,
-        data: template.data,
+        data: { ...template.data, birthOrder: index },
       });
-      acc.edges.push(buildEdge(parentNode.id, template.id, template.slot));
+      acc.edges.push(buildEdge(parentNode.id, template.id, template.slot, template.data.variant));
       return acc;
     },
     { nodes: [] as LogicNode[], edges: [] as Edge[] },
