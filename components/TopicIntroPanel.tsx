@@ -6,27 +6,6 @@ import { X, Scale, ChevronRight } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { topics } from "@/data/topics";
 
-// Confidence score methodology explanation
-const CONFIDENCE_METHODOLOGY = {
-  high: {
-    range: "80-100%",
-    label: "Strong Evidence",
-    description: "Multiple independent lines of verified evidence. Scientific consensus with reproducible results.",
-    factors: ["Verified cruxes with reproducible methodology", "Independent confirmation from multiple sources", "Strong scientific consensus"]
-  },
-  medium: {
-    range: "50-79%",
-    label: "Moderate Evidence",
-    description: "Significant evidence exists but with notable uncertainties or ongoing research.",
-    factors: ["Partially verified cruxes", "Some disputed evidence", "Active academic debate"]
-  },
-  low: {
-    range: "0-49%",
-    label: "Contested",
-    description: "Fundamental disagreements remain. Evidence is limited, theoretical, or interpretive.",
-    factors: ["Mostly theoretical cruxes", "Limited empirical evidence", "Significant expert disagreement"]
-  }
-};
 
 export function TopicIntroPanel() {
   const [isVisible, setIsVisible] = useState(true);
@@ -52,15 +31,6 @@ export function TopicIntroPanel() {
     }
   };
 
-  // Get the appropriate methodology based on score
-  const getMethodology = (score: number) => {
-    if (score >= 80) return CONFIDENCE_METHODOLOGY.high;
-    if (score >= 50) return CONFIDENCE_METHODOLOGY.medium;
-    return CONFIDENCE_METHODOLOGY.low;
-  };
-
-  const methodology = topic ? getMethodology(topic.confidence_score) : CONFIDENCE_METHODOLOGY.low;
-
   // Check if any nodes have been expanded
   const expandedNodes = useLogicGraph((state) => state.expandedNodes);
   const hasExpandedAny = Object.values(expandedNodes).some(Boolean);
@@ -73,7 +43,7 @@ export function TopicIntroPanel() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="absolute z-20 top-auto bottom-3 left-1/2 -translate-x-1/2 w-[94%] max-w-md md:top-4 md:bottom-auto md:max-w-lg"
+        className="absolute z-20 top-auto bottom-3 left-1/2 -translate-x-1/2 w-[94%] max-w-xs md:top-4 md:bottom-auto md:left-auto md:right-4 md:translate-x-0 md:w-64"
       >
         <div className="bg-[#fefcf9]/95 backdrop-blur-sm rounded-lg border border-stone-200/60 shadow-[0_2px_8px_rgba(120,100,80,0.08)] overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
           {/* Header */}
@@ -112,24 +82,14 @@ export function TopicIntroPanel() {
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="p-4">
-                  {/* Topic Title */}
-                  <h2 className="font-serif text-xl font-semibold text-primary mb-2">
-                    {topic.title}
-                  </h2>
-
-                  {/* Meta claim */}
-                  {topic.meta_claim && (
-                    <p className="text-sm text-secondary mb-4 leading-relaxed">
-                      {topic.meta_claim}
-                    </p>
-                  )}
-
-                  {/* Confidence Score - inline, simple */}
-                  <div className="mb-4 flex items-center gap-2">
-                    <span className="text-xs text-secondary">Confidence:</span>
+                <div className="p-3">
+                  {/* Topic Title + Confidence inline */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <h2 className="font-serif text-base font-semibold text-primary truncate">
+                      {topic.title}
+                    </h2>
                     <span
-                      className="text-sm font-bold font-mono tabular-nums"
+                      className="text-xs font-bold font-mono tabular-nums flex-shrink-0"
                       style={{
                         color: topic.confidence_score >= 80
                           ? "#D4A012"
@@ -140,35 +100,7 @@ export function TopicIntroPanel() {
                     >
                       {topic.confidence_score}%
                     </span>
-                    <span
-                      className="text-[10px] font-medium px-1.5 py-0.5 rounded-full"
-                      style={{
-                        backgroundColor: topic.confidence_score >= 80
-                          ? "#D4A012"
-                          : topic.confidence_score >= 50
-                          ? "#CF7B3E"
-                          : "#8B5A3C",
-                        color: "white"
-                      }}
-                    >
-                      {methodology.label}
-                    </span>
                   </div>
-
-                  {/* Crux Highlight */}
-                  {cruxNode && cruxNode.data.detail && (
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-[#a23b3b]/10 to-[#a23b3b]/5 border border-[#a23b3b]/20 mb-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Scale className="h-4 w-4 text-[#a23b3b]" strokeWidth={2} />
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#a23b3b]">
-                          The Key Question
-                        </span>
-                      </div>
-                      <p className="text-sm font-serif italic text-[#7a2929] leading-relaxed">
-                        &ldquo;{cruxNode.data.detail.description}&rdquo;
-                      </p>
-                    </div>
-                  )}
 
                   {/* Contextual Action */}
                   {hasExpandedAny && cruxNode ? (
