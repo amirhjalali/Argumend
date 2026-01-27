@@ -23,6 +23,7 @@ import { ZoomIndicator } from "@/components/ZoomIndicator";
 import { NavigationPath } from "@/components/NavigationPath";
 import { WelcomeOverlay } from "@/components/WelcomeOverlay";
 import { TopicIntroPanel } from "@/components/TopicIntroPanel";
+import { ScalesOfEvidence } from "@/components/ScalesOfEvidence";
 import type { LogicNodeData } from "@/types/graph";
 
 function CanvasExperience() {
@@ -52,6 +53,7 @@ function CanvasExperience() {
   );
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const setTopic = useLogicGraph((state) => state.setTopic);
+  const currentView = useLogicGraph((state) => state.currentView);
 
   const reactFlow = useReactFlow();
 
@@ -126,56 +128,59 @@ function CanvasExperience() {
 
         {/* Canvas Area */}
         <div className="relative flex-1 min-w-0">
+          {currentView === "scales" ? (
+            <ScalesOfEvidence />
+          ) : (
+            <div className="h-full">
+              <ReactFlow
+                className="h-full w-full"
+                nodes={nodes}
+                edges={edges}
+                nodeTypes={nodeTypes}
+                defaultViewport={{ x: -200, y: 0, zoom: 0.8 }}
+                minZoom={0.2}
+                maxZoom={1.6}
+                nodesDraggable
+                nodesConnectable={false}
+                elementsSelectable={false}
+                zoomOnScroll
+                panOnScroll
+                panOnDrag
+                zoomOnDoubleClick={false}
+                onNodesChange={onNodesChange}
+                fitView
+              >
+                <Background
+                  color="#cdc6bb"
+                  gap={24}
+                  size={1.2}
+                  variant={BackgroundVariant.Dots}
+                  className="opacity-50"
+                />
+                {/* Single MiniMap for orientation only - not interactive to avoid competing with ZoomIndicator */}
+                <MiniMap
+                  className="logic-minimap hidden md:block"
+                  style={{
+                    position: "absolute",
+                    width: 160,
+                    height: 100,
+                    bottom: 24,
+                    right: 24,
+                    zIndex: 40,
+                  }}
+                  nodeColor={getMiniMapColor}
+                  nodeStrokeColor={() => "transparent"}
+                  maskColor="rgba(244, 241, 235, 0.75)"
+                />
+                <ZoomIndicator />
+                <MapLegend />
+                <NavigationPath />
+                <TopicIntroPanel />
+              </ReactFlow>
 
-          <div className="h-full">
-            <ReactFlow
-              className="h-full w-full"
-              nodes={nodes}
-              edges={edges}
-              nodeTypes={nodeTypes}
-              defaultViewport={{ x: -200, y: 0, zoom: 0.8 }}
-              minZoom={0.2}
-              maxZoom={1.6}
-              nodesDraggable
-              nodesConnectable={false}
-              elementsSelectable={false}
-              zoomOnScroll
-              panOnScroll
-              panOnDrag
-              zoomOnDoubleClick={false}
-              onNodesChange={onNodesChange}
-              fitView
-            >
-              <Background
-                color="#cdc6bb"
-                gap={24}
-                size={1.2}
-                variant={BackgroundVariant.Dots}
-                className="opacity-50"
-              />
-              {/* Single MiniMap for orientation only - not interactive to avoid competing with ZoomIndicator */}
-              <MiniMap
-                className="logic-minimap hidden md:block"
-                style={{
-                  position: "absolute",
-                  width: 160,
-                  height: 100,
-                  bottom: 24,
-                  right: 24,
-                  zIndex: 40,
-                }}
-                nodeColor={getMiniMapColor}
-                nodeStrokeColor={() => "transparent"}
-                maskColor="rgba(244, 241, 235, 0.75)"
-              />
-              <ZoomIndicator />
-              <MapLegend />
-              <NavigationPath />
-              <TopicIntroPanel />
-            </ReactFlow>
-
-            <CruxModal />
-          </div>
+              <CruxModal />
+            </div>
+          )}
         </div>
       </div>
     </div>

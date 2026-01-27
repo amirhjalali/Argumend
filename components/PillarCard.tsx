@@ -20,6 +20,11 @@ const ICON_MAP: Record<IconName, LucideIcon> = {
   Atom: LucideIcons.Atom,
   Telescope: LucideIcons.Telescope,
   Microscope: LucideIcons.Microscope,
+  Scale: LucideIcons.Scale,
+  Gavel: LucideIcons.Gavel,
+  FileText: LucideIcons.FileText,
+  Users: LucideIcons.Users,
+  AlertTriangle: LucideIcons.AlertTriangle,
 };
 
 export function PillarCard({ pillar, onClick, layoutId }: PillarCardProps) {

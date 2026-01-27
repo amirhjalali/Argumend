@@ -14,6 +14,7 @@ import type {
   LogicNodeData,
   ConceptData,
 } from "@/types/graph";
+import type { ArgumentView } from "@/types/logic";
 import {
   Edge,
   MarkerType,
@@ -50,9 +51,11 @@ type GraphStore = {
   focusTargets: string[];
   sequence: number;
   currentTopicId: string;
+  currentView: ArgumentView;
 
   // Actions
   setTopic: (topicId: string) => void;
+  setView: (view: ArgumentView) => void;
   expandNode: (nodeId: string) => void;
   spawnConceptNode: (sourceNodeId: string, concept: ConceptData) => void;
   openCrux: (nodeId: string) => void;
@@ -232,6 +235,9 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
   focusTargets: ["root"],
   sequence: 0,
   currentTopicId: moonLanding.id,
+  currentView: "logic-map" as ArgumentView,
+
+  setView: (view: ArgumentView) => set({ currentView: view }),
 
   setTopic: (topicId: string) => {
     const topic = topics.find((t) => t.id === topicId);

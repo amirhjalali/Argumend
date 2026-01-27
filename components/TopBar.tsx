@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Menu, Search, HelpCircle, ExternalLink } from "lucide-react";
+import { ViewToggle } from "./ViewToggle";
 
 interface TopBarProps {
   onMenuClick?: () => void;
@@ -32,9 +33,12 @@ export function TopBar({ onMenuClick }: TopBarProps) {
         </Link>
       </div>
 
-      {/* Center: Value Prop (hidden on mobile) */}
-      <div className="hidden lg:block text-[13px] text-stone-400 italic font-serif">
-        What would change your mind?
+      {/* Center: View Toggle + Value Prop */}
+      <div className="flex items-center gap-4">
+        <ViewToggle />
+        <div className="hidden xl:block text-[13px] text-stone-400 italic font-serif">
+          What would change your mind?
+        </div>
       </div>
 
       {/* Right: Actions */}
