@@ -141,10 +141,17 @@ function ScaleVisualization({ forWeight, againstWeight, confidence }: {
   const signedCurvedDeviation = deviation >= 0 ? curvedDeviation : -curvedDeviation;
 
   // Max tilt of 40 degrees for overwhelming evidence
-  const tiltAngle = signedCurvedDeviation * 80; // Results in -40 to +40 degrees
+  // NEGATIVE because: heavier FOR (positive deviation) should tilt LEFT end DOWN
+  // In CSS, negative rotation = counter-clockwise = left end goes down
+  const tiltAngle = -signedCurvedDeviation * 80; // Results in -40 to +40 degrees
 
-  // Pan displacement scales with tilt for dramatic effect
-  const panDisplacement = tiltAngle * 2.5;
+  // Pan displacement: positive = down, negative = up
+  // When FOR is heavier: tiltAngle is negative, so we negate again for left pan to go DOWN
+  const panDisplacement = Math.abs(tiltAngle) * 2.5;
+  // Left pan goes down when FOR heavier (signedCurvedDeviation > 0)
+  const leftPanY = signedCurvedDeviation > 0 ? panDisplacement : -panDisplacement;
+  // Right pan does the opposite
+  const rightPanY = signedCurvedDeviation > 0 ? -panDisplacement : panDisplacement;
 
   return (
     <div className="flex flex-col items-center py-16 select-none">
@@ -181,7 +188,7 @@ function ScaleVisualization({ forWeight, againstWeight, confidence }: {
           {/* Left chain and pan (FOR) - heavier goes DOWN */}
           <motion.div
             className="absolute left-0 top-3 flex flex-col items-center"
-            animate={{ y: panDisplacement }}
+            animate={{ y: leftPanY }}
             transition={{ type: "spring", stiffness: 60, damping: 15, mass: 1.2 }}
           >
             {/* Chain links - longer chain */}
@@ -204,7 +211,7 @@ function ScaleVisualization({ forWeight, againstWeight, confidence }: {
           {/* Right chain and pan (AGAINST) - heavier goes DOWN */}
           <motion.div
             className="absolute right-0 top-3 flex flex-col items-center"
-            animate={{ y: -panDisplacement }}
+            animate={{ y: rightPanY }}
             transition={{ type: "spring", stiffness: 60, damping: 15, mass: 1.2 }}
           >
             {/* Chain links - longer chain */}
