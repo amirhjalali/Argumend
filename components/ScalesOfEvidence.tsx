@@ -13,20 +13,25 @@ interface EvidenceCardProps {
   index: number;
 }
 
-function WeightBar({ label, value, max = 10 }: { label: string; value: number; max?: number }) {
+function WeightBar({ label, value, max = 10, color = "amber" }: { label: string; value: number; max?: number; color?: "amber" | "stone" }) {
   const percentage = (value / max) * 100;
+  const barColor = color === "amber"
+    ? "bg-gradient-to-r from-amber-500 to-amber-600"
+    : "bg-gradient-to-r from-stone-400 to-stone-500";
+  const textColor = color === "amber" ? "text-amber-700" : "text-stone-600";
+
   return (
-    <div className="flex items-center gap-2 text-xs">
-      <span className="w-24 text-stone-500 truncate">{label}</span>
-      <div className="flex-1 h-1.5 bg-stone-200 rounded-full overflow-hidden">
+    <div className="flex items-center gap-3 text-xs">
+      <span className="w-28 text-stone-500 font-medium">{label}</span>
+      <div className="flex-1 h-2 bg-stone-100 rounded-full overflow-hidden shadow-inner">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${percentage}%` }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="h-full bg-amber-600 rounded-full"
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className={`h-full ${barColor} rounded-full`}
         />
       </div>
-      <span className="w-6 text-right font-mono text-stone-600">{value}</span>
+      <span className={`w-6 text-right font-mono font-semibold ${textColor}`}>{value}</span>
     </div>
   );
 }
@@ -34,39 +39,47 @@ function WeightBar({ label, value, max = 10 }: { label: string; value: number; m
 function EvidenceCard({ evidence, index }: EvidenceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const totalScore = calculateEvidenceScore(evidence.weight);
-  const sideColor = evidence.side === "for" ? "border-l-amber-600" : "border-l-stone-500";
-  const sideBg = evidence.side === "for" ? "bg-amber-50/50" : "bg-stone-50/50";
+  const isFor = evidence.side === "for";
+
+  const cardStyles = isFor
+    ? "border-l-amber-500 bg-gradient-to-r from-amber-50/80 to-amber-50/30 hover:from-amber-50 hover:to-amber-50/50"
+    : "border-l-stone-400 bg-gradient-to-r from-stone-50/80 to-stone-50/30 hover:from-stone-50 hover:to-stone-50/50";
+
+  const scoreStyles = isFor
+    ? "text-amber-700 bg-amber-100/80"
+    : "text-stone-600 bg-stone-100/80";
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.1 }}
-      className={`rounded-lg border border-stone-200 ${sideBg} border-l-4 ${sideColor} overflow-hidden`}
+      initial={{ opacity: 0, x: isFor ? -20 : 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
+      className={`rounded-xl border border-stone-200/80 border-l-4 ${cardStyles} overflow-hidden shadow-sm hover:shadow-md transition-all duration-300`}
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-4 text-left hover:bg-white/50 transition-colors"
+        className="w-full p-5 text-left transition-colors"
       >
-        <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
-            <h4 className="font-serif font-semibold text-primary text-sm leading-tight">
+            <h4 className="font-serif font-semibold text-primary text-base leading-snug">
               {evidence.title}
             </h4>
-            <p className="text-xs text-stone-600 mt-1 line-clamp-2">
+            <p className="text-sm text-stone-600 mt-2 line-clamp-2 leading-relaxed">
               {evidence.description}
             </p>
           </div>
           <div className="flex items-center gap-2 flex-shrink-0">
-            <span className="text-lg font-bold font-mono text-amber-700">
-              {totalScore}
-            </span>
-            <span className="text-xs text-stone-400">/40</span>
-            {isExpanded ? (
-              <ChevronUp className="h-4 w-4 text-stone-400" />
-            ) : (
-              <ChevronDown className="h-4 w-4 text-stone-400" />
-            )}
+            <div className={`px-3 py-1.5 rounded-lg ${scoreStyles}`}>
+              <span className="text-xl font-bold font-mono">{totalScore}</span>
+              <span className="text-xs opacity-60 ml-0.5">/40</span>
+            </div>
+            <motion.div
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ChevronDown className="h-5 w-5 text-stone-400" />
+            </motion.div>
           </div>
         </div>
       </button>
@@ -76,19 +89,22 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          className="px-4 pb-4 space-y-3 border-t border-stone-100"
+          transition={{ duration: 0.3 }}
+          className="px-5 pb-5 space-y-4 border-t border-stone-200/50"
         >
-          <div className="pt-3 space-y-2">
-            <WeightBar label="Source Reliability" value={evidence.weight.sourceReliability} />
-            <WeightBar label="Independence" value={evidence.weight.independence} />
-            <WeightBar label="Replicability" value={evidence.weight.replicability} />
-            <WeightBar label="Directness" value={evidence.weight.directness} />
+          <div className="pt-4 space-y-3">
+            <WeightBar label="Source Reliability" value={evidence.weight.sourceReliability} color={isFor ? "amber" : "stone"} />
+            <WeightBar label="Independence" value={evidence.weight.independence} color={isFor ? "amber" : "stone"} />
+            <WeightBar label="Replicability" value={evidence.weight.replicability} color={isFor ? "amber" : "stone"} />
+            <WeightBar label="Directness" value={evidence.weight.directness} color={isFor ? "amber" : "stone"} />
           </div>
 
           {evidence.reasoning && (
-            <p className="text-xs text-stone-500 italic border-t border-stone-100 pt-3">
-              {evidence.reasoning}
-            </p>
+            <div className="bg-white/60 rounded-lg p-3 border border-stone-100">
+              <p className="text-sm text-stone-600 italic leading-relaxed">
+                {evidence.reasoning}
+              </p>
+            </div>
           )}
 
           {evidence.sourceUrl && (
@@ -96,10 +112,10 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
               href={evidence.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 transition-colors font-medium"
             >
+              <ExternalLink className="h-3.5 w-3.5" />
               {evidence.source || "View source"}
-              <ExternalLink className="h-3 w-3" />
             </a>
           )}
         </motion.div>
@@ -115,49 +131,111 @@ function ScaleVisualization({ forWeight, againstWeight, confidence }: {
 }) {
   const total = forWeight + againstWeight;
   const forRatio = total > 0 ? forWeight / total : 0.5;
-  const tiltAngle = (forRatio - 0.5) * 30; // Max 15 degrees tilt
+  // Positive tiltAngle = FOR is heavier = left side goes DOWN
+  const tiltAngle = (forRatio - 0.5) * 24; // Max 12 degrees tilt
 
   return (
-    <div className="flex flex-col items-center py-8">
-      {/* Scale beam */}
-      <motion.div
-        initial={{ rotate: 0 }}
-        animate={{ rotate: tiltAngle }}
-        transition={{ type: "spring", stiffness: 100, damping: 15 }}
-        className="relative w-64 h-1 bg-stone-400 rounded-full origin-center"
-        style={{ transformOrigin: "center" }}
-      >
-        {/* Fulcrum */}
-        <div className="absolute left-1/2 -translate-x-1/2 -bottom-2">
-          <div className="w-0 h-0 border-l-[12px] border-r-[12px] border-t-[16px] border-l-transparent border-r-transparent border-t-stone-400" />
+    <div className="flex flex-col items-center py-12 select-none">
+      {/* Ornate frame */}
+      <div className="relative">
+        {/* Decorative top finial */}
+        <div className="absolute left-1/2 -translate-x-1/2 -top-6 z-10">
+          <div className="w-3 h-3 rounded-full bg-gradient-to-b from-amber-400 to-amber-600 shadow-md" />
+          <div className="w-1 h-4 bg-gradient-to-b from-amber-500 to-amber-700 mx-auto -mt-0.5" />
         </div>
 
-        {/* Left pan (FOR) */}
+        {/* Main pillar/stand */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 z-0">
+          <div className="w-2 h-32 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800 rounded-t-sm shadow-lg" />
+        </div>
+
+        {/* Scale beam with chains */}
         <motion.div
-          className="absolute -left-4 -top-8 flex flex-col items-center"
-          animate={{ y: -tiltAngle * 2 }}
+          initial={{ rotate: 0 }}
+          animate={{ rotate: tiltAngle }}
+          transition={{ type: "spring", stiffness: 80, damping: 12 }}
+          className="relative z-20"
+          style={{ transformOrigin: "center top" }}
         >
-          <div className="w-20 h-1 bg-amber-600 rounded" />
-          <div className="w-16 h-12 bg-amber-100 border-2 border-amber-600 rounded-b-lg flex items-center justify-center">
-            <span className="text-xs font-bold text-amber-700">{forWeight}</span>
+          {/* The beam itself - ornate golden bar */}
+          <div className="relative w-80 h-2 bg-gradient-to-b from-amber-500 via-amber-600 to-amber-700 rounded-full shadow-lg mx-auto">
+            {/* Decorative end caps */}
+            <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow" />
+            <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow" />
+            {/* Center pivot decoration */}
+            <div className="absolute left-1/2 -translate-x-1/2 -top-1 w-4 h-4 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 shadow-md border border-amber-300" />
           </div>
+
+          {/* Left chain and pan (FOR) - heavier goes DOWN */}
+          <motion.div
+            className="absolute left-2 top-2 flex flex-col items-center"
+            animate={{ y: tiltAngle * 1.5 }}
+            transition={{ type: "spring", stiffness: 80, damping: 12 }}
+          >
+            {/* Chain links */}
+            <div className="flex flex-col items-center gap-0.5">
+              <div className="w-0.5 h-6 bg-gradient-to-b from-amber-600 to-amber-700" />
+              <div className="w-1 h-1 rounded-full bg-amber-600" />
+              <div className="w-0.5 h-6 bg-gradient-to-b from-amber-700 to-amber-600" />
+            </div>
+            {/* Pan - golden bowl style */}
+            <div className="relative">
+              <div className="w-24 h-1 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 rounded-full" />
+              <div className="w-20 h-10 mx-auto bg-gradient-to-b from-amber-100 via-amber-50 to-amber-100 border-2 border-amber-500 rounded-b-full shadow-inner flex items-center justify-center">
+                <div className="text-center">
+                  <span className="text-lg font-bold font-mono text-amber-700">{forWeight}</span>
+                </div>
+              </div>
+              {/* Subtle inner shadow */}
+              <div className="absolute inset-x-2 top-1 h-8 bg-gradient-to-b from-amber-200/30 to-transparent rounded-b-full pointer-events-none" />
+            </div>
+          </motion.div>
+
+          {/* Right chain and pan (AGAINST) - heavier goes DOWN */}
+          <motion.div
+            className="absolute right-2 top-2 flex flex-col items-center"
+            animate={{ y: -tiltAngle * 1.5 }}
+            transition={{ type: "spring", stiffness: 80, damping: 12 }}
+          >
+            {/* Chain links */}
+            <div className="flex flex-col items-center gap-0.5">
+              <div className="w-0.5 h-6 bg-gradient-to-b from-stone-500 to-stone-600" />
+              <div className="w-1 h-1 rounded-full bg-stone-500" />
+              <div className="w-0.5 h-6 bg-gradient-to-b from-stone-600 to-stone-500" />
+            </div>
+            {/* Pan - silver/gray bowl style */}
+            <div className="relative">
+              <div className="w-24 h-1 bg-gradient-to-r from-stone-500 via-stone-400 to-stone-500 rounded-full" />
+              <div className="w-20 h-10 mx-auto bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 border-2 border-stone-400 rounded-b-full shadow-inner flex items-center justify-center">
+                <div className="text-center">
+                  <span className="text-lg font-bold font-mono text-stone-600">{againstWeight}</span>
+                </div>
+              </div>
+              {/* Subtle inner shadow */}
+              <div className="absolute inset-x-2 top-1 h-8 bg-gradient-to-b from-stone-200/30 to-transparent rounded-b-full pointer-events-none" />
+            </div>
+          </motion.div>
         </motion.div>
 
-        {/* Right pan (AGAINST) */}
-        <motion.div
-          className="absolute -right-4 -top-8 flex flex-col items-center"
-          animate={{ y: tiltAngle * 2 }}
-        >
-          <div className="w-20 h-1 bg-stone-500 rounded" />
-          <div className="w-16 h-12 bg-stone-100 border-2 border-stone-500 rounded-b-lg flex items-center justify-center">
-            <span className="text-xs font-bold text-stone-600">{againstWeight}</span>
-          </div>
-        </motion.div>
-      </motion.div>
+        {/* Base pedestal */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-28 flex flex-col items-center">
+          <div className="w-6 h-2 bg-gradient-to-b from-amber-700 to-amber-800 rounded-t-sm" />
+          <div className="w-12 h-1 bg-gradient-to-b from-amber-800 to-amber-900" />
+          <div className="w-16 h-2 bg-gradient-to-b from-amber-800 via-amber-900 to-stone-800 rounded-b-lg shadow-lg" />
+        </div>
+      </div>
 
-      {/* Scale icon */}
-      <div className="mt-8">
-        <Scale className="h-8 w-8 text-stone-400" />
+      {/* Labels below scale */}
+      <div className="mt-36 flex items-center justify-center gap-16 text-sm">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-sm" />
+          <span className="font-serif text-amber-800 font-medium">FOR</span>
+        </div>
+        <div className="w-px h-4 bg-stone-300" />
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-stone-400 to-stone-500 shadow-sm" />
+          <span className="font-serif text-stone-600 font-medium">AGAINST</span>
+        </div>
       </div>
     </div>
   );
@@ -169,35 +247,81 @@ function VerdictDisplay({ confidence, forWeight, againstWeight }: {
   againstWeight: number;
 }) {
   const verdictLabel = getVerdictLabel(confidence);
-  const verdictColor = confidence >= 95 ? "text-green-700 bg-green-50 border-green-200"
-    : confidence >= 75 ? "text-amber-700 bg-amber-50 border-amber-200"
-    : confidence >= 50 ? "text-orange-700 bg-orange-50 border-orange-200"
-    : "text-stone-700 bg-stone-50 border-stone-200";
+  const total = forWeight + againstWeight;
+  const forPercent = total > 0 ? Math.round((forWeight / total) * 100) : 50;
+
+  const verdictStyles = confidence >= 95
+    ? { bg: "from-emerald-50 to-green-50", border: "border-emerald-300", text: "text-emerald-800", accent: "bg-emerald-500" }
+    : confidence >= 75
+    ? { bg: "from-amber-50 to-yellow-50", border: "border-amber-300", text: "text-amber-800", accent: "bg-amber-500" }
+    : confidence >= 50
+    ? { bg: "from-orange-50 to-amber-50", border: "border-orange-300", text: "text-orange-800", accent: "bg-orange-500" }
+    : { bg: "from-stone-50 to-gray-50", border: "border-stone-300", text: "text-stone-700", accent: "bg-stone-500" };
 
   return (
-    <div className={`rounded-lg border-2 p-4 ${verdictColor}`}>
-      <div className="text-center">
-        <div className="text-xs font-medium uppercase tracking-wide opacity-70 mb-1">
-          Verdict
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
+      className={`rounded-2xl border-2 ${verdictStyles.border} bg-gradient-to-br ${verdictStyles.bg} p-6 shadow-lg`}
+    >
+      <div className="text-center space-y-4">
+        {/* Verdict Label */}
+        <div>
+          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-500 mb-2">
+            The Verdict
+          </div>
+          <div className={`font-serif text-2xl font-bold ${verdictStyles.text}`}>
+            {verdictLabel}
+          </div>
         </div>
-        <div className="font-serif text-lg font-semibold">
-          {verdictLabel}
+
+        {/* Visual Weight Bar */}
+        <div className="max-w-md mx-auto">
+          <div className="h-3 rounded-full bg-stone-200 overflow-hidden shadow-inner flex">
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${forPercent}%` }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="h-full bg-gradient-to-r from-amber-400 to-amber-500"
+            />
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${100 - forPercent}%` }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="h-full bg-gradient-to-r from-stone-400 to-stone-500"
+            />
+          </div>
         </div>
-        <div className="mt-2 flex items-center justify-center gap-4 text-sm">
-          <span className="font-mono">
-            <span className="text-amber-600 font-bold">{forWeight}</span>
-            <span className="opacity-60"> FOR</span>
-          </span>
-          <span className="opacity-40">|</span>
-          <span className="font-mono">
-            <span className="text-stone-600 font-bold">{againstWeight}</span>
-            <span className="opacity-60"> AGAINST</span>
-          </span>
-          <span className="opacity-40">|</span>
-          <span className="font-mono font-bold">{confidence}%</span>
+
+        {/* Stats Row */}
+        <div className="flex items-center justify-center gap-6 text-sm">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600" />
+            <span className="font-mono">
+              <span className="text-amber-700 font-bold text-lg">{forWeight}</span>
+              <span className="text-stone-500 ml-1">FOR</span>
+            </span>
+          </div>
+
+          <div className="w-px h-6 bg-stone-300" />
+
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-stone-400 to-stone-500" />
+            <span className="font-mono">
+              <span className="text-stone-600 font-bold text-lg">{againstWeight}</span>
+              <span className="text-stone-500 ml-1">AGAINST</span>
+            </span>
+          </div>
+
+          <div className="w-px h-6 bg-stone-300" />
+
+          <div className={`px-3 py-1 rounded-full ${verdictStyles.accent} text-white font-mono font-bold`}>
+            {confidence}%
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -269,24 +393,34 @@ export function ScalesOfEvidence() {
 
   if (!topic) {
     return (
-      <div className="flex items-center justify-center h-full text-stone-500">
-        No topic selected
+      <div className="flex flex-col items-center justify-center h-full text-stone-500 gap-4">
+        <Scale className="h-16 w-16 opacity-30" />
+        <p className="font-serif text-lg">Select a topic to weigh the evidence</p>
       </div>
     );
   }
 
   return (
-    <div className="h-full overflow-auto bg-[#fefcf9]">
-      <div className="max-w-5xl mx-auto p-6 space-y-6">
+    <div className="h-full overflow-auto bg-gradient-to-b from-[#fefcf9] via-[#faf8f4] to-[#f5f2eb]">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 space-y-8">
         {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="font-serif text-2xl font-bold text-primary">
-            The Question at Issue
-          </h1>
-          <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-4"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider">
+            <Scale className="h-3.5 w-3.5" />
+            Scales of Evidence
+          </div>
+          <h1 className="font-serif text-3xl md:text-4xl font-bold text-primary leading-tight max-w-3xl mx-auto">
             {topic.meta_claim}
+          </h1>
+          <p className="text-stone-500 max-w-2xl mx-auto">
+            Weigh the evidence on both sides. Each piece is scored on reliability, independence, replicability, and directness.
           </p>
-        </div>
+        </motion.div>
 
         {/* Scale Visualization */}
         <ScaleVisualization
@@ -296,48 +430,68 @@ export function ScalesOfEvidence() {
         />
 
         {/* Two Columns */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* FOR Column */}
-          <div>
-            <div className="flex items-center gap-2 mb-4 pb-2 border-b-2 border-amber-600">
-              <div className="w-3 h-3 rounded-full bg-amber-600" />
-              <h2 className="font-serif text-lg font-semibold text-amber-800">
-                FOR (Prosecution)
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-amber-400">
+              <div className="w-4 h-4 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-md" />
+              <h2 className="font-serif text-xl font-bold text-amber-800">
+                Evidence FOR
               </h2>
-              <span className="ml-auto text-sm font-mono text-amber-700">
-                {forWeight} pts
-              </span>
+              <div className="ml-auto flex items-center gap-2">
+                <span className="text-sm text-amber-600">{forEvidence.length} items</span>
+                <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-700 font-mono font-bold text-sm">
+                  {forWeight} pts
+                </span>
+              </div>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-4">
               {forEvidence.map((evidence, index) => (
                 <EvidenceCard key={evidence.id} evidence={evidence} index={index} />
               ))}
               {forEvidence.length === 0 && (
-                <p className="text-sm text-stone-400 italic">No evidence for this position</p>
+                <div className="text-center py-12 text-stone-400">
+                  <Scale className="h-10 w-10 mx-auto mb-3 opacity-40" />
+                  <p className="font-serif italic">No evidence presented for this position</p>
+                </div>
               )}
             </div>
-          </div>
+          </motion.div>
 
           {/* AGAINST Column */}
-          <div>
-            <div className="flex items-center gap-2 mb-4 pb-2 border-b-2 border-stone-500">
-              <div className="w-3 h-3 rounded-full bg-stone-500" />
-              <h2 className="font-serif text-lg font-semibold text-stone-700">
-                AGAINST (Defense)
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-stone-400">
+              <div className="w-4 h-4 rounded-full bg-gradient-to-br from-stone-400 to-stone-500 shadow-md" />
+              <h2 className="font-serif text-xl font-bold text-stone-700">
+                Evidence AGAINST
               </h2>
-              <span className="ml-auto text-sm font-mono text-stone-600">
-                {againstWeight} pts
-              </span>
+              <div className="ml-auto flex items-center gap-2">
+                <span className="text-sm text-stone-500">{againstEvidence.length} items</span>
+                <span className="px-3 py-1 rounded-full bg-stone-100 text-stone-600 font-mono font-bold text-sm">
+                  {againstWeight} pts
+                </span>
+              </div>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-4">
               {againstEvidence.map((evidence, index) => (
                 <EvidenceCard key={evidence.id} evidence={evidence} index={index} />
               ))}
               {againstEvidence.length === 0 && (
-                <p className="text-sm text-stone-400 italic">No evidence against this position</p>
+                <div className="text-center py-12 text-stone-400">
+                  <Scale className="h-10 w-10 mx-auto mb-3 opacity-40" />
+                  <p className="font-serif italic">No evidence presented against this position</p>
+                </div>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Verdict */}
@@ -346,6 +500,11 @@ export function ScalesOfEvidence() {
           forWeight={forWeight}
           againstWeight={againstWeight}
         />
+
+        {/* Footer note */}
+        <p className="text-center text-xs text-stone-400 pb-8">
+          Evidence scores are calculated from Source Reliability, Independence, Replicability, and Directness (each 0-10).
+        </p>
       </div>
     </div>
   );
