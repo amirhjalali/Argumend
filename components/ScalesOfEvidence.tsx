@@ -124,132 +124,246 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
   );
 }
 
-function ScaleVisualization({ forWeight, againstWeight, confidence }: {
+function ScaleVisualization({ forWeight, againstWeight }: {
   forWeight: number;
   againstWeight: number;
-  confidence: number;
+  confidence?: number;
 }) {
   const total = forWeight + againstWeight;
   const forRatio = total > 0 ? forWeight / total : 0.5;
 
-  // Use exponential curve to make extreme disparities more dramatic
-  // deviation from 0.5, scaled exponentially
+  // Calculate tilt: heavier FOR = left side down = negative angle
+  // Use a gentler curve and limit max tilt to 25 degrees
   const deviation = forRatio - 0.5; // -0.5 to 0.5
-  const absDeviation = Math.abs(deviation);
-  // Apply power curve: small differences = small tilt, large differences = dramatic tilt
-  const curvedDeviation = Math.pow(absDeviation * 2, 1.5) / 2; // Normalize and apply curve
-  const signedCurvedDeviation = deviation >= 0 ? curvedDeviation : -curvedDeviation;
+  const maxTilt = 25; // degrees - keeps pans above the base
+  const tiltAngle = -deviation * maxTilt * 2; // Linear scaling, max ±25°
 
-  // Max tilt of 40 degrees for overwhelming evidence
-  // NEGATIVE because: heavier FOR (positive deviation) should tilt LEFT end DOWN
-  // In CSS, negative rotation = counter-clockwise = left end goes down
-  const tiltAngle = -signedCurvedDeviation * 80; // Results in -40 to +40 degrees
+  // SVG dimensions and geometry
+  const width = 400;
+  const height = 240;
+  const centerX = width / 2;
+  const pivotY = 60; // Where the beam pivots
+  const beamLength = 300; // Total beam length
+  const beamHalf = beamLength / 2;
+  const chainLength = 70; // Length of chains
+  const panWidth = 70;
+  const panHeight = 45;
 
-  // Pan displacement: positive = down, negative = up
-  // When FOR is heavier: tiltAngle is negative, so we negate again for left pan to go DOWN
-  const panDisplacement = Math.abs(tiltAngle) * 2.5;
-  // Left pan goes down when FOR heavier (signedCurvedDeviation > 0)
-  const leftPanY = signedCurvedDeviation > 0 ? panDisplacement : -panDisplacement;
-  // Right pan does the opposite
-  const rightPanY = signedCurvedDeviation > 0 ? -panDisplacement : panDisplacement;
+  // Calculate beam end positions based on tilt
+  const angleRad = (tiltAngle * Math.PI) / 180;
+  const leftEndX = centerX - Math.cos(angleRad) * beamHalf;
+  const leftEndY = pivotY + Math.sin(angleRad) * beamHalf;
+  const rightEndX = centerX + Math.cos(angleRad) * beamHalf;
+  const rightEndY = pivotY - Math.sin(angleRad) * beamHalf;
+
+  // Pan positions (hang straight down from beam ends)
+  const leftPanY = leftEndY + chainLength;
+  const rightPanY = rightEndY + chainLength;
 
   return (
-    <div className="flex flex-col items-center py-16 select-none">
-      {/* Ornate frame */}
-      <div className="relative" style={{ height: 280 }}>
-        {/* Decorative top finial */}
-        <div className="absolute left-1/2 -translate-x-1/2 -top-8 z-10">
-          <div className="w-4 h-4 rounded-full bg-gradient-to-b from-amber-400 to-amber-600 shadow-lg border border-amber-300" />
-          <div className="w-1.5 h-6 bg-gradient-to-b from-amber-500 to-amber-700 mx-auto -mt-1 rounded-b" />
-        </div>
+    <div className="flex flex-col items-center py-8 select-none">
+      <motion.svg
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+        className="overflow-visible"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <defs>
+          {/* Gradients for metallic look */}
+          <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#d4a012" />
+            <stop offset="50%" stopColor="#b8860b" />
+            <stop offset="100%" stopColor="#8b6914" />
+          </linearGradient>
+          <linearGradient id="goldLightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#fcd34d" />
+            <stop offset="100%" stopColor="#d4a012" />
+          </linearGradient>
+          <linearGradient id="silverGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#9ca3af" />
+            <stop offset="50%" stopColor="#6b7280" />
+            <stop offset="100%" stopColor="#4b5563" />
+          </linearGradient>
+          <linearGradient id="pillarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#92400e" />
+            <stop offset="100%" stopColor="#451a03" />
+          </linearGradient>
+          <linearGradient id="panGoldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#fef3c7" />
+            <stop offset="100%" stopColor="#fcd34d" />
+          </linearGradient>
+          <linearGradient id="panSilverGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#f3f4f6" />
+            <stop offset="100%" stopColor="#d1d5db" />
+          </linearGradient>
+          {/* Drop shadow */}
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.2" />
+          </filter>
+        </defs>
 
-        {/* Main pillar/stand */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 z-0">
-          <div className="w-3 h-40 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800 rounded-t shadow-xl" />
-        </div>
+        {/* Base/Pedestal */}
+        <g filter="url(#shadow)">
+          {/* Base platform */}
+          <rect x={centerX - 40} y={height - 20} width={80} height={12} rx={3} fill="url(#pillarGradient)" />
+          <rect x={centerX - 30} y={height - 28} width={60} height={10} rx={2} fill="url(#pillarGradient)" />
+          {/* Pillar */}
+          <rect x={centerX - 6} y={pivotY + 10} width={12} height={height - pivotY - 38} rx={2} fill="url(#pillarGradient)" />
+        </g>
 
-        {/* Scale beam with chains */}
-        <motion.div
+        {/* Beam assembly - animated rotation */}
+        <motion.g
           initial={{ rotate: 0 }}
           animate={{ rotate: tiltAngle }}
-          transition={{ type: "spring", stiffness: 60, damping: 15, mass: 1.2 }}
-          className="relative z-20"
-          style={{ transformOrigin: "center top" }}
+          transition={{ type: "spring", stiffness: 40, damping: 15, mass: 1 }}
+          style={{ originX: `${centerX}px`, originY: `${pivotY}px` }}
         >
-          {/* The beam itself - ornate golden bar */}
-          <div className="relative w-96 h-3 bg-gradient-to-b from-amber-500 via-amber-600 to-amber-700 rounded-full shadow-xl mx-auto">
-            {/* Decorative end caps */}
-            <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-md border border-amber-300" />
-            <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-md border border-amber-300" />
-            {/* Center pivot decoration */}
-            <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 shadow-lg border-2 border-amber-300" />
-          </div>
+          {/* Beam */}
+          <rect
+            x={centerX - beamHalf}
+            y={pivotY - 4}
+            width={beamLength}
+            height={8}
+            rx={4}
+            fill="url(#goldGradient)"
+            filter="url(#shadow)"
+          />
+          {/* End caps */}
+          <circle cx={centerX - beamHalf} cy={pivotY} r={8} fill="url(#goldLightGradient)" />
+          <circle cx={centerX + beamHalf} cy={pivotY} r={8} fill="url(#goldLightGradient)" />
+          {/* Center pivot ornament */}
+          <circle cx={centerX} cy={pivotY} r={12} fill="url(#goldLightGradient)" filter="url(#shadow)" />
+          <circle cx={centerX} cy={pivotY} r={6} fill="url(#goldGradient)" />
+        </motion.g>
 
-          {/* Left chain and pan (FOR) - heavier goes DOWN */}
-          <motion.div
-            className="absolute left-0 top-3 flex flex-col items-center"
-            animate={{ y: leftPanY }}
-            transition={{ type: "spring", stiffness: 60, damping: 15, mass: 1.2 }}
+        {/* Left chain and pan (FOR) - counter-rotates to stay level */}
+        <motion.g
+          initial={{ x: 0, y: 0 }}
+          animate={{
+            x: leftEndX - (centerX - beamHalf),
+            y: leftEndY - pivotY,
+          }}
+          transition={{ type: "spring", stiffness: 40, damping: 15, mass: 1 }}
+        >
+          {/* Chain */}
+          <line
+            x1={centerX - beamHalf}
+            y1={pivotY + 8}
+            x2={centerX - beamHalf}
+            y2={pivotY + 8 + chainLength}
+            stroke="url(#goldGradient)"
+            strokeWidth={3}
+            strokeLinecap="round"
+          />
+          {/* Chain links decoration */}
+          <circle cx={centerX - beamHalf} cy={pivotY + 25} r={4} fill="none" stroke="#b8860b" strokeWidth={2} />
+          <circle cx={centerX - beamHalf} cy={pivotY + 45} r={4} fill="none" stroke="#b8860b" strokeWidth={2} />
+
+          {/* Pan - stays level (no rotation) */}
+          <g filter="url(#shadow)">
+            {/* Pan rim */}
+            <ellipse
+              cx={centerX - beamHalf}
+              cy={pivotY + chainLength + 8}
+              rx={panWidth / 2}
+              ry={6}
+              fill="url(#goldGradient)"
+            />
+            {/* Pan bowl */}
+            <path
+              d={`M ${centerX - beamHalf - panWidth / 2} ${pivotY + chainLength + 8}
+                  Q ${centerX - beamHalf - panWidth / 2} ${pivotY + chainLength + panHeight}
+                    ${centerX - beamHalf} ${pivotY + chainLength + panHeight}
+                  Q ${centerX - beamHalf + panWidth / 2} ${pivotY + chainLength + panHeight}
+                    ${centerX - beamHalf + panWidth / 2} ${pivotY + chainLength + 8}`}
+              fill="url(#panGoldGradient)"
+              stroke="#d4a012"
+              strokeWidth={2}
+            />
+          </g>
+          {/* Weight number */}
+          <text
+            x={centerX - beamHalf}
+            y={pivotY + chainLength + panHeight - 12}
+            textAnchor="middle"
+            className="fill-amber-700 font-mono font-bold text-lg"
+            style={{ fontSize: "18px" }}
           >
-            {/* Chain links - longer chain */}
-            <div className="flex flex-col items-center">
-              <div className="w-1 h-10 bg-gradient-to-b from-amber-600 to-amber-700 rounded-full" />
-              <div className="w-2 h-2 rounded-full bg-amber-500 -mt-0.5" />
-              <div className="w-1 h-10 bg-gradient-to-b from-amber-700 to-amber-600 rounded-full -mt-0.5" />
-            </div>
-            {/* Pan - golden bowl style, larger */}
-            <div className="relative -mt-1">
-              <div className="w-28 h-1.5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 rounded-full shadow" />
-              <div className="w-24 h-14 mx-auto bg-gradient-to-b from-amber-100 via-amber-50 to-amber-100 border-3 border-amber-500 rounded-b-full shadow-lg flex items-center justify-center">
-                <span className="text-2xl font-bold font-mono text-amber-700">{forWeight}</span>
-              </div>
-              {/* Inner glow */}
-              <div className="absolute inset-x-3 top-2 h-10 bg-gradient-to-b from-amber-200/40 to-transparent rounded-b-full pointer-events-none" />
-            </div>
-          </motion.div>
+            {forWeight}
+          </text>
+        </motion.g>
 
-          {/* Right chain and pan (AGAINST) - heavier goes DOWN */}
-          <motion.div
-            className="absolute right-0 top-3 flex flex-col items-center"
-            animate={{ y: rightPanY }}
-            transition={{ type: "spring", stiffness: 60, damping: 15, mass: 1.2 }}
+        {/* Right chain and pan (AGAINST) - counter-rotates to stay level */}
+        <motion.g
+          initial={{ x: 0, y: 0 }}
+          animate={{
+            x: rightEndX - (centerX + beamHalf),
+            y: rightEndY - pivotY,
+          }}
+          transition={{ type: "spring", stiffness: 40, damping: 15, mass: 1 }}
+        >
+          {/* Chain */}
+          <line
+            x1={centerX + beamHalf}
+            y1={pivotY + 8}
+            x2={centerX + beamHalf}
+            y2={pivotY + 8 + chainLength}
+            stroke="url(#silverGradient)"
+            strokeWidth={3}
+            strokeLinecap="round"
+          />
+          {/* Chain links decoration */}
+          <circle cx={centerX + beamHalf} cy={pivotY + 25} r={4} fill="none" stroke="#6b7280" strokeWidth={2} />
+          <circle cx={centerX + beamHalf} cy={pivotY + 45} r={4} fill="none" stroke="#6b7280" strokeWidth={2} />
+
+          {/* Pan - stays level (no rotation) */}
+          <g filter="url(#shadow)">
+            {/* Pan rim */}
+            <ellipse
+              cx={centerX + beamHalf}
+              cy={pivotY + chainLength + 8}
+              rx={panWidth / 2}
+              ry={6}
+              fill="url(#silverGradient)"
+            />
+            {/* Pan bowl */}
+            <path
+              d={`M ${centerX + beamHalf - panWidth / 2} ${pivotY + chainLength + 8}
+                  Q ${centerX + beamHalf - panWidth / 2} ${pivotY + chainLength + panHeight}
+                    ${centerX + beamHalf} ${pivotY + chainLength + panHeight}
+                  Q ${centerX + beamHalf + panWidth / 2} ${pivotY + chainLength + panHeight}
+                    ${centerX + beamHalf + panWidth / 2} ${pivotY + chainLength + 8}`}
+              fill="url(#panSilverGradient)"
+              stroke="#9ca3af"
+              strokeWidth={2}
+            />
+          </g>
+          {/* Weight number */}
+          <text
+            x={centerX + beamHalf}
+            y={pivotY + chainLength + panHeight - 12}
+            textAnchor="middle"
+            className="fill-stone-600 font-mono font-bold text-lg"
+            style={{ fontSize: "18px" }}
           >
-            {/* Chain links - longer chain */}
-            <div className="flex flex-col items-center">
-              <div className="w-1 h-10 bg-gradient-to-b from-stone-500 to-stone-600 rounded-full" />
-              <div className="w-2 h-2 rounded-full bg-stone-400 -mt-0.5" />
-              <div className="w-1 h-10 bg-gradient-to-b from-stone-600 to-stone-500 rounded-full -mt-0.5" />
-            </div>
-            {/* Pan - silver/gray bowl style, larger */}
-            <div className="relative -mt-1">
-              <div className="w-28 h-1.5 bg-gradient-to-r from-stone-500 via-stone-400 to-stone-500 rounded-full shadow" />
-              <div className="w-24 h-14 mx-auto bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 border-3 border-stone-400 rounded-b-full shadow-lg flex items-center justify-center">
-                <span className="text-2xl font-bold font-mono text-stone-600">{againstWeight}</span>
-              </div>
-              {/* Inner glow */}
-              <div className="absolute inset-x-3 top-2 h-10 bg-gradient-to-b from-stone-200/40 to-transparent rounded-b-full pointer-events-none" />
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Base pedestal - larger and lower */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-36 flex flex-col items-center">
-          <div className="w-8 h-3 bg-gradient-to-b from-amber-700 to-amber-800 rounded-t" />
-          <div className="w-14 h-2 bg-gradient-to-b from-amber-800 to-amber-900" />
-          <div className="w-20 h-3 bg-gradient-to-b from-amber-800 via-amber-900 to-stone-800 rounded-b-lg shadow-xl" />
-        </div>
-      </div>
+            {againstWeight}
+          </text>
+        </motion.g>
+      </motion.svg>
 
       {/* Labels below scale */}
-      <div className="mt-8 flex items-center justify-center gap-20 text-base">
-        <div className="flex items-center gap-3">
-          <div className="w-4 h-4 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-md" />
-          <span className="font-serif text-amber-800 font-semibold tracking-wide">FOR</span>
+      <div className="mt-6 flex items-center justify-center gap-16 text-sm">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600" />
+          <span className="font-serif text-amber-800 font-medium tracking-wide">FOR</span>
         </div>
-        <div className="w-px h-5 bg-stone-300" />
-        <div className="flex items-center gap-3">
-          <div className="w-4 h-4 rounded-full bg-gradient-to-br from-stone-400 to-stone-500 shadow-md" />
-          <span className="font-serif text-stone-600 font-semibold tracking-wide">AGAINST</span>
+        <div className="w-px h-4 bg-stone-300" />
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-stone-400 to-stone-500" />
+          <span className="font-serif text-stone-600 font-medium tracking-wide">AGAINST</span>
         </div>
       </div>
     </div>
