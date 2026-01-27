@@ -131,110 +131,118 @@ function ScaleVisualization({ forWeight, againstWeight, confidence }: {
 }) {
   const total = forWeight + againstWeight;
   const forRatio = total > 0 ? forWeight / total : 0.5;
-  // Positive tiltAngle = FOR is heavier = left side goes DOWN
-  const tiltAngle = (forRatio - 0.5) * 24; // Max 12 degrees tilt
+
+  // Use exponential curve to make extreme disparities more dramatic
+  // deviation from 0.5, scaled exponentially
+  const deviation = forRatio - 0.5; // -0.5 to 0.5
+  const absDeviation = Math.abs(deviation);
+  // Apply power curve: small differences = small tilt, large differences = dramatic tilt
+  const curvedDeviation = Math.pow(absDeviation * 2, 1.5) / 2; // Normalize and apply curve
+  const signedCurvedDeviation = deviation >= 0 ? curvedDeviation : -curvedDeviation;
+
+  // Max tilt of 40 degrees for overwhelming evidence
+  const tiltAngle = signedCurvedDeviation * 80; // Results in -40 to +40 degrees
+
+  // Pan displacement scales with tilt for dramatic effect
+  const panDisplacement = tiltAngle * 2.5;
 
   return (
-    <div className="flex flex-col items-center py-12 select-none">
+    <div className="flex flex-col items-center py-16 select-none">
       {/* Ornate frame */}
-      <div className="relative">
+      <div className="relative" style={{ height: 280 }}>
         {/* Decorative top finial */}
-        <div className="absolute left-1/2 -translate-x-1/2 -top-6 z-10">
-          <div className="w-3 h-3 rounded-full bg-gradient-to-b from-amber-400 to-amber-600 shadow-md" />
-          <div className="w-1 h-4 bg-gradient-to-b from-amber-500 to-amber-700 mx-auto -mt-0.5" />
+        <div className="absolute left-1/2 -translate-x-1/2 -top-8 z-10">
+          <div className="w-4 h-4 rounded-full bg-gradient-to-b from-amber-400 to-amber-600 shadow-lg border border-amber-300" />
+          <div className="w-1.5 h-6 bg-gradient-to-b from-amber-500 to-amber-700 mx-auto -mt-1 rounded-b" />
         </div>
 
         {/* Main pillar/stand */}
         <div className="absolute left-1/2 -translate-x-1/2 top-0 z-0">
-          <div className="w-2 h-32 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800 rounded-t-sm shadow-lg" />
+          <div className="w-3 h-40 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-800 rounded-t shadow-xl" />
         </div>
 
         {/* Scale beam with chains */}
         <motion.div
           initial={{ rotate: 0 }}
           animate={{ rotate: tiltAngle }}
-          transition={{ type: "spring", stiffness: 80, damping: 12 }}
+          transition={{ type: "spring", stiffness: 60, damping: 15, mass: 1.2 }}
           className="relative z-20"
           style={{ transformOrigin: "center top" }}
         >
           {/* The beam itself - ornate golden bar */}
-          <div className="relative w-80 h-2 bg-gradient-to-b from-amber-500 via-amber-600 to-amber-700 rounded-full shadow-lg mx-auto">
+          <div className="relative w-96 h-3 bg-gradient-to-b from-amber-500 via-amber-600 to-amber-700 rounded-full shadow-xl mx-auto">
             {/* Decorative end caps */}
-            <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow" />
-            <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow" />
+            <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-md border border-amber-300" />
+            <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-md border border-amber-300" />
             {/* Center pivot decoration */}
-            <div className="absolute left-1/2 -translate-x-1/2 -top-1 w-4 h-4 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 shadow-md border border-amber-300" />
+            <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 shadow-lg border-2 border-amber-300" />
           </div>
 
           {/* Left chain and pan (FOR) - heavier goes DOWN */}
           <motion.div
-            className="absolute left-2 top-2 flex flex-col items-center"
-            animate={{ y: tiltAngle * 1.5 }}
-            transition={{ type: "spring", stiffness: 80, damping: 12 }}
+            className="absolute left-0 top-3 flex flex-col items-center"
+            animate={{ y: panDisplacement }}
+            transition={{ type: "spring", stiffness: 60, damping: 15, mass: 1.2 }}
           >
-            {/* Chain links */}
-            <div className="flex flex-col items-center gap-0.5">
-              <div className="w-0.5 h-6 bg-gradient-to-b from-amber-600 to-amber-700" />
-              <div className="w-1 h-1 rounded-full bg-amber-600" />
-              <div className="w-0.5 h-6 bg-gradient-to-b from-amber-700 to-amber-600" />
+            {/* Chain links - longer chain */}
+            <div className="flex flex-col items-center">
+              <div className="w-1 h-10 bg-gradient-to-b from-amber-600 to-amber-700 rounded-full" />
+              <div className="w-2 h-2 rounded-full bg-amber-500 -mt-0.5" />
+              <div className="w-1 h-10 bg-gradient-to-b from-amber-700 to-amber-600 rounded-full -mt-0.5" />
             </div>
-            {/* Pan - golden bowl style */}
-            <div className="relative">
-              <div className="w-24 h-1 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 rounded-full" />
-              <div className="w-20 h-10 mx-auto bg-gradient-to-b from-amber-100 via-amber-50 to-amber-100 border-2 border-amber-500 rounded-b-full shadow-inner flex items-center justify-center">
-                <div className="text-center">
-                  <span className="text-lg font-bold font-mono text-amber-700">{forWeight}</span>
-                </div>
+            {/* Pan - golden bowl style, larger */}
+            <div className="relative -mt-1">
+              <div className="w-28 h-1.5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 rounded-full shadow" />
+              <div className="w-24 h-14 mx-auto bg-gradient-to-b from-amber-100 via-amber-50 to-amber-100 border-3 border-amber-500 rounded-b-full shadow-lg flex items-center justify-center">
+                <span className="text-2xl font-bold font-mono text-amber-700">{forWeight}</span>
               </div>
-              {/* Subtle inner shadow */}
-              <div className="absolute inset-x-2 top-1 h-8 bg-gradient-to-b from-amber-200/30 to-transparent rounded-b-full pointer-events-none" />
+              {/* Inner glow */}
+              <div className="absolute inset-x-3 top-2 h-10 bg-gradient-to-b from-amber-200/40 to-transparent rounded-b-full pointer-events-none" />
             </div>
           </motion.div>
 
           {/* Right chain and pan (AGAINST) - heavier goes DOWN */}
           <motion.div
-            className="absolute right-2 top-2 flex flex-col items-center"
-            animate={{ y: -tiltAngle * 1.5 }}
-            transition={{ type: "spring", stiffness: 80, damping: 12 }}
+            className="absolute right-0 top-3 flex flex-col items-center"
+            animate={{ y: -panDisplacement }}
+            transition={{ type: "spring", stiffness: 60, damping: 15, mass: 1.2 }}
           >
-            {/* Chain links */}
-            <div className="flex flex-col items-center gap-0.5">
-              <div className="w-0.5 h-6 bg-gradient-to-b from-stone-500 to-stone-600" />
-              <div className="w-1 h-1 rounded-full bg-stone-500" />
-              <div className="w-0.5 h-6 bg-gradient-to-b from-stone-600 to-stone-500" />
+            {/* Chain links - longer chain */}
+            <div className="flex flex-col items-center">
+              <div className="w-1 h-10 bg-gradient-to-b from-stone-500 to-stone-600 rounded-full" />
+              <div className="w-2 h-2 rounded-full bg-stone-400 -mt-0.5" />
+              <div className="w-1 h-10 bg-gradient-to-b from-stone-600 to-stone-500 rounded-full -mt-0.5" />
             </div>
-            {/* Pan - silver/gray bowl style */}
-            <div className="relative">
-              <div className="w-24 h-1 bg-gradient-to-r from-stone-500 via-stone-400 to-stone-500 rounded-full" />
-              <div className="w-20 h-10 mx-auto bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 border-2 border-stone-400 rounded-b-full shadow-inner flex items-center justify-center">
-                <div className="text-center">
-                  <span className="text-lg font-bold font-mono text-stone-600">{againstWeight}</span>
-                </div>
+            {/* Pan - silver/gray bowl style, larger */}
+            <div className="relative -mt-1">
+              <div className="w-28 h-1.5 bg-gradient-to-r from-stone-500 via-stone-400 to-stone-500 rounded-full shadow" />
+              <div className="w-24 h-14 mx-auto bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 border-3 border-stone-400 rounded-b-full shadow-lg flex items-center justify-center">
+                <span className="text-2xl font-bold font-mono text-stone-600">{againstWeight}</span>
               </div>
-              {/* Subtle inner shadow */}
-              <div className="absolute inset-x-2 top-1 h-8 bg-gradient-to-b from-stone-200/30 to-transparent rounded-b-full pointer-events-none" />
+              {/* Inner glow */}
+              <div className="absolute inset-x-3 top-2 h-10 bg-gradient-to-b from-stone-200/40 to-transparent rounded-b-full pointer-events-none" />
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Base pedestal */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-28 flex flex-col items-center">
-          <div className="w-6 h-2 bg-gradient-to-b from-amber-700 to-amber-800 rounded-t-sm" />
-          <div className="w-12 h-1 bg-gradient-to-b from-amber-800 to-amber-900" />
-          <div className="w-16 h-2 bg-gradient-to-b from-amber-800 via-amber-900 to-stone-800 rounded-b-lg shadow-lg" />
+        {/* Base pedestal - larger and lower */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-36 flex flex-col items-center">
+          <div className="w-8 h-3 bg-gradient-to-b from-amber-700 to-amber-800 rounded-t" />
+          <div className="w-14 h-2 bg-gradient-to-b from-amber-800 to-amber-900" />
+          <div className="w-20 h-3 bg-gradient-to-b from-amber-800 via-amber-900 to-stone-800 rounded-b-lg shadow-xl" />
         </div>
       </div>
 
       {/* Labels below scale */}
-      <div className="mt-36 flex items-center justify-center gap-16 text-sm">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-sm" />
-          <span className="font-serif text-amber-800 font-medium">FOR</span>
+      <div className="mt-8 flex items-center justify-center gap-20 text-base">
+        <div className="flex items-center gap-3">
+          <div className="w-4 h-4 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-md" />
+          <span className="font-serif text-amber-800 font-semibold tracking-wide">FOR</span>
         </div>
-        <div className="w-px h-4 bg-stone-300" />
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-stone-400 to-stone-500 shadow-sm" />
-          <span className="font-serif text-stone-600 font-medium">AGAINST</span>
+        <div className="w-px h-5 bg-stone-300" />
+        <div className="flex items-center gap-3">
+          <div className="w-4 h-4 rounded-full bg-gradient-to-br from-stone-400 to-stone-500 shadow-md" />
+          <span className="font-serif text-stone-600 font-semibold tracking-wide">AGAINST</span>
         </div>
       </div>
     </div>
