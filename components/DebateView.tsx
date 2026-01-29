@@ -2,16 +2,16 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Swords, Play, Pause, RotateCcw, Loader2, Bot, Sparkles, ChevronRight, Volume2, VolumeX } from "lucide-react";
+import { Swords, Play, Pause, RotateCcw, Loader2, Sparkles, Zap } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { topics } from "@/data/topics";
-import type { LLMModel, Debater, DebateRound, DebateArgument } from "@/types/logic";
+import type { LLMModel } from "@/types/logic";
 
-const LLM_OPTIONS: { id: LLMModel; name: string; color: string; avatar: string }[] = [
-  { id: "claude", name: "Claude", color: "#D97706", avatar: "C" },
-  { id: "gpt-4", name: "GPT-4", color: "#10B981", avatar: "G" },
-  { id: "gemini", name: "Gemini", color: "#3B82F6", avatar: "Ge" },
-  { id: "llama", name: "Llama", color: "#8B5CF6", avatar: "L" },
+const LLM_OPTIONS: { id: LLMModel; name: string; color: string; gradient: string; icon: string }[] = [
+  { id: "claude", name: "Claude", color: "#D97706", gradient: "from-amber-500 to-orange-600", icon: "🧠" },
+  { id: "gpt-4", name: "GPT-4", color: "#10B981", gradient: "from-emerald-500 to-teal-600", icon: "⚡" },
+  { id: "gemini", name: "Gemini", color: "#3B82F6", gradient: "from-blue-500 to-indigo-600", icon: "💎" },
+  { id: "llama", name: "Llama", color: "#8B5CF6", gradient: "from-violet-500 to-purple-600", icon: "🦙" },
 ];
 
 interface DebateMessage {
@@ -22,63 +22,75 @@ interface DebateMessage {
   round: number;
 }
 
-function ModelSelector({
-  side,
-  selectedModel,
+function ModelCard({
+  llm,
+  isSelected,
   onSelect,
   disabled,
+  side,
 }: {
-  side: "for" | "against";
-  selectedModel: LLMModel | null;
-  onSelect: (model: LLMModel) => void;
+  llm: typeof LLM_OPTIONS[0];
+  isSelected: boolean;
+  onSelect: () => void;
   disabled: boolean;
+  side: "for" | "against";
 }) {
-  const sideColor = side === "for" ? "amber" : "slate";
-  const sideLabel = side === "for" ? "FOR" : "AGAINST";
-
   return (
-    <div className={`flex-1 p-4 rounded-xl border-2 ${
-      side === "for"
-        ? "border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50"
-        : "border-slate-200 bg-gradient-to-br from-slate-50 to-gray-50"
-    }`}>
-      <div className="flex items-center gap-2 mb-3">
-        <div className={`w-2 h-2 rounded-full ${side === "for" ? "bg-amber-500" : "bg-slate-500"}`} />
-        <span className={`text-xs font-bold tracking-wider ${side === "for" ? "text-amber-700" : "text-slate-600"}`}>
-          {sideLabel}
-        </span>
+    <motion.button
+      onClick={onSelect}
+      disabled={disabled}
+      whileHover={!disabled ? { scale: 1.02, y: -2 } : {}}
+      whileTap={!disabled ? { scale: 0.98 } : {}}
+      className={`
+        relative overflow-hidden rounded-2xl p-4 transition-all duration-300
+        ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
+        ${isSelected
+          ? "ring-2 ring-offset-2 ring-offset-stone-900 shadow-2xl"
+          : "hover:shadow-xl"
+        }
+      `}
+      style={{
+        background: isSelected
+          ? `linear-gradient(135deg, ${llm.color}20, ${llm.color}40)`
+          : "rgba(255,255,255,0.05)",
+        borderColor: isSelected ? llm.color : "transparent",
+        // @ts-expect-error CSS custom property
+        "--tw-ring-color": llm.color,
+      }}
+    >
+      {/* Glow effect when selected */}
+      {isSelected && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute inset-0 opacity-20"
+          style={{ background: `radial-gradient(circle at center, ${llm.color}, transparent 70%)` }}
+        />
+      )}
+
+      <div className="relative flex items-center gap-3">
+        <div
+          className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl bg-gradient-to-br ${llm.gradient} shadow-lg`}
+        >
+          {llm.icon}
+        </div>
+        <div className="text-left">
+          <div className="font-bold text-white text-lg">{llm.name}</div>
+          <div className="text-xs text-stone-400">AI Model</div>
+        </div>
       </div>
-      <div className="grid grid-cols-2 gap-2">
-        {LLM_OPTIONS.map((llm) => (
-          <button
-            key={llm.id}
-            onClick={() => onSelect(llm.id)}
-            disabled={disabled}
-            className={`
-              flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all
-              ${selectedModel === llm.id
-                ? "ring-2 ring-offset-1 shadow-md"
-                : "hover:bg-white/50"
-              }
-              ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
-            `}
-            style={{
-              backgroundColor: selectedModel === llm.id ? `${llm.color}15` : undefined,
-              // @ts-expect-error CSS custom property for ring color
-              "--tw-ring-color": selectedModel === llm.id ? llm.color : undefined,
-            }}
-          >
-            <div
-              className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold"
-              style={{ backgroundColor: llm.color }}
-            >
-              {llm.avatar}
-            </div>
-            <span className="text-stone-700">{llm.name}</span>
-          </button>
-        ))}
-      </div>
-    </div>
+
+      {isSelected && (
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          className="absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs"
+          style={{ backgroundColor: llm.color }}
+        >
+          ✓
+        </motion.div>
+      )}
+    </motion.button>
   );
 }
 
@@ -88,40 +100,44 @@ function DebateMessageBubble({ message, isLatest }: { message: DebateMessage; is
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className={`flex gap-3 ${isFor ? "flex-row" : "flex-row-reverse"}`}
+      initial={{ opacity: 0, x: isFor ? -30 : 30, y: 10 }}
+      animate={{ opacity: 1, x: 0, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+      className={`flex gap-4 ${isFor ? "flex-row" : "flex-row-reverse"}`}
     >
       {/* Avatar */}
-      <div
-        className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shrink-0 shadow-lg"
-        style={{ backgroundColor: llm?.color }}
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+        className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl bg-gradient-to-br ${llm?.gradient} shadow-xl shrink-0`}
       >
-        {llm?.avatar}
-      </div>
+        {llm?.icon}
+      </motion.div>
 
       {/* Message bubble */}
-      <div
-        className={`flex-1 max-w-[80%] rounded-2xl p-4 shadow-sm ${
-          isFor
-            ? "bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200"
-            : "bg-gradient-to-br from-slate-50 to-gray-100 border border-slate-200"
-        }`}
-      >
-        <div className="flex items-center gap-2 mb-2">
-          <span className="font-semibold text-sm" style={{ color: llm?.color }}>
-            {llm?.name}
-          </span>
-          <span className={`text-xs px-2 py-0.5 rounded-full ${
-            isFor ? "bg-amber-100 text-amber-700" : "bg-slate-200 text-slate-600"
+      <div className={`flex-1 max-w-[85%] ${isFor ? "pr-8" : "pl-8"}`}>
+        <div className="flex items-center gap-3 mb-2">
+          <span className="font-bold text-lg text-white">{llm?.name}</span>
+          <span className={`text-xs px-3 py-1 rounded-full font-medium ${
+            isFor
+              ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+              : "bg-slate-500/20 text-slate-300 border border-slate-500/30"
           }`}>
-            Round {message.round}
+            {isFor ? "FOR" : "AGAINST"} • Round {message.round}
           </span>
         </div>
-        <p className="text-stone-700 leading-relaxed text-sm whitespace-pre-wrap">
-          {message.content}
-        </p>
+        <div
+          className={`rounded-2xl p-5 backdrop-blur-sm ${
+            isFor
+              ? "bg-gradient-to-br from-amber-500/10 to-orange-500/5 border border-amber-500/20"
+              : "bg-gradient-to-br from-slate-500/10 to-gray-500/5 border border-slate-500/20"
+          }`}
+        >
+          <p className="text-stone-200 leading-relaxed whitespace-pre-wrap">
+            {message.content}
+          </p>
+        </div>
       </div>
     </motion.div>
   );
@@ -133,38 +149,32 @@ function TypingIndicator({ side, model }: { side: "for" | "against"; model: LLMM
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      className={`flex gap-3 ${isFor ? "flex-row" : "flex-row-reverse"}`}
+      exit={{ opacity: 0, y: -20 }}
+      className={`flex gap-4 ${isFor ? "flex-row" : "flex-row-reverse"}`}
     >
-      <div
-        className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shrink-0"
-        style={{ backgroundColor: llm?.color }}
-      >
-        {llm?.avatar}
+      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl bg-gradient-to-br ${llm?.gradient} shadow-xl`}>
+        {llm?.icon}
       </div>
-      <div
-        className={`rounded-2xl px-4 py-3 ${
-          isFor ? "bg-amber-50 border border-amber-200" : "bg-slate-50 border border-slate-200"
-        }`}
-      >
-        <div className="flex items-center gap-1">
-          <motion.div
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 1, repeat: Infinity, delay: 0 }}
-            className="w-2 h-2 rounded-full bg-stone-400"
-          />
-          <motion.div
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
-            className="w-2 h-2 rounded-full bg-stone-400"
-          />
-          <motion.div
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
-            className="w-2 h-2 rounded-full bg-stone-400"
-          />
+      <div className={`rounded-2xl px-6 py-4 ${
+        isFor
+          ? "bg-amber-500/10 border border-amber-500/20"
+          : "bg-slate-500/10 border border-slate-500/20"
+      }`}>
+        <div className="flex items-center gap-2">
+          <span className="text-stone-400 text-sm">{llm?.name} is thinking</span>
+          <div className="flex gap-1">
+            {[0, 1, 2].map((i) => (
+              <motion.div
+                key={i}
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.15 }}
+                className="w-2 h-2 rounded-full"
+                style={{ backgroundColor: llm?.color }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>
@@ -232,7 +242,6 @@ export function DebateView() {
 
     let updatedMessages = [...existingMessages];
 
-    // FOR side argues first
     setTypingSide("for");
     try {
       const forArgument = await generateArgument("for", forModel, round, updatedMessages);
@@ -251,10 +260,8 @@ export function DebateView() {
     }
     setTypingSide(null);
 
-    // Small delay between speakers
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    // AGAINST side responds
     setTypingSide("against");
     try {
       const againstArgument = await generateArgument("against", againstModel, round, updatedMessages);
@@ -302,7 +309,6 @@ export function DebateView() {
         setCurrentRound(round);
         currentMessages = await runDebateRound(round, currentMessages);
 
-        // Delay between rounds
         if (round < maxRounds) {
           await new Promise((resolve) => setTimeout(resolve, 1000));
         }
@@ -326,31 +332,40 @@ export function DebateView() {
 
   if (!topic) {
     return (
-      <div className="flex flex-col items-center justify-center h-full text-stone-500 gap-4">
+      <div className="flex flex-col items-center justify-center h-full bg-gradient-to-b from-stone-900 to-stone-950 text-stone-500 gap-4">
         <Swords className="h-16 w-16 opacity-30" />
         <p className="font-serif text-lg">Select a topic to start a debate</p>
       </div>
     );
   }
 
+  const forLlm = LLM_OPTIONS.find((l) => l.id === forModel);
+  const againstLlm = LLM_OPTIONS.find((l) => l.id === againstModel);
+
   return (
-    <div className="h-full overflow-auto bg-gradient-to-b from-[#fefcf9] via-[#faf8f4] to-[#f5f2eb]">
-      <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 space-y-6">
+    <div className="h-full overflow-auto bg-gradient-to-b from-stone-900 via-stone-900 to-stone-950">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 py-8 space-y-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center space-y-3"
+          className="text-center space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider">
-            <Swords className="h-3.5 w-3.5" />
-            AI Debate Arena
-          </div>
-          <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary leading-tight max-w-2xl mx-auto">
+          <motion.div
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-full"
+          >
+            <Zap className="h-4 w-4 text-amber-400" />
+            <span className="text-sm font-bold text-amber-300 uppercase tracking-wider">AI Debate Arena</span>
+          </motion.div>
+
+          <h1 className="font-serif text-3xl md:text-4xl font-bold text-white leading-tight max-w-3xl mx-auto">
             {topic.meta_claim}
           </h1>
-          <p className="text-stone-500 text-sm max-w-xl mx-auto">
-            Watch two AI models debate this topic from opposing perspectives.
+
+          <p className="text-stone-400 max-w-xl mx-auto">
+            Select your champions and watch them battle with logic and evidence.
           </p>
         </motion.div>
 
@@ -359,109 +374,195 @@ export function DebateView() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-4"
+            className="space-y-8"
           >
-            {/* Model Selection */}
-            <div className="flex gap-4">
-              <ModelSelector
-                side="for"
-                selectedModel={forModel}
-                onSelect={setForModel}
-                disabled={isDebating}
-              />
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-stone-200 flex items-center justify-center">
-                  <Swords className="h-5 w-5 text-stone-500" />
+            {/* VS Battle Layout */}
+            <div className="grid md:grid-cols-[1fr,auto,1fr] gap-6 items-center">
+              {/* FOR Side */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-amber-500 shadow-lg shadow-amber-500/50" />
+                  <span className="text-lg font-bold text-amber-400 tracking-wide">FOR THE CLAIM</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {LLM_OPTIONS.map((llm) => (
+                    <ModelCard
+                      key={llm.id}
+                      llm={llm}
+                      isSelected={forModel === llm.id}
+                      onSelect={() => setForModel(llm.id)}
+                      disabled={isDebating}
+                      side="for"
+                    />
+                  ))}
                 </div>
               </div>
-              <ModelSelector
-                side="against"
-                selectedModel={againstModel}
-                onSelect={setAgainstModel}
-                disabled={isDebating}
-              />
+
+              {/* VS Divider */}
+              <div className="flex flex-col items-center justify-center py-8">
+                <motion.div
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="relative"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-slate-500 rounded-full blur-xl opacity-30" />
+                  <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-stone-800 to-stone-900 border-2 border-stone-700 flex items-center justify-center shadow-2xl">
+                    <Swords className="h-8 w-8 text-stone-400" />
+                  </div>
+                </motion.div>
+                <span className="mt-3 text-2xl font-black text-stone-600">VS</span>
+              </div>
+
+              {/* AGAINST Side */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 justify-end">
+                  <span className="text-lg font-bold text-slate-400 tracking-wide">AGAINST THE CLAIM</span>
+                  <div className="w-3 h-3 rounded-full bg-slate-500 shadow-lg shadow-slate-500/50" />
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {LLM_OPTIONS.map((llm) => (
+                    <ModelCard
+                      key={llm.id}
+                      llm={llm}
+                      isSelected={againstModel === llm.id}
+                      onSelect={() => setAgainstModel(llm.id)}
+                      disabled={isDebating}
+                      side="against"
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Round Selection */}
-            <div className="flex items-center justify-center gap-4">
-              <span className="text-sm text-stone-600">Rounds:</span>
-              {[2, 3, 4, 5].map((num) => (
-                <button
-                  key={num}
-                  onClick={() => setMaxRounds(num)}
-                  className={`w-10 h-10 rounded-full font-medium transition-all ${
-                    maxRounds === num
-                      ? "bg-primary text-white shadow-md"
-                      : "bg-stone-100 text-stone-600 hover:bg-stone-200"
-                  }`}
-                >
-                  {num}
-                </button>
-              ))}
+            <div className="flex items-center justify-center gap-6">
+              <span className="text-stone-400 font-medium">Number of Rounds</span>
+              <div className="flex gap-2">
+                {[2, 3, 4, 5].map((num) => (
+                  <motion.button
+                    key={num}
+                    onClick={() => setMaxRounds(num)}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`w-12 h-12 rounded-xl font-bold text-lg transition-all ${
+                      maxRounds === num
+                        ? "bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-lg shadow-amber-500/30"
+                        : "bg-stone-800 text-stone-400 hover:bg-stone-700 border border-stone-700"
+                    }`}
+                  >
+                    {num}
+                  </motion.button>
+                ))}
+              </div>
             </div>
 
             {/* Start Button */}
-            <div className="flex justify-center">
-              <button
+            <div className="flex justify-center pt-4">
+              <motion.button
                 onClick={startDebate}
                 disabled={!canStart}
+                whileHover={canStart ? { scale: 1.05 } : {}}
+                whileTap={canStart ? { scale: 0.95 } : {}}
                 className={`
-                  flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-lg transition-all
+                  relative overflow-hidden flex items-center gap-3 px-10 py-4 rounded-2xl font-bold text-xl transition-all
                   ${canStart
-                    ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg hover:shadow-xl hover:scale-105"
-                    : "bg-stone-200 text-stone-400 cursor-not-allowed"
+                    ? "bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white shadow-2xl shadow-orange-500/30"
+                    : "bg-stone-800 text-stone-500 cursor-not-allowed border border-stone-700"
                   }
                 `}
               >
-                <Play className="h-5 w-5" />
-                Start Debate
-              </button>
+                {canStart && (
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    animate={{ x: ["-100%", "100%"] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  />
+                )}
+                <Play className="h-6 w-6 relative" />
+                <span className="relative">Begin Debate</span>
+              </motion.button>
             </div>
           </motion.div>
         )}
 
-        {/* Debate Progress */}
+        {/* Active Debate Header */}
         {(isDebating || messages.length > 0) && (
-          <div className="flex items-center justify-between px-4 py-2 bg-white/50 rounded-xl border border-stone-200">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center justify-between p-4 rounded-2xl bg-stone-800/50 border border-stone-700 backdrop-blur-sm"
+          >
+            <div className="flex items-center gap-6">
+              {/* Debaters */}
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg bg-gradient-to-br ${forLlm?.gradient}`}>
+                  {forLlm?.icon}
+                </div>
+                <span className="text-amber-400 font-bold">{forLlm?.name}</span>
+              </div>
+
+              <Swords className="h-5 w-5 text-stone-600" />
+
+              <div className="flex items-center gap-3">
+                <span className="text-slate-400 font-bold">{againstLlm?.name}</span>
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg bg-gradient-to-br ${againstLlm?.gradient}`}>
+                  {againstLlm?.icon}
+                </div>
+              </div>
+            </div>
+
             <div className="flex items-center gap-4">
-              <span className="text-sm text-stone-600">
-                Round <span className="font-bold text-primary">{currentRound}</span> of {maxRounds}
-              </span>
+              {/* Round indicator */}
+              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-stone-900/50">
+                <span className="text-stone-400 text-sm">Round</span>
+                <span className="text-2xl font-black text-white">{currentRound}</span>
+                <span className="text-stone-500 text-sm">/ {maxRounds}</span>
+              </div>
+
               {isDebating && (
-                <span className="flex items-center gap-1 text-xs text-amber-600">
-                  <Loader2 className="h-3 w-3 animate-spin" />
-                  In progress...
-                </span>
-              )}
-            </div>
-            <div className="flex items-center gap-2">
-              {isDebating && (
-                <button
-                  onClick={() => setIsPaused(!isPaused)}
-                  className="p-2 rounded-lg hover:bg-stone-100 transition-colors"
+                <motion.div
+                  animate={{ opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="flex items-center gap-2 text-amber-400"
                 >
-                  {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
-                </button>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span className="text-sm font-medium">Live</span>
+                </motion.div>
               )}
-              <button
-                onClick={resetDebate}
-                className="p-2 rounded-lg hover:bg-stone-100 transition-colors text-stone-500"
-              >
-                <RotateCcw className="h-4 w-4" />
-              </button>
+
+              <div className="flex items-center gap-1">
+                {isDebating && (
+                  <button
+                    onClick={() => setIsPaused(!isPaused)}
+                    className="p-2 rounded-xl hover:bg-stone-700 transition-colors text-stone-400"
+                  >
+                    {isPaused ? <Play className="h-5 w-5" /> : <Pause className="h-5 w-5" />}
+                  </button>
+                )}
+                <button
+                  onClick={resetDebate}
+                  className="p-2 rounded-xl hover:bg-stone-700 transition-colors text-stone-400"
+                >
+                  <RotateCcw className="h-5 w-5" />
+                </button>
+              </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* Error Display */}
         {error && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="p-4 bg-red-500/10 border border-red-500/30 rounded-2xl text-red-400"
+          >
             {error}
-          </div>
+          </motion.div>
         )}
 
         {/* Messages */}
-        <div className="space-y-4 pb-8">
+        <div className="space-y-6 pb-8">
           <AnimatePresence mode="popLayout">
             {messages.map((message, index) => (
               <DebateMessageBubble
@@ -472,7 +573,6 @@ export function DebateView() {
             ))}
           </AnimatePresence>
 
-          {/* Typing Indicator */}
           <AnimatePresence>
             {typingSide && (
               <TypingIndicator
@@ -488,14 +588,21 @@ export function DebateView() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center py-6 border-t border-stone-200"
+            className="text-center py-8"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-medium">
-              <Sparkles className="h-4 w-4" />
-              Debate Complete - {maxRounds} rounds
-            </div>
-            <p className="mt-3 text-stone-500 text-sm">
-              Both sides have presented their arguments. Review the debate above.
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 rounded-2xl"
+            >
+              <Sparkles className="h-5 w-5 text-emerald-400" />
+              <span className="text-emerald-300 font-bold">Debate Complete</span>
+              <span className="text-emerald-500">•</span>
+              <span className="text-emerald-400">{maxRounds} rounds</span>
+            </motion.div>
+            <p className="mt-4 text-stone-500">
+              Both champions have made their cases. The verdict is yours to decide.
             </p>
           </motion.div>
         )}
