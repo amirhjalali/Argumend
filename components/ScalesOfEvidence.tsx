@@ -450,7 +450,7 @@ export function ScalesOfEvidence() {
   }
 
   return (
-    <div className="h-full overflow-auto bg-gradient-to-b from-[#fefcf9] via-[#faf8f4] to-[#f5f2eb]">
+    <div className="h-full overflow-auto">
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 space-y-8">
         {/* Header */}
         <motion.div
