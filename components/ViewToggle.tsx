@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Map, Scale } from "lucide-react";
+import { Map, Scale, Swords } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { ArgumentView } from "@/types/logic";
 
 const views: { id: ArgumentView; label: string; icon: typeof Map }[] = [
   { id: "logic-map", label: "Logic Map", icon: Map },
   { id: "scales", label: "Scales", icon: Scale },
+  { id: "debate", label: "Debate", icon: Swords },
 ];
 
 export function ViewToggle() {

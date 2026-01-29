@@ -24,6 +24,7 @@ import { NavigationPath } from "@/components/NavigationPath";
 import { WelcomeOverlay } from "@/components/WelcomeOverlay";
 import { TopicIntroPanel } from "@/components/TopicIntroPanel";
 import { ScalesOfEvidence } from "@/components/ScalesOfEvidence";
+import { DebateView } from "@/components/DebateView";
 import type { LogicNodeData } from "@/types/graph";
 
 function CanvasExperience() {
@@ -130,6 +131,8 @@ function CanvasExperience() {
         <div className="relative flex-1 min-w-0">
           {currentView === "scales" ? (
             <ScalesOfEvidence />
+          ) : currentView === "debate" ? (
+            <DebateView />
           ) : (
             <div className="h-full">
               <ReactFlow
