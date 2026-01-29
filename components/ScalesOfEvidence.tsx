@@ -132,230 +132,150 @@ function ScaleVisualization({ forWeight, againstWeight }: {
   const total = forWeight + againstWeight;
   const forRatio = total > 0 ? forWeight / total : 0.5;
 
-  // Calculate tilt: heavier FOR = left side down = negative angle
-  // Use a gentler curve and limit max tilt to 25 degrees
-  const deviation = forRatio - 0.5; // -0.5 to 0.5
-  const maxTilt = 25; // degrees - keeps pans above the base
-  const tiltAngle = -deviation * maxTilt * 2; // Linear scaling, max ±25°
+  // Heavier side goes DOWN. FOR is left.
+  const deviation = forRatio - 0.5;
+  const maxTilt = 18;
+  const tiltDeg = deviation * maxTilt * 2;
+  const tiltRad = (tiltDeg * Math.PI) / 180;
 
-  // SVG dimensions and geometry
+  // Dimensions
   const width = 400;
-  const height = 240;
-  const centerX = width / 2;
-  const pivotY = 60; // Where the beam pivots
-  const beamLength = 300; // Total beam length
-  const beamHalf = beamLength / 2;
-  const chainLength = 70; // Length of chains
-  const panWidth = 70;
-  const panHeight = 45;
+  const height = 250;
+  const cx = width / 2;
+  const pivotY = 55;
+  const beamHalf = 140;
+  const stringLen = 65;
+  const panW = 60;
+  const panH = 35;
 
-  // Calculate beam end positions based on tilt
-  const angleRad = (tiltAngle * Math.PI) / 180;
-  const leftEndX = centerX - Math.cos(angleRad) * beamHalf;
-  const leftEndY = pivotY + Math.sin(angleRad) * beamHalf;
-  const rightEndX = centerX + Math.cos(angleRad) * beamHalf;
-  const rightEndY = pivotY - Math.sin(angleRad) * beamHalf;
+  // Calculate beam end positions
+  const leftX = cx - Math.cos(tiltRad) * beamHalf;
+  const leftY = pivotY + Math.sin(tiltRad) * beamHalf;
+  const rightX = cx + Math.cos(tiltRad) * beamHalf;
+  const rightY = pivotY - Math.sin(tiltRad) * beamHalf;
 
-  // Pan positions (hang straight down from beam ends)
-  const leftPanY = leftEndY + chainLength;
-  const rightPanY = rightEndY + chainLength;
+  // Pan centers (hang straight down)
+  const leftPanY = leftY + stringLen;
+  const rightPanY = rightY + stringLen;
 
   return (
-    <div className="flex flex-col items-center py-8 select-none">
-      <motion.svg
+    <div className="flex flex-col items-center py-6 select-none">
+      <svg
         width={width}
         height={height}
         viewBox={`0 0 ${width} ${height}`}
         className="overflow-visible"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
       >
         <defs>
-          {/* Gradients for metallic look */}
-          <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <linearGradient id="beam" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#d4a012" />
-            <stop offset="50%" stopColor="#b8860b" />
-            <stop offset="100%" stopColor="#8b6914" />
+            <stop offset="100%" stopColor="#92400e" />
           </linearGradient>
-          <linearGradient id="goldLightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#fcd34d" />
-            <stop offset="100%" stopColor="#d4a012" />
-          </linearGradient>
-          <linearGradient id="silverGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#9ca3af" />
-            <stop offset="50%" stopColor="#6b7280" />
-            <stop offset="100%" stopColor="#4b5563" />
-          </linearGradient>
-          <linearGradient id="pillarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#92400e" />
+          <linearGradient id="pillar" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#78350f" />
             <stop offset="100%" stopColor="#451a03" />
           </linearGradient>
-          <linearGradient id="panGoldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <linearGradient id="goldPan" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#fef3c7" />
-            <stop offset="100%" stopColor="#fcd34d" />
+            <stop offset="100%" stopColor="#fbbf24" />
           </linearGradient>
-          <linearGradient id="panSilverGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#f3f4f6" />
-            <stop offset="100%" stopColor="#d1d5db" />
+          <linearGradient id="silverPan" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#f1f5f9" />
+            <stop offset="100%" stopColor="#94a3b8" />
           </linearGradient>
-          {/* Drop shadow */}
-          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.2" />
+          <filter id="shadow">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" floodOpacity="0.2" />
           </filter>
         </defs>
 
-        {/* Base/Pedestal */}
+        {/* Base */}
+        <rect x={cx - 40} y={height - 18} width={80} height={12} rx={2} fill="url(#pillar)" filter="url(#shadow)" />
+        <rect x={cx - 28} y={height - 28} width={56} height={12} rx={2} fill="url(#pillar)" />
+
+        {/* Pillar */}
+        <rect x={cx - 6} y={pivotY + 12} width={12} height={height - pivotY - 40} rx={2} fill="url(#pillar)" />
+
+        {/* Beam */}
+        <line
+          x1={leftX}
+          y1={leftY}
+          x2={rightX}
+          y2={rightY}
+          stroke="url(#beam)"
+          strokeWidth={8}
+          strokeLinecap="round"
+          filter="url(#shadow)"
+        />
+
+        {/* Beam end caps */}
+        <circle cx={leftX} cy={leftY} r={8} fill="#d4a012" />
+        <circle cx={rightX} cy={rightY} r={8} fill="#d4a012" />
+
+        {/* Center pivot */}
+        <circle cx={cx} cy={pivotY} r={12} fill="#d4a012" filter="url(#shadow)" />
+        <circle cx={cx} cy={pivotY} r={5} fill="#92400e" />
+
+        {/* Left strings (FOR) */}
+        <line x1={leftX} y1={leftY + 8} x2={leftX} y2={leftPanY} stroke="#b8860b" strokeWidth={2} />
+        <line x1={leftX} y1={leftY + 8} x2={leftX - 22} y2={leftPanY} stroke="#b8860b" strokeWidth={1.5} />
+        <line x1={leftX} y1={leftY + 8} x2={leftX + 22} y2={leftPanY} stroke="#b8860b" strokeWidth={1.5} />
+
+        {/* Left pan (FOR) */}
         <g filter="url(#shadow)">
-          {/* Base platform */}
-          <rect x={centerX - 40} y={height - 20} width={80} height={12} rx={3} fill="url(#pillarGradient)" />
-          <rect x={centerX - 30} y={height - 28} width={60} height={10} rx={2} fill="url(#pillarGradient)" />
-          {/* Pillar */}
-          <rect x={centerX - 6} y={pivotY + 10} width={12} height={height - pivotY - 38} rx={2} fill="url(#pillarGradient)" />
+          <ellipse cx={leftX} cy={leftPanY} rx={panW / 2} ry={5} fill="#d4a012" />
+          <path
+            d={`M ${leftX - panW / 2} ${leftPanY}
+                Q ${leftX - panW / 2} ${leftPanY + panH}, ${leftX} ${leftPanY + panH}
+                Q ${leftX + panW / 2} ${leftPanY + panH}, ${leftX + panW / 2} ${leftPanY}`}
+            fill="url(#goldPan)"
+            stroke="#d97706"
+            strokeWidth={2}
+          />
         </g>
-
-        {/* Beam assembly - animated rotation */}
-        <motion.g
-          initial={{ rotate: 0 }}
-          animate={{ rotate: tiltAngle }}
-          transition={{ type: "spring", stiffness: 40, damping: 15, mass: 1 }}
-          style={{ originX: `${centerX}px`, originY: `${pivotY}px` }}
+        <text
+          x={leftX}
+          y={leftPanY + panH * 0.65}
+          textAnchor="middle"
+          fill="#92400e"
+          fontFamily="ui-monospace, monospace"
+          fontWeight="bold"
+          fontSize="18"
         >
-          {/* Beam */}
-          <rect
-            x={centerX - beamHalf}
-            y={pivotY - 4}
-            width={beamLength}
-            height={8}
-            rx={4}
-            fill="url(#goldGradient)"
-            filter="url(#shadow)"
-          />
-          {/* End caps */}
-          <circle cx={centerX - beamHalf} cy={pivotY} r={8} fill="url(#goldLightGradient)" />
-          <circle cx={centerX + beamHalf} cy={pivotY} r={8} fill="url(#goldLightGradient)" />
-          {/* Center pivot ornament */}
-          <circle cx={centerX} cy={pivotY} r={12} fill="url(#goldLightGradient)" filter="url(#shadow)" />
-          <circle cx={centerX} cy={pivotY} r={6} fill="url(#goldGradient)" />
-        </motion.g>
+          {forWeight}
+        </text>
 
-        {/* Left chain and pan (FOR) - counter-rotates to stay level */}
-        <motion.g
-          initial={{ x: 0, y: 0 }}
-          animate={{
-            x: leftEndX - (centerX - beamHalf),
-            y: leftEndY - pivotY,
-          }}
-          transition={{ type: "spring", stiffness: 40, damping: 15, mass: 1 }}
+        {/* Right strings (AGAINST) */}
+        <line x1={rightX} y1={rightY + 8} x2={rightX} y2={rightPanY} stroke="#6b7280" strokeWidth={2} />
+        <line x1={rightX} y1={rightY + 8} x2={rightX - 22} y2={rightPanY} stroke="#6b7280" strokeWidth={1.5} />
+        <line x1={rightX} y1={rightY + 8} x2={rightX + 22} y2={rightPanY} stroke="#6b7280" strokeWidth={1.5} />
+
+        {/* Right pan (AGAINST) */}
+        <g filter="url(#shadow)">
+          <ellipse cx={rightX} cy={rightPanY} rx={panW / 2} ry={5} fill="#6b7280" />
+          <path
+            d={`M ${rightX - panW / 2} ${rightPanY}
+                Q ${rightX - panW / 2} ${rightPanY + panH}, ${rightX} ${rightPanY + panH}
+                Q ${rightX + panW / 2} ${rightPanY + panH}, ${rightX + panW / 2} ${rightPanY}`}
+            fill="url(#silverPan)"
+            stroke="#6b7280"
+            strokeWidth={2}
+          />
+        </g>
+        <text
+          x={rightX}
+          y={rightPanY + panH * 0.65}
+          textAnchor="middle"
+          fill="#475569"
+          fontFamily="ui-monospace, monospace"
+          fontWeight="bold"
+          fontSize="18"
         >
-          {/* Chain */}
-          <line
-            x1={centerX - beamHalf}
-            y1={pivotY + 8}
-            x2={centerX - beamHalf}
-            y2={pivotY + 8 + chainLength}
-            stroke="url(#goldGradient)"
-            strokeWidth={3}
-            strokeLinecap="round"
-          />
-          {/* Chain links decoration */}
-          <circle cx={centerX - beamHalf} cy={pivotY + 25} r={4} fill="none" stroke="#b8860b" strokeWidth={2} />
-          <circle cx={centerX - beamHalf} cy={pivotY + 45} r={4} fill="none" stroke="#b8860b" strokeWidth={2} />
+          {againstWeight}
+        </text>
+      </svg>
 
-          {/* Pan - stays level (no rotation) */}
-          <g filter="url(#shadow)">
-            {/* Pan rim */}
-            <ellipse
-              cx={centerX - beamHalf}
-              cy={pivotY + chainLength + 8}
-              rx={panWidth / 2}
-              ry={6}
-              fill="url(#goldGradient)"
-            />
-            {/* Pan bowl */}
-            <path
-              d={`M ${centerX - beamHalf - panWidth / 2} ${pivotY + chainLength + 8}
-                  Q ${centerX - beamHalf - panWidth / 2} ${pivotY + chainLength + panHeight}
-                    ${centerX - beamHalf} ${pivotY + chainLength + panHeight}
-                  Q ${centerX - beamHalf + panWidth / 2} ${pivotY + chainLength + panHeight}
-                    ${centerX - beamHalf + panWidth / 2} ${pivotY + chainLength + 8}`}
-              fill="url(#panGoldGradient)"
-              stroke="#d4a012"
-              strokeWidth={2}
-            />
-          </g>
-          {/* Weight number */}
-          <text
-            x={centerX - beamHalf}
-            y={pivotY + chainLength + panHeight - 12}
-            textAnchor="middle"
-            className="fill-amber-700 font-mono font-bold text-lg"
-            style={{ fontSize: "18px" }}
-          >
-            {forWeight}
-          </text>
-        </motion.g>
-
-        {/* Right chain and pan (AGAINST) - counter-rotates to stay level */}
-        <motion.g
-          initial={{ x: 0, y: 0 }}
-          animate={{
-            x: rightEndX - (centerX + beamHalf),
-            y: rightEndY - pivotY,
-          }}
-          transition={{ type: "spring", stiffness: 40, damping: 15, mass: 1 }}
-        >
-          {/* Chain */}
-          <line
-            x1={centerX + beamHalf}
-            y1={pivotY + 8}
-            x2={centerX + beamHalf}
-            y2={pivotY + 8 + chainLength}
-            stroke="url(#silverGradient)"
-            strokeWidth={3}
-            strokeLinecap="round"
-          />
-          {/* Chain links decoration */}
-          <circle cx={centerX + beamHalf} cy={pivotY + 25} r={4} fill="none" stroke="#6b7280" strokeWidth={2} />
-          <circle cx={centerX + beamHalf} cy={pivotY + 45} r={4} fill="none" stroke="#6b7280" strokeWidth={2} />
-
-          {/* Pan - stays level (no rotation) */}
-          <g filter="url(#shadow)">
-            {/* Pan rim */}
-            <ellipse
-              cx={centerX + beamHalf}
-              cy={pivotY + chainLength + 8}
-              rx={panWidth / 2}
-              ry={6}
-              fill="url(#silverGradient)"
-            />
-            {/* Pan bowl */}
-            <path
-              d={`M ${centerX + beamHalf - panWidth / 2} ${pivotY + chainLength + 8}
-                  Q ${centerX + beamHalf - panWidth / 2} ${pivotY + chainLength + panHeight}
-                    ${centerX + beamHalf} ${pivotY + chainLength + panHeight}
-                  Q ${centerX + beamHalf + panWidth / 2} ${pivotY + chainLength + panHeight}
-                    ${centerX + beamHalf + panWidth / 2} ${pivotY + chainLength + 8}`}
-              fill="url(#panSilverGradient)"
-              stroke="#9ca3af"
-              strokeWidth={2}
-            />
-          </g>
-          {/* Weight number */}
-          <text
-            x={centerX + beamHalf}
-            y={pivotY + chainLength + panHeight - 12}
-            textAnchor="middle"
-            className="fill-stone-600 font-mono font-bold text-lg"
-            style={{ fontSize: "18px" }}
-          >
-            {againstWeight}
-          </text>
-        </motion.g>
-      </motion.svg>
-
-      {/* Labels below scale */}
-      <div className="mt-6 flex items-center justify-center gap-16 text-sm">
+      {/* Labels */}
+      <div className="mt-4 flex items-center justify-center gap-16 text-sm">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600" />
           <span className="font-serif text-amber-800 font-medium tracking-wide">FOR</span>
