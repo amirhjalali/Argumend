@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   BookOpen,
   Compass,
@@ -43,9 +43,14 @@ export function Sidebar({
   onTopicSelect,
 }: SidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
 
   const handleTopicClick = (id: string) => {
     onTopicSelect(id);
+    // Navigate to home if not already there
+    if (pathname !== "/") {
+      router.push("/");
+    }
     if (window.innerWidth < 768) {
       onClose();
     }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Map, Scale, Swords } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { ArgumentView } from "@/types/logic";
 
@@ -12,8 +13,19 @@ const views: { id: ArgumentView; label: string; icon: typeof Map }[] = [
 ];
 
 export function ViewToggle() {
+  const pathname = usePathname();
+  const router = useRouter();
   const currentView = useLogicGraph((state) => state.currentView);
   const setView = useLogicGraph((state) => state.setView);
+
+  // Only show on home page
+  if (pathname !== "/") {
+    return null;
+  }
+
+  const handleViewChange = (viewId: ArgumentView) => {
+    setView(viewId);
+  };
 
   return (
     <div className="flex items-center gap-1 p-1 bg-stone-100 rounded-lg">
@@ -24,7 +36,7 @@ export function ViewToggle() {
         return (
           <button
             key={view.id}
-            onClick={() => setView(view.id)}
+            onClick={() => handleViewChange(view.id)}
             className={`
               relative flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium
               transition-colors duration-200
