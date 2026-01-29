@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Swords, Play, Pause, RotateCcw, Loader2, Sparkles, Quote, MessageCircle } from "lucide-react";
+import { Swords, Play, Pause, RotateCcw, Loader2, Sparkles, Quote, MessageCircle, Sword, Shield } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { topics } from "@/data/topics";
 import type { LLMModel } from "@/types/logic";
@@ -39,14 +39,12 @@ function DebaterCard({
   return (
     <div className="flex-1">
       {/* Side Label */}
-      <div className={`flex items-center gap-3 mb-4 ${isFor ? "" : "justify-end"}`}>
-        <div
-          className={`w-3 h-3 rounded-full ${
-            isFor
-              ? "bg-gradient-to-br from-amber-400 to-amber-600"
-              : "bg-gradient-to-br from-stone-400 to-stone-500"
-          }`}
-        />
+      <div className={`flex items-center gap-2 mb-4 ${isFor ? "" : "justify-end"}`}>
+        {isFor ? (
+          <Sword className="w-4 h-4 text-amber-600" />
+        ) : (
+          <Shield className="w-4 h-4 text-stone-500" />
+        )}
         <span
           className={`font-serif text-sm tracking-[0.15em] uppercase ${
             isFor ? "text-amber-800" : "text-stone-600"
@@ -148,13 +146,14 @@ function ArgumentBubble({ message, isLatest }: { message: DebateMessage; isLates
           <div className={`flex items-center gap-2 mb-2 ${isFor ? "" : "justify-end"}`}>
             <span className="font-serif font-semibold text-primary">{llm?.name}</span>
             <span
-              className={`text-xs px-2 py-0.5 rounded-full ${
+              className={`text-xs px-2 py-0.5 rounded-full flex items-center gap-1 ${
                 isFor
                   ? "bg-amber-100 text-amber-700"
                   : "bg-stone-100 text-stone-600"
               }`}
             >
-              {isFor ? "For" : "Against"}
+              {isFor ? <Sword className="w-3 h-3" /> : <Shield className="w-3 h-3" />}
+              {isFor ? "Pro" : "Con"}
             </span>
           </div>
 
@@ -512,6 +511,7 @@ export function DebateView() {
             <div className="flex items-center gap-6">
               {/* Debaters */}
               <div className="flex items-center gap-2">
+                <Sword className="w-4 h-4 text-amber-600" />
                 <div
                   className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm"
                   style={{ backgroundColor: forLlm?.color }}
@@ -521,7 +521,7 @@ export function DebateView() {
                 <span className="font-serif text-amber-700 font-medium">{forLlm?.name}</span>
               </div>
 
-              <span className="text-stone-400 font-serif italic">versus</span>
+              <span className="text-stone-400 font-serif italic">vs</span>
 
               <div className="flex items-center gap-2">
                 <span className="font-serif text-stone-600 font-medium">{againstLlm?.name}</span>
@@ -531,6 +531,7 @@ export function DebateView() {
                 >
                   {againstLlm?.name.charAt(0)}
                 </div>
+                <Shield className="w-4 h-4 text-stone-500" />
               </div>
             </div>
 
