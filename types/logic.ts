@@ -5,7 +5,7 @@ export type IconName = 'Target' | 'Zap' | 'HelpCircle' | 'Shield' | 'Atom' | 'Te
 export type ArgumentView = 'logic-map' | 'scales' | 'debate';
 
 // Debate mode types
-export type LLMModel = 'claude' | 'gpt-4' | 'gemini' | 'llama';
+export type LLMModel = 'claude' | 'gpt-4' | 'gemini' | 'grok';
 
 export interface Debater {
   readonly id: string;
