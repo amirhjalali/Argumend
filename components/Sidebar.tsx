@@ -12,6 +12,7 @@ import {
   Users,
   Map,
   GraduationCap,
+  Shell,
 } from "lucide-react";
 import { topics } from "@/data/topics";
 
@@ -24,6 +25,7 @@ const PRIMARY_NAV = [
   { label: "Perspectives", icon: Eye, href: "/perspectives" },
   { label: "Library", icon: BookOpen, href: "/library" },
   { label: "Community", icon: Users, href: "/community" },
+  { label: "Lessons From the Deep", icon: Shell, href: "/lessons-from-the-deep" },
   { label: "About", icon: HelpCircle, href: "/about" },
 ];
 
