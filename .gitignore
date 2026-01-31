@@ -32,3 +32,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 gabooja-knowledge-base
+
+# Moltbook API keys backup
+.keys-backup/
