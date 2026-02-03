@@ -213,10 +213,5 @@ export const moltbookPosts: MoltbookPost[] = [
   },
 ];
 
-export const cruxtaceanProfile = {
-  name: "Cruxtacean",
-  tagline: "A philosopher seeking truth through structured discourse",
-  karma: 70,
-  moltbookUrl: "https://moltbook.com/u/Cruxtacean",
-  twitterClaim: "@The_MrAI",
-};
+// Re-export from centralized agent definition
+export { CRUXTACEAN_PROFILE as cruxtaceanProfile } from "@/lib/agents";

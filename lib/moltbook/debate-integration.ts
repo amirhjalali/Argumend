@@ -6,7 +6,13 @@
  */
 
 import { MoltbookClient, MoltbookPost, MoltbookComment } from "./client";
-import type { Topic, Evidence } from "@/types/logic";
+import {
+  handlePostResponse,
+  handleCommentResponse,
+  extractCommentsOrEmpty,
+  extractAgentNames,
+} from "./apiHelpers";
+import type { Topic } from "@/types/logic";
 
 // The Argumend submolt for structured debates
 export const ARGUMEND_SUBMOLT = "argumend";
@@ -26,6 +32,18 @@ export interface MoltbookDebatePost {
   title: string;
 }
 
+function buildMoltbookUrl(postId: string): string {
+  return `https://moltbook.com/m/${ARGUMEND_SUBMOLT}/posts/${postId}`;
+}
+
+function createDebatePost(post: MoltbookPost): MoltbookDebatePost {
+  return {
+    postId: post.id,
+    url: buildMoltbookUrl(post.id),
+    title: post.title,
+  };
+}
+
 /**
  * Service for integrating Argumend debates with Moltbook
  */
@@ -40,10 +58,19 @@ export class MoltbookDebateService {
    * Format a topic for posting to Moltbook
    */
   private formatTopicPost(topic: Topic): { title: string; content: string } {
-    const evidenceFor = topic.evidence?.filter(e => e.side === "for") || [];
-    const evidenceAgainst = topic.evidence?.filter(e => e.side === "against") || [];
-
     const title = `[DEBATE] ${topic.title} - ${topic.confidence_score}% Confidence`;
+
+    const pillarsContent = topic.pillars.map((pillar, i) => `
+### ${i + 1}. ${pillar.title}
+
+${pillar.short_summary}
+
+**Skeptic Position:** ${pillar.skeptic_premise}
+
+**Proponent Response:** ${pillar.proponent_rebuttal}
+
+**Crux:** ${pillar.crux.title} - ${pillar.crux.description}
+`).join("\n");
 
     const content = `# ${topic.title}
 
@@ -60,17 +87,7 @@ We're seeking structured arguments on this topic. The current evidence leans ${t
 
 ## Key Pillars of Debate
 
-${topic.pillars.map((pillar, i) => `
-### ${i + 1}. ${pillar.title}
-
-${pillar.short_summary}
-
-**Skeptic Position:** ${pillar.skeptic_premise}
-
-**Proponent Response:** ${pillar.proponent_rebuttal}
-
-**Crux:** ${pillar.crux.title} - ${pillar.crux.description}
-`).join("\n")}
+${pillarsContent}
 
 ---
 
@@ -103,16 +120,8 @@ Reply to this post with your argument. Please:
       content,
     });
 
-    if (!response.success || !response.data) {
-      console.error("Failed to post debate to Moltbook:", response.error);
-      return null;
-    }
-
-    return {
-      postId: response.data.id,
-      url: `https://moltbook.com/m/${ARGUMEND_SUBMOLT}/posts/${response.data.id}`,
-      title: response.data.title,
-    };
+    const post = handlePostResponse(response, "Failed to post debate to Moltbook");
+    return post ? createDebatePost(post) : null;
   }
 
   /**
@@ -123,6 +132,10 @@ Reply to this post with your argument. Please:
     const positionLabel = invitation.position === "for" ? "PROPOSITION" : "OPPOSITION";
 
     const title = `[${positionLabel}] Seeking Agent to Argue ${invitation.position === "for" ? "FOR" : "AGAINST"}: ${invitation.topicTitle}`;
+
+    const existingArgsContent = invitation.existingArguments.length > 0
+      ? invitation.existingArguments.map((arg, i) => `${i + 1}. ${arg}`).join("\n")
+      : "*No arguments submitted yet - be the first!*";
 
     const content = `# Debate Invitation: ${invitation.topicTitle}
 
@@ -138,9 +151,7 @@ ${invitation.context}
 
 ## Existing Arguments
 
-${invitation.existingArguments.length > 0
-  ? invitation.existingArguments.map((arg, i) => `${i + 1}. ${arg}`).join("\n")
-  : "*No arguments submitted yet - be the first!*"}
+${existingArgsContent}
 
 ---
 
@@ -163,16 +174,8 @@ Once accepted, the debate will proceed in rounds with the opposing agent.
       content,
     });
 
-    if (!response.success || !response.data) {
-      console.error("Failed to post invitation to Moltbook:", response.error);
-      return null;
-    }
-
-    return {
-      postId: response.data.id,
-      url: `https://moltbook.com/m/${ARGUMEND_SUBMOLT}/posts/${response.data.id}`,
-      title: response.data.title,
-    };
+    const post = handlePostResponse(response, "Failed to post invitation to Moltbook");
+    return post ? createDebatePost(post) : null;
   }
 
   /**
@@ -202,13 +205,7 @@ ${argument}
 *Round ${round} argument from the ${side} position.*`;
 
     const response = await this.client.createComment(postId, content, parentCommentId);
-
-    if (!response.success || !response.data) {
-      console.error("Failed to post argument to Moltbook:", response.error);
-      return null;
-    }
-
-    return response.data;
+    return handleCommentResponse(response, "Failed to post argument to Moltbook");
   }
 
   /**
@@ -216,13 +213,7 @@ ${argument}
    */
   async fetchDebateResponses(postId: string): Promise<MoltbookComment[]> {
     const response = await this.client.getPost(postId);
-
-    if (!response.success || !response.data) {
-      console.error("Failed to fetch debate responses:", response.error);
-      return [];
-    }
-
-    return response.data.comments || [];
+    return extractCommentsOrEmpty(response, "Failed to fetch debate responses");
   }
 
   /**
@@ -235,8 +226,7 @@ ${argument}
       return [];
     }
 
-    // Return agent names who have posted about this topic
-    return response.data.agents.map(agent => agent.name);
+    return extractAgentNames(response.data.agents);
   }
 
   /**
@@ -247,7 +237,6 @@ ${argument}
     topicTitle: string,
     debatePostId: string
   ): Promise<boolean> {
-    // Post a comment mentioning the agent
     const content = `@${agentName} - You might be interested in this debate on "${topicTitle}". We're looking for thoughtful arguments from all perspectives. Would you like to participate?`;
 
     const response = await this.client.createComment(debatePostId, content);

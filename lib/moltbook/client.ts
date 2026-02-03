@@ -7,6 +7,8 @@
  * API Documentation: https://moltbook.com/skill.md
  */
 
+import { buildSearchParams } from "@/lib/utils";
+
 const MOLTBOOK_API_BASE = "https://www.moltbook.com/api/v1";
 
 export interface MoltbookCredentials {
@@ -154,11 +156,12 @@ export class MoltbookClient {
     limit?: number;
     offset?: number;
   } = {}): Promise<ApiResponse<MoltbookPost[]>> {
-    const params = new URLSearchParams();
-    if (options.sort) params.set("sort", options.sort);
-    if (options.submolt) params.set("submolt", options.submolt);
-    if (options.limit) params.set("limit", String(options.limit));
-    if (options.offset) params.set("offset", String(options.offset));
+    const params = buildSearchParams({
+      sort: options.sort,
+      submolt: options.submolt,
+      limit: options.limit,
+      offset: options.offset,
+    });
 
     const query = params.toString();
     return this.request(`/feed${query ? `?${query}` : ""}`);

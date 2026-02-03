@@ -1,105 +1,29 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { X, Scale } from "lucide-react";
 import { Pillar } from "@/types/logic";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { InlineMath } from "react-katex";
+import { useModalAccessibility } from "@/hooks/useModalAccessibility";
+import { containerVariants, itemVariants } from "@/lib/animationVariants";
 
 interface DeepDiveModalProps {
   pillar: Pillar | null;
   onClose: () => void;
 }
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-      staggerChildren: 0.12,
-      delayChildren: 0.15,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.3, ease: "easeInOut" }
-  }
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut"
-    },
-  },
-};
-
 export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
   const [cruxRevealed, setCruxRevealed] = useState(false);
-  const modalRef = useRef<HTMLDivElement>(null);
+  const modalRef = useModalAccessibility<HTMLDivElement>({
+    isOpen: Boolean(pillar),
+    onClose,
+  });
 
   // Reset state when pillar changes
   useEffect(() => {
     setCruxRevealed(false);
   }, [pillar?.id]);
-
-  // ESC key handler
-  useEffect(() => {
-    if (!pillar) return;
-
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [pillar, onClose]);
-
-  // Focus trap
-  useEffect(() => {
-    if (!pillar || !modalRef.current) return;
-
-    const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-
-    const handleTab = (e: KeyboardEvent) => {
-      if (e.key === 'Tab') {
-        if (e.shiftKey && document.activeElement === firstElement) {
-          e.preventDefault();
-          lastElement?.focus();
-        } else if (!e.shiftKey && document.activeElement === lastElement) {
-          e.preventDefault();
-          firstElement?.focus();
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleTab);
-    firstElement?.focus();
-
-    return () => document.removeEventListener('keydown', handleTab);
-  }, [pillar]);
-
-  // Body scroll lock
-  useEffect(() => {
-    if (pillar) {
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.overflow = '';
-      };
-    }
-  }, [pillar]);
 
   if (!pillar) return null;
 
@@ -121,7 +45,8 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
         layoutId={`pillar-${pillar.id}`}
         className="relative bg-[#faf8f5] border-2 border-stone-300 rounded-sm max-w-5xl w-full max-h-[90vh] overflow-y-auto font-sans"
         style={{
-          boxShadow: "0 0 0 1px #d6cdbf, 0 0 0 4px #faf8f5, 0 0 0 5px #d6cdbf, 0 30px 90px rgba(30,25,20,0.35)"
+          boxShadow:
+            "0 0 0 1px #d6cdbf, 0 0 0 4px #faf8f5, 0 0 0 5px #d6cdbf, 0 30px 90px rgba(30,25,20,0.35)",
         }}
         onClick={(e) => e.stopPropagation()}
         initial={{ opacity: 0, y: 30 }}
@@ -135,7 +60,10 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
           className="absolute top-6 right-6 p-2 rounded-sm bg-[#faf8f5] border border-stone-300 hover:border-stone-400 hover:bg-stone-100 z-10 transition-colors"
           aria-label="Close dialog"
         >
-          <X className="w-5 h-5 text-stone-500 hover:text-stone-700" aria-hidden="true" />
+          <X
+            className="w-5 h-5 text-stone-500 hover:text-stone-700"
+            aria-hidden="true"
+          />
         </motion.button>
 
         {/* Header */}

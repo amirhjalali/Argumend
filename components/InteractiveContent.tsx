@@ -3,6 +3,11 @@
 import React from "react";
 import { ConceptData } from "@/types/graph";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
+import {
+  splitByBracketedKeywords,
+  extractBracketedKeyword,
+  isBracketedKeyword,
+} from "@/lib/utils";
 
 interface InteractiveContentProps {
   content: string;
@@ -21,15 +26,14 @@ export function InteractiveContent({ content, concepts, nodeId }: InteractiveCon
     );
   }
 
-  // Regex to find text in curly braces: {Keyword}
-  const parts = content.split(/(\{.*?\})/g);
+  const parts = splitByBracketedKeywords(content);
 
   return (
     <p className="text-sm font-sans leading-relaxed text-secondary">
       {parts.map((part, index) => {
-        if (part.startsWith("{") && part.endsWith("}")) {
-          const keyword = part.slice(1, -1);
-          const concept = concepts[keyword];
+        if (isBracketedKeyword(part)) {
+          const keyword = extractBracketedKeyword(part);
+          const concept = keyword ? concepts[keyword] : undefined;
 
           if (concept) {
             return (

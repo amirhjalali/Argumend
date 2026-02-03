@@ -1,56 +1,52 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
+import { useSidebarState, SIDEBAR_WIDTH } from "@/hooks/useSidebarState";
+import { ANIMATION } from "@/lib/constants";
 
 interface AppShellProps {
   children: React.ReactNode;
 }
 
 export function AppShell({ children }: AppShellProps) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebar = useSidebarState();
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const setTopic = useLogicGraph((state) => state.setTopic);
 
-  useEffect(() => {
-    // Open sidebar by default on desktop
-    if (window.innerWidth >= 768) {
-      setIsSidebarOpen(true);
-    }
-  }, []);
-
   return (
     <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
-      <TopBar onMenuClick={() => setIsSidebarOpen((prev) => !prev)} />
+      <TopBar onMenuClick={sidebar.toggle} />
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
-        {/* Mobile overlay when sidebar is open - below sidebar */}
+        {/* Mobile overlay when sidebar is open */}
         <div
           className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
-            isSidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+            sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
-          onClick={() => setIsSidebarOpen(false)}
+          onClick={sidebar.close}
         />
 
-        {/* Sidebar Container - fixed on mobile, relative on desktop */}
+        {/* Sidebar Container */}
         <div
           className={`
-            fixed md:relative inset-y-0 left-0 z-40 md:z-auto
-            flex-shrink-0 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]
-            ${isSidebarOpen ? "w-[260px]" : "w-0 md:w-0"}
+            fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
+            flex-shrink-0 transition-all duration-500
+            ${sidebar.isOpen ? `w-[${SIDEBAR_WIDTH}px]` : "w-0 md:w-0"}
           `}
+          style={{ transitionTimingFunction: ANIMATION.SPRING_EASING }}
         >
           {/* Sidebar - slides in from left with spring easing */}
           <div
-            className={`absolute inset-y-0 left-0 w-[260px] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-              isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+            className={`absolute top-0 bottom-0 left-0 w-[${SIDEBAR_WIDTH}px] transition-transform duration-500 ${
+              sidebar.isOpen ? "translate-x-0" : "-translate-x-full"
             }`}
+            style={{ transitionTimingFunction: ANIMATION.SPRING_EASING }}
           >
             <Sidebar
-              isOpen={isSidebarOpen}
-              onClose={() => setIsSidebarOpen(false)}
+              isOpen={sidebar.isOpen}
+              onClose={sidebar.close}
               currentTopicId={currentTopicId}
               onTopicSelect={setTopic}
             />
@@ -59,10 +55,11 @@ export function AppShell({ children }: AppShellProps) {
           {/* Shadow overlay when sidebar is open - adds depth (desktop only) */}
           <div
             className={`hidden md:block absolute inset-y-0 right-0 w-4 pointer-events-none transition-opacity duration-300 ${
-              isSidebarOpen ? "opacity-100" : "opacity-0"
+              sidebar.isOpen ? "opacity-100" : "opacity-0"
             }`}
             style={{
-              background: "linear-gradient(to right, rgba(0,0,0,0.04), transparent)",
+              background:
+                "linear-gradient(to right, rgba(0,0,0,0.04), transparent)",
             }}
           />
         </div>
@@ -72,9 +69,7 @@ export function AppShell({ children }: AppShellProps) {
           {/* Content inner shadow for depth */}
           <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_4px_0_12px_-4px_rgba(0,0,0,0.04)]" />
 
-          <div className="relative z-0">
-            {children}
-          </div>
+          <div className="relative z-0">{children}</div>
         </div>
       </div>
     </div>
