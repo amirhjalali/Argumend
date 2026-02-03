@@ -13,12 +13,22 @@ interface EvidenceCardProps {
   index: number;
 }
 
-function WeightBar({ label, value, max = 10, color = "amber" }: { label: string; value: number; max?: number; color?: "amber" | "stone" }) {
+function WeightBar({
+  label,
+  value,
+  max = 10,
+  tone = "for",
+}: {
+  label: string;
+  value: number;
+  max?: number;
+  tone?: "for" | "against";
+}) {
   const percentage = (value / max) * 100;
-  const barColor = color === "amber"
-    ? "bg-gradient-to-r from-amber-500 to-amber-600"
+  const barColor = tone === "for"
+    ? "bg-gradient-to-r from-deep to-deep-dark"
     : "bg-gradient-to-r from-stone-400 to-stone-500";
-  const textColor = color === "amber" ? "text-amber-700" : "text-stone-600";
+  const textColor = tone === "for" ? "text-deep" : "text-stone-600";
 
   return (
     <div className="flex items-center gap-3 text-xs">
@@ -42,11 +52,11 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
   const isFor = evidence.side === "for";
 
   const cardStyles = isFor
-    ? "border-l-amber-500 bg-gradient-to-r from-amber-50/80 to-amber-50/30 hover:from-amber-50 hover:to-amber-50/50"
-    : "border-l-stone-400 bg-gradient-to-r from-stone-50/80 to-stone-50/30 hover:from-stone-50 hover:to-stone-50/50";
+    ? "border-l-deep bg-gradient-to-r from-deep/10 to-panel/80 hover:from-deep/15 hover:to-panel/90"
+    : "border-l-stone-400 bg-gradient-to-r from-stone-50/70 to-panel/80 hover:from-stone-50 hover:to-panel/90";
 
   const scoreStyles = isFor
-    ? "text-amber-700 bg-amber-100/80"
+    ? "text-deep bg-deep/10"
     : "text-stone-600 bg-stone-100/80";
 
   return (
@@ -93,14 +103,14 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
           className="px-5 pb-5 space-y-4 border-t border-stone-200/50"
         >
           <div className="pt-4 space-y-3">
-            <WeightBar label="Source Reliability" value={evidence.weight.sourceReliability} color={isFor ? "amber" : "stone"} />
-            <WeightBar label="Independence" value={evidence.weight.independence} color={isFor ? "amber" : "stone"} />
-            <WeightBar label="Replicability" value={evidence.weight.replicability} color={isFor ? "amber" : "stone"} />
-            <WeightBar label="Directness" value={evidence.weight.directness} color={isFor ? "amber" : "stone"} />
+            <WeightBar label="Source Reliability" value={evidence.weight.sourceReliability} tone={isFor ? "for" : "against"} />
+            <WeightBar label="Independence" value={evidence.weight.independence} tone={isFor ? "for" : "against"} />
+            <WeightBar label="Replicability" value={evidence.weight.replicability} tone={isFor ? "for" : "against"} />
+            <WeightBar label="Directness" value={evidence.weight.directness} tone={isFor ? "for" : "against"} />
           </div>
 
           {evidence.reasoning && (
-            <div className="bg-white/60 rounded-lg p-3 border border-stone-100">
+            <div className="surface-paper p-3">
               <p className="text-sm text-stone-600 italic leading-relaxed">
                 {evidence.reasoning}
               </p>
@@ -112,7 +122,7 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
               href={evidence.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 transition-colors font-medium"
+              className="inline-flex items-center gap-1.5 text-sm text-deep hover:text-deep-dark transition-colors font-medium"
             >
               <ExternalLink className="h-3.5 w-3.5" />
               {evidence.source || "View source"}
@@ -124,166 +134,88 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
   );
 }
 
-function ScaleVisualization({ forWeight, againstWeight }: {
+function BalanceMeter({ forWeight, againstWeight }: {
   forWeight: number;
   againstWeight: number;
-  confidence?: number;
 }) {
   const total = forWeight + againstWeight;
-  const forRatio = total > 0 ? forWeight / total : 0.5;
-
-  // Heavier side goes DOWN. FOR is left.
-  const deviation = forRatio - 0.5;
-  const maxTilt = 18;
-  const tiltDeg = deviation * maxTilt * 2;
-  const tiltRad = (tiltDeg * Math.PI) / 180;
-
-  // Dimensions
-  const width = 400;
-  const height = 250;
-  const cx = width / 2;
-  const pivotY = 55;
-  const beamHalf = 140;
-  const stringLen = 65;
-  const panW = 60;
-  const panH = 35;
-
-  // Calculate beam end positions
-  const leftX = cx - Math.cos(tiltRad) * beamHalf;
-  const leftY = pivotY + Math.sin(tiltRad) * beamHalf;
-  const rightX = cx + Math.cos(tiltRad) * beamHalf;
-  const rightY = pivotY - Math.sin(tiltRad) * beamHalf;
-
-  // Pan centers (hang straight down)
-  const leftPanY = leftY + stringLen;
-  const rightPanY = rightY + stringLen;
+  const forPercent = total > 0 ? Math.round((forWeight / total) * 100) : 50;
+  const againstPercent = 100 - forPercent;
+  const tiltDeg = ((forPercent - 50) / 50) * -10;
 
   return (
-    <div className="flex flex-col items-center py-6 select-none">
-      <svg
-        width={width}
-        height={height}
-        viewBox={`0 0 ${width} ${height}`}
-        className="overflow-visible"
-      >
-        <defs>
-          <linearGradient id="beam" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#d4a012" />
-            <stop offset="100%" stopColor="#92400e" />
-          </linearGradient>
-          <linearGradient id="pillar" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#78350f" />
-            <stop offset="100%" stopColor="#451a03" />
-          </linearGradient>
-          <linearGradient id="goldPan" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#fef3c7" />
-            <stop offset="100%" stopColor="#fbbf24" />
-          </linearGradient>
-          <linearGradient id="silverPan" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#f1f5f9" />
-            <stop offset="100%" stopColor="#94a3b8" />
-          </linearGradient>
-          <filter id="shadow">
-            <feDropShadow dx="0" dy="2" stdDeviation="2" floodOpacity="0.2" />
-          </filter>
-        </defs>
-
-        {/* Base */}
-        <rect x={cx - 40} y={height - 18} width={80} height={12} rx={2} fill="url(#pillar)" filter="url(#shadow)" />
-        <rect x={cx - 28} y={height - 28} width={56} height={12} rx={2} fill="url(#pillar)" />
-
-        {/* Pillar */}
-        <rect x={cx - 6} y={pivotY + 12} width={12} height={height - pivotY - 40} rx={2} fill="url(#pillar)" />
-
-        {/* Beam */}
-        <line
-          x1={leftX}
-          y1={leftY}
-          x2={rightX}
-          y2={rightY}
-          stroke="url(#beam)"
-          strokeWidth={8}
-          strokeLinecap="round"
-          filter="url(#shadow)"
-        />
-
-        {/* Beam end caps */}
-        <circle cx={leftX} cy={leftY} r={8} fill="#d4a012" />
-        <circle cx={rightX} cy={rightY} r={8} fill="#d4a012" />
-
-        {/* Center pivot */}
-        <circle cx={cx} cy={pivotY} r={12} fill="#d4a012" filter="url(#shadow)" />
-        <circle cx={cx} cy={pivotY} r={5} fill="#92400e" />
-
-        {/* Left strings (FOR) */}
-        <line x1={leftX} y1={leftY + 8} x2={leftX} y2={leftPanY} stroke="#b8860b" strokeWidth={2} />
-        <line x1={leftX} y1={leftY + 8} x2={leftX - 22} y2={leftPanY} stroke="#b8860b" strokeWidth={1.5} />
-        <line x1={leftX} y1={leftY + 8} x2={leftX + 22} y2={leftPanY} stroke="#b8860b" strokeWidth={1.5} />
-
-        {/* Left pan (FOR) */}
-        <g filter="url(#shadow)">
-          <ellipse cx={leftX} cy={leftPanY} rx={panW / 2} ry={5} fill="#d4a012" />
-          <path
-            d={`M ${leftX - panW / 2} ${leftPanY}
-                Q ${leftX - panW / 2} ${leftPanY + panH}, ${leftX} ${leftPanY + panH}
-                Q ${leftX + panW / 2} ${leftPanY + panH}, ${leftX + panW / 2} ${leftPanY}`}
-            fill="url(#goldPan)"
-            stroke="#d97706"
-            strokeWidth={2}
-          />
-        </g>
-        <text
-          x={leftX}
-          y={leftPanY + panH * 0.65}
-          textAnchor="middle"
-          fill="#92400e"
-          fontFamily="ui-monospace, monospace"
-          fontWeight="bold"
-          fontSize="18"
-        >
-          {forWeight}
-        </text>
-
-        {/* Right strings (AGAINST) */}
-        <line x1={rightX} y1={rightY + 8} x2={rightX} y2={rightPanY} stroke="#6b7280" strokeWidth={2} />
-        <line x1={rightX} y1={rightY + 8} x2={rightX - 22} y2={rightPanY} stroke="#6b7280" strokeWidth={1.5} />
-        <line x1={rightX} y1={rightY + 8} x2={rightX + 22} y2={rightPanY} stroke="#6b7280" strokeWidth={1.5} />
-
-        {/* Right pan (AGAINST) */}
-        <g filter="url(#shadow)">
-          <ellipse cx={rightX} cy={rightPanY} rx={panW / 2} ry={5} fill="#6b7280" />
-          <path
-            d={`M ${rightX - panW / 2} ${rightPanY}
-                Q ${rightX - panW / 2} ${rightPanY + panH}, ${rightX} ${rightPanY + panH}
-                Q ${rightX + panW / 2} ${rightPanY + panH}, ${rightX + panW / 2} ${rightPanY}`}
-            fill="url(#silverPan)"
-            stroke="#6b7280"
-            strokeWidth={2}
-          />
-        </g>
-        <text
-          x={rightX}
-          y={rightPanY + panH * 0.65}
-          textAnchor="middle"
-          fill="#475569"
-          fontFamily="ui-monospace, monospace"
-          fontWeight="bold"
-          fontSize="18"
-        >
-          {againstWeight}
-        </text>
-      </svg>
-
-      {/* Labels */}
-      <div className="mt-4 flex items-center justify-center gap-16 text-sm">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600" />
-          <span className="font-serif text-amber-800 font-medium tracking-wide">FOR</span>
+    <div className="surface-card p-6">
+      <div className="flex items-center justify-between gap-4 mb-4">
+        <div className="flex items-center gap-2 text-xs uppercase tracking-[0.35em] text-stone-400">
+          <Scale className="h-3.5 w-3.5 text-deep" />
+          <span>Balance</span>
         </div>
-        <div className="w-px h-4 bg-stone-300" />
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-stone-400 to-stone-500" />
-          <span className="font-serif text-stone-600 font-medium tracking-wide">AGAINST</span>
+        <div className="text-[11px] uppercase tracking-[0.25em] text-stone-400">
+          Scales of Evidence
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6">
+        <div className="flex items-baseline gap-3">
+          <span className="text-[11px] uppercase tracking-[0.25em] text-stone-400">For</span>
+          <span className="font-mono text-3xl font-bold text-deep">{forWeight}</span>
+          <span className="text-xs text-stone-400">pts</span>
+        </div>
+
+        <div className="flex flex-col items-center gap-1">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-stone-400">Balance</span>
+          <svg width="180" height="70" viewBox="0 0 180 70" className="text-stone-400">
+            <line x1="90" y1="24" x2="90" y2="58" stroke="currentColor" strokeWidth="2" />
+            <line x1="70" y1="58" x2="110" y2="58" stroke="currentColor" strokeWidth="2" />
+            <g transform={`rotate(${tiltDeg} 90 24)`}>
+              <line x1="30" y1="24" x2="150" y2="24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+              <circle cx="30" cy="24" r="4" fill="#4f7b77" />
+              <circle cx="150" cy="24" r="4" fill="#78716c" />
+              <line x1="30" y1="24" x2="30" y2="40" stroke="#4f7b77" strokeWidth="2" />
+              <line x1="150" y1="24" x2="150" y2="40" stroke="#78716c" strokeWidth="2" />
+              <line x1="20" y1="40" x2="40" y2="40" stroke="#4f7b77" strokeWidth="2" />
+              <line x1="140" y1="40" x2="160" y2="40" stroke="#78716c" strokeWidth="2" />
+            </g>
+            <circle cx="90" cy="24" r="6" fill="#fefcf9" stroke="#78716c" strokeWidth="2" />
+          </svg>
+        </div>
+
+        <div className="flex items-baseline justify-end gap-3">
+          <span className="text-xs text-stone-400">pts</span>
+          <span className="font-mono text-3xl font-bold text-stone-600">{againstWeight}</span>
+          <span className="text-[11px] uppercase tracking-[0.25em] text-stone-400">Against</span>
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <div className="h-2.5 rounded-full bg-stone-200 overflow-hidden flex max-w-3xl mx-auto">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${forPercent}%` }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="h-full bg-gradient-to-r from-deep to-deep-dark"
+          />
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${againstPercent}%` }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="h-full bg-gradient-to-r from-stone-400 to-stone-500"
+          />
+        </div>
+
+        <div className="relative mt-2 h-4 max-w-3xl mx-auto">
+          <motion.div
+            initial={{ left: "50%" }}
+            animate={{ left: `${forPercent}%` }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute top-0 h-4 w-px bg-stone-500"
+            style={{ transform: "translateX(-50%)" }}
+          />
+        </div>
+
+        <div className="mt-1 flex items-center justify-between text-xs text-stone-400 max-w-3xl mx-auto">
+          <span className="font-medium">FOR {forPercent}%</span>
+          <span className="font-medium">AGAINST {againstPercent}%</span>
         </div>
       </div>
     </div>
@@ -299,20 +231,18 @@ function VerdictDisplay({ confidence, forWeight, againstWeight }: {
   const total = forWeight + againstWeight;
   const forPercent = total > 0 ? Math.round((forWeight / total) * 100) : 50;
 
-  const verdictStyles = confidence >= 95
-    ? { bg: "from-emerald-50 to-green-50", border: "border-emerald-300", text: "text-emerald-800", accent: "bg-emerald-500" }
-    : confidence >= 75
-    ? { bg: "from-amber-50 to-yellow-50", border: "border-amber-300", text: "text-amber-800", accent: "bg-amber-500" }
-    : confidence >= 50
-    ? { bg: "from-orange-50 to-amber-50", border: "border-orange-300", text: "text-orange-800", accent: "bg-orange-500" }
-    : { bg: "from-stone-50 to-gray-50", border: "border-stone-300", text: "text-stone-700", accent: "bg-stone-500" };
+  const verdictStyles = confidence >= 80
+    ? { border: "border-score-high/40", text: "text-score-high", badge: "bg-score-high" }
+    : confidence >= 55
+    ? { border: "border-score-mid/40", text: "text-score-mid", badge: "bg-score-mid" }
+    : { border: "border-score-low/40", text: "text-score-low", badge: "bg-score-low" };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
-      className={`rounded-2xl border-2 ${verdictStyles.border} bg-gradient-to-br ${verdictStyles.bg} p-6 shadow-lg`}
+      className={`rounded-2xl border ${verdictStyles.border} bg-panel/85 p-6 shadow-card`}
     >
       <div className="text-center space-y-4">
         {/* Verdict Label */}
@@ -332,7 +262,7 @@ function VerdictDisplay({ confidence, forWeight, againstWeight }: {
               initial={{ width: 0 }}
               animate={{ width: `${forPercent}%` }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="h-full bg-gradient-to-r from-amber-400 to-amber-500"
+              className="h-full bg-gradient-to-r from-deep to-deep-dark"
             />
             <motion.div
               initial={{ width: 0 }}
@@ -346,9 +276,9 @@ function VerdictDisplay({ confidence, forWeight, againstWeight }: {
         {/* Stats Row */}
         <div className="flex items-center justify-center gap-6 text-sm">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-amber-400 to-amber-600" />
+            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-deep to-deep-dark" />
             <span className="font-mono">
-              <span className="text-amber-700 font-bold text-lg">{forWeight}</span>
+              <span className="text-deep font-bold text-lg">{forWeight}</span>
               <span className="text-stone-500 ml-1">FOR</span>
             </span>
           </div>
@@ -365,7 +295,7 @@ function VerdictDisplay({ confidence, forWeight, againstWeight }: {
 
           <div className="w-px h-6 bg-stone-300" />
 
-          <div className={`px-3 py-1 rounded-full ${verdictStyles.accent} text-white font-mono font-bold`}>
+          <div className={`px-3 py-1 rounded-full ${verdictStyles.badge} text-white font-mono font-bold`}>
             {confidence}%
           </div>
         </div>
@@ -472,10 +402,9 @@ export function ScalesOfEvidence() {
         </motion.div>
 
         {/* Scale Visualization */}
-        <ScaleVisualization
+        <BalanceMeter
           forWeight={forWeight}
           againstWeight={againstWeight}
-          confidence={topic.confidence_score}
         />
 
         {/* Two Columns */}
@@ -486,14 +415,14 @@ export function ScalesOfEvidence() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-amber-400">
-              <div className="w-4 h-4 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-md" />
-              <h2 className="font-serif text-xl font-bold text-amber-800">
+            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-deep/60">
+              <div className="w-4 h-4 rounded-full bg-gradient-to-br from-deep to-deep-dark shadow-md" />
+              <h2 className="font-serif text-xl font-bold text-deep">
                 Evidence FOR
               </h2>
               <div className="ml-auto flex items-center gap-2">
-                <span className="text-sm text-amber-600">{forEvidence.length} items</span>
-                <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-700 font-mono font-bold text-sm">
+                <span className="text-sm text-deep">{forEvidence.length} items</span>
+                <span className="px-3 py-1 rounded-full bg-deep/10 text-deep font-mono font-bold text-sm">
                   {forWeight} pts
                 </span>
               </div>
@@ -517,7 +446,7 @@ export function ScalesOfEvidence() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-stone-400">
+            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-stone-300">
               <div className="w-4 h-4 rounded-full bg-gradient-to-br from-stone-400 to-stone-500 shadow-md" />
               <h2 className="font-serif text-xl font-bold text-stone-700">
                 Evidence AGAINST
