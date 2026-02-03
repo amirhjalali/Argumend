@@ -12,15 +12,15 @@ export interface LLMIconProps {
 }
 
 export function ClaudeIcon({ className, style }: LLMIconProps) {
-  // Claude's sparkle/starburst logo
+  // Anthropic's official logo - organic rounded shape
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 46 32"
       fill="currentColor"
       className={className}
       style={style}
     >
-      <path d="M12 0C12 0 12 4.5 9 7.5C6 10.5 0 12 0 12C0 12 6 13.5 9 16.5C12 19.5 12 24 12 24C12 24 12 19.5 15 16.5C18 13.5 24 12 24 12C24 12 18 10.5 15 7.5C12 4.5 12 0 12 0Z" />
+      <path d="M32.73 0h-6.945L38.45 32h6.945L32.73 0ZM13.27 0 0 32h7.082l2.59-6.574h13.25l2.59 6.574h7.082L19.327 0h-6.055Zm-.702 19.69 4.334-10.996 4.334 10.996h-8.668Z" />
     </svg>
   );
 }
