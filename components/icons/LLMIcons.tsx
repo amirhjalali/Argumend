@@ -12,34 +12,14 @@ export interface LLMIconProps {
 }
 
 export function ClaudeIcon({ className, style }: LLMIconProps) {
-  // Claude's starburst logo - organic rays emanating from center
+  // Claude's starburst logo - using official PNG
   return (
-    <svg
-      viewBox="0 0 100 100"
-      fill="currentColor"
+    <img
+      src="/icons/claude.png"
+      alt="Claude"
       className={className}
-      style={style}
-    >
-      {/* Center dot */}
-      <circle cx="50" cy="50" r="6" />
-      {/* Organic rays with rounded ends - varying lengths like the Claude logo */}
-      <rect x="47" y="8" width="6" height="28" rx="3" />
-      <rect x="47" y="64" width="6" height="28" rx="3" />
-      <rect x="8" y="47" width="28" height="6" rx="3" />
-      <rect x="64" y="47" width="28" height="6" rx="3" />
-      <rect x="47" y="8" width="6" height="22" rx="3" transform="rotate(45 50 50)" />
-      <rect x="47" y="70" width="6" height="22" rx="3" transform="rotate(45 50 50)" />
-      <rect x="47" y="8" width="6" height="22" rx="3" transform="rotate(-45 50 50)" />
-      <rect x="47" y="70" width="6" height="22" rx="3" transform="rotate(-45 50 50)" />
-      <rect x="47" y="12" width="6" height="18" rx="3" transform="rotate(22.5 50 50)" />
-      <rect x="47" y="70" width="6" height="18" rx="3" transform="rotate(22.5 50 50)" />
-      <rect x="47" y="12" width="6" height="18" rx="3" transform="rotate(-22.5 50 50)" />
-      <rect x="47" y="70" width="6" height="18" rx="3" transform="rotate(-22.5 50 50)" />
-      <rect x="47" y="12" width="6" height="18" rx="3" transform="rotate(67.5 50 50)" />
-      <rect x="47" y="70" width="6" height="18" rx="3" transform="rotate(67.5 50 50)" />
-      <rect x="47" y="12" width="6" height="18" rx="3" transform="rotate(-67.5 50 50)" />
-      <rect x="47" y="70" width="6" height="18" rx="3" transform="rotate(-67.5 50 50)" />
-    </svg>
+      style={{ width: "1em", height: "1em", ...style }}
+    />
   );
 }
 
@@ -101,15 +81,15 @@ export const LLM_OPTIONS: LLMOption[] = [
   {
     id: "claude",
     name: "Claude",
-    fullName: "Claude Sonnet",
+    fullName: "Claude Opus 4.5",
     color: "#D97706",
     bgLight: "#FEF3C7",
     Icon: ClaudeIcon,
   },
   {
     id: "gpt-4",
-    name: "GPT-4",
-    fullName: "GPT-4 Omni",
+    name: "GPT-5",
+    fullName: "GPT-5.2",
     color: "#10B981",
     bgLight: "#D1FAE5",
     Icon: OpenAIIcon,
@@ -117,7 +97,7 @@ export const LLM_OPTIONS: LLMOption[] = [
   {
     id: "gemini",
     name: "Gemini",
-    fullName: "Gemini Pro",
+    fullName: "Gemini 3 Pro",
     color: "#4285F4",
     bgLight: "#DBEAFE",
     Icon: GeminiIcon,
@@ -125,7 +105,7 @@ export const LLM_OPTIONS: LLMOption[] = [
   {
     id: "grok",
     name: "Grok",
-    fullName: "Grok 2",
+    fullName: "Grok 4.1",
     color: "#1C1C1E",
     bgLight: "#E5E5E5",
     Icon: GrokIcon,
