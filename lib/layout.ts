@@ -5,6 +5,10 @@ export const VERTICAL_GAP = 450; // Increased to accommodate taller cards with i
 export const HORIZONTAL_GAP = 520; // Wider to match larger cards
 export const COLLISION_PADDING = 0.85;
 
+// Smaller gap for evidence nodes
+export const EVIDENCE_VERTICAL_GAP = 320;
+export const EVIDENCE_HORIZONTAL_GAP = 300;
+
 export function getChildPosition(
   parent: XYPosition,
   slot: ChildSlot,
@@ -12,7 +16,7 @@ export function getChildPosition(
   totalInSlot: number = 1
 ): XYPosition {
 
-  // Pillars: Vertically below, spread horizontally
+  // Center slot: Vertically below, spread horizontally
   if (slot === "center") {
     const siblingsWidth = (totalInSlot - 1) * HORIZONTAL_GAP;
     const startX = -(siblingsWidth / 2);
@@ -24,18 +28,27 @@ export function getChildPosition(
     };
   }
 
-  // Logic Map: Horizontally to the side, spread vertically
-  const isRight = slot === "right";
-  // Use a much larger horizontal gap to separate the columns distinctly
-  const horizontalOffset = isRight ? HORIZONTAL_GAP * 1.2 : -HORIZONTAL_GAP * 1.2;
+  // Left slot: For skeptic nodes - positioned to the left and slightly down
+  if (slot === "left") {
+    const horizontalOffset = -HORIZONTAL_GAP * 0.9;
+    const siblingsHeight = (totalInSlot - 1) * (VERTICAL_GAP * 0.7);
+    const startY = -(siblingsHeight / 2);
+    const relativeY = startY + indexInSlot * (VERTICAL_GAP * 0.7);
 
-  // Spread vertically centered around parent
-  const siblingsHeight = (totalInSlot - 1) * (VERTICAL_GAP * 0.85);
+    return {
+      x: parent.x + horizontalOffset,
+      y: parent.y + VERTICAL_GAP * 0.5 + relativeY,
+    };
+  }
+
+  // Right slot: For proponent nodes and Logic Map questions
+  const horizontalOffset = HORIZONTAL_GAP * 0.9;
+  const siblingsHeight = (totalInSlot - 1) * (VERTICAL_GAP * 0.7);
   const startY = -(siblingsHeight / 2);
-  const relativeY = startY + indexInSlot * (VERTICAL_GAP * 0.85);
+  const relativeY = startY + indexInSlot * (VERTICAL_GAP * 0.7);
 
   return {
     x: parent.x + horizontalOffset,
-    y: parent.y + relativeY
+    y: parent.y + VERTICAL_GAP * 0.5 + relativeY,
   };
 }

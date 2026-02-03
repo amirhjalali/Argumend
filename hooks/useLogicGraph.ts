@@ -1,13 +1,15 @@
 "use client";
 
-import { generateBlueprint } from "@/data/logicBlueprint";
+import { generateBlueprint, getEvidenceIdsForPillar } from "@/data/logicBlueprint";
 import { moonLanding, topics } from "@/data/topics";
+import type { EvidenceNodeData } from "@/components/nodes/EvidenceNode";
 import {
   COLLISION_PADDING,
   HORIZONTAL_GAP,
   VERTICAL_GAP,
   getChildPosition,
 } from "@/lib/layout";
+import { getEdgeColor } from "@/lib/variantStyles";
 import type {
   BlueprintNode,
   ChildSlot,
@@ -47,6 +49,7 @@ type GraphStore = {
   nodes: LogicNode[];
   edges: Edge[];
   expandedNodes: Record<string, boolean>;
+  evidenceLoadedNodes: Record<string, boolean>; // Track which pillars have evidence loaded
   selectedCrux: CruxSelection | null;
   focusTargets: string[];
   sequence: number;
@@ -57,22 +60,13 @@ type GraphStore = {
   setTopic: (topicId: string) => void;
   setView: (view: ArgumentView) => void;
   expandNode: (nodeId: string) => void;
+  loadEvidence: (pillarId: string) => void; // Lazy load evidence for a pillar
   spawnConceptNode: (sourceNodeId: string, concept: ConceptData) => void;
   openCrux: (nodeId: string) => void;
   closeCrux: () => void;
   consumeFocusTargets: () => void;
   setFocusTargets: (targets: string[]) => void;
   onNodesChange: (changes: NodeChange<LogicNode>[]) => void;
-};
-
-const VARIANT_EDGE_COLORS: Record<string, string> = {
-  meta: "#2563eb",
-  skeptic: "#8B5A3C",
-  proponent: "#D4A012",
-  crux: "#a23b3b",
-  evidence: "#CF7B3E",
-  question: "#6b5b95",
-  pillar: "#78716c",
 };
 
 // Initialize with Moon Landing
@@ -97,6 +91,8 @@ function mapBlueprintToData(blueprint: BlueprintNode): LogicNodeData {
     imageUrl: blueprint.imageUrl,
     references: blueprint.references,
     hasChildren: blueprint.children && blueprint.children.length > 0,
+    hasEvidence: blueprint.hasEvidence,
+    evidenceData: blueprint.evidenceData,
   };
 }
 
@@ -111,7 +107,7 @@ function buildEdge(source: string, target: string, slot: ChildSlot, targetVarian
   }
   // Pillars (center) use default bottom->top
 
-  const edgeColor = VARIANT_EDGE_COLORS[targetVariant || "pillar"] || "#78716c";
+  const edgeColor = getEdgeColor(targetVariant);
 
   return {
     id: `edge-${source}-${target}`,
@@ -231,6 +227,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
   nodes: [initialRootNode],
   edges: [],
   expandedNodes: {},
+  evidenceLoadedNodes: {},
   selectedCrux: null,
   focusTargets: ["root"],
   sequence: 0,
@@ -258,6 +255,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       nodes: [newRootNode],
       edges: [],
       expandedNodes: {},
+      evidenceLoadedNodes: {},
       selectedCrux: null,
       focusTargets: ["root"],
       sequence: 0,
@@ -295,6 +293,120 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       expandedNodes: { ...expandedNodes, [nodeId]: true },
       focusTargets: childNodes.map((node) => node.id),
       sequence: nextSequence,
+    });
+  },
+
+  loadEvidence: (pillarId: string) => {
+    const { evidenceLoadedNodes, nodes, edges, currentTopicId } = get();
+    if (evidenceLoadedNodes[pillarId]) return;
+
+    const topic = topics.find((t) => t.id === currentTopicId);
+    if (!topic) return;
+
+    const pillar = topic.pillars.find((p) => p.id === pillarId);
+    if (!pillar || !pillar.evidence || pillar.evidence.length === 0) return;
+
+    const pillarNode = nodes.find((n) => n.id === pillarId);
+    if (!pillarNode) return;
+
+    const currentBlueprint = getBlueprintForTopic(currentTopicId);
+    const evidenceIds = getEvidenceIdsForPillar(topic, pillarId);
+
+    // Create evidence nodes positioned below the pillar
+    const newNodes: LogicNode[] = [];
+    const newEdges: Edge[] = [];
+
+    // Split evidence by side for layout
+    const forEvidence = pillar.evidence.filter((e) => e.side === "for");
+    const againstEvidence = pillar.evidence.filter((e) => e.side === "against");
+
+    // Position "for" evidence to the left-bottom, "against" to the right-bottom
+    const baseY = pillarNode.position.y + 450;
+    const evidenceSpacing = 300;
+
+    forEvidence.forEach((ev, index) => {
+      const evidenceId = `evidence-${ev.id}`;
+      const blueprintNode = currentBlueprint[evidenceId];
+      if (!blueprintNode) return;
+
+      const position = {
+        x: pillarNode.position.x - 200 - (index * evidenceSpacing * 0.3),
+        y: baseY + (index * 320),
+      };
+
+      newNodes.push({
+        id: evidenceId,
+        type: "evidenceNode",
+        position,
+        data: {
+          variant: "evidence",
+          title: ev.title,
+          description: ev.description,
+          side: ev.side,
+          score: blueprintNode.evidenceData?.score ?? 0,
+          source: ev.source,
+          sourceUrl: ev.sourceUrl,
+          birthOrder: index,
+        } as unknown as LogicNodeData,
+      });
+
+      newEdges.push({
+        id: `edge-${pillarId}-${evidenceId}`,
+        source: pillarId,
+        target: evidenceId,
+        sourceHandle: "bottom",
+        targetHandle: "top",
+        type: "bezier",
+        animated: false,
+        style: { stroke: "#D4A012", strokeOpacity: 0.5 },
+      });
+    });
+
+    againstEvidence.forEach((ev, index) => {
+      const evidenceId = `evidence-${ev.id}`;
+      const blueprintNode = currentBlueprint[evidenceId];
+      if (!blueprintNode) return;
+
+      const position = {
+        x: pillarNode.position.x + 200 + (index * evidenceSpacing * 0.3),
+        y: baseY + (index * 320),
+      };
+
+      newNodes.push({
+        id: evidenceId,
+        type: "evidenceNode",
+        position,
+        data: {
+          variant: "evidence",
+          title: ev.title,
+          description: ev.description,
+          side: ev.side,
+          score: blueprintNode.evidenceData?.score ?? 0,
+          source: ev.source,
+          sourceUrl: ev.sourceUrl,
+          birthOrder: forEvidence.length + index,
+        } as unknown as LogicNodeData,
+      });
+
+      newEdges.push({
+        id: `edge-${pillarId}-${evidenceId}`,
+        source: pillarId,
+        target: evidenceId,
+        sourceHandle: "bottom",
+        targetHandle: "top",
+        type: "bezier",
+        animated: false,
+        style: { stroke: "#78716C", strokeOpacity: 0.5 },
+      });
+    });
+
+    if (newNodes.length === 0) return;
+
+    set({
+      nodes: [...nodes, ...newNodes],
+      edges: [...edges, ...newEdges],
+      evidenceLoadedNodes: { ...evidenceLoadedNodes, [pillarId]: true },
+      focusTargets: newNodes.map((n) => n.id),
     });
   },
 

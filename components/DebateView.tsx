@@ -2,112 +2,104 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Swords, Play, Pause, RotateCcw, Loader2, Sparkles, Quote, MessageCircle, Sword, Shield, Eye } from "lucide-react";
+import {
+  Swords,
+  Play,
+  Pause,
+  RotateCcw,
+  Loader2,
+  Sparkles,
+  Quote,
+  MessageCircle,
+  Sword,
+  Shield,
+  Eye,
+  RefreshCw,
+  AlertCircle,
+  Share2,
+} from "lucide-react";
+import { ShareToMoltbook } from "@/components/ShareToMoltbook";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { topics } from "@/data/topics";
+import {
+  hasMockDebate,
+  getMockDebate,
+  getMockDebateModels,
+  getMockDebateRounds,
+} from "@/data/mockDebates";
+import type { DebateMessage } from "@/data/mockDebates";
+import {
+  LLM_OPTIONS,
+  getLLMOption,
+  ClaudeIcon,
+  OpenAIIcon,
+} from "@/components/icons/LLMIcons";
+import type { LLMOption } from "@/components/icons/LLMIcons";
+import { DEBATE, THINKING_DOTS } from "@/lib/constants";
 import type { LLMModel } from "@/types/logic";
 
-// Brand-accurate SVG icons for each AI
-interface IconProps { className?: string; style?: React.CSSProperties }
+// ============================================================================
+// Debate State Types
+// ============================================================================
 
-function ClaudeIcon({ className, style }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
-      <path d="M4.709 15.955l4.72-2.647.08-.046 2.698-1.514c.263-.147.263-.533 0-.68l-2.699-1.514-.08-.045-4.72-2.647c-.527-.296-1.166.074-1.166.68v7.733c0 .606.64.976 1.167.68zm8.582-.565l-2.56 1.436 6.967 3.907c.528.296 1.168-.074 1.168-.68V6.947c0-.606-.64-.976-1.168-.68l-6.966 3.907 2.559 1.436c.789.442.789 1.338 0 1.78z"/>
-    </svg>
-  );
+type DebatePhase = "setup" | "debating" | "paused" | "complete" | "mockView";
+
+interface DebateState {
+  phase: DebatePhase;
+  forModel: LLMModel | null;
+  againstModel: LLMModel | null;
+  messages: DebateMessage[];
+  currentRound: number;
+  maxRounds: number;
+  typingSide: "for" | "against" | null;
+  error: string | null;
+  failedModel: LLMModel | null;
 }
 
-function OpenAIIcon({ className, style }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
-      <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/>
-    </svg>
-  );
+// ============================================================================
+// Helper Functions
+// ============================================================================
+
+function createDebateMessage(
+  side: "for" | "against",
+  model: LLMModel,
+  content: string,
+  round: number
+): DebateMessage {
+  return {
+    id: `${side}-${round}-${Date.now()}`,
+    side,
+    model,
+    content,
+    round,
+  };
 }
 
-function GeminiIcon({ className, style }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
-      <path d="M12 24A14.304 14.304 0 0 0 0 12 14.304 14.304 0 0 0 12 0a14.305 14.305 0 0 0 12 12 14.305 14.305 0 0 0-12 12"/>
-    </svg>
-  );
-}
+// ============================================================================
+// Sub-Components
+// ============================================================================
 
-function GrokIcon({ className, style }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
-      <path d="M13.982 10.622 20.54 3h-1.554l-5.693 6.618L8.745 3H3.5l6.876 10.007L3.5 21h1.554l6.012-6.989L15.868 21h5.245l-7.131-10.378Zm-2.128 2.474-.697-.997-5.543-7.93H8l4.474 6.4.697.996 5.815 8.318h-2.387l-4.745-6.787Z"/>
-    </svg>
-  );
-}
-
-const LLM_OPTIONS: { id: LLMModel; name: string; fullName: string; color: string; bgLight: string; Icon: React.FC<IconProps> }[] = [
-  { id: "claude", name: "Claude", fullName: "Claude Sonnet", color: "#D97706", bgLight: "#FEF3C7", Icon: ClaudeIcon },
-  { id: "gpt-4", name: "GPT-4", fullName: "GPT-4 Omni", color: "#10B981", bgLight: "#D1FAE5", Icon: OpenAIIcon },
-  { id: "gemini", name: "Gemini", fullName: "Gemini Pro", color: "#4285F4", bgLight: "#DBEAFE", Icon: GeminiIcon },
-  { id: "grok", name: "Grok", fullName: "Grok 2", color: "#1C1C1E", bgLight: "#E5E5E5", Icon: GrokIcon },
-];
-
-interface DebateMessage {
-  id: string;
+interface DebaterCardProps {
   side: "for" | "against";
-  model: LLMModel;
-  content: string;
-  round: number;
+  selectedModel: LLMModel | null;
+  onSelect: (model: LLMModel) => void;
+  disabled: boolean;
 }
-
-// Mock debate data for demonstration
-const MOCK_DEBATES: Record<string, DebateMessage[]> = {
-  "moon-landing": [
-    {
-      id: "mock-1",
-      side: "for",
-      model: "claude",
-      content: "The Apollo moon landings represent one of humanity's most thoroughly documented achievements. We have 382 kilograms of lunar samples that have been studied by scientists worldwide for over 50 years, with isotopic compositions that could not have been created on Earth. The retroreflectors placed on the lunar surface are still used today by observatories globally to measure the Earth-Moon distance with millimeter precision.\n\nFurthermore, the Soviet Union—America's rival in the Space Race—tracked and verified the missions independently. They had every incentive to expose a hoax, yet their scientists confirmed the authenticity of the landings.",
-      round: 1,
-    },
-    {
-      id: "mock-2",
-      side: "against",
-      model: "gpt-4",
-      content: "While I must argue the skeptic's position, let me steelman it properly: The Cold War context created enormous pressure for the U.S. to demonstrate technological supremacy. Some argue the Van Allen radiation belts would have been lethal to astronauts with 1960s technology, and the flag appearing to wave in a vacuum raises questions.\n\nHowever, I should note that these concerns have been thoroughly addressed by physics—the flag had a horizontal rod, and the radiation exposure was within survivable limits for the trajectory taken. The skeptic position, while worth examining, does not withstand scientific scrutiny.",
-      round: 1,
-    },
-    {
-      id: "mock-3",
-      side: "for",
-      model: "claude",
-      content: "My opponent raises valid points about the importance of scrutiny, but concedes the key issue: every technical objection has been definitively answered. The radiation concern is particularly illustrative—astronauts passed through the Van Allen belts quickly on trajectories that minimized exposure, receiving doses comparable to a few CT scans.\n\nThe 'waving flag' demonstrates how intuition can mislead us. In vacuum, without air resistance, a flag disturbed by handling continues moving longer than on Earth. This is exactly what physics predicts.\n\nPerhaps most compelling: faking the landings with 1960s technology would have been harder than actually going. The consistent lighting, absence of atmospheric haze, and lunar dust behavior across thousands of hours of footage would have been impossible to simulate.",
-      round: 2,
-    },
-    {
-      id: "mock-4",
-      side: "against",
-      model: "gpt-4",
-      content: "I appreciate Claude's thorough response. To continue the adversarial examination: some point to inconsistencies in photographs—stars absent from the lunar sky, seemingly duplicate backgrounds in different mission photos.\n\nYet again, these have explanations. Camera exposures were set for brightly lit surfaces, washing out dim stars. The lunar landscape has limited features, and similar-looking hills appear in different photos simply because the terrain is repetitive.\n\nThe strongest skeptic argument might be 'why haven't we returned since 1972?' But this reflects economics and political will, not capability. We've sent robots, and multiple nations are now planning crewed returns. The original achievement stands uncontested by any credible scientific analysis.",
-      round: 2,
-    },
-  ],
-};
 
 function DebaterCard({
   side,
   selectedModel,
   onSelect,
   disabled,
-}: {
-  side: "for" | "against";
-  selectedModel: LLMModel | null;
-  onSelect: (model: LLMModel) => void;
-  disabled: boolean;
-}) {
+}: DebaterCardProps) {
   const isFor = side === "for";
 
   return (
     <div className="flex-1">
       {/* Side Label */}
-      <div className={`flex items-center gap-2 mb-4 ${isFor ? "" : "justify-end"}`}>
+      <div
+        className={`flex items-center gap-2 mb-4 ${isFor ? "" : "justify-end"}`}
+      >
         {isFor ? (
           <Sword className="w-4 h-4 text-amber-600" />
         ) : (
@@ -137,11 +129,12 @@ function DebaterCard({
               className={`
                 relative p-4 rounded-xl border-2 transition-all duration-300 text-left
                 ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
-                ${isSelected
-                  ? isFor
-                    ? "border-amber-400 bg-gradient-to-br from-amber-50 to-orange-50/50 shadow-md"
-                    : "border-stone-400 bg-gradient-to-br from-stone-100 to-stone-50 shadow-md"
-                  : "border-stone-200 bg-white/60 hover:border-stone-300 hover:bg-white/80"
+                ${
+                  isSelected
+                    ? isFor
+                      ? "border-amber-400 bg-gradient-to-br from-amber-50 to-orange-50/50 shadow-md"
+                      : "border-stone-400 bg-gradient-to-br from-stone-100 to-stone-50 shadow-md"
+                    : "border-stone-200 bg-white/60 hover:border-stone-300 hover:bg-white/80"
                 }
               `}
             >
@@ -154,7 +147,7 @@ function DebaterCard({
                     isFor ? "bg-amber-500" : "bg-stone-500"
                   }`}
                 >
-                  ✓
+                  &#10003;
                 </motion.div>
               )}
 
@@ -165,7 +158,9 @@ function DebaterCard({
               >
                 <Icon className="w-5 h-5" style={{ color: llm.color }} />
               </div>
-              <div className="font-serif font-semibold text-primary">{llm.name}</div>
+              <div className="font-serif font-semibold text-primary">
+                {llm.name}
+              </div>
               <div className="text-xs text-stone-500 mt-0.5">{llm.fullName}</div>
             </motion.button>
           );
@@ -175,10 +170,15 @@ function DebaterCard({
   );
 }
 
-function ArgumentBubble({ message, isLatest }: { message: DebateMessage; isLatest: boolean }) {
-  const llm = LLM_OPTIONS.find((l) => l.id === message.model);
+interface ArgumentBubbleProps {
+  message: DebateMessage;
+  isLatest: boolean;
+}
+
+function ArgumentBubble({ message }: ArgumentBubbleProps) {
+  const llm = getLLMOption(message.model);
   const isFor = message.side === "for";
-  const Icon = llm?.Icon || ClaudeIcon;
+  const Icon = llm?.Icon ?? ClaudeIcon;
 
   return (
     <motion.div
@@ -207,14 +207,24 @@ function ArgumentBubble({ message, isLatest }: { message: DebateMessage; isLates
           >
             <Icon className="w-6 h-6" style={{ color: llm?.color }} />
           </div>
-          <div className={`w-0.5 flex-1 min-h-[20px] ${isFor ? "bg-amber-200/60" : "bg-stone-200/60"}`} />
+          <div
+            className={`w-0.5 flex-1 min-h-[20px] ${
+              isFor ? "bg-amber-200/60" : "bg-stone-200/60"
+            }`}
+          />
         </div>
 
         {/* Content */}
         <div className={`flex-1 ${isFor ? "pr-8" : "pl-8"}`}>
           {/* Header */}
-          <div className={`flex items-center gap-2 mb-2 ${isFor ? "" : "justify-end"}`}>
-            <span className="font-serif font-semibold text-primary">{llm?.name}</span>
+          <div
+            className={`flex items-center gap-2 mb-2 ${
+              isFor ? "" : "justify-end"
+            }`}
+          >
+            <span className="font-serif font-semibold text-primary">
+              {llm?.name}
+            </span>
             <span
               className={`text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 font-medium ${
                 isFor
@@ -222,7 +232,11 @@ function ArgumentBubble({ message, isLatest }: { message: DebateMessage; isLates
                   : "bg-stone-100/80 text-stone-600 border border-stone-200/50"
               }`}
             >
-              {isFor ? <Sword className="w-3 h-3" /> : <Shield className="w-3 h-3" />}
+              {isFor ? (
+                <Sword className="w-3 h-3" />
+              ) : (
+                <Shield className="w-3 h-3" />
+              )}
               {isFor ? "Pro" : "Con"}
             </span>
           </div>
@@ -251,10 +265,15 @@ function ArgumentBubble({ message, isLatest }: { message: DebateMessage; isLates
   );
 }
 
-function ThinkingIndicator({ side, model }: { side: "for" | "against"; model: LLMModel }) {
-  const llm = LLM_OPTIONS.find((l) => l.id === model);
+interface ThinkingIndicatorProps {
+  side: "for" | "against";
+  model: LLMModel;
+}
+
+function ThinkingIndicator({ side, model }: ThinkingIndicatorProps) {
+  const llm = getLLMOption(model);
   const isFor = side === "for";
-  const Icon = llm?.Icon || ClaudeIcon;
+  const Icon = llm?.Icon ?? ClaudeIcon;
 
   return (
     <motion.div
@@ -281,11 +300,15 @@ function ThinkingIndicator({ side, model }: { side: "for" | "against"; model: LL
             {llm?.name} is composing...
           </span>
           <div className="flex gap-1">
-            {[0, 1, 2].map((i) => (
+            {Array.from({ length: THINKING_DOTS.COUNT }).map((_, i) => (
               <motion.div
                 key={i}
                 animate={{ opacity: [0.3, 1, 0.3] }}
-                transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2 }}
+                transition={{
+                  duration: THINKING_DOTS.ANIMATION_DURATION,
+                  repeat: Infinity,
+                  delay: i * THINKING_DOTS.DOT_DELAY,
+                }}
                 className={`w-1.5 h-1.5 rounded-full ${
                   isFor ? "bg-amber-400" : "bg-stone-400"
                 }`}
@@ -298,33 +321,159 @@ function ThinkingIndicator({ side, model }: { side: "for" | "against"; model: LL
   );
 }
 
+interface DebateHeaderProps {
+  state: DebateState;
+  forLlm: LLMOption | undefined;
+  againstLlm: LLMOption | undefined;
+  onTogglePause: () => void;
+  onReset: () => void;
+}
+
+function DebateHeader({
+  state,
+  forLlm,
+  againstLlm,
+  onTogglePause,
+  onReset,
+}: DebateHeaderProps) {
+  const ForIcon = forLlm?.Icon ?? ClaudeIcon;
+  const AgainstIcon = againstLlm?.Icon ?? OpenAIIcon;
+  const isDebating = state.phase === "debating";
+  const isPaused = state.phase === "paused";
+  const isMockView = state.phase === "mockView";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="flex items-center justify-between p-4 rounded-xl bg-white/60 border border-stone-200/60 shadow-sm"
+    >
+      <div className="flex items-center gap-6">
+        {/* Debaters */}
+        <div className="flex items-center gap-2">
+          <Sword className="w-4 h-4 text-amber-600" />
+          <div
+            className="w-8 h-8 rounded-lg flex items-center justify-center border border-stone-200/50"
+            style={{ backgroundColor: forLlm?.bgLight }}
+          >
+            <ForIcon className="w-4 h-4" style={{ color: forLlm?.color }} />
+          </div>
+          <span className="font-serif text-amber-700 font-medium">
+            {forLlm?.name}
+          </span>
+        </div>
+
+        <span className="text-stone-400 font-serif italic">vs</span>
+
+        <div className="flex items-center gap-2">
+          <span className="font-serif text-stone-600 font-medium">
+            {againstLlm?.name}
+          </span>
+          <div
+            className="w-8 h-8 rounded-lg flex items-center justify-center border border-stone-200/50"
+            style={{ backgroundColor: againstLlm?.bgLight }}
+          >
+            <AgainstIcon
+              className="w-4 h-4"
+              style={{ color: againstLlm?.color }}
+            />
+          </div>
+          <Shield className="w-4 h-4 text-stone-500" />
+        </div>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-stone-50/80">
+          <span className="text-xs text-stone-500">Round</span>
+          <span className="font-serif font-bold text-primary">
+            {state.currentRound}
+          </span>
+          <span className="text-xs text-stone-400">of {state.maxRounds}</span>
+        </div>
+
+        {isDebating && (
+          <div className="flex items-center gap-1.5 text-amber-600">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            <span className="text-xs font-medium">Live</span>
+          </div>
+        )}
+
+        {isMockView && (
+          <div className="flex items-center gap-1.5 text-stone-500">
+            <Eye className="h-4 w-4" />
+            <span className="text-xs font-medium">Example</span>
+          </div>
+        )}
+
+        <div className="flex items-center gap-1">
+          {(isDebating || isPaused) && (
+            <button
+              onClick={onTogglePause}
+              className="p-2 rounded-lg hover:bg-stone-100 transition-colors text-stone-500"
+            >
+              {isPaused ? (
+                <Play className="h-4 w-4" />
+              ) : (
+                <Pause className="h-4 w-4" />
+              )}
+            </button>
+          )}
+          <button
+            onClick={onReset}
+            className="p-2 rounded-lg hover:bg-stone-100 transition-colors text-stone-500"
+          >
+            <RotateCcw className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ============================================================================
+// Main Component
+// ============================================================================
+
 export function DebateView() {
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const topic = topics.find((t) => t.id === currentTopicId);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const [forModel, setForModel] = useState<LLMModel | null>(null);
-  const [againstModel, setAgainstModel] = useState<LLMModel | null>(null);
-  const [messages, setMessages] = useState<DebateMessage[]>([]);
-  const [currentRound, setCurrentRound] = useState(0);
-  const [maxRounds, setMaxRounds] = useState(3);
-  const [isDebating, setIsDebating] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const [typingSide, setTypingSide] = useState<"for" | "against" | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [showMockDebate, setShowMockDebate] = useState(false);
+  // Use ref to track phase for pause handling (fixes closure bug)
+  const phaseRef = useRef<DebatePhase>("setup");
 
-  const canStart = forModel && againstModel && !isDebating;
-  const isSetupPhase = messages.length === 0 && !isDebating && !showMockDebate;
-  const hasMockData = currentTopicId && MOCK_DEBATES[currentTopicId];
+  // Consolidated state
+  const [state, setState] = useState<DebateState>({
+    phase: "setup",
+    forModel: null,
+    againstModel: null,
+    messages: [],
+    currentRound: 0,
+    maxRounds: DEBATE.DEFAULT_ROUNDS,
+    typingSide: null,
+    error: null,
+    failedModel: null,
+  });
+
+  // Keep phaseRef in sync with state
+  useEffect(() => {
+    phaseRef.current = state.phase;
+  }, [state.phase]);
+
+  const [showSharePanel, setShowSharePanel] = useState(false);
+
+  const canStart = state.forModel && state.againstModel && state.phase === "setup";
+  const isSetupPhase = state.messages.length === 0 && state.phase === "setup";
+  const topicHasMockData = hasMockDebate(currentTopicId);
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
-    if (messages.length > 0 || showMockDebate) {
+    if (state.messages.length > 0 || state.phase === "mockView") {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages, typingSide, showMockDebate]);
+  }, [state.messages, state.typingSide, state.phase]);
 
+  // Generate argument from API with better error handling
   const generateArgument = useCallback(
     async (
       side: "for" | "against",
@@ -355,7 +504,9 @@ export function DebateView() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to generate argument");
+        const data = await response.json().catch(() => ({}));
+        const errorMsg = data.details || data.error || "Failed to generate argument";
+        throw new Error(`${model}: ${errorMsg}`);
       }
 
       const data = await response.json();
@@ -364,114 +515,181 @@ export function DebateView() {
     [topic]
   );
 
+  // Run a single debate round
   const runDebateRound = useCallback(
-    async (round: number, existingMessages: DebateMessage[]) => {
-      if (!forModel || !againstModel || !topic) return existingMessages;
+    async (
+      round: number,
+      existingMessages: DebateMessage[],
+      forModel: LLMModel,
+      againstModel: LLMModel
+    ): Promise<DebateMessage[]> => {
+      if (!topic) return existingMessages;
 
       let updatedMessages = [...existingMessages];
 
-      setTypingSide("for");
+      // Generate "for" argument
+      setState((prev) => ({ ...prev, typingSide: "for", error: null, failedModel: null }));
       try {
-        const forArgument = await generateArgument("for", forModel, round, updatedMessages);
-        const forMessage: DebateMessage = {
-          id: `for-${round}-${Date.now()}`,
-          side: "for",
-          model: forModel,
-          content: forArgument,
+        const forArgument = await generateArgument(
+          "for",
+          forModel,
           round,
-        };
+          updatedMessages
+        );
+        const forMessage = createDebateMessage("for", forModel, forArgument, round);
         updatedMessages = [...updatedMessages, forMessage];
-        setMessages(updatedMessages);
+        setState((prev) => ({ ...prev, messages: updatedMessages }));
       } catch (e) {
-        setError("Failed to generate proposition argument");
-        throw e;
+        const errorMsg = e instanceof Error ? e.message : "Failed to generate proposition argument";
+        setState((prev) => ({
+          ...prev,
+          error: errorMsg,
+          failedModel: forModel,
+          typingSide: null,
+        }));
+        throw new Error(errorMsg);
       }
-      setTypingSide(null);
+      setState((prev) => ({ ...prev, typingSide: null }));
 
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      await new Promise((resolve) => setTimeout(resolve, DEBATE.TURN_DELAY));
 
-      setTypingSide("against");
+      // Generate "against" argument
+      setState((prev) => ({ ...prev, typingSide: "against", error: null, failedModel: null }));
       try {
-        const againstArgument = await generateArgument("against", againstModel, round, updatedMessages);
-        const againstMessage: DebateMessage = {
-          id: `against-${round}-${Date.now()}`,
-          side: "against",
-          model: againstModel,
-          content: againstArgument,
+        const againstArgument = await generateArgument(
+          "against",
+          againstModel,
           round,
-        };
+          updatedMessages
+        );
+        const againstMessage = createDebateMessage(
+          "against",
+          againstModel,
+          againstArgument,
+          round
+        );
         updatedMessages = [...updatedMessages, againstMessage];
-        setMessages(updatedMessages);
+        setState((prev) => ({ ...prev, messages: updatedMessages }));
       } catch (e) {
-        setError("Failed to generate opposition argument");
-        throw e;
+        const errorMsg = e instanceof Error ? e.message : "Failed to generate opposition argument";
+        setState((prev) => ({
+          ...prev,
+          error: errorMsg,
+          failedModel: againstModel,
+          typingSide: null,
+        }));
+        throw new Error(errorMsg);
       }
-      setTypingSide(null);
+      setState((prev) => ({ ...prev, typingSide: null }));
 
       return updatedMessages;
     },
-    [forModel, againstModel, topic, generateArgument]
+    [topic, generateArgument]
   );
 
   const startDebate = useCallback(async () => {
-    if (!canStart) return;
+    if (!canStart || !state.forModel || !state.againstModel) return;
 
-    setShowMockDebate(false);
-    setIsDebating(true);
-    setError(null);
-    setMessages([]);
-    setCurrentRound(1);
+    setState((prev) => ({
+      ...prev,
+      phase: "debating",
+      error: null,
+      messages: [],
+      currentRound: 1,
+    }));
 
     let currentMessages: DebateMessage[] = [];
 
     try {
-      for (let round = 1; round <= maxRounds; round++) {
-        if (isPaused) {
-          await new Promise((resolve) => {
+      for (let round = 1; round <= state.maxRounds; round++) {
+        // Handle pause state using ref to avoid closure bug
+        if (phaseRef.current === "paused") {
+          await new Promise<void>((resolve) => {
             const checkPause = setInterval(() => {
-              if (!isPaused) {
+              if (phaseRef.current !== "paused") {
                 clearInterval(checkPause);
-                resolve(null);
+                resolve();
               }
             }, 100);
           });
         }
 
-        setCurrentRound(round);
-        currentMessages = await runDebateRound(round, currentMessages);
+        setState((prev) => ({ ...prev, currentRound: round }));
+        currentMessages = await runDebateRound(
+          round,
+          currentMessages,
+          state.forModel!,
+          state.againstModel!
+        );
 
-        if (round < maxRounds) {
-          await new Promise((resolve) => setTimeout(resolve, 1200));
+        if (round < state.maxRounds) {
+          await new Promise((resolve) => setTimeout(resolve, DEBATE.ROUND_DELAY));
         }
       }
     } catch (e) {
       console.error("Debate error:", e);
     } finally {
-      setIsDebating(false);
-      setTypingSide(null);
+      setState((prev) => ({
+        ...prev,
+        phase: "complete",
+        typingSide: null,
+      }));
     }
-  }, [canStart, maxRounds, isPaused, runDebateRound]);
+  }, [canStart, state.forModel, state.againstModel, state.maxRounds, state.phase, runDebateRound]);
 
   const resetDebate = useCallback(() => {
-    setMessages([]);
-    setCurrentRound(0);
-    setIsDebating(false);
-    setIsPaused(false);
-    setTypingSide(null);
-    setError(null);
-    setShowMockDebate(false);
+    setState({
+      phase: "setup",
+      forModel: state.forModel,
+      againstModel: state.againstModel,
+      messages: [],
+      currentRound: 0,
+      maxRounds: state.maxRounds,
+      typingSide: null,
+      error: null,
+      failedModel: null,
+    });
+  }, [state.forModel, state.againstModel, state.maxRounds]);
+
+  const clearError = useCallback(() => {
+    setState((prev) => ({ ...prev, error: null, failedModel: null }));
+  }, []);
+
+  const togglePause = useCallback(() => {
+    setState((prev) => ({
+      ...prev,
+      phase: prev.phase === "paused" ? "debating" : "paused",
+    }));
   }, []);
 
   const viewMockDebate = useCallback(() => {
-    if (hasMockData) {
-      setShowMockDebate(true);
-      setForModel("claude");
-      setAgainstModel("gpt-4");
-      setCurrentRound(2);
-      setMaxRounds(2);
+    if (topicHasMockData && currentTopicId) {
+      const mockModels = getMockDebateModels();
+      const mockRounds = getMockDebateRounds(currentTopicId);
+      setState((prev) => ({
+        ...prev,
+        phase: "mockView",
+        forModel: mockModels.forModel,
+        againstModel: mockModels.againstModel,
+        currentRound: mockRounds,
+        maxRounds: mockRounds,
+      }));
     }
-  }, [hasMockData]);
+  }, [topicHasMockData, currentTopicId]);
 
+  const setForModel = useCallback((model: LLMModel) => {
+    setState((prev) => ({ ...prev, forModel: model }));
+  }, []);
+
+  const setAgainstModel = useCallback((model: LLMModel) => {
+    setState((prev) => ({ ...prev, againstModel: model }));
+  }, []);
+
+  const setMaxRounds = useCallback((rounds: number) => {
+    setState((prev) => ({ ...prev, maxRounds: rounds }));
+  }, []);
+
+  // No topic selected state
   if (!topic) {
     return (
       <div className="flex flex-col items-center justify-center h-full text-stone-500 gap-4">
@@ -481,12 +699,17 @@ export function DebateView() {
     );
   }
 
-  const forLlm = LLM_OPTIONS.find((l) => l.id === forModel);
-  const againstLlm = LLM_OPTIONS.find((l) => l.id === againstModel);
-  const ForIcon = forLlm?.Icon || ClaudeIcon;
-  const AgainstIcon = againstLlm?.Icon || OpenAIIcon;
+  const forLlm = getLLMOption(state.forModel ?? "claude");
+  const againstLlm = getLLMOption(state.againstModel ?? "gpt-4");
 
-  const displayMessages = showMockDebate && hasMockData ? MOCK_DEBATES[currentTopicId] : messages;
+  const displayMessages =
+    state.phase === "mockView" && currentTopicId
+      ? getMockDebate(currentTopicId)
+      : state.messages;
+
+  const isDebating = state.phase === "debating" || state.phase === "paused";
+  const showHeader = isDebating || displayMessages.length > 0;
+  const showComplete = !isDebating && displayMessages.length > 0;
 
   return (
     <div className="h-full overflow-auto">
@@ -519,13 +742,15 @@ export function DebateView() {
             {/* Debater Selection */}
             <div className="bg-white/50 backdrop-blur-sm rounded-2xl border border-stone-200/60 p-6 shadow-sm">
               <div className="flex items-center justify-center gap-8 mb-6">
-                <h3 className="font-serif text-lg text-primary">Select Your Debaters</h3>
+                <h3 className="font-serif text-lg text-primary">
+                  Select Your Debaters
+                </h3>
               </div>
 
               <div className="flex gap-8 items-start">
                 <DebaterCard
                   side="for"
-                  selectedModel={forModel}
+                  selectedModel={state.forModel}
                   onSelect={setForModel}
                   disabled={isDebating}
                 />
@@ -533,13 +758,15 @@ export function DebateView() {
                 {/* Center divider with VS */}
                 <div className="flex flex-col items-center justify-center py-8 px-2">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-stone-100 to-stone-200 border border-stone-300/50 flex items-center justify-center shadow-inner">
-                    <span className="font-serif text-stone-500 font-semibold text-sm">vs</span>
+                    <span className="font-serif text-stone-500 font-semibold text-sm">
+                      vs
+                    </span>
                   </div>
                 </div>
 
                 <DebaterCard
                   side="against"
-                  selectedModel={againstModel}
+                  selectedModel={state.againstModel}
                   onSelect={setAgainstModel}
                   disabled={isDebating}
                 />
@@ -550,14 +777,14 @@ export function DebateView() {
             <div className="flex items-center justify-center gap-6">
               <span className="font-serif text-stone-600">Number of Rounds</span>
               <div className="flex gap-2">
-                {[2, 3, 4, 5].map((num) => (
+                {DEBATE.ROUND_OPTIONS.map((num) => (
                   <motion.button
                     key={num}
                     onClick={() => setMaxRounds(num)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={`w-11 h-11 rounded-xl font-serif font-semibold transition-all ${
-                      maxRounds === num
+                      state.maxRounds === num
                         ? "bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-md"
                         : "bg-white border border-stone-200 text-stone-600 hover:border-stone-300"
                     }`}
@@ -577,9 +804,10 @@ export function DebateView() {
                 whileTap={canStart ? { scale: 0.98 } : {}}
                 className={`
                   flex items-center gap-3 px-8 py-3.5 rounded-xl font-serif font-semibold text-lg transition-all
-                  ${canStart
-                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg hover:shadow-xl"
-                    : "bg-stone-100 text-stone-400 cursor-not-allowed"
+                  ${
+                    canStart
+                      ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg hover:shadow-xl"
+                      : "bg-stone-100 text-stone-400 cursor-not-allowed"
                   }
                 `}
               >
@@ -587,7 +815,7 @@ export function DebateView() {
                 Begin Debate
               </motion.button>
 
-              {hasMockData && (
+              {topicHasMockData && (
                 <motion.button
                   onClick={viewMockDebate}
                   whileHover={{ scale: 1.02 }}
@@ -603,88 +831,49 @@ export function DebateView() {
         )}
 
         {/* Active Debate Header */}
-        {(isDebating || displayMessages.length > 0) && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex items-center justify-between p-4 rounded-xl bg-white/60 border border-stone-200/60 shadow-sm"
-          >
-            <div className="flex items-center gap-6">
-              {/* Debaters */}
-              <div className="flex items-center gap-2">
-                <Sword className="w-4 h-4 text-amber-600" />
-                <div
-                  className="w-8 h-8 rounded-lg flex items-center justify-center border border-stone-200/50"
-                  style={{ backgroundColor: forLlm?.bgLight }}
-                >
-                  <ForIcon className="w-4 h-4" style={{ color: forLlm?.color }} />
-                </div>
-                <span className="font-serif text-amber-700 font-medium">{forLlm?.name}</span>
-              </div>
-
-              <span className="text-stone-400 font-serif italic">vs</span>
-
-              <div className="flex items-center gap-2">
-                <span className="font-serif text-stone-600 font-medium">{againstLlm?.name}</span>
-                <div
-                  className="w-8 h-8 rounded-lg flex items-center justify-center border border-stone-200/50"
-                  style={{ backgroundColor: againstLlm?.bgLight }}
-                >
-                  <AgainstIcon className="w-4 h-4" style={{ color: againstLlm?.color }} />
-                </div>
-                <Shield className="w-4 h-4 text-stone-500" />
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-stone-50/80">
-                <span className="text-xs text-stone-500">Round</span>
-                <span className="font-serif font-bold text-primary">{currentRound}</span>
-                <span className="text-xs text-stone-400">of {maxRounds}</span>
-              </div>
-
-              {isDebating && (
-                <div className="flex items-center gap-1.5 text-amber-600">
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                  <span className="text-xs font-medium">Live</span>
-                </div>
-              )}
-
-              {showMockDebate && (
-                <div className="flex items-center gap-1.5 text-stone-500">
-                  <Eye className="h-4 w-4" />
-                  <span className="text-xs font-medium">Example</span>
-                </div>
-              )}
-
-              <div className="flex items-center gap-1">
-                {isDebating && (
-                  <button
-                    onClick={() => setIsPaused(!isPaused)}
-                    className="p-2 rounded-lg hover:bg-stone-100 transition-colors text-stone-500"
-                  >
-                    {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
-                  </button>
-                )}
-                <button
-                  onClick={resetDebate}
-                  className="p-2 rounded-lg hover:bg-stone-100 transition-colors text-stone-500"
-                >
-                  <RotateCcw className="h-4 w-4" />
-                </button>
-              </div>
-            </div>
-          </motion.div>
+        {showHeader && (
+          <DebateHeader
+            state={state}
+            forLlm={forLlm}
+            againstLlm={againstLlm}
+            onTogglePause={togglePause}
+            onReset={resetDebate}
+          />
         )}
 
-        {/* Error */}
-        {error && (
+        {/* Error with Retry */}
+        {state.error && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="p-4 bg-red-50/80 border border-red-200/60 rounded-xl text-red-700 text-sm"
+            className="p-4 bg-red-50/80 border border-red-200/60 rounded-xl"
           >
-            {error}
+            <div className="flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-red-700 text-sm font-medium">
+                  {state.failedModel
+                    ? `${state.failedModel.charAt(0).toUpperCase() + state.failedModel.slice(1)} API Error`
+                    : "Error"}
+                </p>
+                <p className="text-red-600 text-sm mt-1">{state.error}</p>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={clearError}
+                  className="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-100 rounded-lg transition-colors"
+                >
+                  Dismiss
+                </button>
+                <button
+                  onClick={resetDebate}
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg transition-colors"
+                >
+                  <RefreshCw className="w-3.5 h-3.5" />
+                  Restart
+                </button>
+              </div>
+            </div>
           </motion.div>
         )}
 
@@ -702,10 +891,14 @@ export function DebateView() {
             </AnimatePresence>
 
             <AnimatePresence>
-              {typingSide && (
+              {state.typingSide && state.forModel && state.againstModel && (
                 <ThinkingIndicator
-                  side={typingSide}
-                  model={typingSide === "for" ? forModel! : againstModel!}
+                  side={state.typingSide}
+                  model={
+                    state.typingSide === "for"
+                      ? state.forModel
+                      : state.againstModel
+                  }
                 />
               )}
             </AnimatePresence>
@@ -715,24 +908,64 @@ export function DebateView() {
         )}
 
         {/* Debate Complete */}
-        {!isDebating && displayMessages.length > 0 && (
+        {showComplete && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center py-8 border-t border-stone-200/60"
+            className="py-8 border-t border-stone-200/60"
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/60 rounded-full">
-              <Sparkles className="h-4 w-4 text-amber-600" />
-              <span className="font-serif text-amber-800 font-medium">
-                {showMockDebate ? "Example Debate" : "Debate Concluded"} — {maxRounds} Rounds
-              </span>
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/60 rounded-full">
+                <Sparkles className="h-4 w-4 text-amber-600" />
+                <span className="font-serif text-amber-800 font-medium">
+                  {state.phase === "mockView" ? "Example Debate" : "Debate Concluded"}{" "}
+                  &mdash; {state.maxRounds} Rounds
+                </span>
+              </div>
+              <p className="mt-4 text-stone-500 max-w-md mx-auto">
+                {state.phase === "mockView"
+                  ? "This is a pre-generated example. Start your own debate to see live AI responses."
+                  : "Both sides have presented their arguments. Consider the evidence and form your own conclusion."}
+              </p>
+
+              {/* Share to Moltbook button - only for completed debates, not mock views */}
+              {state.phase === "complete" && topic && state.forModel && state.againstModel && (
+                <motion.button
+                  onClick={() => setShowSharePanel(!showSharePanel)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-xl transition-colors shadow-md"
+                >
+                  <Share2 className="h-4 w-4" />
+                  Share to Moltbook
+                </motion.button>
+              )}
             </div>
-            <p className="mt-4 text-stone-500 max-w-md mx-auto">
-              {showMockDebate
-                ? "This is a pre-generated example. Start your own debate to see live AI responses."
-                : "Both sides have presented their arguments. Consider the evidence and form your own conclusion."
-              }
-            </p>
+
+            {/* Share Panel */}
+            <AnimatePresence>
+              {showSharePanel && topic && state.forModel && state.againstModel && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-6 max-w-lg mx-auto overflow-hidden"
+                >
+                  <ShareToMoltbook
+                    topic={topic}
+                    messages={state.messages.map((m) => ({
+                      side: m.side,
+                      model: m.model,
+                      content: m.content,
+                      round: m.round,
+                    }))}
+                    forModel={state.forModel}
+                    againstModel={state.againstModel}
+                    onClose={() => setShowSharePanel(false)}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         )}
       </div>

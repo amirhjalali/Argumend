@@ -1,88 +1,17 @@
 import { BlueprintNode } from "@/types/graph";
-import { Topic } from "@/types/logic";
+import { Topic, Evidence } from "@/types/logic";
+import { calculateEvidenceScore } from "@/lib/schemas/topic";
 import { moonLanding } from "./topics";
-
-// Topic-specific configurations for images, references, and questions
-const topicConfigs: Record<string, {
-  imageUrl: string;
-  references: Array<{ title: string; url: string }>;
-  questions: Array<{ id: string; title: string; content: string; imageUrl?: string; references?: Array<{ title: string; url: string }> }>;
-}> = {
-  'moon-landing': {
-    imageUrl: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=60',
-    references: [
-      { title: "NASA Mission Report (Apollo 11)", url: "https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html" },
-      { title: "LRO Imagery Verification", url: "https://www.nasa.gov/mission_pages/LRO/main/index.html" }
-    ],
-    questions: [
-      { id: "q1", title: "Where is the physical evidence?", content: "What specific physical traces remain on the lunar surface that can be verified from Earth today?", imageUrl: "https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&w=800&q=60", references: [{ title: "Laser Ranging Retroreflector Experiment", url: "https://en.wikipedia.org/wiki/Lunar_Laser_Ranging_experiment" }] },
-      { id: "q2", title: "How was radiation handled?", content: "How did the astronauts survive the lethal Van Allen radiation belts without heavy shielding?", imageUrl: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=60" },
-      { id: "q3", title: "Why haven't we returned?", content: "If the technology existed in 1969, what economic or political factors have prevented a return mission?", imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=60" }
-    ]
-  },
-  'simulation-hypothesis': {
-    imageUrl: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60',
-    references: [
-      { title: "Bostrom's Original Paper (2003)", url: "https://www.simulation-argument.com/simulation.html" },
-      { title: "OpenWorm Project", url: "https://openworm.org/" },
-      { title: "Pierre Auger Observatory", url: "https://www.auger.org/" }
-    ],
-    questions: [
-      { id: "q1", title: "Can consciousness be computed?", content: "Is subjective experience substrate-independent, or does it require specific biological physics that cannot be digitally replicated?", imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=60", references: [{ title: "OpenWorm Project", url: "https://openworm.org/" }] },
-      { id: "q2", title: "Why would they simulate us?", content: "What motivations would a post-human civilization have for running detailed ancestor simulations rather than pursuing other goals?", imageUrl: "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&fit=crop&w=800&q=60" },
-      { id: "q3", title: "Can we detect the simulation?", content: "Are there empirical tests that could reveal computational artifacts in the fabric of reality, such as lattice spacing or rendering optimizations?", imageUrl: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=60" }
-    ]
-  },
-  'ai-risk': {
-    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60',
-    references: [
-      { title: "Superintelligence (Bostrom)", url: "https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies" },
-      { title: "AI Alignment Forum", url: "https://www.alignmentforum.org/" }
-    ],
-    questions: [
-      { id: "q1", title: "Will AGI pursue human values?", content: "Can we ensure that a superintelligent system's goals remain aligned with human flourishing, or is misalignment inevitable?", imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=60" },
-      { id: "q2", title: "Can we control a superintelligence?", content: "Once an AI surpasses human intelligence, what mechanisms could keep it under human control or oversight?", imageUrl: "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=60" },
-      { id: "q3", title: "How soon could AGI emerge?", content: "What are the most credible timelines for achieving artificial general intelligence, and how do they affect our preparation window?", imageUrl: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=60" }
-    ]
-  },
-  'free-will': {
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=60',
-    references: [
-      { title: "Libet's Original Experiment (1983)", url: "https://en.wikipedia.org/wiki/Benjamin_Libet#Libet's_experiment" },
-      { title: "Stanford Encyclopedia: Free Will", url: "https://plato.stanford.edu/entries/freewill/" },
-      { title: "Sam Harris: Free Will (2012)", url: "https://www.samharris.org/books/free-will" }
-    ],
-    questions: [
-      { id: "q1", title: "Is our sense of agency an illusion?", content: "When we feel we 'choose' an action, is that feeling causally effective or merely a byproduct of unconscious neural processes?", imageUrl: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=60", references: [{ title: "The Illusion of Conscious Will (Wegner)", url: "https://en.wikipedia.org/wiki/The_Illusion_of_Conscious_Will" }] },
-      { id: "q2", title: "Does determinism undermine responsibility?", content: "If our choices are the inevitable result of prior causes, can we meaningfully hold people accountable for their actions?", imageUrl: "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=800&q=60" },
-      { id: "q3", title: "What would 'genuine' choice require?", content: "For free will to be 'real,' what conditions must be met? Could any physical system satisfy those conditions?", imageUrl: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=60" }
-    ]
-  },
-  'climate-change': {
-    imageUrl: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60',
-    references: [
-      { title: "IPCC Sixth Assessment Report (2021)", url: "https://www.ipcc.ch/assessment-report/ar6/" },
-      { title: "NASA Climate Evidence", url: "https://climate.nasa.gov/evidence/" },
-      { title: "The Suess Effect Explained", url: "https://en.wikipedia.org/wiki/Suess_effect" }
-    ],
-    questions: [
-      { id: "q1", title: "How do we know CO₂ is from humans?", content: "What specific evidence distinguishes human-produced CO₂ from natural sources like volcanic activity or ocean outgassing?", imageUrl: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=800&q=60", references: [{ title: "Carbon Isotope Analysis", url: "https://www.esrl.noaa.gov/gmd/outreach/isotopes/" }] },
-      { id: "q2", title: "Why trust climate models?", content: "Climate models have been criticized for running 'too hot.' How do we validate model predictions against observations?", imageUrl: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60" },
-      { id: "q3", title: "Could the Sun be responsible?", content: "Solar activity has historically correlated with climate. Why do scientists rule out the Sun as the primary driver of recent warming?", imageUrl: "https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=60" }
-    ]
-  }
-};
 
 export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
   const rootId = "root";
-  const config = topicConfigs[topic.id];
-  const hasQuestions = config && config.questions.length > 0;
+  const hasQuestions = topic.questions && topic.questions.length > 0;
 
   const rootChildren = [];
 
   // 1. Add "Logic Map" nodes (Questions/Inquiries) to the RIGHT
   if (hasQuestions) {
-    config.questions.forEach(q => {
+    topic.questions!.forEach((q) => {
       rootChildren.push({ id: q.id, slot: "right" as const });
     });
   } else {
@@ -94,7 +23,7 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
   }
 
   // 2. Add Pillars vertically BELOW (Center slot)
-  topic.pillars.forEach(p => {
+  topic.pillars.forEach((p) => {
     rootChildren.push({ id: p.id, slot: "center" as const });
   });
 
@@ -106,15 +35,15 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
       subtitle: "Meta Claim",
       content: topic.meta_claim,
       score: topic.confidence_score,
-      imageUrl: config?.imageUrl,
-      references: config?.references ?? [],
+      imageUrl: topic.imageUrl,
+      references: topic.references ?? [],
       children: rootChildren,
     },
   };
 
   // Add the Logic Map Nodes (Questions)
   if (hasQuestions) {
-    config.questions.forEach(q => {
+    topic.questions!.forEach((q) => {
       blueprint[q.id] = {
         id: q.id,
         variant: "question",
@@ -123,7 +52,7 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
         content: q.content,
         imageUrl: q.imageUrl,
         references: q.references,
-        children: []
+        children: [],
       };
     });
   } else {
@@ -149,6 +78,16 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
   // Generate nodes for each pillar (Vertical Stack)
   topic.pillars.forEach((pillar) => {
     const cruxId = `crux-${pillar.crux.id}`;
+    const skepticId = `skeptic-${pillar.id}`;
+    const proponentId = `proponent-${pillar.id}`;
+    const hasEvidence = pillar.evidence && pillar.evidence.length > 0;
+
+    // Build pillar children: skeptic (left), crux (center), proponent (right)
+    const pillarChildren = [
+      { id: skepticId, slot: "left" as const },
+      { id: cruxId, slot: "center" as const },
+      { id: proponentId, slot: "right" as const },
+    ];
 
     blueprint[pillar.id] = {
       id: pillar.id,
@@ -157,12 +96,31 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
       subtitle: "Foundational Pillar",
       content: pillar.short_summary,
       imageUrl: pillar.image_url,
-      children: [
-        // Pillars can have their own logic too, but let's keep it simple: Crux below
-        { id: cruxId, slot: "center" }
-      ],
+      hasEvidence, // Flag for UI to show "Show Evidence" button
+      children: pillarChildren,
     };
 
+    // Skeptic node (opposing view)
+    blueprint[skepticId] = {
+      id: skepticId,
+      variant: "skeptic",
+      title: "Skeptic Position",
+      subtitle: "Opposition View",
+      content: pillar.skeptic_premise,
+      children: [],
+    };
+
+    // Proponent node (supporting view)
+    blueprint[proponentId] = {
+      id: proponentId,
+      variant: "proponent",
+      title: "Proponent Rebuttal",
+      subtitle: "Supporting View",
+      content: pillar.proponent_rebuttal,
+      children: [],
+    };
+
+    // Crux node
     blueprint[cruxId] = {
       id: cruxId,
       variant: "crux",
@@ -178,9 +136,40 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
       },
       children: [],
     };
+
+    // Add evidence nodes if present (children of pillar for lazy loading)
+    if (hasEvidence) {
+      pillar.evidence!.forEach((ev) => {
+        const evidenceId = `evidence-${ev.id}`;
+        blueprint[evidenceId] = {
+          id: evidenceId,
+          variant: "evidence",
+          title: ev.title,
+          content: ev.description,
+          subtitle: ev.side === "for" ? "Supporting Evidence" : "Opposing Evidence",
+          evidenceData: {
+            side: ev.side,
+            score: calculateEvidenceScore(ev.weight),
+            source: ev.source,
+            sourceUrl: ev.sourceUrl,
+          },
+          children: [],
+        };
+      });
+    }
   });
 
   return blueprint;
+}
+
+/**
+ * Get evidence node IDs for a given pillar from a topic.
+ * Used for lazy loading evidence nodes.
+ */
+export function getEvidenceIdsForPillar(topic: Topic, pillarId: string): string[] {
+  const pillar = topic.pillars.find((p) => p.id === pillarId);
+  if (!pillar || !pillar.evidence) return [];
+  return pillar.evidence.map((ev) => `evidence-${ev.id}`);
 }
 
 export const logicBlueprint = generateBlueprint(moonLanding);

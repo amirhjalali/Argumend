@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -13,8 +14,52 @@ import {
   Map,
   GraduationCap,
   Shell,
+  Wifi,
+  WifiOff,
 } from "lucide-react";
 import { topics } from "@/data/topics";
+
+function MoltbookStatusIndicator() {
+  const [isConnected, setIsConnected] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    fetch("/api/moltbook?action=status")
+      .then((res) => res.json())
+      .then((data) => setIsConnected(data.connected))
+      .catch(() => setIsConnected(false));
+  }, []);
+
+  if (isConnected === null) {
+    return (
+      <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-stone-100/80">
+        <div className="w-1.5 h-1.5 rounded-full bg-stone-300 animate-pulse" />
+        <span className="text-[10px] text-stone-400">Moltbook</span>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`flex items-center gap-1.5 px-2 py-1 rounded-full ${
+        isConnected ? "bg-teal-50/80" : "bg-stone-100/80"
+      }`}
+      title={isConnected ? "Connected to Moltbook" : "Moltbook not configured"}
+    >
+      {isConnected ? (
+        <Wifi className="w-3 h-3 text-teal-600" />
+      ) : (
+        <WifiOff className="w-3 h-3 text-stone-400" />
+      )}
+      <span
+        className={`text-[10px] ${
+          isConnected ? "text-teal-600" : "text-stone-400"
+        }`}
+      >
+        Moltbook
+      </span>
+    </div>
+  );
+}
 
 const PRIMARY_NAV = [
   { label: "Home", icon: Compass, href: "/" },
@@ -66,7 +111,20 @@ export function Sidebar({
   };
 
   return (
-    <aside className="relative flex h-full w-[260px] flex-col bg-transparent text-primary">
+    <aside className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] md:bg-transparent text-primary shadow-lg md:shadow-none">
+      {/* Mobile close button - appears at top of sidebar */}
+      <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50">
+        <span className="text-sm font-medium text-stone-600">Menu</span>
+        <button
+          onClick={onClose}
+          className="p-2 -m-2 rounded-lg text-stone-500 hover:text-stone-800 hover:bg-stone-100 transition-colors"
+          aria-label="Close menu"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
       <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5">
         {/* Primary Navigation */}
@@ -133,7 +191,7 @@ export function Sidebar({
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-3 border-t border-stone-200/50">
+      <div className="px-4 py-3 border-t border-stone-200/50 space-y-2">
         <div className="flex items-center justify-between">
           <ul className="flex items-center gap-3">
             {FOOTER_LINKS.map(({ label, href }) => (
@@ -147,6 +205,9 @@ export function Sidebar({
               </li>
             ))}
           </ul>
+          <MoltbookStatusIndicator />
+        </div>
+        <div className="text-center">
           <span className="text-[10px] font-mono text-stone-300">
             v1.0
           </span>

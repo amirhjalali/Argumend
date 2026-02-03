@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 // Lazy initialization to avoid build-time errors
 let anthropic: any = null;
 let openai: any = null;
+let gemini: any = null;
 
 async function getAnthropic() {
   if (!anthropic) {
@@ -20,11 +21,23 @@ async function getOpenAI() {
   return openai;
 }
 
+async function getGemini() {
+  if (!gemini) {
+    const { GoogleGenerativeAI } = await import("@google/generative-ai");
+    const apiKey = process.env.GOOGLE_AI_API_KEY || process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      throw new Error("GOOGLE_AI_API_KEY or GEMINI_API_KEY environment variable is required");
+    }
+    gemini = new GoogleGenerativeAI(apiKey);
+  }
+  return gemini;
+}
+
 interface DebateRequest {
   topic: string;
   topicId: string;
   side: "for" | "against";
-  model: "claude" | "gpt-4" | "gemini" | "llama";
+  model: "claude" | "gpt-4" | "gemini" | "grok";
   round: number;
   previousMessages: Array<{
     side: "for" | "against";
@@ -38,16 +51,31 @@ interface DebateRequest {
   }>;
 }
 
-function buildSystemPrompt(side: "for" | "against", topic: string, pillars?: DebateRequest["pillars"]): string {
-  const sideDescription = side === "for"
-    ? "You are arguing IN FAVOR of the claim. Present evidence, logical arguments, and rebuttals that support this position."
-    : "You are arguing AGAINST the claim. Present evidence, logical arguments, and rebuttals that challenge this position.";
+interface GenerationResult {
+  argument: string;
+  actualModel: string;
+  fallback?: boolean;
+  error?: string;
+}
+
+function buildSystemPrompt(
+  side: "for" | "against",
+  topic: string,
+  pillars?: DebateRequest["pillars"]
+): string {
+  const sideDescription =
+    side === "for"
+      ? "You are arguing IN FAVOR of the claim. Present evidence, logical arguments, and rebuttals that support this position."
+      : "You are arguing AGAINST the claim. Present evidence, logical arguments, and rebuttals that challenge this position.";
 
   let pillarContext = "";
   if (pillars && pillars.length > 0) {
-    pillarContext = `\n\nKey points to consider:\n${pillars.map((p, i) =>
-      `${i + 1}. ${p.title}\n   - Skeptic view: ${p.skepticPremise}\n   - Proponent view: ${p.proponentRebuttal}`
-    ).join("\n")}`;
+    pillarContext = `\n\nKey points to consider:\n${pillars
+      .map(
+        (p, i) =>
+          `${i + 1}. ${p.title}\n   - Skeptic view: ${p.skepticPremise}\n   - Proponent view: ${p.proponentRebuttal}`
+      )
+      .join("\n")}`;
   }
 
   return `You are participating in a structured debate about the following claim:
@@ -93,52 +121,118 @@ function buildUserPrompt(
 async function generateWithClaude(
   systemPrompt: string,
   userPrompt: string
-): Promise<string> {
-  const client = await getAnthropic();
-  const response = await client.messages.create({
-    model: "claude-sonnet-4-20250514",
-    max_tokens: 1024,
-    system: systemPrompt,
-    messages: [{ role: "user", content: userPrompt }],
-  });
+): Promise<GenerationResult> {
+  try {
+    const client = await getAnthropic();
+    const response = await client.messages.create({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 1024,
+      system: systemPrompt,
+      messages: [{ role: "user", content: userPrompt }],
+    });
 
-  const textBlock = response.content.find((block: any) => block.type === "text");
-  return textBlock ? textBlock.text : "Unable to generate argument.";
+    const textBlock = response.content.find((block: any) => block.type === "text");
+    return {
+      argument: textBlock ? textBlock.text : "Unable to generate argument.",
+      actualModel: "claude",
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    throw new Error(`Claude API failed: ${message}`);
+  }
 }
 
 async function generateWithGPT4(
   systemPrompt: string,
   userPrompt: string
-): Promise<string> {
-  const client = await getOpenAI();
-  const response = await client.chat.completions.create({
-    model: "gpt-4o",
-    max_tokens: 1024,
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt },
-    ],
-  });
+): Promise<GenerationResult> {
+  try {
+    const client = await getOpenAI();
+    const response = await client.chat.completions.create({
+      model: "gpt-4o",
+      max_tokens: 1024,
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt },
+      ],
+    });
 
-  return response.choices[0]?.message?.content || "Unable to generate argument.";
+    return {
+      argument: response.choices[0]?.message?.content || "Unable to generate argument.",
+      actualModel: "gpt-4",
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    throw new Error(`GPT-4 API failed: ${message}`);
+  }
 }
 
 async function generateWithGemini(
   systemPrompt: string,
   userPrompt: string
-): Promise<string> {
-  // Use OpenAI-compatible endpoint for Gemini via Google's API
-  // For now, fallback to Claude as Gemini requires different setup
-  return generateWithClaude(systemPrompt, userPrompt);
+): Promise<GenerationResult> {
+  try {
+    const client = await getGemini();
+    const model = client.getGenerativeModel({ model: "gemini-1.5-pro" });
+
+    // Gemini uses a different format - combine system and user prompts
+    const fullPrompt = `${systemPrompt}\n\n---\n\n${userPrompt}`;
+
+    const result = await model.generateContent(fullPrompt);
+    const response = await result.response;
+    const text = response.text();
+
+    return {
+      argument: text || "Unable to generate argument.",
+      actualModel: "gemini",
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    throw new Error(`Gemini API failed: ${message}`);
+  }
 }
 
-async function generateWithLlama(
+async function generateWithGrok(
   systemPrompt: string,
   userPrompt: string
-): Promise<string> {
-  // Llama would require different setup (e.g., via Together AI, Replicate, or local)
-  // For now, fallback to Claude
-  return generateWithClaude(systemPrompt, userPrompt);
+): Promise<GenerationResult> {
+  // Grok uses OpenAI-compatible API format with x.ai endpoint
+  const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
+  if (!apiKey) {
+    throw new Error("XAI_API_KEY or GROK_API_KEY environment variable is required");
+  }
+
+  try {
+    const response = await fetch("https://api.x.ai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: "grok-2-latest",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt },
+        ],
+        max_tokens: 1024,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`HTTP ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json();
+    return {
+      argument: data.choices[0]?.message?.content || "Unable to generate argument.",
+      actualModel: "grok",
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    throw new Error(`Grok API failed: ${message}`);
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -156,30 +250,49 @@ export async function POST(request: NextRequest) {
     const systemPrompt = buildSystemPrompt(side, topic, pillars);
     const userPrompt = buildUserPrompt(round, previousMessages, side);
 
-    let argument: string;
+    let result: GenerationResult;
 
-    switch (model) {
-      case "claude":
-        argument = await generateWithClaude(systemPrompt, userPrompt);
-        break;
-      case "gpt-4":
-        argument = await generateWithGPT4(systemPrompt, userPrompt);
-        break;
-      case "gemini":
-        argument = await generateWithGemini(systemPrompt, userPrompt);
-        break;
-      case "llama":
-        argument = await generateWithLlama(systemPrompt, userPrompt);
-        break;
-      default:
-        argument = await generateWithClaude(systemPrompt, userPrompt);
+    try {
+      switch (model) {
+        case "claude":
+          result = await generateWithClaude(systemPrompt, userPrompt);
+          break;
+        case "gpt-4":
+          result = await generateWithGPT4(systemPrompt, userPrompt);
+          break;
+        case "gemini":
+          result = await generateWithGemini(systemPrompt, userPrompt);
+          break;
+        case "grok":
+          result = await generateWithGrok(systemPrompt, userPrompt);
+          break;
+        default:
+          result = await generateWithClaude(systemPrompt, userPrompt);
+      }
+    } catch (error) {
+      // Return the specific error to the client so they know which model failed
+      const message = error instanceof Error ? error.message : "Unknown error";
+      return NextResponse.json(
+        {
+          error: `${model} failed`,
+          details: message,
+          model: model,
+          canRetry: true,
+        },
+        { status: 503 }
+      );
     }
 
-    return NextResponse.json({ argument });
+    return NextResponse.json({
+      argument: result.argument,
+      model: result.actualModel,
+      fallback: result.fallback,
+    });
   } catch (error) {
     console.error("Debate API error:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to generate debate argument" },
+      { error: "Failed to generate debate argument", details: message },
       { status: 500 }
     );
   }

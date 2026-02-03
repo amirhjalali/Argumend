@@ -30,6 +30,13 @@ export interface Reference {
   source?: string;
 }
 
+export interface EvidenceData {
+  side: "for" | "against";
+  score: number; // Total weight score (0-40)
+  source?: string;
+  sourceUrl?: string;
+}
+
 export interface LogicNodeData {
   variant: NodeVariant;
   title: string;
@@ -41,6 +48,8 @@ export interface LogicNodeData {
   imageUrl?: string; // Added for screenshot look
   references?: Reference[]; // Added for screenshot look
   hasChildren?: boolean; // Added for leaf node logic
+  hasEvidence?: boolean; // For pillars with evidence
+  evidenceData?: EvidenceData; // For evidence nodes
   [key: string]: unknown;
 }
 
@@ -52,4 +61,5 @@ export interface BlueprintChildLink {
 export interface BlueprintNode extends LogicNodeData {
   id: string;
   children?: BlueprintChildLink[];
+  hasEvidence?: boolean;
 }
