@@ -12,15 +12,33 @@ export interface LLMIconProps {
 }
 
 export function ClaudeIcon({ className, style }: LLMIconProps) {
-  // Anthropic's official logo - organic rounded shape
+  // Claude's starburst logo - organic rays emanating from center
   return (
     <svg
-      viewBox="0 0 46 32"
+      viewBox="0 0 100 100"
       fill="currentColor"
       className={className}
       style={style}
     >
-      <path d="M32.73 0h-6.945L38.45 32h6.945L32.73 0ZM13.27 0 0 32h7.082l2.59-6.574h13.25l2.59 6.574h7.082L19.327 0h-6.055Zm-.702 19.69 4.334-10.996 4.334 10.996h-8.668Z" />
+      {/* Center dot */}
+      <circle cx="50" cy="50" r="6" />
+      {/* Organic rays with rounded ends - varying lengths like the Claude logo */}
+      <rect x="47" y="8" width="6" height="28" rx="3" />
+      <rect x="47" y="64" width="6" height="28" rx="3" />
+      <rect x="8" y="47" width="28" height="6" rx="3" />
+      <rect x="64" y="47" width="28" height="6" rx="3" />
+      <rect x="47" y="8" width="6" height="22" rx="3" transform="rotate(45 50 50)" />
+      <rect x="47" y="70" width="6" height="22" rx="3" transform="rotate(45 50 50)" />
+      <rect x="47" y="8" width="6" height="22" rx="3" transform="rotate(-45 50 50)" />
+      <rect x="47" y="70" width="6" height="22" rx="3" transform="rotate(-45 50 50)" />
+      <rect x="47" y="12" width="6" height="18" rx="3" transform="rotate(22.5 50 50)" />
+      <rect x="47" y="70" width="6" height="18" rx="3" transform="rotate(22.5 50 50)" />
+      <rect x="47" y="12" width="6" height="18" rx="3" transform="rotate(-22.5 50 50)" />
+      <rect x="47" y="70" width="6" height="18" rx="3" transform="rotate(-22.5 50 50)" />
+      <rect x="47" y="12" width="6" height="18" rx="3" transform="rotate(67.5 50 50)" />
+      <rect x="47" y="70" width="6" height="18" rx="3" transform="rotate(67.5 50 50)" />
+      <rect x="47" y="12" width="6" height="18" rx="3" transform="rotate(-67.5 50 50)" />
+      <rect x="47" y="70" width="6" height="18" rx="3" transform="rotate(-67.5 50 50)" />
     </svg>
   );
 }
