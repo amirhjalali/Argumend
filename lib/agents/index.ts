@@ -13,3 +13,12 @@ export {
 } from "./cruxtacean";
 
 export { generateCruxtaceanResponse } from "./generate";
+
+export { executeAgent, executeAgentsInParallel } from "./executor";
+export { DEFAULT_JUDGE_AGENTS } from "./types";
+export type {
+  AgentType,
+  AgentConfig,
+  AgentResponse,
+  AgentExecutionRequest,
+} from "./types";

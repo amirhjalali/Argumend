@@ -16,6 +16,7 @@ import {
   Shell,
   Wifi,
   WifiOff,
+  Brain,
 } from "lucide-react";
 import { topics } from "@/data/topics";
 
@@ -66,6 +67,7 @@ const PRIMARY_NAV = [
   { label: "How It Works", icon: Map, href: "/how-it-works" },
   { label: "Guides", icon: GraduationCap, href: "/guides" },
   { label: "All Topics", icon: ListChecks, href: "/topics" },
+  { label: "Analyze Content", icon: Brain, href: "/analyze" },
   { label: "Concepts", icon: Layers, href: "/concepts" },
   { label: "Perspectives", icon: Eye, href: "/perspectives" },
   { label: "Library", icon: BookOpen, href: "/library" },

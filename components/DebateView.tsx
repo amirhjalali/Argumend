@@ -17,9 +17,12 @@ import {
   RefreshCw,
   AlertCircle,
   Share2,
+  Gavel,
 } from "lucide-react";
 import { ShareToMoltbook } from "@/components/ShareToMoltbook";
+import { JudgingResults } from "@/components/JudgingResults";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
+import type { JudgingResult } from "@/lib/judge/rubric";
 import { topics } from "@/data/topics";
 import {
   hasMockDebate,
@@ -54,6 +57,8 @@ interface DebateState {
   typingSide: "for" | "against" | null;
   error: string | null;
   failedModel: LLMModel | null;
+  judgingResult: JudgingResult | null;
+  isJudging: boolean;
 }
 
 // ============================================================================
@@ -453,6 +458,8 @@ export function DebateView() {
     typingSide: null,
     error: null,
     failedModel: null,
+    judgingResult: null,
+    isJudging: false,
   });
 
   // Keep phaseRef in sync with state
@@ -648,8 +655,44 @@ export function DebateView() {
       typingSide: null,
       error: null,
       failedModel: null,
+      judgingResult: null,
+      isJudging: false,
     });
   }, [state.forModel, state.againstModel, state.maxRounds]);
+
+  // Request AI judgment for the debate
+  const requestJudgment = useCallback(async () => {
+    if (state.messages.length === 0 || state.isJudging) return;
+
+    setState((prev) => ({ ...prev, isJudging: true, error: null }));
+
+    try {
+      const response = await fetch("/api/judge", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "debate",
+          topic: topic?.meta_claim,
+          messages: state.messages.map((m) => ({
+            side: m.side,
+            content: m.content,
+            round: m.round,
+          })),
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.details || data.error || "Failed to get judgment");
+      }
+
+      const result: JudgingResult = await response.json();
+      setState((prev) => ({ ...prev, judgingResult: result, isJudging: false }));
+    } catch (e) {
+      const errorMsg = e instanceof Error ? e.message : "Failed to get judgment";
+      setState((prev) => ({ ...prev, error: errorMsg, isJudging: false }));
+    }
+  }, [state.messages, state.isJudging, topic]);
 
   const clearError = useCallback(() => {
     setState((prev) => ({ ...prev, error: null, failedModel: null }));
@@ -928,17 +971,47 @@ export function DebateView() {
                   : "Both sides have presented their arguments. Consider the evidence and form your own conclusion."}
               </p>
 
-              {/* Share to Moltbook button - only for completed debates, not mock views */}
+              {/* Action buttons - only for completed debates, not mock views */}
               {state.phase === "complete" && topic && state.forModel && state.againstModel && (
-                <motion.button
-                  onClick={() => setShowSharePanel(!showSharePanel)}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-xl transition-colors shadow-md"
-                >
-                  <Share2 className="h-4 w-4" />
-                  Share to Moltbook
-                </motion.button>
+                <div className="mt-6 flex justify-center gap-3">
+                  {/* Request AI Judgment button */}
+                  {!state.judgingResult && (
+                    <motion.button
+                      onClick={requestJudgment}
+                      disabled={state.isJudging}
+                      whileHover={!state.isJudging ? { scale: 1.02 } : {}}
+                      whileTap={!state.isJudging ? { scale: 0.98 } : {}}
+                      className={`inline-flex items-center gap-2 px-5 py-2.5 font-medium rounded-xl transition-colors shadow-md ${
+                        state.isJudging
+                          ? "bg-purple-400 cursor-not-allowed"
+                          : "bg-purple-600 hover:bg-purple-700"
+                      } text-white`}
+                    >
+                      {state.isJudging ? (
+                        <>
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          Judging...
+                        </>
+                      ) : (
+                        <>
+                          <Gavel className="h-4 w-4" />
+                          Request AI Judgment
+                        </>
+                      )}
+                    </motion.button>
+                  )}
+
+                  {/* Share to Moltbook button */}
+                  <motion.button
+                    onClick={() => setShowSharePanel(!showSharePanel)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-xl transition-colors shadow-md"
+                  >
+                    <Share2 className="h-4 w-4" />
+                    Share to Moltbook
+                  </motion.button>
+                </div>
               )}
             </div>
 
@@ -966,6 +1039,17 @@ export function DebateView() {
                 </motion.div>
               )}
             </AnimatePresence>
+
+            {/* Judging Results */}
+            {state.judgingResult && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-8"
+              >
+                <JudgingResults result={state.judgingResult} />
+              </motion.div>
+            )}
           </motion.div>
         )}
       </div>
