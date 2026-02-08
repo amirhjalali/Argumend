@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 
 // Lazy initialization to avoid build-time errors
 let anthropic: any = null;
@@ -236,6 +237,16 @@ async function generateWithGrok(
 }
 
 export async function POST(request: NextRequest) {
+  // Rate limit: 20 requests per hour per IP (higher limit since each debate round is a separate call)
+  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const limit = rateLimit(`debate:${ip}`, { maxRequests: 20, windowMs: 60 * 60 * 1000 });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Rate limited. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
+
   try {
     const body: DebateRequest = await request.json();
     const { topic, side, model, round, previousMessages, pillars } = body;

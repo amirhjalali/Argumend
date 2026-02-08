@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createJudgeCouncil, type DebateMessage } from "@/lib/judge/council";
+import { saveJudgment, listJudgments } from "@/lib/db/queries";
+import { rateLimit } from "@/lib/rate-limit";
 import type { AgentConfig } from "@/lib/agents/types";
 import type { LLMModel } from "@/types/logic";
 
@@ -19,6 +21,8 @@ interface JudgeRequest {
   contentType?: "transcript" | "article" | "freeform";
   /** Which models to use as judges (defaults to claude, gpt-4, gemini) */
   judgeModels?: LLMModel[];
+  /** Link to a stored debate (optional) */
+  debateId?: string;
 }
 
 /**
@@ -39,6 +43,16 @@ function modelsToAgents(models: LLMModel[]): AgentConfig[] {
  * Judge a debate or content using multiple AI models.
  */
 export async function POST(request: NextRequest) {
+  // Rate limit: 10 requests per hour per IP
+  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const limit = rateLimit(`judge:${ip}`, { maxRequests: 10, windowMs: 60 * 60 * 1000 });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Rate limited. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
+
   try {
     const body: JudgeRequest = await request.json();
     const { type, messages, topic, content, contentType, judgeModels } = body;
@@ -81,7 +95,12 @@ export async function POST(request: NextRequest) {
       result = await council.judgeContent(content!, contentType || "freeform");
     }
 
-    return NextResponse.json(result);
+    // Persist judgment
+    const saved = await saveJudgment(result, {
+      debateId: body.debateId,
+    });
+
+    return NextResponse.json({ ...result, id: saved.id });
   } catch (error) {
     console.error("Judge API error:", error);
     const message = error instanceof Error ? error.message : "Unknown error";
@@ -95,63 +114,19 @@ export async function POST(request: NextRequest) {
 /**
  * GET /api/judge
  *
- * Returns information about the judge API.
+ * Returns recent judgments.
  */
-export async function GET() {
-  return NextResponse.json({
-    name: "Judge Council API",
-    description: "Judge debates and content using multiple AI models",
-    endpoints: {
-      POST: {
-        description: "Submit content for judgment",
-        body: {
-          type: {
-            type: "string",
-            enum: ["debate", "content"],
-            required: true,
-            description: "Type of content to judge",
-          },
-          messages: {
-            type: "array",
-            required: "when type=debate",
-            description: "Array of debate messages",
-            items: {
-              side: "for | against",
-              content: "string",
-              round: "number",
-            },
-          },
-          topic: {
-            type: "string",
-            required: false,
-            description: "Topic of the debate",
-          },
-          content: {
-            type: "string",
-            required: "when type=content",
-            description: "Raw content to analyze",
-          },
-          contentType: {
-            type: "string",
-            enum: ["transcript", "article", "freeform"],
-            required: false,
-            description: "Type of content (default: freeform)",
-          },
-          judgeModels: {
-            type: "array",
-            required: false,
-            description: "Which AI models to use as judges",
-            default: ["claude", "gpt-4", "gemini"],
-          },
-        },
-      },
-    },
-    rubric: [
-      { dimension: "Logical Validity", weight: "25%" },
-      { dimension: "Evidence Quality", weight: "25%" },
-      { dimension: "Rebuttal Strength", weight: "20%" },
-      { dimension: "Crux Identification", weight: "15%" },
-      { dimension: "Clarity", weight: "15%" },
-    ],
-  });
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const limit = Math.min(parseInt(searchParams.get("limit") || "20"), 100);
+    const results = await listJudgments(limit);
+    return NextResponse.json({ judgments: results });
+  } catch (error) {
+    console.error("Failed to list judgments:", error);
+    return NextResponse.json(
+      { error: "Failed to list judgments" },
+      { status: 500 }
+    );
+  }
 }

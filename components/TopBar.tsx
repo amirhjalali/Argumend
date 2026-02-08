@@ -1,14 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Search, HelpCircle, ExternalLink } from "lucide-react";
+import { Menu, Search, HelpCircle, ExternalLink, Home, Brain } from "lucide-react";
 import { ViewToggle } from "./ViewToggle";
+import { UserMenu } from "./UserMenu";
 
 interface TopBarProps {
   onMenuClick?: () => void;
+  showBackToHero?: boolean;
+  onBackToHero?: () => void;
 }
 
-export function TopBar({ onMenuClick }: TopBarProps) {
+export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProps) {
   return (
     <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40">
       {/* Left: Menu + Logo */}
@@ -31,6 +34,16 @@ export function TopBar({ onMenuClick }: TopBarProps) {
             </span>
           </div>
         </Link>
+
+        {showBackToHero && onBackToHero && (
+          <button
+            onClick={onBackToHero}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 text-stone-500 text-sm hover:text-stone-800 hover:bg-stone-100/60 rounded-lg transition-colors"
+          >
+            <Home className="h-3.5 w-3.5" strokeWidth={1.8} />
+            <span className="hidden sm:inline">Home</span>
+          </button>
+        )}
       </div>
 
       {/* Center: View Toggle + Value Prop */}
@@ -43,6 +56,14 @@ export function TopBar({ onMenuClick }: TopBarProps) {
 
       {/* Right: Actions */}
       <div className="flex items-center gap-1 md:gap-2">
+        <Link
+          href="/analyze"
+          className="flex items-center gap-1.5 px-2.5 py-1.5 text-amber-600 text-sm font-medium hover:text-amber-800 hover:bg-amber-50/60 rounded-lg transition-colors"
+        >
+          <Brain className="h-3.5 w-3.5" strokeWidth={1.8} />
+          <span className="hidden sm:inline">Analyze</span>
+        </Link>
+
         <Link
           href="/how-it-works"
           className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 text-stone-500 text-sm hover:text-stone-800 transition-colors"
@@ -72,6 +93,10 @@ export function TopBar({ onMenuClick }: TopBarProps) {
           <ExternalLink className="h-3.5 w-3.5" strokeWidth={1.8} />
           <span>Contribute</span>
         </a>
+
+        <div className="ml-1 border-l border-stone-200/60 pl-2">
+          <UserMenu />
+        </div>
       </div>
     </header>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText,
@@ -170,6 +170,21 @@ export default function AnalyzePage() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<AnalysisResult | null>(null);
+
+  // Check for prefilled content from the homepage hero
+  useEffect(() => {
+    try {
+      const prefill = sessionStorage.getItem("argumend-analyze-prefill");
+      if (prefill) {
+        const { content: prefillContent, contentType: prefillType } = JSON.parse(prefill);
+        if (prefillContent) setContent(prefillContent);
+        if (prefillType) setContentType(prefillType);
+        sessionStorage.removeItem("argumend-analyze-prefill");
+      }
+    } catch {
+      // Ignore parse errors
+    }
+  }, []);
 
   const handleAnalyze = useCallback(async () => {
     if (!content.trim()) {

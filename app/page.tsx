@@ -2,7 +2,7 @@
 
 import "@xyflow/react/dist/style.css";
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import {
   Background,
   BackgroundVariant,
@@ -18,15 +18,17 @@ import { RichNode } from "@/components/nodes/RichNode";
 import { EvidenceNode } from "@/components/nodes/EvidenceNode";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { useSidebarState } from "@/hooks/useSidebarState";
+import { useIsMobile } from "@/hooks/useMediaQuery";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
 import { MapLegend } from "@/components/MapLegend";
 import { ZoomIndicator } from "@/components/ZoomIndicator";
 import { NavigationPath } from "@/components/NavigationPath";
-import { WelcomeOverlay } from "@/components/WelcomeOverlay";
 import { TopicIntroPanel } from "@/components/TopicIntroPanel";
 import { ScalesOfEvidence } from "@/components/ScalesOfEvidence";
 import { DebateView } from "@/components/DebateView";
+import { HeroAnalyze } from "@/components/HeroAnalyze";
+import { MobileArgumentList } from "@/components/MobileArgumentList";
 import { getMiniMapColor } from "@/lib/variantStyles";
 import { GRAPH, MINIMAP } from "@/lib/constants";
 import type { LogicNodeData } from "@/types/graph";
@@ -42,6 +44,8 @@ function CanvasExperience() {
   );
 
   const sidebar = useSidebarState();
+  const isMobile = useIsMobile();
+  const [showHero, setShowHero] = useState(true);
 
   const nodes = useLogicGraph((state) => state.nodes);
   const edges = useLogicGraph((state) => state.edges);
@@ -60,6 +64,14 @@ function CanvasExperience() {
     return getMiniMapColor(node?.data?.variant);
   };
 
+  const handleTopicSelect = useCallback(
+    (id: string) => {
+      setTopic(id);
+      setShowHero(false);
+    },
+    [setTopic]
+  );
+
   useEffect(() => {
     if (!focusTargets.length) return;
     const targetNodes = nodes.filter((node) =>
@@ -75,9 +87,59 @@ function CanvasExperience() {
     consumeFocusTargets();
   }, [consumeFocusTargets, focusTargets, nodes, reactFlow]);
 
+  // Show the hero landing when no topic has been explicitly selected
+  if (showHero) {
+    return (
+      <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
+        <TopBar onMenuClick={sidebar.toggle} showBackToHero={false} />
+
+        <div className="flex min-h-0 flex-1 overflow-hidden">
+          {/* Mobile overlay when sidebar is open */}
+          <div
+            className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
+              sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+            onClick={sidebar.close}
+          />
+
+          {/* Sidebar Container */}
+          <div
+            className={`
+              fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
+              flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+              ${sidebar.isOpen ? "w-[260px]" : "w-0 md:w-0"}
+            `}
+          >
+            <div
+              className={`absolute top-0 bottom-0 left-0 w-[260px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                sidebar.isOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
+            >
+              <Sidebar
+                isOpen={sidebar.isOpen}
+                onClose={sidebar.close}
+                currentTopicId={currentTopicId}
+                onTopicSelect={handleTopicSelect}
+              />
+            </div>
+          </div>
+
+          {/* Hero Content */}
+          <div className="relative flex-1 min-w-0 overflow-y-auto">
+            <HeroAnalyze onTopicSelect={handleTopicSelect} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
-      <TopBar onMenuClick={sidebar.toggle} />
+      <TopBar
+        onMenuClick={sidebar.toggle}
+        showBackToHero
+        onBackToHero={() => setShowHero(true)}
+      />
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
         {/* Mobile overlay when sidebar is open */}
@@ -105,7 +167,7 @@ function CanvasExperience() {
               isOpen={sidebar.isOpen}
               onClose={sidebar.close}
               currentTopicId={currentTopicId}
-              onTopicSelect={setTopic}
+              onTopicSelect={handleTopicSelect}
             />
           </div>
         </div>
@@ -116,6 +178,8 @@ function CanvasExperience() {
             <ScalesOfEvidence />
           ) : currentView === "debate" ? (
             <DebateView />
+          ) : isMobile ? (
+            <MobileArgumentList />
           ) : (
             <div className="h-full">
               <ReactFlow
@@ -176,7 +240,6 @@ export default function HomePage() {
   return (
     <ReactFlowProvider>
       <CanvasExperience />
-      <WelcomeOverlay />
     </ReactFlowProvider>
   );
 }

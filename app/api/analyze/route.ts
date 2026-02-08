@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { extractArguments, toDebateMessages } from "@/lib/analyze/extractor";
 import { createJudgeCouncil } from "@/lib/judge/council";
+import { saveAnalysis, saveJudgment, listAnalyses } from "@/lib/db/queries";
+import { rateLimit } from "@/lib/rate-limit";
 import type { AgentConfig } from "@/lib/agents/types";
 import type { LLMModel } from "@/types/logic";
 
@@ -36,6 +38,16 @@ function modelsToAgents(models: LLMModel[]): AgentConfig[] {
  * Analyze content to extract arguments and optionally judge them.
  */
 export async function POST(request: NextRequest) {
+  // Rate limit: 10 requests per hour per IP
+  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const limit = rateLimit(`analyze:${ip}`, { maxRequests: 10, windowMs: 60 * 60 * 1000 });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Rate limited. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
+
   try {
     const body: AnalyzeRequest = await request.json();
     const { content, contentType, includeJudging, judgeModels } = body;
@@ -81,9 +93,27 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Persist results
+    const savedAnalysis = await saveAnalysis(
+      {
+        contentType: contentType || "freeform",
+        inputContent: content,
+      },
+      extracted
+    );
+
+    let savedJudgment = null;
+    if (judgingResult) {
+      savedJudgment = await saveJudgment(judgingResult, {
+        analysisId: savedAnalysis.id,
+      });
+    }
+
     return NextResponse.json({
+      id: savedAnalysis.id,
       extracted,
       judgingResult,
+      judgmentId: savedJudgment?.id,
     });
   } catch (error) {
     console.error("Analyze API error:", error);
@@ -98,70 +128,19 @@ export async function POST(request: NextRequest) {
 /**
  * GET /api/analyze
  *
- * Returns information about the analyze API.
+ * Returns recent analyses.
  */
-export async function GET() {
-  return NextResponse.json({
-    name: "Content Analysis API",
-    description: "Extract arguments from content and optionally judge them",
-    endpoints: {
-      POST: {
-        description: "Analyze content",
-        body: {
-          content: {
-            type: "string",
-            required: true,
-            description: "The content to analyze (max 50,000 characters)",
-          },
-          contentType: {
-            type: "string",
-            enum: ["transcript", "article", "freeform"],
-            required: false,
-            default: "freeform",
-            description: "Type of content being analyzed",
-          },
-          includeJudging: {
-            type: "boolean",
-            required: false,
-            default: false,
-            description: "Whether to also run judging on extracted arguments",
-          },
-          judgeModels: {
-            type: "array",
-            required: false,
-            description: "Which AI models to use as judges (if includeJudging)",
-            default: ["claude", "gpt-4", "gemini"],
-          },
-        },
-        response: {
-          extracted: {
-            description: "Extracted arguments structure",
-            fields: [
-              "topic - Main topic/claim identified",
-              "positions - For and against positions with arguments",
-              "identifiedCruxes - Key points of disagreement",
-              "potentialFallacies - Detected logical fallacies",
-              "summary - Brief summary",
-              "confidence - Confidence score (0-1)",
-            ],
-          },
-          judgingResult: {
-            description: "Judge council verdict (if includeJudging=true)",
-            fields: [
-              "verdicts - Individual judge verdicts",
-              "winner - Consensus winner",
-              "hasConsensus - Whether judges agreed",
-              "aggregatedScores - Combined scores",
-              "disagreements - Areas of judge disagreement",
-            ],
-          },
-        },
-      },
-    },
-    contentTypes: {
-      transcript: "A debate or discussion transcript with multiple speakers",
-      article: "An argumentative article or essay",
-      freeform: "General content that may contain arguments",
-    },
-  });
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const limit = Math.min(parseInt(searchParams.get("limit") || "20"), 100);
+    const results = await listAnalyses(limit);
+    return NextResponse.json({ analyses: results });
+  } catch (error) {
+    console.error("Failed to list analyses:", error);
+    return NextResponse.json(
+      { error: "Failed to list analyses" },
+      { status: 500 }
+    );
+  }
 }

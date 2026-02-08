@@ -340,6 +340,17 @@ export class JudgeCouncil {
     const results = await Promise.all(judgePromises);
     const verdicts = results.filter((v): v is JudgeVerdict => v !== null);
 
+    // Track which judges failed
+    const failedJudges = this.judges
+      .filter((_, i) => results[i] === null)
+      .map((j) => j.id);
+
+    if (failedJudges.length > 0) {
+      console.warn(
+        `Judges failed: ${failedJudges.join(", ")}. ${verdicts.length}/${this.judges.length} returned valid verdicts.`
+      );
+    }
+
     // Check minimum judges requirement
     if (verdicts.length < this.minJudges) {
       console.warn(
@@ -372,9 +383,14 @@ export class JudgeCouncil {
       hasConsensus,
       aggregatedScores,
       disagreements,
-      flaggedForReview,
+      flaggedForReview:
+        flaggedForReview || failedJudges.length > 0,
       timestamp: Date.now(),
-    };
+      ...(failedJudges.length > 0 && {
+        degraded: true,
+        failedJudges,
+      }),
+    } as JudgingResult;
   }
 
   /**

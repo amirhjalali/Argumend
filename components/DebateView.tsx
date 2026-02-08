@@ -480,7 +480,7 @@ export function DebateView() {
     }
   }, [state.messages, state.typingSide, state.phase]);
 
-  // Generate argument from API with better error handling
+  // Generate argument from streaming API with progressive display
   const generateArgument = useCallback(
     async (
       side: "for" | "against",
@@ -488,7 +488,7 @@ export function DebateView() {
       round: number,
       previousMessages: DebateMessage[]
     ): Promise<string> => {
-      const response = await fetch("/api/debate", {
+      const response = await fetch("/api/debate/stream", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -516,8 +516,68 @@ export function DebateView() {
         throw new Error(`${model}: ${errorMsg}`);
       }
 
-      const data = await response.json();
-      return data.argument;
+      if (!response.body) {
+        throw new Error(`${model}: No response body`);
+      }
+
+      // Read the SSE stream and progressively build the argument
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = "";
+      let buffer = "";
+
+      // Create a placeholder message that we'll update with streamed content
+      const placeholderId = `${side}-${round}-${Date.now()}`;
+      const placeholderMsg: DebateMessage = {
+        id: placeholderId,
+        side,
+        model,
+        content: "",
+        round,
+      };
+
+      // Add the placeholder to messages immediately
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, placeholderMsg],
+        typingSide: null, // clear typing indicator since we now show real text
+      }));
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n\n");
+        buffer = lines.pop() || "";
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed.startsWith("data: ")) continue;
+          try {
+            const data = JSON.parse(trimmed.slice(6));
+
+            if (data.error) {
+              throw new Error(`${model}: ${data.error}`);
+            }
+
+            if (data.token) {
+              fullText += data.token;
+              // Update the placeholder message with accumulated text
+              setState((prev) => ({
+                ...prev,
+                messages: prev.messages.map((m) =>
+                  m.id === placeholderId ? { ...m, content: fullText } : m
+                ),
+              }));
+            }
+          } catch (e) {
+            if (e instanceof Error && e.message.startsWith(model)) throw e;
+          }
+        }
+      }
+
+      return fullText;
     },
     [topic]
   );
@@ -534,18 +594,15 @@ export function DebateView() {
 
       let updatedMessages = [...existingMessages];
 
-      // Generate "for" argument
+      // Generate "for" argument (streaming adds the message progressively)
       setState((prev) => ({ ...prev, typingSide: "for", error: null, failedModel: null }));
       try {
-        const forArgument = await generateArgument(
-          "for",
-          forModel,
-          round,
-          updatedMessages
-        );
-        const forMessage = createDebateMessage("for", forModel, forArgument, round);
-        updatedMessages = [...updatedMessages, forMessage];
-        setState((prev) => ({ ...prev, messages: updatedMessages }));
+        await generateArgument("for", forModel, round, updatedMessages);
+        // After streaming completes, grab the updated messages from state
+        setState((prev) => {
+          updatedMessages = prev.messages;
+          return { ...prev, typingSide: null };
+        });
       } catch (e) {
         const errorMsg = e instanceof Error ? e.message : "Failed to generate proposition argument";
         setState((prev) => ({
@@ -556,27 +613,17 @@ export function DebateView() {
         }));
         throw new Error(errorMsg);
       }
-      setState((prev) => ({ ...prev, typingSide: null }));
 
       await new Promise((resolve) => setTimeout(resolve, DEBATE.TURN_DELAY));
 
-      // Generate "against" argument
+      // Generate "against" argument (streaming adds the message progressively)
       setState((prev) => ({ ...prev, typingSide: "against", error: null, failedModel: null }));
       try {
-        const againstArgument = await generateArgument(
-          "against",
-          againstModel,
-          round,
-          updatedMessages
-        );
-        const againstMessage = createDebateMessage(
-          "against",
-          againstModel,
-          againstArgument,
-          round
-        );
-        updatedMessages = [...updatedMessages, againstMessage];
-        setState((prev) => ({ ...prev, messages: updatedMessages }));
+        await generateArgument("against", againstModel, round, updatedMessages);
+        setState((prev) => {
+          updatedMessages = prev.messages;
+          return { ...prev, typingSide: null };
+        });
       } catch (e) {
         const errorMsg = e instanceof Error ? e.message : "Failed to generate opposition argument";
         setState((prev) => ({
@@ -587,7 +634,6 @@ export function DebateView() {
         }));
         throw new Error(errorMsg);
       }
-      setState((prev) => ({ ...prev, typingSide: null }));
 
       return updatedMessages;
     },
@@ -1001,16 +1047,7 @@ export function DebateView() {
                     </motion.button>
                   )}
 
-                  {/* Share to Moltbook button */}
-                  <motion.button
-                    onClick={() => setShowSharePanel(!showSharePanel)}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-xl transition-colors shadow-md"
-                  >
-                    <Share2 className="h-4 w-4" />
-                    Share to Moltbook
-                  </motion.button>
+                  {/* Moltbook share paused — re-enable after core product is solid (ENG-25) */}
                 </div>
               )}
             </div>
