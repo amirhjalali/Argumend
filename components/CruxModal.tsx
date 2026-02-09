@@ -25,19 +25,19 @@ export function CruxModal() {
                     />
                     {/* Modal - refined scholarly aesthetic */}
                     <motion.div
-                        className="relative w-full max-w-2xl overflow-hidden rounded-xl border border-stone-200/80 bg-[#fefcf9] shadow-[0_25px_60px_rgba(80,60,40,0.2)]"
+                        className="relative w-full mx-4 md:mx-auto max-w-2xl overflow-hidden rounded-xl border border-stone-200/80 bg-[#fefcf9] shadow-[0_25px_60px_rgba(80,60,40,0.2)]"
                         initial={{ opacity: 0, scale: 0.96, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.96, y: 20 }}
                         transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
                     >
                         {/* Header */}
-                        <div className="flex items-start justify-between border-b border-stone-200 px-8 py-6">
+                        <div className="flex items-start justify-between border-b border-stone-200 px-4 md:px-8 py-4 md:py-6">
                             <div>
                                 <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500">
                                     Crux of Verification
                                 </p>
-                                <h3 className="mt-2 font-serif text-3xl font-bold tracking-tight text-stone-800">
+                                <h3 className="mt-2 font-serif text-lg md:text-xl font-bold tracking-tight text-stone-800">
                                     {selectedCrux.title}
                                 </h3>
                                 <p className="mt-1 font-serif text-base italic text-stone-500">
@@ -54,8 +54,8 @@ export function CruxModal() {
                         </div>
 
                         {/* Content */}
-                        <div className="max-h-[70vh] overflow-y-auto px-8 py-8">
-                            <div className="grid gap-8 md:grid-cols-2">
+                        <div className="max-h-[70vh] overflow-y-auto px-4 py-4 md:px-8 md:py-8">
+                            <div className="grid gap-4 md:gap-8 md:grid-cols-2">
                                 <section className="space-y-4">
                                     <div className="flex items-center gap-3 border-b border-stone-200 pb-2">
                                         <Scale className="h-4 w-4 text-stone-600" strokeWidth={1.5} />

@@ -19,7 +19,7 @@ export default function GuidePage() {
 
   return (
     <AppShell>
-      <article className="mx-auto max-w-3xl px-6 md:px-8 py-10 md:py-14">
+      <article className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-14">
         {/* Back link */}
         <Link
           href="/guides"
@@ -52,10 +52,10 @@ export default function GuidePage() {
             </div>
           </div>
 
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] tracking-tight text-[#3d3a36] mb-3 leading-[1.1]">
+          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl tracking-tight text-[#3d3a36] mb-3 leading-[1.1]">
             {guide.title}
           </h1>
-          <p className="text-xl md:text-2xl text-[#6a5f56] font-serif leading-relaxed">
+          <p className="text-base md:text-xl lg:text-2xl text-[#6a5f56] font-serif leading-relaxed">
             {guide.subtitle}
           </p>
         </header>

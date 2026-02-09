@@ -159,13 +159,13 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
 export default function LessonsFromTheDeepPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl px-8 py-12">
+      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
         {/* Header */}
         <div className="flex items-center gap-3 mb-2">
           <div className="p-2.5 bg-gradient-to-br from-[#4f7b77] to-[#3d6360] rounded-xl">
             <CrabIcon className="h-6 w-6 text-white" />
           </div>
-          <h1 className="font-serif text-4xl tracking-tight text-[#3d3a36]">
+          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl tracking-tight text-[#3d3a36]">
             Lessons From the Deep
           </h1>
         </div>

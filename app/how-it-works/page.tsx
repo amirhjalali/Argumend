@@ -84,13 +84,13 @@ const steps = [
 export default function HowItWorksPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-4xl px-6 md:px-8 py-14 md:py-20">
+      <div className="mx-auto max-w-4xl px-4 md:px-8 py-6 md:py-20">
         {/* Hero */}
         <div className="mb-14 md:mb-20 text-center">
           <p className="text-[12px] font-medium text-stone-400 mb-4">
             How It Works
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
+          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Mapping arguments,<br />
             <span className="text-stone-500">not winning them</span>
           </h1>
@@ -106,11 +106,11 @@ export default function HowItWorksPage() {
           <h2 className="font-serif text-2xl md:text-3xl text-primary mb-10 text-center">
             Get started in 4 steps
           </h2>
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {steps.map((step, i) => (
               <div
                 key={step.number}
-                className="flex gap-4 p-5 rounded-lg bg-[#fefcf9] border border-stone-200/70"
+                className="flex gap-4 p-4 md:p-5 rounded-lg bg-[#fefcf9] border border-stone-200/70"
               >
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#D4A012]/20 to-[#CF7B3E]/10 flex items-center justify-center">

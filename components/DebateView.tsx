@@ -111,7 +111,7 @@ function DebaterCard({
           <Shield className="w-4 h-4 text-stone-500" />
         )}
         <span
-          className={`font-serif text-sm tracking-[0.15em] uppercase ${
+          className={`font-serif text-sm md:text-base tracking-[0.15em] uppercase ${
             isFor ? "text-amber-800" : "text-stone-600"
           }`}
         >
@@ -132,7 +132,7 @@ function DebaterCard({
               whileHover={!disabled ? { y: -2 } : {}}
               whileTap={!disabled ? { scale: 0.98 } : {}}
               className={`
-                relative p-4 rounded-xl border-2 transition-all duration-300 text-left
+                relative p-2 md:p-3 rounded-xl border-2 transition-all duration-300 text-left
                 ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
                 ${
                   isSelected
@@ -163,10 +163,10 @@ function DebaterCard({
               >
                 <Icon className="w-5 h-5" style={{ color: llm.color }} />
               </div>
-              <div className="font-serif font-semibold text-primary">
+              <div className="font-serif font-semibold text-xs md:text-sm text-primary">
                 {llm.name}
               </div>
-              <div className="text-xs text-stone-500 mt-0.5">{llm.fullName}</div>
+              <div className="text-xs text-stone-500 mt-0.5 truncate">{llm.fullName}</div>
             </motion.button>
           );
         })}
@@ -203,7 +203,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
         </div>
       )}
 
-      <div className={`flex gap-4 ${isFor ? "" : "flex-row-reverse"}`}>
+      <div className={`flex gap-2 md:gap-4 ${isFor ? "" : "flex-row-reverse"}`}>
         {/* Avatar column */}
         <div className="flex flex-col items-center gap-2 pt-1">
           <div
@@ -220,7 +220,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
         </div>
 
         {/* Content */}
-        <div className={`flex-1 ${isFor ? "pr-8" : "pl-8"}`}>
+        <div className={`flex-1 ${isFor ? "pr-3 md:pr-8" : "pl-3 md:pl-8"}`}>
           {/* Header */}
           <div
             className={`flex items-center gap-2 mb-2 ${
@@ -285,7 +285,7 @@ function ThinkingIndicator({ side, model }: ThinkingIndicatorProps) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
-      className={`flex gap-4 ${isFor ? "" : "flex-row-reverse"}`}
+      className={`flex gap-2 md:gap-4 ${isFor ? "" : "flex-row-reverse"}`}
     >
       <div
         className="w-11 h-11 rounded-xl flex items-center justify-center shadow-md border border-stone-200/50"
@@ -351,9 +351,9 @@ function DebateHeader({
     <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex items-center justify-between p-4 rounded-xl bg-white/60 border border-stone-200/60 shadow-sm"
+      className="flex items-center justify-between p-4 rounded-xl bg-white/60 border border-stone-200/60 shadow-sm flex-wrap"
     >
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-2 md:gap-6 flex-wrap">
         {/* Debaters */}
         <div className="flex items-center gap-2">
           <Sword className="w-4 h-4 text-amber-600" />
@@ -802,7 +802,7 @@ export function DebateView() {
 
   return (
     <div className="h-full overflow-auto">
-      <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 space-y-8">
+      <div className="max-w-4xl mx-auto px-4 md:px-8 py-5 md:py-8 space-y-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -836,7 +836,7 @@ export function DebateView() {
                 </h3>
               </div>
 
-              <div className="flex gap-8 items-start">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-stretch md:items-start">
                 <DebaterCard
                   side="for"
                   selectedModel={state.forModel}
@@ -845,7 +845,7 @@ export function DebateView() {
                 />
 
                 {/* Center divider with VS */}
-                <div className="flex flex-col items-center justify-center py-8 px-2">
+                <div className="flex flex-col items-center justify-center py-4 md:py-8 px-2 self-center">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-stone-100 to-stone-200 border border-stone-300/50 flex items-center justify-center shadow-inner">
                     <span className="font-serif text-stone-500 font-semibold text-sm">
                       vs
@@ -872,7 +872,7 @@ export function DebateView() {
                     onClick={() => setMaxRounds(num)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`w-11 h-11 rounded-xl font-serif font-semibold transition-all ${
+                    className={`w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl font-serif font-semibold transition-all ${
                       state.maxRounds === num
                         ? "bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-md"
                         : "bg-white border border-stone-200 text-stone-600 hover:border-stone-300"
@@ -892,7 +892,7 @@ export function DebateView() {
                 whileHover={canStart ? { scale: 1.02 } : {}}
                 whileTap={canStart ? { scale: 0.98 } : {}}
                 className={`
-                  flex items-center gap-3 px-8 py-3.5 rounded-xl font-serif font-semibold text-lg transition-all
+                  flex items-center gap-3 px-4 md:px-8 py-3.5 rounded-xl font-serif font-semibold text-lg transition-all
                   ${
                     canStart
                       ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg hover:shadow-xl"
@@ -1001,7 +1001,7 @@ export function DebateView() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="py-8 border-t border-stone-200/60"
+            className="py-5 md:py-8 border-t border-stone-200/60"
           >
             <div className="text-center">
               <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/60 rounded-full">

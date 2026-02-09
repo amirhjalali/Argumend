@@ -44,13 +44,13 @@ function WinnerBanner({ result }: { result: JudgingResult }) {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`rounded-xl bg-gradient-to-r ${bannerStyles[winner ?? "null"]} p-6 text-white shadow-lg`}
+      className={`rounded-xl bg-gradient-to-r ${bannerStyles[winner ?? "null"]} p-4 md:p-6 text-white shadow-lg`}
     >
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <Trophy className="h-8 w-8" />
           <div>
-            <h2 className="text-2xl font-serif font-bold">{winnerLabel}</h2>
+            <h2 className="text-lg md:text-2xl font-serif font-bold">{winnerLabel}</h2>
             <p className="text-sm opacity-90 mt-1">
               {hasConsensus ? (
                 <span className="flex items-center gap-1.5">
@@ -66,18 +66,18 @@ function WinnerBanner({ result }: { result: JudgingResult }) {
             </p>
           </div>
         </div>
-        <div className="text-right">
+        <div className="text-left sm:text-right">
           <div className="text-sm opacity-80">Aggregate Scores</div>
-          <div className="flex gap-4 mt-1">
+          <div className="flex gap-2 md:gap-4 mt-1">
             <div>
-              <span className="text-xs opacity-70">FOR</span>
-              <div className="text-xl font-mono font-bold">
+              <span className="text-xs opacity-70 truncate">FOR</span>
+              <div className="text-lg md:text-xl font-mono font-bold">
                 {result.aggregatedScores.for.average.toFixed(1)}
               </div>
             </div>
             <div>
-              <span className="text-xs opacity-70">AGAINST</span>
-              <div className="text-xl font-mono font-bold">
+              <span className="text-xs opacity-70 truncate">AGAINST</span>
+              <div className="text-lg md:text-xl font-mono font-bold">
                 {result.aggregatedScores.against.average.toFixed(1)}
               </div>
             </div>
@@ -109,7 +109,7 @@ function ScoreBar({
         <span className="text-stone-600 font-medium">{label}</span>
         <span className="text-stone-400">{Math.round(weight * 100)}% weight</span>
       </div>
-      <div className="flex h-4 rounded-full overflow-hidden bg-stone-100">
+      <div className="flex h-3 md:h-4 rounded-full overflow-hidden bg-stone-100">
         {/* FOR side (left) */}
         <div className="flex-1 flex justify-end">
           <motion.div
@@ -151,16 +151,16 @@ function DimensionBreakdown({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.2 }}
-      className="surface-card p-6"
+      className="surface-card p-4 md:p-6"
     >
       <div className="flex items-center gap-2 mb-6">
         <BarChart3 className="h-5 w-5 text-deep" />
         <h3 className="font-serif font-semibold text-primary">Score Breakdown by Dimension</h3>
       </div>
 
-      <div className="flex justify-between text-xs uppercase tracking-wider text-stone-400 mb-4 px-1">
-        <span>FOR</span>
-        <span>AGAINST</span>
+      <div className="flex justify-between text-xs md:text-sm uppercase tracking-wider text-stone-400 mb-4 px-1">
+        <span className="truncate">FOR</span>
+        <span className="truncate">AGAINST</span>
       </div>
 
       <div className="space-y-5">
@@ -210,10 +210,10 @@ function JudgeCard({
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-5 text-left hover:bg-stone-50/50 transition-colors"
+        className="w-full p-4 md:p-5 text-left hover:bg-stone-50/50 transition-colors"
       >
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 md:gap-4">
+          <div className="flex items-center gap-2 md:gap-3">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
               style={{ backgroundColor: llmOption?.bgLight }}
@@ -229,19 +229,19 @@ function JudgeCard({
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className={`px-3 py-1 rounded-lg text-sm font-medium ${winnerColor}`}>
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className={`px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-medium ${winnerColor}`}>
               {winnerLabel}
             </div>
-            <div className="flex gap-3 text-sm">
+            <div className="flex gap-2 md:gap-3 text-sm">
               <div className="text-center">
-                <div className="text-xs text-stone-400">FOR</div>
+                <div className="text-xs text-stone-400 truncate">FOR</div>
                 <div className="font-mono font-semibold text-amber-600">
                   {verdict.forScore.totalScore.toFixed(1)}
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-xs text-stone-400">AGAINST</div>
+                <div className="text-xs text-stone-400 truncate">AGAINST</div>
                 <div className="font-mono font-semibold text-stone-600">
                   {verdict.againstScore.totalScore.toFixed(1)}
                 </div>
@@ -263,7 +263,7 @@ function JudgeCard({
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="px-5 pb-5 border-t border-stone-100"
+          className="px-4 md:px-5 pb-4 md:pb-5 border-t border-stone-100"
         >
           <div className="pt-4 space-y-4">
             {/* Overall Reasoning */}
@@ -275,10 +275,10 @@ function JudgeCard({
             </div>
 
             {/* For Side Summary */}
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 bg-amber-50/50 rounded-lg border border-amber-100">
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex-1 p-3 md:p-4 bg-amber-50/50 rounded-lg border border-amber-100">
                 <h5 className="text-sm font-medium text-amber-800 mb-2 flex items-center gap-2">
-                  FOR Side
+                  <span className="text-xs md:text-sm truncate">FOR Side</span>
                   <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">
                     Confidence: {Math.round(verdict.forScore.confidence * 100)}%
                   </span>
@@ -288,9 +288,9 @@ function JudgeCard({
                 </p>
               </div>
 
-              <div className="p-4 bg-stone-50 rounded-lg border border-stone-200">
+              <div className="flex-1 p-3 md:p-4 bg-stone-50 rounded-lg border border-stone-200">
                 <h5 className="text-sm font-medium text-stone-700 mb-2 flex items-center gap-2">
-                  AGAINST Side
+                  <span className="text-xs md:text-sm truncate">AGAINST Side</span>
                   <span className="text-xs bg-stone-200 text-stone-600 px-2 py-0.5 rounded-full">
                     Confidence: {Math.round(verdict.againstScore.confidence * 100)}%
                   </span>
@@ -317,9 +317,9 @@ function JudgeCard({
                         <span className="font-medium text-stone-700 capitalize">
                           {dim.dimensionId.replace(/-/g, " ")}
                         </span>
-                        <div className="flex gap-4 text-xs font-mono">
-                          <span className="text-amber-600">FOR: {dim.score}</span>
-                          <span className="text-stone-600">AGAINST: {againstDim?.score ?? "—"}</span>
+                        <div className="flex gap-2 md:gap-4 text-xs font-mono">
+                          <span className="text-amber-600 truncate">FOR: {dim.score}</span>
+                          <span className="text-stone-600 truncate">AGAINST: {againstDim?.score ?? "—"}</span>
                         </div>
                       </div>
                       <p className="text-xs text-stone-500 line-clamp-2">{dim.reasoning}</p>
@@ -343,7 +343,7 @@ function DisagreementWarnings({ disagreements }: { disagreements: JudgingResult[
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.3 }}
-      className="bg-yellow-50 border border-yellow-200 rounded-xl p-5"
+      className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 md:p-5"
     >
       <div className="flex items-start gap-3">
         <AlertTriangle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />

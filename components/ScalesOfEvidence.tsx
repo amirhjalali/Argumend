@@ -68,7 +68,7 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-5 text-left transition-colors"
+        className="w-full p-3 md:p-5 text-left transition-colors"
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
@@ -100,7 +100,7 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="px-5 pb-5 space-y-4 border-t border-stone-200/50"
+          className="px-3 md:px-5 pb-3 md:pb-5 space-y-4 border-t border-stone-200/50"
         >
           <div className="pt-4 space-y-3">
             <WeightBar label="Source Reliability" value={evidence.weight.sourceReliability} tone={isFor ? "for" : "against"} />
@@ -144,7 +144,7 @@ function BalanceMeter({ forWeight, againstWeight }: {
   const tiltDeg = ((forPercent - 50) / 50) * -10;
 
   return (
-    <div className="surface-card p-6">
+    <div className="surface-card p-4 md:p-6">
       <div className="flex items-center justify-between gap-4 mb-4">
         <div className="flex items-center gap-2 text-xs uppercase tracking-[0.35em] text-stone-400">
           <Scale className="h-3.5 w-3.5 text-deep" />
@@ -155,16 +155,17 @@ function BalanceMeter({ forWeight, againstWeight }: {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-6">
         <div className="flex items-baseline gap-3">
           <span className="text-[11px] uppercase tracking-[0.25em] text-stone-400">For</span>
-          <span className="font-mono text-3xl font-bold text-deep">{forWeight}</span>
+          <span className="font-mono text-xl md:text-3xl font-bold text-deep">{forWeight}</span>
           <span className="text-xs text-stone-400">pts</span>
         </div>
 
         <div className="flex flex-col items-center gap-1">
           <span className="text-[10px] uppercase tracking-[0.3em] text-stone-400">Balance</span>
-          <svg width="180" height="70" viewBox="0 0 180 70" className="text-stone-400">
+          <div className="w-[140px] md:w-[180px]">
+          <svg width="100%" height="70" viewBox="0 0 180 70" className="text-stone-400">
             <line x1="90" y1="24" x2="90" y2="58" stroke="currentColor" strokeWidth="2" />
             <line x1="70" y1="58" x2="110" y2="58" stroke="currentColor" strokeWidth="2" />
             <g transform={`rotate(${tiltDeg} 90 24)`}>
@@ -178,11 +179,12 @@ function BalanceMeter({ forWeight, againstWeight }: {
             </g>
             <circle cx="90" cy="24" r="6" fill="#fefcf9" stroke="#78716c" strokeWidth="2" />
           </svg>
+          </div>
         </div>
 
         <div className="flex items-baseline justify-end gap-3">
           <span className="text-xs text-stone-400">pts</span>
-          <span className="font-mono text-3xl font-bold text-stone-600">{againstWeight}</span>
+          <span className="font-mono text-xl md:text-3xl font-bold text-stone-600">{againstWeight}</span>
           <span className="text-[11px] uppercase tracking-[0.25em] text-stone-400">Against</span>
         </div>
       </div>
@@ -242,7 +244,7 @@ function VerdictDisplay({ confidence, forWeight, againstWeight }: {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
-      className={`rounded-2xl border ${verdictStyles.border} bg-panel/85 p-6 shadow-card`}
+      className={`rounded-2xl border ${verdictStyles.border} bg-panel/85 p-4 md:p-6 shadow-card`}
     >
       <div className="text-center space-y-4">
         {/* Verdict Label */}
@@ -274,7 +276,7 @@ function VerdictDisplay({ confidence, forWeight, againstWeight }: {
         </div>
 
         {/* Stats Row */}
-        <div className="flex items-center justify-center gap-6 text-sm">
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-gradient-to-br from-deep to-deep-dark" />
             <span className="font-mono">
@@ -381,7 +383,7 @@ export function ScalesOfEvidence() {
 
   return (
     <div className="h-full overflow-auto">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 py-5 md:py-8 space-y-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -393,7 +395,7 @@ export function ScalesOfEvidence() {
             <Scale className="h-3.5 w-3.5" />
             Scales of Evidence
           </div>
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-primary leading-tight max-w-3xl mx-auto">
+          <h1 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary leading-tight max-w-3xl mx-auto">
             {topic.meta_claim}
           </h1>
           <p className="text-stone-500 max-w-2xl mx-auto">
@@ -408,7 +410,7 @@ export function ScalesOfEvidence() {
         />
 
         {/* Two Columns */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
           {/* FOR Column */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

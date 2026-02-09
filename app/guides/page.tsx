@@ -8,13 +8,13 @@ import { guides } from "@/data/guides";
 export default function GuidesPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl px-8 py-12">
+      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
         {/* Header */}
         <div className="mb-12">
           <p className="text-[11px] font-medium text-stone-400 mb-3 tracking-wide uppercase">
             Foundational Guides
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl tracking-tight text-[#3d3a36] mb-4 leading-[1.1]">
+          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-tight text-[#3d3a36] mb-4 leading-[1.1]">
             The Art of Finding Truth
           </h1>
           <p className="text-lg text-[#6a5f56] leading-relaxed max-w-2xl">

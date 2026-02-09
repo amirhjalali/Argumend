@@ -25,7 +25,7 @@ const scenes: Scene[] = [
     title: "The Moment",
     subtitle: "What you see is what happened. Obviously.",
     content: (
-      <p className="text-xl md:text-2xl leading-relaxed">
+      <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
         A busy street corner. Two people. One shoves the other to the ground.
         <br /><br />
         <span className="text-primary font-semibold">The aggressor. The victim.</span>
@@ -45,7 +45,7 @@ const scenes: Scene[] = [
     subtitle: "What happened just before that moment?",
     crossed: "The aggressor.",
     content: (
-      <p className="text-xl md:text-2xl leading-relaxed">
+      <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
         Rewind. The &ldquo;victim&rdquo; had grabbed the other person&apos;s bag.
         They were trying to take something.
         <br /><br />
@@ -66,7 +66,7 @@ const scenes: Scene[] = [
     subtitle: "Go back further. The story transforms again.",
     crossed: "Stealing.",
     content: (
-      <p className="text-xl md:text-2xl leading-relaxed">
+      <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
         Two minutes before. The &ldquo;thief&rdquo; is actually the original owner.
         Their bag was snatched. They spotted the thief and grabbed it back.
         <br /><br />
@@ -86,7 +86,7 @@ const scenes: Scene[] = [
     title: "A Third Witness",
     subtitle: "Same moment. Different eyes. Different truth.",
     content: (
-      <p className="text-xl md:text-2xl leading-relaxed">
+      <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
         A third person saw the incident. They arrived mid-scene.
         <br /><br />
         To them, both people were fighting over a bag.
@@ -107,7 +107,7 @@ const scenes: Scene[] = [
     title: "The Rumors Spread",
     subtitle: "By the time it reaches you, what's left of the original?",
     content: (
-      <p className="text-xl md:text-2xl leading-relaxed">
+      <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
         The story travels. Each retelling adds, removes, embellishes.
         <br /><br />
         <span className="text-secondary italic">&ldquo;I heard someone got attacked...&rdquo;</span>
@@ -130,7 +130,7 @@ const scenes: Scene[] = [
     title: "The Motivated Actors",
     subtitle: "Everyone tells the story that serves their needs.",
     content: (
-      <p className="text-xl md:text-2xl leading-relaxed">
+      <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
         The same incident. Different storytellers. Different purposes.
         <br /><br />
         The <span className="font-semibold">journalist</span> needs drama: &ldquo;Street violence erupts.&rdquo;
@@ -153,12 +153,12 @@ const scenes: Scene[] = [
     subtitle: "The lesson",
     content: (
       <div className="text-center">
-        <p className="text-2xl md:text-3xl leading-relaxed mb-8 text-primary">
+        <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed mb-8 text-primary">
           Every witness told the truth—<em>their</em> truth.
           <br />
           Shaped by when they arrived, what they noticed, who they knew, what they needed.
         </p>
-        <p className="text-xl md:text-2xl leading-relaxed text-secondary mb-8">
+        <p className="text-base md:text-xl lg:text-2xl leading-relaxed text-secondary mb-8">
           Ideas aren&apos;t identities. They&apos;re lenses.
           <br />
           <span className="font-semibold text-primary">Pick them up. Set them down. Trade them for better ones.</span>
@@ -202,7 +202,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
   return (
     <div
       ref={ref}
-      className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center px-4 md:px-8 py-10 md:py-20 relative overflow-hidden"
       style={{
         background: `linear-gradient(180deg,
           ${index === 0 ? '#f5f0e8' : '#ebe6de'} 0%,
@@ -262,7 +262,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
           )}
 
           <motion.h2
-            className="font-serif text-4xl md:text-6xl text-primary mb-4"
+            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-primary mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -272,7 +272,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
 
           {scene.subtitle && (
             <motion.p
-              className="text-xl md:text-2xl text-secondary mb-8"
+              className="text-base md:text-xl lg:text-2xl text-secondary mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -293,7 +293,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
 
         {/* Illustration with parallax */}
         <motion.div
-          className={`${isEven ? "md:order-2" : "md:order-1"} h-[400px] md:h-[500px]`}
+          className={`${isEven ? "md:order-2" : "md:order-1"} h-[220px] sm:h-[300px] md:h-[400px] lg:h-[500px]`}
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
           animate={{
             opacity: isInView ? 1 : 0,
@@ -375,7 +375,7 @@ export default function PerspectivesPage() {
           </div>
 
           <p
-            className="text-xl md:text-2xl text-secondary mb-12 max-w-2xl mx-auto animate-fade-in-up"
+            className="text-base md:text-xl lg:text-2xl text-secondary mb-12 max-w-2xl mx-auto animate-fade-in-up"
             style={{ animationDelay: '0.2s' }}
           >
             A scroll-driven story about why you are not your ideas—
@@ -410,7 +410,7 @@ export default function PerspectivesPage() {
       >
         <div className="text-center max-w-xl">
           <motion.h2
-            className="font-serif text-4xl md:text-5xl text-primary mb-6"
+            className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

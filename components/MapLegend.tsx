@@ -75,7 +75,7 @@ export function MapLegend() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="w-52 md:w-64 rounded-lg border border-stone-200/60 bg-[#fefcf9]/95 backdrop-blur-sm p-3 md:p-4 shadow-[0_2px_8px_rgba(120,100,80,0.08)] max-h-[40vh] md:max-h-none overflow-y-auto"
+            className="w-44 md:w-52 lg:w-64 rounded-lg border border-stone-200/60 bg-[#fefcf9]/95 backdrop-blur-sm p-3 md:p-4 shadow-[0_2px_8px_rgba(120,100,80,0.08)] max-h-[40vh] md:max-h-none overflow-y-auto"
           >
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-serif text-base font-semibold text-primary">
@@ -89,9 +89,9 @@ export function MapLegend() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               {LEGEND_ITEMS.map((item) => (
-                <div key={item.label} className="flex items-start gap-3">
+                <div key={item.label} className="flex items-start gap-2 md:gap-3">
                   <div
                     className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-md flex-shrink-0"
                     style={{ backgroundColor: `${item.color}15` }}
@@ -104,12 +104,12 @@ export function MapLegend() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p
-                      className="text-[13px] font-semibold leading-tight"
+                      className="text-[10px] md:text-xs font-semibold leading-tight"
                       style={{ color: item.color }}
                     >
                       {item.label}
                     </p>
-                    <p className="text-[12px] leading-snug text-stone-500 mt-0.5">
+                    <p className="text-[10px] md:text-xs leading-snug text-stone-500 mt-0.5">
                       {item.description}
                     </p>
                   </div>

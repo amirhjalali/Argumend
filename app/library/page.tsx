@@ -35,8 +35,8 @@ const externalResources = [
 export default function LibraryPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl px-8 py-12">
-        <h1 className="font-serif text-4xl tracking-tight text-[#3d3a36] mb-4">
+      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
+        <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl tracking-tight text-[#3d3a36] mb-4">
           Library
         </h1>
         <p className="text-lg text-[#6a5f56] mb-10">
@@ -59,15 +59,15 @@ export default function LibraryPage() {
               <tbody className="divide-y divide-[#e8e0d4]">
                 {topics.map((topic) => (
                   <tr key={topic.id} className="hover:bg-[#faf7f2] transition-colors">
-                    <td className="px-5 py-3">
+                    <td className="px-5 py-3 text-sm md:text-base">
                       <Link href={`/?topic=${topic.id}`} className="font-medium text-[#3d3a36] hover:text-[#4f7b77] transition-colors">
                         {topic.title}
                       </Link>
                     </td>
-                    <td className="px-5 py-3 text-sm text-[#6a5f56] hidden sm:table-cell">
+                    <td className="px-5 py-3 text-sm md:text-base text-[#6a5f56] hidden sm:table-cell">
                       {topic.pillars.map(p => p.title).join(", ")}
                     </td>
-                    <td className="px-5 py-3 text-right font-mono text-sm text-[#3d3a36]">
+                    <td className="px-5 py-3 text-right font-mono text-sm md:text-base text-[#3d3a36]">
                       {topic.confidence_score}%
                     </td>
                   </tr>

@@ -48,8 +48,8 @@ const faqs = [
 export default function FAQPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl px-8 py-12">
-        <h1 className="font-serif text-4xl tracking-tight text-[#3d3a36] mb-4">
+      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
+        <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl tracking-tight text-[#3d3a36] mb-4">
           Frequently Asked Questions
         </h1>
         <p className="text-lg text-[#6a5f56] mb-10">

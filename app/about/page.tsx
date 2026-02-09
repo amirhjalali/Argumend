@@ -69,13 +69,13 @@ const quotes = [
 export default function AboutPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl px-6 md:px-8 py-14 md:py-20">
+      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-20">
         {/* Hero */}
         <div className="mb-14 md:mb-20">
           <p className="text-[12px] font-medium text-stone-400 mb-4">
             About
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
+          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             What if we could disagree<br />
             <span className="text-stone-500">without destroying each other?</span>
           </h1>

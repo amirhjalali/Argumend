@@ -51,7 +51,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-4 text-left hover:bg-white/50 transition-colors"
+        className="w-full p-3 md:p-4 text-left hover:bg-white/50 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -86,7 +86,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          className="px-4 pb-4 border-t border-stone-100"
+          className="px-3 md:px-4 pb-3 md:pb-4 border-t border-stone-100"
         >
           <div className="pt-4 space-y-4">
             {position.arguments.map((arg, idx) => (
@@ -123,7 +123,7 @@ function CruxCard({ crux }: { crux: IdentifiedCrux }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-4 bg-purple-50/50 border border-purple-200/60 rounded-xl"
+      className="p-3 md:p-4 bg-purple-50/50 border border-purple-200/60 rounded-xl"
     >
       <div className="flex items-start gap-3">
         <Target className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
@@ -141,7 +141,7 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-4 bg-yellow-50/50 border border-yellow-200/60 rounded-xl"
+      className="p-3 md:p-4 bg-yellow-50/50 border border-yellow-200/60 rounded-xl"
     >
       <div className="flex items-start gap-3">
         <AlertTriangle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
@@ -333,8 +333,8 @@ export default function AnalyzePage() {
                 </div>
 
                 {/* Text Input */}
-                <div className="bg-white rounded-2xl border border-stone-200/60 p-5 shadow-sm">
-                  <div className="flex items-center justify-between mb-3">
+                <div className="bg-white rounded-2xl border border-stone-200/60 p-4 md:p-5 shadow-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                     <label className="text-sm font-medium text-stone-700">
                       Content to Analyze
                     </label>

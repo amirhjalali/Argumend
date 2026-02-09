@@ -33,15 +33,15 @@ const concepts = [
 export default function ConceptsPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl px-8 py-12">
-        <h1 className="font-serif text-4xl tracking-tight text-[#3d3a36] mb-4">
+      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
+        <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl tracking-tight text-[#3d3a36] mb-4">
           Key Concepts
         </h1>
         <p className="text-lg text-[#6a5f56] mb-10">
           Understanding the framework behind structured argumentation.
         </p>
 
-        <div className="space-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {concepts.map((concept) => (
             <div
               key={concept.title}
