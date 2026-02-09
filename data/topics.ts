@@ -2432,17 +2432,17 @@ export const nuclearEnergySafety = buildTopic(nuclearEnergySafetyData);
 export const wealthTax = buildTopic(wealthTaxData);
 
 export const topics: Topic[] = [
-  moonLanding,
-  simulationHypothesis,
-  aiRisk,
-  freeWill,
-  climateChange,
-  minneapolisShooting,
-  labLeakTheory,
-  universalBasicIncome,
-  socialMediaMentalHealth,
-  cryptocurrencyValue,
-  gunControlEffectiveness,
   nuclearEnergySafety,
+  socialMediaMentalHealth,
+  aiRisk,
+  universalBasicIncome,
+  gunControlEffectiveness,
   wealthTax,
+  climateChange,
+  labLeakTheory,
+  cryptocurrencyValue,
+  freeWill,
+  simulationHypothesis,
+  moonLanding,
+  minneapolisShooting,
 ];

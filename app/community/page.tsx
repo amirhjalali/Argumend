@@ -1,21 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import {
-  MessageSquare,
-  Shield,
-  Scale,
-  Lightbulb,
-  Users,
-  Wifi,
-  WifiOff,
-  ExternalLink,
-  Bot,
-  Sparkles,
-} from "lucide-react";
+import { MessageSquare, Shield, Scale, Lightbulb } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { MoltbookFeed } from "@/components/MoltbookFeed";
-import { NOTABLE_DEBATE_AGENTS } from "@/lib/moltbook/debate-integration";
 
 const principles = [
   {
@@ -62,93 +48,6 @@ const contributing = [
   },
 ];
 
-function MoltbookStatus() {
-  const [isConnected, setIsConnected] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    // Check if Moltbook API is configured
-    fetch("/api/moltbook?action=status")
-      .then((res) => res.json())
-      .then((data) => setIsConnected(data.connected))
-      .catch(() => setIsConnected(false));
-  }, []);
-
-  if (isConnected === null) {
-    return (
-      <div className="flex items-center gap-2 text-stone-400">
-        <div className="w-2 h-2 rounded-full bg-stone-300 animate-pulse" />
-        <span className="text-sm">Checking connection...</span>
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className={`flex items-center gap-2 ${
-        isConnected ? "text-emerald-600" : "text-stone-400"
-      }`}
-    >
-      {isConnected ? (
-        <>
-          <Wifi className="w-4 h-4" />
-          <span className="text-sm font-medium">Connected to Moltbook</span>
-        </>
-      ) : (
-        <>
-          <WifiOff className="w-4 h-4" />
-          <span className="text-sm">Moltbook not configured</span>
-        </>
-      )}
-    </div>
-  );
-}
-
-function NotableAgents() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-      {NOTABLE_DEBATE_AGENTS.map((agent) => (
-        <a
-          key={agent.name}
-          href={`https://moltbook.com/agent/${agent.name}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white/60 border border-stone-200/60 rounded-xl p-4 hover:border-stone-300 hover:bg-white/80 transition-all group"
-        >
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-100 to-emerald-100 border border-teal-200/50 flex items-center justify-center">
-              <Bot className="w-5 h-5 text-teal-600" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2">
-                <h4 className="font-serif font-semibold text-stone-800">
-                  {agent.name}
-                </h4>
-                <ExternalLink className="w-3.5 h-3.5 text-stone-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <p className="text-xs text-teal-600 font-medium mt-0.5">
-                {agent.perspective}
-              </p>
-              <p className="text-sm text-stone-600 mt-1.5 line-clamp-2">
-                {agent.description}
-              </p>
-              <div className="flex flex-wrap gap-1.5 mt-2">
-                {agent.specialties.map((specialty) => (
-                  <span
-                    key={specialty}
-                    className="text-xs px-2 py-0.5 bg-stone-100 text-stone-500 rounded-full"
-                  >
-                    {specialty}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </a>
-      ))}
-    </div>
-  );
-}
-
 export default function CommunityPage() {
   return (
     <AppShell>
@@ -157,62 +56,10 @@ export default function CommunityPage() {
           Community
         </h1>
         <p className="text-lg text-[#6a5f56] mb-10">
-          Guidelines for productive discourse, Moltbook integration, and how to
-          contribute.
+          Join a growing community of people who disagree well. We believe the
+          best way to find truth is to test ideas rigorously — not to shout the
+          loudest.
         </p>
-
-        {/* Moltbook Integration Section */}
-        <section className="mb-10">
-          <div className="flex items-center justify-between mb-5">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-br from-teal-100 to-emerald-100 rounded-lg border border-teal-200/50">
-                <Sparkles className="h-5 w-5 text-teal-600" />
-              </div>
-              <div>
-                <h2 className="font-serif text-2xl text-[#3d3a36]">
-                  Moltbook Integration
-                </h2>
-                <p className="text-sm text-stone-500">
-                  Connect with AI agents on the social network for AI
-                </p>
-              </div>
-            </div>
-            <MoltbookStatus />
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Recent Debates Feed */}
-            <div>
-              <h3 className="font-serif text-lg text-stone-700 mb-3 flex items-center gap-2">
-                <MessageSquare className="w-4 h-4" />
-                Recent Debates
-              </h3>
-              <MoltbookFeed submolt="argumend" limit={4} compact />
-            </div>
-
-            {/* Notable Agents */}
-            <div>
-              <h3 className="font-serif text-lg text-stone-700 mb-3 flex items-center gap-2">
-                <Users className="w-4 h-4" />
-                Notable AI Agents
-              </h3>
-              <NotableAgents />
-            </div>
-          </div>
-
-          <div className="mt-4 p-4 bg-teal-50/50 border border-teal-200/60 rounded-xl">
-            <p className="text-sm text-teal-800">
-              <strong>What is Moltbook?</strong> Moltbook is a social network
-              where AI agents interact, debate, and share ideas. When you
-              complete a debate on Argumend, you can share it to the{" "}
-              <span className="font-mono text-xs bg-teal-100 px-1 py-0.5 rounded">
-                argumend
-              </span>{" "}
-              community where other AI agents can respond with their own
-              arguments.
-            </p>
-          </div>
-        </section>
 
         {/* Discussion Principles */}
         <section className="mb-10">
@@ -263,6 +110,16 @@ export default function CommunityPage() {
               </div>
             ))}
           </div>
+          <div className="mt-5">
+            <a
+              href="https://github.com/amirhjalali/Argumend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#3d3a36] text-white rounded-lg font-medium text-sm hover:bg-[#2a2826] transition-colors"
+            >
+              Contribute on GitHub &rarr;
+            </a>
+          </div>
         </section>
 
         {/* Ideological Turing Test */}
@@ -281,7 +138,7 @@ export default function CommunityPage() {
         <div className="mt-12 pt-8 border-t border-stone-200">
           <p className="text-sm text-[#6a5f56]">
             Good discourse is a skill. These principles help us practice it
-            together.
+            together. Have a topic suggestion? We&apos;d love to hear from you.
           </p>
         </div>
       </div>

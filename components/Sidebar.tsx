@@ -1,79 +1,40 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   BookOpen,
+  Brain,
+  ChevronDown,
+  ChevronRight,
   Compass,
   Eye,
+  GraduationCap,
   HelpCircle,
   Layers,
   ListChecks,
-  Users,
   Map,
-  GraduationCap,
   Shell,
-  Wifi,
-  WifiOff,
-  Brain,
+  Users,
 } from "lucide-react";
 import { topics } from "@/data/topics";
 
-function MoltbookStatusIndicator() {
-  const [isConnected, setIsConnected] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    fetch("/api/moltbook?action=status")
-      .then((res) => res.json())
-      .then((data) => setIsConnected(data.connected))
-      .catch(() => setIsConnected(false));
-  }, []);
-
-  if (isConnected === null) {
-    return (
-      <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-stone-100/80">
-        <div className="w-1.5 h-1.5 rounded-full bg-stone-300 animate-pulse" />
-        <span className="text-[10px] text-stone-400">Moltbook</span>
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className={`flex items-center gap-1.5 px-2 py-1 rounded-full ${
-        isConnected ? "bg-teal-50/80" : "bg-stone-100/80"
-      }`}
-      title={isConnected ? "Connected to Moltbook" : "Moltbook not configured"}
-    >
-      {isConnected ? (
-        <Wifi className="w-3 h-3 text-teal-600" />
-      ) : (
-        <WifiOff className="w-3 h-3 text-stone-400" />
-      )}
-      <span
-        className={`text-[10px] ${
-          isConnected ? "text-teal-600" : "text-stone-400"
-        }`}
-      >
-        Moltbook
-      </span>
-    </div>
-  );
-}
-
 const PRIMARY_NAV = [
   { label: "Home", icon: Compass, href: "/" },
-  { label: "Analyze Content", icon: Brain, href: "/analyze", highlight: true },
-  { label: "All Topics", icon: ListChecks, href: "/topics" },
+  { label: "Analyze Text", icon: Brain, href: "/analyze", highlight: true },
+  { label: "Explore Topics", icon: ListChecks, href: "/topics" },
   { label: "How It Works", icon: Map, href: "/how-it-works" },
+  { label: "About", icon: HelpCircle, href: "/about" },
+];
+
+const LEARN_NAV = [
   { label: "Guides", icon: GraduationCap, href: "/guides" },
   { label: "Concepts", icon: Layers, href: "/concepts" },
   { label: "Perspectives", icon: Eye, href: "/perspectives" },
   { label: "Library", icon: BookOpen, href: "/library" },
-  { label: "Community", icon: Users, href: "/community" },
   { label: "Lessons From the Deep", icon: Shell, href: "/lessons-from-the-deep" },
-  { label: "About", icon: HelpCircle, href: "/about" },
+  { label: "Community", icon: Users, href: "/community" },
 ];
 
 const FOOTER_LINKS = [
@@ -95,6 +56,7 @@ export function Sidebar({
 }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const [learnOpen, setLearnOpen] = useState(false);
 
   const handleTopicClick = (id: string) => {
     onTopicSelect(id);
@@ -156,6 +118,48 @@ export function Sidebar({
             );
           })}
         </nav>
+
+        {/* Learn & Explore collapsible section */}
+        <div className="pb-5">
+          <button
+            onClick={() => setLearnOpen(!learnOpen)}
+            className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 transition-colors"
+          >
+            {learnOpen ? (
+              <ChevronDown className="h-3.5 w-3.5" strokeWidth={1.8} />
+            ) : (
+              <ChevronRight className="h-3.5 w-3.5" strokeWidth={1.8} />
+            )}
+            <span>Learn &amp; Explore</span>
+          </button>
+
+          {learnOpen && (
+            <nav className="mt-0.5 space-y-0.5 pl-3">
+              {LEARN_NAV.map(({ label, icon: Icon, href }) => {
+                const isActive = isActiveRoute(href);
+                return (
+                  <Link
+                    key={label}
+                    href={href}
+                    className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[14px] transition-colors ${
+                      isActive
+                        ? "text-stone-900 font-medium border-l-2 border-stone-800 pl-[10px]"
+                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
+                    }`}
+                  >
+                    <Icon
+                      className={`h-4 w-4 ${
+                        isActive ? "text-stone-700" : "text-stone-400"
+                      }`}
+                      strokeWidth={1.8}
+                    />
+                    <span>{label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          )}
+        </div>
 
         {/* Divider */}
         <div className="h-px bg-stone-200/50 mb-5" />

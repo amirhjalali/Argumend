@@ -13,6 +13,7 @@ import {
   MessageSquare,
   AlertTriangle,
   Target,
+  Shield,
 } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { Sidebar } from "@/components/Sidebar";
@@ -337,16 +338,33 @@ export default function AnalyzePage() {
                     <label className="text-sm font-medium text-stone-700">
                       Content to Analyze
                     </label>
-                    <label className="flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 hover:bg-stone-100 rounded-md cursor-pointer transition-colors">
-                      <Upload className="h-3.5 w-3.5 text-stone-400" />
-                      <span className="text-xs text-stone-500">Upload</span>
-                      <input
-                        type="file"
-                        accept=".txt,.md"
-                        onChange={handleFileUpload}
-                        className="hidden"
-                      />
-                    </label>
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setContent(`The debate over nuclear energy has intensified. Proponents argue it's essential for meeting climate goals — nuclear produces minimal carbon emissions and provides reliable baseload power that renewables can't match. France generates 70% of its electricity from nuclear and has among the lowest carbon emissions in Europe.
+
+Critics counter that nuclear is too expensive and too slow to build. The Vogtle plant in Georgia came in at $35 billion, more than double its original estimate. Meanwhile, solar and wind costs have plummeted 90% in a decade. There are also unresolved questions about waste storage — the US still has no permanent repository despite decades of trying.
+
+Supporters respond that newer reactor designs like SMRs could dramatically cut costs and construction times, and that the waste problem is more political than technical — Finland's Onkalo facility proves deep geological storage works. The real question may be whether we can afford to exclude any zero-carbon source while facing a climate emergency.`);
+                          setContentType("freeform");
+                        }}
+                        className="flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 hover:bg-amber-100 rounded-md cursor-pointer transition-colors"
+                      >
+                        <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+                        <span className="text-xs text-amber-600">Try an Example</span>
+                      </button>
+                      <label className="flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 hover:bg-stone-100 rounded-md cursor-pointer transition-colors">
+                        <Upload className="h-3.5 w-3.5 text-stone-400" />
+                        <span className="text-xs text-stone-500">Upload</span>
+                        <input
+                          type="file"
+                          accept=".txt,.md"
+                          onChange={handleFileUpload}
+                          className="hidden"
+                        />
+                      </label>
+                    </div>
                   </div>
                   <textarea
                     value={content}
@@ -359,6 +377,10 @@ export default function AnalyzePage() {
                     placeholder="Paste your debate transcript, article, or discussion here..."
                     className="w-full h-48 md:h-56 p-4 bg-stone-50/50 border border-stone-200/60 rounded-xl text-stone-700 text-sm placeholder-stone-400 resize-none focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500/50"
                   />
+                  <p className="text-[11px] text-stone-400 mt-1.5 flex items-center gap-1">
+                    <Shield className="h-3 w-3" />
+                    Your text is analyzed by AI and is not stored after processing.
+                  </p>
                   <div className="flex items-center justify-between mt-3">
                     <span className="text-xs text-stone-400">
                       {content.length > 0 ? `${content.length.toLocaleString()} chars` : ""}
