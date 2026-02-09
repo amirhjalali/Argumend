@@ -104,7 +104,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             <h1 className="font-serif text-3xl md:text-5xl font-bold text-primary leading-tight">
               What if we could disagree
               <br />
-              <span className="text-amber-600">
+              <span className="text-[#4f7b77]">
                 without destroying each other?
               </span>
             </h1>
