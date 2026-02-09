@@ -19,6 +19,12 @@ const config: Config = {
         secondary: "#6d645c",
         muted: "#9c9288",
 
+        deep: {
+          DEFAULT: "#4f7b77", // Deep teal — primary accent
+          light: "#6a9b96",
+          dark: "#3d5f5c",
+        },
+
         accent: {
           main: "#D4A012", // Rich metallic gold
           warn: "#E8B923", // Bright gold
