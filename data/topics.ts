@@ -2394,6 +2394,967 @@ const wealthTaxData = {
 };
 
 // ============================================================================
+// AI Content Labeling Topic
+// ============================================================================
+
+const aiContentLabelingData = {
+  id: "ai-content-labeling",
+  title: "Mandatory AI Content Labeling",
+  meta_claim:
+    "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "misinformation-prevention",
+      title: "Misinformation Prevention",
+      short_summary:
+        "Labeling AI content helps the public distinguish real from synthetic media, reducing misinformation spread.",
+      icon_name: "Shield" as const,
+      skeptic_premise:
+        "Labels are trivially removable through screenshots, re-encoding, or adversarial attacks on watermarks. Mandatory labeling creates a false sense of security — unlabeled content gets trusted more, while bad actors simply strip the labels.",
+      proponent_rebuttal:
+        "Even imperfect labeling shifts social norms and creates legal accountability frameworks. The EU AI Act and C2PA standard create infrastructure that makes provenance verifiable at scale. Just as food labeling doesn't prevent all fraud but massively reduces it, content labeling raises the cost of deception.",
+      crux: {
+        id: "watermark-robustness",
+        title: "Watermark Robustness Under Adversarial Conditions",
+        description:
+          "Testing whether current AI watermarking techniques survive common transformations like screenshotting, compression, cropping, and deliberate adversarial removal attempts.",
+        methodology:
+          "Apply state-of-the-art watermarks (C2PA, Google SynthID, Meta Stable Signature) to 10,000 AI-generated images and text samples. Subject each to a battery of transformations. Measure detection rate post-transformation.",
+        equation:
+          "R_{robust} = \\frac{\\text{detected after transform}}{\\text{total watermarked}} \\times 100",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$500K (Large-scale adversarial testing study)",
+      },
+      evidence: [
+        {
+          id: "eu-ai-act-provisions",
+          title: "EU AI Act Mandates Labeling for Deepfakes",
+          description:
+            "The EU AI Act (2024) requires that AI-generated or manipulated content (deepfakes) must be clearly labeled. Violations carry fines up to 3% of global revenue.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "European Parliament",
+          sourceUrl: "https://artificialintelligenceact.eu",
+          reasoning:
+            "Major democratic body enacted this after extensive deliberation; sets global precedent.",
+        },
+        {
+          id: "deepfake-detection-rates",
+          title: "Human Deepfake Detection Rates Below 50%",
+          description:
+            "Studies show untrained humans detect AI-generated faces at rates near chance (48-52%). Labels would provide the information humans cannot perceive on their own.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "University of Washington (2023)",
+          reasoning:
+            "Demonstrates clear need since human perception alone is insufficient.",
+        },
+        {
+          id: "platform-label-experiments",
+          title: "Social Media Platform Labeling Experiments",
+          description:
+            "Meta and YouTube have experimented with AI content labels. Early data shows labeled content receives 10-15% less sharing, suggesting labels influence behavior.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Meta Transparency Center",
+          reasoning:
+            "Platform self-reported data; independence concerns but directionally informative.",
+        },
+        {
+          id: "watermark-removal-ease",
+          title: "Watermarks Can Be Removed or Forged",
+          description:
+            "Research from University of Maryland demonstrated that visible and invisible watermarks can be removed with high success rates using freely available tools, and false watermarks can be added to real content.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "University of Maryland (2023)",
+          reasoning:
+            "Peer-reviewed demonstration that technical enforcement has fundamental limitations.",
+        },
+      ],
+    },
+    {
+      id: "free-expression-impact",
+      title: "Free Expression Impact",
+      short_summary:
+        "Mandatory labeling may burden legitimate creative, educational, and journalistic uses of AI tools.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Labeling requirements chill creative and educational use of AI tools. Artists using AI assistance, students using writing tools, and journalists using AI transcription would all face compliance burdens. Overly broad mandates could suppress beneficial innovation.",
+      proponent_rebuttal:
+        "Transparency about authorship is a reasonable baseline that protects informed consent without banning AI use. Disclosing that content is AI-generated is no more burdensome than disclosing paid partnerships or editorial corrections. The right to free expression doesn't include the right to deceive about the nature of content.",
+      crux: {
+        id: "chilling-effect-measurement",
+        title: "Measuring Chilling Effects on Creative AI Use",
+        description:
+          "Quantifying whether labeling mandates reduce beneficial AI tool adoption in creative, educational, and journalistic contexts.",
+        methodology:
+          "Compare AI tool adoption rates and creative output in jurisdictions with labeling mandates (EU, China) vs. those without. Survey creators about compliance burden.",
+        equation:
+          "\\Delta_{adoption} = \\beta_{mandate} + \\beta_{sector} + \\epsilon",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$300K (Cross-jurisdictional comparative study)",
+      },
+      evidence: [
+        {
+          id: "first-amendment-analyses",
+          title: "First Amendment Scholars Divided on Compelled Disclosure",
+          description:
+            "Legal scholars are split: some argue compelled labeling is unconstitutional compelled speech; others argue it's permissible commercial disclosure like nutrition labels.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "Harvard Law Review, Stanford CIS",
+          reasoning:
+            "Genuine constitutional uncertainty creates legal risk for mandates.",
+        },
+        {
+          id: "china-labeling-law",
+          title: "China's AI Labeling Law Shows Mixed Results",
+          description:
+            "China's 2023 regulations requiring AI content labeling have been inconsistently enforced. Domestic platforms comply partially, but enforcement gaps are wide and creative users report self-censoring to avoid scrutiny.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "DigiChina, Stanford",
+          reasoning:
+            "Real-world implementation data, though China's regulatory context differs significantly from democracies.",
+        },
+        {
+          id: "creator-community-surveys",
+          title: "Creator Community Surveys Show Support for Disclosure",
+          description:
+            "Surveys of digital artists and writers show 62-68% support labeling requirements when applied to commercial and public-facing content, though opposition rises for private or educational use.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "Creative Commons, Authors Guild",
+          reasoning:
+            "Self-reported survey data; reveals nuanced support rather than blanket opposition.",
+        },
+        {
+          id: "informed-consent-precedent",
+          title: "Informed Consent Precedents in Other Domains",
+          description:
+            "Requirements to disclose paid promotions, ghostwriters, and stock photography have not chilled expression in advertising, publishing, or journalism.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "FTC Endorsement Guidelines",
+          reasoning:
+            "Analogous precedent, though AI content labeling is broader in scope.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Remote Work Permanence Topic
+// ============================================================================
+
+const remoteWorkPermanenceData = {
+  id: "remote-work-permanence",
+  title: "The Future of Remote Work",
+  meta_claim:
+    "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "productivity-innovation",
+      title: "Productivity & Innovation",
+      short_summary:
+        "Research on whether remote workers maintain or exceed office-based productivity and innovation output.",
+      icon_name: "Target" as const,
+      skeptic_premise:
+        "Remote work erodes spontaneous collaboration, mentorship, and innovation. Water cooler conversations, whiteboard sessions, and in-person brainstorming generate ideas that Zoom calls cannot replicate. Companies like Google, Apple, and JPMorgan have mandated return-to-office for these reasons.",
+      proponent_rebuttal:
+        "Stanford economist Nick Bloom's research consistently shows equal or higher individual productivity for remote workers. Microsoft's Work Trend Index found that async communication actually increases deep-focus work time. Innovation metrics like patents filed haven't declined at remote-first companies. Tooling (Figma, Miro, Slack huddles) keeps narrowing the collaboration gap.",
+      crux: {
+        id: "innovation-output-measurement",
+        title: "Remote vs. In-Office Innovation Output",
+        description:
+          "Controlled comparison of innovation metrics (patents, new products, revenue from new initiatives) between matched remote and in-office teams.",
+        methodology:
+          "Compare innovation output at companies with different remote policies, controlling for industry, company size, and pre-pandemic innovation rates. Use patent filings, new product launches, and internal innovation metrics.",
+        equation:
+          "\\Delta I = I_{remote} - I_{office} \\pm \\text{confounders}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Multi-year controlled study across firms)",
+      },
+      evidence: [
+        {
+          id: "bloom-stanford-study",
+          title: "Stanford/Bloom Study: Remote Workers 13% More Productive",
+          description:
+            "Nick Bloom's landmark 2015 study at Ctrip (16,000 employees) found remote workers were 13% more productive, took fewer sick days, and reported higher satisfaction. His 2022 follow-up confirmed hybrid models show no productivity loss.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 6,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "Stanford University, Quarterly Journal of Economics",
+          reasoning:
+            "Gold-standard randomized experiment at scale, though limited to one company context and pre-dates the pandemic shift.",
+        },
+        {
+          id: "microsoft-collaboration-data",
+          title: "Microsoft Research Shows Communication Pattern Shifts",
+          description:
+            "Microsoft's analysis of 60,000+ employees found remote work increased async communication but reduced cross-team connections by 25%. Atlassian's data showed similar patterns but noted that structured 'intentional collaboration' rituals recovered most lost connections.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Microsoft Research, Nature Human Behaviour (2022)",
+          reasoning:
+            "Large-scale internal data showing real collaboration costs, published in top-tier journal.",
+        },
+        {
+          id: "rto-mandate-outcomes",
+          title: "Major Companies Mandating Return-to-Office",
+          description:
+            "Amazon, Google, Meta, JPMorgan, and Goldman Sachs have mandated 3-5 days in office, citing innovation and culture needs. These are some of the most data-driven companies in the world, and they've concluded remote work has costs.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Company Announcements, Wall Street Journal",
+          reasoning:
+            "Revealed preferences of major employers suggest remote work has real drawbacks they've measured internally.",
+        },
+        {
+          id: "patent-innovation-data",
+          title: "Patent Filing Rates Stable Despite Remote Shift",
+          description:
+            "USPTO data shows no decline in patent application rates during 2020-2024 despite massive shift to remote work. Remote-first companies like GitLab, Automattic, and Zapier maintain strong innovation output.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 6,
+            directness: 3,
+          },
+          source: "USPTO, Company Annual Reports",
+          reasoning:
+            "Broad economic data; directness limited because many factors influence patent rates.",
+        },
+      ],
+    },
+    {
+      id: "economic-social-dynamics",
+      title: "Economic & Social Dynamics",
+      short_summary:
+        "The broader economic and social consequences of a permanent shift away from office-centric work.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "Commercial real estate collapse, urban decay, and weakened company culture make full remote unsustainable. Downtown economies depend on office workers. Junior employees lose mentorship. Company loyalty and culture erode when people never meet in person.",
+      proponent_rebuttal:
+        "Geographic flexibility reduces housing costs, improves work-life balance, and expands talent pools to previously excluded geographies. Cities will adapt as they always have — converting offices to housing. Employee surveys consistently show remote/hybrid as the #1 desired benefit, more valued than salary increases.",
+      crux: {
+        id: "urban-economic-adaptation",
+        title: "Urban Economic Adaptation Timeline",
+        description:
+          "Measuring how quickly urban economies can adapt to reduced office occupancy through conversion, rezoning, and new economic models.",
+        methodology:
+          "Track commercial-to-residential conversion rates, downtown foot traffic, and new business formation in major US cities. Model equilibrium point where CRE market stabilizes.",
+        equation:
+          "T_{adapt} = f(\\text{vacancy rate}, \\text{conversion cost}, \\text{zoning flexibility})",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$1M (Multi-city longitudinal economic study)",
+      },
+      evidence: [
+        {
+          id: "cre-vacancy-data",
+          title: "US Office Vacancy Rate Hits Record 20%",
+          description:
+            "Commercial real estate vacancy rates reached 20.1% in Q3 2024, the highest ever recorded. Moody's estimates $1.2T in CRE debt is at risk. This creates genuine economic disruption in downtown cores.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 8,
+          },
+          source: "Moody's Analytics, CoStar Group",
+          reasoning:
+            "Hard economic data showing real costs of the remote transition; direct evidence of unsustainability concerns.",
+        },
+        {
+          id: "gallup-employee-engagement",
+          title: "Gallup: Hybrid Workers Report Highest Engagement",
+          description:
+            "Gallup's 2024 State of the Workplace report found hybrid workers (2-3 days in office) report the highest engagement scores, above both fully remote and fully in-office workers.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Gallup (2024)",
+          reasoning:
+            "Large-scale, independent survey; supports hybrid model specifically rather than fully remote.",
+        },
+        {
+          id: "remote-job-listings",
+          title: "Remote Job Listings Stabilized at 3x Pre-Pandemic Levels",
+          description:
+            "ZipRecruiter and Indeed data show remote job postings stabilized at roughly 15% of all listings (vs. 5% pre-pandemic), suggesting permanent structural shift even as some companies mandate return.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "ZipRecruiter, Indeed Hiring Lab",
+          reasoning:
+            "Market-based signal that remote work is a permanent feature, not a temporary anomaly.",
+        },
+        {
+          id: "demographic-shift-data",
+          title: "Remote Work Drives Geographic Redistribution",
+          description:
+            "Census and USPS data show accelerated migration from high-cost metros to mid-size cities. Boise, Austin, and Nashville grew 5-10% as remote workers relocated. This creates both opportunity (affordable housing) and tension (gentrification).",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 4,
+          },
+          source: "US Census Bureau, USPS Change of Address Data",
+          reasoning:
+            "Solid demographic data; directness limited because migration has many drivers.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Standardized Testing Value Topic
+// ============================================================================
+
+const standardizedTestingValueData = {
+  id: "standardized-testing-value",
+  title: "Standardized Testing in Education",
+  meta_claim:
+    "Standardized tests (SAT, ACT, state assessments) are a valid and useful measure of student ability and should remain a core part of educational assessment.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "predictive-validity",
+      title: "Predictive Validity",
+      short_summary:
+        "Whether standardized tests actually predict academic and career success, or primarily measure socioeconomic privilege.",
+      icon_name: "Microscope" as const,
+      skeptic_premise:
+        "Tests measure socioeconomic status more than ability; they perpetuate inequality. SAT score correlates with family income at r=0.42. Wealthy families can afford $10K+ test prep. Test-optional policies were adopted by 1,800+ schools because tests add noise, not signal.",
+      proponent_rebuttal:
+        "SAT/ACT remain the strongest single predictor of college GPA (r=0.53), stronger than high school GPA alone. Test-optional policies haven't improved socioeconomic diversity — they've actually reduced it at many schools by removing a tool that identified high-ability low-income students. The UC system's own research found SAT predicted success better than GPA across all demographic groups.",
+      crux: {
+        id: "test-optional-outcomes",
+        title: "Test-Optional Policy Outcome Analysis",
+        description:
+          "Comparing academic outcomes and demographic diversity at schools before and after adopting test-optional admissions.",
+        methodology:
+          "Track graduation rates, GPAs, retention, and demographic composition at matched schools with and without test-optional policies. Control for simultaneous policy changes.",
+        equation:
+          "\\Delta_{diversity} = f(\\text{test-optional policy}, \\text{aid changes}, \\text{outreach})",
+        verification_status: "verified" as const,
+        cost_to_verify: "$200K (Analysis of existing admissions data)",
+      },
+      evidence: [
+        {
+          id: "college-board-validity",
+          title: "College Board: SAT Predicts College GPA at r=0.53",
+          description:
+            "College Board's validity studies across 200+ institutions show SAT scores predict first-year college GPA at r=0.53 when combined with high school GPA, significantly better than GPA alone (r=0.36).",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 3,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "College Board Research",
+          reasoning:
+            "Large sample size and consistent findings, but severe conflict of interest as College Board profits from the SAT.",
+        },
+        {
+          id: "uc-system-analysis",
+          title: "UC System Found SAT More Predictive Than GPA for All Groups",
+          description:
+            "The University of California's 2020 internal study found SAT scores were better predictors of college success than high school GPA across all racial and income groups. Despite this, the UC system dropped the SAT for political reasons.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "UC Academic Senate Study Group (2020)",
+          reasoning:
+            "Highly credible because the UC system dropped the SAT despite their own data supporting it.",
+        },
+        {
+          id: "brookings-income-correlation",
+          title: "Brookings: SAT Scores Strongly Correlate with Family Income",
+          description:
+            "Brookings Institution analysis shows a near-linear relationship between family income and average SAT scores. Students from families earning $200K+ score 400 points higher on average than those earning under $20K.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Brookings Institution",
+          reasoning:
+            "Highly credible, independent analysis showing clear socioeconomic bias in test scores.",
+        },
+        {
+          id: "pisa-international-comparison",
+          title: "PISA International Data Shows Tests Track National Investment",
+          description:
+            "International PISA comparisons show that countries with higher education spending and lower inequality (Finland, Canada) outperform regardless of testing intensity, suggesting tests measure inputs more than innate ability.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "OECD PISA Reports",
+          reasoning:
+            "Strong international data; directness limited because national-level comparisons obscure individual-level dynamics.",
+        },
+      ],
+    },
+    {
+      id: "educational-accountability",
+      title: "Educational Accountability",
+      short_summary:
+        "Whether standardized tests serve as essential tools for measuring and closing achievement gaps, or whether they narrow education to test preparation.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Teaching to the test narrows curriculum and harms deep learning. Schools spend weeks on test prep instead of critical thinking, arts, and exploration. High-stakes testing causes anxiety and disengagement, particularly among marginalized students.",
+      proponent_rebuttal:
+        "Without standardized measures, achievement gaps go unmeasured and unaddressed. NAEP data only exists because of standardized testing. Schools serving disadvantaged students need accountability tools to ensure they receive quality education rather than being warehoused. The alternative — subjective teacher assessments — introduces more bias, not less.",
+      crux: {
+        id: "achievement-gap-tracking",
+        title: "Achievement Gap Visibility Without Standardized Tests",
+        description:
+          "Determining whether alternative assessment methods can detect and track achievement gaps as effectively as standardized tests.",
+        methodology:
+          "Compare achievement gap measurements using standardized tests vs. portfolio assessments, teacher evaluations, and project-based assessments across demographically diverse school districts.",
+        equation:
+          "\\text{Gap}_{detected} = f(\\text{assessment type}, \\text{demographic}, \\text{school resources})",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$5M (Multi-district comparative assessment study)",
+      },
+      evidence: [
+        {
+          id: "naep-achievement-gaps",
+          title: "NAEP Data Reveals Persistent Achievement Gaps",
+          description:
+            "The National Assessment of Educational Progress (NAEP) has tracked racial and socioeconomic achievement gaps since 1971. Without this standardized data, the 30-point reading gap between Black and white students would be invisible to policymakers.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 8,
+          },
+          source: "NCES, NAEP",
+          reasoning:
+            "Definitive national dataset that only exists due to standardized measurement.",
+        },
+        {
+          id: "accountability-studies",
+          title: "No Child Left Behind Accountability Had Mixed Effects",
+          description:
+            "Research on NCLB-era accountability showed narrowed achievement gaps in early grades but also documented curriculum narrowing, teacher demoralization, and gaming of test scores by some districts.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "National Bureau of Economic Research",
+          reasoning:
+            "Shows accountability works but with significant side effects.",
+        },
+        {
+          id: "teacher-survey-testing-burden",
+          title: "Teachers Report Excessive Testing Burden",
+          description:
+            "NEA and AFT surveys consistently find 70%+ of teachers believe standardized testing has a negative effect on teaching quality. Average US student takes 112 mandated standardized tests between pre-K and 12th grade.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "NEA, Council of the Great City Schools",
+          reasoning:
+            "Practitioner perspective; unions have political interests but direct classroom experience.",
+        },
+        {
+          id: "countries-without-testing",
+          title: "Finland Succeeds Without High-Stakes Testing",
+          description:
+            "Finland uses no standardized testing until age 16 and consistently ranks among top PISA performers. Their model relies on highly trained teachers, formative assessment, and trust-based accountability.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 4,
+            directness: 6,
+          },
+          source: "OECD, Finnish National Agency for Education",
+          reasoning:
+            "Compelling counterexample, though Finland's homogeneous demographics and teacher quality limit replicability.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Social Media Age Limits Topic
+// ============================================================================
+
+const socialMediaAgeLimitsData = {
+  id: "social-media-age-limits",
+  title: "Social Media Age Limits",
+  meta_claim:
+    "Children under 16 should be legally prohibited from using social media platforms.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "mental-health-impact",
+      title: "Mental Health Impact",
+      short_summary:
+        "Evidence on whether social media causally harms children's mental health, particularly for adolescents under 16.",
+      icon_name: "AlertTriangle" as const,
+      skeptic_premise:
+        "Correlation isn't causation; teen mental health was declining before social media became widespread. Economic anxiety, academic pressure, and reduced outdoor play also increased. Bans push kids to less safe, unmoderated platforms. Most studies rely on self-reported screen time, which is unreliable.",
+      proponent_rebuttal:
+        "Jonathan Haidt's comprehensive review in 'The Anxious Generation' documents the sharp inflection in teen mental health precisely when smartphone/social media adoption hit critical mass (2012). The US Surgeon General's 2023 advisory specifically cited sufficient evidence of harm. Internal Facebook research (leaked by Frances Haugen) showed Instagram makes body image worse for 1 in 3 teen girls. Delay-of-smartphone initiatives in schools show measurable improvements in attention and wellbeing.",
+      crux: {
+        id: "causal-mechanism-study",
+        title: "Randomized Social Media Abstinence Trial",
+        description:
+          "A properly controlled trial where teens are randomly assigned to abstain from social media for 6+ months, with mental health measured via clinical instruments rather than self-report.",
+        methodology:
+          "Recruit 5,000 teens aged 13-16. Randomly assign to social media abstinence (with device-level enforcement) or control. Measure depression (PHQ-A), anxiety (GAD-7), self-esteem, and sleep quality at baseline, 3 months, and 6 months.",
+        equation:
+          "\\Delta MH_{abstain} - \\Delta MH_{control} = \\tau_{causal}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$15M (Large-scale RCT with enforcement technology)",
+      },
+      evidence: [
+        {
+          id: "surgeon-general-advisory",
+          title: "US Surgeon General Advisory on Youth Mental Health (2023)",
+          description:
+            "Surgeon General Vivek Murthy issued a formal advisory stating social media presents 'a profound risk of harm' to children. Called for warning labels similar to tobacco. Based on review of available evidence showing associations with depression, anxiety, and body image issues.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "US Surgeon General's Office",
+          reasoning:
+            "Highest-level public health advisory; carefully worded but stops short of claiming causation.",
+        },
+        {
+          id: "haidt-anxious-generation",
+          title: "Haidt's 'The Anxious Generation' Meta-Analysis",
+          description:
+            "Jonathan Haidt documents that teen depression increased 150% for girls and 50% for boys between 2010-2021, with the inflection point matching smartphone saturation. International data from 7 countries shows the same pattern.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Jonathan Haidt, 'The Anxious Generation' (2024)",
+          reasoning:
+            "Comprehensive but authored by an advocate; some peer reviewers dispute the causal framing.",
+        },
+        {
+          id: "australia-age-verification",
+          title: "Australia Passes Social Media Ban for Under-16s",
+          description:
+            "Australia passed legislation in 2024 banning children under 16 from social media. Implementation details and effectiveness data are still emerging. Platform compliance mechanisms remain uncertain.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "Australian Parliament, eSafety Commissioner",
+          reasoning:
+            "Democratic nation acted on the evidence; too early for effectiveness data.",
+        },
+        {
+          id: "teen-self-report-surveys",
+          title: "Teens Self-Report Both Harms and Benefits",
+          description:
+            "Pew Research surveys show 46% of teens say social media makes them feel worse, but 44% say it makes them feel better, and 80% say it helps them feel more connected to friends. LGBTQ+ youth particularly value online community access.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Pew Research Center (2023)",
+          reasoning:
+            "Large-scale, independent survey data that complicates the 'purely harmful' narrative.",
+        },
+      ],
+    },
+    {
+      id: "enforcement-rights",
+      title: "Enforcement & Rights",
+      short_summary:
+        "Whether age-based social media bans are practically enforceable and whether they respect children's and parents' rights.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Age verification requires invasive ID checks that violate privacy for all users, not just children. Teens will circumvent any ban using VPNs, fake birthdays, or parents' accounts. Government shouldn't decide what children can access — that's a parental decision.",
+      proponent_rebuttal:
+        "We already age-gate alcohol, driving, gambling, and voting. Imperfect enforcement doesn't mean we abandon the principle — underage drinking laws reduce teen alcohol use despite circumvention. Age estimation technology (facial analysis, device attestation) offers privacy-preserving approaches. Parents need legal backing because individual parents can't enforce rules when all peers are on platforms.",
+      crux: {
+        id: "enforcement-effectiveness",
+        title: "Age Verification Effectiveness Study",
+        description:
+          "Measuring what percentage of underage users are actually prevented from accessing platforms under various age verification regimes.",
+        methodology:
+          "Audit compliance rates across age verification methods: self-declared age, ID verification, facial age estimation, and device-level parental controls. Measure circumvention rates by age group.",
+        equation:
+          "E_{compliance} = 1 - \\frac{N_{underage\\_active}}{N_{underage\\_total}}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Multi-platform audit study)",
+      },
+      evidence: [
+        {
+          id: "australia-implementation",
+          title: "Australia's Age Verification Pilot Data",
+          description:
+            "Australia's eSafety Commissioner trials showed facial age estimation correctly identifies under-16s 95% of the time, but privacy advocates raised concerns about biometric data collection and algorithmic bias against non-white faces.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "Australian eSafety Commissioner (2024)",
+          reasoning:
+            "Government-commissioned pilot; promising but limited sample and context.",
+        },
+        {
+          id: "coppa-effectiveness",
+          title: "COPPA Has Been Largely Ineffective",
+          description:
+            "The Children's Online Privacy Protection Act (1998) requires parental consent for under-13s. Studies show 53% of children under 13 use social media anyway, mostly by lying about age. Platforms have little incentive to enforce strictly.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "Common Sense Media, FTC Reports",
+          reasoning:
+            "25 years of evidence that age-based online restrictions are difficult to enforce.",
+        },
+        {
+          id: "age-verification-tech",
+          title: "Age Verification Technology Is Rapidly Improving",
+          description:
+            "Companies like Yoti and SuperAwesome offer facial age estimation with 98%+ accuracy for adults vs. children. Device-level attestation (Apple, Google) can verify age without sharing personal data with platforms.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 4,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Yoti, SuperAwesome, IEEE Reviews",
+          reasoning:
+            "Industry sources with commercial interests; independent verification needed.",
+        },
+        {
+          id: "circumvention-rates",
+          title: "Teen Circumvention of Existing Restrictions Is High",
+          description:
+            "Surveys indicate 67% of teens know how to bypass parental controls and age restrictions. VPN usage among teens doubled from 2020 to 2024. Any ban creates a cat-and-mouse dynamic.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "National Cyber Security Centre (UK), Bark Technologies",
+          reasoning:
+            "Practical evidence of enforcement challenges from multiple jurisdictions.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// College Value Proposition Topic
+// ============================================================================
+
+const collegeValuePropositionData = {
+  id: "college-value-proposition",
+  title: "The Value of a College Degree",
+  meta_claim:
+    "A four-year college degree remains the best investment in future earnings and career outcomes for most young adults.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "economic-returns",
+      title: "Economic Returns",
+      short_summary:
+        "Whether the financial return on a college degree still justifies the rising costs and debt burden.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Student debt crisis ($1.77T total), degree inflation, and trade skills shortage suggest the ROI is declining. Average student graduates with $37K in debt. Many graduates are underemployed in jobs that don't require degrees. For-profit colleges and low-value majors drag down the averages.",
+      proponent_rebuttal:
+        "College graduates still earn $1.2M more over a lifetime than high school graduates. The wage premium (84% higher median earnings) has been stable for decades. Default rates are highest among dropouts, not graduates — the problem is non-completion, not college itself. Even adjusting for debt and opportunity cost, the ROI remains strongly positive for most completers.",
+      crux: {
+        id: "roi-by-institution-major",
+        title: "Disaggregated ROI by Institution and Major",
+        description:
+          "Calculating the financial return on investment for college degrees broken down by institution type, major, and student demographics to identify where college pays off and where it doesn't.",
+        methodology:
+          "Use Department of Education College Scorecard data, IRS earnings records, and student loan data to calculate 20-year ROI for every institution-major combination, controlling for student selectivity.",
+        equation:
+          "ROI = \\frac{\\sum_{t=1}^{20} (E_{degree,t} - E_{no\\_degree,t})}{\\text{Total Cost} + \\text{Opportunity Cost}}",
+        verification_status: "verified" as const,
+        cost_to_verify: "$100K (Analysis of existing federal data)",
+      },
+      evidence: [
+        {
+          id: "georgetown-lifetime-earnings",
+          title: "Georgetown: College Graduates Earn $1.2M More Over Lifetime",
+          description:
+            "Georgetown University's Center on Education and the Workforce finds bachelor's degree holders earn $2.8M over a lifetime vs. $1.6M for high school graduates — a $1.2M premium that has grown over time.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Georgetown University CEW",
+          reasoning:
+            "Well-regarded research center, though aggregated averages obscure wide variance by major and institution.",
+        },
+        {
+          id: "fed-wage-premium",
+          title: "Federal Reserve: College Wage Premium Stable at 84%",
+          description:
+            "The New York Federal Reserve tracks the college wage premium and finds it has remained between 73-84% since 2000. In 2024, median college graduate earns $60K vs. $36K for high school graduates.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 6,
+          },
+          source: "Federal Reserve Bank of New York",
+          reasoning:
+            "Highly credible data; directness somewhat limited by selection bias (those who attend college may differ from those who don't).",
+        },
+        {
+          id: "student-loan-defaults",
+          title: "Student Loan Default Rates Highest Among Non-Completers",
+          description:
+            "Federal data shows 29% of borrowers who attended but didn't complete college default on loans within 12 years, vs. 8% of bachelor's degree completers. For-profit school attendees default at 44%. The debt problem is concentrated, not universal.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "Department of Education, Brookings",
+          reasoning:
+            "Reframes the debt crisis as a completion crisis; indirectly supports college value for completers.",
+        },
+        {
+          id: "trade-certification-earnings",
+          title: "Skilled Trades Offer Competitive Earnings Without Debt",
+          description:
+            "Licensed electricians, plumbers, and HVAC technicians earn median salaries of $56K-$60K with minimal debt. Union apprenticeship programs pay during training. In high-demand markets, experienced tradespeople earn $80K+.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Bureau of Labor Statistics, National Electrical Contractors Association",
+          reasoning:
+            "Demonstrates that competitive earnings are achievable through non-degree pathways with far less financial risk.",
+        },
+      ],
+    },
+    {
+      id: "alternative-pathways",
+      title: "Alternative Pathways",
+      short_summary:
+        "Whether tech bootcamps, apprenticeships, and self-directed learning provide viable alternatives to traditional four-year degrees.",
+      icon_name: "Target" as const,
+      skeptic_premise:
+        "Tech bootcamps, apprenticeships, and self-directed learning provide faster, cheaper paths to high-paying careers. Coding bootcamps cost $15K and take 12 weeks vs. $100K+ and 4 years for a CS degree. Google, Apple, and IBM have dropped degree requirements. The credential is becoming irrelevant.",
+      proponent_rebuttal:
+        "Alternative pathways work for a narrow set of fields (primarily software engineering and some tech roles). College provides broad skills, critical thinking, networking, and credentials that transfer across careers. Mid-career pivots are much harder without a degree. Bootcamp placement rates are often inflated, and earnings plateau faster than degree holders.",
+      crux: {
+        id: "long-term-career-trajectory",
+        title: "10-Year Career Trajectory Comparison",
+        description:
+          "Comparing career earnings, job stability, career mobility, and satisfaction over 10+ years for college graduates vs. bootcamp graduates vs. trade certificate holders.",
+        methodology:
+          "Longitudinal tracking of cohorts entering workforce through different pathways. Measure earnings, unemployment spells, career changes, job satisfaction, and advancement at 1, 5, and 10 year intervals.",
+        equation:
+          "\\text{Career Value}_{t} = \\int_{0}^{t} (E(s) + S(s) + M(s)) \\, ds",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$5M (10-year longitudinal cohort study)",
+      },
+      evidence: [
+        {
+          id: "bootcamp-placement-rates",
+          title: "Bootcamp Placement Rates Are Often Inflated",
+          description:
+            "CIRR (Council on Integrity in Results Reporting) found that many bootcamps report placement rates of 80-95%, but independent audits show actual full-time employment in field rates of 50-65%. Many 'placements' are contract, part-time, or unrelated roles.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "CIRR, Course Report",
+          reasoning:
+            "Raises questions about alternatives, though bootcamp quality varies enormously.",
+        },
+        {
+          id: "german-apprenticeship-model",
+          title: "Germany's Apprenticeship System Produces Strong Outcomes",
+          description:
+            "Germany's dual education system (apprenticeship + classroom) serves 50%+ of young adults. Youth unemployment is 5.8% (vs. 7.5% in the US). Apprenticeship graduates report high job satisfaction and stable careers in manufacturing, healthcare, and IT.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "OECD, German Federal Institute for Vocational Education",
+          reasoning:
+            "Compelling international model showing degree is not necessary; replicability in US uncertain but directionally important.",
+        },
+        {
+          id: "no-degree-hiring",
+          title: "Google, Apple, IBM Dropped Degree Requirements",
+          description:
+            "Major tech companies have formally removed bachelor's degree requirements for most positions, signaling that skills and experience can substitute for formal credentials. This trend is spreading to finance, consulting, and government roles.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Harvard Business School, Burning Glass Institute",
+          reasoning:
+            "Major employers formally devaluing the degree signals structural shift, even if implementation lags.",
+        },
+        {
+          id: "mid-career-earnings-by-education",
+          title: "Mid-Career Earnings Gap Widens with Age",
+          description:
+            "Bureau of Labor Statistics data shows the earnings gap between college and non-college workers widens from ages 25-55. By age 45, bachelor's degree holders earn 2.3x more than high school graduates, up from 1.5x at age 25.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Bureau of Labor Statistics",
+          reasoning:
+            "Authoritative longitudinal data; directness limited by selection effects and survivor bias.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
 // Build Topics with Computed Confidence Scores
 // ============================================================================
 
@@ -2430,13 +3391,23 @@ export const cryptocurrencyValue = buildTopic(cryptocurrencyValueData);
 export const gunControlEffectiveness = buildTopic(gunControlEffectivenessData);
 export const nuclearEnergySafety = buildTopic(nuclearEnergySafetyData);
 export const wealthTax = buildTopic(wealthTaxData);
+export const aiContentLabeling = buildTopic(aiContentLabelingData);
+export const remoteWorkPermanence = buildTopic(remoteWorkPermanenceData);
+export const standardizedTestingValue = buildTopic(standardizedTestingValueData);
+export const socialMediaAgeLimits = buildTopic(socialMediaAgeLimitsData);
+export const collegeValueProposition = buildTopic(collegeValuePropositionData);
 
 export const topics: Topic[] = [
   nuclearEnergySafety,
+  socialMediaAgeLimits,
   socialMediaMentalHealth,
+  remoteWorkPermanence,
   aiRisk,
+  aiContentLabeling,
   universalBasicIncome,
+  collegeValueProposition,
   gunControlEffectiveness,
+  standardizedTestingValue,
   wealthTax,
   climateChange,
   labLeakTheory,
@@ -2446,3 +3417,14 @@ export const topics: Topic[] = [
   moonLanding,
   minneapolisShooting,
 ];
+
+// ============================================================================
+// Featured Topic of the Week
+// ============================================================================
+
+/** Rotate this ID weekly to feature a different debate on the homepage. */
+export const featuredTopicId = "social-media-mental-health";
+
+/** Short editorial hook explaining why this topic is featured right now. */
+export const featuredReason =
+  "The Surgeon General just called for warning labels on social media. Where does the evidence actually land?";

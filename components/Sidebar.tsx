@@ -12,9 +12,11 @@ import {
   Eye,
   GraduationCap,
   HelpCircle,
+  History,
   Layers,
   ListChecks,
   Map,
+  Scale,
   Shell,
   Users,
 } from "lucide-react";
@@ -23,6 +25,7 @@ import { topics } from "@/data/topics";
 const PRIMARY_NAV = [
   { label: "Home", icon: Compass, href: "/" },
   { label: "Analyze Text", icon: Brain, href: "/analyze", highlight: true },
+  { label: "Recent Analyses", icon: History, href: "/analyses" },
   { label: "Explore Topics", icon: ListChecks, href: "/topics" },
   { label: "How It Works", icon: Map, href: "/how-it-works" },
   { label: "About", icon: HelpCircle, href: "/about" },
@@ -35,6 +38,8 @@ const LEARN_NAV = [
   { label: "Library", icon: BookOpen, href: "/library" },
   { label: "Lessons From the Deep", icon: Shell, href: "/lessons-from-the-deep" },
   { label: "Community", icon: Users, href: "/community" },
+  { label: "For Educators", icon: GraduationCap, href: "/for-educators" },
+  { label: "Methodology", icon: Scale, href: "/methodology" },
 ];
 
 const FOOTER_LINKS = [

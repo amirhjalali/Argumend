@@ -14,8 +14,9 @@ import {
   FileText,
   Beaker,
   ChevronRight,
+  Flame,
 } from "lucide-react";
-import { topics } from "@/data/topics";
+import { topics, featuredTopicId, featuredReason } from "@/data/topics";
 
 type ContentType = "transcript" | "article" | "freeform";
 
@@ -82,8 +83,11 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
     [content, handleAnalyze]
   );
 
-  const displayedTopics = topics.slice(0, DISPLAY_TOPICS_COUNT);
-  const remainingCount = topics.length - DISPLAY_TOPICS_COUNT;
+  const featuredTopic = topics.find((t) => t.id === featuredTopicId);
+  const displayedTopics = topics
+    .filter((t) => t.id !== featuredTopicId)
+    .slice(0, DISPLAY_TOPICS_COUNT);
+  const remainingCount = topics.length - DISPLAY_TOPICS_COUNT - (featuredTopic ? 1 : 0);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#f4f1eb] to-stone-50">
@@ -321,6 +325,90 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             </span>
             <div className="h-px flex-1 bg-stone-200/60" />
           </div>
+
+          {/* Debate of the Week */}
+          {featuredTopic && (
+            <motion.button
+              onClick={() => onTopicSelect(featuredTopic.id)}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65 }}
+              whileHover={{ scale: 1.005, y: -2 }}
+              className="group w-full text-left mb-5 rounded-xl bg-gradient-to-r from-[#fefcf9] to-white border border-stone-200/60 border-l-[3.5px] border-l-[#4f7b77] shadow-sm hover:shadow-md transition-all"
+            >
+              <div className="p-5 md:p-6">
+                {/* Badge row */}
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#4f7b77]/10 rounded-full text-[11px] font-semibold tracking-wide text-[#4f7b77]">
+                    <Flame className="h-3 w-3" />
+                    Debate of the Week
+                  </span>
+                  <span
+                    className={`px-2 py-0.5 rounded-full border text-[11px] font-medium ${
+                      featuredTopic.status === "settled"
+                        ? "border-emerald-200 text-emerald-500"
+                        : featuredTopic.status === "contested"
+                        ? "border-amber-200 text-amber-500"
+                        : "border-stone-200 text-stone-400"
+                    }`}
+                  >
+                    {featuredTopic.status}
+                  </span>
+                </div>
+
+                {/* Title + confidence */}
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-serif text-lg md:text-xl font-semibold text-primary group-hover:text-[#4f7b77] transition-colors leading-snug">
+                      {featuredTopic.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-stone-500 leading-relaxed">
+                      {featuredReason}
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0 flex flex-col items-center">
+                    <div
+                      className={`w-12 h-12 rounded-full border-[3px] flex items-center justify-center ${
+                        featuredTopic.confidence_score >= 80
+                          ? "border-emerald-400"
+                          : featuredTopic.confidence_score >= 50
+                          ? "border-amber-400"
+                          : "border-stone-300"
+                      }`}
+                    >
+                      <span
+                        className={`font-mono text-sm font-bold ${
+                          featuredTopic.confidence_score >= 80
+                            ? "text-emerald-600"
+                            : featuredTopic.confidence_score >= 50
+                            ? "text-amber-600"
+                            : "text-stone-500"
+                        }`}
+                      >
+                        {featuredTopic.confidence_score}%
+                      </span>
+                    </div>
+                    <span className="text-[9px] text-stone-400 mt-1">
+                      confidence
+                    </span>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#1f1f1d] text-white text-xs font-semibold rounded-lg group-hover:bg-[#333331] transition-colors">
+                    Explore This Debate
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                  <span className="text-xs text-stone-400">
+                    {featuredTopic.pillars.length} pillars &middot;{" "}
+                    {featuredTopic.pillars.flatMap((p) => p.evidence ?? []).length}{" "}
+                    evidence nodes
+                  </span>
+                </div>
+              </div>
+            </motion.button>
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {displayedTopics.map((topic, idx) => (

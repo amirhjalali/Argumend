@@ -14,6 +14,8 @@ import {
   AlertTriangle,
   Target,
   Shield,
+  Check,
+  Link as LinkIcon,
 } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { Sidebar } from "@/components/Sidebar";
@@ -31,8 +33,10 @@ import type {
 type ContentType = "transcript" | "article" | "freeform";
 
 interface AnalysisResult {
+  id: string;
   extracted: ExtractedArguments;
   judgingResult: JudgingResult | null;
+  judgmentId?: string;
 }
 
 function PositionCard({ position }: { position: ExtractedPosition }) {
@@ -166,6 +170,47 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
   );
 }
 
+function ShareLink({ analysisId }: { analysisId: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    const url = `${window.location.origin}/analysis/${analysisId}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      const textArea = document.createElement("textarea");
+      textArea.value = url;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-stone-200/80 rounded-lg text-xs font-medium text-stone-600 hover:bg-stone-50 hover:border-stone-300 transition-all shadow-sm"
+    >
+      {copied ? (
+        <>
+          <Check className="h-3.5 w-3.5 text-[#4f7b77]" />
+          <span className="text-[#4f7b77]">Copied!</span>
+        </>
+      ) : (
+        <>
+          <LinkIcon className="h-3.5 w-3.5" />
+          <span>Share</span>
+        </>
+      )}
+    </button>
+  );
+}
+
 export default function AnalyzePage() {
   const [content, setContent] = useState("");
   const [contentType, setContentType] = useState<ContentType>("freeform");
@@ -219,8 +264,8 @@ export default function AnalyzePage() {
         throw new Error(data.details || data.error || "Analysis failed");
       }
 
-      const analysisResult: AnalysisResult = await response.json();
-      setResult(analysisResult);
+      const analysisResult = await response.json();
+      setResult(analysisResult as AnalysisResult);
     } catch (e) {
       const errorMsg = e instanceof Error ? e.message : "Analysis failed";
       setError(errorMsg);
@@ -450,13 +495,16 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                 animate={{ opacity: 1, y: 0 }}
                 className="space-y-8"
               >
-                {/* Back Button */}
-                <button
-                  onClick={clearResults}
-                  className="text-sm text-stone-500 hover:text-stone-700 transition-colors"
-                >
-                  &larr; Analyze another
-                </button>
+                {/* Action Bar */}
+                <div className="flex items-center justify-between">
+                  <button
+                    onClick={clearResults}
+                    className="text-sm text-stone-500 hover:text-stone-700 transition-colors"
+                  >
+                    &larr; Analyze another
+                  </button>
+                  {result.id && <ShareLink analysisId={result.id} />}
+                </div>
 
                 {/* Topic */}
                 <div className="text-center">
