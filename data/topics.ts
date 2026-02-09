@@ -3355,6 +3355,3790 @@ const collegeValuePropositionData = {
 };
 
 // ============================================================================
+// Mandatory Voting Topic
+// ============================================================================
+
+const mandatoryVotingData = {
+  id: "mandatory-voting",
+  title: "Mandatory Voting",
+  meta_claim:
+    "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "democratic-representation",
+      title: "Democratic Representation",
+      short_summary:
+        "Whether compulsory voting produces a more representative electorate or merely inflates turnout with disengaged voters.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "Forced participation creates uninformed voters, donkey voting, and resentment. Freedom includes the right NOT to vote. Voluntary participation signals genuine engagement — compulsion dilutes the quality of democratic input.",
+      proponent_rebuttal:
+        "Australia has 90%+ turnout vs. US 60%. Mandatory voting reduces the influence of extreme partisans, forces parties to appeal to the center rather than mobilize fringe bases, and makes voter suppression impossible. The 'uninformed voter' concern is paternalistic — all citizens are affected by policy regardless of engagement level.",
+      crux: {
+        id: "turnout-representation-link",
+        title: "Turnout–Representation Correlation",
+        description:
+          "Does higher turnout from compulsory voting actually produce more representative policy outcomes, or does it just inflate numbers?",
+        methodology:
+          "Compare policy responsiveness to median voter preferences in compulsory vs. voluntary voting countries, controlling for institutional differences.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$500K (Cross-national comparative study)",
+      },
+      evidence: [
+        {
+          id: "mv-aus-turnout",
+          title: "Australian Electoral Commission Turnout Data",
+          description:
+            "Australia consistently achieves 91-95% voter turnout since introducing compulsory voting in 1924, compared to 55-65% in comparable voluntary systems.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Australian Electoral Commission",
+          reasoning:
+            "Official government data with decades of consistency. High directness for turnout claim but less direct for representation quality.",
+        },
+        {
+          id: "mv-uninformed-voters",
+          title: "Uninformed Voter Behavior Studies",
+          description:
+            "Research shows compelled voters are more likely to cast random or donkey votes, and score lower on political knowledge tests than voluntary voters.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "Selb & Lachat, Electoral Studies 2009",
+          reasoning:
+            "Peer-reviewed but contested methodology. The 'donkey vote' effect is real but small (1-2% of ballots in Australia).",
+        },
+        {
+          id: "mv-oecd-democracy",
+          title: "OECD Democracy Index Comparisons",
+          description:
+            "Countries with compulsory voting score comparably or higher on democracy indices, suggesting forced turnout does not degrade democratic quality.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "OECD, Economist Intelligence Unit",
+          reasoning:
+            "Authoritative cross-national data, but democracy indices measure many factors beyond voting, reducing directness.",
+        },
+        {
+          id: "mv-policy-moderation",
+          title: "Compulsory Voting and Policy Moderation Studies",
+          description:
+            "Analysis of Australian and Belgian policy shows compulsory voting correlates with higher social spending and more centrist policy platforms.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "Fowler, Journal of Politics 2013",
+          reasoning:
+            "Observational study with plausible causal mechanism, but confounders (political culture, institutions) are hard to isolate.",
+        },
+      ],
+    },
+    {
+      id: "practical-implementation",
+      title: "Practical Implementation",
+      short_summary:
+        "Whether compulsory voting is practically enforceable, cost-effective, and addresses root causes of disengagement.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Enforcement is expensive and intrusive. Fines are regressive, hitting the poor hardest. Compulsory voting doesn't address root causes of disengagement — bad candidates, gerrymandering, and a captured political system. It's a Band-Aid on a structural wound.",
+      proponent_rebuttal:
+        "Australia's fine is ~$20 — minimal enforcement cost with near-universal compliance. Countries with compulsory voting have lower political polarization and higher civic engagement beyond just elections. When everyone votes, politicians must earn broad support rather than suppress opposition turnout.",
+      crux: {
+        id: "enforcement-cost-benefit",
+        title: "Enforcement Cost–Benefit Analysis",
+        description:
+          "Does the administrative cost and civil liberty trade-off of compulsory voting justify the democratic gains?",
+        methodology:
+          "Compare per-voter election administration costs, enforcement costs, and democratic outcome metrics between compulsory and voluntary systems.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$200K (Comparative administrative study)",
+      },
+      evidence: [
+        {
+          id: "mv-aus-enforcement",
+          title: "Australian Enforcement Cost Data",
+          description:
+            "Australia spends less per voter on election administration than the US, with fines generating revenue that partially offsets enforcement. Compliance is 94% without any enforcement action needed.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Australian Electoral Commission Annual Reports",
+          reasoning:
+            "Official data showing the system is self-sustaining. High compliance reduces enforcement burden.",
+        },
+        {
+          id: "mv-polarization-comparison",
+          title: "Political Polarization Comparison",
+          description:
+            "Countries with compulsory voting show lower levels of affective polarization and partisan hostility compared to voluntary systems like the US and UK.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "Boxell, Gentzkow & Shapiro, NBER 2020",
+          reasoning:
+            "Cross-national polarization data is robust, but many factors beyond voting rules drive polarization.",
+        },
+        {
+          id: "mv-suppression-counterfactual",
+          title: "Voter Suppression Counterfactual Analysis",
+          description:
+            "Studies estimate that voter ID laws, purges, and polling place closures in the US suppress 2-3% of eligible votes disproportionately among minorities — a phenomenon that is structurally impossible under compulsory voting.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 4,
+          },
+          source: "Brennan Center for Justice",
+          reasoning:
+            "The suppression data supports the 'for' case, but the counterfactual framing — that compulsory voting would solve this — is speculative and context-dependent.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Death Penalty Deterrence Topic
+// ============================================================================
+
+const deathPenaltyDeterrenceData = {
+  id: "death-penalty-deterrence",
+  title: "The Death Penalty",
+  meta_claim:
+    "The death penalty serves as an effective deterrent against murder and is justified as a form of criminal justice.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "deterrence-effect",
+      title: "Deterrence Effect",
+      short_summary:
+        "Whether the existence and enforcement of the death penalty measurably reduces murder rates.",
+      icon_name: "Shield" as const,
+      skeptic_premise:
+        "The National Academy of Sciences (2012) concluded there is no reliable evidence that the death penalty deters murder. States without the death penalty consistently have lower murder rates. Most murders are impulsive crimes of passion, not calculated acts where perpetrators weigh consequences.",
+      proponent_rebuttal:
+        "Hashem Dezhbakhsh's econometric study found each execution deters approximately 18 murders. Criminals who face the death penalty are significantly more likely to plea bargain, revealing accomplices and evidence that helps solve other cases. The NAS critique was about methodology, not a finding of no effect.",
+      crux: {
+        id: "deterrence-causal-identification",
+        title: "Causal Identification of Deterrence",
+        description:
+          "Can a causal (not merely correlational) deterrent effect of the death penalty on murder rates be established?",
+        methodology:
+          "Natural experiment analysis using states that adopted or abolished the death penalty, with synthetic control methods and instrumental variables to isolate the causal effect.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$1M (Multi-state longitudinal study with econometric controls)",
+      },
+      evidence: [
+        {
+          id: "dp-nas-review",
+          title: "NAS 2012 Deterrence Review",
+          description:
+            "The National Academy of Sciences committee found that existing studies on the deterrent effect of capital punishment are 'fundamentally flawed' and should not be used to inform policy.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "National Research Council, 2012",
+          reasoning:
+            "Gold-standard scientific review by the US's most authoritative body. Reviewed all major econometric studies and found systemic methodological problems.",
+        },
+        {
+          id: "dp-dezhbakhsh-study",
+          title: "Dezhbakhsh Econometric Study",
+          description:
+            "Econometric analysis using county-level data found each execution prevents roughly 18 murders, with results robust to multiple model specifications.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 4,
+            replicability: 3,
+            directness: 7,
+          },
+          source: "Dezhbakhsh, Rubin & Shepherd, American Law and Economics Review 2003",
+          reasoning:
+            "Published in peer-reviewed journal but heavily criticized by NAS. Results are sensitive to model specification and data choices. Low replicability as other researchers have failed to reproduce.",
+        },
+        {
+          id: "dp-state-murder-rates",
+          title: "State Murder Rate Comparisons",
+          description:
+            "States without the death penalty have consistently lower murder rates (4.0 per 100K) than death penalty states (5.3 per 100K) over the past 30 years.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 9,
+            replicability: 9,
+            directness: 5,
+          },
+          source: "FBI Uniform Crime Reports, Death Penalty Information Center",
+          reasoning:
+            "Reliable official data, but correlation does not establish causation. States differ in many ways beyond death penalty policy.",
+        },
+        {
+          id: "dp-plea-bargain",
+          title: "Plea Bargain Leverage Data",
+          description:
+            "Prosecutors report that the death penalty serves as critical leverage in plea negotiations, leading to confessions and cooperation that resolve additional cases.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 3,
+            replicability: 4,
+            directness: 6,
+          },
+          source: "National District Attorneys Association surveys",
+          reasoning:
+            "Self-reported by prosecutors with institutional interest. Anecdotal and difficult to quantify systematically. Low independence score.",
+        },
+      ],
+    },
+    {
+      id: "justice-and-error",
+      title: "Justice & Error",
+      short_summary:
+        "Whether the death penalty delivers justice proportional to the crime, weighed against irreversible errors and systemic bias.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Over 190 death row exonerations since 1973 prove the system convicts innocent people. Racial bias is pervasive — Black defendants are 3x more likely to receive death sentences. Execution costs taxpayers 3x more than life imprisonment due to mandatory appeals. The punishment is irreversible.",
+      proponent_rebuttal:
+        "Advances in DNA evidence and forensic science dramatically reduce wrongful convictions. The exoneration record actually shows the appeals system works. Victims' families deserve ultimate justice for ultimate crimes. Life without parole — decades in a cage — is arguably crueler than a swift execution.",
+      crux: {
+        id: "wrongful-execution-rate",
+        title: "Wrongful Execution Rate Estimation",
+        description:
+          "What is the actual rate of wrongful execution, and can it be reduced to an acceptable level with modern forensic science?",
+        methodology:
+          "Statistical modeling of exoneration rates, time-to-exoneration, and estimated undetected wrongful convictions using DNA-era data.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Retrospective forensic review of historical cases)",
+      },
+      evidence: [
+        {
+          id: "dp-exonerations",
+          title: "Innocence Project Exoneration Data",
+          description:
+            "Over 190 people have been exonerated from death row since 1973. A 2014 PNAS study estimated that at least 4.1% of death row inmates are likely innocent.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "Innocence Project, PNAS (Gross et al. 2014)",
+          reasoning:
+            "Rigorous statistical methodology published in top-tier journal. The 4.1% figure is considered a conservative lower bound.",
+        },
+        {
+          id: "dp-racial-disparity",
+          title: "Death Penalty Racial Disparity Studies",
+          description:
+            "Black defendants are 3x more likely to be sentenced to death than white defendants for similar crimes, especially when the victim is white.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Baldus Study, GAO Report on Racial Disparities in Sentencing",
+          reasoning:
+            "Multiple independent studies over decades reach consistent conclusions. Landmark Baldus study influenced McCleskey v. Kemp.",
+        },
+        {
+          id: "dp-cost-analysis",
+          title: "Execution Cost Analyses",
+          description:
+            "Death penalty cases cost 2-3x more than equivalent non-death penalty cases due to mandatory appeals, specialized housing, and prolonged litigation. California spent $184M per year on its death penalty system.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "California Commission on the Fair Administration of Justice",
+          reasoning:
+            "Authoritative fiscal analysis. Cost is real but is an argument about efficiency, not justice — somewhat indirect.",
+        },
+        {
+          id: "dp-victim-families",
+          title: "Victim Family Impact Statements",
+          description:
+            "Surveys of murder victims' families show a majority support the death penalty for their loved one's killer, reporting that execution provides a sense of closure and justice.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 4,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "National Organization of Parents Of Murdered Children surveys",
+          reasoning:
+            "Emotional testimony from directly affected parties. Self-selected samples and not all families agree. Some victim family organizations actively oppose the death penalty.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Billionaire Wealth Concentration Topic
+// ============================================================================
+
+const billionaireWealthData = {
+  id: "billionaire-wealth",
+  title: "Should Billionaires Exist?",
+  meta_claim:
+    "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "economic-impact",
+      title: "Economic Impact",
+      short_summary:
+        "Whether extreme wealth concentration drives or drags on economic dynamism, innovation, and social mobility.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Billionaires create jobs, fund innovation, and drive economic growth. Gates, Musk, and Bezos built platforms that millions depend on. Wealth taxes cause capital flight and are administratively impractical — every European country that tried one repealed it.",
+      proponent_rebuttal:
+        "The top 0.001% now hold more wealth than the bottom 50%. This concentration reduces social mobility, captures political power, and distorts markets. Innovation happens in labs and garages funded by public research grants, not in billionaire bank accounts. Most billionaire wealth comes from rent extraction, not value creation.",
+      crux: {
+        id: "wealth-concentration-mobility",
+        title: "Wealth Concentration vs. Social Mobility",
+        description:
+          "Is there a causal relationship between extreme wealth concentration and declining social mobility, or are both symptoms of other structural factors?",
+        methodology:
+          "Cross-national panel regression comparing wealth Gini coefficients with intergenerational earnings elasticity, controlling for education, tax policy, and institutional quality.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$1.5M (Multi-country longitudinal economic study)",
+      },
+      evidence: [
+        {
+          id: "bw-fed-wealth-data",
+          title: "Federal Reserve Wealth Distribution Data",
+          description:
+            "The top 1% of US households hold 31% of total wealth while the bottom 50% hold just 2.6%. This gap has widened dramatically since 1980.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 10,
+            directness: 7,
+          },
+          source: "Federal Reserve Distributional Financial Accounts",
+          reasoning:
+            "Gold-standard official data. Directly establishes the concentration claim but less direct on whether concentration is harmful.",
+        },
+        {
+          id: "bw-job-creation",
+          title: "Billionaire Job Creation Studies",
+          description:
+            "Amazon employs 1.5M+ people; Microsoft 220K+. Entrepreneurial billionaires create firms that employ millions and generate substantial economic activity.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Company filings, Bureau of Labor Statistics",
+          reasoning:
+            "Employment numbers are real, but attribution is complicated — these jobs would likely exist under different ownership structures. Low independence as often cited by wealth-defense advocates.",
+        },
+        {
+          id: "bw-european-wealth-tax",
+          title: "European Wealth Tax Outcomes",
+          description:
+            "Of 12 European countries that implemented wealth taxes, 9 repealed them due to capital flight and low revenue. However, Switzerland and Norway maintain theirs successfully.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "OECD Tax Policy Studies, EU Tax Observatory",
+          reasoning:
+            "Mixed evidence — supports both sides depending on framing. Repeal history is real, but surviving programs suggest design matters more than concept.",
+        },
+        {
+          id: "bw-piketty-analysis",
+          title: "Piketty r>g Analysis",
+          description:
+            "Thomas Piketty's analysis shows that when the rate of return on capital (r) exceeds economic growth (g), wealth concentrates mechanically, creating a self-reinforcing oligarchy.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Piketty, Capital in the Twenty-First Century (2014)",
+          reasoning:
+            "Influential and data-rich, but contested by economists like Acemoglu & Robinson. The r>g framework is a simplification of complex dynamics.",
+        },
+      ],
+    },
+    {
+      id: "political-power",
+      title: "Political Power",
+      short_summary:
+        "Whether billionaire wealth translates into outsized political influence that undermines democratic governance.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Billionaire philanthropy fills gaps government can't — the Gates Foundation has saved millions of lives from malaria and polio. Campaign finance is regulated. Many billionaires advocate for higher taxes on themselves. Private initiative is more agile than government bureaucracy.",
+      proponent_rebuttal:
+        "Billionaires exert outsized influence through lobbying ($3.7B annually), media ownership, and political donations. Gilens & Page showed US policy responds to elite preferences, not the median voter. This is plutocracy, not democracy. The philanthropy model makes public goods dependent on private whims — unaccountable and undemocratic.",
+      crux: {
+        id: "policy-responsiveness-test",
+        title: "Policy Responsiveness to Wealth vs. Median Voter",
+        description:
+          "Does US policy systematically favor the preferences of wealthy elites over the median voter?",
+        methodology:
+          "Extend Gilens & Page methodology: compare policy outcomes with preferences of different income groups across a larger sample of policy issues.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$800K (Updated policy responsiveness study)",
+      },
+      evidence: [
+        {
+          id: "bw-gilens-page",
+          title: "Gilens & Page Oligarchy Study",
+          description:
+            "Analysis of 1,779 policy issues found that economic elites and organized business groups have substantial impact on policy, while average citizens have little or no independent influence.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 9,
+          },
+          source: "Gilens & Page, Perspectives on Politics 2014",
+          reasoning:
+            "Highly cited and published in top journal. Criticized for measurement choices but findings are directionally consistent with follow-up studies.",
+        },
+        {
+          id: "bw-gates-foundation",
+          title: "Gates Foundation Global Health Impact",
+          description:
+            "The Gates Foundation has contributed over $60B to global health, helping reduce malaria deaths by 60% and supporting polio eradication in all but two countries.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 5,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Gates Foundation Annual Reports, WHO",
+          reasoning:
+            "Impact is real and measurable. But low independence — foundation self-reports outcomes, and WHO depends on Gates funding. Directness is moderate: shows philanthropy works, not that billionaires are necessary for it.",
+        },
+        {
+          id: "bw-dark-money",
+          title: "Dark Money in Politics Data",
+          description:
+            "Undisclosed political spending has increased from $5M in 2006 to over $1B in recent election cycles. Billionaire-funded super PACs now dominate campaign spending.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "OpenSecrets, Center for Responsive Politics",
+          reasoning:
+            "Nonpartisan tracking organization with transparent methodology. Spending data is reliable but the influence-to-outcome causal link is debated.",
+        },
+        {
+          id: "bw-giving-pledge",
+          title: "Giving Pledge Outcomes",
+          description:
+            "Over 230 billionaires have signed the Giving Pledge to donate the majority of their wealth. However, signatories' combined wealth has grown faster than their giving, and the pledge is not legally binding.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 4,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "Giving Pledge, Institute for Policy Studies",
+          reasoning:
+            "Pledge demonstrates intent but is non-binding. IPS analysis shows wealth growth outpacing donations. Low independence as data is self-reported by pledgers.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Homeschooling vs Public School Topic
+// ============================================================================
+
+const homeschoolingEffectivenessData = {
+  id: "homeschooling-effectiveness",
+  title: "Homeschooling vs. Public School",
+  meta_claim:
+    "Homeschooled students achieve better academic and social outcomes than public school students on average.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "academic-achievement",
+      title: "Academic Achievement",
+      short_summary:
+        "Whether homeschooled students genuinely outperform public school peers or if selection bias inflates the apparent advantage.",
+      icon_name: "FileText" as const,
+      skeptic_premise:
+        "Self-selection bias inflates homeschool test scores — homeschool families are disproportionately affluent, educated, and motivated. There is no standardized accountability, and some homeschooled children receive inadequate education. Voluntary testing means only high-performers are measured.",
+      proponent_rebuttal:
+        "NHERI data shows homeschoolers score 15-30 percentile points above public school averages on standardized tests. Even controlling for demographics, homeschoolers outperform. The personalized pace, curriculum flexibility, and one-on-one instruction are inherent structural advantages over 30-student classrooms.",
+      crux: {
+        id: "selection-bias-controlled",
+        title: "Selection-Bias-Controlled Achievement Comparison",
+        description:
+          "Do homeschoolers outperform public school students after rigorously controlling for family income, parental education, and voluntary testing bias?",
+        methodology:
+          "Large-scale randomized or propensity-score-matched comparison using mandatory (not voluntary) testing, controlling for SES, parental education, and regional factors.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$3M (National longitudinal study with mandatory participation)",
+      },
+      evidence: [
+        {
+          id: "hs-nheri-test-data",
+          title: "NHERI Standardized Test Data",
+          description:
+            "The National Home Education Research Institute reports homeschoolers score 15-30 percentile points higher than public school averages on standardized achievement tests across all subjects.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 3,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "National Home Education Research Institute",
+          reasoning:
+            "NHERI is a homeschool advocacy organization — low independence. Sample is self-selected (voluntary testing). Data is real but systematically biased upward.",
+        },
+        {
+          id: "hs-kunzman-gaither",
+          title: "Kunzman & Gaither Self-Selection Critique",
+          description:
+            "Comprehensive literature review found that virtually all homeschool achievement studies suffer from self-selection bias, voluntary participation, and lack of demographic controls, making strong claims unsupported.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Kunzman & Gaither, Other Education 2013",
+          reasoning:
+            "Peer-reviewed meta-analysis by academic researchers without advocacy ties. Directly addresses the methodological weaknesses of pro-homeschool claims.",
+        },
+        {
+          id: "hs-ray-2010",
+          title: "Ray 2010 Demographic-Controlled Study",
+          description:
+            "Brian Ray's 2010 study of 11,739 homeschoolers found high achievement persisted even among lower-income families and families where parents lacked college degrees.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 3,
+            replicability: 4,
+            directness: 7,
+          },
+          source: "Ray, Academic Leadership Journal 2010",
+          reasoning:
+            "Large sample but authored by NHERI founder with known advocacy position. Self-selected participants. Demographic controls present but voluntary testing bias remains.",
+        },
+        {
+          id: "hs-crhe-data",
+          title: "Coalition for Responsible Home Education Data",
+          description:
+            "CRHE documents cases of educational neglect among homeschoolers, showing that without accountability mechanisms, some children receive little to no academic instruction.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "Coalition for Responsible Home Education",
+          reasoning:
+            "Advocacy-adjacent but draws on documented cases. Shows that averages obscure a wide distribution of outcomes. Anecdotal cases but systematic pattern.",
+        },
+      ],
+    },
+    {
+      id: "socialization-development",
+      title: "Socialization & Development",
+      short_summary:
+        "Whether homeschooled children develop adequate social skills and civic engagement compared to traditionally schooled peers.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "Homeschoolers miss critical socialization, conflict resolution with diverse peers, and exposure to different backgrounds and viewpoints. Some experience educational neglect or ideological isolation. The home environment cannot replicate the social complexity of a school.",
+      proponent_rebuttal:
+        "Homeschoolers participate in co-ops, sports leagues, community activities, and religious organizations. Studies show equivalent or better social skills and self-esteem. Public school 'socialization' includes bullying, peer pressure, and artificial age segregation — not an obvious advantage.",
+      crux: {
+        id: "socialization-measurement",
+        title: "Standardized Socialization Assessment",
+        description:
+          "Do homeschooled children develop equivalent social competence, measured by validated instruments, compared to matched public school peers?",
+        methodology:
+          "Administer validated social skills instruments (SSRS, SDQ) to demographically matched homeschool and public school samples, with longitudinal follow-up into adulthood.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$1M (Matched longitudinal cohort study)",
+      },
+      evidence: [
+        {
+          id: "hs-medlin-meta",
+          title: "Medlin Socialization Meta-Analysis",
+          description:
+            "Richard Medlin's meta-analysis of socialization research found homeschooled children have higher self-esteem, fewer behavioral problems, and equivalent peer interaction skills.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "Medlin, Peabody Journal of Education 2013",
+          reasoning:
+            "Published in peer-reviewed journal but Medlin has published extensively favoring homeschool outcomes. Underlying studies have small samples and self-selection issues.",
+        },
+        {
+          id: "hs-college-performance",
+          title: "College Admission and Performance Data",
+          description:
+            "Homeschooled students who attend college have slightly higher GPAs and graduation rates than peers from public schools, and are increasingly sought by selective universities.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "Cogan, Journal of College Admission 2010",
+          reasoning:
+            "Institutional data is reliable but only captures homeschoolers who attend college — survivor bias. The most disadvantaged homeschoolers may never apply.",
+        },
+        {
+          id: "hs-isolation-cases",
+          title: "Homeschool Isolation Case Studies",
+          description:
+            "Documented cases of severe social isolation, educational neglect, and abuse in homeschool settings where children had no external oversight or peer contact for years.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 4,
+            directness: 7,
+          },
+          source: "CRHE, Homeschool Alumni surveys, investigative journalism",
+          reasoning:
+            "Compelling individual cases but anecdotal — not representative of the overall population. Low replicability because case studies are not systematic.",
+        },
+        {
+          id: "hs-civic-participation",
+          title: "Civic Participation Comparisons",
+          description:
+            "Studies show homeschool graduates vote at higher rates, volunteer more, and participate more in community organizations than public school graduates.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "Cardus Education Survey, NHERI",
+          reasoning:
+            "Suggestive data but plagued by same self-selection issues. Families that homeschool are often already highly civically engaged — the effect may be familial, not educational.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Police Reform Topic
+// ============================================================================
+
+const policeReformData = {
+  id: "police-reform",
+  title: "Policing Reform in America",
+  meta_claim:
+    "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "use-of-force-accountability",
+      title: "Use of Force & Accountability",
+      short_summary:
+        "Whether American police use of force is excessive compared to peer nations and whether accountability mechanisms are adequate.",
+      icon_name: "AlertTriangle" as const,
+      skeptic_premise:
+        "The vast majority of police interactions are lawful and professional. Reform efforts have led to depolicing and crime spikes in cities that defunded. Officers face genuine life-threatening situations daily, and armchair critics underestimate the split-second decisions required.",
+      proponent_rebuttal:
+        "US police kill approximately 1,100 people annually — far more than any peer nation per capita. Qualified immunity effectively blocks accountability for misconduct. Body camera studies show a 50% reduction in use of force, suggesting that accountability itself changes behavior. The system protects bad actors.",
+      crux: {
+        id: "accountability-use-of-force-link",
+        title: "Accountability–Use of Force Causal Link",
+        description:
+          "Does increased accountability (body cameras, civilian oversight, qualified immunity reform) causally reduce police use of force without increasing officer risk?",
+        methodology:
+          "Randomized controlled trials of accountability interventions across jurisdictions, measuring use-of-force incidents, complaints, crime rates, and officer safety outcomes.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$5M (Multi-city randomized controlled trial)",
+      },
+      evidence: [
+        {
+          id: "pr-mapping-police-violence",
+          title: "Mapping Police Violence Data",
+          description:
+            "US police killed 1,096 people in 2023. Black people are 2.9x more likely to be killed by police than white people. 98% of police killings from 2013-2023 did not result in officers being charged.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "Mapping Police Violence, Washington Post Fatal Force Database",
+          reasoning:
+            "Independent data collection verified against official sources. Multiple databases corroborate. Directly measures the phenomena in question.",
+        },
+        {
+          id: "pr-body-camera-rct",
+          title: "Body Camera RCT Results",
+          description:
+            "A randomized controlled trial in Rialto, CA found that body cameras reduced use of force by 50% and citizen complaints by 88%. Multiple follow-up studies confirm directional findings.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "Ariel, Farrar & Sutherland, Journal of Quantitative Criminology 2015",
+          reasoning:
+            "Gold-standard RCT design. Some follow-up studies show smaller effects, reducing replicability score. But directional finding is consistent.",
+        },
+        {
+          id: "pr-defunding-crime-spikes",
+          title: "Post-Defunding Crime Spike Data",
+          description:
+            "Cities that reduced police budgets in 2020 (Minneapolis, Portland, Austin) saw significant increases in violent crime in 2021-2022, though a national crime increase occurred simultaneously.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 5,
+            directness: 5,
+          },
+          source: "FBI UCR, Major Cities Chiefs Association",
+          reasoning:
+            "Data is real but causation is ambiguous — COVID, pandemic economics, and nationwide trends confound. Some defunding cities saw smaller spikes than non-defunding cities.",
+        },
+        {
+          id: "pr-international-comparison",
+          title: "International Use of Force Comparisons",
+          description:
+            "US police kill at a rate 30-60x higher per capita than police in the UK, Germany, Japan, and Australia. These nations have similar crime levels but fundamentally different training and use-of-force standards.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "The Guardian, Amnesty International, national police statistics",
+          reasoning:
+            "Cross-national comparisons are reliable but the US has uniquely high gun ownership, which complicates direct comparison. Still, the magnitude of difference is striking.",
+        },
+      ],
+    },
+    {
+      id: "alternative-response-models",
+      title: "Alternative Response Models",
+      short_summary:
+        "Whether non-police crisis response programs can safely handle a significant share of emergency calls currently answered by armed officers.",
+      icon_name: "HelpCircle" as const,
+      skeptic_premise:
+        "Social workers cannot handle dangerous situations. CAHOOTS-style programs work in small, low-crime cities but don't scale to Chicago or Detroit. Removing police from mental health calls shifts risk to untrained responders. Most calls that seem non-violent can escalate without warning.",
+      proponent_rebuttal:
+        "CAHOOTS in Eugene, OR handles 20% of all calls with zero weapons and over 150 calls per day. Denver's STAR program diverted 2,500+ calls from police with zero arrests needed. Analysis of 911 calls shows the majority are non-violent — noise complaints, mental health crises, welfare checks — and do not require armed response.",
+      crux: {
+        id: "alternative-response-scalability",
+        title: "Scalability of Non-Police Response Models",
+        description:
+          "Can programs like CAHOOTS and STAR scale to large, high-crime cities while maintaining safety outcomes?",
+        methodology:
+          "Phased implementation studies in large cities, comparing outcomes (safety incidents, call resolution, cost) between traditional police response and alternative response teams.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$10M (Multi-city phased implementation study)",
+      },
+      evidence: [
+        {
+          id: "pr-cahoots-outcomes",
+          title: "CAHOOTS Outcome Data",
+          description:
+            "CAHOOTS in Eugene, OR has operated since 1989, handles 20% of 911 calls, responds to 150+ calls/day with unarmed teams, and requests police backup on less than 1% of calls.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 5,
+            directness: 8,
+          },
+          source: "White Bird Clinic, Eugene Police Department records",
+          reasoning:
+            "30+ years of operational data is compelling. But Eugene is a small, predominantly white city — generalizability to larger, more diverse cities is unproven.",
+        },
+        {
+          id: "pr-denver-star",
+          title: "Denver STAR Pilot Results",
+          description:
+            "Denver's Support Team Assisted Response (STAR) program diverted 2,500+ calls in its first year with zero arrests, zero use of force, and no injuries. Cost per call was 60% less than police response.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 5,
+            directness: 8,
+          },
+          source: "Denver Department of Public Safety, Stanford Evaluation",
+          reasoning:
+            "Independent Stanford evaluation adds credibility. Pilot phase only — small scale and carefully selected call types. But results are striking.",
+        },
+        {
+          id: "pr-911-call-analysis",
+          title: "911 Call Type Analysis",
+          description:
+            "Analysis of 911 call data across major cities shows that only 4-7% of calls involve violent crime in progress. The majority are noise complaints, traffic incidents, mental health crises, and non-emergency welfare checks.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Vera Institute of Justice, NYT analysis of 10M+ 911 calls",
+          reasoning:
+            "Large-sample data analysis from multiple cities. Categorization of 'violent' vs. 'non-violent' calls involves judgment, but the broad pattern is consistent.",
+        },
+        {
+          id: "pr-failed-defunding",
+          title: "Failed Defunding Implementation Case Studies",
+          description:
+            "Minneapolis, Portland, and Austin all reversed police budget cuts within 1-2 years after crime increases and political backlash. Implementation was often chaotic, with cuts made before alternatives were in place.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "Local government records, journalistic investigations",
+          reasoning:
+            "Documented policy reversals. However, critics argue the failure was in implementation (cutting before building alternatives), not in the concept of reallocation itself.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Drug Decriminalization Topic
+// ============================================================================
+
+const drugDecriminalizationData = {
+  id: "drug-decriminalization",
+  title: "Drug Decriminalization",
+  meta_claim:
+    "Decriminalizing personal drug use reduces harm and improves public health outcomes compared to criminalization.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "public-health-outcomes",
+      title: "Public Health Outcomes",
+      short_summary:
+        "Whether removing criminal penalties for personal drug use leads to better health outcomes or enables greater harm.",
+      icon_name: "Microscope" as const,
+      skeptic_premise:
+        "Decriminalization signals social acceptance and increases use, especially among youth. Without the deterrent of arrest, experimentation rises. Countries and states that decriminalize see drug tourism and open-air drug markets emerge, concentrating harm in specific neighborhoods.",
+      proponent_rebuttal:
+        "Portugal decriminalized all drugs in 2001 and saw drug-related deaths drop by 80%, HIV infections among people who use drugs fell dramatically, and overall use did not increase significantly. A treatment-first approach redirects resources from punishment to healthcare, catching addiction earlier and reducing overdose deaths.",
+      crux: {
+        id: "decrim-use-rates",
+        title: "Use Rates Under Decriminalization vs. Criminalization",
+        description:
+          "Rigorous comparison of drug use prevalence, problematic use rates, and overdose deaths in jurisdictions that decriminalized vs. those that maintained criminal penalties, controlling for other policy differences.",
+        methodology:
+          "Difference-in-differences analysis comparing drug use surveys, emergency room data, and mortality statistics across matched jurisdictions with and without decriminalization, over 10+ year windows.",
+        verification_status: "verified" as const,
+        cost_to_verify: "$500K (Multi-jurisdiction longitudinal analysis of existing data)",
+      },
+      evidence: [
+        {
+          id: "portugal-20-year",
+          title: "Portugal 20-Year Outcome Data Shows Dramatic Improvements",
+          description:
+            "Two decades after decriminalizing all drugs in 2001, Portugal saw drug-induced death rates fall to 3 per million (EU average: 23.7), HIV diagnoses among people who inject drugs dropped from 1,016 in 2001 to 18 in 2017, and overall drug use remained below the European average.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 5,
+            directness: 9,
+          },
+          source: "EMCDDA, Transform Drug Policy Foundation",
+          reasoning:
+            "Longest-running natural experiment on decriminalization. High reliability and directness, but replicability is limited because Portugal simultaneously invested heavily in treatment infrastructure.",
+        },
+        {
+          id: "oregon-measure-110",
+          title: "Oregon Measure 110 Early Results Show Implementation Challenges",
+          description:
+            "Oregon decriminalized small amounts of all drugs in 2020 via Measure 110. By 2023, overdose deaths had risen 120% and only 1% of people cited for drug possession sought treatment through the new system. The law was partially rolled back in 2024.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "Oregon Health Authority, The Oregonian investigative reporting",
+          reasoning:
+            "Recent and directly relevant, but confounded by fentanyl wave, COVID-era disruptions, and slow rollout of treatment funding. Short timeframe limits conclusions.",
+        },
+        {
+          id: "emcdda-european-comparison",
+          title: "EMCDDA: European Countries with Decriminalization Have Lower Problematic Use",
+          description:
+            "The European Monitoring Centre for Drugs and Drug Addiction finds that countries with decriminalized possession (Portugal, Czech Republic, Netherlands) generally report lower rates of problematic drug use and drug-related deaths than countries with strict penalties.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "EMCDDA European Drug Report",
+          reasoning:
+            "Authoritative pan-European data, though cross-country comparisons are complicated by differences in culture, healthcare systems, and reporting standards.",
+        },
+        {
+          id: "us-overdose-under-criminalization",
+          title: "US Overdose Deaths Hit Record Highs Under Criminalization",
+          description:
+            "The United States, with among the harshest drug penalties in the developed world, recorded over 107,000 overdose deaths in 2023 — a 50-fold increase since 1979. The War on Drugs has cost over $1 trillion since 1971 without reducing overall drug use rates.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 5,
+          },
+          source: "CDC WONDER, Drug Policy Alliance",
+          reasoning:
+            "Highly reliable mortality data showing criminalization has failed to prevent harm. Lower directness because rising deaths are driven by fentanyl supply, not just policy approach.",
+        },
+      ],
+    },
+    {
+      id: "criminal-justice-impact",
+      title: "Criminal Justice Impact",
+      short_summary:
+        "Whether the criminal justice system is an effective or counterproductive tool for addressing drug use.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Without criminal penalties, there is no leverage to push people into treatment. Arrest often serves as the wake-up call that motivates recovery. Drug courts already divert people to treatment within the criminal system, providing structure and accountability that voluntary programs lack.",
+      proponent_rebuttal:
+        "Criminalization disproportionately harms racial minorities — Black Americans are 3.7x more likely to be arrested for marijuana despite similar usage rates. The US spends $80B+ per year on drug enforcement and incarceration. Drug courts, while promising, reach only about 5% of eligible individuals and still require a criminal charge as the entry point.",
+      crux: {
+        id: "coerced-vs-voluntary-treatment",
+        title: "Coerced vs. Voluntary Treatment Outcomes",
+        description:
+          "Whether court-mandated treatment produces better long-term recovery outcomes than voluntary treatment accessed through a decriminalized public health system.",
+        methodology:
+          "Randomized controlled trial assigning drug offenders to either traditional drug court (coerced treatment) or decriminalized referral system (voluntary treatment with outreach) and tracking sobriety, employment, and recidivism at 1, 3, and 5 years.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$10M (Multi-site 5-year RCT)",
+      },
+      evidence: [
+        {
+          id: "aclu-racial-disparity",
+          title: "ACLU: Massive Racial Disparities in Drug Enforcement",
+          description:
+            "The ACLU found that Black Americans are 3.73 times more likely to be arrested for marijuana possession than white Americans, despite roughly equal usage rates. In some counties, the disparity exceeds 10:1. These arrests create criminal records that reduce lifetime earnings by an estimated 40%.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "ACLU, 'A Tale of Two Countries' Report",
+          reasoning:
+            "Advocacy organization but using FBI Uniform Crime Report data. Findings independently replicated by multiple researchers. Directness is good — racial disparities are a core harm of criminalization.",
+        },
+        {
+          id: "cato-portugal-analysis",
+          title: "Cato Institute: Portugal's Decriminalization a Success",
+          description:
+            "The libertarian Cato Institute's analysis found that Portugal's decriminalization led to reduced drug use among 15-24 year olds, decreased HIV/AIDS cases, reduced burden on the criminal justice system, and no explosion in drug tourism or usage as critics predicted.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 8,
+          },
+          source: "Cato Institute, Glenn Greenwald",
+          reasoning:
+            "Ideologically diverse source (libertarian think tank) lending cross-spectrum credibility. Portugal-specific findings may not fully generalize.",
+        },
+        {
+          id: "drug-court-effectiveness",
+          title: "Drug Courts Reduce Recidivism by 8-14 Percentage Points",
+          description:
+            "Meta-analyses show drug courts reduce recidivism by 8-14 percentage points compared to traditional prosecution. Participants are less likely to reoffend and more likely to maintain employment. However, drug courts serve only ~5% of the eligible population due to resource constraints.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "National Association of Drug Court Professionals, RAND Corporation",
+          reasoning:
+            "Strong evidence that criminal justice-linked treatment can work, supporting the case for maintaining criminal entry points. Limited by small scale and selection bias (motivated participants).",
+        },
+        {
+          id: "incarceration-cost-data",
+          title: "Drug Incarceration Costs $80B+ Annually with Poor Outcomes",
+          description:
+            "The US spends approximately $182 billion annually on the criminal justice system, with drug offenses accounting for roughly 45% of federal prisoners. The average cost of incarcerating one person exceeds $35,000/year. Recidivism rates for drug offenders exceed 75% within five years.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 6,
+          },
+          source: "Bureau of Justice Statistics, Vera Institute of Justice",
+          reasoning:
+            "Highly reliable government data on costs. Directness moderate — high costs and recidivism suggest failure, but don't prove decriminalization would be better.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Immigration and Wages Topic
+// ============================================================================
+
+const immigrationWageImpactData = {
+  id: "immigration-wage-impact",
+  title: "Immigration and Wages",
+  meta_claim:
+    "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "labor-market-economics",
+      title: "Labor Market Economics",
+      short_summary:
+        "Whether immigration increases labor supply enough to measurably depress wages for competing native workers.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "David Card's Mariel boatlift study and subsequent research show minimal wage effects from even sudden, large immigration flows. Immigrants create jobs, start businesses at higher rates than natives, and fill complementary roles that make native workers more productive rather than displacing them.",
+      proponent_rebuttal:
+        "George Borjas's reanalysis of the Mariel boatlift, focusing on the most directly competing workers (male high school dropouts), found a 10-30% wage decline for that group. Basic supply and demand dictates that adding labor supply at a given skill level, holding demand constant, puts downward pressure on wages. National Academy of Sciences found short-term negative effects on prior immigrants.",
+      crux: {
+        id: "wage-elasticity-immigration",
+        title: "Labor Demand Elasticity for Low-Skill Workers",
+        description:
+          "Determining the precise wage elasticity — how much a 1% increase in immigrant labor supply at a given skill level changes wages for competing native workers.",
+        methodology:
+          "Instrumental variable regressions exploiting exogenous immigration shocks (refugee resettlement, visa lotteries) to measure causal wage effects on native workers in the same skill cell (education x experience), controlling for local demand shocks.",
+        verification_status: "verified" as const,
+        cost_to_verify: "$300K (Econometric analysis of existing Census and ACS data)",
+      },
+      evidence: [
+        {
+          id: "card-mariel-boatlift",
+          title: "Card: Mariel Boatlift Had No Significant Wage Effect",
+          description:
+            "David Card's landmark 1990 study of the Mariel boatlift — when 125,000 Cubans arrived in Miami in 1980, increasing the labor force by 7% — found virtually no effect on wages or unemployment for native low-skilled workers in Miami compared to control cities.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 6,
+            directness: 9,
+          },
+          source: "David Card, Industrial and Labor Relations Review (1990)",
+          reasoning:
+            "Nobel Prize-winning economist, landmark study. Replicability debated due to Borjas's reanalysis reaching different conclusions with different sample definitions.",
+        },
+        {
+          id: "borjas-reanalysis",
+          title: "Borjas: Mariel Boatlift Depressed Low-Skill Wages 10-30%",
+          description:
+            "George Borjas reanalyzed the Mariel boatlift in 2017, focusing specifically on non-Hispanic male high school dropouts (the group most directly competing with Cuban arrivals). He found wages for this group fell 10-30% relative to comparison cities — a significant and lasting depression.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 5,
+            directness: 9,
+          },
+          source: "George Borjas, Industrial and Labor Relations Review (2017)",
+          reasoning:
+            "Harvard labor economist with deep expertise. Criticized for narrowing sample to a small subgroup (non-Hispanic male dropouts) that may introduce noise. The Card vs. Borjas debate remains unresolved.",
+        },
+        {
+          id: "nas-report-2017",
+          title: "NAS: Immigration Has Small Negative Short-Term Effects on Prior Immigrants",
+          description:
+            "The National Academies of Sciences 2017 comprehensive report found that immigration has little long-term effect on native wages overall, but does reduce wages for prior immigrants and native high school dropouts in the short run (1-2% decline). Long-run effects are near zero or slightly positive.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "National Academies of Sciences, Engineering, and Medicine (2017)",
+          reasoning:
+            "Gold-standard consensus report synthesizing decades of research. Conclusion that effects are small and concentrated undercuts the 'significantly depresses' framing of the meta-claim.",
+        },
+        {
+          id: "cbo-fiscal-impact",
+          title: "CBO: Immigration Raises GDP and Has Mixed Fiscal Effects",
+          description:
+            "The Congressional Budget Office estimates that immigration raises real GDP substantially (projected 3.3% increase by 2034 from recent immigration surge). Fiscal effects are positive at the federal level but often negative at state and local levels in the short term.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "Congressional Budget Office (2024)",
+          reasoning:
+            "Highly authoritative and nonpartisan. GDP effects don't directly address distributional wage impacts on low-skill natives, reducing directness.",
+        },
+      ],
+    },
+    {
+      id: "long-term-economic-effects",
+      title: "Long-Term Economic Effects",
+      short_summary:
+        "Whether immigration's long-term economic contributions outweigh short-term labor market disruptions.",
+      icon_name: "Target" as const,
+      skeptic_premise:
+        "Immigrants are net fiscal contributors over their lifetimes and their children even more so. Innovation rates among immigrants are disproportionately high — immigrants are 80% more likely to found a company and account for 36% of US patent filings. H-1B workers raise wages for complementary native workers with different skills.",
+      proponent_rebuttal:
+        "Short-term fiscal costs are real, particularly at the state and local level where education, healthcare, and housing costs land. Integration costs, school overcrowding, and housing price pressure are felt acutely by communities even if aggregate GDP grows. The benefits accrue to capital owners and high-skill workers while costs fall on low-wage native workers.",
+      crux: {
+        id: "distributional-impact",
+        title: "Distributional Analysis of Immigration Benefits and Costs",
+        description:
+          "Who specifically gains and who loses from immigration — broken down by income quintile, skill level, geographic area, and timeframe.",
+        methodology:
+          "General equilibrium modeling with heterogeneous agents calibrated to US data, tracing how immigration-driven GDP growth is distributed across native workers by skill level, region, and over 1, 5, 10, and 30 year horizons.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Multi-year modeling project with panel data)",
+      },
+      evidence: [
+        {
+          id: "peri-sparber-complementarity",
+          title: "Peri & Sparber: Immigrants Complement Rather Than Compete With Natives",
+          description:
+            "Giovanni Peri and Chad Sparber find that low-skilled immigrants specialize in manual/physical tasks while native workers shift to communication-intensive jobs. This task specialization means immigration makes native workers more productive rather than displacing them, raising native wages by 0.6-1.7%.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Peri & Sparber, American Economic Journal (2009)",
+          reasoning:
+            "Influential research from a leading immigration economist. Task-based framework is theoretically compelling but hard to verify empirically at scale.",
+        },
+        {
+          id: "fair-cost-estimates",
+          title: "FAIR: Immigration Costs $150B+ Annually at State/Local Level",
+          description:
+            "The Federation for American Immigration Reform estimates that state and local governments spend $150 billion annually on services for immigrants (education, healthcare, law enforcement), exceeding tax contributions by roughly $80 billion at the sub-federal level.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 3,
+            replicability: 4,
+            directness: 6,
+          },
+          source: "Federation for American Immigration Reform (FAIR)",
+          reasoning:
+            "Advocacy organization with restrictionist stance. Methodology criticized for including US citizen children of immigrants as costs, inflating estimates. Low independence and reliability due to clear agenda.",
+        },
+        {
+          id: "immigrant-entrepreneurship",
+          title: "Immigrants Are 80% More Likely to Found Companies",
+          description:
+            "Research from the National Bureau of Economic Research finds immigrants are 80% more likely to found a firm than native-born Americans. 55% of US billion-dollar startups have at least one immigrant founder. Immigrants hold patents at 2-3x the rate of native-born Americans.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "NBER, National Foundation for American Policy",
+          reasoning:
+            "Strong data on immigrant entrepreneurship, but this primarily reflects high-skilled immigrants and doesn't directly address wage effects on low-skilled native workers.",
+        },
+        {
+          id: "cbo-2024-immigration",
+          title: "CBO 2024: Recent Immigration Surge Projected to Add $7T to GDP",
+          description:
+            "The CBO projects that the recent immigration surge will add 3.3% to real GDP and 5.2 million workers by 2033, boost federal revenues by $1 trillion, and help sustain Social Security solvency. Per-capita GDP effects are more modest at +0.1-0.2%.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 4,
+          },
+          source: "Congressional Budget Office (2024)",
+          reasoning:
+            "Highly authoritative. Aggregate GDP gains don't address whether low-skill native workers share in them — directness is low for the specific meta-claim about wage depression.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Electric Vehicles vs. ICE Cars Topic
+// ============================================================================
+
+const evEnvironmentalImpactData = {
+  id: "ev-environmental-impact",
+  title: "Electric Vehicles vs. ICE Cars",
+  meta_claim:
+    "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "manufacturing-battery-impact",
+      title: "Manufacturing & Battery Impact",
+      short_summary:
+        "Whether the higher environmental cost of EV manufacturing and battery production negates the emissions savings during driving.",
+      icon_name: "Atom" as const,
+      skeptic_premise:
+        "Battery production requires massive lithium and cobalt mining, causing deforestation, water pollution, and environmental devastation in the DRC, Chile, and Australia. Manufacturing an EV produces 50-70% more CO2 than an equivalent ICE car. Battery disposal remains an unsolved problem with millions of tons of waste expected by 2040.",
+      proponent_rebuttal:
+        "The higher manufacturing footprint is offset within 1-3 years of typical driving. Battery recycling technology is advancing rapidly, with Redwood Materials and Li-Cycle already recovering 95%+ of critical minerals. The environmental impact of oil extraction — including spills, refinery emissions, and methane leaks — dwarfs lithium mining at comparable energy scales.",
+      crux: {
+        id: "lifecycle-breakeven",
+        title: "Lifecycle Emissions Breakeven Point",
+        description:
+          "The exact point (in miles or years of driving) at which an EV's total lifecycle emissions drop below those of an equivalent ICE vehicle, across different grid mixes and vehicle classes.",
+        methodology:
+          "Cradle-to-grave lifecycle assessment comparing matched EV and ICE vehicles, including mining, manufacturing, fuel/electricity production, driving, maintenance, and end-of-life recycling, parameterized by regional grid carbon intensity.",
+        verification_status: "verified" as const,
+        cost_to_verify: "$200K (Comprehensive LCA with sensitivity analysis)",
+      },
+      evidence: [
+        {
+          id: "iea-lifecycle-2023",
+          title: "IEA: EVs Produce 50-70% Less Lifecycle Emissions Than ICE",
+          description:
+            "The International Energy Agency's 2023 Global EV Outlook reports that a medium-sized EV produces roughly 50% fewer lifecycle CO2 emissions than an equivalent ICE car on the average global grid mix, and up to 70% fewer on clean grids. The manufacturing gap is closed within 1.5-2 years of average driving.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "International Energy Agency, Global EV Outlook 2023",
+          reasoning:
+            "Premier international energy authority with transparent methodology. Results consistent across multiple independent analyses.",
+        },
+        {
+          id: "volvo-lifecycle-study",
+          title: "Volvo: EV Manufacturing 70% More Carbon-Intensive, Offset by Driving",
+          description:
+            "Volvo's own transparent lifecycle study of the C40 Recharge vs. XC40 ICE found the EV requires 70% more energy to manufacture. However, the EV breaks even at 48,000 miles on the European grid mix and at 68,000 miles on a global average grid, well within the expected vehicle lifetime.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "Volvo Cars Lifecycle Assessment (2021)",
+          reasoning:
+            "Manufacturer-commissioned but transparently published with full methodology. Lower independence score for industry source, but the honest reporting of higher manufacturing impact lends credibility.",
+        },
+        {
+          id: "cobalt-mining-drc",
+          title: "DRC Cobalt Mining: Child Labor, Toxic Waste, Ecological Destruction",
+          description:
+            "70% of the world's cobalt comes from the Democratic Republic of Congo, where artisanal mining employs an estimated 40,000 children, contaminates water supplies, and causes significant ecological damage. While cobalt content in batteries is decreasing, the human and environmental toll of current extraction is severe.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Amnesty International, UNICEF, Dorsen et al. (2016)",
+          reasoning:
+            "Well-documented human rights and environmental concerns. Directness is moderate because cobalt-free battery chemistries (LFP) are rapidly gaining market share, potentially making this less relevant over time.",
+        },
+        {
+          id: "battery-recycling-advances",
+          title: "Battery Recycling Now Recovers 95%+ of Critical Minerals",
+          description:
+            "Companies like Redwood Materials, Li-Cycle, and CATL's recycling division now achieve 95-98% recovery rates for lithium, nickel, cobalt, and manganese from spent EV batteries. The DOE projects that recycled materials could meet 15-20% of US battery material demand by 2030.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "DOE, Redwood Materials, Li-Cycle corporate reports",
+          reasoning:
+            "Technology is real but at early scale. Industry sources may overstate commercial readiness. Recovery rates are lab-verified but commercial-scale economics are still developing.",
+        },
+      ],
+    },
+    {
+      id: "grid-dependency",
+      title: "Grid Dependency",
+      short_summary:
+        "Whether the carbon intensity of electricity grids and grid infrastructure readiness undermine the environmental case for EVs.",
+      icon_name: "Zap" as const,
+      skeptic_premise:
+        "EVs charged on coal-heavy grids can produce more lifecycle emissions than efficient hybrid vehicles. The grid is not ready for mass EV adoption — widespread charging would strain infrastructure, cause blackouts, and require billions in upgrades. In regions like West Virginia or Poland, EVs are effectively coal-powered cars.",
+      proponent_rebuttal:
+        "Even on the average US grid mix, EVs produce 60-68% fewer tailpipe-equivalent emissions than ICE vehicles. Grids are rapidly greening — US coal dropped from 45% to 16% of generation in 15 years. Smart charging during off-peak hours can actually stabilize grids by absorbing excess renewable generation, and vehicle-to-grid technology can provide storage.",
+      crux: {
+        id: "grid-carbon-threshold",
+        title: "Grid Carbon Intensity Threshold for EV Advantage",
+        description:
+          "The grid carbon intensity (gCO2/kWh) above which an EV no longer has a lifecycle emission advantage over the best available ICE or hybrid vehicle.",
+        methodology:
+          "Parametric lifecycle model varying grid intensity from 0 to 1000 gCO2/kWh, comparing EVs to both average ICE and best-in-class hybrids. Include grid trajectory projections to determine when currently-dirty grids will cross the threshold.",
+        verification_status: "verified" as const,
+        cost_to_verify: "$100K (Modeling with published grid data)",
+      },
+      evidence: [
+        {
+          id: "ucs-grid-analysis",
+          title: "UCS: EVs Cleaner Than ICE in All 50 US States",
+          description:
+            "The Union of Concerned Scientists' 2023 analysis found that driving an average EV produces fewer emissions than driving even the most efficient gasoline car in every single US state. In the cleanest grid regions, an EV is equivalent to a 191 MPG gasoline car.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "Union of Concerned Scientists",
+          reasoning:
+            "Environmental advocacy organization, but methodology is transparent and peer-reviewed. Results independently replicated by DOE and EPA analyses. Independence score lowered for pro-EV institutional stance.",
+        },
+        {
+          id: "mit-grid-stress",
+          title: "MIT: Mass EV Adoption Could Require $125B in Grid Upgrades",
+          description:
+            "MIT Energy Initiative research estimates that charging 50 million EVs would increase US electricity demand by 15-20%, requiring $75-125 billion in grid infrastructure upgrades. Without managed charging, peak demand spikes could exceed grid capacity in many regions.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "MIT Energy Initiative",
+          reasoning:
+            "Highly credible source. Grid costs are real but represent infrastructure investment, not environmental harm. Directness is lower because the question is about environment, not cost.",
+        },
+        {
+          id: "norway-iceland-clean-grid",
+          title: "Norway/Iceland: EVs on Clean Grids Achieve Maximum Environmental Benefit",
+          description:
+            "Norway (98% hydro/renewable electricity, 80% EV market share) and Iceland (100% renewable electricity) demonstrate that EVs on clean grids produce over 85% fewer lifecycle emissions than ICE vehicles. Norway's transport emissions have fallen 10% since EV adoption accelerated.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 8,
+          },
+          source: "Norwegian Environment Agency, Statistics Iceland",
+          reasoning:
+            "Compelling real-world case studies. Replicability is limited because few countries have such clean grids, but it demonstrates the ceiling potential.",
+        },
+        {
+          id: "doe-charging-infrastructure",
+          title: "DOE: US Needs 1.2 Million Public Chargers by 2030, Currently at 186K",
+          description:
+            "The Department of Energy estimates the US needs 1.2 million public EV chargers by 2030 to support projected EV sales, but only 186,000 exist as of early 2024. Rural charging deserts and slow installation rates threaten adoption timelines and could strand consumers.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "Department of Energy, National Renewable Energy Laboratory",
+          reasoning:
+            "Authoritative government data on infrastructure gap. Directness is low for the environmental claim — infrastructure readiness affects adoption speed, not per-vehicle environmental impact.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Organic Food Health Benefits Topic
+// ============================================================================
+
+const organicFoodHealthData = {
+  id: "organic-food-health",
+  title: "Is Organic Food Healthier?",
+  meta_claim:
+    "Organic food is significantly healthier and more nutritious than conventionally grown food.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "nutritional-content",
+      title: "Nutritional Content",
+      short_summary:
+        "Whether organically grown food contains meaningfully higher levels of beneficial nutrients than conventional food.",
+      icon_name: "Microscope" as const,
+      skeptic_premise:
+        "Stanford's comprehensive 2012 meta-analysis of 237 studies found no significant nutritional advantage for organic foods. The organic label does not mean pesticide-free — it means different (often less-tested) pesticides are used. The price premium of 20-100% makes healthy eating less accessible, potentially worsening public health by pricing people out of fruits and vegetables entirely.",
+      proponent_rebuttal:
+        "The British Journal of Nutrition's larger 2014 meta-analysis of 343 studies found 18-69% more antioxidants in organic crops, including significantly higher levels of flavanones, flavonols, and anthocyanins. Organic produce has significantly lower cadmium levels (a toxic heavy metal) and far fewer pesticide residues. The Stanford study has been criticized for methodological limitations.",
+      crux: {
+        id: "health-outcome-organic-diet",
+        title: "Health Outcomes from Long-Term Organic Diet",
+        description:
+          "Whether people who eat primarily organic food experience measurably better health outcomes (cancer rates, chronic disease, lifespan) compared to matched controls eating conventional food.",
+        methodology:
+          "Large-scale prospective cohort study (50,000+ participants) comparing health outcomes over 10+ years between verified organic consumers and matched conventional food consumers, controlling for income, overall diet quality, exercise, and other confounders.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$50M (10-year prospective cohort study)",
+      },
+      evidence: [
+        {
+          id: "stanford-2012",
+          title: "Stanford Meta-Analysis: No Strong Evidence of Nutritional Superiority",
+          description:
+            "Smith-Spangler et al. analyzed 237 studies comparing organic and conventional foods. They found no consistent differences in vitamin content and only slightly higher phosphorus levels in organic foods — a nutrient rarely deficient in any diet. They concluded the evidence does not support organic food as significantly more nutritious.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Annals of Internal Medicine, Smith-Spangler et al. (2012)",
+          reasoning:
+            "Published in a top medical journal with rigorous methodology. Subsequent larger meta-analyses have partially challenged these findings, but the core conclusion on vitamins/minerals holds.",
+        },
+        {
+          id: "bjn-2014",
+          title: "BJN Meta-Analysis: 18-69% More Antioxidants in Organic",
+          description:
+            "Baranski et al. analyzed 343 peer-reviewed studies (106 more than Stanford) and found statistically significant differences: 18-69% higher antioxidant concentrations including flavanones, flavonols, stilbenes, and anthocyanins. Organic crops also had 48% lower cadmium concentrations and significantly fewer pesticide residues.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "British Journal of Nutrition, Baranski et al. (2014)",
+          reasoning:
+            "Larger sample than Stanford, published in a respected journal. Some criticism of methodology (inclusion criteria, weighting). Antioxidant differences are real but their health significance at observed levels is debated.",
+        },
+        {
+          id: "usda-pesticide-residue",
+          title: "USDA: Organic Produce Has 4x Fewer Pesticide Residues",
+          description:
+            "The USDA Pesticide Data Program finds that organic produce has roughly one-quarter the pesticide residue detections of conventional produce. While 23% of organic samples have detectable residues (from drift, contamination, or allowed substances), levels are dramatically lower than conventional samples.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 5,
+          },
+          source: "USDA Pesticide Data Program",
+          reasoning:
+            "Gold-standard government monitoring data. High reliability and replicability. Lower directness because the health significance of the residue difference — when conventional residues are already below EPA tolerances — is the contested question.",
+        },
+        {
+          id: "newcastle-review",
+          title: "Newcastle University: Organic Dairy and Meat Have 50% More Omega-3",
+          description:
+            "Srednicka-Tober et al. found that organic milk and dairy products contain approximately 50% more omega-3 fatty acids than conventional counterparts, along with higher levels of iron, vitamin E, and conjugated linoleic acids. Organic meat showed similar omega-3 advantages.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "British Journal of Nutrition, Newcastle University (2016)",
+          reasoning:
+            "Solid meta-analysis from a respected research group. Omega-3 differences are consistently found across studies. Health impact depends on overall dietary omega-3 intake, which can be obtained from many sources.",
+        },
+      ],
+    },
+    {
+      id: "pesticide-exposure-risk",
+      title: "Pesticide Exposure Risk",
+      short_summary:
+        "Whether chronic low-level pesticide exposure from conventional food poses meaningful health risks.",
+      icon_name: "AlertTriangle" as const,
+      skeptic_premise:
+        "Conventional pesticide residues are well below EPA safety thresholds, which already include 100-1000x safety margins. The dose makes the poison — trace amounts detected on produce pose negligible risk to healthy adults. Organic farming uses pesticides too, including copper sulfate (which accumulates in soil) and rotenone (linked to Parkinson's in animal studies).",
+      proponent_rebuttal:
+        "EPA tolerance levels are set based on single-chemical exposure in adults and do not adequately account for chronic low-dose exposure, cumulative effects of multiple pesticides, or heightened vulnerability of children. Studies show switching to an organic diet reduces urinary pesticide metabolites by 60% within one week. The French NutriNet-Sante study found 25% lower cancer risk among high organic consumers.",
+      crux: {
+        id: "chronic-low-dose-effects",
+        title: "Chronic Low-Dose Pesticide Exposure Health Effects",
+        description:
+          "Whether the levels of pesticide residues found on conventional produce — individually below safety thresholds — cause measurable harm through chronic cumulative exposure over decades.",
+        methodology:
+          "Long-term (20+ year) prospective study tracking biomarkers of pesticide exposure, health outcomes (cancer incidence, neurological function, reproductive health), and organic vs. conventional dietary patterns in a large cohort, with dose-response modeling.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$100M (Multi-decade prospective epidemiological study)",
+      },
+      evidence: [
+        {
+          id: "epa-tolerance-safety",
+          title: "EPA: Conventional Residues Are 100-1000x Below Harmful Levels",
+          description:
+            "The EPA sets pesticide tolerance levels with built-in 100-fold safety factors (10x for interspecies variation, 10x for intraspecies variation, with additional factors for children). Over 99% of conventional produce samples fall within these tolerances. The EPA reviews each pesticide every 15 years.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "EPA Office of Pesticide Programs",
+          reasoning:
+            "Regulatory authority with strong methodology. Independence slightly reduced because EPA tolerance-setting process is influenced by industry data and lobbying. The 100x safety margin argument is strong but assumes single-chemical exposure models are adequate.",
+        },
+        {
+          id: "uc-berkeley-chamacos",
+          title: "UC Berkeley CHAMACOS: Prenatal Pesticide Exposure Linked to Developmental Harm",
+          description:
+            "The 20-year CHAMACOS longitudinal study in California's Salinas Valley found that prenatal exposure to organophosphate pesticides was associated with lower IQ scores (7 points), attention problems, and poorer neurodevelopmental outcomes in children. Effects persisted into adolescence even at exposure levels common in the general population.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "UC Berkeley CERCH, Eskenazi et al.",
+          reasoning:
+            "Rigorous longitudinal design from a leading university. Exposures were higher than typical dietary-only exposure (agricultural community), which limits direct applicability to organic food claims. However, it demonstrates vulnerability of developing brains to these chemicals.",
+        },
+        {
+          id: "organic-diet-intervention",
+          title: "Organic Diet Reduces Urinary Pesticide Metabolites by 60% in One Week",
+          description:
+            "Multiple intervention studies (Curl et al. 2003, Oates et al. 2014, Hyland et al. 2019) show that switching to an organic diet reduces measurable urinary pesticide metabolites by 60-89% within 3-7 days. This demonstrates that dietary pesticide exposure is real and modifiable, though health significance of the reduction is debated.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "Environmental Health Perspectives, multiple studies",
+          reasoning:
+            "Consistent results across multiple independent studies. Strong evidence that conventional food delivers measurable pesticide doses. Directness is lower because reducing pesticide metabolites in urine does not directly prove health benefits.",
+        },
+        {
+          id: "organic-pesticide-toxicity",
+          title: "Some Organic Pesticides Are More Toxic Per Application Than Synthetic Ones",
+          description:
+            "Research from the University of Guelph found that some organic-approved pesticides (rotenone, copper sulfate, pyrethrin) require higher application rates and can be more environmentally toxic per unit of pest control than targeted synthetic alternatives. Copper sulfate accumulates in soil and is toxic to aquatic organisms.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "University of Guelph, PLoS ONE (2010)",
+          reasoning:
+            "Peer-reviewed research challenging the assumption that organic means fewer/safer pesticides. Directness moderate because the comparison is about environmental toxicity per application, not human dietary exposure.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Foreign Aid Effectiveness Topic
+// ============================================================================
+
+const foreignAidEffectivenessData = {
+  id: "foreign-aid-effectiveness",
+  title: "Does Foreign Aid Work?",
+  meta_claim:
+    "International development aid significantly improves outcomes in recipient countries and is an effective use of donor resources.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "development-outcomes",
+      title: "Development Outcomes",
+      short_summary:
+        "Whether aid spending produces measurable improvements in health, poverty, and economic development in recipient countries.",
+      icon_name: "Target" as const,
+      skeptic_premise:
+        "Over $4.6 trillion in aid has been transferred to developing countries since 1960, yet many recipient countries remain poor. Aid creates dependency, funds corrupt governments, and distorts local markets by undercutting local producers. Dambisa Moyo's 'Dead Aid' argues that aid is the primary cause of Africa's poverty trap, not the solution.",
+      proponent_rebuttal:
+        "Specific, well-targeted interventions work extraordinarily well. Insecticide-treated bed nets cost $2-3 each and prevent malaria cases at $100 per DALY saved. Oral rehydration therapy, vaccines, and deworming have clear RCTs showing massive impact. Under-5 child mortality has fallen 50% since 1990, partly attributable to aid-funded health programs. The aggregate critique conflates bad aid with all aid.",
+      crux: {
+        id: "targeted-vs-general-aid",
+        title: "Effectiveness of Targeted Health Aid vs. General Budget Support",
+        description:
+          "Whether the proven effectiveness of specific health interventions (bed nets, vaccines) can be generalized to broader aid categories, or whether targeted programs are the exception rather than the rule.",
+        methodology:
+          "Systematic comparison of RCT-backed targeted interventions against general budget support and governance aid, measuring cost-per-outcome and sustainability at 5 and 10-year horizons across multiple country contexts.",
+        verification_status: "verified" as const,
+        cost_to_verify: "$1M (Meta-analysis of existing RCTs and program evaluations)",
+      },
+      evidence: [
+        {
+          id: "givewell-bed-nets",
+          title: "GiveWell: Bed Nets Among Most Cost-Effective Interventions in History",
+          description:
+            "GiveWell's rigorous analysis of the Against Malaria Foundation estimates that long-lasting insecticide-treated bed nets save a child's life for approximately $3,000-5,000. Multiple RCTs confirm 40-60% reductions in malaria mortality. Over 300 million nets distributed with measurable impact.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "GiveWell, Cochrane Review, Against Malaria Foundation",
+          reasoning:
+            "Exceptionally well-studied intervention with strong RCT evidence. GiveWell's analysis is transparently published. Represents the best case for aid effectiveness; may not generalize to other aid types.",
+        },
+        {
+          id: "easterly-moyo-critique",
+          title: "Easterly/Moyo: Aid Creates Dependency and Funds Corruption",
+          description:
+            "William Easterly ('The White Man's Burden') and Dambisa Moyo ('Dead Aid') argue that general development aid creates government dependency, reduces accountability to citizens, funds corruption (an estimated 25% of World Bank loans are misused), and undermines domestic institutions. Countries receiving the most aid per capita have not grown faster.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "William Easterly (NYU), Dambisa Moyo",
+          reasoning:
+            "Influential critiques from credentialed economists. Arguments apply most strongly to general budget support and governance aid, less to targeted health interventions. Correlation between aid and low growth doesn't prove causation.",
+        },
+        {
+          id: "pepfar-hiv-outcomes",
+          title: "PEPFAR: 25 Million Lives Saved Through Targeted HIV/AIDS Aid",
+          description:
+            "The President's Emergency Plan for AIDS Relief has provided antiretroviral treatment to over 20 million people and is estimated to have saved 25 million lives since 2003. HIV-related deaths in PEPFAR focus countries have declined by 68%. Widely considered the most successful US foreign aid program in history.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 9,
+          },
+          source: "PEPFAR, UNAIDS, Institute for Health Metrics and Evaluation",
+          reasoning:
+            "Massive, well-documented program with clear outcome metrics. Government-reported numbers may be slightly inflated. Replicability for other diseases is uncertain. Directness is high — lives saved is the most important outcome.",
+        },
+        {
+          id: "world-bank-aid-growth",
+          title: "World Bank Meta-Analysis: No Robust Aid-Growth Relationship",
+          description:
+            "Multiple econometric studies, including World Bank-commissioned research, have failed to find a robust positive relationship between aggregate aid flows and economic growth across countries. Burnside & Dollar initially found aid works in 'good policy environments,' but this finding did not replicate in subsequent analyses with expanded datasets.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "World Bank Research, Rajan & Subramanian (2008)",
+          reasoning:
+            "World Bank's own research undermining the aid-growth narrative is powerful for its independence. However, aggregate growth is a crude outcome measure that may miss sectoral improvements in health and education.",
+        },
+      ],
+    },
+    {
+      id: "efficiency-accountability",
+      title: "Efficiency & Accountability",
+      short_summary:
+        "Whether the aid delivery system is efficient enough to justify the expenditure, and whether accountability mechanisms are adequate.",
+      icon_name: "FileText" as const,
+      skeptic_premise:
+        "Only 30-40% of aid reaches the intended recipients, with the rest consumed by overhead, consultant fees, and corruption. Tied aid — which requires recipients to purchase goods from the donor country — serves donor economic interests more than recipient needs. Aid conditionality often backfires, imposing harmful structural adjustment. The aid industry itself employs hundreds of thousands of well-paid professionals in donor countries.",
+      proponent_rebuttal:
+        "Cash transfer programs bypass overhead entirely and put money directly in the hands of the poor. GiveDirectly's model shows that 90%+ of donations reach recipients, and rigorous studies show cash transfers improve nutrition, education, and business investment. Aid transparency has improved dramatically since the 2000s with IATI reporting standards. Comparing aid efficiency to doing nothing is the wrong counterfactual — the question is whether it's better than alternatives.",
+      crux: {
+        id: "delivery-mechanism-comparison",
+        title: "Aid Delivery Mechanism Efficiency Comparison",
+        description:
+          "Head-to-head comparison of cost-per-outcome across aid delivery mechanisms: traditional project aid, budget support, NGO programs, direct cash transfers, and multilateral channels.",
+        methodology:
+          "Track $1 of aid from donor commitment through to measurable outcome (health, education, income) across different delivery mechanisms in the same country contexts. Include all overhead, administrative costs, and leakage at each stage.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$5M (Multi-country tracer study with outcome measurement)",
+      },
+      evidence: [
+        {
+          id: "givedirectly-cash-transfers",
+          title: "GiveDirectly: Cash Transfers Deliver 90%+ to Recipients with Proven Impact",
+          description:
+            "GiveDirectly's unconditional cash transfer model delivers over 90 cents of every dollar to extreme poor recipients. RCTs show recipients invest in housing, nutrition, education, and small businesses. A 12-year follow-up found sustained improvements in assets, consumption, and food security with no increase in alcohol or tobacco spending.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "GiveDirectly, Haushofer & Shapiro (2016), Egger et al. (2022)",
+          reasoning:
+            "Strong RCT evidence from multiple countries. GiveDirectly is both the subject and funder of some research, lowering independence. Replicability is good for cash transfers specifically but doesn't validate other aid modalities.",
+        },
+        {
+          id: "transparency-intl-corruption",
+          title: "Transparency International: Corruption Diverts 25-30% of Aid in Weak Governance Countries",
+          description:
+            "Transparency International estimates that corruption siphons 20-30% of public funds in the most corrupt aid-receiving countries. High-profile scandals include $1 billion stolen from Mozambique's tuna bond scheme (partly donor-funded) and systematic diversion of food aid in Somalia. Even well-intentioned aid enables corruption by providing fungible resources.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Transparency International, Global Corruption Report",
+          reasoning:
+            "Well-regarded anti-corruption organization with global data. Estimates are necessarily imprecise — corruption is hidden by nature. Directness is good because diversion directly undermines aid effectiveness.",
+        },
+        {
+          id: "oecd-tied-aid",
+          title: "OECD: Tied Aid Reduces Value by 15-30% and Serves Donor Interests",
+          description:
+            "The OECD estimates that tied aid (requiring purchases from donor country firms) reduces the value of aid by 15-30% through higher procurement costs. While formally tied aid has decreased to ~20% of bilateral aid, informal tying through consultancy contracts and technical assistance remains prevalent.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "OECD Development Assistance Committee",
+          reasoning:
+            "Highly authoritative inter-governmental source. Data is well-documented. Directly demonstrates inefficiency in the aid system, though the trend toward untying is positive.",
+        },
+        {
+          id: "deaton-great-escape",
+          title: "Deaton: Aid Undermines State-Building and Accountability",
+          description:
+            "Nobel laureate Angus Deaton argues in 'The Great Escape' that aid weakens the social contract between governments and citizens. When governments get revenue from donors rather than taxation, they are accountable to donors, not citizens. This undermines democratic governance, state capacity, and long-run institutional development — the very foundations of sustainable growth.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "Angus Deaton, 'The Great Escape' (2013)",
+          reasoning:
+            "Nobel Prize-winning economist with deep expertise. Theoretical argument is compelling but hard to test empirically (low replicability). Directness is moderate — the accountability argument applies most to budget support, less to targeted health programs.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Space Exploration ROI
+// ============================================================================
+
+const spaceExplorationValueData = {
+  id: "space-exploration-value",
+  title: "Is Space Exploration Worth It?",
+  meta_claim:
+    "Government-funded space exploration provides sufficient scientific, economic, and strategic returns to justify its cost.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "economic-returns-spinoffs",
+      title: "Economic Returns & Spin-offs",
+      short_summary:
+        "Whether NASA's multi-billion-dollar budget generates sufficient economic returns through technology spin-offs and the growing space economy.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "NASA's $25B+ annual budget could fund universal pre-K, clean water infrastructure, or homelessness solutions with immediate, measurable impact. Space tourism is a billionaire's playground subsidized by taxpayers. Most spin-off claims are exaggerated — memory foam and Tang were not invented by NASA. The opportunity cost of space spending is enormous when millions lack basic needs.",
+      proponent_rebuttal:
+        "NASA estimates a 7:1 ROI through technology spin-offs including GPS navigation, water purification systems, medical imaging (CT/MRI advances), scratch-resistant lenses, and satellite communications. The space economy is projected to reach $1.8 trillion by 2035. Asteroid mining could solve rare-earth resource scarcity. SpaceX has already reduced launch costs by 90%, creating an entirely new commercial sector.",
+      crux: {
+        id: "space-economy-roi",
+        title: "Space Investment ROI Calculation",
+        description:
+          "Comprehensive analysis of direct and indirect economic returns from government space spending, including spin-off technologies, commercial sector growth, and opportunity costs.",
+        methodology:
+          "Track all NASA-funded patents and their commercial applications. Calculate revenue generated by spin-off industries. Compare to counterfactual spending on social programs using economic multiplier models.",
+        equation:
+          "\\text{ROI} = \\frac{\\sum_{t} (\\text{Spin-off Revenue}_t + \\Delta\\text{GDP}_{\\text{space sector},t})}{\\sum_{t} \\text{Government Investment}_t}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$500K (Comprehensive economic analysis)",
+      },
+      evidence: [
+        {
+          id: "nasa-spinoff-analysis",
+          title: "NASA Spin-off Economic Impact Analysis",
+          description:
+            "NASA's annual Spinoff publication documents over 2,000 technologies transferred to the private sector. Independent analysis estimates these generate $7-14 in economic activity per dollar invested, though critics argue attribution is inflated since many technologies had parallel commercial development.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 4,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "NASA Office of Technology Transfer",
+          reasoning:
+            "NASA-produced data has inherent bias, but the breadth of documented spin-offs is substantial. Independence score is low due to self-reporting.",
+        },
+        {
+          id: "space-economy-projections",
+          title: "Space Economy Projected at $1.8 Trillion by 2035",
+          description:
+            "Morgan Stanley, McKinsey, and the World Economic Forum project the global space economy will grow from $469B (2023) to $1.8T by 2035. Growth is driven by satellite broadband, Earth observation, in-space manufacturing, and space tourism.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 5,
+          },
+          source: "Morgan Stanley Space Economy Report",
+          reasoning:
+            "Credible financial institutions, but projections are speculative and assume continued government investment as a catalyst.",
+        },
+        {
+          id: "opportunity-cost-analysis",
+          title: "Opportunity Cost: $25B Could Fund Universal Pre-K",
+          description:
+            "NASA's $25.4B annual budget (2024) exceeds the estimated $22B needed for universal pre-K in the US, $10B for clean water infrastructure repairs, or $20B to end veteran homelessness. Every dollar spent in space is a dollar not spent on immediate human needs with proven returns.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "Congressional Budget Office, Brookings Institution",
+          reasoning:
+            "Valid economic comparison, though it assumes a zero-sum budget which isn't strictly accurate — NASA's budget is 0.5% of federal spending.",
+        },
+        {
+          id: "private-space-revenue",
+          title: "Private Space Industry Revenue Exceeds Government Spending",
+          description:
+            "The commercial space industry generated $384B in revenue in 2023, with SpaceX alone valued at $180B. Private investment in space companies reached $8.5B in 2023. This suggests government seed investment has catalyzed a self-sustaining industry.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Space Foundation, Bryce Tech",
+          reasoning:
+            "Industry data is solid; the causal link between government spending and private growth is plausible but not fully proven.",
+        },
+      ],
+    },
+    {
+      id: "scientific-strategic-value",
+      title: "Scientific & Strategic Value",
+      short_summary:
+        "Whether the scientific discoveries and national security benefits of space exploration justify prioritizing human missions over cheaper robotic alternatives.",
+      icon_name: "Telescope" as const,
+      skeptic_premise:
+        "Robotic missions accomplish 90% of the science at 1% the cost of human missions. The ISS cost $150B and hasn't produced game-changing discoveries. Space debris is becoming a catastrophic risk — there are 27,000 tracked pieces of orbital junk threatening all satellite infrastructure. Militarizing space accelerates a dangerous arms race.",
+      proponent_rebuttal:
+        "Climate monitoring satellites are essential for understanding and responding to Earth's changing climate. NASA's DART mission successfully demonstrated asteroid deflection — an existential defense capability. Space capabilities provide critical military strategic advantage (GPS, reconnaissance, communications). Human missions drive public engagement and inspire STEM careers in ways robots cannot.",
+      crux: {
+        id: "human-vs-robotic-value",
+        title: "Human vs. Robotic Mission Value Comparison",
+        description:
+          "Systematic comparison of scientific output, cost-effectiveness, and strategic value between human and robotic space missions.",
+        methodology:
+          "Quantify scientific publications, discoveries, and technological capabilities per dollar spent for human vs. robotic missions. Include strategic defense value and public engagement metrics.",
+        equation:
+          "\\frac{\\text{Science Output}_{\\text{human}}}{\\text{Cost}_{\\text{human}}} \\overset{?}{>} \\frac{\\text{Science Output}_{\\text{robotic}}}{\\text{Cost}_{\\text{robotic}}}",
+        verification_status: "verified" as const,
+        cost_to_verify: "$200K (Comparative meta-analysis)",
+      },
+      evidence: [
+        {
+          id: "dart-success",
+          title: "DART Asteroid Deflection Mission Succeeded",
+          description:
+            "NASA's DART mission (2022) successfully altered asteroid Dimorphos's orbit by 33 minutes — far exceeding the 73-second minimum. This proved humanity can defend against asteroid impacts, an existential risk. The mission cost $325M, a fraction of the damage from even a small asteroid impact.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "NASA, Johns Hopkins APL, Nature",
+          reasoning:
+            "Independently verified result with clear existential-defense implications. Replicability slightly limited as each asteroid is unique.",
+        },
+        {
+          id: "robotic-vs-human-cost",
+          title: "Robotic Missions Cost 1% of Human Missions",
+          description:
+            "Mars Perseverance rover cost $2.7B and has operated for 3+ years. A crewed Mars mission would cost an estimated $500B-$1T. The James Webb Space Telescope ($10B) has produced more transformative science than any ISS experiment. Per-dollar scientific output strongly favors robotic missions.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "NASA JPL, National Academies of Sciences",
+          reasoning:
+            "Strong cost comparison with reliable data; somewhat limited by comparing different mission types with different objectives.",
+        },
+        {
+          id: "climate-satellite-data",
+          title: "Climate Satellites Provide Irreplaceable Earth Data",
+          description:
+            "NASA's Earth-observing satellites (Landsat, MODIS, OCO-2) provide the primary data for tracking deforestation, sea level rise, ice sheet loss, and atmospheric CO2. This data underpins climate models used by every nation. No ground-based alternative exists for global-scale monitoring.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "NASA Earth Science Division, IPCC",
+          reasoning:
+            "Widely accepted and directly useful; satellite climate data is genuinely irreplaceable for global monitoring.",
+        },
+        {
+          id: "kessler-syndrome-risk",
+          title: "Space Debris Threatens All Orbital Infrastructure",
+          description:
+            "The Kessler Syndrome describes a cascade where orbital collisions generate debris that causes more collisions, potentially making low Earth orbit unusable. There are 27,000+ tracked debris objects and millions of smaller pieces. Starlink alone has added 5,000+ satellites. A single cascade event could destroy GPS, communications, and weather satellites worth trillions.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "ESA Space Debris Office, NASA ODPO",
+          reasoning:
+            "Well-documented risk with credible modeling; directness is moderate since it argues against unmanaged expansion rather than all space activity.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Factory Farming Ban
+// ============================================================================
+
+const factoryFarmingBanData = {
+  id: "factory-farming-ban",
+  title: "Should We Ban Factory Farming?",
+  meta_claim:
+    "Industrial animal agriculture (factory farming) should be banned or drastically reformed due to its ethical, environmental, and public health costs.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "animal-welfare-ethics",
+      title: "Animal Welfare & Ethics",
+      short_summary:
+        "Whether the systematic confinement and suffering of billions of sentient animals in factory farms constitutes a moral crisis requiring legislative action.",
+      icon_name: "Shield" as const,
+      skeptic_premise:
+        "Animal welfare standards have improved significantly over the past two decades. Cage-free, free-range, and humanely raised options exist for consumers who want them — the market is responding. Banning factory farming would devastate rural economies that depend on it and raise food prices 20-50%, hurting the poor most. Animals are not moral patients in the same way humans are.",
+      proponent_rebuttal:
+        "99% of US farmed animals live in factory farms — 'humane' options are a tiny fraction. Conditions include gestation crates so small pigs cannot turn around, battery cages giving hens less space than a sheet of paper, debeaking without anesthesia, and forced rapid growth causing skeletal failure. The Cambridge Declaration on Consciousness (2012) affirmed that mammals and birds possess the neurological substrates for conscious experience and suffering.",
+      crux: {
+        id: "sentience-threshold",
+        title: "Animal Sentience and Moral Status",
+        description:
+          "Determining the level of conscious experience and suffering in farmed animals, and whether this triggers moral obligations that override economic considerations.",
+        methodology:
+          "Neuroimaging and behavioral studies of pain, distress, and emotional states in pigs, chickens, and cattle. Compare neural correlates of suffering to those in humans. Philosophical analysis of moral thresholds.",
+        equation:
+          "\\text{Moral Weight} = f(\\text{Sentience Level}, \\text{Suffering Intensity}, \\text{Number of Animals})",
+        verification_status: "verified" as const,
+        cost_to_verify: "$300K (Neuroscience and ethics review)",
+      },
+      evidence: [
+        {
+          id: "usda-farm-size-data",
+          title: "USDA: 99% of US Farmed Animals in Factory Farms",
+          description:
+            "USDA National Agricultural Statistics Service data shows that 98.7% of US farmed animals live in concentrated animal feeding operations (CAFOs). This represents approximately 10 billion land animals per year in the US alone. The 'humane' market share is under 1% of total production.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 8,
+          },
+          source: "USDA NASS, Sentience Institute Analysis",
+          reasoning:
+            "Government data with high reliability; directly establishes the scale of factory farming.",
+        },
+        {
+          id: "cambridge-declaration-consciousness",
+          title: "Cambridge Declaration on Consciousness (2012)",
+          description:
+            "A prominent group of neuroscientists signed the Cambridge Declaration stating that 'non-human animals possess the neurological substrates that generate consciousness.' This includes all mammals and birds, covering all major farmed species. The declaration was signed at Cambridge University in the presence of Stephen Hawking.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Cambridge Declaration on Consciousness, 2012",
+          reasoning:
+            "Authoritative scientific statement; somewhat limited by philosophical debate over what 'consciousness' implies for moral status.",
+        },
+        {
+          id: "welfare-improvement-trends",
+          title: "Animal Welfare Standards Have Steadily Improved",
+          description:
+            "Since 2000, the EU has banned battery cages and gestation crates. US states (CA, MA, WA) have passed similar laws. McDonald's, Walmart, and major retailers have committed to cage-free eggs. Industry groups argue voluntary improvement is more effective than prohibition.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "ASPCA, National Chicken Council",
+          reasoning:
+            "Real progress exists, but critics note improvements are marginal (cage-free still allows extreme crowding) and timelines are slow.",
+        },
+        {
+          id: "food-price-impact",
+          title: "Banning Factory Farming Would Raise Food Prices 20-50%",
+          description:
+            "Economic modeling suggests replacing factory farming with pasture-based systems would increase meat prices 20-50% and require 2-3x more land. Low-income households spend 30%+ of income on food; price increases would disproportionately harm them. Protein deficiency could increase in developing nations.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "USDA Economic Research Service, FAO",
+          reasoning:
+            "Credible economic modeling, though it assumes a direct replacement rather than dietary shifts toward plant protein.",
+        },
+      ],
+    },
+    {
+      id: "environmental-health-impact",
+      title: "Environmental & Health Impact",
+      short_summary:
+        "Whether factory farming's contributions to climate change, antibiotic resistance, and water pollution constitute sufficient public health threats to justify a ban.",
+      icon_name: "AlertTriangle" as const,
+      skeptic_premise:
+        "Modern agriculture feeds 8 billion people more efficiently than any system in history. Plant-based diets lack key nutrients (B12, iron, zinc, omega-3s) without expensive supplementation. Lab-grown meat isn't commercially viable and may never match the taste, texture, and cost of conventional meat. Dismantling the system that feeds the world is reckless utopianism.",
+      proponent_rebuttal:
+        "Animal agriculture produces 14.5% of global greenhouse gas emissions — more than all transportation combined. Factory farms are breeding grounds for antibiotic-resistant bacteria (80% of US antibiotics go to livestock) and pandemic viruses (avian flu, swine flu originated in factory farm conditions). Manure runoff creates massive ocean dead zones — the Gulf of Mexico dead zone covers 6,000+ square miles annually.",
+      crux: {
+        id: "ghg-antibiotic-impact",
+        title: "Comprehensive Environmental & Health Cost Accounting",
+        description:
+          "Full externality accounting of factory farming including GHG emissions, antibiotic resistance costs, water pollution, and pandemic risk.",
+        methodology:
+          "Calculate total externalized costs: GHG damage (social cost of carbon), healthcare costs from antibiotic resistance, water treatment costs from agricultural runoff, and expected value of pandemic risk from zoonotic disease.",
+        equation:
+          "\\text{True Cost} = \\text{Market Price} + \\sum (\\text{GHG Damage} + \\text{Health Costs} + \\text{Pollution Costs} + \\text{Pandemic Risk})",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Multi-disciplinary externality study)",
+      },
+      evidence: [
+        {
+          id: "fao-livestock-ghg",
+          title: "FAO: Livestock Produces 14.5% of Global GHG Emissions",
+          description:
+            "The UN Food and Agriculture Organization's comprehensive lifecycle assessment found that livestock contributes 14.5% of all anthropogenic greenhouse gas emissions. Cattle alone account for 65% of the livestock sector's emissions, primarily through methane from enteric fermentation and nitrous oxide from manure.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "FAO 'Tackling Climate Change Through Livestock' (2013)",
+          reasoning:
+            "Gold-standard international assessment with transparent methodology; widely cited in climate policy.",
+        },
+        {
+          id: "who-antibiotic-resistance",
+          title: "WHO: Agricultural Antibiotic Use Drives Resistance Crisis",
+          description:
+            "The WHO identifies antibiotic use in livestock as a primary driver of antimicrobial resistance, which kills 1.27 million people annually and is projected to cause 10 million deaths/year by 2050. 80% of antibiotics sold in the US are used in animal agriculture, primarily for growth promotion rather than treating illness.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "WHO Antimicrobial Resistance Global Report",
+          reasoning:
+            "Authoritative source with strong methodology; causal link between specific farm practices and resistance is well-established.",
+        },
+        {
+          id: "plant-protein-adequacy",
+          title: "Plant-Based Diets Can Lack Key Nutrients Without Supplements",
+          description:
+            "Systematic reviews find that plant-based diets are nutritionally adequate for all life stages when properly planned, but many people fail to supplement B12, iron, zinc, and omega-3s. Developing nations with limited food diversity face greater risks. The American Dietetic Association endorses well-planned plant-based diets but emphasizes the 'well-planned' caveat.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "American Dietetic Association, Cochrane Reviews",
+          reasoning:
+            "Valid nutritional concern, though directness is limited since a factory farming ban doesn't require eliminating all animal products.",
+        },
+        {
+          id: "mississippi-dead-zone",
+          title: "Agricultural Runoff Creates 6,000 sq mi Dead Zone",
+          description:
+            "The Gulf of Mexico 'dead zone' covers approximately 6,334 square miles annually — an area the size of Connecticut and Rhode Island combined. It is primarily caused by nitrogen and phosphorus runoff from agricultural operations in the Mississippi River watershed, with animal manure being the largest single source.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "NOAA, USGS, EPA Gulf of Mexico Hypoxia Task Force",
+          reasoning:
+            "Well-documented environmental phenomenon with clear causal link to agricultural practices; directness slightly limited as crop agriculture also contributes.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Media Bias and Democracy
+// ============================================================================
+
+const mediaBiasDemocracyData = {
+  id: "media-bias-democracy",
+  title: "Media Bias and Democracy",
+  meta_claim:
+    "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "existence-extent-bias",
+      title: "Existence & Extent of Bias",
+      short_summary:
+        "Whether mainstream media exhibits measurable, systemic bias that goes beyond individual editorial choices or honest disagreement.",
+      icon_name: "FileText" as const,
+      skeptic_premise:
+        "Claims of 'media bias' are often just disagreement with factual reporting that challenges one's priors. Professional journalism has editorial standards, fact-checking processes, and corrections policies. The real threat to informed citizenship is misinformation from unvetted social media and partisan blogs, not mainstream outlets with reputational stakes. Imperfect journalism is still far better than no institutional journalism.",
+      proponent_rebuttal:
+        "Studies consistently find mainstream media skews left on social issues and right on economic/military issues. Ownership concentration — 6 corporations own approximately 90% of US media — creates structural bias through editorial pressure and story selection. Coverage choices (what to cover, how much airtime, which experts to feature) are inherently biased even when individual facts are correct. Framing effects shape public opinion as powerfully as outright falsehood.",
+      crux: {
+        id: "quantitative-bias-measurement",
+        title: "Quantitative Media Bias Measurement",
+        description:
+          "Systematic, replicable methodology for measuring bias in media coverage across outlets, topics, and time periods.",
+        methodology:
+          "Content analysis of story selection, framing, source selection, and language across major outlets. Compare coverage of identical events. Measure deviation from a neutral baseline using computational linguistics and human coding.",
+        equation:
+          "\\text{Bias Score} = \\frac{\\sum (\\text{Framing}_{i} + \\text{Source Selection}_{i} + \\text{Story Choice}_{i})}{N_{\\text{articles}}}",
+        verification_status: "verified" as const,
+        cost_to_verify: "$150K (Large-scale content analysis)",
+      },
+      evidence: [
+        {
+          id: "groseclose-milyo-study",
+          title: "Groseclose & Milyo: Quantitative Media Slant Analysis",
+          description:
+            "UCLA/University of Missouri study measured media slant by comparing think-tank citations in news outlets to those made by members of Congress with known ideological positions. Found 18 of 20 major outlets had liberal slant, with the average outlet positioned near the average Democrat in Congress. Methodology was innovative but contested.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "Groseclose & Milyo, Quarterly Journal of Economics (2005)",
+          reasoning:
+            "Peer-reviewed in a top journal, but methodology has been criticized for equating think-tank citations with ideological bias. Replicability limited by methodological choices.",
+        },
+        {
+          id: "allsides-bias-ratings",
+          title: "AllSides: Consistent Cross-Partisan Bias Ratings",
+          description:
+            "AllSides rates media bias using blind surveys, editorial reviews, and third-party data. Results show consistent patterns: outlets like CNN and MSNBC rate center-left to left; Fox News and Daily Wire rate right. Centrist outlets (AP, Reuters) exist but get less viewership. Most Americans consume ideologically aligned media.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "AllSides Media Bias Ratings",
+          reasoning:
+            "Multi-method approach is useful but ratings are somewhat subjective. The existence of perceived bias doesn't prove harmful impact on democracy.",
+        },
+        {
+          id: "reuters-trust-survey",
+          title: "Reuters: Trust in News at Historic Low Globally",
+          description:
+            "The Reuters Institute Digital News Report (2024) found that only 40% of people globally trust 'most news most of the time,' down from 44% in 2023. In the US, trust is even lower at 32%. Distrust correlates with perceived bias. Young adults (18-24) increasingly rely on social media over traditional news sources.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "Reuters Institute for the Study of Journalism",
+          reasoning:
+            "Highly credible annual survey; low trust is well-documented but doesn't itself prove bias exists — it could reflect audience misperception or media literacy gaps.",
+        },
+        {
+          id: "cjr-standards-analysis",
+          title: "CJR: Professional Standards Remain Robust at Top Outlets",
+          description:
+            "Columbia Journalism Review analysis finds that major outlets (NYT, Washington Post, AP, Reuters) maintain rigorous editorial standards including multi-source verification, corrections policies, and editorial independence from ownership. Error rates are low compared to social media and partisan outlets. Institutional journalism's quality has not meaningfully declined.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Columbia Journalism Review",
+          reasoning:
+            "CJR is authoritative on journalism standards, though it is part of the media establishment it evaluates. Standards existing doesn't preclude structural bias.",
+        },
+      ],
+    },
+    {
+      id: "impact-on-democracy",
+      title: "Impact on Democracy",
+      short_summary:
+        "Whether media bias and polarized consumption patterns meaningfully degrade democratic discourse, or whether media pluralism actually enhances it.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Media pluralism is at an all-time high with internet access. People can access diverse viewpoints more easily than at any point in history — from international outlets to independent journalists to primary source documents. Blaming media for polarization ignores personal responsibility for information consumption and deeper socioeconomic drivers of political division.",
+      proponent_rebuttal:
+        "Filter bubbles and algorithmic amplification create echo chambers that reinforce existing beliefs. Trust in media is at historic lows — 32% per Gallup — undermining the shared factual basis democracy requires. Polarized media consumption correlates strongly with political extremism. When citizens cannot agree on basic facts, democratic deliberation becomes impossible.",
+      crux: {
+        id: "echo-chamber-effect",
+        title: "Echo Chamber Causation Analysis",
+        description:
+          "Determining whether media echo chambers cause political polarization or merely reflect pre-existing divisions.",
+        methodology:
+          "Randomized controlled trial: expose participants to cross-cutting news for 6 months. Measure attitude polarization, factual knowledge, and democratic engagement before and after. Compare to control group with normal consumption.",
+        equation:
+          "\\Delta\\text{Polarization} = \\beta_1(\\text{Echo Chamber Exposure}) + \\beta_2(\\text{Pre-existing Ideology}) + \\epsilon",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$1M (Large-scale RCT)",
+      },
+      evidence: [
+        {
+          id: "gallup-media-trust",
+          title: "Gallup: US Media Trust at Historic Low of 32%",
+          description:
+            "Gallup's annual survey shows that only 32% of Americans trust mass media 'to report the news fully, accurately, and fairly' — the lowest since Gallup began asking in 1972. Trust is highly partisan: 54% among Democrats, 27% among Independents, and 11% among Republicans. This partisan trust gap has tripled since 2000.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 6,
+          },
+          source: "Gallup Annual Media Trust Survey",
+          reasoning:
+            "Gold-standard polling with decades of data; directly documents trust collapse. Directness limited because low trust could reflect media's actual quality decline OR partisan messaging about media.",
+        },
+        {
+          id: "pew-polarization-media",
+          title: "Pew: Political Polarization Correlates with Media Diet",
+          description:
+            "Pew Research Center found that consistent conservatives and consistent liberals have almost entirely non-overlapping media diets. 47% of consistent conservatives name Fox News as their main source; consistent liberals spread across multiple outlets. Those with the most polarized media diets hold the most negative views of the opposing party.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "Pew Research Center, 'Political Polarization & Media Habits'",
+          reasoning:
+            "Rigorous research demonstrating correlation; causation direction (media causes polarization vs. polarized people seek confirming media) remains debated.",
+        },
+        {
+          id: "internet-viewpoint-diversity",
+          title: "Internet Access Enables Unprecedented Viewpoint Diversity",
+          description:
+            "Contrary to echo chamber narratives, studies show internet users encounter MORE diverse viewpoints than non-internet users. Cross-cutting exposure online exceeds that of most offline social networks. People share articles across ideological lines regularly. The 'filter bubble' may be overstated — most people's actual media diets are more diverse than assumed.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Gentzkow & Shapiro, Stanford; Flaxman et al., Oxford",
+          reasoning:
+            "Peer-reviewed research challenging dominant echo chamber narrative; replicability somewhat limited as online behavior changes rapidly.",
+        },
+        {
+          id: "algorithmic-amplification",
+          title: "Algorithmic Amplification Boosts Outrage Content",
+          description:
+            "Internal Meta research (leaked by Frances Haugen) showed Facebook's algorithm disproportionately amplifies anger-inducing content because it drives engagement. Twitter's own research found its algorithm amplifies right-leaning political content. YouTube's recommendation engine has been shown to progressively suggest more extreme content.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "Facebook Papers, Twitter ML Research, Mozilla Foundation",
+          reasoning:
+            "Internal company data is highly revealing but access is limited; replicability constrained by proprietary algorithms that change frequently.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Universal Healthcare
+// ============================================================================
+
+const universalHealthcareData = {
+  id: "universal-healthcare",
+  title: "Universal Healthcare in the US",
+  meta_claim:
+    "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "cost-efficiency",
+      title: "Cost & Efficiency",
+      short_summary:
+        "Whether a universal healthcare system would reduce or increase total US healthcare spending compared to the current employer-based model.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Single-payer would cost $32 trillion over 10 years according to Mercatus Center estimates. Government programs are notoriously inefficient — the VA has documented wait times exceeding 30 days for 30% of veterans. Innovation in pharmaceuticals and medical devices would decline without profit incentives: the US produces 44% of global pharmaceutical R&D. You can't add 27 million people and spend less.",
+      proponent_rebuttal:
+        "The US already spends $4.3 trillion per year on healthcare — more than any country — while covering fewer people. Administrative costs consume 34% of US healthcare spending vs. 17% in Canada. Every other universal system achieves better outcomes at lower per-capita cost. The $32T estimate actually showed savings vs. the current trajectory of $34T+ over the same period. Consolidated purchasing power would reduce drug prices.",
+      crux: {
+        id: "administrative-savings-calculation",
+        title: "Administrative Savings Under Single-Payer",
+        description:
+          "Calculating whether eliminating private insurance administration, billing complexity, and provider overhead would generate enough savings to cover the currently uninsured.",
+        methodology:
+          "Compare administrative costs as percentage of total spending: US multi-payer system vs. single-payer systems (Canada, Taiwan). Estimate transition costs and steady-state savings. Model drug price reductions from monopsony purchasing.",
+        equation:
+          "\\Delta\\text{Cost} = (\\text{Admin Savings} + \\text{Drug Savings}) - (\\text{Newly Covered} \\times \\text{Per Capita Cost})",
+        verification_status: "verified" as const,
+        cost_to_verify: "$300K (Health economics modeling)",
+      },
+      evidence: [
+        {
+          id: "lancet-single-payer-savings",
+          title: "Lancet: Single-Payer Would Save $450B Annually",
+          description:
+            "A 2020 Lancet meta-analysis of 22 single-payer cost analyses found that 19 of 22 predicted net savings. The median estimate was $450B per year in savings, primarily from administrative simplification ($200B) and drug price negotiation ($150B). The study also estimated 68,000 fewer deaths per year from universal coverage.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "The Lancet, Galvani et al. (2020)",
+          reasoning:
+            "Top-tier medical journal with rigorous methodology; models inherently depend on assumptions about transition efficiency and political implementation.",
+        },
+        {
+          id: "cms-health-expenditure",
+          title: "CMS: US Spends $4.3T on Healthcare (18% of GDP)",
+          description:
+            "The Centers for Medicare & Medicaid Services reports US national health expenditure reached $4.3 trillion in 2023 (17.6% of GDP). Per capita spending is $13,493 — roughly double the OECD average of $6,651. Despite this spending, the US has lower life expectancy and higher infant mortality than peer nations.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 10,
+            directness: 7,
+          },
+          source: "CMS National Health Expenditure Data",
+          reasoning:
+            "Authoritative government data documenting the spending problem; doesn't directly prove a specific solution would work, but establishes the baseline.",
+        },
+        {
+          id: "va-wait-time-data",
+          title: "VA Wait Times Exceed 30 Days for Many Veterans",
+          description:
+            "The VA Inspector General found that 30% of veterans waited more than 30 days for primary care appointments. Some facilities had average waits exceeding 60 days. The VA scandal of 2014 revealed systematic data falsification to conceal delays. Critics argue this demonstrates government healthcare's inherent inefficiency.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "VA Inspector General, Government Accountability Office",
+          reasoning:
+            "Well-documented government failures, though the VA is a unique system (direct provision, not insurance) and may not generalize to a Medicare-for-All model.",
+        },
+        {
+          id: "pharma-innovation-comparison",
+          title: "US Produces 44% of Global Pharmaceutical R&D",
+          description:
+            "The US accounts for 44% of global pharmaceutical R&D spending and produces the plurality of new molecular entities approved worldwide. Defenders of the current system argue that high US drug prices effectively subsidize global drug development. Countries with price controls free-ride on US innovation.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "PhRMA, Congressional Research Service",
+          reasoning:
+            "Valid concern about innovation incentives, but PhRMA data may overstate the link between high prices and R&D (much spending goes to marketing, not research).",
+        },
+      ],
+    },
+    {
+      id: "quality-access",
+      title: "Quality & Access",
+      short_summary:
+        "Whether universal healthcare would improve or degrade the quality of care Americans receive and their ability to access it.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "The US leads in cancer survival rates (5-year survival: 67% vs. 55% in UK). American medical innovation — from mRNA vaccines to robotic surgery — leads the world. Wait times in universal systems are significant: median 27.7 weeks for specialist care in Canada. People cross borders TO the US for specialized care. Equalizing access often means equalizing down.",
+      proponent_rebuttal:
+        "27 million Americans are uninsured and 40% skip needed care due to cost. The US ranks dead last among 11 wealthy nations on the Commonwealth Fund healthcare scorecard. Infant mortality (5.4/1,000) exceeds all peer nations. Life expectancy (77.5 years) is 3+ years below comparable countries. Medical debt is the #1 cause of personal bankruptcy — 530,000 families per year.",
+      crux: {
+        id: "outcomes-comparison",
+        title: "Risk-Adjusted Health Outcomes Comparison",
+        description:
+          "Comprehensive comparison of health outcomes between the US and universal healthcare countries, controlling for demographics, lifestyle factors, and measurement differences.",
+        methodology:
+          "Compare outcomes (life expectancy, infant mortality, preventable death rates, patient satisfaction) across US vs. countries with universal systems. Control for obesity, gun violence, drug overdoses, and income inequality.",
+        equation:
+          "\\text{System Quality} = \\frac{\\sum \\text{Health Outcomes}_{\\text{adjusted}}}{\\text{Per Capita Spending}}",
+        verification_status: "verified" as const,
+        cost_to_verify: "$200K (International comparative analysis)",
+      },
+      evidence: [
+        {
+          id: "commonwealth-fund-ranking",
+          title: "Commonwealth Fund: US Ranks Last Among 11 Nations",
+          description:
+            "The Commonwealth Fund's 2024 Mirror, Mirror report ranks the US last overall among 11 high-income countries on healthcare performance. The US ranks last in access, equity, and health outcomes, despite spending the most. Australia, the Netherlands, and the UK top the rankings. The US's only above-average ranking is in care process quality.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Commonwealth Fund, 'Mirror, Mirror' (2024)",
+          reasoning:
+            "Well-regarded comparative study with transparent methodology; somewhat limited by the Commonwealth Fund's known advocacy for universal coverage.",
+        },
+        {
+          id: "oecd-health-outcomes",
+          title: "OECD: US Lags Peers on Life Expectancy and Infant Mortality",
+          description:
+            "OECD data shows US life expectancy at 77.5 years, 3.2 years below the OECD average of 80.7. US infant mortality is 5.4 per 1,000 live births vs. OECD average of 4.5. The US has the highest rate of preventable deaths (amenable mortality) among wealthy nations at 112 per 100,000 vs. 55 in France.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "OECD Health Statistics",
+          reasoning:
+            "Highly reliable international data; directness limited because US outcomes reflect many factors beyond healthcare system design (gun violence, obesity, drug overdoses).",
+        },
+        {
+          id: "us-cancer-survival",
+          title: "US Leads in Cancer Survival Rates",
+          description:
+            "The US has the highest 5-year cancer survival rates among wealthy nations for most cancers. Breast cancer: 90% (US) vs. 85% (OECD). Colon cancer: 65% vs. 60%. The US leads in early detection, access to cutting-edge treatments, and clinical trial participation. For serious conditions, the US healthcare system delivers world-class care.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "CONCORD Global Surveillance, Lancet Oncology",
+          reasoning:
+            "Genuine US advantage; may partly reflect lead-time bias (earlier detection inflates survival stats without improving mortality) and selective access.",
+        },
+        {
+          id: "medical-bankruptcy-data",
+          title: "Medical Debt Causes 530,000 Bankruptcies Annually",
+          description:
+            "American Journal of Public Health research found that 66.5% of US bankruptcies are tied to medical issues — either medical bills directly or income loss due to illness. This translates to approximately 530,000 families per year. No other wealthy nation has medical bankruptcy. 79 million Americans have medical debt or are paying off medical bills.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "American Journal of Public Health, Himmelstein et al.",
+          reasoning:
+            "Widely cited peer-reviewed study; some methodological debate about how to attribute bankruptcy causation, but the scale of medical debt is undeniable.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Open Borders
+// ============================================================================
+
+const openBordersData = {
+  id: "open-borders",
+  title: "The Case for Open Borders",
+  meta_claim:
+    "Significantly relaxing or eliminating immigration restrictions would produce massive economic gains and is morally justified.",
+  status: "highly_speculative" as const,
+  pillars: [
+    {
+      id: "economic-arguments",
+      title: "Economic Arguments",
+      short_summary:
+        "Whether open borders would produce enormous global GDP gains or create unsustainable fiscal and labor market pressures.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Open borders would create unsustainable fiscal pressure on welfare states — healthcare, education, and social services would be overwhelmed. Wage depression for low-skilled native workers would be severe: Borjas estimates a 3-4% wage decline per 10% increase in labor supply. Housing crises would worsen dramatically in destination cities already facing shortages.",
+      proponent_rebuttal:
+        "Economists estimate open borders could double world GDP — what Clemens calls 'trillion-dollar bills on the sidewalk.' Geographic restrictions on labor are the largest remaining market distortion in the global economy. Immigrants are net fiscal contributors over their lifetimes in most studies. EU free movement between vastly different economies (Germany, Romania) produced manageable migration and mutual prosperity rather than collapse.",
+      crux: {
+        id: "gdp-gains-estimation",
+        title: "Global GDP Gains from Labor Mobility",
+        description:
+          "Estimating the actual economic gains from substantially liberalizing global labor mobility, accounting for fiscal impacts, wage effects, and transition costs.",
+        methodology:
+          "Extend models of EU free movement to global scenario. Calculate productivity gains from labor reallocation. Model fiscal impacts on destination countries. Estimate wage effects across skill levels. Account for housing, infrastructure, and integration costs.",
+        equation:
+          "\\Delta\\text{GDP}_{\\text{world}} = \\sum_{i,j} (\\text{MPL}_j - \\text{MPL}_i) \\times \\Delta L_{i \\to j} - \\text{Transition Costs}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$5M (Global economic modeling)",
+      },
+      evidence: [
+        {
+          id: "clemens-gdp-estimates",
+          title: "Clemens: Open Borders Could Double World GDP",
+          description:
+            "Economist Michael Clemens's survey of four independent economic models found that open borders would increase world GDP by 50-150%, with a median estimate near 100% (doubling). The gains come primarily from moving workers from low-productivity to high-productivity environments. Even a 10% liberalization of barriers would yield trillions in gains.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 5,
+            directness: 5,
+          },
+          source: "Clemens, 'Economics and Emigration,' Journal of Economic Perspectives (2011)",
+          reasoning:
+            "Published in a top economics journal, but models are highly theoretical and extrapolate from marginal changes to revolutionary ones. Real-world frictions would reduce gains substantially.",
+        },
+        {
+          id: "borjas-wage-impact",
+          title: "Borjas: Immigration Depresses Low-Skill Wages 3-4%",
+          description:
+            "Harvard economist George Borjas's research found that a 10% increase in labor supply from immigration reduces wages for competing native workers by 3-4%. The impact is concentrated among high school dropouts and disproportionately affects Black and Hispanic low-wage workers. Open borders would represent far more than a 10% increase.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Borjas, 'Immigration Economics,' Harvard University Press",
+          reasoning:
+            "Respected labor economist with rigorous methodology; findings are contested by Card and others who find smaller wage effects. Extrapolation to open borders is speculative.",
+        },
+        {
+          id: "eu-free-movement-data",
+          title: "EU Free Movement Produced Manageable Migration",
+          description:
+            "When the EU expanded free movement to Eastern Europe (2004-2007), predictions of mass migration were largely wrong. Only 2-3% of Eastern Europeans moved West. Both sending and receiving countries experienced economic growth. Wages in Eastern Europe rose while Western European wage effects were minimal. The experience suggests fears of open borders are overstated.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "European Commission, Kahanec & Zimmermann (IZA)",
+          reasoning:
+            "Real-world natural experiment with credible data; replicability limited because EU members shared cultural proximity and institutional convergence that wouldn't apply globally.",
+        },
+        {
+          id: "fiscal-impact-analyses",
+          title: "Fiscal Impact Meta-Analyses Show Mixed Results",
+          description:
+            "Meta-analyses of immigration's fiscal impact show wide variation: the National Academy of Sciences found a net positive fiscal impact of $259K per immigrant over 75 years, but negative impact in the short term at state/local level. Low-skilled immigrants are net fiscal drains for 15-20 years before becoming net contributors. Results are highly sensitive to assumptions about discount rates and public goods.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "National Academy of Sciences, 'The Economic and Fiscal Consequences of Immigration'",
+          reasoning:
+            "Authoritative source; the mixed results and sensitivity to assumptions make this evidence cut both ways, leaning against given short-term fiscal pressures under open borders.",
+        },
+      ],
+    },
+    {
+      id: "moral-security-considerations",
+      title: "Moral & Security Considerations",
+      short_summary:
+        "Whether the moral case for freedom of movement outweighs legitimate concerns about sovereignty, security, and social cohesion.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Sovereign nations have the right and duty to control their borders — this is foundational to the nation-state system. Open borders are incompatible with welfare states, as Milton Friedman argued. Security screening requires controlled entry points and manageable volumes. Cultural integration requires manageable flows to prevent parallel societies and social fragmentation.",
+      proponent_rebuttal:
+        "Restricting movement based on birth location is arbitrary discrimination — morally analogous to restricting rights based on race or gender. The 'birthplace lottery' is the largest determinant of lifetime income, dwarfing all other factors. Brain drain concerns are overstated; remittances ($656B in 2022) vastly outweigh foreign aid ($204B). Illegal immigration exists precisely BECAUSE legal pathways are too narrow — open borders would eliminate it.",
+      crux: {
+        id: "moral-framework-analysis",
+        title: "Moral Framework for Freedom of Movement",
+        description:
+          "Evaluating whether freedom of movement across borders is a fundamental human right that should be limited only by compelling state interests, or whether states have strong prima facie rights to exclude.",
+        methodology:
+          "Philosophical analysis comparing freedom of movement to other recognized freedoms. Empirical examination of whether controlled borders actually achieve their stated goals (security, fiscal sustainability, cultural cohesion) more effectively than open alternatives.",
+        equation:
+          "\\text{Moral Permissibility} = f(\\text{Rights Restricted}, \\text{Harm Prevented}, \\text{Alternatives Available})",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "N/A (Normative philosophical question)",
+      },
+      evidence: [
+        {
+          id: "carens-philosophical-case",
+          title: "Carens: The Ethics of Immigration",
+          description:
+            "Philosopher Joseph Carens argues that liberal democratic principles logically require open borders. If we believe in moral equality of persons and freedom of movement within nations, extending these principles across borders is the only consistent position. Closed borders are the modern equivalent of feudal restrictions on peasant movement.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 4,
+            directness: 6,
+          },
+          source: "Carens, 'The Ethics of Immigration,' Oxford University Press (2013)",
+          reasoning:
+            "Influential and well-argued philosophical work; replicability is low because philosophical arguments aren't empirically testable. Directness limited by the gap between normative theory and policy.",
+        },
+        {
+          id: "friedman-welfare-argument",
+          title: "Friedman: Open Borders Incompatible with Welfare State",
+          description:
+            "Milton Friedman argued that 'you can have open borders or a welfare state, but not both.' The logic: generous social benefits attract disproportionate migration by those who would consume more than they contribute. This creates a fiscal death spiral. Most open borders advocates acknowledge this tension but propose solutions (delayed access to benefits, earned citizenship).",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "Milton Friedman, various interviews and lectures",
+          reasoning:
+            "Compelling theoretical argument from a Nobel laureate; empirical support is mixed (EU experience partially contradicts it). The tension is real even if not absolute.",
+        },
+        {
+          id: "remittance-vs-aid-data",
+          title: "Remittances ($656B) Dwarf Foreign Aid ($204B)",
+          description:
+            "World Bank data shows that remittances to low- and middle-income countries reached $656B in 2022 — more than 3x total foreign aid ($204B) and exceeding foreign direct investment. Remittances go directly to families, have lower overhead, and are countercyclical (increase during recipient-country crises). Migration is the most effective anti-poverty tool available.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 6,
+          },
+          source: "World Bank Migration and Remittances Data",
+          reasoning:
+            "Highly reliable data demonstrating migration's development impact; directness limited because current remittance flows occur under restricted migration, not open borders.",
+        },
+        {
+          id: "border-security-cost-effectiveness",
+          title: "Border Enforcement Costs $20B+/Year with Limited Effectiveness",
+          description:
+            "US Customs and Border Protection's budget exceeds $20B annually. Despite this spending, an estimated 10-11 million undocumented immigrants live in the US. A 2019 Cato Institute analysis found that border walls and enforcement have not significantly reduced unauthorized immigration — they have redirected flows to more dangerous routes and reduced circular migration.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "CBP Budget Data, Cato Institute",
+          reasoning:
+            "Demonstrates enforcement limitations, but Cato has a known libertarian/pro-immigration stance. The evidence argues against current enforcement but doesn't directly support fully open borders.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Cancel Culture Topic
+// ============================================================================
+
+const cancelCultureData = {
+  id: "cancel-culture",
+  title: "Cancel Culture",
+  meta_claim:
+    "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "free-expression-accountability",
+      title: "Free Expression vs. Accountability",
+      short_summary:
+        "Whether public shaming campaigns represent legitimate accountability or a threat to free expression through disproportionate mob-driven punishment.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "\"Cancel culture\" is just accountability with a new name. Marginalized groups finally have tools to challenge powerful people who previously faced no consequences. The supposedly \"canceled\" almost always keep their platforms, wealth, and influence. Social consequences for speech have always existed — this is democracy, not tyranny.",
+      proponent_rebuttal:
+        "Fear of cancellation creates a measurable chilling effect on public discourse. Pew Research shows 62% of Americans say the political climate prevents them from sharing their views. Disproportionate punishment — losing a career over a single tweet from a decade ago — violates basic proportionality. Mob justice operates without due process, presumption of innocence, or right of appeal.",
+      crux: {
+        id: "chilling-effect-measurement",
+        title: "Quantifying the Chilling Effect on Public Discourse",
+        description:
+          "Measuring whether fear of social media backlash measurably reduces the diversity and honesty of publicly expressed viewpoints across institutional and public settings.",
+        methodology:
+          "Compare self-reported willingness to express views (Pew, FIRE surveys) with behavioral data: op-ed submission rates, academic paper topic diversity, and public comment participation rates over time. Control for political climate and platform changes.",
+        equation:
+          "\\text{Chilling Index} = 1 - \\frac{\\text{Expressed View Diversity}_{t}}{\\text{Privately Held View Diversity}_{t}}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$500K (Multi-year survey and behavioral tracking study)",
+      },
+      evidence: [
+        {
+          id: "pew-self-censorship",
+          title: "Pew: 62% of Americans Self-Censor Political Views",
+          description:
+            "A 2020 Pew Research Center survey found that 62% of Americans say the political climate prevents them from sharing their views. This crosses party lines: 77% of conservatives, 64% of moderates, and 52% of liberals report self-censoring.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Pew Research Center",
+          reasoning:
+            "Highly credible nonpartisan source. Self-reported censorship is strong evidence of chilling effect, though self-reports may overstate actual behavior change.",
+        },
+        {
+          id: "fire-campus-speech-survey",
+          title: "FIRE: 63% of College Students Self-Censor on Campus",
+          description:
+            "The Foundation for Individual Rights and Expression's 2023 campus speech climate survey found 63% of students reported self-censoring in class or on campus. Students reported fear of social ostracism more than institutional punishment.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "FIRE (Foundation for Individual Rights and Expression)",
+          reasoning:
+            "Focused specifically on speech climate among young adults. FIRE has a pro-speech orientation but methodology is sound and sample sizes are large.",
+        },
+        {
+          id: "canceled-people-outcomes",
+          title: "Most 'Canceled' Public Figures Retain Platforms",
+          description:
+            "Analysis of high-profile cancellation attempts shows the vast majority of targeted public figures retained or regained their platforms. J.K. Rowling, Dave Chappelle, Joe Rogan, and others saw no lasting professional consequences. Many saw increased audience engagement post-controversy.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Various media analyses",
+          reasoning:
+            "Demonstrates that cancellation is often ineffective for the powerful, though survivorship bias means we don't see cases where people quietly disappeared.",
+        },
+        {
+          id: "historical-accountability-comparison",
+          title: "Historical Accountability Movements Comparison",
+          description:
+            "Social consequences for speech have always existed — boycotts, public shaming, and social ostracism predate the internet. The Civil Rights movement used boycotts and public pressure to force change. The mechanism is the same; only the speed and scale differ.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 5,
+          },
+          source: "Historical analysis, academic literature",
+          reasoning:
+            "Contextualizes cancel culture within a long tradition of social accountability. Less direct because scale and speed may change the qualitative nature of the phenomenon.",
+        },
+      ],
+    },
+    {
+      id: "social-cultural-impact",
+      title: "Social & Cultural Impact",
+      short_summary:
+        "Whether cancel culture drives genuine social progress or enforces ideological conformity through fear-based compliance.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "Power structures need disruption, and social media gives marginalized people tools to fight back. #MeToo removed actual predators who operated with impunity for decades. Cultural shift toward inclusion requires discomfort. Cancel culture is overstated — most 'cancelations' are temporary, and the discourse about cancel culture is louder than the phenomenon itself.",
+      proponent_rebuttal:
+        "Cancel culture disproportionately hits ordinary people without the resources, legal teams, or platforms to fight back. It enforces ideological conformity rather than genuine progress — people learn to perform the correct opinions rather than examine their beliefs. Fear-based compliance is not the same as changed minds and may actually increase hidden resentment.",
+      crux: {
+        id: "ordinary-vs-powerful-impact",
+        title: "Differential Impact on Ordinary vs. Powerful People",
+        description:
+          "Measuring whether public shaming campaigns disproportionately affect ordinary individuals compared to powerful public figures, and whether outcomes differ based on the target's resources.",
+        methodology:
+          "Track cancellation campaigns across social media, categorize targets by public profile (celebrity, executive, ordinary person), and measure outcomes (job loss, mental health impact, recovery time) across categories.",
+        equation:
+          "\\text{Impact Ratio} = \\frac{P(\\text{lasting harm} | \\text{ordinary})}{P(\\text{lasting harm} | \\text{powerful})}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$300K (Social media analysis and longitudinal follow-up study)",
+      },
+      evidence: [
+        {
+          id: "metoo-predator-removal",
+          title: "#MeToo Removed Powerful Predators",
+          description:
+            "The #MeToo movement led to the removal of Harvey Weinstein, Larry Nassar, Bill Cosby, and hundreds of other predators who had operated with institutional protection. Workplace sexual harassment complaints increased 12% in the year following #MeToo, suggesting previously silenced victims felt empowered to report.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "EEOC data, journalistic investigations",
+          reasoning:
+            "Demonstrates the positive accountability function of public pressure campaigns. Strong evidence that social media mobilization can address real abuses of power.",
+        },
+        {
+          id: "ordinary-person-cancelation-cases",
+          title: "Ordinary People Suffer Disproportionate Consequences",
+          description:
+            "Case studies of non-public figures — a data analyst fired for sharing an academic study, a school principal removed over a yearbook quote, a small business owner boycotted over a political donation — show that ordinary people face devastating consequences with no mechanism for rehabilitation or appeal.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
+            directness: 9,
+          },
+          source: "The New York Times, The Atlantic, various case reporting",
+          reasoning:
+            "Directly illustrates the disproportionate impact on non-public figures, though case studies are inherently cherry-picked and may not represent typical outcomes.",
+        },
+        {
+          id: "ideological-conformity-survey",
+          title: "Institutional Ideological Conformity Is Increasing",
+          description:
+            "A 2023 survey of university faculty found 75% of conservative-leaning professors hide their political views, compared to 15% of liberal-leaning faculty. Corporate DEI statements became near-universal after 2020 with 91% of Fortune 500 companies issuing them, regardless of substantive policy changes.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "CSPI Academic Freedom Survey, Fortune 500 analysis",
+          reasoning:
+            "Suggests conformity pressure in institutions, though causation is difficult to isolate from genuine attitude shifts.",
+        },
+        {
+          id: "social-media-mob-dynamics",
+          title: "Social Media Amplification Creates Disproportionate Pile-ons",
+          description:
+            "Research on social media dynamics shows that outrage spreads faster and further than other emotions. A single viral tweet can generate millions of impressions in hours. The original context is often lost, nuance is impossible, and the target experiences the aggregate of thousands of individual responses as a coordinated attack.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Brady et al., Yale, Proceedings of the National Academy of Sciences",
+          reasoning:
+            "Strong empirical research on outrage amplification mechanisms. Slightly less direct because it describes the mechanism rather than measuring specific harm.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Big Tech Antitrust Topic
+// ============================================================================
+
+const bigTechAntitrustData = {
+  id: "big-tech-antitrust",
+  title: "Breaking Up Big Tech",
+  meta_claim:
+    "Major technology companies (Google, Apple, Amazon, Meta) should be broken up or heavily regulated to restore competition and protect consumers.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "market-power-competition",
+      title: "Market Power & Competition",
+      short_summary:
+        "Whether dominant tech platforms exercise monopoly power that stifles innovation and competition, or whether their dominance reflects superior products and natural network effects.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Big tech companies got big by building products people love. Network effects are natural, not anti-competitive. Breaking them up would destroy value and convenience for consumers who benefit from integrated ecosystems. European regulation hasn't produced European tech champions — it has just added bureaucracy.",
+      proponent_rebuttal:
+        "Google controls 90%+ of search, Apple and Google control 99% of mobile OS, Amazon is both the marketplace and the competitor on it. This is textbook monopoly power. Startup formation has declined as incumbents acquire or copy every competitive threat. The DOJ's antitrust case against Google found it paid $26B annually to maintain its search default — that's not organic preference, it's a moat bought with monopoly profits.",
+      crux: {
+        id: "consumer-harm-measurement",
+        title: "Measuring Consumer Harm in Zero-Price Markets",
+        description:
+          "Determining whether consumers are harmed by tech monopolies when the services are free, requiring new frameworks beyond the traditional price-based antitrust analysis.",
+        methodology:
+          "Develop and apply a quality-adjusted consumer welfare metric that accounts for privacy loss, reduced innovation, attention extraction, and forgone alternatives. Compare actual market outcomes with counterfactual competitive markets.",
+        equation:
+          "\\text{Consumer Harm} = \\sum (\\text{Privacy Loss} + \\text{Innovation Deficit} + \\text{Attention Tax}) - \\text{Free Service Value}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Economic modeling and empirical market analysis)",
+      },
+      evidence: [
+        {
+          id: "doj-google-monopoly",
+          title: "DOJ v. Google: Court Finds Illegal Monopoly",
+          description:
+            "In August 2024, a federal judge ruled that Google illegally maintained a monopoly in search and search advertising. The court found Google paid $26.3 billion in 2021 alone to be the default search engine, foreclosing competition. Google controls 89.2% of general search and 94.9% on mobile.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 10,
+          },
+          source: "U.S. District Court, DOJ Antitrust Division",
+          reasoning:
+            "A federal court ruling after extensive trial is among the most authoritative forms of evidence. Directly establishes illegal monopoly maintenance.",
+        },
+        {
+          id: "startup-formation-decline",
+          title: "Tech Startup Formation Has Declined as Big Tech Grew",
+          description:
+            "Research shows venture capital investment in startups competing with Big Tech's core businesses declined by 40% between 2010-2022. The 'kill zone' effect — where investors avoid funding companies that compete with platform giants — is well documented. Acquisition of nascent competitors (Instagram, WhatsApp, Waze) removes future competition.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "National Bureau of Economic Research, Stigler Center",
+          reasoning:
+            "Multiple independent sources document the investment decline, though causation versus correlation is debated.",
+        },
+        {
+          id: "eu-dma-early-results",
+          title: "EU Digital Markets Act Shows Early Regulatory Impact",
+          description:
+            "The EU's Digital Markets Act (2024) forced Apple to allow sideloading, Google to unbundle search from Android, and Amazon to separate marketplace and retail divisions in Europe. Early data shows modest increases in alternative app store usage and third-party payment adoption.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "European Commission, DMA compliance reports",
+          reasoning:
+            "Real-world regulatory experiment providing early evidence that structural intervention can open markets, though long-term effects are uncertain.",
+        },
+        {
+          id: "consumer-surplus-integration",
+          title: "Platform Integration Creates Substantial Consumer Value",
+          description:
+            "Estimates suggest Google's free services (Search, Maps, Gmail, YouTube) generate $15,000-$20,000 in annual consumer surplus per user. Apple's integrated ecosystem (hardware, software, services) consistently scores highest in customer satisfaction. Breaking up these ecosystems would destroy the integration that consumers value.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "Brynjolfsson et al., MIT; American Customer Satisfaction Index",
+          reasoning:
+            "Consumer surplus estimates are methodologically contested, and partly funded by industry. But the directness of the consumer value argument is clear.",
+        },
+      ],
+    },
+    {
+      id: "data-privacy-democracy",
+      title: "Data Privacy & Democracy",
+      short_summary:
+        "Whether the concentration of personal data and algorithmic power in a few companies poses fundamental threats to privacy and democratic governance.",
+      icon_name: "Shield" as const,
+      skeptic_premise:
+        "Users voluntarily share data in exchange for free services — it's a fair trade. Regulation creates compliance overhead that paradoxically favors incumbents over smaller competitors. Self-regulation and market pressure are already working: Apple's privacy pivot proves consumers can reward privacy-respecting companies.",
+      proponent_rebuttal:
+        "Surveillance capitalism monetizes personal data without meaningful consent — 'agree to all cookies' is not informed choice. Platform algorithms amplify outrage and division because engagement equals revenue. Political ad micro-targeting undermines democratic discourse by showing different realities to different voters. No individual can meaningfully opt out of the digital economy.",
+      crux: {
+        id: "informed-consent-data-economy",
+        title: "Meaningful Consent in the Data Economy",
+        description:
+          "Whether users can meaningfully consent to data collection when digital services are essential to modern life and terms of service are incomprehensibly long.",
+        methodology:
+          "Survey users on their understanding of data practices, measure the time required to read all privacy policies encountered annually, and test whether informed users would change their behavior.",
+        equation:
+          "\\text{Consent Quality} = \\frac{\\text{User Understanding}}{\\text{Actual Data Use}} \\times P(\\text{behavior change if informed})",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$400K (Large-scale behavioral experiment)",
+      },
+      evidence: [
+        {
+          id: "surveillance-capitalism-analysis",
+          title: "Zuboff: Surveillance Capitalism Extracts Behavioral Surplus",
+          description:
+            "Shoshana Zuboff's analysis documents how tech companies systematically extract 'behavioral surplus' — data beyond what's needed to improve services — to predict and modify human behavior for advertisers. This creates an unprecedented asymmetry of knowledge and power.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Shoshana Zuboff, Harvard Business School",
+          reasoning:
+            "Influential academic framework from a credible institution. Somewhat theoretical but grounded in extensive documentation of industry practices.",
+        },
+        {
+          id: "cambridge-analytica-investigation",
+          title: "Cambridge Analytica Exposed Data Misuse at Scale",
+          description:
+            "The 2018 Cambridge Analytica scandal revealed that Facebook allowed a third-party app to harvest data from 87 million users without consent, which was then used for political micro-targeting. Facebook was fined $5 billion by the FTC — the largest privacy fine in history at the time.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "FTC, UK Information Commissioner's Office, Senate Intelligence Committee",
+          reasoning:
+            "Well-documented, multi-jurisdictional investigation with regulatory findings. Directly demonstrates data misuse and democratic manipulation.",
+        },
+        {
+          id: "apple-privacy-pivot",
+          title: "Apple's Privacy Pivot Shows Market Self-Correction",
+          description:
+            "Apple's App Tracking Transparency (ATT) feature, launched in 2021, allowed users to opt out of cross-app tracking. 96% of US users opted out, costing Meta an estimated $10B in annual revenue. This demonstrates that market competition and consumer choice can protect privacy without government intervention.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Apple, Lotame, Financial Times analysis",
+          reasoning:
+            "Compelling example of market-driven privacy protection. Independence somewhat limited because Apple has its own competitive motives for restricting competitors' data access.",
+        },
+        {
+          id: "gdpr-compliance-cost-disparity",
+          title: "GDPR Compliance Costs Disproportionately Burden Small Companies",
+          description:
+            "Studies show GDPR compliance costs averaged $1.3M for large companies but $150K for small companies — a far larger burden as a percentage of revenue. Google and Facebook's EU market share actually increased post-GDPR as smaller competitors struggled with compliance overhead.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "DataGrail, IAPP (International Association of Privacy Professionals)",
+          reasoning:
+            "Credible data on the unintended consequences of regulation. Directly relevant to whether antitrust regulation could backfire.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Minimum Wage Effects Topic
+// ============================================================================
+
+const minimumWageEffectsData = {
+  id: "minimum-wage-effects",
+  title: "Raising the Minimum Wage",
+  meta_claim:
+    "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "employment-effects",
+      title: "Employment Effects",
+      short_summary:
+        "Whether minimum wage increases cause significant job losses or whether the labor market absorbs higher wages with minimal employment disruption.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "The Congressional Budget Office estimates a $15 federal minimum would eliminate 1.4 million jobs. Small businesses operate on thin margins and cannot absorb a 107% increase from $7.25. Automation accelerates as labor costs rise — self-checkout kiosks, ordering apps, and robotic food prep replace minimum wage workers. Labor-intensive industries like restaurants and retail are most vulnerable.",
+      proponent_rebuttal:
+        "Card and Krueger's groundbreaking natural experiment found no job losses when New Jersey raised its minimum wage while neighboring Pennsylvania did not. Seattle's $15 minimum wage, the most studied increase ever, showed minimal employment effects. The majority of modern minimum wage studies find small or no negative employment impact — the old textbook model of large job losses is not supported by empirical evidence.",
+      crux: {
+        id: "employment-elasticity-measurement",
+        title: "Employment Elasticity at High Minimum Wage Levels",
+        description:
+          "Determining the employment elasticity of minimum wage increases at levels significantly above the current federal minimum, where historical data is limited.",
+        methodology:
+          "Natural experiments comparing employment trends in counties/states that raised minimum wages to $15+ versus neighboring jurisdictions that did not. Use synthetic control methods and border discontinuity designs.",
+        equation:
+          "\\epsilon = \\frac{\\%\\Delta \\text{Employment}}{\\%\\Delta \\text{Minimum Wage}}",
+        verification_status: "verified" as const,
+        cost_to_verify: "$200K (Analysis of existing state/county employment data)",
+      },
+      evidence: [
+        {
+          id: "card-krueger-nj-study",
+          title: "Card & Krueger: No Job Losses in NJ Minimum Wage Increase",
+          description:
+            "David Card and Alan Krueger's 1994 landmark study compared fast-food employment in New Jersey (which raised its minimum wage from $4.25 to $5.05) to neighboring Pennsylvania. They found no reduction in employment — in fact, NJ employment slightly increased. This challenged decades of textbook economic theory.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "Card & Krueger, American Economic Review",
+          reasoning:
+            "Nobel Prize-winning research that fundamentally changed the empirical debate. Extremely influential, though it studied a modest increase from a low baseline.",
+        },
+        {
+          id: "cbo-15-minimum-analysis",
+          title: "CBO: $15 Minimum Would Cost 1.4 Million Jobs",
+          description:
+            "The Congressional Budget Office's 2021 analysis estimated a $15 federal minimum wage by 2025 would raise wages for 17 million workers and lift 900,000 out of poverty, but would reduce employment by 1.4 million workers (a range of 0 to 2.7 million). The median estimate is a net positive but with significant displacement.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Congressional Budget Office",
+          reasoning:
+            "Nonpartisan, authoritative source. The wide confidence interval (0 to 2.7M) reflects genuine uncertainty in the evidence base.",
+        },
+        {
+          id: "seattle-minimum-wage-study",
+          title: "Seattle $15 Minimum: Mixed but Mostly Positive Results",
+          description:
+            "The University of Washington's multi-year study of Seattle's $15 minimum wage found hours worked decreased slightly for low-wage workers, but total earnings increased. Workers earning under $19/hour saw a net wage gain of $8-$12/week. Some workers lost employment, but most benefited.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "University of Washington, NBER Working Paper",
+          reasoning:
+            "The most comprehensive study of a high minimum wage increase. Results are nuanced — some negative effects but net positive for most workers.",
+        },
+        {
+          id: "dube-border-county-analysis",
+          title: "Dube et al.: Border County Analysis Shows Minimal Job Losses",
+          description:
+            "Arindrajit Dube and colleagues compared employment in all contiguous county pairs straddling state borders with different minimum wages. Across hundreds of natural experiments, they found minimum wage increases raised wages without detectable employment losses in the restaurant and retail sectors.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Dube, Lester & Reich, Review of Economics and Statistics",
+          reasoning:
+            "Methodologically innovative and widely replicated. The border-county design controls for regional economic conditions better than previous methods.",
+        },
+      ],
+    },
+    {
+      id: "poverty-economic-effects",
+      title: "Poverty & Economic Effects",
+      short_summary:
+        "Whether minimum wage increases effectively reduce poverty and boost the broader economy, or whether targeted programs like the EITC are more effective.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "Only 1.1% of workers currently earn the federal minimum wage. Most minimum wage earners are teenagers and secondary earners, not family breadwinners. The Earned Income Tax Credit (EITC) is a more targeted and effective poverty reduction tool. Higher wages get passed to consumers as higher prices, disproportionately affecting the low-income people the policy is supposed to help.",
+      proponent_rebuttal:
+        "While only 1.1% earn exactly $7.25, 30% of US workers — 42 million people — earn under $15/hour. The minimum wage hasn't kept pace with productivity since 1968; if it had, it would be over $24/hour today. Higher wages reduce employee turnover (saving businesses recruitment costs), increase worker productivity, and boost consumer spending. Australia's $23/hour minimum wage hasn't caused economic collapse — its unemployment rate is comparable to America's.",
+      crux: {
+        id: "poverty-reduction-efficiency",
+        title: "Minimum Wage vs. EITC Poverty Reduction Efficiency",
+        description:
+          "Comparing the poverty reduction efficiency of minimum wage increases versus Earned Income Tax Credit expansion, accounting for both direct effects and behavioral responses.",
+        methodology:
+          "Simulate the poverty impact of a $15 minimum wage versus equivalent-cost EITC expansion using CPS microdata. Compare coverage, targeting accuracy, take-up rates, and behavioral responses (labor force participation, hours worked).",
+        equation:
+          "\\text{Efficiency} = \\frac{\\Delta \\text{Poverty Rate}}{\\text{Total Cost to Economy}}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$150K (Microsimulation using existing survey data)",
+      },
+      evidence: [
+        {
+          id: "bls-wage-distribution",
+          title: "BLS: 42 Million Workers Earn Under $15/Hour",
+          description:
+            "Bureau of Labor Statistics data shows that while only 1.1% of workers earn exactly the federal minimum of $7.25, approximately 30% of the US workforce — 42 million people — earn less than $15/hour. This includes 55% of Black workers and 60% of Hispanic workers under 25.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 8,
+          },
+          source: "Bureau of Labor Statistics",
+          reasoning:
+            "Authoritative government data that reframes the debate from the narrow '1.1%' figure to the much larger population earning below proposed minimums.",
+        },
+        {
+          id: "productivity-wage-divergence",
+          title: "Worker Productivity Has Outpaced Wages Since 1968",
+          description:
+            "Economic Policy Institute data shows worker productivity grew 64.6% from 1979 to 2019, while hourly compensation grew only 17.5%. If the minimum wage had tracked productivity since 1968, it would exceed $24/hour today. The divergence represents a massive transfer of value from workers to owners and shareholders.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 6,
+          },
+          source: "Economic Policy Institute",
+          reasoning:
+            "Well-documented macroeconomic trend. EPI leans progressive, but the productivity-wage divergence is confirmed by BLS data. Directness is limited because the moral argument doesn't prove $15 is the right number.",
+        },
+        {
+          id: "australia-high-minimum-wage",
+          title: "Australia's $23/Hour Minimum Hasn't Caused Economic Collapse",
+          description:
+            "Australia's national minimum wage of AUD $23.23/hour (~$15.50 USD) is the world's highest. Australia's unemployment rate (3.7%) is comparable to the US (3.7%). Its restaurant and retail sectors function normally. This suggests high minimum wages are compatible with a healthy economy.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "Fair Work Commission (Australia), OECD",
+          reasoning:
+            "Compelling international comparison, but replicability is limited by significant structural differences between the Australian and US economies (universal healthcare, different labor market institutions).",
+        },
+        {
+          id: "eitc-comparison-effectiveness",
+          title: "EITC Is a More Targeted Poverty Reduction Tool",
+          description:
+            "The Earned Income Tax Credit lifts 5.6 million people out of poverty annually, making it the largest anti-poverty program for working families. Unlike the minimum wage, the EITC targets benefits to families with children based on income, avoids employer cost increases, and incentivizes labor force participation. Studies show the EITC has higher poverty reduction per dollar than minimum wage increases.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Center on Budget and Policy Priorities, IRS data",
+          reasoning:
+            "Strong evidence that the EITC is more efficient at targeting poverty. However, the EITC and minimum wage are not mutually exclusive — many economists advocate for both.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Gene Editing Human Embryos Topic
+// ============================================================================
+
+const geneEditingEmbryosData = {
+  id: "gene-editing-embryos",
+  title: "Gene Editing Human Embryos",
+  meta_claim:
+    "Germline gene editing of human embryos (using CRISPR or similar) should be permitted for preventing serious genetic diseases.",
+  status: "highly_speculative" as const,
+  pillars: [
+    {
+      id: "medical-promise-safety",
+      title: "Medical Promise vs. Safety",
+      short_summary:
+        "Whether CRISPR gene editing technology is sufficiently safe and effective to justify germline modification of human embryos for preventing genetic disease.",
+      icon_name: "Microscope" as const,
+      skeptic_premise:
+        "He Jiankui's 2018 experiment showed the technology is not ready — off-target edits had unknown effects on the twin girls born from the procedure. Germline changes are irreversible and affect all future generations. We don't understand gene interactions (pleiotropy, epistasis) well enough to predict consequences. Preimplantation genetic testing (PGT-M) already allows screening for most genetic diseases without modifying the genome.",
+      proponent_rebuttal:
+        "CRISPR could eliminate Huntington's disease, sickle cell anemia, cystic fibrosis, and thousands of other genetic diseases that cause immense suffering. The technology is advancing rapidly — off-target rates have dropped dramatically since 2018. Base editing and prime editing offer even greater precision. Restricting research condemns future children to preventable suffering when the tools to help them exist.",
+      crux: {
+        id: "crispr-precision-threshold",
+        title: "CRISPR Precision Sufficient for Germline Application",
+        description:
+          "Determining whether CRISPR and related gene editing tools have achieved sufficient precision (low off-target rates) to be considered safe for heritable human germline modifications.",
+        methodology:
+          "Whole-genome sequencing of CRISPR-edited embryos (non-implanted, research-only) using multiple editing approaches (Cas9, base editing, prime editing). Compare off-target rates to natural mutation rates. Establish a safety threshold for clinical application.",
+        equation:
+          "\\text{Safety Threshold: } \\frac{\\text{Off-target edits}}{\\text{Total genome}} < \\text{Natural mutation rate per generation}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$10M (Multi-center embryo editing research program)",
+      },
+      evidence: [
+        {
+          id: "he-jiankui-off-target",
+          title: "He Jiankui Experiment Revealed Dangerous Off-Target Edits",
+          description:
+            "He Jiankui's 2018 experiment editing CCR5 in human embryos (resulting in twin girls Lulu and Nana) was found to have introduced unintended mutations. The edit may not have even provided the intended HIV resistance. He was sentenced to three years in prison. The experiment demonstrated that the technology was not ready for human application.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "MIT Technology Review, Nature, Chinese court records",
+          reasoning:
+            "The most direct evidence of premature human germline editing. Highly informative about risks, though this was a rogue experiment with poor technique — not representative of the field's best practices.",
+        },
+        {
+          id: "crispr-precision-improvement-2023",
+          title: "CRISPR Precision Has Improved Dramatically Since 2018",
+          description:
+            "Base editing (2017) and prime editing (2019) have reduced off-target rates by 10-100x compared to original Cas9. A 2023 Nature study demonstrated prime editing with undetectable off-target effects in human cell lines. The technology is on a steep improvement curve, similar to early DNA sequencing.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Anzalone et al., Nature; Liu Lab, Broad Institute",
+          reasoning:
+            "Rigorous peer-reviewed research showing rapid improvement. However, cell line results don't guarantee safety in whole embryos over a lifetime.",
+        },
+        {
+          id: "sickle-cell-crispr-success",
+          title: "CRISPR Treatment for Sickle Cell Approved by FDA",
+          description:
+            "In December 2023, the FDA approved Casgevy (exagamglogene autotemcel), the first CRISPR-based therapy, for sickle cell disease. The treatment edits patients' own blood stem cells to produce functional hemoglobin. Clinical trials showed 97% of patients were free of vaso-occlusive crises for at least 12 months. This is somatic (non-heritable) editing, but demonstrates the therapeutic potential.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "FDA, Vertex Pharmaceuticals, NEJM",
+          reasoning:
+            "Landmark FDA approval demonstrates clinical viability. Directness is limited because somatic editing (non-heritable) has fundamentally different risk profile than germline editing.",
+        },
+        {
+          id: "pgt-m-alternative",
+          title: "PGT-M Already Screens for Most Genetic Diseases",
+          description:
+            "Preimplantation genetic testing for monogenic disorders (PGT-M) can screen IVF embryos for virtually any known single-gene disease, avoiding the need to edit the genome. Success rates are high (95%+ accuracy), and it's already widely available. For most carrier couples, PGT-M eliminates the need for germline editing entirely.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "ASRM (American Society for Reproductive Medicine), multiple IVF clinics",
+          reasoning:
+            "Strong evidence that a safer alternative exists for most use cases. Less applicable for cases where both parents are homozygous for a disease (all embryos affected) or de novo mutations.",
+        },
+      ],
+    },
+    {
+      id: "ethical-social-implications",
+      title: "Ethical & Social Implications",
+      short_summary:
+        "Whether germline gene editing can be ethically governed to prevent a slide from disease prevention to genetic enhancement and designer babies.",
+      icon_name: "AlertTriangle" as const,
+      skeptic_premise:
+        "The slippery slope to designer babies is real — once you allow editing for disease, the line to enhancement (intelligence, height, appearance) is impossible to hold. Wealthy access to genetic enhancement would create a literal genetic class system. Disability rights advocates argue that editing out genetic conditions signals that disabled lives aren't worth living. The history of eugenics in the 20th century makes this territory uniquely dangerous.",
+      proponent_rebuttal:
+        "The distinction between therapy (fixing disease-causing genes) and enhancement (making 'better' humans) is clear and regulatable. We already accept prenatal screening and selective termination without sliding into eugenics. International regulatory frameworks can draw enforceable lines. Banning research doesn't prevent it — it pushes development to unregulated jurisdictions like He Jiankui's experiment in China.",
+      crux: {
+        id: "therapy-enhancement-boundary",
+        title: "Enforceability of Therapy vs. Enhancement Boundary",
+        description:
+          "Whether regulatory bodies can draw and enforce a meaningful line between genetic editing for disease prevention (therapy) and genetic editing for trait improvement (enhancement).",
+        methodology:
+          "Comparative analysis of existing regulatory frameworks (IVF regulation, pharmaceutical approval, organ transplantation) to assess whether therapy/enhancement distinctions have been successfully maintained in analogous contexts.",
+        equation:
+          "P(\\text{boundary holding}) = f(\\text{regulatory capacity}, \\text{commercial pressure}, \\text{international coordination})",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$300K (International regulatory and ethics comparative study)",
+      },
+      evidence: [
+        {
+          id: "nuffield-council-report",
+          title: "Nuffield Council: Germline Editing Could Be Ethically Acceptable",
+          description:
+            "The UK's Nuffield Council on Bioethics concluded in 2018 that heritable genome editing could be ethically acceptable if it is intended to secure the welfare of the future person, and if it is consistent with principles of social justice and solidarity. The report emphasized the need for broad societal debate and robust regulation, not an outright ban.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "Nuffield Council on Bioethics (UK)",
+          reasoning:
+            "Highly respected, independent ethics body. The conditional endorsement is nuanced — it supports the possibility, not current practice. Directness limited because ethical conclusions don't resolve empirical safety questions.",
+        },
+        {
+          id: "disability-rights-critique",
+          title: "Disability Rights Advocates Challenge Genetic 'Correction'",
+          description:
+            "Disability rights organizations argue that gene editing to eliminate conditions like deafness, dwarfism, or autism implies these lives are defective and not worth living. Many people with genetic conditions report high quality of life and reject the premise that they need 'fixing.' The social model of disability holds that society, not genes, is what needs changing.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "National Council on Disability, disability studies literature",
+          reasoning:
+            "Important ethical perspective that challenges the foundational premise of 'fixing' genetic variation. Somewhat less applicable to fatal or severely debilitating conditions like Huntington's or Tay-Sachs.",
+        },
+        {
+          id: "international-regulation-comparison",
+          title: "International Regulatory Landscape Shows Possible Governance",
+          description:
+            "Over 70 countries have some form of regulation on human germline editing. The UK's HFEA provides a model for permissive but tightly regulated research. China strengthened its regulations after the He Jiankui scandal. The WHO convened a global governance framework committee. This suggests international coordination is feasible, though imperfect.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "WHO Expert Advisory Committee, HFEA (UK), Nature Reviews Genetics",
+          reasoning:
+            "Demonstrates that governance infrastructure exists. Directness limited because regulatory frameworks are untested against the commercial pressures that would arise if editing became clinically viable.",
+        },
+        {
+          id: "enhancement-therapy-distinction",
+          title: "Therapy-Enhancement Distinction Is Philosophically Unstable",
+          description:
+            "Bioethicists argue the line between therapy and enhancement is blurrier than proponents claim. Is editing for 'short stature' therapy or enhancement? What about genetic predisposition to obesity, depression, or low IQ? Every trait exists on a spectrum, and 'disease' is often socially defined. Historical precedent with cosmetic surgery shows medical technology migrates from therapeutic to elective use.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Sandel, Savulescu, Buchanan — bioethics literature",
+          reasoning:
+            "Well-established philosophical argument. The analogy to cosmetic surgery's migration from reconstructive to elective is historically grounded and directionally concerning.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Reparations for Slavery Topic
+// ============================================================================
+
+const reparationsSlaveryData = {
+  id: "reparations-slavery",
+  title: "Reparations for Slavery",
+  meta_claim:
+    "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
+  status: "contested" as const,
+  pillars: [
+    {
+      id: "moral-historical-case",
+      title: "Moral & Historical Case",
+      short_summary:
+        "Whether the moral and historical case for reparations is strong enough to justify government action generations after slavery's end.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Current Americans bear no personal responsibility for their ancestors' actions. Where do you draw the line — Indigenous displacement, Japanese internment, Irish discrimination? Many Black Americans are recent immigrants with no connection to American slavery. Individual responsibility, not group identity, should guide public policy. Reparations would be divisive and deepen racial resentment rather than heal it.",
+      proponent_rebuttal:
+        "The US government itself directly participated in and enforced slavery for 246 years and Jim Crow for 100 more — this is not about individual guilt but institutional debt. The racial wealth gap ($171K white median household wealth vs. $17K Black) is a direct, measurable legacy. The GI Bill, FHA loans, and Social Security initially excluded Black Americans by design, compounding disadvantage through the 20th century. Germany paid Holocaust reparations; Japan paid internment reparations. The US has precedent.",
+      crux: {
+        id: "causal-chain-measurement",
+        title: "Measuring the Causal Chain from Slavery to Present Disparities",
+        description:
+          "Quantifying how much of the current racial wealth and income gap is directly attributable to slavery, Jim Crow, and discriminatory federal policies versus other factors.",
+        methodology:
+          "Decomposition analysis tracing wealth accumulation pathways: land ownership denied (40 acres), GI Bill exclusion, FHA redlining, Social Security exclusion, mass incarceration. Estimate the counterfactual wealth of Black Americans absent these policies using historical economic modeling.",
+        equation:
+          "\\text{Reparations Debt} = \\sum_{t=1619}^{2024} \\text{Value Extracted}_t \\times (1 + r)^{2024-t}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Historical economic modeling with multiple methodologies)",
+      },
+      evidence: [
+        {
+          id: "fed-racial-wealth-gap",
+          title: "Federal Reserve: $171K White vs. $17K Black Median Wealth",
+          description:
+            "The Federal Reserve's Survey of Consumer Finances (2022) shows white families have a median net worth of $171,000 compared to $17,100 for Black families — a 10:1 ratio. This gap has remained essentially unchanged for 30 years despite civil rights legislation and affirmative action.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Federal Reserve Survey of Consumer Finances",
+          reasoning:
+            "Gold-standard data from the most authoritative source. Directly documents the disparity, though the causal connection to slavery specifically (versus ongoing discrimination) is indirect.",
+        },
+        {
+          id: "rothstein-color-of-law",
+          title: "Rothstein: Government Actively Created Racial Segregation",
+          description:
+            "Richard Rothstein's 'The Color of Law' documents how federal, state, and local government policies deliberately created and maintained racial residential segregation. FHA explicitly refused to insure mortgages in Black neighborhoods (redlining), the GI Bill was administered to exclude Black veterans, and public housing was intentionally segregated. These are government actions, not market outcomes.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "Richard Rothstein, Economic Policy Institute",
+          reasoning:
+            "Extensively documented with primary sources. Directly establishes government responsibility for creating the conditions that reparations would address.",
+        },
+        {
+          id: "german-holocaust-reparations",
+          title: "German Holocaust Reparations Provide Working Precedent",
+          description:
+            "Germany has paid over $80 billion in Holocaust reparations since 1952. Payments went to the state of Israel, individual survivors, and their descendants. The program is widely regarded as an important component of reconciliation. It demonstrates that reparations programs can be designed, administered, and sustained over decades.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "Claims Conference, German Federal Ministry of Finance",
+          reasoning:
+            "Strong precedent for the concept of reparations. Replicability limited because Germany's reparations were closer in time to the harm and involved a different political and historical context.",
+        },
+        {
+          id: "implementation-feasibility-concerns",
+          title: "Defining Eligibility Is Practically Complex",
+          description:
+            "Identifying who qualifies as a 'descendant of enslaved Americans' poses enormous practical challenges. An estimated 40 million Black Americans have varying connections to slavery. Mixed-race Americans, recent immigrants, and people who cannot document ancestry complicate eligibility. The administrative apparatus required would be unprecedented.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Various policy analyses, Brookings Institution",
+          reasoning:
+            "Legitimate practical concern. However, the difficulty of implementation doesn't negate the moral case — many complex government programs (Social Security, Medicare) require identity verification.",
+        },
+      ],
+    },
+    {
+      id: "economic-feasibility-form",
+      title: "Economic Feasibility & Form",
+      short_summary:
+        "Whether reparations are economically feasible and what form they should take — direct cash payments, targeted investments, or structural policy changes.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "The cost — estimated at $10-14 trillion by some calculations — is fiscally impossible and would require unprecedented taxation or debt. Cash payments don't address structural issues like education inequality and mass incarceration. Means testing would be impossibly complex. Universal anti-poverty programs would help all disadvantaged Americans regardless of race and have broader political support.",
+      proponent_rebuttal:
+        "Darity and Mullen propose targeted programs — baby bonds, housing grants, education funding, and business development — totaling $10-12 trillion over 25 years, roughly $400-480 billion annually (comparable to the defense budget). HR 40 (the reparations study commission bill) merely proposes to study the question, not commit to a specific form. Investment in Black communities would generate economic returns through increased spending, homeownership, and entrepreneurship.",
+      crux: {
+        id: "reparations-program-design",
+        title: "Optimal Reparations Program Design and Cost-Benefit",
+        description:
+          "Determining which reparations model (direct payments, baby bonds, housing/education grants, community investment) would most effectively close the racial wealth gap while being politically and economically viable.",
+        methodology:
+          "Microsimulation modeling of different reparations structures using PSID and SCF data. Project wealth gap closure under each model at 10, 25, and 50-year horizons. Estimate fiscal multiplier effects and long-term tax revenue returns.",
+        equation:
+          "\\text{ROI}_{\\text{reparations}} = \\frac{\\Delta \\text{GDP} + \\Delta \\text{Tax Revenue} + \\Delta \\text{Social Savings}}{\\text{Program Cost}}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$5M (Comprehensive economic modeling study — essentially what HR 40 proposes)",
+      },
+      evidence: [
+        {
+          id: "darity-mullen-proposal",
+          title: "Darity & Mullen: Comprehensive Reparations Framework",
+          description:
+            "Economists William Darity Jr. and A. Kirsten Mullen's 'From Here to Equality' proposes a detailed reparations program including direct payments, baby bonds ($20K-$60K per child based on family wealth), housing grants, and education funding. They estimate $10-12 trillion over 25 years would close the racial wealth gap. The proposal includes specific eligibility criteria: documented lineage to enslaved Americans and self-identification as Black.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "Darity & Mullen, Duke University",
+          reasoning:
+            "The most detailed and economically rigorous reparations proposal from leading scholars. Demonstrates feasibility but relies on political will and assumptions about implementation.",
+        },
+        {
+          id: "hr-40-commission",
+          title: "HR 40: A Commission to Study Reparations",
+          description:
+            "H.R. 40 (Commission to Study and Develop Reparation Proposals for African Americans Act) has been introduced in every Congress since 1989. It proposes a commission to study the impact of slavery and recommend remedies — it does not commit to any specific reparations form. This incremental approach has gained support from the House Judiciary Committee but has never received a full floor vote.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "U.S. Congress, Rep. Sheila Jackson Lee",
+          reasoning:
+            "The modest nature of the proposal (study, not commit) makes opposition harder to justify. Low directness because a study commission is a procedural step, not reparations itself.",
+        },
+        {
+          id: "implementation-cost-estimates",
+          title: "Cost Estimates Range from $6 Trillion to $14 Trillion",
+          description:
+            "Estimates of reparations costs vary enormously depending on methodology. Using the value of unpaid slave labor compounded at interest yields $14+ trillion. Using the current wealth gap yields $10-12 trillion. Even modest proposals (targeted programs rather than cash) would cost $2-4 trillion. For context, the entire federal budget is $6.1 trillion annually, and US GDP is $27 trillion.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "Various economic analyses, Thomas Craemer (UConn), Brookings",
+          reasoning:
+            "The scale of costs is a genuine practical obstacle. The wide range of estimates reflects methodological disagreement about what reparations should address and how.",
+        },
+        {
+          id: "baby-bonds-pilot-data",
+          title: "Baby Bonds Programs Show Promise in Pilot Studies",
+          description:
+            "Baby bonds — government-funded trust accounts for children that grow over time — have been proposed by economists Darrick Hamilton and Sandy Darity as a race-neutral wealth-building tool that would disproportionately benefit Black families. Connecticut's baby bonds program (2021) provides $3,200 for children born into families earning under $75K. Simulations show that universal baby bonds of $20K-$60K (means-tested by wealth) could reduce the racial wealth gap by 50% within one generation.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "Hamilton & Darity, New School; Connecticut baby bonds program",
+          reasoning:
+            "Promising mechanism with some real-world pilot data. Directness is limited because baby bonds are race-neutral by design (though they disproportionately benefit Black families) and results are projected, not observed at scale.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
 // Build Topics with Computed Confidence Scores
 // ============================================================================
 
@@ -3396,22 +7180,71 @@ export const remoteWorkPermanence = buildTopic(remoteWorkPermanenceData);
 export const standardizedTestingValue = buildTopic(standardizedTestingValueData);
 export const socialMediaAgeLimits = buildTopic(socialMediaAgeLimitsData);
 export const collegeValueProposition = buildTopic(collegeValuePropositionData);
+export const mandatoryVoting = buildTopic(mandatoryVotingData);
+export const deathPenaltyDeterrence = buildTopic(deathPenaltyDeterrenceData);
+export const billionaireWealth = buildTopic(billionaireWealthData);
+export const homeschoolingEffectiveness = buildTopic(homeschoolingEffectivenessData);
+export const policeReform = buildTopic(policeReformData);
+export const drugDecriminalization = buildTopic(drugDecriminalizationData);
+export const immigrationWageImpact = buildTopic(immigrationWageImpactData);
+export const evEnvironmentalImpact = buildTopic(evEnvironmentalImpactData);
+export const organicFoodHealth = buildTopic(organicFoodHealthData);
+export const foreignAidEffectiveness = buildTopic(foreignAidEffectivenessData);
+export const spaceExplorationValue = buildTopic(spaceExplorationValueData);
+export const factoryFarmingBan = buildTopic(factoryFarmingBanData);
+export const mediaBiasDemocracy = buildTopic(mediaBiasDemocracyData);
+export const universalHealthcare = buildTopic(universalHealthcareData);
+export const openBorders = buildTopic(openBordersData);
+export const cancelCulture = buildTopic(cancelCultureData);
+export const bigTechAntitrust = buildTopic(bigTechAntitrustData);
+export const minimumWageEffects = buildTopic(minimumWageEffectsData);
+export const geneEditingEmbryos = buildTopic(geneEditingEmbryosData);
+export const reparationsSlavery = buildTopic(reparationsSlaveryData);
 
 export const topics: Topic[] = [
+  // --- Policy & Governance ---
   nuclearEnergySafety,
+  universalHealthcare,
+  gunControlEffectiveness,
+  minimumWageEffects,
+  drugDecriminalization,
+  deathPenaltyDeterrence,
+  policeReform,
+  mandatoryVoting,
+  reparationsSlavery,
+  immigrationWageImpact,
+  openBorders,
+  universalBasicIncome,
+  wealthTax,
+
+  // --- Technology & Society ---
   socialMediaAgeLimits,
   socialMediaMentalHealth,
-  remoteWorkPermanence,
   aiRisk,
   aiContentLabeling,
-  universalBasicIncome,
-  collegeValueProposition,
-  gunControlEffectiveness,
-  standardizedTestingValue,
-  wealthTax,
+  bigTechAntitrust,
+  cancelCulture,
+  mediaBiasDemocracy,
+
+  // --- Science & Environment ---
   climateChange,
-  labLeakTheory,
+  evEnvironmentalImpact,
+  factoryFarmingBan,
+  organicFoodHealth,
+  geneEditingEmbryos,
+  spaceExplorationValue,
+
+  // --- Economics & Education ---
+  remoteWorkPermanence,
+  collegeValueProposition,
+  standardizedTestingValue,
+  homeschoolingEffectiveness,
+  billionaireWealth,
+  foreignAidEffectiveness,
   cryptocurrencyValue,
+
+  // --- Philosophy & Speculation ---
+  labLeakTheory,
   freeWill,
   simulationHypothesis,
   moonLanding,
