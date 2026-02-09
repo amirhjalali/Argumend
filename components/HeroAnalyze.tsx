@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
@@ -16,7 +17,7 @@ import {
   ChevronRight,
   Flame,
 } from "lucide-react";
-import { topics, featuredTopicId, featuredReason } from "@/data/topics";
+import { topics, featuredTopicId, featuredReason, CATEGORY_ORDER } from "@/data/topics";
 
 type ContentType = "transcript" | "article" | "freeform";
 
@@ -84,10 +85,24 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
   );
 
   const featuredTopic = topics.find((t) => t.id === featuredTopicId);
-  const displayedTopics = topics
-    .filter((t) => t.id !== featuredTopicId)
-    .slice(0, DISPLAY_TOPICS_COUNT);
-  const remainingCount = topics.length - DISPLAY_TOPICS_COUNT - (featuredTopic ? 1 : 0);
+  // Show one topic from each category for variety, excluding featured
+  const nonFeatured = topics.filter((t) => t.id !== featuredTopicId);
+  const displayedTopics = CATEGORY_ORDER
+    .map((cat) => nonFeatured.find((t) => t.category === cat))
+    .filter(Boolean)
+    .slice(0, DISPLAY_TOPICS_COUNT) as typeof topics;
+  // Fill remaining slots if fewer categories than DISPLAY_TOPICS_COUNT
+  if (displayedTopics.length < DISPLAY_TOPICS_COUNT) {
+    const usedIds = new Set(displayedTopics.map((t) => t.id));
+    for (const t of nonFeatured) {
+      if (displayedTopics.length >= DISPLAY_TOPICS_COUNT) break;
+      if (!usedIds.has(t.id)) {
+        displayedTopics.push(t);
+        usedIds.add(t.id);
+      }
+    }
+  }
+  const remainingCount = topics.length - displayedTopics.length - (featuredTopic ? 1 : 0);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#f4f1eb] to-stone-50">
@@ -243,7 +258,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
           >
             <p className="text-xs text-stone-400 tracking-wide">
               <span className="font-semibold text-stone-500">
-                13 topics mapped
+                {topics.length} topics mapped
               </span>
               <span className="mx-2 text-stone-300">&middot;</span>
               <span className="font-semibold text-stone-500">
@@ -466,21 +481,13 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
               transition={{ delay: 0.9 }}
               className="mt-5 text-center"
             >
-              <button
-                onClick={() => {
-                  // Scroll down or navigate to show all topics
-                  // For now, this could link to a dedicated topics page
-                  // or expand the grid inline
-                  const el = document.getElementById("all-topics");
-                  if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="inline-flex items-center gap-1 text-sm font-serif font-medium text-amber-600 hover:text-amber-700 transition-colors group"
+              <Link
+                href="/topics"
+                className="inline-flex items-center gap-1 text-sm font-serif font-medium text-[#4f7b77] hover:text-[#3d5f5c] transition-colors group"
               >
                 View all {topics.length} topics
                 <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </button>
+              </Link>
             </motion.div>
           )}
         </div>

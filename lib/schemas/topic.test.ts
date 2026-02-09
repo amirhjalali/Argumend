@@ -120,6 +120,7 @@ describe("TopicSchema", () => {
     meta_claim: "A claim",
     confidence_score: 75,
     status: "contested",
+    category: "policy",
     pillars: [
       {
         id: "pillar-1",

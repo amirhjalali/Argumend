@@ -97,6 +97,18 @@ export const QuestionSchema = z.object({
 });
 
 // ============================================================================
+// Topic Category Schema
+// ============================================================================
+
+export const TopicCategorySchema = z.enum([
+  "policy",
+  "technology",
+  "science",
+  "economics",
+  "philosophy",
+]);
+
+// ============================================================================
 // Topic Status Schema
 // ============================================================================
 
@@ -116,6 +128,7 @@ export const TopicSchema = z.object({
   meta_claim: z.string(),
   confidence_score: z.number().min(0).max(100), // 0 to 100
   status: TopicStatusSchema,
+  category: TopicCategorySchema,
   pillars: z.array(PillarSchema),
   evidence: z.array(EvidenceSchema).optional(), // Topic-level evidence for scales view
   // Embedded metadata (previously in topicConfigs)
@@ -135,6 +148,7 @@ export type IconName = z.infer<typeof IconNameSchema>;
 export type Pillar = z.infer<typeof PillarSchema>;
 export type Reference = z.infer<typeof ReferenceSchema>;
 export type Question = z.infer<typeof QuestionSchema>;
+export type TopicCategory = z.infer<typeof TopicCategorySchema>;
 export type TopicStatus = z.infer<typeof TopicStatusSchema>;
 export type Topic = z.infer<typeof TopicSchema>;
 

@@ -10,8 +10,12 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Recent Analyses - ARGUMEND",
-  description: "Browse recent argument analyses on ARGUMEND",
+  title: "Recent Analyses",
+  description:
+    "Browse recent argument analyses on ARGUMEND. See AI-extracted positions, cruxes, and quality scores for debates, articles, and transcripts.",
+  alternates: {
+    canonical: "https://argumend.org/analyses",
+  },
 };
 
 export default async function AnalysesPage() {

@@ -1,4 +1,4 @@
-import { Topic, TopicSchema, computeConfidenceScore } from "@/lib/schemas/topic";
+import { Topic, TopicCategory, TopicSchema, computeConfidenceScore } from "@/lib/schemas/topic";
 
 // ============================================================================
 // Moon Landing Topic
@@ -10,6 +10,7 @@ const moonLandingData = {
   meta_claim:
     "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
   status: "settled" as const,
+  category: "philosophy" as const,
   imageUrl:
     "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -242,6 +243,7 @@ const simulationHypothesisData = {
   meta_claim:
     "We are almost certainly living in a computer simulation run by a post-human civilization.",
   status: "contested" as const,
+  category: "philosophy" as const,
   imageUrl:
     "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -554,6 +556,7 @@ const aiRiskData = {
   meta_claim:
     "The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.",
   status: "contested" as const,
+  category: "technology" as const,
   imageUrl:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -864,6 +867,7 @@ const climateChangeData = {
   title: "Climate Change",
   meta_claim: "Climate change is primarily caused by human activity.",
   status: "settled" as const,
+  category: "science" as const,
   imageUrl:
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -1179,6 +1183,7 @@ const freeWillData = {
   meta_claim:
     "Human beings possess genuine free will—the ability to have done otherwise in any given situation.",
   status: "contested" as const,
+  category: "philosophy" as const,
   imageUrl:
     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -1499,6 +1504,7 @@ const minneapolisShootingData = {
   meta_claim:
     "Federal agents acted with excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026.",
   status: "contested" as const,
+  category: "philosophy" as const,
   pillars: [
     {
       id: "conflicting-accounts",
@@ -1624,6 +1630,7 @@ const labLeakTheoryData = {
   meta_claim:
     "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
   status: "contested" as const,
+  category: "philosophy" as const,
   pillars: [
     {
       id: "geographic-coincidence",
@@ -1683,6 +1690,7 @@ const universalBasicIncomeData = {
   meta_claim:
     "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "automation-displacement",
@@ -1742,6 +1750,7 @@ const socialMediaMentalHealthData = {
   meta_claim:
     "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
   status: "contested" as const,
+  category: "technology" as const,
   pillars: [
     {
       id: "temporal-correlation",
@@ -1803,6 +1812,7 @@ const cryptocurrencyValueData = {
   meta_claim:
     "Bitcoin and major cryptocurrencies represent a legitimate long-term store of value comparable to gold or real estate.",
   status: "contested" as const,
+  category: "economics" as const,
   pillars: [
     {
       id: "scarcity-mechanism",
@@ -1861,6 +1871,7 @@ const gunControlEffectivenessData = {
   meta_claim:
     "Stricter gun control laws significantly reduce gun violence and mass shootings.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "international-comparison",
@@ -2040,6 +2051,7 @@ const nuclearEnergySafetyData = {
   meta_claim:
     "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "safety-record",
@@ -2222,6 +2234,7 @@ const wealthTaxData = {
   meta_claim:
     "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "revenue-potential",
@@ -2403,6 +2416,7 @@ const aiContentLabelingData = {
   meta_claim:
     "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
   status: "contested" as const,
+  category: "technology" as const,
   pillars: [
     {
       id: "misinformation-prevention",
@@ -2596,6 +2610,7 @@ const remoteWorkPermanenceData = {
   meta_claim:
     "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
   status: "contested" as const,
+  category: "economics" as const,
   pillars: [
     {
       id: "productivity-innovation",
@@ -2788,6 +2803,7 @@ const standardizedTestingValueData = {
   meta_claim:
     "Standardized tests (SAT, ACT, state assessments) are a valid and useful measure of student ability and should remain a core part of educational assessment.",
   status: "contested" as const,
+  category: "economics" as const,
   pillars: [
     {
       id: "predictive-validity",
@@ -2980,6 +2996,7 @@ const socialMediaAgeLimitsData = {
   meta_claim:
     "Children under 16 should be legally prohibited from using social media platforms.",
   status: "contested" as const,
+  category: "technology" as const,
   pillars: [
     {
       id: "mental-health-impact",
@@ -3172,6 +3189,7 @@ const collegeValuePropositionData = {
   meta_claim:
     "A four-year college degree remains the best investment in future earnings and career outcomes for most young adults.",
   status: "contested" as const,
+  category: "economics" as const,
   pillars: [
     {
       id: "economic-returns",
@@ -3364,6 +3382,7 @@ const mandatoryVotingData = {
   meta_claim:
     "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "democratic-representation",
@@ -3536,6 +3555,7 @@ const deathPenaltyDeterrenceData = {
   meta_claim:
     "The death penalty serves as an effective deterrent against murder and is justified as a form of criminal justice.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "deterrence-effect",
@@ -3724,6 +3744,7 @@ const billionaireWealthData = {
   meta_claim:
     "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
   status: "contested" as const,
+  category: "economics" as const,
   pillars: [
     {
       id: "economic-impact",
@@ -3912,6 +3933,7 @@ const homeschoolingEffectivenessData = {
   meta_claim:
     "Homeschooled students achieve better academic and social outcomes than public school students on average.",
   status: "contested" as const,
+  category: "economics" as const,
   pillars: [
     {
       id: "academic-achievement",
@@ -4100,6 +4122,7 @@ const policeReformData = {
   meta_claim:
     "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "use-of-force-accountability",
@@ -4288,6 +4311,7 @@ const drugDecriminalizationData = {
   meta_claim:
     "Decriminalizing personal drug use reduces harm and improves public health outcomes compared to criminalization.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "public-health-outcomes",
@@ -4476,6 +4500,7 @@ const immigrationWageImpactData = {
   meta_claim:
     "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "labor-market-economics",
@@ -4664,6 +4689,7 @@ const evEnvironmentalImpactData = {
   meta_claim:
     "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
   status: "contested" as const,
+  category: "science" as const,
   pillars: [
     {
       id: "manufacturing-battery-impact",
@@ -4852,6 +4878,7 @@ const organicFoodHealthData = {
   meta_claim:
     "Organic food is significantly healthier and more nutritious than conventionally grown food.",
   status: "contested" as const,
+  category: "science" as const,
   pillars: [
     {
       id: "nutritional-content",
@@ -5040,6 +5067,7 @@ const foreignAidEffectivenessData = {
   meta_claim:
     "International development aid significantly improves outcomes in recipient countries and is an effective use of donor resources.",
   status: "contested" as const,
+  category: "economics" as const,
   pillars: [
     {
       id: "development-outcomes",
@@ -5228,6 +5256,7 @@ const spaceExplorationValueData = {
   meta_claim:
     "Government-funded space exploration provides sufficient scientific, economic, and strategic returns to justify its cost.",
   status: "contested" as const,
+  category: "science" as const,
   pillars: [
     {
       id: "economic-returns-spinoffs",
@@ -5420,6 +5449,7 @@ const factoryFarmingBanData = {
   meta_claim:
     "Industrial animal agriculture (factory farming) should be banned or drastically reformed due to its ethical, environmental, and public health costs.",
   status: "contested" as const,
+  category: "science" as const,
   pillars: [
     {
       id: "animal-welfare-ethics",
@@ -5612,6 +5642,7 @@ const mediaBiasDemocracyData = {
   meta_claim:
     "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
   status: "contested" as const,
+  category: "technology" as const,
   pillars: [
     {
       id: "existence-extent-bias",
@@ -5804,6 +5835,7 @@ const universalHealthcareData = {
   meta_claim:
     "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "cost-efficiency",
@@ -5996,6 +6028,7 @@ const openBordersData = {
   meta_claim:
     "Significantly relaxing or eliminating immigration restrictions would produce massive economic gains and is morally justified.",
   status: "highly_speculative" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "economic-arguments",
@@ -6188,6 +6221,7 @@ const cancelCultureData = {
   meta_claim:
     "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
   status: "contested" as const,
+  category: "technology" as const,
   pillars: [
     {
       id: "free-expression-accountability",
@@ -6380,6 +6414,7 @@ const bigTechAntitrustData = {
   meta_claim:
     "Major technology companies (Google, Apple, Amazon, Meta) should be broken up or heavily regulated to restore competition and protect consumers.",
   status: "contested" as const,
+  category: "technology" as const,
   pillars: [
     {
       id: "market-power-competition",
@@ -6572,6 +6607,7 @@ const minimumWageEffectsData = {
   meta_claim:
     "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "employment-effects",
@@ -6764,6 +6800,7 @@ const geneEditingEmbryosData = {
   meta_claim:
     "Germline gene editing of human embryos (using CRISPR or similar) should be permitted for preventing serious genetic diseases.",
   status: "highly_speculative" as const,
+  category: "science" as const,
   pillars: [
     {
       id: "medical-promise-safety",
@@ -6956,6 +6993,7 @@ const reparationsSlaveryData = {
   meta_claim:
     "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
   status: "contested" as const,
+  category: "policy" as const,
   pillars: [
     {
       id: "moral-historical-case",
@@ -7261,3 +7299,38 @@ export const featuredTopicId = "social-media-mental-health";
 /** Short editorial hook explaining why this topic is featured right now. */
 export const featuredReason =
   "The Surgeon General just called for warning labels on social media. Where does the evidence actually land?";
+
+// ============================================================================
+// Category Helpers
+// ============================================================================
+
+export const CATEGORY_LABELS: Record<TopicCategory, string> = {
+  policy: "Policy",
+  technology: "Technology",
+  science: "Science",
+  economics: "Economics",
+  philosophy: "Philosophy",
+};
+
+export const CATEGORY_ORDER: TopicCategory[] = [
+  "policy",
+  "technology",
+  "science",
+  "economics",
+  "philosophy",
+];
+
+/** Get topics grouped by category. */
+export function getTopicsByCategory(): Record<TopicCategory, Topic[]> {
+  const grouped: Record<TopicCategory, Topic[]> = {
+    policy: [],
+    technology: [],
+    science: [],
+    economics: [],
+    philosophy: [],
+  };
+  for (const topic of topics) {
+    grouped[topic.category].push(topic);
+  }
+  return grouped;
+}

@@ -2,307 +2,287 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { CheckCircle, AlertCircle, HelpCircle, Filter, SortAsc, SortDesc, ChevronRight, X } from "lucide-react";
-import { topics } from "@/data/topics";
+import {
+  CheckCircle,
+  AlertCircle,
+  HelpCircle,
+  Search,
+  SortAsc,
+  SortDesc,
+  X,
+  ArrowRight,
+} from "lucide-react";
+import { topics, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topics";
 import { AppShell } from "@/components/AppShell";
-import type { TopicStatus } from "@/types/logic";
+import type { TopicCategory, TopicStatus } from "@/lib/schemas/topic";
 
-const statusIcons = {
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
+
+const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
   settled: CheckCircle,
   contested: AlertCircle,
   highly_speculative: HelpCircle,
 };
 
-const statusColors = {
-  settled: "text-[#D4A012] bg-[#D4A012]/10 border-[#D4A012]/30",
-  contested: "text-[#CF7B3E] bg-[#CF7B3E]/10 border-[#CF7B3E]/30",
-  highly_speculative: "text-[#8B5A3C] bg-[#8B5A3C]/10 border-[#8B5A3C]/30",
+const statusColors: Record<TopicStatus, string> = {
+  settled: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
+  contested: "bg-amber-50 text-amber-700 border-amber-200/60",
+  highly_speculative: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 
-const confidenceColors = {
-  high: "#D4A012",
-  medium: "#CF7B3E",
-  low: "#8B5A3C",
+const categoryColors: Record<TopicCategory, string> = {
+  policy: "bg-blue-50 text-blue-600 border-blue-200/60",
+  technology: "bg-violet-50 text-violet-600 border-violet-200/60",
+  science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
+  economics: "bg-amber-50 text-amber-700 border-amber-200/60",
+  philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 
-type SortOption = "confidence-desc" | "confidence-asc" | "title-asc" | "pillars-desc";
-type ConfidenceFilter = "all" | "high" | "medium" | "low";
+type SortOption = "category" | "confidence-desc" | "confidence-asc" | "title-asc";
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: "category", label: "By category" },
   { value: "confidence-desc", label: "Highest confidence" },
   { value: "confidence-asc", label: "Lowest confidence" },
   { value: "title-asc", label: "Alphabetical" },
-  { value: "pillars-desc", label: "Most pillars" },
 ];
 
-const STATUS_OPTIONS: { value: TopicStatus | "all"; label: string }[] = [
-  { value: "all", label: "All statuses" },
-  { value: "settled", label: "Settled" },
-  { value: "contested", label: "Contested" },
-  { value: "highly_speculative", label: "Speculative" },
-];
-
-const CONFIDENCE_OPTIONS: { value: ConfidenceFilter; label: string; range?: string }[] = [
-  { value: "all", label: "All levels" },
-  { value: "high", label: "Strong (80%+)", range: "80-100%" },
-  { value: "medium", label: "Moderate (50-79%)", range: "50-79%" },
-  { value: "low", label: "Contested (0-49%)", range: "0-49%" },
-];
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
 
 export default function TopicsPage() {
-  const [statusFilter, setStatusFilter] = useState<TopicStatus | "all">("all");
-  const [confidenceFilter, setConfidenceFilter] = useState<ConfidenceFilter>("all");
-  const [sortBy, setSortBy] = useState<SortOption>("confidence-desc");
-  const [showFilters, setShowFilters] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<TopicCategory | "all">("all");
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState<SortOption>("category");
 
-  // Filter and sort topics
   const filteredTopics = useMemo(() => {
     let filtered = [...topics];
 
-    // Apply status filter
-    if (statusFilter !== "all") {
-      filtered = filtered.filter((t) => t.status === statusFilter);
+    // Category filter
+    if (activeCategory !== "all") {
+      filtered = filtered.filter((t) => t.category === activeCategory);
     }
 
-    // Apply confidence filter
-    if (confidenceFilter !== "all") {
-      filtered = filtered.filter((t) => {
-        if (confidenceFilter === "high") return t.confidence_score >= 80;
-        if (confidenceFilter === "medium") return t.confidence_score >= 50 && t.confidence_score < 80;
-        return t.confidence_score < 50;
-      });
+    // Search filter
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      filtered = filtered.filter(
+        (t) =>
+          t.title.toLowerCase().includes(q) ||
+          t.meta_claim.toLowerCase().includes(q)
+      );
     }
 
-    // Apply sorting
+    // Sort
     filtered.sort((a, b) => {
       switch (sortBy) {
+        case "category": {
+          const catDiff =
+            CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category);
+          if (catDiff !== 0) return catDiff;
+          return b.confidence_score - a.confidence_score;
+        }
         case "confidence-desc":
           return b.confidence_score - a.confidence_score;
         case "confidence-asc":
           return a.confidence_score - b.confidence_score;
         case "title-asc":
           return a.title.localeCompare(b.title);
-        case "pillars-desc":
-          return b.pillars.length - a.pillars.length;
         default:
           return 0;
       }
     });
 
     return filtered;
-  }, [statusFilter, confidenceFilter, sortBy]);
+  }, [activeCategory, search, sortBy]);
 
-  const hasActiveFilters = statusFilter !== "all" || confidenceFilter !== "all";
+  // Count per category
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: topics.length };
+    for (const cat of CATEGORY_ORDER) {
+      counts[cat] = topics.filter((t) => t.category === cat).length;
+    }
+    return counts;
+  }, []);
 
   const clearFilters = () => {
-    setStatusFilter("all");
-    setConfidenceFilter("all");
+    setActiveCategory("all");
+    setSearch("");
   };
 
-  const getConfidenceColor = (score: number) => {
-    if (score >= 80) return confidenceColors.high;
-    if (score >= 50) return confidenceColors.medium;
-    return confidenceColors.low;
-  };
+  const hasFilters = activeCategory !== "all" || search.trim().length > 0;
 
   return (
     <AppShell>
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 py-8 sm:py-12">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary mb-3">
-            All Topics
-          </h1>
-          <p className="text-base text-secondary leading-relaxed">
-            Explore our collection of structured debates on contested and settled questions.
-          </p>
-        </div>
+      <div className="min-h-screen bg-[#faf8f5]">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          {/* Header */}
+          <div className="mb-8">
+            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-stone-900 mb-2">
+              Explore Topics
+            </h1>
+            <p className="text-base text-stone-500 leading-relaxed">
+              <span className="font-mono text-stone-700">{topics.length}</span> topics
+              mapped across {CATEGORY_ORDER.length} categories. Each one structured with
+              steel-man arguments, weighted evidence, and crux questions.
+            </p>
+          </div>
 
-        {/* Filter Bar */}
-        <div className="mb-6 p-4 bg-white/80 rounded-xl border border-[#e8e0d4] shadow-sm">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            {/* Toggle Filters Button (mobile) */}
+          {/* Category Tabs */}
+          <div className="flex flex-wrap gap-2 mb-6">
             <button
-              onClick={() => setShowFilters(!showFilters)}
-              className="sm:hidden flex items-center justify-between w-full px-3 py-2 rounded-lg bg-[#faf7f2] text-sm font-medium text-stone-700"
+              onClick={() => setActiveCategory("all")}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                activeCategory === "all"
+                  ? "bg-[#4f7b77] text-white shadow-sm"
+                  : "bg-white text-stone-500 border border-stone-200/60 hover:border-[#4f7b77]/30 hover:text-stone-700"
+              }`}
             >
-              <span className="flex items-center gap-2">
-                <Filter className="h-4 w-4" />
-                Filters & Sort
-                {hasActiveFilters && (
-                  <span className="w-2 h-2 rounded-full bg-[#D4A012]" />
-                )}
-              </span>
-              <ChevronRight className={`h-4 w-4 transition-transform ${showFilters ? "rotate-90" : ""}`} />
+              All ({categoryCounts.all})
             </button>
+            {CATEGORY_ORDER.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all capitalize ${
+                  activeCategory === cat
+                    ? "bg-[#4f7b77] text-white shadow-sm"
+                    : "bg-white text-stone-500 border border-stone-200/60 hover:border-[#4f7b77]/30 hover:text-stone-700"
+                }`}
+              >
+                {CATEGORY_LABELS[cat]} ({categoryCounts[cat]})
+              </button>
+            ))}
+          </div>
 
-            {/* Filter Controls */}
-            <div className={`${showFilters ? "flex" : "hidden"} sm:flex flex-col sm:flex-row gap-3 sm:items-center flex-1`}>
-              {/* Status Filter */}
-              <div className="flex items-center gap-2">
-                <label className="text-xs font-medium text-stone-500 whitespace-nowrap">Status:</label>
-                <select
-                  value={statusFilter}
-                  onChange={(e) => setStatusFilter(e.target.value as TopicStatus | "all")}
-                  className="flex-1 sm:flex-none text-sm px-3 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-[#D4A012]/30 focus:border-[#D4A012]"
+          {/* Search + Sort Bar */}
+          <div className="flex flex-col sm:flex-row gap-3 mb-6">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search topics..."
+                className="w-full pl-9 pr-9 py-2 text-sm bg-white border border-stone-200/60 rounded-lg text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#4f7b77]/20 focus:border-[#4f7b77]/40"
+              />
+              {search && (
+                <button
+                  onClick={() => setSearch("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600"
                 >
-                  {STATUS_OPTIONS.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Confidence Filter */}
-              <div className="flex items-center gap-2">
-                <label className="text-xs font-medium text-stone-500 whitespace-nowrap">Confidence:</label>
-                <select
-                  value={confidenceFilter}
-                  onChange={(e) => setConfidenceFilter(e.target.value as ConfidenceFilter)}
-                  className="flex-1 sm:flex-none text-sm px-3 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-[#D4A012]/30 focus:border-[#D4A012]"
-                >
-                  {CONFIDENCE_OPTIONS.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Sort */}
-              <div className="flex items-center gap-2 sm:ml-auto">
-                <label className="text-xs font-medium text-stone-500 whitespace-nowrap">Sort:</label>
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as SortOption)}
-                  className="flex-1 sm:flex-none text-sm px-3 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-[#D4A012]/30 focus:border-[#D4A012]"
-                >
-                  {SORT_OPTIONS.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
+            <div className="flex items-center gap-2">
+              <label className="text-xs font-medium text-stone-400 whitespace-nowrap">Sort:</label>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as SortOption)}
+                className="text-sm px-3 py-2 rounded-lg border border-stone-200/60 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-[#4f7b77]/20 focus:border-[#4f7b77]/40"
+              >
+                {SORT_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
 
-            {/* Clear Filters */}
-            {hasActiveFilters && (
+          {/* Results info */}
+          <div className="flex items-center justify-between mb-5">
+            <p className="text-sm text-stone-500">
+              Showing{" "}
+              <span className="font-semibold text-stone-700">
+                {filteredTopics.length}
+              </span>{" "}
+              of {topics.length} topics
+            </p>
+            {hasFilters && (
               <button
                 onClick={clearFilters}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-stone-500 hover:text-stone-700 hover:bg-stone-100 rounded-lg transition-colors"
+                className="flex items-center gap-1.5 text-xs font-medium text-stone-400 hover:text-stone-600 transition-colors"
               >
                 <X className="h-3.5 w-3.5" />
-                Clear
+                Clear filters
               </button>
             )}
           </div>
 
-          {/* Active Filter Tags */}
-          {hasActiveFilters && (
-            <div className="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-stone-100">
-              <span className="text-xs text-stone-500">Active filters:</span>
-              {statusFilter !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium bg-[#D4A012]/10 text-[#8B6914] rounded-full">
-                  {STATUS_OPTIONS.find((o) => o.value === statusFilter)?.label}
-                  <button onClick={() => setStatusFilter("all")} className="hover:text-[#D4A012]">
-                    <X className="h-3 w-3" />
-                  </button>
-                </span>
-              )}
-              {confidenceFilter !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium bg-[#CF7B3E]/10 text-[#A65F2A] rounded-full">
-                  {CONFIDENCE_OPTIONS.find((o) => o.value === confidenceFilter)?.label}
-                  <button onClick={() => setConfidenceFilter("all")} className="hover:text-[#CF7B3E]">
-                    <X className="h-3 w-3" />
-                  </button>
-                </span>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Results Count */}
-        <div className="mb-4 flex items-center justify-between">
-          <p className="text-sm text-stone-500">
-            Showing <span className="font-semibold text-stone-700">{filteredTopics.length}</span> of {topics.length} topics
-          </p>
-          <div className="flex items-center gap-1 text-xs text-stone-400">
-            {sortBy.includes("desc") ? (
-              <SortDesc className="h-3.5 w-3.5" />
-            ) : (
-              <SortAsc className="h-3.5 w-3.5" />
-            )}
-            <span>{SORT_OPTIONS.find((o) => o.value === sortBy)?.label}</span>
-          </div>
-        </div>
-
-        {/* Topic List */}
-        <div className="space-y-4">
+          {/* Topic Grid */}
           {filteredTopics.length === 0 ? (
-            <div className="text-center py-12 bg-white/80 rounded-xl border border-[#e8e0d4]">
-              <p className="text-stone-500 mb-3">No topics match your filters.</p>
+            <div className="text-center py-16 bg-white rounded-xl border border-stone-200/60">
+              <p className="text-stone-500 mb-3">No topics match your search.</p>
               <button
                 onClick={clearFilters}
-                className="text-sm font-medium text-[#D4A012] hover:text-[#8B6914] transition-colors"
+                className="text-sm font-medium text-[#4f7b77] hover:text-[#3d5f5c] transition-colors"
               >
                 Clear all filters
               </button>
             </div>
           ) : (
-            filteredTopics.map((topic) => {
-              const StatusIcon = statusIcons[topic.status];
-              const statusColor = statusColors[topic.status];
-              const confidenceColor = getConfidenceColor(topic.confidence_score);
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredTopics.map((topic) => {
+                const StatusIcon = statusIcons[topic.status];
 
-              return (
-                <Link
-                  key={topic.id}
-                  href={`/?topic=${topic.id}`}
-                  className="group block bg-white/80 rounded-xl p-5 sm:p-6 border border-[#e8e0d4] hover:border-[#D4A012]/30 hover:shadow-[0_8px_24px_-4px_rgba(212,160,18,0.12)] transition-all duration-200"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1 min-w-0">
-                      <h2 className="font-serif text-xl sm:text-2xl text-primary mb-2 group-hover:text-[#D4A012] transition-colors truncate">
-                        {topic.title}
-                      </h2>
-                      <p className="text-sm sm:text-base text-secondary mb-4 leading-relaxed line-clamp-2">
-                        {topic.meta_claim}
-                      </p>
-                      <div className="flex flex-wrap items-center gap-3 text-sm">
-                        <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border ${statusColor}`}>
-                          <StatusIcon className="h-3.5 w-3.5" />
-                          <span className="capitalize text-xs font-medium">{topic.status.replace("_", " ")}</span>
+                return (
+                  <Link
+                    key={topic.id}
+                    href={`/?topic=${topic.id}`}
+                    className="group flex flex-col bg-white border border-stone-200/60 rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-sm transition-all"
+                  >
+                    {/* Title */}
+                    <h2 className="font-serif text-lg text-stone-900 group-hover:text-[#4f7b77] transition-colors leading-snug mb-2">
+                      {topic.title}
+                    </h2>
+
+                    {/* Meta claim */}
+                    <p className="text-sm text-stone-500 leading-relaxed line-clamp-2 mb-4 flex-1">
+                      {topic.meta_claim}
+                    </p>
+
+                    {/* Bottom row: pills + confidence */}
+                    <div className="flex items-center justify-between gap-2 mt-auto">
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        {/* Category pill */}
+                        <span
+                          className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border capitalize ${categoryColors[topic.category]}`}
+                        >
+                          {topic.category}
                         </span>
-                        <span className="text-stone-500 text-xs">
-                          {topic.pillars.length} pillar{topic.pillars.length !== 1 ? "s" : ""}
+
+                        {/* Status pill */}
+                        <span
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium border ${statusColors[topic.status]}`}
+                        >
+                          <StatusIcon className="h-3 w-3" />
+                          {topic.status.replace("_", " ")}
                         </span>
                       </div>
-                    </div>
-                    <div className="text-right flex-shrink-0">
-                      <div
-                        className="text-2xl sm:text-3xl font-serif tabular-nums"
-                        style={{ color: confidenceColor }}
-                      >
+
+                      {/* Confidence score */}
+                      <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600">
                         {topic.confidence_score}%
-                      </div>
-                      <div className="text-[11px] text-stone-500 uppercase tracking-[0.12em] mt-0.5">
-                        confidence
-                      </div>
+                      </span>
                     </div>
-                  </div>
-                </Link>
-              );
-            })
+                  </Link>
+                );
+              })}
+            </div>
           )}
-        </div>
 
-        {/* Footer */}
-        <div className="mt-10 pt-6 border-t border-stone-200">
-          <p className="text-sm text-secondary">
-            {topics.length} topics available. Click any topic to explore its logical structure with steel-man arguments and crux questions.
-          </p>
+          {/* Footer */}
+          <div className="mt-10 pt-6 border-t border-stone-200/60">
+            <p className="text-sm text-stone-400">
+              {topics.length} topics mapped. Click any topic to explore its logical
+              structure with steel-man arguments and crux questions.
+            </p>
+          </div>
         </div>
       </div>
     </AppShell>

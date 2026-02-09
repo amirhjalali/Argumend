@@ -7,6 +7,7 @@ export type {
   Pillar,
   Reference,
   Question,
+  TopicCategory,
   TopicStatus,
   Topic,
 } from "@/lib/schemas/topic";

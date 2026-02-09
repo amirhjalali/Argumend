@@ -169,14 +169,14 @@ export function Sidebar({
         {/* Divider */}
         <div className="h-px bg-stone-200/50 mb-5" />
 
-        {/* Featured Topics */}
+        {/* Featured Topics (limited to 8) */}
         <section className="pb-5">
           <p className="text-[11px] font-medium text-stone-400 px-3 mb-3 tracking-wide">
             Topics
           </p>
 
           <ul className="space-y-0.5">
-            {topics.map((topic) => {
+            {topics.slice(0, 8).map((topic) => {
               const isSelected = currentTopicId === topic.id;
               return (
                 <li key={topic.id}>
@@ -200,6 +200,16 @@ export function Sidebar({
               );
             })}
           </ul>
+
+          {topics.length > 8 && (
+            <Link
+              href="/topics"
+              className="flex items-center gap-1 px-3 mt-2 text-[13px] font-medium text-[#4f7b77] hover:text-[#3d5f5c] transition-colors"
+            >
+              View all {topics.length} topics
+              <ChevronRight className="h-3.5 w-3.5" />
+            </Link>
+          )}
         </section>
       </div>
 
