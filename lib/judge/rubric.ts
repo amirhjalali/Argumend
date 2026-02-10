@@ -121,7 +121,7 @@ export const DEFAULT_RUBRIC: RubricDimension[] = [
     id: "logical-validity",
     name: "Logical Validity",
     description: "Sound reasoning without fallacies, valid argument structure",
-    weight: 0.25,
+    weight: 0.22,
     guidelines: {
       low: "Contains multiple logical fallacies, non-sequiturs, or contradictory claims",
       medium: "Generally sound logic with minor fallacies or weak connections",
@@ -132,7 +132,7 @@ export const DEFAULT_RUBRIC: RubricDimension[] = [
     id: "evidence-quality",
     name: "Evidence Quality",
     description: "Claims supported with credible sources and data",
-    weight: 0.25,
+    weight: 0.22,
     guidelines: {
       low: "Unsupported claims, appeals to authority without evidence, anecdotal only",
       medium: "Some evidence provided but incomplete or not fully relevant",
@@ -140,10 +140,21 @@ export const DEFAULT_RUBRIC: RubricDimension[] = [
     },
   },
   {
+    id: "bias-credibility",
+    name: "Bias & Source Credibility",
+    description: "Freedom from cognitive biases, balanced source selection, intellectual honesty",
+    weight: 0.14,
+    guidelines: {
+      low: "Heavy confirmation bias, cherry-picked evidence, ignores contradicting data, relies on non-credible or biased sources",
+      medium: "Some bias present but partially acknowledged, sources are mixed quality, minor cherry-picking",
+      high: "Minimal detectable bias, acknowledges limitations and counter-evidence, relies on credible and independent sources",
+    },
+  },
+  {
     id: "rebuttal-strength",
     name: "Rebuttal Strength",
     description: "Effectively addresses and refutes opponent's arguments",
-    weight: 0.2,
+    weight: 0.17,
     guidelines: {
       low: "Ignores opponent's points or uses strawman arguments",
       medium: "Addresses some points but misses key arguments or rebuttals are weak",
@@ -154,7 +165,7 @@ export const DEFAULT_RUBRIC: RubricDimension[] = [
     id: "crux-identification",
     name: "Crux Identification",
     description: "Identifies and focuses on core disagreements",
-    weight: 0.15,
+    weight: 0.13,
     guidelines: {
       low: "Focuses on peripheral issues, misses the core disagreement",
       medium: "Partially identifies cruxes but doesn't fully explore them",
@@ -165,7 +176,7 @@ export const DEFAULT_RUBRIC: RubricDimension[] = [
     id: "clarity",
     name: "Clarity",
     description: "Well-structured, understandable presentation",
-    weight: 0.15,
+    weight: 0.12,
     guidelines: {
       low: "Disorganized, unclear, or difficult to follow",
       medium: "Generally understandable but could be better organized",

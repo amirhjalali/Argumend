@@ -12,7 +12,7 @@ const STEPS = [
     description:
       "Most debates generate heat, not light. We're building something different: a map of human knowledge that shows you not just what people believe, but why they believe it—and what evidence would change their minds.",
     highlight: "Beyond Winning",
-    tint: "#D4A012",
+    tint: "#C4613C",
   },
   {
     icon: Lightbulb,
@@ -21,7 +21,7 @@ const STEPS = [
     description:
       "Each controversial topic is broken into Pillars—the core claims that matter. Explore the strongest arguments on all sides, traced to their sources. No strawmen. No cheap shots.",
     highlight: "Steel-manned arguments",
-    tint: "#CF7B3E",
+    tint: "#b05434",
   },
   {
     icon: Scale,

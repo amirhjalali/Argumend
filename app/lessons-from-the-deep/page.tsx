@@ -129,9 +129,9 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
           {/* Lesson Box */}
           <div className="mx-5 mb-5 p-4 bg-gradient-to-br from-[#faf8f5] to-[#f5f1ea] rounded-lg border border-[#e8e0d4]">
             <div className="flex items-start gap-3">
-              <Sparkles className="h-4 w-4 text-[#D4A012] flex-shrink-0 mt-0.5" />
+              <Sparkles className="h-4 w-4 text-[#C4613C] flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs font-medium text-[#D4A012] mb-1">Key Lesson</p>
+                <p className="text-xs font-medium text-[#C4613C] mb-1">Key Lesson</p>
                 <p className="text-sm text-[#3d3a36] leading-relaxed">
                   {exchange.lesson}
                 </p>
@@ -208,7 +208,7 @@ export default function LessonsFromTheDeepPage() {
         {/* Introduction */}
         <div className="mb-10">
           <div className="flex items-start gap-3 p-5 bg-[#faf8f5] rounded-xl border border-[#e8e0d4]">
-            <Quote className="h-5 w-5 text-[#D4A012] flex-shrink-0 mt-0.5" />
+            <Quote className="h-5 w-5 text-[#C4613C] flex-shrink-0 mt-0.5" />
             <div>
               <p className="text-[#4e473f] leading-relaxed mb-3">
                 <a

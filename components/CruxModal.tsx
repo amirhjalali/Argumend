@@ -107,7 +107,7 @@ export function CruxModal() {
                                     <p className="mb-2 text-[10px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500">
                                         Cost to Verify
                                     </p>
-                                    <p className="font-serif text-xl font-bold text-amber-700">
+                                    <p className="font-serif text-xl font-bold text-rust-700">
                                         {selectedCrux.cost}
                                     </p>
                                 </div>

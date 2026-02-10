@@ -34,6 +34,9 @@ export async function saveAnalysis(
       fallacies: result.potentialFallacies,
       confidence: result.confidence,
       inputContent: input.inputContent?.slice(0, 50_000),
+      detectedBiases: result.detectedBiases ?? [],
+      forStrength: result.forStrength,
+      againstStrength: result.againstStrength,
     })
     .returning();
   return row;

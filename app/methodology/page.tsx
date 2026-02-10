@@ -29,7 +29,7 @@ const chatgptProblems = [
     title: "No Evidence Transparency",
     description:
       "You get a fluent response but no way to verify claims or see how conclusions were reached. The reasoning is hidden behind a wall of confident prose.",
-    color: "#CF7B3E",
+    color: "#b05434",
   },
   {
     icon: Brain,
@@ -66,7 +66,7 @@ const methodologySteps = [
     number: "02",
     title: "Steel-Manning",
     icon: Shield,
-    color: "#D4A012",
+    color: "#C4613C",
     description:
       "Each position is strengthened to its best possible form. We don't create strawmen — we create the argument that the strongest proponent would make.",
     details: [
@@ -94,7 +94,7 @@ const methodologySteps = [
     number: "04",
     title: "Evidence Weighting",
     icon: Target,
-    color: "#CF7B3E",
+    color: "#b05434",
     description:
       "Each piece of evidence is scored on four dimensions. The total evidence score is the sum of all four, giving a transparent, auditable quality measure.",
     details: [
@@ -125,7 +125,7 @@ const evidenceDimensions = [
     name: "Source Reliability",
     range: "0-10",
     description: "Track record, peer review, recognized expertise in the domain",
-    color: "#D4A012",
+    color: "#C4613C",
   },
   {
     name: "Independence",
@@ -143,7 +143,7 @@ const evidenceDimensions = [
     name: "Directness",
     range: "0-10",
     description: "How directly does this evidence address the specific claim in question?",
-    color: "#CF7B3E",
+    color: "#b05434",
   },
 ];
 
@@ -153,7 +153,7 @@ const outcomes = [
     title: "Transparency",
     description:
       "Every score can be traced back to specific evidence and specific judges. No black boxes. You can audit every step of the reasoning chain.",
-    color: "#D4A012",
+    color: "#C4613C",
   },
   {
     icon: Users,
@@ -431,11 +431,11 @@ export default function MethodologyPage() {
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                <span className="w-14 text-center text-sm font-mono font-medium text-[#D4A012]">
+                <span className="w-14 text-center text-sm font-mono font-medium text-[#C4613C]">
                   50-80%
                 </span>
                 <div className="flex-1 h-2 bg-stone-200/50 rounded-full overflow-hidden">
-                  <div className="h-full w-[65%] bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] rounded-full" />
+                  <div className="h-full w-[65%] bg-gradient-to-r from-[#C4613C] to-[#b05434] rounded-full" />
                 </div>
                 <p className="text-sm text-stone-600 w-48">
                   <strong className="text-stone-900">Probable</strong> — Good evidence, some uncertainty

@@ -101,6 +101,9 @@ export default async function AnalysisPage({ params }: PageProps) {
     identifiedCruxes: analysis.cruxes as import("@/lib/analyze/extractor").IdentifiedCrux[],
     potentialFallacies: analysis.fallacies as import("@/lib/analyze/extractor").PotentialFallacy[],
     confidence: analysis.confidence,
+    detectedBiases: (analysis.detectedBiases as import("@/lib/analyze/extractor").DetectedBias[]) ?? [],
+    forStrength: analysis.forStrength ?? undefined,
+    againstStrength: analysis.againstStrength ?? undefined,
   };
 
   return (

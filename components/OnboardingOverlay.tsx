@@ -128,7 +128,7 @@ export function OnboardingOverlay() {
               <div className="mt-8 flex flex-col items-center gap-3">
                 <button
                   onClick={handleDismiss}
-                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-serif font-semibold text-sm rounded-xl shadow-md hover:shadow-lg transition-all hover:brightness-105"
+                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white font-serif font-semibold text-sm rounded-xl shadow-md hover:shadow-lg transition-all hover:brightness-105"
                 >
                   Start Exploring
                   <ArrowRight className="h-4 w-4" />

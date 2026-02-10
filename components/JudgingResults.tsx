@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import type { JudgingResult, JudgeVerdict, RubricDimension } from "@/lib/judge/rubric";
 import { DEFAULT_RUBRIC } from "@/lib/judge/rubric";
+import { getConfidenceInfo } from "@/lib/analyze/extractor";
 import { getLLMOption, getLLMIcon } from "./icons/LLMIcons";
 import type { LLMModel } from "@/types/logic";
 
@@ -25,7 +26,7 @@ function WinnerBanner({ result }: { result: JudgingResult }) {
   const { winner, hasConsensus } = result;
 
   const bannerStyles = {
-    for: "from-amber-500 to-amber-600",
+    for: "from-rust-500 to-rust-600",
     against: "from-stone-500 to-stone-600",
     draw: "from-purple-500 to-purple-600",
     null: "from-gray-400 to-gray-500",
@@ -116,7 +117,7 @@ function ScoreBar({
             initial={{ width: 0 }}
             animate={{ width: `${forWidth}%` }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="h-full bg-gradient-to-l from-amber-500 to-amber-400 rounded-l-full"
+            className="h-full bg-gradient-to-l from-rust-500 to-rust-400 rounded-l-full"
           />
         </div>
         {/* Center divider */}
@@ -132,10 +133,57 @@ function ScoreBar({
         </div>
       </div>
       <div className="flex justify-between text-xs font-mono">
-        <span className="text-amber-600 font-semibold">{forScore.toFixed(1)}</span>
+        <span className="text-rust-600 font-semibold">{forScore.toFixed(1)}</span>
         <span className="text-stone-600 font-semibold">{againstScore.toFixed(1)}</span>
       </div>
     </div>
+  );
+}
+
+function VerdictConfidenceSummary({ result }: { result: JudgingResult }) {
+  // Average confidence across all judges for each side
+  const avgForConf = result.verdicts.length > 0
+    ? result.verdicts.reduce((sum, v) => sum + v.forScore.confidence, 0) / result.verdicts.length
+    : 0;
+  const avgAgainstConf = result.verdicts.length > 0
+    ? result.verdicts.reduce((sum, v) => sum + v.againstScore.confidence, 0) / result.verdicts.length
+    : 0;
+  const overallConf = (avgForConf + avgAgainstConf) / 2;
+  const confInfo = getConfidenceInfo(overallConf);
+
+  // Score difference for verdict strength
+  const scoreDiff = Math.abs(result.aggregatedScores.for.average - result.aggregatedScores.against.average);
+  const verdictStrength = scoreDiff >= 2 ? "Decisive" : scoreDiff >= 0.8 ? "Close" : "Very Close";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.15 }}
+      className="surface-card p-4 md:p-5"
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+        <div className="space-y-1">
+          <p className="text-xs uppercase tracking-wider text-stone-400">Verdict Strength</p>
+          <p className="text-lg font-serif font-bold text-primary">{verdictStrength}</p>
+          <p className="text-[10px] text-stone-500">{scoreDiff.toFixed(1)} point margin</p>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs uppercase tracking-wider text-stone-400">Judge Confidence</p>
+          <p className="text-lg font-serif font-bold text-primary">{Math.round(overallConf * 100)}%</p>
+          <p className="text-[10px] text-stone-500">{confInfo.label}</p>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs uppercase tracking-wider text-stone-400">Agreement</p>
+          <p className="text-lg font-serif font-bold text-primary">
+            {result.hasConsensus ? "Unanimous" : `${result.verdicts.filter(v => v.winner === result.winner).length}/${result.verdicts.length}`}
+          </p>
+          <p className="text-[10px] text-stone-500">
+            {result.hasConsensus ? "All judges agree" : "Split decision"}
+          </p>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
@@ -195,8 +243,10 @@ function JudgeCard({
     ? "Against"
     : "Draw";
 
+  const avgConf = (verdict.forScore.confidence + verdict.againstScore.confidence) / 2;
+
   const winnerColor = verdict.winner === "for"
-    ? "text-amber-600 bg-amber-50"
+    ? "text-rust-600 bg-rust-50"
     : verdict.winner === "against"
     ? "text-stone-600 bg-stone-100"
     : "text-purple-600 bg-purple-50";
@@ -233,10 +283,15 @@ function JudgeCard({
             <div className={`px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-medium ${winnerColor}`}>
               {winnerLabel}
             </div>
+            <span className={`hidden sm:inline-flex text-[10px] px-2 py-0.5 rounded-full font-medium ${
+              avgConf >= 0.8 ? "bg-emerald-100 text-emerald-700" : avgConf >= 0.5 ? "bg-stone-100 text-stone-600" : "bg-red-100 text-red-600"
+            }`}>
+              {Math.round(avgConf * 100)}% conf
+            </span>
             <div className="flex gap-2 md:gap-3 text-sm">
               <div className="text-center">
                 <div className="text-xs text-stone-400 truncate">FOR</div>
-                <div className="font-mono font-semibold text-amber-600">
+                <div className="font-mono font-semibold text-rust-600">
                   {verdict.forScore.totalScore.toFixed(1)}
                 </div>
               </div>
@@ -276,14 +331,14 @@ function JudgeCard({
 
             {/* For Side Summary */}
             <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1 p-3 md:p-4 bg-amber-50/50 rounded-lg border border-amber-100">
-                <h5 className="text-sm font-medium text-amber-800 mb-2 flex items-center gap-2">
+              <div className="flex-1 p-3 md:p-4 bg-rust-50/50 rounded-lg border border-rust-100">
+                <h5 className="text-sm font-medium text-rust-800 mb-2 flex items-center gap-2">
                   <span className="text-xs md:text-sm truncate">FOR Side</span>
-                  <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">
+                  <span className="text-xs bg-rust-100 text-rust-700 px-2 py-0.5 rounded-full">
                     Confidence: {Math.round(verdict.forScore.confidence * 100)}%
                   </span>
                 </h5>
-                <p className="text-sm text-amber-900/80 leading-relaxed">
+                <p className="text-sm text-rust-900/80 leading-relaxed">
                   {verdict.forScore.summary}
                 </p>
               </div>
@@ -318,7 +373,7 @@ function JudgeCard({
                           {dim.dimensionId.replace(/-/g, " ")}
                         </span>
                         <div className="flex gap-2 md:gap-4 text-xs font-mono">
-                          <span className="text-amber-600 truncate">FOR: {dim.score}</span>
+                          <span className="text-rust-600 truncate">FOR: {dim.score}</span>
                           <span className="text-stone-600 truncate">AGAINST: {againstDim?.score ?? "—"}</span>
                         </div>
                       </div>
@@ -388,6 +443,9 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC }: JudgingResul
       {/* Winner Banner */}
       <WinnerBanner result={result} />
 
+      {/* Verdict Confidence Summary */}
+      <VerdictConfidenceSummary result={result} />
+
       {/* Disagreement Warnings */}
       <DisagreementWarnings disagreements={result.disagreements} />
 
@@ -396,10 +454,10 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC }: JudgingResul
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-orange-50 border border-orange-200 rounded-xl p-4 flex items-center gap-3"
+          className="bg-rust-50 border border-rust-200 rounded-xl p-4 flex items-center gap-3"
         >
-          <AlertTriangle className="h-5 w-5 text-orange-600" />
-          <p className="text-sm text-orange-800">
+          <AlertTriangle className="h-5 w-5 text-rust-600" />
+          <p className="text-sm text-rust-800">
             <span className="font-medium">Flagged for manual review:</span> This debate had significant
             disagreements among judges or other factors that warrant human review.
           </p>

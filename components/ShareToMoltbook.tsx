@@ -281,7 +281,7 @@ ${againstMsg?.content || "*No argument*"}
               exit={{ opacity: 0 }}
               className="text-center py-4"
             >
-              <Clock className="w-10 h-10 text-amber-500 mx-auto mb-3" />
+              <Clock className="w-10 h-10 text-rust-500 mx-auto mb-3" />
               <p className="font-serif text-lg text-stone-800 mb-2">
                 Rate Limited
               </p>

@@ -9,6 +9,21 @@ import { executeAgent } from "@/lib/agents/executor";
 import type { AgentConfig } from "@/lib/agents/types";
 
 /**
+ * Argument strength level derived from the 0-10 score
+ */
+export type ArgumentStrength = "strong" | "moderate" | "weak" | "unsupported";
+
+/**
+ * Get the strength label from a numeric score
+ */
+export function getArgumentStrength(score: number): ArgumentStrength {
+  if (score >= 7) return "strong";
+  if (score >= 4) return "moderate";
+  if (score >= 1) return "weak";
+  return "unsupported";
+}
+
+/**
  * A single extracted argument
  */
 export interface ExtractedArgument {
@@ -18,6 +33,10 @@ export interface ExtractedArgument {
   evidence?: string[];
   /** Source attribution (if mentioned) */
   source?: string;
+  /** Argument strength score (1-10) based on evidence quality and logical soundness */
+  strengthScore?: number;
+  /** Brief reasoning for the strength score */
+  strengthRationale?: string;
 }
 
 /**
@@ -43,6 +62,11 @@ export interface IdentifiedCrux {
 }
 
 /**
+ * Severity level for detected fallacies
+ */
+export type FallacySeverity = "confirmed" | "likely" | "possible";
+
+/**
  * Potential logical fallacy detected
  */
 export interface PotentialFallacy {
@@ -54,6 +78,40 @@ export interface PotentialFallacy {
   quote?: string;
   /** Which speaker/side committed this (if identifiable) */
   attributedTo?: string;
+  /** Severity: how confident we are this is actually a fallacy */
+  severity?: FallacySeverity;
+  /** How much this fallacy undermines the argument (1-10) */
+  impact?: number;
+}
+
+/**
+ * Detected bias in the content
+ */
+export interface DetectedBias {
+  /** Type of bias (e.g., "Confirmation Bias", "Selection Bias", "Framing Bias") */
+  type: string;
+  /** Explanation of the bias */
+  explanation: string;
+  /** Which side or speaker exhibits this bias */
+  affectedSide?: "for" | "against" | "both";
+  /** How significantly this bias affects the argument (1-10) */
+  impact: number;
+}
+
+/**
+ * Confidence level label with human-readable explanation
+ */
+export type ConfidenceLevel = "very-high" | "high" | "moderate" | "low" | "very-low";
+
+/**
+ * Get a human-readable confidence label and description
+ */
+export function getConfidenceInfo(score: number): { level: ConfidenceLevel; label: string; description: string } {
+  if (score >= 0.9) return { level: "very-high", label: "Very High Confidence", description: "Clear debate with well-defined, evidence-backed positions on both sides" };
+  if (score >= 0.75) return { level: "high", label: "High Confidence", description: "Strong argumentative structure with minor ambiguities" };
+  if (score >= 0.5) return { level: "moderate", label: "Moderate Confidence", description: "Identifiable positions but significant gaps in evidence or clarity" };
+  if (score >= 0.3) return { level: "low", label: "Low Confidence", description: "Weak argumentative structure — positions unclear or one-sided" };
+  return { level: "very-low", label: "Very Low Confidence", description: "Content may not be argumentative — treat results with caution" };
 }
 
 /**
@@ -68,25 +126,33 @@ export interface ExtractedArguments {
   identifiedCruxes: IdentifiedCrux[];
   /** Potential logical fallacies detected */
   potentialFallacies: PotentialFallacy[];
+  /** Detected biases in the argumentation */
+  detectedBiases: DetectedBias[];
   /** Brief summary of the debate/discussion */
   summary: string;
   /** Confidence in the extraction (0-1) */
   confidence: number;
+  /** Overall strength of the FOR position (1-10) */
+  forStrength?: number;
+  /** Overall strength of the AGAINST position (1-10) */
+  againstStrength?: number;
 }
 
 /**
  * Build the system prompt for argument extraction
  */
 function buildExtractionSystemPrompt(): string {
-  return `You are an expert at analyzing debates, discussions, and argumentative content. Your task is to extract the structured arguments from the given content.
+  return `You are an expert at analyzing debates, discussions, and argumentative content. Your task is to extract the structured arguments from the given content, assess their strength, detect biases, and evaluate logical soundness.
 
 ## Your Role
 
 Carefully read the content and identify:
 1. The main topic or claim being debated
-2. The positions (for/against) and their supporting arguments
+2. The positions (for/against) and their supporting arguments, each scored for strength
 3. Key points of disagreement (cruxes)
-4. Any potential logical fallacies
+4. Potential logical fallacies with severity ratings
+5. Cognitive or rhetorical biases in the argumentation
+6. Overall strength assessment for each side
 
 ## Output Format
 
@@ -102,7 +168,9 @@ You MUST respond with valid JSON in this exact format:
         {
           "claim": "The specific claim being made",
           "evidence": ["Supporting evidence if any"],
-          "source": "Source attribution if mentioned"
+          "source": "Source attribution if mentioned",
+          "strengthScore": 7,
+          "strengthRationale": "Brief explanation: e.g. 'Well-supported by peer-reviewed data but limited geographic scope'"
         }
       ]
     },
@@ -120,14 +188,26 @@ You MUST respond with valid JSON in this exact format:
   ],
   "potentialFallacies": [
     {
-      "type": "Fallacy name (e.g., Ad Hominem, Straw Man, Appeal to Authority)",
-      "explanation": "Why this might be a fallacy",
+      "type": "Fallacy name (e.g., Ad Hominem, Straw Man, Appeal to Authority, False Dichotomy, Slippery Slope, Cherry Picking, Appeal to Emotion, Bandwagon, Red Herring, Circular Reasoning)",
+      "explanation": "Why this is a fallacy",
       "quote": "Relevant quote from the text",
-      "attributedTo": "Who made this argument"
+      "attributedTo": "Who made this argument",
+      "severity": "confirmed | likely | possible",
+      "impact": 7
+    }
+  ],
+  "detectedBiases": [
+    {
+      "type": "Bias type (e.g., Confirmation Bias, Selection Bias, Framing Bias, Anchoring Bias, Survivorship Bias, Authority Bias, Status Quo Bias)",
+      "explanation": "How this bias manifests in the argument",
+      "affectedSide": "for | against | both",
+      "impact": 6
     }
   ],
   "summary": "Brief 2-3 sentence summary of the debate",
-  "confidence": 0.85
+  "confidence": 0.85,
+  "forStrength": 7,
+  "againstStrength": 6
 }
 
 ## Guidelines
@@ -138,11 +218,24 @@ You MUST respond with valid JSON in this exact format:
 
 3. **Be Precise with Cruxes**: A crux is not just any disagreement - it's the core issue that, if resolved, would significantly change the debate.
 
-4. **Fallacy Detection**: Only flag clear potential fallacies, not just weak arguments. Be conservative.
+4. **Argument Strength Scoring (1-10)**:
+   - 8-10: Strong — supported by credible evidence, logically sound, directly relevant
+   - 5-7: Moderate — some evidence but gaps, or logic has minor weaknesses
+   - 2-4: Weak — little evidence, logical gaps, or mostly opinion-based
+   - 1: Unsupported — pure assertion with no backing
 
-5. **Speaker Attribution**: If speakers are identified (by name, role, or "Speaker A/B"), preserve this.
+5. **Fallacy Severity**:
+   - "confirmed": Clear, textbook fallacy with identifiable quote
+   - "likely": Strong indicators of fallacious reasoning
+   - "possible": Could be a fallacy depending on interpretation
 
-6. **Confidence Level**:
+6. **Bias Detection**: Identify cognitive biases, rhetorical framing, cherry-picking of evidence, or systematic omissions. Rate impact 1-10 based on how much the bias distorts the argument.
+
+7. **Overall Side Strength (forStrength/againstStrength)**: Holistic 1-10 rating considering all arguments, evidence quality, logical soundness, and presence of fallacies for each side.
+
+8. **Speaker Attribution**: If speakers are identified (by name, role, or "Speaker A/B"), preserve this.
+
+9. **Confidence Level**:
    - 0.9-1.0: Clear debate with well-defined positions
    - 0.7-0.89: Reasonably clear but some ambiguity
    - 0.5-0.69: Significant ambiguity or one-sided content
@@ -231,8 +324,11 @@ function parseExtractionResponse(response: string): ExtractedArguments | null {
       positions: parsed.positions || [],
       identifiedCruxes: parsed.identifiedCruxes || [],
       potentialFallacies: parsed.potentialFallacies || [],
+      detectedBiases: parsed.detectedBiases || [],
       summary: parsed.summary || "",
       confidence: parsed.confidence ?? 0.5,
+      forStrength: parsed.forStrength ?? undefined,
+      againstStrength: parsed.againstStrength ?? undefined,
     };
   } catch {
     return null;

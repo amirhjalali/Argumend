@@ -92,9 +92,9 @@ export function TopicIntroPanel() {
                       className="text-xs font-bold font-mono tabular-nums flex-shrink-0"
                       style={{
                         color: topic.confidence_score >= 80
-                          ? "#D4A012"
+                          ? "#4f7b77"
                           : topic.confidence_score >= 50
-                          ? "#CF7B3E"
+                          ? "#C4613C"
                           : "#8B5A3C"
                       }}
                     >

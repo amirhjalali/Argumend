@@ -44,7 +44,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
   const isFor = position.side === "for";
 
   const cardStyles = isFor
-    ? "border-l-amber-500 bg-gradient-to-r from-amber-50/50 to-white"
+    ? "border-l-rust-500 bg-gradient-to-r from-rust-50/50 to-white"
     : "border-l-stone-500 bg-gradient-to-r from-stone-50/50 to-white";
 
   return (
@@ -62,7 +62,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             <div
               className={`px-3 py-1 rounded-full text-xs font-medium ${
                 isFor
-                  ? "bg-amber-100 text-amber-700"
+                  ? "bg-rust-100 text-rust-700"
                   : "bg-stone-100 text-stone-600"
               }`}
             >
@@ -338,7 +338,7 @@ export default function AnalyzePage() {
               animate={{ opacity: 1, y: 0 }}
               className="text-center space-y-3"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50/80 border border-amber-200/50 rounded-full text-xs font-medium text-amber-700 tracking-wide">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-rust-50/80 border border-rust-200/50 rounded-full text-xs font-medium text-rust-700 tracking-wide">
                 <Brain className="h-3 w-3" />
                 Content Analysis
               </div>
@@ -394,10 +394,10 @@ Critics counter that nuclear is too expensive and too slow to build. The Vogtle 
 Supporters respond that newer reactor designs like SMRs could dramatically cut costs and construction times, and that the waste problem is more political than technical — Finland's Onkalo facility proves deep geological storage works. The real question may be whether we can afford to exclude any zero-carbon source while facing a climate emergency.`);
                           setContentType("freeform");
                         }}
-                        className="flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 hover:bg-amber-100 rounded-md cursor-pointer transition-colors"
+                        className="flex items-center gap-1.5 px-2.5 py-1 bg-rust-50 hover:bg-rust-100 rounded-md cursor-pointer transition-colors"
                       >
-                        <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-                        <span className="text-xs text-amber-600">Try an Example</span>
+                        <Sparkles className="h-3.5 w-3.5 text-rust-500" />
+                        <span className="text-xs text-rust-600">Try an Example</span>
                       </button>
                       <label className="flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 hover:bg-stone-100 rounded-md cursor-pointer transition-colors">
                         <Upload className="h-3.5 w-3.5 text-stone-400" />
@@ -420,7 +420,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                       }
                     }}
                     placeholder="Paste your debate transcript, article, or discussion here..."
-                    className="w-full h-48 md:h-56 p-4 bg-stone-50/50 border border-stone-200/60 rounded-xl text-stone-700 text-sm placeholder-stone-400 resize-none focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500/50"
+                    className="w-full h-48 md:h-56 p-4 bg-stone-50/50 border border-stone-200/60 rounded-xl text-stone-700 text-sm placeholder-stone-400 resize-none focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50"
                   />
                   <p className="text-[11px] text-stone-400 mt-1.5 flex items-center gap-1">
                     <Shield className="h-3 w-3" />
@@ -438,7 +438,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                         type="checkbox"
                         checked={includeJudging}
                         onChange={(e) => setIncludeJudging(e.target.checked)}
-                        className="rounded border-stone-300 text-amber-600 focus:ring-amber-500"
+                        className="rounded border-stone-300 text-rust-600 focus:ring-rust-500"
                       />
                       <span className="text-xs text-stone-500">
                         Include AI Judgment
@@ -469,7 +469,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                     className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-serif font-semibold transition-all ${
                       isAnalyzing || !content.trim()
                         ? "bg-stone-100 text-stone-400 cursor-not-allowed"
-                        : "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md hover:shadow-lg"
+                        : "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg"
                     }`}
                   >
                     {isAnalyzing ? (
@@ -508,7 +508,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
 
                 {/* Topic */}
                 <div className="text-center">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 border border-amber-200/60 rounded-full text-xs font-medium text-amber-700 tracking-wide">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-rust-50 border border-rust-200/60 rounded-full text-xs font-medium text-rust-700 tracking-wide">
                     <MessageSquare className="h-3 w-3" />
                     Identified Topic
                   </div>

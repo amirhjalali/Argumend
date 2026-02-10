@@ -100,8 +100,8 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
             transition={{ delay: 0.25 }}
           >
             <div className="flex items-center gap-3 mb-5 border-b border-stone-200 pb-3">
-              <div className="h-px w-6 bg-amber-600"></div>
-              <h3 className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-amber-700">
+              <div className="h-px w-6 bg-rust-600"></div>
+              <h3 className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-rust-700">
                 The Skeptic
               </h3>
             </div>
@@ -215,7 +215,7 @@ export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
                   <div className="text-[10px] text-stone-500 font-sans uppercase tracking-[0.35em] mb-2 font-semibold">
                     Cost to Verify
                   </div>
-                  <div className="text-amber-700 font-serif text-lg font-bold">
+                  <div className="text-rust-700 font-serif text-lg font-bold">
                     {pillar.crux.cost_to_verify}
                   </div>
                 </div>

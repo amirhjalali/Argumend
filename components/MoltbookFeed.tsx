@@ -99,18 +99,18 @@ export function MoltbookFeed({
 
   if (error) {
     return (
-      <div className="bg-amber-50/50 border border-amber-200/60 rounded-xl p-4">
+      <div className="bg-rust-50/50 border border-rust-200/60 rounded-xl p-4">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
+          <AlertCircle className="w-5 h-5 text-rust-500 mt-0.5 flex-shrink-0" />
           <div className="flex-1">
-            <p className="text-amber-800 text-sm font-medium">
+            <p className="text-rust-800 text-sm font-medium">
               Couldn't load Moltbook feed
             </p>
-            <p className="text-amber-600 text-sm mt-1">{error}</p>
+            <p className="text-rust-600 text-sm mt-1">{error}</p>
           </div>
           <button
             onClick={fetchPosts}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-amber-700 hover:bg-amber-100 rounded-lg transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-rust-700 hover:bg-rust-100 rounded-lg transition-colors"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             Retry

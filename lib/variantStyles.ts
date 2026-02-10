@@ -54,9 +54,9 @@ export const VARIANT_STYLES: Record<NodeVariant, VariantStyle> = {
   },
   proponent: {
     label: "Proponent",
-    accentColor: "#D4A012",
-    borderClass: "border-l-[#D4A012]",
-    bgClass: "bg-[#D4A012]/5",
+    accentColor: "#C4613C",
+    borderClass: "border-l-[#C4613C]",
+    bgClass: "bg-[#C4613C]/5",
     Icon: Shield,
     tagline: "The response",
   },
@@ -70,9 +70,9 @@ export const VARIANT_STYLES: Record<NodeVariant, VariantStyle> = {
   },
   evidence: {
     label: "Evidence",
-    accentColor: "#CF7B3E",
-    borderClass: "border-l-[#CF7B3E]",
-    bgClass: "bg-[#CF7B3E]/5",
+    accentColor: "#4f7b77",
+    borderClass: "border-l-[#4f7b77]",
+    bgClass: "bg-[#4f7b77]/5",
     Icon: ScrollText,
     tagline: "The data",
   },
@@ -93,9 +93,9 @@ export const VARIANT_STYLES: Record<NodeVariant, VariantStyle> = {
 export const VARIANT_EDGE_COLORS: Record<NodeVariant | string, string> = {
   meta: "#2563eb",
   skeptic: "#8B5A3C",
-  proponent: "#D4A012",
+  proponent: "#C4613C",
   crux: "#a23b3b",
-  evidence: "#CF7B3E",
+  evidence: "#4f7b77",
   question: "#6b5b95",
   pillar: "#78716c",
 };
@@ -107,8 +107,8 @@ export const MINIMAP_COLORS: Record<NodeVariant, string> = {
   meta: "#2563eb",
   skeptic: "#8B5A3C",
   crux: "#a23b3b",
-  proponent: "#D4A012",
-  evidence: "#CF7B3E",
+  proponent: "#C4613C",
+  evidence: "#4f7b77",
   pillar: "#a8a095",
   question: "#6b5b95",
 };

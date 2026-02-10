@@ -24,7 +24,7 @@ const LEGEND_ITEMS = [
   {
     label: "Proponent",
     description: "Arguments supporting the claim",
-    color: "#D4A012",
+    color: "#C4613C",
     Icon: Shield,
   },
   {
@@ -36,7 +36,7 @@ const LEGEND_ITEMS = [
   {
     label: "Evidence",
     description: "Supporting data and references",
-    color: "#CF7B3E",
+    color: "#4f7b77",
     Icon: ScrollText,
   },
   {

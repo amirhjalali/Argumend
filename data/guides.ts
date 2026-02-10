@@ -337,7 +337,7 @@ The lesson: don't avoid fact-checking out of fear of backfire. Present accurate 
     subtitle: "Evaluating and Weighting Different Types of Proof",
     description: "Not all evidence is equal. Learn to assess evidence quality, understand study design, and know when to update your beliefs.",
     icon: Layers,
-    color: "#D4A012",
+    color: "#C4613C",
     readTime: "14 min read",
     sections: [
       {

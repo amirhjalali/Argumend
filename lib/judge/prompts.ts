@@ -84,13 +84,15 @@ ${buildRubricSection(rubric)}
 
 3. **Consider Both Sides Equally**: Evaluate the "for" and "against" positions with the same rigor.
 
-4. **Confidence Level**: Report how confident you are in your assessment (0-1):
+4. **Assess Bias & Credibility**: Actively check for cognitive biases (confirmation bias, cherry-picking, anchoring), evaluate whether sources are credible and independent, and note if either side ignores contradicting evidence.
+
+5. **Confidence Level**: Report how confident you are in your assessment (0-1):
    - 0.9-1.0: Very confident, clear winner
    - 0.7-0.89: Confident, but some close calls
    - 0.5-0.69: Moderate confidence, debate was close
    - Below 0.5: Low confidence, may need re-evaluation
 
-5. **Draw Threshold**: Only declare a draw if the weighted scores are within 0.5 points of each other.
+6. **Draw Threshold**: Only declare a draw if the weighted scores are within 0.5 points of each other.
 
 ## Output Format
 

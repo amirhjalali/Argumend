@@ -37,7 +37,7 @@ export default function NotFound() {
       <nav className="flex flex-wrap items-center justify-center gap-3 mb-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-amber-600 text-white hover:bg-amber-700 transition-colors shadow-sm"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-rust-600 text-white hover:bg-rust-700 transition-colors shadow-sm"
         >
           <Home className="w-4 h-4" strokeWidth={1.8} />
           Back to Home

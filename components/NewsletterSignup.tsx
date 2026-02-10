@@ -81,14 +81,14 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
               if (error) setError("");
             }}
             placeholder="you@example.com"
-            className={`w-full bg-white border border-stone-300 rounded-lg text-[#3d3a36] placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500/50 transition-colors ${
+            className={`w-full bg-white border border-stone-300 rounded-lg text-[#3d3a36] placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"
             } ${error ? "border-red-400 focus:ring-red-400/30 focus:border-red-400/50" : ""}`}
           />
         </div>
         <button
           type="submit"
-          className={`flex-shrink-0 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-medium rounded-lg transition-all ${
+          className={`flex-shrink-0 bg-gradient-to-r from-rust-500 to-rust-600 hover:from-rust-600 hover:to-rust-700 text-white font-medium rounded-lg transition-all ${
             isCompact ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"
           }`}
         >

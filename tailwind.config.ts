@@ -25,10 +25,25 @@ const config: Config = {
           dark: "#3d5f5c",
         },
 
+        // Rust palette — CTA buttons, "for" side, warm accents
+        // Inspired by Claude's warm terracotta. NEVER use amber/tangerine.
+        rust: {
+          50: "#fdf5f2",
+          100: "#fae8e0",
+          200: "#f5c9b8",
+          300: "#e6a48c",
+          400: "#d4805f",
+          500: "#C4613C", // Primary CTA button color
+          600: "#b05434",
+          700: "#8b3f27",
+          800: "#6b301e",
+          900: "#4a2115",
+        },
+
         accent: {
-          main: "#D4A012", // Rich metallic gold
-          warn: "#E8B923", // Bright gold
-          link: "#CF7B3E", // Warm copper link
+          main: "#C4613C", // Rust — warm terracotta
+          warn: "#d4805f", // Soft rust warning
+          link: "#b05434", // Rust-600 link
           error: "#c4584d",
         },
 
@@ -39,14 +54,14 @@ const config: Config = {
           dark: "#7a2929",
         },
         evidence: {
-          DEFAULT: "#CF7B3E", // Rich copper for evidence
-          light: "#E09555", // Light copper
-          dark: "#A65F2A", // Deep copper
+          DEFAULT: "#4f7b77", // Deep teal for evidence
+          light: "#6a9b96", // Light teal
+          dark: "#3d5f5c", // Dark teal
         },
         proponent: {
-          DEFAULT: "#D4A012", // Metallic gold for proponent
-          light: "#E8B923",
-          dark: "#B8890F",
+          DEFAULT: "#C4613C", // Rust for proponent
+          light: "#d4805f",
+          dark: "#b05434",
         },
         skeptic: {
           DEFAULT: "#8B5A3C", // Warm brown for skeptic
@@ -54,8 +69,8 @@ const config: Config = {
           dark: "#6B442C", // Dark brown
         },
         score: {
-          high: "#D4A012", // High confidence - metallic gold
-          mid: "#CF7B3E", // Mid confidence - copper
+          high: "#4f7b77", // High confidence - deep teal
+          mid: "#C4613C", // Mid confidence - rust
           low: "#8B5A3C", // Low confidence - brown
         },
       },

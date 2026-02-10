@@ -28,6 +28,11 @@ import type {
   ExtractedPosition,
   IdentifiedCrux,
   PotentialFallacy,
+  DetectedBias,
+} from "@/lib/analyze/extractor";
+import {
+  getArgumentStrength,
+  getConfidenceInfo,
 } from "@/lib/analyze/extractor";
 
 // ---------- Helpers ----------
@@ -81,12 +86,103 @@ function findRelatedTopics(analysisTopic: string, count: number = 4): Topic[] {
 
 // ---------- Sub-components ----------
 
+function StrengthBadge({ score }: { score: number }) {
+  const strength = getArgumentStrength(score);
+  const styles = {
+    strong: "bg-emerald-100 text-emerald-700 border-emerald-200",
+    moderate: "bg-stone-100 text-stone-600 border-stone-200",
+    weak: "bg-red-100 text-red-600 border-red-200",
+    unsupported: "bg-red-50 text-red-500 border-red-100",
+  };
+
+  return (
+    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wide border ${styles[strength]}`}>
+      <span className="tabular-nums">{score}/10</span>
+      <span className="hidden sm:inline">{strength}</span>
+    </span>
+  );
+}
+
+function SideStrengthMeter({ label, score, side }: { label: string; score: number; side: "for" | "against" }) {
+  const pct = (score / 10) * 100;
+  const barColor = side === "for" ? "bg-rust-500" : "bg-stone-500";
+  const textColor = side === "for" ? "text-rust-700" : "text-stone-600";
+  const bgColor = side === "for" ? "bg-rust-50" : "bg-stone-50";
+
+  return (
+    <div className={`flex-1 p-3 rounded-xl border ${side === "for" ? "border-rust-200/60" : "border-stone-200/60"} ${bgColor}`}>
+      <div className="flex items-center justify-between mb-1.5">
+        <span className={`text-xs font-semibold uppercase tracking-wider ${textColor}`}>{label}</span>
+        <span className={`text-lg font-mono font-bold ${textColor}`}>{score}/10</span>
+      </div>
+      <div className="h-2 rounded-full bg-white/80 overflow-hidden">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${pct}%` }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className={`h-full rounded-full ${barColor}`}
+        />
+      </div>
+      <p className="text-[10px] mt-1 text-stone-500">
+        {score >= 7 ? "Strong position" : score >= 4 ? "Moderate position" : "Weak position"}
+      </p>
+    </div>
+  );
+}
+
+function ConfidenceExplainer({ score }: { score: number }) {
+  const info = getConfidenceInfo(score);
+  const colorMap = {
+    "very-high": "border-emerald-200 bg-emerald-50 text-emerald-800",
+    "high": "border-emerald-200/60 bg-emerald-50/50 text-emerald-700",
+    "moderate": "border-stone-200 bg-stone-50 text-stone-700",
+    "low": "border-red-200/60 bg-red-50/50 text-red-700",
+    "very-low": "border-red-200 bg-red-50 text-red-800",
+  };
+
+  return (
+    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs ${colorMap[info.level]}`}>
+      <span className="font-semibold">{info.label}</span>
+      <span className="hidden sm:inline opacity-75">— {info.description}</span>
+    </div>
+  );
+}
+
+function BiasCard({ bias }: { bias: DetectedBias }) {
+  const impactColor = bias.impact >= 7 ? "text-red-600 bg-red-50" : bias.impact >= 4 ? "text-stone-600 bg-stone-50" : "text-stone-500 bg-stone-50/50";
+  const sideLabel = bias.affectedSide === "for" ? "FOR side" : bias.affectedSide === "against" ? "AGAINST side" : "Both sides";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="p-3 md:p-4 bg-orange-50/40 border border-orange-200/50 rounded-xl"
+    >
+      <div className="flex items-start gap-3">
+        <Brain className="h-5 w-5 text-orange-600 flex-shrink-0 mt-0.5" />
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-stone-800 font-medium">{bias.type}</span>
+            <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${impactColor}`}>
+              Impact: {bias.impact}/10
+            </span>
+            <span className="text-[10px] bg-stone-100 text-stone-500 px-2 py-0.5 rounded-full">
+              {sideLabel}
+            </span>
+          </div>
+          <p className="mt-1 text-sm text-stone-600">{bias.explanation}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 function PositionCard({ position }: { position: ExtractedPosition }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const isFor = position.side === "for";
 
   const cardStyles = isFor
-    ? "border-l-amber-500 bg-gradient-to-r from-amber-50/50 to-white"
+    ? "border-l-rust-500 bg-gradient-to-r from-rust-50/50 to-white"
     : "border-l-stone-500 bg-gradient-to-r from-stone-50/50 to-white";
 
   return (
@@ -104,7 +200,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             <div
               className={`px-3 py-1 rounded-full text-xs font-medium ${
                 isFor
-                  ? "bg-amber-100 text-amber-700"
+                  ? "bg-rust-100 text-rust-700"
                   : "bg-stone-100 text-stone-600"
               }`}
             >
@@ -139,7 +235,17 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
           <div className="pt-4 space-y-4">
             {position.arguments.map((arg, idx) => (
               <div key={idx} className="pl-4 border-l-2 border-stone-200">
-                <p className="text-stone-700 font-medium">{arg.claim}</p>
+                <div className="flex items-start justify-between gap-2">
+                  <p className="text-stone-700 font-medium">{arg.claim}</p>
+                  {arg.strengthScore != null && (
+                    <StrengthBadge score={arg.strengthScore} />
+                  )}
+                </div>
+                {arg.strengthRationale && (
+                  <p className="mt-1 text-xs text-[#4f7b77] italic">
+                    {arg.strengthRationale}
+                  </p>
+                )}
                 {arg.evidence && arg.evidence.length > 0 && (
                   <div className="mt-2 space-y-1">
                     <span className="text-xs text-stone-500 uppercase tracking-wide">
@@ -185,17 +291,34 @@ function CruxCard({ crux }: { crux: IdentifiedCrux }) {
 }
 
 function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
+  const severityStyles = {
+    confirmed: "bg-red-100 text-red-700 border-red-200",
+    likely: "bg-yellow-100 text-yellow-700 border-yellow-200",
+    possible: "bg-stone-100 text-stone-500 border-stone-200",
+  };
+  const severity = fallacy.severity ?? "possible";
+  const borderColor = severity === "confirmed" ? "border-red-200/60" : severity === "likely" ? "border-yellow-200/60" : "border-stone-200/60";
+  const bgColor = severity === "confirmed" ? "bg-red-50/50" : severity === "likely" ? "bg-yellow-50/50" : "bg-stone-50/50";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-3 md:p-4 bg-yellow-50/50 border border-yellow-200/60 rounded-xl"
+      className={`p-3 md:p-4 ${bgColor} border ${borderColor} rounded-xl`}
     >
       <div className="flex items-start gap-3">
-        <AlertTriangle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-        <div>
-          <div className="flex items-center gap-2">
+        <AlertTriangle className={`h-5 w-5 flex-shrink-0 mt-0.5 ${severity === "confirmed" ? "text-red-600" : severity === "likely" ? "text-yellow-600" : "text-stone-400"}`} />
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="text-stone-800 font-medium">{fallacy.type}</span>
+            <span className={`text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full border ${severityStyles[severity]}`}>
+              {severity}
+            </span>
+            {fallacy.impact != null && (
+              <span className="text-[10px] font-semibold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">
+                Impact: {fallacy.impact}/10
+              </span>
+            )}
             {fallacy.attributedTo && (
               <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">
                 {fallacy.attributedTo}
@@ -401,16 +524,33 @@ export function AnalysisView({
             <p className="text-[#6d645c] text-sm max-w-xl mx-auto">
               {extracted.summary}
             </p>
-            <div className="flex items-center justify-center gap-4 text-xs text-stone-400">
+            <div className="flex items-center justify-center gap-4 text-xs text-stone-400 mb-3">
               <span className="flex items-center gap-1">
                 <Clock className="h-3 w-3" />
                 {formattedDate}
               </span>
-              <span>
-                Confidence: {Math.round(extracted.confidence * 100)}%
-              </span>
+            </div>
+            <div className="flex justify-center">
+              <ConfidenceExplainer score={extracted.confidence} />
             </div>
           </motion.div>
+
+          {/* Side Strength Overview */}
+          {(extracted.forStrength != null || extracted.againstStrength != null) && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.12 }}
+              className="flex flex-col sm:flex-row gap-3"
+            >
+              {extracted.forStrength != null && (
+                <SideStrengthMeter label="For" score={extracted.forStrength} side="for" />
+              )}
+              {extracted.againstStrength != null && (
+                <SideStrengthMeter label="Against" score={extracted.againstStrength} side="against" />
+              )}
+            </motion.div>
+          )}
 
           {/* Social Share Buttons */}
           <motion.div
@@ -485,6 +625,26 @@ export function AnalysisView({
             </motion.div>
           )}
 
+          {/* Detected Biases */}
+          {extracted.detectedBiases && extracted.detectedBiases.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.28 }}
+              className="space-y-4"
+            >
+              <h3 className="font-serif font-semibold text-[#1f1f1d] flex items-center gap-2">
+                <Brain className="h-4 w-4 text-orange-600" />
+                Detected Biases
+              </h3>
+              <div className="space-y-3">
+                {extracted.detectedBiases.map((bias, idx) => (
+                  <BiasCard key={idx} bias={bias} />
+                ))}
+              </div>
+            </motion.div>
+          )}
+
           {/* Judging Results */}
           {judgingResult && (
             <motion.div
@@ -542,7 +702,7 @@ export function AnalysisView({
               </p>
               <Link
                 href="/analyze"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg transition-all"
               >
                 <Sparkles className="h-4 w-4" />
                 Run Another Analysis

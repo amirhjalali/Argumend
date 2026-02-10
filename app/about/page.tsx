@@ -8,7 +8,7 @@ const principles = [
     icon: Shield,
     title: "Steel-Manning",
     description: "We present the strongest version of every argument. If you can't articulate why intelligent people hold a position, you don't understand it well enough to disagree.",
-    color: "#D4A012",
+    color: "#C4613C",
   },
   {
     icon: Target,
@@ -20,7 +20,7 @@ const principles = [
     icon: Lightbulb,
     title: "Calibrated Confidence",
     description: "We report uncertainty honestly. 95% means overwhelming evidence. 45% means genuinely contested. We never pretend to know more than we do.",
-    color: "#CF7B3E",
+    color: "#b05434",
   },
   {
     icon: BookOpen,
@@ -129,7 +129,7 @@ export default function AboutPage() {
               <span><strong className="text-primary">The strongest objection</strong> — steel-manned, not strawmanned</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#D4A012] mt-2 flex-shrink-0" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#C4613C] mt-2 flex-shrink-0" />
               <span><strong className="text-primary">The best response</strong> — with evidence, not rhetoric</span>
             </li>
             <li className="flex items-start gap-3">
@@ -234,7 +234,7 @@ export default function AboutPage() {
         {/* Voices of Reason */}
         <section className="mb-14 md:mb-20">
           <div className="flex items-center gap-2.5 mb-8">
-            <Quote className="h-5 w-5 text-[#D4A012]" strokeWidth={1.5} />
+            <Quote className="h-5 w-5 text-[#C4613C]" strokeWidth={1.5} />
             <h2 className="font-serif text-2xl md:text-3xl text-primary">Voices of reason</h2>
           </div>
           <div className="grid gap-4">
@@ -248,7 +248,7 @@ export default function AboutPage() {
                   &ldquo;{quote.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4A012]/20 to-[#CF7B3E]/10 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#C4613C]/20 to-[#b05434]/10 flex items-center justify-center">
                     <span className="text-xs font-bold text-[#8B5A3C]">{quote.author.charAt(0)}</span>
                   </div>
                   <div>

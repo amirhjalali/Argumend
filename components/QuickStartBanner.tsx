@@ -101,7 +101,7 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                   </p>
                   <button
                     onClick={handleStartFeatured}
-                    className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-semibold rounded-lg shadow-sm hover:shadow-md transition-all hover:brightness-105"
+                    className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-rust-500 to-rust-600 text-white text-xs font-semibold rounded-lg shadow-sm hover:shadow-md transition-all hover:brightness-105"
                   >
                     Start with this topic
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -178,7 +178,7 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                                 topic.status === "settled"
                                   ? "border-emerald-200 text-emerald-500"
                                   : topic.status === "contested"
-                                  ? "border-amber-200 text-amber-500"
+                                  ? "border-rust-200 text-rust-500"
                                   : "border-stone-200 text-stone-400"
                               }`}
                             >

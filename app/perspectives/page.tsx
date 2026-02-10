@@ -56,7 +56,7 @@ const scenes: Scene[] = [
     ),
     imageSrc: "/images/perspectives/rewind.png",
     imageAlt: "30 seconds earlier: Struggle over a bag",
-    accentColor: "#c9a227",
+    accentColor: "#C4613C",
   },
   {
     id: "2-minutes",
@@ -360,7 +360,7 @@ export default function PerspectivesPage() {
           />
           <motion.div
             className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full opacity-[0.03]"
-            style={{ background: "radial-gradient(circle, #c9a227 0%, transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, #C4613C 0%, transparent 70%)" }}
             animate={{ scale: [1.1, 1, 1.1], rotate: [0, -10, 0] }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           />

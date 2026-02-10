@@ -28,7 +28,7 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
 
 const statusColors: Record<TopicStatus, string> = {
   settled: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  contested: "bg-amber-50 text-amber-700 border-amber-200/60",
+  contested: "bg-rust-50 text-rust-700 border-rust-200/60",
   highly_speculative: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 
@@ -36,7 +36,7 @@ const categoryColors: Record<TopicCategory, string> = {
   policy: "bg-blue-50 text-blue-600 border-blue-200/60",
   technology: "bg-violet-50 text-violet-600 border-violet-200/60",
   science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
-  economics: "bg-amber-50 text-amber-700 border-amber-200/60",
+  economics: "bg-rust-50 text-rust-700 border-rust-200/60",
   philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 

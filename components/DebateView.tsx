@@ -106,13 +106,13 @@ function DebaterCard({
         className={`flex items-center gap-2 mb-4 ${isFor ? "" : "justify-end"}`}
       >
         {isFor ? (
-          <Sword className="w-4 h-4 text-amber-600" />
+          <Sword className="w-4 h-4 text-rust-600" />
         ) : (
           <Shield className="w-4 h-4 text-stone-500" />
         )}
         <span
           className={`font-serif text-sm md:text-base tracking-[0.15em] uppercase ${
-            isFor ? "text-amber-800" : "text-stone-600"
+            isFor ? "text-rust-800" : "text-stone-600"
           }`}
         >
           {isFor ? "Proposition" : "Opposition"}
@@ -137,7 +137,7 @@ function DebaterCard({
                 ${
                   isSelected
                     ? isFor
-                      ? "border-amber-400 bg-gradient-to-br from-amber-50 to-orange-50/50 shadow-md"
+                      ? "border-rust-400 bg-gradient-to-br from-rust-50 to-rust-100/50 shadow-md"
                       : "border-stone-400 bg-gradient-to-br from-stone-100 to-stone-50 shadow-md"
                     : "border-stone-200 bg-white/60 hover:border-stone-300 hover:bg-white/80"
                 }
@@ -149,7 +149,7 @@ function DebaterCard({
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   className={`absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center text-white text-xs ${
-                    isFor ? "bg-amber-500" : "bg-stone-500"
+                    isFor ? "bg-rust-500" : "bg-stone-500"
                   }`}
                 >
                   &#10003;
@@ -214,7 +214,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
           </div>
           <div
             className={`w-0.5 flex-1 min-h-[20px] ${
-              isFor ? "bg-amber-200/60" : "bg-stone-200/60"
+              isFor ? "bg-rust-200/60" : "bg-stone-200/60"
             }`}
           />
         </div>
@@ -233,7 +233,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
             <span
               className={`text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 font-medium ${
                 isFor
-                  ? "bg-amber-100/80 text-amber-700 border border-amber-200/50"
+                  ? "bg-rust-100/80 text-rust-700 border border-rust-200/50"
                   : "bg-stone-100/80 text-stone-600 border border-stone-200/50"
               }`}
             >
@@ -250,14 +250,14 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
           <div
             className={`rounded-2xl p-5 border shadow-sm ${
               isFor
-                ? "bg-gradient-to-br from-amber-50/60 to-orange-50/30 border-amber-200/40"
+                ? "bg-gradient-to-br from-rust-50/60 to-rust-100/30 border-rust-200/40"
                 : "bg-gradient-to-br from-stone-50/60 to-gray-50/30 border-stone-200/40"
             }`}
           >
             {/* Quote decoration */}
             <Quote
               className={`w-5 h-5 mb-2 opacity-40 ${
-                isFor ? "text-amber-400" : "text-stone-400"
+                isFor ? "text-rust-400" : "text-stone-400"
               }`}
             />
             <p className="text-stone-700 leading-relaxed whitespace-pre-wrap text-[15px]">
@@ -296,7 +296,7 @@ function ThinkingIndicator({ side, model }: ThinkingIndicatorProps) {
       <div
         className={`rounded-2xl px-5 py-4 border ${
           isFor
-            ? "bg-amber-50/40 border-amber-200/40"
+            ? "bg-rust-50/40 border-rust-200/40"
             : "bg-stone-50/40 border-stone-200/40"
         }`}
       >
@@ -315,7 +315,7 @@ function ThinkingIndicator({ side, model }: ThinkingIndicatorProps) {
                   delay: i * THINKING_DOTS.DOT_DELAY,
                 }}
                 className={`w-1.5 h-1.5 rounded-full ${
-                  isFor ? "bg-amber-400" : "bg-stone-400"
+                  isFor ? "bg-rust-400" : "bg-stone-400"
                 }`}
               />
             ))}
@@ -356,14 +356,14 @@ function DebateHeader({
       <div className="flex items-center gap-2 md:gap-6 flex-wrap">
         {/* Debaters */}
         <div className="flex items-center gap-2">
-          <Sword className="w-4 h-4 text-amber-600" />
+          <Sword className="w-4 h-4 text-rust-600" />
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center border border-stone-200/50"
             style={{ backgroundColor: forLlm?.bgLight }}
           >
             <ForIcon className="w-4 h-4" style={{ color: forLlm?.color }} />
           </div>
-          <span className="font-serif text-amber-700 font-medium">
+          <span className="font-serif text-rust-700 font-medium">
             {forLlm?.name}
           </span>
         </div>
@@ -397,7 +397,7 @@ function DebateHeader({
         </div>
 
         {isDebating && (
-          <div className="flex items-center gap-1.5 text-amber-600">
+          <div className="flex items-center gap-1.5 text-rust-600">
             <Loader2 className="h-4 w-4 animate-spin" />
             <span className="text-xs font-medium">Live</span>
           </div>
@@ -874,7 +874,7 @@ export function DebateView() {
                     whileTap={{ scale: 0.95 }}
                     className={`w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl font-serif font-semibold transition-all ${
                       state.maxRounds === num
-                        ? "bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-md"
+                        ? "bg-gradient-to-br from-rust-500 to-rust-600 text-white shadow-md"
                         : "bg-white border border-stone-200 text-stone-600 hover:border-stone-300"
                     }`}
                   >
@@ -895,7 +895,7 @@ export function DebateView() {
                   flex items-center gap-3 px-4 md:px-8 py-3.5 rounded-xl font-serif font-semibold text-lg transition-all
                   ${
                     canStart
-                      ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg hover:shadow-xl"
+                      ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-lg hover:shadow-xl"
                       : "bg-stone-100 text-stone-400 cursor-not-allowed"
                   }
                 `}
@@ -1004,9 +1004,9 @@ export function DebateView() {
             className="py-5 md:py-8 border-t border-stone-200/60"
           >
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/60 rounded-full">
-                <Sparkles className="h-4 w-4 text-amber-600" />
-                <span className="font-serif text-amber-800 font-medium">
+              <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-rust-50 to-rust-100 border border-rust-200/60 rounded-full">
+                <Sparkles className="h-4 w-4 text-rust-600" />
+                <span className="font-serif text-rust-800 font-medium">
                   {state.phase === "mockView" ? "Example Debate" : "Debate Concluded"}{" "}
                   &mdash; {state.maxRounds} Rounds
                 </span>

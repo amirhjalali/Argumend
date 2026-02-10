@@ -17,9 +17,9 @@ import { getVariantStyle } from "@/lib/variantStyles";
 function getStatusStyle(status: string): string {
   switch (status) {
     case "verified":
-      return "bg-[#D4A012]/20 text-[#8B6914]";
+      return "bg-[#4f7b77]/20 text-[#3d6360]";
     case "theoretical":
-      return "bg-[#CF7B3E]/20 text-[#A65F2A]";
+      return "bg-[#C4613C]/20 text-[#8b3f27]";
     default:
       return "bg-stone-200 text-stone-600";
   }
@@ -168,8 +168,8 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
             <button
               className={`flex items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
                 evidenceLoaded
-                  ? "text-amber-500 bg-amber-50/50 border border-amber-200/50"
-                  : "text-amber-700 bg-amber-100/80 hover:bg-amber-200/80 border border-amber-200/50"
+                  ? "text-rust-500 bg-rust-50/50 border border-rust-200/50"
+                  : "text-rust-700 bg-rust-100/80 hover:bg-rust-200/80 border border-rust-200/50"
               }`}
               onClick={() => loadEvidence(id)}
               disabled={evidenceLoaded}

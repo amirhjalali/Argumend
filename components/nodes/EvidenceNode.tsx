@@ -30,7 +30,7 @@ export function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
     <div
       className={`relative w-[280px] rounded-xl border shadow-[0_1px_3px_rgba(120,100,80,0.08)] transition-shadow duration-200 hover:shadow-[0_4px_12px_rgba(120,100,80,0.12)] node-enter ${
         isFor
-          ? "bg-gradient-to-br from-amber-50/90 to-orange-50/60 border-amber-300/60 border-l-[3px] border-l-amber-500"
+          ? "bg-gradient-to-br from-rust-50/90 to-rust-100/60 border-rust-300/60 border-l-[3px] border-l-rust-500"
           : "bg-gradient-to-br from-stone-50/90 to-gray-50/60 border-stone-300/60 border-l-[3px] border-l-stone-500"
       }`}
       style={{ animationDelay: `${((data.birthOrder as number) ?? 0) * 60}ms` }}
@@ -71,7 +71,7 @@ export function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
           <div className="flex items-center gap-1.5">
             {isFor ? (
               <ThumbsUp
-                className="h-3.5 w-3.5 text-amber-600"
+                className="h-3.5 w-3.5 text-rust-600"
                 strokeWidth={2}
               />
             ) : (
@@ -82,7 +82,7 @@ export function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
             )}
             <span
               className={`text-[10px] font-semibold uppercase tracking-wide ${
-                isFor ? "text-amber-700" : "text-stone-600"
+                isFor ? "text-rust-700" : "text-stone-600"
               }`}
             >
               {isFor ? "Supporting" : "Opposing"}
@@ -93,7 +93,7 @@ export function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
           <div
             className={`flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium ${
               isFor
-                ? "bg-amber-100/80 text-amber-700"
+                ? "bg-rust-100/80 text-rust-700"
                 : "bg-stone-100/80 text-stone-600"
             }`}
           >
@@ -124,7 +124,7 @@ export function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-1 text-[11px] font-medium transition-colors ${
                   isFor
-                    ? "text-amber-600 hover:text-amber-700"
+                    ? "text-rust-600 hover:text-rust-700"
                     : "text-stone-500 hover:text-stone-700"
                 }`}
               >

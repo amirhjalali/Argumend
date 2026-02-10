@@ -78,7 +78,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
         <div className="flex items-center gap-1 md:gap-2">
           <Link
             href="/analyze"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 text-amber-600 text-sm font-medium hover:text-amber-800 hover:bg-amber-50/60 rounded-lg transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 text-rust-600 text-sm font-medium hover:text-rust-800 hover:bg-rust-50/60 rounded-lg transition-colors"
           >
             <Brain className="h-3.5 w-3.5" strokeWidth={1.8} />
             <span className="hidden sm:inline">Analyze</span>

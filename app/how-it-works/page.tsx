@@ -34,7 +34,7 @@ const nodeTypes = [
   {
     icon: Shield,
     name: "Proponent",
-    color: "#D4A012",
+    color: "#C4613C",
     description: "The best response to an objection, backed by evidence.",
     example: "\"Modern reactor designs make meltdowns physically impossible\"",
   },
@@ -48,7 +48,7 @@ const nodeTypes = [
   {
     icon: ScrollText,
     name: "Evidence",
-    color: "#CF7B3E",
+    color: "#b05434",
     description: "Data, studies, and sources that support or challenge claims.",
     example: "\"NRC Safety Report 2023: Zero incidents in passive reactors\"",
   },
@@ -113,13 +113,13 @@ export default function HowItWorksPage() {
                 className="flex gap-4 p-4 md:p-5 rounded-lg bg-[#fefcf9] border border-stone-200/70"
               >
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#D4A012]/20 to-[#CF7B3E]/10 flex items-center justify-center">
-                    <span className="font-serif text-xl font-bold text-[#D4A012]">{step.number}</span>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C4613C]/20 to-[#b05434]/10 flex items-center justify-center">
+                    <span className="font-serif text-xl font-bold text-[#C4613C]">{step.number}</span>
                   </div>
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <step.icon className="h-4 w-4 text-[#CF7B3E]" strokeWidth={2} />
+                    <step.icon className="h-4 w-4 text-[#b05434]" strokeWidth={2} />
                     <h3 className="font-serif text-lg font-semibold text-primary">{step.title}</h3>
                   </div>
                   <p className="text-sm text-secondary leading-relaxed">{step.description}</p>
@@ -147,16 +147,16 @@ export default function HowItWorksPage() {
             <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
               <defs>
                 <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                  <polygon points="0 0, 10 3.5, 0 7" fill="#CF7B3E" />
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#b05434" />
                 </marker>
               </defs>
               {/* Meta to Skeptic */}
-              <line x1="50%" y1="80" x2="25%" y2="160" stroke="#CF7B3E" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
+              <line x1="50%" y1="80" x2="25%" y2="160" stroke="#b05434" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
               {/* Meta to Proponent */}
-              <line x1="50%" y1="80" x2="75%" y2="160" stroke="#CF7B3E" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
+              <line x1="50%" y1="80" x2="75%" y2="160" stroke="#b05434" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
               {/* Both to Crux */}
-              <line x1="25%" y1="220" x2="50%" y2="300" stroke="#CF7B3E" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
-              <line x1="75%" y1="220" x2="50%" y2="300" stroke="#CF7B3E" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
+              <line x1="25%" y1="220" x2="50%" y2="300" stroke="#b05434" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
+              <line x1="75%" y1="220" x2="50%" y2="300" stroke="#b05434" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
             </svg>
 
             {/* Nodes */}
@@ -184,7 +184,7 @@ export default function HowItWorksPage() {
                   <p className="mt-2 text-xs text-secondary italic text-center">Strongest objection</p>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4A012] to-[#CF7B3E] text-white font-semibold shadow-md">
+                  <div className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#C4613C] to-[#b05434] text-white font-semibold shadow-md">
                     <div className="flex items-center gap-2">
                       <Shield className="h-4 w-4" />
                       <span>Proponent</span>

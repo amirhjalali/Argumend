@@ -32,7 +32,7 @@ function VerificationBadge({
     theoretical: {
       icon: HelpCircle,
       label: "Theoretical",
-      className: "text-amber-600 bg-amber-50",
+      className: "text-rust-600 bg-rust-50",
     },
     impossible: {
       icon: XCircle,
@@ -218,7 +218,7 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
           <div>
             <button
               onClick={() => setShowCrux(!showCrux)}
-              className="flex items-center gap-1.5 text-[12px] text-amber-700 font-medium hover:text-amber-800 transition-colors"
+              className="flex items-center gap-1.5 text-[12px] text-rust-700 font-medium hover:text-rust-800 transition-colors"
             >
               <FlaskConical className="h-3.5 w-3.5" />
               Decisive Test: {pillar.crux.title}
@@ -230,7 +230,7 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
             </button>
 
             {showCrux && (
-              <div className="mt-2 rounded-lg bg-amber-50/50 border border-amber-100/60 p-3 space-y-2">
+              <div className="mt-2 rounded-lg bg-rust-50/50 border border-rust-100/60 p-3 space-y-2">
                 <p className="text-[12px] text-stone-600 leading-relaxed">
                   {pillar.crux.description}
                 </p>
@@ -261,7 +261,7 @@ export function MobileArgumentList() {
 
   const statusColors = {
     settled: "bg-emerald-100 text-emerald-700",
-    contested: "bg-amber-100 text-amber-700",
+    contested: "bg-rust-100 text-rust-700",
     highly_speculative: "bg-rose-100 text-rose-600",
   };
 

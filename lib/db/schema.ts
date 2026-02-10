@@ -90,8 +90,14 @@ export const analyses = pgTable("analyses", {
   cruxes: jsonb("cruxes").notNull(),
   /** Potential fallacies as JSON */
   fallacies: jsonb("fallacies").notNull(),
+  /** Detected biases as JSON */
+  detectedBiases: jsonb("detected_biases"),
   /** Extraction confidence 0-1 */
   confidence: real("confidence").notNull(),
+  /** Overall FOR position strength 1-10 */
+  forStrength: real("for_strength"),
+  /** Overall AGAINST position strength 1-10 */
+  againstStrength: real("against_strength"),
   /** Original input content (truncated for storage) */
   inputContent: text("input_content"),
   createdAt: timestamp("created_at").defaultNow().notNull(),

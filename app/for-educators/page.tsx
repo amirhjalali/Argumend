@@ -27,7 +27,7 @@ const benefits = [
     title: "Steel-Manning Practice",
     description:
       "Students learn to articulate the strongest version of views they disagree with. This builds empathy and sharper thinking.",
-    color: "#D4A012",
+    color: "#C4613C",
   },
   {
     icon: Target,
@@ -41,7 +41,7 @@ const benefits = [
     title: "Calibrated Confidence",
     description:
       "Students practice saying \"I'm 70% sure\" instead of \"I'm right.\" Understanding uncertainty is essential for navigating a complex world.",
-    color: "#CF7B3E",
+    color: "#b05434",
   },
 ];
 
@@ -106,7 +106,7 @@ const subjects = [
     icon: BookOpen,
     label: "English / Media Literacy",
     description: "Identify fallacies and rhetorical techniques",
-    color: "#CF7B3E",
+    color: "#b05434",
   },
 ];
 
@@ -286,7 +286,7 @@ export default function ForEducatorsPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="/"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm font-medium hover:from-amber-600 hover:to-amber-700 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
             >
               Start Exploring Free
               <ArrowRight className="h-3.5 w-3.5" />

@@ -39,7 +39,7 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
 
 const statusColors: Record<TopicStatus, string> = {
   settled: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  contested: "bg-amber-50 text-amber-700 border-amber-200/60",
+  contested: "bg-rust-50 text-rust-700 border-rust-200/60",
   highly_speculative: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 
@@ -53,7 +53,7 @@ const categoryColors: Record<TopicCategory, string> = {
   policy: "bg-blue-50 text-blue-600 border-blue-200/60",
   technology: "bg-violet-50 text-violet-600 border-violet-200/60",
   science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
-  economics: "bg-amber-50 text-amber-700 border-amber-200/60",
+  economics: "bg-rust-50 text-rust-700 border-rust-200/60",
   philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 
@@ -70,7 +70,7 @@ const verificationColors: Record<string, { bg: string; text: string; label: stri
 function confidenceColor(score: number): string {
   if (score >= 85) return "text-emerald-700 bg-emerald-50 border-emerald-200/60";
   if (score >= 60) return "text-blue-700 bg-blue-50 border-blue-200/60";
-  if (score >= 40) return "text-amber-700 bg-amber-50 border-amber-200/60";
+  if (score >= 40) return "text-rust-700 bg-rust-50 border-rust-200/60";
   return "text-stone-600 bg-stone-100 border-stone-200/60";
 }
 
@@ -528,7 +528,7 @@ export default function TopicDetailView({
             </p>
             <Link
               href={`/?topic=${topic.id}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm font-medium hover:from-amber-600 hover:to-amber-700 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
             >
               Explore this topic interactively
               <ArrowRight className="h-4 w-4" />

@@ -116,7 +116,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
         >
           {/* Tagline */}
           <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50/80 border border-amber-200/50 rounded-full text-xs font-medium text-amber-700 tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-rust-50/80 border border-rust-200/50 rounded-full text-xs font-medium text-rust-700 tracking-wide">
               <Brain className="h-3 w-3" />
               AI-Powered Argument Analysis
             </div>
@@ -182,7 +182,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
               onChange={(e) => setContent(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Paste a debate transcript, op-ed, podcast segment, or any argumentative text..."
-              className="w-full h-36 md:h-44 p-4 bg-stone-50/50 border border-stone-200/60 rounded-xl text-stone-700 text-sm placeholder-stone-400 resize-none focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500/50"
+              className="w-full h-36 md:h-44 p-4 bg-stone-50/50 border border-stone-200/60 rounded-xl text-stone-700 text-sm placeholder-stone-400 resize-none focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50"
             />
 
             {/* Actions */}
@@ -214,7 +214,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   whileTap={content.trim() ? { scale: 0.98 } : {}}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-serif font-semibold transition-all ${
                     content.trim()
-                      ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md hover:shadow-lg"
+                      ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg"
                       : "bg-stone-100 text-stone-400 cursor-not-allowed"
                   }`}
                 >
@@ -299,8 +299,8 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                       3 arguments against
                     </span>
                   </div>
-                  <div className="mt-3 px-3 py-2 bg-amber-50/60 border border-amber-200/40 rounded-lg">
-                    <p className="text-[11px] font-medium text-amber-700">
+                  <div className="mt-3 px-3 py-2 bg-rust-50/60 border border-rust-200/40 rounded-lg">
+                    <p className="text-[11px] font-medium text-rust-700">
                       Key Question
                     </p>
                     <p className="text-xs text-stone-600 mt-0.5 italic">
@@ -309,8 +309,8 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   </div>
                 </div>
                 <div className="flex-shrink-0 flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full border-[3px] border-amber-400 flex items-center justify-center">
-                    <span className="font-mono text-sm font-bold text-amber-600">
+                  <div className="w-12 h-12 rounded-full border-[3px] border-rust-400 flex items-center justify-center">
+                    <span className="font-mono text-sm font-bold text-rust-600">
                       54%
                     </span>
                   </div>
@@ -363,7 +363,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                       featuredTopic.status === "settled"
                         ? "border-emerald-200 text-emerald-500"
                         : featuredTopic.status === "contested"
-                        ? "border-amber-200 text-amber-500"
+                        ? "border-rust-200 text-rust-500"
                         : "border-stone-200 text-stone-400"
                     }`}
                   >
@@ -387,7 +387,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                         featuredTopic.confidence_score >= 80
                           ? "border-emerald-400"
                           : featuredTopic.confidence_score >= 50
-                          ? "border-amber-400"
+                          ? "border-rust-400"
                           : "border-stone-300"
                       }`}
                     >
@@ -396,7 +396,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                           featuredTopic.confidence_score >= 80
                             ? "text-emerald-600"
                             : featuredTopic.confidence_score >= 50
-                            ? "text-amber-600"
+                            ? "text-rust-600"
                             : "text-stone-500"
                         }`}
                       >
@@ -434,10 +434,10 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + idx * 0.05 }}
                 whileHover={{ scale: 1.01, y: -2 }}
-                className="group text-left p-4 bg-white border border-stone-200/60 rounded-xl hover:border-amber-300/60 hover:shadow-md transition-all"
+                className="group text-left p-4 bg-white border border-stone-200/60 rounded-xl hover:border-rust-300/60 hover:shadow-md transition-all"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-serif text-sm font-medium text-primary group-hover:text-amber-700 transition-colors leading-snug">
+                  <h3 className="font-serif text-sm font-medium text-primary group-hover:text-rust-700 transition-colors leading-snug">
                     {topic.title}
                   </h3>
                   <span
@@ -445,7 +445,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                       topic.confidence_score >= 80
                         ? "bg-emerald-50 text-emerald-600"
                         : topic.confidence_score >= 50
-                        ? "bg-amber-50 text-amber-600"
+                        ? "bg-rust-50 text-rust-600"
                         : "bg-stone-50 text-stone-500"
                     }`}
                   >
@@ -461,7 +461,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                       topic.status === "settled"
                         ? "border-emerald-200 text-emerald-500"
                         : topic.status === "contested"
-                        ? "border-amber-200 text-amber-500"
+                        ? "border-rust-200 text-rust-500"
                         : "border-stone-200 text-stone-400"
                     }`}
                   >

@@ -110,13 +110,13 @@ export function Sidebar({
                   isActive
                     ? "text-stone-900 font-medium border-l-2 border-stone-800 pl-[10px]"
                     : highlight
-                    ? "text-amber-700 hover:text-amber-800 hover:bg-amber-50/50 font-medium"
+                    ? "text-rust-700 hover:text-rust-800 hover:bg-rust-50/50 font-medium"
                     : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
                 }`}
               >
                 <Icon
                   className={`h-4 w-4 ${
-                    isActive ? "text-stone-700" : highlight ? "text-amber-500" : "text-stone-400"
+                    isActive ? "text-stone-700" : highlight ? "text-rust-500" : "text-stone-400"
                   }`}
                   strokeWidth={1.8}
                 />
@@ -186,7 +186,7 @@ export function Sidebar({
                     onClick={() => handleTopicClick(topic.id)}
                     className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-left transition-colors ${
                       isSelected
-                        ? "text-stone-900 font-medium border-l-2 border-[#D4A012] pl-[10px]"
+                        ? "text-stone-900 font-medium border-l-2 border-[#C4613C] pl-[10px]"
                         : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
                     }`}
                   >

@@ -358,7 +358,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
         targetHandle: "top",
         type: "bezier",
         animated: false,
-        style: { stroke: "#D4A012", strokeOpacity: 0.5 },
+        style: { stroke: "#C4613C", strokeOpacity: 0.5 },
       });
     });
 
