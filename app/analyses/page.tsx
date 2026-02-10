@@ -33,14 +33,14 @@ export default async function AnalysesPage() {
         <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-8">
           {/* Header */}
           <div className="text-center space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#4f7b77]/10 border border-[#4f7b77]/20 rounded-full text-xs font-medium text-[#4f7b77] tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide">
               <Brain className="h-3 w-3" />
               Analysis Archive
             </div>
-            <h1 className="font-serif text-2xl md:text-3xl font-bold text-[#1f1f1d]">
+            <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary">
               Recent Analyses
             </h1>
-            <p className="text-[#6d645c] text-sm max-w-lg mx-auto">
+            <p className="text-secondary text-sm max-w-lg mx-auto">
               Browse past argument analyses. Click any analysis to view
               the full breakdown and share it.
             </p>
@@ -60,7 +60,7 @@ export default async function AnalysesPage() {
           {/* Analyses List */}
           {analyses.length === 0 ? (
             <div className="bg-white border border-stone-200/60 rounded-xl p-8 text-center">
-              <p className="text-[#6d645c] text-sm">
+              <p className="text-secondary text-sm">
                 No analyses yet. Run your first analysis to see results here.
               </p>
             </div>
@@ -79,10 +79,10 @@ export default async function AnalysesPage() {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-serif font-semibold text-[#1f1f1d] group-hover:text-[#4f7b77] transition-colors truncate">
+                        <h3 className="font-serif font-semibold text-primary group-hover:text-deep transition-colors truncate">
                           {analysis.topic}
                         </h3>
-                        <p className="mt-1 text-sm text-[#6d645c] line-clamp-2">
+                        <p className="mt-1 text-sm text-secondary line-clamp-2">
                           {analysis.summary}
                         </p>
                         <div className="mt-2 flex items-center gap-3 text-xs text-stone-400">
@@ -98,7 +98,7 @@ export default async function AnalysesPage() {
                           </span>
                         </div>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-stone-300 group-hover:text-[#4f7b77] flex-shrink-0 mt-1 transition-colors" />
+                      <ChevronRight className="h-5 w-5 text-stone-300 group-hover:text-deep flex-shrink-0 mt-1 transition-colors" />
                     </div>
                   </Link>
                 );

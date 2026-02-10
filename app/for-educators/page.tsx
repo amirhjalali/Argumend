@@ -122,7 +122,7 @@ export default function ForEducatorsPage() {
           <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Argumend for Educators
           </h1>
-          <p className="text-lg md:text-xl text-[#4f7b77] font-medium mb-5">
+          <p className="text-lg md:text-xl text-deep font-medium mb-5">
             Teach critical thinking through structured debate analysis
           </p>
           <p className="text-base md:text-lg text-secondary leading-[1.7] max-w-2xl mx-auto">
@@ -136,7 +136,7 @@ export default function ForEducatorsPage() {
         <section className="mb-16 md:mb-24">
           <div className="flex items-center gap-2.5 mb-3">
             <GraduationCap
-              className="h-5 w-5 text-[#4f7b77]"
+              className="h-5 w-5 text-deep"
               strokeWidth={1.5}
             />
             <h2 className="font-serif text-2xl md:text-3xl text-primary">
@@ -195,7 +195,7 @@ export default function ForEducatorsPage() {
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#4f7b77]/20 to-[#4f7b77]/5 flex items-center justify-center">
-                      <span className="font-serif text-xl font-bold text-[#4f7b77]">
+                      <span className="font-serif text-xl font-bold text-deep">
                         {plan.number}
                       </span>
                     </div>

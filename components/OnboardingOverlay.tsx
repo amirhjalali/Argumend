@@ -82,7 +82,7 @@ export function OnboardingOverlay() {
             <div className="px-6 pt-8 pb-6 sm:px-8">
               {/* Header */}
               <div className="text-center mb-8">
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#3d3a36]">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-primary">
                   Welcome to Argumend
                 </h2>
                 <p className="mt-2 text-sm text-stone-500 max-w-sm mx-auto leading-relaxed">
@@ -103,15 +103,15 @@ export function OnboardingOverlay() {
                       transition={{ delay: 0.15 + idx * 0.1 }}
                       className="flex items-start gap-4"
                     >
-                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#4f7b77]/10 flex items-center justify-center">
-                        <Icon className="h-5 w-5 text-[#4f7b77]" />
+                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-deep/10 flex items-center justify-center">
+                        <Icon className="h-5 w-5 text-deep" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
-                          <span className="text-xs font-mono text-[#4f7b77]/60">
+                          <span className="text-xs font-mono text-deep/60">
                             {String(idx + 1).padStart(2, "0")}
                           </span>
-                          <h3 className="font-serif text-sm font-semibold text-[#3d3a36]">
+                          <h3 className="font-serif text-sm font-semibold text-primary">
                             {step.title}
                           </h3>
                         </div>

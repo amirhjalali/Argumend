@@ -24,10 +24,10 @@ export default function BlogPage() {
             <p className="text-[11px] font-medium text-stone-400 mb-3 tracking-wide uppercase">
               Insights &amp; Analysis
             </p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl tracking-tight text-[#3d3a36] mb-4 leading-[1.1]">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl tracking-tight text-primary mb-4 leading-[1.1]">
               The Argumend Blog
             </h1>
-            <p className="text-lg text-[#6a5f56] leading-relaxed max-w-2xl">
+            <p className="text-lg text-secondary leading-relaxed max-w-2xl">
               Essays on critical thinking, structured reasoning, and the art of
               productive disagreement. Written to help you think more clearly
               about the topics that matter most.
@@ -51,7 +51,7 @@ export default function BlogPage() {
                 >
                   {/* Category Badge */}
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="inline-flex items-center rounded-full bg-[#4f7b77]/10 px-3 py-1 text-xs font-medium text-[#4f7b77]">
+                    <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
                       {article.category}
                     </span>
                     <span className="flex items-center gap-1 text-xs text-stone-400">
@@ -66,7 +66,7 @@ export default function BlogPage() {
 
                   {/* Title */}
                   <h2
-                    className={`font-serif tracking-tight text-[#3d3a36] group-hover:text-[#4f7b77] transition-colors mb-3 leading-tight ${
+                    className={`font-serif tracking-tight text-primary group-hover:text-deep transition-colors mb-3 leading-tight ${
                       index === 0
                         ? "text-2xl md:text-3xl"
                         : "text-xl md:text-2xl"
@@ -76,7 +76,7 @@ export default function BlogPage() {
                   </h2>
 
                   {/* Description */}
-                  <p className="text-[#6a5f56] leading-relaxed mb-5 max-w-2xl">
+                  <p className="text-secondary leading-relaxed mb-5 max-w-2xl">
                     {article.description}
                   </p>
 
@@ -94,7 +94,7 @@ export default function BlogPage() {
                   </div>
 
                   {/* Read More */}
-                  <div className="flex items-center gap-2 text-sm font-medium text-[#4f7b77] group-hover:text-[#3d6b67] transition-colors">
+                  <div className="flex items-center gap-2 text-sm font-medium text-deep group-hover:text-deep-dark transition-colors">
                     <span>Read article</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -110,7 +110,7 @@ export default function BlogPage() {
 
           {/* Footer note */}
           <div className="mt-12 pt-8 border-t border-stone-200">
-            <p className="text-sm text-[#6a5f56]">
+            <p className="text-sm text-secondary">
               All articles are written by the Argumend team and reviewed for
               accuracy. We practice what we preach—every claim is backed by
               evidence, and we welcome corrections.

@@ -125,7 +125,7 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <h4 className="font-semibold text-sm text-[#3d3a36]">
+            <h4 className="font-semibold text-sm text-primary">
               {evidence.title}
             </h4>
             <span className="text-xs font-mono text-stone-400 tabular-nums flex-shrink-0">
@@ -171,7 +171,7 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
               href={evidence.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-[#4f7b77] hover:underline"
+              className="inline-flex items-center gap-1 text-xs text-deep hover:underline"
             >
               {evidence.source}
               <ExternalLink className="h-3 w-3" />
@@ -193,10 +193,10 @@ function CruxCard({ crux }: { crux: Crux }) {
   const verification = verificationColors[crux.verification_status] ?? verificationColors.theoretical;
 
   return (
-    <div className="rounded-lg border border-[#4f7b77]/20 bg-[#4f7b77]/[0.03] p-5">
+    <div className="rounded-lg border border-deep/20 bg-[#4f7b77]/[0.03] p-5">
       <div className="flex items-center gap-2 mb-3">
-        <FlaskConical className="h-4 w-4 text-[#4f7b77]" strokeWidth={1.5} />
-        <h4 className="font-serif text-base font-semibold text-[#3d3a36]">
+        <FlaskConical className="h-4 w-4 text-deep" strokeWidth={1.5} />
+        <h4 className="font-serif text-base font-semibold text-primary">
           Crux: {crux.title}
         </h4>
         <span
@@ -250,11 +250,11 @@ function PillarSection({
   return (
     <section className="mb-10">
       <div className="flex items-start gap-3 mb-4">
-        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#4f7b77]/10 flex items-center justify-center text-sm font-mono font-semibold text-[#4f7b77]">
+        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center text-sm font-mono font-semibold text-deep">
           {index + 1}
         </span>
         <div>
-          <h3 className="font-serif text-xl text-[#3d3a36] leading-tight">
+          <h3 className="font-serif text-xl text-primary leading-tight">
             {pillar.title}
           </h3>
           <p className="text-sm text-stone-500 mt-1 leading-relaxed">
@@ -325,7 +325,7 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
       href={`/topics/${topic.id}`}
       className="group flex flex-col bg-white border border-stone-200/60 rounded-xl p-4 hover:border-[#4f7b77]/30 hover:shadow-sm transition-all"
     >
-      <h3 className="font-serif text-base text-[#3d3a36] group-hover:text-[#4f7b77] transition-colors leading-snug mb-1.5">
+      <h3 className="font-serif text-base text-primary group-hover:text-deep transition-colors leading-snug mb-1.5">
         {topic.title}
       </h3>
       <p className="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-3 flex-1">
@@ -373,7 +373,7 @@ export default function TopicDetailView({
           <nav className="flex items-center gap-1.5 text-sm text-stone-400 mb-6">
             <Link
               href="/topics"
-              className="hover:text-[#4f7b77] transition-colors"
+              className="hover:text-deep transition-colors"
             >
               Topics
             </Link>
@@ -413,7 +413,7 @@ export default function TopicDetailView({
               </span>
             </div>
 
-            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl tracking-tight text-[#3d3a36] mb-4 leading-[1.1]">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl tracking-tight text-primary mb-4 leading-[1.1]">
               {topic.title}
             </h1>
 
@@ -424,26 +424,26 @@ export default function TopicDetailView({
             {/* Quick stats */}
             <div className="flex flex-wrap gap-4 mt-6 pt-5 border-t border-stone-200/60">
               <div className="text-center">
-                <span className="block text-lg font-mono font-semibold text-[#3d3a36] tabular-nums">
+                <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
                   {topic.pillars.length}
                 </span>
                 <span className="text-xs text-stone-400">Pillars</span>
               </div>
               <div className="text-center">
-                <span className="block text-lg font-mono font-semibold text-[#3d3a36] tabular-nums">
+                <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
                   {totalEvidence}
                 </span>
                 <span className="text-xs text-stone-400">Evidence Items</span>
               </div>
               <div className="text-center">
-                <span className="block text-lg font-mono font-semibold text-[#3d3a36] tabular-nums">
+                <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
                   {topic.pillars.length}
                 </span>
                 <span className="text-xs text-stone-400">Crux Questions</span>
               </div>
               {topic.references && (
                 <div className="text-center">
-                  <span className="block text-lg font-mono font-semibold text-[#3d3a36] tabular-nums">
+                  <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
                     {topic.references.length}
                   </span>
                   <span className="text-xs text-stone-400">References</span>
@@ -454,7 +454,7 @@ export default function TopicDetailView({
 
           {/* Meta Claim Expanded */}
           <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-xl sm:text-2xl text-[#3d3a36] mb-3">
+            <h2 className="font-serif text-xl sm:text-2xl text-primary mb-3">
               The Claim
             </h2>
             <blockquote className="border-l-2 border-[#4f7b77] pl-4 sm:pl-5">
@@ -464,11 +464,11 @@ export default function TopicDetailView({
             </blockquote>
             <p className="text-sm text-stone-500 mt-4 leading-relaxed">
               This topic is currently classified as{" "}
-              <strong className="text-[#3d3a36]">
+              <strong className="text-primary">
                 {statusLabels[topic.status].toLowerCase()}
               </strong>{" "}
               with a computed confidence score of{" "}
-              <strong className="text-[#3d3a36]">{topic.confidence_score}%</strong>,
+              <strong className="text-primary">{topic.confidence_score}%</strong>,
               based on {totalEvidence} weighted evidence items across{" "}
               {topic.pillars.length} analytical pillars.
             </p>
@@ -476,7 +476,7 @@ export default function TopicDetailView({
 
           {/* Pillars */}
           <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-xl sm:text-2xl text-[#3d3a36] mb-6">
+            <h2 className="font-serif text-xl sm:text-2xl text-primary mb-6">
               Argument Pillars
             </h2>
             <p className="text-sm text-stone-500 mb-8 leading-relaxed">
@@ -496,7 +496,7 @@ export default function TopicDetailView({
           {/* References */}
           {topic.references && topic.references.length > 0 && (
             <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
-              <h2 className="font-serif text-xl sm:text-2xl text-[#3d3a36] mb-4">
+              <h2 className="font-serif text-xl sm:text-2xl text-primary mb-4">
                 References
               </h2>
               <ul className="space-y-2">
@@ -506,7 +506,7 @@ export default function TopicDetailView({
                       href={ref.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-[#4f7b77] hover:underline"
+                      className="inline-flex items-center gap-1.5 text-sm text-deep hover:underline"
                     >
                       <ExternalLink className="h-3.5 w-3.5 flex-shrink-0" />
                       {ref.title}
@@ -519,7 +519,7 @@ export default function TopicDetailView({
 
           {/* CTA */}
           <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 text-center">
-            <h2 className="font-serif text-xl sm:text-2xl text-[#3d3a36] mb-2">
+            <h2 className="font-serif text-xl sm:text-2xl text-primary mb-2">
               Explore interactively
             </h2>
             <p className="text-sm text-stone-500 mb-5">
@@ -538,7 +538,7 @@ export default function TopicDetailView({
           {/* Related Topics */}
           {relatedTopics.length > 0 && (
             <section className="mb-8">
-              <h2 className="font-serif text-xl sm:text-2xl text-[#3d3a36] mb-4">
+              <h2 className="font-serif text-xl sm:text-2xl text-primary mb-4">
                 Related Topics
               </h2>
               <p className="text-sm text-stone-500 mb-5">
@@ -561,7 +561,7 @@ export default function TopicDetailView({
             <div className="flex items-center justify-between">
               <Link
                 href="/topics"
-                className="text-sm text-[#4f7b77] hover:underline"
+                className="text-sm text-deep hover:underline"
               >
                 &larr; Back to all topics
               </Link>

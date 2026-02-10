@@ -198,8 +198,8 @@ function ShareLink({ analysisId }: { analysisId: string }) {
     >
       {copied ? (
         <>
-          <Check className="h-3.5 w-3.5 text-[#4f7b77]" />
-          <span className="text-[#4f7b77]">Copied!</span>
+          <Check className="h-3.5 w-3.5 text-deep" />
+          <span className="text-deep">Copied!</span>
         </>
       ) : (
         <>

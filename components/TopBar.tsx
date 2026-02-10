@@ -38,7 +38,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
         <div className="flex items-center gap-3 md:gap-5">
           <button
             onClick={onMenuClick}
-            className="group relative p-2 -m-2 rounded-lg text-[#5a5347] transition-all duration-200 hover:text-primary hover:bg-[#f0ebe3]"
+            className="group relative p-2 -m-2 rounded-lg text-secondary transition-all duration-200 hover:text-primary hover:bg-[#f0ebe3]"
             aria-label="Toggle sidebar"
           >
             <Menu className="h-5 w-5 transition-transform duration-200 group-hover:scale-105" strokeWidth={2} />

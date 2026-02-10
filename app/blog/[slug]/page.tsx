@@ -63,8 +63,8 @@ export async function generateMetadata(
 function markdownToHtml(md: string): string {
   let html = md
     // Headings
-    .replace(/^### (.+)$/gm, '<h3 class="font-serif text-xl text-[#3d3a36] mt-10 mb-4 leading-snug">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 class="font-serif text-2xl text-[#3d3a36] mt-12 mb-4 leading-snug">$1</h2>')
+    .replace(/^### (.+)$/gm, '<h3 class="font-serif text-xl text-primary mt-10 mb-4 leading-snug">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 class="font-serif text-2xl text-primary mt-12 mb-4 leading-snug">$1</h2>')
     // Bold + italic
     .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
     // Bold
@@ -74,7 +74,7 @@ function markdownToHtml(md: string): string {
     // Links
     .replace(
       /\[([^\]]+)\]\(([^)]+)\)/g,
-      '<a href="$2" class="text-[#4f7b77] underline underline-offset-2 hover:text-[#3d6b67] transition-colors" target="_blank" rel="noopener noreferrer">$1</a>',
+      '<a href="$2" class="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors" target="_blank" rel="noopener noreferrer">$1</a>',
     );
 
   // Paragraphs: split by double newlines
@@ -92,7 +92,7 @@ function markdownToHtml(md: string): string {
       ) {
         return trimmed;
       }
-      return `<p class="mb-6 leading-[1.8] text-[#4e473f]">${trimmed.replace(/\n/g, "<br/>")}</p>`;
+      return `<p class="mb-6 leading-[1.8] text-primary">${trimmed.replace(/\n/g, "<br/>")}</p>`;
     })
     .join("\n");
 
@@ -151,7 +151,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
             <nav className="flex items-center gap-2 text-sm text-stone-400 mb-8">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-1.5 hover:text-[#4f7b77] transition-colors"
+                className="inline-flex items-center gap-1.5 hover:text-deep transition-colors"
               >
                 <ArrowLeft className="h-3.5 w-3.5" />
                 Blog
@@ -163,12 +163,12 @@ export default async function BlogArticlePage({ params }: PageProps) {
             </nav>
 
             {/* Category */}
-            <span className="inline-flex items-center rounded-full bg-[#4f7b77]/10 px-3 py-1 text-xs font-medium text-[#4f7b77] mb-4">
+            <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep mb-4">
               {article.category}
             </span>
 
             {/* Title */}
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] tracking-tight text-[#3d3a36] mb-5 leading-[1.15]">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] tracking-tight text-primary mb-5 leading-[1.15]">
               {article.title}
             </h1>
 
@@ -223,7 +223,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
           {/* Related Articles */}
           {related.length > 0 && (
             <div className="mt-14">
-              <h3 className="font-serif text-xl text-[#3d3a36] mb-6">
+              <h3 className="font-serif text-xl text-primary mb-6">
                 Related Articles
               </h3>
               <div className="grid gap-4 md:grid-cols-3">
@@ -234,10 +234,10 @@ export default async function BlogArticlePage({ params }: PageProps) {
                     className="group block"
                   >
                     <div className="bg-[#faf8f5] rounded-lg p-5 border border-[#e8e0d4] hover:border-[#c8c0b4] hover:shadow-sm transition-all duration-200 h-full">
-                      <span className="text-[10px] font-medium text-[#4f7b77] uppercase tracking-wide">
+                      <span className="text-[10px] font-medium text-deep uppercase tracking-wide">
                         {rel.category}
                       </span>
-                      <h4 className="font-serif text-sm text-[#3d3a36] mt-2 mb-2 leading-snug group-hover:text-[#4f7b77] transition-colors">
+                      <h4 className="font-serif text-sm text-primary mt-2 mb-2 leading-snug group-hover:text-deep transition-colors">
                         {rel.title}
                       </h4>
                       <p className="text-xs text-stone-400">

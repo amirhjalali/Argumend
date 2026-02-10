@@ -322,7 +322,7 @@ export default function MethodologyPage() {
                   className="flex flex-col items-center p-4 rounded-xl bg-white border border-stone-200/70 shadow-sm"
                 >
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4f7b77]/20 to-[#4f7b77]/5 flex items-center justify-center mb-2">
-                    <Brain className="h-5 w-5 text-[#4f7b77]" strokeWidth={1.5} />
+                    <Brain className="h-5 w-5 text-deep" strokeWidth={1.5} />
                   </div>
                   <p className="text-sm font-semibold text-primary">{judge.name}</p>
                   <p className="text-[11px] text-stone-400">{judge.label}</p>
@@ -407,8 +407,8 @@ export default function MethodologyPage() {
 
           <div className="bg-[#faf8f3] rounded-lg p-6 md:p-8 border border-stone-200/70 mb-6">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-lg bg-[#4f7b77]/10 flex items-center justify-center">
-                <Lightbulb className="h-5 w-5 text-[#4f7b77]" strokeWidth={1.5} />
+              <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
+                <Lightbulb className="h-5 w-5 text-deep" strokeWidth={1.5} />
               </div>
               <div>
                 <p className="text-sm font-semibold text-primary">The Formula</p>
@@ -420,7 +420,7 @@ export default function MethodologyPage() {
 
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <span className="w-14 text-center text-sm font-mono font-medium text-[#4f7b77]">
+                <span className="w-14 text-center text-sm font-mono font-medium text-deep">
                   90%+
                 </span>
                 <div className="flex-1 h-2 bg-stone-200/50 rounded-full overflow-hidden">

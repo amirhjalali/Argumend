@@ -37,8 +37,8 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
         }`}
       >
         <div className={`flex items-center gap-3 ${isCompact ? "" : "justify-center"}`}>
-          <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
-          <p className="text-[#2d6a4f] font-medium text-sm">
+          <CheckCircle className="h-5 w-5 text-deep flex-shrink-0" />
+          <p className="text-deep font-medium text-sm">
             You&apos;re in! Check your inbox.
           </p>
         </div>
@@ -54,7 +54,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
     >
       {/* Heading */}
       <h3
-        className={`font-serif text-[#3d3a36] leading-snug ${
+        className={`font-serif text-primary leading-snug ${
           isCompact ? "text-base mb-1" : "text-xl mb-2"
         }`}
       >
@@ -63,7 +63,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
 
       {/* Subtitle */}
       <p
-        className={`text-[#6d645c] leading-relaxed ${
+        className={`text-secondary leading-relaxed ${
           isCompact ? "text-xs mb-3" : "text-sm mb-5"
         }`}
       >
@@ -81,7 +81,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
               if (error) setError("");
             }}
             placeholder="you@example.com"
-            className={`w-full bg-white border border-stone-300 rounded-lg text-[#3d3a36] placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
+            className={`w-full bg-white border border-stone-300 rounded-lg text-primary placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"
             } ${error ? "border-red-400 focus:ring-red-400/30 focus:border-red-400/50" : ""}`}
           />

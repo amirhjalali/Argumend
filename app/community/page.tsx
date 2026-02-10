@@ -52,10 +52,10 @@ export default function CommunityPage() {
   return (
     <AppShell>
       <div className="mx-auto max-w-4xl px-8 py-12">
-        <h1 className="font-serif text-4xl tracking-tight text-[#3d3a36] mb-4">
+        <h1 className="font-serif text-4xl tracking-tight text-primary mb-4">
           Community
         </h1>
-        <p className="text-lg text-[#6a5f56] mb-10">
+        <p className="text-lg text-secondary mb-10">
           Join a growing community of people who disagree well. We believe the
           best way to find truth is to test ideas rigorously — not to shout the
           loudest.
@@ -63,7 +63,7 @@ export default function CommunityPage() {
 
         {/* Discussion Principles */}
         <section className="mb-10">
-          <h2 className="font-serif text-2xl text-[#3d3a36] mb-5">
+          <h2 className="font-serif text-2xl text-primary mb-5">
             Discussion Principles
           </h2>
           <div className="space-y-3">
@@ -75,15 +75,15 @@ export default function CommunityPage() {
                 <div className="flex items-start gap-4">
                   <div className="p-2.5 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] rounded-lg border border-[#e8e0d4]">
                     <principle.icon
-                      className="h-4 w-4 text-[#4f7b77]"
+                      className="h-4 w-4 text-deep"
                       strokeWidth={1.8}
                     />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg text-[#3d3a36] mb-1">
+                    <h3 className="font-serif text-lg text-primary mb-1">
                       {principle.title}
                     </h3>
-                    <p className="text-[#4e473f] leading-relaxed">
+                    <p className="text-primary leading-relaxed">
                       {principle.description}
                     </p>
                   </div>
@@ -95,16 +95,16 @@ export default function CommunityPage() {
 
         {/* How to Contribute */}
         <section className="mb-10">
-          <h2 className="font-serif text-2xl text-[#3d3a36] mb-5">
+          <h2 className="font-serif text-2xl text-primary mb-5">
             How to Contribute
           </h2>
           <div className="bg-white/80 rounded-xl border border-[#e8e0d4] divide-y divide-[#e8e0d4]">
             {contributing.map((item) => (
               <div key={item.title} className="p-5">
-                <h3 className="font-serif text-lg text-[#3d3a36] mb-2">
+                <h3 className="font-serif text-lg text-primary mb-2">
                   {item.title}
                 </h3>
-                <p className="text-[#4e473f] leading-relaxed">
+                <p className="text-primary leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -136,7 +136,7 @@ export default function CommunityPage() {
         </section>
 
         <div className="mt-12 pt-8 border-t border-stone-200">
-          <p className="text-sm text-[#6a5f56]">
+          <p className="text-sm text-secondary">
             Good discourse is a skill. These principles help us practice it
             together. Have a topic suggestion? We&apos;d love to hear from you.
           </p>

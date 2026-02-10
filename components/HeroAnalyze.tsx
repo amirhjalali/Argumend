@@ -123,7 +123,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             <h1 className="font-serif text-3xl md:text-5xl font-bold text-primary leading-tight">
               What if we could disagree
               <br />
-              <span className="text-[#4f7b77]">
+              <span className="text-deep">
                 without destroying each other?
               </span>
             </h1>
@@ -349,12 +349,12 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.65 }}
               whileHover={{ scale: 1.005, y: -2 }}
-              className="group w-full text-left mb-5 rounded-xl bg-gradient-to-r from-[#fefcf9] to-white border border-stone-200/60 border-l-[3.5px] border-l-[#4f7b77] shadow-sm hover:shadow-md transition-all"
+              className="group w-full text-left mb-5 rounded-xl bg-gradient-to-r from-[#fefcf9] to-white border border-stone-200/60 border-l-[3.5px] border-l-deep shadow-sm hover:shadow-md transition-all"
             >
               <div className="p-5 md:p-6">
                 {/* Badge row */}
                 <div className="flex items-center justify-between gap-3 mb-3">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#4f7b77]/10 rounded-full text-[11px] font-semibold tracking-wide text-[#4f7b77]">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-deep/10 rounded-full text-[11px] font-semibold tracking-wide text-deep">
                     <Flame className="h-3 w-3" />
                     Debate of the Week
                   </span>
@@ -374,7 +374,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                 {/* Title + confidence */}
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-serif text-lg md:text-xl font-semibold text-primary group-hover:text-[#4f7b77] transition-colors leading-snug">
+                    <h3 className="font-serif text-lg md:text-xl font-semibold text-primary group-hover:text-deep transition-colors leading-snug">
                       {featuredTopic.title}
                     </h3>
                     <p className="mt-2 text-sm text-stone-500 leading-relaxed">
@@ -483,7 +483,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             >
               <Link
                 href="/topics"
-                className="inline-flex items-center gap-1 text-sm font-serif font-medium text-[#4f7b77] hover:text-[#3d5f5c] transition-colors group"
+                className="inline-flex items-center gap-1 text-sm font-serif font-medium text-deep hover:text-deep-dark transition-colors group"
               >
                 View all {topics.length} topics
                 <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

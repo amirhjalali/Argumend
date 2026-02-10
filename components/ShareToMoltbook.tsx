@@ -146,7 +146,7 @@ ${againstMsg?.content || "*No argument*"}
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-stone-200/60">
         <div className="flex items-center gap-2">
-          <Share2 className="w-4 h-4 text-teal-600" />
+          <Share2 className="w-4 h-4 text-deep" />
           <span className="font-serif font-semibold text-stone-800">
             Share to Moltbook
           </span>
@@ -237,7 +237,7 @@ ${againstMsg?.content || "*No argument*"}
               exit={{ opacity: 0 }}
               className="flex flex-col items-center py-6"
             >
-              <Loader2 className="w-8 h-8 animate-spin text-teal-600 mb-3" />
+              <Loader2 className="w-8 h-8 animate-spin text-deep mb-3" />
               <p className="text-sm text-stone-600">Posting to Moltbook...</p>
             </motion.div>
           )}

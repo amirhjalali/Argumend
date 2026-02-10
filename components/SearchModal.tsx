@@ -142,7 +142,7 @@ const TYPE_CONFIG: Record<
   topic: {
     icon: MessageSquare,
     label: "Topics",
-    badgeClasses: "bg-[#4f7b77]/10 text-[#4f7b77]",
+    badgeClasses: "bg-deep/10 text-deep",
   },
   blog: {
     icon: FileText,
@@ -456,11 +456,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     <div
                       className={`
                         flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center
-                        ${isActive ? "bg-[#4f7b77]/10" : "bg-stone-100"}
+                        ${isActive ? "bg-deep/10" : "bg-stone-100"}
                       `}
                     >
                       <Icon
-                        className={`h-4 w-4 ${isActive ? "text-[#4f7b77]" : "text-stone-400"}`}
+                        className={`h-4 w-4 ${isActive ? "text-deep" : "text-stone-400"}`}
                         strokeWidth={1.8}
                       />
                     </div>
@@ -469,7 +469,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     <div className="flex-1 min-w-0">
                       <div
                         className={`text-sm font-medium truncate ${
-                          isActive ? "text-[#4f7b77]" : "text-stone-800"
+                          isActive ? "text-deep" : "text-stone-800"
                         }`}
                       >
                         {result.title}
@@ -492,7 +492,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     {/* Arrow for active */}
                     {isActive && (
                       <ArrowRight
-                        className="flex-shrink-0 h-3.5 w-3.5 text-[#4f7b77]"
+                        className="flex-shrink-0 h-3.5 w-3.5 text-deep"
                         strokeWidth={2}
                       />
                     )}

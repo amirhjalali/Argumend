@@ -88,12 +88,12 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
               {featuredTopic && (
                 <div className="mb-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#4f7b77]/10 rounded-full text-[10px] font-semibold tracking-wide text-[#4f7b77]">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-deep/10 rounded-full text-[10px] font-semibold tracking-wide text-deep">
                       <Flame className="h-2.5 w-2.5" />
                       FEATURED TOPIC
                     </span>
                   </div>
-                  <h3 className="font-serif text-base font-semibold text-[#3d3a36] leading-snug">
+                  <h3 className="font-serif text-base font-semibold text-primary leading-snug">
                     {featuredTopic.title}
                   </h3>
                   <p className="mt-1 text-xs text-stone-500 leading-relaxed line-clamp-2">
@@ -132,7 +132,7 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                       className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
                         isActive
                           ? "bg-[#4f7b77] text-white border-[#4f7b77]"
-                          : "bg-white text-stone-600 border-stone-200 hover:border-[#4f7b77]/40 hover:text-[#4f7b77]"
+                          : "bg-white text-stone-600 border-stone-200 hover:border-deep/40 hover:text-deep"
                       }`}
                     >
                       {CATEGORY_LABELS[cat]}
@@ -167,9 +167,9 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                             onTopicSelect(topic.id);
                             handleDismiss();
                           }}
-                          className="group text-left p-3 bg-white border border-stone-200/60 rounded-lg hover:border-[#4f7b77]/40 hover:shadow-sm transition-all"
+                          className="group text-left p-3 bg-white border border-stone-200/60 rounded-lg hover:border-deep/40 hover:shadow-sm transition-all"
                         >
-                          <h4 className="font-serif text-xs font-medium text-[#3d3a36] group-hover:text-[#4f7b77] transition-colors leading-snug">
+                          <h4 className="font-serif text-xs font-medium text-primary group-hover:text-deep transition-colors leading-snug">
                             {topic.title}
                           </h4>
                           <div className="mt-1 flex items-center gap-1.5 text-[10px] text-stone-400">

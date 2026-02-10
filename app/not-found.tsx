@@ -23,7 +23,7 @@ export default function NotFound() {
       </p>
 
       {/* Headline */}
-      <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#3d3a36] leading-tight mb-4 max-w-xl">
+      <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-primary leading-tight mb-4 max-w-xl">
         Insufficient Evidence for This Page
       </h1>
 
@@ -44,21 +44,21 @@ export default function NotFound() {
         </Link>
         <Link
           href="/topics"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 text-[#3d3a36] bg-white hover:bg-stone-50 hover:border-stone-400 transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 text-primary bg-white hover:bg-stone-50 hover:border-stone-400 transition-colors"
         >
           <MessageSquare className="w-4 h-4" strokeWidth={1.8} />
           Browse Topics
         </Link>
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 text-[#3d3a36] bg-white hover:bg-stone-50 hover:border-stone-400 transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 text-primary bg-white hover:bg-stone-50 hover:border-stone-400 transition-colors"
         >
           <BookOpen className="w-4 h-4" strokeWidth={1.8} />
           Read the Blog
         </Link>
         <Link
           href="/analyze"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 text-[#3d3a36] bg-white hover:bg-stone-50 hover:border-stone-400 transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 text-primary bg-white hover:bg-stone-50 hover:border-stone-400 transition-colors"
         >
           <Brain className="w-4 h-4" strokeWidth={1.8} />
           Run an Analysis
@@ -85,7 +85,7 @@ export default function NotFound() {
       {/* Branding footer */}
       <div className="mt-16">
         <Link href="/" className="group flex flex-col items-center gap-1">
-          <span className="font-serif text-base font-medium tracking-[0.08em] text-muted group-hover:text-[#3d3a36] transition-colors">
+          <span className="font-serif text-base font-medium tracking-[0.08em] text-muted group-hover:text-primary transition-colors">
             ARGUMEND
           </span>
           <span className="text-[10px] font-sans text-stone-400">

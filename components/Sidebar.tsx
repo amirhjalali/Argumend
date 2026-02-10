@@ -186,7 +186,7 @@ export function Sidebar({
                     onClick={() => handleTopicClick(topic.id)}
                     className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-left transition-colors ${
                       isSelected
-                        ? "text-stone-900 font-medium border-l-2 border-[#C4613C] pl-[10px]"
+                        ? "text-stone-900 font-medium border-l-2 border-rust-500 pl-[10px]"
                         : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
                     }`}
                   >
@@ -206,7 +206,7 @@ export function Sidebar({
           {topics.length > 8 && (
             <Link
               href="/topics"
-              className="flex items-center gap-1 px-3 mt-2 text-[13px] font-medium text-[#4f7b77] hover:text-[#3d5f5c] transition-colors"
+              className="flex items-center gap-1 px-3 mt-2 text-[13px] font-medium text-deep hover:text-deep-dark transition-colors"
             >
               View all {topics.length} topics
               <ChevronRight className="h-3.5 w-3.5" />

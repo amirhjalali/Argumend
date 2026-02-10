@@ -137,8 +137,8 @@ export default function TopicsPage() {
               onClick={() => setActiveCategory("all")}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
                 activeCategory === "all"
-                  ? "bg-[#4f7b77] text-white shadow-sm"
-                  : "bg-white text-stone-500 border border-stone-200/60 hover:border-[#4f7b77]/30 hover:text-stone-700"
+                  ? "bg-deep text-white shadow-sm"
+                  : "bg-white text-stone-500 border border-stone-200/60 hover:border-deep/30 hover:text-stone-700"
               }`}
             >
               All ({categoryCounts.all})
@@ -149,8 +149,8 @@ export default function TopicsPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all capitalize ${
                   activeCategory === cat
-                    ? "bg-[#4f7b77] text-white shadow-sm"
-                    : "bg-white text-stone-500 border border-stone-200/60 hover:border-[#4f7b77]/30 hover:text-stone-700"
+                    ? "bg-deep text-white shadow-sm"
+                    : "bg-white text-stone-500 border border-stone-200/60 hover:border-deep/30 hover:text-stone-700"
                 }`}
               >
                 {CATEGORY_LABELS[cat]} ({categoryCounts[cat]})
@@ -167,7 +167,7 @@ export default function TopicsPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search topics..."
-                className="w-full pl-9 pr-9 py-2 text-sm bg-white border border-stone-200/60 rounded-lg text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#4f7b77]/20 focus:border-[#4f7b77]/40"
+                className="w-full pl-9 pr-9 py-2 text-sm bg-white border border-stone-200/60 rounded-lg text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               />
               {search && (
                 <button
@@ -183,7 +183,7 @@ export default function TopicsPage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="text-sm px-3 py-2 rounded-lg border border-stone-200/60 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-[#4f7b77]/20 focus:border-[#4f7b77]/40"
+                className="text-sm px-3 py-2 rounded-lg border border-stone-200/60 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               >
                 {SORT_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -220,7 +220,7 @@ export default function TopicsPage() {
               <p className="text-stone-500 mb-3">No topics match your search.</p>
               <button
                 onClick={clearFilters}
-                className="text-sm font-medium text-[#4f7b77] hover:text-[#3d5f5c] transition-colors"
+                className="text-sm font-medium text-deep hover:text-deep-dark transition-colors"
               >
                 Clear all filters
               </button>
@@ -234,10 +234,10 @@ export default function TopicsPage() {
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className="group flex flex-col bg-white border border-stone-200/60 rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-sm transition-all"
+                    className="group flex flex-col bg-white border border-stone-200/60 rounded-xl p-5 hover:border-deep/30 hover:shadow-sm transition-all"
                   >
                     {/* Title */}
-                    <h2 className="font-serif text-lg text-stone-900 group-hover:text-[#4f7b77] transition-colors leading-snug mb-2">
+                    <h2 className="font-serif text-lg text-stone-900 group-hover:text-deep transition-colors leading-snug mb-2">
                       {topic.title}
                     </h2>
 

@@ -242,7 +242,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
                   )}
                 </div>
                 {arg.strengthRationale && (
-                  <p className="mt-1 text-xs text-[#4f7b77] italic">
+                  <p className="mt-1 text-xs text-deep italic">
                     {arg.strengthRationale}
                   </p>
                 )}
@@ -375,7 +375,7 @@ function SocialShareButtons({ id, topic }: { id: string; topic: string }) {
   };
 
   const btnBase =
-    "inline-flex items-center gap-2 px-4 py-2 bg-white border border-stone-200/80 rounded-lg text-sm font-medium text-[#3d3a36] hover:bg-stone-50 hover:border-stone-300 transition-all shadow-sm";
+    "inline-flex items-center gap-2 px-4 py-2 bg-white border border-stone-200/80 rounded-lg text-sm font-medium text-primary hover:bg-stone-50 hover:border-stone-300 transition-all shadow-sm";
 
   return (
     <div className="flex flex-wrap items-center justify-center gap-2">
@@ -411,8 +411,8 @@ function SocialShareButtons({ id, topic }: { id: string; topic: string }) {
       <button onClick={handleCopy} className={btnBase} aria-label="Copy link">
         {copied ? (
           <>
-            <Check className="h-4 w-4 text-[#4f7b77]" />
-            <span className="text-[#4f7b77]">Copied!</span>
+            <Check className="h-4 w-4 text-deep" />
+            <span className="text-deep">Copied!</span>
           </>
         ) : (
           <>
@@ -446,16 +446,16 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
   return (
     <Link
       href={`/topics/${topic.id}`}
-      className="group block bg-white border border-stone-200/80 rounded-xl p-4 hover:border-[#4f7b77]/40 hover:shadow-md transition-all"
+      className="group block bg-white border border-stone-200/80 rounded-xl p-4 hover:border-deep/40 hover:shadow-md transition-all"
     >
       <div className="space-y-2">
         <div className="flex items-start justify-between gap-2">
-          <h4 className="font-serif font-semibold text-[#3d3a36] text-sm group-hover:text-[#4f7b77] transition-colors leading-snug">
+          <h4 className="font-serif font-semibold text-primary text-sm group-hover:text-deep transition-colors leading-snug">
             {topic.title}
           </h4>
-          <ArrowRight className="h-4 w-4 text-stone-300 group-hover:text-[#4f7b77] transition-colors flex-shrink-0 mt-0.5" />
+          <ArrowRight className="h-4 w-4 text-stone-300 group-hover:text-deep transition-colors flex-shrink-0 mt-0.5" />
         </div>
-        <p className="text-xs text-[#6d645c] line-clamp-2 leading-relaxed">
+        <p className="text-xs text-secondary line-clamp-2 leading-relaxed">
           {topic.meta_claim}
         </p>
         <ConfidenceBadge score={topic.confidence_score} />
@@ -495,15 +495,15 @@ export function AnalysisView({
       <div className="bg-[#faf8f5] min-h-full">
         <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-8">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-[#6d645c]">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-secondary">
             <Link
               href="/analyze"
-              className="hover:text-[#4f7b77] transition-colors"
+              className="hover:text-deep transition-colors"
             >
               Analyses
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-stone-400" />
-            <span className="text-[#3d3a36] font-medium truncate max-w-[280px] sm:max-w-none">
+            <span className="text-primary font-medium truncate max-w-[280px] sm:max-w-none">
               {extracted.topic}
             </span>
           </nav>
@@ -514,14 +514,14 @@ export function AnalysisView({
             animate={{ opacity: 1, y: 0 }}
             className="text-center space-y-3"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#4f7b77]/10 border border-[#4f7b77]/20 rounded-full text-xs font-medium text-[#4f7b77] tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide">
               <Brain className="h-3 w-3" />
               Shared Analysis
             </div>
-            <h1 className="font-serif text-2xl md:text-3xl font-bold text-[#1f1f1d]">
+            <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary">
               {extracted.topic}
             </h1>
-            <p className="text-[#6d645c] text-sm max-w-xl mx-auto">
+            <p className="text-secondary text-sm max-w-xl mx-auto">
               {extracted.summary}
             </p>
             <div className="flex items-center justify-center gap-4 text-xs text-stone-400 mb-3">
@@ -568,8 +568,8 @@ export function AnalysisView({
             transition={{ delay: 0.15 }}
             className="space-y-4"
           >
-            <h3 className="font-serif font-semibold text-[#1f1f1d] flex items-center gap-2">
-              <FileText className="h-4 w-4 text-[#6d645c]" />
+            <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
+              <FileText className="h-4 w-4 text-secondary" />
               Extracted Positions
             </h3>
             {extracted.positions.length > 0 ? (
@@ -579,7 +579,7 @@ export function AnalysisView({
                 ))}
               </div>
             ) : (
-              <p className="text-[#6d645c] text-center py-4">
+              <p className="text-secondary text-center py-4">
                 No clear positions identified
               </p>
             )}
@@ -593,7 +593,7 @@ export function AnalysisView({
               transition={{ delay: 0.2 }}
               className="space-y-4"
             >
-              <h3 className="font-serif font-semibold text-[#1f1f1d] flex items-center gap-2">
+              <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
                 <Target className="h-4 w-4 text-purple-600" />
                 Key Cruxes (Points of Disagreement)
               </h3>
@@ -613,7 +613,7 @@ export function AnalysisView({
               transition={{ delay: 0.25 }}
               className="space-y-4"
             >
-              <h3 className="font-serif font-semibold text-[#1f1f1d] flex items-center gap-2">
+              <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
                 <AlertTriangle className="h-4 w-4 text-yellow-600" />
                 Potential Fallacies Detected
               </h3>
@@ -633,7 +633,7 @@ export function AnalysisView({
               transition={{ delay: 0.28 }}
               className="space-y-4"
             >
-              <h3 className="font-serif font-semibold text-[#1f1f1d] flex items-center gap-2">
+              <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
                 <Brain className="h-4 w-4 text-orange-600" />
                 Detected Biases
               </h3>
@@ -666,13 +666,13 @@ export function AnalysisView({
               className="pt-8 border-t border-stone-200/60 space-y-4"
             >
               <div className="flex items-center justify-between">
-                <h3 className="font-serif font-semibold text-[#1f1f1d] flex items-center gap-2">
-                  <MessageSquare className="h-4 w-4 text-[#4f7b77]" />
+                <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
+                  <MessageSquare className="h-4 w-4 text-deep" />
                   Related Topics
                 </h3>
                 <Link
                   href="/topics"
-                  className="text-sm text-[#4f7b77] hover:underline"
+                  className="text-sm text-deep hover:underline"
                 >
                   View all topics
                 </Link>
@@ -693,10 +693,10 @@ export function AnalysisView({
             className="pt-8 border-t border-stone-200/60"
           >
             <div className="bg-[#fefcf9] border border-stone-200/60 rounded-xl p-6 md:p-8 text-center space-y-4">
-              <h3 className="font-serif text-xl font-bold text-[#1f1f1d]">
+              <h3 className="font-serif text-xl font-bold text-primary">
                 Have your own text to analyze?
               </h3>
-              <p className="text-[#6d645c] text-sm max-w-md mx-auto">
+              <p className="text-secondary text-sm max-w-md mx-auto">
                 Paste a debate, article, or discussion and get AI-powered
                 argument extraction, fallacy detection, and multi-model judging.
               </p>
