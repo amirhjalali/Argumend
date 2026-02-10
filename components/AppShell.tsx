@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/Footer";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
@@ -69,7 +70,10 @@ export function AppShell({ children }: AppShellProps) {
           {/* Content inner shadow for depth */}
           <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_4px_0_12px_-4px_rgba(0,0,0,0.04)]" />
 
-          <div className="relative z-0">{children}</div>
+          <div className="relative z-0">
+            {children}
+            <Footer />
+          </div>
         </div>
       </div>
     </div>

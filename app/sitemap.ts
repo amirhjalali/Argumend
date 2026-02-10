@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { topics } from "@/data/topics";
 import { guides } from "@/data/guides";
+import { articles } from "@/data/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://argumend.org";
@@ -62,22 +63,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // ── Blog pages ────────────────────────────────────────────────────────
-  // TODO: When data/blog.ts is created, import articles and map slugs here.
-  //   import { articles } from "@/data/blog";
-  //   const blogArticlePages = articles.map((a) => ({
-  //     url: `${baseUrl}/blog/${a.slug}`,
-  //     lastModified: new Date(a.publishedAt),
-  //     changeFrequency: "monthly" as const,
-  //     priority: 0.6,
-  //   }));
-  const blogPages = [
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.6,
-    },
-  ];
+  const blogIndexPage = {
+    url: `${baseUrl}/blog`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  };
+  const blogArticlePages = articles.map((a) => ({
+    url: `${baseUrl}/blog/${a.slug}`,
+    lastModified: new Date(a.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+  const blogPages = [blogIndexPage, ...blogArticlePages];
 
   return [
     ...staticPages,

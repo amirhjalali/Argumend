@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { articles } from "@/data/blog";
 
 function formatDate(iso: string): string {
@@ -102,23 +103,9 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* Newsletter / CTA */}
-          <div className="mt-12 bg-gradient-to-br from-[#faf8f3] to-[#f5f2eb] rounded-xl p-8 border border-[#e8e0d4] text-center">
-            <h3 className="font-serif text-xl text-[#3d3a36] mb-3">
-              Think More Clearly About Hard Questions
-            </h3>
-            <p className="text-[#6a5f56] leading-relaxed max-w-lg mx-auto mb-6">
-              Argumend maps the strongest arguments on every side of
-              controversial topics. See the evidence, find the cruxes, and form
-              your own view.
-            </p>
-            <Link
-              href="/topics"
-              className="inline-flex items-center gap-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-medium px-6 py-3 transition-colors"
-            >
-              Explore Topics
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+          {/* Newsletter Signup */}
+          <div className="mt-12">
+            <NewsletterSignup />
           </div>
 
           {/* Footer note */}

@@ -1,4 +1,4 @@
-import { Triangle, Brain, Layers, type LucideIcon } from "lucide-react";
+import { Triangle, Brain, Layers, Map, Play, ShieldCheck, type LucideIcon } from "lucide-react";
 
 export interface GuideSection {
   readonly title: string;
@@ -569,6 +569,365 @@ Many potentially useful treatments have been abandoned based on underpowered neg
       { title: "Statistics Done Wrong", author: "Alex Reinhart" },
       { title: "How to Read a Paper", author: "Trisha Greenhalgh" },
       { title: "Science Fictions", author: "Stuart Ritchie" },
+    ],
+  },
+  {
+    id: "how-to-read-an-argument-map",
+    title: "How to Read an Argument Map",
+    subtitle: "Navigating Interactive Argument Maps",
+    description: "A practical guide to navigating Argumend's interactive argument maps — understanding nodes, connections, evidence, and cruxes.",
+    icon: Map,
+    color: "#2d8a6e",
+    readTime: "10 min read",
+    sections: [
+      {
+        title: "What the Map Shows",
+        content: `When you open an argument map on Argumend, you're looking at a visual representation of a debate's logical structure. Instead of reading a wall of text where arguments blur together, the map breaks a topic into discrete, connected components that you can explore at your own pace.
+
+At the center of every map is the **topic node** — the core question or claim being examined. Branching out from the center you'll find **pillar nodes**, which represent the major supporting or opposing lines of reasoning. Each pillar can, in turn, have **evidence nodes** attached to it — specific facts, studies, or data points that strengthen or weaken that line of reasoning.
+
+The map is interactive. You can click any node to expand it and read its full description. You can zoom in on a cluster of related arguments, or zoom out to see the overall shape of the debate. Hovering over a connection line reveals the relationship between two nodes — whether one supports, opposes, or qualifies another.
+
+Think of the map as a table of contents for a debate, except every entry is connected to every other relevant entry. You never lose context, because the structure itself shows you how ideas relate.`,
+      },
+      {
+        title: "Understanding Pillars",
+        content: `Pillars are the backbone of every argument map. Each pillar represents a distinct line of reasoning — an independent argument that either supports or opposes the central claim.
+
+A topic like "Should cities invest in public transit?" might have pillars such as "Economic benefits of reduced car dependency," "Environmental impact of transit systems," "Equity and access for low-income residents," and "Fiscal sustainability of transit agencies." Each pillar can stand on its own: even if one pillar collapses, the others remain.
+
+This matters because real-world debates often fail when people conflate different arguments. Someone might present a devastating critique of the economic case for transit, and their opponent concedes as if the entire issue is settled — even though the environmental and equity arguments are untouched. The pillar structure prevents this. By breaking a position into independent lines of reasoning, the map makes it clear which arguments have been addressed and which remain standing.
+
+When reading a map, start by scanning the pillars. This gives you the big picture — the main reasons people hold the positions they hold. Then drill into the pillars that interest you most, or the ones that seem weakest, to see what evidence supports them.
+
+Each pillar is color-coded. Pillars supporting the central claim typically appear in one color family, while opposing pillars appear in another. This visual distinction helps you quickly grasp the balance of the debate without reading a single word.`,
+      },
+      {
+        title: "Reading Evidence: For and Against",
+        content: `Evidence nodes are where the map gets concrete. While pillars state the arguments in general terms, evidence nodes provide the specific facts, studies, statistics, and examples that give those arguments weight.
+
+Each evidence node has several properties you should pay attention to:`,
+        subsections: [
+          {
+            title: "Direction: Supporting or Opposing",
+            content: `Every piece of evidence is linked to a pillar with a clear directional relationship. A green connection line means the evidence supports that pillar's argument. A red connection line means it weakens or contradicts it. This is crucial: strong arguments have both supporting and opposing evidence displayed honestly. If you see a pillar with only supporting evidence, that might mean the map is incomplete rather than that the argument is airtight.`,
+          },
+          {
+            title: "Source and Reliability Indicators",
+            content: `Each evidence node shows where the information comes from — a peer-reviewed study, a government dataset, a news report, an expert opinion. Argumend attaches reliability indicators to help you quickly judge quality. A meta-analysis from a top journal carries more weight than a single blog post, and the map reflects this through visual cues like source badges and weight indicators. You do not need to evaluate every source yourself; the indicators give you a starting point.`,
+          },
+          {
+            title: "Verification Status",
+            content: `Some evidence nodes carry a verification badge — confirmed, disputed, or unverified. Confirmed evidence has been cross-referenced against multiple independent sources. Disputed evidence has credible challenges. Unverified evidence is presented as-is, without independent confirmation. When you see disputed or unverified tags, treat the evidence as provisional rather than settled.`,
+          },
+        ],
+      },
+      {
+        title: "Finding the Crux",
+        content: `The crux is the most important concept on any argument map. A crux is the single point of disagreement that, if resolved, would change the most minds. It is the fulcrum of the debate.
+
+On Argumend's maps, cruxes are highlighted with a distinctive marker — typically a diamond icon or a bright accent border — so they stand out from ordinary nodes. You can also find them by looking for the node with the most connection lines: cruxes tend to sit at the intersection of multiple pillars because they affect several lines of reasoning simultaneously.
+
+For example, in a debate about renewable energy policy, the crux might be: "Can battery storage technology scale fast enough to make an all-renewable grid reliable by 2040?" If the answer is yes, multiple pillars supporting renewable investment are strengthened. If the answer is no, several opposing pillars gain force. That one factual question shifts the balance of the entire debate.
+
+When you find the crux, you've found the most productive place to focus your attention. Instead of arguing about peripheral points, you can direct your research and thinking toward the question that actually matters. This is one of the most valuable skills in critical thinking: identifying where your effort will have the highest leverage.
+
+To find the crux on any map, look for the node labeled "crux" or "key disagreement." Read it carefully and ask yourself: which side of this question do I find more convincing, and what evidence would change my mind?`,
+      },
+      {
+        title: "Using Confidence Scores",
+        content: `Every major node on an Argumend map displays a confidence score — a number from 0 to 100 that represents how well-supported that particular claim or argument is, given the available evidence.
+
+A confidence score of 85 does not mean "85% chance this is true." It means that 85% of the relevant, weighted evidence points in this direction. The distinction matters: a high confidence score reflects the current state of evidence, not an absolute truth claim. New evidence can shift scores.
+
+Here's how to interpret the ranges:
+
+**80-100: Strong evidence.** The claim is well-supported by multiple independent, high-quality sources. Opposing evidence is sparse or weak. You can treat this as a reliable basis for further reasoning, while remaining open to new information.
+
+**60-79: Moderate evidence.** The balance of evidence favors this claim, but there are meaningful counterarguments or gaps. This is the range where productive debate is most likely — there's enough evidence to form a view, but not enough to be certain.
+
+**40-59: Contested.** Evidence is roughly balanced on both sides, or there simply isn't enough evidence to tip the scales. Claims in this range deserve skepticism in both directions. This is where the crux often lives.
+
+**Below 40: Weak support.** The available evidence mostly contradicts this claim, or the claim rests on low-quality sources. Treat with caution.
+
+Confidence scores are most useful as a triage tool. When exploring a complex map with dozens of nodes, start with the low-confidence nodes — those are where the interesting questions are, where the debate is genuinely unresolved, and where new evidence would make the biggest difference.
+
+You can also compare confidence scores across pillars to get a quick read on the overall state of the debate. If every pillar supporting a position has scores above 75, and every opposing pillar is below 40, the evidence landscape is lopsided. If scores are mixed, the debate is genuinely open.`,
+      },
+    ],
+    keyTakeaways: [
+      "Start by scanning the pillars to understand the major lines of reasoning before diving into details",
+      "Pay attention to evidence direction (supporting vs. opposing) and verification status — not all evidence is created equal",
+      "Find the crux first — it's the single point where resolving a disagreement would shift the most about the debate",
+      "Use confidence scores as a triage tool to identify where evidence is strong, where it's contested, and where your attention is most needed",
+    ],
+    furtherReading: [
+      { title: "Good Reasoning Matters", author: "Leo Groarke & Christopher Tindale" },
+      { title: "Mapping Critical Thinking", author: "Tim van Gelder", url: "https://timvangelder.com/" },
+      { title: "An Illustrated Book of Bad Arguments", author: "Ali Almossawi", url: "https://bookofbadarguments.com/" },
+    ],
+  },
+  {
+    id: "running-your-first-analysis",
+    title: "Running Your First Analysis",
+    subtitle: "From Text to Structured Insight",
+    description: "Step-by-step guide to using Argumend's AI analysis tool to extract arguments, identify cruxes, and evaluate reasoning from any text.",
+    icon: Play,
+    color: "#5b6abf",
+    readTime: "11 min read",
+    sections: [
+      {
+        title: "What Text Works Best",
+        content: `Argumend's analysis tool works on any text that contains arguments — but some texts produce richer results than others. Understanding what to feed the tool helps you get the most out of it.
+
+**Ideal inputs:**
+
+- **Opinion editorials and essays.** These are explicitly argumentative. The author is trying to convince you of something, so the analysis tool has clear positions, evidence, and reasoning to extract.
+- **Policy proposals and position papers.** These contain structured arguments with supporting evidence, making them excellent candidates for decomposition into pillars and cruxes.
+- **Debate transcripts and panel discussions.** Multiple perspectives in a single text let the tool identify genuine disagreements and map out where the participants diverge.
+- **Research summaries and literature reviews.** These synthesize evidence on a topic and often contain implicit arguments about what the evidence means.
+
+**Inputs that work, but produce thinner results:**
+
+- **Straight news reporting.** Good journalism tries to present facts without argument. The tool can still extract claims and evidence, but there may be fewer explicit positions to analyze.
+- **Technical documentation.** Manuals and specifications are informational rather than argumentative. The tool may identify factual claims but won't find much debate structure.
+- **Very short texts (under 200 words).** Brief passages may not contain enough material for a meaningful analysis. Aim for at least a few paragraphs.
+
+**A practical tip:** If you're analyzing a topic rather than a specific text, try finding two or three articles that disagree with each other and paste them together. The analysis engine excels when it can identify genuine disagreement — multiple perspectives in the input produce a much richer argument map than a single-perspective piece.`,
+      },
+      {
+        title: "How to Paste and Submit",
+        content: `Navigate to the **/analyze** page on Argumend. You'll see a large text area with a prompt to paste or type your text.
+
+**Step 1: Paste your text.** Copy the article, essay, or transcript you want to analyze and paste it into the text area. The tool accepts plain text — formatting like bold and italic will be stripped, but that's fine. The analysis works on the words and ideas, not the formatting.
+
+**Step 2: Review the preview.** Before submitting, scan what you've pasted to make sure the text copied correctly. Occasionally, copying from PDFs or web pages introduces garbled characters or missing paragraphs. A quick visual check saves you from analyzing corrupted input.
+
+**Step 3: Submit for analysis.** Click the "Analyze" button. The AI engine will process your text — this typically takes between ten and thirty seconds depending on length. You'll see a progress indicator while the analysis runs.
+
+**Step 4: Wait for the full result.** The analysis appears in stages. Positions and pillars are usually identified first, followed by evidence extraction, crux identification, and finally fallacy detection. Let the full process complete before drawing conclusions — early partial results may shift as the engine processes more of the text.
+
+You don't need to create an account to run an analysis, though saving and sharing results requires one. Each analysis generates a unique URL you can bookmark or share.`,
+      },
+      {
+        title: "Understanding the Results",
+        content: `Once the analysis completes, you'll see a structured breakdown of the text's arguments. Here's what each section means and how to use it.`,
+        subsections: [
+          {
+            title: "Positions",
+            content: `At the top of the results, the tool identifies the main positions present in the text — the core claims or stances that the author (or authors) are advancing. Each position is stated in a clear, neutral sentence.
+
+If the text contains a single perspective, you might see one primary position and one or two implied counter-positions that the author is arguing against. If the text contains multiple perspectives (like a debate transcript), you'll see each side's position stated explicitly.
+
+Positions are the "what" of the argument — what is being claimed. Everything else in the analysis supports, opposes, or qualifies these positions.`,
+          },
+          {
+            title: "Pillars and Evidence",
+            content: `Below the positions, you'll find the pillars — the major independent arguments supporting or opposing each position. Each pillar is labeled with its direction (for or against) and includes the specific evidence extracted from the text.
+
+The evidence is drawn directly from the source text: statistics cited, studies referenced, examples given, logical steps made. The tool distinguishes between empirical evidence (data, studies, observed facts) and logical arguments (deductive or inductive reasoning steps).
+
+This is where the analysis earns its keep. A skilled reader might identify the main argument in an essay, but might miss a secondary argument buried in paragraph seven, or fail to notice that two seemingly different points actually support the same underlying pillar. The tool catches these structural patterns.`,
+          },
+          {
+            title: "Cruxes",
+            content: `The crux section identifies the key points of disagreement — the specific factual or value-based questions where resolving them would most change the conclusion. This is often the most valuable part of the analysis.
+
+For each crux, the tool explains why it matters: which pillars it affects, what each side would need to be true, and what kind of evidence would resolve it. If you only have time to focus on one part of the results, focus on the cruxes. They tell you where the real action is.`,
+          },
+          {
+            title: "Fallacy Detection",
+            content: `The tool scans for common logical fallacies — straw man arguments, appeals to authority, false dichotomies, slippery slopes, ad hominem attacks, and others. Each detected fallacy is shown with the relevant passage highlighted and an explanation of why it qualifies as a reasoning error.
+
+A word of caution: fallacy detection is the most subjective part of the analysis. Some patterns that look like fallacies are actually legitimate reasoning moves in context. An appeal to expert opinion, for example, isn't a fallacy when the expert is genuinely authoritative on the specific question at hand. Use the fallacy section as a starting point for critical examination, not as a definitive verdict.`,
+          },
+        ],
+      },
+      {
+        title: "The AI Judge Council",
+        content: `Behind the scenes, Argumend doesn't rely on a single AI model to produce its analysis. Instead, it uses a **judge council** — multiple independent AI evaluators that each assess the text separately before their judgments are synthesized.
+
+This design mirrors the principle of triangulation (covered in our guide on that topic). A single AI model might have systematic blind spots or tendencies — perhaps it consistently underweights certain types of evidence, or has a subtle bias toward particular framings. By running multiple models independently and then comparing their assessments, Argumend reduces the impact of any single model's weaknesses.
+
+Here's how it works in practice:
+
+1. **Independent evaluation.** Each AI judge analyzes the text on its own, identifying positions, pillars, evidence, and cruxes without seeing what the other judges found.
+
+2. **Comparison and consensus.** The system compares the judges' outputs. Where they agree, confidence is high. Where they disagree, the system flags the disagreement and investigates further.
+
+3. **Synthesis.** The final analysis represents the consensus view, with confidence scores reflecting the degree of agreement among judges. Areas where judges disagreed are presented with lower confidence scores, alerting you that the interpretation is less certain.
+
+4. **Transparency.** In the detailed view, you can see where judges diverged. This is useful information — it tells you which aspects of the analysis are robust and which are more interpretation-dependent.
+
+The judge council is why Argumend's confidence scores are more calibrated than a single model's output would be. It's also why the tool sometimes flags uncertainty rather than presenting a false sense of certainty — genuine ambiguity in the source text produces genuine disagreement among judges, and the system reports this honestly rather than papering over it.`,
+      },
+      {
+        title: "Sharing Your Analysis",
+        content: `Every completed analysis generates a permanent URL that you can share with anyone. The recipient doesn't need an Argumend account to view the results — the full analysis is accessible via the link.
+
+**Sharing for discussion.** If you're debating a topic with someone and want to establish a shared understanding of the argument structure, send them the analysis link. Instead of talking past each other, you can point to specific pillars and say "I think this pillar is weak because..." or "I agree with this evidence but disagree with this one." The shared structure makes disagreement productive.
+
+**Sharing for education.** Teachers and professors can use analysis links as teaching tools. Assign students an article, run the analysis, and then ask students to evaluate whether the AI's breakdown matches their own reading. Where does the AI get it right? Where does it miss something? This builds critical thinking skills by giving students a structured second opinion to compare against.
+
+**Exporting results.** You can export the analysis in several formats. The structured data export gives you the raw positions, pillars, evidence, and cruxes in a format you can import into other tools. The summary export produces a human-readable breakdown suitable for pasting into documents or presentations.
+
+**Building a personal library.** If you create an account, your analyses are saved to your library. Over time, this becomes a personal database of argument structures on topics you care about. You can search your library, compare analyses, and track how your understanding of a topic has evolved as you've analyzed more sources.`,
+      },
+    ],
+    keyTakeaways: [
+      "The best inputs for analysis are explicitly argumentative texts — editorials, position papers, debate transcripts — ideally with multiple perspectives",
+      "Focus on the cruxes first: they identify where resolving a single disagreement would shift the most about the conclusion",
+      "The AI judge council uses multiple independent evaluators to reduce bias — confidence scores reflect the degree of consensus among them",
+      "Use the sharing and export features to make disagreements productive: point to specific pillars and evidence rather than arguing in generalities",
+    ],
+    furtherReading: [
+      { title: "Argumentation: The Study of Effective Reasoning", author: "David Zarefsky" },
+      { title: "Critical Thinking: A Concise Guide", author: "Tracy Bowell & Gary Kemp" },
+      { title: "The Righteous Mind", author: "Jonathan Haidt", url: "https://righteousmind.com/" },
+    ],
+  },
+  {
+    id: "evaluating-source-credibility",
+    title: "Evaluating Source Credibility",
+    subtitle: "Assessing Evidence Reliability in Practice",
+    description: "How to assess whether evidence is reliable — understanding source reliability, independence, replicability, and directness in Argumend's framework.",
+    icon: ShieldCheck,
+    color: "#b37d1e",
+    readTime: "13 min read",
+    sections: [
+      {
+        title: "The Four Dimensions of Evidence Weight",
+        content: `Not all evidence carries the same weight. A peer-reviewed meta-analysis and a single anonymous blog post might both claim the same thing, but they shouldn't move your confidence by the same amount. The question is: how do you systematically decide how much weight to give a piece of evidence?
+
+Argumend's framework evaluates evidence along four independent dimensions: **reliability**, **independence**, **replicability**, and **directness**. Each dimension captures a different aspect of evidence quality, and together they provide a comprehensive picture of how much you should trust a given source.
+
+Think of these four dimensions as separate filters. A piece of evidence might score high on one dimension and low on another. A government statistical report, for instance, is highly reliable and direct, but if every other analysis uses the same dataset, independence is low. A collection of independent anecdotes might score well on independence but poorly on reliability and replicability.
+
+The power of the framework comes from evaluating all four dimensions together. Evidence that scores high on all four is the gold standard — you can update your beliefs substantially based on it. Evidence that scores low on all four should barely move the needle. Most real-world evidence falls somewhere in between, and the framework helps you calibrate appropriately.
+
+On Argumend's argument maps, each evidence node displays indicators for these four dimensions, giving you a quick visual assessment of evidence quality without needing to research every source yourself.`,
+      },
+      {
+        title: "Source Reliability: What Makes a Source Trustworthy",
+        content: `Reliability is the most intuitive dimension: how likely is this source to report accurate information? A source is reliable to the extent that its claims tend to be true.
+
+Several factors determine reliability:`,
+        subsections: [
+          {
+            title: "Track Record",
+            content: `The single best predictor of future reliability is past reliability. Has this source been accurate before? Have they issued corrections when wrong? A source that has been consistently accurate over years has earned a degree of trust. A source with a history of errors, retractions, or fabrications should be treated with skepticism regardless of what they're currently claiming.
+
+Argumend tracks source track records where possible. Peer-reviewed journals with low retraction rates, news organizations with strong editorial standards, and government statistical agencies with decades of consistent methodology all receive higher reliability indicators.`,
+          },
+          {
+            title: "Expertise and Methodology",
+            content: `A source is more reliable when they have genuine expertise in the specific domain of their claim and use rigorous methodology. A climate scientist publishing in a climate journal is a more reliable source on atmospheric CO2 levels than a political commentator blogging about the same topic — even if the commentator happens to be right.
+
+Methodology matters as much as credentials. A well-designed study by a junior researcher can be more reliable than a poorly designed study by a senior one. Look for transparent methods, appropriate statistical techniques, and honest acknowledgment of limitations.`,
+          },
+          {
+            title: "Incentive Alignment",
+            content: `Consider what incentives the source faces. A pharmaceutical company reporting that their own drug works has an obvious financial incentive to find positive results. That doesn't mean their study is wrong — but it means you should weight it less heavily than an independent replication by researchers with no financial stake.
+
+The most credible statements are those that go against the source's interests. When a tobacco company acknowledges that smoking causes cancer, or a defense contractor admits their weapon system has flaws, those statements carry extra weight precisely because the source had every reason not to make them. Argumend flags "statements against interest" as particularly noteworthy evidence.`,
+          },
+          {
+            title: "Transparency",
+            content: `Reliable sources show their work. They explain their methodology, share their data, acknowledge their limitations, and make it possible for others to verify their claims. Sources that ask you to "just trust us" without providing verifiable details should receive less weight.
+
+In the age of AI-generated content, transparency also means being clear about how information was produced. Was this written by a human expert, generated by AI, or some combination? Reliable sources are honest about their process.`,
+          },
+        ],
+      },
+      {
+        title: "Independence: Why Multiple Sources Matter",
+        content: `Independence measures whether sources arrived at their conclusions separately, without influencing each other. This dimension is critical because agreement between independent sources is far more meaningful than agreement between sources that share a common origin.
+
+Consider two scenarios:
+
+**Scenario A:** Three news outlets report the same story. You investigate and find that all three are citing the same single wire service report. Despite having "three sources," you really have one data point repeated three times. The apparent convergence is an illusion.
+
+**Scenario B:** Three researchers using different methodologies, working at different institutions, with different funding sources, all find the same result. This genuine convergence is powerful evidence, because the probability of three independent analyses making the same error is much lower than the probability of one analysis being wrong.
+
+Argumend evaluates independence by examining whether sources share common origins, methodologies, funding, or institutional affiliations. Evidence from truly independent sources receives higher weight than evidence from sources that may have influenced each other.
+
+**How to assess independence yourself:**
+
+1. **Trace the chain.** When multiple sources agree, ask: are they actually independent, or are they all drawing from the same upstream source? Follow citations back to their origins.
+
+2. **Check for shared methodology.** If multiple studies use the same dataset or the same analytical approach, their agreement is less impressive than if they used different data and different methods.
+
+3. **Look for institutional diversity.** Research from multiple institutions in multiple countries is more independent than multiple papers from the same lab group.
+
+4. **Beware of social influence.** In tightly connected fields, researchers read each other's work and attend the same conferences. This creates correlated assumptions that can make "independent" research less independent than it appears.
+
+Independence is especially important in the social media age, where a single claim can be amplified into thousands of shares that look like widespread agreement but trace back to a single origin. The appearance of consensus is not the same as genuine, independently-reached consensus.`,
+      },
+      {
+        title: "Replicability and Directness",
+        content: `The remaining two dimensions complete the picture of evidence quality.`,
+        subsections: [
+          {
+            title: "Replicability",
+            content: `Replicability asks: if someone repeated this study or investigation, would they get the same result? Evidence is replicable when the finding holds up across multiple attempts under similar conditions.
+
+The replication crisis in psychology and other fields (discussed in our Hierarchy of Evidence guide) showed that many published findings fail to replicate. This makes replication status a crucial quality indicator. Evidence that has been successfully replicated — especially by independent teams — deserves substantially more weight than evidence from a single unreplicated study.
+
+On Argumend, evidence nodes that reference replicated findings carry a replicability indicator. When evaluating evidence yourself, check: has this finding been replicated? By whom? Were the replications close to the original conditions, or did they test the finding in new contexts (which is even better)?
+
+There's a practical hierarchy of replicability:
+- **Direct replication by independent teams:** Strongest. Different people followed the same procedure and got the same result.
+- **Conceptual replication:** Different methods testing the same underlying idea arrived at consistent findings. This is especially valuable because it means the finding isn't an artifact of one particular methodology.
+- **Single study, pre-registered:** Not yet replicated, but the study was designed rigorously with pre-registered hypotheses and analysis plans, reducing the chance of false positives.
+- **Single study, not pre-registered:** The finding may be real, but without replication or pre-registration, treat it as preliminary.`,
+          },
+          {
+            title: "Directness",
+            content: `Directness measures how closely the evidence addresses the actual claim being made. Direct evidence bears on the question without requiring inferential leaps. Indirect evidence requires you to reason from what was measured to what you actually want to know.
+
+For example, if the claim is "Exercise reduces depression," a direct piece of evidence would be a randomized trial measuring depression scores in people assigned to exercise versus no exercise. An indirect piece of evidence might be a study showing that exercise increases serotonin levels in mice — relevant, but requiring you to assume that the mouse findings translate to humans and that serotonin levels map onto depression outcomes.
+
+Both types of evidence have value, but direct evidence deserves more weight because it involves fewer inferential steps, each of which could be wrong.
+
+Common sources of indirectness:
+- **Proxy measures:** Using a stand-in for the thing you actually care about. GDP per capita is an indirect measure of well-being — related, but not the same thing.
+- **Model organisms:** Animal studies are indirect evidence for human health. They're useful for generating hypotheses, but the translation from mice to humans fails often enough that caution is warranted.
+- **Analogies:** "This policy worked in Country X, so it will work in Country Y." This is indirect because it assumes the two contexts are similar enough for the analogy to hold.
+- **Extrapolation:** Extending a trend beyond the range of observed data. Past performance is indirect evidence of future results, and the further you extrapolate, the weaker the evidence becomes.
+
+On Argumend's maps, evidence nodes indicate directness level. When you see a chain of indirect evidence, ask yourself how many inferential steps are required and how confident you are in each step. The overall strength of the evidence chain is limited by its weakest link.`,
+          },
+        ],
+      },
+      {
+        title: "Putting It All Together",
+        content: `The four dimensions work together to give you a holistic assessment of any piece of evidence. Here's a practical workflow for evaluating a source you encounter in the wild or on an Argumend map.
+
+**Step 1: Assess reliability.** Who produced this? What's their track record? What methodology did they use? Do they have incentives that might bias their conclusions? How transparent are they about their process?
+
+**Step 2: Check independence.** Is this the only source making this claim, or have others reached the same conclusion independently? If multiple sources agree, do they truly arrive at this independently, or are they drawing from a common well?
+
+**Step 3: Look for replication.** Has this finding been reproduced? If it's a scientific claim, have other teams replicated the result? If it's an empirical observation, has it been observed in other contexts?
+
+**Step 4: Evaluate directness.** Does this evidence address the actual question, or does it address a related-but-different question? How many inferential steps are required to connect the evidence to the claim?
+
+**Step 5: Form an overall judgment.** Evidence that scores high on all four dimensions should move your confidence substantially. Evidence that scores high on some and low on others moves it moderately. Evidence that scores low across the board should barely register.
+
+A useful mental model: imagine you're a juror. You wouldn't convict based solely on one witness's testimony (low independence, low replicability). You'd want multiple witnesses (independence), whose accounts have been verified (replicability), who actually saw the event in question (directness), and who have no reason to lie (reliability). The same standards apply to evaluating evidence in any domain.
+
+**One final principle:** be honest about uncertainty. Sometimes the available evidence is simply insufficient to reach a confident conclusion. That's okay. Acknowledging what you don't know is itself a sign of good epistemic practice. Argumend's confidence scores embrace this — a score of 50 isn't a failure, it's an honest reflection of genuine uncertainty, and recognizing that uncertainty is the first step toward resolving it.`,
+      },
+    ],
+    keyTakeaways: [
+      "Evaluate evidence on four dimensions — reliability, independence, replicability, and directness — rather than relying on gut feeling",
+      "The most credible evidence comes from sources with strong track records that go against their own interests, use transparent methodology, and have been independently replicated",
+      "Independence is the most frequently overlooked dimension: apparent consensus can be an illusion when multiple sources trace back to a single origin",
+      "Direct evidence that addresses the actual claim deserves more weight than indirect evidence requiring chains of inference — and the chain is only as strong as its weakest link",
+    ],
+    furtherReading: [
+      { title: "Calling Bullshit: The Art of Skepticism in a Data-Driven World", author: "Carl Bergstrom & Jevin West", url: "https://callingbullshit.org/" },
+      { title: "The Scout Mindset", author: "Julia Galef", url: "https://www.juliagalef.com/book/" },
+      { title: "Factfulness", author: "Hans Rosling", url: "https://www.gapminder.org/factfulness/" },
     ],
   },
 ];

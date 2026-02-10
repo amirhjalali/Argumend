@@ -3,13 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
-  ArrowRight,
   Calendar,
   Clock,
   Tag,
   User,
 } from "lucide-react";
 import { articles, getArticleBySlug, getRelatedArticles } from "@/data/blog";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { BlogArticleClient } from "./client";
 
 // ---------------------------------------------------------------------------
@@ -215,23 +215,9 @@ export default async function BlogArticlePage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* CTA */}
-          <div className="mt-10 bg-gradient-to-br from-[#faf8f3] to-[#f0ede6] rounded-xl p-6 md:p-8 border border-[#e8e0d4]">
-            <h3 className="font-serif text-lg text-[#3d3a36] mb-2">
-              See Structured Analysis in Action
-            </h3>
-            <p className="text-[#6a5f56] leading-relaxed mb-5">
-              Argumend maps the strongest arguments on every side of
-              controversial topics—with evidence, cruxes, and calibrated
-              confidence scores.
-            </p>
-            <Link
-              href="/topics"
-              className="inline-flex items-center gap-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-medium px-5 py-2.5 text-sm transition-colors"
-            >
-              Explore this topic on Argumend
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+          {/* Newsletter Signup */}
+          <div className="mt-10">
+            <NewsletterSignup variant="compact" />
           </div>
 
           {/* Related Articles */}
