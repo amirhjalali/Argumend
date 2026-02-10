@@ -1,8 +1,11 @@
 import { MetadataRoute } from "next";
+import { topics } from "@/data/topics";
+import { guides } from "@/data/guides";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://argumend.org";
 
+  // ── Static pages ──────────────────────────────────────────────────────
   const staticPages = [
     "",
     "/about",
@@ -27,5 +30,60 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1 : route === "/analyze" ? 0.9 : 0.7,
   }));
 
-  return [...staticPages];
+  // ── Topic detail pages (38 topics) ────────────────────────────────────
+  const topicPages = topics.map((topic) => ({
+    url: `${baseUrl}/topics/${topic.id}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  // ── Guide detail pages ────────────────────────────────────────────────
+  const guidePages = guides.map((guide) => ({
+    url: `${baseUrl}/guides/${guide.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  // ── Concept detail slugs ──────────────────────────────────────────────
+  const conceptSlugs = [
+    "pillars",
+    "cruxes",
+    "confidence-scores",
+    "verification-status",
+    "steel-manning",
+  ];
+  const conceptPages = conceptSlugs.map((slug) => ({
+    url: `${baseUrl}/concepts/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  // ── Blog pages ────────────────────────────────────────────────────────
+  // TODO: When data/blog.ts is created, import articles and map slugs here.
+  //   import { articles } from "@/data/blog";
+  //   const blogArticlePages = articles.map((a) => ({
+  //     url: `${baseUrl}/blog/${a.slug}`,
+  //     lastModified: new Date(a.publishedAt),
+  //     changeFrequency: "monthly" as const,
+  //     priority: 0.6,
+  //   }));
+  const blogPages = [
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    },
+  ];
+
+  return [
+    ...staticPages,
+    ...topicPages,
+    ...guidePages,
+    ...conceptPages,
+    ...blogPages,
+  ];
 }

@@ -28,6 +28,8 @@ import { TopicIntroPanel } from "@/components/TopicIntroPanel";
 import { ScalesOfEvidence } from "@/components/ScalesOfEvidence";
 import { DebateView } from "@/components/DebateView";
 import { HeroAnalyze } from "@/components/HeroAnalyze";
+import { OnboardingOverlay } from "@/components/OnboardingOverlay";
+import { QuickStartBanner } from "@/components/QuickStartBanner";
 import { MobileArgumentList } from "@/components/MobileArgumentList";
 import { getMiniMapColor } from "@/lib/variantStyles";
 import { GRAPH, MINIMAP } from "@/lib/constants";
@@ -91,6 +93,7 @@ function CanvasExperience() {
   if (showHero) {
     return (
       <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
+        <OnboardingOverlay />
         <TopBar onMenuClick={sidebar.toggle} showBackToHero={false} />
 
         <div className="flex min-h-0 flex-1 overflow-hidden">
@@ -126,6 +129,7 @@ function CanvasExperience() {
 
           {/* Hero Content */}
           <div className="relative flex-1 min-w-0 overflow-y-auto">
+            <QuickStartBanner onTopicSelect={handleTopicSelect} />
             <HeroAnalyze onTopicSelect={handleTopicSelect} />
           </div>
         </div>

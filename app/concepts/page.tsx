@@ -1,34 +1,30 @@
 "use client";
 
-import { Target, Layers, FlaskConical, Scale } from "lucide-react";
+import Link from "next/link";
+import {
+  Shield,
+  Target,
+  Scale,
+  Lightbulb,
+  AlertTriangle,
+  Layers,
+  ArrowRight,
+  BookOpen,
+} from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { concepts } from "@/data/concepts";
 
-const concepts = [
-  {
-    icon: Layers,
-    title: "Pillars",
-    description: "The foundational arguments that support or challenge a claim.",
-    details: "Each topic is broken into exactly three pillars—the core arguments that must be addressed to form a reasoned position. Pillars represent the strongest versions of both skeptic and proponent positions, ensuring intellectual honesty.",
-  },
-  {
-    icon: Target,
-    title: "Cruxes",
-    description: "The decisive tests that could resolve a disagreement.",
-    details: "A crux is the specific evidence or experiment that would change minds. If we disagree, finding our crux means identifying exactly what evidence would convince us otherwise. This transforms abstract debates into concrete, testable questions.",
-  },
-  {
-    icon: Scale,
-    title: "Confidence Scores",
-    description: "A numerical estimate of how settled a question is.",
-    details: "Scores range from 0-100% and reflect the weight of evidence and expert consensus. A score of 95% (like climate change) indicates overwhelming evidence. A score of 45% (like free will) indicates genuine uncertainty where reasonable people disagree.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Verification Status",
-    description: "Whether the crux has been tested and what it would cost.",
-    details: "Each crux is marked as verified (tested and confirmed), theoretical (testable but not yet done), or impossible (cannot be tested with current technology). We also estimate the cost to verify, from $0 for data analysis to millions for new experiments.",
-  },
-];
+// ---------------------------------------------------------------------------
+// Icon map -- lucide-react icons by name
+// ---------------------------------------------------------------------------
+const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement> & { strokeWidth?: number }>> = {
+  Shield,
+  Target,
+  Scale,
+  Lightbulb,
+  AlertTriangle,
+  Layers,
+};
 
 export default function ConceptsPage() {
   return (
@@ -42,29 +38,40 @@ export default function ConceptsPage() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {concepts.map((concept) => (
-            <div
-              key={concept.title}
-              className="bg-white/80 rounded-xl p-6 border border-[#e8e0d4]"
-            >
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] rounded-lg border border-[#e8e0d4]">
-                  <concept.icon className="h-5 w-5 text-[#4f7b77]" strokeWidth={1.8} />
+          {concepts.map((concept) => {
+            const Icon = iconMap[concept.iconName] ?? BookOpen;
+            const firstParagraph = concept.description.split("\n\n")[0] ?? "";
+            const snippet =
+              firstParagraph.length > 180
+                ? firstParagraph.slice(0, 180) + "..."
+                : firstParagraph;
+
+            return (
+              <Link
+                key={concept.id}
+                href={`/concepts/${concept.id}`}
+                className="group bg-white/80 rounded-xl p-6 border border-[#e8e0d4] hover:border-[#4f7b77]/30 hover:shadow-sm transition-all"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] rounded-lg border border-[#e8e0d4]">
+                    <Icon className="h-5 w-5 text-[#4f7b77]" strokeWidth={1.8} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h2 className="font-serif text-xl text-[#3d3a36] mb-1 group-hover:text-[#4f7b77] transition-colors">
+                      {concept.title}
+                    </h2>
+                    <p className="text-[#4e473f] leading-relaxed text-sm mb-3">
+                      {snippet}
+                    </p>
+                    <span className="inline-flex items-center gap-1 text-[#4f7b77] text-sm font-medium">
+                      Learn more
+                      <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="font-serif text-xl text-[#3d3a36] mb-1">
-                    {concept.title}
-                  </h2>
-                  <p className="text-[#6a5f56] font-medium mb-3">
-                    {concept.description}
-                  </p>
-                  <p className="text-[#4e473f] leading-relaxed">
-                    {concept.details}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="mt-10 bg-white/80 rounded-xl p-6 border border-[#e8e0d4]">
@@ -77,19 +84,19 @@ export default function ConceptsPage() {
           <ul className="space-y-2 text-[#4e473f]">
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4f7b77] mt-2 flex-shrink-0" />
-              <span><strong>Steel-manning</strong> — presenting the strongest version of opposing arguments</span>
+              <span><strong>Steel-manning</strong> -- presenting the strongest version of opposing arguments</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4f7b77] mt-2 flex-shrink-0" />
-              <span><strong>Crux identification</strong> — finding the precise point where disagreements hinge</span>
+              <span><strong>Crux identification</strong> -- finding the precise point where disagreements hinge</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4f7b77] mt-2 flex-shrink-0" />
-              <span><strong>Bayesian reasoning</strong> — updating confidence based on evidence</span>
+              <span><strong>Bayesian reasoning</strong> -- updating confidence based on evidence</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4f7b77] mt-2 flex-shrink-0" />
-              <span><strong>Falsificationism</strong> — focusing on what could prove a claim wrong</span>
+              <span><strong>Falsificationism</strong> -- focusing on what could prove a claim wrong</span>
             </li>
           </ul>
         </div>

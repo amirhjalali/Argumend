@@ -16,6 +16,7 @@ import {
   Layers,
   ListChecks,
   Map,
+  Newspaper,
   Scale,
   Shell,
   Users,
@@ -32,6 +33,7 @@ const PRIMARY_NAV = [
 ];
 
 const LEARN_NAV = [
+  { label: "Blog", icon: Newspaper, href: "/blog" },
   { label: "Guides", icon: GraduationCap, href: "/guides" },
   { label: "Concepts", icon: Layers, href: "/concepts" },
   { label: "Perspectives", icon: Eye, href: "/perspectives" },

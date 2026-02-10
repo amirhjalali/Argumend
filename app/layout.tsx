@@ -80,6 +80,28 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Argumend",
+              url: "https://argumend.org",
+              description:
+                "Structured argument mapping platform for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+              sameAs: [],
+              logo: "https://argumend.org/icon.png",
+              foundingDate: "2024",
+              knowsAbout: [
+                "argument mapping",
+                "critical thinking",
+                "evidence-based reasoning",
+                "debate analysis",
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );

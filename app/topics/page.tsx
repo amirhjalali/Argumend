@@ -233,7 +233,7 @@ export default function TopicsPage() {
                 return (
                   <Link
                     key={topic.id}
-                    href={`/?topic=${topic.id}`}
+                    href={`/topics/${topic.id}`}
                     className="group flex flex-col bg-white border border-stone-200/60 rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-sm transition-all"
                   >
                     {/* Title */}
@@ -279,8 +279,8 @@ export default function TopicsPage() {
           {/* Footer */}
           <div className="mt-10 pt-6 border-t border-stone-200/60">
             <p className="text-sm text-stone-400">
-              {topics.length} topics mapped. Click any topic to explore its logical
-              structure with steel-man arguments and crux questions.
+              {topics.length} topics mapped. Click any topic to read its full analysis
+              with steel-man arguments, weighted evidence, and crux questions.
             </p>
           </div>
         </div>
