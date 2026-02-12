@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronRight,
   CheckCircle,
@@ -14,6 +16,16 @@ import {
   ThumbsDown,
   FlaskConical,
   ExternalLink,
+  Target,
+  Zap,
+  Atom,
+  Telescope,
+  Microscope,
+  Scale,
+  Gavel,
+  FileText,
+  Users,
+  AlertTriangle,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import type {
@@ -24,7 +36,7 @@ import type {
   Evidence,
   Crux,
 } from "@/lib/schemas/topic";
-import { calculateEvidenceScore } from "@/lib/schemas/topic";
+import { calculateEvidenceScore, getVerdictLabel } from "@/lib/schemas/topic";
 import { CATEGORY_LABELS } from "@/data/topics";
 
 // ---------------------------------------------------------------------------
@@ -61,6 +73,21 @@ const verificationColors: Record<string, { bg: string; text: string; label: stri
   verified: { bg: "bg-emerald-50", text: "text-emerald-700", label: "Verified" },
   theoretical: { bg: "bg-blue-50", text: "text-blue-700", label: "Theoretical" },
   impossible: { bg: "bg-stone-100", text: "text-stone-600", label: "Impossible to Verify" },
+};
+
+const ICON_MAP: Record<string, typeof Shield> = {
+  Target,
+  Zap,
+  HelpCircle,
+  Shield,
+  Atom,
+  Telescope,
+  Microscope,
+  Scale,
+  Gavel,
+  FileText,
+  Users,
+  AlertTriangle,
 };
 
 // ---------------------------------------------------------------------------
@@ -364,6 +391,17 @@ export default function TopicDetailView({
     (sum, p) => sum + (p.evidence?.length ?? 0),
     0
   );
+  const totalFor = topic.pillars.reduce(
+    (sum, p) => sum + (p.evidence ?? []).filter((e) => e.side === "for").length,
+    0
+  );
+  const totalAgainst = topic.pillars.reduce(
+    (sum, p) => sum + (p.evidence ?? []).filter((e) => e.side === "against").length,
+    0
+  );
+  const forPct = totalEvidence > 0 ? Math.round((totalFor / totalEvidence) * 100) : 50;
+
+  const [stance, setStance] = useState<"agree" | "unsure" | "disagree" | null>(null);
 
   return (
     <AppShell>
@@ -452,6 +490,300 @@ export default function TopicDetailView({
             </div>
           </header>
 
+          {/* ── Scan View ── */}
+          <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+            {/* Section label */}
+            <p className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-5">
+              30-Second Summary
+            </p>
+
+            {/* Part A: Verdict Banner */}
+            <div className="relative rounded-xl bg-gradient-to-br from-stone-50 via-[#faf8f5] to-stone-100/60 border border-stone-200/50 px-6 py-8 mb-8 text-center overflow-hidden">
+              {/* Decorative corner accents */}
+              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#4f7b77]/20 rounded-tl-xl" />
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#4f7b77]/20 rounded-br-xl" />
+
+              <div className="inline-flex items-center gap-5">
+                <span
+                  className={`text-5xl sm:text-6xl font-mono font-bold tabular-nums leading-none ${
+                    topic.confidence_score >= 85
+                      ? "text-emerald-700"
+                      : topic.confidence_score >= 60
+                        ? "text-blue-700"
+                        : topic.confidence_score >= 40
+                          ? "text-rust-700"
+                          : "text-stone-600"
+                  }`}
+                >
+                  {topic.confidence_score}%
+                </span>
+                <div className="flex flex-col items-start gap-1.5">
+                  <span
+                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium border ${statusColors[topic.status]}`}
+                  >
+                    <StatusIcon className="h-3.5 w-3.5" />
+                    {statusLabels[topic.status]}
+                  </span>
+                  <p className="text-sm text-stone-500 font-medium">
+                    {getVerdictLabel(topic.confidence_score)}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Part B: Pillar Overview Cards */}
+            <div className={`grid grid-cols-1 gap-4 mb-8 ${
+              topic.pillars.length <= 2
+                ? "sm:grid-cols-2"
+                : "sm:grid-cols-2 lg:grid-cols-3"
+            }`}>
+              {topic.pillars.map((pillar, i) => {
+                const PillarIcon = ICON_MAP[pillar.icon_name] ?? Shield;
+                const cruxVerif = verificationColors[pillar.crux.verification_status] ?? verificationColors.theoretical;
+                return (
+                  <a
+                    key={pillar.id}
+                    href="#pillars"
+                    className="group relative rounded-lg border border-stone-200/60 bg-white/60 p-4 pl-5 hover:border-deep/30 hover:shadow-sm transition-all no-underline"
+                  >
+                    {/* Left accent border */}
+                    <div className="absolute left-0 top-3 bottom-3 w-[3px] rounded-full bg-[#4f7b77]/20 group-hover:bg-[#4f7b77]/60 transition-colors" />
+
+                    <div className="flex items-start gap-2.5 mb-2.5">
+                      <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-deep/10 flex items-center justify-center">
+                        <PillarIcon className="h-3.5 w-3.5 text-deep" strokeWidth={1.5} />
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-xs font-mono text-stone-400">
+                            {i + 1}.
+                          </span>
+                          <h3 className="font-serif text-[15px] font-semibold text-primary leading-snug">
+                            {pillar.title}
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-3">
+                      {pillar.short_summary}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span
+                        className={`inline-flex items-center text-[10px] font-medium px-1.5 py-0.5 rounded-full border ${cruxVerif.bg} ${cruxVerif.text}`}
+                      >
+                        {cruxVerif.label}
+                      </span>
+                      <ArrowRight className="h-3.5 w-3.5 text-stone-300 group-hover:text-deep transition-colors" />
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* Part C: Evidence Snapshot */}
+            <div className="mb-8">
+              <h3 className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-3">
+                Evidence Balance
+              </h3>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-semibold text-rust-700 whitespace-nowrap tabular-nums">
+                  {totalFor} for
+                </span>
+                <div className="flex-1 h-5 rounded-full overflow-hidden flex">
+                  <div
+                    className="h-full bg-gradient-to-r from-rust-500 to-rust-600 flex items-center justify-end pr-2.5"
+                    style={{ width: `${forPct}%` }}
+                  >
+                    {forPct >= 20 && (
+                      <span className="text-[10px] font-bold text-white/90 tabular-nums">
+                        {forPct}%
+                      </span>
+                    )}
+                  </div>
+                  <div
+                    className="h-full bg-stone-300/60 flex items-center justify-start pl-2.5"
+                    style={{ width: `${100 - forPct}%` }}
+                  >
+                    {(100 - forPct) >= 15 && (
+                      <span className="text-[10px] font-bold text-stone-500/80 tabular-nums">
+                        {100 - forPct}%
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <span className="text-xs font-semibold text-stone-500 whitespace-nowrap tabular-nums">
+                  {totalAgainst} against
+                </span>
+              </div>
+            </div>
+
+            {/* Part D: Quick Actions */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-5 border-t border-stone-200/60">
+              <a
+                href="#pillars"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-deep/30 text-deep text-sm font-medium hover:bg-deep/5 transition-colors"
+              >
+                Read full analysis
+                <ArrowRight className="h-3.5 w-3.5" />
+              </a>
+              <Link
+                href={`/?topic=${topic.id}`}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+              >
+                Explore interactively
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </section>
+
+          {/* ── Where Do You Stand? ── */}
+          <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 overflow-hidden">
+            {/* Part 1: The Prompt */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
+              <span className="text-xs font-medium text-stone-400 uppercase tracking-widest">
+                Before you dive in&hellip;
+              </span>
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
+            </div>
+            <h2 className="font-serif text-xl sm:text-2xl text-primary mb-2.5">
+              Where do you stand?
+            </h2>
+            <p className="text-sm text-stone-500 leading-relaxed mb-7">
+              Pick your initial position. We&rsquo;ll show you the strongest case
+              from the other side.
+            </p>
+
+            {/* Part 2: Three Choice Buttons */}
+            <div className="flex flex-col md:flex-row gap-3 mb-4">
+              <button
+                type="button"
+                onClick={() => setStance("agree")}
+                className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg text-[15px] font-medium transition-all ${
+                  stance === "agree"
+                    ? "bg-rust-600 text-white ring-2 ring-offset-2 ring-rust-500/50 shadow-md scale-[1.02]"
+                    : "bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 shadow-sm"
+                }`}
+              >
+                <CheckCircle className="h-4 w-4" />
+                I agree
+              </button>
+              <button
+                type="button"
+                onClick={() => setStance("unsure")}
+                className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg text-[15px] font-medium transition-all ${
+                  stance === "unsure"
+                    ? "bg-stone-100 text-primary ring-2 ring-offset-2 ring-stone-400/50 border border-stone-300 shadow-md scale-[1.02]"
+                    : "bg-white text-primary border-2 border-stone-300 hover:bg-stone-50 hover:border-stone-400"
+                }`}
+              >
+                <HelpCircle className="h-4 w-4" />
+                I&rsquo;m unsure
+              </button>
+              <button
+                type="button"
+                onClick={() => setStance("disagree")}
+                className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg text-[15px] font-medium transition-all ${
+                  stance === "disagree"
+                    ? "bg-deep-dark text-white ring-2 ring-offset-2 ring-deep/50 shadow-md scale-[1.02]"
+                    : "bg-deep text-white hover:bg-deep-dark shadow-sm"
+                }`}
+              >
+                <Ban className="h-4 w-4" />
+                I disagree
+              </button>
+            </div>
+
+            {/* Part 3: Steel-Man Reveal */}
+            <AnimatePresence mode="wait">
+              {stance && (
+                <motion.div
+                  key={stance}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="pt-4 border-t border-stone-200/60">
+                    {stance === "agree" && (
+                      <>
+                        <p className="text-xs font-medium text-stone-400 uppercase tracking-wide mb-2">
+                          The strongest challenge to your position:
+                        </p>
+                        <blockquote className="border-l-2 border-deep pl-4 mb-3">
+                          <p className="text-sm text-stone-700 leading-relaxed italic">
+                            &ldquo;{topic.pillars[0]?.skeptic_premise}&rdquo;
+                          </p>
+                        </blockquote>
+                        <p className="text-sm text-stone-500">
+                          Ready to see how it holds up?
+                        </p>
+                      </>
+                    )}
+
+                    {stance === "disagree" && (
+                      <>
+                        <p className="text-xs font-medium text-stone-400 uppercase tracking-wide mb-2">
+                          The strongest defense of the claim:
+                        </p>
+                        <blockquote className="border-l-2 border-rust-500 pl-4 mb-3">
+                          <p className="text-sm text-stone-700 leading-relaxed italic">
+                            &ldquo;{topic.pillars[0]?.proponent_rebuttal}&rdquo;
+                          </p>
+                        </blockquote>
+                        <p className="text-sm text-stone-500">
+                          Can it withstand scrutiny?
+                        </p>
+                      </>
+                    )}
+
+                    {stance === "unsure" && (
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-xs font-medium text-stone-400 uppercase tracking-wide mb-2">
+                            Against
+                          </p>
+                          <blockquote className="border-l-2 border-deep pl-4">
+                            <p className="text-sm text-stone-700 leading-relaxed italic">
+                              &ldquo;{topic.pillars[0]?.skeptic_premise}&rdquo;
+                            </p>
+                          </blockquote>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-rust-600 uppercase tracking-wide mb-2">
+                            For
+                          </p>
+                          <blockquote className="border-l-2 border-rust-500 pl-4">
+                            <p className="text-sm text-stone-700 leading-relaxed italic">
+                              &ldquo;{topic.pillars[0]?.proponent_rebuttal}&rdquo;
+                            </p>
+                          </blockquote>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Part 4: Post-reveal CTAs */}
+                    <div className="flex flex-col sm:flex-row items-center gap-3 mt-5">
+                      <a
+                        href="#pillars"
+                        className="text-sm text-deep hover:underline"
+                      >
+                        Explore the full analysis below &darr;
+                      </a>
+                      <Link
+                        href={`/?topic=${topic.id}`}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+                      >
+                        Dive into the interactive map
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </section>
+
           {/* Meta Claim Expanded */}
           <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-xl sm:text-2xl text-primary mb-3">
@@ -475,7 +807,7 @@ export default function TopicDetailView({
           </section>
 
           {/* Pillars */}
-          <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <section id="pillars" className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-xl sm:text-2xl text-primary mb-6">
               Argument Pillars
             </h2>

@@ -53,22 +53,20 @@ export async function generateMetadata({
       description,
       url: `https://argumend.org/topics/${topic.id}`,
       siteName: "ARGUMEND",
-      ...(topic.imageUrl && {
-        images: [
-          {
-            url: topic.imageUrl,
-            width: 800,
-            height: 400,
-            alt: topic.title,
-          },
-        ],
-      }),
+      images: [
+        {
+          url: `https://argumend.org/api/og/${topic.id}`,
+          width: 1200,
+          height: 630,
+          alt: topic.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${topic.title} — Argument Analysis`,
       description,
-      ...(topic.imageUrl && { images: [topic.imageUrl] }),
+      images: [`https://argumend.org/api/og/${topic.id}`],
     },
   };
 }
