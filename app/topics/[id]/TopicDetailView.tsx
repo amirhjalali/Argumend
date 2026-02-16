@@ -28,6 +28,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { ShareButtons } from "@/components/ShareButtons";
 import type {
   Topic,
   TopicCategory,
@@ -458,6 +459,15 @@ export default function TopicDetailView({
             <p className="text-base sm:text-lg text-stone-600 leading-[1.7] max-w-3xl">
               {topic.meta_claim}
             </p>
+
+            {/* Share */}
+            <div className="mt-4">
+              <ShareButtons
+                title={topic.title}
+                url={typeof window !== "undefined" ? window.location.href : `https://argumend.org/topics/${topic.id}`}
+                description={topic.meta_claim}
+              />
+            </div>
 
             {/* Quick stats */}
             <div className="flex flex-wrap gap-4 mt-6 pt-5 border-t border-stone-200/60">

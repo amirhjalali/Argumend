@@ -265,14 +265,14 @@ export default async function ConceptDetailPage({ params }: PageProps) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
             >
               Explore Topics
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
             <Link
               href="/concepts"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-300 text-primary text-sm font-medium hover:bg-stone-50 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-200 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-stone-50 transition-colors"
             >
               All Concepts
               <BookOpen className="h-3.5 w-3.5" />

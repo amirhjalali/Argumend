@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Compass,
   Eye,
+  FileText,
   GraduationCap,
   HelpCircle,
   History,
@@ -34,6 +35,7 @@ const PRIMARY_NAV = [
 
 const LEARN_NAV = [
   { label: "Blog", icon: Newspaper, href: "/blog" },
+  { label: "Research", icon: FileText, href: "/research" },
   { label: "Guides", icon: GraduationCap, href: "/guides" },
   { label: "Concepts", icon: Layers, href: "/concepts" },
   { label: "Perspectives", icon: Eye, href: "/perspectives" },
@@ -82,7 +84,7 @@ export function Sidebar({
   };
 
   return (
-    <aside className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] md:bg-transparent text-primary shadow-lg md:shadow-none">
+    <aside role="navigation" aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] md:bg-transparent text-primary shadow-lg md:shadow-none">
       {/* Mobile close button - appears at top of sidebar */}
       <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50">
         <span className="text-sm font-medium text-stone-600">Menu</span>
@@ -131,6 +133,8 @@ export function Sidebar({
           <button
             onClick={() => setLearnOpen(!learnOpen)}
             className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 transition-colors"
+            aria-expanded={learnOpen}
+            aria-label="Learn & Explore"
           >
             {learnOpen ? (
               <ChevronDown className="h-3.5 w-3.5" strokeWidth={1.8} />
@@ -140,14 +144,19 @@ export function Sidebar({
             <span>Learn &amp; Explore</span>
           </button>
 
-          {learnOpen && (
-            <nav className="mt-0.5 space-y-0.5 pl-3">
+          <div
+            className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+              learnOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            }`}
+          >
+            <nav className="mt-0.5 space-y-0.5 pl-3 overflow-hidden">
               {LEARN_NAV.map(({ label, icon: Icon, href }) => {
                 const isActive = isActiveRoute(href);
                 return (
                   <Link
                     key={label}
                     href={href}
+                    tabIndex={learnOpen ? 0 : -1}
                     className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[14px] transition-colors ${
                       isActive
                         ? "text-stone-900 font-medium border-l-2 border-stone-800 pl-[10px]"
@@ -165,7 +174,7 @@ export function Sidebar({
                 );
               })}
             </nav>
-          )}
+          </div>
         </div>
 
         {/* Divider */}

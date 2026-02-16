@@ -203,8 +203,8 @@ export function calculateTotalScore(
     }
   }
 
-  // Normalize to 10-point scale if weights don't sum to 1
-  return totalWeight > 0 ? (total / totalWeight) * 10 : 0;
+  // Normalize to a 10-point scale if weights don't sum to 1
+  return totalWeight > 0 ? total / totalWeight : 0;
 }
 
 /**

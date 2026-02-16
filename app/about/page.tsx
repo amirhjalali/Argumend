@@ -2,6 +2,7 @@
 
 import { AppShell } from "@/components/AppShell";
 import { Scale, Lightbulb, BookOpen, Target, Heart, Zap, Users, Shield, Quote } from "lucide-react";
+import { quotes as allQuotes } from "@/data/quotes";
 
 const principles = [
   {
@@ -19,7 +20,7 @@ const principles = [
   {
     icon: Lightbulb,
     title: "Calibrated Confidence",
-    description: "We report uncertainty honestly. 95% means overwhelming evidence. 45% means genuinely contested. We never pretend to know more than we do.",
+    description: "We report uncertainty honestly. 90%+ means overwhelming evidence. 45% means genuinely contested. We never pretend to know more than we do.",
     color: "#b05434",
   },
   {
@@ -48,23 +49,8 @@ const stakes = [
   },
 ];
 
-const quotes = [
-  {
-    text: "The first principle is that you must not fool yourself — and you are the easiest person to fool.",
-    author: "Richard Feynman",
-    role: "Physicist, Nobel Laureate",
-  },
-  {
-    text: "The ability to destroy your ideas rapidly instead of slowly when the occasion is right is one of the most valuable qualities you can acquire.",
-    author: "Charlie Munger",
-    role: "Investor, Polymath",
-  },
-  {
-    text: "A wise man proportions his belief to the evidence.",
-    author: "David Hume",
-    role: "Philosopher",
-  },
-];
+// Pick a curated subset from the shared quotes for the about page
+const quotes = allQuotes.slice(0, 6);
 
 export default function AboutPage() {
   return (
@@ -103,7 +89,7 @@ export default function AboutPage() {
             {stakes.map((stake) => (
               <div
                 key={stake.title}
-                className="flex items-start gap-4 p-4 rounded-lg bg-[#faf8f3] border border-stone-200/70"
+                className="flex items-start gap-4 p-4 rounded-xl bg-[#faf8f3] border border-stone-200/70"
               >
                 <div className="w-10 h-10 rounded-lg bg-stone-100/80 flex items-center justify-center flex-shrink-0">
                   <stake.icon className="h-5 w-5 text-stone-500" strokeWidth={1.5} />
@@ -150,7 +136,7 @@ export default function AboutPage() {
             {principles.map((principle) => (
               <div
                 key={principle.title}
-                className="bg-[#fefcf9] rounded-lg p-5 md:p-6 border border-stone-200/70"
+                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70"
                 style={{ borderLeftWidth: "4px", borderLeftColor: principle.color }}
               >
                 <div
@@ -198,7 +184,7 @@ export default function AboutPage() {
         </section>
 
         {/* Confidence Explainer */}
-        <section className="bg-stone-50 rounded-lg p-6 md:p-8 mb-12 md:mb-16 border border-stone-200">
+        <section className="bg-stone-50 rounded-xl p-6 md:p-8 mb-12 md:mb-16 border border-stone-200">
           <h2 className="font-serif text-xl md:text-2xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
             We don't claim to know the truth. We estimate how confident we should be based on available evidence.
@@ -214,7 +200,7 @@ export default function AboutPage() {
             </div>
             <div className="flex items-center gap-4">
               <span className="w-14 text-center text-sm font-mono font-medium text-stone-700">
-                50-80%
+                50-89%
               </span>
               <p className="text-sm text-stone-600">
                 <strong className="text-stone-900">Probable</strong> — Good evidence, some uncertainty remains
@@ -241,7 +227,7 @@ export default function AboutPage() {
             {quotes.map((quote, i) => (
               <div
                 key={i}
-                className="relative p-5 rounded-lg border border-stone-200"
+                className="relative p-5 rounded-xl border border-stone-200"
               >
                 <Quote className="absolute top-4 right-4 h-8 w-8 text-stone-200" strokeWidth={1} />
                 <p className="font-serif text-lg text-primary leading-relaxed mb-3 pr-8">
@@ -267,7 +253,7 @@ export default function AboutPage() {
           <p className="text-secondary mb-7">Pick a topic. Explore the map. Find the crux.</p>
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
           >
             Start Exploring
             <Scale className="h-3.5 w-3.5" />

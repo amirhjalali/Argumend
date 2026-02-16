@@ -18,6 +18,7 @@ import {
   Flame,
 } from "lucide-react";
 import { topics, featuredTopicId, featuredReason, CATEGORY_ORDER } from "@/data/topics";
+import { getQuoteOfTheDay } from "@/data/quotes";
 
 type ContentType = "transcript" | "article" | "freeform";
 
@@ -84,6 +85,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
     [content, handleAnalyze]
   );
 
+  const dailyQuote = getQuoteOfTheDay();
   const featuredTopic = topics.find((t) => t.id === featuredTopicId);
   // Show one topic from each category for variety, excluding featured
   const nonFeatured = topics.filter((t) => t.id !== featuredTopicId);
@@ -105,20 +107,20 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
   const remainingCount = topics.length - displayedTopics.length - (featuredTopic ? 1 : 0);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#f4f1eb] to-stone-50">
+    <div className="flex flex-col bg-gradient-to-b from-[#f4f1eb] to-stone-50">
       {/* Hero Section */}
-      <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-8 pt-8 pb-4">
+      <div className="flex flex-col items-center px-4 md:px-8 pt-8 pb-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full max-w-2xl space-y-6"
+          className="w-full max-w-2xl space-y-5"
         >
           {/* Tagline */}
           <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-rust-50/80 border border-rust-200/50 rounded-full text-xs font-medium text-rust-700 tracking-wide">
-              <Brain className="h-3 w-3" />
-              AI-Powered Argument Analysis
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide">
+              <Scale className="h-3 w-3" />
+              Steel-man every side. Find the crux.
             </div>
             <h1 className="font-serif text-3xl md:text-5xl font-bold text-primary leading-tight">
               What if we could disagree
@@ -128,7 +130,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
               </span>
             </h1>
             <p className="font-serif text-lg md:text-xl text-stone-600 max-w-lg mx-auto leading-relaxed">
-              See both sides. Find the crux. Know where you stand.
+              Map every argument. Weigh the evidence. Know where you stand.
             </p>
             <p className="text-stone-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
               For anyone tired of shouting matches and shallow takes. Paste any
@@ -152,7 +154,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                     <button
                       key={type}
                       onClick={() => setContentType(type)}
-                      className={`px-3 py-1 rounded-md text-xs font-medium transition-all ${
+                      className={`px-3 py-2 min-h-[44px] rounded-md text-xs font-medium transition-all ${
                         contentType === type
                           ? "bg-stone-800 text-white"
                           : "bg-stone-100 text-stone-500 hover:bg-stone-200"
@@ -163,7 +165,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   )
                 )}
               </div>
-              <label className="flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 hover:bg-stone-100 rounded-md cursor-pointer transition-colors">
+              <label className="flex items-center gap-1.5 px-2.5 py-2 min-h-[44px] bg-stone-50 hover:bg-stone-100 rounded-md cursor-pointer transition-colors">
                 <Upload className="h-3.5 w-3.5 text-stone-400" />
                 <span className="text-xs text-stone-500">Upload</span>
                 <input
@@ -182,7 +184,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
               onChange={(e) => setContent(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Paste a debate transcript, op-ed, podcast segment, or any argumentative text..."
-              className="w-full h-36 md:h-44 p-4 bg-stone-50/50 border border-stone-200/60 rounded-xl text-stone-700 text-sm placeholder-stone-400 resize-none focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50"
+              className="w-full h-32 md:h-36 p-4 bg-stone-50/50 border border-stone-200/60 rounded-xl text-stone-700 text-sm placeholder-stone-400 resize-none focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50"
             />
 
             {/* Actions */}
@@ -226,103 +228,75 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             </div>
           </motion.div>
 
-          {/* Feature pills */}
+          {/* How it works + stats */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-2 text-xs text-stone-400"
+            className="grid grid-cols-2 md:grid-cols-4 gap-3"
           >
             {[
-              { icon: FileText, label: "Extract positions" },
-              { icon: Target, label: "Find cruxes" },
-              { icon: Scale, label: "Weigh evidence" },
-              { icon: Brain, label: "AI judge council" },
-            ].map(({ icon: Icon, label }) => (
-              <span
+              { icon: FileText, label: "Extract positions", stat: `${topics.length} topics` },
+              { icon: Target, label: "Find cruxes", stat: "Key questions" },
+              { icon: Scale, label: "Weigh evidence", stat: "150+ sources" },
+              { icon: Brain, label: "AI judge council", stat: "4 LLM judges" },
+            ].map(({ icon: Icon, label, stat }) => (
+              <div
                 key={label}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/60 border border-stone-200/40 rounded-full"
+                className="flex flex-col items-center gap-1.5 p-3 bg-white/70 border border-stone-200/40 rounded-xl"
               >
-                <Icon className="h-3 w-3" />
-                {label}
-              </span>
-            ))}
-          </motion.div>
-
-          {/* Social proof stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-center"
-          >
-            <p className="text-xs text-stone-400 tracking-wide">
-              <span className="font-semibold text-stone-500">
-                {topics.length} topics mapped
-              </span>
-              <span className="mx-2 text-stone-300">&middot;</span>
-              <span className="font-semibold text-stone-500">
-                150+ evidence nodes
-              </span>
-              <span className="mx-2 text-stone-300">&middot;</span>
-              <span className="font-semibold text-stone-500">
-                4-judge AI council
-              </span>
-            </p>
-          </motion.div>
-
-          {/* Static Output Preview */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-            className="relative"
-          >
-            <div className="absolute -top-2 left-4 z-10">
-              <span className="px-2 py-0.5 bg-stone-200 text-stone-500 text-[10px] font-medium tracking-wider uppercase rounded-full">
-                Sample output
-              </span>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-stone-200/60 p-5 shadow-sm opacity-90">
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-serif text-sm font-semibold text-stone-700">
-                    Nuclear Energy Safety
-                  </h3>
-                  <div className="flex items-center gap-3 mt-2 text-[11px] text-stone-500">
-                    <span className="flex items-center gap-1">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      3 arguments for
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-rose-400" />
-                      3 arguments against
-                    </span>
-                  </div>
-                  <div className="mt-3 px-3 py-2 bg-rust-50/60 border border-rust-200/40 rounded-lg">
-                    <p className="text-[11px] font-medium text-rust-700">
-                      Key Question
-                    </p>
-                    <p className="text-xs text-stone-600 mt-0.5 italic">
-                      Can SMRs deliver on cost and timeline promises?
-                    </p>
-                  </div>
-                </div>
-                <div className="flex-shrink-0 flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full border-[3px] border-rust-400 flex items-center justify-center">
-                    <span className="font-mono text-sm font-bold text-rust-600">
-                      54%
-                    </span>
-                  </div>
-                  <span className="text-[9px] text-stone-400 mt-1">
-                    confidence
-                  </span>
-                </div>
+                <Icon className="h-4 w-4 text-deep" />
+                <span className="text-xs font-medium text-stone-600">{label}</span>
+                <span className="text-[10px] text-stone-400">{stat}</span>
               </div>
-            </div>
+            ))}
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Quote of the Day */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.58 }}
+        className="px-4 md:px-8 py-6"
+      >
+        <div className="max-w-2xl mx-auto">
+          <div className="flex items-center gap-4">
+            <div className="h-px flex-1 bg-stone-200/60" />
+            <div className="text-center px-4">
+              <p className="font-serif italic text-stone-500 text-sm md:text-base leading-relaxed">
+                &ldquo;{dailyQuote.text}&rdquo;
+              </p>
+              <p className="text-xs text-stone-400 mt-2">
+                {dailyQuote.author}
+              </p>
+            </div>
+            <div className="h-px flex-1 bg-stone-200/60" />
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Why This Matters */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.59 }}
+        className="px-4 md:px-8 pb-4"
+      >
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-sm text-stone-500 leading-relaxed">
+            Polarization is tearing apart families, communities, and democracies.
+            We believe better tools for reasoning can help.{" "}
+            <Link
+              href="/research"
+              className="font-medium text-deep hover:text-deep-dark underline underline-offset-2 decoration-deep/30 hover:decoration-deep/60 transition-colors"
+            >
+              See the research
+            </Link>
+          </p>
+        </div>
+      </motion.div>
 
       {/* Topics Section */}
       <motion.div
@@ -336,7 +310,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             <div className="h-px flex-1 bg-stone-200/60" />
             <span className="text-xs font-medium text-stone-400 tracking-wide flex items-center gap-1.5">
               <Map className="h-3 w-3" />
-              OR EXPLORE CURATED TOPICS
+              EXPLORE MAPPED DEBATES
             </span>
             <div className="h-px flex-1 bg-stone-200/60" />
           </div>
@@ -411,7 +385,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
 
                 {/* CTA */}
                 <div className="mt-4 flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#1f1f1d] text-white text-xs font-semibold rounded-lg group-hover:bg-[#333331] transition-colors">
+                  <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-rust-500 to-rust-600 text-white text-xs font-semibold rounded-lg shadow-sm group-hover:from-rust-600 group-hover:to-rust-700 transition-all">
                     Explore This Debate
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </span>

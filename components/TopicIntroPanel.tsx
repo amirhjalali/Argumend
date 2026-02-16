@@ -114,7 +114,7 @@ export function TopicIntroPanel() {
                   ) : (
                     <button
                       onClick={() => setIsVisible(false)}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
                     >
                       Explore the Map
                       <ChevronRight className="h-3.5 w-3.5" />

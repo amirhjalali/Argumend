@@ -84,7 +84,7 @@ const methodologySteps = [
     description:
       "Multiple AI models independently evaluate the arguments. Scores are aggregated to find consensus — or flag genuine disagreement between judges.",
     details: [
-      "3-4 AI judges (Claude, GPT-4, Gemini) evaluate independently",
+      "4 AI judges (Claude, GPT-4, Gemini, and more) evaluate independently",
       "Each judge scores on multiple dimensions",
       "Scores are aggregated; outliers are flagged",
       "Judge disagreement is itself treated as information",
@@ -114,7 +114,7 @@ const methodologySteps = [
     details: [
       "Formula: forScore / (forScore + againstScore + 1) x 100",
       "90%+ = Settled — scientific consensus level",
-      "50-80% = Probable — good evidence, some uncertainty",
+      "50-89% = Probable — good evidence, some uncertainty",
       "<50% = Contested — genuine uncertainty, real disagreement",
     ],
   },
@@ -205,7 +205,7 @@ export default function MethodologyPage() {
             {chatgptProblems.map((problem) => (
               <div
                 key={problem.title}
-                className="flex items-start gap-4 p-4 rounded-lg bg-[#faf8f3] border border-stone-200/70"
+                className="flex items-start gap-4 p-4 rounded-xl bg-[#faf8f3] border border-stone-200/70"
                 style={{ borderLeftWidth: "4px", borderLeftColor: problem.color }}
               >
                 <div
@@ -245,7 +245,7 @@ export default function MethodologyPage() {
             {methodologySteps.map((step) => (
               <div
                 key={step.number}
-                className="bg-[#fefcf9] rounded-lg border border-stone-200/70 overflow-hidden"
+                className="bg-[#fefcf9] rounded-xl border border-stone-200/70 overflow-hidden"
                 style={{ borderLeftWidth: "4px", borderLeftColor: step.color }}
               >
                 <div className="p-5 md:p-6">
@@ -372,7 +372,7 @@ export default function MethodologyPage() {
             {evidenceDimensions.map((dim) => (
               <div
                 key={dim.name}
-                className="bg-[#fefcf9] rounded-lg p-5 md:p-6 border border-stone-200/70"
+                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70"
                 style={{ borderLeftWidth: "4px", borderLeftColor: dim.color }}
               >
                 <div className="flex items-center justify-between mb-3">
@@ -405,7 +405,7 @@ export default function MethodologyPage() {
             model's opinion. We report uncertainty honestly.
           </p>
 
-          <div className="bg-[#faf8f3] rounded-lg p-6 md:p-8 border border-stone-200/70 mb-6">
+          <div className="bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/70 mb-6">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
                 <Lightbulb className="h-5 w-5 text-deep" strokeWidth={1.5} />
@@ -432,7 +432,7 @@ export default function MethodologyPage() {
               </div>
               <div className="flex items-center gap-4">
                 <span className="w-14 text-center text-sm font-mono font-medium text-[#C4613C]">
-                  50-80%
+                  50-89%
                 </span>
                 <div className="flex-1 h-2 bg-stone-200/50 rounded-full overflow-hidden">
                   <div className="h-full w-[65%] bg-gradient-to-r from-[#C4613C] to-[#b05434] rounded-full" />
@@ -465,7 +465,7 @@ export default function MethodologyPage() {
             {outcomes.map((outcome) => (
               <div
                 key={outcome.title}
-                className="bg-[#fefcf9] rounded-lg p-5 md:p-6 border border-stone-200/70"
+                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70"
                 style={{ borderLeftWidth: "4px", borderLeftColor: outcome.color }}
               >
                 <div
@@ -500,14 +500,14 @@ export default function MethodologyPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="/analyze"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
             >
               Try It Yourself
               <ArrowRight className="h-3.5 w-3.5" />
             </a>
             <a
               href="/"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-300 text-primary text-sm font-medium hover:bg-stone-50 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-200 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-stone-50 transition-colors"
             >
               Explore Pre-Built Topics
               <Scale className="h-3.5 w-3.5" />

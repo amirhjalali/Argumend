@@ -81,15 +81,15 @@ export const LLM_OPTIONS: LLMOption[] = [
   {
     id: "claude",
     name: "Claude",
-    fullName: "Claude Opus 4.5",
+    fullName: "Claude Sonnet 4",
     color: "#D97706",
     bgLight: "#FEF3C7",
     Icon: ClaudeIcon,
   },
   {
     id: "gpt-4",
-    name: "GPT-5",
-    fullName: "GPT-5.2",
+    name: "GPT-4o",
+    fullName: "GPT-4o",
     color: "#10B981",
     bgLight: "#D1FAE5",
     Icon: OpenAIIcon,
@@ -97,7 +97,7 @@ export const LLM_OPTIONS: LLMOption[] = [
   {
     id: "gemini",
     name: "Gemini",
-    fullName: "Gemini 3 Pro",
+    fullName: "Gemini 1.5 Pro",
     color: "#4285F4",
     bgLight: "#DBEAFE",
     Icon: GeminiIcon,
@@ -105,7 +105,7 @@ export const LLM_OPTIONS: LLMOption[] = [
   {
     id: "grok",
     name: "Grok",
-    fullName: "Grok 4.1",
+    fullName: "Grok 2 Latest",
     color: "#1C1C1E",
     bgLight: "#E5E5E5",
     Icon: GrokIcon,

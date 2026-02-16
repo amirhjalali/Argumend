@@ -152,7 +152,7 @@ export default function ForEducatorsPage() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-[#fefcf9] rounded-lg p-5 md:p-6 border border-stone-200/70"
+                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70"
                 style={{ borderLeftWidth: "4px", borderLeftColor: benefit.color }}
               >
                 <div
@@ -190,7 +190,7 @@ export default function ForEducatorsPage() {
             {lessonPlans.map((plan) => (
               <div
                 key={plan.number}
-                className="bg-[#fefcf9] rounded-lg border border-stone-200/70 p-5 md:p-6"
+                className="bg-[#fefcf9] rounded-xl border border-stone-200/70 p-5 md:p-6"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
@@ -232,7 +232,7 @@ export default function ForEducatorsPage() {
             Fits into the subjects you teach
           </h2>
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            Argument mapping is a cross-curricular skill. Here is how Argumend
+            Argument mapping is a cross-curricular skill. Here's how Argumend
             integrates with your existing syllabus.
           </p>
 
@@ -240,7 +240,7 @@ export default function ForEducatorsPage() {
             {subjects.map((subject) => (
               <div
                 key={subject.label}
-                className="flex items-start gap-4 p-4 rounded-lg bg-[#faf8f3] border border-stone-200/70"
+                className="flex items-start gap-4 p-4 rounded-xl bg-[#faf8f3] border border-stone-200/70"
               >
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -288,19 +288,19 @@ export default function ForEducatorsPage() {
               href="/"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
             >
-              Start Exploring Free
+              Start Exploring — Free
               <ArrowRight className="h-3.5 w-3.5" />
             </a>
             <a
               href="/community"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-200 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-stone-50 transition-colors"
             >
               Suggest a Topic
               <Users className="h-3.5 w-3.5" />
             </a>
             <a
               href="/how-it-works"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-300 text-stone-700 text-sm font-medium hover:bg-stone-50 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-200 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-stone-50 transition-colors"
             >
               How It Works
               <Scale className="h-3.5 w-3.5" />

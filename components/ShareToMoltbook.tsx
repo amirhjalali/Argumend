@@ -155,6 +155,7 @@ ${againstMsg?.content || "*No argument*"}
           <button
             onClick={onClose}
             className="p-1.5 hover:bg-stone-100 rounded-lg transition-colors"
+            aria-label="Close share dialog"
           >
             <X className="w-4 h-4 text-stone-500" />
           </button>

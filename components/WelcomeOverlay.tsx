@@ -28,7 +28,7 @@ const STEPS = [
     title: "Confidence, Not Certainty",
     subtitle: "We show our uncertainty",
     description:
-      "A 99% confidence score means overwhelming evidence. 45% means genuinely contested. We never pretend to know more than we do. Hover over any score to see how we calculated it.",
+      "A 90%+ confidence score means overwhelming evidence. 45% means genuinely contested. We never pretend to know more than we do. Hover over any score to see how we calculated it.",
     highlight: "Calibrated confidence",
     tint: "#2563eb",
   },
@@ -95,6 +95,7 @@ export function WelcomeOverlay() {
             <button
               onClick={handleSkip}
               className="absolute top-4 right-4 p-2 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors z-10"
+              aria-label="Close welcome"
             >
               <X className="h-5 w-5" />
             </button>
@@ -165,7 +166,7 @@ export function WelcomeOverlay() {
 
                 <button
                   onClick={handleNext}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
                 >
                   {isLastStep ? "Start Exploring" : "Continue"}
                   <ArrowRight className="h-3.5 w-3.5" />

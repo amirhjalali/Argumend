@@ -55,7 +55,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
       {data.imageUrl && (
         <div className="h-36 w-full overflow-hidden rounded-t-xl border-b border-stone-100">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={data.imageUrl} alt="" className="w-full h-full object-cover" />
+          <img src={data.imageUrl} alt={data.title || "Node illustration"} className="w-full h-full object-cover" />
         </div>
       )}
 

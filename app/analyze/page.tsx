@@ -365,7 +365,7 @@ export default function AnalyzePage() {
                       <button
                         key={type}
                         onClick={() => setContentType(type)}
-                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                        className={`px-3 py-2 min-h-[44px] rounded-md text-xs font-medium transition-all ${
                           contentType === type
                             ? "bg-stone-800 text-white"
                             : "bg-stone-100 text-stone-500 hover:bg-stone-200"
@@ -494,6 +494,8 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="space-y-8"
+                aria-live="polite"
+                aria-label="Analysis results"
               >
                 {/* Action Bar */}
                 <div className="flex items-center justify-between">

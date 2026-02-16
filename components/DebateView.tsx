@@ -415,6 +415,7 @@ function DebateHeader({
             <button
               onClick={onTogglePause}
               className="p-2 rounded-lg hover:bg-stone-100 transition-colors text-stone-500"
+              aria-label={isPaused ? "Resume debate" : "Pause debate"}
             >
               {isPaused ? (
                 <Play className="h-4 w-4" />
@@ -426,6 +427,7 @@ function DebateHeader({
           <button
             onClick={onReset}
             className="p-2 rounded-lg hover:bg-stone-100 transition-colors text-stone-500"
+            aria-label="Reset debate"
           >
             <RotateCcw className="h-4 w-4" />
           </button>

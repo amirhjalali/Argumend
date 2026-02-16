@@ -18,9 +18,70 @@ function getClient(): MoltbookClient | null {
   return new MoltbookClient(apiKey);
 }
 
+function parseCooldownMinutes(hint?: string): number | null {
+  if (!hint) return null;
+  const match = hint.match(/(\d+)/);
+  if (!match) return null;
+  const parsed = Number.parseInt(match[1], 10);
+  return Number.isNaN(parsed) ? null : parsed;
+}
+
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const action = searchParams.get("action");
+
+  if (action === "feed") {
+    const client = getClient();
+    if (!client) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "MOLTBOOK_API_KEY not configured",
+          configured: false,
+        },
+        { status: 503 }
+      );
+    }
+
+    const submolt = searchParams.get("submolt") ?? undefined;
+    const sortParam = searchParams.get("sort");
+    const sort =
+      sortParam === "hot" ||
+      sortParam === "new" ||
+      sortParam === "top" ||
+      sortParam === "rising"
+        ? sortParam
+        : "new";
+    const limitRaw = Number.parseInt(searchParams.get("limit") ?? "", 10);
+    const limit = Number.isNaN(limitRaw)
+      ? 10
+      : Math.min(Math.max(limitRaw, 1), 50);
+
+    const response = await client.getFeed({ submolt, sort, limit });
+    if (!response.success || !response.data) {
+      const cooldownMinutes = parseCooldownMinutes(response.hint);
+      if (response.error === "Rate limited") {
+        return NextResponse.json(
+          {
+            success: false,
+            error: response.error,
+            cooldownMinutes,
+          },
+          { status: 429 }
+        );
+      }
+
+      return NextResponse.json(
+        { success: false, error: response.error || "Failed to fetch feed" },
+        { status: 502 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      data: response.data,
+    });
+  }
 
   // List notable agents for debates
   if (action === "agents") {
@@ -51,6 +112,7 @@ export async function GET(request: NextRequest) {
         success: false,
         error: "MOLTBOOK_API_KEY not configured",
         configured: false,
+        connected: false,
       });
     }
 
@@ -59,6 +121,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({
         success: true,
         configured: true,
+        connected: true,
         profile: profile.data,
       });
     } catch {
@@ -66,13 +129,14 @@ export async function GET(request: NextRequest) {
         success: false,
         error: "Failed to connect to Moltbook",
         configured: true,
+        connected: false,
       });
     }
   }
 
   return NextResponse.json({
     success: false,
-    error: "Unknown action. Use: agents, topics, or status",
+    error: "Unknown action. Use: feed, agents, topics, or status",
   });
 }
 
@@ -88,6 +152,51 @@ export async function POST(request: NextRequest) {
   const service = new MoltbookDebateService(client);
   const body = await request.json();
   const { action } = body;
+
+  if (action === "post") {
+    const { submolt, title, content, url } = body;
+
+    if (!submolt || !title) {
+      return NextResponse.json(
+        { success: false, error: "submolt and title are required" },
+        { status: 400 }
+      );
+    }
+
+    const response = await client.createPost({
+      submolt,
+      title,
+      content,
+      url,
+    });
+
+    if (!response.success || !response.data) {
+      const cooldownMinutes = parseCooldownMinutes(response.hint);
+      if (response.error === "Rate limited") {
+        return NextResponse.json(
+          {
+            success: false,
+            error: response.error,
+            cooldownMinutes,
+          },
+          { status: 429 }
+        );
+      }
+
+      return NextResponse.json(
+        { success: false, error: response.error || "Failed to post to Moltbook" },
+        { status: 502 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      data: {
+        ...response.data,
+        url: response.data.url || `https://moltbook.com/m/${submolt}/posts/${response.data.id}`,
+      },
+    });
+  }
 
   // Post a topic as a debate
   if (action === "post_debate") {

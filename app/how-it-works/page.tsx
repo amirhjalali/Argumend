@@ -9,10 +9,8 @@ import {
   Shield,
   ScrollText,
   ArrowRight,
-  ChevronRight,
   Landmark,
   MousePointer2,
-  ZoomIn,
   Move,
 } from "lucide-react";
 
@@ -107,10 +105,10 @@ export default function HowItWorksPage() {
             Get started in 4 steps
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {steps.map((step, i) => (
+            {steps.map((step) => (
               <div
                 key={step.number}
-                className="flex gap-4 p-4 md:p-5 rounded-lg bg-[#fefcf9] border border-stone-200/70"
+                className="flex gap-4 p-4 md:p-5 rounded-xl bg-[#fefcf9] border border-stone-200/70"
               >
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C4613C]/20 to-[#b05434]/10 flex items-center justify-center">
@@ -124,9 +122,6 @@ export default function HowItWorksPage() {
                   </div>
                   <p className="text-sm text-secondary leading-relaxed">{step.description}</p>
                 </div>
-                {i < steps.length - 1 && (
-                  <ChevronRight className="absolute -right-3 top-1/2 -translate-y-1/2 h-6 w-6 text-stone-300 hidden md:block" />
-                )}
               </div>
             ))}
           </div>
@@ -217,7 +212,7 @@ export default function HowItWorksPage() {
             {nodeTypes.map((type) => (
               <div
                 key={type.name}
-                className="flex flex-col md:flex-row md:items-start gap-4 p-5 rounded-lg bg-[#fefcf9] border border-stone-200/70"
+                className="flex flex-col md:flex-row md:items-start gap-4 p-5 rounded-xl bg-[#fefcf9] border border-stone-200/70"
                 style={{ borderLeftWidth: "4px", borderLeftColor: type.color }}
               >
                 <div
@@ -244,7 +239,7 @@ export default function HowItWorksPage() {
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             We don't claim certainty. Confidence scores reflect the weight of available evidence.
           </p>
-          <div className="bg-[#faf8f3] rounded-lg p-6 md:p-8 border border-stone-200/70">
+          <div className="bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/70">
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-4">
                 <p className="font-mono text-2xl font-medium text-stone-800 mb-2">90%+</p>
@@ -252,7 +247,7 @@ export default function HowItWorksPage() {
                 <p className="text-sm text-stone-500">Overwhelming evidence. Scientific consensus.</p>
               </div>
               <div className="p-4">
-                <p className="font-mono text-2xl font-medium text-stone-800 mb-2">50-80%</p>
+                <p className="font-mono text-2xl font-medium text-stone-800 mb-2">50-89%</p>
                 <h3 className="font-serif text-base text-primary mb-1">Probable</h3>
                 <p className="text-sm text-stone-500">Good evidence, some uncertainty remains.</p>
               </div>
@@ -266,7 +261,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* The Philosophy */}
-        <section className="mb-12 md:mb-16 bg-[#faf8f3] rounded-lg p-6 md:p-8 border border-stone-200/70">
+        <section className="mb-12 md:mb-16 bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/70">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#a23b3b]/20 to-[#a23b3b]/5 flex items-center justify-center flex-shrink-0">
               <Target className="h-6 w-6 text-[#a23b3b]" strokeWidth={1.5} />
@@ -291,7 +286,7 @@ export default function HowItWorksPage() {
           <p className="text-secondary mb-7">Pick a controversial topic. Find the crux. Update your beliefs.</p>
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#1f1f1d] text-white text-sm font-medium hover:bg-[#3a3a38] transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
           >
             Start Mapping
             <ArrowRight className="h-3.5 w-3.5" />

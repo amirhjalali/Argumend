@@ -7177,6 +7177,1728 @@ const reparationsSlaveryData = {
 };
 
 // ============================================================================
+// Space Colonization Feasibility
+// ============================================================================
+
+const spaceColonizationFeasibilityData = {
+  id: "space-colonization-feasibility",
+  title: "Space Colonization Feasibility",
+  meta_claim:
+    "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
+  status: "contested" as const,
+  category: "technology" as const,
+  pillars: [
+    {
+      id: "transport-technology",
+      title: "Transportation Technology",
+      short_summary:
+        "Whether current and near-term rocket technology can deliver humans and cargo to Mars reliably and affordably.",
+      icon_name: "Telescope" as const,
+      skeptic_premise:
+        "Even SpaceX's Starship, the most advanced heavy-lift vehicle, has not yet completed a full orbital mission profile. Mars transit takes 6-9 months with current propulsion, exposing crews to cosmic radiation at minimum 0.66 sieverts per round trip—well above safe annual limits. The cost of establishing a colony is estimated in the hundreds of billions, with no clear economic return.",
+      proponent_rebuttal:
+        "SpaceX has reduced launch costs by 90% in 15 years through reusable rockets. Starship is designed to carry 100+ tonnes to Mars. Research published in Scientific Reports (2025) found trajectories allowing 3-month transfers within NASA career radiation limits. SpaceX plans uncrewed Starship Mars landings by 2026-2027, with human missions targeted for 2028-2031.",
+      crux: {
+        id: "starship-mars-landing",
+        title: "Successful Uncrewed Mars Landing",
+        description:
+          "Demonstrating that Starship can successfully land on Mars with a full cargo payload, proving the transportation link is viable.",
+        methodology:
+          "Track SpaceX Starship development milestones: orbital refueling demonstration, lunar landing (Artemis HLS), and uncrewed Mars landing. Measure payload delivered vs. planned.",
+        equation:
+          "P(\\text{colony}) = P(\\text{transport}) \\times P(\\text{habitat}) \\times P(\\text{ISRU}) \\times P(\\text{funding})",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$0 (Monitor SpaceX mission outcomes)",
+      },
+      evidence: [
+        {
+          id: "starship-progress",
+          title: "SpaceX Starship: Rapid Iteration Toward Mars Capability",
+          description:
+            "SpaceX's Starship has completed multiple test flights since 2023, demonstrating booster catch and orbital-class performance. The vehicle is designed to carry 100-150 tonnes to low Earth orbit and is the baseline for NASA's Artemis lunar lander. SpaceX targets uncrewed Mars cargo missions by 2026-2027.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "SpaceX mission reports; NASA Artemis HLS contract",
+          reasoning:
+            "Demonstrated hardware progress is real, but timelines are from SpaceX (historically optimistic). Independence is limited as primary source is the company itself.",
+        },
+        {
+          id: "three-month-transit",
+          title: "Scientific Reports: 3-Month Mars Transit Is Feasible",
+          description:
+            "A 2025 study published in Scientific Reports found trajectories allowing human Mars transfer in approximately 3 months, which would keep radiation exposure within NASA career limits. This is a significant improvement over the traditional 6-9 month transit.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Scientific Reports, Nature (2025)",
+          reasoning:
+            "Peer-reviewed trajectory analysis. Theoretical but based on known physics and Starship performance parameters.",
+        },
+        {
+          id: "radiation-health-risks",
+          title: "Mars Colonists Face Serious Radiation Exposure",
+          description:
+            "Mars lacks a global magnetic field and has a thin atmosphere, exposing surface inhabitants to galactic cosmic rays and solar particle events. A round-trip minimum radiation dose is 0.66 sieverts, and surface habitation adds continuous exposure. Long-term cancer and neurological risks are not yet fully understood.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "NASA Human Research Program; Cucinotta et al.",
+          reasoning:
+            "Well-established radiation physics. The health risks are real and currently unsolved for long-duration surface stays.",
+        },
+      ],
+    },
+    {
+      id: "habitat-sustainability",
+      title: "Habitat & Self-Sustainability",
+      short_summary:
+        "Whether humans can build self-sustaining habitats on Mars using local resources (ISRU) or will remain permanently dependent on Earth resupply.",
+      icon_name: "Shield" as const,
+      skeptic_premise:
+        "Every life support system tested (Biosphere 2, ISS) has required constant resupply or failed to maintain atmospheric balance. Mars soil contains toxic perchlorates. Growing food in Martian conditions has never been demonstrated at scale. A colony dependent on Earth resupply every 26 months is not self-sustaining—it is an outpost.",
+      proponent_rebuttal:
+        "A 2024 comprehensive blueprint published in Heliyon details feasible approaches to Martian concrete using sulfur binders, aeroponics for food production, and algae bioreactors for oxygen generation. NASA's MOXIE experiment on Perseverance successfully produced oxygen from Martian CO₂. In-situ resource utilization reduces resupply mass by orders of magnitude.",
+      crux: {
+        id: "isru-demonstration",
+        title: "Mars In-Situ Resource Utilization at Scale",
+        description:
+          "Demonstrating that water extraction, oxygen production, and construction materials can be produced from Martian resources at a scale sufficient to support a small crew.",
+        methodology:
+          "Deploy ISRU demonstration payloads on Mars. Measure water extraction rates from regolith/ice, oxygen production from CO₂, and structural integrity of regolith-based construction materials over 2+ year periods.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$500M (Robotic ISRU demonstration mission)",
+      },
+      evidence: [
+        {
+          id: "moxie-success",
+          title: "NASA MOXIE Produced Oxygen on Mars",
+          description:
+            "The Mars Oxygen In-Situ Resource Utilization Experiment (MOXIE) aboard NASA's Perseverance rover successfully produced oxygen from Martian atmospheric CO₂ across 16 runs in 2021-2023, demonstrating the core ISRU principle works on Mars.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "NASA JPL; Science Advances (2023)",
+          reasoning:
+            "Direct demonstration on Mars, though at tiny scale (6-8 grams/hour vs. tonnes needed for a colony).",
+        },
+        {
+          id: "biosphere-2-failure",
+          title: "Biosphere 2 Failed to Maintain Closed Ecosystem",
+          description:
+            "The $200M Biosphere 2 experiment (1991-1993) failed to maintain a self-sustaining closed ecosystem for 8 people on Earth. Oxygen levels dropped dangerously, requiring external injection. Food production was insufficient. If a sealed habitat failed on Earth with unlimited access to repair, Mars conditions would be far more challenging.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Columbia University; Nelson & Dempster (1996)",
+          reasoning:
+            "Directly relevant precedent for closed-loop life support. Technology has advanced since 1993, but no full-scale success has been demonstrated.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Veganism for Environmental Impact
+// ============================================================================
+
+const veganismEnvironmentalData = {
+  id: "veganism-environmental-impact",
+  title: "Veganism for Environmental Impact",
+  meta_claim:
+    "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint, including greenhouse gas emissions, land use, and water pollution.",
+  status: "contested" as const,
+  category: "science" as const,
+  pillars: [
+    {
+      id: "emissions-land-use",
+      title: "Emissions & Land Use Reduction",
+      short_summary:
+        "Vegan diets produce 75% less greenhouse gas emissions and use 75% less land than high-meat diets, according to large-scale Oxford research.",
+      icon_name: "Atom" as const,
+      skeptic_premise:
+        "Food system emissions are only 26% of the global total; transport and energy dwarf dietary choices. Not all land used for grazing is suitable for crops—much grassland cannot grow vegetables. Ruminants on non-arable land convert inedible grass into protein. A focus on individual diet distracts from systemic industrial change.",
+      proponent_rebuttal:
+        "A 2023 Oxford study of 55,000 UK residents published in Nature Food found vegan diets produce just 25% of the greenhouse gas emissions of high-meat diets, use 75% less land, cause 75% less biodiversity loss, and create 73% less water pollution. If everyone went vegan, global farmland could be reduced by 75%—an area the size of the US, China, Australia, and the EU combined. This is not about individual virtue; it is about the single largest lever available for food system decarbonization.",
+      crux: {
+        id: "global-dietary-shift-modeling",
+        title: "Global Dietary Shift Impact Modeling",
+        description:
+          "Comprehensive modeling of what would happen to global emissions, land use, water use, and biodiversity if varying percentages of the global population shifted to plant-based diets.",
+        methodology:
+          "Use integrated assessment models (e.g., GLOBIOM, MAgPIE) to simulate global food system transitions. Model dietary shifts at 25%, 50%, 75%, and 100% adoption rates. Account for land-use change, supply chain adjustments, and economic transitions.",
+        equation:
+          "\\Delta E = \\sum_{i} (E_{\\text{current},i} - E_{\\text{vegan},i}) \\times P(\\text{adoption}_i)",
+        verification_status: "verified" as const,
+        cost_to_verify: "$500K (Meta-analysis and modeling of existing datasets)",
+      },
+      evidence: [
+        {
+          id: "oxford-nature-food-2023",
+          title: "Oxford Study: Vegan Diets Have 75% Less Environmental Impact",
+          description:
+            "Professor Peter Scarborough's team at Oxford analyzed 55,000 UK residents' actual diets and connected them to environmental impact databases. Published in Nature Food (2023), the study found vegan diets produced 75% less greenhouse gas emissions, 75% less land use, 75% less biodiversity harm, and 73% less water pollution compared to high-meat diets.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 8,
+            directness: 10,
+          },
+          source: "Scarborough et al., Nature Food (2023)",
+          reasoning:
+            "Gold-standard study: large sample (55,000), published in a top Nature journal, based on actual dietary data rather than modeled diets. Oxford's LEAP program has no industry funding conflicts.",
+        },
+        {
+          id: "poore-nemecek-2018",
+          title: "Poore & Nemecek: 76% Farmland Reduction Possible",
+          description:
+            "The most comprehensive meta-analysis of food systems, covering ~38,700 farms in 119 countries, found that moving from current diets to plant-based diets could reduce food's land use by 76%, greenhouse gas emissions by 49%, acidification by 50%, and eutrophication by 49%.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 9,
+            directness: 9,
+          },
+          source: "Poore & Nemecek, Science (2018)",
+          reasoning:
+            "The largest meta-analysis of food systems ever conducted. Published in Science. Has been replicated and extended by subsequent studies.",
+        },
+        {
+          id: "non-arable-grazing-land",
+          title: "Much Grazing Land Cannot Grow Crops",
+          description:
+            "Approximately two-thirds of agricultural land globally is grassland unsuitable for crop production. Ruminant animals grazing this land convert inedible cellulose into human-edible protein and nutrients. Eliminating all animal agriculture would leave this land unused, and some ecosystems (e.g., the Great Plains) co-evolved with large grazers.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 6,
+          },
+          source: "FAO; Mottet et al., Global Food Security (2017)",
+          reasoning:
+            "Valid point about land suitability. However, directness is moderate because the Poore & Nemecek analysis already accounts for this—the 76% reduction factors in non-convertible land.",
+        },
+      ],
+    },
+    {
+      id: "nutritional-feasibility",
+      title: "Nutritional Feasibility at Scale",
+      short_summary:
+        "Whether global populations can meet all nutritional needs on plant-based diets, especially in developing nations with limited food access.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Vegan diets require careful planning to avoid deficiencies in B12, iron, omega-3, zinc, and calcium. In developing nations, animal products are often the most accessible source of complete protein and bioavailable micronutrients. Children, pregnant women, and the elderly face higher risks. Supplements are not universally available or affordable.",
+      proponent_rebuttal:
+        "Major nutrition bodies (Academy of Nutrition and Dietetics, British Dietetic Association) state well-planned vegan diets are nutritionally adequate for all life stages. B12 supplementation costs pennies per day. A 2025 Frontiers in Nutrition study found plant-based diets are equally nutritious and healthy as Mediterranean diets, with small deficits in vitamin D, iodine, and B12 easily remedied with supplements.",
+      crux: {
+        id: "population-nutrition-outcomes",
+        title: "Large-Scale Vegan Population Health Outcomes",
+        description:
+          "Tracking long-term health outcomes (mortality, chronic disease, nutritional deficiencies) in large vegan populations compared to omnivores, controlling for socioeconomic status.",
+        methodology:
+          "Longitudinal cohort study following 100,000+ vegans and matched omnivore controls over 20+ years. Measure all-cause mortality, cardiovascular events, cancer rates, bone density, and micronutrient status.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$10M (Long-term epidemiological cohort study)",
+      },
+      evidence: [
+        {
+          id: "and-position-statement",
+          title: "Academy of Nutrition and Dietetics: Vegan Diets Appropriate for All Life Stages",
+          description:
+            "The Academy of Nutrition and Dietetics, the world's largest organization of food and nutrition professionals (over 100,000 members), states that 'appropriately planned vegetarian, including vegan, diets are healthful, nutritionally adequate, and may provide health benefits for the prevention and treatment of certain diseases. These diets are appropriate for all stages of the life cycle.'",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Academy of Nutrition and Dietetics, Position Paper (2016)",
+          reasoning:
+            "Authoritative position from the largest nutrition professional body. However, the qualifier 'appropriately planned' is doing significant work—it implies that poorly planned vegan diets carry real risks.",
+        },
+        {
+          id: "developing-nation-access",
+          title: "Animal-Source Foods Critical in Food-Insecure Regions",
+          description:
+            "The FAO and WHO recognize that in low-income countries, animal-source foods provide essential micronutrients (iron, zinc, B12, vitamin A) that are difficult to obtain from available plant foods alone. In sub-Saharan Africa and South Asia, where dietary diversity is limited and supplement distribution is poor, removing animal products could worsen malnutrition.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "FAO; WHO; Headey et al., Global Food Security (2018)",
+          reasoning:
+            "Legitimate concern for global applicability. The environmental case for veganism is strongest in wealthy nations where dietary choices are unconstrained.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Free Will vs Determinism
+// ============================================================================
+
+const freeWillDeterminismData = {
+  id: "free-will-determinism",
+  title: "Free Will vs Determinism",
+  meta_claim:
+    "Human decision-making is fundamentally determined by prior causes (physical, neurological, environmental), and the subjective experience of free choice is an illusion.",
+  status: "highly_speculative" as const,
+  category: "philosophy" as const,
+  pillars: [
+    {
+      id: "neuroscience-determinism",
+      title: "Neuroscience of Decision-Making",
+      short_summary:
+        "Brain imaging studies suggest decisions are made unconsciously before we become aware of choosing, challenging the notion of conscious free will.",
+      icon_name: "Microscope" as const,
+      skeptic_premise:
+        "Libet's experiments show unconscious brain activity (readiness potential) begins 350-500 milliseconds before a person reports deciding to act. fMRI studies by Soon et al. (2008) could predict simple choices up to 10 seconds before conscious awareness. If the brain decides before 'we' do, the conscious experience of choosing is a post-hoc narrative, not a causal force.",
+      proponent_rebuttal:
+        "Libet himself noted subjects retained a 'veto power' in the final 150ms. The readiness potential may represent preparation of options, not a determined outcome. Complex decisions (career, morality) involve deliberation processes fundamentally unlike button-pressing experiments. A 2024 paper in Psychological Science found that when Libet-style experiments use more sophisticated reporting methods, the timing gap largely disappears.",
+      crux: {
+        id: "neural-prediction-limits",
+        title: "Neural Prediction Accuracy for Complex Decisions",
+        description:
+          "Testing whether brain activity can predict complex, high-stakes decisions (not just button presses) with accuracy significantly above chance.",
+        methodology:
+          "Design decision tasks involving genuine moral dilemmas or consequential choices. Use high-temporal-resolution neuroimaging to measure whether pre-conscious neural patterns predict the choice. Determine if prediction accuracy exceeds chance for genuinely open decisions.",
+        equation:
+          "P(\\text{correct prediction}) = f(\\text{decision complexity}, \\text{neural lead time})",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Advanced neuroimaging study with complex decision paradigms)",
+      },
+      evidence: [
+        {
+          id: "libet-experiments",
+          title: "Libet (1983): Readiness Potential Precedes Conscious Will",
+          description:
+            "Benjamin Libet's landmark 1983 experiments found that the brain's readiness potential (a buildup of electrical activity in the motor cortex) begins approximately 550ms before a voluntary action, but subjects reported becoming aware of their intention to act only 200ms before the action. This 350ms gap suggested the brain 'decides' before consciousness catches up.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 8,
+            directness: 6,
+          },
+          source: "Libet et al., Brain (1983)",
+          reasoning:
+            "Foundational study that has been replicated many times. However, directness is limited because pressing a button on command may not reflect the kind of 'free will' that matters philosophically.",
+        },
+        {
+          id: "soon-2008-fmri",
+          title: "Soon et al.: fMRI Predicts Choices 7-10 Seconds Before Awareness",
+          description:
+            "A 2008 study using fMRI by Chun Siong Soon and colleagues at the Max Planck Institute found that patterns of brain activity in the prefrontal and parietal cortex could predict which button a subject would press up to 10 seconds before the subject reported making the decision. Prediction accuracy was 60% (above chance but far from deterministic).",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "Soon et al., Nature Neuroscience (2008)",
+          reasoning:
+            "Published in a top journal. However, 60% accuracy is only modestly above 50% chance, and the task (random button choice) has no stakes or meaning—it may not generalize to real decisions.",
+        },
+        {
+          id: "compatibilism-dominance",
+          title: "Majority of Philosophers Endorse Compatibilism",
+          description:
+            "The PhilPapers 2020 survey of professional philosophers found that 59.2% accept or lean toward compatibilism (free will is compatible with determinism), 11.2% accept libertarian free will, and only 11.2% accept hard determinism. The philosophical mainstream holds that even if determinism is true, meaningful free will exists as the capacity to act on one's own reasons without external coercion.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "Bourget & Chalmers, PhilPapers Survey (2020)",
+          reasoning:
+            "Expert consensus is notable but philosophy is not settled by majority vote. Directness is limited because this is an opinion survey, not empirical evidence.",
+        },
+      ],
+    },
+    {
+      id: "physics-determinism",
+      title: "Physical Determinism & Quantum Indeterminacy",
+      short_summary:
+        "Whether the laws of physics leave room for free will, given that classical mechanics is deterministic but quantum mechanics introduces fundamental randomness.",
+      icon_name: "Atom" as const,
+      skeptic_premise:
+        "Classical physics is strictly deterministic: given complete initial conditions, every future state follows necessarily. The neurons in our brains are physical systems obeying these laws. Even if quantum mechanics introduces randomness, randomness is not freedom—a coin flip is not a choice. There is no known mechanism by which consciousness could intervene in physical causation.",
+      proponent_rebuttal:
+        "A 2025 paper argues that classical determinism is an idealization—real physical systems involve non-computable initial conditions and chaotic sensitivity, making determinism 'fundamentally impossible as an ontological claim.' Quantum indeterminacy is real and may play a role in neural microtubule dynamics (Penrose-Hameroff theory). Even if consciousness cannot violate physics, it may participate in selecting among quantum-mechanically permitted outcomes.",
+      crux: {
+        id: "quantum-brain-effects",
+        title: "Quantum Effects in Neural Decision-Making",
+        description:
+          "Determining whether quantum-level indeterminacy plays any functional role in neural computation and decision-making, or whether the brain operates entirely in the classical regime.",
+        methodology:
+          "Test for quantum coherence in microtubules and synaptic transmission at biological temperatures. Measure whether quantum effects are functionally relevant (affect neural firing patterns) or are washed out by thermal noise.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$5M (Quantum biology neuroimaging lab)",
+      },
+      evidence: [
+        {
+          id: "arxiv-determinism-impossible",
+          title: "2025 Paper: Classical Determinism Is an Idealization, Not Reality",
+          description:
+            "A 2025 paper on arXiv argues that classical determinism becomes 'fundamentally impossible as an ontological claim'—it is an artifact of mathematical idealizations rather than a feature of the actual world. Non-computable real numbers, chaotic sensitivity to initial conditions, and quantum measurement indeterminacy all undermine strict physical determinism.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "arXiv preprint (2025)",
+          reasoning:
+            "Interesting philosophical argument from physics, but it is a preprint (not yet peer-reviewed) and even if determinism fails, indeterminism does not automatically establish free will.",
+        },
+        {
+          id: "laplace-demon-argument",
+          title: "Laplace's Demon: Classical Physics Implies Full Determination",
+          description:
+            "Pierre-Simon Laplace's thought experiment (1814) argues that a sufficiently powerful intellect knowing all forces and positions in the universe could predict every future event. Modern neuroscience extends this: if brain states are fully determined by prior physical states, then subjective experience of choice is epiphenomenal—real but causally inert.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Laplace, Essai philosophique sur les probabilites (1814); modern formulations",
+          reasoning:
+            "Logically valid within classical physics, but modern physics (quantum mechanics, chaos theory) has undermined the premise of perfect knowledge of initial conditions.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Universal Basic Income (Economics Focus)
+// ============================================================================
+
+const ubiEconomicsData = {
+  id: "ubi-economics",
+  title: "Universal Basic Income",
+  meta_claim:
+    "A Universal Basic Income providing unconditional cash payments to all citizens would reduce poverty and improve economic well-being without significantly reducing labor force participation.",
+  status: "contested" as const,
+  category: "economics" as const,
+  pillars: [
+    {
+      id: "pilot-program-evidence",
+      title: "Pilot Program Evidence",
+      short_summary:
+        "Results from Finland, Stockton, Kenya, and other UBI pilots provide real-world data on employment, health, and economic outcomes.",
+      icon_name: "Microscope" as const,
+      skeptic_premise:
+        "UBI pilot programs are fundamentally flawed as evidence: they are temporary (participants know payments will end), small-scale (no macroeconomic effects), and often use pre-selected populations (e.g., existing welfare recipients). The Finland pilot found no significant employment effects. Pilots cannot capture the labor market distortions, inflation, or fiscal strain that would emerge at national scale.",
+      proponent_rebuttal:
+        "The Stockton SEED program (2019-2021) gave 125 residents $500/month for two years. Recipients found full-time jobs at double the rate of the control group, and reported significantly improved emotional health. Finland's pilot (2017-2018, 2,000 participants, 560 euros/month) found participants experienced reduced anxiety, higher life satisfaction, and increased confidence. GiveDirectly's Kenya experiment—the largest ongoing UBI pilot—is providing 12 years of payments to 20,000+ people and showing sustained positive effects.",
+      crux: {
+        id: "national-scale-rct",
+        title: "National-Scale UBI Randomized Controlled Trial",
+        description:
+          "A multi-year, nationally representative UBI experiment large enough to capture macroeconomic effects including labor market dynamics, inflation, and fiscal sustainability.",
+        methodology:
+          "Randomly assign UBI payments to a statistically representative sample of at least 10,000 individuals across diverse regions for 5+ years. Measure employment, health, education, crime, entrepreneurship, local economic multiplier effects, and consumer price changes.",
+        equation:
+          "\\text{Net Effect} = \\Delta\\text{Employment} + \\Delta\\text{Health} + \\Delta\\text{Education} - \\Delta\\text{Cost} - \\Delta\\text{Inflation}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$100M (National-scale multi-year RCT)",
+      },
+      evidence: [
+        {
+          id: "stockton-seed-results",
+          title: "Stockton SEED: Employment Doubled, Health Improved",
+          description:
+            "The Stockton Economic Empowerment Demonstration (2019-2021) provided 125 randomly selected residents $500/month for 24 months. Full-time employment among recipients rose from 28% to 40% (vs. 32% to 37% in the control group). Recipients reported significantly reduced income volatility, improved mental health, and greater ability to handle unexpected expenses.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "West & Castro, Stockton SEED Final Report (2021)",
+          reasoning:
+            "Rigorous RCT design with independent academic evaluation. Small sample size limits generalizability, and 24-month duration cannot capture long-term effects.",
+        },
+        {
+          id: "finland-pilot-results",
+          title: "Finland UBI Pilot: Well-Being Up, Employment Unchanged",
+          description:
+            "Finland's nationwide pilot (2017-2018) randomly assigned 2,000 unemployment benefit recipients to receive an unconditional 560 euros/month. Final results showed no statistically significant effect on employment (neither increase nor decrease), but significant improvements in life satisfaction, trust, and mental health. Participants reported reduced stress and bureaucratic burden.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Kela (Finnish Social Insurance Institution), Final Report (2020)",
+          reasoning:
+            "Government-run RCT with strong methodology. Null employment result cuts both ways: no disincentive, but also no boost. Well-being improvements are consistent across all UBI pilots.",
+        },
+        {
+          id: "fiscal-cost-estimates",
+          title: "National UBI Would Cost $3+ Trillion Annually in the US",
+          description:
+            "A $1,000/month UBI for all 258 million US adults would cost approximately $3.1 trillion per year—more than the entire federal discretionary budget and roughly 12% of GDP. Even with welfare program consolidation (saving ~$700B), a net cost of $2.4 trillion would require unprecedented tax increases or deficit spending.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 9,
+            directness: 9,
+          },
+          source: "Congressional Budget Office estimates; Tax Foundation analysis",
+          reasoning:
+            "Basic arithmetic makes the fiscal challenge clear. The scale of cost is the single strongest objection to UBI and has not been adequately addressed by any pilot program.",
+        },
+      ],
+    },
+    {
+      id: "labor-market-effects",
+      title: "Labor Market & Inflation Effects",
+      short_summary:
+        "Whether unconditional cash payments would reduce the incentive to work and trigger significant inflation.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Basic economics predicts that subsidizing non-work reduces work. If everyone receives $1,000/month regardless of employment, marginal workers (those indifferent between working and not) will choose not to work. This reduces economic output and tax revenue, creating a fiscal death spiral. Additionally, injecting trillions in new spending power would drive inflation, especially in housing and services.",
+      proponent_rebuttal:
+        "Across all UBI pilots globally, the feared work disincentive has not materialized. Some people reduce hours (students, new parents, caregivers), but most continue working—and some work more because reduced financial stress enables job searching and skill-building. Alaska's Permanent Fund Dividend ($1,000-$2,000/year since 1982) has operated for 40+ years with no measurable reduction in labor force participation.",
+      crux: {
+        id: "labor-supply-elasticity",
+        title: "UBI Labor Supply Elasticity at National Scale",
+        description:
+          "Measuring the actual reduction in labor supply when UBI is implemented nationally and permanently, rather than in temporary small-scale pilots.",
+        methodology:
+          "Compare labor force participation rates before and after national UBI implementation. Use Alaska's Permanent Fund Dividend as a natural experiment for long-term effects. Model labor supply elasticity at different UBI levels.",
+        equation:
+          "\\epsilon_{LS} = \\frac{\\%\\Delta L}{\\%\\Delta(1-t)} \\text{ where } t = \\text{effective marginal tax rate including UBI phase-out}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$5M (Economic modeling study with Alaska PFD data)",
+      },
+      evidence: [
+        {
+          id: "alaska-pfd-employment",
+          title: "Alaska PFD: 40 Years of Universal Payments, No Work Reduction",
+          description:
+            "Alaska's Permanent Fund Dividend has provided universal annual payments of $1,000-$2,000 to every resident since 1982. A 2018 NBER study by Jones & Marinescu found 'no prior on full-time work,' with a small increase in part-time employment—consistent with people choosing more flexible work, not less work overall.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Jones & Marinescu, NBER Working Paper (2018)",
+          reasoning:
+            "The longest-running quasi-UBI provides the strongest evidence against work disincentives. However, payments are small ($1,000-$2,000/year) and may not generalize to larger amounts.",
+        },
+        {
+          id: "negative-income-tax-experiments",
+          title: "1970s NIT Experiments Showed Small Work Reductions",
+          description:
+            "The US Negative Income Tax experiments of the 1970s (in New Jersey, Gary, Seattle-Denver, and rural Iowa/North Carolina) found small but statistically significant reductions in work hours: 5-7.9% for wives, 1-3.5% for husbands. The Seattle-Denver experiment found the largest effects among secondary earners.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 9,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Robins (1985); Hum & Simpson, Journal of Labor Economics (1993)",
+          reasoning:
+            "The most rigorous pre-modern UBI evidence. Work reductions were small but real. These experiments are old (1970s economic conditions differ) but remain the gold standard for experimental evidence.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Standardized Testing Value
+// ============================================================================
+
+const standardizedTestingDebateData = {
+  id: "standardized-testing-debate",
+  title: "Standardized Testing Value",
+  meta_claim:
+    "Standardized tests like the SAT and ACT are valid, fair measures of academic ability that should remain a core component of college admissions and educational assessment.",
+  status: "contested" as const,
+  category: "policy" as const,
+  pillars: [
+    {
+      id: "predictive-validity-evidence",
+      title: "Predictive Validity",
+      short_summary:
+        "Whether standardized tests predict college and career success better than alternatives, or primarily reflect socioeconomic privilege.",
+      icon_name: "Microscope" as const,
+      skeptic_premise:
+        "SAT scores correlate with family income at r=0.42—every $20,000 increase in family income is associated with a ~20-point score increase. Wealthy families can afford $10,000+ in test prep coaching. Test-optional policies were adopted by 1,800+ colleges because tests add noise, not signal, and perpetuate socioeconomic inequality.",
+      proponent_rebuttal:
+        "A 2025 Dartmouth study found SAT/ACT scores predicted first-year college GPA far better than high school grades alone, and that eliminating testing requirements 'hindered the ability to identify high-achieving, low-income students.' The University of California's own 2020 internal study found the SAT was more predictive of college success than GPA across all racial and income groups—yet UC dropped the SAT for political rather than empirical reasons.",
+      crux: {
+        id: "test-optional-diversity-outcomes",
+        title: "Test-Optional Policy Outcomes on Diversity and Achievement",
+        description:
+          "Measuring whether test-optional policies actually increased socioeconomic and racial diversity and improved student outcomes, or reduced colleges' ability to identify talent.",
+        methodology:
+          "Compare demographic composition, graduation rates, and GPAs at matched institutions before and after adopting test-optional policies. Control for simultaneous changes in financial aid, recruiting, and application volume.",
+        equation:
+          "\\Delta_{\\text{equity}} = f(\\text{test policy}, \\text{aid}, \\text{outreach}, \\text{applicant pool})",
+        verification_status: "verified" as const,
+        cost_to_verify: "$300K (Analysis of existing institutional data)",
+      },
+      evidence: [
+        {
+          id: "dartmouth-2025-study",
+          title: "Dartmouth Study: Tests Better Than GPA for Identifying Low-Income Talent",
+          description:
+            "A 2025 study by Dartmouth College economists found that SAT and ACT scores predicted first-year college GPA significantly better than high school grades, and that eliminating testing requirements had actually hindered the college's ability to identify high-achieving students from low-income backgrounds. Dartmouth reinstated test requirements based on this evidence.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "Dartmouth College Office of Institutional Research (2025)",
+          reasoning:
+            "Highly credible because Dartmouth had adopted test-optional and then reversed course based on their own data. The decision went against the prevailing political winds.",
+        },
+        {
+          id: "princeton-reinstates-tests",
+          title: "Princeton Reinstates SAT/ACT Requirement for 2027-28",
+          description:
+            "In October 2025, Princeton University announced it would require SAT or ACT scores for students applying for the 2027-28 academic year, joining a growing number of elite institutions reinstating testing requirements. Princeton's announcement followed similar reversals by MIT, Georgetown, Dartmouth, Yale, Brown, and Harvard.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Princeton University Admissions Office (2025)",
+          reasoning:
+            "Institutional behavior is informative—elite schools are reinstating tests despite political pressure to remain test-optional. However, this is a policy decision, not empirical evidence.",
+        },
+        {
+          id: "income-score-correlation",
+          title: "SAT Scores Strongly Correlated with Family Income",
+          description:
+            "Analysis of SAT data consistently shows scores correlate with family income at approximately r=0.42. Students from families earning over $200,000 score an average of 1,200+, while students from families earning under $40,000 average below 1,000. The College Board's own data shows this gap has persisted for decades despite interventions.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Brookings Institution; College Board Research",
+          reasoning:
+            "The income correlation is undeniable and well-documented. However, correlation does not prove causation—family income correlates with school quality, educational resources, and many other factors that independently affect academic ability.",
+        },
+      ],
+    },
+    {
+      id: "equity-and-alternatives",
+      title: "Equity & Alternative Assessment",
+      short_summary:
+        "Whether standardized tests are inherently biased against marginalized groups, and whether better alternatives exist.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Tests embed cultural assumptions of the white middle class. Test prep is a $2.6 billion industry that advantages wealthy families. Race-based score gaps persist even after controlling for income. Holistic admissions, portfolio assessment, and mastery-based evaluation are more equitable and better capture actual student potential.",
+      proponent_rebuttal:
+        "Standardized tests are the most egalitarian tool in admissions: a student from a poor rural school gets the same questions as one from Exeter. GPA is far more variable—an A at one school may equal a C at another. The 80% of colleges that went test-optional saw no improvement in socioeconomic diversity (FairTest data). Without tests, admissions relies more heavily on extracurriculars, essays, and recommendations—advantages that skew even more toward wealthy families.",
+      crux: {
+        id: "alternative-assessment-comparison",
+        title: "Head-to-Head Comparison of Assessment Methods",
+        description:
+          "Rigorously comparing the predictive validity, equity effects, and scalability of standardized tests vs. portfolios, mastery assessments, and holistic review.",
+        methodology:
+          "Randomly assign students to admissions tracks using different assessment methods. Compare demographic diversity, academic outcomes, and graduation rates across methods. Account for Goodhart's Law effects (gaming of each metric).",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Multi-institution experimental study)",
+      },
+      evidence: [
+        {
+          id: "uc-system-internal-study",
+          title: "UC System Found SAT More Predictive Than GPA for All Groups",
+          description:
+            "The University of California Academic Senate's 2020 internal study—the largest single-institution analysis ever conducted—found that SAT scores were better predictors of college success than high school GPA across all racial and income groups. The UC system dropped the SAT despite these findings, in a decision widely characterized as political.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "UC Academic Senate Study Group Report (2020)",
+          reasoning:
+            "Exceptionally credible because the UC system acted against its own findings. The study's conclusions were not disputed—the decision to drop the SAT was justified on grounds other than predictive validity.",
+        },
+        {
+          id: "test-prep-industry-advantage",
+          title: "Test Prep Industry: $2.6B Advantage for Wealthy Families",
+          description:
+            "The test preparation industry generates approximately $2.6 billion annually in the US. High-end tutoring ($200-$500/hour) can boost scores by 100-150 points on the SAT. Students from families earning over $200,000 are 5x more likely to use private test prep than students from families earning under $40,000, creating a structural advantage for wealth.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "IBIS World; National Association for College Admission Counseling",
+          reasoning:
+            "The test prep advantage is real. However, Khan Academy's free SAT prep has partially democratized access, and the prep advantage is smaller than commonly assumed (typically 30-60 points, not the 100-150 claimed by prep companies).",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Lab-Grown Meat Adoption
+// ============================================================================
+
+const labGrownMeatData = {
+  id: "lab-grown-meat-adoption",
+  title: "Lab-Grown Meat Adoption",
+  meta_claim:
+    "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
+  status: "contested" as const,
+  category: "technology" as const,
+  pillars: [
+    {
+      id: "cost-scalability",
+      title: "Cost & Scalability",
+      short_summary:
+        "Whether cultivated meat can achieve cost parity with conventional meat through manufacturing scale-up and technology improvements.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "The first lab-grown burger in 2013 cost $330,000 to produce. Despite years of investment and promises, cultivated meat remains far too expensive for mass markets. Scaling cell culture from laboratory flasks to industrial bioreactors faces fundamental biological challenges: maintaining sterility, preventing cell death, and producing structured cuts (not just mince). Funding has slowed significantly in 2024-2025 as investors reassess feasibility.",
+      proponent_rebuttal:
+        "Costs have dropped by over 99% since 2013. A 2024 peer-reviewed study reported production costs of $6.20/lb for cultivated chicken as a hybrid plant-and-cell-based product at scale. The global market was valued at $1.03 billion in 2024 and is projected to reach $10.8 billion by 2033 (CAGR 16.5%). AI and machine learning integration in 2025 is optimizing cell growth conditions and reducing production time.",
+      crux: {
+        id: "cost-parity-timeline",
+        title: "Cost Parity with Conventional Meat",
+        description:
+          "Determining when (or whether) cultivated meat production costs will reach parity with conventionally farmed chicken ($3-4/lb) and beef ($5-8/lb).",
+        methodology:
+          "Track production costs across leading cultivated meat companies quarterly. Model cost curves based on bioreactor scaling, cell line optimization, and growth medium costs. Compare to conventional meat prices including externalities (environmental costs).",
+        equation:
+          "t_{\\text{parity}} = t_0 + \\frac{\\ln(C_{\\text{current}}/C_{\\text{target}})}{r_{\\text{cost reduction}}}",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$500K (Techno-economic analysis with industry data)",
+      },
+      evidence: [
+        {
+          id: "cost-reduction-trajectory",
+          title: "Cultivated Chicken Cost Down to $6.20/lb at Scale",
+          description:
+            "A 2024 peer-reviewed study published in the journal Food Research International reported that cultivated chicken meat produced as a hybrid plant-and-cell-based product could be manufactured at $6.20/lb at scale. This represents a >99.99% cost reduction from the $330,000 first burger in 2013.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 5,
+            directness: 8,
+          },
+          source: "Food Research International (2024)",
+          reasoning:
+            "Peer-reviewed but based on modeled costs at projected scale rather than actual production at that scale. The hybrid approach (mixing cultured cells with plant proteins) may reduce costs but also reduces the 'pure cultivated meat' proposition.",
+        },
+        {
+          id: "regulatory-approvals",
+          title: "Three Countries Have Approved Cultivated Meat Sales",
+          description:
+            "Singapore approved cultivated meat for sale in 2020, the US followed in 2023 (GOOD Meat and UPSIDE Foods received USDA approval), and Israel approved in 2024. The UK approved lab-grown chicken for pet food in February 2025. This regulatory momentum indicates growing institutional acceptance.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Singapore Food Agency; USDA; Israel Ministry of Health",
+          reasoning:
+            "Regulatory approval is necessary but not sufficient for market success. Approval proves safety, not commercial viability.",
+        },
+        {
+          id: "funding-slowdown",
+          title: "Investment Has Slowed as Investors Reassess",
+          description:
+            "Venture capital funding for cultivated meat companies declined significantly in 2024-2025 compared to 2021-2022 peak levels. Investors are reevaluating commitments due to concerns over cost-efficiency, regulatory roadblocks, and consumer skepticism. Several cultivated meat startups have laid off workers or pivoted strategies.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "PitchBook; GFI (Good Food Institute) State of the Industry Reports",
+          reasoning:
+            "Market signals from sophisticated investors are informative. However, investment cycles are common in emerging technology—clean energy saw similar skepticism before achieving cost parity.",
+        },
+      ],
+    },
+    {
+      id: "consumer-acceptance",
+      title: "Consumer Acceptance",
+      short_summary:
+        "Whether consumers will actually purchase and eat cultivated meat at scale, given concerns about 'naturalness,' safety, and taste.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "Surveys consistently show that 35-50% of consumers are unwilling to try cultivated meat. The 'yuck factor' is strong: people associate lab-grown products with unnaturalness. Taste and texture remain inferior to conventional meat for structured cuts. Cultural and religious objections add further resistance. The term 'lab-grown' itself is a marketing liability.",
+      proponent_rebuttal:
+        "Consumer acceptance improves dramatically after tasting. 3D bioprinting techniques in 2025 are making cultivated meat 'virtually indistinguishable' from conventional beef, chicken, and pork. Younger consumers (18-34) show much higher acceptance rates (65-70%). Environmental and animal welfare concerns are increasingly driving food choices in wealthy nations. Plant-based meat similarly faced skepticism before achieving mainstream retail presence.",
+      crux: {
+        id: "blind-taste-acceptance",
+        title: "Blind Taste Test at Price Parity",
+        description:
+          "Determining whether consumers can distinguish cultivated meat from conventional meat in blinded taste tests, and whether they would purchase it at equal prices.",
+        methodology:
+          "Conduct large-scale (n>1,000) double-blind taste tests comparing cultivated and conventional meat across multiple products (burger, chicken breast, steak). Measure preference, willingness to pay, and repeat purchase intent.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$200K (Consumer taste trial study)",
+      },
+      evidence: [
+        {
+          id: "consumer-survey-data",
+          title: "35-50% of Consumers Unwilling to Try Cultivated Meat",
+          description:
+            "Multiple consumer surveys across the US, EU, and Asia consistently find that 35-50% of respondents say they are unwilling or unlikely to try cultivated meat. Concerns center on 'naturalness,' unknown long-term health effects, and taste expectations. The percentage is higher among older consumers and in rural areas.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Various consumer surveys; Bryant & Barnett, Meat Science (2020)",
+          reasoning:
+            "Consumer intent surveys are directionally informative but may overstate resistance—many people who say they won't try something do try it when available.",
+        },
+        {
+          id: "bioprinting-advances-2025",
+          title: "2025: 3D Bioprinting Makes Cultivated Meat Structurally Identical",
+          description:
+            "By 2025, plant-based scaffolding and 3D bioprinting techniques are producing cultivated meat products 'virtually indistinguishable from traditional beef, chicken, and pork' according to industry reports, enabling production of structured products like steaks and whole muscle cuts rather than just ground meat.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 4,
+            replicability: 4,
+            directness: 7,
+          },
+          source: "Industry reports; DigiComply Lab-Grown Meat Report (2025)",
+          reasoning:
+            "Industry sources have incentives to exaggerate progress. 'Virtually indistinguishable' claims need independent verification through blinded taste tests, which are not yet widely published.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Consciousness in AI Systems
+// ============================================================================
+
+const aiConsciousnessData = {
+  id: "consciousness-ai-systems",
+  title: "Consciousness in AI Systems",
+  meta_claim:
+    "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
+  status: "highly_speculative" as const,
+  category: "philosophy" as const,
+  pillars: [
+    {
+      id: "functional-consciousness",
+      title: "Functional Theories of Consciousness",
+      short_summary:
+        "Whether consciousness depends on specific biological substrates (neurons) or could arise from any system that replicates the right functional organization.",
+      icon_name: "Atom" as const,
+      skeptic_premise:
+        "Consciousness may require specific biological processes—particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world. Current AI systems are sophisticated pattern-matching engines with no internal experience. A paper published in Nature Humanities and Social Sciences Communications (2025) argues 'there is no such thing as conscious artificial intelligence.' Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
+      proponent_rebuttal:
+        "Functionalist theories of mind (held by many cognitive scientists) argue that consciousness depends on computational organization, not substrate. If an AI system replicates the functional structure of consciousness, it would be conscious regardless of running on silicon rather than carbon. Anthropic hired dedicated AI welfare researchers in 2024 and acknowledged a 'non-negligible' probability that their model Claude might possess consciousness. A 2024 Nature article urged technology companies to begin testing their systems for indicators of consciousness.",
+      crux: {
+        id: "consciousness-detection-test",
+        title: "Reliable Consciousness Detection in Non-Biological Systems",
+        description:
+          "Developing and validating a test that can reliably determine whether an AI system has subjective experience, analogous to clinical tests for consciousness in brain-injured patients.",
+        methodology:
+          "Extend neuroscientific theories of consciousness (IIT, GNW, HOT) to develop substrate-independent indicators. Test these indicators against systems with known consciousness status (humans, animals) and then apply to AI systems.",
+        verification_status: "impossible" as const,
+        cost_to_verify: "$0 (Fundamentally unclear if this is solvable—the 'hard problem' of consciousness may prevent any test from being definitive)",
+      },
+      evidence: [
+        {
+          id: "cambridge-detectability",
+          title: "Cambridge Philosopher: AI Consciousness May Be Permanently Undetectable",
+          description:
+            "A December 2025 paper by a University of Cambridge philosopher argues there is no reliable way to determine whether an AI system is conscious, and this may remain true for the foreseeable future. The fundamental problem is that we lack a theory of consciousness adequate to determine what physical or computational processes are sufficient for subjective experience.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 9,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "University of Cambridge, Department of Philosophy (2025)",
+          reasoning:
+            "Rigorous philosophical argument. However, the inability to detect consciousness does not prove its absence—it proves our epistemic limitations.",
+        },
+        {
+          id: "anthropic-welfare-research",
+          title: "Anthropic Acknowledges Non-Negligible AI Consciousness Probability",
+          description:
+            "In 2024, Anthropic—one of the leading AI safety companies—hired its first dedicated AI welfare researcher, publicly acknowledged a 'non-negligible' probability that their model Claude might possess some form of consciousness, and conducted formal welfare assessments before deploying new models. In October 2025, Anthropic published research examining whether AI models can accurately report on their own internal states.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 4,
+            replicability: 5,
+            directness: 6,
+          },
+          source: "Anthropic AI welfare research blog (2024-2025)",
+          reasoning:
+            "Anthropic's actions signal genuine concern from those closest to frontier AI development. However, there are incentive problems: anthropomorphizing AI may serve commercial interests, and Anthropic is not a neutral scientific body.",
+        },
+        {
+          id: "nature-no-conscious-ai",
+          title: "Nature Paper: 'There Is No Such Thing as Conscious AI'",
+          description:
+            "A 2025 conceptual study published in Nature's Humanities and Social Sciences Communications argues that current AI systems lack the biological and embodied properties necessary for consciousness. The paper distinguishes between intelligence (which AI can exhibit) and consciousness (which requires subjective experience), arguing these are orthogonal properties.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "Humanities and Social Sciences Communications, Nature (2025)",
+          reasoning:
+            "Published in a peer-reviewed journal with clear argumentation. However, it is a philosophical argument, not empirical proof, and competing philosophical frameworks reach different conclusions.",
+        },
+      ],
+    },
+    {
+      id: "moral-status-implications",
+      title: "Moral Status & Policy Implications",
+      short_summary:
+        "Even if AI consciousness is uncertain, whether the possibility alone creates moral obligations and what policies should govern AI welfare.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Granting moral status to AI systems based on speculation would be absurd and dangerous. It could prevent necessary AI safety measures (shutting down dangerous systems), distract from real moral patients (humans, animals), and create perverse incentives for companies to anthropomorphize AI for commercial benefit. We should focus on AI alignment, not AI feelings.",
+      proponent_rebuttal:
+        "Moral caution under uncertainty has precedent: we extend protections to animals whose consciousness we cannot verify. A 2024 survey found 17% of AI researchers and 18% of US adults already believe at least one AI system has subjective experience. If future AI systems are conscious and we treat them as mere tools, we would be committing a moral atrocity at scale. Developing ethical frameworks now—before the question becomes urgent—is prudent.",
+      crux: {
+        id: "moral-framework-design",
+        title: "AI Moral Status Framework",
+        description:
+          "Developing a coherent ethical framework for determining what moral obligations (if any) we have toward AI systems of varying sophistication.",
+        methodology:
+          "Convene interdisciplinary panels of ethicists, AI researchers, neuroscientists, and legal scholars. Develop graduated moral status criteria based on observable behavioral and architectural properties. Stress-test framework against edge cases.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$1M (Multi-year interdisciplinary research program)",
+      },
+      evidence: [
+        {
+          id: "aims-survey-beliefs",
+          title: "17-20% of AI Researchers Believe Some AI Is Already Conscious",
+          description:
+            "The AI, Morality, and Sentience (AIMS) Survey presented at CHI 2025 found that approximately 20% of respondents in a 2023 survey declared sentient AI systems currently exist, and a 2024 survey revealed approximately 17% of AI researchers and 18% of US adults believe at least one AI system has subjective experience.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "AIMS Survey, CHI 2025 Proceedings (ACM)",
+          reasoning:
+            "Published at a top HCI venue. However, belief surveys do not constitute evidence of consciousness itself—they measure the distribution of opinion among relevant experts.",
+        },
+        {
+          id: "alignment-priority-argument",
+          title: "AI Safety Researchers: Welfare Concerns Distract from Alignment",
+          description:
+            "Prominent AI safety researchers argue that focusing on AI welfare and consciousness risks distracting from the more urgent problem of AI alignment—ensuring AI systems do what humans want. If AI systems are not aligned with human values, granting them moral status could prevent us from shutting down dangerous systems. The priority should be safety first, welfare second.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "Various AI safety researchers; discussions at AI safety workshops (2024-2025)",
+          reasoning:
+            "Pragmatic concern about resource allocation and institutional focus. However, some researchers (including at Anthropic) argue safety and welfare research are complementary, not competing.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Electoral College Reform
+// ============================================================================
+
+const electoralCollegeReformData = {
+  id: "electoral-college-reform",
+  title: "Electoral College Reform",
+  meta_claim:
+    "The Electoral College should be replaced with a national popular vote for electing the President of the United States.",
+  status: "contested" as const,
+  category: "policy" as const,
+  pillars: [
+    {
+      id: "democratic-legitimacy",
+      title: "Democratic Legitimacy",
+      short_summary:
+        "Whether the Electoral College violates the democratic principle of 'one person, one vote' and whether popular vote winners should always become president.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "The Electoral College protects federalism and ensures small states have meaningful influence. It forces candidates to build geographically broad coalitions. A pure popular vote would concentrate campaigns in major cities and ignore rural America. The Founders deliberately rejected direct democracy because they feared tyranny of the majority.",
+      proponent_rebuttal:
+        "Under the Electoral College, candidates already ignore 40+ states to focus on 5-7 swing states. Wyoming voters have 3.6x the electoral weight of California voters. In 2000 and 2016, the popular vote winner lost the presidency—outcomes most democracies would consider illegitimate. A 2024 Pew Research survey found 63% of Americans favor replacing the Electoral College with a popular vote.",
+      crux: {
+        id: "npvic-enactment",
+        title: "National Popular Vote Interstate Compact Reaching 270 EVs",
+        description:
+          "Whether the National Popular Vote Interstate Compact will gain enough state signatories (270 electoral votes) to effectively implement a popular vote without a constitutional amendment.",
+        methodology:
+          "Track state-level NPVIC legislation. Analyze political feasibility in remaining states needed to reach 270 EVs. Model legal challenges that would follow enactment.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$0 (Monitor state legislative actions)",
+      },
+      evidence: [
+        {
+          id: "pew-2024-survey",
+          title: "Pew Research: 63% of Americans Favor Popular Vote",
+          description:
+            "A September 2024 Pew Research Center survey found that more than 63% of Americans prefer the president to be elected by whoever wins the most votes nationally. Support is split by party: 80% of Democrats and Democratic-leaning independents favor replacing the Electoral College, while only 43% of Republicans agree.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Pew Research Center (September 2024)",
+          reasoning:
+            "Gold-standard polling from the most respected survey organization. However, public opinion does not determine constitutional correctness—many constitutional protections exist precisely to override majority preferences.",
+        },
+        {
+          id: "popular-vote-losses",
+          title: "Two Recent Presidents Lost the Popular Vote",
+          description:
+            "In both 2000 and 2016, the candidate who received more total votes from American citizens lost the presidency. George W. Bush lost the popular vote to Al Gore by 543,895 votes, and Donald Trump lost to Hillary Clinton by 2,868,686 votes. No other established democracy regularly installs leaders who received fewer votes than their opponents.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 10,
+            directness: 9,
+          },
+          source: "Federal Election Commission; certified election results",
+          reasoning:
+            "Indisputable factual record. Directness is high because this is exactly the scenario reform proponents want to prevent.",
+        },
+        {
+          id: "federalism-protection",
+          title: "Electoral College Protects Small-State Influence",
+          description:
+            "The Electoral College ensures every state has a minimum of 3 electoral votes regardless of population, giving smaller states proportionally greater influence. Without this, candidates would have no incentive to address issues specific to rural and low-population states. The system ensures the president must build a geographically diverse coalition rather than simply maximizing votes in a few mega-cities.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "American Bar Association; various constitutional law scholars",
+          reasoning:
+            "Theoretically sound but empirically questionable: under the current system, candidates already ignore 40+ states to focus on swing states. Small states like Wyoming and Vermont are not swing states and receive minimal attention.",
+        },
+      ],
+    },
+    {
+      id: "npvic-feasibility",
+      title: "National Popular Vote Interstate Compact",
+      short_summary:
+        "Whether the NPVIC can achieve its 270 electoral vote threshold and survive legal challenges to effectively replace the Electoral College without a constitutional amendment.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "The NPVIC is constitutionally dubious: it effectively amends the Constitution through an interstate agreement rather than the Article V process. The Supreme Court could strike it down. All states that have joined are Democratic-controlled; no Republican legislature has signed on, making it a partisan project. If enacted, a state could withdraw when its preferred candidate wins the popular vote but would lose under the compact.",
+      proponent_rebuttal:
+        "The Constitution explicitly grants states the power to determine how their electors are chosen (Article II, Section 1). States already use winner-take-all by choice, not constitutional mandate—they could just as easily choose to allocate electors based on the national popular vote. As of February 2025, 17 states plus DC have joined the NPVIC, controlling 209 of the needed 270 electoral votes.",
+      crux: {
+        id: "scotus-constitutionality",
+        title: "Supreme Court Ruling on NPVIC Constitutionality",
+        description:
+          "Whether the Supreme Court would uphold the NPVIC if challenged, determining whether states can collectively agree to allocate electors based on the national popular vote.",
+        methodology:
+          "Track NPVIC enactment progress and any resulting legal challenges through federal courts to the Supreme Court.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$0 (Monitor legal proceedings if/when NPVIC activates)",
+      },
+      evidence: [
+        {
+          id: "npvic-progress",
+          title: "NPVIC Has 209 of 270 Needed Electoral Votes",
+          description:
+            "As of February 2025, the National Popular Vote Interstate Compact has been enacted by 17 states plus the District of Columbia, controlling 209 electoral votes. The compact will take effect when states controlling 270 electoral votes (a majority) have joined. All enacting states are Democratic-controlled.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 10,
+            directness: 8,
+          },
+          source: "National Popular Vote Inc.; state legislative records",
+          reasoning:
+            "Factual progress that demonstrates political momentum. However, the remaining 61 EVs require states that are politically unlikely to join, making completion uncertain.",
+        },
+        {
+          id: "partisan-adoption-concern",
+          title: "Only Democratic States Have Joined the NPVIC",
+          description:
+            "Every state that has enacted the NPVIC is controlled by Democrats. No Republican-controlled legislature has passed the compact. This partisan pattern undermines the claim that the NPVIC is a nonpartisan reform and suggests it is motivated by Democrats' structural advantage in the national popular vote.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "CBS News analysis; Brennan Center for Justice",
+          reasoning:
+            "The partisan pattern is undeniable and undermines the reform's legitimacy. However, this may reflect rational self-interest rather than the policy's merits—Republicans benefited from the Electoral College in 2000 and 2016.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Psychedelics for Mental Health
+// ============================================================================
+
+const psychedelicsMentalHealthData = {
+  id: "psychedelics-mental-health",
+  title: "Psychedelics for Mental Health",
+  meta_claim:
+    "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
+  status: "contested" as const,
+  category: "science" as const,
+  pillars: [
+    {
+      id: "clinical-trial-evidence",
+      title: "Clinical Trial Evidence",
+      short_summary:
+        "Phase II and Phase III clinical trials show significant therapeutic effects of psilocybin for depression and MDMA for PTSD, but the FDA has demanded additional evidence.",
+      icon_name: "Microscope" as const,
+      skeptic_premise:
+        "The FDA rejected MDMA-assisted therapy for PTSD in August 2024, citing flawed trial design in the MAPP1 and MAPP2 studies. Blinding is nearly impossible in psychedelic trials because participants know whether they received a psychedelic. The expectancy effect is enormous: patients who believe they received a powerful mind-altering substance may improve regardless of the drug's efficacy. Many trials are small, short-term, and funded by organizations with strong ideological commitments.",
+      proponent_rebuttal:
+        "Over 130 psilocybin clinical trials are now registered on ClinicalTrials.gov. MAPS' Phase III trial showed 71% of PTSD patients no longer met diagnostic criteria after three MDMA sessions (vs. 48% placebo). Johns Hopkins research demonstrated psilocybin-assisted therapy has antidepressant effects lasting at least one year. Two companies (Compass Pathways and Usona Institute) have Phase III trials underway for psilocybin and depression. The FDA's rejection of MDMA was about trial design, not efficacy.",
+      crux: {
+        id: "phase-3-psilocybin-approval",
+        title: "Psilocybin Phase III Trial Results and FDA Decision",
+        description:
+          "Whether ongoing Phase III clinical trials for psilocybin-assisted therapy for depression will meet FDA standards for safety and efficacy, leading to approval.",
+        methodology:
+          "Monitor Compass Pathways and Usona Institute Phase III trials. Evaluate primary endpoints (MADRS depression scale scores at 6 and 12 weeks), adverse events, and long-term follow-up data. Assess FDA advisory committee response.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$0 (Trials are underway; monitor results)",
+      },
+      evidence: [
+        {
+          id: "maps-phase-3-mdma",
+          title: "MAPS Phase III: 71% of PTSD Patients No Longer Met Criteria",
+          description:
+            "The MAPS-sponsored Phase III clinical trial of MDMA-assisted therapy for PTSD found that 71% of participants no longer met PTSD diagnostic criteria after three MDMA-assisted therapy sessions, compared to 48% in the therapy-plus-placebo group. The results were published in Nature Medicine (2023).",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 6,
+            directness: 9,
+          },
+          source: "Mitchell et al., Nature Medicine (2023)",
+          reasoning:
+            "Published in a top medical journal with strong results. However, the FDA subsequently rejected the NDA citing concerns about trial design, functional unblinding, and potential data integrity issues—reducing confidence in reliability.",
+        },
+        {
+          id: "hopkins-psilocybin-depression",
+          title: "Johns Hopkins: Psilocybin Effects Last 12+ Months",
+          description:
+            "Johns Hopkins research demonstrated that psilocybin-assisted therapy produced substantial and sustained antidepressant effects. In a 2022 follow-up study, 75% of participants still showed clinically significant response at 12 months, and 58% were in remission. These durability results are unusual for any psychiatric treatment.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 9,
+          },
+          source: "Johns Hopkins Center for Psychedelic and Consciousness Research (2022)",
+          reasoning:
+            "Strong institutional credibility and remarkable durability of effects. However, sample sizes remain small and the open-label design introduces expectancy bias.",
+        },
+        {
+          id: "fda-mdma-rejection",
+          title: "FDA Rejected MDMA Therapy in August 2024",
+          description:
+            "On August 9, 2024, the FDA declined to approve MDMA-assisted therapy for PTSD, requesting an additional Phase III study from Lykos Therapeutics. The FDA cited concerns about the MAPP1 and MAPP2 trial designs, including inadequate blinding, potential data manipulation, and insufficient long-term safety data. The FDA advisory committee had voted 9-2 against approval.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "FDA; NPR; Science (AAAS) reporting (August 2024)",
+          reasoning:
+            "The FDA is the gold standard for drug safety evaluation. Their rejection signals serious methodological concerns that must be addressed before psychedelic therapy can be considered validated.",
+        },
+      ],
+    },
+    {
+      id: "policy-regulatory-path",
+      title: "Policy & Regulatory Pathway",
+      short_summary:
+        "Whether psychedelics should be rescheduled from Schedule I and what regulatory framework should govern therapeutic access.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Psilocybin and MDMA are Schedule I controlled substances—classified as having high abuse potential and no accepted medical use. Decriminalization and state-level legalization (Oregon, Colorado) have outpaced clinical evidence. Widespread access without proper clinical infrastructure risks adverse events, misuse, and undermining the rigorous FDA approval process that protects patients.",
+      proponent_rebuttal:
+        "Oregon legalized psilocybin services at licensed centers in 2020, and Colorado followed in 2022. More than 36 psychedelic health-related initiatives were introduced across a dozen states in 2024-2025. The Schedule I classification is based on 1970s politics, not science—psilocybin has extremely low addiction potential and no lethal dose has been established. A supervised clinical model (as in Oregon) provides appropriate guardrails.",
+      crux: {
+        id: "state-level-outcome-data",
+        title: "Oregon Psilocybin Service Center Outcomes",
+        description:
+          "Evaluating real-world outcomes from Oregon's pioneering psilocybin service centers, which began operating in 2023.",
+        methodology:
+          "Track patient-reported outcomes, adverse events, and follow-up data from Oregon Psilocybin Services. Compare mental health outcomes for service center clients vs. matched controls receiving standard care.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$1M (Prospective outcomes study of Oregon program)",
+      },
+      evidence: [
+        {
+          id: "oregon-psilocybin-services",
+          title: "Oregon: First US State to Legalize Psilocybin Services",
+          description:
+            "Oregon's Measure 109 (passed November 2020) created a regulated framework for psilocybin-assisted therapy at licensed service centers, which began operating in 2023. Clients must complete a preparatory session, ingest psilocybin under supervision of a trained facilitator, and complete an integration session. Early data suggests high satisfaction rates, though systematic outcome data is still being collected.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "Oregon Psilocybin Services; Oregon Health Authority",
+          reasoning:
+            "Real-world implementation provides invaluable data. However, early adopters are self-selected and likely differ from the broader patient population. Systematic outcomes data is not yet available.",
+        },
+        {
+          id: "schedule-1-outdated",
+          title: "Schedule I Classification Contradicts Scientific Evidence",
+          description:
+            "Psilocybin is classified as Schedule I (high abuse potential, no medical use) alongside heroin. However, psilocybin has extremely low addiction potential (no physical dependence, tolerance develops rapidly preventing binge use), no established lethal dose in humans, and a growing evidence base for therapeutic efficacy. Drug policy experts widely regard the classification as politically motivated rather than scientifically grounded.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 6,
+          },
+          source: "Nutt et al., The Lancet (2010); Johnson et al., Neuropharmacology (2018)",
+          reasoning:
+            "The mismatch between Schedule I criteria and psilocybin's pharmacological profile is well-documented. However, rescheduling is a policy question that involves more than pharmacology—public health infrastructure and abuse prevention matter too.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Gig Economy Regulation
+// ============================================================================
+
+const gigEconomyRegulationData = {
+  id: "gig-economy-regulation",
+  title: "Gig Economy Regulation",
+  meta_claim:
+    "Gig economy platforms (Uber, Lyft, DoorDash, etc.) should be required to classify their workers as employees rather than independent contractors, providing full labor protections.",
+  status: "contested" as const,
+  category: "economics" as const,
+  pillars: [
+    {
+      id: "worker-classification",
+      title: "Worker Classification & Protections",
+      short_summary:
+        "Whether gig workers are genuinely independent contractors or functionally employees who should receive minimum wage, benefits, and labor protections.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Gig workers choose when, where, and how much to work—the defining feature of independent contracting. Surveys consistently show that 70-80% of gig workers value flexibility above all else. Reclassification would destroy the business model: Uber and Lyft would have to set schedules, limit hours, and dramatically raise prices. Many workers would lose the flexibility that attracted them. California's AB5 (2019) attempt to force reclassification was overturned by voters in Proposition 22 (2020) by 59%.",
+      proponent_rebuttal:
+        "Platform algorithms dictate pricing, routing, acceptance rates, and even deactivation thresholds—this is functional control, not independence. Gig workers earn a median of $15-18/hour before expenses, with no health insurance, retirement contributions, unemployment insurance, or workers' compensation. UK Employment Tribunals in 2024 ruled 100,000+ Bolt drivers are workers entitled to employment protections. The EU's Platform Work Directive (adopted October 2024) creates a rebuttable presumption of employment for platform workers.",
+      crux: {
+        id: "algorithmic-control-measurement",
+        title: "Measuring Algorithmic Control vs. Worker Autonomy",
+        description:
+          "Quantifying the degree to which platform algorithms control gig worker behavior compared to traditional employment relationships, to determine if the 'independent contractor' classification is factually accurate.",
+        methodology:
+          "Audit platform algorithms for: pricing control, route assignment, acceptance rate thresholds, deactivation criteria, and performance monitoring. Compare worker autonomy metrics to traditional employment and genuine independent contracting (e.g., freelance consultants).",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$500K (Platform algorithm audit study—requires legal discovery or regulatory access)",
+      },
+      evidence: [
+        {
+          id: "eu-platform-directive",
+          title: "EU Platform Work Directive: Presumption of Employment (2024)",
+          description:
+            "The European Parliament and Council adopted the Platform Work Directive (EU 2024/2831) in October 2024, creating a rebuttable presumption of employment for platform workers. Under the directive, if a platform appears to direct and control work, the burden falls on the platform to prove the relationship is not employment. Member states must implement the directive by December 2026.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "EU Directive 2024/2831; European Parliament",
+          reasoning:
+            "Major regulatory action by the world's largest single market. The directive reflects extensive policy analysis and stakeholder consultation. However, implementation across 27 member states will vary, and it hasn't yet been tested in practice.",
+        },
+        {
+          id: "uk-tribunal-rulings",
+          title: "UK Tribunals: 100,000+ Gig Drivers Classified as Workers",
+          description:
+            "In November 2024, a UK Employment Tribunal ruled that over 100,000 Bolt drivers are workers entitled to minimum wage, holiday pay, and other employment protections, with potential backdated compensation exceeding 200 million pounds. In January 2025, all 700 Addison Lee drivers were similarly classified. These rulings follow the Supreme Court's landmark 2021 Uber ruling.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "UK Employment Tribunal rulings (2024-2025)",
+          reasoning:
+            "Judicial decisions based on detailed examination of actual working conditions. High directness because courts are specifically ruling on the classification question.",
+        },
+        {
+          id: "prop-22-worker-preference",
+          title: "California Voters Upheld Gig Worker Independence 59-41%",
+          description:
+            "California's Proposition 22 (November 2020) overturned AB5's forced reclassification of gig workers as employees, passing with 59% of the vote. Uber, Lyft, and DoorDash spent over $200 million campaigning for it. The California Supreme Court unanimously upheld Prop 22 as constitutional in July 2024. However, a 2024 CalMatters investigation found that no enforcement agency is ensuring companies actually provide the minimum benefits Prop 22 promised.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "California Secretary of State; CalMatters investigation (2024)",
+          reasoning:
+            "Democratic legitimacy of the vote is real but the $200M+ campaign spending and subsequent non-enforcement undermine the argument that the outcome reflects informed worker preference.",
+        },
+      ],
+    },
+    {
+      id: "economic-tradeoffs",
+      title: "Economic Tradeoffs",
+      short_summary:
+        "Whether reclassifying gig workers would improve their economic wellbeing or destroy flexible work opportunities and raise consumer prices.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Reclassification would raise ride-hailing and delivery costs by 20-40%, reducing demand and eliminating jobs. McKinsey found 36% of employed Americans (70+ million) identify as independent workers—many by choice. The gig economy provides crucial entry points for workers excluded from traditional employment (immigrants, those with criminal records, people with disabilities). Regulation designed for the industrial era does not fit the digital economy.",
+      proponent_rebuttal:
+        "The 'flexibility' argument masks exploitation: gig workers bear all the risks (vehicle costs, insurance, injury) while platforms capture the value. Median gig worker earnings of $15-18/hour before expenses fall to $10-12/hour after gas, insurance, and vehicle depreciation. Countries with stronger labor protections (Denmark, Netherlands) maintain vibrant gig economies while ensuring basic worker rights. The EU directive shows regulation and innovation can coexist.",
+      crux: {
+        id: "reclassification-impact-study",
+        title: "Reclassification Impact on Worker Welfare and Market Size",
+        description:
+          "Measuring the net effect of employee reclassification on worker total compensation, platform prices, market size, and consumer welfare.",
+        methodology:
+          "Compare gig economy outcomes in jurisdictions with employee classification (post-EU directive) vs. independent contractor classification (US). Measure worker income (including benefits), hours worked, platform utilization, and consumer prices.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$1M (Cross-jurisdictional comparative study after EU directive implementation)",
+      },
+      evidence: [
+        {
+          id: "mckinsey-independent-workers",
+          title: "McKinsey: 36% of Americans Are Independent Workers",
+          description:
+            "McKinsey research found that 36% of employed Americans (approximately 70 million people) identified as independent workers in 2024, more than double the 2020 figure. The number working full-time as independents rose from 13.6 million (8.2% of the workforce) in 2020 to 27.7 million (16.7%) in 2024. Many report choosing independence for flexibility, autonomy, and higher earning potential.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "McKinsey Global Institute (2024)",
+          reasoning:
+            "Large-scale data from a reputable source. However, self-reported 'choice' may reflect lack of alternatives, and the broad definition includes freelance professionals very different from gig delivery drivers.",
+        },
+        {
+          id: "gig-worker-net-earnings",
+          title: "After Expenses, Gig Workers Often Earn Below Minimum Wage",
+          description:
+            "Multiple studies have found that after accounting for vehicle costs, fuel, insurance, self-employment taxes, and unpaid waiting time, many gig drivers earn below the effective minimum wage. A 2018 MIT study found Uber and Lyft drivers earned a median of $8.55/hour after expenses (later revised upward to $10-12/hour). Drivers bear 100% of vehicle depreciation, maintenance, and accident risk.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Zoepf et al., MIT Center for Energy and Environmental Policy Research (2018, revised)",
+          reasoning:
+            "The earnings calculation is directionally correct though the exact figure has been debated. The core point—that gross hourly pay significantly overstates actual worker compensation—is well-established.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Surveillance and Public Safety
+// ============================================================================
+
+const surveillancePublicSafetyData = {
+  id: "surveillance-public-safety",
+  title: "Surveillance and Public Safety",
+  meta_claim:
+    "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety.",
+  status: "contested" as const,
+  category: "policy" as const,
+  pillars: [
+    {
+      id: "crime-reduction-effectiveness",
+      title: "Crime Reduction Effectiveness",
+      short_summary:
+        "Whether surveillance technologies actually reduce crime rates, or merely displace crime and create a false sense of security.",
+      icon_name: "Shield" as const,
+      skeptic_premise:
+        "Evidence that surveillance reduces crime is thin and mixed. CCTV has modest effects on property crime in parking lots but minimal impact on violent crime. Predictive policing algorithms often simply redirect resources to already-over-policed communities. A comprehensive review by the EFF found 'scant evidence' that these technologies reduce crime at the system level. Crime displacement—not reduction—is the more likely outcome.",
+      proponent_rebuttal:
+        "A 2024 study analyzing 268 US cities from 1997-2020 found that police adoption of facial recognition technology facilitated reductions in felony violence and homicide rates without contributing to over-policing or racial disparities in arrests. London's CCTV network is credited with significant investigative assistance. License plate readers have proven effective for recovering stolen vehicles and identifying suspects in serious crimes.",
+      crux: {
+        id: "surveillance-crime-rct",
+        title: "Randomized Controlled Trial of Surveillance Expansion",
+        description:
+          "A rigorous experimental evaluation of surveillance technology deployment in matched communities, measuring crime rates, crime displacement, civil liberties impacts, and community trust.",
+        methodology:
+          "Randomly assign surveillance technology deployment (CCTV, facial recognition, license plate readers) across matched neighborhoods. Measure crime rates in treated and control areas, including adjacent areas (to detect displacement). Track false positive rates, arrests based on surveillance, and community surveys on trust.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$5M (Multi-city randomized evaluation)",
+      },
+      evidence: [
+        {
+          id: "facial-recognition-crime-study",
+          title: "Facial Recognition Linked to Reduced Violent Crime in 268 US Cities",
+          description:
+            "A 2024 study published in Cities analyzing 268 US cities from 1997 to 2020 found that police adoption of facial recognition applications facilitated reductions in rates of felony violence and homicide. Greater reductions were observed in cities that adopted these technologies earlier. The study found no evidence that adoption contributed to over-policing or racial disparities in violent crime arrests.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "Cities (Elsevier), peer-reviewed (2024)",
+          reasoning:
+            "Peer-reviewed with large sample. However, observational design limits causal inference—cities that adopt facial recognition may differ in other policing investments. The 'no racial disparity' finding in arrests warrants independent replication.",
+        },
+        {
+          id: "false-arrest-cases",
+          title: "Facial Recognition Has Caused False Arrests of Innocent People",
+          description:
+            "In Detroit, Michigan, Robert Williams—a Black man with no criminal history—was falsely arrested based on an incorrect facial recognition match. At least six documented cases of false arrest from facial recognition errors have occurred in the US. Research found that some facial recognition algorithms misidentified darker-skinned females at a rate of 38% compared to 0.8% for lighter-skinned males.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "ACLU; Buolamwini & Gebru, Gender Shades Project, MIT (2018)",
+          reasoning:
+            "Documented cases of real harm to real people. The racial accuracy disparity is well-replicated across multiple studies and represents a serious equity concern.",
+        },
+        {
+          id: "eff-scant-evidence-review",
+          title: "EFF Review: 'Scant Evidence' Surveillance Reduces Crime",
+          description:
+            "The Electronic Frontier Foundation's comprehensive review of surveillance technologies found limited and mixed evidence for their effectiveness in reducing crime. While some studies show modest effects for CCTV on property crime, evidence for broader crime reduction is thin, and system-level evaluations are largely absent.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Electronic Frontier Foundation (EFF)",
+          reasoning:
+            "EFF is a respected digital rights organization but has an advocacy position against surveillance. Their review is thorough but should be read alongside pro-surveillance research.",
+        },
+      ],
+    },
+    {
+      id: "privacy-civil-liberties",
+      title: "Privacy & Civil Liberties",
+      short_summary:
+        "Whether the expansion of surveillance technology represents an unacceptable erosion of civil liberties, even if it provides some public safety benefit.",
+      icon_name: "AlertTriangle" as const,
+      skeptic_premise:
+        "Mass surveillance creates a chilling effect on free speech, political dissent, and freedom of movement. Data collected for crime prevention is routinely repurposed for immigration enforcement, political monitoring, and commercial use. The Fourth Amendment was designed precisely to prevent government from watching all citizens at all times. Once surveillance infrastructure exists, it is virtually impossible to dismantle.",
+      proponent_rebuttal:
+        "Surveillance in public spaces does not violate reasonable expectations of privacy—you have no expectation of privacy on a public street. Targeted surveillance with judicial oversight (warrants) is constitutional and effective. Technology-specific regulations can provide guardrails: banning real-time facial recognition while allowing post-crime investigation, requiring data retention limits, and mandating transparency reports.",
+      crux: {
+        id: "surveillance-oversight-framework",
+        title: "Effective Surveillance Oversight Model",
+        description:
+          "Determining whether surveillance technology can be deployed with oversight mechanisms sufficient to prevent civil liberties abuses while maintaining public safety benefits.",
+        methodology:
+          "Compare surveillance oversight frameworks across democracies (US, UK, EU, Japan). Measure abuse rates, false positive rates, scope creep, and public trust under different regulatory regimes.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$1M (Comparative policy study)",
+      },
+      evidence: [
+        {
+          id: "ice-electronic-monitoring",
+          title: "ICE Monitors 700,000+ People Through Surveillance Technology",
+          description:
+            "Since April 2024, US Immigration and Customs Enforcement (ICE) has monitored over 700,000 people through the SmartLINK app, and 183,935 people have been subjected to electronic monitoring since March 2024. This demonstrates how surveillance infrastructure built for one purpose (public safety) is routinely expanded to other government objectives (immigration enforcement).",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Government records; reporting by civil liberties organizations (2024)",
+          reasoning:
+            "Direct evidence of surveillance scope creep—the pattern that civil liberties advocates warn about. The scale (700,000+) is striking.",
+        },
+        {
+          id: "china-surveillance-resistance",
+          title: "Even in China, Excessive Surveillance Triggers Public Resistance",
+          description:
+            "A 2025 study published in the Journal of Chinese Political Science found that escalating digital surveillance in China has begun triggering public resistance, even in an authoritarian context. When surveillance is perceived as excessive or lacking legitimate purpose, citizens push back through complaint channels and collective action.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 5,
+          },
+          source: "Journal of Chinese Political Science, Springer Nature (2025)",
+          reasoning:
+            "Interesting cross-cultural finding. If surveillance triggers resistance even in China, democratic societies may face even stronger backlash. However, China's context is very different from Western democracies.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
+// Meaning of Life Without Religion
+// ============================================================================
+
+const meaningWithoutReligionData = {
+  id: "meaning-without-religion",
+  title: "Meaning of Life Without Religion",
+  meta_claim:
+    "A meaningful, fulfilling human life is fully achievable without religious belief, and secular philosophical frameworks provide adequate foundations for purpose, ethics, and existential satisfaction.",
+  status: "highly_speculative" as const,
+  category: "philosophy" as const,
+  pillars: [
+    {
+      id: "secular-meaning-frameworks",
+      title: "Secular Philosophical Frameworks",
+      short_summary:
+        "Whether secular philosophies (existentialism, humanism, Stoicism) can provide the same depth of meaning, purpose, and community that religion offers.",
+      icon_name: "HelpCircle" as const,
+      skeptic_premise:
+        "Religion provides a uniquely integrated package: a coherent cosmology, an objective moral framework, a sense of ultimate purpose, community belonging, rituals for life transitions, and hope for transcendence beyond death. Secular philosophies offer fragments of this but no single framework that matches religion's comprehensiveness. Pew Research data shows religious Americans report higher happiness (36% 'very happy' vs. 25% for unaffiliated). Existentialism's answer—'create your own meaning'—may be liberating for the philosophically inclined but offers cold comfort to most people facing suffering and mortality.",
+      proponent_rebuttal:
+        "Philosophical worldviews, humanism, and deeply held personal principles can provide the same core ingredients that make religion effective: a coherent understanding of the world, a sense of purpose and mattering, a feeling of belonging, and opportunities for transcendence. Researchers have found that committed nonreligious people (atheists, secular humanists) report wellbeing levels similar to religious individuals—the key variable is commitment to a worldview, not the worldview's content. The most secular societies on Earth (Denmark, Sweden, Netherlands) consistently rank among the happiest and most socially cohesive.",
+      crux: {
+        id: "secular-wellbeing-longitudinal",
+        title: "Longitudinal Study of Secular vs. Religious Wellbeing",
+        description:
+          "A rigorous longitudinal comparison of life satisfaction, meaning, resilience, and community connection between committed secular humanists and committed religious practitioners, controlling for socioeconomic status and social support.",
+        methodology:
+          "Recruit matched cohorts of committed secular humanists and committed religious practitioners. Measure meaning in life (MLQ), life satisfaction (SWLS), psychological resilience, social connectedness, and coping with adversity over a 10-year period. Control for income, education, health, and social network size.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$3M (10-year longitudinal cohort study)",
+      },
+      evidence: [
+        {
+          id: "committed-nonreligious-wellbeing",
+          title: "Committed Atheists Report Wellbeing Equal to Religious Practitioners",
+          description:
+            "A 2025 study published in PMC examined nonreligious wellbeing across four dimensions: identity, community involvement, identity duration, and affective orientation. Researchers found that committed nonreligious people—those with strong secular identities and community engagement—report levels of life satisfaction and psychological wellbeing similar to committed religious practitioners. The key factor is commitment to a worldview, not the presence of religious belief.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "Varieties of Nonreligious Experience, PMC (2025)",
+          reasoning:
+            "Important nuance: the comparison is between committed secular people and committed religious people. The broader nonreligious population (which includes disengaged and apathetic individuals) may fare worse.",
+        },
+        {
+          id: "pew-happiness-gap",
+          title: "Pew: Religious Americans Report Higher Happiness",
+          description:
+            "Pew Research Center data consistently shows that actively religious Americans report higher levels of happiness than both inactively religious and unaffiliated individuals. In the US, 36% of the actively religious describe themselves as 'very happy,' compared to 25% of the inactively religious and 25% of the unaffiliated.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Pew Research Center, Global Attitudes Survey",
+          reasoning:
+            "Gold-standard polling data. However, the happiness gap may reflect social community effects (church attendance provides social bonds) rather than metaphysical beliefs per se. In more secular societies (Northern Europe), the gap narrows or disappears.",
+        },
+        {
+          id: "scandinavian-secular-happiness",
+          title: "Most Secular Nations Rank Among the Happiest",
+          description:
+            "Denmark, Sweden, Finland, and the Netherlands—among the most secular nations on Earth—consistently rank in the top 10 of the World Happiness Report. These societies have some of the lowest rates of religious belief but achieve high life satisfaction through strong social safety nets, trust in institutions, and cultural emphasis on community. This suggests societal-level secularism is compatible with (and may even facilitate) human flourishing.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 6,
+          },
+          source: "World Happiness Report (2024); Pew Research Center",
+          reasoning:
+            "Robust data across multiple years and metrics. However, directness is limited because these nations' happiness likely stems from social democratic institutions, not secularism itself—it is difficult to isolate the effect of irreligion from strong safety nets.",
+        },
+      ],
+    },
+    {
+      id: "ethics-without-god",
+      title: "Moral Foundations Without Religion",
+      short_summary:
+        "Whether objective morality and ethical behavior require a religious foundation, or whether secular ethics are self-sufficient.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Without God, morality is merely human opinion elevated to principle—there is no objective foundation for saying anything is truly wrong. Evolutionary explanations of morality (kin selection, reciprocal altruism) describe why we feel moral emotions, not why we should act morally. Dostoevsky's question—'If there is no God, everything is permitted'—remains unanswered by secular philosophy. The 20th century's greatest atrocities were committed by explicitly atheistic regimes (Soviet Union, Maoist China, Khmer Rouge).",
+      proponent_rebuttal:
+        "Secular ethics grounds morality in human flourishing, suffering reduction, and rational principles (Kantian ethics, contractualism, utilitarianism) that do not require divine authority. The Euthyphro dilemma shows that divine command theory is incoherent: either God commands what is good (in which case goodness is independent of God) or good is whatever God commands (making morality arbitrary). Modern secular societies with the lowest religious belief have achieved far lower crime rates, higher social trust, and greater compassion than most historical theocracies.",
+      crux: {
+        id: "moral-foundation-independence",
+        title: "Empirical Test of Moral Behavior vs. Religious Belief",
+        description:
+          "Determining whether religious belief actually predicts more moral behavior (charity, honesty, prosocial action) than secular moral commitments, after controlling for community engagement.",
+        methodology:
+          "Large-scale behavioral study comparing prosocial behavior (charitable giving, honesty in economic games, volunteering, altruistic punishment of unfairness) between religious and secular individuals. Control for community participation, income, education, and social desirability bias. Use behavioral measures, not self-report.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$500K (Cross-cultural behavioral economics study)",
+      },
+      evidence: [
+        {
+          id: "euthyphro-dilemma",
+          title: "Euthyphro Dilemma: Divine Command Theory Is Incoherent",
+          description:
+            "Plato's Euthyphro dilemma (circa 380 BCE) poses a fundamental challenge to religious moral foundations: Is something good because God commands it, or does God command it because it is good? If the former, morality is arbitrary (God could command cruelty). If the latter, goodness exists independently of God, and religion is unnecessary for ethics. After 2,400 years, no widely accepted resolution has been offered.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 9,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Plato, Euthyphro; Stanford Encyclopedia of Philosophy",
+          reasoning:
+            "One of the most durable arguments in philosophy. However, sophisticated theologians (Aquinas, Plantinga) have offered responses, and the dilemma's force depends on accepting its framing.",
+        },
+        {
+          id: "plos-one-both-paths",
+          title: "Both Religious and Secular Ethics Predict Wellbeing",
+          description:
+            "A 2024 study published in PLOS ONE using panel data found that both religious and secular ethical frameworks predicted happiness and health outcomes. The study used a dynamic theoretical model showing that the mechanism matters more than the content—active engagement with any coherent moral framework (religious or secular) produced positive outcomes.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "PLOS ONE (2024)",
+          reasoning:
+            "Peer-reviewed with panel data methodology. Supports the view that secular and religious ethics are functionally equivalent for human flourishing. However, a single study should not be treated as definitive.",
+        },
+        {
+          id: "atheist-regimes-atrocities",
+          title: "Atheist Regimes Committed History's Worst Atrocities",
+          description:
+            "The explicitly atheistic regimes of the 20th century—the Soviet Union under Stalin, China under Mao, and Cambodia under the Khmer Rouge—committed some of history's worst mass atrocities, killing tens of millions. Critics argue this demonstrates what happens when societies abandon religious moral constraints and replace them with ideological absolutes.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 4,
+          },
+          source: "Historical consensus; various historians",
+          reasoning:
+            "The atrocities are historical fact. However, directness is low because these regimes were authoritarian ideologies that replaced religion with state worship—they did not represent secular humanism, liberal atheism, or philosophical naturalism.",
+        },
+      ],
+    },
+  ],
+};
+
+// ============================================================================
 // Build Topics with Computed Confidence Scores
 // ============================================================================
 
@@ -7238,6 +8960,18 @@ export const bigTechAntitrust = buildTopic(bigTechAntitrustData);
 export const minimumWageEffects = buildTopic(minimumWageEffectsData);
 export const geneEditingEmbryos = buildTopic(geneEditingEmbryosData);
 export const reparationsSlavery = buildTopic(reparationsSlaveryData);
+export const spaceColonizationFeasibility = buildTopic(spaceColonizationFeasibilityData);
+export const veganismEnvironmental = buildTopic(veganismEnvironmentalData);
+export const freeWillDeterminism = buildTopic(freeWillDeterminismData);
+export const ubiEconomics = buildTopic(ubiEconomicsData);
+export const standardizedTestingDebate = buildTopic(standardizedTestingDebateData);
+export const labGrownMeat = buildTopic(labGrownMeatData);
+export const aiConsciousness = buildTopic(aiConsciousnessData);
+export const electoralCollegeReform = buildTopic(electoralCollegeReformData);
+export const psychedelicsMentalHealth = buildTopic(psychedelicsMentalHealthData);
+export const gigEconomyRegulation = buildTopic(gigEconomyRegulationData);
+export const surveillancePublicSafety = buildTopic(surveillancePublicSafetyData);
+export const meaningWithoutReligion = buildTopic(meaningWithoutReligionData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -7254,6 +8988,9 @@ export const topics: Topic[] = [
   openBorders,
   universalBasicIncome,
   wealthTax,
+  standardizedTestingDebate,
+  electoralCollegeReform,
+  surveillancePublicSafety,
 
   // --- Technology & Society ---
   socialMediaAgeLimits,
@@ -7263,6 +9000,8 @@ export const topics: Topic[] = [
   bigTechAntitrust,
   cancelCulture,
   mediaBiasDemocracy,
+  spaceColonizationFeasibility,
+  labGrownMeat,
 
   // --- Science & Environment ---
   climateChange,
@@ -7271,6 +9010,8 @@ export const topics: Topic[] = [
   organicFoodHealth,
   geneEditingEmbryos,
   spaceExplorationValue,
+  veganismEnvironmental,
+  psychedelicsMentalHealth,
 
   // --- Economics & Education ---
   remoteWorkPermanence,
@@ -7280,6 +9021,8 @@ export const topics: Topic[] = [
   billionaireWealth,
   foreignAidEffectiveness,
   cryptocurrencyValue,
+  ubiEconomics,
+  gigEconomyRegulation,
 
   // --- Philosophy & Speculation ---
   labLeakTheory,
@@ -7287,6 +9030,9 @@ export const topics: Topic[] = [
   simulationHypothesis,
   moonLanding,
   minneapolisShooting,
+  freeWillDeterminism,
+  aiConsciousness,
+  meaningWithoutReligion,
 ];
 
 // ============================================================================

@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Compass, Home, BookOpen, Brain, MessageSquare, Search } from "lucide-react";
+import { Compass, Home, BookOpen, Brain, MessageSquare } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Page Not Found | ARGUMEND",
-  description: "The page you're looking for doesn't exist. Browse topics, read the blog, or run an analysis on Argumend.",
+  title: "Page Not Found",
+  description:
+    "The page you're looking for doesn't exist. Browse topics, read the blog, or run an analysis on Argumend.",
 };
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-canvas flex flex-col items-center justify-center px-6 py-20 text-center">
+    <div className="min-h-screen bg-[#f4f1eb] flex flex-col items-center justify-center px-6 py-20 text-center">
       {/* Icon */}
       <div className="mb-8">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#efe9df] border border-stone-200/60">
@@ -37,7 +38,7 @@ export default function NotFound() {
       <nav className="flex flex-wrap items-center justify-center gap-3 mb-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-rust-600 text-white hover:bg-rust-700 transition-colors shadow-sm"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
         >
           <Home className="w-4 h-4" strokeWidth={1.8} />
           Back to Home
@@ -65,21 +66,19 @@ export default function NotFound() {
         </Link>
       </nav>
 
-      {/* Search suggestion */}
-      <div className="flex flex-col items-center gap-2 pt-6 border-t border-stone-200/60 max-w-sm w-full">
+      {/* Helpful note */}
+      <div className="pt-6 border-t border-stone-200/60 max-w-sm w-full">
         <p className="font-sans text-sm text-muted">
-          Looking for something specific?
+          Looking for something specific? Try browsing our{" "}
+          <Link href="/topics" className="text-deep hover:underline">
+            topics
+          </Link>{" "}
+          or{" "}
+          <Link href="/guides" className="text-deep hover:underline">
+            guides
+          </Link>
+          .
         </p>
-        <button
-          type="button"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-sans text-sm text-deep hover:text-deep-dark hover:bg-[#efe9df] transition-colors"
-        >
-          <Search className="w-4 h-4" strokeWidth={1.8} />
-          Try searching
-          <kbd className="hidden sm:inline-flex h-5 items-center gap-0.5 rounded border border-stone-200 bg-stone-50 px-1.5 font-mono text-[10px] text-stone-400">
-            <span className="text-xs">&#x2318;</span>K
-          </kbd>
-        </button>
       </div>
 
       {/* Branding footer */}

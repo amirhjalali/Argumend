@@ -51,8 +51,8 @@ const contributing = [
 export default function CommunityPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-4xl px-8 py-12">
-        <h1 className="font-serif text-4xl tracking-tight text-primary mb-4">
+      <div className="mx-auto max-w-4xl px-4 md:px-8 py-6 md:py-20">
+        <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary mb-4">
           Community
         </h1>
         <p className="text-lg text-secondary mb-10">
@@ -63,7 +63,7 @@ export default function CommunityPage() {
 
         {/* Discussion Principles */}
         <section className="mb-10">
-          <h2 className="font-serif text-2xl text-primary mb-5">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-5">
             Discussion Principles
           </h2>
           <div className="space-y-3">
@@ -95,7 +95,7 @@ export default function CommunityPage() {
 
         {/* How to Contribute */}
         <section className="mb-10">
-          <h2 className="font-serif text-2xl text-primary mb-5">
+          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-5">
             How to Contribute
           </h2>
           <div className="bg-white/80 rounded-xl border border-[#e8e0d4] divide-y divide-[#e8e0d4]">
@@ -115,7 +115,7 @@ export default function CommunityPage() {
               href="https://github.com/amirhjalali/Argumend"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#3d3a36] text-white rounded-lg font-medium text-sm hover:bg-[#2a2826] transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-lg font-medium text-sm hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
             >
               Contribute on GitHub &rarr;
             </a>
@@ -124,7 +124,7 @@ export default function CommunityPage() {
 
         {/* Ideological Turing Test */}
         <section className="bg-gradient-to-br from-[#3d3a36] to-[#2a2826] text-white rounded-xl p-6">
-          <h2 className="font-serif text-xl mb-3">
+          <h2 className="font-serif text-xl md:text-2xl mb-3">
             The Ideological Turing Test
           </h2>
           <p className="text-stone-300 leading-relaxed">

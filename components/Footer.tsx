@@ -13,6 +13,7 @@ const FOOTER_COLUMNS = [
   {
     title: "Learn",
     links: [
+      { label: "Research", href: "/research" },
       { label: "Concepts", href: "/concepts" },
       { label: "How It Works", href: "/how-it-works" },
       { label: "Methodology", href: "/methodology" },
@@ -50,7 +51,7 @@ export function Footer() {
             </span>
           </Link>
           <p className="mt-1.5 text-sm text-stone-400">
-            Map arguments. Find truth.
+            Disagree better.
           </p>
         </div>
 
@@ -66,7 +67,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-stone-500 transition-colors hover:text-[#4f7b77]"
+                      className="text-sm text-stone-500 transition-colors duration-200 hover:text-[#4f7b77]"
                     >
                       {link.label}
                     </Link>
@@ -80,10 +81,10 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex items-center justify-between border-t border-stone-200 pt-6">
           <p className="text-xs text-stone-400">
-            &copy; 2024 Argumend. All rights reserved.
+            &copy; 2026 Argumend. All rights reserved.
           </p>
           <a
-            href="https://github.com/argumend"
+            href="https://github.com/amirhjalali/Argumend"
             target="_blank"
             rel="noopener noreferrer"
             className="text-stone-400 transition-colors hover:text-stone-800"

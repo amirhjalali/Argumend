@@ -35,3 +35,9 @@ gabooja-knowledge-base
 
 # Moltbook API keys backup
 .keys-backup/
+
+# Dev artifacts
+screenshots/
+scripts/moltbook-session*
+scripts/moltbook-posts-ready.md
+package-lock.json

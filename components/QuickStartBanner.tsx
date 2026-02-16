@@ -2,10 +2,9 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X, Flame } from "lucide-react";
+import { X } from "lucide-react";
 import {
   topics,
-  featuredTopicId,
   CATEGORY_LABELS,
   CATEGORY_ORDER,
 } from "@/data/topics";
@@ -35,11 +34,6 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
     setVisible(false);
   }, []);
 
-  const handleStartFeatured = useCallback(() => {
-    onTopicSelect(featuredTopicId);
-    handleDismiss();
-  }, [onTopicSelect, handleDismiss]);
-
   const handleCategoryClick = useCallback(
     (category: TopicCategory) => {
       if (activeCategory === category) {
@@ -51,13 +45,9 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
     [activeCategory]
   );
 
-  const featuredTopic = topics.find((t) => t.id === featuredTopicId);
-
   // When a category is active, show its topics
   const filteredTopics = activeCategory
-    ? topics.filter(
-        (t) => t.category === activeCategory && t.id !== featuredTopicId
-      )
+    ? topics.filter((t) => t.category === activeCategory)
     : [];
 
   // Show 4 categories as pills
@@ -84,39 +74,10 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
             </button>
 
             <div className="p-5">
-              {/* Featured topic suggestion */}
-              {featuredTopic && (
-                <div className="mb-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-deep/10 rounded-full text-[10px] font-semibold tracking-wide text-deep">
-                      <Flame className="h-2.5 w-2.5" />
-                      FEATURED TOPIC
-                    </span>
-                  </div>
-                  <h3 className="font-serif text-base font-semibold text-primary leading-snug">
-                    {featuredTopic.title}
-                  </h3>
-                  <p className="mt-1 text-xs text-stone-500 leading-relaxed line-clamp-2">
-                    {featuredTopic.meta_claim}
-                  </p>
-                  <button
-                    onClick={handleStartFeatured}
-                    className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-rust-500 to-rust-600 text-white text-xs font-semibold rounded-lg shadow-sm hover:shadow-md transition-all hover:brightness-105"
-                  >
-                    Start with this topic
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </button>
-                </div>
-              )}
-
-              {/* Divider */}
-              <div className="flex items-center gap-3 my-4">
-                <div className="h-px flex-1 bg-stone-200/60" />
-                <span className="text-[10px] font-medium text-stone-400 tracking-wider uppercase">
-                  or browse by category
-                </span>
-                <div className="h-px flex-1 bg-stone-200/60" />
-              </div>
+              {/* Quick start heading */}
+              <p className="text-xs font-medium text-stone-500 mb-3">
+                Jump in — browse topics by category:
+              </p>
 
               {/* Category pills */}
               <div className="flex flex-wrap gap-2">

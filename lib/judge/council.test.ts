@@ -172,6 +172,10 @@ function makeDimensionScores(scores: number[]): DimensionScore[] {
   }));
 }
 
+function uniformScores(score: number): number[] {
+  return Array.from({ length: DEFAULT_RUBRIC.length }, () => score);
+}
+
 /** Build a minimal JudgeScore. */
 function makeJudgeScore(
   side: "for" | "against",
@@ -229,51 +233,24 @@ const SIMPLE_RUBRIC: RubricDimension[] = [
 
 describe("calculateTotalScore", () => {
   it("computes a weighted score using the default rubric", () => {
-    // All dimensions scored 10 => weighted total should be 10
-    const dims = makeDimensionScores([10, 10, 10, 10, 10]);
-    expect(calculateTotalScore(dims)).toBeCloseTo(10 * 10, 5);
-    // Explanation: (10*0.25 + 10*0.25 + 10*0.2 + 10*0.15 + 10*0.15) / 1.0 * 10 = 100
-    // Wait — the function returns (total / totalWeight) * 10.
-    // total = 10*0.25 + 10*0.25 + 10*0.2 + 10*0.15 + 10*0.15 = 10
-    // totalWeight = 1.0
-    // result = (10 / 1) * 10 = 100?  No, let me re-read.
-    // Actually: total += dim.score * rubricDim.weight => score is raw (1-10),
-    // weight is 0-1. So total = 10*0.25+10*0.25+10*0.2+10*0.15+10*0.15 = 10.0
-    // totalWeight = 1.0
-    // result = (10 / 1) * 10 = 100??  That seems off...
-    // Let me re-read: return totalWeight > 0 ? (total / totalWeight) * 10 : 0;
-    // Hmm wait. If all scores are 10: total = 10*1.0 = 10, (10/1)*10 = 100?
-    // That can't be right for a "10-point scale". Let me re-check.
-    //
-    // Actually total = sum(score * weight) = 10*(0.25+0.25+0.2+0.15+0.15) = 10*1 = 10
-    // return (10 / 1) * 10 = 100.
-    //
-    // But looking at the code comment "Normalize to 10-point scale" — this seems
-    // like it multiplies by 10 to get back to a 10-point scale, implying the raw
-    // weighted average would be in 0-10 range, and the multiply-by-10 might be a
-    // design choice (or potential bug). Let's just test what the code actually does.
+    const dims = makeDimensionScores(uniformScores(10));
+    expect(calculateTotalScore(dims)).toBeCloseTo(10, 5);
   });
 
   it("returns the actual computed value for all-10 scores", () => {
-    const dims = makeDimensionScores([10, 10, 10, 10, 10]);
-    // total = 10 * 1.0 = 10, result = (10/1)*10 = 100
+    const dims = makeDimensionScores(uniformScores(10));
     const result = calculateTotalScore(dims);
-    expect(result).toBeCloseTo(100, 5);
+    expect(result).toBeCloseTo(10, 5);
   });
 
   it("returns 0 for all-zero scores (minimum edge)", () => {
-    const dims = makeDimensionScores([0, 0, 0, 0, 0]);
+    const dims = makeDimensionScores(uniformScores(0));
     expect(calculateTotalScore(dims)).toBe(0);
   });
 
   it("correctly weights unequal scores with default rubric", () => {
-    // Scores: logical-validity=8, evidence-quality=6, rebuttal=4,
-    //         crux-identification=2, clarity=10
-    const dims = makeDimensionScores([8, 6, 4, 2, 10]);
-    // total = 8*0.25 + 6*0.25 + 4*0.2 + 2*0.15 + 10*0.15
-    //       = 2.0 + 1.5 + 0.8 + 0.3 + 1.5 = 6.1
-    // result = (6.1 / 1.0) * 10 = 61
-    expect(calculateTotalScore(dims)).toBeCloseTo(61, 5);
+    const dims = makeDimensionScores([8, 6, 4, 2, 10, 5]);
+    expect(calculateTotalScore(dims)).toBeCloseTo(5.88, 5);
   });
 
   it("normalizes when weights do not sum to 1", () => {
@@ -289,9 +266,7 @@ describe("calculateTotalScore", () => {
     const dims: DimensionScore[] = [
       { dimensionId: "only", score: 8, reasoning: "r" },
     ];
-    // total = 8 * 0.5 = 4, totalWeight = 0.5
-    // result = (4 / 0.5) * 10 = 80
-    expect(calculateTotalScore(dims, customRubric)).toBeCloseTo(80, 5);
+    expect(calculateTotalScore(dims, customRubric)).toBeCloseTo(8, 5);
   });
 
   it("uses custom rubric weights correctly", () => {
@@ -299,10 +274,7 @@ describe("calculateTotalScore", () => {
       { dimensionId: "dim-a", score: 10, reasoning: "r" },
       { dimensionId: "dim-b", score: 5, reasoning: "r" },
     ];
-    // total = 10*0.6 + 5*0.4 = 6.0 + 2.0 = 8.0
-    // totalWeight = 1.0
-    // result = (8/1) * 10 = 80
-    expect(calculateTotalScore(dims, SIMPLE_RUBRIC)).toBeCloseTo(80, 5);
+    expect(calculateTotalScore(dims, SIMPLE_RUBRIC)).toBeCloseTo(8, 5);
   });
 
   it("ignores dimensions not in the rubric", () => {
@@ -310,9 +282,7 @@ describe("calculateTotalScore", () => {
       { dimensionId: "dim-a", score: 10, reasoning: "r" },
       { dimensionId: "unknown-dim", score: 1, reasoning: "r" },
     ];
-    // Only dim-a matches: total = 10*0.6 = 6, totalWeight = 0.6
-    // result = (6/0.6)*10 = 100
-    expect(calculateTotalScore(dims, SIMPLE_RUBRIC)).toBeCloseTo(100, 5);
+    expect(calculateTotalScore(dims, SIMPLE_RUBRIC)).toBeCloseTo(10, 5);
   });
 
   it("returns 0 for empty dimensions array", () => {
@@ -426,8 +396,8 @@ describe("determineWinner", () => {
 // ---------------------------------------------------------------
 
 describe("DEFAULT_RUBRIC", () => {
-  it("has 5 dimensions", () => {
-    expect(DEFAULT_RUBRIC).toHaveLength(5);
+  it("has 6 dimensions", () => {
+    expect(DEFAULT_RUBRIC).toHaveLength(6);
   });
 
   it("has weights summing to 1.0", () => {
@@ -444,6 +414,7 @@ describe("DEFAULT_RUBRIC", () => {
     const ids = DEFAULT_RUBRIC.map((d) => d.id);
     expect(ids).toContain("logical-validity");
     expect(ids).toContain("evidence-quality");
+    expect(ids).toContain("bias-credibility");
     expect(ids).toContain("rebuttal-strength");
     expect(ids).toContain("crux-identification");
     expect(ids).toContain("clarity");
@@ -461,19 +432,13 @@ describe("DEFAULT_RUBRIC", () => {
 
 describe("aggregateScores", () => {
   it("averages total scores across multiple verdicts", () => {
-    const v1 = makeVerdict("j1", [8, 8, 8, 8, 8], [4, 4, 4, 4, 4], "for");
-    const v2 = makeVerdict("j2", [6, 6, 6, 6, 6], [6, 6, 6, 6, 6], "draw");
+    const v1 = makeVerdict("j1", uniformScores(8), uniformScores(4), "for");
+    const v2 = makeVerdict("j2", uniformScores(6), uniformScores(6), "draw");
 
     const result = aggregateScores([v1, v2], DEFAULT_RUBRIC);
 
-    // v1 forTotal = calculateTotalScore([8,8,8,8,8]) = (8*1)*10 = 80
-    // v2 forTotal = calculateTotalScore([6,6,6,6,6]) = 60
-    // average for = (80+60)/2 = 70
-    expect(result.for.average).toBeCloseTo(70, 5);
-
-    // v1 againstTotal = 40, v2 againstTotal = 60
-    // average against = (40+60)/2 = 50
-    expect(result.against.average).toBeCloseTo(50, 5);
+    expect(result.for.average).toBeCloseTo(7, 5);
+    expect(result.against.average).toBeCloseTo(5, 5);
   });
 
   it("averages per-dimension scores correctly", () => {
@@ -491,11 +456,11 @@ describe("aggregateScores", () => {
   });
 
   it("handles a single verdict (averages to itself)", () => {
-    const v1 = makeVerdict("j1", [7, 7, 7, 7, 7], [3, 3, 3, 3, 3], "for");
+    const v1 = makeVerdict("j1", uniformScores(7), uniformScores(3), "for");
     const result = aggregateScores([v1], DEFAULT_RUBRIC);
 
-    expect(result.for.average).toBeCloseTo(70, 5);
-    expect(result.against.average).toBeCloseTo(30, 5);
+    expect(result.for.average).toBeCloseTo(7, 5);
+    expect(result.against.average).toBeCloseTo(3, 5);
   });
 
   it("returns zeroes for empty verdicts array", () => {
@@ -509,16 +474,14 @@ describe("aggregateScores", () => {
   });
 
   it("handles three verdicts with varying scores", () => {
-    const v1 = makeVerdict("j1", [9, 9, 9, 9, 9], [3, 3, 3, 3, 3], "for");
-    const v2 = makeVerdict("j2", [6, 6, 6, 6, 6], [6, 6, 6, 6, 6], "draw");
-    const v3 = makeVerdict("j3", [3, 3, 3, 3, 3], [9, 9, 9, 9, 9], "against");
+    const v1 = makeVerdict("j1", uniformScores(9), uniformScores(3), "for");
+    const v2 = makeVerdict("j2", uniformScores(6), uniformScores(6), "draw");
+    const v3 = makeVerdict("j3", uniformScores(3), uniformScores(9), "against");
 
     const result = aggregateScores([v1, v2, v3], DEFAULT_RUBRIC);
 
-    // forTotals: 90, 60, 30 => avg = 60
-    expect(result.for.average).toBeCloseTo(60, 5);
-    // againstTotals: 30, 60, 90 => avg = 60
-    expect(result.against.average).toBeCloseTo(60, 5);
+    expect(result.for.average).toBeCloseTo(6, 5);
+    expect(result.against.average).toBeCloseTo(6, 5);
   });
 });
 
@@ -877,19 +840,16 @@ describe("JudgeCouncil class (configuration only)", () => {
 describe("integration: scoring pipeline end-to-end", () => {
   it("full pipeline: scores -> totalScore -> aggregation -> winner", () => {
     // Judge 1: FOR side strong, AGAINST side weak
-    const v1 = makeVerdict("j1", [9, 8, 7, 8, 9], [3, 4, 3, 4, 3], "for");
+    const v1 = makeVerdict("j1", [9, 8, 7, 8, 9, 8], [3, 4, 3, 4, 3, 4], "for");
     // Judge 2: FOR side moderately strong, AGAINST side moderate
-    const v2 = makeVerdict("j2", [7, 7, 6, 7, 7], [5, 5, 5, 5, 5], "for");
+    const v2 = makeVerdict("j2", [7, 7, 6, 7, 7, 7], [5, 5, 5, 5, 5, 5], "for");
     // Judge 3: FOR side slightly stronger
-    const v3 = makeVerdict("j3", [6, 6, 6, 6, 6], [5, 5, 5, 5, 5], "for");
+    const v3 = makeVerdict("j3", [6, 6, 6, 6, 6, 6], [5, 5, 5, 5, 5, 5], "for");
 
     const verdicts = [v1, v2, v3];
 
     // 1. Verify individual totalScores
-    // v1 for: all dims have same weight sum=1, score=avg(9,8,7,8,9)
-    //   = 9*0.25 + 8*0.25 + 7*0.2 + 8*0.15 + 9*0.15 = 2.25+2.0+1.4+1.2+1.35 = 8.2
-    //   totalScore = (8.2/1)*10 = 82
-    expect(v1.forScore.totalScore).toBeCloseTo(82, 0);
+    expect(v1.forScore.totalScore).toBeCloseTo(8.21, 2);
 
     // 2. Aggregate
     const agg = aggregateScores(verdicts, DEFAULT_RUBRIC);

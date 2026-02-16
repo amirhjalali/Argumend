@@ -1,6 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { SessionProvider } from "@/components/SessionProvider";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#f4f1eb",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://argumend.org"),

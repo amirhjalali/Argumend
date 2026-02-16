@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { articles, getArticleBySlug, getRelatedArticles } from "@/data/blog";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { ShareButtons } from "@/components/ShareButtons";
 import { BlogArticleClient } from "./client";
 
 // ---------------------------------------------------------------------------
@@ -186,6 +187,15 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 <Clock className="h-3.5 w-3.5" />
                 {article.readingTime}
               </span>
+            </div>
+
+            {/* Share */}
+            <div className="mt-5">
+              <ShareButtons
+                title={article.title}
+                url={`https://argumend.org/blog/${article.slug}`}
+                description={article.description}
+              />
             </div>
           </div>
         </div>

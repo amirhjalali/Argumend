@@ -46,7 +46,7 @@ export function UserMenu() {
         {session.user?.image ? (
           <img
             src={session.user.image}
-            alt=""
+            alt={`${session.user.name || "User"} avatar`}
             className="h-7 w-7 rounded-full"
             referrerPolicy="no-referrer"
           />

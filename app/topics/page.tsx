@@ -227,14 +227,15 @@ export default function TopicsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredTopics.map((topic) => {
+              {filteredTopics.map((topic, index) => {
                 const StatusIcon = statusIcons[topic.status];
 
                 return (
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className="group flex flex-col bg-white border border-stone-200/60 rounded-xl p-5 hover:border-deep/30 hover:shadow-sm transition-all"
+                    className="group flex flex-col bg-white border border-stone-200/60 rounded-xl p-5 hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                    style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {/* Title */}
                     <h2 className="font-serif text-lg text-stone-900 group-hover:text-deep transition-colors leading-snug mb-2">

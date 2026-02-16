@@ -50,7 +50,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
                 ARGUMEND
               </span>
               <span className="text-[10px] font-sans text-stone-400 leading-none mt-1">
-                Map the Truth
+                Disagree better.
               </span>
             </div>
           </Link>
@@ -59,6 +59,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
             <button
               onClick={onBackToHero}
               className="flex items-center gap-1.5 px-2.5 py-1.5 text-stone-500 text-sm hover:text-stone-800 hover:bg-stone-100/60 rounded-lg transition-colors"
+              aria-label="Home"
             >
               <Home className="h-3.5 w-3.5" strokeWidth={1.8} />
               <span className="hidden sm:inline">Home</span>
@@ -69,7 +70,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
         {/* Center: View Toggle + Value Prop */}
         <div className="flex items-center gap-4">
           <ViewToggle />
-          <div className="hidden xl:block text-[13px] text-stone-400 italic font-serif">
+          <div className="hidden lg:block text-[13px] text-stone-400 italic font-serif">
             What would change your mind?
           </div>
         </div>

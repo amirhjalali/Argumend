@@ -31,6 +31,7 @@ import { HeroAnalyze } from "@/components/HeroAnalyze";
 import { OnboardingOverlay } from "@/components/OnboardingOverlay";
 import { QuickStartBanner } from "@/components/QuickStartBanner";
 import { MobileArgumentList } from "@/components/MobileArgumentList";
+import { Footer } from "@/components/Footer";
 import { getMiniMapColor } from "@/lib/variantStyles";
 import { GRAPH, MINIMAP } from "@/lib/constants";
 import type { LogicNodeData } from "@/types/graph";
@@ -131,6 +132,7 @@ function CanvasExperience() {
           <div className="relative flex-1 min-w-0 overflow-y-auto">
             <QuickStartBanner onTopicSelect={handleTopicSelect} />
             <HeroAnalyze onTopicSelect={handleTopicSelect} />
+            <Footer />
           </div>
         </div>
       </div>
