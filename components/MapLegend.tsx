@@ -18,7 +18,7 @@ const LEGEND_ITEMS = [
   {
     label: "Meta Claim",
     description: "The central thesis being analyzed",
-    color: "#2563eb",
+    color: "#4f7b77",
     Icon: Crown,
   },
   {
@@ -71,14 +71,15 @@ export function MapLegend() {
         {isOpen ? (
           <motion.div
             key="legend"
-            initial={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="w-44 md:w-52 lg:w-64 rounded-lg border border-stone-200/60 bg-[#fefcf9]/95 backdrop-blur-sm p-3 md:p-4 shadow-[0_2px_8px_rgba(120,100,80,0.08)] max-h-[40vh] md:max-h-none overflow-y-auto"
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="w-48 md:w-56 lg:w-64 rounded-2xl border border-stone-200/40 bg-[#faf8f5]/95 backdrop-blur-sm p-4 md:p-5 shadow-2xl max-h-[45vh] md:max-h-none overflow-y-auto"
           >
+            {/* Header */}
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="font-serif text-base font-semibold text-primary">
+              <h3 className="font-serif text-sm md:text-base font-semibold text-primary">
                 How to Read This Map
               </h3>
               <button
@@ -89,12 +90,14 @@ export function MapLegend() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <div className="space-y-2 md:space-y-3">
+
+            {/* Legend items */}
+            <div className="space-y-2.5 md:space-y-3">
               {LEGEND_ITEMS.map((item) => (
-                <div key={item.label} className="flex items-start gap-2 md:gap-3">
+                <div key={item.label} className="flex items-start gap-2.5 md:gap-3">
                   <div
-                    className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-md flex-shrink-0"
-                    style={{ backgroundColor: `${item.color}15` }}
+                    className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg flex-shrink-0"
+                    style={{ backgroundColor: `${item.color}12` }}
                   >
                     <item.Icon
                       className="h-3.5 w-3.5"
@@ -104,21 +107,23 @@ export function MapLegend() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p
-                      className="text-[10px] md:text-xs font-semibold leading-tight"
+                      className="text-xs font-semibold leading-tight"
                       style={{ color: item.color }}
                     >
                       {item.label}
                     </p>
-                    <p className="text-[10px] md:text-xs leading-snug text-stone-500 mt-0.5">
+                    <p className="text-[10px] md:text-[11px] leading-snug text-stone-500 mt-0.5">
                       {item.description}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-4 border-t border-stone-200 pt-3">
-              <p className="text-[12px] text-stone-500">
-                <span className="font-semibold text-stone-600">Tip:</span> Click &ldquo;Explore&rdquo; on nodes to reveal deeper arguments.
+
+            {/* Tip */}
+            <div className="mt-4 border-t border-stone-200/60 pt-3">
+              <p className="text-[11px] md:text-xs text-stone-500 leading-relaxed">
+                <span className="font-semibold text-deep">Tip:</span> Click &ldquo;Explore&rdquo; on nodes to reveal deeper arguments.
               </p>
             </div>
           </motion.div>
@@ -129,10 +134,10 @@ export function MapLegend() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="flex items-center gap-1.5 rounded-lg border border-stone-200/60 bg-[#fefcf9]/90 backdrop-blur-sm px-2.5 py-1.5 text-xs text-stone-500 shadow-[0_2px_8px_rgba(120,100,80,0.08)] hover:border-stone-300 transition-colors"
+            className="flex items-center gap-1.5 rounded-xl border border-stone-200/40 bg-[#faf8f5]/95 backdrop-blur-sm px-3 py-2 text-xs text-stone-500 shadow-lg hover:border-stone-300 hover:shadow-xl transition-all"
           >
-            <Info className="h-3.5 w-3.5 text-stone-400" />
-            <span>Legend</span>
+            <Info className="h-3.5 w-3.5 text-deep" />
+            <span className="font-medium">Legend</span>
           </motion.button>
         )}
       </AnimatePresence>

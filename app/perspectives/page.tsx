@@ -347,7 +347,7 @@ export default function PerspectivesPage() {
       {/* Hero with parallax */}
       <motion.div
         ref={heroRef}
-        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#f8f5f0] to-[#f0ebe4] px-4 relative overflow-hidden"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-canvas to-overlay px-4 relative overflow-hidden"
         style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
       >
         {/* Background decorative elements */}
@@ -402,7 +402,7 @@ export default function PerspectivesPage() {
 
       {/* CTA */}
       <motion.div
-        className="min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-[#e5ddd0] to-[#f5f0e8] px-4"
+        className="min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-overlay to-canvas px-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -431,7 +431,7 @@ export default function PerspectivesPage() {
           </motion.p>
           <motion.a
             href="/topics"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-accent-main to-evidence text-white rounded-xl font-bold text-lg shadow-lg shadow-accent-main/25 transition-all hover:shadow-xl hover:shadow-accent-main/30 hover:-translate-y-1"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl font-bold font-serif text-lg shadow-lg shadow-rust-500/25 transition-all hover:shadow-xl hover:shadow-rust-500/30 hover:-translate-y-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}

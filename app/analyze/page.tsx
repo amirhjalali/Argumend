@@ -13,9 +13,13 @@ import {
   MessageSquare,
   AlertTriangle,
   Target,
-  Shield,
   Check,
   Link as LinkIcon,
+  Lock,
+  Beaker,
+  Mic,
+  Newspaper,
+  PenLine,
 } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { Sidebar } from "@/components/Sidebar";
@@ -127,13 +131,15 @@ function CruxCard({ crux }: { crux: IdentifiedCrux }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-3 md:p-4 bg-purple-50/50 border border-purple-200/60 rounded-xl"
+      className="p-4 bg-[#f2f7f6] border border-deep/15 rounded-xl hover:border-deep/25 transition-colors duration-200"
     >
       <div className="flex items-start gap-3">
-        <Target className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
+        <div className="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-deep/10 flex items-center justify-center">
+          <Target className="h-4 w-4 text-deep" />
+        </div>
         <div>
-          <p className="text-stone-800 font-medium">{crux.description}</p>
-          <p className="mt-1 text-sm text-stone-600">{crux.significance}</p>
+          <p className="text-stone-800 font-medium leading-snug">{crux.description}</p>
+          <p className="mt-1.5 text-sm text-stone-500 leading-relaxed">{crux.significance}</p>
         </div>
       </div>
     </motion.div>
@@ -145,22 +151,24 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-3 md:p-4 bg-yellow-50/50 border border-yellow-200/60 rounded-xl"
+      className="p-4 bg-rust-50/60 border border-rust-200/50 rounded-xl hover:border-rust-200/80 transition-colors duration-200"
     >
       <div className="flex items-start gap-3">
-        <AlertTriangle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+        <div className="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-rust-100 flex items-center justify-center">
+          <AlertTriangle className="h-4 w-4 text-rust-600" />
+        </div>
         <div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="text-stone-800 font-medium">{fallacy.type}</span>
             {fallacy.attributedTo && (
-              <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">
+              <span className="text-xs bg-rust-100 text-rust-700 px-2 py-0.5 rounded-full font-medium">
                 {fallacy.attributedTo}
               </span>
             )}
           </div>
-          <p className="mt-1 text-sm text-stone-600">{fallacy.explanation}</p>
+          <p className="mt-1.5 text-sm text-stone-500 leading-relaxed">{fallacy.explanation}</p>
           {fallacy.quote && (
-            <p className="mt-2 text-sm text-stone-500 italic border-l-2 border-yellow-300 pl-3">
+            <p className="mt-2 text-sm text-stone-500 italic border-l-2 border-rust-300 pl-3 leading-relaxed">
               &ldquo;{fallacy.quote}&rdquo;
             </p>
           )}
@@ -331,21 +339,24 @@ export default function AnalyzePage() {
 
         {/* Main content */}
         <div className="relative flex-1 min-w-0 overflow-y-auto bg-[#faf8f5]">
-          <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-8">
+          {/* Subtle top gradient for visual warmth */}
+          <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#f4f1eb]/60 to-transparent pointer-events-none" />
+
+          <div className="relative max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-8">
             {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-center space-y-3"
+              className="text-center space-y-4"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-rust-50/80 border border-rust-200/50 rounded-full text-xs font-medium text-rust-700 tracking-wide">
-                <Brain className="h-3 w-3" />
-                Content Analysis
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep tracking-wide">
+                <Brain className="h-3.5 w-3.5" />
+                AI-Powered Analysis
               </div>
-              <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary">
-                Analyze Arguments
+              <h1 className="font-serif text-3xl md:text-4xl font-bold text-primary leading-tight">
+                Analyze Any Argument
               </h1>
-              <p className="text-stone-500 text-sm max-w-lg mx-auto">
+              <p className="text-stone-500 text-sm md:text-base max-w-lg mx-auto leading-relaxed">
                 Paste a debate transcript, article, or any argumentative content.
                 We&apos;ll extract positions, find cruxes, and score quality.
               </p>
@@ -358,29 +369,36 @@ export default function AnalyzePage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="space-y-5"
               >
-                {/* Content Type Selector */}
-                <div className="flex justify-center gap-1.5">
-                  {(["freeform", "article", "transcript"] as ContentType[]).map(
-                    (type) => (
+                {/* Content Type Selector — segmented control */}
+                <div className="flex justify-center">
+                  <div className="inline-flex bg-stone-100 rounded-xl p-1 gap-0.5">
+                    {(
+                      [
+                        { type: "freeform" as ContentType, icon: PenLine, label: "Freeform" },
+                        { type: "article" as ContentType, icon: Newspaper, label: "Article" },
+                        { type: "transcript" as ContentType, icon: Mic, label: "Transcript" },
+                      ] as const
+                    ).map(({ type, icon: Icon, label }) => (
                       <button
                         key={type}
                         onClick={() => setContentType(type)}
-                        className={`px-3 py-2 min-h-[44px] rounded-md text-xs font-medium transition-all ${
+                        className={`relative flex items-center gap-1.5 px-4 py-2 min-h-[40px] rounded-lg text-xs font-medium transition-all duration-200 ${
                           contentType === type
-                            ? "bg-stone-800 text-white"
-                            : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                            ? "bg-deep text-white shadow-sm"
+                            : "bg-transparent text-stone-500 hover:text-stone-700 hover:bg-white/60"
                         }`}
                       >
-                        {type.charAt(0).toUpperCase() + type.slice(1)}
+                        <Icon className="h-3.5 w-3.5" />
+                        {label}
                       </button>
-                    )
-                  )}
+                    ))}
+                  </div>
                 </div>
 
                 {/* Text Input */}
-                <div className="bg-white rounded-2xl border border-stone-200/60 p-4 md:p-5 shadow-sm">
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                    <label className="text-sm font-medium text-stone-700">
+                <div className="bg-white rounded-2xl border border-stone-200/60 p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <label className="text-sm font-serif font-semibold text-primary">
                       Content to Analyze
                     </label>
                     <div className="flex items-center gap-2">
@@ -394,14 +412,14 @@ Critics counter that nuclear is too expensive and too slow to build. The Vogtle 
 Supporters respond that newer reactor designs like SMRs could dramatically cut costs and construction times, and that the waste problem is more political than technical — Finland's Onkalo facility proves deep geological storage works. The real question may be whether we can afford to exclude any zero-carbon source while facing a climate emergency.`);
                           setContentType("freeform");
                         }}
-                        className="flex items-center gap-1.5 px-2.5 py-1 bg-rust-50 hover:bg-rust-100 rounded-md cursor-pointer transition-colors"
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-deep/8 hover:bg-deep/15 border border-deep/15 rounded-lg cursor-pointer transition-all duration-200"
                       >
-                        <Sparkles className="h-3.5 w-3.5 text-rust-500" />
-                        <span className="text-xs text-rust-600">Try an Example</span>
+                        <Beaker className="h-3.5 w-3.5 text-deep" />
+                        <span className="text-xs font-medium text-deep">Try an Example</span>
                       </button>
-                      <label className="flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 hover:bg-stone-100 rounded-md cursor-pointer transition-colors">
+                      <label className="flex items-center gap-1.5 px-3 py-1.5 bg-stone-50 hover:bg-stone-100 border border-stone-200/60 rounded-lg cursor-pointer transition-all duration-200">
                         <Upload className="h-3.5 w-3.5 text-stone-400" />
-                        <span className="text-xs text-stone-500">Upload</span>
+                        <span className="text-xs font-medium text-stone-500">Upload</span>
                         <input
                           type="file"
                           accept=".txt,.md"
@@ -411,36 +429,58 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                       </label>
                     </div>
                   </div>
-                  <textarea
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" && (e.metaKey || e.ctrlKey) && content.trim()) {
-                        handleAnalyze();
-                      }
-                    }}
-                    placeholder="Paste your debate transcript, article, or discussion here..."
-                    className="w-full h-48 md:h-56 p-4 bg-stone-50/50 border border-stone-200/60 rounded-xl text-stone-700 text-sm placeholder-stone-400 resize-none focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50"
-                  />
-                  <p className="text-[11px] text-stone-400 mt-1.5 flex items-center gap-1">
-                    <Shield className="h-3 w-3" />
-                    Your text is analyzed by AI and is not stored after processing.
-                  </p>
-                  <div className="flex items-center justify-between mt-3">
+
+                  {/* Textarea with premium styling */}
+                  <div className="relative">
+                    <textarea
+                      value={content}
+                      onChange={(e) => setContent(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && (e.metaKey || e.ctrlKey) && content.trim()) {
+                          handleAnalyze();
+                        }
+                      }}
+                      placeholder="Paste an article, argument, or any text you'd like analyzed..."
+                      className="w-full min-h-[200px] md:min-h-[240px] p-4 bg-[#faf8f5] border border-stone-200/70 rounded-xl text-stone-700 text-sm leading-relaxed placeholder-stone-400/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white"
+                    />
+                    {/* Word/char count indicator */}
+                    <div className="absolute bottom-3 right-3 pointer-events-none">
+                      <span className="text-xs text-stone-400/70 tabular-nums">
+                        {content.trim()
+                          ? `${content.trim().split(/\s+/).length} words`
+                          : ""}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Privacy badge */}
+                  <div className="mt-3 flex items-center gap-3">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-deep/6 border border-deep/10 rounded-full">
+                      <Lock className="h-3 w-3 text-deep/70" />
+                      <span className="text-[11px] font-medium text-deep/70">
+                        Not stored after processing
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Bottom bar: keyboard hint + judging toggle */}
+                  <div className="flex items-center justify-between mt-3 pt-3 border-t border-stone-100">
                     <span className="text-xs text-stone-400">
-                      {content.length > 0 ? `${content.length.toLocaleString()} chars` : ""}
+                      {content.length > 0
+                        ? `${content.length.toLocaleString()} characters`
+                        : ""}
                       {content.trim() && (
                         <span className="ml-2 text-stone-300">{"\u2318"}Enter to analyze</span>
                       )}
                     </span>
-                    <label className="flex items-center gap-2 cursor-pointer">
+                    <label className="flex items-center gap-2 cursor-pointer group">
                       <input
                         type="checkbox"
                         checked={includeJudging}
                         onChange={(e) => setIncludeJudging(e.target.checked)}
-                        className="rounded border-stone-300 text-rust-600 focus:ring-rust-500"
+                        className="rounded border-stone-300 text-deep focus:ring-deep/30 transition-colors"
                       />
-                      <span className="text-xs text-stone-500">
+                      <span className="text-xs text-stone-500 group-hover:text-stone-700 transition-colors">
                         Include AI Judgment
                       </span>
                     </label>
@@ -464,23 +504,25 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                   <motion.button
                     onClick={handleAnalyze}
                     disabled={isAnalyzing || !content.trim()}
-                    whileHover={!isAnalyzing ? { scale: 1.02 } : {}}
-                    whileTap={!isAnalyzing ? { scale: 0.98 } : {}}
-                    className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-serif font-semibold transition-all ${
-                      isAnalyzing || !content.trim()
+                    whileHover={!isAnalyzing && content.trim() ? { scale: 1.03, y: -1 } : {}}
+                    whileTap={!isAnalyzing && content.trim() ? { scale: 0.97 } : {}}
+                    className={`flex items-center justify-center gap-2.5 px-10 py-3.5 rounded-xl font-serif text-base font-semibold transition-all duration-200 min-w-[220px] ${
+                      isAnalyzing
+                        ? "bg-gradient-to-r from-rust-400 to-rust-500 text-white/90 shadow-md cursor-wait"
+                        : !content.trim()
                         ? "bg-stone-100 text-stone-400 cursor-not-allowed"
-                        : "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg"
+                        : "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700"
                     }`}
                   >
                     {isAnalyzing ? (
                       <>
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        Analyzing...
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                        <span>Analyzing...</span>
                       </>
                     ) : (
                       <>
-                        <Sparkles className="h-4 w-4" />
-                        Analyze Content
+                        <Sparkles className="h-5 w-5" />
+                        <span>Analyze Content</span>
                       </>
                     )}
                   </motion.button>
@@ -491,44 +533,64 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
             {/* Results Section */}
             {result && (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="space-y-8"
                 aria-live="polite"
                 aria-label="Analysis results"
               >
+                {/* Section divider */}
+                <div className="flex items-center gap-3">
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 to-transparent" />
+                  <span className="text-xs font-medium text-stone-400 tracking-wide uppercase">
+                    Results
+                  </span>
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 to-transparent" />
+                </div>
+
                 {/* Action Bar */}
                 <div className="flex items-center justify-between">
                   <button
                     onClick={clearResults}
-                    className="text-sm text-stone-500 hover:text-stone-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-deep transition-colors font-medium"
                   >
                     &larr; Analyze another
                   </button>
                   {result.id && <ShareLink analysisId={result.id} />}
                 </div>
 
-                {/* Topic */}
-                <div className="text-center">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-rust-50 border border-rust-200/60 rounded-full text-xs font-medium text-rust-700 tracking-wide">
-                    <MessageSquare className="h-3 w-3" />
+                {/* Topic — celebration card with scale entrance */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-center bg-white rounded-2xl border border-stone-200/60 p-6 md:p-8 shadow-sm"
+                >
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep tracking-wide">
+                    <MessageSquare className="h-3.5 w-3.5" />
                     Identified Topic
                   </div>
-                  <h2 className="mt-3 font-serif text-xl md:text-2xl font-bold text-primary">
+                  <h2 className="mt-4 font-serif text-xl md:text-2xl font-bold text-primary">
                     {result.extracted.topic}
                   </h2>
-                  <p className="mt-2 text-stone-500 text-sm max-w-xl mx-auto">
+                  <p className="mt-2 text-stone-500 text-sm max-w-xl mx-auto leading-relaxed">
                     {result.extracted.summary}
                   </p>
-                  <div className="mt-2 text-xs text-stone-400">
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 rounded-full text-xs text-stone-400 font-mono tabular-nums">
                     Confidence: {Math.round(result.extracted.confidence * 100)}%
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Positions */}
-                <div className="space-y-4">
-                  <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
-                    <FileText className="h-4 w-4 text-stone-500" />
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.25 }}
+                  className="space-y-4"
+                >
+                  <h3 className="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+                    <FileText className="h-4 w-4 text-deep" />
                     Extracted Positions
                   </h3>
                   {result.extracted.positions.length > 0 ? (
@@ -542,43 +604,70 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                       No clear positions identified
                     </p>
                   )}
-                </div>
+                </motion.div>
 
                 {/* Cruxes */}
                 {result.extracted.identifiedCruxes.length > 0 && (
-                  <div className="space-y-4">
-                    <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
-                      <Target className="h-4 w-4 text-purple-600" />
-                      Key Cruxes (Points of Disagreement)
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.35 }}
+                    className="space-y-4"
+                  >
+                    <h3 className="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+                      <Target className="h-4 w-4 text-deep" />
+                      Key Cruxes
+                      <span className="text-sm font-sans font-normal text-stone-400">
+                        Points of Disagreement
+                      </span>
                     </h3>
                     <div className="space-y-3">
                       {result.extracted.identifiedCruxes.map((crux, idx) => (
                         <CruxCard key={idx} crux={crux} />
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Fallacies */}
                 {result.extracted.potentialFallacies.length > 0 && (
-                  <div className="space-y-4">
-                    <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-600" />
-                      Potential Fallacies Detected
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.45 }}
+                    className="space-y-4"
+                  >
+                    <h3 className="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+                      <AlertTriangle className="h-4 w-4 text-rust-500" />
+                      Potential Fallacies
+                      <span className="text-sm font-sans font-normal text-stone-400">
+                        {result.extracted.potentialFallacies.length} detected
+                      </span>
                     </h3>
                     <div className="space-y-3">
                       {result.extracted.potentialFallacies.map((fallacy, idx) => (
                         <FallacyCard key={idx} fallacy={fallacy} />
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Judging Results */}
                 {result.judgingResult && (
-                  <div className="pt-8 border-t border-stone-200/60">
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.55 }}
+                  >
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 to-transparent" />
+                      <span className="text-xs font-medium text-stone-400 tracking-wide uppercase">
+                        AI Judgment
+                      </span>
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 to-transparent" />
+                    </div>
                     <JudgingResults result={result.judgingResult} />
-                  </div>
+                  </motion.div>
                 )}
               </motion.div>
             )}

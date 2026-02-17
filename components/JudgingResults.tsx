@@ -431,12 +431,15 @@ function DisagreementWarnings({ disagreements }: { disagreements: JudgingResult[
 export function JudgingResults({ result, rubric = DEFAULT_RUBRIC }: JudgingResultsProps) {
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center gap-2">
-        <Gavel className="h-5 w-5 text-deep" />
-        <h2 className="text-lg font-serif font-semibold text-primary">Judge Council Verdict</h2>
-        <span className="text-xs text-stone-400 ml-auto">
-          {result.verdicts.length} judges • {new Date(result.timestamp).toLocaleString()}
+      {/* Section divider with horizontal rule */}
+      <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <Gavel className="h-4 w-4 text-deep" />
+          <h2 className="text-lg font-serif font-semibold text-primary">Judge Council Verdict</h2>
+        </div>
+        <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />
+        <span className="text-xs text-stone-400 flex-shrink-0">
+          {result.verdicts.length} judges
         </span>
       </div>
 
@@ -469,10 +472,13 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC }: JudgingResul
 
       {/* Individual Judge Cards */}
       <div className="space-y-4">
-        <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
-          <Users className="h-4 w-4 text-deep" />
-          Individual Judge Verdicts
-        </h3>
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <Users className="h-4 w-4 text-deep" />
+            <h3 className="font-serif font-semibold text-primary">Individual Judge Verdicts</h3>
+          </div>
+          <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />
+        </div>
         {result.verdicts.map((verdict, index) => (
           <JudgeCard key={verdict.judgeId} verdict={verdict} index={index} />
         ))}

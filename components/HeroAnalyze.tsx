@@ -16,6 +16,10 @@ import {
   Beaker,
   ChevronRight,
   Flame,
+  Lock,
+  PenLine,
+  Newspaper,
+  Mic,
 } from "lucide-react";
 import { topics, featuredTopicId, featuredReason, CATEGORY_ORDER } from "@/data/topics";
 import { getQuoteOfTheDay } from "@/data/quotes";
@@ -146,28 +150,33 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             transition={{ delay: 0.2 }}
             className="bg-white rounded-2xl border border-stone-200/60 p-5 shadow-lg shadow-stone-200/30"
           >
-            {/* Content Type */}
+            {/* Content Type — segmented control */}
             <div className="flex items-center justify-between mb-3">
-              <div className="flex gap-1.5">
-                {(["freeform", "article", "transcript"] as ContentType[]).map(
-                  (type) => (
-                    <button
-                      key={type}
-                      onClick={() => setContentType(type)}
-                      className={`px-3 py-2 min-h-[44px] rounded-md text-xs font-medium transition-all ${
-                        contentType === type
-                          ? "bg-stone-800 text-white"
-                          : "bg-stone-100 text-stone-500 hover:bg-stone-200"
-                      }`}
-                    >
-                      {type.charAt(0).toUpperCase() + type.slice(1)}
-                    </button>
-                  )
-                )}
+              <div className="inline-flex bg-stone-100 rounded-xl p-1 gap-0.5">
+                {(
+                  [
+                    { type: "freeform" as ContentType, icon: PenLine, label: "Freeform" },
+                    { type: "article" as ContentType, icon: Newspaper, label: "Article" },
+                    { type: "transcript" as ContentType, icon: Mic, label: "Transcript" },
+                  ] as const
+                ).map(({ type, icon: Icon, label }) => (
+                  <button
+                    key={type}
+                    onClick={() => setContentType(type)}
+                    className={`relative flex items-center gap-1.5 px-3 py-1.5 min-h-[36px] rounded-lg text-xs font-medium transition-all duration-200 ${
+                      contentType === type
+                        ? "bg-deep text-white shadow-sm"
+                        : "bg-transparent text-stone-500 hover:text-stone-700 hover:bg-white/60"
+                    }`}
+                  >
+                    <Icon className="h-3.5 w-3.5" />
+                    {label}
+                  </button>
+                ))}
               </div>
-              <label className="flex items-center gap-1.5 px-2.5 py-2 min-h-[44px] bg-stone-50 hover:bg-stone-100 rounded-md cursor-pointer transition-colors">
+              <label className="flex items-center gap-1.5 px-2.5 py-1.5 bg-stone-50 hover:bg-stone-100 border border-stone-200/60 rounded-lg cursor-pointer transition-all duration-200">
                 <Upload className="h-3.5 w-3.5 text-stone-400" />
-                <span className="text-xs text-stone-500">Upload</span>
+                <span className="text-xs font-medium text-stone-500">Upload</span>
                 <input
                   type="file"
                   accept=".txt,.md"
@@ -178,17 +187,31 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             </div>
 
             {/* Textarea */}
-            <textarea
-              ref={textareaRef}
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Paste a debate transcript, op-ed, podcast segment, or any argumentative text..."
-              className="w-full h-32 md:h-36 p-4 bg-stone-50/50 border border-stone-200/60 rounded-xl text-stone-700 text-sm placeholder-stone-400 resize-none focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50"
-            />
+            <div className="relative">
+              <textarea
+                ref={textareaRef}
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Paste an article, argument, or any text you'd like analyzed..."
+                className="w-full min-h-[140px] md:min-h-[160px] p-4 bg-[#faf8f5] border border-stone-200/70 rounded-xl text-stone-700 text-sm leading-relaxed placeholder-stone-400/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white"
+              />
+              {/* Word count indicator */}
+              <div className="absolute bottom-3 right-3 pointer-events-none">
+                <span className="text-xs text-stone-400/70 tabular-nums">
+                  {content.trim()
+                    ? `${content.trim().split(/\s+/).length} words`
+                    : ""}
+                </span>
+              </div>
+            </div>
 
-            {/* Actions */}
-            <div className="flex items-center justify-between mt-3">
+            {/* Privacy + hint row */}
+            <div className="flex items-center justify-between mt-2.5 mb-1">
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-deep/6 border border-deep/10 rounded-full">
+                <Lock className="h-2.5 w-2.5 text-deep/60" />
+                <span className="text-[10px] font-medium text-deep/60">Not stored</span>
+              </div>
               <span className="text-xs text-stone-400">
                 {content.length > 0
                   ? `${content.length.toLocaleString()} chars`
@@ -199,12 +222,17 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   </span>
                 )}
               </span>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center justify-end mt-2">
+              <span className="hidden">{/* spacer for flex alignment */}</span>
               <div className="flex items-center gap-2">
                 <motion.button
                   onClick={handleTryExample}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-serif font-semibold text-sm border border-stone-300 text-stone-600 bg-white hover:bg-stone-50 hover:border-stone-400 transition-all"
+                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-serif font-semibold text-sm border border-deep/20 text-deep bg-deep/5 hover:bg-deep/10 hover:border-deep/30 transition-all duration-200"
                 >
                   <Beaker className="h-4 w-4" />
                   Try an Example
@@ -212,11 +240,11 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                 <motion.button
                   onClick={handleAnalyze}
                   disabled={!content.trim()}
-                  whileHover={content.trim() ? { scale: 1.02 } : {}}
-                  whileTap={content.trim() ? { scale: 0.98 } : {}}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-serif font-semibold transition-all ${
+                  whileHover={content.trim() ? { scale: 1.03, y: -1 } : {}}
+                  whileTap={content.trim() ? { scale: 0.97 } : {}}
+                  className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-serif font-semibold text-sm transition-all duration-200 ${
                     content.trim()
-                      ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg"
+                      ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700"
                       : "bg-stone-100 text-stone-400 cursor-not-allowed"
                   }`}
                 >

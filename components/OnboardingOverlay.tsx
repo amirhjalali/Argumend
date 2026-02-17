@@ -11,7 +11,7 @@ const steps = [
     icon: MapPin,
     title: "Pick a topic",
     description:
-      "We map controversial debates visually — from climate change to AI ethics. Choose one that matters to you.",
+      "We map controversial debates visually \u2014 from climate change to AI ethics. Choose one that matters to you.",
   },
   {
     icon: Scale,
@@ -23,7 +23,7 @@ const steps = [
     icon: Crosshair,
     title: "Find the crux",
     description:
-      "Discover the key questions that would actually change minds — the crux of the disagreement.",
+      "Discover the key questions that would actually change minds \u2014 the crux of the disagreement.",
   },
 ];
 
@@ -31,7 +31,6 @@ export function OnboardingOverlay() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Only show if user has never been onboarded
     const onboarded = localStorage.getItem(STORAGE_KEY);
     if (!onboarded) {
       setVisible(true);
@@ -50,7 +49,7 @@ export function OnboardingOverlay() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: 0.3 }}
           className="fixed inset-0 z-[100] flex items-center justify-center p-4"
         >
           {/* Backdrop */}
@@ -58,28 +57,31 @@ export function OnboardingOverlay() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-[#3d3a36]/40 backdrop-blur-sm"
+            className="absolute inset-0 backdrop-blur-sm bg-black/30"
             onClick={handleDismiss}
           />
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.97 }}
+            initial={{ opacity: 0, y: 24, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 12, scale: 0.97 }}
+            exit={{ opacity: 0, y: 12, scale: 0.95 }}
             transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-            className="relative w-full max-w-lg bg-[#faf8f5] rounded-2xl border border-stone-200/60 shadow-xl shadow-stone-900/10 overflow-hidden"
+            className="relative w-full max-w-lg bg-[#faf8f5] rounded-2xl border border-stone-200/40 shadow-2xl overflow-hidden"
           >
+            {/* Subtle top accent border */}
+            <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-deep/40 via-deep to-deep/40" />
+
             {/* Close button */}
             <button
               onClick={handleDismiss}
-              className="absolute top-4 right-4 p-1.5 rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors z-10"
               aria-label="Close"
             >
-              <X className="h-4 w-4" />
+              <X className="h-5 w-5" />
             </button>
 
-            <div className="px-6 pt-8 pb-6 sm:px-8">
+            <div className="p-6 pt-8 sm:p-8">
               {/* Header */}
               <div className="text-center mb-8">
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-primary">
@@ -87,8 +89,20 @@ export function OnboardingOverlay() {
                 </h2>
                 <p className="mt-2 text-sm text-stone-500 max-w-sm mx-auto leading-relaxed">
                   We help you navigate complex debates with clarity and evidence
-                  — not outrage.
+                  &mdash; not outrage.
                 </p>
+              </div>
+
+              {/* Step indicators */}
+              <div className="flex justify-center gap-1.5 mb-6">
+                {steps.map((_, i) => (
+                  <div
+                    key={i}
+                    className="h-1 w-8 rounded-full bg-deep/20"
+                  >
+                    <div className="h-full rounded-full bg-deep w-full" />
+                  </div>
+                ))}
               </div>
 
               {/* Steps */}
@@ -128,7 +142,7 @@ export function OnboardingOverlay() {
               <div className="mt-8 flex flex-col items-center gap-3">
                 <button
                   onClick={handleDismiss}
-                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white font-serif font-semibold text-sm rounded-xl shadow-md hover:shadow-lg transition-all hover:brightness-105"
+                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white font-semibold text-sm rounded-xl shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 transition-all"
                 >
                   Start Exploring
                   <ArrowRight className="h-4 w-4" />
@@ -137,7 +151,7 @@ export function OnboardingOverlay() {
                   onClick={handleDismiss}
                   className="text-xs text-stone-400 hover:text-stone-600 transition-colors"
                 >
-                  Skip — I know my way around
+                  Skip &mdash; I know my way around
                 </button>
               </div>
             </div>

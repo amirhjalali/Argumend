@@ -12,6 +12,7 @@ import {
   ArrowRight,
   CornerDownLeft,
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { topics } from "@/data/topics";
 import { articles } from "@/data/blog";
 import { concepts } from "@/data/concepts";
@@ -147,12 +148,12 @@ const TYPE_CONFIG: Record<
   blog: {
     icon: FileText,
     label: "Blog",
-    badgeClasses: "bg-indigo-50 text-indigo-600",
+    badgeClasses: "bg-deep/5 text-deep/80",
   },
   concept: {
     icon: Lightbulb,
     label: "Concepts",
-    badgeClasses: "bg-violet-50 text-violet-600",
+    badgeClasses: "bg-rust-50 text-rust-600",
   },
   page: {
     icon: File,
@@ -236,7 +237,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     // Filter items
     const matched = allItems.filter((item) => {
       const searchable = `${item.title} ${item.subtitle}`;
-      // For blog, also check tags
       if (item.type === "blog") {
         const article = articles.find((a) => `blog-${a.slug}` === item.id);
         if (article) {
@@ -278,7 +278,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     if (isOpen) {
       setQuery("");
       setActiveIndex(0);
-      // Delay focus to after the dialog animation
       requestAnimationFrame(() => {
         inputRef.current?.focus();
       });
@@ -343,11 +342,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
   }, [activeIndex]);
 
-  // -----------------------------------------------------------------------
-  // Global Cmd+K / Ctrl+K listener is handled by TopBar (opens the modal).
-  // Escape is handled inside the modal via onKeyDown.
-  // -----------------------------------------------------------------------
-
   if (!isOpen) return null;
 
   // -----------------------------------------------------------------------
@@ -357,180 +351,198 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   let flatIndex = -1;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[12vh] px-4">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/30 backdrop-blur-sm"
-        onClick={onClose}
-        aria-hidden="true"
-      />
-
-      {/* Modal */}
-      <div
-        className="relative w-full max-w-2xl bg-white rounded-xl shadow-2xl ring-1 ring-stone-200/60 overflow-hidden animate-search-modal-in"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Search Argumend"
-        onKeyDown={handleKeyDown}
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.15 }}
+        className="fixed inset-0 z-[100] flex items-start justify-center pt-[12vh] px-4"
       >
-        {/* ---- Search Input ---- */}
-        <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60">
-          <Search className="h-5 w-5 text-stone-400 flex-shrink-0" strokeWidth={1.8} />
-          <input
-            ref={inputRef}
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search topics, articles, concepts, pages..."
-            className="flex-1 bg-transparent text-lg text-stone-800 placeholder:text-stone-400 outline-none font-sans"
-            autoComplete="off"
-            spellCheck={false}
-          />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              className="p-1 rounded-md text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
-              aria-label="Clear search"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-          <button
-            onClick={onClose}
-            className="flex-shrink-0 px-2 py-1 rounded-md border border-stone-200 text-xs text-stone-400 font-mono hover:bg-stone-50 transition-colors"
-          >
-            ESC
-          </button>
-        </div>
+        {/* Backdrop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute inset-0 backdrop-blur-md bg-black/40"
+          onClick={onClose}
+          aria-hidden="true"
+        />
 
-        {/* ---- Results ---- */}
-        <div
-          ref={listRef}
-          className="max-h-[60vh] overflow-y-auto overscroll-contain py-2"
+        {/* Modal */}
+        <motion.div
+          initial={{ opacity: 0, y: -12, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -8, scale: 0.98 }}
+          transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          className="relative w-full max-w-2xl bg-[#faf8f5] rounded-2xl shadow-2xl border border-stone-200/40 overflow-hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Search Argumend"
+          onKeyDown={handleKeyDown}
         >
-          {groups.length === 0 && query.trim() !== "" && (
-            <div className="px-5 py-12 text-center">
-              <div className="text-stone-400 text-sm">
-                No results found for{" "}
-                <span className="font-medium text-stone-600">
-                  &ldquo;{query}&rdquo;
-                </span>
-              </div>
-              <div className="mt-2 text-stone-400 text-xs">
-                Try a different search term or browse our topics
-              </div>
-            </div>
-          )}
+          {/* Search Input */}
+          <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60">
+            <Search className="h-5 w-5 text-deep flex-shrink-0" strokeWidth={1.8} />
+            <input
+              ref={inputRef}
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search topics, articles, concepts, pages..."
+              className="flex-1 bg-transparent text-lg text-primary placeholder:text-stone-400 outline-none font-sans"
+              autoComplete="off"
+              spellCheck={false}
+            />
+            {query && (
+              <button
+                onClick={() => setQuery("")}
+                className="p-1 rounded-md text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+            <button
+              onClick={onClose}
+              className="flex-shrink-0 px-2 py-1 rounded-md border border-stone-200 text-xs text-stone-400 font-mono hover:bg-stone-100 transition-colors"
+            >
+              ESC
+            </button>
+          </div>
 
-          {groups.map((group) => (
-            <div key={group.label} className="mb-1">
-              {/* Group header */}
-              <div className="px-5 py-2">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-stone-400">
-                  {group.label}
-                </span>
+          {/* Results */}
+          <div
+            ref={listRef}
+            className="max-h-[60vh] overflow-y-auto overscroll-contain py-2"
+          >
+            {groups.length === 0 && query.trim() !== "" && (
+              <div className="px-5 py-12 text-center">
+                <div className="w-12 h-12 rounded-2xl bg-stone-100 flex items-center justify-center mx-auto mb-4">
+                  <Search className="h-5 w-5 text-stone-400" />
+                </div>
+                <div className="text-stone-500 text-sm font-medium">
+                  No results found for{" "}
+                  <span className="text-primary">
+                    &ldquo;{query}&rdquo;
+                  </span>
+                </div>
+                <div className="mt-2 text-stone-400 text-xs">
+                  Try a different search term or browse our topics
+                </div>
               </div>
+            )}
 
-              {/* Results */}
-              {group.results.map((result) => {
-                flatIndex++;
-                const idx = flatIndex;
-                const isActive = idx === activeIndex;
-                const config = TYPE_CONFIG[result.type];
-                const Icon = config.icon;
+            {groups.map((group) => (
+              <div key={group.label} className="mb-1">
+                {/* Group header */}
+                <div className="px-5 py-2">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-stone-400">
+                    {group.label}
+                  </span>
+                </div>
 
-                return (
-                  <button
-                    key={result.id}
-                    data-index={idx}
-                    onClick={() => navigate(result)}
-                    onMouseEnter={() => setActiveIndex(idx)}
-                    className={`
-                      w-full flex items-center gap-3 px-5 py-3 text-left transition-colors duration-100
-                      ${isActive ? "bg-stone-50" : "bg-transparent hover:bg-stone-50/60"}
-                    `}
-                    role="option"
-                    aria-selected={isActive}
-                  >
-                    {/* Icon */}
-                    <div
+                {/* Results */}
+                {group.results.map((result) => {
+                  flatIndex++;
+                  const idx = flatIndex;
+                  const isActive = idx === activeIndex;
+                  const config = TYPE_CONFIG[result.type];
+                  const Icon = config.icon;
+
+                  return (
+                    <button
+                      key={result.id}
+                      data-index={idx}
+                      onClick={() => navigate(result)}
+                      onMouseEnter={() => setActiveIndex(idx)}
                       className={`
-                        flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center
-                        ${isActive ? "bg-deep/10" : "bg-stone-100"}
+                        w-full flex items-center gap-3 px-5 py-3 text-left transition-colors duration-100
+                        ${isActive ? "bg-deep/5" : "bg-transparent hover:bg-stone-50/60"}
                       `}
+                      role="option"
+                      aria-selected={isActive}
                     >
-                      <Icon
-                        className={`h-4 w-4 ${isActive ? "text-deep" : "text-stone-400"}`}
-                        strokeWidth={1.8}
-                      />
-                    </div>
-
-                    {/* Text */}
-                    <div className="flex-1 min-w-0">
+                      {/* Icon */}
                       <div
-                        className={`text-sm font-medium truncate ${
-                          isActive ? "text-deep" : "text-stone-800"
-                        }`}
+                        className={`
+                          flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center
+                          ${isActive ? "bg-deep/10" : "bg-stone-100"}
+                        `}
                       >
-                        {result.title}
+                        <Icon
+                          className={`h-4 w-4 ${isActive ? "text-deep" : "text-stone-400"}`}
+                          strokeWidth={1.8}
+                        />
                       </div>
-                      <div className="text-xs text-stone-400 truncate mt-0.5">
-                        {result.subtitle}
+
+                      {/* Text */}
+                      <div className="flex-1 min-w-0">
+                        <div
+                          className={`text-sm font-medium truncate ${
+                            isActive ? "text-deep" : "text-primary"
+                          }`}
+                        >
+                          {result.title}
+                        </div>
+                        <div className="text-xs text-stone-400 truncate mt-0.5">
+                          {result.subtitle}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Badge */}
-                    <span
-                      className={`
-                        flex-shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full
-                        ${config.badgeClasses}
-                      `}
-                    >
-                      {config.label.slice(0, -1)}
-                    </span>
+                      {/* Badge */}
+                      <span
+                        className={`
+                          flex-shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full
+                          ${config.badgeClasses}
+                        `}
+                      >
+                        {config.label.slice(0, -1)}
+                      </span>
 
-                    {/* Arrow for active */}
-                    {isActive && (
-                      <ArrowRight
-                        className="flex-shrink-0 h-3.5 w-3.5 text-deep"
-                        strokeWidth={2}
-                      />
-                    )}
-                  </button>
-                );
-              })}
+                      {/* Arrow for active */}
+                      {isActive && (
+                        <ArrowRight
+                          className="flex-shrink-0 h-3.5 w-3.5 text-deep"
+                          strokeWidth={2}
+                        />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+
+          {/* Footer */}
+          <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 bg-[#f4f1eb]/50">
+            <div className="flex items-center gap-4 text-[11px] text-stone-400">
+              <span className="flex items-center gap-1">
+                <kbd className="inline-flex h-4 items-center rounded border border-stone-200 bg-white px-1 font-mono text-[10px]">
+                  &uarr;
+                </kbd>
+                <kbd className="inline-flex h-4 items-center rounded border border-stone-200 bg-white px-1 font-mono text-[10px]">
+                  &darr;
+                </kbd>
+                <span className="ml-0.5">Navigate</span>
+              </span>
+              <span className="flex items-center gap-1">
+                <CornerDownLeft className="h-3 w-3" />
+                <span>Select</span>
+              </span>
+              <span className="flex items-center gap-1">
+                <kbd className="inline-flex h-4 items-center rounded border border-stone-200 bg-white px-1 font-mono text-[10px]">
+                  esc
+                </kbd>
+                <span>Close</span>
+              </span>
             </div>
-          ))}
-        </div>
-
-        {/* ---- Footer ---- */}
-        <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 bg-stone-50/50">
-          <div className="flex items-center gap-4 text-[11px] text-stone-400">
-            <span className="flex items-center gap-1">
-              <kbd className="inline-flex h-4 items-center rounded border border-stone-200 bg-white px-1 font-mono text-[10px]">
-                &uarr;
-              </kbd>
-              <kbd className="inline-flex h-4 items-center rounded border border-stone-200 bg-white px-1 font-mono text-[10px]">
-                &darr;
-              </kbd>
-              <span className="ml-0.5">Navigate</span>
-            </span>
-            <span className="flex items-center gap-1">
-              <CornerDownLeft className="h-3 w-3" />
-              <span>Select</span>
-            </span>
-            <span className="flex items-center gap-1">
-              <kbd className="inline-flex h-4 items-center rounded border border-stone-200 bg-white px-1 font-mono text-[10px]">
-                esc
-              </kbd>
-              <span>Close</span>
-            </span>
+            <div className="text-[11px] text-stone-400">
+              {flatResults.length} result{flatResults.length !== 1 ? "s" : ""}
+            </div>
           </div>
-          <div className="text-[11px] text-stone-400">
-            {flatResults.length} result{flatResults.length !== 1 ? "s" : ""}
-          </div>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 }

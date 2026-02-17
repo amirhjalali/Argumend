@@ -145,6 +145,14 @@ html {
   .text-balance {
     text-wrap: balance;
   }
+
+  .display-text {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+  }
 }
 
 @layer components {
@@ -192,6 +200,125 @@ html {
   .surface-paper {
     @apply rounded-lg border border-stone-200/60 bg-paper/95;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Blog / Long-form Prose Styling
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.prose-custom {
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.8;
+  color: #1f1f1d;
+}
+
+.prose-custom p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.prose-custom h2 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  color: #1f1f1d;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.prose-custom h3 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  color: #1f1f1d;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.prose-custom strong {
+  font-weight: 600;
+  color: #1f1f1d;
+}
+
+.prose-custom em {
+  font-style: italic;
+}
+
+.prose-custom a {
+  color: #4f7b77;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.prose-custom a:hover {
+  color: #3d5f5c;
+}
+
+.prose-custom blockquote {
+  border-left: 3px solid #4f7b77;
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #6d645c;
+}
+
+.prose-custom code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875em;
+  background: #f5f2ec;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  color: #1f1f1d;
+}
+
+.prose-custom pre {
+  background: #2d2a26;
+  color: #e8e4de;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.prose-custom pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.prose-custom ul,
+.prose-custom ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.prose-custom li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.prose-custom ul li {
+  list-style-type: disc;
+}
+
+.prose-custom ol li {
+  list-style-type: decimal;
+}
+
+.prose-custom hr {
+  border: none;
+  border-top: 1px solid #e8e0d4;
+  margin: 2rem 0;
+}
+
+.prose-custom img {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(214, 211, 209, 0.6);
+  margin: 1.5rem 0;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

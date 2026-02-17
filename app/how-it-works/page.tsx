@@ -82,17 +82,17 @@ const steps = [
 export default function HowItWorksPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-4xl px-4 md:px-8 py-6 md:py-20">
+      <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero */}
-        <div className="mb-14 md:mb-20 text-center">
-          <p className="text-[12px] font-medium text-stone-400 mb-4">
+        <div className="bg-gradient-to-b from-[#f4f1eb] via-[#f4f1eb] to-[#faf8f5] -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
+          <p className="text-[12px] font-medium tracking-widest uppercase text-deep/60 mb-5">
             How It Works
           </p>
-          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Mapping arguments,<br />
             <span className="text-stone-500">not winning them</span>
           </h1>
-          <p className="text-lg md:text-xl text-secondary leading-[1.7] max-w-2xl mx-auto">
+          <p className="text-lg text-stone-500 max-w-2xl mx-auto leading-[1.7]">
             Argumend transforms complex debates into visual maps. See the strongest arguments
             on all sides, trace claims to their sources, and find the questions that would actually
             change minds.
@@ -101,15 +101,21 @@ export default function HowItWorksPage() {
 
         {/* Quick Start Steps */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-10 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Get started in 4 steps
           </h2>
+          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto">A clear journey from curiosity to understanding.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {steps.map((step) => (
+            {steps.map((step, i) => (
               <div
                 key={step.number}
-                className="flex gap-4 p-4 md:p-5 rounded-xl bg-[#fefcf9] border border-stone-200/70"
+                className="relative flex gap-4 p-5 md:p-6 rounded-xl bg-[#fefcf9] border border-stone-200/70 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 animate-card-fade-in"
+                style={{ animationDelay: `${i * 100}ms` }}
               >
+                {/* Connecting line for desktop: from card 1->2 and 3->4 */}
+                {i % 2 === 0 && i < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-stone-300 to-stone-200" />
+                )}
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C4613C]/20 to-[#b05434]/10 flex items-center justify-center">
                     <span className="font-serif text-xl font-bold text-[#C4613C]">{step.number}</span>
@@ -127,9 +133,12 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
+        {/* Section transition */}
+        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-16 md:mb-24" />
+
         {/* Visual Map Example */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-3 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3 text-center">
             Anatomy of an argument map
           </h2>
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
@@ -203,17 +212,21 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
+        {/* Section transition */}
+        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-16 md:mb-24" />
+
         {/* Node Types Reference */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-10 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Understanding node types
           </h2>
+          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto">Learn to read the map once, navigate any debate.</p>
           <div className="space-y-3">
-            {nodeTypes.map((type) => (
+            {nodeTypes.map((type, i) => (
               <div
                 key={type.name}
-                className="flex flex-col md:flex-row md:items-start gap-4 p-5 rounded-xl bg-[#fefcf9] border border-stone-200/70"
-                style={{ borderLeftWidth: "4px", borderLeftColor: type.color }}
+                className="flex flex-col md:flex-row md:items-start gap-4 p-5 rounded-xl bg-[#fefcf9] border border-stone-200/70 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 animate-card-fade-in"
+                style={{ borderLeftWidth: "4px", borderLeftColor: type.color, animationDelay: `${i * 80}ms` }}
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -224,7 +237,7 @@ export default function HowItWorksPage() {
                 <div className="flex-1">
                   <h3 className="font-serif text-lg font-semibold text-primary mb-1">{type.name}</h3>
                   <p className="text-sm text-secondary mb-2">{type.description}</p>
-                  <p className="text-xs text-stone-400 italic">Example: {type.example}</p>
+                  <p className="text-xs font-mono text-stone-400 italic bg-stone-50 inline-block px-2 py-0.5 rounded">Example: {type.example}</p>
                 </div>
               </div>
             ))}
@@ -232,27 +245,27 @@ export default function HowItWorksPage() {
         </section>
 
         {/* Confidence Scores */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-3 text-center">
+        <section className="mb-16 md:mb-24 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3 text-center">
             Reading confidence scores
           </h2>
-          <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             We don't claim certainty. Confidence scores reflect the weight of available evidence.
           </p>
-          <div className="bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/70">
+          <div className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 border border-stone-200/70">
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-4">
-                <p className="font-mono text-2xl font-medium text-stone-800 mb-2">90%+</p>
+              <div className="p-4 text-center">
+                <p className="font-mono tabular-nums text-deep text-2xl font-bold mb-2">90%+</p>
                 <h3 className="font-serif text-base text-primary mb-1">Settled</h3>
                 <p className="text-sm text-stone-500">Overwhelming evidence. Scientific consensus.</p>
               </div>
-              <div className="p-4">
-                <p className="font-mono text-2xl font-medium text-stone-800 mb-2">50-89%</p>
+              <div className="p-4 text-center border-x border-stone-200/50">
+                <p className="font-mono tabular-nums text-deep text-2xl font-bold mb-2">50-89%</p>
                 <h3 className="font-serif text-base text-primary mb-1">Probable</h3>
                 <p className="text-sm text-stone-500">Good evidence, some uncertainty remains.</p>
               </div>
-              <div className="p-4">
-                <p className="font-mono text-2xl font-medium text-stone-800 mb-2">&lt;50%</p>
+              <div className="p-4 text-center">
+                <p className="font-mono tabular-nums text-deep text-2xl font-bold mb-2">&lt;50%</p>
                 <h3 className="font-serif text-base text-primary mb-1">Contested</h3>
                 <p className="text-sm text-stone-500">Genuine uncertainty. Reasonable people disagree.</p>
               </div>
@@ -281,12 +294,13 @@ export default function HowItWorksPage() {
         </section>
 
         {/* CTA */}
-        <section className="text-center py-10 border-t border-stone-200/80">
+        <section className="bg-gradient-to-r from-[#f0ece5] to-[#ebe6de] rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
+          <ArrowRight className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to explore?</h3>
-          <p className="text-secondary mb-7">Pick a controversial topic. Find the crux. Update your beliefs.</p>
+          <p className="text-secondary mb-7 max-w-md mx-auto">Pick a controversial topic. Find the crux. Update your beliefs.</p>
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
           >
             Start Mapping
             <ArrowRight className="h-3.5 w-3.5" />

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText,
   ChevronDown,
@@ -14,9 +14,14 @@ import {
   Sparkles,
   Clock,
   ArrowRight,
+  Shield,
+  ShieldCheck,
+  Info,
+  ExternalLink,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { ShareButtons } from "@/components/ShareButtons";
+import { ConfidenceGauge } from "@/components/ConfidenceGauge";
 import { JudgingResults } from "@/components/JudgingResults";
 import { topics } from "@/data/topics";
 import type { Topic } from "@/lib/schemas/topic";
@@ -37,9 +42,6 @@ import {
 
 /**
  * Find related topics by simple keyword matching on the analysis topic string.
- * Tokenizes the analysis topic, then scores each curated topic by how many
- * tokens appear in its title or meta_claim. Returns the top N matches,
- * falling back to a deterministic slice if nothing matches.
  */
 function findRelatedTopics(analysisTopic: string, count: number = 4): Topic[] {
   const stopWords = new Set([
@@ -66,7 +68,6 @@ function findRelatedTopics(analysisTopic: string, count: number = 4): Topic[] {
 
   scored.sort((a, b) => b.score - a.score);
 
-  // Take top matches with score > 0; if fewer than count, pad with next topics
   const matched = scored.filter((s) => s.score > 0).slice(0, count);
   if (matched.length < count) {
     const usedIds = new Set(matched.map((m) => m.topic.id));
@@ -82,49 +83,123 @@ function findRelatedTopics(analysisTopic: string, count: number = 4): Topic[] {
   return matched.slice(0, count).map((m) => m.topic);
 }
 
+/** Compute aggregate strength for a position (average of argument scores) */
+function computePositionStrength(position: ExtractedPosition): number | null {
+  const scores = position.arguments
+    .map((a) => a.strengthScore)
+    .filter((s): s is number => s != null);
+  if (scores.length === 0) return null;
+  return scores.reduce((sum, s) => sum + s, 0) / scores.length;
+}
+
+// ---------- Section Divider ----------
+
+function SectionDivider({ label, icon: Icon }: { label: string; icon: React.ComponentType<{ className?: string }> }) {
+  return (
+    <div className="flex items-center gap-3 pt-2">
+      <div className="flex items-center gap-2 flex-shrink-0">
+        <Icon className="h-4 w-4 text-deep" />
+        <h3 className="font-serif text-lg font-semibold text-primary">{label}</h3>
+      </div>
+      <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />
+    </div>
+  );
+}
+
 // ---------- Sub-components ----------
 
 function StrengthBadge({ score }: { score: number }) {
   const strength = getArgumentStrength(score);
   const styles = {
     strong: "bg-emerald-100 text-emerald-700 border-emerald-200",
-    moderate: "bg-stone-100 text-stone-600 border-stone-200",
-    weak: "bg-red-100 text-red-600 border-red-200",
+    moderate: "bg-deep/10 text-deep border-deep/20",
+    weak: "bg-stone-100 text-stone-500 border-stone-200",
     unsupported: "bg-red-50 text-red-500 border-red-100",
   };
 
   return (
-    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wide border ${styles[strength]}`}>
+    <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wide border ${styles[strength]}`}>
       <span className="tabular-nums">{score}/10</span>
       <span className="hidden sm:inline">{strength}</span>
     </span>
   );
 }
 
-function SideStrengthMeter({ label, score, side }: { label: string; score: number; side: "for" | "against" }) {
+/** Visual bar showing aggregate strength of a position's arguments */
+function PositionStrengthBar({ score, side }: { score: number; side: "for" | "against" }) {
   const pct = (score / 10) * 100;
-  const barColor = side === "for" ? "bg-rust-500" : "bg-stone-500";
-  const textColor = side === "for" ? "text-rust-700" : "text-stone-600";
-  const bgColor = side === "for" ? "bg-rust-50" : "bg-stone-50";
-
   return (
-    <div className={`flex-1 p-3 rounded-xl border ${side === "for" ? "border-rust-200/60" : "border-stone-200/60"} ${bgColor}`}>
-      <div className="flex items-center justify-between mb-1.5">
-        <span className={`text-xs font-semibold uppercase tracking-wider ${textColor}`}>{label}</span>
-        <span className={`text-lg font-mono font-bold ${textColor}`}>{score}/10</span>
-      </div>
-      <div className="h-2 rounded-full bg-white/80 overflow-hidden">
+    <div className="flex items-center gap-2 mt-1">
+      <div className="flex-1 h-1.5 rounded-full bg-stone-100 overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${pct}%` }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`h-full rounded-full ${barColor}`}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          className={`h-full rounded-full ${side === "for" ? "bg-rust-400" : "bg-stone-400"}`}
         />
       </div>
-      <p className="text-[10px] mt-1 text-stone-500">
-        {score >= 7 ? "Strong position" : score >= 4 ? "Moderate position" : "Weak position"}
-      </p>
+      <span className={`text-[10px] font-mono font-semibold tabular-nums ${side === "for" ? "text-rust-600" : "text-stone-500"}`}>
+        {score.toFixed(1)}
+      </span>
     </div>
+  );
+}
+
+/** Split bar showing For vs Against strength side by side */
+function SplitStrengthBar({ forScore, againstScore }: { forScore: number; againstScore: number }) {
+  const total = forScore + againstScore;
+  const forPct = total > 0 ? (forScore / total) * 100 : 50;
+  const againstPct = total > 0 ? (againstScore / total) * 100 : 50;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.12 }}
+      className="surface-card p-5 md:p-6"
+    >
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-rust-500" />
+          <span className="text-sm font-semibold text-rust-700">For</span>
+          <span className="text-lg font-mono font-bold text-rust-600">{forScore}/10</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-lg font-mono font-bold text-stone-600">{againstScore}/10</span>
+          <span className="text-sm font-semibold text-stone-600">Against</span>
+          <div className="w-3 h-3 rounded-full bg-stone-500" />
+        </div>
+      </div>
+
+      {/* The split bar */}
+      <div className="h-3 rounded-full overflow-hidden bg-stone-100 flex">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${forPct}%` }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="h-full bg-gradient-to-r from-rust-400 to-rust-500 rounded-l-full"
+        />
+        <div className="w-px bg-white" />
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${againstPct}%` }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="h-full bg-gradient-to-l from-stone-400 to-stone-500 rounded-r-full"
+        />
+      </div>
+
+      {/* Percentage labels */}
+      <div className="flex justify-between mt-2">
+        <span className="text-[10px] font-medium text-rust-500">
+          {Math.round(forPct)}%
+          {forScore >= 7 ? " — Strong" : forScore >= 4 ? " — Moderate" : " — Weak"}
+        </span>
+        <span className="text-[10px] font-medium text-stone-500">
+          {againstScore >= 7 ? "Strong — " : againstScore >= 4 ? "Moderate — " : "Weak — "}
+          {Math.round(againstPct)}%
+        </span>
+      </div>
+    </motion.div>
   );
 }
 
@@ -141,34 +216,36 @@ function ConfidenceExplainer({ score }: { score: number }) {
   return (
     <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs ${colorMap[info.level]}`}>
       <span className="font-semibold">{info.label}</span>
-      <span className="hidden sm:inline opacity-75">— {info.description}</span>
+      <span className="hidden sm:inline opacity-75">-- {info.description}</span>
     </div>
   );
 }
 
 function BiasCard({ bias }: { bias: DetectedBias }) {
-  const impactColor = bias.impact >= 7 ? "text-red-600 bg-red-50" : bias.impact >= 4 ? "text-stone-600 bg-stone-50" : "text-stone-500 bg-stone-50/50";
+  const impactColor = bias.impact >= 7 ? "text-red-600 bg-red-50 border-red-200" : bias.impact >= 4 ? "text-stone-600 bg-stone-50 border-stone-200" : "text-stone-500 bg-stone-50/50 border-stone-100";
   const sideLabel = bias.affectedSide === "for" ? "FOR side" : bias.affectedSide === "against" ? "AGAINST side" : "Both sides";
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-3 md:p-4 bg-rust-50/40 border border-rust-200/50 rounded-xl"
+      className="p-4 md:p-5 bg-rust-50/40 border border-rust-200/50 rounded-xl"
     >
       <div className="flex items-start gap-3">
-        <Brain className="h-5 w-5 text-rust-600 flex-shrink-0 mt-0.5" />
+        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-rust-100/80 flex items-center justify-center mt-0.5">
+          <Brain className="h-4 w-4 text-rust-600" />
+        </div>
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-stone-800 font-medium">{bias.type}</span>
-            <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${impactColor}`}>
+            <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${impactColor}`}>
               Impact: {bias.impact}/10
             </span>
             <span className="text-[10px] bg-stone-100 text-stone-500 px-2 py-0.5 rounded-full">
               {sideLabel}
             </span>
           </div>
-          <p className="mt-1 text-sm text-stone-600">{bias.explanation}</p>
+          <p className="mt-1.5 text-sm text-stone-600 leading-relaxed">{bias.explanation}</p>
         </div>
       </div>
     </motion.div>
@@ -178,25 +255,26 @@ function BiasCard({ bias }: { bias: DetectedBias }) {
 function PositionCard({ position }: { position: ExtractedPosition }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const isFor = position.side === "for";
+  const aggregateStrength = computePositionStrength(position);
 
   const cardStyles = isFor
-    ? "border-l-rust-500 bg-gradient-to-r from-rust-50/50 to-white"
-    : "border-l-stone-500 bg-gradient-to-r from-stone-50/50 to-white";
+    ? "border-l-rust-500 bg-gradient-to-r from-rust-50/40 to-white"
+    : "border-l-stone-500 bg-gradient-to-r from-stone-50/40 to-white";
 
   return (
     <motion.div
       initial={{ opacity: 0, x: isFor ? -20 : 20 }}
       animate={{ opacity: 1, x: 0 }}
-      className={`rounded-xl border border-stone-200/80 border-l-4 ${cardStyles} overflow-hidden shadow-sm`}
+      className={`rounded-xl border border-stone-200/80 border-l-[4px] ${cardStyles} overflow-hidden shadow-sm hover:shadow-md transition-shadow`}
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-3 md:p-4 text-left hover:bg-white/50 transition-colors"
+        className="w-full p-4 md:p-5 text-left hover:bg-white/40 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div
-              className={`px-3 py-1 rounded-full text-xs font-medium ${
+              className={`px-3 py-1 rounded-full text-xs font-semibold tracking-wide ${
                 isFor
                   ? "bg-rust-100 text-rust-700"
                   : "bg-stone-100 text-stone-600"
@@ -205,11 +283,11 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
               {isFor ? "FOR" : "AGAINST"}
             </div>
             {position.speaker && (
-              <span className="text-sm text-stone-600">
+              <span className="text-sm text-stone-600 font-medium">
                 {position.speaker}
               </span>
             )}
-            <span className="text-sm text-stone-400">
+            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${isFor ? "bg-rust-50 text-rust-500" : "bg-stone-50 text-stone-400"}`}>
               {position.arguments.length} argument
               {position.arguments.length !== 1 ? "s" : ""}
             </span>
@@ -218,70 +296,92 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            <ChevronDown className="h-5 w-5 text-stone-400" />
+            <ChevronDown className={`h-5 w-5 ${isFor ? "text-rust-400" : "text-stone-400"}`} />
           </motion.div>
         </div>
+
+        {/* Aggregate strength bar */}
+        {aggregateStrength != null && (
+          <PositionStrengthBar score={aggregateStrength} side={position.side} />
+        )}
       </button>
 
-      {isExpanded && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          className="px-3 md:px-4 pb-3 md:pb-4 border-t border-stone-100"
-        >
-          <div className="pt-4 space-y-4">
-            {position.arguments.map((arg, idx) => (
-              <div key={idx} className="pl-4 border-l-2 border-stone-200">
-                <div className="flex items-start justify-between gap-2">
-                  <p className="text-stone-700 font-medium">{arg.claim}</p>
-                  {arg.strengthScore != null && (
-                    <StrengthBadge score={arg.strengthScore} />
-                  )}
-                </div>
-                {arg.strengthRationale && (
-                  <p className="mt-1 text-xs text-deep italic">
-                    {arg.strengthRationale}
-                  </p>
-                )}
-                {arg.evidence && arg.evidence.length > 0 && (
-                  <div className="mt-2 space-y-1">
-                    <span className="text-xs text-stone-500 uppercase tracking-wide">
-                      Evidence:
-                    </span>
-                    <ul className="list-disc list-inside text-sm text-stone-600 space-y-1">
-                      {arg.evidence.map((e, i) => (
-                        <li key={i}>{e}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {arg.source && (
-                  <p className="mt-1 text-xs text-stone-500">
-                    Source: {arg.source}
-                  </p>
-                )}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-4 md:px-5 pb-4 md:pb-5 border-t border-stone-100">
+              <div className="pt-4 space-y-5">
+                {position.arguments.map((arg, idx) => {
+                  const borderAccent = isFor ? "border-rust-200" : "border-stone-300";
+                  return (
+                    <div key={idx} className={`pl-4 border-l-2 ${borderAccent}`}>
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="text-stone-800 font-medium leading-snug">{arg.claim}</p>
+                        {arg.strengthScore != null && (
+                          <StrengthBadge score={arg.strengthScore} />
+                        )}
+                      </div>
+                      {arg.strengthRationale && (
+                        <p className="mt-1.5 text-xs text-deep italic leading-relaxed">
+                          {arg.strengthRationale}
+                        </p>
+                      )}
+                      {arg.evidence && arg.evidence.length > 0 && (
+                        <div className="mt-3 space-y-1.5">
+                          <span className="text-[10px] text-stone-400 uppercase tracking-wider font-semibold">
+                            Evidence
+                          </span>
+                          <ul className="space-y-1.5">
+                            {arg.evidence.map((e, i) => (
+                              <li key={i} className={`text-sm text-stone-600 leading-relaxed pl-3 border-l-2 ${isFor ? "border-rust-100" : "border-stone-200/60"}`}>
+                                {e}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {arg.source && (
+                        <p className="mt-2 text-xs text-stone-500 flex items-center gap-1.5 bg-stone-50/80 rounded-md px-2.5 py-1.5 w-fit">
+                          <ExternalLink className="h-3 w-3 text-deep flex-shrink-0" />
+                          <span className="text-deep font-medium">{arg.source}</span>
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
-            ))}
-          </div>
-        </motion.div>
-      )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
 
-function CruxCard({ crux }: { crux: IdentifiedCrux }) {
+function CruxCard({ crux, index }: { crux: IdentifiedCrux; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-3 md:p-4 bg-purple-50/50 border border-purple-200/60 rounded-xl"
+      transition={{ delay: index * 0.06 }}
+      className="p-4 md:p-5 bg-gradient-to-br from-deep/[0.06] to-deep/[0.02] border border-deep/15 rounded-xl"
     >
       <div className="flex items-start gap-3">
-        <Target className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
-        <div>
-          <p className="text-stone-800 font-medium">{crux.description}</p>
-          <p className="mt-1 text-sm text-stone-600">{crux.significance}</p>
+        <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 border border-deep/15 flex items-center justify-center mt-0.5">
+          <Target className="h-4.5 w-4.5 text-deep" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-stone-800 font-medium leading-snug">{crux.description}</p>
+          <div className="mt-2 flex items-start gap-2">
+            <div className="w-1 h-1 rounded-full bg-deep/40 mt-2 flex-shrink-0" />
+            <p className="text-sm text-stone-600 leading-relaxed italic">{crux.significance}</p>
+          </div>
         </div>
       </div>
     </motion.div>
@@ -289,23 +389,34 @@ function CruxCard({ crux }: { crux: IdentifiedCrux }) {
 }
 
 function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
+  const severity = fallacy.severity ?? "possible";
+
   const severityStyles = {
     confirmed: "bg-red-100 text-red-700 border-red-200",
-    likely: "bg-yellow-100 text-yellow-700 border-yellow-200",
+    likely: "bg-rust-100 text-rust-700 border-rust-200",
     possible: "bg-stone-100 text-stone-500 border-stone-200",
   };
-  const severity = fallacy.severity ?? "possible";
-  const borderColor = severity === "confirmed" ? "border-red-200/60" : severity === "likely" ? "border-yellow-200/60" : "border-stone-200/60";
-  const bgColor = severity === "confirmed" ? "bg-red-50/50" : severity === "likely" ? "bg-yellow-50/50" : "bg-stone-50/50";
+
+  const cardStyles = {
+    confirmed: "bg-red-50/60 border-red-200/60",
+    likely: "bg-rust-50/40 border-rust-200/50",
+    possible: "bg-stone-50/50 border-stone-200/60",
+  };
+
+  const SeverityIcon = severity === "confirmed" ? AlertTriangle : severity === "likely" ? AlertTriangle : Info;
+  const iconColor = severity === "confirmed" ? "text-red-600" : severity === "likely" ? "text-rust-600" : "text-stone-400";
+  const iconBg = severity === "confirmed" ? "bg-red-100" : severity === "likely" ? "bg-rust-100/80" : "bg-stone-100";
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`p-3 md:p-4 ${bgColor} border ${borderColor} rounded-xl`}
+      className={`p-4 md:p-5 ${cardStyles[severity]} border rounded-xl`}
     >
       <div className="flex items-start gap-3">
-        <AlertTriangle className={`h-5 w-5 flex-shrink-0 mt-0.5 ${severity === "confirmed" ? "text-red-600" : severity === "likely" ? "text-yellow-600" : "text-stone-400"}`} />
+        <div className={`flex-shrink-0 w-8 h-8 rounded-lg ${iconBg} flex items-center justify-center mt-0.5`}>
+          <SeverityIcon className={`h-4 w-4 ${iconColor}`} />
+        </div>
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-stone-800 font-medium">{fallacy.type}</span>
@@ -313,19 +424,19 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
               {severity}
             </span>
             {fallacy.impact != null && (
-              <span className="text-[10px] font-semibold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-semibold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full border border-stone-200/60">
                 Impact: {fallacy.impact}/10
               </span>
             )}
             {fallacy.attributedTo && (
-              <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] bg-rust-50 text-rust-600 px-2 py-0.5 rounded-full border border-rust-100">
                 {fallacy.attributedTo}
               </span>
             )}
           </div>
-          <p className="mt-1 text-sm text-stone-600">{fallacy.explanation}</p>
+          <p className="mt-1.5 text-sm text-stone-600 leading-relaxed">{fallacy.explanation}</p>
           {fallacy.quote && (
-            <p className="mt-2 text-sm text-stone-500 italic border-l-2 border-yellow-300 pl-3">
+            <p className="mt-2.5 text-sm text-stone-500 italic border-l-2 border-stone-300 pl-3 bg-white/60 py-1.5 rounded-r-md">
               &ldquo;{fallacy.quote}&rdquo;
             </p>
           )}
@@ -375,6 +486,18 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
   );
 }
 
+/** Positive empty-state for no fallacies/biases */
+function EmptyPositiveState({ label, icon: Icon }: { label: string; icon: React.ComponentType<{ className?: string }> }) {
+  return (
+    <div className="flex items-center gap-3 p-4 bg-emerald-50/50 border border-emerald-200/40 rounded-xl">
+      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100/80 flex items-center justify-center">
+        <Icon className="h-4 w-4 text-emerald-600" />
+      </div>
+      <p className="text-sm text-emerald-700 font-medium">{label}</p>
+    </div>
+  );
+}
+
 // ---------- Main View Component ----------
 
 interface AnalysisViewProps {
@@ -396,15 +519,23 @@ export function AnalysisView({
     day: "numeric",
   });
 
+  const formattedTime = new Date(createdAt).toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+  });
+
   const relatedTopics = useMemo(
     () => findRelatedTopics(extracted.topic, 4),
     [extracted.topic],
   );
 
+  const hasFallacies = extracted.potentialFallacies.length > 0;
+  const hasBiases = extracted.detectedBiases && extracted.detectedBiases.length > 0;
+
   return (
     <AppShell>
       <div className="bg-[#faf8f5] min-h-full">
-        <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-8">
+        <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-10">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-secondary">
             <Link
@@ -419,48 +550,56 @@ export function AnalysisView({
             </span>
           </nav>
 
-          {/* Header */}
+          {/* ── Header / Report Card ── */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center space-y-3"
+            className="relative overflow-hidden rounded-2xl border border-stone-200/70 bg-gradient-to-br from-white via-[#fdfbf8] to-deep/[0.04] shadow-card"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide">
-              <Brain className="h-3 w-3" />
-              Shared Analysis
-            </div>
-            <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary">
-              {extracted.topic}
-            </h1>
-            <p className="text-secondary text-sm max-w-xl mx-auto">
-              {extracted.summary}
-            </p>
-            <div className="flex items-center justify-center gap-4 text-xs text-stone-400 mb-3">
-              <span className="flex items-center gap-1">
-                <Clock className="h-3 w-3" />
-                {formattedDate}
-              </span>
-            </div>
-            <div className="flex justify-center">
-              <ConfidenceExplainer score={extracted.confidence} />
+            {/* Subtle decorative gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-rust-500/[0.03] via-transparent to-deep/[0.03] pointer-events-none" />
+
+            <div className="relative p-6 md:p-8">
+              {/* Tag + Date row */}
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide">
+                  <Brain className="h-3 w-3" />
+                  Analysis Report
+                </div>
+                <span className="flex items-center gap-1.5 text-xs text-stone-400">
+                  <Clock className="h-3 w-3" />
+                  Generated {formattedDate} at {formattedTime}
+                </span>
+              </div>
+
+              {/* Title + Summary + Gauge */}
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div className="flex-1 min-w-0 space-y-3">
+                  <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary leading-tight">
+                    {extracted.topic}
+                  </h1>
+                  <p className="text-secondary text-sm leading-relaxed max-w-xl">
+                    {extracted.summary}
+                  </p>
+                  <div className="pt-1">
+                    <ConfidenceExplainer score={extracted.confidence} />
+                  </div>
+                </div>
+
+                {/* Circular confidence gauge */}
+                <div className="flex-shrink-0 self-center md:self-start">
+                  <ConfidenceGauge score={Math.round(extracted.confidence * 100)} size={110} />
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Side Strength Overview */}
-          {(extracted.forStrength != null || extracted.againstStrength != null) && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.12 }}
-              className="flex flex-col sm:flex-row gap-3"
-            >
-              {extracted.forStrength != null && (
-                <SideStrengthMeter label="For" score={extracted.forStrength} side="for" />
-              )}
-              {extracted.againstStrength != null && (
-                <SideStrengthMeter label="Against" score={extracted.againstStrength} side="against" />
-              )}
-            </motion.div>
+          {/* ── Strength Overview (Split Bar) ── */}
+          {(extracted.forStrength != null && extracted.againstStrength != null) && (
+            <SplitStrengthBar
+              forScore={extracted.forStrength}
+              againstScore={extracted.againstStrength}
+            />
           )}
 
           {/* Social Share Buttons */}
@@ -477,17 +616,14 @@ export function AnalysisView({
             />
           </motion.div>
 
-          {/* Positions */}
+          {/* ── Positions ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
             className="space-y-4"
           >
-            <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
-              <FileText className="h-4 w-4 text-secondary" />
-              Extracted Positions
-            </h3>
+            <SectionDivider label="Extracted Positions" icon={FileText} />
             {extracted.positions.length > 0 ? (
               <div className="space-y-3">
                 {extracted.positions.map((pos, idx) => (
@@ -501,94 +637,96 @@ export function AnalysisView({
             )}
           </motion.div>
 
-          {/* Cruxes */}
-          {extracted.identifiedCruxes.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="space-y-4"
-            >
-              <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
-                <Target className="h-4 w-4 text-purple-600" />
-                Key Cruxes (Points of Disagreement)
-              </h3>
+          {/* ── Key Cruxes ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="space-y-4"
+          >
+            <SectionDivider label="Key Cruxes" icon={Target} />
+            {extracted.identifiedCruxes.length > 0 ? (
               <div className="space-y-3">
                 {extracted.identifiedCruxes.map((crux, idx) => (
-                  <CruxCard key={idx} crux={crux} />
+                  <CruxCard key={idx} crux={crux} index={idx} />
                 ))}
               </div>
-            </motion.div>
-          )}
+            ) : (
+              <p className="text-secondary text-sm text-center py-3 italic">
+                No key cruxes identified in this content
+              </p>
+            )}
+          </motion.div>
 
-          {/* Fallacies */}
-          {extracted.potentialFallacies.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-              className="space-y-4"
-            >
-              <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
-                <AlertTriangle className="h-4 w-4 text-yellow-600" />
-                Potential Fallacies Detected
-              </h3>
+          {/* ── Fallacies ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="space-y-4"
+          >
+            <SectionDivider label="Detected Fallacies" icon={AlertTriangle} />
+            {hasFallacies ? (
               <div className="space-y-3">
                 {extracted.potentialFallacies.map((fallacy, idx) => (
                   <FallacyCard key={idx} fallacy={fallacy} />
                 ))}
               </div>
-            </motion.div>
-          )}
+            ) : (
+              <EmptyPositiveState
+                label="No logical fallacies detected in this analysis"
+                icon={ShieldCheck}
+              />
+            )}
+          </motion.div>
 
-          {/* Detected Biases */}
-          {extracted.detectedBiases && extracted.detectedBiases.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.28 }}
-              className="space-y-4"
-            >
-              <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
-                <Brain className="h-4 w-4 text-rust-600" />
-                Detected Biases
-              </h3>
+          {/* ── Detected Biases ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.28 }}
+            className="space-y-4"
+          >
+            <SectionDivider label="Detected Biases" icon={Brain} />
+            {hasBiases ? (
               <div className="space-y-3">
-                {extracted.detectedBiases.map((bias, idx) => (
+                {extracted.detectedBiases!.map((bias, idx) => (
                   <BiasCard key={idx} bias={bias} />
                 ))}
               </div>
-            </motion.div>
-          )}
+            ) : (
+              <EmptyPositiveState
+                label="No significant biases detected in this analysis"
+                icon={Shield}
+              />
+            )}
+          </motion.div>
 
-          {/* Judging Results */}
+          {/* ── Judging Results ── */}
           {judgingResult && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="pt-8 border-t border-stone-200/60"
+              className="pt-2"
             >
               <JudgingResults result={judgingResult} />
             </motion.div>
           )}
 
-          {/* Related Topics */}
+          {/* ── Related Topics ── */}
           {relatedTopics.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35 }}
-              className="pt-8 border-t border-stone-200/60 space-y-4"
+              className="space-y-4"
             >
               <div className="flex items-center justify-between">
-                <h3 className="font-serif font-semibold text-primary flex items-center gap-2">
-                  <MessageSquare className="h-4 w-4 text-deep" />
-                  Related Topics
-                </h3>
+                <SectionDivider label="Related Topics" icon={MessageSquare} />
                 <Link
                   href="/topics"
-                  className="text-sm text-deep hover:underline"
+                  className="text-sm text-deep hover:underline flex-shrink-0 ml-4"
                 >
                   View all topics
                 </Link>
@@ -601,28 +739,31 @@ export function AnalysisView({
             </motion.div>
           )}
 
-          {/* Bottom CTA — Run Another Analysis */}
+          {/* ── Bottom CTA ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="pt-8 border-t border-stone-200/60"
+            className="pt-4"
           >
-            <div className="bg-[#fefcf9] border border-stone-200/60 rounded-xl p-6 md:p-8 text-center space-y-4">
-              <h3 className="font-serif text-xl font-bold text-primary">
-                Have your own text to analyze?
-              </h3>
-              <p className="text-secondary text-sm max-w-md mx-auto">
-                Paste a debate, article, or discussion and get AI-powered
-                argument extraction, fallacy detection, and multi-model judging.
-              </p>
-              <Link
-                href="/analyze"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg transition-all"
-              >
-                <Sparkles className="h-4 w-4" />
-                Run Another Analysis
-              </Link>
+            <div className="relative overflow-hidden bg-gradient-to-br from-[#fefcf9] to-deep/[0.03] border border-stone-200/60 rounded-2xl p-6 md:p-8 text-center space-y-4">
+              <div className="absolute inset-0 bg-gradient-to-r from-rust-500/[0.02] via-transparent to-deep/[0.02] pointer-events-none" />
+              <div className="relative">
+                <h3 className="font-serif text-xl font-bold text-primary">
+                  Have your own text to analyze?
+                </h3>
+                <p className="text-secondary text-sm max-w-md mx-auto mt-2">
+                  Paste a debate, article, or discussion and get AI-powered
+                  argument extraction, fallacy detection, and multi-model judging.
+                </p>
+                <Link
+                  href="/analyze"
+                  className="inline-flex items-center gap-2 px-6 py-3 mt-4 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 transition-all"
+                >
+                  <Sparkles className="h-4 w-4" />
+                  Run Another Analysis
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>

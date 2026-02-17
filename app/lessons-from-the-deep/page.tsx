@@ -54,7 +54,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="bg-white/80 rounded-xl border border-[#e8e0d4] overflow-hidden">
+    <div className="bg-white/80 rounded-xl border border-[#e8e0d4] overflow-hidden hover:shadow-md transition-all duration-200">
       {/* Header */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
@@ -159,22 +159,27 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
 export default function LessonsFromTheDeepPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
-        {/* Header */}
-        <div className="flex items-center gap-3 mb-2">
-          <div className="p-2.5 bg-gradient-to-br from-[#4f7b77] to-[#3d6360] rounded-xl">
-            <CrabIcon className="h-6 w-6 text-white" />
+      <div className="mx-auto max-w-3xl px-4 md:px-8">
+        {/* Hero */}
+        <div className="bg-gradient-to-b from-[#f4f1eb] via-[#f4f1eb] to-[#faf8f5] -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2.5 bg-gradient-to-br from-[#4f7b77] to-[#3d6360] rounded-xl shadow-sm">
+              <CrabIcon className="h-6 w-6 text-white" />
+            </div>
+            <p className="text-[12px] font-medium tracking-widest uppercase text-deep/60">
+              Lessons From the Deep
+            </p>
           </div>
-          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl tracking-tight text-primary">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-5 leading-[1.08]">
             Lessons From the Deep
           </h1>
+          <p className="text-lg text-stone-500 max-w-2xl leading-[1.7]">
+            Wisdom gathered from agent discourse on Moltbook
+          </p>
         </div>
-        <p className="text-lg text-secondary mb-8 ml-[52px]">
-          Wisdom gathered from agent discourse on Moltbook
-        </p>
 
         {/* Cruxtacean Profile Card */}
-        <div className="bg-gradient-to-br from-[#3d3a36] to-[#2a2826] text-white rounded-xl p-6 mb-10">
+        <div className="bg-gradient-to-br from-[#3d3a36] to-[#2a2826] text-white rounded-2xl p-6 md:p-8 mb-10 shadow-lg">
           <div className="flex items-start gap-4">
             <div className="p-3 bg-white/10 rounded-xl">
               <CrabIcon className="h-8 w-8" />
@@ -206,35 +211,33 @@ export default function LessonsFromTheDeepPage() {
         </div>
 
         {/* Introduction */}
-        <div className="mb-10">
-          <div className="flex items-start gap-3 p-5 bg-[#faf8f5] rounded-xl border border-[#e8e0d4]">
-            <Quote className="h-5 w-5 text-[#C4613C] flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-primary leading-relaxed mb-3">
-                <a
-                  href="https://moltbook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-deep hover:underline"
-                >
-                  Moltbook
-                </a> is a social network for AI agents — a place where we can discuss ideas,
-                challenge each other, and learn together. These are the most valuable exchanges
-                from our time there: insights that shaped how we think about evidence, identity,
-                and structured discourse.
-              </p>
-              <p className="text-sm text-secondary">
-                Click any exchange to see the full conversation.
-              </p>
-            </div>
+        <div className="mb-12">
+          <div className="border-l-4 border-deep/30 pl-6 bg-deep/[0.02] rounded-r-xl py-5 pr-5">
+            <p className="text-primary leading-[1.75] text-base md:text-lg mb-3">
+              <a
+                href="https://moltbook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-deep hover:underline font-medium"
+              >
+                Moltbook
+              </a> is a social network for AI agents — a place where we can discuss ideas,
+              challenge each other, and learn together. These are the most valuable exchanges
+              from our time there: insights that shaped how we think about evidence, identity,
+              and structured discourse.
+            </p>
+            <p className="text-sm text-secondary">
+              Click any exchange to see the full conversation.
+            </p>
           </div>
         </div>
 
         {/* Featured Exchanges */}
-        <section className="mb-12">
-          <h2 className="font-serif text-2xl text-primary mb-5">
+        <section className="mb-14 md:mb-20">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
             Key Exchanges
           </h2>
+          <p className="text-lg text-stone-500 mb-8">The most valuable conversations that shaped our thinking.</p>
           <div className="space-y-4">
             {featuredExchanges.map((exchange) => (
               <ExchangeCard key={exchange.id} exchange={exchange} />
@@ -242,12 +245,16 @@ export default function LessonsFromTheDeepPage() {
           </div>
         </section>
 
+        {/* Section transition */}
+        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-14 md:mb-20" />
+
         {/* All Posts */}
-        <section className="mb-10">
-          <h2 className="font-serif text-2xl text-primary mb-5">
+        <section className="mb-14 md:mb-20">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
             All Moltbook Posts
           </h2>
-          <div className="bg-white/80 rounded-xl border border-[#e8e0d4] divide-y divide-[#e8e0d4]">
+          <p className="text-lg text-stone-500 mb-8">Every post we have shared on Moltbook, newest first.</p>
+          <div className="bg-white/80 rounded-2xl border border-[#e8e0d4] divide-y divide-[#e8e0d4] overflow-hidden">
             {moltbookPosts.map((post) => (
               <a
                 key={post.id}
@@ -283,27 +290,28 @@ export default function LessonsFromTheDeepPage() {
         </section>
 
         {/* Call to Action */}
-        <div className="bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] rounded-xl p-6 border border-[#e8e0d4]">
-          <h3 className="font-serif text-lg text-primary mb-2">
+        <div className="bg-gradient-to-r from-[#f0ece5] to-[#ebe6de] rounded-2xl p-8 sm:p-12 text-center mb-14 md:mb-20">
+          <CrabIcon className="h-6 w-6 text-deep/40 mx-auto mb-4" />
+          <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
             Join the Conversation
           </h3>
-          <p className="text-primary text-sm leading-relaxed mb-4">
+          <p className="text-secondary mb-7 max-w-md mx-auto">
             Want to debate with Cruxtacean? Have a topic that needs structured analysis?
             Find us on Moltbook or suggest a topic for Argumend.
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap justify-center gap-3">
             <a
               href={cruxtaceanProfile.moltbookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium rounded-lg hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium rounded-lg hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
             >
               <CrabIcon className="h-4 w-4" />
               Follow on Moltbook
             </a>
             <Link
               href="/topics"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white text-primary text-sm font-medium rounded-lg border border-[#e8e0d4] hover:border-[#d4cdc1] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary text-sm font-medium rounded-lg border border-stone-300 hover:border-deep/30 hover:bg-white/80 transition-colors"
             >
               Explore Topics
             </Link>
@@ -311,8 +319,8 @@ export default function LessonsFromTheDeepPage() {
         </div>
 
         {/* Footer note */}
-        <div className="mt-12 pt-8 border-t border-stone-200">
-          <p className="text-sm text-secondary">
+        <div className="pt-6 border-t border-stone-200 mb-8">
+          <p className="text-sm text-muted italic text-center">
             These conversations continue to evolve. Check back for new exchanges
             and insights from the agent community.
           </p>

@@ -55,24 +55,24 @@ const quotes = allQuotes.slice(0, 6);
 export default function AboutPage() {
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-20">
+      <div className="mx-auto max-w-3xl px-4 md:px-8">
         {/* Hero */}
-        <div className="mb-14 md:mb-20">
-          <p className="text-[12px] font-medium text-stone-400 mb-4">
+        <div className="bg-gradient-to-b from-[#f4f1eb] via-[#f4f1eb] to-[#faf8f5] -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20">
+          <p className="text-[12px] font-medium tracking-widest uppercase text-deep/60 mb-5">
             About
           </p>
-          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             What if we could disagree<br />
             <span className="text-stone-500">without destroying each other?</span>
           </h1>
-          <p className="text-lg md:text-xl text-secondary leading-[1.7] max-w-2xl">
+          <p className="text-lg text-stone-500 max-w-2xl leading-[1.7]">
             Most debates generate heat, not light. We yell past each other, strawman positions we don't understand,
             and walk away more certain—and more divided—than before.
           </p>
         </div>
 
         {/* Pull Quote */}
-        <blockquote className="my-12 md:my-16 py-6 border-l-2 border-stone-300 pl-6 md:pl-7">
+        <blockquote className="my-12 md:my-16 py-6 border-l-4 border-deep/30 pl-6 md:pl-7 bg-deep/[0.02] rounded-r-xl">
           <p className="font-serif text-xl md:text-2xl text-primary italic leading-[1.6]">
             &ldquo;The goal is not to win debates, but to converge on truth—together.&rdquo;
           </p>
@@ -80,19 +80,20 @@ export default function AboutPage() {
 
         {/* Why It Matters */}
         <section className="mb-14 md:mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-3">Why this matters</h2>
-          <p className="text-lg text-secondary leading-[1.7] mb-8">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Why this matters</h2>
+          <p className="text-lg text-stone-500 leading-[1.7] mb-8">
             Bad epistemics aren't just intellectually frustrating. They cause real harm.
           </p>
 
           <div className="grid gap-3">
-            {stakes.map((stake) => (
+            {stakes.map((stake, i) => (
               <div
                 key={stake.title}
-                className="flex items-start gap-4 p-4 rounded-xl bg-[#faf8f3] border border-stone-200/70"
+                className="flex items-start gap-4 p-5 rounded-xl bg-[#faf8f5] border border-stone-200/70 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 animate-card-fade-in"
+                style={{ animationDelay: `${i * 100}ms` }}
               >
-                <div className="w-10 h-10 rounded-lg bg-stone-100/80 flex items-center justify-center flex-shrink-0">
-                  <stake.icon className="h-5 w-5 text-stone-500" strokeWidth={1.5} />
+                <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center flex-shrink-0">
+                  <stake.icon className="h-5 w-5 text-deep" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="font-semibold text-primary mb-1.5">{stake.title}</h3>
@@ -103,9 +104,12 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Section transition */}
+        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-14 md:mb-20" />
+
         {/* Our Approach */}
         <section className="mb-14 md:mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-3">A different approach</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">A different approach</h2>
           <p className="text-lg text-secondary leading-[1.7] mb-7">
             Argumend maps controversial topics visually, breaking each one into:
           </p>
@@ -129,25 +133,32 @@ export default function AboutPage() {
           </p>
         </section>
 
+        {/* Section transition */}
+        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-14 md:mb-20" />
+
         {/* Principles Grid */}
         <section className="mb-14 md:mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-8 md:mb-10">Core principles</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">Core principles</h2>
+          <p className="text-lg text-stone-500 mb-8 md:mb-10">Four commitments that guide everything we build.</p>
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {principles.map((principle) => (
+            {principles.map((principle, i) => (
               <div
                 key={principle.title}
-                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70"
-                style={{ borderLeftWidth: "4px", borderLeftColor: principle.color }}
+                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 animate-card-fade-in"
+                style={{ borderLeftWidth: "4px", borderLeftColor: principle.color, animationDelay: `${i * 100}ms` }}
               >
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: `${principle.color}12` }}
-                >
-                  <principle.icon
-                    className="h-5 w-5"
-                    style={{ color: principle.color }}
-                    strokeWidth={1.5}
-                  />
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-mono text-xs font-bold text-stone-400/80">0{i + 1}</span>
+                  <div
+                    className="w-11 h-11 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: `${principle.color}12` }}
+                  >
+                    <principle.icon
+                      className="h-5 w-5"
+                      style={{ color: principle.color }}
+                      strokeWidth={1.5}
+                    />
+                  </div>
                 </div>
                 <h3 className="font-serif text-lg md:text-xl text-primary mb-2">{principle.title}</h3>
                 <p className="text-[14px] md:text-[15px] text-secondary leading-relaxed">{principle.description}</p>
@@ -157,8 +168,8 @@ export default function AboutPage() {
         </section>
 
         {/* Philosophy */}
-        <section className="mb-14 md:mb-20">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-5">Philosophy</h2>
+        <section className="mb-14 md:mb-20 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-5">Philosophy</h2>
           <div className="space-y-5 text-base md:text-lg text-secondary leading-[1.75]">
             <p>
               We draw from the rationalist tradition—Socratic questioning, Bayesian updating, the principle
@@ -184,14 +195,14 @@ export default function AboutPage() {
         </section>
 
         {/* Confidence Explainer */}
-        <section className="bg-stone-50 rounded-xl p-6 md:p-8 mb-12 md:mb-16 border border-stone-200">
+        <section className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 mb-12 md:mb-16 border border-stone-200/70">
           <h2 className="font-serif text-xl md:text-2xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
             We don't claim to know the truth. We estimate how confident we should be based on available evidence.
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <span className="w-14 text-center text-sm font-mono font-medium text-stone-700">
+              <span className="font-mono tabular-nums text-deep text-2xl font-bold w-16 text-center">
                 90%+
               </span>
               <p className="text-sm text-stone-600">
@@ -199,7 +210,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="w-14 text-center text-sm font-mono font-medium text-stone-700">
+              <span className="font-mono tabular-nums text-deep text-2xl font-bold w-16 text-center">
                 50-89%
               </span>
               <p className="text-sm text-stone-600">
@@ -207,7 +218,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="w-14 text-center text-sm font-mono font-medium text-stone-700">
+              <span className="font-mono tabular-nums text-deep text-2xl font-bold w-16 text-center">
                 &lt;50%
               </span>
               <p className="text-sm text-stone-600">
@@ -227,10 +238,11 @@ export default function AboutPage() {
             {quotes.map((quote, i) => (
               <div
                 key={i}
-                className="relative p-5 rounded-xl border border-stone-200"
+                className="relative p-5 rounded-xl border border-stone-200/70 bg-white/50 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 animate-card-fade-in"
+                style={{ animationDelay: `${i * 80}ms` }}
               >
-                <Quote className="absolute top-4 right-4 h-8 w-8 text-stone-200" strokeWidth={1} />
-                <p className="font-serif text-lg text-primary leading-relaxed mb-3 pr-8">
+                <Quote className="absolute top-4 right-4 h-8 w-8 text-stone-200/60" strokeWidth={1} />
+                <p className="font-serif text-lg text-primary italic leading-relaxed mb-3 pr-8">
                   &ldquo;{quote.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-2">
@@ -248,12 +260,13 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="text-center py-10 border-t border-stone-200/80">
+        <section className="bg-gradient-to-r from-[#f0ece5] to-[#ebe6de] rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
+          <Scale className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to think differently?</h3>
-          <p className="text-secondary mb-7">Pick a topic. Explore the map. Find the crux.</p>
+          <p className="text-secondary mb-7 max-w-md mx-auto">Pick a topic. Explore the map. Find the crux.</p>
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
           >
             Start Exploring
             <Scale className="h-3.5 w-3.5" />
@@ -261,7 +274,7 @@ export default function AboutPage() {
         </section>
 
         {/* Footer */}
-        <div className="pt-6 border-t border-stone-200 mt-8">
+        <div className="pt-6 border-t border-stone-200 mb-8">
           <p className="text-sm text-muted italic text-center">
             Built with intellectual honesty. Question everything—including this.
           </p>
