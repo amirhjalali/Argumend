@@ -88,7 +88,7 @@ export default function NotFound() {
             ARGUMEND
           </span>
           <span className="text-[10px] font-sans text-stone-400">
-            Map the Truth
+            Disagree better.
           </span>
         </Link>
       </div>

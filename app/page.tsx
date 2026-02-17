@@ -103,6 +103,8 @@ function CanvasExperience() {
             className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
               sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
+            role="button"
+            aria-label="Close sidebar"
             onClick={sidebar.close}
           />
 
@@ -129,11 +131,11 @@ function CanvasExperience() {
           </div>
 
           {/* Hero Content */}
-          <div className="relative flex-1 min-w-0 overflow-y-auto">
+          <main id="main-content" className="relative flex-1 min-w-0 overflow-y-auto">
             <QuickStartBanner onTopicSelect={handleTopicSelect} />
             <HeroAnalyze onTopicSelect={handleTopicSelect} />
             <Footer />
-          </div>
+          </main>
         </div>
       </div>
     );
@@ -153,6 +155,8 @@ function CanvasExperience() {
           className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
             sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
+          role="button"
+          aria-label="Close sidebar"
           onClick={sidebar.close}
         />
 
@@ -179,7 +183,7 @@ function CanvasExperience() {
         </div>
 
         {/* Canvas Area */}
-        <div className="relative flex-1 min-w-0">
+        <main id="main-content" className="relative flex-1 min-w-0">
           {currentView === "scales" ? (
             <ScalesOfEvidence />
           ) : currentView === "debate" ? (
@@ -236,7 +240,7 @@ function CanvasExperience() {
               <CruxModal />
             </div>
           )}
-        </div>
+        </main>
       </div>
     </div>
   );

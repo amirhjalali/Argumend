@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import {
@@ -294,7 +292,7 @@ export default function ForEducatorsPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
-              href="/"
+              href="/topics"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
             >
               Start Exploring — Free

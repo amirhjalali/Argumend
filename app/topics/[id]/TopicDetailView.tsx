@@ -264,7 +264,7 @@ function CruxCard({ crux }: { crux: Crux }) {
 
       <div className="space-y-3">
         <div>
-          <span className="text-xs font-medium text-stone-400 uppercase tracking-wide">
+          <span className="text-xs font-medium text-stone-400 uppercase tracking-widest">
             Methodology
           </span>
           <p className="text-sm text-stone-700 leading-relaxed mt-1.5 bg-white/60 rounded-lg p-4 border border-stone-200/50 font-mono text-[13px]">
@@ -274,7 +274,7 @@ function CruxCard({ crux }: { crux: Crux }) {
 
         <div className="flex items-center gap-4">
           <div>
-            <span className="text-xs font-medium text-stone-400 uppercase tracking-wide">
+            <span className="text-xs font-medium text-stone-400 uppercase tracking-widest">
               Cost to Verify
             </span>
             <p className="text-sm text-stone-700 mt-0.5">{crux.cost_to_verify}</p>
@@ -322,7 +322,7 @@ function PillarSection({
             <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
               <UserX className="h-3.5 w-3.5 text-red-500" strokeWidth={1.5} />
             </div>
-            <span className="text-xs font-semibold text-red-500 uppercase tracking-wide">
+            <span className="text-xs font-semibold text-red-500 uppercase tracking-widest">
               What a Skeptic Would Say
             </span>
           </div>
@@ -336,7 +336,7 @@ function PillarSection({
             <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
               <UserCheck className="h-3.5 w-3.5 text-emerald-600" strokeWidth={1.5} />
             </div>
-            <span className="text-xs font-semibold text-emerald-600 uppercase tracking-wide">
+            <span className="text-xs font-semibold text-emerald-600 uppercase tracking-widest">
               What a Proponent Would Say
             </span>
           </div>
@@ -349,7 +349,7 @@ function PillarSection({
       {/* Evidence */}
       {(forEvidence.length > 0 || againstEvidence.length > 0) && (
         <div className="mb-5">
-          <h4 className="text-sm font-medium text-stone-400 uppercase tracking-wide mb-3">
+          <h4 className="text-sm font-medium text-stone-400 uppercase tracking-widest mb-3">
             Evidence ({(pillar.evidence ?? []).length} items)
           </h4>
           <div className="space-y-3">
@@ -392,7 +392,7 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
       {/* Confidence bar */}
       <div className="mb-3">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-[10px] font-medium text-stone-400 uppercase tracking-wide">
+          <span className="text-[10px] font-medium text-stone-400 uppercase tracking-widest">
             Confidence
           </span>
           <span className="font-mono text-xs tabular-nums text-stone-600 font-semibold">
@@ -482,7 +482,7 @@ export default function TopicDetailView({
           </nav>
 
           {/* Hero */}
-          <header className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <header className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
             <div className="flex flex-wrap items-center gap-2 mb-4">
               {/* Category pill */}
               <span
@@ -556,7 +556,7 @@ export default function TopicDetailView({
           </header>
 
           {/* ── Scan View ── */}
-          <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
             {/* Section label */}
             <p className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-5">
               30-Second Summary
@@ -702,7 +702,7 @@ export default function TopicDetailView({
           </section>
 
           {/* ── Where Do You Stand? ── */}
-          <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 overflow-hidden">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 overflow-hidden">
             {/* Part 1: The Prompt */}
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
@@ -772,7 +772,7 @@ export default function TopicDetailView({
                   <div className="pt-4 border-t border-stone-200/60">
                     {stance === "agree" && (
                       <>
-                        <p className="text-xs font-medium text-stone-400 uppercase tracking-wide mb-2">
+                        <p className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-2">
                           The strongest challenge to your position:
                         </p>
                         <blockquote className="border-l-2 border-deep pl-4 mb-3">
@@ -788,7 +788,7 @@ export default function TopicDetailView({
 
                     {stance === "disagree" && (
                       <>
-                        <p className="text-xs font-medium text-stone-400 uppercase tracking-wide mb-2">
+                        <p className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-2">
                           The strongest defense of the claim:
                         </p>
                         <blockquote className="border-l-2 border-rust-500 pl-4 mb-3">
@@ -805,7 +805,7 @@ export default function TopicDetailView({
                     {stance === "unsure" && (
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <p className="text-xs font-medium text-stone-400 uppercase tracking-wide mb-2">
+                          <p className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-2">
                             Against
                           </p>
                           <blockquote className="border-l-2 border-deep pl-4">
@@ -815,7 +815,7 @@ export default function TopicDetailView({
                           </blockquote>
                         </div>
                         <div>
-                          <p className="text-xs font-medium text-rust-600 uppercase tracking-wide mb-2">
+                          <p className="text-xs font-medium text-rust-600 uppercase tracking-widest mb-2">
                             For
                           </p>
                           <blockquote className="border-l-2 border-rust-500 pl-4">
@@ -850,7 +850,7 @@ export default function TopicDetailView({
           </section>
 
           {/* Meta Claim Expanded */}
-          <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-xl sm:text-2xl text-primary mb-3">
               The Claim
             </h2>
@@ -872,7 +872,7 @@ export default function TopicDetailView({
           </section>
 
           {/* Pillars */}
-          <section id="pillars" className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <section id="pillars" className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-xl sm:text-2xl text-primary mb-6">
               Argument Pillars
             </h2>
@@ -892,7 +892,7 @@ export default function TopicDetailView({
 
           {/* References */}
           {topic.references && topic.references.length > 0 && (
-            <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+            <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
               <h2 className="font-serif text-xl sm:text-2xl text-primary mb-4">
                 References
               </h2>
@@ -915,7 +915,7 @@ export default function TopicDetailView({
           )}
 
           {/* CTA */}
-          <section className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 text-center">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 text-center">
             <h2 className="font-serif text-xl sm:text-2xl text-primary mb-2">
               Explore interactively
             </h2>

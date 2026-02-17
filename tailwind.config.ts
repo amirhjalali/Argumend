@@ -15,7 +15,7 @@ const config: Config = {
         paper: "#fefdfb", // Lightweight paper for nodes
         overlay: "#e7e0d5",
 
-        primary: "#1f1f1d",
+        primary: "#3d3a36",
         secondary: "#6d645c",
         muted: "#9c9288",
 

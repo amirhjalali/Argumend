@@ -75,7 +75,7 @@ export function ShareButtons({ title, url, description }: ShareButtonsProps) {
         title={copied ? "Copied!" : "Copy link"}
       >
         {copied ? (
-          <Check className="h-4 w-4 text-[#4f7b77]" />
+          <Check className="h-4 w-4 text-deep" />
         ) : (
           <Copy className="h-4 w-4" />
         )}
@@ -134,7 +134,7 @@ export function ShareButtons({ title, url, description }: ShareButtonsProps) {
 
       {/* Copied toast */}
       {copied && (
-        <span className="ml-1 text-xs font-medium text-[#4f7b77] animate-in fade-in">
+        <span className="ml-1 text-xs font-medium text-deep animate-in fade-in">
           Copied!
         </span>
       )}

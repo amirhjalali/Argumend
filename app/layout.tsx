@@ -7,7 +7,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://argumend.org"),
+  metadataBase: new URL("https://www.argumend.org"),
   title: {
     default: "ARGUMEND — Map Arguments, Not Win Them",
     template: "%s | ARGUMEND",
@@ -27,17 +27,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://argumend.org",
+    url: "https://www.argumend.org",
     siteName: "ARGUMEND",
     title: "ARGUMEND — Map Arguments, Not Win Them",
     description:
       "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+    images: [
+      {
+        url: "https://argumend.org/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "ARGUMEND — Map Arguments, Not Win Them",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ARGUMEND — Map Arguments, Not Win Them",
     description:
       "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+    images: ["https://argumend.org/og-default.png"],
   },
   robots: {
     index: true,
@@ -63,6 +72,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-primary focus:rounded-lg focus:shadow-lg"
+        >
+          Skip to content
+        </a>
         <SessionProvider>{children}</SessionProvider>
         <script
           type="application/ld+json"

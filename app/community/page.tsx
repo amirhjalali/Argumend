@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { MessageSquare, Shield, Scale, Lightbulb, ArrowRight } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
@@ -178,7 +176,7 @@ export default function CommunityPage() {
             together. Have a topic suggestion? We&apos;d love to hear from you.
           </p>
           <Link
-            href="/"
+            href="/topics"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
           >
             Explore Topics
@@ -188,7 +186,7 @@ export default function CommunityPage() {
 
         <div className="pt-6 border-t border-stone-200 mb-8">
           <p className="text-sm text-muted italic text-center">
-            Good discourse is a skill. These principles help us practice it together.
+            Building bridges through better arguments.
           </p>
         </div>
       </div>

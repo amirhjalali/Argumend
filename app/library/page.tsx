@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ExternalLink, BookOpen, Library as LibraryIcon, ArrowRight } from "lucide-react";
 import { topics } from "@/data/topics";
@@ -69,7 +67,7 @@ export default function LibraryPage() {
                   {topics.map((topic) => (
                     <tr key={topic.id} className="hover:bg-[#faf8f5] transition-colors">
                       <td className="px-5 py-3.5 text-sm md:text-base">
-                        <Link href={`/?topic=${topic.id}`} className="font-medium text-primary hover:text-deep transition-colors">
+                        <Link href={`/topics/${topic.id}`} className="font-medium text-primary hover:text-deep transition-colors">
                           {topic.title}
                         </Link>
                       </td>

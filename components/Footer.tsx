@@ -29,14 +29,6 @@ const FOOTER_COLUMNS = [
       { label: "Perspectives", href: "/perspectives" },
     ],
   },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
 ];
 
 export function Footer() {
@@ -56,7 +48,7 @@ export function Footer() {
         </div>
 
         {/* Link columns */}
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           {FOOTER_COLUMNS.map((column) => (
             <div key={column.title}>
               <h3 className="text-xs font-medium uppercase tracking-wider text-stone-400">
@@ -67,7 +59,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-stone-500 transition-colors duration-200 hover:text-[#4f7b77]"
+                      className="text-sm text-stone-500 transition-colors duration-200 hover:text-deep"
                     >
                       {link.label}
                     </Link>

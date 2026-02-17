@@ -72,15 +72,14 @@ export function NavigationPath() {
   const getVariantColor = (variant: string) => {
     switch (variant) {
       case "meta":
-        return "#C4613C";
       case "proponent":
-        return "#C4613C";
+        return "var(--color-rust-500, #C4613C)";
       case "skeptic":
-        return "#8B5A3C";
+        return "var(--color-skeptic, #8B5A3C)";
       case "evidence":
-        return "#b05434";
+        return "var(--color-rust-600, #b05434)";
       case "crux":
-        return "#a23b3b";
+        return "var(--color-crux, #a23b3b)";
       default:
         return "#78716c";
     }
@@ -89,7 +88,7 @@ export function NavigationPath() {
   return (
     <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 max-w-[600px]">
       <div className="flex items-center gap-1 rounded-lg border border-stone-200/60 bg-[#fefcf9]/90 backdrop-blur-sm px-3 py-2 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
-        <Home className="h-3.5 w-3.5 text-[#C4613C] flex-shrink-0" />
+        <Home className="h-3.5 w-3.5 text-rust-500 flex-shrink-0" />
 
         {path.map((item, index) => (
           <div key={item.id} className="flex items-center">
@@ -111,7 +110,7 @@ export function NavigationPath() {
                 {item.title.length > 25 ? `${item.title.slice(0, 25)}...` : item.title}
               </span>
               {index === path.length - 1 && (
-                <Target className="h-3 w-3 text-[#C4613C] flex-shrink-0" />
+                <Target className="h-3 w-3 text-rust-500 flex-shrink-0" />
               )}
             </button>
           </div>

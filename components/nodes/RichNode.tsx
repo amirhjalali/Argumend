@@ -17,9 +17,9 @@ import { getVariantStyle } from "@/lib/variantStyles";
 function getStatusStyle(status: string): string {
   switch (status) {
     case "verified":
-      return "bg-[#4f7b77]/20 text-[#3d6360]";
+      return "bg-deep/20 text-deep-dark";
     case "theoretical":
-      return "bg-[#C4613C]/20 text-[#8b3f27]";
+      return "bg-rust-500/20 text-rust-700";
     default:
       return "bg-stone-200 text-stone-600";
   }
@@ -90,8 +90,8 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         {isCrux && data.detail && (
           <div className="mb-4 p-3 rounded-xl bg-gradient-to-br from-[#a23b3b]/10 to-[#a23b3b]/5 border border-[#a23b3b]/20">
             <div className="flex items-start gap-2 mb-2">
-              <Lightbulb className="h-4 w-4 text-[#a23b3b] mt-0.5 flex-shrink-0" strokeWidth={2} />
-              <p className="text-xs font-semibold text-[#a23b3b] uppercase tracking-wide">
+              <Lightbulb className="h-4 w-4 text-crux mt-0.5 flex-shrink-0" strokeWidth={2} />
+              <p className="text-xs font-semibold text-crux uppercase tracking-wide">
                 The Key Question
               </p>
             </div>

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { citations, researchSections } from "@/data/research";
@@ -32,7 +30,7 @@ function InlineCitation({ ids, index }: { ids: string[]; index: Map<string, numb
           <sup key={id} className="ml-[1px]">
             <a
               href={`#ref-${id}`}
-              className="text-[#4f7b77] hover:text-[#3d6561] text-[11px] font-medium no-underline hover:underline"
+              className="text-deep hover:text-deep-dark text-[11px] font-medium no-underline hover:underline"
             >
               [{num}]
             </a>
@@ -67,7 +65,7 @@ function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) 
               href={citation.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#4f7b77] hover:text-[#3d6561] inline-flex items-center gap-1 hover:underline"
+              className="text-deep hover:text-deep-dark inline-flex items-center gap-1 hover:underline"
             >
               Link
               <ExternalLink className="h-3 w-3" />
@@ -149,7 +147,7 @@ export default function ResearchPage() {
         {/* Section navigation */}
         <div className="bg-[#faf8f3]/60 border border-stone-200/70 rounded-lg p-5 md:p-6 mb-14 md:mb-20">
           <div className="flex items-center gap-2.5 mb-4">
-            <BookOpen className="h-4 w-4 text-[#4f7b77]" strokeWidth={1.8} />
+            <BookOpen className="h-4 w-4 text-deep" strokeWidth={1.8} />
             <h3 className="text-sm font-medium text-primary">In this article</h3>
           </div>
           <ol className="space-y-2">
@@ -157,7 +155,7 @@ export default function ResearchPage() {
               <li key={section.id}>
                 <a
                   href={`#${section.id}`}
-                  className="text-sm text-stone-500 hover:text-[#4f7b77] transition-colors flex items-start gap-2"
+                  className="text-sm text-stone-500 hover:text-deep transition-colors flex items-start gap-2"
                 >
                   <span className="text-stone-400 font-mono text-xs mt-0.5">
                     {i + 1}.
@@ -188,7 +186,7 @@ export default function ResearchPage() {
             Every topic analysis on Argumend implements these evidence-based principles.
           </p>
           <Link
-            href="/"
+            href="/topics"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
           >
             Explore Topics

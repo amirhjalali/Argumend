@@ -82,8 +82,8 @@ export const LLM_OPTIONS: LLMOption[] = [
     id: "claude",
     name: "Claude",
     fullName: "Claude Sonnet 4",
-    color: "#D97706",
-    bgLight: "#FEF3C7",
+    color: "#C4613C",
+    bgLight: "#fdf5f2",
     Icon: ClaudeIcon,
   },
   {

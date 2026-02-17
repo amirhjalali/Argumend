@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { AppShell } from "@/components/AppShell";

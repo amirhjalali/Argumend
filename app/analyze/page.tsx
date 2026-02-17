@@ -22,6 +22,7 @@ import {
   PenLine,
 } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
+import { Footer } from "@/components/Footer";
 import { Sidebar } from "@/components/Sidebar";
 import { useSidebarState } from "@/hooks/useSidebarState";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
@@ -59,6 +60,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
+        aria-expanded={isExpanded}
         className="w-full p-3 md:p-4 text-left hover:bg-white/50 transition-colors"
       >
         <div className="flex items-center justify-between">
@@ -312,6 +314,8 @@ export default function AnalyzePage() {
           className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
             sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
+          role="button"
+          aria-label="Close sidebar"
           onClick={sidebar.close}
         />
 
@@ -338,7 +342,7 @@ export default function AnalyzePage() {
         </div>
 
         {/* Main content */}
-        <div className="relative flex-1 min-w-0 overflow-y-auto">
+        <main id="main-content" className="relative flex-1 min-w-0 overflow-y-auto">
           {/* Subtle top gradient for visual warmth */}
           <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#f4f1eb]/60 to-transparent pointer-events-none" />
 
@@ -672,8 +676,10 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
               </motion.div>
             )}
           </div>
-        </div>
+        </main>
       </div>
+
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import {
@@ -445,7 +443,7 @@ export default function MethodologyPage() {
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                <span className="w-14 text-center text-sm font-mono font-medium text-[#C4613C]">
+                <span className="w-14 text-center text-sm font-mono font-medium text-rust-500">
                   50-89%
                 </span>
                 <div className="flex-1 h-2 bg-stone-200/50 rounded-full overflow-hidden">
@@ -525,7 +523,7 @@ export default function MethodologyPage() {
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
             <Link
-              href="/"
+              href="/topics"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-300 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-white/60 transition-colors"
             >
               Explore Pre-Built Topics

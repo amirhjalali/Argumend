@@ -29,7 +29,7 @@ export default function AnalyzePageError({
             </svg>
           </div>
 
-          <h1 className="font-serif text-2xl text-[#3d3a36] mb-2">
+          <h1 className="font-serif text-2xl text-primary mb-2">
             Something went wrong
           </h1>
           <p className="text-stone-500 font-sans text-sm mb-6 leading-relaxed">
@@ -46,7 +46,7 @@ export default function AnalyzePageError({
             </button>
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-300 text-[#3d3a36] text-sm font-medium hover:bg-stone-50 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-300 text-primary text-sm font-medium hover:bg-stone-50 transition-colors"
             >
               Back to Home
             </Link>

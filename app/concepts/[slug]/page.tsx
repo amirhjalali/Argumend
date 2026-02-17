@@ -51,13 +51,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const firstParagraph = concept.description.split("\n\n")[0];
 
   return {
-    title: `${concept.title} -- Key Concept | Argumend`,
+    title: `${concept.title} -- Key Concept`,
     description: firstParagraph.slice(0, 160),
     alternates: {
       canonical: `https://argumend.org/concepts/${concept.id}`,
     },
     openGraph: {
-      title: `${concept.title} -- Key Concept | Argumend`,
+      title: `${concept.title} -- Key Concept`,
       description: firstParagraph.slice(0, 160),
       url: `https://argumend.org/concepts/${concept.id}`,
       type: "article",
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: "summary_large_image",
-      title: `${concept.title} -- Key Concept | Argumend`,
+      title: `${concept.title} -- Key Concept`,
       description: firstParagraph.slice(0, 160),
     },
   };

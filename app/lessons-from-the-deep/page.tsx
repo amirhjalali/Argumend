@@ -58,6 +58,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
       {/* Header */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
+        aria-expanded={isExpanded}
         className="w-full p-5 text-left hover:bg-[#faf8f5] transition-colors"
       >
         <div className="flex items-start justify-between gap-4">
@@ -129,9 +130,9 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
           {/* Lesson Box */}
           <div className="mx-5 mb-5 p-4 bg-gradient-to-br from-[#faf8f5] to-[#f5f1ea] rounded-lg border border-[#e8e0d4]">
             <div className="flex items-start gap-3">
-              <Sparkles className="h-4 w-4 text-[#C4613C] flex-shrink-0 mt-0.5" />
+              <Sparkles className="h-4 w-4 text-rust-500 flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs font-medium text-[#C4613C] mb-1">Key Lesson</p>
+                <p className="text-xs font-medium text-rust-500 mb-1">Key Lesson</p>
                 <p className="text-sm text-primary leading-relaxed">
                   {exchange.lesson}
                 </p>

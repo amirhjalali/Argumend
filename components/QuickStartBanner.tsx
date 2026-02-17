@@ -96,7 +96,7 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                       onClick={() => handleCategoryClick(cat)}
                       className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
                         isActive
-                          ? "bg-[#4f7b77] text-white border-[#4f7b77]"
+                          ? "bg-deep text-white border-deep"
                           : "bg-white text-stone-600 border-stone-200 hover:border-deep/40 hover:text-deep"
                       }`}
                     >

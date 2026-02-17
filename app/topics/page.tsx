@@ -176,6 +176,7 @@ export default function TopicsPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search topics..."
+                aria-label="Search topics"
                 className="w-full pl-9 pr-9 py-2 text-sm bg-white border border-stone-200/60 rounded-lg text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               />
               {search && (

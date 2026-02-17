@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import {
@@ -119,7 +117,7 @@ export default function HowItWorksPage() {
                 )}
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C4613C]/20 to-[#b05434]/10 flex items-center justify-center">
-                    <span className="font-serif text-xl font-bold text-[#C4613C]">{step.number}</span>
+                    <span className="font-serif text-xl font-bold text-rust-500">{step.number}</span>
                   </div>
                 </div>
                 <div className="flex-1">
@@ -207,7 +205,7 @@ export default function HowItWorksPage() {
                     <span>Crux</span>
                   </div>
                 </div>
-                <p className="mt-2 text-xs text-[#a23b3b] font-medium">What would settle this?</p>
+                <p className="mt-2 text-xs text-crux font-medium">What would settle this?</p>
               </div>
             </div>
           </div>
@@ -278,7 +276,7 @@ export default function HowItWorksPage() {
         <section className="mb-12 md:mb-16 bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/70">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#a23b3b]/20 to-[#a23b3b]/5 flex items-center justify-center flex-shrink-0">
-              <Target className="h-6 w-6 text-[#a23b3b]" strokeWidth={1.5} />
+              <Target className="h-6 w-6 text-crux" strokeWidth={1.5} />
             </div>
             <div>
               <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">The crux is everything</h2>
@@ -300,7 +298,7 @@ export default function HowItWorksPage() {
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to explore?</h3>
           <p className="text-secondary mb-7 max-w-md mx-auto">Pick a controversial topic. Find the crux. Update your beliefs.</p>
           <Link
-            href="/"
+            href="/topics"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
           >
             Start Mapping

@@ -74,9 +74,9 @@ export function CitationCard({ reference, index }: CitationCardProps) {
         href={reference.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-start gap-1.5 text-xs font-sans text-secondary transition-colors hover:text-[#C4613C] group"
+        className="inline-flex items-start gap-1.5 text-xs font-sans text-secondary transition-colors hover:text-rust-500 group"
       >
-        <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-stone-100 text-[10px] font-bold text-stone-500 group-hover:bg-[#C4613C]/10 group-hover:text-[#C4613C] transition-colors flex-shrink-0 mt-0.5">
+        <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-stone-100 text-[10px] font-bold text-stone-500 group-hover:bg-rust-500/10 group-hover:text-rust-500 transition-colors flex-shrink-0 mt-0.5">
           {index}
         </span>
         <span className="leading-tight">{reference.title}</span>
@@ -96,8 +96,8 @@ export function CitationCard({ reference, index }: CitationCardProps) {
         >
           {/* Card Header */}
           <div className="flex items-start gap-3 mb-3">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#C4613C]/10 flex-shrink-0">
-              <SourceIcon url={reference.url} source={reference.source} className="h-4 w-4 text-[#C4613C]" strokeWidth={2} />
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-rust-500/10 flex-shrink-0">
+              <SourceIcon url={reference.url} source={reference.source} className="h-4 w-4 text-rust-500" strokeWidth={2} />
             </div>
             <div className="flex-1 min-w-0">
               <h4 className="font-serif text-sm font-semibold text-primary leading-tight mb-1">
@@ -122,7 +122,7 @@ export function CitationCard({ reference, index }: CitationCardProps) {
 
             {/* Verification Badge */}
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-[#C4613C]/10 text-[#8b3f27] rounded-full">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-rust-500/10 text-rust-700 rounded-full">
                 <FileText className="h-2.5 w-2.5" />
                 Cited Source
               </span>
@@ -135,7 +135,7 @@ export function CitationCard({ reference, index }: CitationCardProps) {
               href={reference.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 flex items-center justify-center gap-2 w-full px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-[#C4613C] to-[#b05434] rounded-lg shadow-sm hover:shadow-md transition-all"
+              className="mt-3 flex items-center justify-center gap-2 w-full px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-rust-500 to-rust-600 rounded-lg shadow-sm hover:shadow-md transition-all"
             >
               View Source
               <ExternalLink className="h-3 w-3" />

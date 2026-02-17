@@ -164,17 +164,17 @@ function VerdictConfidenceSummary({ result }: { result: JudgingResult }) {
     >
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
         <div className="space-y-1">
-          <p className="text-xs uppercase tracking-wider text-stone-400">Verdict Strength</p>
+          <p className="text-xs uppercase tracking-widest text-stone-400">Verdict Strength</p>
           <p className="text-lg font-serif font-bold text-primary">{verdictStrength}</p>
           <p className="text-[10px] text-stone-500">{scoreDiff.toFixed(1)} point margin</p>
         </div>
         <div className="space-y-1">
-          <p className="text-xs uppercase tracking-wider text-stone-400">Judge Confidence</p>
+          <p className="text-xs uppercase tracking-widest text-stone-400">Judge Confidence</p>
           <p className="text-lg font-serif font-bold text-primary">{Math.round(overallConf * 100)}%</p>
           <p className="text-[10px] text-stone-500">{confInfo.label}</p>
         </div>
         <div className="space-y-1">
-          <p className="text-xs uppercase tracking-wider text-stone-400">Agreement</p>
+          <p className="text-xs uppercase tracking-widest text-stone-400">Agreement</p>
           <p className="text-lg font-serif font-bold text-primary">
             {result.hasConsensus ? "Unanimous" : `${result.verdicts.filter(v => v.winner === result.winner).length}/${result.verdicts.length}`}
           </p>
@@ -206,7 +206,7 @@ function DimensionBreakdown({
         <h3 className="font-serif font-semibold text-primary">Score Breakdown by Dimension</h3>
       </div>
 
-      <div className="flex justify-between text-xs md:text-sm uppercase tracking-wider text-stone-400 mb-4 px-1">
+      <div className="flex justify-between text-xs md:text-sm uppercase tracking-widest text-stone-400 mb-4 px-1">
         <span className="truncate">FOR</span>
         <span className="truncate">AGAINST</span>
       </div>

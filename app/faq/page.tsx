@@ -1,5 +1,3 @@
-"use client";
-
 import { AppShell } from "@/components/AppShell";
 
 const faqs = [
@@ -9,7 +7,7 @@ const faqs = [
   },
   {
     question: "How are confidence scores calculated?",
-    answer: "Confidence scores reflect the weight of evidence and expert consensus on a topic. A score of 95%+ indicates a settled question with overwhelming evidence (like anthropogenic climate change or the moon landing). Scores around 50% indicate genuinely contested questions where reasonable people can disagree (like certain interpretations of quantum mechanics or the nature of consciousness).",
+    answer: "Confidence scores reflect the weight of evidence and expert consensus on a topic. A score of 95%+ indicates a settled question with overwhelming evidence (like anthropogenic climate change or the moon landing). Scores around 50% indicate genuinely contested questions where reasonable people can disagree (like certain interpretations of quantum mechanics or the nature of consciousness). For curated topics, the confidence score is a weighted composite of all evidence items across the topic\u2019s analytical pillars. Each evidence item is scored on four dimensions\u2014source reliability, independence, replicability, and directness\u2014giving a maximum of 40 points per item. The balance between supporting and opposing evidence, combined with the verification status of crux questions, produces the final percentage. For user-submitted analyses, the AI judge council assigns strength scores on a 1\u201310 scale based on logical coherence, evidentiary support, and rhetorical quality.",
   },
   {
     question: "What is a 'crux'?",
@@ -29,7 +27,7 @@ const faqs = [
   },
   {
     question: "Can I suggest a topic?",
-    answer: "Yes! We welcome topic suggestions. Good candidates have strong arguments on multiple sides, testable cruxes, and would benefit from structured breakdown. Visit the Community page for guidelines on how to contribute.",
+    answer: "Yes! We welcome topic suggestions from the community. Good candidates are claims that (1) have strong arguments on multiple sides, (2) involve empirical or logical questions rather than pure opinion, (3) have testable cruxes, and (4) would benefit from structured breakdown. Visit the Community page for submission guidelines on how to contribute.",
   },
   {
     question: "Why do some topics show 'theoretical' verification status?",
@@ -48,20 +46,12 @@ const faqs = [
     answer: "Curated topics are reviewed and updated whenever significant new evidence emerges\u2014typically every few months. We monitor major journals, preprints, and policy developments related to each topic. If a crux is resolved or new data shifts the evidence balance, we update the confidence score and add the relevant findings. Community members can flag outdated information through the Community page.",
   },
   {
-    question: "Can I suggest a new topic?",
-    answer: "Absolutely. We encourage topic suggestions from the community. The best candidates are claims that (1) have substantive arguments on multiple sides, (2) involve empirical or logical questions rather than pure opinion, and (3) have identifiable cruxes that could theoretically be resolved with evidence. Visit the Community page for submission guidelines.",
-  },
-  {
     question: "How does the AI judge council work?",
     answer: "When you submit text for analysis, we run it through a council of multiple large language models\u2014each acting as an independent judge. Every judge scores the arguments for and against the claim on structured rubrics covering logical strength, evidence quality, and rhetorical fairness. We then aggregate the scores, flag disagreements between judges, and report whether there is consensus. This multi-model approach reduces the bias any single model might introduce.",
   },
   {
     question: "What happens to my analyzed text? Is it stored?",
     answer: "Submitted text is processed by our AI pipeline and the extracted analysis (positions, cruxes, fallacies, and scores) is saved so you can revisit and share the results via a unique URL. We do not sell or share your data with third parties. If you would like an analysis removed, contact us through the Community page.",
-  },
-  {
-    question: "How are confidence scores calculated in detail?",
-    answer: "For curated topics, the confidence score is a weighted composite of all evidence items across the topic\u2019s analytical pillars. Each evidence item is scored on four dimensions\u2014source reliability, independence, replicability, and directness\u2014giving a maximum of 40 points per item. The balance between supporting and opposing evidence, combined with the verification status of crux questions, produces the final percentage. For user-submitted analyses, the AI judge council assigns strength scores on a 1\u201310 scale based on logical coherence, evidentiary support, and rhetorical quality.",
   },
   {
     question: "Is Argumend politically biased?",

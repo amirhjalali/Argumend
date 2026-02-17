@@ -1,9 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import * as LucideIcons from "lucide-react";
-import { Pillar, IconName } from "@/types/logic";
+import {
+  Target,
+  Zap,
+  HelpCircle,
+  Shield,
+  Atom,
+  Telescope,
+  Microscope,
+  Scale,
+  Gavel,
+  FileText,
+  Users,
+  AlertTriangle,
+  ArrowRight,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Pillar, IconName } from "@/types/logic";
 
 interface PillarCardProps {
   pillar: Pillar;
@@ -13,22 +27,22 @@ interface PillarCardProps {
 
 // Type-safe icon mapping - classical icons
 const ICON_MAP: Record<IconName, LucideIcon> = {
-  Target: LucideIcons.Target,
-  Zap: LucideIcons.Zap,
-  HelpCircle: LucideIcons.HelpCircle,
-  Shield: LucideIcons.Shield,
-  Atom: LucideIcons.Atom,
-  Telescope: LucideIcons.Telescope,
-  Microscope: LucideIcons.Microscope,
-  Scale: LucideIcons.Scale,
-  Gavel: LucideIcons.Gavel,
-  FileText: LucideIcons.FileText,
-  Users: LucideIcons.Users,
-  AlertTriangle: LucideIcons.AlertTriangle,
+  Target,
+  Zap,
+  HelpCircle,
+  Shield,
+  Atom,
+  Telescope,
+  Microscope,
+  Scale,
+  Gavel,
+  FileText,
+  Users,
+  AlertTriangle,
 };
 
 export function PillarCard({ pillar, onClick, layoutId }: PillarCardProps) {
-  const IconComponent = ICON_MAP[pillar.icon_name] ?? LucideIcons.HelpCircle;
+  const IconComponent = ICON_MAP[pillar.icon_name] ?? HelpCircle;
 
   return (
     <motion.div
@@ -76,7 +90,7 @@ export function PillarCard({ pillar, onClick, layoutId }: PillarCardProps) {
             transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
           >
             <span>Explore Evidence</span>
-            <LucideIcons.ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" />
           </motion.div>
         </div>
       </div>

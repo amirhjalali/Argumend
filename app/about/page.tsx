@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { Scale, Lightbulb, BookOpen, Target, Heart, Zap, Users, Shield, Quote } from "lucide-react";
@@ -232,7 +230,7 @@ export default function AboutPage() {
         {/* Voices of Reason */}
         <section className="mb-14 md:mb-20">
           <div className="flex items-center gap-2.5 mb-8">
-            <Quote className="h-5 w-5 text-[#C4613C]" strokeWidth={1.5} />
+            <Quote className="h-5 w-5 text-rust-500" strokeWidth={1.5} />
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Voices of reason</h2>
           </div>
           <div className="grid gap-4">
@@ -266,7 +264,7 @@ export default function AboutPage() {
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to think differently?</h3>
           <p className="text-secondary mb-7 max-w-md mx-auto">Pick a topic. Explore the map. Find the crux.</p>
           <Link
-            href="/"
+            href="/topics"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
           >
             Start Exploring

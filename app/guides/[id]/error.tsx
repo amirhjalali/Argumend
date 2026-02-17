@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export default function AnalysisDetailError({
+export default function GuideError({
   error,
   reset,
 }: {
@@ -33,22 +33,22 @@ export default function AnalysisDetailError({
             Something went wrong
           </h1>
           <p className="text-stone-500 font-sans text-sm mb-6 leading-relaxed">
-            We could not load this analysis. The link may be invalid or the
-            analysis may no longer exist.
+            This guide could not be loaded. Please try again or return to the
+            guides index.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               onClick={reset}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#C4613C] to-[#b05434] text-white text-sm font-medium hover:from-[#b05434] hover:to-[#8b3f27] transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
             >
               Try again
             </button>
             <Link
-              href="/analyze"
+              href="/guides"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-300 text-primary text-sm font-medium hover:bg-stone-50 transition-colors"
             >
-              Back to Analyze
+              Back to Guides
             </Link>
           </div>
         </div>
