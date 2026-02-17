@@ -243,11 +243,11 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             ].map(({ icon: Icon, label, stat }) => (
               <div
                 key={label}
-                className="flex flex-col items-center gap-1.5 p-3 bg-white/70 border border-stone-200/40 rounded-xl"
+                className="flex flex-col items-center gap-1.5 p-3 bg-white/70 border border-stone-200/40 rounded-xl hover:bg-white hover:shadow-sm hover:border-stone-200/60 transition-all duration-200"
               >
                 <Icon className="h-4 w-4 text-deep" />
                 <span className="text-xs font-medium text-stone-600">{label}</span>
-                <span className="text-[10px] text-stone-400">{stat}</span>
+                <span className="text-[10px] font-mono tabular-nums text-stone-400">{stat}</span>
               </div>
             ))}
           </motion.div>

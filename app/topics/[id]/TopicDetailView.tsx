@@ -26,6 +26,9 @@ import {
   FileText,
   Users,
   AlertTriangle,
+  UserX,
+  UserCheck,
+  BarChart3,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { ShareButtons } from "@/components/ShareButtons";
@@ -70,6 +73,14 @@ const categoryColors: Record<TopicCategory, string> = {
   philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 
+const categoryTopBorder: Record<TopicCategory, string> = {
+  policy: "border-t-blue-400",
+  technology: "border-t-violet-400",
+  science: "border-t-emerald-400",
+  economics: "border-t-rust-400",
+  philosophy: "border-t-stone-400",
+};
+
 const verificationColors: Record<string, { bg: string; text: string; label: string }> = {
   verified: { bg: "bg-emerald-50", text: "text-emerald-700", label: "Verified" },
   theoretical: { bg: "bg-blue-50", text: "text-blue-700", label: "Theoretical" },
@@ -110,14 +121,14 @@ function WeightBar({ value, max = 10 }: { value: number; max?: number }) {
   const pct = Math.round((value / max) * 100);
   return (
     <div className="flex items-center gap-2">
-      <div className="h-1.5 flex-1 rounded-full bg-stone-200/80 overflow-hidden">
+      <div className="h-2 flex-1 rounded-full bg-stone-200/80 overflow-hidden">
         <div
-          className="h-full rounded-full bg-[#4f7b77]"
+          className="h-full rounded-full bg-[#4f7b77] transition-all duration-300"
           style={{ width: `${pct}%` }}
         />
       </div>
-      <span className="text-xs font-mono text-stone-500 w-5 text-right tabular-nums">
-        {value}
+      <span className="text-[11px] font-mono text-stone-500 w-7 text-right tabular-nums">
+        {value}/{max}
       </span>
     </div>
   );
@@ -133,7 +144,7 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
 
   return (
     <div
-      className={`rounded-lg border p-4 ${
+      className={`rounded-lg border p-4 shadow-sm ${
         isFor
           ? "bg-emerald-50/40 border-emerald-200/50"
           : "bg-red-50/30 border-red-200/50"
@@ -141,7 +152,7 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
     >
       <div className="flex items-start gap-3 mb-3">
         <div
-          className={`mt-0.5 flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
+          className={`mt-0.5 flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center ${
             isFor ? "bg-emerald-100 text-emerald-600" : "bg-red-100 text-red-500"
           }`}
         >
@@ -153,10 +164,17 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <h4 className="font-semibold text-sm text-primary">
+            <h4 className="font-semibold text-sm text-primary leading-snug">
               {evidence.title}
             </h4>
-            <span className="text-xs font-mono text-stone-400 tabular-nums flex-shrink-0">
+            <span
+              className={`inline-flex items-center gap-1 text-[11px] font-mono tabular-nums flex-shrink-0 px-1.5 py-0.5 rounded-md border ${
+                isFor
+                  ? "bg-emerald-50 text-emerald-600 border-emerald-200/60"
+                  : "bg-red-50 text-red-500 border-red-200/60"
+              }`}
+            >
+              <BarChart3 className="h-3 w-3" />
               {totalScore}/40
             </span>
           </div>
@@ -167,33 +185,33 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
       </div>
 
       {/* Weight breakdown */}
-      <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 pl-9">
+      <div className="grid grid-cols-2 gap-x-4 gap-y-2 pl-10">
         <div>
-          <span className="text-[11px] text-stone-400">Source Reliability</span>
+          <span className="text-[11px] font-medium text-stone-400">Source Reliability</span>
           <WeightBar value={evidence.weight.sourceReliability} />
         </div>
         <div>
-          <span className="text-[11px] text-stone-400">Independence</span>
+          <span className="text-[11px] font-medium text-stone-400">Independence</span>
           <WeightBar value={evidence.weight.independence} />
         </div>
         <div>
-          <span className="text-[11px] text-stone-400">Replicability</span>
+          <span className="text-[11px] font-medium text-stone-400">Replicability</span>
           <WeightBar value={evidence.weight.replicability} />
         </div>
         <div>
-          <span className="text-[11px] text-stone-400">Directness</span>
+          <span className="text-[11px] font-medium text-stone-400">Directness</span>
           <WeightBar value={evidence.weight.directness} />
         </div>
       </div>
 
       {evidence.reasoning && (
-        <p className="text-xs text-stone-500 italic mt-3 pl-9">
+        <p className="text-xs text-stone-500 italic mt-3 pl-10">
           {evidence.reasoning}
         </p>
       )}
 
       {evidence.source && (
-        <div className="mt-2 pl-9">
+        <div className="mt-2.5 pl-10">
           {evidence.sourceUrl ? (
             <a
               href={evidence.sourceUrl}
@@ -219,17 +237,23 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
 
 function CruxCard({ crux }: { crux: Crux }) {
   const verification = verificationColors[crux.verification_status] ?? verificationColors.theoretical;
+  const isTestable = crux.verification_status === "verified";
 
   return (
-    <div className="rounded-lg border border-deep/20 bg-[#4f7b77]/[0.03] p-5">
-      <div className="flex items-center gap-2 mb-3">
-        <FlaskConical className="h-4 w-4 text-deep" strokeWidth={1.5} />
+    <div className="rounded-lg border border-deep/20 bg-[#4f7b77]/[0.03] p-5 shadow-sm">
+      <div className="flex items-center gap-2.5 mb-3">
+        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center">
+          <FlaskConical className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
+        </div>
         <h4 className="font-serif text-base font-semibold text-primary">
           Crux: {crux.title}
         </h4>
         <span
-          className={`ml-auto text-[11px] font-medium px-2 py-0.5 rounded-full border ${verification.bg} ${verification.text}`}
+          className={`ml-auto text-[11px] font-medium px-2.5 py-0.5 rounded-full border inline-flex items-center gap-1 ${verification.bg} ${verification.text} ${
+            isTestable ? "ring-1 ring-emerald-300/50" : ""
+          }`}
         >
+          {isTestable && <CheckCircle className="h-3 w-3" />}
           {verification.label}
         </span>
       </div>
@@ -243,7 +267,7 @@ function CruxCard({ crux }: { crux: Crux }) {
           <span className="text-xs font-medium text-stone-400 uppercase tracking-wide">
             Methodology
           </span>
-          <p className="text-sm text-stone-700 leading-relaxed mt-1 bg-white/60 rounded p-3 border border-stone-200/50 font-mono text-[13px]">
+          <p className="text-sm text-stone-700 leading-relaxed mt-1.5 bg-white/60 rounded-lg p-4 border border-stone-200/50 font-mono text-[13px]">
             {crux.methodology}
           </p>
         </div>
@@ -293,11 +317,13 @@ function PillarSection({
 
       {/* Skeptic vs Proponent */}
       <div className="grid md:grid-cols-2 gap-4 mb-5">
-        <div className="rounded-lg border border-red-200/50 bg-red-50/30 p-4">
-          <div className="flex items-center gap-2 mb-2">
-            <AlertCircle className="h-4 w-4 text-red-400" strokeWidth={1.5} />
-            <span className="text-xs font-medium text-red-500 uppercase tracking-wide">
-              Skeptic Premise
+        <div className="rounded-lg border border-red-200/50 bg-stone-50/50 p-4 shadow-sm">
+          <div className="flex items-center gap-2 mb-2.5">
+            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
+              <UserX className="h-3.5 w-3.5 text-red-500" strokeWidth={1.5} />
+            </div>
+            <span className="text-xs font-semibold text-red-500 uppercase tracking-wide">
+              What a Skeptic Would Say
             </span>
           </div>
           <p className="text-sm text-stone-700 leading-relaxed italic">
@@ -305,11 +331,13 @@ function PillarSection({
           </p>
         </div>
 
-        <div className="rounded-lg border border-emerald-200/50 bg-emerald-50/30 p-4">
-          <div className="flex items-center gap-2 mb-2">
-            <Shield className="h-4 w-4 text-emerald-500" strokeWidth={1.5} />
-            <span className="text-xs font-medium text-emerald-600 uppercase tracking-wide">
-              Proponent Rebuttal
+        <div className="rounded-lg border border-emerald-200/50 bg-[#4f7b77]/[0.02] p-4 shadow-sm">
+          <div className="flex items-center gap-2 mb-2.5">
+            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
+              <UserCheck className="h-3.5 w-3.5 text-emerald-600" strokeWidth={1.5} />
+            </div>
+            <span className="text-xs font-semibold text-emerald-600 uppercase tracking-wide">
+              What a Proponent Would Say
             </span>
           </div>
           <p className="text-sm text-stone-700 leading-relaxed">
@@ -347,28 +375,55 @@ function PillarSection({
 
 function RelatedTopicCard({ topic }: { topic: Topic }) {
   const StatusIcon = statusIcons[topic.status];
+  const confPct = Math.min(topic.confidence_score, 100);
 
   return (
     <Link
       href={`/topics/${topic.id}`}
-      className="group flex flex-col bg-white border border-stone-200/60 rounded-xl p-4 hover:border-[#4f7b77]/30 hover:shadow-sm transition-all"
+      className={`group flex flex-col bg-white border border-stone-200/60 border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}
     >
       <h3 className="font-serif text-base text-primary group-hover:text-deep transition-colors leading-snug mb-1.5">
         {topic.title}
       </h3>
-      <p className="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-3 flex-1">
+      <p className="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-4 flex-1">
         {topic.meta_claim}
       </p>
-      <div className="flex items-center justify-between">
-        <span
-          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium border ${statusColors[topic.status]}`}
-        >
-          <StatusIcon className="h-3 w-3" />
-          {statusLabels[topic.status]}
-        </span>
-        <span className="font-mono text-xs tabular-nums text-stone-500">
-          {topic.confidence_score}%
-        </span>
+
+      {/* Confidence bar */}
+      <div className="mb-3">
+        <div className="flex items-center justify-between mb-1">
+          <span className="text-[10px] font-medium text-stone-400 uppercase tracking-wide">
+            Confidence
+          </span>
+          <span className="font-mono text-xs tabular-nums text-stone-600 font-semibold">
+            {topic.confidence_score}%
+          </span>
+        </div>
+        <div className="h-1.5 rounded-full bg-stone-200/80 overflow-hidden">
+          <div
+            className="h-full rounded-full bg-[#4f7b77] transition-all duration-300"
+            style={{ width: `${confPct}%` }}
+          />
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-1.5">
+          {/* Category pill */}
+          <span
+            className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium border capitalize ${categoryColors[topic.category]}`}
+          >
+            {CATEGORY_LABELS[topic.category]}
+          </span>
+          {/* Status pill */}
+          <span
+            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium border ${statusColors[topic.status]}`}
+          >
+            <StatusIcon className="h-3 w-3" />
+            {statusLabels[topic.status]}
+          </span>
+        </div>
+        <ArrowRight className="h-3.5 w-3.5 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 transition-all flex-shrink-0" />
       </div>
     </Link>
   );
@@ -554,21 +609,21 @@ export default function TopicDetailView({
                   <a
                     key={pillar.id}
                     href="#pillars"
-                    className="group relative rounded-lg border border-stone-200/60 bg-white/60 p-4 pl-5 hover:border-deep/30 hover:shadow-sm transition-all no-underline"
+                    className="group relative rounded-lg border border-stone-200/60 bg-gradient-to-br from-white/80 to-stone-50/40 p-4 pl-5 hover:border-deep/30 hover:shadow-md transition-all no-underline"
                   >
                     {/* Left accent border */}
-                    <div className="absolute left-0 top-3 bottom-3 w-[3px] rounded-full bg-[#4f7b77]/20 group-hover:bg-[#4f7b77]/60 transition-colors" />
+                    <div className="absolute left-0 top-3 bottom-3 w-1 rounded-full bg-[#4f7b77]/30 group-hover:bg-[#4f7b77]/60 transition-colors" />
 
                     <div className="flex items-start gap-2.5 mb-2.5">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-deep/10 flex items-center justify-center">
-                        <PillarIcon className="h-3.5 w-3.5 text-deep" strokeWidth={1.5} />
+                      <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center">
+                        <PillarIcon className="h-4 w-4 text-deep" strokeWidth={1.5} />
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-xs font-mono text-stone-400">
+                          <span className="text-xs font-mono text-deep/50 font-semibold">
                             {i + 1}.
                           </span>
-                          <h3 className="font-serif text-[15px] font-semibold text-primary leading-snug">
+                          <h3 className="font-serif text-[15px] font-semibold text-primary leading-snug group-hover:text-deep transition-colors">
                             {pillar.title}
                           </h3>
                         </div>
@@ -583,7 +638,7 @@ export default function TopicDetailView({
                       >
                         {cruxVerif.label}
                       </span>
-                      <ArrowRight className="h-3.5 w-3.5 text-stone-300 group-hover:text-deep transition-colors" />
+                      <ArrowRight className="h-3.5 w-3.5 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 transition-all" />
                     </div>
                   </a>
                 );

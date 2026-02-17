@@ -7,6 +7,7 @@ import {
   AlertCircle,
   HelpCircle,
   Search,
+  SearchX,
   SortAsc,
   SortDesc,
   X,
@@ -38,6 +39,14 @@ const categoryColors: Record<TopicCategory, string> = {
   science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
   economics: "bg-rust-50 text-rust-700 border-rust-200/60",
   philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
+};
+
+const categoryTopBorder: Record<TopicCategory, string> = {
+  policy: "border-t-blue-400",
+  technology: "border-t-violet-400",
+  science: "border-t-emerald-400",
+  economics: "border-t-rust-400",
+  philosophy: "border-t-stone-400",
 };
 
 type SortOption = "category" | "confidence-desc" | "confidence-asc" | "title-asc";
@@ -216,17 +225,22 @@ export default function TopicsPage() {
 
           {/* Topic Grid */}
           {filteredTopics.length === 0 ? (
-            <div className="text-center py-16 bg-white rounded-xl border border-stone-200/60">
-              <p className="text-stone-500 mb-3">No topics match your search.</p>
+            <div className="text-center py-20 bg-white rounded-xl border border-stone-200/60">
+              <SearchX className="h-10 w-10 text-stone-300 mx-auto mb-4" />
+              <p className="text-stone-600 font-medium mb-1">No topics found</p>
+              <p className="text-sm text-stone-400 mb-5 max-w-xs mx-auto">
+                Try adjusting your search terms or clearing the filters to browse all {topics.length} topics.
+              </p>
               <button
                 onClick={clearFilters}
-                className="text-sm font-medium text-deep hover:text-deep-dark transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-deep hover:text-deep-dark transition-colors"
               >
+                <X className="h-3.5 w-3.5" />
                 Clear all filters
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {filteredTopics.map((topic, index) => {
                 const StatusIcon = statusIcons[topic.status];
 
@@ -234,11 +248,11 @@ export default function TopicsPage() {
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className="group flex flex-col bg-white border border-stone-200/60 rounded-xl p-5 hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                    className={`group flex flex-col bg-white border border-stone-200/60 border-t-[3px] rounded-xl p-5 pb-4 hover:border-x-deep/30 hover:border-b-deep/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${categoryTopBorder[topic.category]}`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {/* Title */}
-                    <h2 className="font-serif text-lg text-stone-900 group-hover:text-deep transition-colors leading-snug mb-2">
+                    <h2 className="font-serif text-lg text-stone-900 group-hover:text-deep transition-colors leading-snug mb-3">
                       {topic.title}
                     </h2>
 
@@ -247,8 +261,21 @@ export default function TopicsPage() {
                       {topic.meta_claim}
                     </p>
 
-                    {/* Bottom row: pills + confidence */}
-                    <div className="flex items-center justify-between gap-2 mt-auto">
+                    {/* Confidence score bar */}
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="h-1.5 flex-1 bg-stone-100 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-deep rounded-full transition-all duration-500"
+                          style={{ width: `${topic.confidence_score}%` }}
+                        />
+                      </div>
+                      <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600">
+                        {topic.confidence_score}%
+                      </span>
+                    </div>
+
+                    {/* Footer: pills + pillar count */}
+                    <div className="flex items-center justify-between gap-2 pt-3 mt-auto border-t border-stone-100">
                       <div className="flex flex-wrap items-center gap-1.5">
                         {/* Category pill */}
                         <span
@@ -266,9 +293,9 @@ export default function TopicsPage() {
                         </span>
                       </div>
 
-                      {/* Confidence score */}
-                      <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600">
-                        {topic.confidence_score}%
+                      {/* Pillar count */}
+                      <span className="text-[11px] text-stone-400">
+                        {topic.pillars.length} pillars
                       </span>
                     </div>
                   </Link>

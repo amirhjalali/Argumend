@@ -38,7 +38,7 @@ export default function ConceptsPage() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {concepts.map((concept) => {
+          {concepts.map((concept, index) => {
             const Icon = iconMap[concept.iconName] ?? BookOpen;
             const firstParagraph = concept.description.split("\n\n")[0] ?? "";
             const snippet =
@@ -50,11 +50,12 @@ export default function ConceptsPage() {
               <Link
                 key={concept.id}
                 href={`/concepts/${concept.id}`}
-                className="group bg-white/80 rounded-xl p-6 border border-[#e8e0d4] hover:border-[#4f7b77]/30 hover:shadow-sm transition-all"
+                className="group bg-white/80 rounded-xl p-6 border border-stone-200/60 hover:border-[#4f7b77]/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                style={{ animationDelay: `${index * 60}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] rounded-lg border border-[#e8e0d4]">
-                    <Icon className="h-5 w-5 text-deep" strokeWidth={1.8} />
+                  <div className="p-3.5 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] rounded-xl border border-[#e8e0d4] shadow-sm">
+                    <Icon className="h-6 w-6 text-deep" strokeWidth={1.8} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h2 className="font-serif text-xl text-primary mb-1 group-hover:text-deep transition-colors">
@@ -63,10 +64,17 @@ export default function ConceptsPage() {
                     <p className="text-primary leading-relaxed text-sm mb-3">
                       {snippet}
                     </p>
-                    <span className="inline-flex items-center gap-1 text-deep text-sm font-medium">
-                      Learn more
-                      <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-                    </span>
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1 text-deep text-sm font-medium">
+                        Learn more
+                        <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                      {concept.topicExamples.length > 0 && (
+                        <span className="text-[11px] text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">
+                          Used in {concept.topicExamples.length} topics
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </Link>

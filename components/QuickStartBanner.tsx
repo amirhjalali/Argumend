@@ -10,6 +10,14 @@ import {
 } from "@/data/topics";
 import type { TopicCategory } from "@/lib/schemas/topic";
 
+const CATEGORY_BORDER_COLORS: Record<TopicCategory, string> = {
+  policy: "border-l-blue-400",
+  technology: "border-l-violet-400",
+  science: "border-l-emerald-400",
+  economics: "border-l-rust-400",
+  philosophy: "border-l-stone-400",
+};
+
 const STORAGE_KEY = "argumend-quickstart-dismissed";
 
 interface QuickStartBannerProps {
@@ -128,12 +136,12 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                             onTopicSelect(topic.id);
                             handleDismiss();
                           }}
-                          className="group text-left p-3 bg-white border border-stone-200/60 rounded-lg hover:border-deep/40 hover:shadow-sm transition-all"
+                          className={`group text-left p-3.5 bg-white border border-stone-200/60 border-l-2 ${CATEGORY_BORDER_COLORS[topic.category]} rounded-xl hover:border-deep/30 hover:shadow-sm transition-all duration-200`}
                         >
                           <h4 className="font-serif text-xs font-medium text-primary group-hover:text-deep transition-colors leading-snug">
                             {topic.title}
                           </h4>
-                          <div className="mt-1 flex items-center gap-1.5 text-[10px] text-stone-400">
+                          <div className="mt-1.5 flex items-center gap-1.5 text-[10px] text-stone-400">
                             <span
                               className={`px-1.5 py-0.5 rounded-full border ${
                                 topic.status === "settled"
@@ -146,6 +154,9 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                               {topic.status}
                             </span>
                             <span>{topic.pillars.length} pillars</span>
+                            <span className="font-mono text-[11px] text-stone-400 ml-auto">
+                              {topic.confidence_score}%
+                            </span>
                           </div>
                         </button>
                       ))}

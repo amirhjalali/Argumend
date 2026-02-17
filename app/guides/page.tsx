@@ -26,22 +26,23 @@ export default function GuidesPage() {
 
         {/* Guide Cards */}
         <div className="space-y-4">
-          {guides.map((guide) => {
+          {guides.map((guide, index) => {
             const Icon = guide.icon;
             return (
               <Link
                 key={guide.id}
                 href={`/guides/${guide.id}`}
-                className="group block"
+                className="group block animate-card-fade-in"
+                style={{ animationDelay: `${index * 60}ms` }}
               >
                 <div
-                  className="relative bg-white/80 rounded-xl p-6 border border-[#e8e0d4] hover:border-[#d4cec4] hover:shadow-md transition-all duration-300"
+                  className="relative bg-white/80 rounded-xl p-6 border border-stone-200/60 hover:border-[#d4cec4] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
                   style={{ borderLeftWidth: "4px", borderLeftColor: guide.color }}
                 >
                   <div className="flex items-start gap-5">
                     {/* Icon */}
                     <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105"
+                      className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm transition-transform group-hover:scale-105"
                       style={{ backgroundColor: `${guide.color}15` }}
                     >
                       <Icon
@@ -57,7 +58,7 @@ export default function GuidesPage() {
                         <h2 className="font-serif text-xl font-semibold text-primary group-hover:text-deep transition-colors">
                           {guide.title}
                         </h2>
-                        <span className="flex items-center gap-1 text-xs text-stone-400">
+                        <span className="inline-flex items-center gap-1 bg-stone-100 px-2 py-0.5 rounded-full text-xs text-stone-500">
                           <Clock className="h-3 w-3" />
                           {guide.readTime}
                         </span>
