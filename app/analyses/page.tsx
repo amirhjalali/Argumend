@@ -91,7 +91,7 @@ export default async function AnalysesPage() {
                   <Link
                     key={analysis.id}
                     href={`/analysis/${analysis.id}`}
-                    className="group block bg-white/80 border border-stone-200/60 rounded-xl p-5 md:p-6 hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                    className="group block bg-white/80 border border-stone-200/60 rounded-xl p-5 md:p-6 shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <div className="flex items-start justify-between gap-4">

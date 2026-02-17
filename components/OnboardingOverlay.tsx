@@ -80,7 +80,7 @@ export function OnboardingOverlay() {
             <div className="p-6 pt-8 sm:p-8">
               {/* Header */}
               <div className="text-center mb-8">
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-primary">
+                <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                   Welcome to Argumend
                 </h2>
                 <p className="mt-2 text-sm text-stone-500 max-w-sm mx-auto leading-relaxed">

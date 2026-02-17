@@ -24,7 +24,7 @@ export default function NotFound() {
       </p>
 
       {/* Headline */}
-      <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-primary leading-tight mb-4 max-w-xl">
+      <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08] max-w-xl">
         Insufficient Evidence for This Page
       </h1>
 

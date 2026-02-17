@@ -53,7 +53,7 @@ export function PillarCard({ pillar, onClick, layoutId }: PillarCardProps) {
       transition={{ type: "tween", duration: 0.4, ease: "easeOut" }}
     >
       {/* Card Surface - classical parchment aesthetic */}
-      <div className="relative h-full bg-canvas border border-stone-200 rounded-sm p-8
+      <div className="relative h-full bg-canvas border border-stone-200 rounded-xl p-8
                       shadow-card group-hover:shadow-lw-hover group-hover:border-stone-300 transition-all duration-300">
 
         {/* Top Accent Bar - subtle reveal on hover */}
@@ -67,7 +67,7 @@ export function PillarCard({ pillar, onClick, layoutId }: PillarCardProps) {
             whileHover={{ scale: 1.03 }}
             transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
           >
-            <div className="relative p-4 rounded-sm bg-overlay border border-stone-200">
+            <div className="relative p-4 rounded-xl bg-overlay border border-stone-200">
               <IconComponent className="w-8 h-8 text-accent-main" strokeWidth={1.5} />
             </div>
           </motion.div>

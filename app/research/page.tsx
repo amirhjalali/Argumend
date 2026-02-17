@@ -97,7 +97,7 @@ export default function ResearchPage() {
     <AppShell>
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-20">
         {/* Hero */}
-        <div className="mb-14 md:mb-20">
+        <div className="mb-16 md:mb-24">
           <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             Research
           </p>
@@ -124,7 +124,7 @@ export default function ResearchPage() {
 
         {/* Sections */}
         {researchSections.map((section) => (
-          <section key={section.id} id={section.id} className="mb-14 md:mb-20 scroll-mt-16">
+          <section key={section.id} id={section.id} className="mb-16 md:mb-24 scroll-mt-16">
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               {section.title}
             </h2>
@@ -145,7 +145,7 @@ export default function ResearchPage() {
         ))}
 
         {/* Section navigation */}
-        <div className="bg-[#faf8f3]/60 border border-stone-200/70 rounded-lg p-5 md:p-6 mb-14 md:mb-20">
+        <div className="bg-[#faf8f3]/60 border border-stone-200/70 rounded-lg p-5 md:p-6 mb-16 md:mb-24">
           <div className="flex items-center gap-2.5 mb-4">
             <BookOpen className="h-4 w-4 text-deep" strokeWidth={1.8} />
             <h3 className="text-sm font-medium text-primary">In this article</h3>
@@ -168,7 +168,7 @@ export default function ResearchPage() {
         </div>
 
         {/* References */}
-        <section id="references" className="mb-14 md:mb-20 scroll-mt-16">
+        <section id="references" className="mb-16 md:mb-24 scroll-mt-16">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">References</h2>
           <ol className="space-y-4">
             {orderedCitations.map(({ citation, num }) => (

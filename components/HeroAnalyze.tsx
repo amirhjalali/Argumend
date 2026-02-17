@@ -126,7 +126,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
               <Scale className="h-3 w-3" />
               Steel-man every side. Find the crux.
             </div>
-            <h1 className="font-serif text-3xl md:text-5xl font-bold text-primary leading-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               What if we could disagree
               <br />
               <span className="text-deep">

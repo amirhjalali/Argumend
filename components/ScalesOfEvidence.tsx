@@ -395,7 +395,7 @@ export function ScalesOfEvidence() {
             <Scale className="h-3.5 w-3.5" />
             Scales of Evidence
           </div>
-          <h1 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary leading-tight max-w-3xl mx-auto">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08] max-w-3xl mx-auto">
             {topic.meta_claim}
           </h1>
           <p className="text-stone-500 max-w-2xl mx-auto">
@@ -419,7 +419,7 @@ export function ScalesOfEvidence() {
           >
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-deep/60">
               <div className="w-4 h-4 rounded-full bg-gradient-to-br from-deep to-deep-dark shadow-md" />
-              <h2 className="font-serif text-xl font-bold text-deep">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 Evidence FOR
               </h2>
               <div className="ml-auto flex items-center gap-2">
@@ -450,7 +450,7 @@ export function ScalesOfEvidence() {
           >
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-stone-300">
               <div className="w-4 h-4 rounded-full bg-gradient-to-br from-stone-400 to-stone-500 shadow-md" />
-              <h2 className="font-serif text-xl font-bold text-stone-700">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 Evidence AGAINST
               </h2>
               <div className="ml-auto flex items-center gap-2">

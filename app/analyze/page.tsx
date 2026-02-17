@@ -575,7 +575,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                     <MessageSquare className="h-3.5 w-3.5" />
                     Identified Topic
                   </div>
-                  <h2 className="mt-4 font-serif text-xl md:text-2xl font-bold text-primary">
+                  <h2 className="mt-4 font-serif text-2xl sm:text-3xl text-primary mb-4">
                     {result.extracted.topic}
                   </h2>
                   <p className="mt-2 text-stone-500 text-sm max-w-xl mx-auto leading-relaxed">

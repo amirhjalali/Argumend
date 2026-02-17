@@ -34,16 +34,16 @@ const statusColors: Record<TopicStatus, string> = {
 };
 
 const categoryColors: Record<TopicCategory, string> = {
-  policy: "bg-blue-50 text-blue-600 border-blue-200/60",
-  technology: "bg-violet-50 text-violet-600 border-violet-200/60",
+  policy: "bg-deep/10 text-deep border-deep/20",
+  technology: "bg-stone-100 text-stone-600 border-stone-200/60",
   science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
   economics: "bg-rust-50 text-rust-700 border-rust-200/60",
   philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 
 const categoryTopBorder: Record<TopicCategory, string> = {
-  policy: "border-t-blue-400",
-  technology: "border-t-violet-400",
+  policy: "border-t-deep",
+  technology: "border-t-stone-400",
   science: "border-t-emerald-400",
   economics: "border-t-rust-400",
   philosophy: "border-t-stone-400",
@@ -249,7 +249,7 @@ export default function TopicsPage() {
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className={`group flex flex-col bg-white border border-stone-200/60 border-t-[3px] rounded-xl p-5 pb-4 hover:border-x-deep/30 hover:border-b-deep/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${categoryTopBorder[topic.category]}`}
+                    className={`group flex flex-col bg-white border border-stone-200/60 border-t-[3px] rounded-xl p-5 pb-4 shadow-card hover:border-x-deep/30 hover:border-b-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${categoryTopBorder[topic.category]}`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {/* Title */}

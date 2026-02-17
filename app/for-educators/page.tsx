@@ -19,7 +19,7 @@ const benefits = [
     title: "Visual Argument Mapping",
     description:
       "Students see both sides of a debate visually, making abstract reasoning concrete. No more \"I feel that...\" \u2014 every claim links to evidence.",
-    color: "#2563eb",
+    color: "#4f7b77",
   },
   {
     icon: Shield,
@@ -85,7 +85,7 @@ const subjects = [
     label: "Social Studies / Civics",
     description:
       "Analyze real policy debates \u2014 gun control, UBI, wealth tax",
-    color: "#2563eb",
+    color: "#4f7b77",
   },
   {
     icon: Beaker,

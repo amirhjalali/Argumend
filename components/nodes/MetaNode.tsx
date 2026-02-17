@@ -18,7 +18,7 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
   return (
     <div
-      className="relative w-[420px] rounded-xl border border-stone-200/80 border-t-2 border-t-[#2563eb] bg-[#fefcf9] shadow-[0_2px_6px_rgba(120,100,80,0.1)] transition-shadow duration-200 hover:shadow-[0_6px_20px_rgba(120,100,80,0.14)] node-enter"
+      className="relative w-[420px] rounded-xl border border-stone-200/80 border-t-2 border-t-deep bg-[#fefcf9] shadow-[0_2px_6px_rgba(120,100,80,0.1)] transition-shadow duration-200 hover:shadow-[0_6px_20px_rgba(120,100,80,0.14)] node-enter"
     >
 
       <Handle
@@ -47,7 +47,7 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
         {/* Header: Meta Claim Label & Title */}
         <div className="mb-4">
           <div className="mb-2 flex items-center gap-1.5">
-            <Crown className="h-3.5 w-3.5 text-[#2563eb]" strokeWidth={1.8} />
+            <Crown className="h-3.5 w-3.5 text-deep" strokeWidth={1.8} />
             <p className="text-[11px] font-sans font-medium text-stone-500">
               Meta Claim
             </p>
@@ -95,7 +95,7 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
           {data.hasChildren ? (
             <button
-              className="flex items-center gap-1.5 rounded-md bg-[#2563eb] px-4 py-2 text-sm font-medium text-white hover:bg-[#1d4ed8] transition-colors disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex items-center gap-1.5 rounded-md bg-deep px-4 py-2 text-sm font-medium text-white hover:bg-deep-dark transition-colors disabled:cursor-not-allowed disabled:opacity-40"
               onClick={() => expandNode(id)}
               disabled={expanded}
             >

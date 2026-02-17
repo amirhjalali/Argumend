@@ -43,7 +43,7 @@ export default function BlogPage() {
               className="group block mb-6 md:mb-8 animate-card-fade-in"
               style={{ animationDelay: "0ms" }}
             >
-              <article className="relative bg-[#faf8f5] rounded-xl p-6 md:p-10 border border-stone-200/60 hover:border-[#c8c0b4] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+              <article className="relative bg-[#faf8f5] rounded-xl p-6 md:p-10 border border-stone-200/60 shadow-card hover:border-[#c8c0b4] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                 {/* Category Badge */}
                 <div className="flex items-center gap-3 mb-4">
                   <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
@@ -101,7 +101,7 @@ export default function BlogPage() {
                   className="group block animate-card-fade-in"
                   style={{ animationDelay: `${(index + 1) * 60}ms` }}
                 >
-                  <article className="relative h-full bg-[#faf8f5] rounded-xl p-6 md:p-8 border border-stone-200/60 hover:border-[#c8c0b4] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                  <article className="relative h-full bg-[#faf8f5] rounded-xl p-6 md:p-8 border border-stone-200/60 shadow-card hover:border-[#c8c0b4] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                     {/* Category Badge */}
                     <div className="flex items-center gap-3 mb-4">
                       <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">

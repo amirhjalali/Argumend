@@ -150,7 +150,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
           </nav>
 
           {/* Hero */}
-          <header className="mb-12 md:mb-16">
+          <header className="mb-16 md:mb-24">
             <div className="flex items-start gap-5 mb-6">
               <div className="p-4 bg-gradient-to-br from-[#faf8f5] to-canvas rounded-xl border border-stone-200/60 flex-shrink-0 shadow-sm">
                 <Icon className="h-7 w-7 text-deep" strokeWidth={1.6} />
@@ -167,7 +167,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
           </header>
 
           {/* Full Description */}
-          <section className="mb-12 md:mb-16">
+          <section className="mb-16 md:mb-24">
             <div className="space-y-5 text-base md:text-[17px] text-primary leading-[1.8]">
               {paragraphs.map((para, i) => (
                 <p key={i}>{para}</p>
@@ -176,7 +176,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
           </section>
 
           {/* Key Points */}
-          <section className="mb-12 md:mb-16">
+          <section className="mb-16 md:mb-24">
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Key Points
             </h2>
@@ -197,7 +197,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
 
           {/* See It In Action */}
           {topicExamples.length > 0 && (
-            <section className="mb-12 md:mb-16">
+            <section className="mb-16 md:mb-24">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 See It in Action
               </h2>
@@ -227,7 +227,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
 
           {/* Related Concepts */}
           {relatedConcepts.length > 0 && (
-            <section className="mb-12 md:mb-16">
+            <section className="mb-16 md:mb-24">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 Related Concepts
               </h2>

@@ -50,7 +50,7 @@ export default function LibraryPage() {
           </div>
 
           {/* Topics Overview */}
-          <section className="mb-12">
+          <section className="mb-16 md:mb-24">
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Topics Overview
             </h2>
@@ -95,7 +95,7 @@ export default function LibraryPage() {
           </section>
 
           {/* Recommended Reading */}
-          <section className="mb-12">
+          <section className="mb-16 md:mb-24">
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Recommended Reading
             </h2>
@@ -113,7 +113,7 @@ export default function LibraryPage() {
                         href={resource.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center justify-between bg-white/80 rounded-xl px-5 py-4 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                        className="group flex items-center justify-between bg-white/80 rounded-xl px-5 py-4 border border-stone-200/60 shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
                         style={{ animationDelay: `${(catIdx * 3 + resIdx) * 50}ms` }}
                       >
                         <div>
@@ -134,7 +134,7 @@ export default function LibraryPage() {
           </section>
 
           {/* Explore CTA */}
-          <section className="bg-white/80 rounded-xl border border-stone-200/60 p-6 md:p-8 text-center mb-12">
+          <section className="bg-white/80 rounded-xl border border-stone-200/60 p-6 md:p-8 text-center mb-16 md:mb-24">
             <h2 className="font-serif text-xl text-primary mb-2">
               Ready to dig deeper?
             </h2>

@@ -34,7 +34,7 @@ export default function GuidesPage() {
                 style={{ animationDelay: `${index * 60}ms` }}
               >
                 <div
-                  className="relative bg-white/80 rounded-xl p-6 border border-stone-200/60 hover:border-[#d4cec4] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                  className="relative bg-white/80 rounded-xl p-6 border border-stone-200/60 shadow-card hover:border-[#d4cec4] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200"
                   style={{ borderLeftWidth: "4px", borderLeftColor: guide.color }}
                 >
                   <div className="flex items-start gap-5">

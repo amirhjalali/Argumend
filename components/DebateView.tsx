@@ -815,7 +815,7 @@ export function DebateView() {
             <Swords className="h-3.5 w-3.5" />
             Debate Chamber
           </div>
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-primary leading-tight max-w-3xl mx-auto">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08] max-w-3xl mx-auto">
             {topic.meta_claim}
           </h1>
           <p className="text-stone-500 max-w-xl mx-auto">

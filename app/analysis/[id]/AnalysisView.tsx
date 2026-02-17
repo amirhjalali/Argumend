@@ -575,7 +575,7 @@ export function AnalysisView({
               {/* Title + Summary + Gauge */}
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                 <div className="flex-1 min-w-0 space-y-3">
-                  <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary leading-tight">
+                  <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
                     {extracted.topic}
                   </h1>
                   <p className="text-secondary text-sm leading-relaxed max-w-xl">

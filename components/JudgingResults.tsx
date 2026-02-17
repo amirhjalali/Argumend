@@ -28,7 +28,7 @@ function WinnerBanner({ result }: { result: JudgingResult }) {
   const bannerStyles = {
     for: "from-rust-500 to-rust-600",
     against: "from-stone-500 to-stone-600",
-    draw: "from-purple-500 to-purple-600",
+    draw: "from-stone-500 to-stone-600",
     null: "from-gray-400 to-gray-500",
   };
 
@@ -248,7 +248,7 @@ function JudgeCard({
     ? "text-rust-600 bg-rust-50"
     : verdict.winner === "against"
     ? "text-stone-600 bg-stone-100"
-    : "text-purple-600 bg-purple-50";
+    : "text-stone-600 bg-stone-100";
 
   return (
     <motion.div

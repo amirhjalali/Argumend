@@ -48,7 +48,7 @@ export default function ConceptsPage() {
               <Link
                 key={concept.id}
                 href={`/concepts/${concept.id}`}
-                className="group bg-white/80 rounded-xl p-6 border border-stone-200/60 hover:border-[#4f7b77]/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                className="group bg-white/80 rounded-xl p-6 border border-stone-200/60 shadow-card hover:border-[#4f7b77]/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
                 <div className="flex items-start gap-4">

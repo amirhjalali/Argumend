@@ -130,7 +130,7 @@ export default async function GuidePage({ params }: PageProps) {
           {/* Main Content */}
           <div className="prose-custom">
             {guide.sections.map((section, sectionIdx) => (
-              <section key={sectionIdx} className="mb-12">
+              <section key={sectionIdx} className="mb-16 md:mb-24">
                 <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                   {section.title}
                 </h2>

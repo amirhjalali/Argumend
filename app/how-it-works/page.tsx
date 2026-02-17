@@ -17,7 +17,7 @@ const nodeTypes = [
   {
     icon: Landmark,
     name: "Meta Claim",
-    color: "#2563eb",
+    color: "#4f7b77",
     description: "The central topic being examined. Everything branches from here.",
     example: "\"Nuclear power is safe and effective\"",
   },
@@ -166,7 +166,7 @@ export default function HowItWorksPage() {
             <div className="relative z-10 flex flex-col items-center gap-12">
               {/* Meta Node */}
               <div className="flex flex-col items-center">
-                <div className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white font-semibold shadow-lg">
+                <div className="px-6 py-3 rounded-xl bg-gradient-to-r from-deep to-deep-dark text-white font-semibold shadow-lg">
                   <div className="flex items-center gap-2">
                     <Landmark className="h-4 w-4" />
                     <span>Meta Claim</span>

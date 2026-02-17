@@ -234,7 +234,7 @@ export default function LessonsFromTheDeepPage() {
         </div>
 
         {/* Featured Exchanges */}
-        <section className="mb-14 md:mb-20">
+        <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
             Key Exchanges
           </h2>
@@ -247,10 +247,10 @@ export default function LessonsFromTheDeepPage() {
         </section>
 
         {/* Section transition */}
-        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-14 md:mb-20" />
+        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-16 md:mb-24" />
 
         {/* All Posts */}
-        <section className="mb-14 md:mb-20">
+        <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
             All Moltbook Posts
           </h2>
@@ -291,7 +291,7 @@ export default function LessonsFromTheDeepPage() {
         </section>
 
         {/* Call to Action */}
-        <div className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center mb-14 md:mb-20">
+        <div className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center mb-16 md:mb-24">
           <CrabIcon className="h-6 w-6 text-deep/40 mx-auto mb-4" />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
             Join the Conversation

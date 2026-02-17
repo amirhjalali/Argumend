@@ -42,7 +42,7 @@ const chatgptProblems = [
     title: "No Structured Disagreement",
     description:
       'A single model can\'t genuinely argue with itself. You get a both-sides-ish summary, not a real debate. The "on the other hand" paragraph is a formality, not a conviction.',
-    color: "#2563eb",
+    color: "#4f7b77",
   },
 ];
 
@@ -51,7 +51,7 @@ const methodologySteps = [
     number: "01",
     title: "Argument Extraction",
     icon: Layers,
-    color: "#2563eb",
+    color: "#4f7b77",
     description:
       "AI identifies all distinct positions, claims, evidence, and sources in the input text. Positions are categorized as supporting or opposing the central claim.",
     details: [
@@ -136,7 +136,7 @@ const evidenceDimensions = [
     name: "Replicability",
     range: "0-10",
     description: "Can others verify the result? Has it been successfully reproduced?",
-    color: "#2563eb",
+    color: "#4f7b77",
   },
   {
     name: "Directness",

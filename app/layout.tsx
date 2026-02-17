@@ -1,6 +1,23 @@
 import type { Metadata, Viewport } from "next";
+import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import { SessionProvider } from "@/components/SessionProvider";
 import "./globals.css";
+
+const serif = EB_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const sans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   themeColor: "#f4f1eb",
@@ -32,21 +49,12 @@ export const metadata: Metadata = {
     title: "ARGUMEND — Map Arguments, Not Win Them",
     description:
       "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
-    images: [
-      {
-        url: "https://argumend.org/og-default.png",
-        width: 1200,
-        height: 630,
-        alt: "ARGUMEND — Map Arguments, Not Win Them",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ARGUMEND — Map Arguments, Not Win Them",
     description:
       "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
-    images: ["https://argumend.org/og-default.png"],
   },
   robots: {
     index: true,
@@ -71,7 +79,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className={`${serif.variable} ${sans.variable} antialiased`}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-primary focus:rounded-lg focus:shadow-lg"

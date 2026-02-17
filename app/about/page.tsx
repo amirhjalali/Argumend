@@ -56,7 +56,7 @@ export default function AboutPage() {
     <AppShell>
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         {/* Hero */}
-        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-16 md:mb-24">
           <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             About
           </p>
@@ -78,7 +78,7 @@ export default function AboutPage() {
         </blockquote>
 
         {/* Why It Matters */}
-        <section className="mb-14 md:mb-20">
+        <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Why this matters</h2>
           <p className="text-lg text-secondary leading-relaxed mb-8">
             Bad epistemics aren&apos;t just intellectually frustrating. They cause real harm.
@@ -104,10 +104,10 @@ export default function AboutPage() {
         </section>
 
         {/* Section transition */}
-        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-14 md:mb-20" />
+        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-16 md:mb-24" />
 
         {/* Our Approach */}
-        <section className="mb-14 md:mb-20">
+        <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">A different approach</h2>
           <p className="text-lg text-secondary leading-relaxed mb-7">
             Argumend maps controversial topics visually, breaking each one into:
@@ -133,10 +133,10 @@ export default function AboutPage() {
         </section>
 
         {/* Section transition */}
-        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-14 md:mb-20" />
+        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-16 md:mb-24" />
 
         {/* Principles Grid */}
-        <section className="mb-14 md:mb-20">
+        <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Core principles</h2>
           <p className="text-lg text-secondary mb-8 md:mb-10">Four commitments that guide everything we build.</p>
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
@@ -167,7 +167,7 @@ export default function AboutPage() {
         </section>
 
         {/* Philosophy */}
-        <section className="mb-14 md:mb-20 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Philosophy</h2>
           <div className="space-y-5 text-base md:text-lg text-secondary leading-[1.75]">
             <p>
@@ -194,7 +194,7 @@ export default function AboutPage() {
         </section>
 
         {/* Confidence Explainer */}
-        <section className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 mb-12 md:mb-16 border border-stone-200/70">
+        <section className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 mb-16 md:mb-24 border border-stone-200/70">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
             We don&apos;t claim to know the truth. We estimate how confident we should be based on available evidence.
@@ -228,7 +228,7 @@ export default function AboutPage() {
         </section>
 
         {/* Voices of Reason */}
-        <section className="mb-14 md:mb-20">
+        <section className="mb-16 md:mb-24">
           <div className="flex items-center gap-2.5 mb-8">
             <Quote className="h-5 w-5 text-rust-500" strokeWidth={1.5} />
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Voices of reason</h2>
@@ -259,7 +259,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
+        <section className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center my-16 md:my-24">
           <Scale className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to think differently?</h3>
           <p className="text-secondary mb-7 max-w-md mx-auto">Pick a topic. Explore the map. Find the crux.</p>

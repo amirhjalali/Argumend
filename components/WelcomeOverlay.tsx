@@ -134,7 +134,7 @@ export function WelcomeOverlay() {
                     <p className="text-[11px] font-semibold text-deep/70 mb-2 tracking-widest uppercase">
                       {step.highlight}
                     </p>
-                    <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2 font-bold">
+                    <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                       {step.title}
                     </h2>
                     <p className="text-sm text-stone-500 mb-4 italic font-serif">

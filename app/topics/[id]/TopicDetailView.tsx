@@ -66,16 +66,16 @@ const statusLabels: Record<TopicStatus, string> = {
 };
 
 const categoryColors: Record<TopicCategory, string> = {
-  policy: "bg-blue-50 text-blue-600 border-blue-200/60",
-  technology: "bg-violet-50 text-violet-600 border-violet-200/60",
+  policy: "bg-deep/10 text-deep border-deep/20",
+  technology: "bg-stone-100 text-stone-600 border-stone-200/60",
   science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
   economics: "bg-rust-50 text-rust-700 border-rust-200/60",
   philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 
 const categoryTopBorder: Record<TopicCategory, string> = {
-  policy: "border-t-blue-400",
-  technology: "border-t-violet-400",
+  policy: "border-t-deep",
+  technology: "border-t-stone-400",
   science: "border-t-emerald-400",
   economics: "border-t-rust-400",
   philosophy: "border-t-stone-400",
@@ -83,7 +83,7 @@ const categoryTopBorder: Record<TopicCategory, string> = {
 
 const verificationColors: Record<string, { bg: string; text: string; label: string }> = {
   verified: { bg: "bg-emerald-50", text: "text-emerald-700", label: "Verified" },
-  theoretical: { bg: "bg-blue-50", text: "text-blue-700", label: "Theoretical" },
+  theoretical: { bg: "bg-deep/10", text: "text-deep", label: "Theoretical" },
   impossible: { bg: "bg-stone-100", text: "text-stone-600", label: "Impossible to Verify" },
 };
 
@@ -108,7 +108,7 @@ const ICON_MAP: Record<string, typeof Shield> = {
 
 function confidenceColor(score: number): string {
   if (score >= 85) return "text-emerald-700 bg-emerald-50 border-emerald-200/60";
-  if (score >= 60) return "text-blue-700 bg-blue-50 border-blue-200/60";
+  if (score >= 60) return "text-deep bg-deep/10 border-deep/20";
   if (score >= 40) return "text-rust-700 bg-rust-50 border-rust-200/60";
   return "text-stone-600 bg-stone-100 border-stone-200/60";
 }
@@ -507,7 +507,7 @@ export default function TopicDetailView({
               </span>
             </div>
 
-            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl tracking-tight text-primary mb-4 leading-[1.1]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               {topic.title}
             </h1>
 
@@ -574,7 +574,7 @@ export default function TopicDetailView({
                     topic.confidence_score >= 85
                       ? "text-emerald-700"
                       : topic.confidence_score >= 60
-                        ? "text-blue-700"
+                        ? "text-deep"
                         : topic.confidence_score >= 40
                           ? "text-rust-700"
                           : "text-stone-600"
@@ -711,7 +711,7 @@ export default function TopicDetailView({
               </span>
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
             </div>
-            <h2 className="font-serif text-xl sm:text-2xl text-primary mb-2.5">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Where do you stand?
             </h2>
             <p className="text-sm text-stone-500 leading-relaxed mb-7">
@@ -851,7 +851,7 @@ export default function TopicDetailView({
 
           {/* Meta Claim Expanded */}
           <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-xl sm:text-2xl text-primary mb-3">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               The Claim
             </h2>
             <blockquote className="border-l-2 border-[#4f7b77] pl-4 sm:pl-5">
@@ -873,7 +873,7 @@ export default function TopicDetailView({
 
           {/* Pillars */}
           <section id="pillars" className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-xl sm:text-2xl text-primary mb-6">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Argument Pillars
             </h2>
             <p className="text-sm text-stone-500 mb-8 leading-relaxed">
@@ -893,7 +893,7 @@ export default function TopicDetailView({
           {/* References */}
           {topic.references && topic.references.length > 0 && (
             <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
-              <h2 className="font-serif text-xl sm:text-2xl text-primary mb-4">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 References
               </h2>
               <ul className="space-y-2">
@@ -916,7 +916,7 @@ export default function TopicDetailView({
 
           {/* CTA */}
           <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 text-center">
-            <h2 className="font-serif text-xl sm:text-2xl text-primary mb-2">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Explore interactively
             </h2>
             <p className="text-sm text-stone-500 mb-5">
@@ -935,7 +935,7 @@ export default function TopicDetailView({
           {/* Related Topics */}
           {relatedTopics.length > 0 && (
             <section className="mb-8">
-              <h2 className="font-serif text-xl sm:text-2xl text-primary mb-4">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 Related Topics
               </h2>
               <p className="text-sm text-stone-500 mb-5">
