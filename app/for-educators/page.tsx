@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import {
   GraduationCap,
@@ -238,7 +239,7 @@ export default function ForEducatorsPage() {
             Fits into the subjects you teach
           </h2>
           <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            Argument mapping is a cross-curricular skill. Here's how Argumend
+            Argument mapping is a cross-curricular skill. Here&apos;s how Argumend
             integrates with your existing syllabus.
           </p>
 
@@ -292,27 +293,27 @@ export default function ForEducatorsPage() {
             that fits your curriculum, or see how the tool works.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
+            <Link
               href="/"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
             >
               Start Exploring — Free
               <ArrowRight className="h-3.5 w-3.5" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/community"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-300 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-white/60 transition-colors"
             >
               Suggest a Topic
               <Users className="h-3.5 w-3.5" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/how-it-works"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-300 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-white/60 transition-colors"
             >
               How It Works
               <Scale className="h-3.5 w-3.5" />
-            </a>
+            </Link>
           </div>
         </section>
 

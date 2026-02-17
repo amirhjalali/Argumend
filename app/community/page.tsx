@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { MessageSquare, Shield, Scale, Lightbulb, ArrowRight } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 
@@ -176,13 +177,13 @@ export default function CommunityPage() {
             Good discourse is a skill. These principles help us practice it
             together. Have a topic suggestion? We&apos;d love to hear from you.
           </p>
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
           >
             Explore Topics
             <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </section>
 
         <div className="pt-6 border-t border-stone-200 mb-8">

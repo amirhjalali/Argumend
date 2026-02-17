@@ -90,13 +90,13 @@ export default function GuidesPage() {
             Why These Foundations Matter
           </h3>
           <p className="text-primary leading-relaxed mb-4">
-            Most disagreements aren't resolved because people argue about conclusions
+            Most disagreements aren&apos;t resolved because people argue about conclusions
             before agreeing on methods. These guides provide common ground—shared
             principles for evaluating evidence that make productive disagreement possible.
           </p>
           <p className="text-primary leading-relaxed">
-            Master these foundations, and you'll be equipped to evaluate any claim
-            on any topic. You'll know what questions to ask, what evidence to seek,
+            Master these foundations, and you&apos;ll be equipped to evaluate any claim
+            on any topic. You&apos;ll know what questions to ask, what evidence to seek,
             and how to update your beliefs appropriately.
           </p>
         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { citations, researchSections } from "@/data/research";
 import type { Citation } from "@/data/research";
@@ -186,13 +187,13 @@ export default function ResearchPage() {
           <p className="text-secondary mb-7">
             Every topic analysis on Argumend implements these evidence-based principles.
           </p>
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
           >
             Explore Topics
             <Scale className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </section>
 
         {/* Footer tagline */}

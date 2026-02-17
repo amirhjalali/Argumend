@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Scale, ChevronRight, Sparkles } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
@@ -10,6 +10,7 @@ import { topics } from "@/data/topics";
 export function TopicIntroPanel() {
   const [isVisible, setIsVisible] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [prevTopicId, setPrevTopicId] = useState<string | null>(null);
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const nodes = useLogicGraph((state) => state.nodes);
 
@@ -18,11 +19,12 @@ export function TopicIntroPanel() {
   // Find the crux node for this topic
   const cruxNode = nodes.find((n) => n.data.variant === "crux");
 
-  // Reset visibility when topic changes
-  useEffect(() => {
-    setIsVisible(true);
-    setIsMinimized(false);
-  }, [currentTopicId]);
+  // Reset visibility when topic changes (using state to avoid ref-during-render and setState-in-effect)
+  if (prevTopicId !== currentTopicId) {
+    setPrevTopicId(currentTopicId);
+    if (!isVisible) setIsVisible(true);
+    if (isMinimized) setIsMinimized(false);
+  }
 
   const handleFocusCrux = () => {
     if (cruxNode) {

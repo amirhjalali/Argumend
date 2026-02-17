@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 
 const DESKTOP_BREAKPOINT = 768;
 const SIDEBAR_WIDTH = 260;
@@ -19,14 +19,10 @@ interface SidebarState {
  * Issue #1, #18: Consolidates duplicated sidebar logic from page.tsx and AppShell.tsx
  */
 export function useSidebarState(): SidebarState {
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    // Open sidebar by default on desktop
-    if (window.innerWidth >= DESKTOP_BREAKPOINT) {
-      setIsOpen(true);
-    }
-  }, []);
+  const [isOpen, setIsOpen] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth >= DESKTOP_BREAKPOINT;
+  });
 
   const toggle = useCallback(() => {
     setIsOpen((prev) => !prev);

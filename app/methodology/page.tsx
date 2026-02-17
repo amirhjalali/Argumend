@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import {
   Brain,
@@ -185,7 +186,7 @@ export default function MethodologyPage() {
             <span className="text-stone-500">AI opinion</span>
           </h1>
           <p className="text-lg text-stone-500 max-w-2xl mx-auto leading-[1.7]">
-            Why Argumend gives you something ChatGPT can't: structured,
+            Why Argumend gives you something ChatGPT can&apos;t: structured,
             transparent, multi-perspective analysis.
           </p>
         </div>
@@ -198,7 +199,7 @@ export default function MethodologyPage() {
           <p className="text-lg text-stone-500 leading-[1.7] mb-8">
             Asking a single AI for its opinion on a controversial topic is like
             asking one witness to describe an entire crime scene. You get a
-            coherent story, but you have no idea what it's leaving out.
+            coherent story, but you have no idea what it&apos;s leaving out.
           </p>
 
           <div className="grid gap-3">
@@ -415,7 +416,7 @@ export default function MethodologyPage() {
           </h2>
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             The confidence score reflects the balance of evidence, not the
-            model's opinion. We report uncertainty honestly.
+            model&apos;s opinion. We report uncertainty honestly.
           </p>
 
           <div className="bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/70 mb-6">
@@ -516,20 +517,20 @@ export default function MethodologyPage() {
             Try it yourself, or explore pre-built topics analyzed with this framework.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
+            <Link
               href="/analyze"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
             >
               Try It Yourself
               <ArrowRight className="h-3.5 w-3.5" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-300 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-white/60 transition-colors"
             >
               Explore Pre-Built Topics
               <Scale className="h-3.5 w-3.5" />
-            </a>
+            </Link>
           </div>
         </section>
 

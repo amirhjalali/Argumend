@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { Scale, Lightbulb, BookOpen, Target, Heart, Zap, Users, Shield, Quote } from "lucide-react";
 import { quotes as allQuotes } from "@/data/quotes";
@@ -66,7 +67,7 @@ export default function AboutPage() {
             <span className="text-stone-500">without destroying each other?</span>
           </h1>
           <p className="text-lg text-stone-500 max-w-2xl leading-[1.7]">
-            Most debates generate heat, not light. We yell past each other, strawman positions we don't understand,
+            Most debates generate heat, not light. We yell past each other, strawman positions we don&apos;t understand,
             and walk away more certain—and more divided—than before.
           </p>
         </div>
@@ -82,7 +83,7 @@ export default function AboutPage() {
         <section className="mb-14 md:mb-20">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Why this matters</h2>
           <p className="text-lg text-stone-500 leading-[1.7] mb-8">
-            Bad epistemics aren't just intellectually frustrating. They cause real harm.
+            Bad epistemics aren&apos;t just intellectually frustrating. They cause real harm.
           </p>
 
           <div className="grid gap-3">
@@ -173,7 +174,7 @@ export default function AboutPage() {
           <div className="space-y-5 text-base md:text-lg text-secondary leading-[1.75]">
             <p>
               We draw from the rationalist tradition—Socratic questioning, Bayesian updating, the principle
-              of charity. But we're not trying to win converts to a worldview. We're trying to build a
+              of charity. But we&apos;re not trying to win converts to a worldview. We&apos;re trying to build a
               tool that helps anyone think more clearly.
             </p>
             <p>
@@ -181,12 +182,12 @@ export default function AboutPage() {
             </p>
             <p>
               Ideas are lenses to pick up, examine, and set down. When someone challenges your idea,
-              they're not attacking you—they're offering a different lens. Maybe theirs is better.
+              they&apos;re not attacking you—they&apos;re offering a different lens. Maybe theirs is better.
               Maybe yours is. The only way to find out is to examine both honestly.
             </p>
             <p>
-              That's harder than it sounds. It requires intellectual humility, genuine curiosity, and
-              the willingness to say "I don't know" or "I was wrong."
+              That&apos;s harder than it sounds. It requires intellectual humility, genuine curiosity, and
+              the willingness to say &ldquo;I don&apos;t know&rdquo; or &ldquo;I was wrong.&rdquo;
             </p>
             <p className="font-medium text-primary">
               Argumend is a tool for people who want to do that hard work.
@@ -198,7 +199,7 @@ export default function AboutPage() {
         <section className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 mb-12 md:mb-16 border border-stone-200/70">
           <h2 className="font-serif text-xl md:text-2xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
-            We don't claim to know the truth. We estimate how confident we should be based on available evidence.
+            We don&apos;t claim to know the truth. We estimate how confident we should be based on available evidence.
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
@@ -264,13 +265,13 @@ export default function AboutPage() {
           <Scale className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to think differently?</h3>
           <p className="text-secondary mb-7 max-w-md mx-auto">Pick a topic. Explore the map. Find the crux.</p>
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
           >
             Start Exploring
             <Scale className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </section>
 
         {/* Footer */}

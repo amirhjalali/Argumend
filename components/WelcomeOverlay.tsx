@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Lightbulb, Scale, Target, Sparkles } from "lucide-react";
 
@@ -40,15 +40,11 @@ const STEPS = [
 ];
 
 export function WelcomeOverlay() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !localStorage.getItem("argumend-welcomed");
+  });
   const [currentStep, setCurrentStep] = useState(0);
-
-  useEffect(() => {
-    const hasSeenWelcome = localStorage.getItem("argumend-welcomed");
-    if (!hasSeenWelcome) {
-      setIsVisible(true);
-    }
-  }, []);
 
   const handleClose = () => {
     localStorage.setItem("argumend-welcomed", "true");

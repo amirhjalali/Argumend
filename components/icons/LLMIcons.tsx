@@ -125,3 +125,30 @@ export function getLLMOption(modelId: LLMModel): LLMOption | undefined {
 export function getLLMIcon(modelId: LLMModel): React.FC<LLMIconProps> {
   return getLLMOption(modelId)?.Icon ?? ClaudeIcon;
 }
+
+/**
+ * Stable component that renders the correct icon for a model ID.
+ * Use this instead of getLLMIcon() during render to avoid
+ * react-compiler "Cannot create components during render" errors.
+ */
+export function LLMIconRenderer({
+  modelId,
+  className,
+  style,
+}: LLMIconProps & { modelId: LLMModel }) {
+  const option = getLLMOption(modelId);
+  if (!option) return <ClaudeIcon className={className} style={style} />;
+
+  switch (option.id) {
+    case "claude":
+      return <ClaudeIcon className={className} style={style} />;
+    case "gpt-4":
+      return <OpenAIIcon className={className} style={style} />;
+    case "gemini":
+      return <GeminiIcon className={className} style={style} />;
+    case "grok":
+      return <GrokIcon className={className} style={style} />;
+    default:
+      return <ClaudeIcon className={className} style={style} />;
+  }
+}

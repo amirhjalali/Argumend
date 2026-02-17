@@ -1,3 +1,5 @@
+const CATEGORY_TAB_WIDTHS = [60, 95, 110, 85, 105, 90];
+
 export default function TopicsListLoading() {
   return (
     <div className="min-h-screen bg-[#faf8f5]">
@@ -10,11 +12,11 @@ export default function TopicsListLoading() {
 
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-2 mb-6">
-          {Array.from({ length: 6 }).map((_, i) => (
+          {CATEGORY_TAB_WIDTHS.map((width, i) => (
             <div
               key={i}
               className="h-8 bg-stone-200 animate-pulse rounded-full"
-              style={{ width: i === 0 ? 60 : 80 + Math.random() * 40 }}
+              style={{ width }}
             />
           ))}
         </div>

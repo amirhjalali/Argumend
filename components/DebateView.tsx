@@ -690,7 +690,7 @@ export function DebateView() {
         typingSide: null,
       }));
     }
-  }, [canStart, state.forModel, state.againstModel, state.maxRounds, state.phase, runDebateRound]);
+  }, [canStart, state.forModel, state.againstModel, state.maxRounds, runDebateRound]);
 
   const resetDebate = useCallback(() => {
     setState({

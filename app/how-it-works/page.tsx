@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import {
   Scale,
@@ -250,7 +251,7 @@ export default function HowItWorksPage() {
             Reading confidence scores
           </h2>
           <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            We don't claim certainty. Confidence scores reflect the weight of available evidence.
+            We don&apos;t claim certainty. Confidence scores reflect the weight of available evidence.
           </p>
           <div className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 border border-stone-200/70">
             <div className="grid md:grid-cols-3 gap-6">
@@ -287,7 +288,7 @@ export default function HowItWorksPage() {
               </p>
               <p className="text-secondary leading-relaxed">
                 When you find the crux, you stop arguing past each other. You know exactly what question
-                to investigate. That's where understanding happens.
+                to investigate. That&apos;s where understanding happens.
               </p>
             </div>
           </div>
@@ -298,13 +299,13 @@ export default function HowItWorksPage() {
           <ArrowRight className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to explore?</h3>
           <p className="text-secondary mb-7 max-w-md mx-auto">Pick a controversial topic. Find the crux. Update your beliefs.</p>
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
           >
             Start Mapping
             <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </section>
       </div>
     </AppShell>

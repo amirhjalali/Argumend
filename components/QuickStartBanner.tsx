@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import {
@@ -25,17 +25,13 @@ interface QuickStartBannerProps {
 }
 
 export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !localStorage.getItem(STORAGE_KEY);
+  });
   const [activeCategory, setActiveCategory] = useState<TopicCategory | null>(
     null
   );
-
-  useEffect(() => {
-    const dismissed = localStorage.getItem(STORAGE_KEY);
-    if (!dismissed) {
-      setVisible(true);
-    }
-  }, []);
 
   const handleDismiss = useCallback(() => {
     localStorage.setItem(STORAGE_KEY, "true");

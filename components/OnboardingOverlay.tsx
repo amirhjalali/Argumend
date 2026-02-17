@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Scale, Crosshair, ArrowRight, X } from "lucide-react";
 
@@ -28,14 +28,10 @@ const steps = [
 ];
 
 export function OnboardingOverlay() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const onboarded = localStorage.getItem(STORAGE_KEY);
-    if (!onboarded) {
-      setVisible(true);
-    }
-  }, []);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !localStorage.getItem(STORAGE_KEY);
+  });
 
   const handleDismiss = () => {
     localStorage.setItem(STORAGE_KEY, "true");

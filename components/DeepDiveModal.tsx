@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { X, Scale } from "lucide-react";
 import { Pillar } from "@/types/logic";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { InlineMath } from "react-katex";
 import { useModalAccessibility } from "@/hooks/useModalAccessibility";
 import { containerVariants, itemVariants } from "@/lib/animationVariants";
@@ -15,15 +15,19 @@ interface DeepDiveModalProps {
 
 export function DeepDiveModal({ pillar, onClose }: DeepDiveModalProps) {
   const [cruxRevealed, setCruxRevealed] = useState(false);
+  const [prevPillarId, setPrevPillarId] = useState<string | undefined>(pillar?.id);
   const modalRef = useModalAccessibility<HTMLDivElement>({
     isOpen: Boolean(pillar),
     onClose,
   });
 
-  // Reset state when pillar changes
-  useEffect(() => {
-    setCruxRevealed(false);
-  }, [pillar?.id]);
+  // Reset state when pillar changes (using state to track previous prop)
+  if (prevPillarId !== pillar?.id) {
+    setPrevPillarId(pillar?.id);
+    if (cruxRevealed) {
+      setCruxRevealed(false);
+    }
+  }
 
   if (!pillar) return null;
 

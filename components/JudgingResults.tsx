@@ -14,7 +14,7 @@ import { useState } from "react";
 import type { JudgingResult, JudgeVerdict, RubricDimension } from "@/lib/judge/rubric";
 import { DEFAULT_RUBRIC } from "@/lib/judge/rubric";
 import { getConfidenceInfo } from "@/lib/analyze/extractor";
-import { getLLMOption, getLLMIcon } from "./icons/LLMIcons";
+import { getLLMOption, LLMIconRenderer } from "./icons/LLMIcons";
 import type { LLMModel } from "@/types/logic";
 
 interface JudgingResultsProps {
@@ -235,7 +235,6 @@ function JudgeCard({
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const llmOption = getLLMOption(verdict.model);
-  const Icon = getLLMIcon(verdict.model);
 
   const winnerLabel = verdict.winner === "for"
     ? "For"
@@ -268,7 +267,8 @@ function JudgeCard({
               className="w-10 h-10 rounded-xl flex items-center justify-center"
               style={{ backgroundColor: llmOption?.bgLight }}
             >
-              <Icon
+              <LLMIconRenderer
+                modelId={verdict.model}
                 className="h-5 w-5"
                 style={{ color: llmOption?.color }}
               />

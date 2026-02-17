@@ -19,20 +19,18 @@ function getDomain(url: string): string {
   }
 }
 
-// Determine icon based on source type
-function getSourceIcon(url?: string, source?: string) {
-  if (!url && !source) return FileText;
-
+// Render icon based on source type
+function SourceIcon({ url, source, className, strokeWidth }: { url?: string; source?: string; className?: string; strokeWidth?: number }) {
   const urlLower = (url || "").toLowerCase();
   const sourceLower = (source || "").toLowerCase();
 
   if (urlLower.includes("arxiv") || urlLower.includes("doi.org") || sourceLower.includes("journal")) {
-    return BookOpen;
+    return <BookOpen className={className} strokeWidth={strokeWidth} />;
   }
   if (urlLower.includes("wikipedia") || urlLower.includes("britannica")) {
-    return Globe;
+    return <Globe className={className} strokeWidth={strokeWidth} />;
   }
-  return FileText;
+  return <FileText className={className} strokeWidth={strokeWidth} />;
 }
 
 export function CitationCard({ reference, index }: CitationCardProps) {
@@ -62,7 +60,6 @@ export function CitationCard({ reference, index }: CitationCardProps) {
     }, 150);
   };
 
-  const SourceIcon = getSourceIcon(reference.url, reference.source);
   const domain = reference.url ? getDomain(reference.url) : null;
 
   return (
@@ -100,7 +97,7 @@ export function CitationCard({ reference, index }: CitationCardProps) {
           {/* Card Header */}
           <div className="flex items-start gap-3 mb-3">
             <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#C4613C]/10 flex-shrink-0">
-              <SourceIcon className="h-4 w-4 text-[#C4613C]" strokeWidth={2} />
+              <SourceIcon url={reference.url} source={reference.source} className="h-4 w-4 text-[#C4613C]" strokeWidth={2} />
             </div>
             <div className="flex-1 min-w-0">
               <h4 className="font-serif text-sm font-semibold text-primary leading-tight mb-1">

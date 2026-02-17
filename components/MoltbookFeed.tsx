@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   MessageSquare,
@@ -44,7 +44,7 @@ export function MoltbookFeed({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -70,11 +70,11 @@ export function MoltbookFeed({
     } finally {
       setLoading(false);
     }
-  };
+  }, [submolt, limit]);
 
   useEffect(() => {
     fetchPosts();
-  }, [submolt, limit]);
+  }, [fetchPosts]);
 
   const formatTimeAgo = (dateString: string) => {
     const date = new Date(dateString);
@@ -104,7 +104,7 @@ export function MoltbookFeed({
           <AlertCircle className="w-5 h-5 text-rust-500 mt-0.5 flex-shrink-0" />
           <div className="flex-1">
             <p className="text-rust-800 text-sm font-medium">
-              Couldn't load Moltbook feed
+              Couldn&apos;t load Moltbook feed
             </p>
             <p className="text-rust-600 text-sm mt-1">{error}</p>
           </div>
