@@ -11,10 +11,10 @@ export default function GuidesPage() {
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
         {/* Header */}
         <div className="mb-12">
-          <p className="text-[11px] font-medium text-stone-400 mb-3 tracking-wide uppercase">
+          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             Foundational Guides
           </p>
-          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-tight text-primary mb-4 leading-[1.1]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
             The Art of Finding Truth
           </h1>
           <p className="text-lg text-secondary leading-relaxed max-w-2xl">
@@ -55,7 +55,7 @@ export default function GuidesPage() {
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-1">
-                        <h2 className="font-serif text-xl font-semibold text-primary group-hover:text-deep transition-colors">
+                        <h2 className="font-serif text-xl text-primary group-hover:text-deep transition-colors">
                           {guide.title}
                         </h2>
                         <span className="inline-flex items-center gap-1 bg-stone-100 px-2 py-0.5 rounded-full text-xs text-stone-500">
@@ -86,7 +86,7 @@ export default function GuidesPage() {
 
         {/* Philosophy Box */}
         <div className="mt-12 bg-gradient-to-br from-[#faf8f3] to-[#f5f2eb] rounded-xl p-6 border border-[#e8e0d4]">
-          <h3 className="font-serif text-lg text-primary mb-3">
+          <h3 className="font-serif text-lg text-primary mb-2">
             Why These Foundations Matter
           </h3>
           <p className="text-primary leading-relaxed mb-4">

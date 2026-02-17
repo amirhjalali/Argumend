@@ -1,6 +1,6 @@
 export default function ConceptDetailLoading() {
   return (
-    <div className="bg-[#faf8f5] min-h-full">
+    <div className="min-h-full">
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-16">
         {/* Breadcrumb */}
         <nav className="mb-8">

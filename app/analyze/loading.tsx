@@ -1,6 +1,6 @@
 export default function AnalyzePageLoading() {
   return (
-    <div className="bg-[#faf8f5] min-h-full">
+    <div className="min-h-full">
       <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-8">
         {/* Header */}
         <div className="text-center space-y-3">

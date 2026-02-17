@@ -84,7 +84,7 @@ export default async function GuidePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="bg-[#faf8f5] min-h-full">
+      <div className="min-h-full">
         <article className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
           {/* Back link */}
           <Link
@@ -119,10 +119,10 @@ export default async function GuidePage({ params }: PageProps) {
               </div>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary mb-4 leading-[1.1]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               {guide.title}
             </h1>
-            <p className="text-lg md:text-xl text-secondary font-serif leading-relaxed max-w-2xl">
+            <p className="text-lg text-secondary leading-relaxed max-w-2xl">
               {guide.subtitle}
             </p>
           </header>
@@ -131,7 +131,7 @@ export default async function GuidePage({ params }: PageProps) {
           <div className="prose-custom">
             {guide.sections.map((section, sectionIdx) => (
               <section key={sectionIdx} className="mb-12">
-                <h2 className="font-serif text-2xl text-primary mb-4 leading-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                   {section.title}
                 </h2>
 
@@ -148,7 +148,7 @@ export default async function GuidePage({ params }: PageProps) {
                         key={subIdx}
                         className="pl-5 border-l-2 border-deep/20"
                       >
-                        <h3 className="font-serif text-lg text-primary mb-2 font-medium">
+                        <h3 className="font-serif text-lg text-primary mb-2">
                           {subsection.title}
                         </h3>
                         <div className="text-primary leading-[1.75] whitespace-pre-line text-[15px]">
@@ -164,7 +164,7 @@ export default async function GuidePage({ params }: PageProps) {
 
           {/* Key Takeaways */}
           <section className="my-12 bg-gradient-to-br from-[#faf8f5] to-canvas rounded-xl p-6 md:p-8 border border-stone-200/60">
-            <h2 className="font-serif text-xl text-primary mb-5 flex items-center gap-2">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 flex items-center gap-2">
               <CheckCircle2 className="h-5 w-5 text-deep" />
               Key Takeaways
             </h2>
@@ -185,7 +185,7 @@ export default async function GuidePage({ params }: PageProps) {
 
           {/* Further Reading */}
           <section className="my-12">
-            <h2 className="font-serif text-xl text-primary mb-5 flex items-center gap-2">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 flex items-center gap-2">
               <BookOpen className="h-5 w-5 text-secondary" />
               Further Reading
             </h2>

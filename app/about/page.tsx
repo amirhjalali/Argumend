@@ -58,15 +58,15 @@ export default function AboutPage() {
     <AppShell>
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         {/* Hero */}
-        <div className="bg-gradient-to-b from-[#f4f1eb] via-[#f4f1eb] to-[#faf8f5] -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20">
-          <p className="text-[12px] font-medium tracking-widest uppercase text-deep/60 mb-5">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20">
+          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             About
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             What if we could disagree<br />
             <span className="text-stone-500">without destroying each other?</span>
           </h1>
-          <p className="text-lg text-stone-500 max-w-2xl leading-[1.7]">
+          <p className="text-lg text-secondary leading-relaxed max-w-2xl">
             Most debates generate heat, not light. We yell past each other, strawman positions we don&apos;t understand,
             and walk away more certain—and more divided—than before.
           </p>
@@ -82,7 +82,7 @@ export default function AboutPage() {
         {/* Why It Matters */}
         <section className="mb-14 md:mb-20">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Why this matters</h2>
-          <p className="text-lg text-stone-500 leading-[1.7] mb-8">
+          <p className="text-lg text-secondary leading-relaxed mb-8">
             Bad epistemics aren&apos;t just intellectually frustrating. They cause real harm.
           </p>
 
@@ -111,7 +111,7 @@ export default function AboutPage() {
         {/* Our Approach */}
         <section className="mb-14 md:mb-20">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">A different approach</h2>
-          <p className="text-lg text-secondary leading-[1.7] mb-7">
+          <p className="text-lg text-secondary leading-relaxed mb-7">
             Argumend maps controversial topics visually, breaking each one into:
           </p>
           <ul className="space-y-4 text-base md:text-lg text-secondary mb-6">
@@ -139,8 +139,8 @@ export default function AboutPage() {
 
         {/* Principles Grid */}
         <section className="mb-14 md:mb-20">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">Core principles</h2>
-          <p className="text-lg text-stone-500 mb-8 md:mb-10">Four commitments that guide everything we build.</p>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Core principles</h2>
+          <p className="text-lg text-secondary mb-8 md:mb-10">Four commitments that guide everything we build.</p>
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {principles.map((principle, i) => (
               <div
@@ -161,7 +161,7 @@ export default function AboutPage() {
                     />
                   </div>
                 </div>
-                <h3 className="font-serif text-lg md:text-xl text-primary mb-2">{principle.title}</h3>
+                <h3 className="font-serif text-lg text-primary mb-2">{principle.title}</h3>
                 <p className="text-[14px] md:text-[15px] text-secondary leading-relaxed">{principle.description}</p>
               </div>
             ))}
@@ -170,7 +170,7 @@ export default function AboutPage() {
 
         {/* Philosophy */}
         <section className="mb-14 md:mb-20 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-5">Philosophy</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Philosophy</h2>
           <div className="space-y-5 text-base md:text-lg text-secondary leading-[1.75]">
             <p>
               We draw from the rationalist tradition—Socratic questioning, Bayesian updating, the principle
@@ -197,7 +197,7 @@ export default function AboutPage() {
 
         {/* Confidence Explainer */}
         <section className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 mb-12 md:mb-16 border border-stone-200/70">
-          <h2 className="font-serif text-xl md:text-2xl text-primary mb-4">Understanding confidence scores</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
             We don&apos;t claim to know the truth. We estimate how confident we should be based on available evidence.
           </p>
@@ -233,7 +233,7 @@ export default function AboutPage() {
         <section className="mb-14 md:mb-20">
           <div className="flex items-center gap-2.5 mb-8">
             <Quote className="h-5 w-5 text-[#C4613C]" strokeWidth={1.5} />
-            <h2 className="font-serif text-2xl md:text-3xl text-primary">Voices of reason</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Voices of reason</h2>
           </div>
           <div className="grid gap-4">
             {quotes.map((quote, i) => (
@@ -261,7 +261,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-gradient-to-r from-[#f0ece5] to-[#ebe6de] rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
+        <section className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
           <Scale className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to think differently?</h3>
           <p className="text-secondary mb-7 max-w-md mx-auto">Pick a topic. Explore the map. Find the crux.</p>

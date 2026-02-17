@@ -1,8 +1,8 @@
 export default function BlogArticleLoading() {
   return (
-    <div className="min-h-screen bg-[#f4f1eb]">
+    <div className="min-h-screen">
       {/* Header area */}
-      <div className="bg-[#faf8f5] border-b border-[#e8e0d4]">
+      <div className="bg-[#faf8f5]/60 border-b border-[#e8e0d4]">
         <div className="mx-auto max-w-3xl px-4 md:px-8 pt-6 md:pt-10 pb-8 md:pb-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 mb-8">

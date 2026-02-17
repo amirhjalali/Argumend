@@ -30,10 +30,10 @@ export default function ConceptsPage() {
   return (
     <AppShell>
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
-        <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl tracking-tight text-primary mb-4">
+        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
           Key Concepts
         </h1>
-        <p className="text-lg text-secondary mb-10">
+        <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-10">
           Understanding the framework behind structured argumentation.
         </p>
 

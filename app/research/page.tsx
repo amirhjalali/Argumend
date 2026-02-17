@@ -100,14 +100,14 @@ export default function ResearchPage() {
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-20">
         {/* Hero */}
         <div className="mb-14 md:mb-20">
-          <p className="text-[12px] font-medium text-stone-400 mb-4">
+          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             Research
           </p>
-          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
             The science behind<br />
             <span className="text-stone-500">better arguments</span>
           </h1>
-          <p className="text-lg md:text-xl text-secondary leading-[1.7] max-w-2xl">
+          <p className="text-lg text-secondary leading-relaxed max-w-2xl">
             Every design decision in Argumend is grounded in peer-reviewed research on polarization,
             misinformation, and deliberative reasoning. This page documents the evidence.
           </p>
@@ -127,10 +127,10 @@ export default function ResearchPage() {
         {/* Sections */}
         {researchSections.map((section) => (
           <section key={section.id} id={section.id} className="mb-14 md:mb-20 scroll-mt-16">
-            <h2 className="font-serif text-2xl md:text-3xl text-primary mb-2">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               {section.title}
             </h2>
-            <p className="text-base text-stone-500 italic mb-6">
+            <p className="text-base text-secondary italic mb-6">
               {section.subtitle}
             </p>
             <div className="space-y-5 text-base md:text-lg text-secondary leading-[1.75]">
@@ -147,7 +147,7 @@ export default function ResearchPage() {
         ))}
 
         {/* Section navigation */}
-        <div className="bg-[#faf8f3] border border-stone-200/70 rounded-lg p-5 md:p-6 mb-14 md:mb-20">
+        <div className="bg-[#faf8f3]/60 border border-stone-200/70 rounded-lg p-5 md:p-6 mb-14 md:mb-20">
           <div className="flex items-center gap-2.5 mb-4">
             <BookOpen className="h-4 w-4 text-[#4f7b77]" strokeWidth={1.8} />
             <h3 className="text-sm font-medium text-primary">In this article</h3>
@@ -171,7 +171,7 @@ export default function ResearchPage() {
 
         {/* References */}
         <section id="references" className="mb-14 md:mb-20 scroll-mt-16">
-          <h2 className="font-serif text-2xl md:text-3xl text-primary mb-6">References</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">References</h2>
           <ol className="space-y-4">
             {orderedCitations.map(({ citation, num }) => (
               <ReferenceEntry key={citation.id} citation={citation} num={num} />

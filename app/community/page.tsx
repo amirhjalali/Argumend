@@ -58,15 +58,15 @@ export default function CommunityPage() {
     <AppShell>
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero */}
-        <div className="bg-gradient-to-b from-[#f4f1eb] via-[#f4f1eb] to-[#faf8f5] -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20">
-          <p className="text-[12px] font-medium tracking-widest uppercase text-deep/60 mb-5">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20">
+          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             Community
           </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-7 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             A community that<br />
             <span className="text-stone-500">disagrees well</span>
           </h1>
-          <p className="text-lg text-stone-500 max-w-2xl leading-[1.7]">
+          <p className="text-lg text-secondary leading-relaxed max-w-2xl">
             Join a growing community of people who believe the
             best way to find truth is to test ideas rigorously — not to shout the
             loudest.
@@ -78,7 +78,7 @@ export default function CommunityPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
             Our Principles
           </h2>
-          <p className="text-lg text-stone-500 mb-10 max-w-2xl">These are the commitments we hold ourselves to. They are non-negotiable.</p>
+          <p className="text-lg text-secondary mb-10 max-w-2xl">These are the commitments we hold ourselves to. They are non-negotiable.</p>
           <div className="space-y-4">
             {principles.map((principle, i) => (
               <div
@@ -97,7 +97,7 @@ export default function CommunityPage() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg md:text-xl text-primary mb-2">
+                    <h3 className="font-serif text-lg text-primary mb-2">
                       {principle.title}
                     </h3>
                     <p className="text-secondary leading-relaxed">
@@ -118,7 +118,7 @@ export default function CommunityPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
             How to Contribute
           </h2>
-          <p className="text-lg text-stone-500 mb-8">Three ways to make Argumend better for everyone.</p>
+          <p className="text-lg text-secondary mb-8">Three ways to make Argumend better for everyone.</p>
           <div className="bg-white/80 rounded-2xl border border-[#e8e0d4] divide-y divide-[#e8e0d4] overflow-hidden">
             {contributing.map((item, i) => (
               <div key={item.title} className="p-6 hover:bg-[#faf8f5]/50 transition-colors">
@@ -156,7 +156,7 @@ export default function CommunityPage() {
               <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
                 <Shield className="h-5 w-5 text-white/80" strokeWidth={1.5} />
               </div>
-              <h2 className="font-serif text-xl md:text-2xl">
+              <h2 className="font-serif text-2xl sm:text-3xl mb-4">
                 The Ideological Turing Test
               </h2>
             </div>
@@ -170,7 +170,7 @@ export default function CommunityPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-gradient-to-r from-[#f0ece5] to-[#ebe6de] rounded-2xl p-8 sm:p-12 text-center mb-14 md:mb-20">
+        <section className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center mb-14 md:mb-20">
           <MessageSquare className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Start the conversation</h3>
           <p className="text-secondary mb-7 max-w-md mx-auto">

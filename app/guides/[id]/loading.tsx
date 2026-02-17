@@ -1,6 +1,6 @@
 export default function GuideDetailLoading() {
   return (
-    <div className="bg-[#faf8f5] min-h-full">
+    <div className="min-h-full">
       <article className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
         {/* Back link */}
         <div className="h-4 w-24 bg-stone-200 animate-pulse rounded mb-8" />

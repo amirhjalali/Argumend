@@ -35,7 +35,7 @@ const externalResources = [
 export default function LibraryPage() {
   return (
     <AppShell>
-      <div className="bg-[#faf8f5] min-h-full">
+      <div className="min-h-full">
         <div className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
           {/* Header */}
           <div className="mb-10">
@@ -43,17 +43,17 @@ export default function LibraryPage() {
               <LibraryIcon className="h-3 w-3" />
               Resource Hub
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary mb-3">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               Library
             </h1>
-            <p className="text-lg text-secondary leading-relaxed max-w-xl">
+            <p className="text-lg text-secondary leading-relaxed max-w-2xl">
               Resources for deeper exploration of the topics and methodology behind Argumend.
             </p>
           </div>
 
           {/* Topics Overview */}
           <section className="mb-12">
-            <h2 className="font-serif text-2xl text-primary mb-5">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Topics Overview
             </h2>
             <div className="bg-white/80 rounded-xl border border-stone-200/60 overflow-hidden shadow-card">
@@ -98,13 +98,13 @@ export default function LibraryPage() {
 
           {/* Recommended Reading */}
           <section className="mb-12">
-            <h2 className="font-serif text-2xl text-primary mb-6">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Recommended Reading
             </h2>
             <div className="space-y-8">
               {externalResources.map((category, catIdx) => (
                 <div key={category.category}>
-                  <h3 className="font-serif text-lg text-primary mb-3 flex items-center gap-2">
+                  <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
                     <BookOpen className="h-4 w-4 text-deep" strokeWidth={1.8} />
                     {category.category}
                   </h3>

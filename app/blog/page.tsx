@@ -17,14 +17,14 @@ function formatDate(iso: string): string {
 export default function BlogPage() {
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#f4f1eb]">
+      <div className="min-h-screen">
         {/* Hero */}
-        <div className="bg-[#faf8f5] border-b border-[#e8e0d4]">
+        <div className="bg-[#faf8f5]/60 border-b border-[#e8e0d4]">
           <div className="mx-auto max-w-4xl px-4 md:px-8 py-10 md:py-16">
-            <p className="text-[11px] font-medium text-stone-400 mb-3 tracking-wide uppercase">
+            <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
               Insights &amp; Analysis
             </p>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl tracking-tight text-primary mb-4 leading-[1.1]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               The Argumend Blog
             </h1>
             <p className="text-lg text-secondary leading-relaxed max-w-2xl">

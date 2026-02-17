@@ -30,7 +30,7 @@ export default async function AnalysesPage() {
 
   return (
     <AppShell>
-      <div className="bg-[#faf8f5] min-h-full">
+      <div className="min-h-full">
         <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-14 space-y-8">
           {/* Header */}
           <div className="text-center space-y-4">
@@ -38,10 +38,10 @@ export default async function AnalysesPage() {
               <Brain className="h-3 w-3" />
               Analysis Archive
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               Recent Analyses
             </h1>
-            <p className="text-secondary text-base max-w-lg mx-auto leading-relaxed">
+            <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
               Browse past argument analyses. Click any analysis to view
               the full breakdown and share it.
             </p>

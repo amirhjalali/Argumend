@@ -64,8 +64,8 @@ export async function generateMetadata(
 function markdownToHtml(md: string): string {
   let html = md
     // Headings
-    .replace(/^### (.+)$/gm, '<h3 class="font-serif text-xl text-primary mt-10 mb-4 leading-snug">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 class="font-serif text-2xl text-primary mt-12 mb-4 leading-snug">$1</h2>')
+    .replace(/^### (.+)$/gm, '<h3 class="font-serif text-lg text-primary mt-10 mb-2">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 class="font-serif text-2xl sm:text-3xl text-primary mt-12 mb-4">$1</h2>')
     // Bold + italic
     .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
     // Bold
@@ -152,7 +152,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
         />
 
         {/* Breadcrumb + article header */}
-        <div className="bg-[#faf8f5] border-b border-stone-200/60">
+        <div className="bg-[#faf8f5]/60 border-b border-stone-200/60">
           <div className="mx-auto max-w-3xl px-4 md:px-8 pt-6 md:pt-10 pb-8 md:pb-12">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-muted mb-8">
@@ -175,7 +175,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
             </span>
 
             {/* Title */}
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight text-primary mb-5 leading-[1.12]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               {article.title}
             </h1>
 
@@ -246,7 +246,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
           {/* Related Articles */}
           {related.length > 0 && (
             <div className="mt-14">
-              <h3 className="font-serif text-xl text-primary mb-6">
+              <h3 className="font-serif text-lg text-primary mb-2">
                 Related Articles
               </h3>
               <div className="grid gap-4 md:grid-cols-3">

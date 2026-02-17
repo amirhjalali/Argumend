@@ -126,14 +126,14 @@ export default function TopicsPage() {
 
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#faf8f5]">
+      <div className="min-h-screen bg-transparent">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-stone-900 mb-2">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               Explore Topics
             </h1>
-            <p className="text-base text-stone-500 leading-relaxed">
+            <p className="text-lg text-secondary leading-relaxed max-w-2xl">
               <span className="font-mono text-stone-700">{topics.length}</span> topics
               mapped across {CATEGORY_ORDER.length} categories. Each one structured with
               steel-man arguments, weighted evidence, and crux questions.

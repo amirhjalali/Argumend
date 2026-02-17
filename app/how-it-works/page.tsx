@@ -85,15 +85,15 @@ export default function HowItWorksPage() {
     <AppShell>
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero */}
-        <div className="bg-gradient-to-b from-[#f4f1eb] via-[#f4f1eb] to-[#faf8f5] -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
-          <p className="text-[12px] font-medium tracking-widest uppercase text-deep/60 mb-5">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
+          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             How It Works
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Mapping arguments,<br />
             <span className="text-stone-500">not winning them</span>
           </h1>
-          <p className="text-lg text-stone-500 max-w-2xl mx-auto leading-[1.7]">
+          <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
             Argumend transforms complex debates into visual maps. See the strongest arguments
             on all sides, trace claims to their sources, and find the questions that would actually
             change minds.
@@ -105,7 +105,7 @@ export default function HowItWorksPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Get started in 4 steps
           </h2>
-          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto">A clear journey from curiosity to understanding.</p>
+          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto">A clear journey from curiosity to understanding.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {steps.map((step, i) => (
               <div
@@ -139,7 +139,7 @@ export default function HowItWorksPage() {
 
         {/* Visual Map Example */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Anatomy of an argument map
           </h2>
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
@@ -221,7 +221,7 @@ export default function HowItWorksPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Understanding node types
           </h2>
-          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto">Learn to read the map once, navigate any debate.</p>
+          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto">Learn to read the map once, navigate any debate.</p>
           <div className="space-y-3">
             {nodeTypes.map((type, i) => (
               <div
@@ -247,10 +247,10 @@ export default function HowItWorksPage() {
 
         {/* Confidence Scores */}
         <section className="mb-16 md:mb-24 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Reading confidence scores
           </h2>
-          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             We don&apos;t claim certainty. Confidence scores reflect the weight of available evidence.
           </p>
           <div className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 border border-stone-200/70">
@@ -281,7 +281,7 @@ export default function HowItWorksPage() {
               <Target className="h-6 w-6 text-[#a23b3b]" strokeWidth={1.5} />
             </div>
             <div>
-              <h2 className="font-serif text-xl md:text-2xl text-primary mb-3">The crux is everything</h2>
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">The crux is everything</h2>
               <p className="text-secondary leading-relaxed mb-4">
                 Every disagreement has a crux—the specific evidence or experiment that would change minds.
                 Most debates never identify it. We make it explicit.
@@ -295,7 +295,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-gradient-to-r from-[#f0ece5] to-[#ebe6de] rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
+        <section className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
           <ArrowRight className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to explore?</h3>
           <p className="text-secondary mb-7 max-w-md mx-auto">Pick a controversial topic. Find the crux. Update your beliefs.</p>

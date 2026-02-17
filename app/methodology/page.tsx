@@ -177,15 +177,15 @@ export default function MethodologyPage() {
     <AppShell>
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero */}
-        <div className="bg-gradient-to-b from-[#f4f1eb] via-[#f4f1eb] to-[#faf8f5] -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
-          <p className="text-[12px] font-medium tracking-widest uppercase text-deep/60 mb-5">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
+          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             Our Methodology
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Not just another<br />
             <span className="text-stone-500">AI opinion</span>
           </h1>
-          <p className="text-lg text-stone-500 max-w-2xl mx-auto leading-[1.7]">
+          <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
             Why Argumend gives you something ChatGPT can&apos;t: structured,
             transparent, multi-perspective analysis.
           </p>
@@ -196,7 +196,7 @@ export default function MethodologyPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
             The problem with &ldquo;just ask ChatGPT&rdquo;
           </h2>
-          <p className="text-lg text-stone-500 leading-[1.7] mb-8">
+          <p className="text-lg text-secondary leading-relaxed mb-8">
             Asking a single AI for its opinion on a controversial topic is like
             asking one witness to describe an entire crime scene. You get a
             coherent story, but you have no idea what it&apos;s leaving out.
@@ -240,7 +240,7 @@ export default function MethodologyPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             How Argumend is different
           </h2>
-          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Five steps that turn a messy debate into structured, auditable
             analysis. Every step is transparent.
           </p>
@@ -276,7 +276,7 @@ export default function MethodologyPage() {
                           style={{ color: step.color }}
                           strokeWidth={2}
                         />
-                        <h3 className="font-serif text-lg md:text-xl font-semibold text-primary">
+                        <h3 className="font-serif text-lg text-primary mb-2">
                           {step.title}
                         </h3>
                       </div>
@@ -310,7 +310,7 @@ export default function MethodologyPage() {
 
         {/* Multi-Judge Council Visual */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             The 4-Judge AI Council
           </h2>
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
@@ -375,7 +375,7 @@ export default function MethodologyPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Evidence scoring dimensions
           </h2>
-          <p className="text-lg text-stone-500 text-center mb-3 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary text-center mb-3 max-w-xl mx-auto leading-relaxed">
             Every piece of evidence is scored on four independent dimensions.
           </p>
           <p className="text-center mb-10">
@@ -411,7 +411,7 @@ export default function MethodologyPage() {
 
         {/* Confidence Calibration */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Confidence calibration
           </h2>
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
@@ -478,7 +478,7 @@ export default function MethodologyPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             What this means for you
           </h2>
-          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto">Three guarantees that set us apart from single-model AI.</p>
+          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto">Three guarantees that set us apart from single-model AI.</p>
           <div className="grid md:grid-cols-3 gap-5 md:gap-6">
             {outcomes.map((outcome, i) => (
               <div
@@ -496,7 +496,7 @@ export default function MethodologyPage() {
                     strokeWidth={1.5}
                   />
                 </div>
-                <h3 className="font-serif text-lg md:text-xl text-primary mb-2">
+                <h3 className="font-serif text-lg text-primary mb-2">
                   {outcome.title}
                 </h3>
                 <p className="text-[14px] md:text-[15px] text-secondary leading-relaxed">
@@ -508,7 +508,7 @@ export default function MethodologyPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-gradient-to-r from-[#f0ece5] to-[#ebe6de] rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
+        <section className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
           <Brain className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
             See the methodology in action

@@ -124,7 +124,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="bg-[#faf8f5] min-h-full">
+      <div className="min-h-full">
         <div className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-16">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-8">
@@ -159,7 +159,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                 <p className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-deep/10 border border-deep/20 rounded-full text-[11px] font-medium text-deep uppercase tracking-wide mb-3">
                   Key Concept
                 </p>
-                <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary leading-[1.1]">
+                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
                   {concept.title}
                 </h1>
               </div>
@@ -177,7 +177,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
 
           {/* Key Points */}
           <section className="mb-12 md:mb-16">
-            <h2 className="font-serif text-xl md:text-2xl text-primary mb-6">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Key Points
             </h2>
             <div className="bg-white/80 rounded-xl border border-stone-200/60 p-6 md:p-8">
@@ -198,7 +198,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
           {/* See It In Action */}
           {topicExamples.length > 0 && (
             <section className="mb-12 md:mb-16">
-              <h2 className="font-serif text-xl md:text-2xl text-primary mb-3">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 See It in Action
               </h2>
               <p className="text-secondary mb-6 leading-relaxed">
@@ -228,7 +228,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
           {/* Related Concepts */}
           {relatedConcepts.length > 0 && (
             <section className="mb-12 md:mb-16">
-              <h2 className="font-serif text-xl md:text-2xl text-primary mb-6">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 Related Concepts
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

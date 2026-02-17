@@ -116,17 +116,17 @@ export default function ForEducatorsPage() {
     <AppShell>
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero */}
-        <div className="bg-gradient-to-b from-[#f4f1eb] via-[#f4f1eb] to-[#faf8f5] -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
-          <p className="text-[12px] font-medium tracking-widest uppercase text-deep/60 mb-5">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
+          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             For Educators
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Argumend for Educators
           </h1>
-          <p className="text-lg md:text-xl text-deep font-medium mb-5">
+          <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto mb-5">
             Teach critical thinking through structured debate analysis
           </p>
-          <p className="text-lg text-stone-500 max-w-2xl mx-auto leading-[1.7]">
+          <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
             Argumend helps students move beyond opinion-based discussion to
             evidence-based reasoning. Our argument maps make complex debates
             accessible and teach the skills that matter most.
@@ -140,11 +140,11 @@ export default function ForEducatorsPage() {
               className="h-5 w-5 text-deep"
               strokeWidth={1.5}
             />
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Why Argumend for the classroom
             </h2>
           </div>
-          <p className="text-lg text-stone-500 leading-relaxed mb-8 max-w-2xl">
+          <p className="text-lg text-secondary leading-relaxed mb-8 max-w-2xl">
             Four capabilities that transform how students engage with
             controversial topics.
           </p>
@@ -166,7 +166,7 @@ export default function ForEducatorsPage() {
                     strokeWidth={1.5}
                   />
                 </div>
-                <h3 className="font-serif text-lg md:text-xl text-primary mb-2">
+                <h3 className="font-serif text-lg text-primary mb-2">
                   {benefit.title}
                 </h3>
                 <p className="text-[14px] md:text-[15px] text-secondary leading-relaxed">
@@ -185,7 +185,7 @@ export default function ForEducatorsPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Ready-made lesson plans
           </h2>
-          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Start using Argumend in your classroom today. Each lesson plan is
             designed for immediate use with minimal preparation.
           </p>
@@ -238,7 +238,7 @@ export default function ForEducatorsPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Fits into the subjects you teach
           </h2>
-          <p className="text-lg text-stone-500 text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Argument mapping is a cross-curricular skill. Here&apos;s how Argumend
             integrates with your existing syllabus.
           </p>
@@ -283,7 +283,7 @@ export default function ForEducatorsPage() {
         </blockquote>
 
         {/* CTA */}
-        <section className="bg-gradient-to-r from-[#f0ece5] to-[#ebe6de] rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
+        <section className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center my-14 md:my-20">
           <GraduationCap className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
             Bring Argumend to your classroom

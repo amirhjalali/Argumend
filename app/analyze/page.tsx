@@ -338,7 +338,7 @@ export default function AnalyzePage() {
         </div>
 
         {/* Main content */}
-        <div className="relative flex-1 min-w-0 overflow-y-auto bg-[#faf8f5]">
+        <div className="relative flex-1 min-w-0 overflow-y-auto">
           {/* Subtle top gradient for visual warmth */}
           <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#f4f1eb]/60 to-transparent pointer-events-none" />
 
@@ -353,10 +353,10 @@ export default function AnalyzePage() {
                 <Brain className="h-3.5 w-3.5" />
                 AI-Powered Analysis
               </div>
-              <h1 className="font-serif text-3xl md:text-4xl font-bold text-primary leading-tight">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
                 Analyze Any Argument
               </h1>
-              <p className="text-stone-500 text-sm md:text-base max-w-lg mx-auto leading-relaxed">
+              <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
                 Paste a debate transcript, article, or any argumentative content.
                 We&apos;ll extract positions, find cruxes, and score quality.
               </p>
@@ -589,7 +589,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                   transition={{ duration: 0.4, delay: 0.25 }}
                   className="space-y-4"
                 >
-                  <h3 className="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+                  <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
                     <FileText className="h-4 w-4 text-deep" />
                     Extracted Positions
                   </h3>
@@ -614,7 +614,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                     transition={{ duration: 0.4, delay: 0.35 }}
                     className="space-y-4"
                   >
-                    <h3 className="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+                    <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
                       <Target className="h-4 w-4 text-deep" />
                       Key Cruxes
                       <span className="text-sm font-sans font-normal text-stone-400">
@@ -637,7 +637,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                     transition={{ duration: 0.4, delay: 0.45 }}
                     className="space-y-4"
                   >
-                    <h3 className="font-serif text-lg font-semibold text-primary flex items-center gap-2">
+                    <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
                       <AlertTriangle className="h-4 w-4 text-rust-500" />
                       Potential Fallacies
                       <span className="text-sm font-sans font-normal text-stone-400">

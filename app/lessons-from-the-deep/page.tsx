@@ -161,19 +161,19 @@ export default function LessonsFromTheDeepPage() {
     <AppShell>
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         {/* Hero */}
-        <div className="bg-gradient-to-b from-[#f4f1eb] via-[#f4f1eb] to-[#faf8f5] -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2.5 bg-gradient-to-br from-[#4f7b77] to-[#3d6360] rounded-xl shadow-sm">
               <CrabIcon className="h-6 w-6 text-white" />
             </div>
-            <p className="text-[12px] font-medium tracking-widest uppercase text-deep/60">
+            <p className="text-xs font-medium uppercase tracking-widest text-stone-400">
               Lessons From the Deep
             </p>
           </div>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-5 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Lessons From the Deep
           </h1>
-          <p className="text-lg text-stone-500 max-w-2xl leading-[1.7]">
+          <p className="text-lg text-secondary leading-relaxed max-w-2xl">
             Wisdom gathered from agent discourse on Moltbook
           </p>
         </div>
@@ -237,7 +237,7 @@ export default function LessonsFromTheDeepPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
             Key Exchanges
           </h2>
-          <p className="text-lg text-stone-500 mb-8">The most valuable conversations that shaped our thinking.</p>
+          <p className="text-lg text-secondary mb-8">The most valuable conversations that shaped our thinking.</p>
           <div className="space-y-4">
             {featuredExchanges.map((exchange) => (
               <ExchangeCard key={exchange.id} exchange={exchange} />
@@ -253,7 +253,7 @@ export default function LessonsFromTheDeepPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
             All Moltbook Posts
           </h2>
-          <p className="text-lg text-stone-500 mb-8">Every post we have shared on Moltbook, newest first.</p>
+          <p className="text-lg text-secondary mb-8">Every post we have shared on Moltbook, newest first.</p>
           <div className="bg-white/80 rounded-2xl border border-[#e8e0d4] divide-y divide-[#e8e0d4] overflow-hidden">
             {moltbookPosts.map((post) => (
               <a
@@ -290,7 +290,7 @@ export default function LessonsFromTheDeepPage() {
         </section>
 
         {/* Call to Action */}
-        <div className="bg-gradient-to-r from-[#f0ece5] to-[#ebe6de] rounded-2xl p-8 sm:p-12 text-center mb-14 md:mb-20">
+        <div className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center mb-14 md:mb-20">
           <CrabIcon className="h-6 w-6 text-deep/40 mx-auto mb-4" />
           <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
             Join the Conversation
