@@ -379,22 +379,22 @@ export default function MethodologyPage() {
           </div>
         </section>
 
-        {/* What This Means — dark panel (prose, not card grid) for variety */}
-        <section className="mb-16 md:mb-24 bg-gradient-to-br from-[#3d3a36] to-[#2a2826] text-white rounded-2xl p-8 md:p-10">
-          <h2 className="font-serif text-2xl sm:text-3xl mb-6">
+        {/* What This Means */}
+        <section className="mb-16 md:mb-24 border border-stone-200/70 rounded-2xl p-8 md:p-10">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-6">
             What this means for you
           </h2>
-          <div className="space-y-6 text-stone-300 leading-relaxed">
+          <div className="space-y-6 text-secondary leading-relaxed">
             <div>
-              <h3 className="text-white font-semibold mb-1">Transparency</h3>
+              <h3 className="text-primary font-semibold mb-1">Transparency</h3>
               <p>Every score can be traced back to specific evidence and specific judges. No black boxes.</p>
             </div>
             <div>
-              <h3 className="text-white font-semibold mb-1">Multi-perspective</h3>
+              <h3 className="text-primary font-semibold mb-1">Multi-perspective</h3>
               <p>Multiple AI models with different training data and biases. When they disagree, that disagreement is itself valuable information.</p>
             </div>
             <div>
-              <h3 className="text-white font-semibold mb-1">Updatable</h3>
+              <h3 className="text-primary font-semibold mb-1">Updatable</h3>
               <p>When new evidence emerges, scores change. Nothing here is the final word.</p>
             </div>
           </div>
