@@ -11,7 +11,6 @@ import {
   MessageSquare,
   AlertTriangle,
   Target,
-  Sparkles,
   Clock,
   ArrowRight,
   Shield,
@@ -753,15 +752,15 @@ export function AnalysisView({
                   Have your own text to analyze?
                 </h3>
                 <p className="text-secondary text-sm max-w-md mx-auto mt-2">
-                  Paste a debate, article, or discussion and get AI-powered
-                  argument extraction, fallacy detection, and multi-model judging.
+                  Paste a debate, article, or discussion. We extract positions,
+                  flag fallacies, and score argument quality with multiple models.
                 </p>
                 <Link
                   href="/analyze"
                   className="inline-flex items-center gap-2 px-6 py-3 mt-4 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 transition-all"
                 >
-                  <Sparkles className="h-4 w-4" />
-                  Run Another Analysis
+                  <Brain className="h-4 w-4" />
+                  Analyze another
                 </Link>
               </div>
             </div>

@@ -34,7 +34,7 @@ export const quotes: Quote[] = [
     tag: "humility",
   },
   {
-    text: "Strong minds discuss ideas, average minds discuss events, weak minds discuss people.",
+    text: "I cannot teach anybody anything. I can only make them think.",
     author: "Socrates",
     role: "Philosopher, 5th century BC",
     tag: "dialogue",
@@ -60,7 +60,7 @@ export const quotes: Quote[] = [
     tag: "humility",
   },
   {
-    text: "Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.",
+    text: "The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane.",
     author: "Marcus Aurelius",
     role: "Roman Emperor, Stoic Philosopher",
     tag: "perspective",
@@ -78,9 +78,9 @@ export const quotes: Quote[] = [
     tag: "reasoning",
   },
   {
-    text: "It is not that we have a short time to live, but that we waste a great deal of it on things that do not matter.",
-    author: "Seneca",
-    role: "Stoic Philosopher, 1st century",
+    text: "If you would be a real seeker after truth, it is necessary that at least once in your life you doubt, as far as possible, all things.",
+    author: "Rene Descartes",
+    role: "Philosopher, Mathematician, 17th century",
     tag: "reasoning",
   },
 
@@ -104,7 +104,7 @@ export const quotes: Quote[] = [
     tag: "evidence",
   },
   {
-    text: "True ignorance is not the absence of knowledge, but the refusal to acquire it.",
+    text: "Whenever a theory appears to you as the only possible one, take this as a sign that you have neither understood the theory nor the problem which it was intended to solve.",
     author: "Karl Popper",
     role: "Philosopher of Science, 20th century",
     tag: "humility",
@@ -150,7 +150,7 @@ export const quotes: Quote[] = [
     tag: "open-mindedness",
   },
   {
-    text: "It ain't what you don't know that gets you into trouble. It's what you know for sure that just ain't so.",
+    text: "When you find yourself on the side of the majority, it is time to pause and reflect.",
     author: "Mark Twain",
     role: "Author, Humorist, 19th century",
     tag: "humility",
@@ -162,9 +162,9 @@ export const quotes: Quote[] = [
     tag: "humility",
   },
   {
-    text: "The eye sees only what the mind is prepared to comprehend.",
-    author: "Henri Bergson",
-    role: "Philosopher, Nobel Laureate",
+    text: "To know what you know and what you do not know, that is true knowledge.",
+    author: "Confucius",
+    role: "Philosopher, 5th century BC",
     tag: "perspective",
   },
   {
@@ -172,6 +172,24 @@ export const quotes: Quote[] = [
     author: "Leonardo da Vinci",
     role: "Polymath, Renaissance",
     tag: "dialogue",
+  },
+  {
+    text: "You are not entitled to your opinion. You are entitled to your informed opinion. No one is entitled to be ignorant.",
+    author: "Harlan Ellison",
+    role: "Author, Essayist, 20th century",
+    tag: "evidence",
+  },
+  {
+    text: "The measure of intelligence is the ability to change.",
+    author: "Albert Einstein",
+    role: "Physicist, Nobel Laureate",
+    tag: "humility",
+  },
+  {
+    text: "I have no particular talent. I am merely inquisitive.",
+    author: "Albert Einstein",
+    role: "Physicist, Nobel Laureate",
+    tag: "reasoning",
   },
 ];
 

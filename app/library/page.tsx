@@ -45,7 +45,7 @@ export default function LibraryPage() {
               Library
             </h1>
             <p className="text-lg text-secondary leading-relaxed max-w-2xl">
-              Resources for deeper exploration of the topics and methodology behind Argumend.
+              The books, papers, and tools that inform how we think. Good starting points if you want to go deeper.
             </p>
           </div>
 
@@ -139,7 +139,7 @@ export default function LibraryPage() {
               Ready to dig deeper?
             </h2>
             <p className="text-secondary text-sm mb-5 max-w-sm mx-auto">
-              Explore our key concepts or browse curated guides to sharpen your reasoning.
+              Want the ideas behind the tool? Browse our key concepts or pick up a guide.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
@@ -162,7 +162,7 @@ export default function LibraryPage() {
           {/* Footer note */}
           <div className="pt-8 border-t border-stone-200/60">
             <p className="text-sm text-muted italic">
-              These resources inform our methodology. We encourage independent verification.
+              These shaped how we think. Read them and decide for yourself.
             </p>
           </div>
         </div>

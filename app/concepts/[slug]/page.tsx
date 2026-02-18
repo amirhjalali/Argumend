@@ -2,32 +2,12 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
-  Shield,
-  Target,
-  Scale,
-  Lightbulb,
-  AlertTriangle,
-  Layers,
   ChevronRight,
   ArrowRight,
-  CheckCircle2,
-  BookOpen,
 } from "lucide-react";
 import { concepts, getConceptBySlug, getAllConceptSlugs } from "@/data/concepts";
 import { topics } from "@/data/topics";
 import { AppShell } from "@/components/AppShell";
-
-// ---------------------------------------------------------------------------
-// Icon map -- lucide-react icons by name
-// ---------------------------------------------------------------------------
-const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement> & { strokeWidth?: number }>> = {
-  Shield,
-  Target,
-  Scale,
-  Lightbulb,
-  AlertTriangle,
-  Layers,
-};
 
 // ---------------------------------------------------------------------------
 // Static params for all concept slugs
@@ -78,8 +58,6 @@ export default async function ConceptDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const concept = getConceptBySlug(slug);
   if (!concept) notFound();
-
-  const Icon = iconMap[concept.iconName] ?? BookOpen;
 
   // Resolve topic examples to full topic objects
   const topicExamples = concept.topicExamples
@@ -151,19 +129,12 @@ export default async function ConceptDetailPage({ params }: PageProps) {
 
           {/* Hero */}
           <header className="mb-16 md:mb-24">
-            <div className="flex items-start gap-5 mb-6">
-              <div className="p-4 bg-gradient-to-br from-[#faf8f5] to-canvas rounded-xl border border-stone-200/60 flex-shrink-0 shadow-sm">
-                <Icon className="h-7 w-7 text-deep" strokeWidth={1.6} />
-              </div>
-              <div>
-                <p className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-deep/10 border border-deep/20 rounded-full text-[11px] font-medium text-deep uppercase tracking-wide mb-3">
-                  Key Concept
-                </p>
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
-                  {concept.title}
-                </h1>
-              </div>
-            </div>
+            <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
+              Key Concept
+            </p>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+              {concept.title}
+            </h1>
           </header>
 
           {/* Full Description */}
@@ -184,10 +155,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
               <ul className="space-y-4">
                 {concept.keyPoints.map((point, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2
-                      className="h-5 w-5 text-deep flex-shrink-0 mt-0.5"
-                      strokeWidth={1.8}
-                    />
+                    <span className="w-1.5 h-1.5 rounded-full bg-deep mt-2.5 flex-shrink-0" />
                     <span className="text-primary leading-relaxed">{point}</span>
                   </li>
                 ))}
@@ -205,12 +173,11 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                 Explore topics where {concept.title.toLowerCase()} plays a central role in the analysis.
               </p>
               <div className="grid gap-3">
-                {topicExamples.map((topic, idx) => (
+                {topicExamples.map((topic) => (
                   <Link
                     key={topic!.id}
                     href={`/?topic=${topic!.id}`}
-                    className="group flex items-center justify-between p-4 rounded-xl bg-white/80 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
-                    style={{ animationDelay: `${idx * 60}ms` }}
+                    className="group flex items-center justify-between p-4 rounded-xl bg-white/80 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm transition-all duration-200"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-deep" />
@@ -232,27 +199,20 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                 Related Concepts
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {relatedConcepts.map((related, idx) => {
-                  const RelatedIcon = iconMap[related!.iconName] ?? BookOpen;
-                  return (
-                    <Link
-                      key={related!.id}
-                      href={`/concepts/${related!.id}`}
-                      className="group bg-white/80 rounded-xl p-5 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
-                      style={{ animationDelay: `${idx * 60}ms` }}
-                    >
-                      <div className="p-2.5 bg-gradient-to-br from-[#faf8f5] to-canvas rounded-xl border border-stone-200/60 w-fit mb-3">
-                        <RelatedIcon className="h-4 w-4 text-deep" strokeWidth={1.8} />
-                      </div>
-                      <h3 className="font-serif text-lg text-primary group-hover:text-deep transition-colors mb-1">
-                        {related!.title}
-                      </h3>
-                      <p className="text-sm text-secondary line-clamp-2">
-                        {related!.description.split("\n\n")[0]?.slice(0, 100)}...
-                      </p>
-                    </Link>
-                  );
-                })}
+                {relatedConcepts.map((related) => (
+                  <Link
+                    key={related!.id}
+                    href={`/concepts/${related!.id}`}
+                    className="group bg-white/80 rounded-xl p-5 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm transition-all duration-200"
+                  >
+                    <h3 className="font-serif text-lg text-primary group-hover:text-deep transition-colors mb-1">
+                      {related!.title}
+                    </h3>
+                    <p className="text-sm text-secondary line-clamp-2">
+                      {related!.description.split("\n\n")[0]?.slice(0, 100)}...
+                    </p>
+                  </Link>
+                ))}
               </div>
             </section>
           )}
@@ -260,7 +220,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
           {/* CTA */}
           <section className="text-center py-10 border-t border-stone-200/60">
             <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
-              Ready to explore the debates?
+              See this in practice
             </h3>
             <p className="text-secondary mb-7 leading-relaxed">
               See how these concepts come together in real argument maps.
@@ -275,10 +235,9 @@ export default async function ConceptDetailPage({ params }: PageProps) {
               </Link>
               <Link
                 href="/concepts"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-stone-200/60 text-primary text-sm font-medium hover:border-deep/30 hover:bg-stone-50 transition-all duration-200"
+                className="inline-flex items-center px-5 py-2.5 rounded-xl border border-stone-200/60 text-primary text-sm font-medium hover:border-deep/30 hover:bg-stone-50 transition-all duration-200"
               >
                 All Concepts
-                <BookOpen className="h-3.5 w-3.5" />
               </Link>
             </div>
           </section>

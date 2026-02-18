@@ -3,7 +3,7 @@ import { AppShell } from "@/components/AppShell";
 const faqs = [
   {
     question: "What is Argumend?",
-    answer: "Argumend is a platform for exploring controversial topics through structured logical analysis. We break down complex debates into foundational pillars, identify the cruxes where disagreements hinge, and estimate confidence levels based on available evidence.",
+    answer: "A tool for understanding why people disagree. We break controversial topics into their core claims, find the crux of each disagreement, and show you how confident the evidence makes us. Think of it as a map of the argument, not another place to have one.",
   },
   {
     question: "How are confidence scores calculated?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "What does 'steel-manning' mean?",
-    answer: "Steel-manning is the opposite of straw-manning. Instead of attacking a weak version of an argument, we present the strongest possible version. This ensures intellectual honesty—if we can defeat the best version of an opposing view, our position is much stronger.",
+    answer: "The opposite of a straw man. Instead of attacking the weakest version of an argument, you present the strongest one. It\u2019s harder. It\u2019s also more honest. If you can\u2019t articulate why a smart person holds a position, you don\u2019t understand it well enough to disagree with it.",
   },
   {
     question: "Can I suggest a topic?",
@@ -35,11 +35,11 @@ const faqs = [
   },
   {
     question: "How is this different from Wikipedia or debate forums?",
-    answer: "Wikipedia aims for neutral summary; we aim for structured argumentation. Debate forums are adversarial; we seek convergence on truth. Our unique contribution is the pillar/crux framework that forces precision about what evidence would resolve disagreements.",
+    answer: "Wikipedia summarizes. Debate forums fight. We do neither. Our thing is structure: break a topic into pillars, find the crux, show the evidence. The pillar/crux framework forces you to be precise about what would actually resolve the disagreement\u2014which most debates never bother to do.",
   },
   {
     question: "Do you take a side on controversial topics?",
-    answer: "We report confidence scores based on evidence, which sometimes favors one side. But we always present the strongest version of minority positions. Our goal isn't to declare winners but to clarify where disagreements actually lie and what evidence would settle them.",
+    answer: "We follow the evidence, which sometimes does favor one side. That\u2019s not bias\u2014that\u2019s how evidence works. But we always steel-man the minority position. The goal isn\u2019t to declare winners. It\u2019s to show you exactly where the disagreement lives and what would settle it.",
   },
   {
     question: "How often is topic data updated?",
@@ -55,11 +55,11 @@ const faqs = [
   },
   {
     question: "Is Argumend politically biased?",
-    answer: "We work hard to avoid political bias. Our methodology is designed around evidence and logical structure, not ideology. Every topic presents the strongest steel-manned version of each position. Confidence scores follow the weight of evidence, which may sometimes align with one political perspective\u2014but that reflects the evidence, not editorial preference. Our multi-model AI judge council also helps catch bias that any single perspective might introduce.",
+    answer: "We try not to be, and we\u2019ve built safeguards to keep ourselves honest. Every position gets steel-manned. Confidence scores track evidence, not editorial preference. Our multi-model AI judge council catches bias that any single perspective might introduce. If the evidence happens to favor one political side on a given topic\u2014well, that\u2019s the evidence. We don\u2019t adjust reality for balance.",
   },
   {
     question: "Can I use Argumend in my classroom?",
-    answer: "Yes\u2014we actively encourage educational use. Argumend is a valuable tool for teaching critical thinking, argument analysis, and evidence evaluation. Teachers can use curated topics to illustrate how complex debates decompose into testable claims, or have students submit their own texts for AI-powered analysis. Visit our For Educators page for lesson plan ideas and tips on integrating Argumend into your curriculum.",
+    answer: "Please do. Use curated topics to show how debates decompose into testable claims, or have students submit their own texts for analysis. We\u2019ve seen it work well for teaching critical thinking and evidence evaluation. Check the For Educators page for lesson ideas.",
   },
   {
     question: "What\u2019s the difference between a crux and a key question?",
@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     question: "How do you handle topics where the science is still evolving?",
-    answer: "We mark these topics as \u201ccontested\u201d or \u201chighly speculative\u201d and set confidence scores accordingly. Crux questions for evolving topics are often tagged with a \u201ctheoretical\u201d verification status, indicating that the decisive test is possible but hasn\u2019t been conclusively performed. As new research emerges, we update scores and evidence. We believe it\u2019s more honest to say \u201cwe\u2019re at 55% confidence and here\u2019s why\u201d than to pretend certainty where none exists.",
+    answer: "We mark these topics as \u201ccontested\u201d or \u201chighly speculative\u201d and set confidence scores accordingly. Crux questions for evolving topics are often tagged with a \u201ctheoretical\u201d verification status, indicating that the decisive test is possible but hasn\u2019t been conclusively performed. As new research emerges, we update scores and evidence. Saying \u201cwe\u2019re at 55% confidence and here\u2019s why\u201d is more honest than pretending certainty where none exists.",
   },
   {
     question: "Can I export or share my analysis results?",
@@ -83,7 +83,7 @@ export default function FAQPage() {
           Frequently Asked Questions
         </h1>
         <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-10">
-          Common questions about the platform and our methodology.
+          The questions people actually ask us, answered honestly.
         </p>
 
         <div className="space-y-4">
@@ -104,7 +104,8 @@ export default function FAQPage() {
 
         <div className="mt-12 pt-8 border-t border-stone-200">
           <p className="text-sm text-secondary">
-            Have a question not answered here? Visit the Community page to learn how to reach us.
+            Still have questions? We probably missed something. Head to the{" "}
+            <a href="/community" className="text-deep hover:underline">Community page</a> and let us know.
           </p>
         </div>
       </div>

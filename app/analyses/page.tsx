@@ -5,7 +5,6 @@ import {
   Brain,
   ChevronRight,
   Clock,
-  Sparkles,
   FileSearch,
 } from "lucide-react";
 import type { Metadata } from "next";
@@ -42,8 +41,8 @@ export default async function AnalysesPage() {
               Recent Analyses
             </h1>
             <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
-              Browse past argument analyses. Click any analysis to view
-              the full breakdown and share it.
+              Past analyses live here. Click any one to see the full
+              breakdown, or share it with someone who disagrees with you.
             </p>
           </div>
 
@@ -53,8 +52,8 @@ export default async function AnalysesPage() {
               href="/analyze"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
             >
-              <Sparkles className="h-4 w-4" />
-              Run New Analysis
+              <Brain className="h-4 w-4" />
+              Analyze something
             </Link>
           </div>
 
@@ -65,18 +64,18 @@ export default async function AnalysesPage() {
                 <FileSearch className="h-7 w-7 text-muted" strokeWidth={1.5} />
               </div>
               <h3 className="font-serif text-lg text-primary mb-2">
-                No analyses yet
+                Nothing here yet
               </h3>
               <p className="text-secondary text-sm max-w-xs mx-auto mb-6 leading-relaxed">
-                Run your first analysis to see results here. Paste any debate,
-                article, or transcript to get started.
+                This is where your analyses will live. Paste a debate, article, or
+                transcript and we&apos;ll do the rest.
               </p>
               <Link
                 href="/analyze"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
-                <Sparkles className="h-3.5 w-3.5" />
-                Get Started
+                <Brain className="h-3.5 w-3.5" />
+                Analyze your first text
               </Link>
             </div>
           ) : (

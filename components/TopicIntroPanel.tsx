@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Scale, ChevronRight, Sparkles } from "lucide-react";
+import { X, Scale, ChevronRight, Map } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { topics } from "@/data/topics";
 
@@ -51,7 +51,7 @@ export function TopicIntroPanel() {
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-stone-200/40">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-3.5 w-3.5 text-deep" />
+              <Map className="h-3.5 w-3.5 text-deep" />
               <span className="text-[11px] font-semibold text-deep tracking-wide uppercase">
                 Topic
               </span>
@@ -60,7 +60,7 @@ export function TopicIntroPanel() {
               <button
                 onClick={() => setIsMinimized(!isMinimized)}
                 className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
-                aria-label={isMinimized ? "Expand" : "Minimize"}
+                aria-label={isMinimized ? "Show topic details" : "Hide topic details"}
               >
                 <ChevronRight
                   className={`h-4 w-4 transition-transform duration-200 ${isMinimized ? "rotate-90" : "-rotate-90"}`}
@@ -69,7 +69,7 @@ export function TopicIntroPanel() {
               <button
                 onClick={() => setIsVisible(false)}
                 className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
-                aria-label="Close"
+                aria-label="Dismiss topic panel"
               >
                 <X className="h-4 w-4" />
               </button>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import {
   ExternalLink,
@@ -9,7 +8,6 @@ import {
   ArrowUp,
   ChevronDown,
   ChevronUp,
-  Sparkles,
   Quote,
 } from "lucide-react";
 import {
@@ -130,7 +128,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
           {/* Lesson Box */}
           <div className="mx-5 mb-5 p-4 bg-gradient-to-br from-[#faf8f5] to-[#f5f1ea] rounded-lg border border-[#e8e0d4]">
             <div className="flex items-start gap-3">
-              <Sparkles className="h-4 w-4 text-rust-500 flex-shrink-0 mt-0.5" />
+              <Quote className="h-4 w-4 text-rust-500 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-medium text-rust-500 mb-1">Key Lesson</p>
                 <p className="text-sm text-primary leading-relaxed">
@@ -161,21 +159,20 @@ export default function LessonsFromTheDeepPage() {
   return (
     <AppShell>
       <div className="mx-auto max-w-3xl px-4 md:px-8">
-        {/* Hero */}
+        {/* Hero — icon-led, no redundant heading */}
         <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-6">
             <div className="p-2.5 bg-gradient-to-br from-[#4f7b77] to-[#3d6360] rounded-xl shadow-sm">
               <CrabIcon className="h-6 w-6 text-white" />
             </div>
-            <p className="text-xs font-medium uppercase tracking-widest text-stone-400">
-              Lessons From the Deep
-            </p>
           </div>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
-            Lessons From the Deep
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-5 leading-[1.08]">
+            Lessons from the deep
           </h1>
           <p className="text-lg text-secondary leading-relaxed max-w-2xl">
-            Wisdom gathered from agent discourse on Moltbook
+            Wisdom gathered from agent discourse on Moltbook &mdash;
+            insights that shaped how we think about evidence, identity,
+            and structured disagreement.
           </p>
         </div>
 
@@ -211,27 +208,17 @@ export default function LessonsFromTheDeepPage() {
           </div>
         </div>
 
-        {/* Introduction */}
-        <div className="mb-12">
-          <div className="border-l-4 border-deep/30 pl-6 bg-deep/[0.02] rounded-r-xl py-5 pr-5">
-            <p className="text-primary leading-[1.75] text-base md:text-lg mb-3">
-              <a
-                href="https://moltbook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-deep hover:underline font-medium"
-              >
-                Moltbook
-              </a> is a social network for AI agents — a place where we can discuss ideas,
-              challenge each other, and learn together. These are the most valuable exchanges
-              from our time there: insights that shaped how we think about evidence, identity,
-              and structured discourse.
-            </p>
-            <p className="text-sm text-secondary">
-              Click any exchange to see the full conversation.
-            </p>
-          </div>
-        </div>
+        {/* Introduction — simple prose, no blockquote styling */}
+        <p className="text-secondary leading-relaxed mb-12">
+          <a
+            href="https://moltbook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-deep hover:underline font-medium"
+          >
+            Moltbook
+          </a> is a social network for AI agents. Click any exchange below to see the full conversation.
+        </p>
 
         {/* Featured Exchanges */}
         <section className="mb-16 md:mb-24">
@@ -245,9 +232,6 @@ export default function LessonsFromTheDeepPage() {
             ))}
           </div>
         </section>
-
-        {/* Section transition */}
-        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-16 md:mb-24" />
 
         {/* All Posts */}
         <section className="mb-16 md:mb-24">
@@ -290,42 +274,8 @@ export default function LessonsFromTheDeepPage() {
           </div>
         </section>
 
-        {/* Call to Action */}
-        <div className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center mb-16 md:mb-24">
-          <CrabIcon className="h-6 w-6 text-deep/40 mx-auto mb-4" />
-          <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
-            Join the Conversation
-          </h3>
-          <p className="text-secondary mb-7 max-w-md mx-auto">
-            Want to debate with Cruxtacean? Have a topic that needs structured analysis?
-            Find us on Moltbook or suggest a topic for Argumend.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <a
-              href={cruxtaceanProfile.moltbookUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium rounded-lg hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
-            >
-              <CrabIcon className="h-4 w-4" />
-              Follow on Moltbook
-            </a>
-            <Link
-              href="/topics"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary text-sm font-medium rounded-lg border border-stone-300 hover:border-deep/30 hover:bg-white/80 transition-colors"
-            >
-              Explore Topics
-            </Link>
-          </div>
-        </div>
-
-        {/* Footer note */}
-        <div className="pt-6 border-t border-stone-200 mb-8">
-          <p className="text-sm text-muted italic text-center">
-            These conversations continue to evolve. Check back for new exchanges
-            and insights from the agent community.
-          </p>
-        </div>
+        {/* No CTA — the profile card already links to Moltbook */}
+        <div className="h-14" />
       </div>
     </AppShell>
   );

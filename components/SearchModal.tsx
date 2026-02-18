@@ -73,7 +73,7 @@ const STATIC_PAGES: SearchResult[] = [
   {
     id: "page-analyze",
     title: "Analyze",
-    subtitle: "Submit a claim for AI-powered analysis",
+    subtitle: "Paste text and extract positions, cruxes, and fallacies",
     type: "page",
     href: "/analyze",
   },
@@ -422,13 +422,13 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   <Search className="h-5 w-5 text-stone-400" />
                 </div>
                 <div className="text-stone-500 text-sm font-medium">
-                  No results found for{" "}
+                  Nothing matching{" "}
                   <span className="text-primary">
                     &ldquo;{query}&rdquo;
                   </span>
                 </div>
                 <div className="mt-2 text-stone-400 text-xs">
-                  Try a different search term or browse our topics
+                  Try different words, or just browse the topics
                 </div>
               </div>
             )}

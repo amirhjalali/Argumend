@@ -5,24 +5,16 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
-  Sparkles,
-  Brain,
   Upload,
   ArrowRight,
-  Map,
-  Scale,
-  Target,
-  FileText,
   Beaker,
   ChevronRight,
   Flame,
-  Lock,
   PenLine,
   Newspaper,
   Mic,
 } from "lucide-react";
 import { topics, featuredTopicId, featuredReason, CATEGORY_ORDER } from "@/data/topics";
-import { getQuoteOfTheDay } from "@/data/quotes";
 
 type ContentType = "transcript" | "article" | "freeform";
 
@@ -89,7 +81,6 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
     [content, handleAnalyze]
   );
 
-  const dailyQuote = getQuoteOfTheDay();
   const featuredTopic = topics.find((t) => t.id === featuredTopicId);
   // Show one topic from each category for variety, excluding featured
   const nonFeatured = topics.filter((t) => t.id !== featuredTopicId);
@@ -115,17 +106,13 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
       {/* Hero Section */}
       <div className="flex flex-col items-center px-4 md:px-8 pt-8 pb-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="w-full max-w-2xl space-y-5"
         >
           {/* Tagline */}
           <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide">
-              <Scale className="h-3 w-3" />
-              Steel-man every side. Find the crux.
-            </div>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               What if we could disagree
               <br />
@@ -136,18 +123,13 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             <p className="font-serif text-lg md:text-xl text-stone-600 max-w-lg mx-auto leading-relaxed">
               Map every argument. Weigh the evidence. Know where you stand.
             </p>
-            <p className="text-stone-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              For anyone tired of shouting matches and shallow takes. Paste any
-              debate and watch AI map every argument, weigh every piece of
-              evidence, and find what actually matters.
-            </p>
           </div>
 
           {/* Input Card */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.1 }}
             className="bg-white rounded-2xl border border-stone-200/60 p-5 shadow-lg shadow-stone-200/30"
           >
             {/* Content Type — segmented control */}
@@ -206,18 +188,11 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
               </div>
             </div>
 
-            {/* Privacy + hint row */}
-            <div className="flex items-center justify-between mt-2.5 mb-1">
-              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-deep/6 border border-deep/10 rounded-full">
-                <Lock className="h-2.5 w-2.5 text-deep/60" />
-                <span className="text-[10px] font-medium text-deep/60">Not stored</span>
-              </div>
+            {/* Hint row */}
+            <div className="flex items-center justify-end mt-2.5 mb-1">
               <span className="text-xs text-stone-400">
-                {content.length > 0
-                  ? `${content.length.toLocaleString()} chars`
-                  : ""}
                 {content.trim() && (
-                  <span className="ml-2 text-stone-300">
+                  <span className="text-stone-300">
                     {"\u2318"}Enter to analyze
                   </span>
                 )}
@@ -226,7 +201,6 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
 
             {/* Actions */}
             <div className="flex items-center justify-end mt-2">
-              <span className="hidden">{/* spacer for flex alignment */}</span>
               <div className="flex items-center gap-2">
                 <motion.button
                   onClick={handleTryExample}
@@ -248,7 +222,6 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                       : "bg-stone-100 text-stone-400 cursor-not-allowed"
                   }`}
                 >
-                  <Sparkles className="h-4 w-4" />
                   Analyze
                   <ArrowRight className="h-4 w-4" />
                 </motion.button>
@@ -256,172 +229,61 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             </div>
           </motion.div>
 
-          {/* How it works + stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3"
-          >
-            {[
-              { icon: FileText, label: "Extract positions", stat: `${topics.length} topics` },
-              { icon: Target, label: "Find cruxes", stat: "Key questions" },
-              { icon: Scale, label: "Weigh evidence", stat: "150+ sources" },
-              { icon: Brain, label: "AI judge council", stat: "4 LLM judges" },
-            ].map(({ icon: Icon, label, stat }) => (
-              <div
-                key={label}
-                className="flex flex-col items-center gap-1.5 p-3 bg-white/70 border border-stone-200/40 rounded-xl hover:bg-white hover:shadow-sm hover:border-stone-200/60 transition-all duration-200"
-              >
-                <Icon className="h-4 w-4 text-deep" />
-                <span className="text-xs font-medium text-stone-600">{label}</span>
-                <span className="text-[10px] font-mono tabular-nums text-stone-400">{stat}</span>
-              </div>
-            ))}
-          </motion.div>
         </motion.div>
       </div>
 
-      {/* Quote of the Day */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.58 }}
-        className="px-4 md:px-8 py-6"
-      >
-        <div className="max-w-2xl mx-auto">
-          <div className="flex items-center gap-4">
-            <div className="h-px flex-1 bg-stone-200/60" />
-            <div className="text-center px-4">
-              <p className="font-serif italic text-stone-500 text-sm md:text-base leading-relaxed">
-                &ldquo;{dailyQuote.text}&rdquo;
-              </p>
-              <p className="text-xs text-stone-400 mt-2">
-                {dailyQuote.author}
-              </p>
-            </div>
-            <div className="h-px flex-1 bg-stone-200/60" />
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Why This Matters */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.59 }}
-        className="px-4 md:px-8 pb-4"
-      >
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm text-stone-500 leading-relaxed">
-            Polarization is tearing apart families, communities, and democracies.
-            We believe better tools for reasoning can help.{" "}
-            <Link
-              href="/research"
-              className="font-medium text-deep hover:text-deep-dark underline underline-offset-2 decoration-deep/30 hover:decoration-deep/60 transition-colors"
-            >
-              See the research
-            </Link>
-          </p>
-        </div>
-      </motion.div>
-
       {/* Topics Section */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
+        transition={{ delay: 0.2 }}
         className="px-4 md:px-8 pb-12"
       >
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="h-px flex-1 bg-stone-200/60" />
-            <span className="text-xs font-medium text-stone-400 tracking-wide flex items-center gap-1.5">
-              <Map className="h-3 w-3" />
-              EXPLORE MAPPED DEBATES
-            </span>
-            <div className="h-px flex-1 bg-stone-200/60" />
-          </div>
+          <p className="text-xs font-medium text-stone-400 tracking-wide mb-5">
+            Or explore a mapped debate
+          </p>
 
           {/* Debate of the Week */}
           {featuredTopic && (
             <motion.button
               onClick={() => onTopicSelect(featuredTopic.id)}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65 }}
+              transition={{ delay: 0.25 }}
               whileHover={{ scale: 1.005, y: -2 }}
               className="group w-full text-left mb-5 rounded-xl bg-gradient-to-r from-[#fefcf9] to-white border border-stone-200/60 border-l-[3.5px] border-l-deep shadow-sm hover:shadow-md transition-all"
             >
               <div className="p-5 md:p-6">
-                {/* Badge row */}
-                <div className="flex items-center justify-between gap-3 mb-3">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-deep/10 rounded-full text-[11px] font-semibold tracking-wide text-deep">
-                    <Flame className="h-3 w-3" />
-                    Debate of the Week
+                <div className="flex items-center gap-2 mb-2">
+                  <Flame className="h-3 w-3 text-deep/60" />
+                  <span className="text-[11px] font-medium text-deep/70 tracking-wide">
+                    Featured
                   </span>
+                </div>
+
+                <h3 className="font-serif text-lg md:text-xl font-semibold text-primary group-hover:text-deep transition-colors leading-snug">
+                  {featuredTopic.title}
+                </h3>
+                <p className="mt-2 text-sm text-stone-500 leading-relaxed">
+                  {featuredReason}
+                </p>
+
+                <div className="mt-3 flex items-center gap-2 text-xs text-stone-400">
+                  <span>{featuredTopic.pillars.length} pillars</span>
+                  <span className="text-stone-300">&middot;</span>
                   <span
-                    className={`px-2 py-0.5 rounded-full border text-[11px] font-medium ${
-                      featuredTopic.status === "settled"
-                        ? "border-emerald-200 text-emerald-500"
-                        : featuredTopic.status === "contested"
-                        ? "border-rust-200 text-rust-500"
-                        : "border-stone-200 text-stone-400"
+                    className={`${
+                      featuredTopic.status === "contested"
+                        ? "text-rust-500"
+                        : featuredTopic.status === "settled"
+                        ? "text-emerald-500"
+                        : "text-stone-400"
                     }`}
                   >
                     {featuredTopic.status}
                   </span>
-                </div>
-
-                {/* Title + confidence */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-serif text-lg md:text-xl font-semibold text-primary group-hover:text-deep transition-colors leading-snug">
-                      {featuredTopic.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-stone-500 leading-relaxed">
-                      {featuredReason}
-                    </p>
-                  </div>
-                  <div className="flex-shrink-0 flex flex-col items-center">
-                    <div
-                      className={`w-12 h-12 rounded-full border-[3px] flex items-center justify-center ${
-                        featuredTopic.confidence_score >= 80
-                          ? "border-emerald-400"
-                          : featuredTopic.confidence_score >= 50
-                          ? "border-rust-400"
-                          : "border-stone-300"
-                      }`}
-                    >
-                      <span
-                        className={`font-mono text-sm font-bold ${
-                          featuredTopic.confidence_score >= 80
-                            ? "text-emerald-600"
-                            : featuredTopic.confidence_score >= 50
-                            ? "text-rust-600"
-                            : "text-stone-500"
-                        }`}
-                      >
-                        {featuredTopic.confidence_score}%
-                      </span>
-                    </div>
-                    <span className="text-[9px] text-stone-400 mt-1">
-                      confidence
-                    </span>
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="mt-4 flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-rust-500 to-rust-600 text-white text-xs font-semibold rounded-lg shadow-sm group-hover:from-rust-600 group-hover:to-rust-700 transition-all">
-                    Explore This Debate
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                  <span className="text-xs text-stone-400">
-                    {featuredTopic.pillars.length} pillars &middot;{" "}
-                    {featuredTopic.pillars.flatMap((p) => p.evidence ?? []).length}{" "}
-                    evidence nodes
-                  </span>
+                  <ArrowRight className="h-3 w-3 ml-auto text-stone-300 transition-transform group-hover:translate-x-0.5 group-hover:text-deep" />
                 </div>
               </div>
             </motion.button>
@@ -432,9 +294,9 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
               <motion.button
                 key={topic.id}
                 onClick={() => onTopicSelect(topic.id)}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 + idx * 0.05 }}
+                transition={{ delay: 0.25 + idx * 0.03 }}
                 whileHover={{ scale: 1.01, y: -2 }}
                 className="group text-left p-4 bg-white border border-stone-200/60 rounded-xl hover:border-rust-300/60 hover:shadow-md transition-all"
               >
@@ -480,7 +342,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.9 }}
+              transition={{ delay: 0.45 }}
               className="mt-5 text-center"
             >
               <Link

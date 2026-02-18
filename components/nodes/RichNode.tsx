@@ -157,7 +157,7 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
                 className="flex flex-1 items-center justify-center gap-1.5 rounded-md bg-[#a23b3b] px-3 py-2 text-xs font-medium text-white hover:bg-[#8a3232] transition-colors"
                 onClick={() => openCrux(id)}
               >
-                Deep Dive
+                View Crux
                 <Scale className="h-3 w-3" />
               </button>
             )}

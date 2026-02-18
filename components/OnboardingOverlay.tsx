@@ -11,19 +11,19 @@ const steps = [
     icon: MapPin,
     title: "Pick a topic",
     description:
-      "We map controversial debates visually \u2014 from climate change to AI ethics. Choose one that matters to you.",
+      "We map controversial debates visually\u2014climate change, AI ethics, gun control, you name it. Start with whatever you care about.",
   },
   {
     icon: Scale,
     title: "Explore the evidence",
     description:
-      "See both sides with weighted evidence. Every claim is backed by sources and scored by an AI judge council.",
+      "Both sides, weighted by evidence. Every claim traces back to sources and gets scored by an AI judge council. No hand-waving.",
   },
   {
     icon: Crosshair,
     title: "Find the crux",
     description:
-      "Discover the key questions that would actually change minds \u2014 the crux of the disagreement.",
+      "The crux is the one question that would actually change minds. We find it for you. That\u2019s the whole point.",
   },
 ];
 
@@ -84,8 +84,7 @@ export function OnboardingOverlay() {
                   Welcome to Argumend
                 </h2>
                 <p className="mt-2 text-sm text-stone-500 max-w-sm mx-auto leading-relaxed">
-                  We help you navigate complex debates with clarity and evidence
-                  &mdash; not outrage.
+                  Clarity and evidence instead of outrage. Here&apos;s how it works.
                 </p>
               </div>
 
@@ -140,7 +139,7 @@ export function OnboardingOverlay() {
                   onClick={handleDismiss}
                   className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white font-semibold text-sm rounded-xl shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 transition-all"
                 >
-                  Start Exploring
+                  Got it
                   <ArrowRight className="h-4 w-4" />
                 </button>
                 <button

@@ -73,7 +73,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex items-center justify-between border-t border-stone-200 pt-6">
           <p className="text-xs text-stone-400">
-            &copy; 2026 Argumend. All rights reserved.
+            &copy; 2026 Argumend. Built with stubbornness and peer review.
           </p>
           <a
             href="https://github.com/amirhjalali/Argumend"

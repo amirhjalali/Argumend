@@ -8,7 +8,6 @@ import {
   Pause,
   RotateCcw,
   Loader2,
-  Sparkles,
   Quote,
   MessageCircle,
   Sword,
@@ -1007,7 +1006,7 @@ export function DebateView() {
           >
             <div className="text-center">
               <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-rust-50 to-rust-100 border border-rust-200/60 rounded-full">
-                <Sparkles className="h-4 w-4 text-rust-600" />
+                <Swords className="h-4 w-4 text-rust-600" />
                 <span className="font-serif text-rust-800 font-medium">
                   {state.phase === "mockView" ? "Example Debate" : "Debate Concluded"}{" "}
                   &mdash; {state.maxRounds} Rounds

@@ -1,48 +1,37 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
-import { Scale, Lightbulb, BookOpen, Target, Heart, Zap, Users, Shield, Quote } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { quotes as allQuotes } from "@/data/quotes";
 
 const principles = [
   {
-    icon: Shield,
     title: "Steel-Manning",
     description: "We present the strongest version of every argument. If you can't articulate why intelligent people hold a position, you don't understand it well enough to disagree.",
-    color: "#C4613C",
   },
   {
-    icon: Target,
     title: "Crux Identification",
     description: "Every disagreement has a crux—the specific evidence that would change minds. We find it and make it explicit. This is where understanding happens.",
-    color: "#a23b3b",
   },
   {
-    icon: Lightbulb,
     title: "Calibrated Confidence",
     description: "We report uncertainty honestly. 90%+ means overwhelming evidence. 45% means genuinely contested. We never pretend to know more than we do.",
-    color: "#b05434",
   },
   {
-    icon: BookOpen,
     title: "Source Transparency",
     description: "Every claim links to its evidence. We show our work so you can verify independently—and correct us when we're wrong.",
-    color: "#6b5b95",
   },
 ];
 
 const stakes = [
   {
-    icon: Heart,
     title: "Relationships fracture",
     description: "When we can't discuss hard topics honestly, we retreat to our corners. Families split. Friendships end. Communities fragment.",
   },
   {
-    icon: Zap,
     title: "Decisions suffer",
     description: "From climate policy to medical choices, poor epistemics lead to poor decisions. The cost is measured in lives, not just arguments.",
   },
   {
-    icon: Users,
     title: "Trust erodes",
     description: "When every institution is accused of bias and every expert dismissed, we lose the ability to coordinate on anything.",
   },
@@ -55,29 +44,19 @@ export default function AboutPage() {
   return (
     <AppShell>
       <div className="mx-auto max-w-3xl px-4 md:px-8">
-        {/* Hero */}
+        {/* Hero — no label, heading-first */}
         <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-16 md:mb-24">
-          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
-            About
-          </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             What if we could disagree<br />
             <span className="text-stone-500">without destroying each other?</span>
           </h1>
           <p className="text-lg text-secondary leading-relaxed max-w-2xl">
             Most debates generate heat, not light. We yell past each other, strawman positions we don&apos;t understand,
-            and walk away more certain—and more divided—than before.
+            and walk away more certain than before. Also more divided. That&apos;s not a coincidence.
           </p>
         </div>
 
-        {/* Pull Quote */}
-        <blockquote className="my-12 md:my-16 py-6 border-l-4 border-deep/30 pl-6 md:pl-7 bg-deep/[0.02] rounded-r-xl">
-          <p className="font-serif text-xl md:text-2xl text-primary italic leading-[1.6]">
-            &ldquo;The goal is not to win debates, but to converge on truth—together.&rdquo;
-          </p>
-        </blockquote>
-
-        {/* Why It Matters */}
+        {/* Why It Matters — flows directly from hero, no blockquote */}
         <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Why this matters</h2>
           <p className="text-lg text-secondary leading-relaxed mb-8">
@@ -85,28 +64,19 @@ export default function AboutPage() {
           </p>
 
           <div className="grid gap-3">
-            {stakes.map((stake, i) => (
+            {stakes.map((stake) => (
               <div
                 key={stake.title}
-                className="flex items-start gap-4 p-5 rounded-xl bg-[#faf8f5] border border-stone-200/70 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 animate-card-fade-in"
-                style={{ animationDelay: `${i * 100}ms` }}
+                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/70"
               >
-                <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center flex-shrink-0">
-                  <stake.icon className="h-5 w-5 text-deep" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-primary mb-1.5">{stake.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{stake.description}</p>
-                </div>
+                <h3 className="font-semibold text-primary mb-1.5">{stake.title}</h3>
+                <p className="text-sm text-secondary leading-relaxed">{stake.description}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Section transition */}
-        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-16 md:mb-24" />
-
-        {/* Our Approach */}
+        {/* Our Approach — whitespace separation, no divider */}
         <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">A different approach</h2>
           <p className="text-lg text-secondary leading-relaxed mb-7">
@@ -132,33 +102,17 @@ export default function AboutPage() {
           </p>
         </section>
 
-        {/* Section transition */}
-        <div className="h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent mb-16 md:mb-24" />
-
-        {/* Principles Grid */}
+        {/* Principles — whitespace separation, no divider */}
         <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Core principles</h2>
-          <p className="text-lg text-secondary mb-8 md:mb-10">Four commitments that guide everything we build.</p>
+          <p className="text-lg text-secondary mb-8 md:mb-10">These aren&apos;t aspirational. They&apos;re how we actually work.</p>
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {principles.map((principle, i) => (
               <div
                 key={principle.title}
-                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 animate-card-fade-in"
-                style={{ borderLeftWidth: "4px", borderLeftColor: principle.color, animationDelay: `${i * 100}ms` }}
+                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-mono text-xs font-bold text-stone-400/80">0{i + 1}</span>
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center"
-                    style={{ backgroundColor: `${principle.color}12` }}
-                  >
-                    <principle.icon
-                      className="h-5 w-5"
-                      style={{ color: principle.color }}
-                      strokeWidth={1.5}
-                    />
-                  </div>
-                </div>
+                <span className="font-mono text-xs font-bold text-stone-400/80 mb-3 block">0{i + 1}</span>
                 <h3 className="font-serif text-lg text-primary mb-2">{principle.title}</h3>
                 <p className="text-[14px] md:text-[15px] text-secondary leading-relaxed">{principle.description}</p>
               </div>
@@ -171,9 +125,8 @@ export default function AboutPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Philosophy</h2>
           <div className="space-y-5 text-base md:text-lg text-secondary leading-[1.75]">
             <p>
-              We draw from the rationalist tradition—Socratic questioning, Bayesian updating, the principle
-              of charity. But we&apos;re not trying to win converts to a worldview. We&apos;re trying to build a
-              tool that helps anyone think more clearly.
+              We draw from the rationalist tradition&mdash;Socratic questioning, Bayesian updating, the principle
+              of charity. But this isn&apos;t a worldview pitch. It&apos;s a tool that helps you think more clearly.
             </p>
             <p>
               Our core belief: <strong className="text-primary">You are not your ideas.</strong>
@@ -184,11 +137,12 @@ export default function AboutPage() {
               Maybe yours is. The only way to find out is to examine both honestly.
             </p>
             <p>
-              That&apos;s harder than it sounds. It requires intellectual humility, genuine curiosity, and
-              the willingness to say &ldquo;I don&apos;t know&rdquo; or &ldquo;I was wrong.&rdquo;
+              That&apos;s harder than it sounds. Most of us aren&apos;t naturally good at it. It takes practice,
+              and a willingness to say &ldquo;I don&apos;t know&rdquo; or &ldquo;I was wrong&rdquo;&mdash;two
+              of the most useful sentences in any language.
             </p>
             <p className="font-medium text-primary">
-              Argumend is a tool for people who want to do that hard work.
+              Argumend is for people who want to do that work.
             </p>
           </div>
         </section>
@@ -197,7 +151,7 @@ export default function AboutPage() {
         <section className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 mb-16 md:mb-24 border border-stone-200/70">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
-            We don&apos;t claim to know the truth. We estimate how confident we should be based on available evidence.
+            We don&apos;t claim to know the truth. We show you how confident the evidence makes us&mdash;and let you decide.
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
@@ -227,56 +181,37 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Voices of Reason */}
+        {/* Voices of Reason — 2-column masonry for visual variety */}
         <section className="mb-16 md:mb-24">
-          <div className="flex items-center gap-2.5 mb-8">
-            <Quote className="h-5 w-5 text-rust-500" strokeWidth={1.5} />
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Voices of reason</h2>
-          </div>
-          <div className="grid gap-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-8">Voices of reason</h2>
+          <div className="columns-1 md:columns-2 gap-4 [&>*]:mb-4">
             {quotes.map((quote, i) => (
               <div
                 key={i}
-                className="relative p-5 rounded-xl border border-stone-200/70 bg-white/50 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 animate-card-fade-in"
-                style={{ animationDelay: `${i * 80}ms` }}
+                className="break-inside-avoid p-5 rounded-xl border border-stone-200/70 bg-white/50"
               >
-                <Quote className="absolute top-4 right-4 h-8 w-8 text-stone-200/60" strokeWidth={1} />
-                <p className="font-serif text-lg text-primary italic leading-relaxed mb-3 pr-8">
+                <p className="font-serif text-lg text-primary italic leading-relaxed mb-3">
                   &ldquo;{quote.text}&rdquo;
                 </p>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#C4613C]/20 to-[#b05434]/10 flex items-center justify-center">
-                    <span className="text-xs font-bold text-[#8B5A3C]">{quote.author.charAt(0)}</span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-primary">{quote.author}</p>
-                    <p className="text-xs text-secondary">{quote.role}</p>
-                  </div>
-                </div>
+                <p className="text-sm text-secondary">
+                  <span className="font-semibold text-primary">{quote.author}</span>
+                  {quote.role && <span> &mdash; {quote.role}</span>}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-gradient-to-r from-[#f0ece5]/60 to-[#ebe6de]/60 rounded-2xl p-8 sm:p-12 text-center my-16 md:my-24">
-          <Scale className="h-6 w-6 text-deep/40 mx-auto mb-4" strokeWidth={1.5} />
-          <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">Ready to think differently?</h3>
-          <p className="text-secondary mb-7 max-w-md mx-auto">Pick a topic. Explore the map. Find the crux.</p>
+        {/* Gentle close — inline link, no big CTA box */}
+        <div className="text-center py-12 mb-8">
+          <p className="text-secondary mb-4">Question everything — including this.</p>
           <Link
             href="/topics"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
+            className="inline-flex items-center gap-2 text-sm font-medium text-rust-500 hover:text-rust-600 transition-colors"
           >
-            Start Exploring
-            <Scale className="h-3.5 w-3.5" />
+            Explore topics
+            <ArrowRight className="h-3.5 w-3.5" />
           </Link>
-        </section>
-
-        {/* Footer */}
-        <div className="pt-6 border-t border-stone-200 mb-8">
-          <p className="text-sm text-muted italic text-center">
-            Built with intellectual honesty. Question everything—including this.
-          </p>
         </div>
       </div>
     </AppShell>

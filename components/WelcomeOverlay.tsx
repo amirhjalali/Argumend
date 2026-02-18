@@ -2,23 +2,23 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowRight, Lightbulb, Scale, Target, Sparkles } from "lucide-react";
+import { X, ArrowRight, Lightbulb, Scale, Target, Map } from "lucide-react";
 
 const STEPS = [
   {
-    icon: Sparkles,
+    icon: Map,
     title: "Welcome to Argumend",
-    subtitle: "Where ideas go to be understood, not defeated",
+    subtitle: "Structured argument maps for contested topics",
     description:
-      "Most debates generate heat, not light. We're building something different: a map of human knowledge that shows you not just what people believe, but why they believe it\u2014and what evidence would change their minds.",
-    highlight: "Beyond Winning",
+      "Most debates generate heat, not light. Argumend maps each side of a controversy\u2014showing not just what people believe, but why, and what evidence would actually change their minds.",
+    highlight: "How it works",
   },
   {
     icon: Lightbulb,
     title: "Every Topic, Mapped",
     subtitle: "See the structure beneath the argument",
     description:
-      "Each controversial topic is broken into Pillars\u2014the core claims that matter. Explore the strongest arguments on all sides, traced to their sources. No strawmen. No cheap shots.",
+      "Each topic is broken into Pillars\u2014the core claims that matter most. You get the strongest arguments on all sides, traced to real sources. No strawmen. No cheap shots.",
     highlight: "Steel-manned arguments",
   },
   {
@@ -26,15 +26,15 @@ const STEPS = [
     title: "Confidence, Not Certainty",
     subtitle: "We show our uncertainty",
     description:
-      "A 90%+ confidence score means overwhelming evidence. 45% means genuinely contested. We never pretend to know more than we do. Hover over any score to see how we calculated it.",
+      "90%+ means overwhelming evidence. 45% means genuinely contested. We don\u2019t pretend to know more than we do\u2014hover any score to see the math behind it.",
     highlight: "Calibrated confidence",
   },
   {
     icon: Target,
     title: "Find the Crux",
-    subtitle: "The question that would change everything",
+    subtitle: "The question that would actually settle it",
     description:
-      "Every disagreement has a crux\u2014the specific evidence that would resolve it. We make that explicit. If you walk away with nothing else, you'll know exactly what question to investigate.",
+      "Every disagreement has a crux\u2014one specific question that would resolve it. We find it and make it explicit. Even if you forget everything else, you\u2019ll know what to investigate next.",
     highlight: "What would change your mind?",
   },
 ];
@@ -160,7 +160,7 @@ export function WelcomeOverlay() {
                   onClick={handleNext}
                   className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-semibold hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
                 >
-                  {isLastStep ? "Start Exploring" : "Continue"}
+                  {isLastStep ? "Got it" : "Continue"}
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>

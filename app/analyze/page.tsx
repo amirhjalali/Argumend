@@ -7,7 +7,6 @@ import {
   Upload,
   Loader2,
   AlertCircle,
-  Sparkles,
   ChevronDown,
   Brain,
   MessageSquare,
@@ -250,7 +249,7 @@ export default function AnalyzePage() {
 
   const handleAnalyze = useCallback(async () => {
     if (!content.trim()) {
-      setError("Please enter some content to analyze");
+      setError("Paste something first -- an article, a debate, anything with an argument in it.");
       return;
     }
 
@@ -277,7 +276,7 @@ export default function AnalyzePage() {
       const analysisResult = await response.json();
       setResult(analysisResult as AnalysisResult);
     } catch (e) {
-      const errorMsg = e instanceof Error ? e.message : "Analysis failed";
+      const errorMsg = e instanceof Error ? e.message : "Something went wrong with the analysis";
       setError(errorMsg);
     } finally {
       setIsAnalyzing(false);
@@ -355,14 +354,14 @@ export default function AnalyzePage() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep tracking-wide">
                 <Brain className="h-3.5 w-3.5" />
-                AI-Powered Analysis
+                Argument Analysis
               </div>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
                 Analyze Any Argument
               </h1>
               <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
-                Paste a debate transcript, article, or any argumentative content.
-                We&apos;ll extract positions, find cruxes, and score quality.
+                Paste a debate, article, or anything with an argument in it.
+                We&apos;ll pull out the positions, find the crux, and tell you how strong the reasoning is.
               </p>
             </motion.div>
 
@@ -525,8 +524,8 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                       </>
                     ) : (
                       <>
-                        <Sparkles className="h-5 w-5" />
-                        <span>Analyze Content</span>
+                        <Brain className="h-5 w-5" />
+                        <span>Analyze</span>
                       </>
                     )}
                   </motion.button>
@@ -605,7 +604,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                     </div>
                   ) : (
                     <p className="text-stone-500 text-center py-4">
-                      No clear positions identified
+                      No clear positions found &mdash; the text might not contain a structured argument.
                     </p>
                   )}
                 </motion.div>

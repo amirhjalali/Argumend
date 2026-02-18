@@ -30,8 +30,7 @@ export default function NotFound() {
 
       {/* Subtext */}
       <p className="font-sans text-base sm:text-lg text-secondary max-w-md leading-relaxed mb-10">
-        The argument you&rsquo;re looking for hasn&rsquo;t been mapped yet&mdash;or
-        it may have moved to stronger ground.
+        The argument you&rsquo;re looking for hasn&rsquo;t been mapped yet. Or maybe it moved to stronger ground&mdash;arguments do that sometimes.
       </p>
 
       {/* Navigation Links */}
@@ -69,15 +68,15 @@ export default function NotFound() {
       {/* Helpful note */}
       <div className="pt-6 border-t border-stone-200/60 max-w-sm w-full">
         <p className="font-sans text-sm text-muted">
-          Looking for something specific? Try browsing our{" "}
+          If you had something specific in mind, our{" "}
           <Link href="/topics" className="text-deep hover:underline">
             topics
           </Link>{" "}
-          or{" "}
+          and{" "}
           <Link href="/guides" className="text-deep hover:underline">
             guides
-          </Link>
-          .
+          </Link>{" "}
+          are good places to start.
         </p>
       </div>
 

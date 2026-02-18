@@ -180,7 +180,7 @@ export const researchSections: ResearchSection[] = [
         citationIds: ["pew-2022"],
       },
       {
-        text: "Yet beneath this toxic surface lies a more nuanced reality. The Hidden Tribes study, surveying 8,000 Americans, found that 67% belong to an \"Exhausted Majority\" — people who are tired of polarization, hold complex views, and feel they have no voice in the national conversation.",
+        text: "The picture is not quite this bleak. The Hidden Tribes study, surveying 8,000 Americans, found that 67% belong to an \"Exhausted Majority\" — people who are tired of polarization, hold complex views, and feel they have no voice in the national conversation.",
         citationIds: ["hidden-tribes"],
       },
       {
@@ -243,7 +243,7 @@ export const researchSections: ResearchSection[] = [
         citationIds: ["kahneman-1974"],
       },
       {
-        text: "The consequences compound. When motivated reasoning meets algorithmic amplification, the result is not just individual error but collective epistemic failure: communities unable to converge on shared facts, institutions stripped of credibility, and democracies struggling to make informed decisions.",
+        text: "These effects compound. Motivated reasoning plus algorithmic amplification produces more than individual error — it produces communities unable to converge on shared facts, institutions stripped of credibility, and democracies unable to make informed decisions.",
         citationIds: ["kahneman-1974", "vosoughi-2018", "pariser-2011"],
       },
     ],

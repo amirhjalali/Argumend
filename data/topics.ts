@@ -2809,7 +2809,7 @@ const standardizedTestingValueData = {
       id: "predictive-validity",
       title: "Predictive Validity",
       short_summary:
-        "Whether standardized tests actually predict academic and career success, or primarily measure socioeconomic privilege.",
+        "SAT scores correlate with family income at r = 0.42. Supporters call this a feature; critics call it a flaw.",
       icon_name: "Microscope" as const,
       skeptic_premise:
         "Tests measure socioeconomic status more than ability; they perpetuate inequality. SAT score correlates with family income at r=0.42. Wealthy families can afford $10K+ test prep. Test-optional policies were adopted by 1,800+ schools because tests add noise, not signal.",
@@ -2898,7 +2898,7 @@ const standardizedTestingValueData = {
       id: "educational-accountability",
       title: "Educational Accountability",
       short_summary:
-        "Whether standardized tests serve as essential tools for measuring and closing achievement gaps, or whether they narrow education to test preparation.",
+        "Without standardized tests, achievement gaps become invisible. With them, classrooms become test-prep factories. Both problems are real.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Teaching to the test narrows curriculum and harms deep learning. Schools spend weeks on test prep instead of critical thinking, arts, and exploration. High-stakes testing causes anxiety and disengagement, particularly among marginalized students.",
@@ -3091,7 +3091,7 @@ const socialMediaAgeLimitsData = {
       id: "enforcement-rights",
       title: "Enforcement & Rights",
       short_summary:
-        "Whether age-based social media bans are practically enforceable and whether they respect children's and parents' rights.",
+        "Age verification requires either collecting IDs (a privacy nightmare) or trusting self-reported birthdays (which no teenager has ever lied about).",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Age verification requires invasive ID checks that violate privacy for all users, not just children. Teens will circumvent any ban using VPNs, fake birthdays, or parents' accounts. Government shouldn't decide what children can access — that's a parental decision.",
@@ -3195,7 +3195,7 @@ const collegeValuePropositionData = {
       id: "economic-returns",
       title: "Economic Returns",
       short_summary:
-        "Whether the financial return on a college degree still justifies the rising costs and debt burden.",
+        "The average bachelor's degree holder earns $1.2M more over a lifetime. The average student loan balance is $37K. The math looks simple until you disaggregate by major.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Student debt crisis ($1.77T total), degree inflation, and trade skills shortage suggest the ROI is declining. Average student graduates with $37K in debt. Many graduates are underemployed in jobs that don't require degrees. For-profit colleges and low-value majors drag down the averages.",
@@ -3284,7 +3284,7 @@ const collegeValuePropositionData = {
       id: "alternative-pathways",
       title: "Alternative Pathways",
       short_summary:
-        "Whether tech bootcamps, apprenticeships, and self-directed learning provide viable alternatives to traditional four-year degrees.",
+        "Bootcamp graduates report $20K+ salary jumps in 6 months. But 10-year career trajectories tell a different story.",
       icon_name: "Target" as const,
       skeptic_premise:
         "Tech bootcamps, apprenticeships, and self-directed learning provide faster, cheaper paths to high-paying careers. Coding bootcamps cost $15K and take 12 weeks vs. $100K+ and 4 years for a CS degree. Google, Apple, and IBM have dropped degree requirements. The credential is becoming irrelevant.",
@@ -3388,7 +3388,7 @@ const mandatoryVotingData = {
       id: "democratic-representation",
       title: "Democratic Representation",
       short_summary:
-        "Whether compulsory voting produces a more representative electorate or merely inflates turnout with disengaged voters.",
+        "Australia's mandatory voting pushes turnout above 90%. The question is whether that extra 40% of voters improves representation or dilutes it.",
       icon_name: "Users" as const,
       skeptic_premise:
         "Forced participation creates uninformed voters, donkey voting, and resentment. Freedom includes the right NOT to vote. Voluntary participation signals genuine engagement — compulsion dilutes the quality of democratic input.",
@@ -3475,7 +3475,7 @@ const mandatoryVotingData = {
       id: "practical-implementation",
       title: "Practical Implementation",
       short_summary:
-        "Whether compulsory voting is practically enforceable, cost-effective, and addresses root causes of disengagement.",
+        "Compulsory voting treats a symptom. If citizens are disengaged, does forcing them into a booth fix the underlying problem?",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Enforcement is expensive and intrusive. Fines are regressive, hitting the poor hardest. Compulsory voting doesn't address root causes of disengagement — bad candidates, gerrymandering, and a captured political system. It's a Band-Aid on a structural wound.",
@@ -3561,7 +3561,7 @@ const deathPenaltyDeterrenceData = {
       id: "deterrence-effect",
       title: "Deterrence Effect",
       short_summary:
-        "Whether the existence and enforcement of the death penalty measurably reduces murder rates.",
+        "States with the death penalty do not have lower murder rates than states without it. Deterrence advocates say the problem is inconsistent enforcement.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "The National Academy of Sciences (2012) concluded there is no reliable evidence that the death penalty deters murder. States without the death penalty consistently have lower murder rates. Most murders are impulsive crimes of passion, not calculated acts where perpetrators weigh consequences.",
@@ -3648,7 +3648,7 @@ const deathPenaltyDeterrenceData = {
       id: "justice-and-error",
       title: "Justice & Error",
       short_summary:
-        "Whether the death penalty delivers justice proportional to the crime, weighed against irreversible errors and systemic bias.",
+        "Since 1973, 200+ U.S. death row inmates have been exonerated. The system executes innocent people at an estimated rate of 4%.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Over 190 death row exonerations since 1973 prove the system convicts innocent people. Racial bias is pervasive — Black defendants are 3x more likely to receive death sentences. Execution costs taxpayers 3x more than life imprisonment due to mandatory appeals. The punishment is irreversible.",
@@ -3750,7 +3750,7 @@ const billionaireWealthData = {
       id: "economic-impact",
       title: "Economic Impact",
       short_summary:
-        "Whether extreme wealth concentration drives or drags on economic dynamism, innovation, and social mobility.",
+        "The top 0.001% hold more wealth than the bottom 50% combined. One side sees a rigged game; the other sees the reward for building Amazon.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Billionaires create jobs, fund innovation, and drive economic growth. Gates, Musk, and Bezos built platforms that millions depend on. Wealth taxes cause capital flight and are administratively impractical — every European country that tried one repealed it.",
@@ -3837,7 +3837,7 @@ const billionaireWealthData = {
       id: "political-power",
       title: "Political Power",
       short_summary:
-        "Whether billionaire wealth translates into outsized political influence that undermines democratic governance.",
+        "Billionaires fund campaigns, buy media outlets, and lobby Congress. Is that free speech or legalized oligarchy?",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Billionaire philanthropy fills gaps government can't — the Gates Foundation has saved millions of lives from malaria and polio. Campaign finance is regulated. Many billionaires advocate for higher taxes on themselves. Private initiative is more agile than government bureaucracy.",
@@ -3939,7 +3939,7 @@ const homeschoolingEffectivenessData = {
       id: "academic-achievement",
       title: "Academic Achievement",
       short_summary:
-        "Whether homeschooled students genuinely outperform public school peers or if selection bias inflates the apparent advantage.",
+        "Homeschooled students score 15-30 percentile points higher on standardized tests. But the families who homeschool are not a random sample.",
       icon_name: "FileText" as const,
       skeptic_premise:
         "Self-selection bias inflates homeschool test scores — homeschool families are disproportionately affluent, educated, and motivated. There is no standardized accountability, and some homeschooled children receive inadequate education. Voluntary testing means only high-performers are measured.",
@@ -4026,7 +4026,7 @@ const homeschoolingEffectivenessData = {
       id: "socialization-development",
       title: "Socialization & Development",
       short_summary:
-        "Whether homeschooled children develop adequate social skills and civic engagement compared to traditionally schooled peers.",
+        "The socialization objection is the first thing everyone raises. The research on it is surprisingly thin in both directions.",
       icon_name: "Users" as const,
       skeptic_premise:
         "Homeschoolers miss critical socialization, conflict resolution with diverse peers, and exposure to different backgrounds and viewpoints. Some experience educational neglect or ideological isolation. The home environment cannot replicate the social complexity of a school.",
@@ -4128,7 +4128,7 @@ const policeReformData = {
       id: "use-of-force-accountability",
       title: "Use of Force & Accountability",
       short_summary:
-        "Whether American police use of force is excessive compared to peer nations and whether accountability mechanisms are adequate.",
+        "U.S. police kill roughly 1,100 people per year. Germany, with a quarter of the population, averages about 10. The gap demands explanation.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "The vast majority of police interactions are lawful and professional. Reform efforts have led to depolicing and crime spikes in cities that defunded. Officers face genuine life-threatening situations daily, and armchair critics underestimate the split-second decisions required.",
@@ -4215,7 +4215,7 @@ const policeReformData = {
       id: "alternative-response-models",
       title: "Alternative Response Models",
       short_summary:
-        "Whether non-police crisis response programs can safely handle a significant share of emergency calls currently answered by armed officers.",
+        "Denver's STAR program diverted 2,700+ calls from police in its first year. Zero required police backup. Scale remains the open question.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
         "Social workers cannot handle dangerous situations. CAHOOTS-style programs work in small, low-crime cities but don't scale to Chicago or Detroit. Removing police from mental health calls shifts risk to untrained responders. Most calls that seem non-violent can escalate without warning.",
@@ -4317,7 +4317,7 @@ const drugDecriminalizationData = {
       id: "public-health-outcomes",
       title: "Public Health Outcomes",
       short_summary:
-        "Whether removing criminal penalties for personal drug use leads to better health outcomes or enables greater harm.",
+        "Portugal decriminalized all drugs in 2001. Drug deaths dropped, HIV infections plummeted, and overall use did not increase.",
       icon_name: "Microscope" as const,
       skeptic_premise:
         "Decriminalization signals social acceptance and increases use, especially among youth. Without the deterrent of arrest, experimentation rises. Countries and states that decriminalize see drug tourism and open-air drug markets emerge, concentrating harm in specific neighborhoods.",
@@ -4404,7 +4404,7 @@ const drugDecriminalizationData = {
       id: "criminal-justice-impact",
       title: "Criminal Justice Impact",
       short_summary:
-        "Whether the criminal justice system is an effective or counterproductive tool for addressing drug use.",
+        "The U.S. spends $40B+ annually enforcing drug laws. Recidivism rates for drug offenders hover near 77%. Something is not working.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Without criminal penalties, there is no leverage to push people into treatment. Arrest often serves as the wake-up call that motivates recovery. Drug courts already divert people to treatment within the criminal system, providing structure and accountability that voluntary programs lack.",
@@ -4414,7 +4414,7 @@ const drugDecriminalizationData = {
         id: "coerced-vs-voluntary-treatment",
         title: "Coerced vs. Voluntary Treatment Outcomes",
         description:
-          "Whether court-mandated treatment produces better long-term recovery outcomes than voluntary treatment accessed through a decriminalized public health system.",
+          "Court-mandated rehab has high completion rates but lower long-term success. Voluntary treatment has more dropouts but better outcomes for those who stay.",
         methodology:
           "Randomized controlled trial assigning drug offenders to either traditional drug court (coerced treatment) or decriminalized referral system (voluntary treatment with outreach) and tracking sobriety, employment, and recidivism at 1, 3, and 5 years.",
         verification_status: "theoretical" as const,
@@ -4506,7 +4506,7 @@ const immigrationWageImpactData = {
       id: "labor-market-economics",
       title: "Labor Market Economics",
       short_summary:
-        "Whether immigration increases labor supply enough to measurably depress wages for competing native workers.",
+        "George Borjas says immigration costs native low-skill workers $800/year in lost wages. David Card's Nobel-winning work found no such effect. Same data, opposite conclusions.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "David Card's Mariel boatlift study and subsequent research show minimal wage effects from even sudden, large immigration flows. Immigrants create jobs, start businesses at higher rates than natives, and fill complementary roles that make native workers more productive rather than displacing them.",
@@ -4593,7 +4593,7 @@ const immigrationWageImpactData = {
       id: "long-term-economic-effects",
       title: "Long-Term Economic Effects",
       short_summary:
-        "Whether immigration's long-term economic contributions outweigh short-term labor market disruptions.",
+        "Immigrants started 55% of U.S. billion-dollar startups. They also compete for entry-level jobs. Both facts are true simultaneously.",
       icon_name: "Target" as const,
       skeptic_premise:
         "Immigrants are net fiscal contributors over their lifetimes and their children even more so. Innovation rates among immigrants are disproportionately high — immigrants are 80% more likely to found a company and account for 36% of US patent filings. H-1B workers raise wages for complementary native workers with different skills.",
@@ -4695,7 +4695,7 @@ const evEnvironmentalImpactData = {
       id: "manufacturing-battery-impact",
       title: "Manufacturing & Battery Impact",
       short_summary:
-        "Whether the higher environmental cost of EV manufacturing and battery production negates the emissions savings during driving.",
+        "An EV starts its life with a larger carbon debt than a gas car. It takes 15,000-40,000 miles of driving to break even, depending on the grid.",
       icon_name: "Atom" as const,
       skeptic_premise:
         "Battery production requires massive lithium and cobalt mining, causing deforestation, water pollution, and environmental devastation in the DRC, Chile, and Australia. Manufacturing an EV produces 50-70% more CO2 than an equivalent ICE car. Battery disposal remains an unsolved problem with millions of tons of waste expected by 2040.",
@@ -4782,7 +4782,7 @@ const evEnvironmentalImpactData = {
       id: "grid-dependency",
       title: "Grid Dependency",
       short_summary:
-        "Whether the carbon intensity of electricity grids and grid infrastructure readiness undermine the environmental case for EVs.",
+        "An EV charged in Norway (98% renewable grid) saves 70% of lifecycle emissions. Charged in Poland (coal grid), the savings shrink to 25%.",
       icon_name: "Zap" as const,
       skeptic_premise:
         "EVs charged on coal-heavy grids can produce more lifecycle emissions than efficient hybrid vehicles. The grid is not ready for mass EV adoption — widespread charging would strain infrastructure, cause blackouts, and require billions in upgrades. In regions like West Virginia or Poland, EVs are effectively coal-powered cars.",
@@ -4884,7 +4884,7 @@ const organicFoodHealthData = {
       id: "nutritional-content",
       title: "Nutritional Content",
       short_summary:
-        "Whether organically grown food contains meaningfully higher levels of beneficial nutrients than conventional food.",
+        "A Stanford meta-analysis of 237 studies found no strong evidence that organic food is more nutritious. Organic advocates say nutrition is the wrong metric.",
       icon_name: "Microscope" as const,
       skeptic_premise:
         "Stanford's comprehensive 2012 meta-analysis of 237 studies found no significant nutritional advantage for organic foods. The organic label does not mean pesticide-free — it means different (often less-tested) pesticides are used. The price premium of 20-100% makes healthy eating less accessible, potentially worsening public health by pricing people out of fruits and vegetables entirely.",
@@ -4894,7 +4894,7 @@ const organicFoodHealthData = {
         id: "health-outcome-organic-diet",
         title: "Health Outcomes from Long-Term Organic Diet",
         description:
-          "Whether people who eat primarily organic food experience measurably better health outcomes (cancer rates, chronic disease, lifespan) compared to matched controls eating conventional food.",
+          "A French cohort study of 69,000 people found 25% lower cancer rates among organic food consumers. Selection bias could explain all of it.",
         methodology:
           "Large-scale prospective cohort study (50,000+ participants) comparing health outcomes over 10+ years between verified organic consumers and matched conventional food consumers, controlling for income, overall diet quality, exercise, and other confounders.",
         verification_status: "theoretical" as const,
@@ -4971,7 +4971,7 @@ const organicFoodHealthData = {
       id: "pesticide-exposure-risk",
       title: "Pesticide Exposure Risk",
       short_summary:
-        "Whether chronic low-level pesticide exposure from conventional food poses meaningful health risks.",
+        "Every apple you eat contains pesticide residues below the safety threshold. The real question: what happens after 30 years of daily 'safe' exposures?",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "Conventional pesticide residues are well below EPA safety thresholds, which already include 100-1000x safety margins. The dose makes the poison — trace amounts detected on produce pose negligible risk to healthy adults. Organic farming uses pesticides too, including copper sulfate (which accumulates in soil) and rotenone (linked to Parkinson's in animal studies).",
@@ -4981,7 +4981,7 @@ const organicFoodHealthData = {
         id: "chronic-low-dose-effects",
         title: "Chronic Low-Dose Pesticide Exposure Health Effects",
         description:
-          "Whether the levels of pesticide residues found on conventional produce — individually below safety thresholds — cause measurable harm through chronic cumulative exposure over decades.",
+          "Each individual residue is below the safety threshold. Nobody has tested what happens when you eat 20 different 'safe' residues daily for 40 years.",
         methodology:
           "Long-term (20+ year) prospective study tracking biomarkers of pesticide exposure, health outcomes (cancer incidence, neurological function, reproductive health), and organic vs. conventional dietary patterns in a large cohort, with dose-response modeling.",
         verification_status: "theoretical" as const,
@@ -5073,7 +5073,7 @@ const foreignAidEffectivenessData = {
       id: "development-outcomes",
       title: "Development Outcomes",
       short_summary:
-        "Whether aid spending produces measurable improvements in health, poverty, and economic development in recipient countries.",
+        "Bed nets cost $2 each and prevent 500,000+ malaria deaths per year. Not all aid is this legible. Most of it is not.",
       icon_name: "Target" as const,
       skeptic_premise:
         "Over $4.6 trillion in aid has been transferred to developing countries since 1960, yet many recipient countries remain poor. Aid creates dependency, funds corrupt governments, and distorts local markets by undercutting local producers. Dambisa Moyo's 'Dead Aid' argues that aid is the primary cause of Africa's poverty trap, not the solution.",
@@ -5083,7 +5083,7 @@ const foreignAidEffectivenessData = {
         id: "targeted-vs-general-aid",
         title: "Effectiveness of Targeted Health Aid vs. General Budget Support",
         description:
-          "Whether the proven effectiveness of specific health interventions (bed nets, vaccines) can be generalized to broader aid categories, or whether targeted programs are the exception rather than the rule.",
+          "Bed nets and vaccines have clear RCT evidence behind them. Most aid categories do not. The question is how much of the portfolio the proven programs represent.",
         methodology:
           "Systematic comparison of RCT-backed targeted interventions against general budget support and governance aid, measuring cost-per-outcome and sustainability at 5 and 10-year horizons across multiple country contexts.",
         verification_status: "verified" as const,
@@ -5160,7 +5160,7 @@ const foreignAidEffectivenessData = {
       id: "efficiency-accountability",
       title: "Efficiency & Accountability",
       short_summary:
-        "Whether the aid delivery system is efficient enough to justify the expenditure, and whether accountability mechanisms are adequate.",
+        "Estimates suggest 10-30% of aid funds are lost to corruption and administrative overhead. Defenders say that still beats doing nothing.",
       icon_name: "FileText" as const,
       skeptic_premise:
         "Only 30-40% of aid reaches the intended recipients, with the rest consumed by overhead, consultant fees, and corruption. Tied aid — which requires recipients to purchase goods from the donor country — serves donor economic interests more than recipient needs. Aid conditionality often backfires, imposing harmful structural adjustment. The aid industry itself employs hundreds of thousands of well-paid professionals in donor countries.",
@@ -5262,7 +5262,7 @@ const spaceExplorationValueData = {
       id: "economic-returns-spinoffs",
       title: "Economic Returns & Spin-offs",
       short_summary:
-        "Whether NASA's multi-billion-dollar budget generates sufficient economic returns through technology spin-offs and the growing space economy.",
+        "NASA claims $7-14 of economic return per dollar spent. Critics say that number relies on counting every downstream use of Teflon and memory foam.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "NASA's $25B+ annual budget could fund universal pre-K, clean water infrastructure, or homelessness solutions with immediate, measurable impact. Space tourism is a billionaire's playground subsidized by taxpayers. Most spin-off claims are exaggerated — memory foam and Tang were not invented by NASA. The opportunity cost of space spending is enormous when millions lack basic needs.",
@@ -5351,7 +5351,7 @@ const spaceExplorationValueData = {
       id: "scientific-strategic-value",
       title: "Scientific & Strategic Value",
       short_summary:
-        "Whether the scientific discoveries and national security benefits of space exploration justify prioritizing human missions over cheaper robotic alternatives.",
+        "The Mars Perseverance rover cost $2.7B. A crewed mission would cost $100B+. The rover does not inspire children to become engineers, but it also does not need life support.",
       icon_name: "Telescope" as const,
       skeptic_premise:
         "Robotic missions accomplish 90% of the science at 1% the cost of human missions. The ISS cost $150B and hasn't produced game-changing discoveries. Space debris is becoming a catastrophic risk — there are 27,000 tracked pieces of orbital junk threatening all satellite infrastructure. Militarizing space accelerates a dangerous arms race.",
@@ -5455,7 +5455,7 @@ const factoryFarmingBanData = {
       id: "animal-welfare-ethics",
       title: "Animal Welfare & Ethics",
       short_summary:
-        "Whether the systematic confinement and suffering of billions of sentient animals in factory farms constitutes a moral crisis requiring legislative action.",
+        "80 billion land animals are slaughtered annually, most after living in conditions that would be illegal if applied to dogs. The ethics hinge on how much moral weight you give a chicken.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "Animal welfare standards have improved significantly over the past two decades. Cage-free, free-range, and humanely raised options exist for consumers who want them — the market is responding. Banning factory farming would devastate rural economies that depend on it and raise food prices 20-50%, hurting the poor most. Animals are not moral patients in the same way humans are.",
@@ -5544,7 +5544,7 @@ const factoryFarmingBanData = {
       id: "environmental-health-impact",
       title: "Environmental & Health Impact",
       short_summary:
-        "Whether factory farming's contributions to climate change, antibiotic resistance, and water pollution constitute sufficient public health threats to justify a ban.",
+        "Livestock accounts for 14.5% of global greenhouse emissions. 73% of antibiotics sold worldwide go to farm animals. These are public health numbers, not just animal welfare arguments.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "Modern agriculture feeds 8 billion people more efficiently than any system in history. Plant-based diets lack key nutrients (B12, iron, zinc, omega-3s) without expensive supplementation. Lab-grown meat isn't commercially viable and may never match the taste, texture, and cost of conventional meat. Dismantling the system that feeds the world is reckless utopianism.",
@@ -5648,7 +5648,7 @@ const mediaBiasDemocracyData = {
       id: "existence-extent-bias",
       title: "Existence & Extent of Bias",
       short_summary:
-        "Whether mainstream media exhibits measurable, systemic bias that goes beyond individual editorial choices or honest disagreement.",
+        "Studies consistently find media bias. They just disagree about which direction it runs, which says something about the researchers too.",
       icon_name: "FileText" as const,
       skeptic_premise:
         "Claims of 'media bias' are often just disagreement with factual reporting that challenges one's priors. Professional journalism has editorial standards, fact-checking processes, and corrections policies. The real threat to informed citizenship is misinformation from unvetted social media and partisan blogs, not mainstream outlets with reputational stakes. Imperfect journalism is still far better than no institutional journalism.",
@@ -5737,7 +5737,7 @@ const mediaBiasDemocracyData = {
       id: "impact-on-democracy",
       title: "Impact on Democracy",
       short_summary:
-        "Whether media bias and polarized consumption patterns meaningfully degrade democratic discourse, or whether media pluralism actually enhances it.",
+        "Americans now self-sort into separate information ecosystems. The left and right do not just disagree on opinions -- they disagree on facts.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Media pluralism is at an all-time high with internet access. People can access diverse viewpoints more easily than at any point in history — from international outlets to independent journalists to primary source documents. Blaming media for polarization ignores personal responsibility for information consumption and deeper socioeconomic drivers of political division.",
@@ -5841,7 +5841,7 @@ const universalHealthcareData = {
       id: "cost-efficiency",
       title: "Cost & Efficiency",
       short_summary:
-        "Whether a universal healthcare system would reduce or increase total US healthcare spending compared to the current employer-based model.",
+        "The U.S. spends $4.3 trillion on healthcare annually -- 17.3% of GDP. Every country with universal coverage spends less per capita and covers everyone.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Single-payer would cost $32 trillion over 10 years according to Mercatus Center estimates. Government programs are notoriously inefficient — the VA has documented wait times exceeding 30 days for 30% of veterans. Innovation in pharmaceuticals and medical devices would decline without profit incentives: the US produces 44% of global pharmaceutical R&D. You can't add 27 million people and spend less.",
@@ -5930,7 +5930,7 @@ const universalHealthcareData = {
       id: "quality-access",
       title: "Quality & Access",
       short_summary:
-        "Whether universal healthcare would improve or degrade the quality of care Americans receive and their ability to access it.",
+        "Canada has universal coverage and 6-month surgical wait times. The U.S. has no waits for those who can pay and 28 million uninsured who cannot.",
       icon_name: "Users" as const,
       skeptic_premise:
         "The US leads in cancer survival rates (5-year survival: 67% vs. 55% in UK). American medical innovation — from mRNA vaccines to robotic surgery — leads the world. Wait times in universal systems are significant: median 27.7 weeks for specialist care in Canada. People cross borders TO the US for specialized care. Equalizing access often means equalizing down.",
@@ -6034,7 +6034,7 @@ const openBordersData = {
       id: "economic-arguments",
       title: "Economic Arguments",
       short_summary:
-        "Whether open borders would produce enormous global GDP gains or create unsustainable fiscal and labor market pressures.",
+        "Economists estimate open borders could double world GDP. The question nobody can model: what happens to social trust and welfare states?",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Open borders would create unsustainable fiscal pressure on welfare states — healthcare, education, and social services would be overwhelmed. Wage depression for low-skilled native workers would be severe: Borjas estimates a 3-4% wage decline per 10% increase in labor supply. Housing crises would worsen dramatically in destination cities already facing shortages.",
@@ -6123,7 +6123,7 @@ const openBordersData = {
       id: "moral-security-considerations",
       title: "Moral & Security Considerations",
       short_summary:
-        "Whether the moral case for freedom of movement outweighs legitimate concerns about sovereignty, security, and social cohesion.",
+        "If you think borders are morally arbitrary, open borders follow logically. If you think nations have the right to self-determination, they do not.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Sovereign nations have the right and duty to control their borders — this is foundational to the nation-state system. Open borders are incompatible with welfare states, as Milton Friedman argued. Security screening requires controlled entry points and manageable volumes. Cultural integration requires manageable flows to prevent parallel societies and social fragmentation.",
@@ -6227,7 +6227,7 @@ const cancelCultureData = {
       id: "free-expression-accountability",
       title: "Free Expression vs. Accountability",
       short_summary:
-        "Whether public shaming campaigns represent legitimate accountability or a threat to free expression through disproportionate mob-driven punishment.",
+        "A single tweet can end a career. The question is whether that power functions as accountability or as mob justice with no appeals process.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "\"Cancel culture\" is just accountability with a new name. Marginalized groups finally have tools to challenge powerful people who previously faced no consequences. The supposedly \"canceled\" almost always keep their platforms, wealth, and influence. Social consequences for speech have always existed — this is democracy, not tyranny.",
@@ -6316,7 +6316,7 @@ const cancelCultureData = {
       id: "social-cultural-impact",
       title: "Social & Cultural Impact",
       short_summary:
-        "Whether cancel culture drives genuine social progress or enforces ideological conformity through fear-based compliance.",
+        "62% of Americans say the political climate prevents them from sharing their views. Self-censorship may be rational, but it is not free speech.",
       icon_name: "Users" as const,
       skeptic_premise:
         "Power structures need disruption, and social media gives marginalized people tools to fight back. #MeToo removed actual predators who operated with impunity for decades. Cultural shift toward inclusion requires discomfort. Cancel culture is overstated — most 'cancelations' are temporary, and the discourse about cancel culture is louder than the phenomenon itself.",
@@ -6420,7 +6420,7 @@ const bigTechAntitrustData = {
       id: "market-power-competition",
       title: "Market Power & Competition",
       short_summary:
-        "Whether dominant tech platforms exercise monopoly power that stifles innovation and competition, or whether their dominance reflects superior products and natural network effects.",
+        "Google holds 90% of search, Apple and Google split mobile OS, Amazon handles 40% of e-commerce. Standard Oil had less market share when it was broken up.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Big tech companies got big by building products people love. Network effects are natural, not anti-competitive. Breaking them up would destroy value and convenience for consumers who benefit from integrated ecosystems. European regulation hasn't produced European tech champions — it has just added bureaucracy.",
@@ -6509,7 +6509,7 @@ const bigTechAntitrustData = {
       id: "data-privacy-democracy",
       title: "Data Privacy & Democracy",
       short_summary:
-        "Whether the concentration of personal data and algorithmic power in a few companies poses fundamental threats to privacy and democratic governance.",
+        "Five companies know more about you than your government does -- your location, purchases, messages, and browsing history. None of them were elected.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "Users voluntarily share data in exchange for free services — it's a fair trade. Regulation creates compliance overhead that paradoxically favors incumbents over smaller competitors. Self-regulation and market pressure are already working: Apple's privacy pivot proves consumers can reward privacy-respecting companies.",
@@ -6519,7 +6519,7 @@ const bigTechAntitrustData = {
         id: "informed-consent-data-economy",
         title: "Meaningful Consent in the Data Economy",
         description:
-          "Whether users can meaningfully consent to data collection when digital services are essential to modern life and terms of service are incomprehensibly long.",
+          "The average terms of service is 7,000 words. Nobody reads them. Can you consent to something you have never read?",
         methodology:
           "Survey users on their understanding of data practices, measure the time required to read all privacy policies encountered annually, and test whether informed users would change their behavior.",
         equation:
@@ -6613,12 +6613,12 @@ const minimumWageEffectsData = {
       id: "employment-effects",
       title: "Employment Effects",
       short_summary:
-        "Whether minimum wage increases cause significant job losses or whether the labor market absorbs higher wages with minimal employment disruption.",
+        "Card and Krueger found no job losses from minimum wage hikes. The restaurant industry's own data says otherwise. The debate has raged for 30 years.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "The Congressional Budget Office estimates a $15 federal minimum would eliminate 1.4 million jobs. Small businesses operate on thin margins and cannot absorb a 107% increase from $7.25. Automation accelerates as labor costs rise — self-checkout kiosks, ordering apps, and robotic food prep replace minimum wage workers. Labor-intensive industries like restaurants and retail are most vulnerable.",
       proponent_rebuttal:
-        "Card and Krueger's groundbreaking natural experiment found no job losses when New Jersey raised its minimum wage while neighboring Pennsylvania did not. Seattle's $15 minimum wage, the most studied increase ever, showed minimal employment effects. The majority of modern minimum wage studies find small or no negative employment impact — the old textbook model of large job losses is not supported by empirical evidence.",
+        "Card and Krueger's 1994 natural experiment found no job losses when New Jersey raised its minimum wage while neighboring Pennsylvania did not. Seattle's $15 minimum wage, the most studied increase ever, showed minimal employment effects. The majority of modern minimum wage studies find small or no negative employment impact — the old textbook model of large job losses is not supported by empirical evidence.",
       crux: {
         id: "employment-elasticity-measurement",
         title: "Employment Elasticity at High Minimum Wage Levels",
@@ -6702,7 +6702,7 @@ const minimumWageEffectsData = {
       id: "poverty-economic-effects",
       title: "Poverty & Economic Effects",
       short_summary:
-        "Whether minimum wage increases effectively reduce poverty and boost the broader economy, or whether targeted programs like the EITC are more effective.",
+        "A $15 minimum wage would raise pay for 17 million workers. The CBO estimates 1.3 million would lose their jobs. Both numbers are in the same report.",
       icon_name: "Users" as const,
       skeptic_premise:
         "Only 1.1% of workers currently earn the federal minimum wage. Most minimum wage earners are teenagers and secondary earners, not family breadwinners. The Earned Income Tax Credit (EITC) is a more targeted and effective poverty reduction tool. Higher wages get passed to consumers as higher prices, disproportionately affecting the low-income people the policy is supposed to help.",
@@ -6806,7 +6806,7 @@ const geneEditingEmbryosData = {
       id: "medical-promise-safety",
       title: "Medical Promise vs. Safety",
       short_summary:
-        "Whether CRISPR gene editing technology is sufficiently safe and effective to justify germline modification of human embryos for preventing genetic disease.",
+        "CRISPR can delete the gene for sickle cell disease. It can also make off-target edits we cannot predict. The first gene-edited babies were born in 2018; the scientist went to prison.",
       icon_name: "Microscope" as const,
       skeptic_premise:
         "He Jiankui's 2018 experiment showed the technology is not ready — off-target edits had unknown effects on the twin girls born from the procedure. Germline changes are irreversible and affect all future generations. We don't understand gene interactions (pleiotropy, epistasis) well enough to predict consequences. Preimplantation genetic testing (PGT-M) already allows screening for most genetic diseases without modifying the genome.",
@@ -6895,7 +6895,7 @@ const geneEditingEmbryosData = {
       id: "ethical-social-implications",
       title: "Ethical & Social Implications",
       short_summary:
-        "Whether germline gene editing can be ethically governed to prevent a slide from disease prevention to genetic enhancement and designer babies.",
+        "Fixing Huntington's disease is therapy. Selecting for height is enhancement. The line between them is clear in theory and blurry in practice.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "The slippery slope to designer babies is real — once you allow editing for disease, the line to enhancement (intelligence, height, appearance) is impossible to hold. Wealthy access to genetic enhancement would create a literal genetic class system. Disability rights advocates argue that editing out genetic conditions signals that disabled lives aren't worth living. The history of eugenics in the 20th century makes this territory uniquely dangerous.",
@@ -6905,7 +6905,7 @@ const geneEditingEmbryosData = {
         id: "therapy-enhancement-boundary",
         title: "Enforceability of Therapy vs. Enhancement Boundary",
         description:
-          "Whether regulatory bodies can draw and enforce a meaningful line between genetic editing for disease prevention (therapy) and genetic editing for trait improvement (enhancement).",
+          "Is fixing severe myopia 'therapy' or 'enhancement'? Regulators will have to draw a line somewhere. Every proposed line has edge cases.",
         methodology:
           "Comparative analysis of existing regulatory frameworks (IVF regulation, pharmaceutical approval, organ transplantation) to assess whether therapy/enhancement distinctions have been successfully maintained in analogous contexts.",
         equation:
@@ -6999,7 +6999,7 @@ const reparationsSlaveryData = {
       id: "moral-historical-case",
       title: "Moral & Historical Case",
       short_summary:
-        "Whether the moral and historical case for reparations is strong enough to justify government action generations after slavery's end.",
+        "The median white family holds 8x the wealth of the median Black family. Historians trace the gap directly to slavery, Jim Crow, and redlining.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Current Americans bear no personal responsibility for their ancestors' actions. Where do you draw the line — Indigenous displacement, Japanese internment, Irish discrimination? Many Black Americans are recent immigrants with no connection to American slavery. Individual responsibility, not group identity, should guide public policy. Reparations would be divisive and deepen racial resentment rather than heal it.",
@@ -7088,7 +7088,7 @@ const reparationsSlaveryData = {
       id: "economic-feasibility-form",
       title: "Economic Feasibility & Form",
       short_summary:
-        "Whether reparations are economically feasible and what form they should take — direct cash payments, targeted investments, or structural policy changes.",
+        "Estimates range from $10 trillion to $14 trillion in total. Nobody agrees on who qualifies, what form payment takes, or where the money comes from.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "The cost — estimated at $10-14 trillion by some calculations — is fiscally impossible and would require unprecedented taxation or debt. Cash payments don't address structural issues like education inequality and mass incarceration. Means testing would be impossibly complex. Universal anti-poverty programs would help all disadvantaged Americans regardless of race and have broader political support.",
@@ -7192,7 +7192,7 @@ const spaceColonizationFeasibilityData = {
       id: "transport-technology",
       title: "Transportation Technology",
       short_summary:
-        "Whether current and near-term rocket technology can deliver humans and cargo to Mars reliably and affordably.",
+        "SpaceX's Starship can theoretically carry 100 tons to Mars. Getting humans back alive is a different problem entirely.",
       icon_name: "Telescope" as const,
       skeptic_premise:
         "Even SpaceX's Starship, the most advanced heavy-lift vehicle, has not yet completed a full orbital mission profile. Mars transit takes 6-9 months with current propulsion, exposing crews to cosmic radiation at minimum 0.66 sieverts per round trip—well above safe annual limits. The cost of establishing a colony is estimated in the hundreds of billions, with no clear economic return.",
@@ -7265,7 +7265,7 @@ const spaceColonizationFeasibilityData = {
       id: "habitat-sustainability",
       title: "Habitat & Self-Sustainability",
       short_summary:
-        "Whether humans can build self-sustaining habitats on Mars using local resources (ISRU) or will remain permanently dependent on Earth resupply.",
+        "Mars has water ice, CO2, and regolith for building. It lacks a magnetic field, breathable air, and the ability to grow food at scale. Self-sufficiency is decades away at best.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "Every life support system tested (Biosphere 2, ISS) has required constant resupply or failed to maintain atmospheric balance. Mars soil contains toxic perchlorates. Growing food in Martian conditions has never been demonstrated at scale. A colony dependent on Earth resupply every 26 months is not self-sustaining—it is an outpost.",
@@ -7408,7 +7408,7 @@ const veganismEnvironmentalData = {
       id: "nutritional-feasibility",
       title: "Nutritional Feasibility at Scale",
       short_summary:
-        "Whether global populations can meet all nutritional needs on plant-based diets, especially in developing nations with limited food access.",
+        "A billion people rely on livestock for calories and income. Telling subsistence farmers to go vegan is a different proposition than telling Whole Foods shoppers.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Vegan diets require careful planning to avoid deficiencies in B12, iron, omega-3, zinc, and calcium. In developing nations, animal products are often the most accessible source of complete protein and bioavailable micronutrients. Children, pregnant women, and the elderly face higher risks. Supplements are not universally available or affordable.",
@@ -7551,7 +7551,7 @@ const freeWillDeterminismData = {
       id: "physics-determinism",
       title: "Physical Determinism & Quantum Indeterminacy",
       short_summary:
-        "Whether the laws of physics leave room for free will, given that classical mechanics is deterministic but quantum mechanics introduces fundamental randomness.",
+        "Classical physics is deterministic. Quantum mechanics is random. Neither one looks like 'choice.' Compatibilists say that is a category error.",
       icon_name: "Atom" as const,
       skeptic_premise:
         "Classical physics is strictly deterministic: given complete initial conditions, every future state follows necessarily. The neurons in our brains are physical systems obeying these laws. Even if quantum mechanics introduces randomness, randomness is not freedom—a coin flip is not a choice. There is no known mechanism by which consciousness could intervene in physical causation.",
@@ -7694,7 +7694,7 @@ const ubiEconomicsData = {
       id: "labor-market-effects",
       title: "Labor Market & Inflation Effects",
       short_summary:
-        "Whether unconditional cash payments would reduce the incentive to work and trigger significant inflation.",
+        "Pilot programs consistently show minimal work reduction. Critics say pilots cannot predict what happens when an entire economy shifts expectations.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Basic economics predicts that subsidizing non-work reduces work. If everyone receives $1,000/month regardless of employment, marginal workers (those indifferent between working and not) will choose not to work. This reduces economic output and tax revenue, creating a fiscal death spiral. Additionally, injecting trillions in new spending power would drive inflation, especially in housing and services.",
@@ -7766,7 +7766,7 @@ const standardizedTestingDebateData = {
       id: "predictive-validity-evidence",
       title: "Predictive Validity",
       short_summary:
-        "Whether standardized tests predict college and career success better than alternatives, or primarily reflect socioeconomic privilege.",
+        "Test-optional colleges saw more diverse applicant pools but no clear change in graduation rates. The experiment is still running.",
       icon_name: "Microscope" as const,
       skeptic_premise:
         "SAT scores correlate with family income at r=0.42—every $20,000 increase in family income is associated with a ~20-point score increase. Wealthy families can afford $10,000+ in test prep coaching. Test-optional policies were adopted by 1,800+ colleges because tests add noise, not signal, and perpetuate socioeconomic inequality.",
@@ -7839,7 +7839,7 @@ const standardizedTestingDebateData = {
       id: "equity-and-alternatives",
       title: "Equity & Alternative Assessment",
       short_summary:
-        "Whether standardized tests are inherently biased against marginalized groups, and whether better alternatives exist.",
+        "Score gaps persist across race and income after decades of reform. The debate is whether the tests reveal inequality or reinforce it.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Tests embed cultural assumptions of the white middle class. Test prep is a $2.6 billion industry that advantages wealthy families. Race-based score gaps persist even after controlling for income. Holistic admissions, portfolio assessment, and mastery-based evaluation are more equitable and better capture actual student potential.",
@@ -7909,7 +7909,7 @@ const labGrownMeatData = {
       id: "cost-scalability",
       title: "Cost & Scalability",
       short_summary:
-        "Whether cultivated meat can achieve cost parity with conventional meat through manufacturing scale-up and technology improvements.",
+        "In 2013, the first lab-grown burger cost $330,000. By 2024, some producers claim costs under $10/lb. The gap to $3/lb ground beef remains stubborn.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "The first lab-grown burger in 2013 cost $330,000 to produce. Despite years of investment and promises, cultivated meat remains far too expensive for mass markets. Scaling cell culture from laboratory flasks to industrial bioreactors faces fundamental biological challenges: maintaining sterility, preventing cell death, and producing structured cuts (not just mince). Funding has slowed significantly in 2024-2025 as investors reassess feasibility.",
@@ -7982,7 +7982,7 @@ const labGrownMeatData = {
       id: "consumer-acceptance",
       title: "Consumer Acceptance",
       short_summary:
-        "Whether consumers will actually purchase and eat cultivated meat at scale, given concerns about 'naturalness,' safety, and taste.",
+        "Surveys say 40% of Americans would try cultivated meat. Actual purchase rates after tasting? Much lower. The 'yuck factor' is real and persistent.",
       icon_name: "Users" as const,
       skeptic_premise:
         "Surveys consistently show that 35-50% of consumers are unwilling to try cultivated meat. The 'yuck factor' is strong: people associate lab-grown products with unnaturalness. Taste and texture remain inferior to conventional meat for structured cuts. Cultural and religious objections add further resistance. The term 'lab-grown' itself is a marketing liability.",
@@ -8052,7 +8052,7 @@ const aiConsciousnessData = {
       id: "functional-consciousness",
       title: "Functional Theories of Consciousness",
       short_summary:
-        "Whether consciousness depends on specific biological substrates (neurons) or could arise from any system that replicates the right functional organization.",
+        "If consciousness requires neurons, AI can never be conscious. If it requires only the right information processing, it might already be. We have no test to tell.",
       icon_name: "Atom" as const,
       skeptic_premise:
         "Consciousness may require specific biological processes—particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world. Current AI systems are sophisticated pattern-matching engines with no internal experience. A paper published in Nature Humanities and Social Sciences Communications (2025) argues 'there is no such thing as conscious artificial intelligence.' Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
@@ -8193,7 +8193,7 @@ const electoralCollegeReformData = {
       id: "democratic-legitimacy",
       title: "Democratic Legitimacy",
       short_summary:
-        "Whether the Electoral College violates the democratic principle of 'one person, one vote' and whether popular vote winners should always become president.",
+        "A Wyoming voter has 3.6x the Electoral College weight of a California voter. Two of the last six presidents lost the popular vote.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "The Electoral College protects federalism and ensures small states have meaningful influence. It forces candidates to build geographically broad coalitions. A pure popular vote would concentrate campaigns in major cities and ignore rural America. The Founders deliberately rejected direct democracy because they feared tyranny of the majority.",
@@ -8203,7 +8203,7 @@ const electoralCollegeReformData = {
         id: "npvic-enactment",
         title: "National Popular Vote Interstate Compact Reaching 270 EVs",
         description:
-          "Whether the National Popular Vote Interstate Compact will gain enough state signatories (270 electoral votes) to effectively implement a popular vote without a constitutional amendment.",
+          "The NPVIC needs states totaling 270 electoral votes to take effect. It currently has 209. Red states have zero incentive to sign on.",
         methodology:
           "Track state-level NPVIC legislation. Analyze political feasibility in remaining states needed to reach 270 EVs. Model legal challenges that would follow enactment.",
         verification_status: "theoretical" as const,
@@ -8264,7 +8264,7 @@ const electoralCollegeReformData = {
       id: "npvic-feasibility",
       title: "National Popular Vote Interstate Compact",
       short_summary:
-        "Whether the NPVIC can achieve its 270 electoral vote threshold and survive legal challenges to effectively replace the Electoral College without a constitutional amendment.",
+        "The National Popular Vote Interstate Compact has 209 of the 270 electoral votes it needs. Legal scholars are split on whether it survives a Supreme Court challenge.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "The NPVIC is constitutionally dubious: it effectively amends the Constitution through an interstate agreement rather than the Article V process. The Supreme Court could strike it down. All states that have joined are Democratic-controlled; no Republican legislature has signed on, making it a partisan project. If enacted, a state could withdraw when its preferred candidate wins the popular vote but would lose under the compact.",
@@ -8274,7 +8274,7 @@ const electoralCollegeReformData = {
         id: "scotus-constitutionality",
         title: "Supreme Court Ruling on NPVIC Constitutionality",
         description:
-          "Whether the Supreme Court would uphold the NPVIC if challenged, determining whether states can collectively agree to allocate electors based on the national popular vote.",
+          "The Compact Clause may require Congressional approval for interstate agreements. The Supreme Court has never ruled on the NPVIC specifically.",
         methodology:
           "Track NPVIC enactment progress and any resulting legal challenges through federal courts to the Supreme Court.",
         verification_status: "theoretical" as const,
@@ -8344,7 +8344,7 @@ const psychedelicsMentalHealthData = {
         id: "phase-3-psilocybin-approval",
         title: "Psilocybin Phase III Trial Results and FDA Decision",
         description:
-          "Whether ongoing Phase III clinical trials for psilocybin-assisted therapy for depression will meet FDA standards for safety and efficacy, leading to approval.",
+          "The FDA rejected MDMA therapy in 2024 over methodology concerns despite strong Phase II data. Psilocybin trials face the same scrutiny.",
         methodology:
           "Monitor Compass Pathways and Usona Institute Phase III trials. Evaluate primary endpoints (MADRS depression scale scores at 6 and 12 weeks), adverse events, and long-term follow-up data. Assess FDA advisory committee response.",
         verification_status: "theoretical" as const,
@@ -8405,7 +8405,7 @@ const psychedelicsMentalHealthData = {
       id: "policy-regulatory-path",
       title: "Policy & Regulatory Pathway",
       short_summary:
-        "Whether psychedelics should be rescheduled from Schedule I and what regulatory framework should govern therapeutic access.",
+        "Psilocybin is Schedule I ('no accepted medical use') despite Phase II trials showing 4x the response rate of SSRIs. The FDA wants more data.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Psilocybin and MDMA are Schedule I controlled substances—classified as having high abuse potential and no accepted medical use. Decriminalization and state-level legalization (Oregon, Colorado) have outpaced clinical evidence. Widespread access without proper clinical infrastructure risks adverse events, misuse, and undermining the rigorous FDA approval process that protects patients.",
@@ -8475,7 +8475,7 @@ const gigEconomyRegulationData = {
       id: "worker-classification",
       title: "Worker Classification & Protections",
       short_summary:
-        "Whether gig workers are genuinely independent contractors or functionally employees who should receive minimum wage, benefits, and labor protections.",
+        "Uber sets the price, controls dispatch, and can deactivate drivers at will. By most legal definitions, that is an employer. Uber says otherwise.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Gig workers choose when, where, and how much to work—the defining feature of independent contracting. Surveys consistently show that 70-80% of gig workers value flexibility above all else. Reclassification would destroy the business model: Uber and Lyft would have to set schedules, limit hours, and dramatically raise prices. Many workers would lose the flexibility that attracted them. California's AB5 (2019) attempt to force reclassification was overturned by voters in Proposition 22 (2020) by 59%.",
@@ -8546,7 +8546,7 @@ const gigEconomyRegulationData = {
       id: "economic-tradeoffs",
       title: "Economic Tradeoffs",
       short_summary:
-        "Whether reclassifying gig workers would improve their economic wellbeing or destroy flexible work opportunities and raise consumer prices.",
+        "California's AB5 reclassified gig workers as employees. Uber spent $200M on Prop 22 to undo it. Drivers remain split on which they prefer.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Reclassification would raise ride-hailing and delivery costs by 20-40%, reducing demand and eliminating jobs. McKinsey found 36% of employed Americans (70+ million) identify as independent workers—many by choice. The gig economy provides crucial entry points for workers excluded from traditional employment (immigrants, those with criminal records, people with disabilities). Regulation designed for the industrial era does not fit the digital economy.",
@@ -8616,7 +8616,7 @@ const surveillancePublicSafetyData = {
       id: "crime-reduction-effectiveness",
       title: "Crime Reduction Effectiveness",
       short_summary:
-        "Whether surveillance technologies actually reduce crime rates, or merely displace crime and create a false sense of security.",
+        "London has 700,000 CCTV cameras. Studies show they reduce property crime in parking lots and have near-zero effect on violent crime.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "Evidence that surveillance reduces crime is thin and mixed. CCTV has modest effects on property crime in parking lots but minimal impact on violent crime. Predictive policing algorithms often simply redirect resources to already-over-policed communities. A comprehensive review by the EFF found 'scant evidence' that these technologies reduce crime at the system level. Crime displacement—not reduction—is the more likely outcome.",
@@ -8687,7 +8687,7 @@ const surveillancePublicSafetyData = {
       id: "privacy-civil-liberties",
       title: "Privacy & Civil Liberties",
       short_summary:
-        "Whether the expansion of surveillance technology represents an unacceptable erosion of civil liberties, even if it provides some public safety benefit.",
+        "Facial recognition has a 96% accuracy rate for white men and an 80% accuracy rate for Black women. The false positives are not randomly distributed.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "Mass surveillance creates a chilling effect on free speech, political dissent, and freedom of movement. Data collected for crime prevention is routinely repurposed for immigration enforcement, political monitoring, and commercial use. The Fourth Amendment was designed precisely to prevent government from watching all citizens at all times. Once surveillance infrastructure exists, it is virtually impossible to dismantle.",
@@ -8757,7 +8757,7 @@ const meaningWithoutReligionData = {
       id: "secular-meaning-frameworks",
       title: "Secular Philosophical Frameworks",
       short_summary:
-        "Whether secular philosophies (existentialism, humanism, Stoicism) can provide the same depth of meaning, purpose, and community that religion offers.",
+        "Existentialism, Stoicism, and secular humanism all offer frameworks for meaning. None of them replicate the weekly community that a church provides.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
         "Religion provides a uniquely integrated package: a coherent cosmology, an objective moral framework, a sense of ultimate purpose, community belonging, rituals for life transitions, and hope for transcendence beyond death. Secular philosophies offer fragments of this but no single framework that matches religion's comprehensiveness. Pew Research data shows religious Americans report higher happiness (36% 'very happy' vs. 25% for unaffiliated). Existentialism's answer—'create your own meaning'—may be liberating for the philosophically inclined but offers cold comfort to most people facing suffering and mortality.",
@@ -8828,7 +8828,7 @@ const meaningWithoutReligionData = {
       id: "ethics-without-god",
       title: "Moral Foundations Without Religion",
       short_summary:
-        "Whether objective morality and ethical behavior require a religious foundation, or whether secular ethics are self-sufficient.",
+        "Dostoevsky wrote 'if God is dead, everything is permitted.' Secular ethicists have spent 150 years arguing he was wrong. The debate is unresolved.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Without God, morality is merely human opinion elevated to principle—there is no objective foundation for saying anything is truly wrong. Evolutionary explanations of morality (kin selection, reciprocal altruism) describe why we feel moral emotions, not why we should act morally. Dostoevsky's question—'If there is no God, everything is permitted'—remains unanswered by secular philosophy. The 20th century's greatest atrocities were committed by explicitly atheistic regimes (Soviet Union, Maoist China, Khmer Rouge).",

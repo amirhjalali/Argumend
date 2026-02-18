@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AppShell } from "@/components/AppShell";
-import { Clock, Rewind, Users, MessageCircle, Target, Sparkles, ChevronDown } from "lucide-react";
+import { Clock, Rewind, Users, MessageCircle, Target, Lightbulb, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
@@ -148,7 +148,7 @@ const scenes: Scene[] = [
   },
   {
     id: "synthesis",
-    icon: <Sparkles className="h-5 w-5" />,
+    icon: <Lightbulb className="h-5 w-5" />,
     title: "You Are Not Your Ideas",
     subtitle: "The lesson",
     content: (
@@ -416,7 +416,7 @@ export default function PerspectivesPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Ready to explore?
+            Try it on a real topic
           </motion.h2>
           <motion.p
             className="text-lg md:text-xl text-secondary mb-10"

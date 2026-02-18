@@ -17,37 +17,37 @@ import {
 const LEGEND_ITEMS = [
   {
     label: "Meta Claim",
-    description: "The central thesis being analyzed",
+    description: "The big question being examined",
     color: "#4f7b77",
     Icon: Crown,
   },
   {
     label: "Proponent",
-    description: "Arguments supporting the claim",
+    description: "The best case for the claim",
     color: "#C4613C",
     Icon: Shield,
   },
   {
     label: "Skeptic",
-    description: "Counter-arguments and critiques",
+    description: "The strongest objection",
     color: "#8B5A3C",
     Icon: Swords,
   },
   {
     label: "Evidence",
-    description: "Supporting data and references",
+    description: "Data, studies, and sources",
     color: "#4f7b77",
     Icon: ScrollText,
   },
   {
     label: "Crux",
-    description: "Key disagreement points",
+    description: "What would settle this",
     color: "#a23b3b",
     Icon: Scale,
   },
   {
     label: "Inquiry",
-    description: "Open questions to explore",
+    description: "Questions still worth asking",
     color: "#78716c",
     Icon: MessageCircleQuestion,
   },

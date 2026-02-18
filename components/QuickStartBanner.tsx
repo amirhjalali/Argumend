@@ -67,24 +67,11 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
           transition={{ duration: 0.3 }}
           className="w-full max-w-2xl mx-auto px-4 pt-6 mb-0"
         >
-          <div className="relative bg-[#faf8f5] rounded-xl border border-stone-200/60 shadow-sm overflow-hidden">
-            {/* Dismiss button */}
-            <button
-              onClick={handleDismiss}
-              className="absolute top-3 right-3 p-1 rounded-md text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors z-10"
-              aria-label="Dismiss"
-            >
-              <X className="h-3.5 w-3.5" />
-            </button>
-
-            <div className="p-5">
-              {/* Quick start heading */}
-              <p className="text-xs font-medium text-stone-500 mb-3">
-                Jump in — browse topics by category:
-              </p>
-
+          <div className="relative overflow-hidden">
+            <div className="px-1">
               {/* Category pills */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs text-stone-400 mr-1">Browse:</span>
                 {categoryPills.map((cat) => {
                   const isActive = activeCategory === cat;
                   const count = topics.filter(
@@ -111,6 +98,13 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                     </button>
                   );
                 })}
+                <button
+                  onClick={handleDismiss}
+                  className="p-1 rounded-md text-stone-300 hover:text-stone-500 transition-colors ml-1"
+                  aria-label="Dismiss"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
               </div>
 
               {/* Filtered topics list */}
