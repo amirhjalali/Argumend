@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock, BookOpen, CheckCircle2, ExternalLink, ArrowRight } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { guides, getGuideById } from "@/data/guides";
 import { notFound } from "next/navigation";
 
@@ -58,17 +59,40 @@ export default async function GuidePage({ params }: PageProps) {
 
   const Icon = guide.icon;
 
-  // JSON-LD structured data
+  // JSON-LD structured data (enhanced Article)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: guide.title,
     description: guide.description,
     url: `https://argumend.org/guides/${guide.id}`,
+    author: {
+      "@type": "Organization",
+      name: "ARGUMEND",
+      url: "https://argumend.org",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://argumend.org/icon.png",
+      },
+    },
     publisher: {
       "@type": "Organization",
-      name: "Argumend",
+      name: "ARGUMEND",
       url: "https://argumend.org",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://argumend.org/icon.png",
+      },
+    },
+    datePublished: "2025-01-01",
+    dateModified: "2025-12-05",
+    articleSection: "Foundational Guides",
+    inLanguage: "en-US",
+    image: {
+      "@type": "ImageObject",
+      url: `https://argumend.org/api/og/guides/${guide.id}`,
+      width: 1200,
+      height: 630,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -86,14 +110,14 @@ export default async function GuidePage({ params }: PageProps) {
 
       <div className="min-h-full">
         <article className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
-          {/* Back link */}
-          <Link
-            href="/guides"
-            className="inline-flex items-center gap-2 text-sm text-secondary hover:text-deep transition-colors mb-8"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            All Guides
-          </Link>
+          {/* Breadcrumb with BreadcrumbList JSON-LD */}
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Guides", href: "/guides" },
+              { label: guide.title },
+            ]}
+          />
 
           {/* Header */}
           <header className="mb-12 pb-8 border-b border-stone-200/60">

@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  ArrowLeft,
   Calendar,
   Clock,
   Tag,
@@ -11,6 +10,7 @@ import {
 import { articles, getArticleBySlug, getRelatedArticles } from "@/data/blog";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { ShareButtons } from "@/components/ShareButtons";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BlogArticleClient } from "./client";
 
 // ---------------------------------------------------------------------------
@@ -118,28 +118,57 @@ export default async function BlogArticlePage({ params }: PageProps) {
       day: "numeric",
     });
 
-  // JSON-LD structured data
+  // Word count for structured data
+  const wordCount = article.content
+    .replace(/[#*\[\]()]/g, "")
+    .split(/\s+/)
+    .filter(Boolean).length;
+
+  // JSON-LD structured data (BlogPosting for richer search results)
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: article.title,
     description: article.description,
     author: {
       "@type": "Organization",
       name: article.author,
       url: "https://argumend.org",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://argumend.org/icon.png",
+      },
     },
     publisher: {
       "@type": "Organization",
       name: "ARGUMEND",
       url: "https://argumend.org",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://argumend.org/icon.png",
+      },
     },
     datePublished: article.publishedAt,
+    dateModified: article.publishedAt,
+    wordCount,
+    articleSection: article.category,
+    inLanguage: "en-US",
+    image: {
+      "@type": "ImageObject",
+      url: `https://argumend.org/api/og/blog/${article.slug}`,
+      width: 1200,
+      height: 630,
+    },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://argumend.org/blog/${article.slug}`,
     },
     keywords: article.tags.join(", "),
+    isPartOf: {
+      "@type": "Blog",
+      name: "ARGUMEND Blog",
+      url: "https://argumend.org/blog",
+    },
   };
 
   return (
@@ -154,20 +183,14 @@ export default async function BlogArticlePage({ params }: PageProps) {
         {/* Breadcrumb + article header */}
         <div className="bg-[#faf8f5]/60 border-b border-stone-200/60">
           <div className="mx-auto max-w-3xl px-4 md:px-8 pt-6 md:pt-10 pb-8 md:pb-12">
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-muted mb-8">
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-1.5 hover:text-deep transition-colors"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" />
-                Blog
-              </Link>
-              <span>/</span>
-              <span className="text-secondary truncate max-w-[200px] md:max-w-none">
-                {article.title}
-              </span>
-            </nav>
+            {/* Breadcrumb with BreadcrumbList JSON-LD */}
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Blog", href: "/blog" },
+                { label: article.title },
+              ]}
+            />
 
             {/* Category */}
             <span className="inline-flex items-center rounded-full bg-deep/10 border border-deep/20 px-3 py-1 text-xs font-medium text-deep mb-4">

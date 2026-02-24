@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { topics, CATEGORY_LABELS } from "@/data/topics";
 import { getVerdictLabel } from "@/lib/schemas/topic";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import TopicDetailView from "./TopicDetailView";
 
 // ---------------------------------------------------------------------------
@@ -88,19 +89,37 @@ export default async function TopicPage({ params }: PageProps) {
     .filter((t) => t.category === topic.category && t.id !== topic.id)
     .slice(0, 4);
 
-  // JSON-LD structured data
+  // JSON-LD structured data (enhanced Article schema)
+  const categoryLabel = CATEGORY_LABELS[topic.category];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: topic.title,
     description: topic.meta_claim,
     url: `https://argumend.org/topics/${topic.id}`,
-    ...(topic.imageUrl && { image: topic.imageUrl }),
+    image: topic.imageUrl || `https://argumend.org/api/og/${topic.id}`,
+    author: {
+      "@type": "Organization",
+      name: "ARGUMEND",
+      url: "https://argumend.org",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://argumend.org/icon.png",
+      },
+    },
     publisher: {
       "@type": "Organization",
       name: "ARGUMEND",
       url: "https://argumend.org",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://argumend.org/icon.png",
+      },
     },
+    datePublished: "2025-01-01",
+    dateModified: "2025-12-20",
+    articleSection: categoryLabel,
+    inLanguage: "en-US",
     mainEntity: {
       "@type": "Claim",
       name: topic.title,
@@ -116,7 +135,11 @@ export default async function TopicPage({ params }: PageProps) {
     },
     about: {
       "@type": "Thing",
-      name: CATEGORY_LABELS[topic.category],
+      name: categoryLabel,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://argumend.org/topics/${topic.id}`,
     },
     ...(topic.references && {
       citation: topic.references.map((ref) => ({
@@ -132,6 +155,13 @@ export default async function TopicPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Topics", href: "/topics" },
+          { label: topic.title },
+        ]}
       />
       <TopicDetailView topic={topic} relatedTopics={relatedTopics} />
     </>
