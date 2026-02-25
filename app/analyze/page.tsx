@@ -399,7 +399,7 @@ export default function AnalyzePage() {
                 </div>
 
                 {/* Text Input */}
-                <div className="bg-white rounded-2xl border border-stone-200/60 p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="bg-white rounded-2xl border border-stone-200/60 p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                     <label className="text-sm font-serif font-semibold text-primary">
                       Content to Analyze
@@ -444,7 +444,7 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                         }
                       }}
                       placeholder="Paste an article, argument, or any text you'd like analyzed..."
-                      className="w-full min-h-[200px] md:min-h-[240px] p-4 bg-[#faf8f5] border border-stone-200/70 rounded-xl text-stone-700 text-sm leading-relaxed placeholder-stone-400/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white"
+                      className="w-full min-h-[200px] md:min-h-[240px] p-4 bg-[#faf8f5] border border-stone-200/60 rounded-xl text-stone-700 text-sm leading-relaxed placeholder-stone-400/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white"
                     />
                     {/* Word/char count indicator */}
                     <div className="absolute bottom-3 right-3 pointer-events-none">

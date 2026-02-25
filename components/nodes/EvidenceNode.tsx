@@ -31,7 +31,7 @@ export function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
       className={`relative w-[280px] rounded-xl border shadow-[0_1px_3px_rgba(120,100,80,0.08)] transition-shadow duration-200 hover:shadow-[0_4px_12px_rgba(120,100,80,0.12)] node-enter ${
         isFor
           ? "bg-gradient-to-br from-rust-50/90 to-rust-100/60 border-rust-300/60 border-l-[3px] border-l-rust-500"
-          : "bg-gradient-to-br from-stone-50/90 to-gray-50/60 border-stone-300/60 border-l-[3px] border-l-stone-500"
+          : "bg-gradient-to-br from-stone-50/90 to-stone-50/60 border-stone-300/60 border-l-[3px] border-l-stone-500"
       }`}
       style={{ animationDelay: `${((data.birthOrder as number) ?? 0) * 60}ms` }}
     >

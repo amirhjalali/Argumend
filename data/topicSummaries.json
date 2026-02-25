@@ -1,0 +1,452 @@
+[
+  {
+    "id": "nuclear-energy-safety",
+    "title": "Nuclear Energy for Climate",
+    "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
+    "confidence_score": 54,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "universal-healthcare",
+    "title": "Universal Healthcare in the US",
+    "meta_claim": "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
+    "confidence_score": 65,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "gun-control-effectiveness",
+    "title": "Gun Control Effectiveness",
+    "meta_claim": "Stricter gun control laws significantly reduce gun violence and mass shootings.",
+    "confidence_score": 55,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "minimum-wage-effects",
+    "title": "Raising the Minimum Wage",
+    "meta_claim": "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
+    "confidence_score": 74,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "drug-decriminalization",
+    "title": "Drug Decriminalization",
+    "meta_claim": "Decriminalizing personal drug use reduces harm and improves public health outcomes compared to criminalization.",
+    "confidence_score": 75,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "death-penalty-deterrence",
+    "title": "The Death Penalty",
+    "meta_claim": "The death penalty serves as an effective deterrent against murder and is justified as a form of criminal justice.",
+    "confidence_score": 26,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "police-reform",
+    "title": "Policing Reform in America",
+    "meta_claim": "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
+    "confidence_score": 78,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "mandatory-voting",
+    "title": "Mandatory Voting",
+    "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
+    "confidence_score": 75,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "reparations-slavery",
+    "title": "Reparations for Slavery",
+    "meta_claim": "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
+    "confidence_score": 75,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "immigration-wage-impact",
+    "title": "Immigration and Wages",
+    "meta_claim": "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
+    "confidence_score": 21,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "open-borders",
+    "title": "The Case for Open Borders",
+    "meta_claim": "Significantly relaxing or eliminating immigration restrictions would produce massive economic gains and is morally justified.",
+    "confidence_score": 49,
+    "status": "highly_speculative",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "universal-basic-income",
+    "title": "Universal Basic Income",
+    "meta_claim": "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
+    "confidence_score": 50,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "wealth-tax",
+    "title": "Wealth Tax on Billionaires",
+    "meta_claim": "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
+    "confidence_score": 49,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "standardized-testing-debate",
+    "title": "Standardized Testing Value",
+    "meta_claim": "Standardized tests like the SAT and ACT are valid, fair measures of academic ability that should remain a core component of college admissions and educational assessment.",
+    "confidence_score": 59,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "electoral-college-reform",
+    "title": "Electoral College Reform",
+    "meta_claim": "The Electoral College should be replaced with a national popular vote for electing the President of the United States.",
+    "confidence_score": 64,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "surveillance-public-safety",
+    "title": "Surveillance and Public Safety",
+    "meta_claim": "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety.",
+    "confidence_score": 19,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2
+  },
+  {
+    "id": "social-media-age-limits",
+    "title": "Social Media Age Limits",
+    "meta_claim": "Children under 16 should be legally prohibited from using social media platforms.",
+    "confidence_score": 59,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2
+  },
+  {
+    "id": "social-media-mental-health",
+    "title": "Social Media and Teen Mental Health",
+    "meta_claim": "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
+    "confidence_score": 50,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2
+  },
+  {
+    "id": "ai-risk",
+    "title": "Existential Risk from AGI",
+    "meta_claim": "The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.",
+    "confidence_score": 56,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3
+  },
+  {
+    "id": "ai-content-labeling",
+    "title": "Mandatory AI Content Labeling",
+    "meta_claim": "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
+    "confidence_score": 62,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2
+  },
+  {
+    "id": "big-tech-antitrust",
+    "title": "Breaking Up Big Tech",
+    "meta_claim": "Major technology companies (Google, Apple, Amazon, Meta) should be broken up or heavily regulated to restore competition and protect consumers.",
+    "confidence_score": 65,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2
+  },
+  {
+    "id": "cancel-culture",
+    "title": "Cancel Culture",
+    "meta_claim": "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
+    "confidence_score": 64,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2
+  },
+  {
+    "id": "media-bias-democracy",
+    "title": "Media Bias and Democracy",
+    "meta_claim": "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
+    "confidence_score": 76,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2
+  },
+  {
+    "id": "space-colonization-feasibility",
+    "title": "Space Colonization Feasibility",
+    "meta_claim": "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
+    "confidence_score": 58,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2
+  },
+  {
+    "id": "lab-grown-meat-adoption",
+    "title": "Lab-Grown Meat Adoption",
+    "meta_claim": "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
+    "confidence_score": 56,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2
+  },
+  {
+    "id": "climate-change",
+    "title": "Climate Change",
+    "meta_claim": "Climate change is primarily caused by human activity.",
+    "confidence_score": 85,
+    "status": "settled",
+    "category": "science",
+    "pillarCount": 3
+  },
+  {
+    "id": "ev-environmental-impact",
+    "title": "Electric Vehicles vs. ICE Cars",
+    "meta_claim": "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
+    "confidence_score": 62,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 2
+  },
+  {
+    "id": "factory-farming-ban",
+    "title": "Should We Ban Factory Farming?",
+    "meta_claim": "Industrial animal agriculture (factory farming) should be banned or drastically reformed due to its ethical, environmental, and public health costs.",
+    "confidence_score": 67,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 2
+  },
+  {
+    "id": "organic-food-health",
+    "title": "Is Organic Food Healthier?",
+    "meta_claim": "Organic food is significantly healthier and more nutritious than conventionally grown food.",
+    "confidence_score": 61,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 2
+  },
+  {
+    "id": "gene-editing-embryos",
+    "title": "Gene Editing Human Embryos",
+    "meta_claim": "Germline gene editing of human embryos (using CRISPR or similar) should be permitted for preventing serious genetic diseases.",
+    "confidence_score": 48,
+    "status": "highly_speculative",
+    "category": "science",
+    "pillarCount": 2
+  },
+  {
+    "id": "space-exploration-value",
+    "title": "Is Space Exploration Worth It?",
+    "meta_claim": "Government-funded space exploration provides sufficient scientific, economic, and strategic returns to justify its cost.",
+    "confidence_score": 60,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 2
+  },
+  {
+    "id": "veganism-environmental-impact",
+    "title": "Veganism for Environmental Impact",
+    "meta_claim": "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint, including greenhouse gas emissions, land use, and water pollution.",
+    "confidence_score": 63,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 2
+  },
+  {
+    "id": "psychedelics-mental-health",
+    "title": "Psychedelics for Mental Health",
+    "meta_claim": "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
+    "confidence_score": 75,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 2
+  },
+  {
+    "id": "remote-work-permanence",
+    "title": "The Future of Remote Work",
+    "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
+    "confidence_score": 57,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2
+  },
+  {
+    "id": "college-value-proposition",
+    "title": "The Value of a College Degree",
+    "meta_claim": "A four-year college degree remains the best investment in future earnings and career outcomes for most young adults.",
+    "confidence_score": 60,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2
+  },
+  {
+    "id": "standardized-testing-value",
+    "title": "Standardized Testing in Education",
+    "meta_claim": "Standardized tests (SAT, ACT, state assessments) are a valid and useful measure of student ability and should remain a core part of educational assessment.",
+    "confidence_score": 51,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2
+  },
+  {
+    "id": "homeschooling-effectiveness",
+    "title": "Homeschooling vs. Public School",
+    "meta_claim": "Homeschooled students achieve better academic and social outcomes than public school students on average.",
+    "confidence_score": 58,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2
+  },
+  {
+    "id": "billionaire-wealth",
+    "title": "Should Billionaires Exist?",
+    "meta_claim": "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
+    "confidence_score": 67,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2
+  },
+  {
+    "id": "foreign-aid-effectiveness",
+    "title": "Does Foreign Aid Work?",
+    "meta_claim": "International development aid significantly improves outcomes in recipient countries and is an effective use of donor resources.",
+    "confidence_score": 38,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2
+  },
+  {
+    "id": "cryptocurrency-value",
+    "title": "Cryptocurrency as Store of Value",
+    "meta_claim": "Bitcoin and major cryptocurrencies represent a legitimate long-term store of value comparable to gold or real estate.",
+    "confidence_score": 50,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2
+  },
+  {
+    "id": "ubi-economics",
+    "title": "Universal Basic Income",
+    "meta_claim": "A Universal Basic Income providing unconditional cash payments to all citizens would reduce poverty and improve economic well-being without significantly reducing labor force participation.",
+    "confidence_score": 58,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2
+  },
+  {
+    "id": "gig-economy-regulation",
+    "title": "Gig Economy Regulation",
+    "meta_claim": "Gig economy platforms (Uber, Lyft, DoorDash, etc.) should be required to classify their workers as employees rather than independent contractors, providing full labor protections.",
+    "confidence_score": 65,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2
+  },
+  {
+    "id": "lab-leak-theory",
+    "title": "COVID-19 Lab Leak Origin",
+    "meta_claim": "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
+    "confidence_score": 50,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 2
+  },
+  {
+    "id": "free-will",
+    "title": "Free Will",
+    "meta_claim": "Human beings possess genuine free will—the ability to have done otherwise in any given situation.",
+    "confidence_score": 48,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 3
+  },
+  {
+    "id": "simulation-hypothesis",
+    "title": "The Simulation Hypothesis",
+    "meta_claim": "We are almost certainly living in a computer simulation run by a post-human civilization.",
+    "confidence_score": 51,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 3
+  },
+  {
+    "id": "moon-landing",
+    "title": "The Moon Landing",
+    "meta_claim": "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
+    "confidence_score": 90,
+    "status": "settled",
+    "category": "philosophy",
+    "pillarCount": 2
+  },
+  {
+    "id": "minneapolis-shooting",
+    "title": "Minneapolis ICE Shooting",
+    "meta_claim": "Federal agents acted with excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026.",
+    "confidence_score": 84,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 2
+  },
+  {
+    "id": "free-will-determinism",
+    "title": "Free Will vs Determinism",
+    "meta_claim": "Human decision-making is fundamentally determined by prior causes (physical, neurological, environmental), and the subjective experience of free choice is an illusion.",
+    "confidence_score": 61,
+    "status": "highly_speculative",
+    "category": "philosophy",
+    "pillarCount": 2
+  },
+  {
+    "id": "consciousness-ai-systems",
+    "title": "Consciousness in AI Systems",
+    "meta_claim": "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
+    "confidence_score": 35,
+    "status": "highly_speculative",
+    "category": "philosophy",
+    "pillarCount": 2
+  },
+  {
+    "id": "meaning-without-religion",
+    "title": "Meaning of Life Without Religion",
+    "meta_claim": "A meaningful, fulfilling human life is fully achievable without religious belief, and secular philosophical frameworks provide adequate foundations for purpose, ethics, and existential satisfaction.",
+    "confidence_score": 67,
+    "status": "highly_speculative",
+    "category": "philosophy",
+    "pillarCount": 2
+  }
+]

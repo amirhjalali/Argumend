@@ -22,7 +22,7 @@ import {
   Shell,
   Users,
 } from "lucide-react";
-import { topics } from "@/data/topics";
+import { topicSummaries } from "@/data/topicIndex";
 
 const PRIMARY_NAV = [
   { label: "Home", icon: Compass, href: "/" },
@@ -84,13 +84,13 @@ export function Sidebar({
   };
 
   return (
-    <aside role="navigation" aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] md:bg-transparent text-primary shadow-lg md:shadow-none">
+    <nav aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] md:bg-transparent text-primary shadow-lg md:shadow-none">
       {/* Mobile close button - appears at top of sidebar */}
       <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50">
         <span className="text-sm font-medium text-stone-600">Menu</span>
         <button
           onClick={onClose}
-          className="p-2 -m-2 rounded-lg text-stone-500 hover:text-stone-800 hover:bg-stone-100 transition-colors"
+          className="flex items-center justify-center h-11 w-11 -mr-2 rounded-lg text-stone-500 hover:text-stone-800 hover:bg-stone-100 transition-colors"
           aria-label="Close menu"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +108,7 @@ export function Sidebar({
               <Link
                 key={label}
                 href={href}
-                className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[14px] transition-colors ${
+                className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                   isActive
                     ? "text-stone-900 font-medium border-l-2 border-stone-800 pl-[10px]"
                     : highlight
@@ -132,7 +132,7 @@ export function Sidebar({
         <div className="pb-5">
           <button
             onClick={() => setLearnOpen(!learnOpen)}
-            className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 transition-colors"
+            className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 transition-colors"
             aria-expanded={learnOpen}
             aria-label="Learn & Explore"
           >
@@ -157,7 +157,7 @@ export function Sidebar({
                     key={label}
                     href={href}
                     tabIndex={learnOpen ? 0 : -1}
-                    className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[14px] transition-colors ${
+                    className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                       isActive
                         ? "text-stone-900 font-medium border-l-2 border-stone-800 pl-[10px]"
                         : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
@@ -187,13 +187,13 @@ export function Sidebar({
           </p>
 
           <ul className="space-y-0.5">
-            {topics.slice(0, 8).map((topic) => {
+            {topicSummaries.slice(0, 8).map((topic) => {
               const isSelected = currentTopicId === topic.id;
               return (
                 <li key={topic.id}>
                   <button
                     onClick={() => handleTopicClick(topic.id)}
-                    className={`flex w-full items-center gap-2 rounded-md px-3 py-2 text-left transition-colors ${
+                    className={`flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-left transition-colors ${
                       isSelected
                         ? "text-stone-900 font-medium border-l-2 border-rust-500 pl-[10px]"
                         : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
@@ -212,12 +212,12 @@ export function Sidebar({
             })}
           </ul>
 
-          {topics.length > 8 && (
+          {topicSummaries.length > 8 && (
             <Link
               href="/topics"
-              className="flex items-center gap-1 px-3 mt-2 text-[13px] font-medium text-deep hover:text-deep-dark transition-colors"
+              className="flex items-center gap-1 px-3 py-2.5 min-h-[44px] mt-1 text-[13px] font-medium text-deep hover:text-deep-dark transition-colors"
             >
-              View all {topics.length} topics
+              View all {topicSummaries.length} topics
               <ChevronRight className="h-3.5 w-3.5" />
             </Link>
           )}
@@ -242,11 +242,11 @@ export function Sidebar({
           {/* Moltbook paused — re-enable after core product is solid (ENG-25) */}
         </div>
         <div className="text-center">
-          <span className="text-[10px] font-mono text-stone-300">
+          <span className="text-[10px] font-mono text-stone-500">
             v1.0
           </span>
         </div>
       </div>
-    </aside>
+    </nav>
   );
 }

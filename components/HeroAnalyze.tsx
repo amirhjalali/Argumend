@@ -14,7 +14,7 @@ import {
   Newspaper,
   Mic,
 } from "lucide-react";
-import { topics, featuredTopicId, featuredReason, CATEGORY_ORDER } from "@/data/topics";
+import { topicSummaries, featuredTopicId, featuredReason, CATEGORY_ORDER } from "@/data/topicIndex";
 
 type ContentType = "transcript" | "article" | "freeform";
 
@@ -81,13 +81,13 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
     [content, handleAnalyze]
   );
 
-  const featuredTopic = topics.find((t) => t.id === featuredTopicId);
+  const featuredTopic = topicSummaries.find((t) => t.id === featuredTopicId);
   // Show one topic from each category for variety, excluding featured
-  const nonFeatured = topics.filter((t) => t.id !== featuredTopicId);
+  const nonFeatured = topicSummaries.filter((t) => t.id !== featuredTopicId);
   const displayedTopics = CATEGORY_ORDER
     .map((cat) => nonFeatured.find((t) => t.category === cat))
     .filter(Boolean)
-    .slice(0, DISPLAY_TOPICS_COUNT) as typeof topics;
+    .slice(0, DISPLAY_TOPICS_COUNT) as typeof topicSummaries;
   // Fill remaining slots if fewer categories than DISPLAY_TOPICS_COUNT
   if (displayedTopics.length < DISPLAY_TOPICS_COUNT) {
     const usedIds = new Set(displayedTopics.map((t) => t.id));
@@ -99,7 +99,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
       }
     }
   }
-  const remainingCount = topics.length - displayedTopics.length - (featuredTopic ? 1 : 0);
+  const remainingCount = topicSummaries.length - displayedTopics.length - (featuredTopic ? 1 : 0);
 
   return (
     <div className="flex flex-col bg-gradient-to-b from-[#f4f1eb] to-stone-50">
@@ -133,7 +133,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             className="bg-white rounded-2xl border border-stone-200/60 p-5 shadow-lg shadow-stone-200/30"
           >
             {/* Content Type — segmented control */}
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
               <div className="inline-flex bg-stone-100 rounded-xl p-1 gap-0.5">
                 {(
                   [
@@ -145,7 +145,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   <button
                     key={type}
                     onClick={() => setContentType(type)}
-                    className={`relative flex items-center gap-1.5 px-3 py-1.5 min-h-[36px] rounded-lg text-xs font-medium transition-all duration-200 ${
+                    className={`relative flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium transition-all duration-200 ${
                       contentType === type
                         ? "bg-deep text-white shadow-sm"
                         : "bg-transparent text-stone-500 hover:text-stone-700 hover:bg-white/60"
@@ -156,7 +156,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   </button>
                 ))}
               </div>
-              <label className="flex items-center gap-1.5 px-2.5 py-1.5 bg-stone-50 hover:bg-stone-100 border border-stone-200/60 rounded-lg cursor-pointer transition-all duration-200">
+              <label className="flex items-center gap-1.5 px-2.5 py-2 min-h-[44px] bg-stone-50 hover:bg-stone-100 border border-stone-200/60 rounded-lg cursor-pointer transition-all duration-200">
                 <Upload className="h-3.5 w-3.5 text-stone-400" />
                 <span className="text-xs font-medium text-stone-500">Upload</span>
                 <input
@@ -176,11 +176,12 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                 onChange={(e) => setContent(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Paste an article, argument, or any text you'd like analyzed..."
-                className="w-full min-h-[140px] md:min-h-[160px] p-4 bg-[#faf8f5] border border-stone-200/70 rounded-xl text-stone-700 text-sm leading-relaxed placeholder-stone-400/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white"
+                aria-label="Text to analyze"
+                className="w-full min-h-[140px] md:min-h-[160px] p-4 bg-[#faf8f5] border border-stone-200/60 rounded-xl text-stone-700 text-sm leading-relaxed placeholder-stone-500/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white"
               />
               {/* Word count indicator */}
               <div className="absolute bottom-3 right-3 pointer-events-none">
-                <span className="text-xs text-stone-400/70 tabular-nums">
+                <span className="text-xs text-stone-500 tabular-nums">
                   {content.trim()
                     ? `${content.trim().split(/\s+/).length} words`
                     : ""}
@@ -270,7 +271,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                 </p>
 
                 <div className="mt-3 flex items-center gap-2 text-xs text-stone-400">
-                  <span>{featuredTopic.pillars.length} pillars</span>
+                  <span>{featuredTopic.pillarCount} pillars</span>
                   <span className="text-stone-300">&middot;</span>
                   <span
                     className={`${
@@ -319,7 +320,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                 <p className="mt-1.5 text-xs text-stone-400 line-clamp-2">
                   {topic.meta_claim}
                 </p>
-                <div className="mt-2 flex items-center gap-1.5 text-[10px] text-stone-400">
+                <div className="mt-2 flex items-center gap-1.5 text-[11px] text-stone-400">
                   <span
                     className={`px-1.5 py-0.5 rounded-full border ${
                       topic.status === "settled"
@@ -331,7 +332,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   >
                     {topic.status}
                   </span>
-                  <span>{topic.pillars.length} pillars</span>
+                  <span>{topic.pillarCount} pillars</span>
                 </div>
               </motion.button>
             ))}
@@ -349,7 +350,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                 href="/topics"
                 className="inline-flex items-center gap-1 text-sm font-serif font-medium text-deep hover:text-deep-dark transition-colors group"
               >
-                View all {topics.length} topics
+                View all {topicSummaries.length} topics
                 <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </motion.div>

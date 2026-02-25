@@ -62,7 +62,7 @@ export function ShareButtons({ title, url, description }: ShareButtonsProps) {
   // ---- shared styles ----
 
   const btnClass =
-    "inline-flex items-center justify-center h-8 w-8 rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors";
+    "inline-flex items-center justify-center h-11 w-11 rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors";
 
   return (
     <div className="flex items-center gap-1">

@@ -34,22 +34,6 @@ export const DEBATE = {
   ROUND_OPTIONS: [2, 3, 4, 5] as readonly number[],
 } as const;
 
-// Layout constants
-export const LAYOUT = {
-  /** Sidebar width in pixels */
-  SIDEBAR_WIDTH: 260,
-  /** Desktop breakpoint in pixels */
-  DESKTOP_BREAKPOINT: 768,
-  /** Standard content max width */
-  MAX_CONTENT_WIDTH: "4xl",
-  /** Standard padding */
-  PADDING: {
-    SM: 4,
-    MD: 8,
-    LG: 12,
-  },
-} as const;
-
 // React Flow / Graph constants
 export const GRAPH = {
   /** Default viewport configuration */
@@ -84,12 +68,3 @@ export const THINKING_DOTS = {
   DOT_DELAY: 0.2,
 } as const;
 
-// Evidence thresholds
-export const CONFIDENCE = {
-  /** Threshold for "established beyond reasonable doubt" */
-  ESTABLISHED: 95,
-  /** Threshold for "preponderance of evidence" */
-  PREPONDERANCE: 75,
-  /** Threshold for "leans toward" */
-  LEANS_TOWARD: 50,
-} as const;

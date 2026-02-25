@@ -9080,3 +9080,109 @@ export function getTopicsByCategory(): Record<TopicCategory, Topic[]> {
   }
   return grouped;
 }
+
+
+// ============================================================================
+// Cross-Category Related Topics (Thematic Clusters)
+// ============================================================================
+
+/**
+ * Maps topic IDs to thematically related topics across different categories.
+ * These clusters connect topics that share underlying themes even when they
+ * belong to different categories (e.g., criminal justice, energy/environment).
+ */
+const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
+  // Criminal justice cluster
+  "gun-control-effectiveness": ["death-penalty-deterrence", "police-reform", "drug-decriminalization", "surveillance-public-safety"],
+  "death-penalty-deterrence": ["gun-control-effectiveness", "police-reform", "drug-decriminalization", "reparations-slavery"],
+  "police-reform": ["gun-control-effectiveness", "death-penalty-deterrence", "surveillance-public-safety", "reparations-slavery"],
+
+  // Energy & environment cluster
+  "nuclear-energy-safety": ["climate-change", "ev-environmental-impact", "veganism-environmental-impact", "space-exploration-value"],
+  "climate-change": ["nuclear-energy-safety", "ev-environmental-impact", "veganism-environmental-impact", "factory-farming-ban"],
+  "ev-environmental-impact": ["nuclear-energy-safety", "climate-change", "veganism-environmental-impact", "lab-grown-meat-adoption"],
+
+  // Economic inequality cluster
+  "universal-basic-income": ["wealth-tax", "billionaire-wealth", "ubi-economics", "minimum-wage-effects"],
+  "wealth-tax": ["universal-basic-income", "billionaire-wealth", "ubi-economics", "open-borders"],
+  "billionaire-wealth": ["wealth-tax", "universal-basic-income", "ubi-economics", "gig-economy-regulation"],
+
+  // AI governance cluster
+  "ai-risk": ["ai-content-labeling", "consciousness-ai-systems", "social-media-mental-health", "big-tech-antitrust"],
+  "ai-content-labeling": ["ai-risk", "consciousness-ai-systems", "media-bias-democracy", "cancel-culture"],
+  "consciousness-ai-systems": ["ai-risk", "ai-content-labeling", "free-will-determinism", "simulation-hypothesis"],
+
+  // Tech & society cluster
+  "social-media-mental-health": ["social-media-age-limits", "cancel-culture", "big-tech-antitrust", "ai-risk"],
+  "social-media-age-limits": ["social-media-mental-health", "cancel-culture", "surveillance-public-safety", "big-tech-antitrust"],
+  "big-tech-antitrust": ["social-media-mental-health", "social-media-age-limits", "ai-content-labeling", "media-bias-democracy"],
+
+  // Philosophy cluster
+  "free-will-determinism": ["free-will", "simulation-hypothesis", "meaning-without-religion", "consciousness-ai-systems"],
+  "simulation-hypothesis": ["free-will-determinism", "consciousness-ai-systems", "ai-risk", "meaning-without-religion"],
+  "meaning-without-religion": ["free-will-determinism", "simulation-hypothesis", "free-will", "consciousness-ai-systems"],
+  "free-will": ["free-will-determinism", "meaning-without-religion", "simulation-hypothesis", "consciousness-ai-systems"],
+
+  // Education cluster
+  "standardized-testing-value": ["standardized-testing-debate", "college-value-proposition", "homeschooling-effectiveness", "foreign-aid-effectiveness"],
+  "standardized-testing-debate": ["standardized-testing-value", "college-value-proposition", "homeschooling-effectiveness", "mandatory-voting"],
+  "college-value-proposition": ["standardized-testing-value", "homeschooling-effectiveness", "remote-work-permanence", "ubi-economics"],
+  "homeschooling-effectiveness": ["college-value-proposition", "standardized-testing-value", "standardized-testing-debate", "social-media-age-limits"],
+
+  // Health & food cluster
+  "organic-food-health": ["veganism-environmental-impact", "factory-farming-ban", "lab-grown-meat-adoption", "gene-editing-embryos"],
+  "factory-farming-ban": ["organic-food-health", "veganism-environmental-impact", "lab-grown-meat-adoption", "climate-change"],
+  "veganism-environmental-impact": ["factory-farming-ban", "organic-food-health", "climate-change", "lab-grown-meat-adoption"],
+  "lab-grown-meat-adoption": ["factory-farming-ban", "organic-food-health", "veganism-environmental-impact", "gene-editing-embryos"],
+  "psychedelics-mental-health": ["drug-decriminalization", "social-media-mental-health", "meaning-without-religion", "gene-editing-embryos"],
+  "gene-editing-embryos": ["organic-food-health", "psychedelics-mental-health", "lab-grown-meat-adoption", "ai-risk"],
+
+  // Governance & democracy cluster
+  "mandatory-voting": ["electoral-college-reform", "media-bias-democracy", "cancel-culture", "open-borders"],
+  "electoral-college-reform": ["mandatory-voting", "media-bias-democracy", "reparations-slavery", "surveillance-public-safety"],
+  "media-bias-democracy": ["cancel-culture", "ai-content-labeling", "mandatory-voting", "big-tech-antitrust"],
+  "cancel-culture": ["media-bias-democracy", "social-media-mental-health", "social-media-age-limits", "big-tech-antitrust"],
+  "surveillance-public-safety": ["police-reform", "social-media-age-limits", "gun-control-effectiveness", "big-tech-antitrust"],
+
+  // Immigration & global policy cluster
+  "open-borders": ["immigration-wage-impact", "universal-basic-income", "reparations-slavery", "foreign-aid-effectiveness"],
+  "immigration-wage-impact": ["open-borders", "minimum-wage-effects", "universal-basic-income", "foreign-aid-effectiveness"],
+  "reparations-slavery": ["police-reform", "death-penalty-deterrence", "wealth-tax", "electoral-college-reform"],
+  "foreign-aid-effectiveness": ["open-borders", "immigration-wage-impact", "universal-healthcare", "space-exploration-value"],
+
+  // Work & economy cluster
+  "remote-work-permanence": ["gig-economy-regulation", "college-value-proposition", "ubi-economics", "minimum-wage-effects"],
+  "gig-economy-regulation": ["remote-work-permanence", "minimum-wage-effects", "billionaire-wealth", "ubi-economics"],
+  "minimum-wage-effects": ["universal-basic-income", "gig-economy-regulation", "immigration-wage-impact", "remote-work-permanence"],
+  "ubi-economics": ["universal-basic-income", "wealth-tax", "remote-work-permanence", "gig-economy-regulation"],
+  "cryptocurrency-value": ["big-tech-antitrust", "wealth-tax", "gig-economy-regulation", "surveillance-public-safety"],
+
+  // Healthcare cluster
+  "universal-healthcare": ["universal-basic-income", "drug-decriminalization", "psychedelics-mental-health", "foreign-aid-effectiveness"],
+  "drug-decriminalization": ["psychedelics-mental-health", "police-reform", "universal-healthcare", "gun-control-effectiveness"],
+
+  // Space & science cluster
+  "space-exploration-value": ["space-colonization-feasibility", "nuclear-energy-safety", "simulation-hypothesis", "climate-change"],
+  "space-colonization-feasibility": ["space-exploration-value", "ai-risk", "nuclear-energy-safety", "simulation-hypothesis"],
+  "moon-landing": ["space-exploration-value", "simulation-hypothesis", "lab-leak-theory", "media-bias-democracy"],
+  "lab-leak-theory": ["moon-landing", "media-bias-democracy", "surveillance-public-safety", "organic-food-health"],
+  "minneapolis-shooting": ["police-reform", "media-bias-democracy", "gun-control-effectiveness", "cancel-culture"],
+};
+
+/**
+ * Returns cross-category related topics for a given topic ID.
+ * These are thematically related topics from DIFFERENT categories.
+ * Returns up to `limit` topics, excluding the current topic and any
+ * topics already shown as same-category related.
+ */
+export function getCrossCategoryRelated(
+  topicId: string,
+  currentCategory: TopicCategory,
+  limit = 4
+): Topic[] {
+  const clusterIds = CROSS_CATEGORY_CLUSTERS[topicId] ?? [];
+  return clusterIds
+    .map((id) => topics.find((t) => t.id === id))
+    .filter((t): t is Topic => t != null && t.category !== currentCategory)
+    .slice(0, limit);
+}

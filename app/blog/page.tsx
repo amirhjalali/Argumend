@@ -157,7 +157,7 @@ export default function BlogPage() {
           </div>
 
           {/* Footer note */}
-          <div className="mt-12 pt-8 border-t border-stone-200">
+          <div className="mt-12 pt-8 border-t border-stone-200/60">
             <p className="text-sm text-secondary">
               All articles are written by the Argumend team and reviewed for
               accuracy. We practice what we preach—every claim is backed by

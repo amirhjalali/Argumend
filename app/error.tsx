@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 
-export default function BlogArticleError({
+export default function RootError({
   error,
   reset,
 }: {
@@ -11,7 +11,7 @@ export default function BlogArticleError({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error("Blog article error:", error);
+    console.error("Root error boundary caught:", error);
   }, [error]);
 
   return (
@@ -38,9 +38,15 @@ export default function BlogArticleError({
             Something went wrong
           </h1>
           <p className="text-stone-500 font-sans text-sm mb-6 leading-relaxed">
-            This article could not be loaded. Please try again or return to the
-            blog.
+            An unexpected error occurred. Please try again or return to the home
+            page.
           </p>
+
+          {error.digest && (
+            <p className="text-xs font-mono text-stone-400 mb-4">
+              Error ID: {error.digest}
+            </p>
+          )}
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
@@ -50,12 +56,21 @@ export default function BlogArticleError({
               Try again
             </button>
             <Link
-              href="/blog"
+              href="/"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-300 text-primary text-sm font-medium hover:bg-stone-50 transition-colors"
             >
-              Back to Blog
+              Back to Home
             </Link>
           </div>
+        </div>
+
+        {/* Branding */}
+        <div className="mt-8">
+          <Link href="/" className="group flex flex-col items-center gap-1">
+            <span className="font-serif text-base font-medium tracking-[0.08em] text-muted group-hover:text-primary transition-colors">
+              ARGUMEND
+            </span>
+          </Link>
         </div>
       </div>
     </div>

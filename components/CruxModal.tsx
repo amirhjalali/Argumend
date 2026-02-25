@@ -1,14 +1,19 @@
 "use client";
 
 import { useLogicGraph } from "@/hooks/useLogicGraph";
+import { useModalAccessibility } from "@/hooks/useModalAccessibility";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Scale, ScrollText } from "lucide-react";
-import "katex/dist/katex.min.css";
+// katex CSS is loaded globally in globals.css
 import { InlineMath } from "react-katex";
 
 export function CruxModal() {
     const selectedCrux = useLogicGraph((state) => state.selectedCrux);
     const closeCrux = useLogicGraph((state) => state.closeCrux);
+    const modalRef = useModalAccessibility<HTMLDivElement>({
+        isOpen: !!selectedCrux,
+        onClose: closeCrux,
+    });
 
     return (
         <AnimatePresence>
@@ -22,9 +27,14 @@ export function CruxModal() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.25 }}
                         onClick={closeCrux}
+                        aria-hidden="true"
                     />
                     {/* Modal */}
                     <motion.div
+                        ref={modalRef}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={`Crux details: ${selectedCrux.title}`}
                         className="relative w-full mx-4 md:mx-auto max-w-2xl overflow-hidden rounded-2xl border border-stone-200/40 bg-[#faf8f5] shadow-2xl"
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}

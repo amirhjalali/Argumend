@@ -11,6 +11,7 @@ import { articles, getArticleBySlug, getRelatedArticles } from "@/data/blog";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { ShareButtons } from "@/components/ShareButtons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { BlogArticleClient } from "./client";
 
 // ---------------------------------------------------------------------------
@@ -175,10 +176,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
     <BlogArticleClient>
       <div className="min-h-screen bg-canvas">
         {/* JSON-LD (placed early for crawlers) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={jsonLd} />
 
         {/* Breadcrumb + article header */}
         <div className="bg-[#faf8f5]/60 border-b border-stone-200/60">

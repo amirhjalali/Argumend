@@ -13,7 +13,7 @@ import {
   CornerDownLeft,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { topics } from "@/data/topics";
+import { topicSummaries } from "@/data/topicIndex";
 import { articles } from "@/data/blog";
 import { concepts } from "@/data/concepts";
 
@@ -185,7 +185,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   // -----------------------------------------------------------------------
 
   const allItems = useMemo<SearchResult[]>(() => {
-    const topicResults: SearchResult[] = topics.map((t) => ({
+    const topicResults: SearchResult[] = topicSummaries.map((t) => ({
       id: `topic-${t.id}`,
       title: t.title,
       subtitle: t.meta_claim,
@@ -221,7 +221,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
     // Empty query: show featured topics
     if (!trimmed) {
-      const featured = topics
+      const featured = topicSummaries
         .filter((t) => FEATURED_TOPIC_IDS.includes(t.id))
         .map((t) => ({
           id: `topic-${t.id}`,
@@ -390,14 +390,19 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search topics, articles, concepts, pages..."
-              className="flex-1 bg-transparent text-lg text-primary placeholder:text-stone-400 outline-none font-sans"
+              className="flex-1 bg-transparent text-lg text-primary placeholder:text-stone-500 outline-none font-sans"
               autoComplete="off"
               spellCheck={false}
+              aria-label="Search Argumend"
+              role="combobox"
+              aria-expanded={groups.length > 0}
+              aria-controls="search-results"
+              aria-activedescendant={flatResults[activeIndex] ? `search-result-${flatResults[activeIndex].id}` : undefined}
             />
             {query && (
               <button
                 onClick={() => setQuery("")}
-                className="p-1 rounded-md text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
+                className="flex items-center justify-center h-11 w-11 rounded-md text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
                 aria-label="Clear search"
               >
                 <X className="h-4 w-4" />
@@ -405,7 +410,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             )}
             <button
               onClick={onClose}
-              className="flex-shrink-0 px-2 py-1 rounded-md border border-stone-200 text-xs text-stone-400 font-mono hover:bg-stone-100 transition-colors"
+              className="flex-shrink-0 px-3 py-2 min-h-[44px] rounded-md border border-stone-200 text-xs text-stone-500 font-mono hover:bg-stone-100 transition-colors"
+              aria-label="Close search"
             >
               ESC
             </button>
@@ -414,7 +420,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           {/* Results */}
           <div
             ref={listRef}
+            id="search-results"
             className="max-h-[60vh] overflow-y-auto overscroll-contain py-2"
+            role="listbox"
           >
             {groups.length === 0 && query.trim() !== "" && (
               <div className="px-5 py-12 text-center">

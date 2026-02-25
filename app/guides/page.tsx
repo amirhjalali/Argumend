@@ -100,7 +100,7 @@ export default function GuidesPage() {
         </div>
 
         {/* Footer */}
-        <div className="mt-12 pt-8 border-t border-stone-200">
+        <div className="mt-12 pt-8 border-t border-stone-200/60">
           <p className="text-sm text-secondary">
             These guides synthesize research from epistemology, cognitive science,
             and the philosophy of science. Sources are provided in each guide.

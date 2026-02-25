@@ -64,11 +64,13 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
       initial={{ opacity: 0, x: isFor ? -20 : 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
-      className={`rounded-xl border border-stone-200/80 border-l-4 ${cardStyles} overflow-hidden shadow-sm hover:shadow-md transition-all duration-300`}
+      className={`rounded-xl border border-stone-200/60 border-l-4 ${cardStyles} overflow-hidden shadow-card hover:shadow-lw-hover transition-all duration-200`}
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full p-3 md:p-5 text-left transition-colors"
+        aria-expanded={isExpanded}
+        aria-label={`${evidence.title} — ${isExpanded ? "collapse" : "expand"} details`}
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
@@ -165,7 +167,7 @@ function BalanceMeter({ forWeight, againstWeight }: {
         <div className="flex flex-col items-center gap-1">
           <span className="text-[10px] uppercase tracking-[0.3em] text-stone-400">Balance</span>
           <div className="w-[140px] md:w-[180px]">
-          <svg width="100%" height="70" viewBox="0 0 180 70" className="text-stone-400">
+          <svg width="100%" height="70" viewBox="0 0 180 70" className="text-stone-400" role="img" aria-label="Balance scale visualization showing evidence weight distribution">
             <line x1="90" y1="24" x2="90" y2="58" stroke="currentColor" strokeWidth="2" />
             <line x1="70" y1="58" x2="110" y2="58" stroke="currentColor" strokeWidth="2" />
             <g transform={`rotate(${tiltDeg} 90 24)`}>

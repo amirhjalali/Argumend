@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 
 export default function AnalyzePageError({
@@ -9,8 +10,12 @@ export default function AnalyzePageError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    console.error("Analyze page error:", error);
+  }, [error]);
+
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#f4f1eb] flex items-center justify-center px-4">
       <div className="max-w-md w-full text-center">
         <div className="bg-[#faf8f5] rounded-xl border border-stone-200/60 p-8 sm:p-10 shadow-sm">
           <div className="w-12 h-12 mx-auto mb-5 rounded-full bg-red-50 flex items-center justify-center">
@@ -40,7 +45,7 @@ export default function AnalyzePageError({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               onClick={reset}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#C4613C] to-[#b05434] text-white text-sm font-medium hover:from-[#b05434] hover:to-[#8b3f27] transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
             >
               Try again
             </button>

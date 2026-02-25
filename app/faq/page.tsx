@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { faqs } from "@/data/faqs";
@@ -33,11 +34,19 @@ export default function FAQPage() {
               <p className="text-primary leading-relaxed">
                 {faq.answer}
               </p>
+              {faq.linkHref && faq.linkText && (
+                <Link
+                  href={faq.linkHref}
+                  className="inline-block mt-2 text-sm font-medium text-deep hover:text-deep-dark hover:underline transition-colors"
+                >
+                  {faq.linkText} &rarr;
+                </Link>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-stone-200">
+        <div className="mt-12 pt-8 border-t border-stone-200/60">
           <p className="text-sm text-secondary">
             Still have questions? We probably missed something. Head to the{" "}
             <a href="/community" className="text-deep hover:underline">Community page</a> and let us know.

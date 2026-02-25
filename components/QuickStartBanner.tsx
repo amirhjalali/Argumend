@@ -4,11 +4,11 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import {
-  topics,
+  topicSummaries,
   CATEGORY_LABELS,
   CATEGORY_ORDER,
-} from "@/data/topics";
-import type { TopicCategory } from "@/lib/schemas/topic";
+} from "@/data/topicIndex";
+import type { TopicCategory } from "@/data/topicIndex";
 
 const CATEGORY_BORDER_COLORS: Record<TopicCategory, string> = {
   policy: "border-l-blue-400",
@@ -51,7 +51,7 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
 
   // When a category is active, show its topics
   const filteredTopics = activeCategory
-    ? topics.filter((t) => t.category === activeCategory)
+    ? topicSummaries.filter((t) => t.category === activeCategory)
     : [];
 
   // Show 4 categories as pills
@@ -74,14 +74,14 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                 <span className="text-xs text-stone-400 mr-1">Browse:</span>
                 {categoryPills.map((cat) => {
                   const isActive = activeCategory === cat;
-                  const count = topics.filter(
+                  const count = topicSummaries.filter(
                     (t) => t.category === cat
                   ).length;
                   return (
                     <button
                       key={cat}
                       onClick={() => handleCategoryClick(cat)}
-                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
+                      className={`px-3.5 py-2 min-h-[44px] rounded-full text-xs font-medium transition-all border ${
                         isActive
                           ? "bg-deep text-white border-deep"
                           : "bg-white text-stone-600 border-stone-200 hover:border-deep/40 hover:text-deep"
@@ -100,10 +100,10 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                 })}
                 <button
                   onClick={handleDismiss}
-                  className="p-1 rounded-md text-stone-300 hover:text-stone-500 transition-colors ml-1"
+                  className="flex items-center justify-center h-11 w-11 -mr-2 rounded-md text-stone-300 hover:text-stone-500 transition-colors ml-1"
                   aria-label="Dismiss"
                 >
-                  <X className="h-3.5 w-3.5" />
+                  <X className="h-4 w-4" />
                 </button>
               </div>
 
@@ -143,7 +143,7 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                             >
                               {topic.status}
                             </span>
-                            <span>{topic.pillars.length} pillars</span>
+                            <span>{topic.pillarCount} pillars</span>
                             <span className="font-mono text-[11px] text-stone-400 ml-auto">
                               {topic.confidence_score}%
                             </span>

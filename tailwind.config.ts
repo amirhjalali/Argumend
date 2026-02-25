@@ -20,9 +20,9 @@ const config: Config = {
         muted: "#9c9288",
 
         deep: {
-          DEFAULT: "#4f7b77", // Deep teal — primary accent
-          light: "#6a9b96",
-          dark: "#3d5f5c",
+          DEFAULT: "#3a6965", // Deep teal — primary accent (darkened for WCAG AA 4.5:1 on parchment)
+          light: "#4f7b77", // Original deep teal — decorative/large text only
+          dark: "#2d524f",
         },
 
         // Rust palette — CTA buttons, "for" side, warm accents
@@ -54,9 +54,9 @@ const config: Config = {
           dark: "#7a2929",
         },
         evidence: {
-          DEFAULT: "#4f7b77", // Deep teal for evidence
-          light: "#6a9b96", // Light teal
-          dark: "#3d5f5c", // Dark teal
+          DEFAULT: "#3a6965", // Deep teal for evidence (darkened for WCAG AA)
+          light: "#4f7b77", // Light teal
+          dark: "#2d524f", // Dark teal
         },
         proponent: {
           DEFAULT: "#C4613C", // Rust for proponent

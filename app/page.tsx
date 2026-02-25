@@ -12,6 +12,7 @@ import {
   useReactFlow,
 } from "@xyflow/react";
 import type { Node } from "@xyflow/react";
+import dynamic from "next/dynamic";
 import { CruxModal } from "@/components/CruxModal";
 import { MetaNode } from "@/components/nodes/MetaNode";
 import { RichNode } from "@/components/nodes/RichNode";
@@ -25,16 +26,30 @@ import { MapLegend } from "@/components/MapLegend";
 import { ZoomIndicator } from "@/components/ZoomIndicator";
 import { NavigationPath } from "@/components/NavigationPath";
 import { TopicIntroPanel } from "@/components/TopicIntroPanel";
-import { ScalesOfEvidence } from "@/components/ScalesOfEvidence";
-import { DebateView } from "@/components/DebateView";
 import { HeroAnalyze } from "@/components/HeroAnalyze";
-import { OnboardingOverlay } from "@/components/OnboardingOverlay";
 import { QuickStartBanner } from "@/components/QuickStartBanner";
-import { MobileArgumentList } from "@/components/MobileArgumentList";
 import { Footer } from "@/components/Footer";
 import { getMiniMapColor } from "@/lib/variantStyles";
 import { GRAPH, MINIMAP } from "@/lib/constants";
 import type { LogicNodeData } from "@/types/graph";
+
+// Heavy view components — only loaded when the user switches to them
+const ScalesOfEvidence = dynamic(
+  () => import("@/components/ScalesOfEvidence").then((m) => m.ScalesOfEvidence),
+  { ssr: false }
+);
+const DebateView = dynamic(
+  () => import("@/components/DebateView").then((m) => m.DebateView),
+  { ssr: false }
+);
+const MobileArgumentList = dynamic(
+  () => import("@/components/MobileArgumentList").then((m) => m.MobileArgumentList),
+  { ssr: false }
+);
+const OnboardingOverlay = dynamic(
+  () => import("@/components/OnboardingOverlay").then((m) => m.OnboardingOverlay),
+  { ssr: false }
+);
 
 function CanvasExperience() {
   const nodeTypes = useMemo(

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Scale, ChevronRight, Map } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
-import { topics } from "@/data/topics";
+import { topicSummaries } from "@/data/topicIndex";
 
 
 export function TopicIntroPanel() {
@@ -14,7 +14,7 @@ export function TopicIntroPanel() {
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const nodes = useLogicGraph((state) => state.nodes);
 
-  const topic = topics.find((t) => t.id === currentTopicId);
+  const topic = topicSummaries.find((t) => t.id === currentTopicId);
 
   // Find the crux node for this topic
   const cruxNode = nodes.find((n) => n.data.variant === "crux");

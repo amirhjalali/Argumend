@@ -67,7 +67,7 @@ export default function AboutPage() {
             {stakes.map((stake) => (
               <div
                 key={stake.title}
-                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/70"
+                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/60"
               >
                 <h3 className="font-semibold text-primary mb-1.5">{stake.title}</h3>
                 <p className="text-sm text-secondary leading-relaxed">{stake.description}</p>
@@ -110,7 +110,7 @@ export default function AboutPage() {
             {principles.map((principle, i) => (
               <div
                 key={principle.title}
-                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70"
+                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/60"
               >
                 <span className="font-mono text-xs font-bold text-stone-400/80 mb-3 block">0{i + 1}</span>
                 <h3 className="font-serif text-lg text-primary mb-2">{principle.title}</h3>
@@ -148,7 +148,7 @@ export default function AboutPage() {
         </section>
 
         {/* Confidence Explainer */}
-        <section className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 mb-16 md:mb-24 border border-stone-200/70">
+        <section className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 mb-16 md:mb-24 border border-stone-200/60">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
             We don&apos;t claim to know the truth. We show you how confident the evidence makes us&mdash;and let you decide.
@@ -188,7 +188,7 @@ export default function AboutPage() {
             {quotes.map((quote, i) => (
               <div
                 key={i}
-                className="break-inside-avoid p-5 rounded-xl border border-stone-200/70 bg-white/50"
+                className="break-inside-avoid p-5 rounded-xl border border-stone-200/60 bg-white/50"
               >
                 <p className="font-serif text-lg text-primary italic leading-relaxed mb-3">
                   &ldquo;{quote.text}&rdquo;

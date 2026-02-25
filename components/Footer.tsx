@@ -42,7 +42,7 @@ export function Footer() {
               Argumend
             </span>
           </Link>
-          <p className="mt-1.5 text-sm text-stone-400">
+          <p className="mt-1.5 text-sm text-stone-500">
             Disagree better.
           </p>
         </div>
@@ -51,7 +51,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           {FOOTER_COLUMNS.map((column) => (
             <div key={column.title}>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-stone-400">
+              <h3 className="text-xs font-medium uppercase tracking-wider text-stone-500">
                 {column.title}
               </h3>
               <ul className="mt-3 space-y-2">
@@ -72,7 +72,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 flex items-center justify-between border-t border-stone-200 pt-6">
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-500">
             &copy; 2026 Argumend. Built with stubbornness and peer review.
           </p>
           <a

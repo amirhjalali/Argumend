@@ -62,23 +62,32 @@ const lessonPlans = [
 
 const subjects = [
   {
-    label: "Social Studies / Civics",
+    label: "IB Theory of Knowledge",
     description:
-      "Analyze real policy debates \u2014 gun control, UBI, wealth tax",
+      "Perfect for TOK exhibitions and essays. Students examine knowledge claims, explore real-world examples, and practice distinguishing evidence from opinion.",
+    topics: ["/topics/simulation-hypothesis", "/topics/free-will"],
+    topicLabels: ["Simulation Hypothesis", "Free Will"],
   },
   {
-    label: "Science",
+    label: "AP Government / Civics",
     description:
-      "Examine contested claims \u2014 nuclear safety, climate science, lab leak",
+      "Analyze real policy debates with structured evidence. Students map competing claims on gun control, UBI, and wealth tax.",
+    topics: ["/topics/gun-control-effectiveness", "/topics/universal-basic-income"],
+    topicLabels: ["Gun Control", "Universal Basic Income"],
   },
   {
-    label: "Philosophy / Ethics",
+    label: "A-Level Critical Thinking / Science",
     description:
-      "Explore deep questions \u2014 free will, simulation hypothesis",
+      "Examine contested empirical claims. Students evaluate evidence quality, identify logical fallacies, and calibrate confidence.",
+    topics: ["/topics/nuclear-energy-safety", "/topics/lab-leak-theory"],
+    topicLabels: ["Nuclear Energy", "Lab Leak Theory"],
   },
   {
     label: "English / Media Literacy",
-    description: "Identify fallacies and rhetorical techniques",
+    description:
+      "Identify rhetorical techniques, spot straw-man arguments, and practice steel-manning opposing views in written analysis.",
+    topics: ["/topics/social-media-mental-health", "/topics/cancel-culture"],
+    topicLabels: ["Social Media & Mental Health", "Cancel Culture"],
   },
 ];
 
@@ -94,8 +103,9 @@ export default function ForEducatorsPage() {
           </h1>
           <p className="text-lg text-secondary leading-relaxed max-w-2xl">
             Argumend helps students move beyond &ldquo;I feel that...&rdquo; to
-            evidence-based reasoning. Our argument maps make complex debates
-            accessible and teach the skills that transfer beyond the classroom.
+            evidence-based reasoning. Built for IB Theory of Knowledge, AP Government,
+            A-Level Critical Thinking, and any class where students need to think clearly
+            about contested questions.
           </p>
         </div>
 
@@ -121,7 +131,7 @@ export default function ForEducatorsPage() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70"
+                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/60"
               >
                 <h3 className="font-serif text-lg text-primary mb-2">
                   {benefit.title}
@@ -148,7 +158,7 @@ export default function ForEducatorsPage() {
             {lessonPlans.map((plan) => (
               <div
                 key={plan.number}
-                className="bg-[#fefcf9] rounded-xl border border-stone-200/70 p-5 md:p-6"
+                className="bg-[#fefcf9] rounded-xl border border-stone-200/60 p-5 md:p-6"
               >
                 <div className="flex items-baseline gap-3 mb-1">
                   <span className="font-mono text-sm font-bold text-stone-400">{plan.number}</span>
@@ -186,14 +196,25 @@ export default function ForEducatorsPage() {
             {subjects.map((subject) => (
               <div
                 key={subject.label}
-                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/70"
+                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/60"
               >
                 <h3 className="font-semibold text-primary mb-1">
                   {subject.label}
                 </h3>
-                <p className="text-sm text-secondary leading-relaxed">
+                <p className="text-sm text-secondary leading-relaxed mb-2">
                   {subject.description}
                 </p>
+                <div className="flex flex-wrap gap-2">
+                  {subject.topics.map((topic, i) => (
+                    <Link
+                      key={topic}
+                      href={topic}
+                      className="text-xs font-medium text-deep hover:text-deep-dark hover:underline transition-colors"
+                    >
+                      {subject.topicLabels[i]} &rarr;
+                    </Link>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

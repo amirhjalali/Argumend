@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "About ARGUMEND",
@@ -13,21 +14,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            headline: "About ARGUMEND",
-            description:
-              "ARGUMEND maps controversial topics visually with steel-manned arguments, crux identification, and calibrated confidence scores.",
-            publisher: {
-              "@type": "Organization",
-              name: "ARGUMEND",
-              url: "https://argumend.org",
-            },
-          }),
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          headline: "About ARGUMEND",
+          description:
+            "ARGUMEND maps controversial topics visually with steel-manned arguments, crux identification, and calibrated confidence scores.",
+          publisher: {
+            "@type": "Organization",
+            name: "ARGUMEND",
+            url: "https://argumend.org",
+          },
         }}
       />
     </>

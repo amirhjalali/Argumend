@@ -66,7 +66,7 @@ export function AppShell({ children }: AppShellProps) {
         </div>
 
         {/* Main Content Area */}
-        <div className="relative flex-1 min-w-0 overflow-y-auto">
+        <main id="main-content" className="relative flex-1 min-w-0 overflow-y-auto">
           {/* Content inner shadow for depth */}
           <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_4px_0_12px_-4px_rgba(0,0,0,0.04)]" />
 
@@ -74,7 +74,7 @@ export function AppShell({ children }: AppShellProps) {
             {children}
             <Footer />
           </div>
-        </div>
+        </main>
       </div>
     </div>
   );

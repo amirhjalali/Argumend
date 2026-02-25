@@ -107,7 +107,7 @@ export default function ConceptsPage() {
           </ul>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-stone-200">
+        <div className="mt-12 pt-8 border-t border-stone-200/60">
           <p className="text-sm text-secondary">
             These concepts form the backbone of productive disagreement.
           </p>

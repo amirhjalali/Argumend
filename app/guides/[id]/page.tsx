@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Clock, BookOpen, CheckCircle2, ExternalLink, ArrowRight } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { guides, getGuideById } from "@/data/guides";
 import { notFound } from "next/navigation";
 
@@ -103,10 +104,7 @@ export default async function GuidePage({ params }: PageProps) {
   return (
     <AppShell>
       {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <div className="min-h-full">
         <article className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">

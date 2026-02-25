@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+Disallow: /analyze
+Sitemap: https://argumend.org/sitemap.xml

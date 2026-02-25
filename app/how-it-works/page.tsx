@@ -89,7 +89,7 @@ export default function HowItWorksPage() {
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="flex gap-4 p-5 md:p-6 rounded-xl bg-[#fefcf9] border border-stone-200/70"
+                className="flex gap-4 p-5 md:p-6 rounded-xl bg-[#fefcf9] border border-stone-200/60"
               >
                 <span className="font-mono text-sm font-bold text-stone-400 mt-0.5 flex-shrink-0">{step.number}</span>
                 <div className="flex-1">
@@ -111,7 +111,7 @@ export default function HowItWorksPage() {
           </p>
 
           {/* Simple visual diagram */}
-          <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] rounded-2xl border border-stone-200/70 p-8 md:p-12 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] rounded-2xl border border-stone-200/60 p-8 md:p-12 overflow-hidden">
             {/* Connection lines (simplified) */}
             <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
               <defs>
@@ -153,7 +153,7 @@ export default function HowItWorksPage() {
                   <p className="mt-2 text-xs text-secondary italic text-center">Strongest objection</p>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#C4613C] to-[#b05434] text-white font-semibold shadow-md">
+                  <div className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white font-semibold shadow-md">
                     <div className="flex items-center gap-2">
                       <Shield className="h-4 w-4" />
                       <span>Proponent</span>
@@ -187,7 +187,7 @@ export default function HowItWorksPage() {
             {nodeTypes.map((type) => (
               <div
                 key={type.name}
-                className="p-5 rounded-xl bg-[#fefcf9] border border-stone-200/70"
+                className="p-5 rounded-xl bg-[#fefcf9] border border-stone-200/60"
                 style={{ borderLeftWidth: "4px", borderLeftColor: type.color }}
               >
                 <h3 className="font-serif text-lg font-semibold text-primary mb-1">{type.name}</h3>
@@ -206,7 +206,7 @@ export default function HowItWorksPage() {
           <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             We don&apos;t claim certainty. These numbers tell you how confident the evidence makes us&mdash;nothing more.
           </p>
-          <div className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 border border-stone-200/70">
+          <div className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 border border-stone-200/60">
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-4 text-center">
                 <p className="font-mono tabular-nums text-deep text-2xl font-bold mb-2">90%+</p>
@@ -228,7 +228,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* The Philosophy */}
-        <section className="mb-12 md:mb-16 bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/70">
+        <section className="mb-12 md:mb-16 bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/60">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">The crux is everything</h2>
           <p className="text-secondary leading-relaxed mb-4">
             Every disagreement has a crux&mdash;the specific evidence or experiment that would change minds.

@@ -65,7 +65,7 @@ export default function BlogArticleLoading() {
         </div>
 
         {/* Tags */}
-        <div className="mt-12 pt-8 border-t border-stone-200">
+        <div className="mt-12 pt-8 border-t border-stone-200/60">
           <div className="flex flex-wrap items-center gap-2">
             <div className="h-3 w-10 bg-stone-200 animate-pulse rounded mr-1" />
             {Array.from({ length: 4 }).map((_, i) => (

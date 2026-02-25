@@ -1,8 +1,29 @@
 "use client";
 
 import { generateBlueprint, getEvidenceIdsForPillar } from "@/data/logicBlueprint";
-import { moonLanding, topics } from "@/data/topics";
 import type { EvidenceNodeData } from "@/components/nodes/EvidenceNode";
+
+// Lazy-loaded to prevent 500KB topics.ts from being bundled into every page
+let _topics: typeof import("@/data/topics").topics | null = null;
+let _moonLanding: typeof import("@/data/topics").moonLanding | null = null;
+
+async function getTopicsModule() {
+  if (!_topics) {
+    const mod = await import("@/data/topics");
+    _topics = mod.topics;
+    _moonLanding = mod.moonLanding;
+  }
+  return { topics: _topics!, moonLanding: _moonLanding! };
+}
+
+// Synchronous access after module is loaded (for use inside store actions)
+function getTopicsSync() {
+  return _topics;
+}
+
+function getMoonLandingSync() {
+  return _moonLanding;
+}
 import {
   COLLISION_PADDING,
   HORIZONTAL_GAP,
@@ -55,8 +76,10 @@ type GraphStore = {
   sequence: number;
   currentTopicId: string;
   currentView: ArgumentView;
+  _initialized: boolean;
 
   // Actions
+  loadInitialTopic: () => Promise<void>; // Lazy-loads topics.ts and sets initial topic
   setTopic: (topicId: string) => void;
   setView: (view: ArgumentView) => void;
   expandNode: (nodeId: string) => void;
@@ -69,16 +92,8 @@ type GraphStore = {
   onNodesChange: (changes: NodeChange<LogicNode>[]) => void;
 };
 
-// Initialize with Moon Landing
-const initialBlueprint = generateBlueprint(moonLanding);
-const rootBlueprint = initialBlueprint["root"];
-
-const initialRootNode: LogicNode = {
-  id: rootBlueprint.id,
-  type: "metaNode",
-  position: { x: 0, y: 0 },
-  data: mapBlueprintToData(rootBlueprint),
-};
+// No initial topic loaded — topics.ts is lazy-loaded to avoid bundling 500KB
+// into every page. The first render will trigger loadInitialTopic().
 
 function mapBlueprintToData(blueprint: BlueprintNode): LogicNodeData {
   return {
@@ -128,8 +143,13 @@ function buildEdge(source: string, target: string, slot: ChildSlot, targetVarian
   };
 }
 
-// Helper to get blueprint for current topic
+// Helper to get blueprint for current topic (topics must be loaded first)
 function getBlueprintForTopic(topicId: string) {
+  const topics = getTopicsSync();
+  const moonLanding = getMoonLandingSync();
+  if (!topics || !moonLanding) {
+    throw new Error("Topics not loaded yet. Call loadInitialTopic() first.");
+  }
   const topic = topics.find(t => t.id === topicId) ?? moonLanding;
   return generateBlueprint(topic);
 }
@@ -224,42 +244,76 @@ function createNodesFromTemplates(
 }
 
 export const useLogicGraph = create<GraphStore>((set, get) => ({
-  nodes: [initialRootNode],
+  nodes: [],
   edges: [],
   expandedNodes: {},
   evidenceLoadedNodes: {},
   selectedCrux: null,
-  focusTargets: ["root"],
+  focusTargets: [],
   sequence: 0,
-  currentTopicId: moonLanding.id,
+  currentTopicId: "moon-landing",
   currentView: "logic-map" as ArgumentView,
+  _initialized: false,
+
+  loadInitialTopic: async () => {
+    if (get()._initialized) return;
+    const { moonLanding } = await getTopicsModule();
+    const blueprint = generateBlueprint(moonLanding);
+    const rootBlueprint = blueprint["root"];
+    const rootNode: LogicNode = {
+      id: rootBlueprint.id,
+      type: "metaNode",
+      position: { x: 0, y: 0 },
+      data: mapBlueprintToData(rootBlueprint),
+    };
+    set({
+      nodes: [rootNode],
+      focusTargets: ["root"],
+      currentTopicId: moonLanding.id,
+      _initialized: true,
+    });
+  },
 
   setView: (view: ArgumentView) => set({ currentView: view }),
 
   setTopic: (topicId: string) => {
-    const topic = topics.find((t) => t.id === topicId);
-    if (!topic) return;
+    // Set the topic ID immediately for UI updates
+    set({ currentTopicId: topicId });
 
-    const newBlueprint = generateBlueprint(topic);
-    const newRootBlueprint = newBlueprint["root"];
+    const doSetTopic = (topicsArr: typeof import("@/data/topics").topics) => {
+      const topic = topicsArr.find((t) => t.id === topicId);
+      if (!topic) return;
 
-    const newRootNode: LogicNode = {
-      id: newRootBlueprint.id,
-      type: "metaNode",
-      position: { x: 0, y: 0 },
-      data: mapBlueprintToData(newRootBlueprint),
+      const newBlueprint = generateBlueprint(topic);
+      const newRootBlueprint = newBlueprint["root"];
+
+      const newRootNode: LogicNode = {
+        id: newRootBlueprint.id,
+        type: "metaNode",
+        position: { x: 0, y: 0 },
+        data: mapBlueprintToData(newRootBlueprint),
+      };
+
+      set({
+        currentTopicId: topicId,
+        nodes: [newRootNode],
+        edges: [],
+        expandedNodes: {},
+        evidenceLoadedNodes: {},
+        selectedCrux: null,
+        focusTargets: ["root"],
+        sequence: 0,
+        _initialized: true,
+      });
     };
 
-    set({
-      currentTopicId: topicId,
-      nodes: [newRootNode],
-      edges: [],
-      expandedNodes: {},
-      evidenceLoadedNodes: {},
-      selectedCrux: null,
-      focusTargets: ["root"],
-      sequence: 0,
-    });
+    const topics = getTopicsSync();
+    if (topics) {
+      doSetTopic(topics);
+    } else {
+      // Topics not loaded yet — load them first
+      getTopicsModule().then(({ topics: t }) => doSetTopic(t));
+    }
   },
 
   expandNode: (nodeId: string) => {
@@ -300,7 +354,9 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
     const { evidenceLoadedNodes, nodes, edges, currentTopicId } = get();
     if (evidenceLoadedNodes[pillarId]) return;
 
-    const topic = topics.find((t) => t.id === currentTopicId);
+    const topicsArr = getTopicsSync();
+    if (!topicsArr) return;
+    const topic = topicsArr.find((t) => t.id === currentTopicId);
     if (!topic) return;
 
     const pillar = topic.pillars.find((p) => p.id === pillarId);

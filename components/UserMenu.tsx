@@ -29,9 +29,10 @@ export function UserMenu() {
     return (
       <button
         onClick={() => signIn("google")}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 text-stone-500 text-sm hover:text-stone-800 hover:bg-stone-100/60 rounded-lg transition-colors"
+        className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 text-sm hover:text-stone-800 hover:bg-stone-100/60 rounded-lg transition-colors"
+        aria-label="Sign in with Google"
       >
-        <LogIn className="h-3.5 w-3.5" strokeWidth={1.8} />
+        <LogIn className="h-4 w-4" strokeWidth={1.8} />
         <span className="hidden sm:inline">Sign in</span>
       </button>
     );
@@ -41,7 +42,10 @@ export function UserMenu() {
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 rounded-lg px-2 py-1.5 hover:bg-stone-100/60 transition-colors"
+        className="flex items-center gap-2 rounded-lg px-2 py-2 min-h-[44px] hover:bg-stone-100/60 transition-colors"
+        aria-expanded={open}
+        aria-haspopup="true"
+        aria-label={`User menu for ${session.user?.name || "user"}`}
       >
         {session.user?.image ? (
           <img
@@ -61,18 +65,18 @@ export function UserMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-1 w-48 rounded-lg border border-stone-200 bg-white py-1 shadow-lg">
+        <div className="absolute right-0 top-full mt-1 w-48 rounded-lg border border-stone-200 bg-white py-1 shadow-lg" role="menu" aria-label="User menu">
           <div className="px-3 py-2 border-b border-stone-100">
             <p className="text-sm font-medium text-stone-700 truncate">
               {session.user?.name}
             </p>
-            <p className="text-xs text-stone-400 truncate">
+            <p className="text-xs text-stone-500 truncate">
               {session.user?.email}
             </p>
           </div>
           <button
             onClick={() => signOut()}
-            className="flex w-full items-center gap-2 px-3 py-2 text-sm text-stone-500 hover:bg-stone-50 hover:text-stone-700"
+            className="flex w-full items-center gap-2 px-3 py-2.5 min-h-[44px] text-sm text-stone-500 hover:bg-stone-50 hover:text-stone-700"
           >
             <LogOut className="h-3.5 w-3.5" />
             Sign out

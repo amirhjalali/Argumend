@@ -145,7 +145,7 @@ export default function ResearchPage() {
         ))}
 
         {/* Section navigation */}
-        <div className="bg-[#faf8f3]/60 border border-stone-200/70 rounded-lg p-5 md:p-6 mb-16 md:mb-24">
+        <div className="bg-[#faf8f3]/60 border border-stone-200/60 rounded-lg p-5 md:p-6 mb-16 md:mb-24">
           <div className="flex items-center gap-2.5 mb-4">
             <BookOpen className="h-4 w-4 text-deep" strokeWidth={1.8} />
             <h3 className="text-sm font-medium text-primary">In this article</h3>
@@ -195,7 +195,7 @@ export default function ResearchPage() {
         </section>
 
         {/* Footer tagline */}
-        <div className="pt-6 border-t border-stone-200 mt-8">
+        <div className="pt-6 border-t border-stone-200/60 mt-8">
           <p className="text-sm text-muted italic text-center">
             All claims on this page are cited. If we got something wrong, tell us.
           </p>

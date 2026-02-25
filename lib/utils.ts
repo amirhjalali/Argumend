@@ -25,18 +25,6 @@ export function buildSearchParams(
 }
 
 /**
- * Append search params to a URL path, only if params exist.
- */
-export function appendSearchParams(
-  path: string,
-  params: Record<string, string | number | undefined | null>
-): string {
-  const searchParams = buildSearchParams(params);
-  const query = searchParams.toString();
-  return query ? `${path}?${query}` : path;
-}
-
-/**
  * Regex pattern for matching bracketed keywords in content.
  * Used for interactive concept linking.
  *
@@ -68,18 +56,3 @@ export function isBracketedKeyword(part: string): boolean {
   return part.startsWith("{") && part.endsWith("}");
 }
 
-/**
- * Generate a unique ID with optional prefix.
- */
-export function generateId(prefix = ""): string {
-  const timestamp = Date.now();
-  const random = Math.random().toString(36).substring(2, 9);
-  return prefix ? `${prefix}-${timestamp}-${random}` : `${timestamp}-${random}`;
-}
-
-/**
- * Clamp a number between min and max values.
- */
-export function clamp(value: number, min: number, max: number): number {
-  return Math.min(Math.max(value, min), max);
-}

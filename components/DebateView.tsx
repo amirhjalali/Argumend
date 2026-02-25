@@ -131,7 +131,7 @@ function DebaterCard({
               whileHover={!disabled ? { y: -2 } : {}}
               whileTap={!disabled ? { scale: 0.98 } : {}}
               className={`
-                relative p-2 md:p-3 rounded-xl border-2 transition-all duration-300 text-left
+                relative p-2 md:p-3 rounded-xl border-2 transition-all duration-200 text-left
                 ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
                 ${
                   isSelected
@@ -250,7 +250,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
             className={`rounded-2xl p-5 border shadow-sm ${
               isFor
                 ? "bg-gradient-to-br from-rust-50/60 to-rust-100/30 border-rust-200/40"
-                : "bg-gradient-to-br from-stone-50/60 to-gray-50/30 border-stone-200/40"
+                : "bg-gradient-to-br from-stone-50/60 to-stone-50/30 border-stone-200/40"
             }`}
           >
             {/* Quote decoration */}

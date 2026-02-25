@@ -13,9 +13,9 @@ import {
   X,
   ArrowRight,
 } from "lucide-react";
-import { topics, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topics";
+import { topicSummaries, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topicIndex";
+import type { TopicCategory, TopicStatus } from "@/data/topicIndex";
 import { AppShell } from "@/components/AppShell";
-import type { TopicCategory, TopicStatus } from "@/lib/schemas/topic";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -68,7 +68,7 @@ export default function TopicsPage() {
   const [sortBy, setSortBy] = useState<SortOption>("category");
 
   const filteredTopics = useMemo(() => {
-    let filtered = [...topics];
+    let filtered = [...topicSummaries];
 
     // Category filter
     if (activeCategory !== "all") {
@@ -110,9 +110,9 @@ export default function TopicsPage() {
 
   // Count per category
   const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = { all: topics.length };
+    const counts: Record<string, number> = { all: topicSummaries.length };
     for (const cat of CATEGORY_ORDER) {
-      counts[cat] = topics.filter((t) => t.category === cat).length;
+      counts[cat] = topicSummaries.filter((t) => t.category === cat).length;
     }
     return counts;
   }, []);
@@ -134,7 +134,7 @@ export default function TopicsPage() {
               Explore Topics
             </h1>
             <p className="text-lg text-secondary leading-relaxed max-w-2xl">
-              <span className="font-mono text-stone-700">{topics.length}</span> topics
+              <span className="font-mono text-stone-700">{topicSummaries.length}</span> topics
               mapped across {CATEGORY_ORDER.length} categories. Each one structured with
               steel-man arguments, weighted evidence, and crux questions.
             </p>
@@ -144,7 +144,7 @@ export default function TopicsPage() {
           <div className="flex flex-wrap gap-2 mb-6">
             <button
               onClick={() => setActiveCategory("all")}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+              className={`px-4 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition-all ${
                 activeCategory === "all"
                   ? "bg-deep text-white shadow-sm"
                   : "bg-white text-stone-500 border border-stone-200/60 hover:border-deep/30 hover:text-stone-700"
@@ -156,7 +156,7 @@ export default function TopicsPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all capitalize ${
+                className={`px-4 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition-all capitalize ${
                   activeCategory === cat
                     ? "bg-deep text-white shadow-sm"
                     : "bg-white text-stone-500 border border-stone-200/60 hover:border-deep/30 hover:text-stone-700"
@@ -177,23 +177,24 @@ export default function TopicsPage() {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search topics..."
                 aria-label="Search topics"
-                className="w-full pl-9 pr-9 py-2 text-sm bg-white border border-stone-200/60 rounded-lg text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
+                className="w-full pl-9 pr-9 py-2.5 min-h-[44px] text-sm bg-white border border-stone-200/60 rounded-lg text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               />
               {search && (
                 <button
                   onClick={() => setSearch("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center h-9 w-9 text-stone-400 hover:text-stone-600"
+                  aria-label="Clear search"
                 >
                   <X className="h-4 w-4" />
                 </button>
               )}
             </div>
             <div className="flex items-center gap-2">
-              <label className="text-xs font-medium text-stone-400 whitespace-nowrap">Sort:</label>
+              <label className="text-xs font-medium text-stone-500 whitespace-nowrap">Sort:</label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="text-sm px-3 py-2 rounded-lg border border-stone-200/60 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
+                className="text-sm px-3 py-2.5 min-h-[44px] rounded-lg border border-stone-200/60 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               >
                 {SORT_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -211,12 +212,12 @@ export default function TopicsPage() {
               <span className="font-semibold text-stone-700">
                 {filteredTopics.length}
               </span>{" "}
-              of {topics.length} topics
+              of {topicSummaries.length} topics
             </p>
             {hasFilters && (
               <button
                 onClick={clearFilters}
-                className="flex items-center gap-1.5 text-xs font-medium text-stone-400 hover:text-stone-600 transition-colors"
+                className="flex items-center gap-1.5 text-xs font-medium text-stone-500 hover:text-stone-600 transition-colors"
               >
                 <X className="h-3.5 w-3.5" />
                 Clear filters
@@ -229,8 +230,8 @@ export default function TopicsPage() {
             <div className="text-center py-20 bg-white rounded-xl border border-stone-200/60">
               <SearchX className="h-10 w-10 text-stone-300 mx-auto mb-4" />
               <p className="text-stone-600 font-medium mb-1">No topics found</p>
-              <p className="text-sm text-stone-400 mb-5 max-w-xs mx-auto">
-                Try adjusting your search terms or clearing the filters to browse all {topics.length} topics.
+              <p className="text-sm text-stone-500 mb-5 max-w-xs mx-auto">
+                Try adjusting your search terms or clearing the filters to browse all {topicSummaries.length} topics.
               </p>
               <button
                 onClick={clearFilters}
@@ -264,10 +265,18 @@ export default function TopicsPage() {
 
                     {/* Confidence score bar */}
                     <div className="flex items-center gap-2.5 mb-3">
-                      <div className="h-1.5 flex-1 bg-stone-100 rounded-full overflow-hidden">
+                      <div
+                        className="h-1.5 flex-1 bg-stone-100 rounded-full overflow-hidden"
+                        role="meter"
+                        aria-valuenow={topic.confidence_score}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-label={`Confidence: ${topic.confidence_score}%`}
+                      >
                         <div
                           className="h-full bg-deep rounded-full transition-all duration-500"
                           style={{ width: `${topic.confidence_score}%` }}
+                          aria-hidden="true"
                         />
                       </div>
                       <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600">
@@ -295,8 +304,8 @@ export default function TopicsPage() {
                       </div>
 
                       {/* Pillar count */}
-                      <span className="text-[11px] text-stone-400">
-                        {topic.pillars.length} pillars
+                      <span className="text-[11px] text-stone-500">
+                        {topic.pillarCount} pillars
                       </span>
                     </div>
                   </Link>
@@ -307,8 +316,8 @@ export default function TopicsPage() {
 
           {/* Footer */}
           <div className="mt-10 pt-6 border-t border-stone-200/60">
-            <p className="text-sm text-stone-400">
-              {topics.length} topics mapped. Click any topic to read its full analysis
+            <p className="text-sm text-stone-500">
+              {topicSummaries.length} topics mapped. Click any topic to read its full analysis
               with steel-man arguments, weighted evidence, and crux questions.
             </p>
           </div>

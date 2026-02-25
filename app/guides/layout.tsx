@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Guides",
   description:
-    "Foundational guides on critical thinking: how to triangulate sources, recognize bias, weigh evidence, and find truth. The art of reasoning well before evaluating any specific topic.",
+    "Guides on critical thinking: how to triangulate sources, recognize bias, weigh evidence, and reason well. Foundations for evaluating any argument.",
   alternates: {
     canonical: "https://argumend.org/guides",
   },

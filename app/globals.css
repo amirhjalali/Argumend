@@ -243,18 +243,18 @@ html {
 }
 
 .prose-custom a {
-  color: #4f7b77;
+  color: #3a6965;
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.15s ease;
 }
 
 .prose-custom a:hover {
-  color: #3d5f5c;
+  color: #2d524f;
 }
 
 .prose-custom blockquote {
-  border-left: 3px solid #4f7b77;
+  border-left: 3px solid #3a6965;
   padding-left: 1.25rem;
   margin: 1.5rem 0;
   font-style: italic;
@@ -422,9 +422,9 @@ html {
 
 /* Utility Classes */
 
-/* Focus states */
+/* Focus states -- WCAG AA visible focus indicator */
 :focus-visible {
-  outline: 2px solid #4f7b77;
+  outline: 2px solid #3a6965;
   outline-offset: 2px;
 }
 

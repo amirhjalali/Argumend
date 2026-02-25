@@ -29,7 +29,7 @@ function WinnerBanner({ result }: { result: JudgingResult }) {
     for: "from-rust-500 to-rust-600",
     against: "from-stone-500 to-stone-600",
     draw: "from-stone-500 to-stone-600",
-    null: "from-gray-400 to-gray-500",
+    null: "from-stone-400 to-stone-500",
   };
 
   const winnerLabel = winner === "for"

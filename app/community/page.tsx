@@ -72,7 +72,7 @@ export default function CommunityPage() {
             {principles.map((principle) => (
               <div
                 key={principle.title}
-                className="bg-[#faf8f5] rounded-xl p-6 border border-stone-200/70"
+                className="bg-[#faf8f5] rounded-xl p-6 border border-stone-200/60"
               >
                 <div className="flex items-start gap-5">
                   <span className="font-serif text-2xl font-bold text-stone-300 flex-shrink-0">{principle.number}</span>

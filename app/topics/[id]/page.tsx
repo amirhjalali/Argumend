@@ -1,9 +1,16 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { topics, CATEGORY_LABELS } from "@/data/topics";
+import { topics, CATEGORY_LABELS, getCrossCategoryRelated } from "@/data/topics";
 import { getVerdictLabel } from "@/lib/schemas/topic";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import TopicDetailView from "./TopicDetailView";
+
+// ---------------------------------------------------------------------------
+// ISR: Revalidate every 24 hours
+// ---------------------------------------------------------------------------
+
+export const revalidate = 86400;
 
 // ---------------------------------------------------------------------------
 // Static Generation
@@ -89,6 +96,9 @@ export default async function TopicPage({ params }: PageProps) {
     .filter((t) => t.category === topic.category && t.id !== topic.id)
     .slice(0, 4);
 
+  // Cross-category related topics (thematic clusters)
+  const crossCategoryTopics = getCrossCategoryRelated(topic.id, topic.category, 4);
+
   // JSON-LD structured data (enhanced Article schema)
   const categoryLabel = CATEGORY_LABELS[topic.category];
   const jsonLd = {
@@ -152,10 +162,7 @@ export default async function TopicPage({ params }: PageProps) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
@@ -163,7 +170,7 @@ export default async function TopicPage({ params }: PageProps) {
           { label: topic.title },
         ]}
       />
-      <TopicDetailView topic={topic} relatedTopics={relatedTopics} />
+      <TopicDetailView topic={topic} relatedTopics={relatedTopics} crossCategoryTopics={crossCategoryTopics} />
     </>
   );
 }

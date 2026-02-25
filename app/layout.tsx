@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import { SessionProvider } from "@/components/SessionProvider";
+import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 const serif = EB_Garamond({
@@ -14,7 +15,7 @@ const serif = EB_Garamond({
 
 const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-sans",
   display: "swap",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | ARGUMEND",
   },
   description:
-    "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. 38 topics with AI-powered analysis.",
+    "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. 38 topics analyzed.",
   keywords: [
     "argument mapping",
     "critical thinking",
@@ -100,46 +101,40 @@ export default function RootLayout({
           Skip to content
         </a>
         <SessionProvider>{children}</SessionProvider>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebApplication",
-              name: "ARGUMEND",
-              url: "https://argumend.org",
-              description:
-                "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
-              applicationCategory: "EducationalApplication",
-              operatingSystem: "Web",
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "USD",
-              },
-            }),
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "ARGUMEND",
+            url: "https://argumend.org",
+            description:
+              "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+            applicationCategory: "EducationalApplication",
+            operatingSystem: "Web",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+            },
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Argumend",
-              url: "https://argumend.org",
-              description:
-                "Structured argument mapping platform for controversial topics. See both sides, weigh the evidence, find what actually matters.",
-              sameAs: [],
-              logo: "https://argumend.org/icon.png",
-              foundingDate: "2024",
-              knowsAbout: [
-                "argument mapping",
-                "critical thinking",
-                "evidence-based reasoning",
-                "debate analysis",
-              ],
-            }),
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Argumend",
+            url: "https://argumend.org",
+            description:
+              "Structured argument mapping platform for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+            sameAs: [],
+            logo: "https://argumend.org/icon.png",
+            foundingDate: "2024",
+            knowsAbout: [
+              "argument mapping",
+              "critical thinking",
+              "evidence-based reasoning",
+              "debate analysis",
+            ],
           }}
         />
       </body>

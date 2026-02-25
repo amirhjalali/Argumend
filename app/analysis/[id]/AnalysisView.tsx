@@ -22,8 +22,8 @@ import { AppShell } from "@/components/AppShell";
 import { ShareButtons } from "@/components/ShareButtons";
 import { ConfidenceGauge } from "@/components/ConfidenceGauge";
 import { JudgingResults } from "@/components/JudgingResults";
-import { topics } from "@/data/topics";
-import type { Topic } from "@/lib/schemas/topic";
+import { topicSummaries } from "@/data/topicIndex";
+import type { TopicSummary } from "@/data/topicIndex";
 import type { JudgingResult } from "@/lib/judge/rubric";
 import type {
   ExtractedArguments,
@@ -42,7 +42,7 @@ import {
 /**
  * Find related topics by simple keyword matching on the analysis topic string.
  */
-function findRelatedTopics(analysisTopic: string, count: number = 4): Topic[] {
+function findRelatedTopics(analysisTopic: string, count: number = 4): TopicSummary[] {
   const stopWords = new Set([
     "the", "a", "an", "is", "are", "was", "were", "of", "in", "on", "for",
     "to", "and", "or", "but", "with", "by", "at", "from", "as", "it", "its",
@@ -56,7 +56,7 @@ function findRelatedTopics(analysisTopic: string, count: number = 4): Topic[] {
     .split(/\s+/)
     .filter((t) => t.length > 2 && !stopWords.has(t));
 
-  const scored = topics.map((topic) => {
+  const scored = topicSummaries.map((topic) => {
     const haystack = `${topic.title} ${topic.meta_claim}`.toLowerCase();
     let score = 0;
     for (const token of tokens) {
@@ -463,7 +463,7 @@ function ConfidenceBadge({ score }: { score: number }) {
   );
 }
 
-function RelatedTopicCard({ topic }: { topic: Topic }) {
+function RelatedTopicCard({ topic }: { topic: TopicSummary }) {
   return (
     <Link
       href={`/topics/${topic.id}`}
@@ -553,7 +553,7 @@ export function AnalysisView({
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative overflow-hidden rounded-2xl border border-stone-200/70 bg-gradient-to-br from-white via-[#fdfbf8] to-deep/[0.04] shadow-card"
+            className="relative overflow-hidden rounded-2xl border border-stone-200/60 bg-gradient-to-br from-white via-[#fdfbf8] to-deep/[0.04] shadow-card"
           >
             {/* Subtle decorative gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-rust-500/[0.03] via-transparent to-deep/[0.03] pointer-events-none" />

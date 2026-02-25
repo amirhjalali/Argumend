@@ -8,6 +8,7 @@ import {
 import { concepts, getConceptBySlug, getAllConceptSlugs } from "@/data/concepts";
 import { topics } from "@/data/topics";
 import { AppShell } from "@/components/AppShell";
+import { JsonLd } from "@/components/JsonLd";
 
 // ---------------------------------------------------------------------------
 // Static params for all concept slugs
@@ -97,10 +98,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
   return (
     <AppShell>
       {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <div className="min-h-full">
         <div className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-16">

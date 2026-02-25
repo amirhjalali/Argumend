@@ -1,9 +1,11 @@
 import { Metadata } from "next";
 
+export const revalidate = 86400; // ISR: 24 hours
+
 export const metadata: Metadata = {
   title: "Explore Topics",
   description:
-    "Browse 38 controversial topics mapped with visual argument analysis. Filter by confidence level, status, and more. Each topic includes steel-manned arguments and crux questions.",
+    "Browse 38 controversial topics with visual argument maps. Filter by confidence level and status. Steel-manned arguments and crux questions for each.",
   alternates: {
     canonical: "https://argumend.org/topics",
   },

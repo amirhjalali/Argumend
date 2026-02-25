@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Scale, Crosshair, ArrowRight, X } from "lucide-react";
+import { useModalAccessibility } from "@/hooks/useModalAccessibility";
 
 const STORAGE_KEY = "argumend-onboarded";
 
@@ -38,6 +39,11 @@ export function OnboardingOverlay() {
     setVisible(false);
   };
 
+  const modalRef = useModalAccessibility<HTMLDivElement>({
+    isOpen: visible,
+    onClose: handleDismiss,
+  });
+
   return (
     <AnimatePresence>
       {visible && (
@@ -55,10 +61,15 @@ export function OnboardingOverlay() {
             exit={{ opacity: 0 }}
             className="absolute inset-0 backdrop-blur-sm bg-black/30"
             onClick={handleDismiss}
+            aria-hidden="true"
           />
 
           {/* Modal */}
           <motion.div
+            ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Welcome to Argumend"
             initial={{ opacity: 0, y: 24, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.95 }}
@@ -101,11 +112,11 @@ export function OnboardingOverlay() {
               </div>
 
               {/* Steps */}
-              <div className="space-y-5">
+              <ol className="space-y-5 list-none p-0">
                 {steps.map((step, idx) => {
                   const Icon = step.icon;
                   return (
-                    <motion.div
+                    <motion.li
                       key={step.title}
                       initial={{ opacity: 0, x: -12 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -128,10 +139,10 @@ export function OnboardingOverlay() {
                           {step.description}
                         </p>
                       </div>
-                    </motion.div>
+                    </motion.li>
                   );
                 })}
-              </div>
+              </ol>
 
               {/* Actions */}
               <div className="mt-8 flex flex-col items-center gap-3">
@@ -144,7 +155,7 @@ export function OnboardingOverlay() {
                 </button>
                 <button
                   onClick={handleDismiss}
-                  className="text-xs text-stone-400 hover:text-stone-600 transition-colors"
+                  className="text-xs text-stone-500 hover:text-stone-600 transition-colors"
                 >
                   Skip &mdash; I know my way around
                 </button>

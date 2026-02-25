@@ -150,7 +150,7 @@ export default function MethodologyPage() {
             {chatgptProblems.map((problem) => (
               <div
                 key={problem.title}
-                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/70"
+                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/60"
               >
                 <h3 className="font-semibold text-primary mb-1.5">
                   {problem.title}
@@ -177,7 +177,7 @@ export default function MethodologyPage() {
             {methodologySteps.map((step) => (
               <div
                 key={step.number}
-                className="relative bg-[#fefcf9] rounded-xl border border-stone-200/70 overflow-hidden"
+                className="relative bg-[#fefcf9] rounded-xl border border-stone-200/60 overflow-hidden"
                 style={{ borderLeftWidth: "4px", borderLeftColor: step.color }}
               >
                 <div className="p-5 md:p-6">
@@ -232,7 +232,7 @@ export default function MethodologyPage() {
             Multiple models, independent evaluation, aggregated results.
           </p>
 
-          <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] rounded-2xl border border-stone-200/70 p-8 md:p-12">
+          <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] rounded-2xl border border-stone-200/60 p-8 md:p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {[
                 { name: "Claude", label: "Judge 1" },
@@ -242,7 +242,7 @@ export default function MethodologyPage() {
               ].map((judge) => (
                 <div
                   key={judge.name}
-                  className="flex flex-col items-center p-4 rounded-xl bg-white border border-stone-200/70 shadow-sm"
+                  className="flex flex-col items-center p-4 rounded-xl bg-white border border-stone-200/60 shadow-sm"
                 >
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4f7b77]/20 to-[#4f7b77]/5 flex items-center justify-center mb-2">
                     <span className="font-serif text-sm font-bold text-deep">{judge.name[0]}</span>
@@ -295,7 +295,7 @@ export default function MethodologyPage() {
             {evidenceDimensions.map((dim) => (
               <div
                 key={dim.name}
-                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/70"
+                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/60"
                 style={{ borderLeftWidth: "4px", borderLeftColor: dim.color }}
               >
                 <div className="flex items-center justify-between mb-3">
@@ -328,7 +328,7 @@ export default function MethodologyPage() {
             model&apos;s opinion.
           </p>
 
-          <div className="bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/70 mb-6">
+          <div className="bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/60 mb-6">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
                 <span className="font-mono text-sm font-bold text-deep">f(x)</span>
@@ -358,7 +358,7 @@ export default function MethodologyPage() {
                   50-89%
                 </span>
                 <div className="flex-1 h-2 bg-stone-200/50 rounded-full overflow-hidden">
-                  <div className="h-full w-[65%] bg-gradient-to-r from-[#C4613C] to-[#b05434] rounded-full" />
+                  <div className="h-full w-[65%] bg-gradient-to-r from-rust-500 to-rust-600 rounded-full" />
                 </div>
                 <p className="text-sm text-stone-600 w-48">
                   <strong className="text-stone-900">Probable</strong> — Good evidence, some uncertainty
@@ -380,7 +380,7 @@ export default function MethodologyPage() {
         </section>
 
         {/* What This Means */}
-        <section className="mb-16 md:mb-24 border border-stone-200/70 rounded-2xl p-8 md:p-10">
+        <section className="mb-16 md:mb-24 border border-stone-200/60 rounded-2xl p-8 md:p-10">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-6">
             What this means for you
           </h2>

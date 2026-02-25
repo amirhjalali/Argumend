@@ -1,16 +1,30 @@
 export interface FAQ {
   question: string;
   answer: string;
+  linkText?: string;
+  linkHref?: string;
 }
 
 export const faqs: FAQ[] = [
   {
+    question: "What is argument mapping?",
+    answer: "Argument mapping is a way to visually lay out the structure of a debate: the core claim, the strongest objections, the best responses, and the evidence behind each. Argumend does this for controversial topics so you can see where the real disagreement lives, not just who is louder.",
+  },
+  {
     question: "What is Argumend?",
     answer: "A tool for understanding why people disagree. We break controversial topics into their core claims, find the crux of each disagreement, and show you how confident the evidence makes us. Think of it as a map of the argument, not another place to have one.",
+    linkText: "Browse all topics",
+    linkHref: "/topics",
+  },
+  {
+    question: "Is Argumend free?",
+    answer: "Yes. All curated topics, argument maps, and the analysis tool are free to use. No account required to browse. You only need to sign in if you want to save your own analyses.",
   },
   {
     question: "How are confidence scores calculated?",
     answer: "Confidence scores reflect the weight of evidence and expert consensus on a topic. A score of 95%+ indicates a settled question with overwhelming evidence (like anthropogenic climate change or the moon landing). Scores around 50% indicate genuinely contested questions where reasonable people can disagree (like certain interpretations of quantum mechanics or the nature of consciousness). For curated topics, the confidence score is a weighted composite of all evidence items across the topic\u2019s analytical pillars. Each evidence item is scored on four dimensions\u2014source reliability, independence, replicability, and directness\u2014giving a maximum of 40 points per item. The balance between supporting and opposing evidence, combined with the verification status of crux questions, produces the final percentage. For user-submitted analyses, the AI judge council assigns strength scores on a 1\u201310 scale based on logical coherence, evidentiary support, and rhetorical quality.",
+    linkText: "Full methodology",
+    linkHref: "/methodology",
   },
   {
     question: "What is a 'crux'?",
@@ -30,7 +44,9 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Can I suggest a topic?",
-    answer: "Yes! We welcome topic suggestions from the community. Good candidates are claims that (1) have strong arguments on multiple sides, (2) involve empirical or logical questions rather than pure opinion, (3) have testable cruxes, and (4) would benefit from structured breakdown. Visit the Community page for submission guidelines on how to contribute.",
+    answer: "Yes! We welcome topic suggestions from the community. Good candidates are claims that (1) have strong arguments on multiple sides, (2) involve empirical or logical questions rather than pure opinion, (3) have testable cruxes, and (4) would benefit from structured breakdown.",
+    linkText: "Community & contribution guidelines",
+    linkHref: "/community",
   },
   {
     question: "Why do some topics show 'theoretical' verification status?",
@@ -62,7 +78,9 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Can I use Argumend in my classroom?",
-    answer: "Please do. Use curated topics to show how debates decompose into testable claims, or have students submit their own texts for analysis. We\u2019ve seen it work well for teaching critical thinking and evidence evaluation. Check the For Educators page for lesson ideas.",
+    answer: "Please do. Use curated topics to show how debates decompose into testable claims, or have students submit their own texts for analysis. Works well for IB Theory of Knowledge, AP Government, A-Level Critical Thinking, and any course where evidence-based reasoning matters.",
+    linkText: "Lesson plans & educator resources",
+    linkHref: "/for-educators",
   },
   {
     question: "What\u2019s the difference between a crux and a key question?",

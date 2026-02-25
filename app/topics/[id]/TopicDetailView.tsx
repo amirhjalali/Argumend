@@ -29,6 +29,7 @@ import {
   UserX,
   UserCheck,
   BarChart3,
+  GraduationCap,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { ShareButtons } from "@/components/ShareButtons";
@@ -41,7 +42,7 @@ import type {
   Crux,
 } from "@/lib/schemas/topic";
 import { calculateEvidenceScore, getVerdictLabel } from "@/lib/schemas/topic";
-import { CATEGORY_LABELS } from "@/data/topics";
+import { CATEGORY_LABELS } from "@/data/topicIndex";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -120,14 +121,22 @@ function confidenceColor(score: number): string {
 function WeightBar({ value, max = 10 }: { value: number; max?: number }) {
   const pct = Math.round((value / max) * 100);
   return (
-    <div className="flex items-center gap-2">
+    <div
+      className="flex items-center gap-2"
+      role="meter"
+      aria-valuenow={value}
+      aria-valuemin={0}
+      aria-valuemax={max}
+      aria-label={`Weight: ${value} out of ${max}`}
+    >
       <div className="h-2 flex-1 rounded-full bg-stone-200/80 overflow-hidden">
         <div
-          className="h-full rounded-full bg-[#4f7b77] transition-all duration-300"
+          className="h-full rounded-full bg-deep-light transition-all duration-300"
           style={{ width: `${pct}%` }}
+          aria-hidden="true"
         />
       </div>
-      <span className="text-[11px] font-mono text-stone-500 w-7 text-right tabular-nums">
+      <span className="text-xs font-mono text-stone-500 w-7 text-right tabular-nums">
         {value}/{max}
       </span>
     </div>
@@ -168,7 +177,7 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
               {evidence.title}
             </h4>
             <span
-              className={`inline-flex items-center gap-1 text-[11px] font-mono tabular-nums flex-shrink-0 px-1.5 py-0.5 rounded-md border ${
+              className={`inline-flex items-center gap-1 text-xs font-mono tabular-nums flex-shrink-0 px-1.5 py-0.5 rounded-md border ${
                 isFor
                   ? "bg-emerald-50 text-emerald-600 border-emerald-200/60"
                   : "bg-red-50 text-red-500 border-red-200/60"
@@ -185,33 +194,33 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
       </div>
 
       {/* Weight breakdown */}
-      <div className="grid grid-cols-2 gap-x-4 gap-y-2 pl-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 pl-0 sm:pl-10">
         <div>
-          <span className="text-[11px] font-medium text-stone-400">Source Reliability</span>
+          <span className="text-xs font-medium text-stone-500">Source Reliability</span>
           <WeightBar value={evidence.weight.sourceReliability} />
         </div>
         <div>
-          <span className="text-[11px] font-medium text-stone-400">Independence</span>
+          <span className="text-xs font-medium text-stone-500">Independence</span>
           <WeightBar value={evidence.weight.independence} />
         </div>
         <div>
-          <span className="text-[11px] font-medium text-stone-400">Replicability</span>
+          <span className="text-xs font-medium text-stone-500">Replicability</span>
           <WeightBar value={evidence.weight.replicability} />
         </div>
         <div>
-          <span className="text-[11px] font-medium text-stone-400">Directness</span>
+          <span className="text-xs font-medium text-stone-500">Directness</span>
           <WeightBar value={evidence.weight.directness} />
         </div>
       </div>
 
       {evidence.reasoning && (
-        <p className="text-xs text-stone-500 italic mt-3 pl-10">
+        <p className="text-xs text-stone-500 italic mt-3 pl-0 sm:pl-10">
           {evidence.reasoning}
         </p>
       )}
 
       {evidence.source && (
-        <div className="mt-2.5 pl-10">
+        <div className="mt-2.5 pl-0 sm:pl-10">
           {evidence.sourceUrl ? (
             <a
               href={evidence.sourceUrl}
@@ -223,7 +232,7 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
               <ExternalLink className="h-3 w-3" />
             </a>
           ) : (
-            <span className="text-xs text-stone-400">Source: {evidence.source}</span>
+            <span className="text-xs text-stone-500">Source: {evidence.source}</span>
           )}
         </div>
       )}
@@ -241,15 +250,15 @@ function CruxCard({ crux }: { crux: Crux }) {
 
   return (
     <div className="rounded-lg border border-deep/20 bg-[#4f7b77]/[0.03] p-5 shadow-sm">
-      <div className="flex items-center gap-2.5 mb-3">
+      <div className="flex flex-wrap items-center gap-2.5 mb-3">
         <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center">
           <FlaskConical className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
         </div>
-        <h4 className="font-serif text-base font-semibold text-primary">
+        <h4 className="font-serif text-base font-semibold text-primary flex-1 min-w-0">
           Crux: {crux.title}
         </h4>
         <span
-          className={`ml-auto text-[11px] font-medium px-2.5 py-0.5 rounded-full border inline-flex items-center gap-1 ${verification.bg} ${verification.text} ${
+          className={`ml-auto text-xs font-medium px-2.5 py-0.5 rounded-full border inline-flex items-center gap-1 ${verification.bg} ${verification.text} ${
             isTestable ? "ring-1 ring-emerald-300/50" : ""
           }`}
         >
@@ -264,17 +273,17 @@ function CruxCard({ crux }: { crux: Crux }) {
 
       <div className="space-y-3">
         <div>
-          <span className="text-xs font-medium text-stone-400 uppercase tracking-widest">
+          <span className="text-xs font-medium text-stone-500 uppercase tracking-widest">
             Methodology
           </span>
-          <p className="text-sm text-stone-700 leading-relaxed mt-1.5 bg-white/60 rounded-lg p-4 border border-stone-200/50 font-mono text-[13px]">
+          <p className="text-sm text-stone-700 leading-relaxed mt-1.5 bg-white/60 rounded-lg p-4 border border-stone-200/50 font-mono text-[13px] break-words">
             {crux.methodology}
           </p>
         </div>
 
         <div className="flex items-center gap-4">
           <div>
-            <span className="text-xs font-medium text-stone-400 uppercase tracking-widest">
+            <span className="text-xs font-medium text-stone-500 uppercase tracking-widest">
               Cost to Verify
             </span>
             <p className="text-sm text-stone-700 mt-0.5">{crux.cost_to_verify}</p>
@@ -349,7 +358,7 @@ function PillarSection({
       {/* Evidence */}
       {(forEvidence.length > 0 || againstEvidence.length > 0) && (
         <div className="mb-5">
-          <h4 className="text-sm font-medium text-stone-400 uppercase tracking-widest mb-3">
+          <h4 className="text-sm font-medium text-stone-500 uppercase tracking-widest mb-3">
             Evidence ({(pillar.evidence ?? []).length} items)
           </h4>
           <div className="space-y-3">
@@ -392,17 +401,25 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
       {/* Confidence bar */}
       <div className="mb-3">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-[10px] font-medium text-stone-400 uppercase tracking-widest">
+          <span className="text-[11px] font-medium text-stone-500 uppercase tracking-widest">
             Confidence
           </span>
           <span className="font-mono text-xs tabular-nums text-stone-600 font-semibold">
             {topic.confidence_score}%
           </span>
         </div>
-        <div className="h-1.5 rounded-full bg-stone-200/80 overflow-hidden">
+        <div
+          className="h-1.5 rounded-full bg-stone-200/80 overflow-hidden"
+          role="meter"
+          aria-valuenow={topic.confidence_score}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={`Confidence: ${topic.confidence_score}%`}
+        >
           <div
-            className="h-full rounded-full bg-[#4f7b77] transition-all duration-300"
+            className="h-full rounded-full bg-deep-light transition-all duration-300"
             style={{ width: `${confPct}%` }}
+            aria-hidden="true"
           />
         </div>
       </div>
@@ -411,13 +428,13 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
         <div className="flex flex-wrap items-center gap-1.5">
           {/* Category pill */}
           <span
-            className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium border capitalize ${categoryColors[topic.category]}`}
+            className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border capitalize ${categoryColors[topic.category]}`}
           >
             {CATEGORY_LABELS[topic.category]}
           </span>
           {/* Status pill */}
           <span
-            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium border ${statusColors[topic.status]}`}
+            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium border ${statusColors[topic.status]}`}
           >
             <StatusIcon className="h-3 w-3" />
             {statusLabels[topic.status]}
@@ -436,11 +453,13 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
 interface TopicDetailViewProps {
   topic: Topic;
   relatedTopics: Topic[];
+  crossCategoryTopics?: Topic[];
 }
 
 export default function TopicDetailView({
   topic,
   relatedTopics,
+  crossCategoryTopics = [],
 }: TopicDetailViewProps) {
   const StatusIcon = statusIcons[topic.status];
   const totalEvidence = topic.pillars.reduce(
@@ -461,22 +480,19 @@ export default function TopicDetailView({
 
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#f4f1eb]">
+      <div className="min-h-screen bg-[#f4f1eb] overflow-x-hidden">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-sm text-stone-400 mb-6">
-            <Link
-              href="/topics"
-              className="hover:text-deep transition-colors"
-            >
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-stone-500 mb-6">
+            <Link href="/" className="text-deep hover:text-deep-dark transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <Link href="/topics" className="text-deep hover:text-deep-dark transition-colors">
               Topics
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="capitalize">
-              {CATEGORY_LABELS[topic.category]}
-            </span>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-stone-600 truncate max-w-[200px]">
+            <span className="text-stone-600 truncate max-w-[260px]">
               {topic.title}
             </span>
           </nav>
@@ -530,26 +546,26 @@ export default function TopicDetailView({
                 <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
                   {topic.pillars.length}
                 </span>
-                <span className="text-xs text-stone-400">Pillars</span>
+                <span className="text-xs text-stone-500">Pillars</span>
               </div>
               <div className="text-center">
                 <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
                   {totalEvidence}
                 </span>
-                <span className="text-xs text-stone-400">Evidence Items</span>
+                <span className="text-xs text-stone-500">Evidence Items</span>
               </div>
               <div className="text-center">
                 <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
                   {topic.pillars.length}
                 </span>
-                <span className="text-xs text-stone-400">Crux Questions</span>
+                <span className="text-xs text-stone-500">Crux Questions</span>
               </div>
               {topic.references && (
                 <div className="text-center">
                   <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
                     {topic.references.length}
                   </span>
-                  <span className="text-xs text-stone-400">References</span>
+                  <span className="text-xs text-stone-500">References</span>
                 </div>
               )}
             </div>
@@ -558,7 +574,7 @@ export default function TopicDetailView({
           {/* ── Scan View ── */}
           <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
             {/* Section label */}
-            <p className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-5">
+            <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-5">
               30-Second Summary
             </p>
 
@@ -568,7 +584,7 @@ export default function TopicDetailView({
               <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#4f7b77]/20 rounded-tl-xl" />
               <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#4f7b77]/20 rounded-br-xl" />
 
-              <div className="inline-flex items-center gap-5">
+              <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5">
                 <span
                   className={`text-5xl sm:text-6xl font-mono font-bold tabular-nums leading-none ${
                     topic.confidence_score >= 85
@@ -582,7 +598,7 @@ export default function TopicDetailView({
                 >
                   {topic.confidence_score}%
                 </span>
-                <div className="flex flex-col items-start gap-1.5">
+                <div className="flex flex-col items-center sm:items-start gap-1.5">
                   <span
                     className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium border ${statusColors[topic.status]}`}
                   >
@@ -634,7 +650,7 @@ export default function TopicDetailView({
                     </p>
                     <div className="flex items-center justify-between">
                       <span
-                        className={`inline-flex items-center text-[10px] font-medium px-1.5 py-0.5 rounded-full border ${cruxVerif.bg} ${cruxVerif.text}`}
+                        className={`inline-flex items-center text-[11px] font-medium px-1.5 py-0.5 rounded-full border ${cruxVerif.bg} ${cruxVerif.text}`}
                       >
                         {cruxVerif.label}
                       </span>
@@ -647,7 +663,7 @@ export default function TopicDetailView({
 
             {/* Part C: Evidence Snapshot */}
             <div className="mb-8">
-              <h3 className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-3">
+              <h3 className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-3">
                 Evidence Balance
               </h3>
               <div className="flex items-center gap-3">
@@ -706,7 +722,7 @@ export default function TopicDetailView({
             {/* Part 1: The Prompt */}
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
-              <span className="text-xs font-medium text-stone-400 uppercase tracking-widest">
+              <span className="text-xs font-medium text-stone-500 uppercase tracking-widest">
                 Before you dive in&hellip;
               </span>
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
@@ -772,7 +788,7 @@ export default function TopicDetailView({
                   <div className="pt-4 border-t border-stone-200/60">
                     {stance === "agree" && (
                       <>
-                        <p className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-2">
+                        <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-2">
                           The strongest challenge to your position:
                         </p>
                         <blockquote className="border-l-2 border-deep pl-4 mb-3">
@@ -788,7 +804,7 @@ export default function TopicDetailView({
 
                     {stance === "disagree" && (
                       <>
-                        <p className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-2">
+                        <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-2">
                           The strongest defense of the claim:
                         </p>
                         <blockquote className="border-l-2 border-rust-500 pl-4 mb-3">
@@ -805,7 +821,7 @@ export default function TopicDetailView({
                     {stance === "unsure" && (
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <p className="text-xs font-medium text-stone-400 uppercase tracking-widest mb-2">
+                          <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-2">
                             Against
                           </p>
                           <blockquote className="border-l-2 border-deep pl-4">
@@ -953,16 +969,58 @@ export default function TopicDetailView({
             </section>
           )}
 
+          {/* Cross-Category Related Topics */}
+          {crossCategoryTopics.length > 0 && (
+            <section className="mb-8">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+                You might also find relevant
+              </h2>
+              <p className="text-sm text-stone-500 mb-5">
+                Related debates from other categories that share underlying themes with this topic.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {crossCategoryTopics.map((rt) => (
+                  <RelatedTopicCard key={rt.id} topic={rt} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Methodology & Educator Callouts */}
+          <section className="mb-8 space-y-3">
+            <div className="flex items-start gap-3 rounded-lg border border-stone-200/60 bg-stone-50/50 px-5 py-4">
+              <Scale className="h-4 w-4 text-deep mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-stone-500 leading-relaxed">
+                <span className="font-medium text-stone-600">How we analyze:</span>{" "}
+                Our{" "}
+                <Link href="/methodology" className="text-deep hover:underline underline-offset-2">
+                  methodology
+                </Link>{" "}
+                explains how arguments are structured and evidence is weighted.
+              </p>
+            </div>
+            <div className="flex items-start gap-3 rounded-lg border border-stone-200/60 bg-stone-50/50 px-5 py-4">
+              <GraduationCap className="h-4 w-4 text-deep mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-stone-500 leading-relaxed">
+                <span className="font-medium text-stone-600">Teaching this topic?</span>{" "}
+                See our{" "}
+                <Link href="/for-educators" className="text-deep hover:underline underline-offset-2">
+                  resources for educators
+                </Link>.
+              </p>
+            </div>
+          </section>
+
           {/* Footer */}
           <div className="pt-6 border-t border-stone-200/60">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <Link
                 href="/topics"
-                className="text-sm text-deep hover:underline"
+                className="text-sm text-deep hover:underline py-2 min-h-[44px] inline-flex items-center"
               >
                 &larr; Back to all topics
               </Link>
-              <p className="text-xs text-stone-400 italic">
+              <p className="text-xs text-stone-500 italic">
                 Data-driven analysis. Question everything.
               </p>
             </div>
