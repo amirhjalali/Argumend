@@ -542,7 +542,7 @@ function DebatePreviewSection({ topicId }: { topicId: string }) {
 
   if (!hasDebate) {
     return (
-      <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 text-center">
+      <section id="ai-debate" className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider border border-stone-200/50 mb-4">
           <Swords className="h-3.5 w-3.5" />
           AI Debate
@@ -578,7 +578,7 @@ function DebatePreviewSection({ topicId }: { topicId: string }) {
   const visibleMessages = expanded ? messages : messages.filter((m) => m.round === 1);
 
   return (
-    <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+    <section id="ai-debate" className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
       {/* Header */}
       <div className="text-center mb-6">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider border border-stone-200/50 mb-4">
@@ -831,6 +831,17 @@ export default function TopicDetailView({
                   </span>
                   <span className="text-xs text-stone-500">References</span>
                 </div>
+              )}
+
+              {/* Watch Debate button — visible in stats row */}
+              {hasMockDebate(topic.id) && (
+                <a
+                  href="#ai-debate"
+                  className="ml-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm self-center"
+                >
+                  <Swords className="h-3.5 w-3.5" />
+                  Watch Debate
+                </a>
               )}
             </div>
           </header>
