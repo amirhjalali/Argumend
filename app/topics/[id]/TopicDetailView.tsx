@@ -48,8 +48,10 @@ import type {
 import { calculateEvidenceScore, getVerdictLabel } from "@/lib/schemas/topic";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import { hasMockDebate, getMockDebate } from "@/data/mockDebates";
+import { getMockVerdict } from "@/data/mockVerdicts";
 import type { DebateMessage } from "@/types/debate";
 import { getLLMOption, ClaudeIcon } from "@/components/icons/LLMIcons";
+import { JudgingResults } from "@/components/JudgingResults";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -566,6 +568,7 @@ function DebatePreviewSection({ topicId }: { topicId: string }) {
   }
 
   const messages = getMockDebate(topicId);
+  const verdict = getMockVerdict(topicId);
   const forMsg = messages.find((m) => m.side === "for");
   const againstMsg = messages.find((m) => m.side === "against");
   const forLlm = getLLMOption(forMsg?.model ?? "claude");
@@ -648,8 +651,15 @@ function DebatePreviewSection({ topicId }: { topicId: string }) {
         </div>
       )}
 
+      {/* Judge Council Verdict */}
+      {verdict && (
+        <div className="mt-8 pt-6 border-t border-stone-200/60">
+          <JudgingResults result={verdict} />
+        </div>
+      )}
+
       {/* Link to interactive debate */}
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-6">
         <Link
           href={`/?topic=${topicId}&view=debate`}
           className="inline-flex items-center gap-2 text-sm text-deep hover:text-deep-dark transition-colors"
