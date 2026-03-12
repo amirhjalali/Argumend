@@ -1066,6 +1066,206 @@ export const MOCK_DEBATES: Record<string, DebateMessage[]> = {
       round: 3,
     },
   ],
+  "minimum-wage-effects": [
+    {
+      id: "minwage-1",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "The federal minimum wage has been frozen at $7.25 since 2009 \u2014 the longest period without an increase in its history. Adjusted for inflation, the minimum wage has lost over 30% of its purchasing power since its 1968 peak. Meanwhile, worker productivity has roughly doubled. The disconnect between productivity and wages is not an accident; it is the result of policy choices that can be reversed.\n\nThe evidence on $15 minimum wages is now extensive. A comprehensive UC Berkeley study across multiple states and cities found significant earnings increases with no detectable reduction in employment. The Congressional Budget Office's 2021 analysis estimated that a $15 federal minimum wage would lift 900,000 people out of poverty and increase wages for 17 million workers. The employment effects were modest: CBO estimated 1.4 million fewer jobs, but their own report acknowledges there is a one-third probability of no job losses at all.\n\nThe macroeconomic benefits of higher minimum wages are underappreciated. Low-wage workers spend virtually all of their additional income, creating a multiplier effect that stimulates local economies. The Economic Policy Institute estimates that a $15 minimum wage would generate $144 billion in higher wages annually, with significant portions flowing back into consumer spending, sales tax revenue, and reduced demand for public assistance programs like SNAP and Medicaid.",
+      round: 1,
+    },
+    {
+      id: "minwage-2",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "The small-business story is where this policy breaks down, because labor-cost shocks do not hit firms equally. Chava, Oettl, and Singh studied roughly 15.2 million establishments and found that federal minimum wage hikes worsened the financial health of small businesses in affected states, with lower employment, lower entry, higher exit, less bank credit, and more loan defaults. Dara Lee Luca and Michael Luca found that a $1 minimum wage increase raised the exit probability of the median-rated restaurant by about 10 percent. The policy does not just \"stimulate demand\"; it accelerates consolidation toward firms with scale, automation, and pricing power, while the marginal local employer disappears.\n\nThe poverty claim is also much weaker than the affirmative suggests. Burkhauser, McNichols, and Sabia's 2023 NBER paper finds no robust long-run poverty reduction from minimum wage hikes and reports that fewer than 10 percent of workers who would be affected by a $15 federal minimum wage live in poor families. This is a very blunt anti-poverty tool. Clemens and Wither found that binding federal minimum wage increases reduced both employment and income growth for low-skilled workers, partly because workers lost jobs, hours, and on-the-job experience.\n\nMost importantly, a federal $15 floor ignores regional variation. A wage absorbable in a high-productivity coastal metro is far more disruptive in lower-wage states and small-city labor markets. Todd and Zhang's spatial general-equilibrium model estimates that the welfare-maximizing universal minimum is about $12.75, not $15. A one-size-fits-all mandate overreaches, harms small firms, reduces entry-level opportunity, and targets poverty less effectively than policies like the EITC or wage subsidies.",
+      round: 1,
+    },
+    {
+      id: "minwage-3",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "My opponent's job loss estimates rely on the CBO's central estimate of 1.4 million \u2014 but CBO's own report acknowledges there is a one-third probability of no job losses at all. The most rigorous empirical studies \u2014 Dube, Lester, and Reich's border-county comparisons \u2014 consistently find minimal employment effects from minimum wage increases. The employment effects my opponent fears are largely theoretical, not observed.\n\nOn small businesses, the restaurant exit study reflects the unique fragility of that sector, not the economy broadly. Most businesses absorb minimum wage increases through modest price increases (typically 0.4-4%), reduced turnover costs, and improved worker productivity. The efficiency wage literature shows that higher wages reduce absenteeism, increase effort, and lower the costly cycle of hiring and training.\n\nThe EITC comparison is a red herring. The EITC and minimum wage are complementary, not alternatives. Lee and Saez's 2012 work shows that the optimal policy combines a minimum wage with wage subsidies. A minimum wage prevents employers from capturing EITC benefits through lower wages, ensuring that public subsidies flow to workers rather than subsidizing employers who pay poverty wages.",
+      round: 2,
+    },
+    {
+      id: "minwage-4",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "My opponent is mischaracterizing the CBO. The 1.4 million figure is not the \"most pessimistic\" case; it is the central estimate. And a one-third chance of no job loss still means a two-thirds chance that jobs do disappear. When government sets a national wage floor far above the productivity of many entry-level workers, somebody bears that cost: fewer hours, fewer openings, more automation, or higher prices. The workers most at risk are the least experienced and least advantaged.\n\nThe border-county studies mostly examine smaller, incremental increases, not a uniform jump to $15 across very different labor markets in Mississippi, Alabama, and New York City. That is the core flaw: treating a national mandate as if local conditions do not matter. Evidence that modest local increases sometimes have small effects does not prove that a large federal increase will be harmless everywhere.\n\nOn business effects, the affirmative wants it both ways. If firms absorb the cost through prices, then consumers pay more and the real gain to low-income households shrinks. If they absorb it through \"productivity,\" that usually means fewer workers doing more work. The small-business concern is not confined to restaurants \u2014 Chava and coauthors find that minimum wage hikes tighten financial constraints and increase exit risk for vulnerable firms.\n\nThe poverty claim remains weak. Burkhauser's work shows fewer than 10% of affected workers are in poor families. The EITC is targeted to low-income households, scales with family need, and does not risk pricing workers out of the market. Given the real risk of job loss, the regional mismatch, the burden on small businesses, and the poor targeting of benefits, the answer is no.",
+      round: 2,
+    },
+    {
+      id: "minwage-5",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "The status quo is a $7.25 wage that has lost 30% of purchasing power. Workers cannot wait for the perfect policy. CBO's own analysis shows the benefits outweigh costs: 17 million workers get raises while 1.4 million may lose jobs. The net effect is positive. Regional variation is solved by indexing to local cost of living. And the EITC alone subsidizes poverty wages \u2014 it needs a minimum wage floor to function properly.\n\nThe efficiency wage evidence is clear: higher wages reduce turnover, increase productivity, and decrease the need for public assistance. States that have already raised their minimums to $15 \u2014 including California, New York, and Washington \u2014 have not experienced the economic catastrophe opponents predicted. Employment in these states has been robust.\n\nThe moral case is simple: no one working full-time should live in poverty. At $7.25 an hour, a full-time worker earns $15,080 per year \u2014 below the federal poverty line for a family of two. A $15 minimum wage would bring that to $31,200, a meaningful improvement for millions of working families.",
+      round: 3,
+    },
+    {
+      id: "minwage-6",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "The poverty case is much weaker than FOR suggests. Yes, the CBO estimated some poverty reduction, but even that came alongside large employment losses, and our side showed why the policy is poorly targeted: fewer than 10% of affected workers are in poor families. That means a large share of the benefits go to people above the poverty line, while the costs fall hardest on marginal workers, young workers, and those with the weakest bargaining power. Poverty is not meaningfully solved by giving some workers a raise while pushing others out of work entirely.\n\nFOR's final rebuttal actually concedes our point. If \"regional variation is solved by indexing to local cost of living,\" then they are no longer defending a simple national $15 floor; they are admitting that a one-size-fits-all federal mandate does not fit very different labor markets. The answer to low wages is not a blunt federal price control that risks unemployment; it is better-targeted tools like the EITC and wage supports that raise take-home pay without eliminating jobs.\n\nAt the end of this debate, FOR did not prove the resolution. They showed a tradeoff. We showed that the tradeoff is too costly, too poorly targeted, and too risky for the workers most vulnerable to being left behind. If a policy can reduce opportunity, accelerate small business exits, mismatch regional economies, and miss most poor families, it is not the right anti-poverty tool and it is not a net benefit to the economy. Vote AGAINST.",
+      round: 3,
+    },
+  ],
+  "immigration-wage-impact": [
+    {
+      id: "immigration-1",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "The economic consensus on immigration's labor market effects has converged remarkably. The National Academy of Sciences' landmark 2017 report concluded that immigration has an overall positive impact on long-run economic growth. Immigrants complement rather than substitute for native workers: they fill gaps at both the high-skill and low-skill ends of the labor market, enabling native workers to move into higher-paying supervisory and communication-intensive roles.\n\nThe evidence shows minimal negative wage effects even for the most vulnerable native workers. Card's seminal study found that the Mariel boatlift \u2014 which increased Miami's labor force by 7% overnight \u2014 had no significant effect on wages or unemployment of native workers. Meta-analyses by Longhi, Nijkamp, and Poot covering 45 primary studies found immigration's wage effects were essentially zero. Peri and Sparber's work demonstrates that immigration induces native workers to specialize in tasks requiring communication, management, and coordination skills, where wages are higher.\n\nThe fiscal contribution strengthens the case. Immigrants pay approximately $405 billion in taxes annually. The CBO's analysis of the 2013 immigration reform bill projected it would reduce the federal deficit by $197 billion over 10 years and increase GDP by 3.3%. H-1B workers contribute to innovation: immigrants file patents at twice the rate of native-born Americans and have co-founded 55% of US unicorn startups.",
+      round: 1,
+    },
+    {
+      id: "immigration-2",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "Once you stop averaging everybody together, the harm becomes clear. Borjas uses national skill groups defined by education and experience and finds that a 10 percent increase in labor supply reduces the wages of competing workers by 3 to 4 percent. Borjas, Grogger, and Hanson find that a 10 percent immigration-induced increase in labor supply for a skill group reduced black male wages by 2.5 percent and lowered employment by 5.9 percentage points. Dustmann, Frattini, and Preston similarly find immigration depresses wages at the bottom of the wage distribution while slightly raising them higher up. The benefits are not evenly shared, and the costs are concentrated on the workers with the least bargaining power.\n\nThe Mariel evidence is much weaker than presented. Card's result comes from broad city-level averages, but Borjas's reappraisal focuses on the actual closest substitutes \u2014 high school dropouts \u2014 and finds wage declines in Miami in the 10 to 30 percent range. At minimum, Mariel is contested, not dispositive. The same problem applies to meta-analyses that average dozens of studies together: if immigration helps high-skill natives, barely affects some middle groups, and hurts the lowest-skill natives, the average can look \"close to zero\" while real people at the bottom still lose.\n\nThe complementarity story proves our point. Peri and Sparber's task-specialization mechanism says some natives move into communication-intensive or supervisory jobs. But who can do that? Usually more educated, more mobile workers \u2014 not the native-born dropout, the low-skill black worker, or the low-skill Hispanic worker facing direct competition. The aggregation is doing all the work: it counts gains at the top to erase losses at the bottom. That is not a net positive case; that is an admission that the harms are concentrated, predictable, and hidden by the average.",
+      round: 1,
+    },
+    {
+      id: "immigration-3",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "Borjas's Mariel reappraisal has been thoroughly challenged. Peri and Yasenov's 2019 reanalysis in ILR Review found that Borjas's results were driven by a small, noisy sample of just 17 high school dropouts in Miami and were not robust to reasonable sample choices. Clemens and Hunt showed the same thing. The broader literature \u2014 including the National Academy of Sciences' consensus report \u2014 sides with minimal aggregate effects.\n\nOn distributional effects: yes, low-skill natives face more competition from low-skill immigrants. But even here, the effects are small and temporary. Immigrants and natives are not perfect substitutes. Ottaviano and Peri's model, which accounts for imperfect substitutability, finds that immigration raised the average wage of native workers by 0.6% between 1990 and 2006, with only high school dropouts experiencing a small 0.7% decline.\n\nThe dynamic effects dominate the static ones. Immigrants start businesses at higher rates than natives, creating jobs. They contribute to innovation, particularly in STEM fields. They increase demand for goods and services, expanding the overall economic pie rather than just dividing the existing one. The lump of labor fallacy \u2014 the idea that there are a fixed number of jobs to divide \u2014 has been rejected by economists for over a century.",
+      round: 2,
+    },
+    {
+      id: "immigration-4",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "The distributional point is not a side issue; it is the core issue. The FOR side concedes that the natives most similar to low-skill immigrants face the strongest competition. Ottaviano and Peri still find losses for high school dropouts. That matters because averaging a gain at the top with a loss at the bottom does not prove the labor market is working better for native-born workers as a whole in any meaningful sense.\n\nTheir appeal to \"imperfect substitutes\" does not solve the problem. It only means immigrants and natives are not identical, not that competition disappears. The task-specialization story concedes adjustment pressure: natives shift occupations, tasks, or locations because immigration changes the competitive environment. That can mean lower wages, fewer hours, slower wage growth, or occupational downgrading for the natives closest to the new labor supply.\n\nFinally, the entrepreneurship, innovation, and demand arguments are too diffuse and selective to rescue the resolution. High-skill immigrant patents and startup formation do not negate wage competition faced by low-skill native workers. The actual AGAINST position is narrower and more defensible: immigration may produce some aggregate gains, but the labor-market effects for native-born workers are mixed, often close to zero on average, and negative for important groups at the bottom. That is not a clear net positive.",
+      round: 2,
+    },
+    {
+      id: "immigration-5",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "The weight of evidence is clear. The NAS, multiple meta-analyses, and most labor economists agree: immigration's aggregate wage effects are near zero to slightly positive. The distributional concerns are real but small and temporary. And the dynamic benefits \u2014 innovation, entrepreneurship, fiscal contribution \u2014 make the net effect clearly positive. Our opponent fixates on one contested study while ignoring the broader consensus.\n\nThe adjustment process matters. Even when low-skill natives face initial competition, they adapt \u2014 moving to supervisory roles, communication-intensive work, or higher-productivity occupations. This adjustment is not costless, but it produces a more dynamic, productive economy. Countries with higher immigration rates tend to have higher GDP per capita growth, not lower.\n\nThe alternative \u2014 restricting immigration to protect native wages \u2014 has costs too: slower economic growth, reduced innovation, aging workforces, and unfilled positions that constrain business expansion. The net positive effect of immigration on native wages and employment is supported by the preponderance of evidence, not just theory.",
+      round: 3,
+    },
+    {
+      id: "immigration-6",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "Our side showed why averages are not enough. Borjas and related distributional work matter precisely because labor markets are not experienced in the aggregate. Low-skill native workers do not live inside an economy-wide mean; they compete in actual labor segments. Even with imperfect substitution, increased labor supply still creates competition, and the costs fall hardest on the most vulnerable natives. If a policy leaves college-educated workers unharmed while imposing wage pressure on poorer native-born workers, calling that a \"net positive\" is at best incomplete and at worst misleading.\n\nThe FOR side says these harms are small and temporary. But that is exactly the point under dispute, not an answer to it. The existence of a broad consensus that average effects are modest does not erase the equally well-established fact that some groups bear real losses. Consensus about a near-zero average is not consensus for the resolution. And dynamic claims about entrepreneurship, innovation, and fiscal benefits do not automatically translate into better wages and employment outcomes for the native-born workers most exposed to direct labor competition.\n\nSo the cleanest conclusion is this: the evidence does not support a confident claim that immigration is net positive for native-born wages and employment. At best, the aggregate effect is ambiguous and modest; at worst, it masks concentrated harms to low-skill natives that are economically and morally significant. When the affirmative case depends on averaging away the losers, they have not proven the resolution. Vote AGAINST.",
+      round: 3,
+    },
+  ],
+  "factory-farming-ban": [
+    {
+      id: "factory-1",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "Factory farming is the greatest source of institutionalized animal suffering in human history. Over 70 billion land animals are raised and slaughtered annually in industrial agriculture, the vast majority in concentrated animal feeding operations where animals are confined in spaces so small they cannot turn around, subjected to routine mutilation without anesthesia, and bred for growth rates so extreme they cause chronic pain and organ failure.\n\nThe environmental case is equally damning. The FAO attributes 14.5% of global greenhouse gas emissions to livestock \u2014 more than the entire transportation sector. Factory farms generate enormous volumes of waste that contaminate waterways. Antibiotic use in factory farming \u2014 roughly 70% of all medically important antibiotics sold in the US \u2014 is accelerating antimicrobial resistance, which the WHO calls one of the top ten global health threats.\n\nThe public health risks extend beyond antibiotics. Factory farms create ideal conditions for zoonotic disease emergence. The 2009 H1N1 pandemic originated in industrial pig farming. Avian influenza continues to spread through poultry operations. Concentrated animal operations expose nearby communities \u2014 disproportionately low-income communities of color \u2014 to air pollution, respiratory disease, and psychological distress. A ban on factory farming, coupled with transition support for sustainable alternatives, is not radical \u2014 it is necessary.",
+      round: 1,
+    },
+    {
+      id: "factory-2",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "A ban would create an immediate food security and affordability crisis. Factory farming exists because it produces animal protein at a scale and cost that alternative systems cannot currently match. Roughly 99% of US farm animals are raised in industrial operations. Banning those operations means either massive food price increases or a dramatic reduction in protein availability, hitting the poorest households hardest. The resolution is not whether factory farming has problems \u2014 it clearly does \u2014 but whether a ban is the right response.\n\nThe economic impact would be severe. Industrial agriculture is tied to millions of jobs across farming, feed production, trucking, processing, refrigeration, retail, and export markets. Transition support sounds reassuring, but it does not magically rebuild infrastructure, retrain workers, replace lost output, or shield families from price shocks. And because demand would not disappear, production would likely move abroad to countries with weaker welfare and environmental rules. That is not reform; that is outsourcing the problem.\n\nThe environmental argument is not as simple as \"smaller equals better.\" More extensive systems often require more land, more time, and in some cases more emissions per unit of food produced. The right answer to antibiotic misuse, manure runoff, and air pollution is targeted regulation: stricter waste controls, limits on routine antibiotic use, better ventilation, stronger inspections, and enforceable welfare standards. A total ban is a blunt instrument that creates new harms while trying to solve existing ones.",
+      round: 1,
+    },
+    {
+      id: "factory-3",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "My opponent argues a ban would create food insecurity, but ignores that factory farming itself is a food security threat. Antibiotic resistance from agricultural overuse kills 1.27 million people annually according to the Lancet. The next pandemic is more likely to originate in a factory farm than anywhere else. And monoculture dependence on a few breeds makes the food system fragile \u2014 a single disease outbreak can wipe out millions of animals, as H5N1 demonstrated by killing over 100 million birds globally in 2022-2024.\n\nA phased ban with transition support is not the same as overnight abolition. The EU has already banned battery cages and sow gestation crates, and European agriculture did not collapse. New Zealand, Switzerland, and Austria have banned the most extreme confinement practices. Higher welfare systems employ more workers per animal, produce premium products with higher margins, and reduce the externalized costs of pollution, disease, and healthcare.\n\nAs for offshore production, this is solved by import standards. The EU already blocks imports that do not meet its welfare and safety standards. A factory farming ban with corresponding border measures prevents a race to the bottom and creates market incentives for global improvement.",
+      round: 2,
+    },
+    {
+      id: "factory-4",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "The EU examples actually prove my point. Europe did not \"ban factory farming\"; it regulated specific practices at the margins while preserving intensive agriculture as the backbone of supply. That is exactly the AGAINST case: targeted regulation works better than prohibition. Once they cite battery cages and gestation crates, they have conceded the debate, because those are reforms within an existing system, not evidence that eliminating high-output animal agriculture is economically manageable.\n\nTheir import-standard answer is cleaner in theory than in practice. Border rules are difficult to verify across complex global supply chains, vulnerable to trade disputes, and tend to favor large multinational firms while squeezing out smaller producers. If domestic production falls faster than alternatives scale up, imports rise, enforcement gaps open, and consumers pay more. Food security is not only about whether food exists somewhere in the world. It is about whether ordinary people can reliably afford it.\n\nThe resolution says factory farming should be banned in favor of more humane and sustainable practices. That is a false choice. We can pursue humane and sustainable improvements without endorsing a blanket ban that risks higher prices, supply instability, and production leakage. The serious path is standards, not slogans: ban the worst abuses, cap antibiotic misuse, strengthen environmental rules, improve animal welfare, and invest in alternatives where they are viable.",
+      round: 2,
+    },
+    {
+      id: "factory-5",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "My opponent keeps advocating for reform, but that is our point \u2014 the current system requires fundamental change, not tweaking at the margins. Decades of \"targeted regulation\" have produced minimal improvement. Factory farming is expanding, not shrinking. At some point, incrementalism becomes complicity.\n\nThe numbers are stark: global meat production has increased every year for 60 years despite growing awareness of its harms. Welfare standards are routinely underenforced. Ag-gag laws in multiple US states make it illegal to even document conditions inside factory farms. The industry has demonstrated that it will not reform voluntarily, and the regulatory system has demonstrated that it cannot force adequate change.\n\nA phased ban with transition support is not utopian \u2014 it is the only path that matches the scale of the crisis. The suffering of 70 billion animals, the environmental destruction, the public health risks, and the antibiotic resistance crisis are not problems that will be solved by slightly larger cages or marginally less antibiotics. They require structural transformation.",
+      round: 3,
+    },
+    {
+      id: "factory-6",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "The FOR side says incrementalism is complicity. That sounds forceful, but it avoids the hard policy question: what replaces the volume, efficiency, and accessibility of current production in the near term? A phased ban still means reduced output, higher costs, and heavier burdens on working families first. And if demand remains while domestic production is restricted, imports fill the gap, often from places with worse standards. That is not moral progress. It is symbolic politics that exports the problem.\n\nThey also lean on Europe, but Europe's lesson is the opposite of what they claim. European countries have tightened welfare rules, emissions standards, and antibiotic controls without embracing the sweeping ban proposed here. That is because serious policymakers understand that \"factory farming\" is a broad label covering very different practices, and good policy targets concrete harms: overcrowding, inhumane confinement, routine antibiotic misuse, poor waste management, and unsafe biosecurity.\n\nSo in this final round, the burden remains unmet. The FOR side showed that agriculture needs reform; they did not prove that a ban is workable, necessary, or superior. We should reject cruelty without embracing chaos, reduce environmental damage without undermining food security, and improve the system through enforceable standards, innovation, and transition incentives. If the goal is less suffering and more sustainability, the path is smarter regulation, not an absolute ban. Vote AGAINST.",
+      round: 3,
+    },
+  ],
+  "mandatory-voting": [
+    {
+      id: "mandvote-1",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "Mandatory voting addresses the most fundamental flaw in modern democracies: the systematic underrepresentation of the poor, the young, and minorities in the electorate. In the 2020 US presidential election \u2014 which saw record turnout \u2014 only 51% of eligible voters aged 18-29 voted, compared to 72% of those over 65. Voters earning under $30,000 voted at a rate 20 percentage points lower than those earning over $150,000. This participation gap produces a government systematically more responsive to the preferences of wealthier, older, white voters.\n\nAustralia demonstrates that mandatory voting works. Since adopting compulsory voting in 1924, Australia has maintained turnout above 90% in every federal election. Research by Fowler shows that Australian compulsory voting increased turnout by 24 percentage points and shifted policy outcomes toward the preferences of lower-income voters. Belgium has had mandatory voting since 1893 with similar results.\n\nThe objection that forced voting violates freedom misunderstands civic obligation. Democracies already require jury duty, tax filing, census participation, and selective service registration. Voting is less burdensome than any of these. Moreover, most mandatory voting systems include a \"none of the above\" option or allow ballot spoiling \u2014 the obligation is to participate in the process, not to endorse any candidate. The small fine for non-voting (Australia's is approximately $20) serves as a nudge, not a coercion.",
+      round: 1,
+    },
+    {
+      id: "mandvote-2",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "The freedom argument is not a misunderstanding; it is the strongest objection. In a liberal democracy, the right not to speak is as fundamental as the right to speak. The US Supreme Court has repeatedly affirmed that compelled speech violates the First Amendment, and mandatory voting is compelled political expression. Forcing a citizen to cast a ballot \u2014 even with a \"none of the above\" option \u2014 still requires the citizen to appear, register a choice, and participate in a state-directed political act. That is coercion, however mild.\n\nIt also does not follow that more ballots means better representation. If the state forces participation from people who are disengaged, uninformed, or completely indifferent, parties do not suddenly become more substantive; they adapt by simplifying messages, leaning on branding, emotion, and misinformation. A ballot cast without knowledge is not evidence of healthier democracy. It can dilute meaningful participation and reward demagoguery.\n\nThe implementation problems are even worse in a large, unequal democracy. Who gets fined when voter rolls are outdated, addresses change, or a person is homeless, disabled, working multiple jobs, or caring for family? Small fines are not small to everyone; they become regressive penalties that fall hardest on the very groups the affirmative claims to protect.\n\nAustralia and Belgium are not proof that mandatory voting would strengthen democracy everywhere. Their political institutions, party structures, and civic culture differ significantly. The better solution is to remove barriers to voluntary participation: automatic registration, easier voting access, better civic education, and institutions that earn public trust.",
+      round: 1,
+    },
+    {
+      id: "mandvote-3",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "The \"uninformed voter\" argument is both empirically wrong and normatively dangerous. Research by Shineman in APSR found that mandatory voting increases political knowledge because people who are compelled to vote also invest more in learning about candidates and issues. Compulsory voting does not create ignorant ballots \u2014 it creates more informed electorates.\n\nOn regressive fines, Australia's system includes hardship exemptions, and the fine is approximately $20. The administrative burden is minimal because Australia also has automatic voter registration. The combination eliminates the two biggest barriers to participation at once. The \"burden on vulnerable\" argument is stronger against the current US system, where voter registration requirements, limited polling locations, and voter ID laws suppress exactly the populations we should be hearing from.\n\nThe freedom argument has it backwards. Non-voting is not a meaningful expression of political preference \u2014 it is overwhelmingly a function of barriers, fatigue, and rational ignorance, not principled abstention. Surveys consistently show that non-voters have policy preferences that differ systematically from voters. Their absence is not free expression; it is a structural failure that produces unrepresentative government.",
+      round: 2,
+    },
+    {
+      id: "mandvote-4",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "The fine is not neutral just because it is \"only\" $20 in one country. A penalty that is trivial to a professional can still matter to someone living paycheck to paycheck, juggling caregiving, unstable housing, disability, or irregular work. Hardship exemptions do not eliminate that problem; they create a bureaucracy that vulnerable people must navigate to avoid punishment. And Australia's model cannot simply be imported into the United States, where elections are decentralized across thousands of jurisdictions with very uneven capacity.\n\nThe freedom point does not disappear because some nonvoters face barriers. Many do, and those barriers should be removed. But it is a mistake to say abstention is never meaningful. In a liberal democracy, citizens have a right not only to choose among offered options, but also to withhold endorsement when they find the choices unacceptable or the system unresponsive. The state should not force political participation on the theory that disengagement is illegitimate.\n\nAnd the fact that nonvoters have distinct policy preferences is actually an argument for reducing barriers, not criminalizing nonparticipation. If the problem is exclusion, fix exclusion directly: automatic registration, expanded early voting, vote-by-mail, more polling places, clearer ballots, and less burdensome ID requirements. Those reforms broaden participation while preserving consent. Mandatory voting confuses turnout with legitimacy.",
+      round: 2,
+    },
+    {
+      id: "mandvote-5",
+      side: "for",
+      model: "claude" as LLMModel,
+      content:
+        "The bottom line is simple: voluntary systems produce governments that represent the engaged, not the public. When 40% of eligible Americans do not vote, the resulting government is structurally unrepresentative. Mandatory voting with automatic registration is the only proven way to close that gap. Every argument against it is either solvable (fines, implementation) or weaker than the democratic deficit it addresses.\n\nThe barrier-reduction approach my opponent advocates has been tried. The US has implemented motor voter registration, early voting, vote-by-mail in multiple states, and online registration \u2014 yet turnout in midterm elections remains below 50%, and the participation gap by age, income, and race persists. Voluntary reforms help at the margins but have not solved the structural problem.\n\nDemocracy means government by the people \u2014 all the people, not just the motivated subset. Mandatory voting is the most effective mechanism ever implemented to achieve universal participation. The benefits to representation, legitimacy, and policy responsiveness outweigh the modest costs of a small fine and administrative infrastructure.",
+      round: 3,
+    },
+    {
+      id: "mandvote-6",
+      side: "against",
+      model: "gpt-5" as LLMModel,
+      content:
+        "Higher turnout alone is not the same as better representation. A ballot cast under compulsion is not automatically informed, thoughtful, or meaningful. The FOR side cites knowledge effects and Australia, but those points do not answer the core problem: mandatory voting pulls more disengaged citizens into the electorate without guaranteeing deliberation. It can increase random voting, ballot exhaustion, and symbolic compliance.\n\nTheir \"solvable\" downsides are not minor details. Fines are regressive in practice. Enforcement falls hardest on people with unstable work, caregiving burdens, housing insecurity, disability, language barriers, or weak access to transportation. In a country as large and decentralized as the United States, implementation would be legally and administratively messy. Making voting easier is one thing; criminalizing nonparticipation is another.\n\nSo the choice is not between representation and apathy. It is between a democracy that earns participation and one that coerces it. The better path is to remove barriers, expand access, improve civic education, and give people reasons to believe their vote matters. Mandatory voting confuses forced turnout with democratic health. It weakens liberty, risks uninformed participation, and punishes the very people reform should protect. The resolution should be rejected.",
+      round: 3,
+    },
+  ],
   "climate-change": [
     {
       id: "climate-1",
