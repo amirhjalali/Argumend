@@ -11,3 +11,12 @@ Version 2 represents a shift from human-curated feedback to AI-powered analysis 
 ## Status
 
 Currently in early development.
+
+## Runtime Modes
+
+The analysis/debate stack now supports an offline-first programmatic mode so core flows can run without paid LLM API calls.
+
+- Default behavior: offline/programmatic generation and judging.
+- Enable live extraction calls: set `ENABLE_LIVE_ANALYZE_API=true` (or `NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API=true`).
+- Enable live judging calls: set `ENABLE_LIVE_JUDGING_API=true` (or `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true`).
+- Enable live debate generation (API + UI): set `ENABLE_LIVE_DEBATE_API=true` and/or `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true`.

@@ -1,4 +1,7 @@
 import { Topic, TopicCategory, TopicSchema, computeConfidenceScore } from "@/lib/schemas/topic";
+import { usIranConflictData } from "./topics/us-iran-conflict";
+import { epsteinFilesData } from "./topics/epstein-files";
+import { covidOriginsData } from "./topics/covid-origins";
 
 // ============================================================================
 // Moon Landing Topic
@@ -1624,65 +1627,8 @@ const minneapolisShootingData = {
   ],
 };
 
-const labLeakTheoryData = {
-  id: "lab-leak-theory",
-  title: "COVID-19 Lab Leak Origin",
-  meta_claim:
-    "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
-  status: "contested" as const,
-  category: "philosophy" as const,
-  pillars: [
-    {
-      id: "geographic-coincidence",
-      title: "Geographic Coincidence",
-      short_summary:
-        "The pandemic began in Wuhan, home to the world's leading coronavirus research laboratory.",
-      image_url:
-        "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=800&q=60",
-      icon_name: "Target" as const,
-      skeptic_premise:
-        "Wuhan is a major city of 11 million. Wet markets with wildlife are common throughout China. The first SARS emerged in Guangdong, not near any lab. Geographic proximity proves nothing.",
-      proponent_rebuttal:
-        "The WIV was conducting gain-of-function research on bat coronaviruses. No intermediate host has been found despite intensive searching. The closest known relative (RaTG13) was collected by WIV researchers. The probability of a natural spillover occurring precisely where the world's top coronavirus lab is located warrants investigation.",
-      crux: {
-        id: "wiv-database",
-        title: "The WIV Database Analysis",
-        description:
-          "The Wuhan Institute of Virology took its viral database offline in September 2019. Access to this database would reveal what viruses they possessed.",
-        methodology:
-          "Independent international audit of WIV viral samples, research records, and the September 2019 database. Compare to published sequences.",
-        equation:
-          "P(\\text{lab origin} | \\text{database match}) >> P(\\text{lab origin} | \\text{no match})",
-        verification_status: "impossible" as const,
-        cost_to_verify: "Requires Chinese government cooperation",
-      },
-    },
-    {
-      id: "furin-cleavage",
-      title: "The Furin Cleavage Site",
-      short_summary:
-        "SARS-CoV-2 has a unique furin cleavage site not found in related coronaviruses.",
-      image_url:
-        "https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=800&q=60",
-      icon_name: "Microscope" as const,
-      skeptic_premise:
-        "Furin cleavage sites exist in other coronaviruses (MERS, HKU1). Evolution can insert such sites through recombination. The site's codon usage is unusual but not impossible naturally.",
-      proponent_rebuttal:
-        "No other sarbecovirus (SARS-like bat coronavirus) has a furin cleavage site. The CGG-CGG codon pair encoding arginine is extremely rare in coronaviruses but common in laboratory work. This is exactly the type of modification discussed in published gain-of-function proposals.",
-      crux: {
-        id: "codon-analysis",
-        title: "Comparative Codon Analysis",
-        description:
-          "Statistical analysis of codon usage at the furin cleavage site compared to natural coronavirus evolution patterns.",
-        methodology:
-          "Analyze codon frequencies in all known sarbecoviruses. Calculate probability of CGG-CGG pair arising naturally vs. through laboratory insertion.",
-        equation: "P(\\text{natural}) = \\prod_{i} P(\\text{codon}_i | \\text{context})",
-        verification_status: "verified" as const,
-        cost_to_verify: "$50K (Bioinformatics analysis)",
-      },
-    },
-  ],
-};
+// labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
+const labLeakTheoryData = covidOriginsData;
 
 const universalBasicIncomeData = {
   id: "universal-basic-income",
@@ -8972,6 +8918,8 @@ export const psychedelicsMentalHealth = buildTopic(psychedelicsMentalHealthData)
 export const gigEconomyRegulation = buildTopic(gigEconomyRegulationData);
 export const surveillancePublicSafety = buildTopic(surveillancePublicSafetyData);
 export const meaningWithoutReligion = buildTopic(meaningWithoutReligionData);
+export const usIranConflict = buildTopic(usIranConflictData);
+export const epsteinFiles = buildTopic(epsteinFilesData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -8991,6 +8939,8 @@ export const topics: Topic[] = [
   standardizedTestingDebate,
   electoralCollegeReform,
   surveillancePublicSafety,
+  usIranConflict,
+  epsteinFiles,
 
   // --- Technology & Society ---
   socialMediaAgeLimits,
@@ -9012,6 +8962,7 @@ export const topics: Topic[] = [
   spaceExplorationValue,
   veganismEnvironmental,
   psychedelicsMentalHealth,
+  labLeakTheory,
 
   // --- Economics & Education ---
   remoteWorkPermanence,
@@ -9025,7 +8976,6 @@ export const topics: Topic[] = [
   gigEconomyRegulation,
 
   // --- Philosophy & Speculation ---
-  labLeakTheory,
   freeWill,
   simulationHypothesis,
   moonLanding,
@@ -9165,8 +9115,12 @@ const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "space-exploration-value": ["space-colonization-feasibility", "nuclear-energy-safety", "simulation-hypothesis", "climate-change"],
   "space-colonization-feasibility": ["space-exploration-value", "ai-risk", "nuclear-energy-safety", "simulation-hypothesis"],
   "moon-landing": ["space-exploration-value", "simulation-hypothesis", "lab-leak-theory", "media-bias-democracy"],
-  "lab-leak-theory": ["moon-landing", "media-bias-democracy", "surveillance-public-safety", "organic-food-health"],
+  "lab-leak-theory": ["surveillance-public-safety", "media-bias-democracy", "us-iran-conflict", "epstein-files"],
   "minneapolis-shooting": ["police-reform", "media-bias-democracy", "gun-control-effectiveness", "cancel-culture"],
+
+  // Geopolitics & accountability cluster
+  "us-iran-conflict": ["surveillance-public-safety", "media-bias-democracy", "lab-leak-theory", "epstein-files"],
+  "epstein-files": ["police-reform", "surveillance-public-safety", "media-bias-democracy", "us-iran-conflict"],
 };
 
 /**

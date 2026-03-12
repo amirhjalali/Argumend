@@ -26,6 +26,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { useSidebarState } from "@/hooks/useSidebarState";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { JudgingResults } from "@/components/JudgingResults";
+import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import type { JudgingResult } from "@/lib/judge/rubric";
 import type {
   ExtractedArguments,
@@ -35,6 +36,11 @@ import type {
 } from "@/lib/analyze/extractor";
 
 type ContentType = "transcript" | "article" | "freeform";
+
+const liveAnalyzeEnabled =
+  process.env.NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API === "true";
+const liveJudgingEnabled =
+  process.env.NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API === "true";
 
 interface AnalysisResult {
   id: string;
@@ -352,9 +358,17 @@ export default function AnalyzePage() {
               animate={{ opacity: 1, y: 0 }}
               className="text-center space-y-4"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep tracking-wide">
-                <Brain className="h-3.5 w-3.5" />
-                Argument Analysis
+              <div className="flex items-center justify-center gap-2 flex-wrap">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep tracking-wide">
+                  <Brain className="h-3.5 w-3.5" />
+                  Argument Analysis
+                </div>
+                {!liveAnalyzeEnabled && (
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-full text-xs font-medium text-emerald-700 tracking-wide">
+                    <Lock className="h-3.5 w-3.5" />
+                    Programmatic Mode
+                  </div>
+                )}
               </div>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
                 Analyze Any Argument
@@ -363,6 +377,11 @@ export default function AnalyzePage() {
                 Paste a debate, article, or anything with an argument in it.
                 We&apos;ll pull out the positions, find the crux, and tell you how strong the reasoning is.
               </p>
+              {!liveAnalyzeEnabled && (
+                <p className="text-sm text-emerald-700/80 max-w-2xl mx-auto">
+                  Running in local/offline mode to keep analysis costs predictable.
+                </p>
+              )}
             </motion.div>
 
             {/* Input Section */}
@@ -408,11 +427,7 @@ export default function AnalyzePage() {
                       <button
                         type="button"
                         onClick={() => {
-                          setContent(`The debate over nuclear energy has intensified. Proponents argue it's essential for meeting climate goals — nuclear produces minimal carbon emissions and provides reliable baseload power that renewables can't match. France generates 70% of its electricity from nuclear and has among the lowest carbon emissions in Europe.
-
-Critics counter that nuclear is too expensive and too slow to build. The Vogtle plant in Georgia came in at $35 billion, more than double its original estimate. Meanwhile, solar and wind costs have plummeted 90% in a decade. There are also unresolved questions about waste storage — the US still has no permanent repository despite decades of trying.
-
-Supporters respond that newer reactor designs like SMRs could dramatically cut costs and construction times, and that the waste problem is more political than technical — Finland's Onkalo facility proves deep geological storage works. The real question may be whether we can afford to exclude any zero-carbon source while facing a climate emergency.`);
+                          setContent(EXAMPLE_ANALYSIS_TEXT);
                           setContentType("freeform");
                         }}
                         className="flex items-center gap-1.5 px-3 py-1.5 bg-deep/8 hover:bg-deep/15 border border-deep/15 rounded-lg cursor-pointer transition-all duration-200"
@@ -484,7 +499,9 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                         className="rounded border-stone-300 text-deep focus:ring-deep/30 transition-colors"
                       />
                       <span className="text-xs text-stone-500 group-hover:text-stone-700 transition-colors">
-                        Include AI Judgment
+                        {liveJudgingEnabled
+                          ? "Include AI Judgment"
+                          : "Include Programmatic Judgment"}
                       </span>
                     </label>
                   </div>
@@ -520,12 +537,12 @@ Supporters respond that newer reactor designs like SMRs could dramatically cut c
                     {isAnalyzing ? (
                       <>
                         <Loader2 className="h-5 w-5 animate-spin" />
-                        <span>Analyzing...</span>
+                        <span>{liveAnalyzeEnabled ? "Analyzing..." : "Analyzing locally..."}</span>
                       </>
                     ) : (
                       <>
                         <Brain className="h-5 w-5" />
-                        <span>Analyze</span>
+                        <span>{liveAnalyzeEnabled ? "Analyze" : "Analyze (Local)"}</span>
                       </>
                     )}
                   </motion.button>

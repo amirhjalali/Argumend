@@ -12,13 +12,7 @@ import {
   X,
 } from "lucide-react";
 import type { Topic } from "@/types/logic";
-
-interface DebateMessage {
-  side: "for" | "against";
-  model: string;
-  content: string;
-  round: number;
-}
+import type { DebateMessage } from "@/types/debate";
 
 interface ShareToMoltbookProps {
   topic: Topic;

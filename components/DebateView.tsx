@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Swords,
@@ -15,21 +15,12 @@ import {
   Eye,
   RefreshCw,
   AlertCircle,
-  Share2,
   Gavel,
 } from "lucide-react";
-import { ShareToMoltbook } from "@/components/ShareToMoltbook";
 import { JudgingResults } from "@/components/JudgingResults";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
-import type { JudgingResult } from "@/lib/judge/rubric";
 import { topics } from "@/data/topics";
-import {
-  hasMockDebate,
-  getMockDebate,
-  getMockDebateModels,
-  getMockDebateRounds,
-} from "@/data/mockDebates";
-import type { DebateMessage } from "@/data/mockDebates";
+import type { DebateMessage } from "@/types/debate";
 import {
   LLM_OPTIONS,
   getLLMOption,
@@ -39,45 +30,10 @@ import {
 import type { LLMOption } from "@/components/icons/LLMIcons";
 import { DEBATE, THINKING_DOTS } from "@/lib/constants";
 import type { LLMModel } from "@/types/logic";
-
-// ============================================================================
-// Debate State Types
-// ============================================================================
-
-type DebatePhase = "setup" | "debating" | "paused" | "complete" | "mockView";
-
-interface DebateState {
-  phase: DebatePhase;
-  forModel: LLMModel | null;
-  againstModel: LLMModel | null;
-  messages: DebateMessage[];
-  currentRound: number;
-  maxRounds: number;
-  typingSide: "for" | "against" | null;
-  error: string | null;
-  failedModel: LLMModel | null;
-  judgingResult: JudgingResult | null;
-  isJudging: boolean;
-}
-
-// ============================================================================
-// Helper Functions
-// ============================================================================
-
-function createDebateMessage(
-  side: "for" | "against",
-  model: LLMModel,
-  content: string,
-  round: number
-): DebateMessage {
-  return {
-    id: `${side}-${round}-${Date.now()}`,
-    side,
-    model,
-    content,
-    round,
-  };
-}
+import {
+  useDebateOrchestrator,
+  type DebateState,
+} from "@/hooks/useDebateOrchestrator";
 
 // ============================================================================
 // Sub-Components
@@ -176,7 +132,6 @@ function DebaterCard({
 
 interface ArgumentBubbleProps {
   message: DebateMessage;
-  isLatest: boolean;
 }
 
 function ArgumentBubble({ message }: ArgumentBubbleProps) {
@@ -445,34 +400,23 @@ export function DebateView() {
   const topic = topics.find((t) => t.id === currentTopicId);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Use ref to track phase for pause handling (fixes closure bug)
-  const phaseRef = useRef<DebatePhase>("setup");
-
-  // Consolidated state
-  const [state, setState] = useState<DebateState>({
-    phase: "setup",
-    forModel: null,
-    againstModel: null,
-    messages: [],
-    currentRound: 0,
-    maxRounds: DEBATE.DEFAULT_ROUNDS,
-    typingSide: null,
-    error: null,
-    failedModel: null,
-    judgingResult: null,
-    isJudging: false,
-  });
-
-  // Keep phaseRef in sync with state
-  useEffect(() => {
-    phaseRef.current = state.phase;
-  }, [state.phase]);
-
-  const [showSharePanel, setShowSharePanel] = useState(false);
-
-  const canStart = state.forModel && state.againstModel && state.phase === "setup";
-  const isSetupPhase = state.messages.length === 0 && state.phase === "setup";
-  const topicHasMockData = hasMockDebate(currentTopicId);
+  const {
+    state,
+    displayMessages,
+    canStart,
+    isSetupPhase,
+    topicHasMockData,
+    liveDebateEnabled,
+    startDebate,
+    resetDebate,
+    requestJudgment,
+    clearError,
+    togglePause,
+    viewMockDebate,
+    setForModel,
+    setAgainstModel,
+    setMaxRounds,
+  } = useDebateOrchestrator(topic, currentTopicId);
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -480,304 +424,6 @@ export function DebateView() {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [state.messages, state.typingSide, state.phase]);
-
-  // Generate argument from streaming API with progressive display
-  const generateArgument = useCallback(
-    async (
-      side: "for" | "against",
-      model: LLMModel,
-      round: number,
-      previousMessages: DebateMessage[]
-    ): Promise<string> => {
-      const response = await fetch("/api/debate/stream", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          topic: topic?.meta_claim,
-          topicId: topic?.id,
-          side,
-          model,
-          round,
-          previousMessages: previousMessages.map((m) => ({
-            side: m.side,
-            content: m.content,
-            round: m.round,
-          })),
-          pillars: topic?.pillars.map((p) => ({
-            title: p.title,
-            skepticPremise: p.skeptic_premise,
-            proponentRebuttal: p.proponent_rebuttal,
-          })),
-        }),
-      });
-
-      if (!response.ok) {
-        const data = await response.json().catch(() => ({}));
-        const errorMsg = data.details || data.error || "Failed to generate argument";
-        throw new Error(`${model}: ${errorMsg}`);
-      }
-
-      if (!response.body) {
-        throw new Error(`${model}: No response body`);
-      }
-
-      // Read the SSE stream and progressively build the argument
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let fullText = "";
-      let buffer = "";
-
-      // Create a placeholder message that we'll update with streamed content
-      const placeholderId = `${side}-${round}-${Date.now()}`;
-      const placeholderMsg: DebateMessage = {
-        id: placeholderId,
-        side,
-        model,
-        content: "",
-        round,
-      };
-
-      // Add the placeholder to messages immediately
-      setState((prev) => ({
-        ...prev,
-        messages: [...prev.messages, placeholderMsg],
-        typingSide: null, // clear typing indicator since we now show real text
-      }));
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split("\n\n");
-        buffer = lines.pop() || "";
-
-        for (const line of lines) {
-          const trimmed = line.trim();
-          if (!trimmed.startsWith("data: ")) continue;
-          try {
-            const data = JSON.parse(trimmed.slice(6));
-
-            if (data.error) {
-              throw new Error(`${model}: ${data.error}`);
-            }
-
-            if (data.token) {
-              fullText += data.token;
-              // Update the placeholder message with accumulated text
-              setState((prev) => ({
-                ...prev,
-                messages: prev.messages.map((m) =>
-                  m.id === placeholderId ? { ...m, content: fullText } : m
-                ),
-              }));
-            }
-          } catch (e) {
-            if (e instanceof Error && e.message.startsWith(model)) throw e;
-          }
-        }
-      }
-
-      return fullText;
-    },
-    [topic]
-  );
-
-  // Run a single debate round
-  const runDebateRound = useCallback(
-    async (
-      round: number,
-      existingMessages: DebateMessage[],
-      forModel: LLMModel,
-      againstModel: LLMModel
-    ): Promise<DebateMessage[]> => {
-      if (!topic) return existingMessages;
-
-      let updatedMessages = [...existingMessages];
-
-      // Generate "for" argument (streaming adds the message progressively)
-      setState((prev) => ({ ...prev, typingSide: "for", error: null, failedModel: null }));
-      try {
-        await generateArgument("for", forModel, round, updatedMessages);
-        // After streaming completes, grab the updated messages from state
-        setState((prev) => {
-          updatedMessages = prev.messages;
-          return { ...prev, typingSide: null };
-        });
-      } catch (e) {
-        const errorMsg = e instanceof Error ? e.message : "Failed to generate proposition argument";
-        setState((prev) => ({
-          ...prev,
-          error: errorMsg,
-          failedModel: forModel,
-          typingSide: null,
-        }));
-        throw new Error(errorMsg);
-      }
-
-      await new Promise((resolve) => setTimeout(resolve, DEBATE.TURN_DELAY));
-
-      // Generate "against" argument (streaming adds the message progressively)
-      setState((prev) => ({ ...prev, typingSide: "against", error: null, failedModel: null }));
-      try {
-        await generateArgument("against", againstModel, round, updatedMessages);
-        setState((prev) => {
-          updatedMessages = prev.messages;
-          return { ...prev, typingSide: null };
-        });
-      } catch (e) {
-        const errorMsg = e instanceof Error ? e.message : "Failed to generate opposition argument";
-        setState((prev) => ({
-          ...prev,
-          error: errorMsg,
-          failedModel: againstModel,
-          typingSide: null,
-        }));
-        throw new Error(errorMsg);
-      }
-
-      return updatedMessages;
-    },
-    [topic, generateArgument]
-  );
-
-  const startDebate = useCallback(async () => {
-    if (!canStart || !state.forModel || !state.againstModel) return;
-
-    setState((prev) => ({
-      ...prev,
-      phase: "debating",
-      error: null,
-      messages: [],
-      currentRound: 1,
-    }));
-
-    let currentMessages: DebateMessage[] = [];
-
-    try {
-      for (let round = 1; round <= state.maxRounds; round++) {
-        // Handle pause state using ref to avoid closure bug
-        if (phaseRef.current === "paused") {
-          await new Promise<void>((resolve) => {
-            const checkPause = setInterval(() => {
-              if (phaseRef.current !== "paused") {
-                clearInterval(checkPause);
-                resolve();
-              }
-            }, 100);
-          });
-        }
-
-        setState((prev) => ({ ...prev, currentRound: round }));
-        currentMessages = await runDebateRound(
-          round,
-          currentMessages,
-          state.forModel!,
-          state.againstModel!
-        );
-
-        if (round < state.maxRounds) {
-          await new Promise((resolve) => setTimeout(resolve, DEBATE.ROUND_DELAY));
-        }
-      }
-    } catch (e) {
-      console.error("Debate error:", e);
-    } finally {
-      setState((prev) => ({
-        ...prev,
-        phase: "complete",
-        typingSide: null,
-      }));
-    }
-  }, [canStart, state.forModel, state.againstModel, state.maxRounds, runDebateRound]);
-
-  const resetDebate = useCallback(() => {
-    setState({
-      phase: "setup",
-      forModel: state.forModel,
-      againstModel: state.againstModel,
-      messages: [],
-      currentRound: 0,
-      maxRounds: state.maxRounds,
-      typingSide: null,
-      error: null,
-      failedModel: null,
-      judgingResult: null,
-      isJudging: false,
-    });
-  }, [state.forModel, state.againstModel, state.maxRounds]);
-
-  // Request AI judgment for the debate
-  const requestJudgment = useCallback(async () => {
-    if (state.messages.length === 0 || state.isJudging) return;
-
-    setState((prev) => ({ ...prev, isJudging: true, error: null }));
-
-    try {
-      const response = await fetch("/api/judge", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "debate",
-          topic: topic?.meta_claim,
-          messages: state.messages.map((m) => ({
-            side: m.side,
-            content: m.content,
-            round: m.round,
-          })),
-        }),
-      });
-
-      if (!response.ok) {
-        const data = await response.json().catch(() => ({}));
-        throw new Error(data.details || data.error || "Failed to get judgment");
-      }
-
-      const result: JudgingResult = await response.json();
-      setState((prev) => ({ ...prev, judgingResult: result, isJudging: false }));
-    } catch (e) {
-      const errorMsg = e instanceof Error ? e.message : "Failed to get judgment";
-      setState((prev) => ({ ...prev, error: errorMsg, isJudging: false }));
-    }
-  }, [state.messages, state.isJudging, topic]);
-
-  const clearError = useCallback(() => {
-    setState((prev) => ({ ...prev, error: null, failedModel: null }));
-  }, []);
-
-  const togglePause = useCallback(() => {
-    setState((prev) => ({
-      ...prev,
-      phase: prev.phase === "paused" ? "debating" : "paused",
-    }));
-  }, []);
-
-  const viewMockDebate = useCallback(() => {
-    if (topicHasMockData && currentTopicId) {
-      const mockModels = getMockDebateModels();
-      const mockRounds = getMockDebateRounds(currentTopicId);
-      setState((prev) => ({
-        ...prev,
-        phase: "mockView",
-        forModel: mockModels.forModel,
-        againstModel: mockModels.againstModel,
-        currentRound: mockRounds,
-        maxRounds: mockRounds,
-      }));
-    }
-  }, [topicHasMockData, currentTopicId]);
-
-  const setForModel = useCallback((model: LLMModel) => {
-    setState((prev) => ({ ...prev, forModel: model }));
-  }, []);
-
-  const setAgainstModel = useCallback((model: LLMModel) => {
-    setState((prev) => ({ ...prev, againstModel: model }));
-  }, []);
-
-  const setMaxRounds = useCallback((rounds: number) => {
-    setState((prev) => ({ ...prev, maxRounds: rounds }));
-  }, []);
 
   // No topic selected state
   if (!topic) {
@@ -791,11 +437,6 @@ export function DebateView() {
 
   const forLlm = getLLMOption(state.forModel ?? "claude");
   const againstLlm = getLLMOption(state.againstModel ?? "gpt-4");
-
-  const displayMessages =
-    state.phase === "mockView" && currentTopicId
-      ? getMockDebate(currentTopicId)
-      : state.messages;
 
   const isDebating = state.phase === "debating" || state.phase === "paused";
   const showHeader = isDebating || displayMessages.length > 0;
@@ -820,6 +461,11 @@ export function DebateView() {
           <p className="text-stone-500 max-w-xl mx-auto">
             Select your debaters and witness a structured exchange of arguments.
           </p>
+          {!liveDebateEnabled && (
+            <p className="text-xs text-rust-700 bg-rust-50 border border-rust-200 rounded-lg inline-block px-3 py-1.5">
+              Offline mode active: debates are generated locally without API calls.
+            </p>
+          )}
         </motion.div>
 
         {/* Setup Phase */}
@@ -902,7 +548,7 @@ export function DebateView() {
                 `}
               >
                 <Play className="h-5 w-5" />
-                Begin Debate
+                {liveDebateEnabled ? "Begin Debate" : "Generate Debate"}
               </motion.button>
 
               {topicHasMockData && (
@@ -971,11 +617,10 @@ export function DebateView() {
         {displayMessages.length > 0 && (
           <div className="space-y-6 pb-4">
             <AnimatePresence mode="popLayout">
-              {displayMessages.map((message, index) => (
+              {displayMessages.map((message) => (
                 <ArgumentBubble
                   key={message.id}
                   message={message}
-                  isLatest={index === displayMessages.length - 1}
                 />
               ))}
             </AnimatePresence>
@@ -1048,35 +693,9 @@ export function DebateView() {
                     </motion.button>
                   )}
 
-                  {/* Moltbook share paused — re-enable after core product is solid (ENG-25) */}
                 </div>
               )}
             </div>
-
-            {/* Share Panel */}
-            <AnimatePresence>
-              {showSharePanel && topic && state.forModel && state.againstModel && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="mt-6 max-w-lg mx-auto overflow-hidden"
-                >
-                  <ShareToMoltbook
-                    topic={topic}
-                    messages={state.messages.map((m) => ({
-                      side: m.side,
-                      model: m.model,
-                      content: m.content,
-                      round: m.round,
-                    }))}
-                    forModel={state.forModel}
-                    againstModel={state.againstModel}
-                    onClose={() => setShowSharePanel(false)}
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
 
             {/* Judging Results */}
             {state.judgingResult && (

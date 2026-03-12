@@ -15,18 +15,13 @@ import {
   Mic,
 } from "lucide-react";
 import { topicSummaries, featuredTopicId, featuredReason, CATEGORY_ORDER } from "@/data/topicIndex";
+import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 
 type ContentType = "transcript" | "article" | "freeform";
 
 interface HeroAnalyzeProps {
   onTopicSelect: (id: string) => void;
 }
-
-const EXAMPLE_TEXT = `The debate over nuclear energy has intensified. Proponents argue it's essential for meeting climate goals — nuclear produces minimal carbon emissions and provides reliable baseload power that renewables can't match. France generates 70% of its electricity from nuclear and has among the lowest carbon emissions in Europe.
-
-Critics counter that nuclear is too expensive and too slow to build. The Vogtle plant in Georgia came in at $35 billion, more than double its original estimate. Meanwhile, solar and wind costs have plummeted 90% in a decade. There are also unresolved questions about waste storage — the US still has no permanent repository despite decades of trying.
-
-Supporters respond that newer reactor designs like SMRs could dramatically cut costs and construction times, and that the waste problem is more political than technical — Finland's Onkalo facility proves deep geological storage works. The real question may be whether we can afford to exclude any zero-carbon source while facing a climate emergency.`;
 
 const DISPLAY_TOPICS_COUNT = 6;
 
@@ -46,7 +41,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
   }, [content, contentType, router]);
 
   const handleTryExample = useCallback(() => {
-    setContent(EXAMPLE_TEXT);
+    setContent(EXAMPLE_ANALYSIS_TEXT);
     setContentType("freeform");
     // Focus and scroll to textarea after setting content
     setTimeout(() => {

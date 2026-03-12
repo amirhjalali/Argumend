@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Scale, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { Scale, ExternalLink, ChevronDown } from "lucide-react";
 import { useState, useMemo } from "react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { topics } from "@/data/topics";

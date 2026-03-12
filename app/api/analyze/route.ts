@@ -1,35 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
 import { extractArguments, toDebateMessages } from "@/lib/analyze/extractor";
+import { extractArgumentsOffline } from "@/lib/analyze/offline";
 import { createJudgeCouncil } from "@/lib/judge/council";
+import { judgeDebateOffline } from "@/lib/judge/offline";
 import { saveAnalysis, saveJudgment, listAnalyses } from "@/lib/db/queries";
 import { rateLimit } from "@/lib/rate-limit";
-import type { AgentConfig } from "@/lib/agents/types";
+import { modelsToAgents } from "@/lib/agents/types";
 import type { LLMModel } from "@/types/logic";
+import type { ExtractedArguments } from "@/lib/analyze/extractor";
 
-/**
- * Request body for the analyze API
- */
 interface AnalyzeRequest {
-  /** The content to analyze */
   content: string;
-  /** Type of content being analyzed */
   contentType?: "transcript" | "article" | "freeform";
-  /** Whether to also run judging on the extracted arguments */
   includeJudging?: boolean;
-  /** Which models to use as judges (if includeJudging is true) */
   judgeModels?: LLMModel[];
 }
 
-/**
- * Convert model IDs to agent configs
- */
-function modelsToAgents(models: LLMModel[]): AgentConfig[] {
-  return models.map((model) => ({
-    id: `judge-${model}`,
-    name: `${model.charAt(0).toUpperCase() + model.slice(1)} Judge`,
-    type: "local-llm" as const,
-    model,
-  }));
+function isLiveAnalyzeEnabled(): boolean {
+  return (
+    process.env.ENABLE_LIVE_ANALYZE_API === "true" ||
+    process.env.NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API === "true"
+  );
+}
+
+function isLiveJudgingEnabled(): boolean {
+  return (
+    process.env.ENABLE_LIVE_JUDGING_API === "true" ||
+    process.env.NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API === "true"
+  );
 }
 
 /**
@@ -69,11 +67,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Extract arguments from content
-    const extracted = await extractArguments(
-      content,
-      contentType || "freeform"
-    );
+    // Extract arguments from content (offline-first for cost control).
+    let extracted: ExtractedArguments;
+    if (isLiveAnalyzeEnabled()) {
+      try {
+        extracted = await extractArguments(content, contentType || "freeform");
+      } catch (error) {
+        console.warn("Live extraction failed, falling back to offline extraction:", error);
+        extracted = extractArgumentsOffline(content, contentType || "freeform");
+      }
+    } else {
+      extracted = extractArgumentsOffline(content, contentType || "freeform");
+    }
 
     // Optionally run judging
     let judgingResult = null;
@@ -87,9 +92,17 @@ export async function POST(request: NextRequest) {
         const models = judgeModels && judgeModels.length > 0 ? judgeModels : defaultModels;
         const judges = modelsToAgents(models);
 
-        // Create council and judge
-        const council = createJudgeCouncil({ judges });
-        judgingResult = await council.judgeDebate(messages, extracted.topic);
+        if (isLiveJudgingEnabled()) {
+          try {
+            const council = createJudgeCouncil({ judges });
+            judgingResult = await council.judgeDebate(messages, extracted.topic);
+          } catch (error) {
+            console.warn("Live judging failed, falling back to offline judging:", error);
+            judgingResult = judgeDebateOffline(messages, extracted.topic, models);
+          }
+        } else {
+          judgingResult = judgeDebateOffline(messages, extracted.topic, models);
+        }
       }
     }
 

@@ -63,6 +63,18 @@ export interface AgentExecutionRequest {
 }
 
 /**
+ * Convert model IDs to agent configs
+ */
+export function modelsToAgents(models: LLMModel[]): AgentConfig[] {
+  return models.map((model) => ({
+    id: `judge-${model}`,
+    name: `${model.charAt(0).toUpperCase() + model.slice(1)} Judge`,
+    type: "local-llm" as const,
+    model,
+  }));
+}
+
+/**
  * Predefined agent configurations for common use cases
  */
 export const DEFAULT_JUDGE_AGENTS: AgentConfig[] = [

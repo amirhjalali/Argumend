@@ -1,40 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createJudgeCouncil, type DebateMessage } from "@/lib/judge/council";
+import { createJudgeCouncil } from "@/lib/judge/council";
+import type { DebateMessageInput as DebateMessage } from "@/types/debate";
+import { judgeContentOffline, judgeDebateOffline } from "@/lib/judge/offline";
 import { saveJudgment, listJudgments } from "@/lib/db/queries";
 import { rateLimit } from "@/lib/rate-limit";
-import type { AgentConfig } from "@/lib/agents/types";
+import { modelsToAgents } from "@/lib/agents/types";
 import type { LLMModel } from "@/types/logic";
+import type { JudgingResult } from "@/lib/judge/rubric";
 
-/**
- * Request body for the judge API
- */
 interface JudgeRequest {
-  /** Type of content to judge */
   type: "debate" | "content";
-  /** Debate messages (for type="debate") */
   messages?: DebateMessage[];
-  /** Topic of the debate */
   topic?: string;
-  /** Raw content to judge (for type="content") */
   content?: string;
-  /** Content type for analysis */
   contentType?: "transcript" | "article" | "freeform";
-  /** Which models to use as judges (defaults to claude, gpt-4, gemini) */
   judgeModels?: LLMModel[];
-  /** Link to a stored debate (optional) */
   debateId?: string;
 }
 
-/**
- * Convert model IDs to agent configs
- */
-function modelsToAgents(models: LLMModel[]): AgentConfig[] {
-  return models.map((model) => ({
-    id: `judge-${model}`,
-    name: `${model.charAt(0).toUpperCase() + model.slice(1)} Judge`,
-    type: "local-llm" as const,
-    model,
-  }));
+function isLiveJudgingEnabled(): boolean {
+  return (
+    process.env.ENABLE_LIVE_JUDGING_API === "true" ||
+    process.env.NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API === "true"
+  );
 }
 
 /**
@@ -84,15 +72,27 @@ export async function POST(request: NextRequest) {
     const models = judgeModels && judgeModels.length > 0 ? judgeModels : defaultModels;
     const judges = modelsToAgents(models);
 
-    // Create judge council
-    const council = createJudgeCouncil({ judges });
-
-    // Execute judgment
-    let result;
-    if (type === "debate") {
-      result = await council.judgeDebate(messages!, topic);
+    let result: JudgingResult;
+    if (isLiveJudgingEnabled()) {
+      try {
+        const council = createJudgeCouncil({ judges });
+        if (type === "debate") {
+          result = await council.judgeDebate(messages!, topic);
+        } else {
+          result = await council.judgeContent(content!, contentType || "freeform");
+        }
+      } catch (error) {
+        console.warn("Live judging failed, falling back to offline judging:", error);
+        if (type === "debate") {
+          result = judgeDebateOffline(messages!, topic, models);
+        } else {
+          result = judgeContentOffline(content!, contentType || "freeform", models);
+        }
+      }
+    } else if (type === "debate") {
+      result = judgeDebateOffline(messages!, topic, models);
     } else {
-      result = await council.judgeContent(content!, contentType || "freeform");
+      result = judgeContentOffline(content!, contentType || "freeform", models);
     }
 
     // Persist judgment

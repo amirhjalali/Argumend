@@ -6,7 +6,6 @@ import {
   Trophy,
   AlertTriangle,
   ChevronDown,
-  ChevronUp,
   Users,
   BarChart3,
 } from "lucide-react";

@@ -5,6 +5,7 @@
  */
 
 export { extractArguments, toDebateMessages } from "./extractor";
+export { extractArgumentsOffline } from "./offline";
 export type {
   ExtractedArgument,
   ExtractedPosition,

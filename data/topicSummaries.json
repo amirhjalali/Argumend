@@ -380,11 +380,11 @@
   {
     "id": "lab-leak-theory",
     "title": "COVID-19 Lab Leak Origin",
-    "meta_claim": "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
-    "confidence_score": 50,
+    "meta_claim": "SARS-CoV-2 originated from a laboratory incident at the Wuhan Institute of Virology rather than a natural zoonotic spillover event.",
+    "confidence_score": 60,
     "status": "contested",
-    "category": "philosophy",
-    "pillarCount": 2
+    "category": "science",
+    "pillarCount": 5
   },
   {
     "id": "free-will",
@@ -448,5 +448,23 @@
     "status": "highly_speculative",
     "category": "philosophy",
     "pillarCount": 2
+  },
+  {
+    "id": "us-iran-conflict",
+    "title": "The US-Iran Conflict",
+    "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
+    "confidence_score": 50,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3
+  },
+  {
+    "id": "epstein-files",
+    "title": "The Epstein Files",
+    "meta_claim": "The Jeffrey Epstein case reveals systemic institutional failure — and possibly deliberate coverup — in prosecuting high-level sex trafficking connected to powerful individuals.",
+    "confidence_score": 50,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 5
   }
 ]

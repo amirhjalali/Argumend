@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Clock, BookOpen, Library } from "lucide-react";
 import {
   ChevronRight,
   CheckCircle,
@@ -447,6 +448,51 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
 }
 
 // ---------------------------------------------------------------------------
+// Depth Selector (30s / 2m / 5m format ladder)
+// ---------------------------------------------------------------------------
+
+type ReadingDepth = "30s" | "2m" | "5m";
+
+const DEPTH_OPTIONS: { id: ReadingDepth; label: string; description: string; icon: typeof Clock }[] = [
+  { id: "30s", label: "30s", description: "Quick scan", icon: Clock },
+  { id: "2m", label: "2 min", description: "Key arguments", icon: BookOpen },
+  { id: "5m", label: "5 min", description: "Full analysis", icon: Library },
+];
+
+function DepthSelector({
+  depth,
+  onChange,
+}: {
+  depth: ReadingDepth;
+  onChange: (d: ReadingDepth) => void;
+}) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-xs font-medium text-stone-500 tracking-wide mr-1">
+        Reading depth
+      </span>
+      <div className="inline-flex bg-stone-100 rounded-xl p-1 gap-0.5">
+        {DEPTH_OPTIONS.map(({ id, label, description, icon: Icon }) => (
+          <button
+            key={id}
+            onClick={() => onChange(id)}
+            className={`relative flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium transition-all duration-200 ${
+              depth === id
+                ? "bg-deep text-white shadow-sm"
+                : "bg-transparent text-stone-500 hover:text-stone-700 hover:bg-white/60"
+            }`}
+            title={description}
+          >
+            <Icon className="h-3.5 w-3.5" />
+            {label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Main Component
 // ---------------------------------------------------------------------------
 
@@ -477,6 +523,8 @@ export default function TopicDetailView({
   const forPct = totalEvidence > 0 ? Math.round((totalFor / totalEvidence) * 100) : 50;
 
   const [stance, setStance] = useState<"agree" | "unsure" | "disagree" | null>(null);
+  const [depth, setDepth] = useState<ReadingDepth>("30s");
+  const handleDepthChange = useCallback((d: ReadingDepth) => setDepth(d), []);
 
   return (
     <AppShell>
@@ -531,13 +579,14 @@ export default function TopicDetailView({
               {topic.meta_claim}
             </p>
 
-            {/* Share */}
-            <div className="mt-4">
+            {/* Share + Depth Selector */}
+            <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <ShareButtons
                 title={topic.title}
                 url={typeof window !== "undefined" ? window.location.href : `https://argumend.org/topics/${topic.id}`}
                 description={topic.meta_claim}
               />
+              <DepthSelector depth={depth} onChange={handleDepthChange} />
             </div>
 
             {/* Quick stats */}
@@ -717,8 +766,8 @@ export default function TopicDetailView({
             </div>
           </section>
 
-          {/* ── Where Do You Stand? ── */}
-          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 overflow-hidden">
+          {/* ── Where Do You Stand? ── (2m+) */}
+          {depth !== "30s" && <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 overflow-hidden">
             {/* Part 1: The Prompt */}
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
@@ -863,51 +912,112 @@ export default function TopicDetailView({
                 </motion.div>
               )}
             </AnimatePresence>
-          </section>
+          </section>}
 
-          {/* Meta Claim Expanded */}
-          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
-              The Claim
-            </h2>
-            <blockquote className="border-l-2 border-[#4f7b77] pl-4 sm:pl-5">
-              <p className="text-base sm:text-lg text-stone-700 leading-[1.7] italic">
-                &ldquo;{topic.meta_claim}&rdquo;
+          {/* Meta Claim Expanded (2m+) */}
+          {depth !== "30s" && (
+            <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+                The Claim
+              </h2>
+              <blockquote className="border-l-2 border-[#4f7b77] pl-4 sm:pl-5">
+                <p className="text-base sm:text-lg text-stone-700 leading-[1.7] italic">
+                  &ldquo;{topic.meta_claim}&rdquo;
+                </p>
+              </blockquote>
+              <p className="text-sm text-stone-500 mt-4 leading-relaxed">
+                This topic is currently classified as{" "}
+                <strong className="text-primary">
+                  {statusLabels[topic.status].toLowerCase()}
+                </strong>{" "}
+                with a computed confidence score of{" "}
+                <strong className="text-primary">{topic.confidence_score}%</strong>,
+                based on {totalEvidence} weighted evidence items across{" "}
+                {topic.pillars.length} analytical pillars.
               </p>
-            </blockquote>
-            <p className="text-sm text-stone-500 mt-4 leading-relaxed">
-              This topic is currently classified as{" "}
-              <strong className="text-primary">
-                {statusLabels[topic.status].toLowerCase()}
-              </strong>{" "}
-              with a computed confidence score of{" "}
-              <strong className="text-primary">{topic.confidence_score}%</strong>,
-              based on {totalEvidence} weighted evidence items across{" "}
-              {topic.pillars.length} analytical pillars.
-            </p>
-          </section>
+            </section>
+          )}
 
-          {/* Pillars */}
-          <section id="pillars" className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
-              Argument Pillars
-            </h2>
-            <p className="text-sm text-stone-500 mb-8 leading-relaxed">
-              Each pillar represents a distinct line of argumentation. For every
-              pillar, we present the strongest skeptic challenge, the best
-              proponent rebuttal, the weighted evidence, and the crux question
-              that would resolve the debate.
-            </p>
+          {/* Pillars (2m+) */}
+          {depth !== "30s" && (
+            <section id="pillars" className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+                Argument Pillars
+              </h2>
 
-            <div className="space-y-8">
-              {topic.pillars.map((pillar, i) => (
-                <PillarSection key={pillar.id} pillar={pillar} index={i} />
-              ))}
-            </div>
-          </section>
+              {depth === "2m" ? (
+                <>
+                  <p className="text-sm text-stone-500 mb-6 leading-relaxed">
+                    Key arguments for and against, with the crux question for each pillar.
+                  </p>
+                  <div className="space-y-6">
+                    {topic.pillars.map((pillar, i) => (
+                      <div key={pillar.id} className="mb-4">
+                        <div className="flex items-start gap-3 mb-3">
+                          <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-deep/10 flex items-center justify-center text-sm font-mono font-semibold text-deep">
+                            {i + 1}
+                          </span>
+                          <div>
+                            <h3 className="font-serif text-lg text-primary leading-tight">
+                              {pillar.title}
+                            </h3>
+                            <p className="text-sm text-stone-500 mt-0.5">
+                              {pillar.short_summary}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-3 mb-3 pl-10">
+                          <blockquote className="border-l-2 border-red-300 pl-3 py-1">
+                            <p className="text-xs font-medium text-red-500 uppercase tracking-widest mb-1">Skeptic</p>
+                            <p className="text-sm text-stone-600 italic leading-relaxed">
+                              &ldquo;{pillar.skeptic_premise}&rdquo;
+                            </p>
+                          </blockquote>
+                          <blockquote className="border-l-2 border-emerald-300 pl-3 py-1">
+                            <p className="text-xs font-medium text-emerald-600 uppercase tracking-widest mb-1">Proponent</p>
+                            <p className="text-sm text-stone-600 leading-relaxed">
+                              {pillar.proponent_rebuttal}
+                            </p>
+                          </blockquote>
+                        </div>
+                        <div className="pl-10">
+                          <p className="text-xs text-deep font-medium">
+                            Crux: {pillar.crux.title}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-stone-200/60 text-center">
+                    <button
+                      onClick={() => setDepth("5m")}
+                      className="inline-flex items-center gap-2 text-sm text-deep hover:text-deep-dark font-medium transition-colors"
+                    >
+                      <Library className="h-3.5 w-3.5" />
+                      Read full analysis with evidence &amp; methodology
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p className="text-sm text-stone-500 mb-8 leading-relaxed">
+                    Each pillar represents a distinct line of argumentation. For every
+                    pillar, we present the strongest skeptic challenge, the best
+                    proponent rebuttal, the weighted evidence, and the crux question
+                    that would resolve the debate.
+                  </p>
+                  <div className="space-y-8">
+                    {topic.pillars.map((pillar, i) => (
+                      <PillarSection key={pillar.id} pillar={pillar} index={i} />
+                    ))}
+                  </div>
+                </>
+              )}
+            </section>
+          )}
 
-          {/* References */}
-          {topic.references && topic.references.length > 0 && (
+          {/* References (5m only) */}
+          {depth === "5m" && topic.references && topic.references.length > 0 && (
             <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 References

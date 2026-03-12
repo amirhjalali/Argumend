@@ -7,6 +7,7 @@
 
 import { executeAgent } from "@/lib/agents/executor";
 import type { AgentConfig } from "@/lib/agents/types";
+import type { DebateMessageInput } from "@/types/debate";
 
 /**
  * Argument strength level derived from the 0-10 score
@@ -380,8 +381,8 @@ export async function extractArguments(
  */
 export function toDebateMessages(
   extracted: ExtractedArguments
-): { side: "for" | "against"; content: string; round: number }[] {
-  const messages: { side: "for" | "against"; content: string; round: number }[] = [];
+): DebateMessageInput[] {
+  const messages: DebateMessageInput[] = [];
 
   // Group arguments by side
   const forArgs = extracted.positions.filter((p) => p.side === "for");

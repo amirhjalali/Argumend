@@ -42,14 +42,8 @@ export interface JudgeCouncilConfig {
   drawThreshold?: number;
 }
 
-/**
- * Message format for debate input
- */
-export interface DebateMessage {
-  side: "for" | "against";
-  content: string;
-  round: number;
-}
+export type { DebateMessageInput as DebateMessage } from "@/types/debate";
+import type { DebateMessageInput as DebateMessage } from "@/types/debate";
 
 /**
  * Convert parsed response to JudgeScore

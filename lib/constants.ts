@@ -32,6 +32,10 @@ export const DEBATE = {
   ROUND_DELAY: 1200,
   /** Available round options */
   ROUND_OPTIONS: [2, 3, 4, 5] as readonly number[],
+  /** Whether live debate generation via API is enabled */
+  ENABLE_LIVE_API: process.env.NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API === "true",
+  /** Whether AI judging via API is enabled */
+  ENABLE_LIVE_JUDGING: process.env.NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API === "true",
 } as const;
 
 // React Flow / Graph constants
@@ -68,3 +72,9 @@ export const THINKING_DOTS = {
   DOT_DELAY: 0.2,
 } as const;
 
+// Example text for the "Try an Example" buttons on analyze pages
+export const EXAMPLE_ANALYSIS_TEXT = `The debate over nuclear energy has intensified. Proponents argue it's essential for meeting climate goals — nuclear produces minimal carbon emissions and provides reliable baseload power that renewables can't match. France generates 70% of its electricity from nuclear and has among the lowest carbon emissions in Europe.
+
+Critics counter that nuclear is too expensive and too slow to build. The Vogtle plant in Georgia came in at $35 billion, more than double its original estimate. Meanwhile, solar and wind costs have plummeted 90% in a decade. There are also unresolved questions about waste storage — the US still has no permanent repository despite decades of trying.
+
+Supporters respond that newer reactor designs like SMRs could dramatically cut costs and construction times, and that the waste problem is more political than technical — Finland's Onkalo facility proves deep geological storage works. The real question may be whether we can afford to exclude any zero-carbon source while facing a climate emergency.`;
