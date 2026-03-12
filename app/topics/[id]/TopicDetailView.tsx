@@ -31,6 +31,9 @@ import {
   UserCheck,
   BarChart3,
   GraduationCap,
+  Swords,
+  Sword,
+  Quote,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { ShareButtons } from "@/components/ShareButtons";
@@ -44,6 +47,9 @@ import type {
 } from "@/lib/schemas/topic";
 import { calculateEvidenceScore, getVerdictLabel } from "@/lib/schemas/topic";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
+import { hasMockDebate, getMockDebate } from "@/data/mockDebates";
+import type { DebateMessage } from "@/types/debate";
+import { getLLMOption, ClaudeIcon } from "@/components/icons/LLMIcons";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -444,6 +450,215 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
         <ArrowRight className="h-3.5 w-3.5 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 transition-all flex-shrink-0" />
       </div>
     </Link>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Debate Preview (inline mock debate on topic detail page)
+// ---------------------------------------------------------------------------
+
+function DebateMessageBubble({ message }: { message: DebateMessage }) {
+  const llm = getLLMOption(message.model);
+  const isFor = message.side === "for";
+  const Icon = llm?.Icon ?? ClaudeIcon;
+
+  return (
+    <div className="relative">
+      {message.side === "for" && (
+        <div className="flex justify-center mb-4">
+          <div className="px-3 py-1 bg-stone-100/80 rounded-full border border-stone-200/50">
+            <span className="text-xs font-medium text-stone-500 tracking-wider uppercase">
+              Round {message.round}
+            </span>
+          </div>
+        </div>
+      )}
+
+      <div className={`flex gap-3 ${isFor ? "" : "flex-row-reverse"}`}>
+        <div className="flex flex-col items-center gap-2 pt-1">
+          <div
+            className="w-9 h-9 rounded-lg flex items-center justify-center shadow-sm border border-stone-200/50"
+            style={{ backgroundColor: llm?.bgLight }}
+          >
+            <Icon className="w-5 h-5" style={{ color: llm?.color }} />
+          </div>
+          <div
+            className={`w-0.5 flex-1 min-h-[16px] ${
+              isFor ? "bg-rust-200/60" : "bg-stone-200/60"
+            }`}
+          />
+        </div>
+
+        <div className={`flex-1 ${isFor ? "pr-2 md:pr-6" : "pl-2 md:pl-6"}`}>
+          <div
+            className={`flex items-center gap-2 mb-1.5 ${
+              isFor ? "" : "justify-end"
+            }`}
+          >
+            <span className="font-serif font-semibold text-sm text-primary">
+              {llm?.name}
+            </span>
+            <span
+              className={`text-xs px-2 py-0.5 rounded-full flex items-center gap-1 font-medium ${
+                isFor
+                  ? "bg-rust-100/80 text-rust-700 border border-rust-200/50"
+                  : "bg-stone-100/80 text-stone-600 border border-stone-200/50"
+              }`}
+            >
+              {isFor ? (
+                <Sword className="w-2.5 h-2.5" />
+              ) : (
+                <Shield className="w-2.5 h-2.5" />
+              )}
+              {isFor ? "Pro" : "Con"}
+            </span>
+          </div>
+
+          <div
+            className={`rounded-xl p-4 border shadow-sm ${
+              isFor
+                ? "bg-gradient-to-br from-rust-50/60 to-rust-100/30 border-rust-200/40"
+                : "bg-gradient-to-br from-stone-50/60 to-stone-50/30 border-stone-200/40"
+            }`}
+          >
+            <Quote
+              className={`w-4 h-4 mb-1.5 opacity-40 ${
+                isFor ? "text-rust-400" : "text-stone-400"
+              }`}
+            />
+            <p className="text-sm text-stone-700 leading-relaxed whitespace-pre-wrap">
+              {message.content}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DebatePreviewSection({ topicId }: { topicId: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasDebate = hasMockDebate(topicId);
+
+  if (!hasDebate) {
+    return (
+      <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider border border-stone-200/50 mb-4">
+          <Swords className="h-3.5 w-3.5" />
+          AI Debate
+        </div>
+        <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">
+          Watch AIs debate this topic
+        </h2>
+        <p className="text-sm text-stone-500 mb-5 max-w-lg mx-auto">
+          See Claude and GPT-5 go head-to-head with structured arguments across multiple rounds.
+        </p>
+        <Link
+          href={`/?topic=${topicId}&view=debate`}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+        >
+          <Swords className="h-4 w-4" />
+          Start a debate
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </section>
+    );
+  }
+
+  const messages = getMockDebate(topicId);
+  const forMsg = messages.find((m) => m.side === "for");
+  const againstMsg = messages.find((m) => m.side === "against");
+  const forLlm = getLLMOption(forMsg?.model ?? "claude");
+  const againstLlm = getLLMOption(againstMsg?.model ?? "gpt-4");
+  const ForIcon = forLlm?.Icon ?? ClaudeIcon;
+  const AgainstIcon = againstLlm?.Icon ?? ClaudeIcon;
+  const totalRounds = Math.max(...messages.map((m) => m.round));
+
+  // Show first round only when collapsed
+  const visibleMessages = expanded ? messages : messages.filter((m) => m.round === 1);
+
+  return (
+    <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+      {/* Header */}
+      <div className="text-center mb-6">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider border border-stone-200/50 mb-4">
+          <Swords className="h-3.5 w-3.5" />
+          AI Debate
+        </div>
+        <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">
+          Watch AIs debate this topic
+        </h2>
+        <p className="text-sm text-stone-500 mb-4 max-w-lg mx-auto">
+          {totalRounds} rounds of structured argument between two AI models.
+        </p>
+
+        {/* Debater badges */}
+        <div className="flex items-center justify-center gap-4 mb-2">
+          <div className="flex items-center gap-2">
+            <Sword className="w-3.5 h-3.5 text-rust-600" />
+            <div
+              className="w-7 h-7 rounded-lg flex items-center justify-center border border-stone-200/50"
+              style={{ backgroundColor: forLlm?.bgLight }}
+            >
+              <ForIcon className="w-3.5 h-3.5" style={{ color: forLlm?.color }} />
+            </div>
+            <span className="font-serif text-sm text-rust-700 font-medium">
+              {forLlm?.name}
+            </span>
+          </div>
+          <span className="text-stone-400 font-serif italic text-sm">vs</span>
+          <div className="flex items-center gap-2">
+            <span className="font-serif text-sm text-stone-600 font-medium">
+              {againstLlm?.name}
+            </span>
+            <div
+              className="w-7 h-7 rounded-lg flex items-center justify-center border border-stone-200/50"
+              style={{ backgroundColor: againstLlm?.bgLight }}
+            >
+              <AgainstIcon className="w-3.5 h-3.5" style={{ color: againstLlm?.color }} />
+            </div>
+            <Shield className="w-3.5 h-3.5 text-stone-500" />
+          </div>
+        </div>
+      </div>
+
+      {/* Messages */}
+      <div className="space-y-5">
+        {visibleMessages.map((message) => (
+          <DebateMessageBubble key={message.id} message={message} />
+        ))}
+      </div>
+
+      {/* Expand / Collapse */}
+      {totalRounds > 1 && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-200 bg-white text-sm font-medium text-stone-600 hover:border-stone-300 hover:bg-stone-50 transition-all"
+          >
+            {expanded ? (
+              <>Show Round 1 only</>
+            ) : (
+              <>
+                Read all {totalRounds} rounds
+                <ArrowRight className="h-3.5 w-3.5" />
+              </>
+            )}
+          </button>
+        </div>
+      )}
+
+      {/* Link to interactive debate */}
+      <div className="flex justify-center mt-4">
+        <Link
+          href={`/?topic=${topicId}&view=debate`}
+          className="inline-flex items-center gap-2 text-sm text-deep hover:text-deep-dark transition-colors"
+        >
+          Start your own debate with different models
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
+    </section>
   );
 }
 
@@ -1057,6 +1272,9 @@ export default function TopicDetailView({
               <ArrowRight className="h-4 w-4" />
             </Link>
           </section>
+
+          {/* AI Debate */}
+          <DebatePreviewSection topicId={topic.id} />
 
           {/* Related Topics */}
           {relatedTopics.length > 0 && (

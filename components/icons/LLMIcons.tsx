@@ -95,6 +95,14 @@ export const LLM_OPTIONS: LLMOption[] = [
     Icon: OpenAIIcon,
   },
   {
+    id: "gpt-5",
+    name: "GPT-5",
+    fullName: "GPT-5",
+    color: "#10B981",
+    bgLight: "#D1FAE5",
+    Icon: OpenAIIcon,
+  },
+  {
     id: "gemini",
     name: "Gemini",
     fullName: "Gemini 1.5 Pro",
@@ -143,6 +151,7 @@ export function LLMIconRenderer({
     case "claude":
       return <ClaudeIcon className={className} style={style} />;
     case "gpt-4":
+    case "gpt-5":
       return <OpenAIIcon className={className} style={style} />;
     case "gemini":
       return <GeminiIcon className={className} style={style} />;

@@ -21,7 +21,7 @@ export {
 // Debate mode types (not part of topic schema)
 export type ArgumentView = "logic-map" | "scales" | "debate";
 
-export type LLMModel = "claude" | "gpt-4" | "gemini" | "grok";
+export type LLMModel = "claude" | "gpt-4" | "gpt-5" | "gemini" | "grok";
 
 export interface Debater {
   readonly id: string;

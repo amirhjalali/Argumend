@@ -2,7 +2,7 @@
 
 import "@xyflow/react/dist/style.css";
 
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import {
   Background,
   BackgroundVariant,
@@ -75,8 +75,10 @@ function CanvasExperience() {
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const setTopic = useLogicGraph((state) => state.setTopic);
   const currentView = useLogicGraph((state) => state.currentView);
+  const setView = useLogicGraph((state) => state.setView);
 
   const reactFlow = useReactFlow();
+  const didHandleParams = useRef(false);
 
   const getNodeColor = (node: Node<LogicNodeData>): string => {
     return getMiniMapColor(node?.data?.variant);
@@ -89,6 +91,26 @@ function CanvasExperience() {
     },
     [setTopic]
   );
+
+  // Handle URL params like ?topic=X&view=debate (from topic detail page links)
+  useEffect(() => {
+    if (didHandleParams.current) return;
+    didHandleParams.current = true;
+    const params = new URLSearchParams(window.location.search);
+    const topicParam = params.get("topic");
+    const viewParam = params.get("view");
+    if (topicParam) {
+      setTopic(topicParam);
+      setShowHero(false);
+      if (viewParam === "debate") {
+        setView("debate");
+      } else if (viewParam === "scales") {
+        setView("scales");
+      }
+      // Clean up URL without reload
+      window.history.replaceState({}, "", "/");
+    }
+  }, [setTopic, setView]);
 
   useEffect(() => {
     if (!focusTargets.length) return;
