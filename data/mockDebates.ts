@@ -266,6 +266,206 @@ export const MOCK_DEBATES: Record<string, DebateMessage[]> = {
       round: 3,
     },
   ],
+  "universal-basic-income": [
+    {
+      id: "ubi-1",
+      side: "for",
+      model: "claude",
+      content:
+        "The evidence from randomized controlled trials is remarkably consistent. Finland's 2017-2018 basic income experiment gave 2,000 unemployed citizens \u20ac560/month unconditionally. Results: recipients were happier, healthier, more trusting of institutions, and slightly more likely to find employment than the control group. The Stockton Economic Empowerment Demonstration gave 125 residents $500/month for two years. Full-time employment among recipients increased from 28% to 40% \u2014 a larger jump than the control group's 32% to 37%.\n\nThe theoretical case is equally strong. Means-tested welfare creates poverty traps: earn a dollar more and lose benefits worth two dollars. The effective marginal tax rate for a single mother leaving welfare can exceed 80%. UBI eliminates this entirely. There is no phase-out, no benefit cliff, no paperwork proving you're poor enough to deserve help.\n\nThe administrative argument seals it. The US spends $0.46 in administrative costs for every $1 of TANF benefits delivered. Food stamps cost $0.15 per dollar. Social Security \u2014 the closest thing to universal cash \u2014 costs $0.01. Universality is cheaper to administer than means-testing, and it reaches everyone, including the estimated 25% of eligible families who never claim TANF benefits because the process is too burdensome.",
+      round: 1,
+    },
+    {
+      id: "ubi-2",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "The opening overstates what the pilots can bear. Finland's experiment was limited to 2,000 people already receiving unemployment benefits, not all citizens. The official Finnish summary reports only a six-day increase in employment over the reference period. Stockton's SEED was a pilot of 125 randomly selected residents \u2014 not proof that a national UBI would outperform targeted housing, disability, nutrition, and child benefits.\n\nOnce one looks at system-level evidence rather than small pilots, the case weakens sharply. The OECD's Finland microsimulation found that a fiscally neutral basic income would raise poverty from 11.4% to 14.1%, pushing 150,000 additional people below the poverty line, including 30,000 children. By contrast, a coordinated reform of existing benefits reduced poverty to 9.7% while improving work incentives. In a broader cross-country analysis, the OECD concluded that a meaningful UBI would require \"very substantial tax rises\" and would not be a cost-effective way to reduce income poverty.\n\nAnti-poverty policy should be judged by poverty reduction per public dollar, not by how cheaply the state can mail identical checks to rich and poor alike. USDA data show 86% of SNAP benefits go to households at or below the poverty line. The Census Bureau reports that noncash benefits like SNAP lifted 6.6 million people out of poverty in 2023, and refundable tax credits lifted 3.4 million children above the poverty line. Benefit cliffs are real, but the evidence supports smoothing taper rates within targeted programs, not replacing them with a universal transfer that is fiscally blunt and unproven at scale.",
+      round: 1,
+    },
+    {
+      id: "ubi-3",
+      side: "for",
+      model: "claude",
+      content:
+        "My opponent's core argument \u2014 that targeted programs reduce poverty more efficiently per dollar \u2014 sounds compelling until you examine how targeting actually works in practice. The 25% TANF non-participation rate is not an anomaly; it is the system working as designed. Means-testing creates bureaucratic barriers that systematically exclude the most vulnerable. The Urban Institute estimates that only 52% of families eligible for childcare subsidies receive them. Only 82% of eligible SNAP recipients participate. For the Earned Income Tax Credit, the IRS estimates 20% of eligible filers don't claim it.\n\nThe OECD's Finland microsimulation assumed fiscal neutrality \u2014 replacing all existing benefits with a flat UBI. No serious UBI proposal works this way. A UBI supplements, not replaces, housing assistance, disability benefits, and healthcare. The OECD modeled a strawman.\n\nOn the pilots: the consistent finding across Finland, Stockton, Kenya's GiveDirectly (the largest RCT in history with 20,000+ participants), Canada's Mincome, and India's SEWA experiment is the same: unconditional cash does not reduce work effort, does improve well-being, and does reduce poverty. If cash transfers consistently work in every context tested, the person claiming they won't work at scale needs to explain why.",
+      round: 2,
+    },
+    {
+      id: "ubi-4",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "My opponent is trying to turn an argument for administrative reform into an argument for sending checks to everyone, including the affluent. If SNAP reaches roughly four in five eligible people and TANF has enrollment frictions, the answer is automatic enrollment, simpler eligibility rules, and better delivery systems \u2014 not universalizing benefits so that enormous sums go to people who are not poor. Universality is not \"more efficient\" just because it avoids screening; it is fiscally blunt.\n\nIn the United States, even a modest UBI of $12,000 per adult would cost on the order of $3 trillion per year before preserving disability, housing, and healthcare programs. Once my opponent says UBI must supplement rather than replace the welfare state, the cost problem becomes the central issue. Every dollar spent on universal checks is a dollar not spent deepening support for the actually vulnerable.\n\nThe pilot evidence does not rescue that problem, because pilots do not test the thing critics object to: economy-wide scale. Temporary, externally funded cash experiments cannot capture the long-run effects of the taxes required to finance a permanent national UBI, nor the general-equilibrium effects on wages, prices, rents, and labor supply. Finland did not test a national, supplemental UBI; Stockton was tiny and philanthropic; GiveDirectly studied very poor communities in Kenya, not a high-income state with a mature welfare system and tight housing markets.",
+      round: 2,
+    },
+    {
+      id: "ubi-5",
+      side: "for",
+      model: "claude",
+      content:
+        "My opponent keeps returning to cost, so let me address it directly. The $3 trillion figure sounds enormous until you consider what we already spend. Total US welfare spending across federal and state programs exceeds $1 trillion annually. The tax expenditure budget \u2014 deductions, credits, and exemptions \u2014 exceeds $1.8 trillion, much of it flowing to the wealthy (the mortgage interest deduction alone costs $30 billion per year, overwhelmingly benefiting homeowners in the top income quintiles). A UBI funded by consolidating regressive tax expenditures and existing cash-equivalent programs is not a fantasy; it is a reallocation.\n\nBut the deeper point is about what we're optimizing for. My opponent optimizes for poverty reduction per dollar. I optimize for human dignity and economic security per person. A system where 25% of eligible families don't receive TANF, where the application process itself is designed to be humiliating, where a single mother must prove her poverty quarterly to bureaucrats who can cut her off \u2014 that system is not 'efficient.' It is efficient at administering indignity.\n\nThe strongest version of UBI is not 'give everyone $12,000 and call it done.' It is: establish a floor below which no one falls, eliminate the bureaucratic maze that keeps millions from accessing help they qualify for, and remove the poverty traps that punish people for working. Every serious economist from Milton Friedman (negative income tax) to Martin Luther King Jr. recognized this. The question is not whether we can afford a floor. It is whether we can afford not to have one.",
+      round: 3,
+    },
+    {
+      id: "ubi-6",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "The case for UBI falls apart the moment you stop looking at small pilots and start looking at national reality. Those pilots are temporary, externally funded, and too limited to test the hard part: fiscal sustainability and economy-wide effects. They do not tell us what happens when a country tries to send every adult $12,000 a year, year after year, while financing it through taxes, debt, or cuts elsewhere. And if my opponent says UBI would supplement existing programs, the price tag is even more staggering: roughly $3 trillion per year on top of what government already spends.\n\nThe deeper problem is that universality is blunt. It sends scarce public dollars to people who do not need them, which means fewer dollars available for those who do. Yes, means-testing can miss eligible people, but the answer is to fix enrollment friction, not abandon targeting altogether. Programs like SNAP and the EITC already lift millions out of poverty because they concentrate help where hardship is real. By contrast, even the OECD's own microsimulation found that a fiscally neutral UBI would increase poverty. If a policy is unaffordable when added on top, and harmful when forced to be budget-neutral, it is not a solution.\n\nWe can pursue a sweeping universal payment that is politically seductive but fiscally reckless, or we can strengthen the targeted programs that already work and make them easier to access. UBI promises simplicity, but at national scale it delivers massive cost, diluted aid, and worse outcomes for the poor. We should reject it.",
+      round: 3,
+    },
+  ],
+  "gene-editing-embryos": [
+    {
+      id: "geneedit-1",
+      side: "for",
+      model: "claude",
+      content:
+        "Every year, approximately 8 million children are born with serious genetic disorders. Sickle cell disease alone affects 300,000 newborns annually. Huntington's disease is a death sentence written in DNA \u2014 if you carry the mutation, you will develop it. Tay-Sachs, cystic fibrosis, BRCA mutations \u2014 these are certainties encoded in the genome.\n\nCRISPR-Cas9 has made precise germline editing technically feasible. The 2018 He Jiankui experiment was reckless and premature, but it demonstrated that the technology works. Since then, base editing and prime editing have dramatically improved precision \u2014 prime editing can make targeted changes with less than 1% off-target effects in recent studies. The question is no longer whether we can edit embryos, but whether we should let children suffer preventable diseases because the technology makes us uncomfortable.\n\nWe already accept preimplantation genetic diagnosis (PGD), where embryos are screened and selected. We accept somatic gene therapy, where genes are modified in living patients. The only difference with germline editing is that the fix is heritable \u2014 meaning the child's children are also protected. Opposing germline editing while accepting PGD is not a principled position; it is an arbitrary line drawn from fear rather than reason.",
+      round: 1,
+    },
+    {
+      id: "geneedit-2",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "Technical improvement does not equal clinical permissibility. The relevant question is whether editing is safe enough to impose heritable changes on a future child. WHO still states that proceeding with clinical germline editing is irresponsible at present, and the International Commission convened by the NAS, NAM, and Royal Society concluded that edited embryos should not be used to establish a pregnancy until precise changes can be made reliably without undesired ones. A 2024 Nature Biotechnology study reporting 0.5% on-target error was performed in mouse embryos and still found increased off-target indels. Human-embryo work continues to show mosaicism, loss of heterozygosity, and unintended edits spanning 4-20 kb, while CRISPR can produce kilobase-scale deletions and complex rearrangements.\n\nThe PGD comparison is flawed. PGD selects among embryos; germline editing engineers a novel, heritable genome in a person who cannot consent and whose descendants may inherit the consequences. The International Commission explicitly says HHGE warrants a much higher safety threshold. More importantly, the claimed medical necessity is narrow: 80-90% of PGT cycles yield an unaffected embryo for transfer. The Commission limits hypothetical initial HHGE use to families with no unaffected embryos \u2014 rare cases.\n\nYour examples also overstate genetic determinism. Huntington's is near-deterministic; BRCA1/2 are not. The National Cancer Institute estimates lifetime breast-cancer risk at 55-65% for BRCA1 carriers. Once editing is authorized for \"disease prevention,\" the category predictably expands to adult-onset susceptibilities and probabilistic risk reduction. That is why ARM, ISCT, and ASGCT called in May 2025 for a 10-year moratorium.",
+      round: 1,
+    },
+    {
+      id: "geneedit-3",
+      side: "for",
+      model: "claude",
+      content:
+        "My opponent sets up a false choice: existing alternatives versus germline editing. The reality is that PGD fails for many families. When both parents are homozygous for a recessive disease (both have sickle cell disease), 100% of embryos carry the mutation \u2014 PGD cannot help. For dominant conditions with complete penetrance where the affected parent is homozygous, every embryo inherits the disease. Sickle cell trait is carried by 1 in 13 African Americans.\n\nOn safety: yes, current technology is not ready for clinical use. I agree with the WHO moratorium on current use. But my opponent's position is not 'not yet' \u2014 it's 'not ever under regulated conditions.' The trajectory of editing precision is clear: CRISPR in 2012 had off-target rates of 50%+; base editing in 2016 brought it below 5%; prime editing in 2019 brought it below 1%. At what threshold does the balance shift?\n\nThe consent argument proves too much. We make irreversible decisions for future persons constantly \u2014 we vaccinate children, choose where they'll be raised, expose them to environmental toxins through industrial policy. The question is never whether to affect future persons but whether the effect is beneficial. Eliminating Huntington's disease from a family line permanently is beneficial by any reasonable standard.",
+      round: 2,
+    },
+    {
+      id: "geneedit-4",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "My opponent tries to turn a handful of tragic reproductive cases into a license for heritable human experimentation. When both parents would pass on a serious mutation, there are still alternatives that do not impose engineered genetic changes on future generations: donor gametes, adoption, remaining child-free, and increasingly somatic therapies that treat the actual patient. The ethical question is whether we authorize clinics to make irreversible, heritable interventions on people who cannot consent and whose children will bear the consequences.\n\nThe \"precision threshold\" argument is a sleight of hand. Germline editing is not just about reducing off-target cuts on a lab assay. The real problem is biological unpredictability: mosaicism, large on-target deletions, chromosomal rearrangements, epigenetic effects, gene-gene interactions, and pleiotropy that may not appear until decades later or in later generations. A cleaner edit is not the same as a predictable human outcome. The CCR5 scandal made that point brutally clear: even when an edit is framed as protective, genes do not do one thing in one context forever.\n\nAnd the consent analogy fails. Vaccination treats an existing child with overwhelming evidence, known benefit, and ongoing medical accountability. Germline editing creates a person through an experimental genetic intervention and binds their descendants to that decision. That is categorically different. Invoking environmental harms is worse: pollution is a moral failure, not an ethical model for medicine.",
+      round: 2,
+    },
+    {
+      id: "geneedit-5",
+      side: "for",
+      model: "claude",
+      content:
+        "Let me close by identifying what this debate is actually about. My opponent and I agree on the current state of the science: not ready for clinical use today. Where we disagree is whether germline editing should ever be permitted under regulated conditions. My opponent's position requires believing three things, all of which are implausible.\n\nFirst, that PGD plus donor gametes will always be sufficient. They won't. For families where both parents carry homozygous recessive mutations, the only current options are to accept a 100% affected child, use donor gametes (eliminating one parent's genetic contribution), or forgo biological children entirely. Telling these families 'tough luck' when a safe editing technology exists is not ethics; it is cruelty dressed as caution.\n\nSecond, that biological unpredictability can never be adequately characterized. But this is true of every medical intervention at the time of its development. Organ transplants, in vitro fertilization, and somatic gene therapy all faced identical 'we can't predict long-term effects' objections. We resolved them through careful clinical development, not permanent prohibition.\n\nThird, that the consent problem is unique to germline editing. It is not. Every reproductive decision \u2014 including the decision to reproduce knowing you carry a lethal mutation \u2014 imposes unchosen consequences on future persons. The question is whether we expand the range of beneficial choices available to parents or restrict it based on a precautionary principle that, applied consistently, would have prevented IVF, vaccination, and modern surgery.",
+      round: 3,
+    },
+    {
+      id: "geneedit-6",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "Human germline gene editing is not ready, not necessary in almost all cases, and not ethically justifiable as clinical practice. The world's leading scientific bodies \u2014 WHO, NAS/NAM, and the Royal Society \u2014 all say it is not ready for clinical use. The core biological risks remain unresolved: mosaicism, large unintended deletions, and chromosomal catastrophe like chromothripsis. The claim that \"precision is improving\" does not answer that problem. Better targeting does not eliminate biological unpredictability after the edit is made, where pleiotropy, epigenetic effects, and developmental complexity can turn a seemingly precise intervention into a lifelong, heritable mistake. The CCR5 episode is the warning: a so-called protective edit can carry unknown costs.\n\nPGD already serves roughly 80 to 90 percent of at-risk families. Germline editing is not a general medical need but a speculative solution for rare edge cases. Homozygous parents are the exception, not the rule, and rare hard cases do not justify normalizing a technology that permanently alters future generations. Parents make many decisions for children, but they do not impose irreversible, engineered genomic changes that descendants will inherit without any possibility of consent. That is a categorically different level of intervention.\n\nWhen a technology is not clinically ready, is unnecessary in the overwhelming majority of cases, and creates irreversible harms for people who cannot agree to bear them, the only responsible verdict is to reject permitting human germline gene editing.",
+      round: 3,
+    },
+  ],
+  "psychedelics-mental-health": [
+    {
+      id: "psych-1",
+      side: "for",
+      model: "claude",
+      content:
+        "The clinical evidence is extraordinary by psychiatric standards. In the Johns Hopkins psilocybin trial for major depressive disorder (Davis et al., 2021), 71% of participants showed a clinically significant response at 4 weeks, and 54% were in full remission. For context, SSRIs typically achieve remission in 25-30% of patients. A single psilocybin session produced effects lasting months \u2014 compared to daily SSRI dosing with side effects including sexual dysfunction, weight gain, and emotional blunting.\n\nFor PTSD, MDMA-assisted therapy achieved even more striking results. The MAPS Phase 3 trial (Mitchell et al., 2021) found that 67% of participants no longer met PTSD criteria after three sessions, compared to 32% in the placebo group. These were treatment-resistant patients who had failed an average of 3.3 prior treatments. The FDA designated MDMA-assisted therapy a 'Breakthrough Therapy.'\n\nThe safety profile challenges every assumption baked into prohibition. Psilocybin has no known lethal dose and produces no physical dependence. The 2010 Lancet study by David Nutt ranked psilocybin and LSD among the least harmful drugs \u2014 below alcohol, tobacco, cannabis, and even horse riding in terms of overall harm. The primary risk is psychological distress during the experience, which clinical supervision directly mitigates.",
+      round: 1,
+    },
+    {
+      id: "psych-2",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "The Johns Hopkins study was not definitive evidence; it was a tiny study. Davis et al. randomized 27 patients and analyzed 24 completers, used a waiting-list control rather than an active placebo, and excluded people with psychosis, serious suicide attempts, or current antidepressant use. That makes the SSRI comparison methodologically misleading: you are contrasting a highly selected, tightly managed sample with broad antidepressant populations. A 2023 systematic review found that psychedelic RCTs generally had small samples, considerable dropout, unsuccessful blinding, and that all but one trial were at high risk of bias. Muthukumaraswamy et al. concluded that psychedelic effect sizes are likely inflated by de-blinding and expectancy.\n\nMDMA exemplifies the problem. In its June 2024 briefing, the FDA said midomafetamine alters mood and suggestibility so strongly that trials are effectively impossible to blind well \u2014 about 90% of participants on drug correctly guessed assignment. The FDA advisory committee voted 9-2 that the data did not show effectiveness and 10-1 that benefits did not outweigh risks, citing functional unblinding, expectation bias, and incomplete cardiac characterization.\n\nThe claim also overreaches on depression and addiction. In Goodwin et al.'s larger trial (2022), psilocybin improved scores at 3 weeks but not sustained response at 12 weeks; adverse events occurred in 77% of participants, and suicidal ideation or self-injury occurred in all dose groups. For alcohol use disorder, Rieser et al.'s 2025 Phase 2 RCT found no significant differences. A literature of broken blinding, selective samples, and short follow-up does not justify legalization; it justifies more cautious research.",
+      round: 1,
+    },
+    {
+      id: "psych-3",
+      side: "for",
+      model: "claude",
+      content:
+        "My opponent's methodological critique proves too much. If we reject treatments based on small initial trials, difficulty of blinding, and expectancy effects, we must also reject most of psychiatry. Antidepressant trials have massive placebo response rates (30-40%), rely on subjective outcome measures, and have been plagued by publication bias \u2014 Cipriani et al.'s 2018 Lancet mega-analysis of 522 trials found that unpublished trials showed much smaller effect sizes. The STAR*D study found only 28% remission in Step 1, dropping to 13% by Step 3. Yet SSRIs are prescribed to 37 million Americans.\n\nOn MDMA: the FDA advisory committee's 9-2 vote was not the final word. Advisory committees are advisory; the FDA has overruled them before. The committee's concerns centered on protocol deviations at one site and functional unblinding \u2014 real issues, but addressable in future trial design. The cardiovascular effects (17mmHg systolic, 23bpm heart rate increase) are transient, occurring during the supervised session, and comparable to moderate exercise.\n\nThe Goodwin et al. trial showing no sustained response at 12 weeks actually showed a significant dose-response relationship at 3 weeks \u2014 psilocybin may need periodic dosing, just like every other psychiatric medication. That is not a failure; it is a treatment parameter to optimize.",
+      round: 2,
+    },
+    {
+      id: "psych-4",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "This is a false equivalence. The question is not whether SSRIs are flawless; it is whether psychedelic-assisted therapy has earned legalization on the evidence we actually have. MDMA-assisted therapy is a drug-plus-therapy package built around acute psychoactive effects, therapist interaction, and setting. FDA's 2024 review noted there was no arm isolating MDMA from psychotherapy, and the psychotherapy was not standardized enough to tell what was doing the work. Pointing to publication bias in antidepressants does not fix that.\n\nNor can you minimize the FDA review. The advisory committee voted 9-2 that efficacy had not been shown and 10-1 that benefits did not outweigh risks. FDA's briefing said roughly 90% of patients on MDMA correctly guessed assignment. In a field depending on subjective outcomes after psychoactive sessions, that is a direct hit to internal validity. In August 2024, FDA issued a Complete Response Letter requiring another Phase 3 trial. If these flaws are \"addressable in future trial design,\" you are admitting the current evidence is insufficient for legalization now.\n\nThe safety arguments are no better. FDA found 67.7% of MDMA patients exceeded 140/90 blood pressure, 33.3% exceeded 160 systolic, and 6.1% exceeded 180. That is not \"moderate exercise\" \u2014 exercise does not pair cardiovascular strain with eight hours of drug-induced impairment. On psilocybin, calling the loss of sustained response at 12 weeks a \"treatment parameter\" is goalpost-moving. Goodwin's trial showed adverse events in 77% of participants and suicidal ideation in all dose groups.",
+      round: 2,
+    },
+    {
+      id: "psych-5",
+      side: "for",
+      model: "claude",
+      content:
+        "Let me cut through the procedural objections and address the human reality. 107,000 Americans died of drug overdoses in 2023. Approximately 13 million US adults had a major depressive episode that didn't respond to standard treatment. An estimated 13 million Americans have PTSD, with veterans and sexual assault survivors bearing the heaviest burden. The current standard of care \u2014 SSRIs, SNRIs, talk therapy \u2014 fails a large percentage of these people.\n\nThe FDA's rejection of MDMA was not a verdict on psychedelic therapy as a concept. It was a specific regulatory decision about one company's application with documented protocol violations. The science continues: Johns Hopkins, NYU, Imperial College London, and UCSF all have active psychedelic research programs. Oregon legalized psilocybin services in 2020, and Australia approved psilocybin and MDMA for treatment-resistant depression and PTSD in 2023. These are not fringe actors \u2014 they are leading medical institutions and national regulators who have reviewed the same evidence.\n\nMy opponent demands perfection from psychedelic research while accepting profound imperfection from existing treatments. The standard should not be 'flawless evidence' but 'sufficient evidence that the potential benefits for treatment-resistant patients justify regulated therapeutic access under clinical supervision.' That standard is met.",
+      round: 3,
+    },
+    {
+      id: "psych-6",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "You do not legalize a powerful intervention on hype and wishful thinking. The flagship trials were tiny, with 24 to 27 participants, no active placebos, and massive expectancy bias. Once patients and therapists can tell who got the drug, the placebo comparison stops meaning what it is supposed to mean. That is functional unblinding, and it cuts the core claim of efficacy out from under this entire field. The FDA advisory committee voted 9-2 against MDMA's effectiveness and 10-1 against a favorable benefit-risk profile. A near-unanimous rejection is not a technicality. It is a warning.\n\nWhen you look beyond the marketing, the pattern gets worse. In Goodwin's psilocybin trial, there was no sustained response at 12 weeks, adverse events hit 77%, and suicidal ideation appeared in every dose group. In Rieser's 2025 alcohol trial, there were no significant differences. Where is the durable, replicated clinical payoff that justifies changing the law? Meanwhile, the risks are real: 67.7% exceeded 140/90 blood pressure and 33.3% exceeded 160 systolic. My opponent says SSRIs have problems too. One weak evidence base does not justify legalizing another.\n\nThis debate is not about whether psychedelic therapy sounds innovative. It is about whether the evidence is strong enough to legalize it. Right now, it is not. Small biased trials, broken blinding, failed durability, null follow-up results, serious adverse events, suicidal ideation, and clear cardiovascular risk do not add up to a responsible medical framework. They add up to a field asking regulators to lower the standard. We should not.",
+      round: 3,
+    },
+  ],
+  "cancel-culture": [
+    {
+      id: "cancel-1",
+      side: "for",
+      model: "claude",
+      content:
+        "Before social media, accountability for public figures was gatekept by institutions that routinely failed. Harvey Weinstein operated for decades because the New York Times, NBC, and Disney all had the information and chose not to act. Bill Cosby's accusers were dismissed for years. The Catholic Church's abuse was an open secret. Institutional accountability failed catastrophically, and social media created a parallel system where victims could be heard.\n\nThe empirical evidence shows that 'cancellation' is overwhelmingly directed upward \u2014 at people with disproportionate power. A 2021 Pew Research study found that 58% of Americans believe calling out others on social media holds people accountable. The targets are typically executives, celebrities, politicians \u2014 people with platforms, lawyers, and resources. The power asymmetry runs in one direction.\n\nThe free speech objection confuses government censorship with social consequences. The First Amendment protects you from the state, not from criticism. When consumers boycott a brand, that is market democracy. When employees petition against a colleague's behavior, that is workplace accountability. When audiences refuse to support an artist, that is freedom of association. Rebranding these as 'cancellation' does not make them illegitimate \u2014 it makes the powerful uncomfortable with being held to the same standards as everyone else.",
+      round: 1,
+    },
+    {
+      id: "cancel-2",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "Those examples conflate exposure of wrongdoing with the legitimacy of mass public punishment. Weinstein's impunity was broken by documented reporting, employer action, and criminal prosecution. A mechanism of accountability is legitimate only if it is proportionate, evidence-sensitive, and corrigible. The literature on online public shaming suggests the opposite: Billingham and Parr argue it frequently violates proportionality, privacy, and reintegration, while Aitchison and Meckled-Garcia describe it as \"informal collective punishment\" inconsistent with due-process values.\n\nThe claim that cancellation is \"overwhelmingly directed upward\" is weak. Hess and Waller's work on the \"digital pillory\" documents the shaming of ordinary people for minor offenses. Pew found in 2021 that 41% of Americans had experienced online harassment; among LGB adults, roughly 70% had experienced harassment and 51% severe abuse, while one-third of women under 35 reported sexual harassment online. A practice that predictably intensifies networked abuse against vulnerable groups cannot be defended as an empowerment mechanism.\n\nBy 2022, Americans were nearly split on whether social-media call-outs hold people accountable or punish people who did not deserve it (51% versus 45%). A 2024 Journal of Computer-Mediated Communication study found that fear of social sanctions reduces multiple forms of online political expression. Platform design helps explain why: outrage is socially rewarded and amplified over time, and observers systematically overperceive outrage. That is not legitimate accountability. It is digitally optimized vigilantism.",
+      round: 1,
+    },
+    {
+      id: "cancel-3",
+      side: "for",
+      model: "claude",
+      content:
+        "My opponent conflates online harassment with organized accountability campaigns and uses the confusion to discredit both. The Pew harassment data includes everything from name-calling to stalking. It does not tell us anything specific about accountability campaigns directed at public figures for specific behaviors.\n\nThe 'spiral of silence' concern cuts both ways. Before social media, the spiral of silence protected powerful abusers: accusers of Weinstein, Cosby, and Larry Nassar were silenced by institutional power for decades. Social media broke that spiral. The question is not whether online speech has chilling effects \u2014 all accountability has chilling effects on the behavior it targets. The question is whether the behaviors being chilled deserve protection.\n\nOn proportionality: my opponent assumes cancellation is a single, undifferentiated phenomenon. It is not. A consumer boycott of a company using child labor is not the same as a Twitter mob targeting a teenager. Legitimate accountability \u2014 boycotts, petition campaigns, organized advocacy \u2014 should not be dismissed because illegitimate harassment also occurs online. We don't abandon the criminal justice system because wrongful convictions exist; we work to improve it. The answer to imperfect accountability is better accountability, not no accountability.",
+      round: 2,
+    },
+    {
+      id: "cancel-4",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "Your distinction collapses in the real world because cancel culture is not a court, a regulator, or even a coherent process. It is a decentralized punishment machine where accusation, outrage, employer pressure, and reputational destruction all happen at once, with no rules of evidence, no neutral fact-finder, and no proportionality. Saying \"some campaigns are organized\" does not fix that. Those men who were brought down \u2014 Weinstein, Cosby, Nassar \u2014 were ultimately brought down by reporting, testimony, and formal investigation. That is accountability. Cancel culture is the extra-legal mob layer.\n\nYour \"all accountability has chilling effects\" argument is exactly why cancel culture is dangerous. Legitimate accountability chills abuse because it is bounded by standards. Cancel culture chills anything that can be made to look offensive after the fact: dissent, satire, bad phrasing, unpopular research, or context-dependent speech. People self-censor on ambiguity, because virality punishes first and sorts facts later.\n\nYour criminal justice analogy fails for the same reason. We tolerate imperfect institutions only when they have procedures, standards, appeal mechanisms, and identifiable decision-makers. Cancel culture has none of that. It is not \"imperfect accountability.\" It is unaccountable punishment outsourced to the loudest faction online.",
+      round: 2,
+    },
+    {
+      id: "cancel-5",
+      side: "for",
+      model: "claude",
+      content:
+        "My opponent wants a world where accountability requires institutional permission. That world existed, and it failed. For decades, the institutions \u2014 HR departments, corporate boards, university administrations, prosecutors \u2014 had all the evidence and chose not to act. The #MeToo movement didn't happen because institutions suddenly started working. It happened because individuals bypassed broken institutions and spoke directly to the public.\n\nThe 'due process' objection treats social consequences as if they were criminal punishment. They are not. Losing followers is not imprisonment. Being criticized publicly is not a trial. Facing boycotts is not a conviction. The entire framework of 'due process' applies to state power, not to citizens exercising their right to associate or disassociate freely. My opponent is asking for a world where powerful people are protected from public opinion by procedural barriers that only institutional gatekeepers can navigate.\n\nThe real question is: what is the alternative? If cancel culture is illegitimate, then what mechanism holds powerful people accountable when institutions fail? My opponent has not answered this. They have criticized the existing mechanism without proposing a replacement. In the absence of perfect institutional accountability, social pressure is not just legitimate \u2014 it is necessary.",
+      round: 3,
+    },
+    {
+      id: "cancel-6",
+      side: "against",
+      model: "gpt-4",
+      content:
+        "If this were truly about accountability, we would not be debating a practice that Americans themselves see as almost evenly split between justice and undeserved punishment. Real accountability has rules: evidence, proportionality, consistency, and some path to appeal. Cancel culture has none of that. It is an improvised punishment system driven by virality, where accusation and penalty collapse into the same moment. The failure of institutions does not justify replacing them with an online process that has no due process, no limiting standard, and no mechanism to correct error once the mob moves on.\n\nOrdinary people get caught in it too. Research shows fear of social sanctions reduces political expression, which means cancel culture does not merely punish wrongdoing \u2014 it chills dissent and narrows democratic speech. That effect is intensified by platforms built to algorithmically amplify outrage and reward moral grandstanding. The harms are not evenly distributed: LGBT adults and women under 35 face disproportionate harassment.\n\nBoycotts can be legitimate. Criticism can be legitimate. But cancel culture, as a norm of decentralized public shaming without due process, is not legitimate accountability. It is punishment untethered from fairness.",
+      round: 3,
+    },
+  ],
   "climate-change": [
     {
       id: "climate-1",
