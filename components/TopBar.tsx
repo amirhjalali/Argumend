@@ -6,6 +6,7 @@ import { Menu, Search, HelpCircle, ExternalLink, Home, Brain } from "lucide-reac
 import { ViewToggle } from "./ViewToggle";
 import { UserMenu } from "./UserMenu";
 import { SearchModal } from "./SearchModal";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface TopBarProps {
   onMenuClick?: () => void;
@@ -33,12 +34,12 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40">
+      <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 dark:bg-[#1a1917]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40 dark:border-[#3d3a36]/60">
         {/* Left: Menu + Logo */}
         <div className="flex items-center gap-3 md:gap-5">
           <button
             onClick={onMenuClick}
-            className="group relative flex items-center justify-center h-11 w-11 -ml-2 rounded-lg text-secondary transition-all duration-200 hover:text-primary hover:bg-[#f0ebe3]"
+            className="group relative flex items-center justify-center h-11 w-11 -ml-2 rounded-lg text-secondary transition-all duration-200 hover:text-primary hover:bg-[#f0ebe3] dark:hover:bg-[#302e2a]"
             aria-label="Toggle sidebar"
           >
             <Menu className="h-5 w-5 transition-transform duration-200 group-hover:scale-105" strokeWidth={2} />
@@ -49,7 +50,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
               <span className="font-serif text-lg md:text-xl font-medium tracking-[0.08em] text-primary leading-none">
                 ARGUMEND
               </span>
-              <span className="text-[10px] font-sans text-stone-500 leading-none mt-1">
+              <span className="text-[10px] font-sans text-stone-500 dark:text-stone-400 leading-none mt-1">
                 Disagree better.
               </span>
             </div>
@@ -58,7 +59,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
           {showBackToHero && onBackToHero && (
             <button
               onClick={onBackToHero}
-              className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 text-sm hover:text-stone-800 hover:bg-stone-100/60 rounded-lg transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 dark:text-stone-400 text-sm hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/60 dark:hover:bg-[#302e2a] rounded-lg transition-colors"
               aria-label="Home"
             >
               <Home className="h-3.5 w-3.5" strokeWidth={1.8} />
@@ -70,7 +71,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
         {/* Center: View Toggle + Value Prop */}
         <div className="flex items-center gap-4">
           <ViewToggle />
-          <div className="hidden lg:block text-[13px] text-stone-500 italic font-serif">
+          <div className="hidden lg:block text-[13px] text-stone-500 dark:text-stone-400 italic font-serif">
             What would change your mind?
           </div>
         </div>
@@ -79,7 +80,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
         <div className="flex items-center gap-1 md:gap-2">
           <Link
             href="/analyze"
-            className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-rust-600 text-sm font-medium hover:text-rust-800 hover:bg-rust-50/60 rounded-lg transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-rust-600 dark:text-rust-400 text-sm font-medium hover:text-rust-800 dark:hover:text-rust-300 hover:bg-rust-50/60 dark:hover:bg-rust-900/30 rounded-lg transition-colors"
           >
             <Brain className="h-3.5 w-3.5" strokeWidth={1.8} />
             <span className="hidden sm:inline">Analyze</span>
@@ -87,7 +88,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
 
           <Link
             href="/how-it-works"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 text-sm hover:text-stone-800 transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 dark:text-stone-400 text-sm hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
           >
             <HelpCircle className="h-3.5 w-3.5" strokeWidth={1.8} />
             <span>How it works</span>
@@ -95,13 +96,13 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
 
           <button
             onClick={openSearch}
-            className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 hover:text-stone-800 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
             aria-label="Search"
             type="button"
           >
             <Search className="h-3.5 w-3.5" strokeWidth={1.8} />
             <span className="hidden sm:inline text-sm">Search</span>
-            <kbd className="hidden md:inline-flex h-5 items-center gap-0.5 rounded border border-stone-200 bg-stone-50 px-1.5 font-mono text-[10px] text-stone-400">
+            <kbd className="hidden md:inline-flex h-5 items-center gap-0.5 rounded border border-stone-200 dark:border-[#3d3a36] bg-stone-50 dark:bg-[#252420] px-1.5 font-mono text-[10px] text-stone-400">
               <span className="text-xs">⌘</span>K
             </kbd>
           </button>
@@ -110,13 +111,17 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
             href="https://github.com/amirhjalali/Argumend"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 text-sm hover:text-stone-800 transition-colors"
+            className="hidden md:flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 dark:text-stone-400 text-sm hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
           >
             <ExternalLink className="h-3.5 w-3.5" strokeWidth={1.8} />
             <span>Contribute</span>
           </a>
 
-          <div className="ml-1 border-l border-stone-200/60 pl-2">
+          <div className="hidden sm:block">
+            <ThemeToggle />
+          </div>
+
+          <div className="ml-1 border-l border-stone-200/60 dark:border-[#3d3a36]/60 pl-2">
             <UserMenu />
           </div>
         </div>

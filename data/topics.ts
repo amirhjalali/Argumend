@@ -8569,7 +8569,7 @@ export function getTopicsByCategory(): Record<TopicCategory, Topic[]> {
  * These clusters connect topics that share underlying themes even when they
  * belong to different categories (e.g., criminal justice, energy/environment).
  */
-const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
+export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   // Criminal justice cluster
   "gun-control-effectiveness": ["death-penalty-deterrence", "police-reform", "drug-decriminalization", "surveillance-public-safety"],
   "death-penalty-deterrence": ["gun-control-effectiveness", "police-reform", "drug-decriminalization", "reparations-slavery"],

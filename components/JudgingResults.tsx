@@ -15,10 +15,13 @@ import { DEFAULT_RUBRIC } from "@/lib/judge/rubric";
 import { getConfidenceInfo } from "@/lib/analyze/extractor";
 import { getLLMOption, LLMIconRenderer } from "./icons/LLMIcons";
 import type { LLMModel } from "@/types/logic";
+import { ShareVerdictCard } from "@/components/ShareVerdictCard";
 
 interface JudgingResultsProps {
   result: JudgingResult;
   rubric?: RubricDimension[];
+  topicTitle?: string;
+  topicId?: string;
 }
 
 function WinnerBanner({ result }: { result: JudgingResult }) {
@@ -429,9 +432,9 @@ function DisagreementWarnings({ disagreements }: { disagreements: JudgingResult[
   );
 }
 
-export function JudgingResults({ result, rubric = DEFAULT_RUBRIC }: JudgingResultsProps) {
+export function JudgingResults({ result, rubric = DEFAULT_RUBRIC, topicTitle, topicId }: JudgingResultsProps) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" id="verdict">
       {/* Section divider with horizontal rule */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2 flex-shrink-0">
@@ -449,6 +452,17 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC }: JudgingResul
 
       {/* Verdict Confidence Summary */}
       <VerdictConfidenceSummary result={result} />
+
+      {/* Share Verdict */}
+      {topicTitle && topicId && (
+        <div className="flex justify-center">
+          <ShareVerdictCard
+            result={result}
+            topicTitle={topicTitle}
+            topicId={topicId}
+          />
+        </div>
+      )}
 
       {/* Disagreement Warnings */}
       <DisagreementWarnings disagreements={result.disagreements} />

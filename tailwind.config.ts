@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -83,6 +84,24 @@ const config: Config = {
         lw: "0 12px 40px rgba(32, 25, 16, 0.07)",
         "lw-hover": "0 18px 48px rgba(32, 25, 16, 0.12)",
         card: "0 2px 8px -2px rgba(0,0,0,0.1)",
+      },
+      keyframes: {
+        "pulse-subtle": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.85" },
+        },
+        "pulse-medium": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.75" },
+        },
+        "pulse-hot": {
+          "0%, 100%": { opacity: "1", transform: "scaleX(1)" },
+          "50%": { opacity: "0.8", transform: "scaleX(1.01)" },
+        },
+        "pulse-explosive": {
+          "0%, 100%": { opacity: "1", transform: "scaleX(1)" },
+          "50%": { opacity: "0.7", transform: "scaleX(1.02)" },
+        },
       },
     },
   },

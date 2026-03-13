@@ -9,6 +9,7 @@ import {
   jsonb,
   primaryKey,
   index,
+  uniqueIndex,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 import type { AdapterAccountType } from "next-auth/adapters";
@@ -246,6 +247,66 @@ export const newsletters = pgTable(
 );
 
 // ============================================================================
+// Saved Topics — user bookmarks
+// ============================================================================
+
+export const savedTopics = pgTable(
+  "saved_topics",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    topicId: text("topic_id").notNull(),
+    savedAt: timestamp("saved_at").defaultNow().notNull(),
+  },
+  (t) => [
+    index("saved_topics_userId_idx").on(t.userId),
+    index("saved_topics_topicId_idx").on(t.topicId),
+    uniqueIndex("saved_topics_userId_topicId_idx").on(t.userId, t.topicId),
+  ]
+);
+
+// ============================================================================
+// Topic Views — anonymous page-view tracking for trending
+// ============================================================================
+
+export const topicViews = pgTable(
+  "topic_views",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    topicId: text("topic_id").notNull(),
+    viewedAt: timestamp("viewed_at").defaultNow().notNull(),
+    userId: text("user_id"),
+  },
+  (t) => [
+    index("topic_views_topicId_idx").on(t.topicId),
+    index("topic_views_viewedAt_idx").on(t.viewedAt),
+  ]
+);
+
+// ============================================================================
+// Topic Subscriptions — per-topic bell subscriptions (auth required)
+// ============================================================================
+
+export const topicSubscriptions = pgTable(
+  "topic_subscriptions",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    topicId: text("topic_id").notNull(),
+    subscribedAt: timestamp("subscribed_at").defaultNow().notNull(),
+  },
+  (t) => [
+    index("topic_subs_userId_idx").on(t.userId),
+    index("topic_subs_topicId_idx").on(t.topicId),
+    uniqueIndex("topic_subs_userId_topicId_idx").on(t.userId, t.topicId),
+  ]
+);
+
+// ============================================================================
 // Relations
 // ============================================================================
 
@@ -254,6 +315,20 @@ export const usersRelations = relations(users, ({ many }) => ({
   sessions: many(sessions),
   analyses: many(analyses),
   debates: many(debates),
+  savedTopics: many(savedTopics),
+  topicSubscriptions: many(topicSubscriptions),
+}));
+
+export const topicViewsRelations = relations(topicViews, ({ one }) => ({
+  user: one(users, { fields: [topicViews.userId], references: [users.id] }),
+}));
+
+export const topicSubscriptionsRelations = relations(topicSubscriptions, ({ one }) => ({
+  user: one(users, { fields: [topicSubscriptions.userId], references: [users.id] }),
+}));
+
+export const savedTopicsRelations = relations(savedTopics, ({ one }) => ({
+  user: one(users, { fields: [savedTopics.userId], references: [users.id] }),
 }));
 
 export const accountsRelations = relations(accounts, ({ one }) => ({

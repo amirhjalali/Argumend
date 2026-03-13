@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import { SessionProvider } from "@/components/SessionProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
@@ -24,7 +25,10 @@ const sans = Plus_Jakarta_Sans({
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const viewport: Viewport = {
-  themeColor: "#f4f1eb",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f1eb" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1917" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -82,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       {GA_MEASUREMENT_ID ? (
         <>
           <Script
@@ -106,7 +110,9 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <SessionProvider>{children}</SessionProvider>
+        <ThemeProvider>
+          <SessionProvider>{children}</SessionProvider>
+        </ThemeProvider>
         <JsonLd
           data={{
             "@context": "https://schema.org",

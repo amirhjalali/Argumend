@@ -404,14 +404,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -8, scale: 0.98 }}
           transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-          className="relative w-full max-w-2xl bg-[#faf8f5] rounded-2xl shadow-2xl border border-stone-200/40 overflow-hidden"
+          className="relative w-full max-w-2xl bg-[#faf8f5] dark:bg-[#252420] rounded-2xl shadow-2xl border border-stone-200/40 dark:border-[#3d3a36] overflow-hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Search Argumend"
           onKeyDown={handleKeyDown}
         >
           {/* Search Input */}
-          <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60">
+          <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60 dark:border-[#3d3a36]">
             <Search className="h-5 w-5 text-deep flex-shrink-0" strokeWidth={1.8} />
             <input
               ref={inputRef}
@@ -431,7 +431,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             {query && (
               <button
                 onClick={() => setQuery("")}
-                className="flex items-center justify-center h-11 w-11 rounded-md text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
+                className="flex items-center justify-center h-11 w-11 rounded-md text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
                 aria-label="Clear search"
               >
                 <X className="h-4 w-4" />
@@ -439,7 +439,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             )}
             <button
               onClick={onClose}
-              className="flex-shrink-0 px-3 py-2 min-h-[44px] rounded-md border border-stone-200 text-xs text-stone-500 font-mono hover:bg-stone-100 transition-colors"
+              className="flex-shrink-0 px-3 py-2 min-h-[44px] rounded-md border border-stone-200 dark:border-[#3d3a36] text-xs text-stone-500 font-mono hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
               aria-label="Close search"
             >
               ESC
@@ -455,7 +455,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           >
             {groups.length === 0 && query.trim() !== "" && (
               <div className="px-5 py-12 text-center">
-                <div className="w-12 h-12 rounded-2xl bg-stone-100 flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-stone-100 dark:bg-[#302e2a] flex items-center justify-center mx-auto mb-4">
                   <Search className="h-5 w-5 text-stone-400" />
                 </div>
                 <div className="text-stone-500 text-sm font-medium">
@@ -500,7 +500,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       onMouseEnter={() => setActiveIndex(idx)}
                       className={`
                         w-full flex items-center gap-3 px-5 py-3 text-left transition-colors duration-100
-                        ${isActive ? "bg-rust-50/60 border-l-2 border-l-rust-500" : "bg-transparent hover:bg-stone-50/60 border-l-2 border-l-transparent"}
+                        ${isActive ? "bg-rust-50/60 dark:bg-rust-900/30 border-l-2 border-l-rust-500" : "bg-transparent hover:bg-stone-50/60 dark:hover:bg-[#302e2a]/60 border-l-2 border-l-transparent"}
                       `}
                       role="option"
                       aria-selected={isActive}
@@ -509,7 +509,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       <div
                         className={`
                           flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center
-                          ${isActive ? "bg-rust-100/80" : "bg-stone-100"}
+                          ${isActive ? "bg-rust-100/80 dark:bg-rust-900/40" : "bg-stone-100 dark:bg-[#302e2a]"}
                         `}
                       >
                         <Icon
@@ -583,13 +583,13 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 bg-[#f4f1eb]/50">
+          <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 dark:border-[#3d3a36] bg-[#f4f1eb]/50 dark:bg-[#1a1917]/50">
             <div className="flex items-center gap-4 text-[11px] text-stone-400">
               <span className="flex items-center gap-1">
-                <kbd className="inline-flex h-4 items-center rounded border border-stone-200 bg-white px-1 font-mono text-[10px]">
+                <kbd className="inline-flex h-4 items-center rounded border border-stone-200 dark:border-[#3d3a36] bg-white dark:bg-[#302e2a] px-1 font-mono text-[10px]">
                   &uarr;
                 </kbd>
-                <kbd className="inline-flex h-4 items-center rounded border border-stone-200 bg-white px-1 font-mono text-[10px]">
+                <kbd className="inline-flex h-4 items-center rounded border border-stone-200 dark:border-[#3d3a36] bg-white dark:bg-[#302e2a] px-1 font-mono text-[10px]">
                   &darr;
                 </kbd>
                 <span className="ml-0.5">Navigate</span>
@@ -599,7 +599,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 <span>Select</span>
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="inline-flex h-4 items-center rounded border border-stone-200 bg-white px-1 font-mono text-[10px]">
+                <kbd className="inline-flex h-4 items-center rounded border border-stone-200 dark:border-[#3d3a36] bg-white dark:bg-[#302e2a] px-1 font-mono text-[10px]">
                   esc
                 </kbd>
                 <span>Close</span>

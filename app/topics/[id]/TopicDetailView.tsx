@@ -38,6 +38,9 @@ import {
 import dynamic from "next/dynamic";
 import { AppShell } from "@/components/AppShell";
 import { ShareButtons } from "@/components/ShareButtons";
+import { EmbedButton } from "@/components/EmbedButton";
+import { SaveTopicButton } from "@/components/SaveTopicButton";
+import { SubscribeButton } from "@/components/SubscribeButton";
 import type {
   Topic,
   TopicCategory,
@@ -53,6 +56,11 @@ import { getMockVerdict } from "@/data/mockVerdicts";
 import type { DebateMessage } from "@/types/debate";
 import { getLLMOption, ClaudeIcon } from "@/components/icons/LLMIcons";
 import { trackEvent } from "@/lib/analytics";
+import { DebateHighlight } from "@/components/DebateHighlight";
+import { ControversyMeter } from "@/components/ControversyMeter";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { hasTimeline, getTimeline } from "@/lib/topicTimelines";
+import { ConfidenceTimeline } from "@/components/ConfidenceTimeline";
 
 // Heavy component — only rendered when a verdict exists
 const JudgingResults = dynamic(
@@ -147,7 +155,7 @@ function WeightBar({ value, max = 10 }: { value: number; max?: number }) {
     >
       <div className="h-2 flex-1 rounded-full bg-stone-200/80 overflow-hidden">
         <div
-          className="h-full rounded-full bg-deep-light transition-all duration-300"
+          className="h-full rounded-full bg-deep-light transition-all duration-300 animate-bar-fill"
           style={{ width: `${pct}%` }}
           aria-hidden="true"
         />
@@ -325,7 +333,7 @@ function PillarSection({
   const againstEvidence = (pillar.evidence ?? []).filter((e) => e.side === "against");
 
   return (
-    <section className="mb-10">
+    <AnimateOnScroll variant="fade-up" delay={index * 80} as="section" className="mb-10">
       <div className="flex items-start gap-3 mb-4">
         <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center text-sm font-mono font-semibold text-deep">
           {index + 1}
@@ -390,7 +398,7 @@ function PillarSection({
 
       {/* Crux */}
       <CruxCard crux={pillar.crux} />
-    </section>
+    </AnimateOnScroll>
   );
 }
 
@@ -405,7 +413,7 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
   return (
     <Link
       href={`/topics/${topic.id}`}
-      className={`group flex flex-col bg-white border border-stone-200/60 border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}
+      className={`group flex flex-col bg-white border border-stone-200/60 border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 card-hover`}
     >
       <h3 className="font-serif text-base text-primary group-hover:text-deep transition-colors leading-snug mb-1.5">
         {topic.title}
@@ -433,7 +441,7 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
           aria-label={`Confidence: ${topic.confidence_score}%`}
         >
           <div
-            className="h-full rounded-full bg-deep-light transition-all duration-300"
+            className="h-full rounded-full bg-deep-light transition-all duration-300 animate-bar-fill"
             style={{ width: `${confPct}%` }}
             aria-hidden="true"
           />
@@ -545,7 +553,7 @@ function DebateMessageBubble({ message }: { message: DebateMessage }) {
   );
 }
 
-function DebatePreviewSection({ topicId }: { topicId: string }) {
+function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicTitle?: string }) {
   const [expanded, setExpanded] = useState(false);
   const hasDebate = hasMockDebate(topicId);
 
@@ -564,7 +572,7 @@ function DebatePreviewSection({ topicId }: { topicId: string }) {
         </p>
         <Link
           href={`/?topic=${topicId}&view=debate`}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift"
         >
           <Swords className="h-4 w-4" />
           Start a debate
@@ -661,7 +669,7 @@ function DebatePreviewSection({ topicId }: { topicId: string }) {
       {/* Judge Council Verdict */}
       {verdict && (
         <div className="mt-8 pt-6 border-t border-stone-200/60">
-          <JudgingResults result={verdict} />
+          <JudgingResults result={verdict} topicTitle={topicTitle} topicId={topicId} />
         </div>
       )}
 
@@ -783,6 +791,7 @@ export default function TopicDetailView({
           </nav>
 
           {/* Hero */}
+          <AnimateOnScroll variant="fade-up" duration={700}>
           <header className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
             <div className="flex flex-wrap items-center gap-2 mb-4">
               {/* Category pill */}
@@ -818,11 +827,16 @@ export default function TopicDetailView({
 
             {/* Share + Depth Selector */}
             <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-              <ShareButtons
-                title={topic.title}
-                url={typeof window !== "undefined" ? window.location.href : `https://argumend.org/topics/${topic.id}`}
-                description={topic.meta_claim}
-              />
+              <div className="flex items-center gap-1">
+                <ShareButtons
+                  title={topic.title}
+                  url={typeof window !== "undefined" ? window.location.href : `https://argumend.org/topics/${topic.id}`}
+                  description={topic.meta_claim}
+                />
+                <EmbedButton topicId={topic.id} />
+                <SaveTopicButton topicId={topic.id} />
+                <SubscribeButton topicId={topic.id} />
+              </div>
               <DepthSelector depth={depth} onChange={handleDepthChange} />
             </div>
 
@@ -859,7 +873,7 @@ export default function TopicDetailView({
               {hasMockDebate(topic.id) && (
                 <a
                   href="#ai-debate"
-                  className="ml-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm self-center"
+                  className="ml-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift self-center"
                 >
                   <Swords className="h-3.5 w-3.5" />
                   Watch Debate
@@ -867,8 +881,16 @@ export default function TopicDetailView({
               )}
             </div>
           </header>
+          </AnimateOnScroll>
+
+          {/* ── Controversy Meter ── */}
+          <ControversyMeter
+            confidenceScore={topic.confidence_score}
+            status={topic.status}
+          />
 
           {/* ── Scan View ── */}
+          <AnimateOnScroll variant="fade-up" delay={100}>
           <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
             {/* Section label */}
             <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-5">
@@ -910,7 +932,7 @@ export default function TopicDetailView({
             </div>
 
             {/* Part B: Pillar Overview Cards */}
-            <div className={`grid grid-cols-1 gap-4 mb-8 ${
+            <div className={`grid grid-cols-1 gap-4 mb-8 stagger-children ${
               topic.pillars.length <= 2
                 ? "sm:grid-cols-2"
                 : "sm:grid-cols-2 lg:grid-cols-3"
@@ -922,7 +944,7 @@ export default function TopicDetailView({
                   <a
                     key={pillar.id}
                     href="#pillars"
-                    className="group relative rounded-lg border border-stone-200/60 bg-gradient-to-br from-white/80 to-stone-50/40 p-4 pl-5 hover:border-deep/30 hover:shadow-md transition-all no-underline"
+                    className="group relative rounded-lg border border-stone-200/60 bg-gradient-to-br from-white/80 to-stone-50/40 p-4 pl-5 hover:border-deep/30 hover:shadow-md transition-all no-underline card-hover"
                   >
                     {/* Left accent border */}
                     <div className="absolute left-0 top-3 bottom-3 w-1 rounded-full bg-[#4f7b77]/30 group-hover:bg-[#4f7b77]/60 transition-colors" />
@@ -969,7 +991,7 @@ export default function TopicDetailView({
                 </span>
                 <div className="flex-1 h-5 rounded-full overflow-hidden flex">
                   <div
-                    className="h-full bg-gradient-to-r from-rust-500 to-rust-600 flex items-center justify-end pr-2.5"
+                    className="h-full bg-gradient-to-r from-rust-500 to-rust-600 flex items-center justify-end pr-2.5 animate-bar-fill"
                     style={{ width: `${forPct}%` }}
                   >
                     {forPct >= 20 && (
@@ -1006,16 +1028,17 @@ export default function TopicDetailView({
               </a>
               <Link
                 href={`/?topic=${topic.id}`}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift"
               >
                 Explore interactively
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
           </section>
+          </AnimateOnScroll>
 
           {/* ── Where Do You Stand? ── (2m+) */}
-          {depth !== "30s" && <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 overflow-hidden">
+          {depth !== "30s" && <AnimateOnScroll variant="fade-up" delay={50}><section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 overflow-hidden">
             {/* Part 1: The Prompt */}
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
@@ -1150,7 +1173,7 @@ export default function TopicDetailView({
                       </a>
                       <Link
                         href={`/?topic=${topic.id}`}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift"
                       >
                         Dive into the interactive map
                         <ArrowRight className="h-3.5 w-3.5" />
@@ -1160,10 +1183,11 @@ export default function TopicDetailView({
                 </motion.div>
               )}
             </AnimatePresence>
-          </section>}
+          </section></AnimateOnScroll>}
 
           {/* Meta Claim Expanded (2m+) */}
           {depth !== "30s" && (
+            <AnimateOnScroll variant="fade-up" delay={50}>
             <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 The Claim
@@ -1184,10 +1208,12 @@ export default function TopicDetailView({
                 {topic.pillars.length} analytical pillars.
               </p>
             </section>
+            </AnimateOnScroll>
           )}
 
           {/* Pillars (2m+) */}
           {depth !== "30s" && (
+            <AnimateOnScroll variant="fade-up" delay={50}>
             <section id="pillars" className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 Argument Pillars
@@ -1262,10 +1288,12 @@ export default function TopicDetailView({
                 </>
               )}
             </section>
+            </AnimateOnScroll>
           )}
 
           {/* References (5m only) */}
           {depth === "5m" && topic.references && topic.references.length > 0 && (
+            <AnimateOnScroll variant="fade-up" delay={50}>
             <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 References
@@ -1286,9 +1314,11 @@ export default function TopicDetailView({
                 ))}
               </ul>
             </section>
+            </AnimateOnScroll>
           )}
 
           {/* CTA */}
+          <AnimateOnScroll variant="fade-up" delay={50}>
           <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8 text-center">
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Explore interactively
@@ -1299,18 +1329,52 @@ export default function TopicDetailView({
             </p>
             <Link
               href={`/?topic=${topic.id}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift"
             >
               Explore this topic interactively
               <ArrowRight className="h-4 w-4" />
             </Link>
           </section>
+          </AnimateOnScroll>
+
+          {/* Confidence Timeline — only for topics with historical data */}
+          {hasTimeline(topic.id) && (() => {
+            const timelineEvents = getTimeline(topic.id);
+            if (!timelineEvents) return null;
+            return (
+              <motion.section
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8"
+              >
+                <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-2">
+                  Historical Context
+                </p>
+                <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2">
+                  How Confidence Has Evolved
+                </h2>
+                <p className="text-sm text-stone-500 mb-6 leading-relaxed max-w-2xl">
+                  How public and expert confidence in this claim has shifted over time,
+                  driven by key events and discoveries.
+                </p>
+                <ConfidenceTimeline events={timelineEvents} topicTitle={topic.title} />
+              </motion.section>
+            );
+          })()}
+
+          {/* Debate Highlight teaser — only when mock data exists */}
+          {hasMockDebate(topic.id) && (
+            <DebateHighlight topicId={topic.id} />
+          )}
 
           {/* AI Debate */}
-          <DebatePreviewSection topicId={topic.id} />
+          <DebatePreviewSection topicId={topic.id} topicTitle={topic.title} />
 
           {/* Related Topics */}
           {relatedTopics.length > 0 && (
+            <AnimateOnScroll variant="fade-up" delay={100}>
             <section className="mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 Related Topics
@@ -1322,16 +1386,18 @@ export default function TopicDetailView({
                 </span>{" "}
                 category.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-children">
                 {relatedTopics.map((rt) => (
                   <RelatedTopicCard key={rt.id} topic={rt} />
                 ))}
               </div>
             </section>
+            </AnimateOnScroll>
           )}
 
           {/* Cross-Category Related Topics */}
           {crossCategoryTopics.length > 0 && (
+            <AnimateOnScroll variant="fade-up" delay={100}>
             <section className="mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                 You might also find relevant
@@ -1339,12 +1405,13 @@ export default function TopicDetailView({
               <p className="text-sm text-stone-500 mb-5">
                 Related debates from other categories that share underlying themes with this topic.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-children">
                 {crossCategoryTopics.map((rt) => (
                   <RelatedTopicCard key={rt.id} topic={rt} />
                 ))}
               </div>
             </section>
+            </AnimateOnScroll>
           )}
 
           {/* Methodology & Educator Callouts */}
@@ -1354,7 +1421,7 @@ export default function TopicDetailView({
               <p className="text-sm text-stone-500 leading-relaxed">
                 <span className="font-medium text-stone-600">How we analyze:</span>{" "}
                 Our{" "}
-                <Link href="/methodology" className="text-deep hover:underline underline-offset-2">
+                <Link href="/methodology" className="text-deep link-underline">
                   methodology
                 </Link>{" "}
                 explains how arguments are structured and evidence is weighted.
@@ -1365,7 +1432,7 @@ export default function TopicDetailView({
               <p className="text-sm text-stone-500 leading-relaxed">
                 <span className="font-medium text-stone-600">Teaching this topic?</span>{" "}
                 See our{" "}
-                <Link href="/for-educators" className="text-deep hover:underline underline-offset-2">
+                <Link href="/for-educators" className="text-deep link-underline">
                   resources for educators
                 </Link>.
               </p>

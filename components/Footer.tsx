@@ -33,16 +33,16 @@ const FOOTER_COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#f4f1eb] border-t border-stone-200" role="contentinfo">
+    <footer className="bg-[#f4f1eb] dark:bg-[#1a1917] border-t border-stone-200 dark:border-[#3d3a36]" role="contentinfo">
       <div className="mx-auto max-w-6xl px-6 py-12">
         {/* Top section: logo + tagline */}
         <div className="mb-10">
           <Link href="/" className="inline-block">
-            <span className="font-serif text-xl font-semibold text-stone-700">
+            <span className="font-serif text-xl font-semibold text-stone-700 dark:text-stone-200">
               Argumend
             </span>
           </Link>
-          <p className="mt-1.5 text-sm text-stone-500">
+          <p className="mt-1.5 text-sm text-stone-500 dark:text-stone-400">
             Disagree better.
           </p>
         </div>
@@ -51,7 +51,7 @@ export function Footer() {
         <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           {FOOTER_COLUMNS.map((column) => (
             <div key={column.title}>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-stone-500">
+              <h3 className="text-xs font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400">
                 {column.title}
               </h3>
               <ul className="mt-3 space-y-2">
@@ -59,7 +59,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-stone-500 transition-colors duration-200 hover:text-deep"
+                      className="text-sm text-stone-500 dark:text-stone-400 transition-colors duration-200 hover:text-deep"
                     >
                       {link.label}
                     </Link>
@@ -71,15 +71,15 @@ export function Footer() {
         </nav>
 
         {/* Bottom bar */}
-        <div className="mt-10 flex items-center justify-between border-t border-stone-200 pt-6">
-          <p className="text-xs text-stone-500">
+        <div className="mt-10 flex items-center justify-between border-t border-stone-200 dark:border-[#3d3a36] pt-6">
+          <p className="text-xs text-stone-500 dark:text-stone-400">
             &copy; 2026 Argumend. Built with stubbornness and peer review.
           </p>
           <a
             href="https://github.com/amirhjalali/Argumend"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-stone-400 transition-colors hover:text-stone-800"
+            className="text-stone-400 transition-colors hover:text-stone-800 dark:hover:text-stone-200"
             aria-label="Argumend on GitHub"
           >
             <svg

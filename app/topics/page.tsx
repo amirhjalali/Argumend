@@ -281,7 +281,7 @@ export default function TopicsPage() {
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className={`group flex flex-col bg-white border border-stone-200/60 border-t-[3px] rounded-xl p-5 pb-4 shadow-card hover:border-x-deep/30 hover:border-b-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${categoryTopBorder[topic.category]}`}
+                    className={`group flex flex-col bg-white border border-stone-200/60 border-t-[3px] rounded-xl p-5 pb-4 shadow-card hover:border-x-deep/30 hover:border-b-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in card-hover ${categoryTopBorder[topic.category]}`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {/* Title */}
@@ -305,7 +305,7 @@ export default function TopicsPage() {
                         aria-label={`Confidence: ${topic.confidence_score}%`}
                       >
                         <div
-                          className="h-full bg-deep rounded-full transition-all duration-500"
+                          className="h-full bg-deep rounded-full transition-all duration-500 animate-bar-fill"
                           style={{ width: `${topic.confidence_score}%` }}
                           aria-hidden="true"
                         />

@@ -4,6 +4,76 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   CSS Custom Properties — Light & Dark Mode
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg-canvas: #f4f1eb;
+  --bg-surface: #faf8f5;
+  --bg-panel: #fdfaf6;
+  --bg-paper: #fefdfb;
+  --bg-sidebar: #efe9df;
+  --bg-overlay: #e7e0d5;
+  --bg-input: #faf8f5;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fefcf9;
+  --bg-muted: #f5f2ec;
+  --bg-code: #f5f2ec;
+
+  --text-primary: #3d3a36;
+  --text-secondary: #6d645c;
+  --text-muted: #9c9288;
+  --text-paragraph: rgba(31, 31, 29, 0.85);
+  --text-heading: #1f1f1d;
+
+  --border-default: rgba(214, 211, 209, 0.6);
+  --border-subtle: rgba(214, 211, 209, 0.4);
+  --border-muted: rgba(214, 211, 209, 0.5);
+  --border-divider: #e8e0d4;
+
+  --scrollbar-thumb: #d4cec4;
+  --scrollbar-thumb-hover: #bdb5ab;
+
+  --selection-bg: rgba(37, 99, 235, 0.12);
+
+  --shadow-card: 0 2px 8px -2px rgba(0,0,0,0.1);
+  --shadow-lw: 0 12px 40px rgba(32, 25, 16, 0.07);
+}
+
+.dark {
+  --bg-canvas: #1a1917;
+  --bg-surface: #201f1c;
+  --bg-panel: #252420;
+  --bg-paper: #2a2926;
+  --bg-sidebar: #1e1d1a;
+  --bg-overlay: #302e2a;
+  --bg-input: #252420;
+  --bg-card: #252420;
+  --bg-card-hover: #2a2926;
+  --bg-muted: #302e2a;
+  --bg-code: #302e2a;
+
+  --text-primary: #e8e4de;
+  --text-secondary: #b0a99f;
+  --text-muted: #8a8279;
+  --text-paragraph: rgba(232, 228, 222, 0.85);
+  --text-heading: #f0ece6;
+
+  --border-default: rgba(61, 58, 54, 0.8);
+  --border-subtle: rgba(61, 58, 54, 0.5);
+  --border-muted: rgba(61, 58, 54, 0.6);
+  --border-divider: #3d3a36;
+
+  --scrollbar-thumb: #3d3a36;
+  --scrollbar-thumb-hover: #4a4640;
+
+  --selection-bg: rgba(79, 123, 119, 0.3);
+
+  --shadow-card: 0 2px 8px -2px rgba(0,0,0,0.3);
+  --shadow-lw: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,8 +84,8 @@ html,
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
-  background-color: #f4f1eb;
-  color: #3d3a36;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
   min-height: 100%;
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
@@ -32,7 +102,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-color: #f4f1eb;
+  background-color: var(--bg-canvas);
   z-index: -2;
 }
 
@@ -51,6 +121,11 @@ body::after {
   filter: saturate(0.5) contrast(0.95);
   z-index: -1;
   pointer-events: none;
+}
+
+/* In dark mode, hide the watercolor background image */
+.dark body::after {
+  opacity: 0;
 }
 
 /* Typography refinements - LessWrong-inspired elegance */
@@ -90,7 +165,7 @@ p {
   font-size: 1rem;
   line-height: 1.75;
   letter-spacing: 0.005em;
-  color: rgba(31, 31, 29, 0.85);
+  color: var(--text-paragraph);
 }
 
 /* Larger body text for long-form reading */
@@ -116,26 +191,28 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4cec4;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #bdb5ab;
+  background: var(--scrollbar-thumb-hover);
   background-clip: content-box;
 }
 
 /* Selection styling */
 ::selection {
-  background: rgba(37, 99, 235, 0.12);
+  background: var(--selection-bg);
   color: inherit;
 }
 
 @layer base {
   body {
-    @apply bg-canvas text-primary antialiased;
+    @apply antialiased;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
   }
 }
 
@@ -180,11 +257,11 @@ html {
   }
 
   .btn-ghost {
-    @apply text-secondary hover:text-primary hover:bg-stone-100;
+    @apply text-secondary hover:text-primary hover:bg-stone-100 dark:hover:bg-[#302e2a];
   }
 
   .btn-outline {
-    @apply bg-white text-primary border border-stone-200/70 hover:border-stone-300;
+    @apply bg-white dark:bg-[#252420] text-primary border border-stone-200/70 dark:border-[#3d3a36] hover:border-stone-300 dark:hover:border-[#4a4640];
   }
 
   .btn-deep {
@@ -192,11 +269,13 @@ html {
   }
 
   .surface-card {
-    @apply rounded-xl border border-stone-200/70 bg-panel/85 shadow-card;
+    @apply rounded-xl border border-stone-200/70 dark:border-[#3d3a36] shadow-card;
+    background-color: var(--bg-panel);
   }
 
   .surface-paper {
-    @apply rounded-lg border border-stone-200/60 bg-paper/95;
+    @apply rounded-lg border border-stone-200/60 dark:border-[#3d3a36];
+    background-color: var(--bg-paper);
   }
 }
 
@@ -207,7 +286,7 @@ html {
 .prose-custom {
   font-size: 1.0625rem; /* 17px */
   line-height: 1.8;
-  color: #1f1f1d;
+  color: var(--text-heading);
 }
 
 .prose-custom p {
@@ -218,7 +297,7 @@ html {
 .prose-custom h2 {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 1.5rem;
-  color: #1f1f1d;
+  color: var(--text-heading);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -227,7 +306,7 @@ html {
 .prose-custom h3 {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 1.25rem;
-  color: #1f1f1d;
+  color: var(--text-heading);
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   line-height: 1.25;
@@ -235,7 +314,7 @@ html {
 
 .prose-custom strong {
   font-weight: 600;
-  color: #1f1f1d;
+  color: var(--text-heading);
 }
 
 .prose-custom em {
@@ -258,16 +337,16 @@ html {
   padding-left: 1.25rem;
   margin: 1.5rem 0;
   font-style: italic;
-  color: #6d645c;
+  color: var(--text-secondary);
 }
 
 .prose-custom code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.875em;
-  background: #f5f2ec;
+  background: var(--bg-code);
   padding: 0.15em 0.4em;
   border-radius: 4px;
-  color: #1f1f1d;
+  color: var(--text-heading);
 }
 
 .prose-custom pre {
@@ -309,13 +388,13 @@ html {
 
 .prose-custom hr {
   border: none;
-  border-top: 1px solid #e8e0d4;
+  border-top: 1px solid var(--border-divider);
   margin: 2rem 0;
 }
 
 .prose-custom img {
   border-radius: 0.75rem;
-  border: 1px solid rgba(214, 211, 209, 0.6);
+  border: 1px solid var(--border-default);
   margin: 1.5rem 0;
 }
 
@@ -357,7 +436,7 @@ html {
   width: 8px !important;
   height: 8px !important;
   border: 1.5px solid #d6d3d1 !important;
-  background: white !important;
+  background: var(--bg-card) !important;
   border-radius: 50% !important;
   box-shadow: none !important;
   transition: border-color 0.15s ease !important;
@@ -507,6 +586,98 @@ html {
   animation: searchModalIn 0.15s ease-out forwards;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   Micro-interactions & Hover Effects
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Button lift on hover — subtle elevation shift */
+.btn-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-lift:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(0,0,0,0.12);
+}
+.btn-lift:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.1);
+}
+
+/* Card hover — gentle lift with shadow deepening */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(32, 25, 16, 0.1);
+}
+
+/* Link underline animation — grows from left */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Score bar fill animation — for bars that start at 0 width */
+@keyframes barFill {
+  from { width: 0; }
+}
+.animate-bar-fill {
+  animation: barFill 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Gentle pulse — for confidence gauge or live indicators */
+@keyframes gentlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.animate-gentle-pulse {
+  animation: gentlePulse 2.5s ease-in-out infinite;
+}
+
+/* Shimmer — loading state accent */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(79, 123, 119, 0.08) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Stagger entrance — utility for child elements */
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 360ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 420ms; }
+.stagger-children > *:nth-child(9) { animation-delay: 480ms; }
+.stagger-children > *:nth-child(10) { animation-delay: 540ms; }
+
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -520,10 +691,28 @@ html {
   .animate-fade-in-up,
   .animate-fade-in,
   .animate-bounce-slow,
-  .animate-card-fade-in {
+  .animate-card-fade-in,
+  .animate-bar-fill,
+  .animate-gentle-pulse,
+  .animate-shimmer {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .stagger-children > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .btn-lift:hover,
+  .card-hover:hover {
+    transform: none;
+  }
+
+  .link-underline::after {
+    transition: none;
   }
 }
 

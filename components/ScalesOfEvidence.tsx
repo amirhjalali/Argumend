@@ -34,7 +34,7 @@ function WeightBar({
     <div className="flex items-center gap-3 text-xs" role="group" aria-label={`${label}: ${value} out of ${max}`}>
       <span className="w-28 text-stone-500 font-medium">{label}</span>
       <div
-        className="flex-1 h-2 bg-stone-100 rounded-full overflow-hidden shadow-inner"
+        className="flex-1 h-2 bg-stone-100 dark:bg-[#302e2a] rounded-full overflow-hidden shadow-inner"
         role="meter"
         aria-label={label}
         aria-valuenow={value}
@@ -59,8 +59,8 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
   const isFor = evidence.side === "for";
 
   const cardStyles = isFor
-    ? "border-l-deep bg-gradient-to-r from-deep/10 to-panel/80 hover:from-deep/15 hover:to-panel/90"
-    : "border-l-stone-400 bg-gradient-to-r from-stone-50/70 to-panel/80 hover:from-stone-50 hover:to-panel/90";
+    ? "border-l-deep bg-gradient-to-r from-deep/10 to-panel/80 dark:from-deep/15 dark:to-[#252420] hover:from-deep/15 hover:to-panel/90"
+    : "border-l-stone-400 bg-gradient-to-r from-stone-50/70 to-panel/80 dark:from-[#252420] dark:to-[#252420] hover:from-stone-50 hover:to-panel/90";
 
   const scoreStyles = isFor
     ? "text-deep bg-deep/10"
@@ -71,7 +71,7 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
       initial={{ opacity: 0, x: isFor ? -20 : 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
-      className={`rounded-xl border border-stone-200/60 border-l-4 ${cardStyles} overflow-hidden shadow-card hover:shadow-lw-hover transition-all duration-200`}
+      className={`rounded-xl border border-stone-200/60 dark:border-[#3d3a36] border-l-4 ${cardStyles} overflow-hidden shadow-card hover:shadow-lw-hover transition-all duration-200`}
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}

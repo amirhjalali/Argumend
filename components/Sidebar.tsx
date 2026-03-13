@@ -14,21 +14,27 @@ import {
   GraduationCap,
   HelpCircle,
   History,
+  LayoutDashboard,
   Layers,
   ListChecks,
   Map,
+  Network,
   Newspaper,
   Scale,
   Shell,
   Users,
 } from "lucide-react";
 import { topicSummaries } from "@/data/topicIndex";
+import { TrendingTopics } from "@/components/TrendingTopics";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const PRIMARY_NAV = [
   { label: "Home", icon: Compass, href: "/" },
+  { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
   { label: "Analyze Text", icon: Brain, href: "/analyze", highlight: true },
   { label: "Recent Analyses", icon: History, href: "/analyses" },
   { label: "Explore Topics", icon: ListChecks, href: "/topics" },
+  { label: "Explore Map", icon: Network, href: "/explore" },
   { label: "How It Works", icon: Map, href: "/how-it-works" },
   { label: "About", icon: HelpCircle, href: "/about" },
 ];
@@ -84,13 +90,13 @@ export function Sidebar({
   };
 
   return (
-    <nav aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] md:bg-transparent text-primary shadow-lg md:shadow-none">
+    <nav aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] dark:bg-[#1a1917] md:bg-transparent text-primary shadow-lg md:shadow-none">
       {/* Mobile close button - appears at top of sidebar */}
-      <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50">
-        <span className="text-sm font-medium text-stone-600">Menu</span>
+      <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50 dark:border-[#3d3a36]/50">
+        <span className="text-sm font-medium text-stone-600 dark:text-stone-300">Menu</span>
         <button
           onClick={onClose}
-          className="flex items-center justify-center h-11 w-11 -mr-2 rounded-lg text-stone-500 hover:text-stone-800 hover:bg-stone-100 transition-colors"
+          className="flex items-center justify-center h-11 w-11 -mr-2 rounded-lg text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
           aria-label="Close menu"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -110,15 +116,15 @@ export function Sidebar({
                 href={href}
                 className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                   isActive
-                    ? "text-stone-900 font-medium border-l-2 border-stone-800 pl-[10px]"
+                    ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
                     : highlight
-                    ? "text-rust-700 hover:text-rust-800 hover:bg-rust-50/50 font-medium"
-                    : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
+                    ? "text-rust-700 dark:text-rust-400 hover:text-rust-800 dark:hover:text-rust-300 hover:bg-rust-50/50 dark:hover:bg-rust-900/30 font-medium"
+                    : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50"
                 }`}
               >
                 <Icon
                   className={`h-4 w-4 ${
-                    isActive ? "text-stone-700" : highlight ? "text-rust-500" : "text-stone-400"
+                    isActive ? "text-stone-700 dark:text-stone-300" : highlight ? "text-rust-500 dark:text-rust-400" : "text-stone-400"
                   }`}
                   strokeWidth={1.8}
                 />
@@ -128,11 +134,14 @@ export function Sidebar({
           })}
         </nav>
 
+        {/* Trending This Week */}
+        <TrendingTopics />
+
         {/* Learn & Explore collapsible section */}
         <div className="pb-5">
           <button
             onClick={() => setLearnOpen(!learnOpen)}
-            className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 transition-colors"
+            className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
             aria-expanded={learnOpen}
             aria-label="Learn & Explore"
           >
@@ -159,13 +168,13 @@ export function Sidebar({
                     tabIndex={learnOpen ? 0 : -1}
                     className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                       isActive
-                        ? "text-stone-900 font-medium border-l-2 border-stone-800 pl-[10px]"
-                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
+                        ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
+                        : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50"
                     }`}
                   >
                     <Icon
                       className={`h-4 w-4 ${
-                        isActive ? "text-stone-700" : "text-stone-400"
+                        isActive ? "text-stone-700 dark:text-stone-300" : "text-stone-400"
                       }`}
                       strokeWidth={1.8}
                     />
@@ -178,7 +187,7 @@ export function Sidebar({
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-stone-200/50 mb-5" />
+        <div className="h-px bg-stone-200/50 dark:bg-[#3d3a36]/50 mb-5" />
 
         {/* Featured Topics (limited to 8) */}
         <section className="pb-5">
@@ -195,8 +204,8 @@ export function Sidebar({
                     onClick={() => handleTopicClick(topic.id)}
                     className={`flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-left transition-colors ${
                       isSelected
-                        ? "text-stone-900 font-medium border-l-2 border-rust-500 pl-[10px]"
-                        : "text-stone-500 hover:text-stone-800 hover:bg-stone-50/50"
+                        ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-rust-500 pl-[10px]"
+                        : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50"
                     }`}
                   >
                     <span className="font-serif text-[14px] flex-1 truncate">
@@ -225,21 +234,21 @@ export function Sidebar({
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-3 border-t border-stone-200/50 space-y-2">
+      <div className="px-4 py-3 border-t border-stone-200/50 dark:border-[#3d3a36]/50 space-y-2">
         <div className="flex items-center justify-between">
           <ul className="flex items-center gap-3">
             {FOOTER_LINKS.map(({ label, href }) => (
               <li key={label}>
                 <Link
                   href={href}
-                  className="text-[12px] text-stone-400 hover:text-stone-600 transition-colors"
+                  className="text-[12px] text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
                 >
                   {label}
                 </Link>
               </li>
             ))}
           </ul>
-          {/* Moltbook paused — re-enable after core product is solid (ENG-25) */}
+          <ThemeToggle />
         </div>
         <div className="text-center">
           <span className="text-[10px] font-mono text-stone-500">

@@ -222,12 +222,12 @@ function HomeLoadingFallback() {
                 )}
 
                 {/* Topic grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 stagger-children">
                   {displayed.map((topic) => (
                     <Link
                       key={topic.id}
                       href={`/topics/${topic.id}`}
-                      className="group text-left p-4 bg-white border border-stone-200/60 rounded-xl hover:border-rust-300/60 hover:shadow-md transition-all"
+                      className="group text-left p-4 bg-white border border-stone-200/60 rounded-xl hover:border-rust-300/60 hover:shadow-md transition-all card-hover"
                     >
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="font-serif text-sm font-medium text-primary group-hover:text-rust-700 transition-colors leading-snug">

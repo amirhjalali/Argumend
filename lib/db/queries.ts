@@ -1,4 +1,4 @@
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, and, gte, sql, count } from "drizzle-orm";
 import { db } from "./index";
 import {
   analyses,
@@ -6,6 +6,9 @@ import {
   debateRounds,
   judgments,
   judgeVerdicts,
+  savedTopics,
+  topicViews,
+  topicSubscriptions,
 } from "./schema";
 import type { ExtractedArguments } from "@/lib/analyze/extractor";
 import type { JudgingResult } from "@/lib/judge/rubric";
@@ -169,4 +172,113 @@ export async function listJudgments(limit = 20) {
     limit,
     with: { verdicts: true },
   });
+}
+
+// ============================================================================
+// Saved Topics
+// ============================================================================
+
+export async function getSavedTopicIds(userId: string) {
+  const rows = await db.query.savedTopics.findMany({
+    where: eq(savedTopics.userId, userId),
+    orderBy: desc(savedTopics.savedAt),
+  });
+  return rows.map((r) => r.topicId);
+}
+
+export async function saveTopic(userId: string, topicId: string) {
+  const [row] = await db
+    .insert(savedTopics)
+    .values({ userId, topicId })
+    .onConflictDoNothing()
+    .returning();
+  return row;
+}
+
+export async function unsaveTopic(userId: string, topicId: string) {
+  await db
+    .delete(savedTopics)
+    .where(
+      and(eq(savedTopics.userId, userId), eq(savedTopics.topicId, topicId))
+    );
+}
+
+export async function listUserDebates(userId: string, limit = 20) {
+  return db.query.debates.findMany({
+    where: eq(debates.userId, userId),
+    orderBy: desc(debates.createdAt),
+    limit,
+  });
+}
+
+// ============================================================================
+// Topic Views
+// ============================================================================
+
+export async function recordTopicView(topicId: string, userId?: string) {
+  const [row] = await db
+    .insert(topicViews)
+    .values({ topicId, userId: userId ?? null })
+    .returning();
+  return row;
+}
+
+export async function getTrendingTopics(limit = 10) {
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+  const rows = await db
+    .select({
+      topicId: topicViews.topicId,
+      viewCount: count(topicViews.id),
+    })
+    .from(topicViews)
+    .where(gte(topicViews.viewedAt, sevenDaysAgo))
+    .groupBy(topicViews.topicId)
+    .orderBy(sql`count(${topicViews.id}) desc`)
+    .limit(limit);
+
+  return rows;
+}
+
+// ============================================================================
+// Topic Subscriptions
+// ============================================================================
+
+export async function subscribeTopic(userId: string, topicId: string) {
+  const [row] = await db
+    .insert(topicSubscriptions)
+    .values({ userId, topicId })
+    .onConflictDoNothing()
+    .returning();
+  return row;
+}
+
+export async function unsubscribeTopic(userId: string, topicId: string) {
+  await db
+    .delete(topicSubscriptions)
+    .where(
+      and(
+        eq(topicSubscriptions.userId, userId),
+        eq(topicSubscriptions.topicId, topicId)
+      )
+    );
+}
+
+export async function isSubscribed(userId: string, topicId: string) {
+  const row = await db.query.topicSubscriptions.findFirst({
+    where: and(
+      eq(topicSubscriptions.userId, userId),
+      eq(topicSubscriptions.topicId, topicId)
+    ),
+  });
+  return !!row;
+}
+
+export async function getSubscriberCount(topicId: string) {
+  const [result] = await db
+    .select({ count: count(topicSubscriptions.id) })
+    .from(topicSubscriptions)
+    .where(eq(topicSubscriptions.topicId, topicId));
+  return result?.count ?? 0;
 }

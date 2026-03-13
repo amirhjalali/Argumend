@@ -21,7 +21,7 @@ export function UserMenu() {
 
   if (status === "loading") {
     return (
-      <div className="h-8 w-8 animate-pulse rounded-full bg-stone-200" />
+      <div className="h-8 w-8 animate-pulse rounded-full bg-stone-200 dark:bg-[#3d3a36]" />
     );
   }
 
@@ -29,7 +29,7 @@ export function UserMenu() {
     return (
       <button
         onClick={() => signIn("google")}
-        className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 text-sm hover:text-stone-800 hover:bg-stone-100/60 rounded-lg transition-colors"
+        className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 dark:text-stone-400 text-sm hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/60 dark:hover:bg-[#302e2a] rounded-lg transition-colors"
         aria-label="Sign in with Google"
       >
         <LogIn className="h-4 w-4" strokeWidth={1.8} />
@@ -42,7 +42,7 @@ export function UserMenu() {
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 rounded-lg px-2 py-2 min-h-[44px] hover:bg-stone-100/60 transition-colors"
+        className="flex items-center gap-2 rounded-lg px-2 py-2 min-h-[44px] hover:bg-stone-100/60 dark:hover:bg-[#302e2a] transition-colors"
         aria-expanded={open}
         aria-haspopup="true"
         aria-label={`User menu for ${session.user?.name || "user"}`}
@@ -55,28 +55,28 @@ export function UserMenu() {
             referrerPolicy="no-referrer"
           />
         ) : (
-          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-stone-200">
+          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-stone-200 dark:bg-[#3d3a36]">
             <User className="h-4 w-4 text-stone-500" />
           </div>
         )}
-        <span className="hidden sm:block text-sm text-stone-600 max-w-[120px] truncate">
+        <span className="hidden sm:block text-sm text-stone-600 dark:text-stone-300 max-w-[120px] truncate">
           {session.user?.name?.split(" ")[0]}
         </span>
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-1 w-48 rounded-lg border border-stone-200 bg-white py-1 shadow-lg" role="menu" aria-label="User menu">
-          <div className="px-3 py-2 border-b border-stone-100">
-            <p className="text-sm font-medium text-stone-700 truncate">
+        <div className="absolute right-0 top-full mt-1 w-48 rounded-lg border border-stone-200 dark:border-[#3d3a36] bg-white dark:bg-[#252420] py-1 shadow-lg" role="menu" aria-label="User menu">
+          <div className="px-3 py-2 border-b border-stone-100 dark:border-[#3d3a36]">
+            <p className="text-sm font-medium text-stone-700 dark:text-stone-200 truncate">
               {session.user?.name}
             </p>
-            <p className="text-xs text-stone-500 truncate">
+            <p className="text-xs text-stone-500 dark:text-stone-400 truncate">
               {session.user?.email}
             </p>
           </div>
           <button
             onClick={() => signOut()}
-            className="flex w-full items-center gap-2 px-3 py-2.5 min-h-[44px] text-sm text-stone-500 hover:bg-stone-50 hover:text-stone-700"
+            className="flex w-full items-center gap-2 px-3 py-2.5 min-h-[44px] text-sm text-stone-500 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:text-stone-700 dark:hover:text-stone-200"
           >
             <LogOut className="h-3.5 w-3.5" />
             Sign out

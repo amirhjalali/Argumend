@@ -30,7 +30,7 @@ export function ViewToggle() {
   };
 
   return (
-    <div className="flex items-center gap-1 p-1 bg-stone-100 rounded-lg" role="tablist" aria-label="Argument view">
+    <div className="flex items-center gap-1 p-1 bg-stone-100 dark:bg-[#252420] rounded-lg" role="tablist" aria-label="Argument view">
       {views.map((view) => {
         const Icon = view.icon;
         const isActive = currentView === view.id;
@@ -45,13 +45,13 @@ export function ViewToggle() {
             className={`
               relative flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-md text-sm font-medium
               transition-colors duration-200
-              ${isActive ? "text-primary" : "text-stone-500 hover:text-stone-700"}
+              ${isActive ? "text-primary" : "text-stone-500 hover:text-stone-700 dark:hover:text-stone-300"}
             `}
           >
             {isActive && (
               <motion.div
                 layoutId="view-toggle-bg"
-                className="absolute inset-0 bg-white rounded-md shadow-sm"
+                className="absolute inset-0 bg-white dark:bg-[#3d3a36] rounded-md shadow-sm"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
               />
             )}
