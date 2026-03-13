@@ -14,8 +14,11 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN bun run build
 
-# Production image
-FROM base AS runner
+# Production image — use Node.js for the runner because Next.js standalone
+# server.js relies on Node.js streaming APIs for RSC. Bun's incomplete
+# ReadableStream support causes "Connection closed" errors that prevent
+# client component hydration on every page.
+FROM node:20-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
@@ -33,4 +36,4 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-CMD ["bun", "server.js"]
+CMD ["node", "server.js"]
