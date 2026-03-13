@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
-import { useSidebarState, SIDEBAR_WIDTH } from "@/hooks/useSidebarState";
+import { useSidebarState } from "@/hooks/useSidebarState";
 import { ANIMATION } from "@/lib/constants";
 
 interface AppShellProps {
@@ -38,13 +38,13 @@ export function AppShell({ children }: AppShellProps) {
           className={`
             fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
             flex-shrink-0 transition-all duration-500
-            ${sidebar.isOpen ? `w-[${SIDEBAR_WIDTH}px]` : "w-0 md:w-0"}
+            ${sidebar.isOpen ? "w-[260px]" : "w-0 md:w-0"}
           `}
           style={{ transitionTimingFunction: ANIMATION.SPRING_EASING }}
         >
           {/* Sidebar - slides in from left with spring easing */}
           <div
-            className={`absolute top-0 bottom-0 left-0 w-[${SIDEBAR_WIDTH}px] transition-transform duration-500 ${
+            className={`absolute top-0 bottom-0 left-0 w-[260px] transition-transform duration-500 ${
               sidebar.isOpen ? "translate-x-0" : "-translate-x-full"
             }`}
             style={{ transitionTimingFunction: ANIMATION.SPRING_EASING }}
