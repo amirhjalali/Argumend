@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { Menu, Search, HelpCircle, ExternalLink, Home, Brain } from "lucide-react";
+import { Search, HelpCircle, ExternalLink, Home, Brain } from "lucide-react";
+import { MenuIcon } from "@/components/icons/MenuIcon";
 import { ViewToggle } from "./ViewToggle";
 import { UserMenu } from "./UserMenu";
 import { SearchModal } from "./SearchModal";
@@ -42,7 +43,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
             className="group relative flex items-center justify-center h-11 w-11 -ml-2 rounded-lg text-secondary transition-all duration-200 hover:text-primary hover:bg-[#f0ebe3] dark:hover:bg-[#302e2a]"
             aria-label="Toggle sidebar"
           >
-            <Menu className="h-5 w-5 transition-transform duration-200 group-hover:scale-105" strokeWidth={2} />
+            <MenuIcon className="h-5 w-5 transition-transform duration-200 group-hover:scale-105" />
           </button>
 
           <Link href="/" className="flex items-center gap-3">

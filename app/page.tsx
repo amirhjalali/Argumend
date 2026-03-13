@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Menu, Search } from "lucide-react";
+import { Search } from "lucide-react";
+import { MenuIcon } from "@/components/icons/MenuIcon";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import summaries from "@/data/topicSummaries.json";
@@ -93,9 +94,13 @@ function HomeLoadingFallback() {
       {/* Static header bar — mirrors TopBar layout for seamless hydration */}
       <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 dark:bg-[#1a1917]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40 dark:border-[#3d3a36]/60">
         <div className="flex items-center gap-3 md:gap-5">
-          <div className="flex items-center justify-center h-11 w-11 -ml-2 rounded-lg text-stone-400">
-            <Menu className="h-5 w-5" strokeWidth={2} />
-          </div>
+          <Link
+            href="/topics"
+            className="flex items-center justify-center h-11 w-11 -ml-2 rounded-lg text-stone-400 hover:text-primary hover:bg-[#f0ebe3] dark:hover:bg-[#302e2a] transition-all duration-200"
+            aria-label="Browse topics"
+          >
+            <MenuIcon className="h-5 w-5" />
+          </Link>
           <Link href="/" className="flex items-center gap-3">
             <div className="flex flex-col">
               <span className="font-serif text-lg md:text-xl font-medium tracking-[0.08em] text-primary leading-none">
