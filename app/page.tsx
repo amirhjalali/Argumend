@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Menu, Search } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import summaries from "@/data/topicSummaries.json";
@@ -89,16 +90,18 @@ function HomeLoadingFallback() {
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
-      {/* Static header bar */}
-      <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40">
+      {/* Static header bar — mirrors TopBar layout for seamless hydration */}
+      <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 dark:bg-[#1a1917]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40 dark:border-[#3d3a36]/60">
         <div className="flex items-center gap-3 md:gap-5">
-          <div className="h-11 w-11 -ml-2" />
+          <div className="flex items-center justify-center h-11 w-11 -ml-2 rounded-lg text-stone-400">
+            <Menu className="h-5 w-5" strokeWidth={2} />
+          </div>
           <Link href="/" className="flex items-center gap-3">
             <div className="flex flex-col">
               <span className="font-serif text-lg md:text-xl font-medium tracking-[0.08em] text-primary leading-none">
                 ARGUMEND
               </span>
-              <span className="text-[10px] font-sans text-stone-500 leading-none mt-1">
+              <span className="text-[10px] font-sans text-stone-500 dark:text-stone-400 leading-none mt-1">
                 Disagree better.
               </span>
             </div>
@@ -110,6 +113,9 @@ function HomeLoadingFallback() {
           </div>
         </div>
         <div className="flex items-center gap-1 md:gap-2">
+          <div className="flex items-center justify-center h-11 w-11 rounded-lg text-stone-400">
+            <Search className="h-[18px] w-[18px]" strokeWidth={2} />
+          </div>
           <Link
             href="/analyze"
             className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-rust-600 text-sm font-medium hover:text-rust-800 hover:bg-rust-50/60 rounded-lg transition-colors"
