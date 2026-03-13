@@ -129,7 +129,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
           >
             {/* Content Type — segmented control */}
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <div className="inline-flex bg-stone-100 rounded-xl p-1 gap-0.5">
+              <div className="inline-flex bg-stone-100 rounded-xl p-1 gap-0.5" role="tablist" aria-label="Content type">
                 {(
                   [
                     { type: "freeform" as ContentType, icon: PenLine, label: "Freeform" },
@@ -140,13 +140,15 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   <button
                     key={type}
                     onClick={() => setContentType(type)}
+                    role="tab"
+                    aria-selected={contentType === type}
                     className={`relative flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium transition-all duration-200 ${
                       contentType === type
                         ? "bg-deep text-white shadow-sm"
                         : "bg-transparent text-stone-500 hover:text-stone-700 hover:bg-white/60"
                     }`}
                   >
-                    <Icon className="h-3.5 w-3.5" />
+                    <Icon className="h-3.5 w-3.5" aria-hidden="true" />
                     {label}
                   </button>
                 ))}

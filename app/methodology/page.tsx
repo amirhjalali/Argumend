@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { Scale, ArrowRight } from "lucide-react";
 
 const chatgptProblems = [
@@ -123,9 +125,30 @@ const evidenceDimensions = [
 export default function MethodologyPage() {
   return (
     <AppShell>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Methodology",
+          description:
+            "How Argumend analyzes arguments: argument extraction, steel-manning, multi-judge AI council, evidence weighting, and confidence calibration.",
+          url: "https://argumend.org/methodology",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "ARGUMEND",
+            url: "https://argumend.org",
+          },
+        }}
+      />
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero — keep label, omit subtitle (heading is self-explanatory) */}
         <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Methodology" },
+            ]}
+          />
           <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             Our Methodology
           </p>

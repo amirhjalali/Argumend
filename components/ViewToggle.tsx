@@ -5,6 +5,7 @@ import { Map, Scale, Swords } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { ArgumentView } from "@/types/logic";
+import { trackEvent } from "@/lib/analytics";
 
 const views: { id: ArgumentView; label: string; icon: typeof Map }[] = [
   { id: "logic-map", label: "Logic Map", icon: Map },
@@ -25,6 +26,7 @@ export function ViewToggle() {
 
   const handleViewChange = (viewId: ArgumentView) => {
     setView(viewId);
+    trackEvent({ action: "view_switch", view: viewId });
   };
 
   return (

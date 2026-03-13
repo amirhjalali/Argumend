@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { InteractiveContent } from "@/components/InteractiveContent";
 import { CitationCard } from "@/components/CitationCard";
 import { ConfidenceGauge } from "@/components/ConfidenceGauge";
@@ -37,9 +38,15 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
       />
 
       {data.imageUrl && (
-        <div className="h-44 w-full overflow-hidden rounded-t-xl border-b border-stone-100">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={data.imageUrl} alt={data.title || "Topic illustration"} className="w-full h-full object-cover" />
+        <div className="relative h-44 w-full overflow-hidden rounded-t-xl border-b border-stone-100">
+          <Image
+            src={data.imageUrl}
+            alt={data.title || "Topic illustration"}
+            fill
+            sizes="420px"
+            className="object-cover"
+            priority
+          />
         </div>
       )}
 

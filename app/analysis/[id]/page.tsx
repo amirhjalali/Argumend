@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import { getAnalysis } from "@/lib/db/queries";
 import { db } from "@/lib/db";
 import { judgments } from "@/lib/db/schema";
+import { JsonLd } from "@/components/JsonLd";
 import { AnalysisView } from "./AnalysisView";
 
 interface PageProps {
@@ -36,11 +37,20 @@ export async function generateMetadata({
       type: "article",
       siteName: "ARGUMEND",
       url: `/analysis/${id}`,
+      images: [
+        {
+          url: `https://argumend.org/api/og?title=${encodeURIComponent(analysis.topic)}&subtitle=${encodeURIComponent("Argument Analysis")}`,
+          width: 1200,
+          height: 630,
+          alt: analysis.topic,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${analysis.topic} - ARGUMEND`,
       description,
+      images: [`https://argumend.org/api/og?title=${encodeURIComponent(analysis.topic)}&subtitle=${encodeURIComponent("Argument Analysis")}`],
     },
   };
 }
@@ -106,12 +116,44 @@ export default async function AnalysisPage({ params }: PageProps) {
     againstStrength: analysis.againstStrength ?? undefined,
   };
 
+  const analysisJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: analysis.topic,
+    description: analysis.summary.length > 160
+      ? analysis.summary.slice(0, 157) + "..."
+      : analysis.summary,
+    url: `https://argumend.org/analysis/${id}`,
+    datePublished: analysis.createdAt.toISOString(),
+    author: {
+      "@type": "Organization",
+      name: "ARGUMEND",
+      url: "https://argumend.org",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "ARGUMEND",
+      url: "https://argumend.org",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://argumend.org/icon.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://argumend.org/analysis/${id}`,
+    },
+  };
+
   return (
-    <AnalysisView
-      id={id}
-      extracted={extracted}
-      judgingResult={judgingResult}
-      createdAt={analysis.createdAt.toISOString()}
-    />
+    <>
+      <JsonLd data={analysisJsonLd} />
+      <AnalysisView
+        id={id}
+        extracted={extracted}
+        judgingResult={judgingResult}
+        createdAt={analysis.createdAt.toISOString()}
+      />
+    </>
   );
 }

@@ -56,7 +56,7 @@
   {
     "id": "police-reform",
     "title": "Policing Reform in America",
-    "meta_claim": "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
+    "meta_claim": "American policing requires fundamental structural reform \u2014 including significant reallocation of funding to social services \u2014 to improve public safety outcomes.",
     "confidence_score": 78,
     "status": "contested",
     "category": "policy",
@@ -191,7 +191,7 @@
   {
     "id": "cancel-culture",
     "title": "Cancel Culture",
-    "meta_claim": "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
+    "meta_claim": "Cancel culture \u2014 public shaming and professional consequences for controversial speech \u2014 does more harm than good to public discourse.",
     "confidence_score": 64,
     "status": "contested",
     "category": "technology",
@@ -315,15 +315,6 @@
     "pillarCount": 2
   },
   {
-    "id": "standardized-testing-value",
-    "title": "Standardized Testing in Education",
-    "meta_claim": "Standardized tests (SAT, ACT, state assessments) are a valid and useful measure of student ability and should remain a core part of educational assessment.",
-    "confidence_score": 51,
-    "status": "contested",
-    "category": "economics",
-    "pillarCount": 2
-  },
-  {
     "id": "homeschooling-effectiveness",
     "title": "Homeschooling vs. Public School",
     "meta_claim": "Homeschooled students achieve better academic and social outcomes than public school students on average.",
@@ -360,15 +351,6 @@
     "pillarCount": 2
   },
   {
-    "id": "ubi-economics",
-    "title": "Universal Basic Income",
-    "meta_claim": "A Universal Basic Income providing unconditional cash payments to all citizens would reduce poverty and improve economic well-being without significantly reducing labor force participation.",
-    "confidence_score": 58,
-    "status": "contested",
-    "category": "economics",
-    "pillarCount": 2
-  },
-  {
     "id": "gig-economy-regulation",
     "title": "Gig Economy Regulation",
     "meta_claim": "Gig economy platforms (Uber, Lyft, DoorDash, etc.) should be required to classify their workers as employees rather than independent contractors, providing full labor protections.",
@@ -389,7 +371,7 @@
   {
     "id": "free-will",
     "title": "Free Will",
-    "meta_claim": "Human beings possess genuine free will—the ability to have done otherwise in any given situation.",
+    "meta_claim": "Human beings possess genuine free will\u2014the ability to have done otherwise in any given situation.",
     "confidence_score": 48,
     "status": "contested",
     "category": "philosophy",
@@ -423,15 +405,6 @@
     "pillarCount": 2
   },
   {
-    "id": "free-will-determinism",
-    "title": "Free Will vs Determinism",
-    "meta_claim": "Human decision-making is fundamentally determined by prior causes (physical, neurological, environmental), and the subjective experience of free choice is an illusion.",
-    "confidence_score": 61,
-    "status": "highly_speculative",
-    "category": "philosophy",
-    "pillarCount": 2
-  },
-  {
     "id": "consciousness-ai-systems",
     "title": "Consciousness in AI Systems",
     "meta_claim": "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
@@ -452,7 +425,7 @@
   {
     "id": "us-iran-conflict",
     "title": "The US-Iran Conflict",
-    "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
+    "meta_claim": "US policy toward Iran \u2014 combining maximum-pressure sanctions, covert operations, and military deterrence \u2014 has made the Middle East safer and advanced American strategic interests.",
     "confidence_score": 50,
     "status": "contested",
     "category": "policy",
@@ -461,7 +434,7 @@
   {
     "id": "epstein-files",
     "title": "The Epstein Files",
-    "meta_claim": "The Jeffrey Epstein case reveals systemic institutional failure — and possibly deliberate coverup — in prosecuting high-level sex trafficking connected to powerful individuals.",
+    "meta_claim": "The Jeffrey Epstein case reveals systemic institutional failure \u2014 and possibly deliberate coverup \u2014 in prosecuting high-level sex trafficking connected to powerful individuals.",
     "confidence_score": 50,
     "status": "contested",
     "category": "policy",

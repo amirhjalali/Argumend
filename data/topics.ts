@@ -2739,198 +2739,7 @@ const remoteWorkPermanenceData = {
   ],
 };
 
-// ============================================================================
-// Standardized Testing Value Topic
-// ============================================================================
-
-const standardizedTestingValueData = {
-  id: "standardized-testing-value",
-  title: "Standardized Testing in Education",
-  meta_claim:
-    "Standardized tests (SAT, ACT, state assessments) are a valid and useful measure of student ability and should remain a core part of educational assessment.",
-  status: "contested" as const,
-  category: "economics" as const,
-  pillars: [
-    {
-      id: "predictive-validity",
-      title: "Predictive Validity",
-      short_summary:
-        "SAT scores correlate with family income at r = 0.42. Supporters call this a feature; critics call it a flaw.",
-      icon_name: "Microscope" as const,
-      skeptic_premise:
-        "Tests measure socioeconomic status more than ability; they perpetuate inequality. SAT score correlates with family income at r=0.42. Wealthy families can afford $10K+ test prep. Test-optional policies were adopted by 1,800+ schools because tests add noise, not signal.",
-      proponent_rebuttal:
-        "SAT/ACT remain the strongest single predictor of college GPA (r=0.53), stronger than high school GPA alone. Test-optional policies haven't improved socioeconomic diversity — they've actually reduced it at many schools by removing a tool that identified high-ability low-income students. The UC system's own research found SAT predicted success better than GPA across all demographic groups.",
-      crux: {
-        id: "test-optional-outcomes",
-        title: "Test-Optional Policy Outcome Analysis",
-        description:
-          "Comparing academic outcomes and demographic diversity at schools before and after adopting test-optional admissions.",
-        methodology:
-          "Track graduation rates, GPAs, retention, and demographic composition at matched schools with and without test-optional policies. Control for simultaneous policy changes.",
-        equation:
-          "\\Delta_{diversity} = f(\\text{test-optional policy}, \\text{aid changes}, \\text{outreach})",
-        verification_status: "verified" as const,
-        cost_to_verify: "$200K (Analysis of existing admissions data)",
-      },
-      evidence: [
-        {
-          id: "college-board-validity",
-          title: "College Board: SAT Predicts College GPA at r=0.53",
-          description:
-            "College Board's validity studies across 200+ institutions show SAT scores predict first-year college GPA at r=0.53 when combined with high school GPA, significantly better than GPA alone (r=0.36).",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 6,
-            independence: 3,
-            replicability: 8,
-            directness: 9,
-          },
-          source: "College Board Research",
-          reasoning:
-            "Large sample size and consistent findings, but severe conflict of interest as College Board profits from the SAT.",
-        },
-        {
-          id: "uc-system-analysis",
-          title: "UC System Found SAT More Predictive Than GPA for All Groups",
-          description:
-            "The University of California's 2020 internal study found SAT scores were better predictors of college success than high school GPA across all racial and income groups. Despite this, the UC system dropped the SAT for political reasons.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 7,
-            directness: 9,
-          },
-          source: "UC Academic Senate Study Group (2020)",
-          reasoning:
-            "Highly credible because the UC system dropped the SAT despite their own data supporting it.",
-        },
-        {
-          id: "brookings-income-correlation",
-          title: "Brookings: SAT Scores Strongly Correlate with Family Income",
-          description:
-            "Brookings Institution analysis shows a near-linear relationship between family income and average SAT scores. Students from families earning $200K+ score 400 points higher on average than those earning under $20K.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 7,
-          },
-          source: "Brookings Institution",
-          reasoning:
-            "Highly credible, independent analysis showing clear socioeconomic bias in test scores.",
-        },
-        {
-          id: "pisa-international-comparison",
-          title: "PISA International Data Shows Tests Track National Investment",
-          description:
-            "International PISA comparisons show that countries with higher education spending and lower inequality (Finland, Canada) outperform regardless of testing intensity, suggesting tests measure inputs more than innate ability.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 5,
-          },
-          source: "OECD PISA Reports",
-          reasoning:
-            "Strong international data; directness limited because national-level comparisons obscure individual-level dynamics.",
-        },
-      ],
-    },
-    {
-      id: "educational-accountability",
-      title: "Educational Accountability",
-      short_summary:
-        "Without standardized tests, achievement gaps become invisible. With them, classrooms become test-prep factories. Both problems are real.",
-      icon_name: "Scale" as const,
-      skeptic_premise:
-        "Teaching to the test narrows curriculum and harms deep learning. Schools spend weeks on test prep instead of critical thinking, arts, and exploration. High-stakes testing causes anxiety and disengagement, particularly among marginalized students.",
-      proponent_rebuttal:
-        "Without standardized measures, achievement gaps go unmeasured and unaddressed. NAEP data only exists because of standardized testing. Schools serving disadvantaged students need accountability tools to ensure they receive quality education rather than being warehoused. The alternative — subjective teacher assessments — introduces more bias, not less.",
-      crux: {
-        id: "achievement-gap-tracking",
-        title: "Achievement Gap Visibility Without Standardized Tests",
-        description:
-          "Determining whether alternative assessment methods can detect and track achievement gaps as effectively as standardized tests.",
-        methodology:
-          "Compare achievement gap measurements using standardized tests vs. portfolio assessments, teacher evaluations, and project-based assessments across demographically diverse school districts.",
-        equation:
-          "\\text{Gap}_{detected} = f(\\text{assessment type}, \\text{demographic}, \\text{school resources})",
-        verification_status: "theoretical" as const,
-        cost_to_verify: "$5M (Multi-district comparative assessment study)",
-      },
-      evidence: [
-        {
-          id: "naep-achievement-gaps",
-          title: "NAEP Data Reveals Persistent Achievement Gaps",
-          description:
-            "The National Assessment of Educational Progress (NAEP) has tracked racial and socioeconomic achievement gaps since 1971. Without this standardized data, the 30-point reading gap between Black and white students would be invisible to policymakers.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "NCES, NAEP",
-          reasoning:
-            "Definitive national dataset that only exists due to standardized measurement.",
-        },
-        {
-          id: "accountability-studies",
-          title: "No Child Left Behind Accountability Had Mixed Effects",
-          description:
-            "Research on NCLB-era accountability showed narrowed achievement gaps in early grades but also documented curriculum narrowing, teacher demoralization, and gaming of test scores by some districts.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
-          },
-          source: "National Bureau of Economic Research",
-          reasoning:
-            "Shows accountability works but with significant side effects.",
-        },
-        {
-          id: "teacher-survey-testing-burden",
-          title: "Teachers Report Excessive Testing Burden",
-          description:
-            "NEA and AFT surveys consistently find 70%+ of teachers believe standardized testing has a negative effect on teaching quality. Average US student takes 112 mandated standardized tests between pre-K and 12th grade.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "NEA, Council of the Great City Schools",
-          reasoning:
-            "Practitioner perspective; unions have political interests but direct classroom experience.",
-        },
-        {
-          id: "countries-without-testing",
-          title: "Finland Succeeds Without High-Stakes Testing",
-          description:
-            "Finland uses no standardized testing until age 16 and consistently ranks among top PISA performers. Their model relies on highly trained teachers, formative assessment, and trust-based accountability.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 4,
-            directness: 6,
-          },
-          source: "OECD, Finnish National Agency for Education",
-          reasoning:
-            "Compelling counterexample, though Finland's homogeneous demographics and teacher quality limit replicability.",
-        },
-      ],
-    },
-  ],
-};
+// (standardized-testing-value removed — duplicate of standardized-testing-debate)
 
 // ============================================================================
 // Social Media Age Limits Topic
@@ -7412,289 +7221,11 @@ const veganismEnvironmentalData = {
 // Free Will vs Determinism
 // ============================================================================
 
-const freeWillDeterminismData = {
-  id: "free-will-determinism",
-  title: "Free Will vs Determinism",
-  meta_claim:
-    "Human decision-making is fundamentally determined by prior causes (physical, neurological, environmental), and the subjective experience of free choice is an illusion.",
-  status: "highly_speculative" as const,
-  category: "philosophy" as const,
-  pillars: [
-    {
-      id: "neuroscience-determinism",
-      title: "Neuroscience of Decision-Making",
-      short_summary:
-        "Brain imaging studies suggest decisions are made unconsciously before we become aware of choosing, challenging the notion of conscious free will.",
-      icon_name: "Microscope" as const,
-      skeptic_premise:
-        "Libet's experiments show unconscious brain activity (readiness potential) begins 350-500 milliseconds before a person reports deciding to act. fMRI studies by Soon et al. (2008) could predict simple choices up to 10 seconds before conscious awareness. If the brain decides before 'we' do, the conscious experience of choosing is a post-hoc narrative, not a causal force.",
-      proponent_rebuttal:
-        "Libet himself noted subjects retained a 'veto power' in the final 150ms. The readiness potential may represent preparation of options, not a determined outcome. Complex decisions (career, morality) involve deliberation processes fundamentally unlike button-pressing experiments. A 2024 paper in Psychological Science found that when Libet-style experiments use more sophisticated reporting methods, the timing gap largely disappears.",
-      crux: {
-        id: "neural-prediction-limits",
-        title: "Neural Prediction Accuracy for Complex Decisions",
-        description:
-          "Testing whether brain activity can predict complex, high-stakes decisions (not just button presses) with accuracy significantly above chance.",
-        methodology:
-          "Design decision tasks involving genuine moral dilemmas or consequential choices. Use high-temporal-resolution neuroimaging to measure whether pre-conscious neural patterns predict the choice. Determine if prediction accuracy exceeds chance for genuinely open decisions.",
-        equation:
-          "P(\\text{correct prediction}) = f(\\text{decision complexity}, \\text{neural lead time})",
-        verification_status: "theoretical" as const,
-        cost_to_verify: "$2M (Advanced neuroimaging study with complex decision paradigms)",
-      },
-      evidence: [
-        {
-          id: "libet-experiments",
-          title: "Libet (1983): Readiness Potential Precedes Conscious Will",
-          description:
-            "Benjamin Libet's landmark 1983 experiments found that the brain's readiness potential (a buildup of electrical activity in the motor cortex) begins approximately 550ms before a voluntary action, but subjects reported becoming aware of their intention to act only 200ms before the action. This 350ms gap suggested the brain 'decides' before consciousness catches up.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 8,
-            directness: 6,
-          },
-          source: "Libet et al., Brain (1983)",
-          reasoning:
-            "Foundational study that has been replicated many times. However, directness is limited because pressing a button on command may not reflect the kind of 'free will' that matters philosophically.",
-        },
-        {
-          id: "soon-2008-fmri",
-          title: "Soon et al.: fMRI Predicts Choices 7-10 Seconds Before Awareness",
-          description:
-            "A 2008 study using fMRI by Chun Siong Soon and colleagues at the Max Planck Institute found that patterns of brain activity in the prefrontal and parietal cortex could predict which button a subject would press up to 10 seconds before the subject reported making the decision. Prediction accuracy was 60% (above chance but far from deterministic).",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 6,
-            directness: 5,
-          },
-          source: "Soon et al., Nature Neuroscience (2008)",
-          reasoning:
-            "Published in a top journal. However, 60% accuracy is only modestly above 50% chance, and the task (random button choice) has no stakes or meaning—it may not generalize to real decisions.",
-        },
-        {
-          id: "compatibilism-dominance",
-          title: "Majority of Philosophers Endorse Compatibilism",
-          description:
-            "The PhilPapers 2020 survey of professional philosophers found that 59.2% accept or lean toward compatibilism (free will is compatible with determinism), 11.2% accept libertarian free will, and only 11.2% accept hard determinism. The philosophical mainstream holds that even if determinism is true, meaningful free will exists as the capacity to act on one's own reasons without external coercion.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 8,
-            directness: 5,
-          },
-          source: "Bourget & Chalmers, PhilPapers Survey (2020)",
-          reasoning:
-            "Expert consensus is notable but philosophy is not settled by majority vote. Directness is limited because this is an opinion survey, not empirical evidence.",
-        },
-      ],
-    },
-    {
-      id: "physics-determinism",
-      title: "Physical Determinism & Quantum Indeterminacy",
-      short_summary:
-        "Classical physics is deterministic. Quantum mechanics is random. Neither one looks like 'choice.' Compatibilists say that is a category error.",
-      icon_name: "Atom" as const,
-      skeptic_premise:
-        "Classical physics is strictly deterministic: given complete initial conditions, every future state follows necessarily. The neurons in our brains are physical systems obeying these laws. Even if quantum mechanics introduces randomness, randomness is not freedom—a coin flip is not a choice. There is no known mechanism by which consciousness could intervene in physical causation.",
-      proponent_rebuttal:
-        "A 2025 paper argues that classical determinism is an idealization—real physical systems involve non-computable initial conditions and chaotic sensitivity, making determinism 'fundamentally impossible as an ontological claim.' Quantum indeterminacy is real and may play a role in neural microtubule dynamics (Penrose-Hameroff theory). Even if consciousness cannot violate physics, it may participate in selecting among quantum-mechanically permitted outcomes.",
-      crux: {
-        id: "quantum-brain-effects",
-        title: "Quantum Effects in Neural Decision-Making",
-        description:
-          "Determining whether quantum-level indeterminacy plays any functional role in neural computation and decision-making, or whether the brain operates entirely in the classical regime.",
-        methodology:
-          "Test for quantum coherence in microtubules and synaptic transmission at biological temperatures. Measure whether quantum effects are functionally relevant (affect neural firing patterns) or are washed out by thermal noise.",
-        verification_status: "theoretical" as const,
-        cost_to_verify: "$5M (Quantum biology neuroimaging lab)",
-      },
-      evidence: [
-        {
-          id: "arxiv-determinism-impossible",
-          title: "2025 Paper: Classical Determinism Is an Idealization, Not Reality",
-          description:
-            "A 2025 paper on arXiv argues that classical determinism becomes 'fundamentally impossible as an ontological claim'—it is an artifact of mathematical idealizations rather than a feature of the actual world. Non-computable real numbers, chaotic sensitivity to initial conditions, and quantum measurement indeterminacy all undermine strict physical determinism.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 6,
-            independence: 7,
-            replicability: 5,
-            directness: 6,
-          },
-          source: "arXiv preprint (2025)",
-          reasoning:
-            "Interesting philosophical argument from physics, but it is a preprint (not yet peer-reviewed) and even if determinism fails, indeterminism does not automatically establish free will.",
-        },
-        {
-          id: "laplace-demon-argument",
-          title: "Laplace's Demon: Classical Physics Implies Full Determination",
-          description:
-            "Pierre-Simon Laplace's thought experiment (1814) argues that a sufficiently powerful intellect knowing all forces and positions in the universe could predict every future event. Modern neuroscience extends this: if brain states are fully determined by prior physical states, then subjective experience of choice is epiphenomenal—real but causally inert.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 7,
-            directness: 6,
-          },
-          source: "Laplace, Essai philosophique sur les probabilites (1814); modern formulations",
-          reasoning:
-            "Logically valid within classical physics, but modern physics (quantum mechanics, chaos theory) has undermined the premise of perfect knowledge of initial conditions.",
-        },
-      ],
-    },
-  ],
-};
-
 // ============================================================================
 // Universal Basic Income (Economics Focus)
 // ============================================================================
 
-const ubiEconomicsData = {
-  id: "ubi-economics",
-  title: "Universal Basic Income",
-  meta_claim:
-    "A Universal Basic Income providing unconditional cash payments to all citizens would reduce poverty and improve economic well-being without significantly reducing labor force participation.",
-  status: "contested" as const,
-  category: "economics" as const,
-  pillars: [
-    {
-      id: "pilot-program-evidence",
-      title: "Pilot Program Evidence",
-      short_summary:
-        "Results from Finland, Stockton, Kenya, and other UBI pilots provide real-world data on employment, health, and economic outcomes.",
-      icon_name: "Microscope" as const,
-      skeptic_premise:
-        "UBI pilot programs are fundamentally flawed as evidence: they are temporary (participants know payments will end), small-scale (no macroeconomic effects), and often use pre-selected populations (e.g., existing welfare recipients). The Finland pilot found no significant employment effects. Pilots cannot capture the labor market distortions, inflation, or fiscal strain that would emerge at national scale.",
-      proponent_rebuttal:
-        "The Stockton SEED program (2019-2021) gave 125 residents $500/month for two years. Recipients found full-time jobs at double the rate of the control group, and reported significantly improved emotional health. Finland's pilot (2017-2018, 2,000 participants, 560 euros/month) found participants experienced reduced anxiety, higher life satisfaction, and increased confidence. GiveDirectly's Kenya experiment—the largest ongoing UBI pilot—is providing 12 years of payments to 20,000+ people and showing sustained positive effects.",
-      crux: {
-        id: "national-scale-rct",
-        title: "National-Scale UBI Randomized Controlled Trial",
-        description:
-          "A multi-year, nationally representative UBI experiment large enough to capture macroeconomic effects including labor market dynamics, inflation, and fiscal sustainability.",
-        methodology:
-          "Randomly assign UBI payments to a statistically representative sample of at least 10,000 individuals across diverse regions for 5+ years. Measure employment, health, education, crime, entrepreneurship, local economic multiplier effects, and consumer price changes.",
-        equation:
-          "\\text{Net Effect} = \\Delta\\text{Employment} + \\Delta\\text{Health} + \\Delta\\text{Education} - \\Delta\\text{Cost} - \\Delta\\text{Inflation}",
-        verification_status: "theoretical" as const,
-        cost_to_verify: "$100M (National-scale multi-year RCT)",
-      },
-      evidence: [
-        {
-          id: "stockton-seed-results",
-          title: "Stockton SEED: Employment Doubled, Health Improved",
-          description:
-            "The Stockton Economic Empowerment Demonstration (2019-2021) provided 125 randomly selected residents $500/month for 24 months. Full-time employment among recipients rose from 28% to 40% (vs. 32% to 37% in the control group). Recipients reported significantly reduced income volatility, improved mental health, and greater ability to handle unexpected expenses.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 8,
-          },
-          source: "West & Castro, Stockton SEED Final Report (2021)",
-          reasoning:
-            "Rigorous RCT design with independent academic evaluation. Small sample size limits generalizability, and 24-month duration cannot capture long-term effects.",
-        },
-        {
-          id: "finland-pilot-results",
-          title: "Finland UBI Pilot: Well-Being Up, Employment Unchanged",
-          description:
-            "Finland's nationwide pilot (2017-2018) randomly assigned 2,000 unemployment benefit recipients to receive an unconditional 560 euros/month. Final results showed no statistically significant effect on employment (neither increase nor decrease), but significant improvements in life satisfaction, trust, and mental health. Participants reported reduced stress and bureaucratic burden.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "Kela (Finnish Social Insurance Institution), Final Report (2020)",
-          reasoning:
-            "Government-run RCT with strong methodology. Null employment result cuts both ways: no disincentive, but also no boost. Well-being improvements are consistent across all UBI pilots.",
-        },
-        {
-          id: "fiscal-cost-estimates",
-          title: "National UBI Would Cost $3+ Trillion Annually in the US",
-          description:
-            "A $1,000/month UBI for all 258 million US adults would cost approximately $3.1 trillion per year—more than the entire federal discretionary budget and roughly 12% of GDP. Even with welfare program consolidation (saving ~$700B), a net cost of $2.4 trillion would require unprecedented tax increases or deficit spending.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 9,
-            directness: 9,
-          },
-          source: "Congressional Budget Office estimates; Tax Foundation analysis",
-          reasoning:
-            "Basic arithmetic makes the fiscal challenge clear. The scale of cost is the single strongest objection to UBI and has not been adequately addressed by any pilot program.",
-        },
-      ],
-    },
-    {
-      id: "labor-market-effects",
-      title: "Labor Market & Inflation Effects",
-      short_summary:
-        "Pilot programs consistently show minimal work reduction. Critics say pilots cannot predict what happens when an entire economy shifts expectations.",
-      icon_name: "Scale" as const,
-      skeptic_premise:
-        "Basic economics predicts that subsidizing non-work reduces work. If everyone receives $1,000/month regardless of employment, marginal workers (those indifferent between working and not) will choose not to work. This reduces economic output and tax revenue, creating a fiscal death spiral. Additionally, injecting trillions in new spending power would drive inflation, especially in housing and services.",
-      proponent_rebuttal:
-        "Across all UBI pilots globally, the feared work disincentive has not materialized. Some people reduce hours (students, new parents, caregivers), but most continue working—and some work more because reduced financial stress enables job searching and skill-building. Alaska's Permanent Fund Dividend ($1,000-$2,000/year since 1982) has operated for 40+ years with no measurable reduction in labor force participation.",
-      crux: {
-        id: "labor-supply-elasticity",
-        title: "UBI Labor Supply Elasticity at National Scale",
-        description:
-          "Measuring the actual reduction in labor supply when UBI is implemented nationally and permanently, rather than in temporary small-scale pilots.",
-        methodology:
-          "Compare labor force participation rates before and after national UBI implementation. Use Alaska's Permanent Fund Dividend as a natural experiment for long-term effects. Model labor supply elasticity at different UBI levels.",
-        equation:
-          "\\epsilon_{LS} = \\frac{\\%\\Delta L}{\\%\\Delta(1-t)} \\text{ where } t = \\text{effective marginal tax rate including UBI phase-out}",
-        verification_status: "theoretical" as const,
-        cost_to_verify: "$5M (Economic modeling study with Alaska PFD data)",
-      },
-      evidence: [
-        {
-          id: "alaska-pfd-employment",
-          title: "Alaska PFD: 40 Years of Universal Payments, No Work Reduction",
-          description:
-            "Alaska's Permanent Fund Dividend has provided universal annual payments of $1,000-$2,000 to every resident since 1982. A 2018 NBER study by Jones & Marinescu found 'no prior on full-time work,' with a small increase in part-time employment—consistent with people choosing more flexible work, not less work overall.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "Jones & Marinescu, NBER Working Paper (2018)",
-          reasoning:
-            "The longest-running quasi-UBI provides the strongest evidence against work disincentives. However, payments are small ($1,000-$2,000/year) and may not generalize to larger amounts.",
-        },
-        {
-          id: "negative-income-tax-experiments",
-          title: "1970s NIT Experiments Showed Small Work Reductions",
-          description:
-            "The US Negative Income Tax experiments of the 1970s (in New Jersey, Gary, Seattle-Denver, and rural Iowa/North Carolina) found small but statistically significant reductions in work hours: 5-7.9% for wives, 1-3.5% for husbands. The Seattle-Denver experiment found the largest effects among secondary earners.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 9,
-            replicability: 7,
-            directness: 8,
-          },
-          source: "Robins (1985); Hum & Simpson, Journal of Labor Economics (1993)",
-          reasoning:
-            "The most rigorous pre-modern UBI evidence. Work reductions were small but real. These experiments are old (1970s economic conditions differ) but remain the gold standard for experimental evidence.",
-        },
-      ],
-    },
-  ],
-};
+// (ubi-economics removed — duplicate of universal-basic-income)
 
 // ============================================================================
 // Standardized Testing Value
@@ -8883,7 +8414,7 @@ export const nuclearEnergySafety = buildTopic(nuclearEnergySafetyData);
 export const wealthTax = buildTopic(wealthTaxData);
 export const aiContentLabeling = buildTopic(aiContentLabelingData);
 export const remoteWorkPermanence = buildTopic(remoteWorkPermanenceData);
-export const standardizedTestingValue = buildTopic(standardizedTestingValueData);
+// standardizedTestingValue removed (duplicate of standardizedTestingDebate)
 export const socialMediaAgeLimits = buildTopic(socialMediaAgeLimitsData);
 export const collegeValueProposition = buildTopic(collegeValuePropositionData);
 export const mandatoryVoting = buildTopic(mandatoryVotingData);
@@ -8908,8 +8439,8 @@ export const geneEditingEmbryos = buildTopic(geneEditingEmbryosData);
 export const reparationsSlavery = buildTopic(reparationsSlaveryData);
 export const spaceColonizationFeasibility = buildTopic(spaceColonizationFeasibilityData);
 export const veganismEnvironmental = buildTopic(veganismEnvironmentalData);
-export const freeWillDeterminism = buildTopic(freeWillDeterminismData);
-export const ubiEconomics = buildTopic(ubiEconomicsData);
+// freeWillDeterminism removed (duplicate of freeWill)
+// ubiEconomics removed (duplicate of universalBasicIncome)
 export const standardizedTestingDebate = buildTopic(standardizedTestingDebateData);
 export const labGrownMeat = buildTopic(labGrownMeatData);
 export const aiConsciousness = buildTopic(aiConsciousnessData);
@@ -8967,12 +8498,10 @@ export const topics: Topic[] = [
   // --- Economics & Education ---
   remoteWorkPermanence,
   collegeValueProposition,
-  standardizedTestingValue,
   homeschoolingEffectiveness,
   billionaireWealth,
   foreignAidEffectiveness,
   cryptocurrencyValue,
-  ubiEconomics,
   gigEconomyRegulation,
 
   // --- Philosophy & Speculation ---
@@ -8980,7 +8509,6 @@ export const topics: Topic[] = [
   simulationHypothesis,
   moonLanding,
   minneapolisShooting,
-  freeWillDeterminism,
   aiConsciousness,
   meaningWithoutReligion,
 ];
@@ -9053,14 +8581,14 @@ const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "ev-environmental-impact": ["nuclear-energy-safety", "climate-change", "veganism-environmental-impact", "lab-grown-meat-adoption"],
 
   // Economic inequality cluster
-  "universal-basic-income": ["wealth-tax", "billionaire-wealth", "ubi-economics", "minimum-wage-effects"],
-  "wealth-tax": ["universal-basic-income", "billionaire-wealth", "ubi-economics", "open-borders"],
-  "billionaire-wealth": ["wealth-tax", "universal-basic-income", "ubi-economics", "gig-economy-regulation"],
+  "universal-basic-income": ["wealth-tax", "billionaire-wealth", "gig-economy-regulation", "minimum-wage-effects"],
+  "wealth-tax": ["universal-basic-income", "billionaire-wealth", "minimum-wage-effects", "open-borders"],
+  "billionaire-wealth": ["wealth-tax", "universal-basic-income", "minimum-wage-effects", "gig-economy-regulation"],
 
   // AI governance cluster
   "ai-risk": ["ai-content-labeling", "consciousness-ai-systems", "social-media-mental-health", "big-tech-antitrust"],
   "ai-content-labeling": ["ai-risk", "consciousness-ai-systems", "media-bias-democracy", "cancel-culture"],
-  "consciousness-ai-systems": ["ai-risk", "ai-content-labeling", "free-will-determinism", "simulation-hypothesis"],
+  "consciousness-ai-systems": ["ai-risk", "ai-content-labeling", "free-will", "simulation-hypothesis"],
 
   // Tech & society cluster
   "social-media-mental-health": ["social-media-age-limits", "cancel-culture", "big-tech-antitrust", "ai-risk"],
@@ -9068,16 +8596,14 @@ const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "big-tech-antitrust": ["social-media-mental-health", "social-media-age-limits", "ai-content-labeling", "media-bias-democracy"],
 
   // Philosophy cluster
-  "free-will-determinism": ["free-will", "simulation-hypothesis", "meaning-without-religion", "consciousness-ai-systems"],
-  "simulation-hypothesis": ["free-will-determinism", "consciousness-ai-systems", "ai-risk", "meaning-without-religion"],
-  "meaning-without-religion": ["free-will-determinism", "simulation-hypothesis", "free-will", "consciousness-ai-systems"],
-  "free-will": ["free-will-determinism", "meaning-without-religion", "simulation-hypothesis", "consciousness-ai-systems"],
+  "simulation-hypothesis": ["free-will", "consciousness-ai-systems", "ai-risk", "meaning-without-religion"],
+  "meaning-without-religion": ["free-will", "simulation-hypothesis", "consciousness-ai-systems", "moon-landing"],
+  "free-will": ["meaning-without-religion", "simulation-hypothesis", "consciousness-ai-systems", "moon-landing"],
 
   // Education cluster
-  "standardized-testing-value": ["standardized-testing-debate", "college-value-proposition", "homeschooling-effectiveness", "foreign-aid-effectiveness"],
-  "standardized-testing-debate": ["standardized-testing-value", "college-value-proposition", "homeschooling-effectiveness", "mandatory-voting"],
-  "college-value-proposition": ["standardized-testing-value", "homeschooling-effectiveness", "remote-work-permanence", "ubi-economics"],
-  "homeschooling-effectiveness": ["college-value-proposition", "standardized-testing-value", "standardized-testing-debate", "social-media-age-limits"],
+  "standardized-testing-debate": ["college-value-proposition", "homeschooling-effectiveness", "mandatory-voting", "foreign-aid-effectiveness"],
+  "college-value-proposition": ["standardized-testing-debate", "homeschooling-effectiveness", "remote-work-permanence", "universal-basic-income"],
+  "homeschooling-effectiveness": ["college-value-proposition", "standardized-testing-debate", "social-media-age-limits", "meaning-without-religion"],
 
   // Health & food cluster
   "organic-food-health": ["veganism-environmental-impact", "factory-farming-ban", "lab-grown-meat-adoption", "gene-editing-embryos"],
@@ -9101,10 +8627,9 @@ const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "foreign-aid-effectiveness": ["open-borders", "immigration-wage-impact", "universal-healthcare", "space-exploration-value"],
 
   // Work & economy cluster
-  "remote-work-permanence": ["gig-economy-regulation", "college-value-proposition", "ubi-economics", "minimum-wage-effects"],
-  "gig-economy-regulation": ["remote-work-permanence", "minimum-wage-effects", "billionaire-wealth", "ubi-economics"],
+  "remote-work-permanence": ["gig-economy-regulation", "college-value-proposition", "universal-basic-income", "minimum-wage-effects"],
+  "gig-economy-regulation": ["remote-work-permanence", "minimum-wage-effects", "billionaire-wealth", "universal-basic-income"],
   "minimum-wage-effects": ["universal-basic-income", "gig-economy-regulation", "immigration-wage-impact", "remote-work-permanence"],
-  "ubi-economics": ["universal-basic-income", "wealth-tax", "remote-work-permanence", "gig-economy-regulation"],
   "cryptocurrency-value": ["big-tech-antitrust", "wealth-tax", "gig-economy-regulation", "surveillance-public-safety"],
 
   // Healthcare cluster

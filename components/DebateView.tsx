@@ -17,8 +17,14 @@ import {
   AlertCircle,
   Gavel,
 } from "lucide-react";
-import { JudgingResults } from "@/components/JudgingResults";
+import dynamic from "next/dynamic";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
+
+// Heavy component — only rendered after judging completes
+const JudgingResults = dynamic(
+  () => import("@/components/JudgingResults").then((m) => ({ default: m.JudgingResults })),
+  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 rounded-lg" /> }
+);
 import { topics } from "@/data/topics";
 import type { DebateMessage } from "@/types/debate";
 import {
@@ -86,6 +92,8 @@ function DebaterCard({
               disabled={disabled}
               whileHover={!disabled ? { y: -2 } : {}}
               whileTap={!disabled ? { scale: 0.98 } : {}}
+              aria-label={`Select ${llm.name} as ${isFor ? "proposition" : "opposition"} debater${isSelected ? " (selected)" : ""}`}
+              aria-pressed={isSelected}
               className={`
                 relative p-2 md:p-3 rounded-xl border-2 transition-all duration-200 text-left
                 ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
@@ -213,6 +221,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
               className={`w-5 h-5 mb-2 opacity-40 ${
                 isFor ? "text-rust-400" : "text-stone-400"
               }`}
+              aria-hidden="true"
             />
             <p className="text-stone-700 leading-relaxed whitespace-pre-wrap text-[15px]">
               {message.content}
@@ -511,14 +520,17 @@ export function DebateView() {
 
             {/* Round Selection */}
             <div className="flex items-center justify-center gap-6">
-              <span className="font-serif text-stone-600">Number of Rounds</span>
-              <div className="flex gap-2">
+              <span id="rounds-label" className="font-serif text-stone-600">Number of Rounds</span>
+              <div className="flex gap-2" role="radiogroup" aria-labelledby="rounds-label">
                 {DEBATE.ROUND_OPTIONS.map((num) => (
                   <motion.button
                     key={num}
                     onClick={() => setMaxRounds(num)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    role="radio"
+                    aria-checked={state.maxRounds === num}
+                    aria-label={`${num} rounds`}
                     className={`w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl font-serif font-semibold transition-all ${
                       state.maxRounds === num
                         ? "bg-gradient-to-br from-rust-500 to-rust-600 text-white shadow-md"
@@ -583,6 +595,7 @@ export function DebateView() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="p-4 bg-red-50/80 border border-red-200/60 rounded-xl"
+            role="alert"
           >
             <div className="flex items-start gap-3">
               <AlertCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />

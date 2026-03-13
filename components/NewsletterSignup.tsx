@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Loader2 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 interface NewsletterSignupProps {
   variant?: "default" | "compact";
@@ -10,9 +11,10 @@ interface NewsletterSignupProps {
 export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
@@ -23,8 +25,29 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
       return;
     }
 
-    // No backend yet — just show success state
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setSubmitted(true);
+      trackEvent({ action: "newsletter_signup", source: variant === "compact" ? "blog-post" : "blog-index" });
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const isCompact = variant === "compact";
@@ -81,18 +104,24 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
               if (error) setError("");
             }}
             placeholder="you@example.com"
+            disabled={loading}
             className={`w-full bg-white border border-stone-300 rounded-lg text-primary placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"
-            } ${error ? "border-red-400 focus:ring-red-400/30 focus:border-red-400/50" : ""}`}
+            } ${error ? "border-red-400 focus:ring-red-400/30 focus:border-red-400/50" : ""} ${loading ? "opacity-60" : ""}`}
           />
         </div>
         <button
           type="submit"
-          className={`flex-shrink-0 bg-gradient-to-r from-rust-500 to-rust-600 hover:from-rust-600 hover:to-rust-700 text-white font-medium rounded-lg transition-all ${
+          disabled={loading}
+          className={`flex-shrink-0 bg-gradient-to-r from-rust-500 to-rust-600 hover:from-rust-600 hover:to-rust-700 text-white font-medium rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed ${
             isCompact ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"
           }`}
         >
-          Subscribe
+          {loading ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            "Subscribe"
+          )}
         </button>
       </form>
 

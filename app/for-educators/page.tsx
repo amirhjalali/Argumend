@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { ArrowRight } from "lucide-react";
 
 const benefits = [
@@ -94,9 +96,34 @@ const subjects = [
 export default function ForEducatorsPage() {
   return (
     <AppShell>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Argumend for Educators",
+          description:
+            "Teach students how to disagree without destroying the conversation. Lesson plans, subject integration, and critical thinking resources for IB TOK, AP Government, and more.",
+          url: "https://argumend.org/for-educators",
+          audience: {
+            "@type": "EducationalAudience",
+            educationalRole: "teacher",
+          },
+          isPartOf: {
+            "@type": "WebSite",
+            name: "ARGUMEND",
+            url: "https://argumend.org",
+          },
+        }}
+      />
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero — no label, single paragraph */}
         <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "For Educators" },
+            ]}
+          />
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             Teach students how to disagree<br />
             <span className="text-stone-500">without destroying the conversation</span>

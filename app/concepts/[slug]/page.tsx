@@ -2,12 +2,12 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
-  ChevronRight,
   ArrowRight,
 } from "lucide-react";
 import { concepts, getConceptBySlug, getAllConceptSlugs } from "@/data/concepts";
 import { topics } from "@/data/topics";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 
 // ---------------------------------------------------------------------------
@@ -43,11 +43,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://argumend.org/concepts/${concept.id}`,
       type: "article",
       siteName: "Argumend",
+      images: [
+        {
+          url: `https://argumend.org/api/og?title=${encodeURIComponent(concept.title)}&subtitle=${encodeURIComponent("Key Concept")}`,
+          width: 1200,
+          height: 630,
+          alt: concept.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${concept.title} -- Key Concept`,
       description: firstParagraph.slice(0, 160),
+      images: [`https://argumend.org/api/og?title=${encodeURIComponent(concept.title)}&subtitle=${encodeURIComponent("Key Concept")}`],
     },
   };
 }
@@ -102,28 +111,14 @@ export default async function ConceptDetailPage({ params }: PageProps) {
 
       <div className="min-h-full">
         <div className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-16">
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center gap-1.5 text-sm text-secondary">
-              <li>
-                <Link href="/" className="hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="h-3.5 w-3.5 text-muted" />
-              </li>
-              <li>
-                <Link href="/concepts" className="hover:text-primary transition-colors">
-                  Concepts
-                </Link>
-              </li>
-              <li>
-                <ChevronRight className="h-3.5 w-3.5 text-muted" />
-              </li>
-              <li className="text-primary font-medium">{concept.title}</li>
-            </ol>
-          </nav>
+          {/* Breadcrumb with BreadcrumbList JSON-LD */}
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Concepts", href: "/concepts" },
+              { label: concept.title },
+            ]}
+          />
 
           {/* Hero */}
           <header className="mb-16 md:mb-24">

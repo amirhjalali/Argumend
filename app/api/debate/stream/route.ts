@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
 import { chunkForSse, generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
 import {
@@ -187,6 +188,15 @@ function buildProgrammaticTokens(body: StreamRequest): string[] {
  * Streams a debate argument token-by-token via SSE.
  */
 export async function POST(request: NextRequest) {
+  // Require authentication for debate streaming (calls LLM APIs)
+  const session = await auth();
+  if (!session?.user) {
+    return new Response(
+      JSON.stringify({ error: "Unauthorized" }),
+      { status: 401 }
+    );
+  }
+
   const ip = request.headers.get("x-forwarded-for") || "unknown";
   const limit = rateLimit(`debate:${ip}`, {
     maxRequests: 20,

@@ -5,6 +5,7 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 import { MoltbookClient } from "@/lib/moltbook/client";
 import { MoltbookDebateService, NOTABLE_DEBATE_AGENTS } from "@/lib/moltbook/debate-integration";
 import { topics } from "@/data/topics";
@@ -141,6 +142,12 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  // Require authentication for Moltbook write operations
+  const session = await auth();
+  if (!session?.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const client = getClient();
   if (!client) {
     return NextResponse.json(

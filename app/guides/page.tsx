@@ -1,14 +1,42 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Clock } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { guides } from "@/data/guides";
 
 export default function GuidesPage() {
+  const guidesJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Foundational Guides",
+    description:
+      "Learn the core skills of critical thinking: how to triangulate sources, recognize bias, and weigh evidence.",
+    url: "https://argumend.org/guides",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: guides.length,
+      itemListElement: guides.map((guide, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: guide.title,
+        url: `https://argumend.org/guides/${guide.id}`,
+      })),
+    },
+  };
+
   return (
     <AppShell>
+      <JsonLd data={guidesJsonLd} />
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
         {/* Header */}
         <div className="mb-12">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Guides" },
+            ]}
+          />
           <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             Foundational Guides
           </p>

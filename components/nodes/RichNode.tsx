@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { InteractiveContent } from "@/components/InteractiveContent";
 import { CitationCard } from "@/components/CitationCard";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
@@ -53,9 +54,14 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
 
       {/* Optional Image */}
       {data.imageUrl && (
-        <div className="h-36 w-full overflow-hidden rounded-t-xl border-b border-stone-100">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={data.imageUrl} alt={data.title || "Node illustration"} className="w-full h-full object-cover" />
+        <div className="relative h-36 w-full overflow-hidden rounded-t-xl border-b border-stone-100">
+          <Image
+            src={data.imageUrl}
+            alt={data.title || "Node illustration"}
+            fill
+            sizes="340px"
+            className="object-cover"
+          />
         </div>
       )}
 

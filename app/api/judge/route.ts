@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 import { createJudgeCouncil } from "@/lib/judge/council";
 import type { DebateMessageInput as DebateMessage } from "@/types/debate";
 import { judgeContentOffline, judgeDebateOffline } from "@/lib/judge/offline";
@@ -31,6 +32,12 @@ function isLiveJudgingEnabled(): boolean {
  * Judge a debate or content using multiple AI models.
  */
 export async function POST(request: NextRequest) {
+  // Require authentication for judging (calls LLM APIs and persists data)
+  const session = await auth();
+  if (!session?.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   // Rate limit: 10 requests per hour per IP
   const ip = request.headers.get("x-forwarded-for") || "unknown";
   const limit = rateLimit(`judge:${ip}`, { maxRequests: 10, windowMs: 60 * 60 * 1000 });

@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import type { Topic } from "@/types/logic";
 import type { DebateMessage } from "@/types/debate";
+import { trackEvent } from "@/lib/analytics";
 
 interface ShareToMoltbookProps {
   topic: Topic;
@@ -88,6 +89,7 @@ ${againstMsg?.content || "*No argument*"}
   };
 
   const handleShare = async () => {
+    trackEvent({ action: "share_click", platform: "moltbook", topicId: topic.id });
     setState("sharing");
     setError(null);
 

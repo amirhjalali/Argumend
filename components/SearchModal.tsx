@@ -13,7 +13,8 @@ import {
   CornerDownLeft,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { topicSummaries } from "@/data/topicIndex";
+import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
+import type { TopicCategory } from "@/data/topicIndex";
 import { articles } from "@/data/blog";
 import { concepts } from "@/data/concepts";
 
@@ -29,6 +30,9 @@ interface SearchResult {
   subtitle: string;
   type: ResultType;
   href: string;
+  // Topic-specific fields
+  category?: TopicCategory;
+  confidenceScore?: number;
 }
 
 interface SearchGroup {
@@ -136,6 +140,20 @@ function matchesQuery(text: string, query: string): boolean {
   return terms.every((term) => lower.includes(term));
 }
 
+function getVerdictInfo(score: number): { label: string; color: string } {
+  if (score >= 65) return { label: "For", color: "text-rust-600" };
+  if (score <= 35) return { label: "Against", color: "text-deep" };
+  return { label: "Draw", color: "text-stone-500" };
+}
+
+const CATEGORY_BADGE_CLASSES: Record<TopicCategory, string> = {
+  policy: "bg-deep/10 text-deep",
+  technology: "bg-indigo-50 text-indigo-600",
+  science: "bg-emerald-50 text-emerald-600",
+  economics: "bg-sky-50 text-sky-600",
+  philosophy: "bg-violet-50 text-violet-600",
+};
+
 const TYPE_CONFIG: Record<
   ResultType,
   { icon: typeof Search; label: string; badgeClasses: string }
@@ -191,6 +209,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       subtitle: t.meta_claim,
       type: "topic" as const,
       href: `/topics/${t.id}`,
+      category: t.category,
+      confidenceScore: t.confidence_score,
     }));
 
     const blogResults: SearchResult[] = articles.map((a) => ({
@@ -229,6 +249,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           subtitle: t.meta_claim,
           type: "topic" as ResultType,
           href: `/topics/${t.id}`,
+          category: t.category,
+          confidenceScore: t.confidence_score,
         }));
 
       return [{ label: "Popular Topics", type: "topic", results: featured }];
@@ -236,7 +258,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
     // Filter items
     const matched = allItems.filter((item) => {
-      const searchable = `${item.title} ${item.subtitle}`;
+      let searchable = `${item.title} ${item.subtitle}`;
+      if (item.type === "topic" && item.category) {
+        searchable += ` ${item.category} ${CATEGORY_LABELS[item.category]}`;
+      }
       if (item.type === "blog") {
         const article = articles.find((a) => `blog-${a.slug}` === item.id);
         if (article) {
@@ -271,16 +296,20 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   );
 
   // -----------------------------------------------------------------------
-  // Reset state on open/close
+  // Reset state on open/close + body scroll lock
   // -----------------------------------------------------------------------
 
   useEffect(() => {
     if (isOpen) {
       setQuery("");
       setActiveIndex(0);
+      document.body.style.overflow = "hidden";
       requestAnimationFrame(() => {
         inputRef.current?.focus();
       });
+      return () => {
+        document.body.style.overflow = "";
+      };
     }
   }, [isOpen]);
 
@@ -457,16 +486,21 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   const isActive = idx === activeIndex;
                   const config = TYPE_CONFIG[result.type];
                   const Icon = config.icon;
+                  const isTopic = result.type === "topic";
+                  const verdict = isTopic && result.confidenceScore != null
+                    ? getVerdictInfo(result.confidenceScore)
+                    : null;
 
                   return (
                     <button
                       key={result.id}
                       data-index={idx}
+                      id={`search-result-${result.id}`}
                       onClick={() => navigate(result)}
                       onMouseEnter={() => setActiveIndex(idx)}
                       className={`
                         w-full flex items-center gap-3 px-5 py-3 text-left transition-colors duration-100
-                        ${isActive ? "bg-deep/5" : "bg-transparent hover:bg-stone-50/60"}
+                        ${isActive ? "bg-rust-50/60 border-l-2 border-l-rust-500" : "bg-transparent hover:bg-stone-50/60 border-l-2 border-l-transparent"}
                       `}
                       role="option"
                       aria-selected={isActive}
@@ -475,43 +509,69 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       <div
                         className={`
                           flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center
-                          ${isActive ? "bg-deep/10" : "bg-stone-100"}
+                          ${isActive ? "bg-rust-100/80" : "bg-stone-100"}
                         `}
                       >
                         <Icon
-                          className={`h-4 w-4 ${isActive ? "text-deep" : "text-stone-400"}`}
+                          className={`h-4 w-4 ${isActive ? "text-rust-600" : "text-stone-400"}`}
                           strokeWidth={1.8}
                         />
                       </div>
 
                       {/* Text */}
                       <div className="flex-1 min-w-0">
-                        <div
-                          className={`text-sm font-medium truncate ${
-                            isActive ? "text-deep" : "text-primary"
-                          }`}
-                        >
-                          {result.title}
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`text-sm font-medium truncate ${
+                              isActive ? "text-rust-700" : "text-primary"
+                            }`}
+                          >
+                            {result.title}
+                          </span>
+                          {isTopic && result.category && (
+                            <span
+                              className={`
+                                flex-shrink-0 text-[10px] font-medium px-1.5 py-0.5 rounded-full
+                                ${CATEGORY_BADGE_CLASSES[result.category]}
+                              `}
+                            >
+                              {CATEGORY_LABELS[result.category]}
+                            </span>
+                          )}
                         </div>
                         <div className="text-xs text-stone-400 truncate mt-0.5">
                           {result.subtitle}
                         </div>
                       </div>
 
-                      {/* Badge */}
-                      <span
-                        className={`
-                          flex-shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full
-                          ${config.badgeClasses}
-                        `}
-                      >
-                        {config.label.slice(0, -1)}
-                      </span>
+                      {/* Topic metadata: confidence + verdict */}
+                      {isTopic && result.confidenceScore != null && verdict ? (
+                        <div className="flex-shrink-0 flex items-center gap-2">
+                          <div className="text-right">
+                            <div className="text-[11px] font-semibold tabular-nums text-stone-600">
+                              {result.confidenceScore}%
+                            </div>
+                            <div className={`text-[10px] font-medium ${verdict.color}`}>
+                              {verdict.label}
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        /* Non-topic badge */
+                        <span
+                          className={`
+                            flex-shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full
+                            ${config.badgeClasses}
+                          `}
+                        >
+                          {config.label.slice(0, -1)}
+                        </span>
+                      )}
 
                       {/* Arrow for active */}
                       {isActive && (
                         <ArrowRight
-                          className="flex-shrink-0 h-3.5 w-3.5 text-deep"
+                          className="flex-shrink-0 h-3.5 w-3.5 text-rust-600"
                           strokeWidth={2}
                         />
                       )}

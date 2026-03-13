@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { citations, researchSections } from "@/data/research";
 import type { Citation } from "@/data/research";
 import { BookOpen, ExternalLink, Scale } from "lucide-react";
@@ -93,11 +95,44 @@ export default function ResearchPage() {
     if (c) orderedCitations.push({ citation: c, num });
   }
 
+  const researchJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    headline: "The Science Behind Better Arguments",
+    description:
+      "Every design decision in Argumend is grounded in peer-reviewed research on polarization, misinformation, and deliberative reasoning.",
+    url: "https://argumend.org/research",
+    author: {
+      "@type": "Organization",
+      name: "ARGUMEND",
+      url: "https://argumend.org",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "ARGUMEND",
+      url: "https://argumend.org",
+    },
+    citation: orderedCitations.map(({ citation }) => ({
+      "@type": "CreativeWork",
+      name: citation.title,
+      author: citation.authors.join(", "),
+      datePublished: String(citation.year),
+      ...(citation.url ? { url: citation.url } : {}),
+    })),
+  };
+
   return (
     <AppShell>
+      <JsonLd data={researchJsonLd} />
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-20">
         {/* Hero */}
         <div className="mb-16 md:mb-24">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Research" },
+            ]}
+          />
           <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
             Research
           </p>

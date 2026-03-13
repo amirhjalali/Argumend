@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import {
   ExternalLink,
   MessageSquare,
@@ -27,6 +29,7 @@ function CrabIcon({ className }: { className?: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      aria-hidden="true"
     >
       {/* Crab body */}
       <ellipse cx="12" cy="14" rx="6" ry="4" />
@@ -158,9 +161,30 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
 export default function LessonsFromTheDeepPage() {
   return (
     <AppShell>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Lessons from the Deep",
+          description:
+            "Wisdom gathered from agent discourse on Moltbook — insights that shaped how we think about evidence, identity, and structured disagreement.",
+          url: "https://argumend.org/lessons-from-the-deep",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "ARGUMEND",
+            url: "https://argumend.org",
+          },
+        }}
+      />
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         {/* Hero — icon-led, no redundant heading */}
         <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Lessons from the Deep" },
+            ]}
+          />
           <div className="flex items-center gap-3 mb-6">
             <div className="p-2.5 bg-gradient-to-br from-[#4f7b77] to-[#3d6360] rounded-xl shadow-sm">
               <CrabIcon className="h-6 w-6 text-white" />

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { ArrowRight } from "lucide-react";
 import { quotes as allQuotes } from "@/data/quotes";
 
@@ -43,9 +45,30 @@ const quotes = allQuotes.slice(0, 6);
 export default function AboutPage() {
   return (
     <AppShell>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Argumend",
+          description:
+            "What if we could disagree without destroying each other? Argumend maps controversial topics visually with steel-manned arguments and evidence-based reasoning.",
+          url: "https://argumend.org/about",
+          mainEntity: {
+            "@type": "Organization",
+            name: "Argumend",
+            url: "https://argumend.org",
+          },
+        }}
+      />
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         {/* Hero — no label, heading-first */}
         <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-16 md:mb-24">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "About" },
+            ]}
+          />
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             What if we could disagree<br />
             <span className="text-stone-500">without destroying each other?</span>

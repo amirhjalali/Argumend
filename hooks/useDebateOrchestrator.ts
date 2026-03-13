@@ -12,6 +12,7 @@ import {
 } from "@/data/mockDebates";
 import { DEBATE } from "@/lib/constants";
 import { generateOfflineDebate } from "@/lib/debate/offline";
+import { trackEvent } from "@/lib/analytics";
 
 export type DebatePhase = "setup" | "debating" | "paused" | "complete" | "mockView";
 
@@ -231,6 +232,13 @@ export function useDebateOrchestrator(
   const startDebate = useCallback(async () => {
     if (!canStart || !state.forModel || !state.againstModel || !topic) return;
 
+    trackEvent({
+      action: "debate_start",
+      topicId: topic.id,
+      forModel: state.forModel,
+      againstModel: state.againstModel,
+    });
+
     // Persist debate creation (fire-and-forget)
     const persistCreate = persistDebate({
       action: "create",
@@ -259,6 +267,12 @@ export function useDebateOrchestrator(
         currentRound: state.maxRounds,
         typingSide: null,
       }));
+
+      trackEvent({
+        action: "debate_complete",
+        topicId: topic.id,
+        totalRounds: state.maxRounds,
+      });
 
       // Persist offline rounds after debate ID is available
       persistCreate.then(() => {
@@ -340,6 +354,11 @@ export function useDebateOrchestrator(
         phase: "complete",
         typingSide: null,
       }));
+      trackEvent({
+        action: "debate_complete",
+        topicId: topic!.id,
+        totalRounds: state.maxRounds,
+      });
       // Persist completion status
       if (debateIdRef.current) {
         persistDebate({ action: "updateStatus", debateId: debateIdRef.current, status: "complete" });

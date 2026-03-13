@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Clock, BookOpen, Library } from "lucide-react";
@@ -35,6 +35,7 @@ import {
   Sword,
   Quote,
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import { AppShell } from "@/components/AppShell";
 import { ShareButtons } from "@/components/ShareButtons";
 import type {
@@ -51,7 +52,13 @@ import { hasMockDebate, getMockDebate } from "@/data/mockDebates";
 import { getMockVerdict } from "@/data/mockVerdicts";
 import type { DebateMessage } from "@/types/debate";
 import { getLLMOption, ClaudeIcon } from "@/components/icons/LLMIcons";
-import { JudgingResults } from "@/components/JudgingResults";
+import { trackEvent } from "@/lib/analytics";
+
+// Heavy component — only rendered when a verdict exists
+const JudgingResults = dynamic(
+  () => import("@/components/JudgingResults").then((m) => ({ default: m.JudgingResults })),
+  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 rounded-lg" /> }
+);
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -750,6 +757,11 @@ export default function TopicDetailView({
   const [stance, setStance] = useState<"agree" | "unsure" | "disagree" | null>(null);
   const [depth, setDepth] = useState<ReadingDepth>("30s");
   const handleDepthChange = useCallback((d: ReadingDepth) => setDepth(d), []);
+
+  // Track topic view on mount
+  useEffect(() => {
+    trackEvent({ action: "topic_view", topicId: topic.id, topicTitle: topic.title });
+  }, [topic.id, topic.title]);
 
   return (
     <AppShell>

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
 import { generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
 import {
@@ -147,6 +148,12 @@ async function generateWithGrok(
 }
 
 export async function POST(request: NextRequest) {
+  // Require authentication for debate generation (calls LLM APIs)
+  const session = await auth();
+  if (!session?.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   // Rate limit: 20 requests per hour per IP (higher limit since each debate round is a separate call)
   const ip = request.headers.get("x-forwarded-for") || "unknown";
   const limit = rateLimit(`debate:${ip}`, { maxRequests: 20, windowMs: 60 * 60 * 1000 });

@@ -1,4 +1,6 @@
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import {
   Scale,
   Swords,
@@ -63,11 +65,33 @@ const steps = [
 ];
 
 export default function HowItWorksPage() {
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How Argumend Works",
+    description:
+      "We turn messy debates into visual maps. See the strongest arguments on every side, trace each claim to its source, and find the question that would actually change someone's mind.",
+    url: "https://argumend.org/how-it-works",
+    step: steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.title,
+      text: step.description,
+    })),
+  };
+
   return (
     <AppShell>
+      <JsonLd data={howToJsonLd} />
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero — subtitle before heading for variety */}
         <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "How It Works" },
+            ]}
+          />
           <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto mb-5">
             We turn messy debates into visual maps. You see the strongest arguments
             on every side, trace each claim to its source, and find the one question
@@ -113,7 +137,7 @@ export default function HowItWorksPage() {
           {/* Simple visual diagram */}
           <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] rounded-2xl border border-stone-200/60 p-8 md:p-12 overflow-hidden">
             {/* Connection lines (simplified) */}
-            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
+            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }} aria-hidden="true">
               <defs>
                 <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
                   <polygon points="0 0, 10 3.5, 0 7" fill="#b05434" />

@@ -153,6 +153,153 @@ function dimensionScoreForSide(
   }
 }
 
+/**
+ * Generate dimension-specific reasoning based on the dimension ID,
+ * the computed score, and actual textual metrics from the side's arguments.
+ */
+function dimensionReasoning(
+  dimensionId: string,
+  score: number,
+  sideText: string,
+  opposingText: string
+): string {
+  const lower = sideText.toLowerCase();
+  const sentenceCount = splitSentences(sideText).length;
+  const wordCount = sideText.split(/\s+/).filter(Boolean).length;
+  const connectiveHits = countRegex(
+    lower,
+    /\b(because|therefore|however|although|if|then|since|while)\b/g
+  );
+  const absoluteHits = countMarkers(lower, ABSOLUTE_MARKERS);
+  const evidenceHits = countMarkers(lower, EVIDENCE_MARKERS);
+  const numericHits = countRegex(lower, /\b\d+(?:\.\d+)?\b/g);
+  const emotionalHits = countMarkers(lower, EMOTIONAL_MARKERS);
+  const nuanceHits = countRegex(lower, /\b(however|although|depends|uncertain|limited)\b/g);
+  const rebuttalHits = countRegex(
+    lower,
+    /\b(opponent|opponents|critics|supporters|counter|rebut|respond)\b/g
+  );
+  const cruxHits = countRegex(
+    lower,
+    /\b(core|main issue|crux|whether|tradeoff|burden of proof)\b/g
+  );
+  const overlap = overlapScore(sideText, opposingText);
+
+  switch (dimensionId) {
+    case "logical-validity": {
+      const connNote =
+        connectiveHits >= 4
+          ? `Uses ${connectiveHits} logical connectives (because, therefore, etc.), building clear inferential chains.`
+          : connectiveHits >= 2
+            ? `${connectiveHits} logical connectives provide moderate inferential structure.`
+            : "Few logical connectives, leaving inferential links implicit.";
+      const absNote =
+        absoluteHits >= 3
+          ? ` Undermined by ${absoluteHits} absolute claims (always, never, etc.) that overextend the reasoning.`
+          : absoluteHits >= 1
+            ? ` ${absoluteHits} absolute claim${absoluteHits > 1 ? "s" : ""} slightly weaken${absoluteHits === 1 ? "s" : ""} otherwise sound logic.`
+            : " No absolute claims detected, keeping the logical structure disciplined.";
+      const sentNote =
+        sentenceCount >= 6
+          ? ` Across ${sentenceCount} sentences the argument sustains a coherent thread.`
+          : ` Only ${sentenceCount} sentence${sentenceCount !== 1 ? "s" : ""} limits the depth of logical development.`;
+      return `${connNote}${absNote}${sentNote}`;
+    }
+
+    case "evidence-quality": {
+      const evNote =
+        evidenceHits >= 4
+          ? `${evidenceHits} evidence markers (study, data, research, etc.) ground the argument in external support.`
+          : evidenceHits >= 2
+            ? `${evidenceHits} evidence references provide partial empirical grounding.`
+            : "Sparse evidence markers — claims rest largely on assertion rather than cited support.";
+      const numNote =
+        numericHits >= 3
+          ? ` Bolstered by ${numericHits} numerical data points adding specificity.`
+          : numericHits >= 1
+            ? ` ${numericHits} numerical reference${numericHits > 1 ? "s add" : " adds"} limited quantitative weight.`
+            : " No numerical data provided, reducing the specificity of claims.";
+      return `${evNote}${numNote}`;
+    }
+
+    case "bias-credibility": {
+      const emNote =
+        emotionalHits >= 3
+          ? `${emotionalHits} emotionally loaded terms (outrageous, disaster, etc.) compromise objectivity.`
+          : emotionalHits >= 1
+            ? `${emotionalHits} emotional term${emotionalHits > 1 ? "s" : ""} introduce${emotionalHits === 1 ? "s" : ""} mild bias but ${emotionalHits === 1 ? "does" : "do"} not dominate the tone.`
+            : "No emotionally loaded language detected, maintaining a measured tone.";
+      const hedgeNote =
+        nuanceHits >= 3
+          ? ` Strengthened by ${nuanceHits} hedging or nuance phrases (however, depends, uncertain), signaling intellectual honesty.`
+          : nuanceHits >= 1
+            ? ` ${nuanceHits} hedging phrase${nuanceHits > 1 ? "s" : ""} show${nuanceHits === 1 ? "s" : ""} some acknowledgment of limitations.`
+            : " No hedging or concessions observed — the argument could benefit from acknowledging uncertainty.";
+      const absNote =
+        absoluteHits >= 2
+          ? ` ${absoluteHits} absolute assertions suggest overconfidence in claims.`
+          : "";
+      return `${emNote}${hedgeNote}${absNote}`;
+    }
+
+    case "rebuttal-strength": {
+      const rebNote =
+        rebuttalHits >= 3
+          ? `${rebuttalHits} direct engagement terms (opponent, counter, rebut, etc.) show active engagement with the other side.`
+          : rebuttalHits >= 1
+            ? `${rebuttalHits} rebuttal reference${rebuttalHits > 1 ? "s" : ""} — limited direct engagement with opposing arguments.`
+            : "No explicit rebuttal language — the argument does not directly address opposing points.";
+      const overlapNote =
+        overlap >= 0.3
+          ? ` High keyword overlap (${(overlap * 100).toFixed(0)}%) with opposing text indicates the argument engages with the same substantive territory.`
+          : overlap >= 0.1
+            ? ` Moderate keyword overlap (${(overlap * 100).toFixed(0)}%) suggests partial engagement with opposing claims.`
+            : " Low keyword overlap with opposing text — the two sides may be talking past each other.";
+      return `${rebNote}${overlapNote}`;
+    }
+
+    case "crux-identification": {
+      const cruxNote =
+        cruxHits >= 3
+          ? `${cruxHits} crux-framing terms (core, tradeoff, burden of proof, etc.) indicate strong identification of the central disagreement.`
+          : cruxHits >= 1
+            ? `${cruxHits} crux-framing term${cruxHits > 1 ? "s" : ""} — the argument partially identifies key tradeoffs.`
+            : "No explicit crux-framing language — the argument does not clearly articulate what the core disagreement is.";
+      const overlapNote =
+        overlap >= 0.25
+          ? ` Shared vocabulary with the opposing side (${(overlap * 100).toFixed(0)}% overlap) suggests both sides are contesting the same ground.`
+          : " Limited shared vocabulary with the opposing side reduces the sense of direct contestation.";
+      return `${cruxNote}${overlapNote}`;
+    }
+
+    case "clarity": {
+      const avgSentenceLength = sentenceCount > 0 ? wordCount / sentenceCount : wordCount;
+      const lenNote =
+        avgSentenceLength >= 12 && avgSentenceLength <= 26
+          ? `Average sentence length of ${avgSentenceLength.toFixed(0)} words sits in the readable range.`
+          : avgSentenceLength > 34
+            ? `Average sentence length of ${avgSentenceLength.toFixed(0)} words is long, reducing readability.`
+            : avgSentenceLength < 12 && sentenceCount > 1
+              ? `Average sentence length of ${avgSentenceLength.toFixed(0)} words is quite terse.`
+              : `Average sentence length of ${avgSentenceLength.toFixed(0)} words.`;
+      const volNote =
+        wordCount >= 80
+          ? ` At ${wordCount} words the argument has room to develop ideas fully.`
+          : wordCount >= 30
+            ? ` ${wordCount} words provides modest space for structured argumentation.`
+            : ` Only ${wordCount} words — too brief for well-organized exposition.`;
+      const structNote =
+        sentenceCount >= 6
+          ? ` ${sentenceCount} sentences create a multi-step structure that aids comprehension.`
+          : ` ${sentenceCount} sentence${sentenceCount !== 1 ? "s" : ""} limits the structural organization.`;
+      return `${lenNote}${volNote}${structNote}`;
+    }
+
+    default:
+      return `Score of ${score}/10 on this dimension.`;
+  }
+}
+
 function buildDimensionScores(
   sideText: string,
   opposingText: string,
@@ -164,13 +311,10 @@ function buildDimensionScores(
     const adjustment = persona.adjustments[dimension.id] ?? 0;
     const score = roundScore(baseScore + adjustment);
 
-    const strengthLabel =
-      score >= 7 ? "strong alignment" : score >= 4 ? "moderate alignment" : "weak alignment";
-
     return {
       dimensionId: dimension.id,
       score,
-      reasoning: `${strengthLabel} with ${dimension.name.toLowerCase()} based on argument structure, evidence cues, and counterargument engagement.`,
+      reasoning: dimensionReasoning(dimension.id, score, sideText, opposingText),
     };
   });
 }
@@ -178,6 +322,84 @@ function buildDimensionScores(
 // ---------------------------------------------------------------------------
 // Verdict building
 // ---------------------------------------------------------------------------
+
+/**
+ * Build a side summary that highlights the strongest and weakest scoring
+ * dimensions rather than using one-size-fits-all copy.
+ */
+function buildSideSummary(
+  dimensions: DimensionScore[],
+  rubric: RubricDimension[],
+  side: "for" | "against"
+): string {
+  const sorted = [...dimensions].sort((a, b) => b.score - a.score);
+  const best = sorted[0];
+  const worst = sorted[sorted.length - 1];
+
+  const bestName =
+    rubric.find((r) => r.id === best.dimensionId)?.name.toLowerCase() ?? best.dimensionId;
+  const worstName =
+    rubric.find((r) => r.id === worst.dimensionId)?.name.toLowerCase() ?? worst.dimensionId;
+
+  const sideLabel = side === "for" ? "FOR" : "AGAINST";
+
+  if (best.score - worst.score < 1) {
+    return `${sideLabel} side scores are tightly clustered — no single dimension dominates, with ${bestName} (${best.score}) marginally ahead.`;
+  }
+
+  return `${sideLabel} side is strongest on ${bestName} (${best.score}) and weakest on ${worstName} (${worst.score}), creating the scoring profile.`;
+}
+
+/**
+ * Build overall reasoning that names the dimensions driving the verdict
+ * instead of a bare score margin.
+ */
+function buildOverallReasoning(
+  forDimensions: DimensionScore[],
+  againstDimensions: DimensionScore[],
+  rubric: RubricDimension[],
+  persona: JudgePersona,
+  winner: "for" | "against" | "draw",
+  margin: number
+): string {
+  // Find the dimension with the largest score gap between sides
+  const gaps: { dimId: string; dimName: string; gap: number; favorsSide: "for" | "against" }[] = [];
+
+  for (const dim of rubric) {
+    const forScore = forDimensions.find((d) => d.dimensionId === dim.id)?.score ?? 0;
+    const againstScore = againstDimensions.find((d) => d.dimensionId === dim.id)?.score ?? 0;
+    const gap = forScore - againstScore;
+    gaps.push({
+      dimId: dim.id,
+      dimName: dim.name.toLowerCase(),
+      gap: Math.abs(gap),
+      favorsSide: gap >= 0 ? "for" : "against",
+    });
+  }
+
+  gaps.sort((a, b) => b.gap - a.gap);
+  const top = gaps.slice(0, 2).filter((g) => g.gap > 0.2);
+
+  if (winner === "draw") {
+    if (top.length >= 2) {
+      return `${persona.name} rules a DRAW (${margin.toFixed(2)}-point margin). The sides trade advantages: FOR edges on ${top[0].dimName} while AGAINST leads on ${gaps.find((g) => g.favorsSide === "against")?.dimName ?? top[1].dimName}, resulting in near-parity.`;
+    }
+    return `${persona.name} rules a DRAW — scores are within ${margin.toFixed(2)} points with no single dimension creating decisive separation.`;
+  }
+
+  const driverNotes = top
+    .filter((g) => g.favorsSide === winner)
+    .map((g) => g.dimName);
+
+  const driverText =
+    driverNotes.length >= 2
+      ? `driven primarily by advantages in ${driverNotes[0]} and ${driverNotes[1]}`
+      : driverNotes.length === 1
+        ? `driven primarily by an advantage in ${driverNotes[0]}`
+        : "with no single dominant dimension";
+
+  return `${persona.name} finds for ${winner.toUpperCase()} by a ${margin.toFixed(2)}-point margin, ${driverText} under the weighted rubric.`;
+}
 
 function buildPersonaVerdict(
   forText: string,
@@ -202,20 +424,25 @@ function buildPersonaVerdict(
       side: "for",
       dimensions: forDimensions,
       totalScore: Number(forTotalScore.toFixed(2)),
-      summary:
-        "Scoring favors arguments with stronger evidence cues, logical continuity, and direct rebuttals.",
+      summary: buildSideSummary(forDimensions, rubric, "for"),
       confidence,
     },
     againstScore: {
       side: "against",
       dimensions: againstDimensions,
       totalScore: Number(againstTotalScore.toFixed(2)),
-      summary:
-        "Scoring rewards internally consistent skepticism that directly challenges opponent assumptions and evidence.",
+      summary: buildSideSummary(againstDimensions, rubric, "against"),
       confidence,
     },
     winner,
-    overallReasoning: `${persona.name} finds ${winner.toUpperCase()} with a ${margin.toFixed(2)} point margin under the weighted rubric.`,
+    overallReasoning: buildOverallReasoning(
+      forDimensions,
+      againstDimensions,
+      rubric,
+      persona,
+      winner,
+      margin
+    ),
     latencyMs: 12,
   };
 }

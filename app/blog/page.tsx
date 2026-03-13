@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { articles } from "@/data/blog";
 
@@ -13,12 +15,48 @@ function formatDate(iso: string): string {
 }
 
 export default function BlogPage() {
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "The Argumend Blog",
+    description:
+      "Essays on critical thinking, structured reasoning, and the art of productive disagreement.",
+    url: "https://argumend.org/blog",
+    publisher: {
+      "@type": "Organization",
+      name: "ARGUMEND",
+      url: "https://argumend.org",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://argumend.org/icon.png",
+      },
+    },
+    blogPost: articles.map((article) => ({
+      "@type": "BlogPosting",
+      headline: article.title,
+      description: article.description,
+      url: `https://argumend.org/blog/${article.slug}`,
+      datePublished: article.publishedAt,
+      author: {
+        "@type": "Organization",
+        name: article.author,
+      },
+    })),
+  };
+
   return (
     <AppShell>
+      <JsonLd data={blogJsonLd} />
       <div className="min-h-screen">
         {/* Hero */}
         <div className="bg-[#faf8f5]/60 border-b border-[#e8e0d4]">
           <div className="mx-auto max-w-4xl px-4 md:px-8 py-10 md:py-16">
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Blog" },
+              ]}
+            />
             <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
               Insights &amp; Analysis
             </p>

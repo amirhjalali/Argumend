@@ -31,9 +31,16 @@ function WeightBar({
   const textColor = tone === "for" ? "text-deep" : "text-stone-600";
 
   return (
-    <div className="flex items-center gap-3 text-xs">
+    <div className="flex items-center gap-3 text-xs" role="group" aria-label={`${label}: ${value} out of ${max}`}>
       <span className="w-28 text-stone-500 font-medium">{label}</span>
-      <div className="flex-1 h-2 bg-stone-100 rounded-full overflow-hidden shadow-inner">
+      <div
+        className="flex-1 h-2 bg-stone-100 rounded-full overflow-hidden shadow-inner"
+        role="meter"
+        aria-label={label}
+        aria-valuenow={value}
+        aria-valuemin={0}
+        aria-valuemax={max}
+      >
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${percentage}%` }}

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
 import { useEffect } from "react";
@@ -62,6 +63,7 @@ export default function GlobalError({
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"

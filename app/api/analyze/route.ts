@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 import { extractArguments, toDebateMessages } from "@/lib/analyze/extractor";
 import { extractArgumentsOffline } from "@/lib/analyze/offline";
 import { createJudgeCouncil } from "@/lib/judge/council";
@@ -36,6 +37,12 @@ function isLiveJudgingEnabled(): boolean {
  * Analyze content to extract arguments and optionally judge them.
  */
 export async function POST(request: NextRequest) {
+  // Require authentication for analysis (calls LLM APIs and persists data)
+  const session = await auth();
+  if (!session?.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   // Rate limit: 10 requests per hour per IP
   const ip = request.headers.get("x-forwarded-for") || "unknown";
   const limit = rateLimit(`analyze:${ip}`, { maxRequests: 10, windowMs: 60 * 60 * 1000 });

@@ -33,6 +33,8 @@ export function ConfidenceGauge({ score, size = 120 }: ConfidenceGaugeProps) {
         width={size}
         height={size}
         viewBox={`0 0 ${size} ${size}`}
+        role="img"
+        aria-label={`Confidence score: ${score}%`}
       >
         {/* Track circle */}
         <circle

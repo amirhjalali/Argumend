@@ -26,7 +26,11 @@ export function AppShell({ children }: AppShellProps) {
           className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
             sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
+          role="button"
+          tabIndex={sidebar.isOpen ? 0 : -1}
+          aria-label="Close sidebar"
           onClick={sidebar.close}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sidebar.close(); } }}
         />
 
         {/* Sidebar Container */}

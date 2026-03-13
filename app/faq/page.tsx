@@ -1,11 +1,29 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { faqs } from "@/data/faqs";
 
 export default function FAQPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    name: "Frequently Asked Questions",
+    description: "The questions people actually ask us about Argumend, answered honestly.",
+    url: "https://argumend.org/faq",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <AppShell>
+      <JsonLd data={faqJsonLd} />
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
         {/* Breadcrumb with BreadcrumbList JSON-LD */}
         <Breadcrumbs

@@ -18,10 +18,16 @@ import {
   Info,
   ExternalLink,
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import { AppShell } from "@/components/AppShell";
 import { ShareButtons } from "@/components/ShareButtons";
 import { ConfidenceGauge } from "@/components/ConfidenceGauge";
-import { JudgingResults } from "@/components/JudgingResults";
+
+// Heavy component — only rendered when judging result exists
+const JudgingResults = dynamic(
+  () => import("@/components/JudgingResults").then((m) => ({ default: m.JudgingResults })),
+  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 rounded-lg" /> }
+);
 import { topicSummaries } from "@/data/topicIndex";
 import type { TopicSummary } from "@/data/topicIndex";
 import type { JudgingResult } from "@/lib/judge/rubric";

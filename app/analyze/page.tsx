@@ -25,8 +25,14 @@ import { Footer } from "@/components/Footer";
 import { Sidebar } from "@/components/Sidebar";
 import { useSidebarState } from "@/hooks/useSidebarState";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
-import { JudgingResults } from "@/components/JudgingResults";
+import dynamic from "next/dynamic";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
+
+// Heavy component — only rendered after analysis completes
+const JudgingResults = dynamic(
+  () => import("@/components/JudgingResults").then((m) => ({ default: m.JudgingResults })),
+  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 rounded-lg" /> }
+);
 import type { JudgingResult } from "@/lib/judge/rubric";
 import type {
   ExtractedArguments,
@@ -34,6 +40,7 @@ import type {
   IdentifiedCrux,
   PotentialFallacy,
 } from "@/lib/analyze/extractor";
+import { trackEvent } from "@/lib/analytics";
 
 type ContentType = "transcript" | "article" | "freeform";
 
@@ -209,6 +216,7 @@ function ShareLink({ analysisId }: { analysisId: string }) {
   return (
     <button
       onClick={handleCopy}
+      aria-label={copied ? "Link copied to clipboard" : "Copy share link"}
       className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-stone-200/80 rounded-lg text-xs font-medium text-stone-600 hover:bg-stone-50 hover:border-stone-300 transition-all shadow-sm"
     >
       {copied ? (
@@ -262,6 +270,7 @@ export default function AnalyzePage() {
     setIsAnalyzing(true);
     setError(null);
     setResult(null);
+    trackEvent({ action: "analysis_submit", contentType });
 
     try {
       const response = await fetch("/api/analyze", {
@@ -281,6 +290,10 @@ export default function AnalyzePage() {
 
       const analysisResult = await response.json();
       setResult(analysisResult as AnalysisResult);
+      trackEvent({
+        action: "analysis_complete",
+        topicCount: (analysisResult as AnalysisResult).extracted.positions.length,
+      });
     } catch (e) {
       const errorMsg = e instanceof Error ? e.message : "Something went wrong with the analysis";
       setError(errorMsg);
@@ -320,8 +333,10 @@ export default function AnalyzePage() {
             sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
           role="button"
+          tabIndex={sidebar.isOpen ? 0 : -1}
           aria-label="Close sidebar"
           onClick={sidebar.close}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sidebar.close(); } }}
         />
 
         {/* Sidebar */}
@@ -393,7 +408,7 @@ export default function AnalyzePage() {
               >
                 {/* Content Type Selector — segmented control */}
                 <div className="flex justify-center">
-                  <div className="inline-flex bg-stone-100 rounded-xl p-1 gap-0.5">
+                  <div className="inline-flex bg-stone-100 rounded-xl p-1 gap-0.5" role="tablist" aria-label="Content type">
                     {(
                       [
                         { type: "freeform" as ContentType, icon: PenLine, label: "Freeform" },
@@ -404,13 +419,15 @@ export default function AnalyzePage() {
                       <button
                         key={type}
                         onClick={() => setContentType(type)}
+                        role="tab"
+                        aria-selected={contentType === type}
                         className={`relative flex items-center gap-1.5 px-4 py-2 min-h-[40px] rounded-lg text-xs font-medium transition-all duration-200 ${
                           contentType === type
                             ? "bg-deep text-white shadow-sm"
                             : "bg-transparent text-stone-500 hover:text-stone-700 hover:bg-white/60"
                         }`}
                       >
-                        <Icon className="h-3.5 w-3.5" />
+                        <Icon className="h-3.5 w-3.5" aria-hidden="true" />
                         {label}
                       </button>
                     ))}
@@ -459,6 +476,7 @@ export default function AnalyzePage() {
                         }
                       }}
                       placeholder="Paste an article, argument, or any text you'd like analyzed..."
+                      aria-label="Content to analyze"
                       className="w-full min-h-[200px] md:min-h-[240px] p-4 bg-[#faf8f5] border border-stone-200/60 rounded-xl text-stone-700 text-sm leading-relaxed placeholder-stone-400/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white"
                     />
                     {/* Word/char count indicator */}
@@ -513,6 +531,7 @@ export default function AnalyzePage() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="p-4 bg-red-50/80 border border-red-200/60 rounded-xl flex items-start gap-3"
+                    role="alert"
                   >
                     <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                     <p className="text-red-700 text-sm">{error}</p>

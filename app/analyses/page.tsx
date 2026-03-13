@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { listAnalyses } from "@/lib/db/queries";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import {
   Brain,
   ChevronRight,
@@ -29,9 +31,30 @@ export default async function AnalysesPage() {
 
   return (
     <AppShell>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Recent Analyses",
+          description:
+            "Browse recent argument analyses on Argumend. See AI-extracted positions, cruxes, and quality scores.",
+          url: "https://argumend.org/analyses",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "ARGUMEND",
+            url: "https://argumend.org",
+          },
+        }}
+      />
       <div className="min-h-full">
         <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-14 space-y-8">
           {/* Header */}
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Analyses" },
+            ]}
+          />
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide">
               <Brain className="h-3 w-3" />

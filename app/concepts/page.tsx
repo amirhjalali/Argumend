@@ -10,6 +10,8 @@ import {
   BookOpen,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { concepts } from "@/data/concepts";
 
 // ---------------------------------------------------------------------------
@@ -25,9 +27,34 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement> 
 };
 
 export default function ConceptsPage() {
+  const conceptsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Key Concepts",
+    description: "Understanding the framework behind structured argumentation.",
+    url: "https://argumend.org/concepts",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: concepts.length,
+      itemListElement: concepts.map((concept, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: concept.title,
+        url: `https://argumend.org/concepts/${concept.id}`,
+      })),
+    },
+  };
+
   return (
     <AppShell>
+      <JsonLd data={conceptsJsonLd} />
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Concepts" },
+          ]}
+        />
         <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
           Key Concepts
         </h1>

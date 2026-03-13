@@ -8,6 +8,7 @@ import {
   boolean,
   jsonb,
   primaryKey,
+  index,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 import type { AdapterAccountType } from "next-auth/adapters";
@@ -45,16 +46,23 @@ export const accounts = pgTable(
   },
   (account) => [
     primaryKey({ columns: [account.provider, account.providerAccountId] }),
+    index("account_userId_idx").on(account.userId),
   ]
 );
 
-export const sessions = pgTable("session", {
-  sessionToken: text("sessionToken").primaryKey(),
-  userId: text("userId")
-    .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
-  expires: timestamp("expires", { mode: "date" }).notNull(),
-});
+export const sessions = pgTable(
+  "session",
+  {
+    sessionToken: text("sessionToken").primaryKey(),
+    userId: text("userId")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    expires: timestamp("expires", { mode: "date" }).notNull(),
+  },
+  (session) => [
+    index("session_userId_idx").on(session.userId),
+  ]
+);
 
 export const verificationTokens = pgTable(
   "verificationToken",
@@ -74,114 +82,168 @@ export const verificationTokens = pgTable(
 // Analyses — stored results from content extraction
 // ============================================================================
 
-export const analyses = pgTable("analyses", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  /** Owner (optional — null for anonymous) */
-  userId: text("user_id").references(() => users.id, { onDelete: "set null" }),
-  /** Hash of input content for dedup/caching */
-  contentHash: text("content_hash"),
-  contentType: text("content_type").notNull().default("freeform"),
-  /** Extracted topic/claim */
-  topic: text("topic").notNull(),
-  summary: text("summary").notNull(),
-  /** Full extracted positions as JSON */
-  positions: jsonb("positions").notNull(),
-  /** Identified cruxes as JSON */
-  cruxes: jsonb("cruxes").notNull(),
-  /** Potential fallacies as JSON */
-  fallacies: jsonb("fallacies").notNull(),
-  /** Detected biases as JSON */
-  detectedBiases: jsonb("detected_biases"),
-  /** Extraction confidence 0-1 */
-  confidence: real("confidence").notNull(),
-  /** Overall FOR position strength 1-10 */
-  forStrength: real("for_strength"),
-  /** Overall AGAINST position strength 1-10 */
-  againstStrength: real("against_strength"),
-  /** Original input content (truncated for storage) */
-  inputContent: text("input_content"),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
+export const analyses = pgTable(
+  "analyses",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    /** Owner (optional — null for anonymous) */
+    userId: text("user_id").references(() => users.id, { onDelete: "set null" }),
+    /** Hash of input content for dedup/caching */
+    contentHash: text("content_hash"),
+    contentType: text("content_type").notNull().default("freeform"),
+    /** Extracted topic/claim */
+    topic: text("topic").notNull(),
+    summary: text("summary").notNull(),
+    /** Full extracted positions as JSON */
+    positions: jsonb("positions").notNull(),
+    /** Identified cruxes as JSON */
+    cruxes: jsonb("cruxes").notNull(),
+    /** Potential fallacies as JSON */
+    fallacies: jsonb("fallacies").notNull(),
+    /** Detected biases as JSON */
+    detectedBiases: jsonb("detected_biases"),
+    /** Extraction confidence 0-1 */
+    confidence: real("confidence").notNull(),
+    /** Overall FOR position strength 1-10 */
+    forStrength: real("for_strength"),
+    /** Overall AGAINST position strength 1-10 */
+    againstStrength: real("against_strength"),
+    /** Original input content (truncated for storage) */
+    inputContent: text("input_content"),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (table) => [
+    index("analyses_userId_idx").on(table.userId),
+    index("analyses_contentHash_idx").on(table.contentHash),
+    index("analyses_createdAt_idx").on(table.createdAt),
+  ]
+);
 
 // ============================================================================
 // Debates — stored debate sessions
 // ============================================================================
 
-export const debates = pgTable("debates", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  /** Owner (optional — null for anonymous) */
-  userId: text("user_id").references(() => users.id, { onDelete: "set null" }),
-  topicId: text("topic_id"),
-  topicTitle: text("topic_title").notNull(),
-  forModel: text("for_model").notNull(),
-  againstModel: text("against_model").notNull(),
-  status: text("status").notNull().default("in_progress"),
-  winner: text("winner"),
-  totalRounds: integer("total_rounds").notNull().default(3),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().notNull(),
-});
+export const debates = pgTable(
+  "debates",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    /** Owner (optional — null for anonymous) */
+    userId: text("user_id").references(() => users.id, { onDelete: "set null" }),
+    topicId: text("topic_id"),
+    topicTitle: text("topic_title").notNull(),
+    forModel: text("for_model").notNull(),
+    againstModel: text("against_model").notNull(),
+    status: text("status").notNull().default("in_progress"),
+    winner: text("winner"),
+    totalRounds: integer("total_rounds").notNull().default(3),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (table) => [
+    index("debates_userId_idx").on(table.userId),
+    index("debates_topicId_idx").on(table.topicId),
+    index("debates_status_idx").on(table.status),
+    index("debates_createdAt_idx").on(table.createdAt),
+  ]
+);
 
 // ============================================================================
 // Debate Rounds — individual rounds within a debate
 // ============================================================================
 
-export const debateRounds = pgTable("debate_rounds", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  debateId: uuid("debate_id")
-    .notNull()
-    .references(() => debates.id, { onDelete: "cascade" }),
-  roundNumber: integer("round_number").notNull(),
-  forContent: text("for_content").notNull(),
-  againstContent: text("against_content").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
+export const debateRounds = pgTable(
+  "debate_rounds",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    debateId: uuid("debate_id")
+      .notNull()
+      .references(() => debates.id, { onDelete: "cascade" }),
+    roundNumber: integer("round_number").notNull(),
+    forContent: text("for_content").notNull(),
+    againstContent: text("against_content").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (table) => [
+    index("debateRounds_debateId_roundNumber_idx").on(table.debateId, table.roundNumber),
+  ]
+);
 
 // ============================================================================
 // Judgments — aggregated judge council results
 // ============================================================================
 
-export const judgments = pgTable("judgments", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  /** Link to debate (if judging a debate) */
-  debateId: uuid("debate_id").references(() => debates.id, {
-    onDelete: "set null",
-  }),
-  /** Link to analysis (if judging analyzed content) */
-  analysisId: uuid("analysis_id").references(() => analyses.id, {
-    onDelete: "set null",
-  }),
-  winner: text("winner"),
-  hasConsensus: boolean("has_consensus").notNull(),
-  flaggedForReview: boolean("flagged_for_review").notNull(),
-  /** Aggregated scores { for: { average, byDimension }, against: { ... } } */
-  aggregatedScores: jsonb("aggregated_scores").notNull(),
-  /** Disagreement details */
-  disagreements: jsonb("disagreements").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
+export const judgments = pgTable(
+  "judgments",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    /** Link to debate (if judging a debate) */
+    debateId: uuid("debate_id").references(() => debates.id, {
+      onDelete: "set null",
+    }),
+    /** Link to analysis (if judging analyzed content) */
+    analysisId: uuid("analysis_id").references(() => analyses.id, {
+      onDelete: "set null",
+    }),
+    winner: text("winner"),
+    hasConsensus: boolean("has_consensus").notNull(),
+    flaggedForReview: boolean("flagged_for_review").notNull(),
+    /** Aggregated scores { for: { average, byDimension }, against: { ... } } */
+    aggregatedScores: jsonb("aggregated_scores").notNull(),
+    /** Disagreement details */
+    disagreements: jsonb("disagreements").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (table) => [
+    index("judgments_debateId_idx").on(table.debateId),
+    index("judgments_analysisId_idx").on(table.analysisId),
+  ]
+);
 
 // ============================================================================
 // Judge Verdicts — individual judge responses within a judgment
 // ============================================================================
 
-export const judgeVerdicts = pgTable("judge_verdicts", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  judgmentId: uuid("judgment_id")
-    .notNull()
-    .references(() => judgments.id, { onDelete: "cascade" }),
-  judgeId: text("judge_id").notNull(),
-  judgeName: text("judge_name").notNull(),
-  model: text("model").notNull(),
-  /** Full score object for "for" side */
-  forScore: jsonb("for_score").notNull(),
-  /** Full score object for "against" side */
-  againstScore: jsonb("against_score").notNull(),
-  winner: text("winner").notNull(),
-  overallReasoning: text("overall_reasoning").notNull(),
-  latencyMs: integer("latency_ms"),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
+export const judgeVerdicts = pgTable(
+  "judge_verdicts",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    judgmentId: uuid("judgment_id")
+      .notNull()
+      .references(() => judgments.id, { onDelete: "cascade" }),
+    judgeId: text("judge_id").notNull(),
+    judgeName: text("judge_name").notNull(),
+    model: text("model").notNull(),
+    /** Full score object for "for" side */
+    forScore: jsonb("for_score").notNull(),
+    /** Full score object for "against" side */
+    againstScore: jsonb("against_score").notNull(),
+    winner: text("winner").notNull(),
+    overallReasoning: text("overall_reasoning").notNull(),
+    latencyMs: integer("latency_ms"),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (table) => [
+    index("judgeVerdicts_judgmentId_idx").on(table.judgmentId),
+  ]
+);
+
+// ============================================================================
+// Newsletters — email signups
+// ============================================================================
+
+export const newsletters = pgTable(
+  "newsletters",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    email: text("email").notNull().unique(),
+    subscribedAt: timestamp("subscribed_at").defaultNow().notNull(),
+    unsubscribedAt: timestamp("unsubscribed_at"),
+    source: text("source").default("website"),
+  },
+  (table) => [
+    index("newsletters_email_idx").on(table.email),
+  ]
+);
 
 // ============================================================================
 // Relations

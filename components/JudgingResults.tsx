@@ -104,12 +104,12 @@ function ScoreBar({
   const againstWidth = (againstScore / maxScore) * 50;
 
   return (
-    <div className="space-y-1.5">
+    <div className="space-y-1.5" role="group" aria-label={`${label}: For ${forScore.toFixed(1)}, Against ${againstScore.toFixed(1)}`}>
       <div className="flex justify-between text-xs">
         <span className="text-stone-600 font-medium">{label}</span>
         <span className="text-stone-400">{Math.round(weight * 100)}% weight</span>
       </div>
-      <div className="flex h-3 md:h-4 rounded-full overflow-hidden bg-stone-100">
+      <div className="flex h-3 md:h-4 rounded-full overflow-hidden bg-stone-100" role="meter" aria-label={`${label} comparison`} aria-valuemin={0} aria-valuemax={maxScore}>
         {/* FOR side (left) */}
         <div className="flex-1 flex justify-end">
           <motion.div
@@ -132,8 +132,8 @@ function ScoreBar({
         </div>
       </div>
       <div className="flex justify-between text-xs font-mono">
-        <span className="text-rust-600 font-semibold">{forScore.toFixed(1)}</span>
-        <span className="text-stone-600 font-semibold">{againstScore.toFixed(1)}</span>
+        <span className="text-rust-600 font-semibold" aria-label={`For score: ${forScore.toFixed(1)}`}>{forScore.toFixed(1)}</span>
+        <span className="text-stone-600 font-semibold" aria-label={`Against score: ${againstScore.toFixed(1)}`}>{againstScore.toFixed(1)}</span>
       </div>
     </div>
   );
@@ -259,6 +259,8 @@ function JudgeCard({
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full p-4 md:p-5 text-left hover:bg-stone-50/50 transition-colors"
+        aria-expanded={isExpanded}
+        aria-label={`${verdict.judgeName} verdict: ${winnerLabel} — ${isExpanded ? "collapse" : "expand"} details`}
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 md:gap-4">
           <div className="flex items-center gap-2 md:gap-3">

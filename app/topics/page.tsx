@@ -16,6 +16,8 @@ import {
 import { topicSummaries, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topicIndex";
 import type { TopicCategory, TopicStatus } from "@/data/topicIndex";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -124,12 +126,41 @@ export default function TopicsPage() {
 
   const hasFilters = activeCategory !== "all" || search.trim().length > 0;
 
+  const topicsJsonLd = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Explore Topics",
+      description: `${topicSummaries.length} topics mapped across ${CATEGORY_ORDER.length} categories. Each one structured with steel-man arguments, weighted evidence, and crux questions.`,
+      url: "https://argumend.org/topics",
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: topicSummaries.length,
+        itemListElement: topicSummaries.map((topic, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: topic.title,
+          url: `https://argumend.org/topics/${topic.id}`,
+          description: topic.meta_claim,
+        })),
+      },
+    }),
+    []
+  );
+
   return (
     <AppShell>
+      <JsonLd data={topicsJsonLd} />
       <div className="min-h-screen bg-transparent">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {/* Header */}
           <div className="mb-8">
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Topics" },
+              ]}
+            />
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               Explore Topics
             </h1>

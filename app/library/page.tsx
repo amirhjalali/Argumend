@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ExternalLink, BookOpen, Library as LibraryIcon, ArrowRight } from "lucide-react";
 import { topics } from "@/data/topics";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 
 const externalResources = [
   {
@@ -33,10 +35,31 @@ const externalResources = [
 export default function LibraryPage() {
   return (
     <AppShell>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Library",
+          description:
+            "The books, papers, and tools that inform how we think. Good starting points if you want to go deeper.",
+          url: "https://argumend.org/library",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "ARGUMEND",
+            url: "https://argumend.org",
+          },
+        }}
+      />
       <div className="min-h-full">
         <div className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
           {/* Header */}
           <div className="mb-10">
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Library" },
+              ]}
+            />
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide mb-4">
               <LibraryIcon className="h-3 w-3" />
               Resource Hub

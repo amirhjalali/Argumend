@@ -33,7 +33,7 @@ const FOOTER_COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#f4f1eb] border-t border-stone-200">
+    <footer className="bg-[#f4f1eb] border-t border-stone-200" role="contentinfo">
       <div className="mx-auto max-w-6xl px-6 py-12">
         {/* Top section: logo + tagline */}
         <div className="mb-10">
@@ -48,7 +48,7 @@ export function Footer() {
         </div>
 
         {/* Link columns */}
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+        <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           {FOOTER_COLUMNS.map((column) => (
             <div key={column.title}>
               <h3 className="text-xs font-medium uppercase tracking-wider text-stone-500">
@@ -68,7 +68,7 @@ export function Footer() {
               </ul>
             </div>
           ))}
-        </div>
+        </nav>
 
         {/* Bottom bar */}
         <div className="mt-10 flex items-center justify-between border-t border-stone-200 pt-6">

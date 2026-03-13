@@ -389,7 +389,7 @@ export function toDebateMessages(
   const againstArgs = extracted.positions.filter((p) => p.side === "against");
 
   // Create synthetic debate messages
-  let round = 1;
+  const round = 1;
 
   // Combine all for arguments
   if (forArgs.length > 0) {

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 import {
   saveDebate,
   saveDebateRound,
@@ -32,6 +33,12 @@ interface UpdateStatusRequest {
 type PersistRequest = CreateRequest | SaveRoundRequest | UpdateStatusRequest;
 
 export async function POST(req: NextRequest) {
+  // Require authentication for persisting debate data
+  const session = await auth();
+  if (!session?.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const body: PersistRequest = await req.json();
 

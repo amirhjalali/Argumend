@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AppShell } from "@/components/AppShell";
+import { JsonLd } from "@/components/JsonLd";
 import { Clock, Rewind, Users, MessageCircle, Target, Lightbulb, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
@@ -344,6 +345,21 @@ export default function PerspectivesPage() {
 
   return (
     <AppShell>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Perspectives",
+          description:
+            "A scroll-driven story about why you are not your ideas, and why that is liberating.",
+          url: "https://argumend.org/perspectives",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "ARGUMEND",
+            url: "https://argumend.org",
+          },
+        }}
+      />
       {/* Hero with parallax */}
       <motion.div
         ref={heroRef}
