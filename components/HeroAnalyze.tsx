@@ -3,7 +3,6 @@
 import { useState, useCallback, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
 import {
   Upload,
   ArrowRight,
@@ -100,12 +99,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
     <div className="flex flex-col bg-gradient-to-b from-[#f4f1eb] to-stone-50 dark:from-[#1a1917] dark:to-[#201f1c]">
       {/* Hero Section */}
       <div className="flex flex-col items-center px-4 md:px-8 pt-8 pb-4">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="w-full max-w-2xl space-y-5"
-        >
+        <div className="w-full max-w-2xl space-y-5">
           {/* Tagline */}
           <div className="text-center space-y-4">
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
@@ -121,12 +115,7 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
           </div>
 
           {/* Input Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="bg-white dark:bg-[#252420] rounded-2xl border border-stone-200/60 dark:border-[#3d3a36] p-5 shadow-lg shadow-stone-200/30 dark:shadow-black/20"
-          >
+          <div className="bg-white dark:bg-[#252420] rounded-2xl border border-stone-200/60 dark:border-[#3d3a36] p-5 shadow-lg shadow-stone-200/30 dark:shadow-black/20">
             {/* Content Type — segmented control */}
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
               <div className="inline-flex bg-stone-100 dark:bg-[#1a1917] rounded-xl p-1 gap-0.5" role="tablist" aria-label="Content type">
@@ -200,43 +189,34 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
             {/* Actions */}
             <div className="flex items-center justify-end mt-2">
               <div className="flex items-center gap-2">
-                <motion.button
+                <button
                   onClick={handleTryExample}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-serif font-semibold text-sm border border-deep/20 text-deep bg-deep/5 hover:bg-deep/10 hover:border-deep/30 transition-all duration-200"
+                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-serif font-semibold text-sm border border-deep/20 text-deep bg-deep/5 hover:bg-deep/10 hover:border-deep/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                 >
                   <Beaker className="h-4 w-4" />
                   Try an Example
-                </motion.button>
-                <motion.button
+                </button>
+                <button
                   onClick={handleAnalyze}
                   disabled={!content.trim()}
-                  whileHover={content.trim() ? { scale: 1.03, y: -1 } : {}}
-                  whileTap={content.trim() ? { scale: 0.97 } : {}}
                   className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-serif font-semibold text-sm transition-all duration-200 ${
                     content.trim()
-                      ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700"
+                      ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 hover:scale-[1.03] hover:-translate-y-px active:scale-[0.97]"
                       : "bg-stone-100 dark:bg-[#302e2a] text-stone-400 cursor-not-allowed"
                   }`}
                 >
                   Analyze
                   <ArrowRight className="h-4 w-4" />
-                </motion.button>
+                </button>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-        </motion.div>
+        </div>
       </div>
 
       {/* Topics Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="px-4 md:px-8 pb-12"
-      >
+      <div className="px-4 md:px-8 pb-12">
         <div className="max-w-4xl mx-auto">
           <p className="text-xs font-medium text-stone-400 tracking-wide mb-5">
             Or explore a mapped debate
@@ -244,13 +224,9 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
 
           {/* Debate of the Week */}
           {featuredTopic && (
-            <motion.button
+            <button
               onClick={() => onTopicSelect(featuredTopic.id)}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-              whileHover={{ scale: 1.005, y: -2 }}
-              className="group w-full text-left mb-5 rounded-xl bg-gradient-to-r from-[#fefcf9] to-white dark:from-[#252420] dark:to-[#2a2926] border border-stone-200/60 dark:border-[#3d3a36] border-l-[3.5px] border-l-deep shadow-sm hover:shadow-md transition-all"
+              className="group w-full text-left mb-5 rounded-xl bg-gradient-to-r from-[#fefcf9] to-white dark:from-[#252420] dark:to-[#2a2926] border border-stone-200/60 dark:border-[#3d3a36] border-l-[3.5px] border-l-deep shadow-sm hover:shadow-md hover:scale-[1.005] hover:-translate-y-0.5 transition-all"
             >
               <div className="p-5 md:p-6">
                 <div className="flex items-center gap-2 mb-2">
@@ -284,19 +260,15 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   <ArrowRight className="h-3 w-3 ml-auto text-stone-300 transition-transform group-hover:translate-x-0.5 group-hover:text-deep" />
                 </div>
               </div>
-            </motion.button>
+            </button>
           )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {displayedTopics.map((topic, idx) => (
-              <motion.button
+            {displayedTopics.map((topic) => (
+              <button
                 key={topic.id}
                 onClick={() => onTopicSelect(topic.id)}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 + idx * 0.03 }}
-                whileHover={{ scale: 1.01, y: -2 }}
-                className="group text-left p-4 bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] rounded-xl hover:border-rust-300/60 dark:hover:border-rust-700/40 hover:shadow-md transition-all card-hover"
+                className="group text-left p-4 bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] rounded-xl hover:border-rust-300/60 dark:hover:border-rust-700/40 hover:shadow-md hover:scale-[1.01] hover:-translate-y-0.5 transition-all card-hover"
               >
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-serif text-sm font-medium text-primary group-hover:text-rust-700 dark:group-hover:text-rust-400 transition-colors leading-snug">
@@ -331,18 +303,13 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                   </span>
                   <span>{topic.pillarCount} pillars</span>
                 </div>
-              </motion.button>
+              </button>
             ))}
           </div>
 
           {/* View all topics link */}
           {remainingCount > 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.45 }}
-              className="mt-5 text-center"
-            >
+            <div className="mt-5 text-center">
               <Link
                 href="/topics"
                 className="inline-flex items-center gap-1 text-sm font-serif font-medium text-deep hover:text-deep-dark transition-colors group"
@@ -350,10 +317,10 @@ export function HeroAnalyze({ onTopicSelect }: HeroAnalyzeProps) {
                 View all {topicSummaries.length} topics
                 <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-            </motion.div>
+            </div>
           )}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
