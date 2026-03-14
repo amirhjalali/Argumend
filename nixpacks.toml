@@ -1,0 +1,24 @@
+# Nixpacks configuration for Argumend
+# Uses Bun for fast install/build, Node.js for runtime.
+# Bun's incomplete ReadableStream implementation breaks Next.js RSC streaming,
+# causing "Connection closed" errors and preventing client component hydration.
+
+[phases.setup]
+nixPkgs = ["nodejs_20", "bun"]
+
+[phases.install]
+cmds = ["bun install --frozen-lockfile"]
+
+[phases.build]
+cmds = [
+  "bun run build",
+  "cp -r public .next/standalone/public",
+  "cp -r .next/static .next/standalone/.next/static"
+]
+
+[start]
+cmd = "node .next/standalone/server.js"
+
+[variables]
+HOSTNAME = "0.0.0.0"
+NODE_ENV = "production"
