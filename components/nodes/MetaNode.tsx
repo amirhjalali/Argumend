@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import Image from "next/image";
 import { InteractiveContent } from "@/components/InteractiveContent";
 import { CitationCard } from "@/components/CitationCard";
@@ -9,7 +10,7 @@ import type { LogicNodeData } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
 import { ChevronRight, Crown, FileText } from "lucide-react";
 
-export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
+export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const expanded = useLogicGraph((state) => state.expandedNodes[id]);
   const expandNode = useLogicGraph((state) => state.expandNode);
 
@@ -118,4 +119,4 @@ export function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
       </div>
     </div>
   );
-}
+});

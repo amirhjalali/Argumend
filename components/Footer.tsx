@@ -18,6 +18,7 @@ const FOOTER_COLUMNS = [
       { label: "How It Works", href: "/how-it-works" },
       { label: "Methodology", href: "/methodology" },
       { label: "For Educators", href: "/for-educators" },
+      { label: "Glossary", href: "/glossary" },
     ],
   },
   {
@@ -42,7 +43,7 @@ export function Footer() {
               Argumend
             </span>
           </Link>
-          <p className="mt-1.5 text-sm text-stone-500 dark:text-stone-400">
+          <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400">
             Disagree better.
           </p>
         </div>

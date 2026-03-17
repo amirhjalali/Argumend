@@ -2,6 +2,21 @@ import { Topic, TopicCategory, TopicSchema, computeConfidenceScore } from "@/lib
 import { usIranConflictData } from "./topics/us-iran-conflict";
 import { epsteinFilesData } from "./topics/epstein-files";
 import { covidOriginsData } from "./topics/covid-origins";
+import { aiJobDisplacementData } from "./topics/ai-job-displacement";
+import { aiInEducationData } from "./topics/ai-in-education";
+import { aiRegulationData } from "./topics/ai-regulation";
+import { housingAffordabilityCrisisData } from "./topics/housing-affordability-crisis";
+import { socialMediaElectionsData } from "./topics/social-media-elections";
+import { ultraProcessedFoodData } from "./topics/ultra-processed-food";
+import { fourDayWorkWeekData } from "./topics/four-day-work-week";
+import { tiktokBanData } from "./topics/tiktok-ban";
+import { immigrationBorderCrisisData } from "./topics/immigration-border-crisis";
+import { longevityScienceData } from "./topics/longevity-science";
+import { nuclearWeaponsAbolitionData } from "./topics/nuclear-weapons-abolition";
+import { genderAffirmingCareMinorsData } from "./topics/gender-affirming-care-minors";
+import { consciousnessHardProblemData } from "./topics/consciousness-hard-problem";
+import { schoolPhoneBansData } from "./topics/school-phone-bans";
+import { studentDebtForgivenessData } from "./topics/student-debt-forgiveness";
 
 // ============================================================================
 // Moon Landing Topic
@@ -8452,6 +8467,23 @@ export const meaningWithoutReligion = buildTopic(meaningWithoutReligionData);
 export const usIranConflict = buildTopic(usIranConflictData);
 export const epsteinFiles = buildTopic(epsteinFilesData);
 
+// New topics (March 2026)
+export const aiJobDisplacement = buildTopic(aiJobDisplacementData);
+export const aiInEducation = buildTopic(aiInEducationData);
+export const aiRegulation = buildTopic(aiRegulationData);
+export const housingAffordabilityCrisis = buildTopic(housingAffordabilityCrisisData);
+export const socialMediaElections = buildTopic(socialMediaElectionsData);
+export const ultraProcessedFood = buildTopic(ultraProcessedFoodData);
+export const fourDayWorkWeek = buildTopic(fourDayWorkWeekData);
+export const tiktokBan = buildTopic(tiktokBanData);
+export const immigrationBorderCrisis = buildTopic(immigrationBorderCrisisData);
+export const longevityScience = buildTopic(longevityScienceData);
+export const nuclearWeaponsAbolition = buildTopic(nuclearWeaponsAbolitionData);
+export const genderAffirmingCareMinors = buildTopic(genderAffirmingCareMinorsData);
+export const consciousnessHardProblem = buildTopic(consciousnessHardProblemData);
+export const schoolPhoneBans = buildTopic(schoolPhoneBansData);
+export const studentDebtForgiveness = buildTopic(studentDebtForgivenessData);
+
 export const topics: Topic[] = [
   // --- Policy & Governance ---
   nuclearEnergySafety,
@@ -8472,6 +8504,11 @@ export const topics: Topic[] = [
   surveillancePublicSafety,
   usIranConflict,
   epsteinFiles,
+  tiktokBan,
+  immigrationBorderCrisis,
+  socialMediaElections,
+  nuclearWeaponsAbolition,
+  schoolPhoneBans,
 
   // --- Technology & Society ---
   socialMediaAgeLimits,
@@ -8483,6 +8520,9 @@ export const topics: Topic[] = [
   mediaBiasDemocracy,
   spaceColonizationFeasibility,
   labGrownMeat,
+  aiJobDisplacement,
+  aiInEducation,
+  aiRegulation,
 
   // --- Science & Environment ---
   climateChange,
@@ -8494,6 +8534,9 @@ export const topics: Topic[] = [
   veganismEnvironmental,
   psychedelicsMentalHealth,
   labLeakTheory,
+  ultraProcessedFood,
+  longevityScience,
+  genderAffirmingCareMinors,
 
   // --- Economics & Education ---
   remoteWorkPermanence,
@@ -8503,6 +8546,9 @@ export const topics: Topic[] = [
   foreignAidEffectiveness,
   cryptocurrencyValue,
   gigEconomyRegulation,
+  housingAffordabilityCrisis,
+  fourDayWorkWeek,
+  studentDebtForgiveness,
 
   // --- Philosophy & Speculation ---
   freeWill,
@@ -8511,6 +8557,7 @@ export const topics: Topic[] = [
   minneapolisShooting,
   aiConsciousness,
   meaningWithoutReligion,
+  consciousnessHardProblem,
 ];
 
 // ============================================================================

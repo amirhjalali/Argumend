@@ -225,15 +225,59 @@ export async function POST(request: NextRequest) {
     });
   }
 
-  if (!isLiveDebateEnabled()) {
-    const programmaticTokens = buildProgrammaticTokens(body);
+  try {
+    if (!isLiveDebateEnabled()) {
+      const programmaticTokens = buildProgrammaticTokens(body);
+      const stream = new ReadableStream({
+        start(controller) {
+          for (const token of programmaticTokens) {
+            controller.enqueue(sseEvent({ token }));
+          }
+          controller.enqueue(sseEvent({ done: true, model, fallback: true }));
+          controller.close();
+        },
+      });
+
+      return new Response(stream, {
+        headers: {
+          "Content-Type": "text/event-stream",
+          "Cache-Control": "no-cache",
+          Connection: "keep-alive",
+        },
+      });
+    }
+
+    const systemPrompt = buildSystemPrompt(side, topic, pillars);
+    const userPrompt = buildUserPrompt(round, previousMessages, side);
+    const streamFn = getStreamGenerator(model);
+
     const stream = new ReadableStream({
-      start(controller) {
-        for (const token of programmaticTokens) {
-          controller.enqueue(sseEvent({ token }));
+      async start(controller) {
+        try {
+          const generator = streamFn(systemPrompt, userPrompt);
+          for await (const token of generator) {
+            controller.enqueue(sseEvent({ token }));
+          }
+          controller.enqueue(sseEvent({ done: true, model }));
+        } catch (error) {
+          const message = error instanceof Error ? error.message : "Unknown error";
+          console.warn("Live debate stream failed, falling back to programmatic mode:", message);
+          try {
+            const programmaticTokens = buildProgrammaticTokens(body);
+            for (const token of programmaticTokens) {
+              controller.enqueue(sseEvent({ token }));
+            }
+            controller.enqueue(sseEvent({ done: true, model, fallback: true }));
+          } catch (fallbackError) {
+            const fallbackMessage =
+              fallbackError instanceof Error ? fallbackError.message : "Unknown fallback error";
+            controller.enqueue(
+              sseEvent({ error: `${message}; fallback failed: ${fallbackMessage}`, model })
+            );
+          }
+        } finally {
+          controller.close();
         }
-        controller.enqueue(sseEvent({ done: true, model, fallback: true }));
-        controller.close();
       },
     });
 
@@ -244,47 +288,12 @@ export async function POST(request: NextRequest) {
         Connection: "keep-alive",
       },
     });
+  } catch (error) {
+    console.error("Debate stream setup error:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return new Response(
+      JSON.stringify({ error: "Failed to set up debate stream", details: message }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
   }
-
-  const systemPrompt = buildSystemPrompt(side, topic, pillars);
-  const userPrompt = buildUserPrompt(round, previousMessages, side);
-  const streamFn = getStreamGenerator(model);
-
-  const stream = new ReadableStream({
-    async start(controller) {
-      try {
-        const generator = streamFn(systemPrompt, userPrompt);
-        for await (const token of generator) {
-          controller.enqueue(sseEvent({ token }));
-        }
-        controller.enqueue(sseEvent({ done: true, model }));
-      } catch (error) {
-        const message = error instanceof Error ? error.message : "Unknown error";
-        console.warn("Live debate stream failed, falling back to programmatic mode:", message);
-        try {
-          const programmaticTokens = buildProgrammaticTokens(body);
-          for (const token of programmaticTokens) {
-            controller.enqueue(sseEvent({ token }));
-          }
-          controller.enqueue(sseEvent({ done: true, model, fallback: true }));
-        } catch (fallbackError) {
-          const fallbackMessage =
-            fallbackError instanceof Error ? fallbackError.message : "Unknown fallback error";
-          controller.enqueue(
-            sseEvent({ error: `${message}; fallback failed: ${fallbackMessage}`, model })
-          );
-        }
-      } finally {
-        controller.close();
-      }
-    },
-  });
-
-  return new Response(stream, {
-    headers: {
-      "Content-Type": "text/event-stream",
-      "Cache-Control": "no-cache",
-      Connection: "keep-alive",
-    },
-  });
 }

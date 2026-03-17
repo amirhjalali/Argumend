@@ -51,7 +51,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
               <span className="font-serif text-lg md:text-xl font-medium tracking-[0.08em] text-primary leading-none">
                 ARGUMEND
               </span>
-              <span className="text-[10px] font-sans text-stone-500 dark:text-stone-400 leading-none mt-1">
+              <span className="text-[10px] font-sans text-stone-600 dark:text-stone-400 leading-none mt-1">
                 Disagree better.
               </span>
             </div>

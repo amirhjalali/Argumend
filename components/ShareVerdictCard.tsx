@@ -92,7 +92,7 @@ function getConsensusLabel(result: JudgingResult): string {
 
 function getShareUrl(topicId: string): string {
   const base =
-    typeof window !== "undefined" ? window.location.origin : "https://argumend.com";
+    typeof window !== "undefined" ? window.location.origin : "https://argumend.org";
   return `${base}/topics/${topicId}#verdict`;
 }
 
@@ -217,7 +217,7 @@ function VerdictCardPreview({
               ARGUMEND
             </span>
           </div>
-          <span className="text-[9px] text-stone-400">argumend.com</span>
+          <span className="text-[9px] text-stone-400">argumend.org</span>
         </div>
       </div>
     </div>

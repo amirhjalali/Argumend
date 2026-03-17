@@ -476,7 +476,7 @@ export default function AnalyzePage() {
                         }
                       }}
                       placeholder="Paste an article, argument, or any text you'd like analyzed..."
-                      aria-label="Content to analyze"
+                      aria-label="Text to analyze"
                       className="w-full min-h-[200px] md:min-h-[240px] p-4 bg-[#faf8f5] border border-stone-200/60 rounded-xl text-stone-700 text-sm leading-relaxed placeholder-stone-400/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white"
                     />
                     {/* Word/char count indicator */}

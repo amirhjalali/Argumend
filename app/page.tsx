@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "ARGUMEND — Map Arguments, Not Win Them",
     description:
       "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
-    url: "https://www.argumend.org",
+    url: "https://argumend.org",
   },
   twitter: {
     card: "summary_large_image",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
   },
   alternates: {
-    canonical: "https://www.argumend.org",
+    canonical: "https://argumend.org",
   },
 };
 
@@ -55,6 +55,15 @@ export default function HomePage() {
           },
         }}
       />
+      <noscript>
+        <div className="p-8 text-center bg-[#f4f1eb] min-h-screen flex items-center justify-center">
+          <div>
+            <h1 className="font-serif text-2xl text-primary mb-4">ARGUMEND</h1>
+            <p className="text-secondary mb-4">JavaScript is required for the interactive argument maps.</p>
+            <a href="/topics" className="text-deep underline">Browse all topics</a>
+          </div>
+        </div>
+      </noscript>
       <HomeClient />
     </>
   );

@@ -59,7 +59,7 @@ export function CruxModal() {
                             </div>
                             <button
                                 onClick={closeCrux}
-                                className="rounded-full p-2 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-600"
+                                className="rounded-full p-2 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
                                 aria-label="Close crux details"
                             >
                                 <X className="h-5 w-5" />

@@ -829,9 +829,9 @@ export default function TopicDetailView({
             <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div className="flex items-center gap-1">
                 <ShareButtons
-                  title={topic.title}
-                  url={typeof window !== "undefined" ? window.location.href : `https://argumend.org/topics/${topic.id}`}
-                  description={topic.meta_claim}
+                  title={`${topic.title} — Argument Analysis`}
+                  url={`https://argumend.org/topics/${topic.id}`}
+                  description={`${topic.meta_claim} — ${getVerdictLabel(topic.confidence_score)}`}
                 />
                 <EmbedButton topicId={topic.id} />
                 <SaveTopicButton topicId={topic.id} />
@@ -1438,6 +1438,19 @@ export default function TopicDetailView({
               </p>
             </div>
           </section>
+
+          {/* Share CTA */}
+          <div className="mt-12 p-6 rounded-xl bg-[#faf8f5] border border-stone-200/60 text-center mb-8">
+            <h3 className="font-serif text-lg text-primary mb-2">Found this analysis useful?</h3>
+            <p className="text-secondary text-sm mb-4">Share it with someone who might see things differently.</p>
+            <div className="flex items-center justify-center gap-3">
+              <ShareButtons
+                title={`${topic.title} — Argument Analysis | Argumend`}
+                url={`https://argumend.org/topics/${topic.id}`}
+                description={topic.meta_claim}
+              />
+            </div>
+          </div>
 
           {/* Footer */}
           <div className="pt-6 border-t border-stone-200/60">

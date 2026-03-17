@@ -32,27 +32,33 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.argumend.org"),
+  metadataBase: new URL("https://argumend.org"),
   title: {
     default: "ARGUMEND — Map Arguments, Not Win Them",
     template: "%s | ARGUMEND",
   },
   description:
-    "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. 38 topics analyzed.",
+    "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. 52+ topics analyzed.",
   keywords: [
     "argument mapping",
+    "argument map tool",
     "critical thinking",
     "debate analysis",
     "evidence-based reasoning",
     "controversial topics",
     "steel man arguments",
+    "logical fallacies",
+    "both sides of the argument",
+    "fact check",
+    "pros and cons",
+    "structured reasoning",
   ],
   authors: [{ name: "ARGUMEND" }],
   creator: "ARGUMEND",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.argumend.org",
+    url: "https://argumend.org",
     siteName: "ARGUMEND",
     title: "ARGUMEND — Map Arguments, Not Win Them",
     description:
@@ -138,7 +144,10 @@ export default function RootLayout({
             url: "https://argumend.org",
             description:
               "Structured argument mapping platform for controversial topics. See both sides, weigh the evidence, find what actually matters.",
-            sameAs: [],
+            sameAs: [
+              "https://x.com/argumend",
+              "https://github.com/argumend",
+            ],
             logo: "https://argumend.org/icon.png",
             foundingDate: "2024",
             knowsAbout: [

@@ -104,6 +104,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
               if (error) setError("");
             }}
             placeholder="you@example.com"
+            aria-label="Email address"
             disabled={loading}
             className={`w-full bg-white border border-stone-300 rounded-lg text-primary placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"

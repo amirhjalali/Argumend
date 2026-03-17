@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
 import { generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
@@ -13,15 +14,26 @@ import {
   type DebateMessage,
 } from "@/lib/debate/shared";
 
-interface DebateRequest {
-  topic: string;
-  topicId: string;
-  side: "for" | "against";
-  model: "claude" | "gpt-4" | "gemini" | "grok";
-  round: number;
-  previousMessages: DebateMessage[];
-  pillars?: DebatePillar[];
-}
+const DebateRequestSchema = z.object({
+  topic: z.string().min(1),
+  topicId: z.string().min(1),
+  side: z.enum(["for", "against"]),
+  model: z.enum(["claude", "gpt-4", "gemini", "grok"]),
+  round: z.number().int().min(1).max(20),
+  previousMessages: z.array(z.object({
+    id: z.string().optional(),
+    side: z.enum(["for", "against"]),
+    content: z.string(),
+    round: z.number().int().min(1),
+    model: z.string().optional(),
+    role: z.string().optional(),
+  })),
+  pillars: z.array(z.object({
+    title: z.string(),
+    skepticPremise: z.string(),
+    proponentRebuttal: z.string(),
+  })).optional(),
+});
 
 interface GenerationResult {
   argument: string;
@@ -165,15 +177,16 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body: DebateRequest = await request.json();
-    const { topic, side, model, round, previousMessages, pillars } = body;
-
-    if (!topic || !side || !model || !round) {
+    const raw = await request.json();
+    const parseResult = DebateRequestSchema.safeParse(raw);
+    if (!parseResult.success) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: "Invalid request", details: parseResult.error.flatten() },
         { status: 400 }
       );
     }
+    const body = parseResult.data;
+    const { topic, side, model, round, previousMessages, pillars } = body;
 
     let result: GenerationResult;
     if (!isLiveDebateEnabled()) {

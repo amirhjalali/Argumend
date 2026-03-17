@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
 import { Scale, ThumbsUp, ThumbsDown, ExternalLink } from "lucide-react";
 
@@ -22,7 +23,7 @@ function getScoreLabel(score: number): string {
   return "Minimal";
 }
 
-export function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
+export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
   const isFor = data.side === "for";
   const scoreLabel = getScoreLabel(data.score);
 
@@ -139,4 +140,4 @@ export function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
       </div>
     </div>
   );
-}
+});

@@ -50,6 +50,7 @@ const LEARN_NAV = [
   { label: "Community", icon: Users, href: "/community" },
   { label: "For Educators", icon: GraduationCap, href: "/for-educators" },
   { label: "Methodology", icon: Scale, href: "/methodology" },
+  { label: "Glossary", icon: BookOpen, href: "/glossary" },
 ];
 
 const FOOTER_LINKS = [

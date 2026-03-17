@@ -94,4 +94,34 @@ export const faqs: FAQ[] = [
     question: "Can I export or share my analysis results?",
     answer: "Every analysis gets a unique, shareable URL that anyone can view without an account. You can also use the share buttons on any analysis page to post directly to Twitter/X or LinkedIn, or copy the link to your clipboard. We plan to add PDF and structured data exports in a future update.",
   },
+  {
+    question: "What are the most common logical fallacies in online debates?",
+    answer: "The most common logical fallacies in online debates are: (1) Ad hominem \u2014 attacking the person instead of their argument; (2) Straw man \u2014 misrepresenting someone\u2019s position to make it easier to attack; (3) Appeal to authority \u2014 citing an expert\u2019s opinion as proof without evidence; (4) False dichotomy \u2014 presenting only two options when more exist; (5) Whataboutism \u2014 deflecting criticism by pointing to someone else\u2019s behavior. Argumend\u2019s argument analysis tool can detect these fallacies automatically when you paste debate text.",
+    linkText: "Try the argument analyzer",
+    linkHref: "/analyze",
+  },
+  {
+    question: "How can I improve my critical thinking skills?",
+    answer: "Start with three habits: (1) Steel-man opposing views before responding \u2014 can you state the other side\u2019s argument better than they can? (2) Identify cruxes \u2014 what specific evidence would change your mind? If nothing would, you\u2019re not reasoning, you\u2019re rationalizing. (3) Check your sources \u2014 use triangulation by cross-referencing multiple independent sources. Argumend\u2019s curated topics and guides are designed to build these skills through practice.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is the difference between an argument and a debate?",
+    answer: "An argument is a structured set of claims with supporting evidence and reasoning. A debate is a format where two or more sides present their arguments. Most online \u2018debates\u2019 are neither \u2014 they\u2019re shouting matches where people talk past each other. Argumend converts messy debates into structured arguments by identifying the core claims, the evidence for each side, and the crux \u2014 the key question that would actually resolve the disagreement.",
+  },
+  {
+    question: "How do I know if a source is reliable?",
+    answer: "Evaluate sources on four dimensions: (1) Source reliability \u2014 does the source have a track record of accuracy? Is the work peer-reviewed? (2) Independence \u2014 is the source free from conflicts of interest? (3) Replicability \u2014 can others verify the claims independently? (4) Directness \u2014 how directly does the evidence address the specific claim? These are the same four dimensions Argumend uses to weight evidence in our argument maps.",
+    linkText: "Learn about our evidence methodology",
+    linkHref: "/methodology",
+  },
+  {
+    question: "What is Bayesian reasoning and why does it matter?",
+    answer: "Bayesian reasoning is updating your beliefs based on new evidence, proportional to how surprising that evidence is. If you believe something with 70% confidence and encounter strong counter-evidence, you should lower your confidence \u2014 not dismiss the evidence to protect your belief. Argumend\u2019s confidence scores embody this principle: they shift as evidence accumulates, and the methodology is transparent so you can trace exactly why.",
+  },
+  {
+    question: "Can AI really analyze arguments objectively?",
+    answer: "No AI is perfectly objective, which is exactly why we use a multi-model judge council rather than a single model. Each AI judge scores arguments independently on structured rubrics. We aggregate scores, flag disagreements between judges, and report whether there is consensus. This doesn\u2019t eliminate bias, but it reduces the chance that any single model\u2019s training biases dominate the result. We also show you the full reasoning, so you can evaluate the analysis yourself.",
+  },
 ];

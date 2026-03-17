@@ -84,7 +84,7 @@ export function MapLegend() {
               </h3>
               <button
                 onClick={() => setIsOpen(false)}
-                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-600"
+                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
                 aria-label="Collapse legend"
               >
                 <X className="h-4 w-4" />

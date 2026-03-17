@@ -46,6 +46,17 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // www → non-www canonical redirect
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.argumend.org' }],
+        destination: 'https://argumend.org/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

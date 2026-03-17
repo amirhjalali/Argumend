@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { extractArguments, toDebateMessages } from "@/lib/analyze/extractor";
 import { extractArgumentsOffline } from "@/lib/analyze/offline";
@@ -10,12 +11,12 @@ import { modelsToAgents } from "@/lib/agents/types";
 import type { LLMModel } from "@/types/logic";
 import type { ExtractedArguments } from "@/lib/analyze/extractor";
 
-interface AnalyzeRequest {
-  content: string;
-  contentType?: "transcript" | "article" | "freeform";
-  includeJudging?: boolean;
-  judgeModels?: LLMModel[];
-}
+const AnalyzeRequestSchema = z.object({
+  content: z.string().min(1, "Content is required").max(50000, "Content too long. Maximum 50000 characters allowed."),
+  contentType: z.enum(["transcript", "article", "freeform"]).optional(),
+  includeJudging: z.boolean().optional(),
+  judgeModels: z.array(z.enum(["claude", "gpt-4", "gemini", "grok"])).optional(),
+});
 
 function isLiveAnalyzeEnabled(): boolean {
   return (
@@ -54,25 +55,16 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body: AnalyzeRequest = await request.json();
+    const raw = await request.json();
+    const parseResult = AnalyzeRequestSchema.safeParse(raw);
+    if (!parseResult.success) {
+      return NextResponse.json(
+        { error: "Invalid request", details: parseResult.error.flatten() },
+        { status: 400 }
+      );
+    }
+    const body = parseResult.data;
     const { content, contentType, includeJudging, judgeModels } = body;
-
-    // Validate request
-    if (!content || content.trim().length === 0) {
-      return NextResponse.json(
-        { error: "Content is required" },
-        { status: 400 }
-      );
-    }
-
-    // Limit content length to prevent abuse
-    const maxLength = 50000; // ~50k characters
-    if (content.length > maxLength) {
-      return NextResponse.json(
-        { error: `Content too long. Maximum ${maxLength} characters allowed.` },
-        { status: 400 }
-      );
-    }
 
     // Extract arguments from content (offline-first for cost control).
     let extracted: ExtractedArguments;

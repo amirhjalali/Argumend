@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/perspectives": "2025-12-10",
     "/lessons-from-the-deep": "2025-12-05",
     "/research": "2025-12-10",
+    "/glossary": "2026-03-17",
   };
 
   const staticPages = Object.entries(staticPageDates).map(([route, date]) => ({

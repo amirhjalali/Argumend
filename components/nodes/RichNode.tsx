@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import Image from "next/image";
 import { InteractiveContent } from "@/components/InteractiveContent";
 import { CitationCard } from "@/components/CitationCard";
@@ -26,7 +27,7 @@ function getStatusStyle(status: string): string {
   }
 }
 
-export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
+export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const expandNode = useLogicGraph((state) => state.expandNode);
   const openCrux = useLogicGraph((state) => state.openCrux);
   const loadEvidence = useLogicGraph((state) => state.loadEvidence);
@@ -188,4 +189,4 @@ export function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
       </div>
     </div>
   );
-}
+});

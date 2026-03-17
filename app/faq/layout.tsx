@@ -3,9 +3,20 @@ import { faqs } from "@/data/faqs";
 import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "FAQ — Frequently Asked Questions About Argument Mapping",
   description:
-    "Common questions about Argumend: how confidence scores work, what cruxes are, how topics are chosen, and how argument mapping differs from debate.",
+    "Common questions about Argumend: how confidence scores work, what cruxes are, what steel-manning means, logical fallacies in debates, and how argument mapping differs from debate forums.",
+  keywords: ["argument mapping FAQ", "what is a crux", "what is steel manning", "critical thinking FAQ", "logical fallacies"],
+  openGraph: {
+    title: "FAQ — Frequently Asked Questions",
+    description: "Everything you want to know about argument mapping, cruxes, confidence scores, and critical thinking.",
+    url: "https://argumend.org/faq",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FAQ — Argument Mapping Questions Answered",
+    description: "What is a crux? What is steel-manning? How do confidence scores work?",
+  },
   alternates: {
     canonical: "https://argumend.org/faq",
   },
