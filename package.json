@@ -4,8 +4,8 @@
   "description": "Argumend is a service which utilizes AI to provide context about varying perspectives on issues.",
   "scripts": {
     "dev": "bun --bun next dev",
-    "build": "bun --bun next build",
-    "start": "bun --bun next start",
+    "build": "bun --bun next build && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static",
+    "start": "node .next/standalone/server.js",
     "lint": "eslint .",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
