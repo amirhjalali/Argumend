@@ -18,6 +18,12 @@ export function AppShell({ children }: AppShellProps) {
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"
+      >
+        Skip to main content
+      </a>
       <TopBar onMenuClick={sidebar.toggle} />
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
@@ -34,7 +40,8 @@ export function AppShell({ children }: AppShellProps) {
         />
 
         {/* Sidebar Container */}
-        <div
+        <aside
+          aria-label="Sidebar navigation"
           className={`
             fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
             flex-shrink-0 transition-all duration-500
@@ -67,10 +74,10 @@ export function AppShell({ children }: AppShellProps) {
                 "linear-gradient(to right, rgba(0,0,0,0.04), transparent)",
             }}
           />
-        </div>
+        </aside>
 
         {/* Main Content Area */}
-        <main id="main-content" className="relative flex-1 min-w-0 overflow-y-auto">
+        <main id="main-content" role="main" className="relative flex-1 min-w-0 overflow-y-auto">
           {/* Content inner shadow for depth */}
           <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_4px_0_12px_-4px_rgba(0,0,0,0.04)]" />
 

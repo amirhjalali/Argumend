@@ -94,7 +94,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
       </p>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="flex gap-2">
+      <form onSubmit={handleSubmit} className="flex gap-2" aria-label="Newsletter signup">
         <div className="flex-1 min-w-0">
           <input
             type="email"
@@ -105,6 +105,8 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
             }}
             placeholder="you@example.com"
             aria-label="Email address"
+            aria-invalid={error ? true : undefined}
+            aria-describedby={error ? "newsletter-error" : undefined}
             disabled={loading}
             className={`w-full bg-white border border-stone-300 rounded-lg text-primary placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"
@@ -128,7 +130,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
 
       {/* Error message */}
       {error && (
-        <p className="mt-2 text-xs text-red-500">{error}</p>
+        <p id="newsletter-error" className="mt-2 text-xs text-red-500" role="alert">{error}</p>
       )}
     </div>
   );

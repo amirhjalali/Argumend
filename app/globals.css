@@ -501,10 +501,21 @@ html {
 
 /* Utility Classes */
 
-/* Focus states -- WCAG AA visible focus indicator */
+/* Accessible focus indicators — WCAG 2.1 AA */
 :focus-visible {
-  outline: 2px solid #3a6965;
+  outline: 2px solid #4f7b77;
   outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Dark mode focus indicators */
+.dark :focus-visible {
+  outline-color: #7fb5b0;
+}
+
+/* Remove default outlines only when custom ones are active */
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 

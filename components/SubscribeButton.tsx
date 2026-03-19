@@ -103,7 +103,8 @@ export function SubscribeButton({ topicId }: SubscribeButtonProps) {
           ? "bg-rust-50 text-rust-700 border border-rust-200/60 hover:bg-rust-100"
           : "bg-stone-100 text-stone-600 border border-stone-200/60 hover:bg-stone-200/60 hover:text-stone-800"
       } ${loading ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
-      aria-label={subscribed ? "Unsubscribe from topic" : "Subscribe to topic"}
+      aria-label={subscribed ? "Unsubscribe from topic updates" : "Subscribe to topic updates"}
+      aria-pressed={subscribed}
       title={
         status !== "authenticated"
           ? "Sign in to subscribe"

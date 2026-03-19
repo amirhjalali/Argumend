@@ -66,7 +66,7 @@ export function MapLegend() {
   }, []);
 
   return (
-    <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 z-50">
+    <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 z-50" aria-label="Map legend" role="region">
       <AnimatePresence mode="wait">
         {isOpen ? (
           <motion.div

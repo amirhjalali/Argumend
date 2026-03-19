@@ -115,6 +115,7 @@ export function Sidebar({
               <Link
                 key={label}
                 href={href}
+                aria-current={isActive ? "page" : undefined}
                 className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                   isActive
                     ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
@@ -167,6 +168,7 @@ export function Sidebar({
                     key={label}
                     href={href}
                     tabIndex={learnOpen ? 0 : -1}
+                    aria-current={isActive ? "page" : undefined}
                     className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                       isActive
                         ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"

@@ -195,6 +195,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -299,8 +301,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   // Reset state on open/close + body scroll lock
   // -----------------------------------------------------------------------
 
+  // Capture the element that triggered the modal so we can restore focus on close
   useEffect(() => {
     if (isOpen) {
+      triggerRef.current = document.activeElement as HTMLElement;
       setQuery("");
       setActiveIndex(0);
       document.body.style.overflow = "hidden";
@@ -309,8 +313,40 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       });
       return () => {
         document.body.style.overflow = "";
+        // Restore focus to the trigger element
+        triggerRef.current?.focus();
       };
     }
+  }, [isOpen]);
+
+  // Focus trap: cycle Tab/Shift+Tab within the modal
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleFocusTrap = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !modalRef.current) return;
+
+      const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement?.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement?.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleFocusTrap);
+    return () => document.removeEventListener("keydown", handleFocusTrap);
   }, [isOpen]);
 
   // Reset active index when results change
@@ -404,6 +440,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -8, scale: 0.98 }}
           transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          ref={modalRef}
           className="relative w-full max-w-2xl bg-[#faf8f5] dark:bg-[#252420] rounded-2xl shadow-2xl border border-stone-200/40 dark:border-[#3d3a36] overflow-hidden"
           role="dialog"
           aria-modal="true"
@@ -452,6 +489,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             id="search-results"
             className="max-h-[60vh] overflow-y-auto overscroll-contain py-2"
             role="listbox"
+            aria-live="polite"
           >
             {groups.length === 0 && query.trim() !== "" && (
               <div className="px-5 py-12 text-center">
