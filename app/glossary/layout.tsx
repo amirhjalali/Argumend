@@ -1,10 +1,9 @@
 import { Metadata } from "next";
-import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Glossary — Critical Thinking & Argument Mapping Terms",
   description:
-    "Definitions of key terms in critical thinking and argument mapping: steel-manning, crux, logical fallacies, confidence scores, Bayesian reasoning, and more.",
+    "Definitions of 20+ key terms in critical thinking and argument mapping: steel-manning, crux, logical fallacies, confidence scores, Bayesian reasoning, evidence weighting, and more.",
   keywords: [
     "critical thinking glossary",
     "argument mapping terms",
@@ -12,6 +11,10 @@ export const metadata: Metadata = {
     "steel man definition",
     "crux definition",
     "debate terminology",
+    "evidence weighting",
+    "bayesian reasoning",
+    "confirmation bias",
+    "burden of proof",
   ],
   openGraph: {
     title: "Glossary — Critical Thinking & Argument Mapping Terms",
@@ -29,24 +32,5 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      {children}
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "DefinedTermSet",
-          name: "Critical Thinking & Argument Mapping Glossary",
-          description:
-            "Definitions of key terms used in critical thinking, argument mapping, and evidence-based reasoning.",
-          url: "https://argumend.org/glossary",
-          publisher: {
-            "@type": "Organization",
-            name: "ARGUMEND",
-            url: "https://argumend.org",
-          },
-        }}
-      />
-    </>
-  );
+  return <>{children}</>;
 }
