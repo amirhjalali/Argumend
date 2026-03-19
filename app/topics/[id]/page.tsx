@@ -99,15 +99,14 @@ export default async function TopicPage({ params }: PageProps) {
   // Cross-category related topics (thematic clusters)
   const crossCategoryTopics = getCrossCategoryRelated(topic.id, topic.category, 4);
 
-  // JSON-LD structured data (enhanced Article schema)
+  // JSON-LD structured data: ClaimReview (for Google fact-check rich results)
   const categoryLabel = CATEGORY_LABELS[topic.category];
-  const jsonLd = {
+  const claimReviewJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: topic.title,
-    description: topic.meta_claim,
+    "@type": "ClaimReview",
     url: `https://argumend.org/topics/${topic.id}`,
-    image: topic.imageUrl || `https://argumend.org/api/og/${topic.id}`,
+    claimReviewed: topic.meta_claim,
+    datePublished: "2025-01-01",
     author: {
       "@type": "Organization",
       name: "ARGUMEND",
@@ -117,6 +116,41 @@ export default async function TopicPage({ params }: PageProps) {
         url: "https://argumend.org/icon.png",
       },
     },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: topic.confidence_score,
+      bestRating: 100,
+      worstRating: 0,
+      alternateName: getVerdictLabel(topic.confidence_score),
+    },
+    itemReviewed: {
+      "@type": "Claim",
+      name: topic.title,
+      description: topic.meta_claim,
+      author: {
+        "@type": "Organization",
+        name: "Various Sources",
+      },
+    },
+  };
+
+  // JSON-LD structured data: Article (for page content)
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: topic.title,
+    description: topic.meta_claim,
+    url: `https://argumend.org/topics/${topic.id}`,
+    image: topic.imageUrl || `https://argumend.org/api/og/${topic.id}`,
+    datePublished: "2025-01-01",
+    dateModified: new Date().toISOString().split('T')[0],
+    articleSection: categoryLabel,
+    inLanguage: "en-US",
+    author: {
+      "@type": "Organization",
+      name: "ARGUMEND",
+      url: "https://argumend.org",
+    },
     publisher: {
       "@type": "Organization",
       name: "ARGUMEND",
@@ -125,27 +159,6 @@ export default async function TopicPage({ params }: PageProps) {
         "@type": "ImageObject",
         url: "https://argumend.org/icon.png",
       },
-    },
-    datePublished: "2025-01-01",
-    dateModified: "2025-12-20",
-    articleSection: categoryLabel,
-    inLanguage: "en-US",
-    mainEntity: {
-      "@type": "Claim",
-      name: topic.title,
-      description: topic.meta_claim,
-      claimReviewed: topic.meta_claim,
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: topic.confidence_score,
-        bestRating: 100,
-        worstRating: 0,
-        ratingExplanation: getVerdictLabel(topic.confidence_score),
-      },
-    },
-    about: {
-      "@type": "Thing",
-      name: categoryLabel,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -162,7 +175,8 @@ export default async function TopicPage({ params }: PageProps) {
 
   return (
     <>
-      <JsonLd data={jsonLd} />
+      <JsonLd data={claimReviewJsonLd} />
+      <JsonLd data={articleJsonLd} />
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
