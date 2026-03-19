@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileText, Printer } from "lucide-react";
 
 const benefits = [
   {
@@ -58,6 +58,116 @@ const lessonPlans = [
       "Use the Analyze tool to extract positions and cruxes",
       "Create their own argument map",
       "Present findings to the class",
+    ],
+  },
+  {
+    number: "04",
+    title: "Evidence Weighting Workshop",
+    duration: "1\u20132 class periods",
+    steps: [
+      "Introduce the 4-dimension evidence scale: reliability, independence, replicability, directness",
+      "Students pick 3 evidence items from any topic and score them on each dimension",
+      "Compare scores across the class \u2014 discuss where and why scores diverge",
+      "Reflection: How does weighting evidence change the conclusion?",
+    ],
+  },
+  {
+    number: "05",
+    title: "The Crux Debate",
+    duration: "2 class periods",
+    steps: [
+      "Two teams are assigned a contested topic from Argumend",
+      "Each team identifies what they believe is the crux \u2014 the single question that would resolve the debate",
+      "Teams debate ONLY the crux, not peripheral arguments",
+      "Class votes on which team better identified and argued the crux",
+    ],
+  },
+  {
+    number: "06",
+    title: "Media Literacy Through Argument Mapping",
+    duration: "2\u20133 class periods",
+    steps: [
+      "Students bring a news article, opinion piece, or social media thread on a controversial topic",
+      "Map the article\u2019s argument structure: What is the main claim? What evidence supports it?",
+      "Identify missing perspectives, logical gaps, and unstated assumptions",
+      "Compare the article\u2019s argument map with Argumend\u2019s balanced analysis of the same topic",
+    ],
+  },
+  {
+    number: "07",
+    title: "Confidence Calibration",
+    duration: "1\u20132 class periods",
+    steps: [
+      "Students assign a confidence score (0\u2013100%) to 5 contested claims before reviewing any evidence",
+      "Review the evidence on Argumend for each claim, noting which evidence changed their thinking",
+      "Assign a new confidence score after reviewing evidence and track how beliefs updated",
+      "Class discussion: Who updated the most? Who updated the least? What does that tell us?",
+    ],
+  },
+];
+
+const worksheets = [
+  {
+    id: "argument-map-template",
+    title: "Argument Map Template",
+    description:
+      "Blank template with spaces for meta-claim, pillars, evidence for/against, and crux. Perfect for students to map any debate from scratch.",
+    icon: "map",
+  },
+  {
+    id: "steel-man-challenge",
+    title: "Steel-Man Challenge Worksheet",
+    description:
+      "Structured prompts that guide students through steel-manning an opposing view. Includes sections for identifying the strongest version of an argument they disagree with.",
+    icon: "shield",
+  },
+  {
+    id: "evidence-evaluation-rubric",
+    title: "Evidence Evaluation Rubric",
+    description:
+      "Table with the four weight dimensions (reliability, independence, replicability, directness) for students to score evidence items on a 0\u201310 scale.",
+    icon: "scale",
+  },
+  {
+    id: "crux-finder",
+    title: "Crux Finder Worksheet",
+    description:
+      "Guided questions to help students identify the crux of any disagreement \u2014 the single question whose answer would change both sides\u2019 minds.",
+    icon: "target",
+  },
+];
+
+const gradeLevels = [
+  {
+    label: "Middle School (Grades 6\u20138)",
+    description:
+      "Accessible, relatable topics that connect to students\u2019 daily lives. Great for introducing structured thinking and evidence evaluation.",
+    topics: [
+      { id: "school-phone-bans", title: "School Phone Bans" },
+      { id: "social-media-age-limits", title: "Social Media Age Limits" },
+      { id: "space-exploration-value", title: "Space Exploration Value" },
+    ],
+  },
+  {
+    label: "High School (Grades 9\u201312)",
+    description:
+      "Policy-relevant debates with real-world stakes. Ideal for government, economics, and science courses.",
+    topics: [
+      { id: "ai-job-displacement", title: "AI Job Displacement" },
+      { id: "nuclear-energy-safety", title: "Nuclear Energy" },
+      { id: "climate-change", title: "Climate Change" },
+      { id: "gun-control-effectiveness", title: "Gun Control" },
+    ],
+  },
+  {
+    label: "Advanced / AP",
+    description:
+      "Deep philosophical and empirical questions suited for IB TOK, AP Seminar, and advanced critical thinking courses.",
+    topics: [
+      { id: "free-will", title: "Free Will" },
+      { id: "simulation-hypothesis", title: "Simulation Hypothesis" },
+      { id: "consciousness-hard-problem", title: "Consciousness" },
+      { id: "reparations-slavery", title: "Reparations" },
     ],
   },
 ];
@@ -116,7 +226,7 @@ export default function ForEducatorsPage() {
         }}
       />
       <div className="mx-auto max-w-4xl px-4 md:px-8">
-        {/* Hero — no label, single paragraph */}
+        {/* Hero */}
         <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
           <Breadcrumbs
             items={[
@@ -136,7 +246,7 @@ export default function ForEducatorsPage() {
           </p>
         </div>
 
-        {/* Blockquote — moved here, right after hero, before content sections */}
+        {/* Blockquote */}
         <blockquote className="mb-16 md:mb-24 py-6 border-l-4 border-deep/30 pl-6 md:pl-7 bg-deep/[0.02] rounded-r-xl">
           <p className="font-serif text-xl md:text-2xl text-primary italic leading-[1.6]">
             &ldquo;The goal is not to teach students what to think, but how to
@@ -209,6 +319,85 @@ export default function ForEducatorsPage() {
           </div>
         </section>
 
+        {/* Printable Worksheets */}
+        <section className="mb-16 md:mb-24">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+            Printable worksheets
+          </h2>
+          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+            Download and print these structured templates for classroom use.
+            Each worksheet is designed for clean, ink-friendly printing.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+            {worksheets.map((ws) => (
+              <div
+                key={ws.id}
+                className="bg-[#fefcf9] rounded-xl border border-stone-200/60 p-5 md:p-6 flex flex-col"
+              >
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
+                    <FileText className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-serif text-lg font-semibold text-primary leading-snug">
+                    {ws.title}
+                  </h3>
+                </div>
+                <p className="text-sm text-secondary leading-relaxed mb-4 flex-1">
+                  {ws.description}
+                </p>
+                <Link
+                  href={`/for-educators/worksheets/${ws.id}`}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-deep hover:text-deep-dark transition-colors"
+                >
+                  <Printer className="h-3.5 w-3.5" />
+                  View &amp; Print
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Recommended Topics by Grade Level */}
+        <section className="mb-16 md:mb-24 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+            Recommended topics by grade level
+          </h2>
+          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+            Not sure where to start? Here are our recommended topics organized
+            by student level, from accessible introductions to advanced analysis.
+          </p>
+
+          <div className="space-y-6">
+            {gradeLevels.map((level) => (
+              <div
+                key={level.label}
+                className="bg-[#fefcf9] rounded-xl border border-stone-200/60 p-5 md:p-6"
+              >
+                <h3 className="font-serif text-lg font-semibold text-primary mb-1">
+                  {level.label}
+                </h3>
+                <p className="text-sm text-secondary leading-relaxed mb-4">
+                  {level.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {level.topics.map((topic) => (
+                    <Link
+                      key={topic.id}
+                      href={`/topics/${topic.id}`}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-deep/5 border border-deep/10 text-sm font-medium text-deep hover:bg-deep/10 hover:border-deep/20 transition-colors"
+                    >
+                      {topic.title}
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Subject Integration */}
         <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
@@ -247,7 +436,7 @@ export default function ForEducatorsPage() {
           </div>
         </section>
 
-        {/* Simple inline CTA — no big box */}
+        {/* Simple inline CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 py-12 mb-8">
           <Link
             href="/topics"
