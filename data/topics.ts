@@ -36,6 +36,12 @@ import { centralBankDigitalCurrencyData } from "./topics/central-bank-digital-cu
 import { masculinityCrisisData } from "./topics/masculinity-crisis";
 import { aiDeepfakesTruthCollapseData } from "./topics/ai-deepfakes-truth-collapse";
 import { decliningBirthRatesData } from "./topics/declining-birth-rates";
+import { longevityAntiAgingData } from "./topics/longevity-anti-aging";
+import { nuclearProliferationNewArmsRaceData } from "./topics/nuclear-proliferation-new-arms-race";
+import { transgenderAthletesSportsData } from "./topics/transgender-athletes-sports";
+import { animalConsciousnessRightsData } from "./topics/animal-consciousness-rights";
+import { immigrationNationalIdentityData } from "./topics/immigration-national-identity";
+import { psychedelicTherapyHypeData } from "./topics/psychedelic-therapy-hype";
 
 // Newly extracted topics
 import { moonLandingData } from "./topics/moon-landing";
@@ -194,6 +200,12 @@ export const centralBankDigitalCurrency = buildTopic(centralBankDigitalCurrencyD
 export const masculinityCrisis = buildTopic(masculinityCrisisData);
 export const aiDeepfakesTruthCollapse = buildTopic(aiDeepfakesTruthCollapseData);
 export const decliningBirthRates = buildTopic(decliningBirthRatesData);
+export const longevityAntiAging = buildTopic(longevityAntiAgingData);
+export const nuclearProliferationNewArmsRace = buildTopic(nuclearProliferationNewArmsRaceData);
+export const transgenderAthletesSports = buildTopic(transgenderAthletesSportsData);
+export const animalConsciousnessRights = buildTopic(animalConsciousnessRightsData);
+export const immigrationNationalIdentity = buildTopic(immigrationNationalIdentityData);
+export const psychedelicTherapyHype = buildTopic(psychedelicTherapyHypeData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -284,6 +296,14 @@ export const topics: Topic[] = [
   masculinityCrisis,
   aiDeepfakesTruthCollapse,
   decliningBirthRates,
+
+  // --- New Topics Batch 2 (March 2026) ---
+  longevityAntiAging,
+  nuclearProliferationNewArmsRace,
+  transgenderAthletesSports,
+  animalConsciousnessRights,
+  immigrationNationalIdentity,
+  psychedelicTherapyHype,
 ];
 
 // ============================================================================
@@ -440,6 +460,14 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
 
   // Climate/environment cluster (new topics)
   "geoengineering-climate": ["climate-change", "nuclear-energy-safety", "space-colonization-feasibility", "ev-environmental-impact"],
+
+  // New topics batch 2 clusters
+  "longevity-anti-aging": ["gene-editing-embryos", "glp1-weight-loss-drugs", "ai-risk", "declining-birth-rates"],
+  "nuclear-proliferation-new-arms-race": ["us-iran-conflict", "surveillance-public-safety", "alternatives-to-democracy", "foreign-aid-effectiveness"],
+  "transgender-athletes-sports": ["cancel-culture", "gender-affirming-care-minors", "masculinity-crisis", "social-media-mental-health"],
+  "animal-consciousness-rights": ["consciousness-ai-systems", "factory-farming-ban", "veganism-environmental-impact", "meaning-without-religion"],
+  "immigration-national-identity": ["immigration-wage-impact", "open-borders", "declining-birth-rates", "housing-affordability-crisis"],
+  "psychedelic-therapy-hype": ["psychedelics-mental-health", "drug-decriminalization", "glp1-weight-loss-drugs", "social-media-mental-health"],
 };
 
 /**
