@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
+  ArrowLeftRight,
   BookOpen,
   Brain,
   ChevronDown,
@@ -34,6 +35,7 @@ const PRIMARY_NAV = [
   { label: "Analyze Text", icon: Brain, href: "/analyze", highlight: true },
   { label: "Recent Analyses", icon: History, href: "/analyses" },
   { label: "Explore Topics", icon: ListChecks, href: "/topics" },
+  { label: "Compare Topics", icon: ArrowLeftRight, href: "/topics/compare" },
   { label: "Explore Map", icon: Network, href: "/explore" },
   { label: "How It Works", icon: Map, href: "/how-it-works" },
   { label: "About", icon: HelpCircle, href: "/about" },
