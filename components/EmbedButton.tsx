@@ -69,7 +69,7 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
       </button>
 
       {open && (
-        <div className="absolute left-0 top-full mt-2 z-50 w-[340px] sm:w-[400px] rounded-lg border border-stone-200 bg-white shadow-lw p-4 animate-in fade-in slide-in-from-top-1">
+        <div role="dialog" aria-label="Embed code" className="absolute left-0 top-full mt-2 z-50 w-[340px] sm:w-[400px] rounded-lg border border-stone-200 bg-white shadow-lw p-4 animate-in fade-in slide-in-from-top-1">
           {/* Header */}
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-semibold text-primary">
@@ -101,6 +101,7 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
           <button
             type="button"
             onClick={handleCopy}
+            aria-label={copied ? "Embed code copied" : "Copy embed code"}
             className="mt-3 w-full inline-flex items-center justify-center gap-2 h-9 rounded-md bg-deep text-white text-xs font-medium hover:bg-deep-dark transition-colors"
           >
             {copied ? (

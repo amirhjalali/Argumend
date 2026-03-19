@@ -26,15 +26,22 @@ export function ConfidenceGauge({ score, size = 120 }: ConfidenceGaugeProps) {
   const tickAngles = [90, 180, 270]; // offset by -90 since SVG starts at top after rotation
 
   return (
-    <div className="relative" style={{ width: size, height: size }}>
+    <div
+      className="relative"
+      style={{ width: size, height: size }}
+      role="meter"
+      aria-label="Confidence score"
+      aria-valuenow={score}
+      aria-valuemin={0}
+      aria-valuemax={100}
+    >
       {/* Background circle (track) */}
       <svg
         className="absolute inset-0 -rotate-90"
         width={size}
         height={size}
         viewBox={`0 0 ${size} ${size}`}
-        role="img"
-        aria-label={`Confidence score: ${score}%`}
+        aria-hidden="true"
       >
         {/* Track circle */}
         <circle

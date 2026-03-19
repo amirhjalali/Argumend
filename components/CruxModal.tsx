@@ -35,6 +35,7 @@ export function CruxModal() {
                         role="dialog"
                         aria-modal="true"
                         aria-label={`Crux details: ${selectedCrux.title}`}
+                        aria-labelledby="crux-modal-title"
                         className="relative w-full mx-4 md:mx-auto max-w-2xl overflow-hidden rounded-2xl border border-stone-200/40 bg-[#faf8f5] shadow-2xl"
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -50,7 +51,7 @@ export function CruxModal() {
                                 <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-deep">
                                     Crux of Verification
                                 </p>
-                                <h3 className="mt-2 font-serif text-lg md:text-xl font-bold tracking-tight text-primary">
+                                <h3 id="crux-modal-title" className="mt-2 font-serif text-lg md:text-xl font-bold tracking-tight text-primary">
                                     {selectedCrux.title}
                                 </h3>
                                 <p className="mt-1 font-serif text-base italic text-stone-500">

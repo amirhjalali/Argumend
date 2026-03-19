@@ -35,7 +35,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 dark:bg-[#1a1917]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40 dark:border-[#3d3a36]/60">
+      <header role="banner" className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 dark:bg-[#1a1917]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40 dark:border-[#3d3a36]/60">
         {/* Left: Menu + Logo */}
         <div className="flex items-center gap-3 md:gap-5">
           <button
