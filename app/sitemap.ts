@@ -10,14 +10,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Use explicit dates so every URL doesn't share the same build-time
   // timestamp. Update these when substantial content changes are shipped.
   const staticPageDates: Record<string, string> = {
-    "": "2025-12-20",
+    "": "2026-03-18",
     "/about": "2025-11-15",
     "/how-it-works": "2025-11-15",
     "/methodology": "2025-11-20",
     "/for-educators": "2025-12-01",
     "/community": "2025-11-10",
     "/analyze": "2025-12-20",
-    "/topics": "2025-12-20",
+    "/topics": "2026-03-18",
     "/analyses": "2025-12-15",
     "/faq": "2025-12-10",
     "/concepts": "2025-11-20",
@@ -37,10 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1 : route === "/analyze" ? 0.9 : 0.7,
   }));
 
-  // ── Topic detail pages (50 topics) ──────────────────────────────────
+  // ── Topic detail pages (68+ topics) ─────────────────────────────────
   // Stagger dates using topic index so each URL has a unique lastmod.
-  // Base date: 2025-12-01. Each topic gets +1 day offset.
-  const topicBaseDate = new Date("2025-12-01");
+  // Base date: 2026-03-01. Each topic gets +1 day offset.
+  const topicBaseDate = new Date("2026-03-01");
   const topicPages = topics.map((topic, index) => ({
     url: `${baseUrl}/topics/${topic.id}`,
     lastModified: new Date(

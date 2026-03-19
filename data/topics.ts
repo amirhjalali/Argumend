@@ -17,6 +17,9 @@ import { genderAffirmingCareMinorsData } from "./topics/gender-affirming-care-mi
 import { consciousnessHardProblemData } from "./topics/consciousness-hard-problem";
 import { schoolPhoneBansData } from "./topics/school-phone-bans";
 import { studentDebtForgivenessData } from "./topics/student-debt-forgiveness";
+import { microplasticsHealthCrisisData } from "./topics/microplastics-health-crisis";
+import { glp1WeightLossDrugsData } from "./topics/glp1-weight-loss-drugs";
+import { aiWhiteCollarDisplacementData } from "./topics/ai-white-collar-displacement";
 
 // ============================================================================
 // Moon Landing Topic
@@ -8483,6 +8486,9 @@ export const genderAffirmingCareMinors = buildTopic(genderAffirmingCareMinorsDat
 export const consciousnessHardProblem = buildTopic(consciousnessHardProblemData);
 export const schoolPhoneBans = buildTopic(schoolPhoneBansData);
 export const studentDebtForgiveness = buildTopic(studentDebtForgivenessData);
+export const microplasticsHealthCrisis = buildTopic(microplasticsHealthCrisisData);
+export const glp1WeightLossDrugs = buildTopic(glp1WeightLossDrugsData);
+export const aiWhiteCollarDisplacement = buildTopic(aiWhiteCollarDisplacementData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -8523,6 +8529,7 @@ export const topics: Topic[] = [
   aiJobDisplacement,
   aiInEducation,
   aiRegulation,
+  aiWhiteCollarDisplacement,
 
   // --- Science & Environment ---
   climateChange,
@@ -8537,6 +8544,8 @@ export const topics: Topic[] = [
   ultraProcessedFood,
   longevityScience,
   genderAffirmingCareMinors,
+  microplasticsHealthCrisis,
+  glp1WeightLossDrugs,
 
   // --- Economics & Education ---
   remoteWorkPermanence,
