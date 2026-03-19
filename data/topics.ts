@@ -20,6 +20,16 @@ import { studentDebtForgivenessData } from "./topics/student-debt-forgiveness";
 import { microplasticsHealthCrisisData } from "./topics/microplastics-health-crisis";
 import { glp1WeightLossDrugsData } from "./topics/glp1-weight-loss-drugs";
 import { aiWhiteCollarDisplacementData } from "./topics/ai-white-collar-displacement";
+import { artificialReproductionEthicsData } from "./topics/artificial-reproduction-ethics";
+import { governmentPlatformBansData } from "./topics/government-platform-bans";
+import { gainOfFunctionResearchBanData } from "./topics/gain-of-function-research-ban";
+import { childrenSmartphoneAgeData } from "./topics/children-smartphone-age";
+import { alternativesToDemocracyData } from "./topics/alternatives-to-democracy";
+import { geoengineeringClimateData } from "./topics/geoengineering-climate";
+import { centralBankDigitalCurrencyData } from "./topics/central-bank-digital-currency";
+import { masculinityCrisisData } from "./topics/masculinity-crisis";
+import { aiDeepfakesTruthCollapseData } from "./topics/ai-deepfakes-truth-collapse";
+import { decliningBirthRatesData } from "./topics/declining-birth-rates";
 
 // ============================================================================
 // Moon Landing Topic
@@ -8489,6 +8499,16 @@ export const studentDebtForgiveness = buildTopic(studentDebtForgivenessData);
 export const microplasticsHealthCrisis = buildTopic(microplasticsHealthCrisisData);
 export const glp1WeightLossDrugs = buildTopic(glp1WeightLossDrugsData);
 export const aiWhiteCollarDisplacement = buildTopic(aiWhiteCollarDisplacementData);
+export const artificialReproductionEthics = buildTopic(artificialReproductionEthicsData);
+export const governmentPlatformBans = buildTopic(governmentPlatformBansData);
+export const gainOfFunctionResearchBan = buildTopic(gainOfFunctionResearchBanData);
+export const childrenSmartphoneAge = buildTopic(childrenSmartphoneAgeData);
+export const alternativesToDemocracy = buildTopic(alternativesToDemocracyData);
+export const geoengineeringClimate = buildTopic(geoengineeringClimateData);
+export const centralBankDigitalCurrency = buildTopic(centralBankDigitalCurrencyData);
+export const masculinityCrisis = buildTopic(masculinityCrisisData);
+export const aiDeepfakesTruthCollapse = buildTopic(aiDeepfakesTruthCollapseData);
+export const decliningBirthRates = buildTopic(decliningBirthRatesData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -8567,6 +8587,18 @@ export const topics: Topic[] = [
   aiConsciousness,
   meaningWithoutReligion,
   consciousnessHardProblem,
+
+  // --- New Topics (March 2026) ---
+  artificialReproductionEthics,
+  governmentPlatformBans,
+  gainOfFunctionResearchBan,
+  childrenSmartphoneAge,
+  alternativesToDemocracy,
+  geoengineeringClimate,
+  centralBankDigitalCurrency,
+  masculinityCrisis,
+  aiDeepfakesTruthCollapse,
+  decliningBirthRates,
 ];
 
 // ============================================================================
@@ -8702,6 +8734,28 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   // Geopolitics & accountability cluster
   "us-iran-conflict": ["surveillance-public-safety", "media-bias-democracy", "lab-leak-theory", "epstein-files"],
   "epstein-files": ["police-reform", "surveillance-public-safety", "media-bias-democracy", "us-iran-conflict"],
+
+  // Reproduction & demographics cluster
+  "artificial-reproduction-ethics": ["gene-editing-embryos", "declining-birth-rates", "longevity-science", "consciousness-hard-problem"],
+  "declining-birth-rates": ["housing-affordability-crisis", "universal-basic-income", "artificial-reproduction-ethics", "masculinity-crisis"],
+
+  // Tech & society cluster (new topics)
+  "government-platform-bans": ["big-tech-antitrust", "surveillance-public-safety", "social-media-age-limits", "ai-deepfakes-truth-collapse"],
+  "children-smartphone-age": ["social-media-age-limits", "social-media-mental-health", "school-phone-bans", "masculinity-crisis"],
+  "ai-deepfakes-truth-collapse": ["ai-content-labeling", "media-bias-democracy", "surveillance-public-safety", "ai-risk"],
+
+  // Policy cluster (new topics)
+  "gain-of-function-research-ban": ["lab-leak-theory", "surveillance-public-safety", "covid-origins", "ai-risk"],
+
+  // Economics cluster (new topics)
+  "central-bank-digital-currency": ["cryptocurrency-value", "surveillance-public-safety", "wealth-tax", "big-tech-antitrust"],
+
+  // Philosophy cluster (new topics)
+  "alternatives-to-democracy": ["mandatory-voting", "electoral-college-reform", "media-bias-democracy", "free-will"],
+  "masculinity-crisis": ["social-media-mental-health", "meaning-without-religion", "children-smartphone-age", "declining-birth-rates"],
+
+  // Climate/environment cluster (new topics)
+  "geoengineering-climate": ["climate-change", "nuclear-energy-safety", "space-colonization-feasibility", "ev-environmental-impact"],
 };
 
 /**
