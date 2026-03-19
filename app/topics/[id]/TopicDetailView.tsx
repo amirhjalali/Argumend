@@ -1372,6 +1372,54 @@ export default function TopicDetailView({
           {/* AI Debate */}
           <DebatePreviewSection topicId={topic.id} topicTitle={topic.title} />
 
+          {/* FAQ Section */}
+          {topic.questions && topic.questions.length > 0 && (
+            <AnimateOnScroll variant="fade-up" delay={100}>
+            <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-sm text-stone-500 mb-6 leading-relaxed">
+                Common questions about this topic, answered with evidence-based reasoning.
+              </p>
+              <div className="space-y-3">
+                {topic.questions.map((q) => (
+                  <details
+                    key={q.id}
+                    className="group rounded-lg border border-stone-200/60 bg-[#faf8f5] overflow-hidden transition-colors hover:border-deep/20"
+                  >
+                    <summary className="flex items-center gap-3 cursor-pointer px-5 py-4 text-sm font-medium text-primary select-none list-none [&::-webkit-details-marker]:hidden">
+                      <ChevronRight className="h-4 w-4 text-stone-400 group-open:rotate-90 transition-transform duration-200 flex-shrink-0" />
+                      <span className="font-serif text-base leading-snug">{q.title}</span>
+                    </summary>
+                    <div className="px-5 pb-5 pl-12">
+                      <p className="text-sm text-stone-600 leading-relaxed">
+                        {q.content}
+                      </p>
+                      {q.references && q.references.length > 0 && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {q.references.map((ref, i) => (
+                            <a
+                              key={i}
+                              href={ref.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs text-deep hover:text-deep-dark transition-colors"
+                            >
+                              <ExternalLink className="h-3 w-3" />
+                              {ref.title}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </section>
+            </AnimateOnScroll>
+          )}
+
           {/* Related Topics */}
           {relatedTopics.length > 0 && (
             <AnimateOnScroll variant="fade-up" delay={100}>

@@ -160,9 +160,24 @@ export default async function TopicPage({ params }: PageProps) {
     }),
   };
 
+  // FAQ JSON-LD structured data (FAQPage schema for AEO)
+  const faqJsonLd = topic.questions?.length ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: topic.questions.map(q => ({
+      "@type": "Question",
+      name: q.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: q.content,
+      },
+    })),
+  } : null;
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      {faqJsonLd && <JsonLd data={faqJsonLd as unknown as Record<string, unknown>} />}
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
