@@ -1489,6 +1489,30 @@ export function getArticleBySlug(slug: string): BlogArticle | undefined {
   return articles.find((a) => a.slug === slug);
 }
 
+export function getUniqueCategories(): string[] {
+  return [...new Set(articles.map((a) => a.category))];
+}
+
+export function getUniqueTags(): string[] {
+  return [...new Set(articles.flatMap((a) => a.tags))];
+}
+
+export function getArticlesByCategory(category: string): BlogArticle[] {
+  return articles.filter((a) => a.category === category);
+}
+
+export function getArticlesByTag(tag: string): BlogArticle[] {
+  return articles.filter((a) => a.tags.includes(tag));
+}
+
+export function categoryToSlug(category: string): string {
+  return category.toLowerCase().replace(/[&\s]+/g, "-").replace(/-+/g, "-");
+}
+
+export function tagToSlug(tag: string): string {
+  return tag.toLowerCase().replace(/\s+/g, "-");
+}
+
 export function getRelatedArticles(
   currentSlug: string,
   count: number = 3,

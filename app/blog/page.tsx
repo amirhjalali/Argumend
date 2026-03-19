@@ -1,10 +1,16 @@
 import Link from "next/link";
-import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Rss, Tag } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { articles } from "@/data/blog";
+import {
+  articles,
+  getUniqueCategories,
+  getUniqueTags,
+  categoryToSlug,
+  tagToSlug,
+} from "@/data/blog";
 
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -15,6 +21,20 @@ function formatDate(iso: string): string {
 }
 
 export default function BlogPage() {
+  const categories = getUniqueCategories();
+  const allTags = getUniqueTags();
+
+  // Count tag frequency to show popular tags first
+  const tagCounts = new Map<string, number>();
+  for (const article of articles) {
+    for (const tag of article.tags) {
+      tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+    }
+  }
+  const popularTags = allTags
+    .sort((a, b) => (tagCounts.get(b) ?? 0) - (tagCounts.get(a) ?? 0))
+    .slice(0, 15);
+
   const blogJsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -68,6 +88,60 @@ export default function BlogPage() {
               productive disagreement. Written to help you think more clearly
               about the topics that matter most.
             </p>
+
+            {/* RSS link */}
+            <div className="mt-4">
+              <Link
+                href="/feed.xml"
+                className="inline-flex items-center gap-1.5 text-sm text-deep hover:text-deep-dark transition-colors"
+              >
+                <Rss className="h-3.5 w-3.5" />
+                <span>RSS Feed</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Category & Tag Navigation */}
+        <div className="mx-auto max-w-4xl px-4 md:px-8 pt-8 md:pt-10">
+          {/* Categories */}
+          <div className="mb-6">
+            <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-3">
+              Browse by Category
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {categories.map((cat) => (
+                <Link
+                  key={cat}
+                  href={`/blog/category/${categoryToSlug(cat)}`}
+                  className="inline-flex items-center rounded-full border border-stone-200/80 bg-[#faf8f5] px-3.5 py-1.5 text-xs font-medium text-secondary hover:border-deep/40 hover:text-deep hover:bg-deep/5 transition-all duration-150"
+                >
+                  {cat}
+                  <span className="ml-1.5 text-[10px] text-stone-400">
+                    {articles.filter((a) => a.category === cat).length}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Popular Tags */}
+          <div>
+            <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-3">
+              Popular Tags
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {popularTags.map((tag) => (
+                <Link
+                  key={tag}
+                  href={`/blog/tag/${tagToSlug(tag)}`}
+                  className="inline-flex items-center gap-1 rounded-md bg-stone-100 hover:bg-deep/10 px-2.5 py-1 text-[11px] text-stone-500 hover:text-deep transition-all duration-150"
+                >
+                  <Tag className="h-2.5 w-2.5" />
+                  {tag}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 

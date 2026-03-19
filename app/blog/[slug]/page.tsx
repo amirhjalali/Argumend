@@ -7,7 +7,13 @@ import {
   Tag,
   User,
 } from "lucide-react";
-import { articles, getArticleBySlug, getRelatedArticles } from "@/data/blog";
+import {
+  articles,
+  getArticleBySlug,
+  getRelatedArticles,
+  categoryToSlug,
+  tagToSlug,
+} from "@/data/blog";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { ShareButtons } from "@/components/ShareButtons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -191,9 +197,12 @@ export default async function BlogArticlePage({ params }: PageProps) {
             />
 
             {/* Category */}
-            <span className="inline-flex items-center rounded-full bg-deep/10 border border-deep/20 px-3 py-1 text-xs font-medium text-deep mb-4">
+            <Link
+              href={`/blog/category/${categoryToSlug(article.category)}`}
+              className="inline-flex items-center rounded-full bg-deep/10 border border-deep/20 px-3 py-1 text-xs font-medium text-deep mb-4 hover:bg-deep/20 transition-colors"
+            >
               {article.category}
-            </span>
+            </Link>
 
             {/* Title */}
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
@@ -248,13 +257,14 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 Tags:
               </span>
               {article.tags.map((tag) => (
-                <span
+                <Link
                   key={tag}
-                  className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2.5 py-1 text-xs text-secondary"
+                  href={`/blog/tag/${tagToSlug(tag)}`}
+                  className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2.5 py-1 text-xs text-secondary hover:bg-deep/10 hover:text-deep transition-colors"
                 >
                   <Tag className="h-2.5 w-2.5" />
                   {tag}
-                </span>
+                </Link>
               ))}
             </div>
           </div>

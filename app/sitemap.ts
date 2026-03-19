@@ -1,7 +1,13 @@
 import { MetadataRoute } from "next";
 import { topics } from "@/data/topics";
 import { guides } from "@/data/guides";
-import { articles } from "@/data/blog";
+import {
+  articles,
+  getUniqueCategories,
+  getUniqueTags,
+  categoryToSlug,
+  tagToSlug,
+} from "@/data/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://argumend.org";
@@ -102,11 +108,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
   const blogPages = [blogIndexPage, ...blogArticlePages];
 
+  // ── Blog category pages ─────────────────────────────────────────────
+  const blogCategoryPages = getUniqueCategories().map((cat) => ({
+    url: `${baseUrl}/blog/category/${categoryToSlug(cat)}`,
+    lastModified: latestArticleDate,
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  }));
+
+  // ── Blog tag pages ──────────────────────────────────────────────────
+  const blogTagPages = getUniqueTags().map((tag) => ({
+    url: `${baseUrl}/blog/tag/${tagToSlug(tag)}`,
+    lastModified: latestArticleDate,
+    changeFrequency: "weekly" as const,
+    priority: 0.4,
+  }));
+
   return [
     ...staticPages,
     ...topicPages,
     ...guidePages,
     ...conceptPages,
     ...blogPages,
+    ...blogCategoryPages,
+    ...blogTagPages,
   ];
 }
