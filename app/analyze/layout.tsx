@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Analyze Arguments — AI Argument Analysis Tool",
@@ -20,6 +21,51 @@ export const metadata: Metadata = {
   },
 };
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Analyze Arguments with Argumend",
+  description:
+    "Use AI to break down any article, transcript, or claim into a structured argument map with evidence weighting and confidence scores.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Paste your content",
+      text: "Copy and paste any article, transcript, social media post, or claim you want to analyze.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "AI extracts the argument structure",
+      text: "Our AI identifies the central claim, supporting and opposing arguments, evidence, and logical structure.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Review the argument map",
+      text: "Explore the visual argument map showing pillars of disagreement, weighted evidence, and crux questions.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "Evaluate the evidence",
+      text: "See how each piece of evidence scores on reliability, independence, replicability, and directness.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 5,
+      name: "Check the confidence score",
+      text: "Get a quantified confidence score (0-100) showing how strongly the evidence supports or undermines the claim.",
+    },
+  ],
+};
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <JsonLd data={howToJsonLd} />
+      {children}
+    </>
+  );
 }
