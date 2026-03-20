@@ -31,6 +31,12 @@ export const metadata: Metadata = {
       "Compare controversial debates side by side. See confidence scores, evidence, and argument pillars for two topics at once.",
     url: "https://argumend.org/topics/compare",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare Topics Side by Side — Argumend",
+    description:
+      "Pick any two controversial topics and compare evidence, confidence scores, and argument pillars.",
+  },
 };
 
 // ---------------------------------------------------------------------------
