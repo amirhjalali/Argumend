@@ -34,6 +34,7 @@ import {
   Swords,
   Sword,
   Quote,
+  Printer,
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import { AppShell } from "@/components/AppShell";
@@ -836,6 +837,15 @@ export default function TopicDetailView({
                 <EmbedButton topicId={topic.id} />
                 <SaveTopicButton topicId={topic.id} />
                 <SubscribeButton topicId={topic.id} />
+                <button
+                  type="button"
+                  onClick={() => window.print()}
+                  className="no-print inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-700 hover:bg-stone-100 transition-colors"
+                  title="Print this analysis"
+                >
+                  <Printer className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">Print</span>
+                </button>
               </div>
               <DepthSelector depth={depth} onChange={handleDepthChange} />
             </div>

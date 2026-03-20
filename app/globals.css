@@ -736,3 +736,42 @@ html {
 .react-flow__node:hover {
   z-index: 1000 !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Print Stylesheet
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media print {
+  /* Hide navigation, sidebar, footer, buttons */
+  nav, aside, footer, button,
+  .no-print,
+  [role="banner"],
+  [role="navigation"] { display: none !important; }
+
+  /* Reset background to white for printing */
+  body, main { background: white !important; color: black !important; }
+  body::before, body::after { display: none !important; }
+
+  /* Ensure text is readable */
+  * { color: black !important; }
+
+  /* Show URLs after links */
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666 !important; }
+  a[href^="/"]::after { content: " (argumend.org" attr(href) ")"; }
+  a[href^="#"]::after { content: ""; }
+
+  /* Page breaks */
+  h2, h3 { break-after: avoid; }
+  .pillar-card { break-inside: avoid; }
+
+  /* Expand all details/summary elements */
+  details[open] > summary { list-style: none; }
+  details > *:not(summary) { display: block !important; }
+
+  /* Remove shadows and decorative elements */
+  .shadow-sm, .shadow-md, .shadow-lg, .shadow-card { box-shadow: none !important; }
+  .btn-lift, .card-hover { transform: none !important; }
+
+  /* Ensure borders print well */
+  .border { border-color: #ccc !important; }
+}
