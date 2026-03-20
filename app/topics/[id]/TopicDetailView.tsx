@@ -35,6 +35,13 @@ import {
   Sword,
   Quote,
   Printer,
+  Copy,
+  Check,
+  Compass,
+  Search,
+  BookOpen as BookOpenIcon,
+  Layers,
+  GitCompare,
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import { AppShell } from "@/components/AppShell";
@@ -404,21 +411,22 @@ function PillarSection({
 }
 
 // ---------------------------------------------------------------------------
-// Related Topic Card
+// Related Topic Card (Enhanced)
 // ---------------------------------------------------------------------------
 
-function RelatedTopicCard({ topic }: { topic: Topic }) {
+function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopicId?: string }) {
   const StatusIcon = statusIcons[topic.status];
   const confPct = Math.min(topic.confidence_score, 100);
 
   return (
-    <Link
-      href={`/topics/${topic.id}`}
+    <div
       className={`group flex flex-col bg-white border border-stone-200/60 border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 card-hover`}
     >
-      <h3 className="font-serif text-base text-primary group-hover:text-deep transition-colors leading-snug mb-1.5">
-        {topic.title}
-      </h3>
+      <Link href={`/topics/${topic.id}`} className="block mb-1.5">
+        <h3 className="font-serif text-base text-primary group-hover:text-deep transition-colors leading-snug">
+          {topic.title}
+        </h3>
+      </Link>
       <p className="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-4 flex-1">
         {topic.meta_claim}
       </p>
@@ -449,7 +457,7 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
         </div>
       </div>
 
-      <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center justify-between gap-2 mb-3">
         <div className="flex flex-wrap items-center gap-1.5">
           {/* Category pill */}
           <span
@@ -465,9 +473,330 @@ function RelatedTopicCard({ topic }: { topic: Topic }) {
             {statusLabels[topic.status]}
           </span>
         </div>
-        <ArrowRight className="h-3.5 w-3.5 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 transition-all flex-shrink-0" />
       </div>
-    </Link>
+
+      {/* Action links */}
+      <div className="flex items-center gap-3 pt-2 border-t border-stone-100">
+        <Link
+          href={`/topics/${topic.id}`}
+          className="inline-flex items-center gap-1 text-xs font-medium text-deep hover:text-deep-dark transition-colors"
+        >
+          Read analysis
+          <ArrowRight className="h-3 w-3" />
+        </Link>
+        {currentTopicId && (
+          <Link
+            href={`/topics/compare/${currentTopicId}/vs/${topic.id}`}
+            className="inline-flex items-center gap-1 text-xs font-medium text-stone-500 hover:text-deep transition-colors"
+          >
+            <GitCompare className="h-3 w-3" />
+            Compare
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Key Takeaways Box
+// ---------------------------------------------------------------------------
+
+function KeyTakeawaysBox({
+  topic,
+  totalEvidence,
+  totalFor,
+  totalAgainst,
+}: {
+  topic: Topic;
+  totalEvidence: number;
+  totalFor: number;
+  totalAgainst: number;
+}) {
+  const StatusIcon = statusIcons[topic.status];
+  const totalCruxes = topic.pillars.length; // One crux per pillar
+
+  return (
+    <div className="rounded-xl border border-stone-200/60 bg-gradient-to-br from-[#faf8f5] to-[#f4f1eb] p-6 sm:p-8 mb-8">
+      <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4">
+        Key Takeaways
+      </p>
+
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-6">
+        {/* Confidence score large */}
+        <div className="flex items-center gap-4">
+          <span
+            className={`text-4xl sm:text-5xl font-mono font-bold tabular-nums leading-none ${
+              topic.confidence_score >= 85
+                ? "text-emerald-700"
+                : topic.confidence_score >= 60
+                  ? "text-deep"
+                  : topic.confidence_score >= 40
+                    ? "text-rust-700"
+                    : "text-stone-600"
+            }`}
+          >
+            {topic.confidence_score}%
+          </span>
+          <div className="flex flex-col gap-1">
+            <span className="text-sm font-medium text-primary leading-tight">
+              {getVerdictLabel(topic.confidence_score)}
+            </span>
+            <span
+              className={`inline-flex items-center gap-1 w-fit px-2 py-0.5 rounded-full text-[11px] font-medium border ${statusColors[topic.status]}`}
+            >
+              <StatusIcon className="h-3 w-3" />
+              {statusLabels[topic.status]}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="rounded-lg bg-white/60 border border-stone-200/40 p-3 text-center">
+          <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
+            {topic.pillars.length}
+          </span>
+          <span className="text-xs text-stone-500">Pillars Analyzed</span>
+        </div>
+        <div className="rounded-lg bg-white/60 border border-stone-200/40 p-3 text-center">
+          <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
+            {totalEvidence}
+          </span>
+          <span className="text-xs text-stone-500">Evidence Items</span>
+        </div>
+        <div className="rounded-lg bg-white/60 border border-stone-200/40 p-3 text-center">
+          <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
+            {totalCruxes}
+          </span>
+          <span className="text-xs text-stone-500">Cruxes Identified</span>
+        </div>
+        <div className="rounded-lg bg-white/60 border border-stone-200/40 p-3 text-center">
+          <span className="block text-lg font-mono font-semibold text-rust-700 tabular-nums">
+            {totalFor}
+          </span>
+          <span className="text-xs text-stone-500">For</span>
+          <span className="text-xs text-stone-400 mx-1">/</span>
+          <span className="block text-lg font-mono font-semibold text-stone-600 tabular-nums inline">
+            {totalAgainst}
+          </span>
+          <span className="text-xs text-stone-500 ml-0.5">Against</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Quick Stats Bar
+// ---------------------------------------------------------------------------
+
+function QuickStatsBar({
+  topic,
+  totalFor,
+  totalAgainst,
+}: {
+  topic: Topic;
+  totalFor: number;
+  totalAgainst: number;
+}) {
+  // Count verification statuses across all cruxes
+  const verificationCounts = topic.pillars.reduce(
+    (acc, p) => {
+      const status = p.crux.verification_status;
+      acc[status] = (acc[status] || 0) + 1;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
+
+  return (
+    <div className="rounded-xl border border-stone-200/60 bg-white/60 p-4 mb-8">
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        {/* Evidence For */}
+        <div className="flex items-center gap-2.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-rust-500" />
+          <div>
+            <span className="text-sm font-mono font-semibold text-rust-700 tabular-nums">
+              {totalFor}
+            </span>
+            <span className="text-xs text-stone-500 ml-1.5">Evidence For</span>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="hidden sm:block h-6 w-px bg-stone-200/80" />
+
+        {/* Evidence Against */}
+        <div className="flex items-center gap-2.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-stone-400" />
+          <div>
+            <span className="text-sm font-mono font-semibold text-stone-600 tabular-nums">
+              {totalAgainst}
+            </span>
+            <span className="text-xs text-stone-500 ml-1.5">Evidence Against</span>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="hidden sm:block h-6 w-px bg-stone-200/80" />
+
+        {/* Cruxes */}
+        <div className="flex items-center gap-2.5">
+          <FlaskConical className="h-3.5 w-3.5 text-deep" />
+          <div>
+            <span className="text-sm font-mono font-semibold text-primary tabular-nums">
+              {topic.pillars.length}
+            </span>
+            <span className="text-xs text-stone-500 ml-1.5">Cruxes</span>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="hidden sm:block h-6 w-px bg-stone-200/80" />
+
+        {/* Verification breakdown */}
+        <div className="flex items-center gap-2.5">
+          <Shield className="h-3.5 w-3.5 text-emerald-600" />
+          <div className="flex items-center gap-1.5">
+            {verificationCounts.verified ? (
+              <span className="text-xs text-emerald-700 font-medium">
+                {verificationCounts.verified} verified
+              </span>
+            ) : null}
+            {verificationCounts.theoretical ? (
+              <span className="text-xs text-deep font-medium">
+                {verificationCounts.verified ? ", " : ""}{verificationCounts.theoretical} theoretical
+              </span>
+            ) : null}
+            {verificationCounts.impossible ? (
+              <span className="text-xs text-stone-500 font-medium">
+                {(verificationCounts.verified || verificationCounts.theoretical) ? ", " : ""}{verificationCounts.impossible} impossible
+              </span>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Copy Link Button (standalone prominent)
+// ---------------------------------------------------------------------------
+
+function CopyLinkButton({ url }: { url: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = url;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+        copied
+          ? "bg-emerald-50 text-emerald-700 border border-emerald-200/60"
+          : "bg-white text-stone-600 border border-stone-200/60 hover:bg-stone-50 hover:border-stone-300"
+      }`}
+    >
+      {copied ? (
+        <>
+          <Check className="h-3.5 w-3.5" />
+          Link copied!
+        </>
+      ) : (
+        <>
+          <Copy className="h-3.5 w-3.5" />
+          Copy link
+        </>
+      )}
+    </button>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Explore More CTA Section
+// ---------------------------------------------------------------------------
+
+function ExploreMoreSection() {
+  const cards = [
+    {
+      title: "Analyze your own content",
+      description: "Submit a claim and get an evidence-based analysis with weighted arguments.",
+      href: "/analyze",
+      icon: Search,
+      cta: "Start analyzing",
+    },
+    {
+      title: "Browse all topics",
+      description: "Explore our full library of argument analyses across every category.",
+      href: "/topics",
+      icon: Compass,
+      cta: "View topics",
+    },
+    {
+      title: "Learn the methodology",
+      description: "Understand how arguments are structured and evidence is weighted.",
+      href: "/methodology",
+      icon: Layers,
+      cta: "Read methodology",
+    },
+  ];
+
+  return (
+    <section className="mb-8">
+      <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2">
+        Explore More
+      </h2>
+      <p className="text-sm text-stone-500 mb-5">
+        Dive deeper into evidence-based reasoning and argument analysis.
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {cards.map((card) => {
+          const Icon = card.icon;
+          return (
+            <Link
+              key={card.href}
+              href={card.href}
+              className="group flex flex-col rounded-xl border border-stone-200/60 bg-white p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+            >
+              <div className="flex items-center gap-2.5 mb-3">
+                <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
+                  <Icon className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-serif text-sm font-semibold text-primary group-hover:text-deep transition-colors leading-snug">
+                  {card.title}
+                </h3>
+              </div>
+              <p className="text-xs text-stone-500 leading-relaxed flex-1 mb-3">
+                {card.description}
+              </p>
+              <span className="inline-flex items-center gap-1 text-xs font-medium text-deep group-hover:text-deep-dark transition-colors">
+                {card.cta}
+                <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+              </span>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
@@ -834,6 +1163,7 @@ export default function TopicDetailView({
                   url={`https://argumend.org/topics/${topic.id}`}
                   description={`${topic.meta_claim} — ${getVerdictLabel(topic.confidence_score)}`}
                 />
+                <CopyLinkButton url={`https://argumend.org/topics/${topic.id}`} />
                 <EmbedButton topicId={topic.id} />
                 <SaveTopicButton topicId={topic.id} />
                 <SubscribeButton topicId={topic.id} />
@@ -891,6 +1221,25 @@ export default function TopicDetailView({
               )}
             </div>
           </header>
+          </AnimateOnScroll>
+
+          {/* ── Key Takeaways ── */}
+          <AnimateOnScroll variant="fade-up" delay={50}>
+            <KeyTakeawaysBox
+              topic={topic}
+              totalEvidence={totalEvidence}
+              totalFor={totalFor}
+              totalAgainst={totalAgainst}
+            />
+          </AnimateOnScroll>
+
+          {/* ── Quick Stats Bar ── */}
+          <AnimateOnScroll variant="fade-up" delay={80}>
+            <QuickStatsBar
+              topic={topic}
+              totalFor={totalFor}
+              totalAgainst={totalAgainst}
+            />
           </AnimateOnScroll>
 
           {/* ── Controversy Meter ── */}
@@ -1431,43 +1780,57 @@ export default function TopicDetailView({
           )}
 
           {/* Related Topics */}
-          {relatedTopics.length > 0 && (
+          {(relatedTopics.length > 0 || crossCategoryTopics.length > 0) && (
             <AnimateOnScroll variant="fade-up" delay={100}>
             <section className="mb-8">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2">
                 Related Topics
               </h2>
-              <p className="text-sm text-stone-500 mb-5">
-                More from the{" "}
-                <span className="capitalize font-medium text-stone-600">
-                  {CATEGORY_LABELS[topic.category]}
-                </span>{" "}
-                category.
+              <p className="text-sm text-stone-500 mb-6">
+                Explore related debates and compare arguments across topics.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-children">
-                {relatedTopics.map((rt) => (
-                  <RelatedTopicCard key={rt.id} topic={rt} />
-                ))}
-              </div>
-            </section>
-            </AnimateOnScroll>
-          )}
 
-          {/* Cross-Category Related Topics */}
-          {crossCategoryTopics.length > 0 && (
-            <AnimateOnScroll variant="fade-up" delay={100}>
-            <section className="mb-8">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
-                You might also find relevant
-              </h2>
-              <p className="text-sm text-stone-500 mb-5">
-                Related debates from other categories that share underlying themes with this topic.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-children">
-                {crossCategoryTopics.map((rt) => (
-                  <RelatedTopicCard key={rt.id} topic={rt} />
-                ))}
-              </div>
+              {/* Same-category related */}
+              {relatedTopics.length > 0 && (
+                <div className="mb-8">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="h-px flex-1 bg-stone-200/60" />
+                    <span className="text-xs font-medium text-stone-500 uppercase tracking-widest px-2">
+                      Same Category &mdash;{" "}
+                      <span className="capitalize text-stone-600">
+                        {CATEGORY_LABELS[topic.category]}
+                      </span>
+                    </span>
+                    <div className="h-px flex-1 bg-stone-200/60" />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-children">
+                    {relatedTopics.map((rt) => (
+                      <RelatedTopicCard key={rt.id} topic={rt} currentTopicId={topic.id} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Cross-category related */}
+              {crossCategoryTopics.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="h-px flex-1 bg-stone-200/60" />
+                    <span className="text-xs font-medium text-stone-500 uppercase tracking-widest px-2">
+                      Across Categories
+                    </span>
+                    <div className="h-px flex-1 bg-stone-200/60" />
+                  </div>
+                  <p className="text-xs text-stone-500 mb-4">
+                    Related debates from other categories that share underlying themes with this topic.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-children">
+                    {crossCategoryTopics.map((rt) => (
+                      <RelatedTopicCard key={rt.id} topic={rt} currentTopicId={topic.id} />
+                    ))}
+                  </div>
+                </div>
+              )}
             </section>
             </AnimateOnScroll>
           )}
@@ -1497,6 +1860,11 @@ export default function TopicDetailView({
             </div>
           </section>
 
+          {/* Explore More CTA */}
+          <AnimateOnScroll variant="fade-up" delay={100}>
+            <ExploreMoreSection />
+          </AnimateOnScroll>
+
           {/* Share CTA */}
           <div className="mt-12 p-6 rounded-xl bg-[#faf8f5] border border-stone-200/60 text-center mb-8">
             <h3 className="font-serif text-lg text-primary mb-2">Found this analysis useful?</h3>
@@ -1507,6 +1875,7 @@ export default function TopicDetailView({
                 url={`https://argumend.org/topics/${topic.id}`}
                 description={topic.meta_claim}
               />
+              <CopyLinkButton url={`https://argumend.org/topics/${topic.id}`} />
             </div>
           </div>
 
