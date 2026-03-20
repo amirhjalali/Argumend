@@ -69,6 +69,7 @@ import { ControversyMeter } from "@/components/ControversyMeter";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { hasTimeline, getTimeline } from "@/lib/topicTimelines";
 import { ConfidenceTimeline } from "@/components/ConfidenceTimeline";
+import { VerdictVoting } from "@/components/VerdictVoting";
 
 // Heavy component — only rendered when a verdict exists
 const JudgingResults = dynamic(
@@ -1778,6 +1779,15 @@ export default function TopicDetailView({
             </section>
             </AnimateOnScroll>
           )}
+
+          {/* What's Your Verdict? — User Voting */}
+          <AnimateOnScroll variant="fade-up" delay={100}>
+            <VerdictVoting
+              topicId={topic.id}
+              topicTitle={topic.title}
+              confidenceScore={topic.confidence_score}
+            />
+          </AnimateOnScroll>
 
           {/* Related Topics */}
           {(relatedTopics.length > 0 || crossCategoryTopics.length > 0) && (
