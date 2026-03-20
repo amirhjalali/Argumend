@@ -274,7 +274,7 @@ export default function GlossaryPage() {
               <a
                 key={letter}
                 href={`#letter-${letter}`}
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-stone-200/60 text-sm font-mono font-medium text-stone-500 hover:border-deep/30 hover:text-deep hover:bg-deep/5 transition-colors"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-stone-200/60 dark:border-[#3d3a36] text-sm font-mono font-medium text-stone-500 dark:text-stone-400 hover:border-deep/30 hover:text-deep hover:bg-deep/5 dark:hover:bg-deep/10 transition-colors"
               >
                 {letter}
               </a>
@@ -288,7 +288,7 @@ export default function GlossaryPage() {
             <a
               key={cat}
               href={`#${cat}`}
-              className="px-3 py-1.5 text-sm rounded-full border border-stone-200/60 text-secondary hover:border-deep/30 hover:text-deep transition-colors"
+              className="px-3 py-1.5 text-sm rounded-full border border-stone-200/60 dark:border-[#3d3a36] text-secondary hover:border-deep/30 hover:text-deep transition-colors"
             >
               {categoryLabels[cat]}
             </a>
@@ -300,7 +300,7 @@ export default function GlossaryPage() {
           const catTerms = terms.filter((t) => t.category === cat);
           return (
             <section key={cat} id={cat} className="mb-12">
-              <h2 className="font-serif text-2xl text-primary mb-6 pb-2 border-b border-stone-200/60">
+              <h2 className="font-serif text-2xl text-primary mb-6 pb-2 border-b border-stone-200/60 dark:border-[#3d3a36]">
                 {categoryLabels[cat]}
               </h2>
               <dl className="space-y-6">
@@ -352,7 +352,7 @@ export default function GlossaryPage() {
 
         {/* All Terms A-Z */}
         <section id="all-terms" className="mb-12">
-          <h2 className="font-serif text-2xl text-primary mb-6 pb-2 border-b border-stone-200/60">
+          <h2 className="font-serif text-2xl text-primary mb-6 pb-2 border-b border-stone-200/60 dark:border-[#3d3a36]">
             All Terms A&ndash;Z
           </h2>
           <div className="columns-1 sm:columns-2 gap-6">
@@ -375,7 +375,7 @@ export default function GlossaryPage() {
         </section>
 
         {/* CTA */}
-        <div className="mt-14 p-6 rounded-xl bg-[#faf8f5] border border-stone-200/60 text-center">
+        <div className="mt-14 p-6 rounded-xl bg-[#faf8f5] dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] text-center">
           <h3 className="font-serif text-xl text-primary mb-2">
             See These Concepts in Action
           </h3>

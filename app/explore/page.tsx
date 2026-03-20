@@ -216,25 +216,25 @@ export default function ExplorePage() {
           </div>
 
           {/* Stats Bar */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-8 py-4 px-5 bg-white rounded-xl border border-stone-200/60 shadow-card">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-8 py-4 px-5 bg-white dark:bg-[#252420] rounded-xl border border-stone-200/60 dark:border-[#3d3a36] shadow-card">
             <div className="flex items-center gap-2">
               <Layers className="h-4 w-4 text-deep" />
-              <span className="text-sm text-stone-600">
-                <span className="font-mono font-semibold text-stone-800">
+              <span className="text-sm text-stone-600 dark:text-stone-400">
+                <span className="font-mono font-semibold text-stone-800 dark:text-stone-200">
                   {totalTopics}
                 </span>{" "}
                 topics across{" "}
-                <span className="font-mono font-semibold text-stone-800">
+                <span className="font-mono font-semibold text-stone-800 dark:text-stone-200">
                   {totalCategories}
                 </span>{" "}
                 categories
               </span>
             </div>
-            <div className="hidden sm:block h-4 w-px bg-stone-200" />
+            <div className="hidden sm:block h-4 w-px bg-stone-200 dark:bg-[#3d3a36]" />
             <div className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4 text-deep" />
-              <span className="text-sm text-stone-600">
-                <span className="font-mono font-semibold text-stone-800">
+              <span className="text-sm text-stone-600 dark:text-stone-400">
+                <span className="font-mono font-semibold text-stone-800 dark:text-stone-200">
                   {totalEvidence.toLocaleString()}
                 </span>{" "}
                 evidence items analyzed
@@ -249,7 +249,7 @@ export default function ExplorePage() {
               className={`px-4 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition-all ${
                 activeCategory === "all"
                   ? "bg-deep text-white shadow-sm"
-                  : "bg-white text-stone-500 border border-stone-200/60 hover:border-deep/30 hover:text-stone-700"
+                  : "bg-white dark:bg-[#252420] text-stone-500 border border-stone-200/60 dark:border-[#3d3a36] hover:border-deep/30 hover:text-stone-700 dark:hover:text-stone-300"
               }`}
             >
               All ({categoryCounts.all})
@@ -261,7 +261,7 @@ export default function ExplorePage() {
                 className={`px-4 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition-all ${
                   activeCategory === cat
                     ? "bg-deep text-white shadow-sm"
-                    : "bg-white text-stone-500 border border-stone-200/60 hover:border-deep/30 hover:text-stone-700"
+                    : "bg-white dark:bg-[#252420] text-stone-500 border border-stone-200/60 dark:border-[#3d3a36] hover:border-deep/30 hover:text-stone-700 dark:hover:text-stone-300"
                 }`}
               >
                 {CATEGORY_LABELS[cat]} ({categoryCounts[cat]})
@@ -276,7 +276,7 @@ export default function ExplorePage() {
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                 activeStatus === "all"
                   ? "bg-stone-700 text-white shadow-sm"
-                  : "bg-white text-stone-500 border border-stone-200/60 hover:border-stone-300 hover:text-stone-700"
+                  : "bg-white dark:bg-[#252420] text-stone-500 border border-stone-200/60 dark:border-[#3d3a36] hover:border-stone-300 dark:hover:border-[#4a4640] hover:text-stone-700 dark:hover:text-stone-300"
               }`}
             >
               All Statuses
@@ -290,7 +290,7 @@ export default function ExplorePage() {
                   className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                     activeStatus === status
                       ? "bg-stone-700 text-white shadow-sm"
-                      : "bg-white text-stone-500 border border-stone-200/60 hover:border-stone-300 hover:text-stone-700"
+                      : "bg-white dark:bg-[#252420] text-stone-500 border border-stone-200/60 dark:border-[#3d3a36] hover:border-stone-300 dark:hover:border-[#4a4640] hover:text-stone-700 dark:hover:text-stone-300"
                   }`}
                 >
                   <Icon className="h-3 w-3" />
@@ -310,7 +310,7 @@ export default function ExplorePage() {
                 onChange={(e) => handleSearchChange(e.target.value)}
                 placeholder="Search by title, claim, or keyword..."
                 aria-label="Search topics"
-                className="w-full pl-9 pr-9 py-2.5 min-h-[44px] text-sm bg-white border border-stone-200/60 rounded-lg text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
+                className="w-full pl-9 pr-9 py-2.5 min-h-[44px] text-sm bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] rounded-lg text-stone-700 dark:text-stone-300 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               />
               {searchInput && (
                 <button
@@ -332,7 +332,7 @@ export default function ExplorePage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="text-sm px-3 py-2.5 min-h-[44px] rounded-lg border border-stone-200/60 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
+                className="text-sm px-3 py-2.5 min-h-[44px] rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-stone-700 dark:text-stone-300 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               >
                 {SORT_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -347,7 +347,7 @@ export default function ExplorePage() {
           <div className="flex items-center justify-between mb-5">
             <p className="text-sm text-stone-500">
               Showing{" "}
-              <span className="font-semibold text-stone-700">
+              <span className="font-semibold text-stone-700 dark:text-stone-300">
                 {filteredTopics.length}
               </span>{" "}
               of {totalTopics} topics
@@ -365,9 +365,9 @@ export default function ExplorePage() {
 
           {/* Topic Grid */}
           {filteredTopics.length === 0 ? (
-            <div className="text-center py-20 bg-white rounded-xl border border-stone-200/60">
+            <div className="text-center py-20 bg-white dark:bg-[#252420] rounded-xl border border-stone-200/60 dark:border-[#3d3a36]">
               <SearchX className="h-10 w-10 text-stone-300 mx-auto mb-4" />
-              <p className="text-stone-600 font-medium mb-1">No topics found</p>
+              <p className="text-stone-600 dark:text-stone-400 font-medium mb-1">No topics found</p>
               <p className="text-sm text-stone-500 mb-5 max-w-xs mx-auto">
                 Try adjusting your search terms or clearing the filters to
                 browse all {totalTopics} topics.
@@ -389,7 +389,7 @@ export default function ExplorePage() {
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className={`group flex flex-col bg-white border border-stone-200/60 border-t-[3px] rounded-xl p-5 pb-4 shadow-card hover:border-x-deep/30 hover:border-b-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in card-hover ${categoryTopBorder[topic.category]}`}
+                    className={`group flex flex-col bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] border-t-[3px] rounded-xl p-5 pb-4 shadow-card hover:border-x-deep/30 hover:border-b-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in card-hover ${categoryTopBorder[topic.category]}`}
                     style={{ animationDelay: `${Math.min(index, 11) * 50}ms` }}
                   >
                     {/* Category badge */}
@@ -400,7 +400,7 @@ export default function ExplorePage() {
                     </span>
 
                     {/* Title */}
-                    <h2 className="font-serif text-lg text-stone-900 group-hover:text-deep transition-colors leading-snug mb-2">
+                    <h2 className="font-serif text-lg text-stone-900 dark:text-stone-100 group-hover:text-deep transition-colors leading-snug mb-2">
                       {topic.title}
                     </h2>
 
@@ -412,7 +412,7 @@ export default function ExplorePage() {
                     {/* Confidence score bar */}
                     <div className="flex items-center gap-2.5 mb-3">
                       <div
-                        className="h-1.5 flex-1 bg-stone-100 rounded-full overflow-hidden"
+                        className="h-1.5 flex-1 bg-stone-100 dark:bg-[#3d3a36] rounded-full overflow-hidden"
                         role="meter"
                         aria-valuenow={topic.confidence_score}
                         aria-valuemin={0}
@@ -425,13 +425,13 @@ export default function ExplorePage() {
                           aria-hidden="true"
                         />
                       </div>
-                      <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600">
+                      <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600 dark:text-stone-400">
                         {topic.confidence_score}%
                       </span>
                     </div>
 
                     {/* Footer: status + counts + CTA */}
-                    <div className="flex items-center justify-between gap-2 pt-3 mt-auto border-t border-stone-100">
+                    <div className="flex items-center justify-between gap-2 pt-3 mt-auto border-t border-stone-100 dark:border-[#3d3a36]">
                       <div className="flex flex-wrap items-center gap-1.5">
                         {/* Status pill */}
                         <span
@@ -466,7 +466,7 @@ export default function ExplorePage() {
           )}
 
           {/* Footer */}
-          <div className="mt-10 pt-6 border-t border-stone-200/60">
+          <div className="mt-10 pt-6 border-t border-stone-200/60 dark:border-[#3d3a36]">
             <p className="text-sm text-stone-500">
               {totalTopics} topics mapped with {totalEvidence.toLocaleString()}{" "}
               evidence items. Click any topic to read its full analysis with

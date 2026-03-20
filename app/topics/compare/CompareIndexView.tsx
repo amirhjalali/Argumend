@@ -73,11 +73,11 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
   return (
     <Link
       href={`/topics/compare/${pair.id1}/vs/${pair.id2}`}
-      className="group flex flex-col rounded-xl border border-stone-200/60 bg-transparent hover:border-deep/30 hover:shadow-md transition-all card-hover overflow-hidden"
+      className="group flex flex-col rounded-xl border border-stone-200/60 dark:border-[#3d3a36] bg-transparent hover:border-deep/30 hover:shadow-md transition-all card-hover overflow-hidden"
     >
       <div className="flex flex-1">
         {/* Left topic */}
-        <div className="flex-1 p-4 sm:p-5 border-r border-stone-200/40">
+        <div className="flex-1 p-4 sm:p-5 border-r border-stone-200/40 dark:border-[#3d3a36]/60">
           <div className="flex items-center gap-1.5 mb-2">
             <span
               className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${
@@ -98,7 +98,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
         {/* Divider with "vs" */}
         <div className="relative flex items-center">
           <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center">
-            <span className="bg-stone-100 text-stone-400 text-xs font-medium px-2 py-1 rounded-full border border-stone-200/50">
+            <span className="bg-stone-100 dark:bg-[#302e2a] text-stone-400 text-xs font-medium px-2 py-1 rounded-full border border-stone-200/50 dark:border-[#3d3a36]">
               vs
             </span>
           </div>
@@ -125,7 +125,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-center gap-2 px-4 py-2.5 bg-stone-50/50 border-t border-stone-200/40">
+      <div className="flex items-center justify-center gap-2 px-4 py-2.5 bg-stone-50/50 dark:bg-[#1a1916]/50 border-t border-stone-200/40 dark:border-[#3d3a36]/60">
         <span className="text-xs font-medium text-stone-500 group-hover:text-deep transition-colors">
           Compare side by side
         </span>
@@ -179,7 +179,7 @@ function TopicPicker({
   };
 
   return (
-    <div className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8">
+    <div className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8">
       <div className="flex items-center gap-2 mb-2">
         <ArrowLeftRight className="h-5 w-5 text-deep" />
         <h2 className="font-serif text-2xl text-primary">
@@ -199,10 +199,10 @@ function TopicPicker({
           onClick={() => setActiveSlot("a")}
           className={`flex items-center gap-3 rounded-lg border-2 p-4 min-h-[72px] transition-all text-left ${
             activeSlot === "a"
-              ? "border-rust-400 bg-rust-50/30"
+              ? "border-rust-400 bg-rust-50/30 dark:bg-rust-900/20"
               : selectedA
-                ? "border-stone-200 bg-[#faf8f5]"
-                : "border-dashed border-stone-300 bg-stone-50/50"
+                ? "border-stone-200 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916]"
+                : "border-dashed border-stone-300 dark:border-[#3d3a36] bg-stone-50/50 dark:bg-[#1a1916]/50"
           }`}
         >
           <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-rust-100 flex items-center justify-center text-xs font-bold text-rust-700">
@@ -244,8 +244,8 @@ function TopicPicker({
             activeSlot === "b"
               ? "border-deep bg-deep/5"
               : selectedB
-                ? "border-stone-200 bg-[#faf8f5]"
-                : "border-dashed border-stone-300 bg-stone-50/50"
+                ? "border-stone-200 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916]"
+                : "border-dashed border-stone-300 dark:border-[#3d3a36] bg-stone-50/50 dark:bg-[#1a1916]/50"
           }`}
         >
           <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center text-xs font-bold text-deep">
@@ -288,7 +288,7 @@ function TopicPicker({
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={`Search topics to fill slot ${activeSlot.toUpperCase()}...`}
-          className="w-full pl-10 pr-4 py-3 rounded-lg border border-stone-200/60 bg-white text-sm text-primary placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
+          className="w-full pl-10 pr-4 py-3 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
         />
         {search && (
           <button
@@ -303,7 +303,7 @@ function TopicPicker({
       </div>
 
       {/* Topic list */}
-      <div className="max-h-64 overflow-y-auto rounded-lg border border-stone-200/40 divide-y divide-stone-200/40">
+      <div className="max-h-64 overflow-y-auto rounded-lg border border-stone-200/40 dark:border-[#3d3a36]/60 divide-y divide-stone-200/40 dark:divide-[#3d3a36]/60">
         {filtered.map((topic) => {
           const isSelectedA = selectedA?.id === topic.id;
           const isSelectedB = selectedB?.id === topic.id;
@@ -317,8 +317,8 @@ function TopicPicker({
               disabled={isDisabled}
               className={`flex items-center gap-3 w-full px-4 py-3 text-left transition-colors ${
                 isDisabled
-                  ? "bg-stone-50 opacity-50 cursor-not-allowed"
-                  : "hover:bg-stone-50/80 cursor-pointer"
+                  ? "bg-stone-50 dark:bg-[#1a1916] opacity-50 cursor-not-allowed"
+                  : "hover:bg-stone-50/80 dark:hover:bg-[#302e2a]/80 cursor-pointer"
               }`}
             >
               <span
@@ -364,7 +364,7 @@ function TopicPicker({
           className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium transition-all ${
             canCompare
               ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 shadow-sm btn-lift"
-              : "bg-stone-200 text-stone-400 cursor-not-allowed"
+              : "bg-stone-200 dark:bg-[#302e2a] text-stone-400 cursor-not-allowed"
           }`}
         >
           <ArrowLeftRight className="h-4 w-4" />
@@ -403,11 +403,11 @@ export default function CompareIndexView({
 
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#f4f1eb] overflow-x-hidden">
+      <div className="min-h-screen bg-[#f4f1eb] dark:bg-[#121210] overflow-x-hidden">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
           {/* Header */}
           <header className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider border border-stone-200/50 mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-[#302e2a] rounded-full text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider border border-stone-200/50 dark:border-[#3d3a36] mb-4">
               <ArrowLeftRight className="h-3.5 w-3.5" />
               Topic Comparisons
             </div>
@@ -439,7 +439,7 @@ export default function CompareIndexView({
                   value={searchPairs}
                   onChange={(e) => setSearchPairs(e.target.value)}
                   placeholder="Filter comparisons..."
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-stone-200/60 bg-white text-sm text-primary placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
                 />
               </div>
             </div>
@@ -461,7 +461,7 @@ export default function CompareIndexView({
           </section>
 
           {/* Footer nav */}
-          <div className="pt-8 mt-8 border-t border-stone-200/60">
+          <div className="pt-8 mt-8 border-t border-stone-200/60 dark:border-[#3d3a36]">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <Link
                 href="/topics"
