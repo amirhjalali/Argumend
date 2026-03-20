@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { topics, CATEGORY_LABELS } from "@/data/topics";
 import { getVerdictLabel } from "@/lib/schemas/topic";
 import { getAllQuestionVariations, findQuestionBySlug } from "@/lib/questions";
+import { getTopicMentions, buildTopicLinkTargets } from "@/lib/topic-links";
+import { LinkedText } from "@/components/LinkedText";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -96,6 +98,9 @@ export default async function QuestionPage({ params }: PageProps) {
   const verdict = getVerdictLabel(topic.confidence_score);
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
+  // Topic link targets for cross-linking
+  const linkTargets = buildTopicLinkTargets(topics);
+
   // Collect "for" and "against" arguments from pillars
   const forArguments: { title: string; summary: string }[] = [];
   const againstArguments: { title: string; summary: string }[] = [];
@@ -111,7 +116,37 @@ export default async function QuestionPage({ params }: PageProps) {
     });
   }
 
-  // Build FAQ structured data from pillars
+  // Build a synthesized answer from the pillars for QAPage schema
+  const synthesizedAnswer = [
+    `${topic.meta_claim}`,
+    `The evidence assessment yields a confidence score of ${topic.confidence_score}/100, which is classified as "${verdict}".`,
+    `Key arguments in favor include: ${forArguments.map((a) => a.summary).join(" ")}`,
+    `Key arguments against include: ${againstArguments.map((a) => a.summary).join(" ")}`,
+  ].join(" ");
+
+  // JSON-LD: QAPage schema (primary structured data for question pages)
+  const qaPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "QAPage",
+    mainEntity: {
+      "@type": "Question",
+      name: variation.question,
+      text: variation.metaDescription,
+      answerCount: 1,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: synthesizedAnswer,
+        url: `https://argumend.org/questions/${variation.slug}`,
+        author: {
+          "@type": "Organization",
+          name: "ARGUMEND",
+          url: "https://argumend.org",
+        },
+      },
+    },
+  };
+
+  // JSON-LD: FAQPage schema from pillars (for additional rich snippets)
   const faqEntries = topic.pillars.map((pillar) => ({
     "@type": "Question" as const,
     name: `What does the evidence say about "${pillar.title}"?`,
@@ -121,7 +156,6 @@ export default async function QuestionPage({ params }: PageProps) {
     },
   }));
 
-  // JSON-LD: FAQPage schema for rich snippets
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -152,7 +186,7 @@ export default async function QuestionPage({ params }: PageProps) {
       },
     },
     datePublished: "2025-01-01",
-    dateModified: "2026-03-12",
+    dateModified: "2026-03-19",
     articleSection: categoryLabel,
     inLanguage: "en-US",
     about: {
@@ -161,8 +195,33 @@ export default async function QuestionPage({ params }: PageProps) {
     },
   };
 
+  // Compute cross-linked text segments for the meta_claim
+  const metaClaimSegments = getTopicMentions(
+    topic.meta_claim,
+    linkTargets,
+    topic.id
+  );
+
+  // Related questions from the same topic
+  const relatedQuestions = getAllQuestionVariations(topics).filter(
+    (v) => v.topicId === topic.id && v.slug !== variation.slug
+  );
+
+  // Questions from other topics in the same category (for broader discovery)
+  const crossTopicQuestions = getAllQuestionVariations(topics)
+    .filter((v) => {
+      const vTopic = topics.find((t) => t.id === v.topicId);
+      return (
+        vTopic &&
+        vTopic.category === topic.category &&
+        v.topicId !== topic.id
+      );
+    })
+    .slice(0, 5);
+
   return (
     <>
+      <JsonLd data={qaPageJsonLd} />
       <JsonLd data={faqJsonLd} />
       <JsonLd data={articleJsonLd} />
 
@@ -172,7 +231,7 @@ export default async function QuestionPage({ params }: PageProps) {
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
-              { label: "Topics", href: "/topics" },
+              { label: "Questions", href: "/questions" },
               { label: topic.title, href: `/topics/${topic.id}` },
               { label: variation.question },
             ]}
@@ -190,9 +249,9 @@ export default async function QuestionPage({ params }: PageProps) {
             {variation.question}
           </h1>
 
-          {/* Intro paragraph */}
+          {/* Intro paragraph with cross-links */}
           <p className="mt-6 font-sans text-lg leading-relaxed text-secondary">
-            {topic.meta_claim}
+            <LinkedText segments={metaClaimSegments} />
           </p>
 
           {/* Confidence verdict */}
@@ -232,7 +291,13 @@ export default async function QuestionPage({ params }: PageProps) {
                       {arg.title}
                     </h3>
                     <p className="mt-2 font-sans text-sm leading-relaxed text-primary">
-                      {arg.summary}
+                      <LinkedText
+                        segments={getTopicMentions(
+                          arg.summary,
+                          linkTargets,
+                          topic.id
+                        )}
+                      />
                     </p>
                   </li>
                 ))}
@@ -254,7 +319,13 @@ export default async function QuestionPage({ params }: PageProps) {
                       {arg.title}
                     </h3>
                     <p className="mt-2 font-sans text-sm leading-relaxed text-primary">
-                      {arg.summary}
+                      <LinkedText
+                        segments={getTopicMentions(
+                          arg.summary,
+                          linkTargets,
+                          topic.id
+                        )}
+                      />
                     </p>
                   </li>
                 ))}
@@ -299,11 +370,12 @@ export default async function QuestionPage({ params }: PageProps) {
           {/* CTA to full topic page */}
           <div className="mt-12 rounded-xl border border-rust-200 bg-rust-50 p-8 text-center">
             <h2 className="font-serif text-2xl font-bold text-primary">
-              Want the full picture?
+              Explore the full analysis
             </h2>
             <p className="mx-auto mt-2 max-w-md font-sans text-sm text-secondary">
               See all the evidence, weighted scores, and detailed analysis
-              for each argument pillar on the full topic page.
+              for each argument pillar on the full{" "}
+              <strong>{topic.title}</strong> topic page.
             </p>
             <Link
               href={`/topics/${topic.id}`}
@@ -314,32 +386,53 @@ export default async function QuestionPage({ params }: PageProps) {
             </Link>
           </div>
 
-          {/* Related questions */}
-          {(() => {
-            const allVariations = getAllQuestionVariations(topics).filter(
-              (v) => v.topicId === topic.id && v.slug !== variation.slug
-            );
-            if (allVariations.length === 0) return null;
-            return (
-              <div className="mt-12">
-                <h2 className="mb-4 font-serif text-xl font-bold text-primary">
-                  Related questions
-                </h2>
-                <ul className="space-y-2">
-                  {allVariations.map((v) => (
-                    <li key={v.slug}>
-                      <Link
-                        href={`/questions/${v.slug}`}
-                        className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
-                      >
-                        {v.question}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })()}
+          {/* Related questions from the same topic */}
+          {relatedQuestions.length > 0 && (
+            <div className="mt-12">
+              <h2 className="mb-4 font-serif text-xl font-bold text-primary">
+                Related questions about {topic.title}
+              </h2>
+              <ul className="space-y-2">
+                {relatedQuestions.map((v) => (
+                  <li key={v.slug}>
+                    <Link
+                      href={`/questions/${v.slug}`}
+                      className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
+                    >
+                      {v.question}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Cross-topic questions (same category) */}
+          {crossTopicQuestions.length > 0 && (
+            <div className="mt-10">
+              <h2 className="mb-4 font-serif text-xl font-bold text-primary">
+                More {categoryLabel.toLowerCase()} questions
+              </h2>
+              <ul className="space-y-2">
+                {crossTopicQuestions.map((v) => (
+                  <li key={v.slug}>
+                    <Link
+                      href={`/questions/${v.slug}`}
+                      className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
+                    >
+                      {v.question}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/questions"
+                className="mt-4 inline-flex items-center gap-1 font-sans text-sm text-muted transition-colors hover:text-deep"
+              >
+                Browse all questions <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
+          )}
 
           {/* Footer attribution */}
           <footer className="mt-16 border-t border-stone-200 pt-6">

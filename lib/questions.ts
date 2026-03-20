@@ -292,6 +292,178 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Is religion necessary for morality?",
     "Can you find purpose without religion?",
   ],
+
+  // --- New Topics (March 2026) ---
+  "ai-job-displacement": [
+    "Will AI take my job?",
+    "How many jobs will AI replace?",
+    "Is AI automating jobs faster than creating new ones?",
+  ],
+  "ai-in-education": [
+    "Should AI be used in schools?",
+    "Is AI good for education?",
+    "Will AI replace teachers?",
+  ],
+  "ai-regulation": [
+    "Should AI be regulated by the government?",
+    "Is AI regulation necessary?",
+    "Can we regulate AI without stifling innovation?",
+  ],
+  "housing-affordability-crisis": [
+    "Why is housing so expensive?",
+    "Is there a housing affordability crisis?",
+    "What is causing the housing crisis?",
+  ],
+  "social-media-elections": [
+    "Does social media influence elections?",
+    "Should social media be regulated during elections?",
+    "Can social media undermine democracy?",
+  ],
+  "ultra-processed-food": [
+    "Is ultra-processed food bad for you?",
+    "Should ultra-processed food be regulated?",
+    "Does ultra-processed food cause obesity?",
+  ],
+  "four-day-work-week": [
+    "Does the four-day work week actually work?",
+    "Should companies adopt a four-day work week?",
+    "Is a four-day work week more productive?",
+  ],
+  "tiktok-ban": [
+    "Should TikTok be banned?",
+    "Is TikTok a national security threat?",
+    "Is banning TikTok a violation of free speech?",
+  ],
+  "immigration-border-crisis": [
+    "Is there a border crisis?",
+    "How should the US handle the border crisis?",
+    "What is causing the immigration crisis?",
+  ],
+  "longevity-science": [
+    "Can science extend human lifespan?",
+    "Is anti-aging research legitimate?",
+    "Will we ever cure aging?",
+  ],
+  "nuclear-weapons-abolition": [
+    "Should nuclear weapons be abolished?",
+    "Is nuclear disarmament possible?",
+    "Do nuclear weapons prevent war?",
+  ],
+  "gender-affirming-care-minors": [
+    "Should minors receive gender-affirming care?",
+    "Is gender-affirming care safe for children?",
+    "What does the evidence say about gender-affirming care?",
+  ],
+  "consciousness-hard-problem": [
+    "What is the hard problem of consciousness?",
+    "Can science explain consciousness?",
+    "Why is consciousness so hard to explain?",
+  ],
+  "school-phone-bans": [
+    "Should phones be banned in schools?",
+    "Do phone bans improve student performance?",
+    "Are school phone bans effective?",
+  ],
+  "student-debt-forgiveness": [
+    "Should student debt be forgiven?",
+    "Is student loan forgiveness fair?",
+    "Does student debt forgiveness help the economy?",
+  ],
+  "microplastics-health-crisis": [
+    "Are microplastics harmful to health?",
+    "How dangerous are microplastics?",
+    "Should microplastics be regulated?",
+  ],
+  "glp1-weight-loss-drugs": [
+    "Are GLP-1 weight loss drugs safe?",
+    "Should everyone take Ozempic?",
+    "Do weight loss drugs like Ozempic actually work?",
+  ],
+  "ai-white-collar-displacement": [
+    "Will AI replace white-collar workers?",
+    "Is AI coming for office jobs?",
+    "Which white-collar jobs are most at risk from AI?",
+  ],
+  "artificial-reproduction-ethics": [
+    "Is artificial reproduction ethical?",
+    "Should we allow artificial wombs?",
+    "What are the ethics of reproductive technology?",
+  ],
+  "government-platform-bans": [
+    "Should governments ban social media platforms?",
+    "Is it right for governments to ban apps?",
+    "Do government platform bans protect citizens?",
+  ],
+  "gain-of-function-research-ban": [
+    "Should gain-of-function research be banned?",
+    "Is gain-of-function research too dangerous?",
+    "Did gain-of-function research cause COVID?",
+  ],
+  "children-smartphone-age": [
+    "At what age should children get a smartphone?",
+    "Are smartphones bad for children?",
+    "Should there be a minimum age for smartphones?",
+  ],
+  "alternatives-to-democracy": [
+    "Are there better alternatives to democracy?",
+    "Is democracy the best form of government?",
+    "Could technocracy work better than democracy?",
+  ],
+  "geoengineering-climate": [
+    "Should we use geoengineering to fight climate change?",
+    "Is geoengineering safe?",
+    "Can geoengineering reverse global warming?",
+  ],
+  "central-bank-digital-currency": [
+    "Should central banks issue digital currency?",
+    "Is a digital dollar a good idea?",
+    "Will CBDCs replace cash?",
+  ],
+  "masculinity-crisis": [
+    "Is there a masculinity crisis?",
+    "Are men falling behind in society?",
+    "What is causing the crisis in masculinity?",
+  ],
+  "ai-deepfakes-truth-collapse": [
+    "Are deepfakes destroying trust?",
+    "Can we stop AI deepfakes?",
+    "Will deepfakes make truth impossible?",
+  ],
+  "declining-birth-rates": [
+    "Why are birth rates declining?",
+    "Should we be worried about falling birth rates?",
+    "Is population decline a crisis?",
+  ],
+  "longevity-anti-aging": [
+    "Can we reverse aging?",
+    "Is anti-aging medicine real?",
+    "Will we be able to live to 150?",
+  ],
+  "nuclear-proliferation-new-arms-race": [
+    "Are we in a new nuclear arms race?",
+    "Is nuclear proliferation getting worse?",
+    "Can we stop nuclear weapons from spreading?",
+  ],
+  "transgender-athletes-sports": [
+    "Should transgender athletes compete in their identified gender?",
+    "Is it fair for trans women to compete in womens sports?",
+    "What does science say about transgender athletes?",
+  ],
+  "animal-consciousness-rights": [
+    "Are animals conscious?",
+    "Should animals have legal rights?",
+    "Do animals experience suffering like humans?",
+  ],
+  "immigration-national-identity": [
+    "Does immigration threaten national identity?",
+    "Can immigration and national identity coexist?",
+    "Does multiculturalism weaken social cohesion?",
+  ],
+  "psychedelic-therapy-hype": [
+    "Is psychedelic therapy overhyped?",
+    "Does psychedelic therapy actually work?",
+    "Are the claims about psychedelic therapy exaggerated?",
+  ],
 };
 
 // ============================================================================
