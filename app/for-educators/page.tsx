@@ -268,7 +268,7 @@ export default function ForEducatorsPage() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/60"
+                className="bg-[#fefcf9] dark:bg-[#252420] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[#3d3a36]"
               >
                 <h3 className="font-serif text-lg text-primary mb-2">
                   {benefit.title}
@@ -282,7 +282,7 @@ export default function ForEducatorsPage() {
         </section>
 
         {/* Ready-Made Lesson Plans */}
-        <section className="mb-16 md:mb-24 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1916]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Ready-made lesson plans
           </h2>
@@ -333,7 +333,7 @@ export default function ForEducatorsPage() {
             {worksheets.map((ws) => (
               <div
                 key={ws.id}
-                className="bg-[#fefcf9] rounded-xl border border-stone-200/60 p-5 md:p-6 flex flex-col"
+                className="bg-[#fefcf9] dark:bg-[#252420] rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-5 md:p-6 flex flex-col"
               >
                 <div className="flex items-start gap-3 mb-3">
                   <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
@@ -360,7 +360,7 @@ export default function ForEducatorsPage() {
         </section>
 
         {/* Recommended Topics by Grade Level */}
-        <section className="mb-16 md:mb-24 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1916]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Recommended topics by grade level
           </h2>
@@ -412,7 +412,7 @@ export default function ForEducatorsPage() {
             {subjects.map((subject) => (
               <div
                 key={subject.label}
-                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/60"
+                className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36]"
               >
                 <h3 className="font-semibold text-primary mb-1">
                   {subject.label}
@@ -447,7 +447,7 @@ export default function ForEducatorsPage() {
           </Link>
           <Link
             href="/how-it-works"
-            className="inline-flex items-center px-6 py-3 rounded-lg border border-stone-300 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-white/60 transition-colors"
+            className="inline-flex items-center px-6 py-3 rounded-lg border border-stone-300 dark:border-[#3d3a36] text-stone-600 dark:text-stone-400 hover:border-deep/30 text-sm font-medium hover:bg-white/60 dark:hover:bg-[#302e2a] transition-colors"
           >
             How it works
           </Link>

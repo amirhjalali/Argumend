@@ -126,7 +126,7 @@ function StatRow({
   const v2Wins = highlight === "higher" ? value2 > value1 : value2 < value1;
 
   return (
-    <div className="flex items-center gap-3 py-3 border-b border-stone-200/40 last:border-b-0">
+    <div className="flex items-center gap-3 py-3 border-b border-stone-200/40 dark:border-[#3d3a36]/60 last:border-b-0">
       <span
         className={`flex-1 text-right font-mono text-sm tabular-nums ${
           v1Wins ? "font-semibold text-deep" : "text-stone-600"
@@ -178,7 +178,7 @@ function EvidenceBalanceBar({
           <ThumbsDown className="h-3 w-3 text-red-400" />
         </span>
       </div>
-      <div className="h-2.5 rounded-full overflow-hidden flex bg-stone-200/60">
+      <div className="h-2.5 rounded-full overflow-hidden flex bg-stone-200/60 dark:bg-[#3d3a36]">
         <div
           className={`h-full ${
             side === "left"
@@ -298,11 +298,11 @@ export default function ComparisonView({
 }: ComparisonViewProps) {
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#f4f1eb] overflow-x-hidden">
+      <div className="min-h-screen bg-[#f4f1eb] dark:bg-[#121210] overflow-x-hidden">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
           {/* Header */}
           <header className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider border border-stone-200/50 mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-[#302e2a] rounded-full text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider border border-stone-200/50 dark:border-[#3d3a36] mb-4">
               <ArrowLeftRight className="h-3.5 w-3.5" />
               Side-by-Side Comparison
             </div>
@@ -322,18 +322,18 @@ export default function ComparisonView({
           {/* ── Two-column layout ── */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Topic 1 Header */}
-            <div className="bg-transparent rounded-xl border border-stone-200/60 p-6">
+            <div className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6">
               <TopicColumnHeader topic={topic1} side="left" />
             </div>
 
             {/* Topic 2 Header */}
-            <div className="bg-transparent rounded-xl border border-stone-200/60 p-6">
+            <div className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6">
               <TopicColumnHeader topic={topic2} side="right" />
             </div>
           </div>
 
           {/* ── Stats comparison ── */}
-          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-2xl text-primary mb-6 text-center">
               By the Numbers
             </h2>
@@ -386,7 +386,7 @@ export default function ComparisonView({
           </section>
 
           {/* ── Evidence Balance ── */}
-          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-2xl text-primary mb-6 text-center">
               Evidence Balance
             </h2>
@@ -415,7 +415,7 @@ export default function ComparisonView({
           </section>
 
           {/* ── Pillar Summaries ── */}
-          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-2xl text-primary mb-6 text-center">
               Argument Pillars
             </h2>
@@ -429,7 +429,7 @@ export default function ComparisonView({
                   {topic1.pillars.map((pillar, i) => (
                     <div
                       key={pillar.id}
-                      className="rounded-lg border border-stone-200/60 bg-[#faf8f5] p-4"
+                      className="rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916] p-4"
                     >
                       <div className="flex items-start gap-2.5 mb-1.5">
                         <span className="flex-shrink-0 w-6 h-6 rounded-md bg-rust-100 flex items-center justify-center text-xs font-mono font-semibold text-rust-700">
@@ -456,7 +456,7 @@ export default function ComparisonView({
                   {topic2.pillars.map((pillar, i) => (
                     <div
                       key={pillar.id}
-                      className="rounded-lg border border-stone-200/60 bg-[#faf8f5] p-4"
+                      className="rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916] p-4"
                     >
                       <div className="flex items-start gap-2.5 mb-1.5">
                         <span className="flex-shrink-0 w-6 h-6 rounded-md bg-deep/10 flex items-center justify-center text-xs font-mono font-semibold text-deep">
@@ -477,7 +477,7 @@ export default function ComparisonView({
           </section>
 
           {/* ── Key Cruxes ── */}
-          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-2xl text-primary mb-2 text-center">
               Key Crux Questions
             </h2>
@@ -504,14 +504,14 @@ export default function ComparisonView({
           </section>
 
           {/* ── CTAs ── */}
-          <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-2xl text-primary mb-6 text-center">
               Dive Deeper
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Link
                 href={`/topics/${topic1.id}`}
-                className="group flex flex-col items-center gap-3 rounded-xl border border-stone-200/60 bg-[#faf8f5] p-6 hover:border-rust-300/50 hover:shadow-md transition-all card-hover"
+                className="group flex flex-col items-center gap-3 rounded-xl border border-stone-200/60 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916] p-6 hover:border-rust-300/50 hover:shadow-md transition-all card-hover"
               >
                 <span className="font-serif text-lg text-primary group-hover:text-rust-700 transition-colors text-center">
                   {topic1.title}
@@ -527,7 +527,7 @@ export default function ComparisonView({
 
               <Link
                 href={`/topics/${topic2.id}`}
-                className="group flex flex-col items-center gap-3 rounded-xl border border-stone-200/60 bg-[#faf8f5] p-6 hover:border-deep/30 hover:shadow-md transition-all card-hover"
+                className="group flex flex-col items-center gap-3 rounded-xl border border-stone-200/60 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916] p-6 hover:border-deep/30 hover:shadow-md transition-all card-hover"
               >
                 <span className="font-serif text-lg text-primary group-hover:text-deep transition-colors text-center">
                   {topic2.title}
@@ -555,7 +555,7 @@ export default function ComparisonView({
           </div>
 
           {/* Footer nav */}
-          <div className="pt-6 border-t border-stone-200/60">
+          <div className="pt-6 border-t border-stone-200/60 dark:border-[#3d3a36]">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <Link
                 href="/topics"

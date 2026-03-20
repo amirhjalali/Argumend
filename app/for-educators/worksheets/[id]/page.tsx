@@ -316,7 +316,7 @@ function RenderLines({ count }: { count: number }) {
       {Array.from({ length: count }).map((_, i) => (
         <div
           key={i}
-          className="border-b border-stone-300 h-8"
+          className="border-b border-stone-300 dark:border-stone-600 h-8"
           aria-hidden="true"
         />
       ))}
@@ -346,7 +346,7 @@ function RenderTwoColumn({ columns }: { columns: string[] }) {
             {Array.from({ length: 4 }).map((_, i) => (
               <div
                 key={i}
-                className="border-b border-stone-300 h-8"
+                className="border-b border-stone-300 dark:border-stone-600 h-8"
                 aria-hidden="true"
               />
             ))}
@@ -371,7 +371,7 @@ function RenderGrid({
           {columns.map((col) => (
             <th
               key={col}
-              className="border border-stone-400 px-3 py-2 text-left text-sm font-semibold bg-stone-100"
+              className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[#302e2a]"
             >
               {col}
             </th>
@@ -381,7 +381,7 @@ function RenderGrid({
       <tbody>
         {rows.map((row) => (
           <tr key={row.label}>
-            <td className="border border-stone-400 px-3 py-2 text-sm font-medium">
+            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-sm font-medium">
               {row.label}
               {row.subLabel && (
                 <span className="text-stone-500 ml-1">{row.subLabel}</span>
@@ -390,7 +390,7 @@ function RenderGrid({
             {columns.slice(1).map((col) => (
               <td
                 key={col}
-                className="border border-stone-400 px-3 py-3 min-h-[40px]"
+                className="border border-stone-400 dark:border-stone-600 px-3 py-3 min-h-[40px]"
               >
                 &nbsp;
               </td>
@@ -416,7 +416,7 @@ function RenderTable({
           {columns.map((col) => (
             <th
               key={col}
-              className="border border-stone-400 px-3 py-2 text-left text-sm font-semibold bg-stone-100"
+              className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[#302e2a]"
             >
               {col}
             </th>
@@ -426,16 +426,16 @@ function RenderTable({
       <tbody>
         {rows.map((row) => (
           <tr key={row.label}>
-            <td className="border border-stone-400 px-3 py-2 text-sm font-medium">
+            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-sm font-medium">
               {row.label}
             </td>
-            <td className="border border-stone-400 px-3 py-2 text-xs text-stone-600">
+            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-600 dark:text-stone-400">
               {row.subLabel}
             </td>
-            <td className="border border-stone-400 px-3 py-2 text-xs text-stone-500">
+            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500">
               Unreliable, no track record
             </td>
-            <td className="border border-stone-400 px-3 py-2 text-xs text-stone-500">
+            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500">
               Peer-reviewed, expert consensus
             </td>
           </tr>
@@ -458,7 +458,7 @@ export default async function WorksheetPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-[#1a1916]">
       {/* Print-optimized styles */}
       <style>{`
         @media print {
@@ -476,7 +476,7 @@ export default async function WorksheetPage({ params }: PageProps) {
       `}</style>
 
       {/* Navigation bar (hidden when printing) */}
-      <nav className="worksheet-nav bg-[#f4f1eb] border-b border-stone-200 px-4 py-3">
+      <nav className="worksheet-nav bg-[#f4f1eb] dark:bg-[#121210] border-b border-stone-200 dark:border-[#3d3a36] px-4 py-3">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Link
             href="/for-educators"
@@ -505,18 +505,18 @@ export default async function WorksheetPage({ params }: PageProps) {
       {/* Worksheet content */}
       <div className="worksheet-content">
         {/* Header */}
-        <header className="worksheet-header mb-8 pb-4 border-b-2 border-stone-800">
+        <header className="worksheet-header mb-8 pb-4 border-b-2 border-stone-800 dark:border-stone-400">
           <p className="text-xs font-mono uppercase tracking-widest text-stone-500 mb-1">
             ARGUMEND &mdash; Educator Worksheet
           </p>
-          <h1 className="text-3xl font-serif font-bold text-stone-900 mb-1">
+          <h1 className="text-3xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-1">
             {ws.title}
           </h1>
-          <p className="text-base text-stone-600 italic">{ws.subtitle}</p>
+          <p className="text-base text-stone-600 dark:text-stone-400 italic">{ws.subtitle}</p>
         </header>
 
         {/* Student info */}
-        <div className="grid grid-cols-3 gap-4 mb-6 pb-4 border-b border-stone-300">
+        <div className="grid grid-cols-3 gap-4 mb-6 pb-4 border-b border-stone-300 dark:border-stone-600">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
               Name
@@ -538,11 +538,11 @@ export default async function WorksheetPage({ params }: PageProps) {
         </div>
 
         {/* Instructions */}
-        <div className="mb-8 bg-stone-50 border border-stone-200 rounded-lg p-4">
+        <div className="mb-8 bg-stone-50 dark:bg-[#252420] border border-stone-200 dark:border-[#3d3a36] rounded-lg p-4">
           <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
             Instructions
           </p>
-          <p className="text-sm text-stone-700 leading-relaxed">
+          <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
             {ws.instructions}
           </p>
         </div>
@@ -551,11 +551,11 @@ export default async function WorksheetPage({ params }: PageProps) {
         <div className="space-y-8">
           {ws.sections.map((section, i) => (
             <section key={i}>
-              <h2 className="text-lg font-serif font-bold text-stone-900 mb-1">
+              <h2 className="text-lg font-serif font-bold text-stone-900 dark:text-stone-100 mb-1">
                 {section.heading}
               </h2>
               {section.description && (
-                <p className="text-sm text-stone-600 leading-relaxed mb-2">
+                <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-2">
                   {section.description}
                 </p>
               )}
@@ -580,7 +580,7 @@ export default async function WorksheetPage({ params }: PageProps) {
         </div>
 
         {/* Footer */}
-        <footer className="mt-10 pt-4 border-t border-stone-300 text-center">
+        <footer className="mt-10 pt-4 border-t border-stone-300 dark:border-stone-600 text-center">
           <p className="text-xs text-stone-400">
             argumend.org/for-educators &mdash; Free for classroom use
           </p>

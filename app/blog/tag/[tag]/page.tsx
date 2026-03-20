@@ -105,7 +105,7 @@ export default async function TagPage({ params }: PageProps) {
       <JsonLd data={jsonLd} />
       <div className="min-h-screen">
         {/* Hero */}
-        <div className="bg-[#faf8f5]/60 border-b border-[#e8e0d4]">
+        <div className="bg-[#faf8f5]/60 dark:bg-[#1a1916]/60 border-b border-[#e8e0d4] dark:border-[#3d3a36]">
           <div className="mx-auto max-w-4xl px-4 md:px-8 py-10 md:py-16">
             <Breadcrumbs
               items={[
@@ -137,7 +137,7 @@ export default async function TagPage({ params }: PageProps) {
                 className="group block animate-card-fade-in"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
-                <article className="relative h-full bg-[#faf8f5] rounded-xl p-6 md:p-8 border border-stone-200/60 shadow-card hover:border-[#c8c0b4] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
+                <article className="relative h-full bg-[#faf8f5] dark:bg-[#252420] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[#3d3a36] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                   {/* Category Badge */}
                   <div className="flex items-center gap-3 mb-4">
                     <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
@@ -171,7 +171,7 @@ export default async function TagPage({ params }: PageProps) {
                         className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] ${
                           t === tag
                             ? "bg-deep/10 text-deep font-medium"
-                            : "bg-stone-100 text-stone-500"
+                            : "bg-stone-100 dark:bg-[#302e2a] text-stone-500"
                         }`}
                       >
                         <Tag className="h-2.5 w-2.5" />
