@@ -1,9 +1,17 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog — Essays on Critical Thinking & Argument Analysis",
   description:
     "Essays on critical thinking, logical fallacies, steel-manning, confidence calibration, and the art of productive disagreement. By the Argumend team.",
+  keywords: [
+    "critical thinking blog",
+    "argument analysis essays",
+    "logical fallacies",
+    "steel-manning",
+    "confidence calibration",
+    "productive disagreement",
+  ],
   alternates: {
     canonical: "https://argumend.org/blog",
   },
@@ -14,6 +22,12 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://argumend.org/blog",
     siteName: "ARGUMEND",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | ARGUMEND",
+    description:
+      "Essays on critical thinking, logical fallacies, steel-manning, and the art of productive disagreement.",
   },
 };
 

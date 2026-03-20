@@ -15,6 +15,24 @@ export const metadata: Metadata = {
   title: "Recent Analyses | Argumend",
   description:
     "Browse recent argument analyses on Argumend. See AI-extracted positions, cruxes, and quality scores for debates, articles, and transcripts.",
+  keywords: [
+    "argument analysis",
+    "AI debate analysis",
+    "crux extraction",
+    "argument quality scores",
+  ],
+  openGraph: {
+    title: "Recent Analyses | Argumend",
+    description:
+      "Browse AI-extracted argument analyses with positions, cruxes, and quality scores for debates and articles.",
+    url: "https://argumend.org/analyses",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Recent Analyses | Argumend",
+    description:
+      "Browse AI-extracted argument analyses with cruxes, positions, and quality scores.",
+  },
   alternates: {
     canonical: "https://argumend.org/analyses",
   },

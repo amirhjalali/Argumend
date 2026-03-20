@@ -1,37 +1,31 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Critical Thinking Guides — Learn to Evaluate Arguments & Evidence",
+  title: "Guides — Critical Thinking & Argument Analysis",
   description:
-    "Six in-depth guides on critical thinking: triangulation, bias recognition, evidence hierarchy, argument mapping, source credibility, and AI analysis. Build the reasoning skills to evaluate any claim.",
+    "Guides on critical thinking: how to triangulate sources, recognize bias, weigh evidence, and reason well. Foundations for evaluating any argument.",
   keywords: [
     "critical thinking guides",
-    "how to evaluate evidence",
-    "triangulation sources",
-    "cognitive bias guide",
-    "evidence hierarchy",
-    "argument mapping tutorial",
-    "source credibility",
+    "argument analysis guide",
+    "source evaluation",
+    "recognize bias",
+    "evidence weighting",
     "reasoning skills",
-    "logic and reasoning",
-    "evaluate arguments",
   ],
-  alternates: {
-    canonical: "https://argumend.org/guides",
-  },
   openGraph: {
-    title: "Critical Thinking Guides — Argumend",
+    title: "Guides — Critical Thinking & Argument Analysis",
     description:
-      "Six in-depth guides on triangulation, bias, evidence hierarchy, argument maps, source credibility, and AI analysis. Build reasoning skills that last.",
+      "Learn to triangulate sources, recognize bias, weigh evidence, and reason well. Free guides from Argumend.",
     url: "https://argumend.org/guides",
-    type: "website",
-    siteName: "ARGUMEND",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Critical Thinking Guides — Argumend",
+    title: "Critical Thinking Guides | Argumend",
     description:
-      "Six in-depth guides on triangulation, bias, evidence hierarchy, argument maps, source credibility, and AI analysis.",
+      "Free guides on source evaluation, bias recognition, evidence weighting, and structured reasoning.",
+  },
+  alternates: {
+    canonical: "https://argumend.org/guides",
   },
 };
 
