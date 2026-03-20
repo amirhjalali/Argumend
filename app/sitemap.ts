@@ -8,6 +8,7 @@ import {
   categoryToSlug,
   tagToSlug,
 } from "@/data/blog";
+import { getAllQuestionVariations } from "@/lib/questions";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://argumend.org";
@@ -33,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/lessons-from-the-deep": "2025-12-05",
     "/research": "2025-12-10",
     "/glossary": "2026-03-17",
+    "/questions": "2026-03-19",
   };
 
   const staticPages = Object.entries(staticPageDates).map(([route, date]) => ({
@@ -124,6 +126,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.4,
   }));
 
+  // ── Question pages (SEO question variations) ─────────────────────────
+  const allQuestions = getAllQuestionVariations(topics);
+  const questionBaseDate = new Date("2026-03-01");
+  const questionPages = allQuestions.map((q, index) => ({
+    url: `${baseUrl}/questions/${q.slug}`,
+    lastModified: new Date(
+      questionBaseDate.getTime() + index * 12 * 60 * 60 * 1000, // 12h offset per question
+    ),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...topicPages,
@@ -132,5 +146,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPages,
     ...blogCategoryPages,
     ...blogTagPages,
+    ...questionPages,
   ];
 }
