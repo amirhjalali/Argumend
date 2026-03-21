@@ -486,7 +486,6 @@ export default async function WorksheetPage({ params }: PageProps) {
           </Link>
           <button
             type="button"
-            onClick={() => {}}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
             data-print-button
           >
