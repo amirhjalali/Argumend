@@ -35,6 +35,9 @@ export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<
           : "bg-gradient-to-br from-stone-50/90 to-stone-50/60 border-stone-300/60 border-l-[3px] border-l-stone-500"
       }`}
       style={{ animationDelay: `${((data.birthOrder as number) ?? 0) * 60}ms` }}
+      tabIndex={0}
+      role="group"
+      aria-label={`${isFor ? "Supporting" : "Opposing"} Evidence: ${data.title}`}
     >
       {/* Handles */}
       <Handle
