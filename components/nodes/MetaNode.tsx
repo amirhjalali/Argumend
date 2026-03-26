@@ -21,6 +21,9 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
   return (
     <div
       className="relative w-[420px] rounded-xl border border-stone-200/80 border-t-2 border-t-deep bg-[#fefcf9] shadow-[0_2px_6px_rgba(120,100,80,0.1)] transition-shadow duration-200 hover:shadow-[0_6px_20px_rgba(120,100,80,0.14)] node-enter"
+      tabIndex={0}
+      role="group"
+      aria-label={`Meta Claim: ${data.title || "Untitled"}`}
     >
 
       <Handle

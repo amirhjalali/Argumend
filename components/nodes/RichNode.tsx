@@ -46,6 +46,9 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
     <div
       className={`relative w-[340px] rounded-xl border border-stone-200/80 border-l-[3px] ${style.borderClass} bg-[#fefcf9] shadow-[0_1px_3px_rgba(120,100,80,0.08)] transition-shadow duration-200 hover:shadow-[0_4px_16px_rgba(120,100,80,0.12)] node-enter`}
       style={{ animationDelay: `${((data.birthOrder as number) ?? 0) * 80}ms` }}
+      tabIndex={0}
+      role="group"
+      aria-label={`${style.label}: ${data.title || "Untitled"}`}
     >
       {/* Handles for various layout directions */}
       <Handle type="target" position={Position.Top} id="top" className="logic-handle" isConnectable={false} />
