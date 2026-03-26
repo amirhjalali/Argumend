@@ -33,6 +33,7 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone', // Required for Docker deployments
+  serverExternalPackages: ['postgres'],
   devIndicators: {
     appIsrStatus: false,
     buildActivity: false,
