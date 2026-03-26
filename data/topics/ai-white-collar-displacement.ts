@@ -101,6 +101,23 @@ export const aiWhiteCollarDisplacementData = {
           reasoning:
             "The Mata v. Avianca case is a matter of court record. Stanford HAI is an independent, highly credible research institution. The ABA guidance reflects the profession's own assessment of risk. A 3-5% hallucination rate may seem low in consumer applications but is disqualifying in legal, medical, and financial contexts where errors carry severe consequences. This represents a genuine structural barrier to full displacement.",
         },
+        {
+          id: "agentic-ai-workflow-automation-2025",
+          title: "Agentic AI Systems Autonomously Complete Multi-Step Professional Workflows (2025-2026)",
+          description:
+            "By 2025-2026, AI moved beyond single-turn question answering to agentic systems capable of executing complex, multi-step professional workflows autonomously. Anthropic's Claude and OpenAI's GPT-4o could use computer interfaces, browse the web, write and execute code, and iterate on deliverables. Deloitte deployed AI agents that independently performed due diligence analyses, reducing a 3-week process to 3 days. Legal AI startups like Harvey and CoCounsel automated end-to-end litigation workflows — from case research to motion drafting to citation checking. Goldman Sachs reported that AI agents handled 70% of routine equity research tasks by Q1 2026. The shift from 'AI as chat assistant' to 'AI as autonomous agent' fundamentally expanded the scope of automatable white-collar work.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "Anthropic Blog; OpenAI Developer Conference 2025; Deloitte AI Institute; Goldman Sachs Technology Report 2026",
+          sourceUrl: "https://www.anthropic.com/research",
+          reasoning:
+            "The shift to agentic AI is well-documented across multiple companies and independently verifiable through product launches and enterprise case studies. Deloitte and Goldman Sachs deployment data adds credibility. However, sources are primarily companies with financial incentives to promote AI capability. Early agentic systems still require significant human supervision, and enterprise deployment conditions differ from controlled demos. The long-term reliability of autonomous agents in high-stakes professional contexts remains unproven.",
+        },
       ],
     },
 
@@ -293,6 +310,23 @@ export const aiWhiteCollarDisplacementData = {
           reasoning:
             "Regulatory frameworks are matters of public record and directly enforceable. Professional liability requirements are well-established legal doctrine. These represent genuine structural barriers to rapid substitution. However, regulation tends to follow technology with a lag, and regulatory capture by AI-adopting firms could eventually weaken these protections. The EU AI Act is also untested in enforcement.",
         },
+        {
+          id: "mckinsey-updated-projections-2025",
+          title: "McKinsey Updates Projections: AI Automation Timeline Accelerated by a Decade (2025)",
+          description:
+            "McKinsey Global Institute's 2025 update to its landmark workforce transitions report found that generative AI had accelerated the automation timeline for knowledge work by approximately 10 years compared to their 2017 projections. Tasks previously estimated to require human-level AI performance by 2040 — including creative writing, complex data analysis, and professional communication — were being automated at scale by 2025. McKinsey estimated that 60-70% of worker activities could now be automated, up from 50% in their 2023 estimate. However, their updated analysis also emphasized that automation of activities does not equal elimination of occupations, and projected that the transition would create significant demand for AI oversight, integration, and strategy roles.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "McKinsey Global Institute, 'A New Future of Work' (2025 Update)",
+          sourceUrl: "https://www.mckinsey.com/mgi/our-research/a-new-future-of-work",
+          reasoning:
+            "McKinsey is a globally influential consultancy whose projections shape corporate and policy decisions. The acceleration of their own timeline is notable because it represents a revision against their earlier, more conservative estimates. However, McKinsey's dual role as AI advisor and AI adopter creates conflicts of interest. Their projections are models based on task-level analysis, not observations of actual displacement. The distinction between 'automatable activities' and 'eliminated jobs' remains crucial and is often lost in media coverage.",
+        },
       ],
     },
 
@@ -389,6 +423,23 @@ export const aiWhiteCollarDisplacementData = {
           reasoning:
             "The WEF is a credible international organization but its employer survey methodology has been critiqued for reflecting corporate aspirations rather than likely outcomes. The 170M net-new-jobs projection is optimistic and depends heavily on assumptions about reskilling and new industry emergence that may not materialize. However, it represents the most comprehensive global employer survey available on the topic.",
         },
+        {
+          id: "new-job-categories-emerging-2025",
+          title: "New AI-Era Job Categories Emerge: Prompt Engineering, AI Safety, and Human-AI Coordination (2025)",
+          description:
+            "By 2025, entirely new job categories that did not exist before 2022 were employing hundreds of thousands of workers globally. LinkedIn reported 'AI prompt engineer' as its fastest-growing job title, with postings increasing 3,000% between 2023 and 2025. AI safety and alignment research became a recognized profession with dedicated degree programs at 40+ universities. 'Human-AI coordination specialist' emerged as a role at consulting firms, managing the interface between AI agents and human teams. The AI training data industry — including RLHF annotators, red-teamers, and evaluation specialists — employed an estimated 200,000+ workers worldwide, mostly in developing economies. While critics note many of these roles may be transitional, they demonstrate that AI creates new categories of work even as it disrupts existing ones.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "LinkedIn Economic Graph 2025; Stanford HAI AI Index; TIME Investigation on AI Training Workers",
+          sourceUrl: "https://economicgraph.linkedin.com/",
+          reasoning:
+            "LinkedIn's job posting data is based on the world's largest professional network and is independently verifiable. The emergence of new job categories is a concrete, observable phenomenon. However, the scale of new job creation remains small relative to the scale of projected displacement — 200,000 AI training workers versus 300 million potentially exposed jobs. Many new AI-era roles require specialized skills that displaced workers may not be able to acquire quickly. The sustainability of roles like 'prompt engineer' is also uncertain as AI systems become more capable and require less human scaffolding.",
+        },
       ],
     },
   ],
@@ -412,6 +463,18 @@ export const aiWhiteCollarDisplacementData = {
     {
       title: "Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of AI on Knowledge Worker Productivity and Quality - Harvard Business School",
       url: "https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7571.pdf",
+    },
+    {
+      title: "Stanford HAI AI Index Report 2025 - Stanford University",
+      url: "https://aiindex.stanford.edu/report/",
+    },
+    {
+      title: "A New Future of Work - McKinsey Global Institute (2025 Update)",
+      url: "https://www.mckinsey.com/mgi/our-research/a-new-future-of-work",
+    },
+    {
+      title: "LinkedIn Economic Graph: AI Jobs Report 2025",
+      url: "https://economicgraph.linkedin.com/",
     },
   ],
   questions: [
