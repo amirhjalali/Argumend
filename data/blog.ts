@@ -2615,6 +2615,160 @@ This post covers the broad strokes. For the detailed evidence, source evaluation
 
 The housing crisis is real. The solutions are complicated. The first step toward fixing it is understanding what we are actually arguing about — and that is exactly what Argumend is built to help you do.`,
   },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Gun Control Evidence Review: What the Research Actually Shows
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "gun-control-evidence-research",
+    title: "Gun Control Evidence Review: What the Research Actually Shows",
+    description:
+      "Gun control is the debate where everyone claims the data supports their side. We examine the actual research on buybacks, concealed carry, background checks, red flag laws, and international comparisons to identify what the evidence does and does not show.",
+    author: "Argumend Team",
+    publishedAt: "2026-03-26T09:00:00Z",
+    readingTime: "12 min read",
+    tags: ["gun-control", "policy", "research", "evidence", "violence"],
+    category: "analysis",
+    content: `## The Debate Where Everyone Claims the Data Supports Their Side
+
+Few policy debates generate as much heat — or as little light — as gun control. After every mass shooting, proponents of stricter gun laws cite statistics showing the US has far more gun deaths than peer nations. After every defensive gun use, opponents cite statistics showing firearms save lives. Both sides claim "the research is clear." Both sides are oversimplifying.
+
+The honest truth is that gun policy research is genuinely difficult. Randomized controlled trials are impossible (you cannot randomly assign gun laws to states). Observational studies are plagued by confounding variables. The federal government effectively banned CDC funding for gun violence research from 1996 to 2018 via the Dickey Amendment, creating a two-decade gap in the evidence base. And the political stakes are so high that advocacy organizations on both sides fund studies designed to reach predetermined conclusions.
+
+None of this means the evidence is useless. It means you have to read it carefully, understand its limitations, and resist the temptation to cherry-pick the studies that confirm what you already believe. Here is what the research actually shows on the five most contested questions in the gun control debate.
+
+## 1. Do Gun Buybacks and Bans Reduce Gun Deaths?
+
+**The case for: Australia's 1996 National Firearms Agreement**
+
+This is the single most cited natural experiment in gun policy research. After a mass shooting in Port Arthur, Tasmania, Australia banned semi-automatic rifles and shotguns and implemented a mandatory buyback program that removed approximately 650,000 firearms from circulation — roughly one-fifth of the country's total stock.
+
+The results, published in JAMA (2016) and the Annals of Public Health, are striking. In the 18 years before the buyback, Australia experienced 13 mass shootings. In the more than 25 years since, there have been zero mass shootings meeting the same definition (five or more victims). Firearm homicides declined by 42%. Firearm suicides declined by 57%. Total homicide and suicide rates also declined, suggesting limited substitution to other methods.
+
+A 2010 study by Andrew Leigh and Christine Neill using a differences-in-differences design estimated the buyback reduced firearm homicides by 35-50% beyond the pre-existing trend. States with higher buyback rates saw larger declines, strengthening the causal inference.
+
+**The case against: Correlation, not causation**
+
+Skeptics raise several legitimate objections. First, gun violence was already declining in Australia before 1996, as it was across most of the developed world. A 2006 study by Baker and McPhedran argued that the decline in firearm deaths was consistent with pre-existing trends and that non-firearm deaths declined at similar rates, suggesting factors other than the buyback were responsible.
+
+Second, the US context is fundamentally different. Australia had approximately 3.2 million firearms at the time of the buyback. The US has an estimated 400 million — more guns than people. Buying back 20% of US firearms would mean purchasing 80 million guns, at a cost that could exceed $50 billion, and the remaining 320 million would still be in circulation. The logistical and constitutional barriers are incomparable.
+
+Third, mass shootings, while devastating, account for less than 1% of US gun deaths annually. The vast majority of gun deaths are suicides (approximately 55%) and individual homicides, often connected to domestic violence, gang activity, or interpersonal disputes. Policies designed to prevent mass shootings may have limited impact on these far more common causes of death.
+
+**What the evidence actually supports:** The Australian buyback very likely reduced gun deaths in Australia. Whether a similar policy would produce similar results in the US is a genuinely open question, given the vastly different scale, legal framework, and cultural context.
+
+## 2. Does Concealed Carry Reduce Crime?
+
+**The case for: "More Guns, Less Crime"**
+
+Economist John Lott's 1998 book *More Guns, Less Crime* is the foundational text for the argument that expanding concealed carry rights reduces violent crime. Using county-level data across the US, Lott argued that shall-issue concealed carry laws — which require authorities to issue permits to any applicant meeting basic criteria — reduced murder rates by approximately 8.5%, rapes by 5%, and aggravated assaults by 7%.
+
+The theoretical mechanism is straightforward: if criminals believe potential victims might be armed, the expected cost of committing a crime increases, deterring criminal behavior. This is standard economic deterrence theory applied to personal firearms.
+
+Lott's work has been replicated in various forms by other researchers, and 2023 data from the Crime Prevention Research Center suggests that concealed carry permit holders are among the most law-abiding demographics in the country, committing crimes at rates lower than police officers.
+
+**The case against: The NRC review and subsequent research**
+
+In 2004, the National Research Council (NRC) convened a panel of experts to review Lott's work and the broader right-to-carry literature. Their conclusion was devastating for the "more guns, less crime" thesis: "With the current evidence it is not possible to determine that there is a causal link between the passage of right-to-carry laws and crime rates." The panel found that Lott's results were highly sensitive to model specification — small changes in the time period, control variables, or geographic scope produced dramatically different results, including some showing that concealed carry *increased* crime.
+
+A rigorous 2020 study by Stanford economist John Donohue, published in the *Journal of Empirical Legal Studies*, used synthetic control methods — a more sophisticated approach than Lott's panel data regressions — and found that right-to-carry laws were associated with 13-15% *higher* violent crime rates over a ten-year period. Donohue's methodology addressed many of the specification issues identified by the NRC.
+
+The fundamental problem with concealed carry research is that states adopting shall-issue laws differ systematically from those that do not. States that pass permissive gun laws tend to be more rural, more conservative, and have different baseline crime patterns. Disentangling the effect of the law from these pre-existing differences is methodologically treacherous.
+
+**What the evidence actually supports:** The claim that concealed carry laws reduce crime is not supported by the weight of current evidence. The claim that they significantly increase crime is also contested. The most defensible position is that the effect on overall crime rates is small in either direction and difficult to isolate from confounding factors.
+
+## 3. Do Background Checks Prevent Gun Violence?
+
+**The case for: The Brady Act and universal background checks**
+
+The Brady Handgun Violence Prevention Act, enacted in 1993, required federally licensed firearms dealers to conduct background checks on purchasers. Between 1994 and 2023, the National Instant Criminal Background Check System (NICS) blocked over 4.3 million attempted purchases by prohibited persons — including convicted felons, domestic violence offenders, and individuals adjudicated as mentally ill.
+
+A 2019 study in the *Annals of Internal Medicine* found that Connecticut's 1995 adoption of a permit-to-purchase law requiring universal background checks was associated with a 40% reduction in firearm homicides over the following decade. Conversely, when Missouri repealed its permit-to-purchase law in 2007, firearm homicides increased by 23%, a finding published in the *Journal of Urban Health*.
+
+These two natural experiments — one state tightening its laws and seeing deaths fall, another loosening its laws and seeing deaths rise — provide some of the strongest evidence in the entire gun policy literature.
+
+**The case against: Enforcement gaps and private sales**
+
+Currently, federal law only requires background checks for purchases from licensed dealers. Private sales, gun shows, and online transactions in many states require no background check. Estimates suggest 22% of gun acquisitions occur without a background check — the so-called "private sale loophole."
+
+But the counterargument is not just about the loophole. Critics note that 77% of mass shooters obtained their weapons legally or would have passed background checks. The Uvalde shooter, the Parkland shooter, and the Las Vegas shooter all purchased their firearms through legal channels with background checks. Universal background checks might prevent some impulsive gun purchases by prohibited persons, but they would not have stopped most of the high-profile mass shootings that drive the political debate.
+
+Additionally, enforcement of existing prohibitions is weak. Lying on a background check form (ATF Form 4473) is a federal crime, but prosecutions are exceedingly rare — in 2017, of approximately 112,000 denied purchases, only 12 cases were prosecuted.
+
+**What the evidence actually supports:** Background checks appear to reduce firearm homicides, particularly when implemented as universal permit-to-purchase systems rather than point-of-sale checks alone. The Connecticut and Missouri natural experiments are compelling. However, background checks are not effective against mass shootings specifically, since most mass shooters pass them. And without robust enforcement and prosecution of prohibited purchasers, the system catches far fewer dangerous individuals than it could.
+
+## 4. Do Red Flag Laws Work?
+
+**The case for: Indiana and Connecticut evidence**
+
+Extreme Risk Protection Orders (ERPOs), commonly called "red flag laws," allow family members or law enforcement to petition a court to temporarily remove firearms from individuals deemed to be an imminent danger to themselves or others. As of 2026, 21 states and the District of Columbia have enacted some form of ERPO law.
+
+The strongest evidence comes from Indiana, which enacted the first red flag law in 2005, and Connecticut, which followed in 1999. A study published in *Psychiatric Services* found that for every 10-20 gun seizures under Indiana's law, one suicide was prevented. A separate study in the *Annals of Internal Medicine* estimated that Connecticut's law was associated with a 5-14% reduction in firearm suicides.
+
+Given that suicides account for approximately 55% of all US gun deaths — roughly 27,000 deaths per year — even a modest percentage reduction represents thousands of lives saved. Red flag laws are specifically designed to intervene during acute crisis periods, which aligns with research showing that suicidal crises are often temporary and that means restriction (reducing access to lethal methods during a crisis) is one of the most effective suicide prevention strategies.
+
+**The case against: Due process concerns and implementation challenges**
+
+Critics raise constitutional concerns about red flag laws. ERPOs can temporarily remove a person's firearms based on a civil court proceeding, not a criminal conviction. The initial ex parte order — issued before the respondent has a chance to contest it — allows seizure based on one side's testimony alone. While respondents typically receive a full hearing within 14-21 days, critics argue this inverts the presumption of innocence and creates a mechanism for abuse.
+
+Implementation data supports some of these concerns. In states with red flag laws, usage varies enormously by county, suggesting inconsistent application. Some jurisdictions use ERPOs aggressively while neighboring counties use them rarely or not at all. There is also limited evidence that red flag laws reduce homicides, as opposed to suicides — the evidence base is primarily about self-harm prevention.
+
+**What the evidence actually supports:** Red flag laws appear to reduce firearm suicides, which is their primary measurable impact. The effect on homicides is less clear. Constitutional concerns about due process are legitimate and worth taking seriously, though similar civil restraining order mechanisms exist in domestic violence law without comparable controversy. The evidence supports ERPOs as a targeted, effective intervention for suicide prevention, with more limited evidence for other forms of gun violence.
+
+## 5. International Comparisons: Are They Valid?
+
+**The case for: The pattern is unmistakable**
+
+The US has 12.21 gun deaths per 100,000 people. The UK has 0.23. Japan has 0.02. Canada has 2.05. Australia has 0.88. Germany has 0.99. These are not cherry-picked comparisons; virtually every high-income peer nation has dramatically lower rates of gun death, and virtually every one of them has stricter gun laws.
+
+The correlation between gun availability and gun death is one of the most robust findings in criminology. Within the US, states with higher gun ownership have higher rates of gun death, even after controlling for poverty, urbanization, and other demographic factors. A 2013 study in the *American Journal of Public Health* found that for every 1% increase in household gun ownership, firearm homicide rates increased by 0.9%.
+
+**The case against: America is not Japan**
+
+The most substantive criticism of international comparisons is that they compare fundamentally different societies. The US has unique characteristics that confound the analysis: a constitutional right to bear arms, 400 million existing firearms, deep cultural attachment to gun ownership, much higher baseline rates of violent crime (even non-gun violence is higher in the US than in most peer nations), significant gang activity concentrated in specific urban areas, and extreme income inequality.
+
+Switzerland is frequently cited as a counterexample: it has high gun ownership (approximately 28 guns per 100 people) but low gun violence. However, Swiss gun culture is radically different from American gun culture. Most Swiss guns are military-issued rifles kept by reservists, ammunition is tightly regulated, and there is no tradition of carrying firearms for personal protection.
+
+Israel is another common comparison. While Israel has significant gun ownership among military personnel and settlers, civilian gun ownership requires extensive licensing, training, and psychological evaluation. Israel's gun laws are far stricter than any US state's.
+
+The deeper methodological issue is that international comparisons cannot isolate the effect of gun laws from the effect of everything else that differs between countries — culture, inequality, social cohesion, healthcare access, policing practices, and historical factors. These are correlational observations, not causal experiments.
+
+**What the evidence actually supports:** The international correlation between gun availability and gun death is real and robust. However, it does not by itself prove that US-style gun restrictions would produce European-style outcomes, because the US differs from European nations in many ways beyond gun policy. The most honest interpretation is that gun availability is very likely *one* significant causal factor in gun death rates, but it is not the only factor, and the magnitude of the effect of any specific policy change in the US context is genuinely uncertain.
+
+## The Crux of the Gun Control Debate
+
+At Argumend, we try to identify the "crux" of every debate — the specific empirical question where, if you could resolve it, the broader disagreement would largely dissolve.
+
+For the gun control debate, the crux is this: **Would implementing Australian-style gun restrictions in the US reduce firearm deaths by more than 20% within 10 years?**
+
+If the answer is yes — if comprehensive restrictions including mandatory buybacks, universal background checks, and bans on semi-automatic weapons would substantially reduce the approximately 48,000 annual US gun deaths — then the public health case for such restrictions is overwhelming, and the question becomes whether the constitutional and political costs are worth the lives saved.
+
+If the answer is no — if the unique characteristics of the US (400 million existing guns, constitutional protections, cultural factors, enforcement challenges) mean that such restrictions would have limited practical effect — then gun control advocates are proposing costly, divisive policies with minimal return, and resources would be better spent on targeted interventions like red flag laws, violence intervention programs, and mental health crisis services.
+
+The honest answer is that we do not know. No country with remotely similar conditions to the US has implemented Australian-style restrictions. The Australian evidence is compelling but may not transfer. The US evidence on incremental policies (background checks, red flag laws) is promising but modest in scale. And the federal research funding gap created by the Dickey Amendment means we have far less evidence than we should on the most important questions.
+
+## Why This Debate Is So Hard
+
+The gun control debate is uniquely difficult because it sits at the intersection of two frameworks that are both legitimate but fundamentally incompatible.
+
+**The public health framework** treats gun violence as an epidemic. From this perspective, firearms are a risk factor for death, just as cigarettes are a risk factor for lung cancer. The logical response is to reduce exposure to the risk factor through regulation, just as we regulate tobacco. Public health researchers point to 48,000 annual gun deaths — more than car accidents — and ask why we don't regulate guns at least as strictly as cars.
+
+**The constitutional rights framework** treats gun ownership as a fundamental individual right, enshrined in the Second Amendment and affirmed by the Supreme Court in *District of Columbia v. Heller* (2008). From this perspective, the right to keep and bear arms is not contingent on a cost-benefit analysis, just as the right to free speech is not contingent on whether speech produces net social benefits. Rights exist precisely to protect individuals against majoritarian calculations that their liberty should be sacrificed for the collective good.
+
+These frameworks do not merely disagree on policy. They disagree on the category of the question. Is gun violence a public health problem to be solved through evidence-based regulation? Or is gun ownership a constitutional right to be protected against government overreach? The answer determines not just what policies you support but what kinds of evidence you consider relevant.
+
+This is why the debate feels intractable. Both sides are reasoning from legitimate premises. The public health case for reducing gun deaths is real. The constitutional case for protecting individual rights is real. And no amount of data can resolve a question that is ultimately about how to weigh competing values.
+
+## What You Can Do With This Information
+
+If you have read this far, you are already ahead of most participants in the gun debate, because you have engaged with the strongest arguments on both sides rather than dismissing the other side as ignorant or malicious.
+
+The next step is to examine the evidence in greater depth. Our full [Gun Control Effectiveness](/topics/gun-control-effectiveness) topic on Argumend maps every major argument, weighs the evidence for and against each claim, and identifies the specific empirical questions that would need to be resolved to move the debate forward.
+
+You might also explore related topics that intersect with the gun debate: [police reform](/topics/police-reform) and its relationship to community violence, [drug decriminalization](/topics/drug-decriminalization) and its potential effect on gang-related gun violence, and the broader question of how [surveillance and public safety](/topics/surveillance-public-safety) policies affect civil liberties.
+
+The gun control debate will not be resolved by a single study or a single blog post. But it can be improved by participants who understand what the evidence actually shows, acknowledge what remains uncertain, and engage with the strongest version of the opposing argument. That is what Argumend is built to help you do.`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {
