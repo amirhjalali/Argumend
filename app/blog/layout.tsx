@@ -22,12 +22,21 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://argumend.org/blog",
     siteName: "ARGUMEND",
+    images: [
+      {
+        url: `https://argumend.org/api/og?title=${encodeURIComponent("The Argumend Blog")}&subtitle=${encodeURIComponent("Essays on critical thinking and productive disagreement")}`,
+        width: 1200,
+        height: 630,
+        alt: "The Argumend Blog",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog | ARGUMEND",
     description:
       "Essays on critical thinking, logical fallacies, steel-manning, and the art of productive disagreement.",
+    images: [`https://argumend.org/api/og?title=${encodeURIComponent("The Argumend Blog")}&subtitle=${encodeURIComponent("Essays on critical thinking and productive disagreement")}`],
   },
 };
 
