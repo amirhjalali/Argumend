@@ -38,6 +38,26 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
         "A Critical Analysis of the Evidence for the SARS-CoV-2 Origin Hypotheses - Journal of Virology (2023)",
       url: "https://journals.asm.org/doi/10.1128/jvi.00365-23",
     },
+    {
+      title:
+        "FBI Director Wray testimony reaffirming lab-leak assessment (2024)",
+      url: "https://www.fbi.gov/news/stories/fbi-director-wray-testifies-before-senate",
+    },
+    {
+      title:
+        "NIH admits to gain-of-function research oversight failures — Congressional testimony (2024)",
+      url: "https://www.nih.gov/about-nih/who-we-are/nih-director/statements/statement-nih-efforts-enhance-biosafety-biosecurity-oversight",
+    },
+    {
+      title:
+        "CIA assessment: research-related origin more likely (January 2025)",
+      url: "https://www.nbcnews.com/politics/politics-news/cia-shifts-assessment-covid-origins-saying-lab-leak-likely-caused-outb-rcna189284",
+    },
+    {
+      title:
+        "Gallup poll: 60% of Americans consider lab leak most likely origin (2024)",
+      url: "https://news.gallup.com/poll/510975/americans-covid-origin-beliefs.aspx",
+    },
   ],
   questions: [
     {
@@ -58,7 +78,14 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
       title:
         "What would it take to resolve this question definitively?",
       content:
-        "Key evidence that could settle the debate includes: the WIV viral database taken offline in September 2019, laboratory notebooks and biosafety logs from 2019, early patient samples and sequences (over 500 remain unpublished), complete supply-chain records for the Huanan Seafood Market, and medical records of WIV researchers who reportedly fell ill in November 2019. China has declined to share most of this data. Is a definitive answer possible without Chinese cooperation, or must the world accept permanent uncertainty?",
+        "Key evidence that could settle the debate includes: the WIV viral database taken offline in September 2019, laboratory notebooks and biosafety logs from 2019, early patient samples and sequences (over 500 remain unpublished), complete supply-chain records for the Huanan Seafood Market, and medical records of WIV researchers who reportedly fell ill in November 2019. China has declined to share most of this data. The NDAA of 2026 mandated declassification of US intelligence on COVID-19 origins, which may reveal new details. The House Select Subcommittee obtained internal EcoHealth and NIH documents through subpoena power. But without Chinese cooperation on the most critical datasets, can declassified US intelligence and congressional investigations substitute for direct access to the WIV?",
+    },
+    {
+      id: "q4",
+      title:
+        "Has the gain-of-function oversight system been reformed enough to prevent future incidents?",
+      content:
+        "NIH acknowledged in 2024 that oversight mechanisms failed to flag dangerous experiments at the WIV conducted with US funding. EcoHealth Alliance was debarred for compliance failures. The P3CO framework was designed to review potential pandemic pathogen research but did not catch the experiments in question. NIH has announced reforms, but critics argue the new policies still rely on self-reporting by researchers. If the oversight system that was supposed to prevent dangerous research demonstrably failed, what confidence can the public have that reformed systems will succeed, and does this failure pattern make an accidental lab origin more plausible in hindsight?",
     },
   ],
   pillars: [
@@ -162,6 +189,64 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
             "https://www.nbcnews.com/health/health-news/u-s-intel-report-identified-3-wuhan-lab-researchers-who-n1268327",
           reasoning:
             "Intelligence assessments, not independently verified scientific data. Officials familiar with the intelligence expressed differing views about its strength. Symptoms of COVID-19 overlap heavily with seasonal flu and other respiratory infections. Without confirmed diagnoses, this remains suggestive but not conclusive. The classified nature of the underlying intelligence prevents independent evaluation.",
+        },
+        {
+          id: "house-subcommittee-conclusion-2024",
+          title:
+            "House Select Subcommittee concluded lab origin most likely (December 2024)",
+          description:
+            "The House Select Subcommittee on the Coronavirus Pandemic released its 500-page final report in December 2024 after a two-year bipartisan investigation. The report concluded that a research-related origin was the most likely cause of the pandemic, citing the proximity of the WIV, the absence of an intermediate host, gain-of-function research conducted at the lab, and biosafety failures. The investigation obtained internal communications, subpoenaed documents from EcoHealth Alliance, and conducted over 30 transcribed interviews with key witnesses.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 4,
+            replicability: 5,
+            directness: 5,
+          },
+          source:
+            "House Select Subcommittee on the Coronavirus Pandemic (December 2024)",
+          sourceUrl:
+            "https://oversight.house.gov/release/final-report-covid-select-concludes-2-year-investigation-issues-500-page-final-report-on-lessons-learned-and-the-path-forward/",
+          reasoning:
+            "The investigation was thorough in scope, obtaining documents through subpoena power not available to scientific investigators. However, the Subcommittee was a political body, and Democratic members issued a dissenting minority report arguing the majority reached conclusions not fully supported by the evidence reviewed. The investigation surfaced valuable documentary evidence (EcoHealth communications, NIH correspondence) even if its ultimate conclusion reflects a political judgment. Independence is scored lower due to partisan dynamics.",
+        },
+        {
+          id: "ecohealth-debarment-2024",
+          title:
+            "EcoHealth Alliance formally debarred from federal funding (2024)",
+          description:
+            "In 2024, the Department of Health and Human Services formally debarred EcoHealth Alliance and its president Peter Daszak from receiving federal funding. The debarment cited failures to comply with grant terms, failure to report dangerous gain-of-function experiments conducted at the WIV, and lack of institutional controls. EcoHealth had served as the intermediary funneling NIH grants to the WIV for bat coronavirus research. The debarment was the first of its kind for a scientific organization involved in pandemic-related research.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 4,
+          },
+          source: "HHS Debarment Records; House Select Subcommittee (2024)",
+          sourceUrl:
+            "https://oversight.house.gov/release/breaking-hhs-formally-debars-ecohealth-alliance-dr-peter-daszak-after-covid-select-reveals-pandemic-era-wrongdoing/",
+          reasoning:
+            "The debarment is an official government action based on documented compliance failures, not speculation. It confirms that EcoHealth failed to report experiments that enhanced viral pathogenicity, which validates concerns about oversight gaps. However, the debarment addresses grant mismanagement and transparency failures, not whether a specific experiment produced SARS-CoV-2. The directness score is low because institutional misconduct does not prove a lab leak occurred.",
+        },
+        {
+          id: "natural-spillover-precedent-no-host",
+          title:
+            "Over 80,000 animal samples tested without finding SARS-CoV-2 progenitor (as of 2025)",
+          description:
+            "Chinese researchers and international teams have tested over 80,000 animal samples from markets, farms, and wildlife across China without finding SARS-CoV-2 or a direct progenitor virus in any animal. By comparison, the intermediate host for SARS-CoV-1 (civet cats) was identified within four months, and MERS-CoV's reservoir (dromedary camels) within nine months. As of early 2025, over six years have elapsed without identification of the animal source. Proponents of natural origin note that SARS-CoV-1's bat reservoir was not confirmed until 2017, over a decade after the 2003 outbreak.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "Nature (multiple studies, 2020-2025); WHO SAGO (2025)",
+          sourceUrl:
+            "https://www.who.int/news/item/27-06-2025-who-scientific-advisory-group-issues-report-on-origins-of-covid-19",
+          reasoning:
+            "The failure to find the intermediate host after six years and extensive sampling is noteworthy but not dispositive. Absence of evidence is not evidence of absence, and wildlife sampling in China remains constrained by access limitations. However, the comparative speed of host identification for SARS-CoV-1 and MERS makes the prolonged failure for SARS-CoV-2 a legitimate anomaly requiring explanation. Natural origin proponents correctly note that SARS-CoV-1's ultimate bat reservoir took over a decade to find.",
         },
       ],
     },
@@ -268,6 +353,45 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
           reasoning:
             "These studies confirm the FCS is functionally important for human disease, consistent with both hypotheses. A naturally selected virus would also benefit from enhanced pathogenesis. The findings support the idea that the FCS provides a significant fitness advantage in humans, which is relevant to the engineering hypothesis (designing for human cell entry) but does not distinguish between origins. The directness score is low because functional importance does not indicate origin.",
         },
+        {
+          id: "nih-gof-oversight-failures-2024",
+          title:
+            "NIH acknowledged gain-of-function research oversight failures (2024)",
+          description:
+            "In 2024 congressional testimony, NIH officials acknowledged that gain-of-function research oversight mechanisms had failed to catch experiments at the WIV that enhanced the pathogenicity of bat coronaviruses. EcoHealth Alliance grants funded research that created chimeric coronaviruses with increased infectivity in human cell cultures, but these experiments were not flagged for enhanced review under the P3CO framework (Potential Pandemic Pathogen Care and Oversight). The NIH subsequently announced reforms to its oversight policies, including expanded definitions of gain-of-function research and stronger reporting requirements.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 6,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "NIH Congressional Testimony (2024); House Select Subcommittee Report",
+          sourceUrl:
+            "https://www.nih.gov/about-nih/who-we-are/nih-director/statements/statement-nih-efforts-enhance-biosafety-biosecurity-oversight",
+          reasoning:
+            "NIH's own admission that oversight failed is significant because it comes from the funding agency itself, not an adversarial source. It confirms that gain-of-function experiments more dangerous than disclosed were conducted at the WIV with US funding. However, the existence of oversight failures does not prove that a specific experiment produced SARS-CoV-2. The reforms NIH announced implicitly acknowledge that the previous system was inadequate, which strengthens concerns about what could have occurred under lax oversight.",
+        },
+        {
+          id: "bat-coronavirus-sampling-expansion-2024",
+          title:
+            "Expanded bat sampling in Southeast Asia found sarbecoviruses with partial FCS-like motifs (2024)",
+          description:
+            "A 2024 study published in Nature Communications analyzing bat coronaviruses from Laos, Cambodia, and southern China identified several sarbecoviruses with short basic amino acid insertions near the S1/S2 junction, though none possessed a complete polybasic furin cleavage site equivalent to SARS-CoV-2's PRRAR motif. These findings suggest that evolutionary precursors to a furin cleavage site may exist in bat sarbecovirus diversity, though the gap between these partial motifs and the full PRRAR insertion remains significant.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "Nature Communications (2024)",
+          sourceUrl:
+            "https://www.nature.com/articles/s41467-024-46394-4",
+          reasoning:
+            "This peer-reviewed finding from independent research groups narrows the evolutionary gap somewhat, showing that sarbecoviruses in nature have acquired short basic insertions near the FCS region. This weakens the argument that the FCS could only arise through engineering. However, the gap between short basic motifs and the full 12-nucleotide PRRAR insertion with the unusual CGG-CGG codon pair remains substantial. The finding demonstrates that nature is exploring this evolutionary space but has not yet been shown to produce the complete feature found in SARS-CoV-2.",
+        },
       ],
     },
 
@@ -372,6 +496,82 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
             "https://oversight.house.gov/release/breaking-hhs-formally-debars-ecohealth-alliance-dr-peter-daszak-after-covid-select-reveals-pandemic-era-wrongdoing/",
           reasoning:
             "Obstruction of investigation is not direct evidence of a lab leak; authoritarian governments routinely suppress information for political reasons regardless of the underlying truth. However, the specific data being withheld (WIV database, early sequences, biosafety logs) is precisely the data that could resolve the question one way or the other. The pattern of selective transparency, sharing some market environmental data while withholding institutional records, is consistent with either covering up a lab accident or protecting state secrets unrelated to origins. Directness is scored low because obstruction itself does not indicate which hypothesis is correct.",
+        },
+        {
+          id: "fbi-moderate-confidence-2024",
+          title:
+            "FBI maintained 'moderate confidence' in lab-leak origin throughout 2024",
+          description:
+            "FBI Director Christopher Wray testified in 2024 that the FBI continues to assess with 'moderate confidence' that the COVID-19 pandemic most likely originated from a laboratory incident. This is the highest confidence level expressed by any US intelligence agency on the origins question. Wray stated the assessment was based on the FBI's biological weapons expertise, analysis of the virus itself, and classified intelligence. The FBI is the only agency to express 'moderate' rather than 'low' confidence in a lab origin.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 2,
+            directness: 5,
+          },
+          source: "FBI Director testimony; Senate Intelligence Committee (2024)",
+          sourceUrl:
+            "https://www.fbi.gov/news/stories/fbi-director-wray-testifies-before-senate",
+          reasoning:
+            "The FBI's 'moderate confidence' assessment is the strongest position any intelligence agency has taken. The FBI has unique expertise in biological threats and bioweapons analysis. However, intelligence assessments are not scientific peer-reviewed findings, and the underlying evidence remains classified. 'Moderate confidence' still indicates significant uncertainty. Replicability is very low because the classified sources cannot be independently evaluated or reproduced.",
+        },
+        {
+          id: "declassified-intelligence-2025",
+          title:
+            "Declassified intelligence assessments provided new details on WIV activities (2025)",
+          description:
+            "In early 2025, declassification of portions of US intelligence assessments revealed additional details about WIV research activities, including previously undisclosed experiments with bat coronaviruses and details about the biosafety conditions under which the work was conducted. The declassified materials indicated that some WIV research on bat coronaviruses was conducted at BSL-2 safety levels, which are comparable to a dental office rather than the BSL-4 containment appropriate for highly dangerous pathogens. The NDAA of 2026 mandated further declassification review.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 4,
+            directness: 5,
+          },
+          source: "ODNI Declassified Reports (2025); NDAA FY2026",
+          sourceUrl:
+            "https://www.dni.gov/files/ODNI/documents/assessments/Declassified-Assessment-on-COVID-19-Origins.pdf",
+          reasoning:
+            "Declassified intelligence provides more transparency than previously available, though much remains redacted. The revelation that bat coronavirus research was conducted at BSL-2 is significant because it demonstrates that the biosafety conditions were inadequate for the risk level, making an accidental exposure more plausible. However, inadequate biosafety does not prove an exposure occurred. Independence is limited because the declassification process is controlled by the executive branch with political considerations.",
+        },
+        {
+          id: "public-opinion-shift-2024",
+          title:
+            "Public opinion shifted: majority now considers lab leak plausible (2024)",
+          description:
+            "A 2024 Gallup poll found that 60% of Americans considered a laboratory leak the most likely origin of COVID-19, up from approximately 30% in early 2021. The shift crossed political lines, with majorities among Republicans (78%) and independents (56%), and a significant minority of Democrats (38%) supporting the lab-leak hypothesis. This shift occurred alongside increased media coverage of the lab-leak theory, the House Subcommittee investigation, and intelligence agency disclosures.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 1,
+          },
+          source: "Gallup (2024)",
+          sourceUrl:
+            "https://news.gallup.com/poll/510975/americans-covid-origin-beliefs.aspx",
+          reasoning:
+            "Public opinion polls are methodologically rigorous when conducted by established organizations like Gallup, and the trend is independently verifiable across multiple polling organizations. However, public opinion has essentially zero directness as evidence for the actual origin of the virus. Popularity does not determine scientific truth. The shift is relevant as sociological context: it reflects that the lab-leak hypothesis has moved from fringe to mainstream, which affects policy and funding for investigation. The extremely low directness score reflects that public belief is not evidence of fact.",
+        },
+        {
+          id: "virologist-survey-zoonotic-2024",
+          title:
+            "Survey of virologists and epidemiologists: 77% assessed zoonosis as most likely (2024)",
+          description:
+            "A 2024 survey of 168 epidemiologists and virologists, published in a preprint, found that respondents assessed the probability of a zoonotic origin at 77% on average versus 21% for a lab-related origin. The sample was drawn from researchers who had published on COVID-19 origins or related topics. Proponents of a lab origin noted that the survey sample was dominated by researchers in fields historically supportive of zoonotic hypotheses and excluded intelligence analysts and biosecurity experts.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 5,
+            directness: 3,
+          },
+          source: "Preprint survey of virologists and epidemiologists (2024)",
+          sourceUrl:
+            "https://www.nature.com/articles/d41586-024-01167-3",
+          reasoning:
+            "Expert opinion surveys capture the state of professional consensus, which has informational value but is not itself evidence. The survey is limited by potential selection bias (the sample was not randomly drawn from all relevant experts), and expert consensus has historically been wrong on questions where institutional incentives aligned against uncomfortable conclusions. The directness score is low because expert opinion aggregation does not substitute for empirical evidence. The survey does demonstrate that the majority of domain experts still favor natural origin, which is worth noting even if it is not dispositive.",
         },
       ],
     },
