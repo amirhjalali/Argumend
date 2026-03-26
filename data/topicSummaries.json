@@ -113,11 +113,11 @@
     "id": "universal-basic-income",
     "title": "Universal Basic Income",
     "meta_claim": "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
-    "confidence_score": 50,
+    "confidence_score": 76,
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 0
+    "pillarCount": 3,
+    "evidenceCount": 13
   },
   {
     "id": "wealth-tax",
@@ -158,6 +158,106 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 5
+  },
+  {
+    "id": "us-iran-conflict",
+    "title": "The US-Iran Conflict",
+    "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
+    "confidence_score": 48,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "epstein-files",
+    "title": "The Epstein Files",
+    "meta_claim": "The Jeffrey Epstein case reveals systemic institutional failure — law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for decades, and full accountability has still not been achieved.",
+    "confidence_score": 70,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "tiktok-ban",
+    "title": "Should TikTok Be Banned?",
+    "meta_claim": "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
+    "confidence_score": 53,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 19
+  },
+  {
+    "id": "immigration-border-crisis",
+    "title": "The US Immigration & Border Crisis",
+    "meta_claim": "The current approach to US immigration — combining border enforcement, asylum restrictions, and deportation — is the most effective way to manage immigration and protect national interests.",
+    "confidence_score": 40,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 10
+  },
+  {
+    "id": "social-media-elections",
+    "title": "Social Media's Impact on Elections",
+    "meta_claim": "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
+    "confidence_score": 69,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 10
+  },
+  {
+    "id": "nuclear-weapons-abolition",
+    "title": "Should Nuclear Weapons Be Abolished?",
+    "meta_claim": "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe rather than more.",
+    "confidence_score": 30,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 10
+  },
+  {
+    "id": "school-phone-bans",
+    "title": "Should Schools Ban Smartphones?",
+    "meta_claim": "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
+    "confidence_score": 66,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "pandemic-preparedness",
+    "title": "Pandemic Preparedness Investment",
+    "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
+    "confidence_score": 57,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 14
+  },
+  {
+    "id": "iran-war-justification",
+    "title": "Is Military Action Against Iran Justified?",
+    "meta_claim": "Military strikes against Iran's nuclear and military infrastructure are a justified response to regional aggression and nuclear proliferation risks.",
+    "confidence_score": 50,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "china-taiwan-invasion",
+    "title": "Will China Invade Taiwan Before 2030?",
+    "meta_claim": "China will attempt military reunification with Taiwan within this decade, fundamentally reshaping the global order.",
+    "confidence_score": 46,
+    "status": "highly_speculative",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 12
   },
   {
     "id": "social-media-age-limits",
@@ -250,6 +350,86 @@
     "evidenceCount": 5
   },
   {
+    "id": "ai-job-displacement",
+    "title": "Will AI Replace Most White-Collar Jobs?",
+    "meta_claim": "Artificial intelligence and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
+    "confidence_score": 57,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 17
+  },
+  {
+    "id": "ai-in-education",
+    "title": "AI in Education: Revolution or Risk?",
+    "meta_claim": "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
+    "confidence_score": 47,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 10
+  },
+  {
+    "id": "ai-regulation",
+    "title": "Should AI Be Regulated Like Drugs or Nuclear Energy?",
+    "meta_claim": "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
+    "confidence_score": 57,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 9
+  },
+  {
+    "id": "ai-white-collar-displacement",
+    "title": "AI White-Collar Job Displacement",
+    "meta_claim": "Large language models and AI agents will permanently eliminate more white-collar professional jobs than they create within the next decade, requiring fundamental restructuring of the knowledge economy.",
+    "confidence_score": 47,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 4,
+    "evidenceCount": 19
+  },
+  {
+    "id": "eacc-vs-tech-regulation",
+    "title": "E/acc vs. Tech Regulation",
+    "meta_claim": "Rapid, unregulated technological advancement creates more benefit than harm",
+    "confidence_score": 63,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 14
+  },
+  {
+    "id": "ai-superintelligence-timeline",
+    "title": "Will Artificial Superintelligence Arrive Before 2035?",
+    "meta_claim": "Current AI scaling trends suggest artificial general intelligence, and potentially superintelligence, could emerge within the next decade.",
+    "confidence_score": 59,
+    "status": "highly_speculative",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "nuclear-renaissance-smr",
+    "title": "Can Small Modular Reactors Save Nuclear Energy?",
+    "meta_claim": "Small modular reactors represent a viable path to carbon-free baseload power that can be deployed at scale within this decade.",
+    "confidence_score": 44,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "tiktok-brain-rot",
+    "title": "Is Short-Form Video Causing Cognitive Decline?",
+    "meta_claim": "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
+    "confidence_score": 64,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
     "id": "climate-change",
     "title": "Climate Change",
     "meta_claim": "Climate change is primarily caused by human activity.",
@@ -330,6 +510,116 @@
     "evidenceCount": 5
   },
   {
+    "id": "lab-leak-theory",
+    "title": "COVID-19 Lab Leak Origin",
+    "meta_claim": "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
+    "confidence_score": 64,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 21
+  },
+  {
+    "id": "ultra-processed-food",
+    "title": "Are Ultra-Processed Foods Driving the Obesity Epidemic?",
+    "meta_claim": "Ultra-processed foods are the primary driver of the global obesity and chronic disease epidemic, and their regulation would significantly improve public health outcomes.",
+    "confidence_score": 61,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 10
+  },
+  {
+    "id": "longevity-science",
+    "title": "The Science of Life Extension",
+    "meta_claim": "Recent breakthroughs in longevity research — including senolytics, epigenetic reprogramming, and caloric restriction mimetics — will significantly extend healthy human lifespan within the next 20 years.",
+    "confidence_score": 65,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "gender-affirming-care-minors",
+    "title": "Gender-Affirming Care for Minors",
+    "meta_claim": "Evidence-based gender-affirming medical care for transgender adolescents, including puberty blockers and hormone therapy, improves mental health outcomes and should be accessible.",
+    "confidence_score": 36,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 10
+  },
+  {
+    "id": "microplastics-health-crisis",
+    "title": "The Microplastics Health Crisis",
+    "meta_claim": "Microplastic and nanoplastic contamination of human blood, organs, and placentas represents a major emerging public health crisis comparable to lead exposure, not merely an environmental nuisance.",
+    "confidence_score": 66,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "glp1-weight-loss-drugs",
+    "title": "GLP-1 Weight Loss Drugs",
+    "meta_claim": "GLP-1 receptor agonists like Ozempic and Mounjaro represent a safe, effective long-term solution to the obesity epidemic that should be widely accessible, not a dangerous shortcut that medicalizes a lifestyle problem.",
+    "confidence_score": 47,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 4,
+    "evidenceCount": 15
+  },
+  {
+    "id": "fluoride-water-supplies",
+    "title": "Fluoride in Water Supplies",
+    "meta_claim": "Community water fluoridation is a safe and effective public health measure",
+    "confidence_score": 32,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "lithium-mining-ev-impact",
+    "title": "Lithium Mining & EV Environmental Impact",
+    "meta_claim": "Electric vehicles are significantly better for the environment than gas cars when mining impacts are included",
+    "confidence_score": 44,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 14
+  },
+  {
+    "id": "seed-oils-health",
+    "title": "Are Seed Oils Harmful to Human Health?",
+    "meta_claim": "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
+    "confidence_score": 45,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "obesity-personal-responsibility",
+    "title": "Is Obesity a Personal Choice or a Systemic Failure?",
+    "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
+    "confidence_score": 68,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "loneliness-epidemic",
+    "title": "Is Loneliness a Public Health Crisis?",
+    "meta_claim": "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
+    "confidence_score": 57,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
     "id": "remote-work-permanence",
     "title": "The Future of Remote Work",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
@@ -390,6 +680,16 @@
     "evidenceCount": 0
   },
   {
+    "id": "cryptocurrency-regulation",
+    "title": "Cryptocurrency Regulation",
+    "meta_claim": "Cryptocurrencies should be regulated like traditional financial instruments",
+    "confidence_score": 47,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 15
+  },
+  {
     "id": "gig-economy-regulation",
     "title": "Gig Economy Regulation",
     "meta_claim": "Gig economy platforms (Uber, Lyft, DoorDash, etc.) should be required to classify their workers as employees rather than independent contractors, providing full labor protections.",
@@ -400,13 +700,73 @@
     "evidenceCount": 5
   },
   {
-    "id": "lab-leak-theory",
-    "title": "COVID-19 Lab Leak Origin",
-    "meta_claim": "SARS-CoV-2 originated from a laboratory incident at the Wuhan Institute of Virology rather than a natural zoonotic spillover event.",
-    "confidence_score": 60,
+    "id": "housing-affordability-crisis",
+    "title": "The Housing Affordability Crisis",
+    "meta_claim": "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, as the free market alone cannot provide adequate affordable housing.",
+    "confidence_score": 66,
     "status": "contested",
-    "category": "science",
-    "pillarCount": 5,
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "four-day-work-week",
+    "title": "The Four-Day Work Week",
+    "meta_claim": "A four-day work week with no reduction in pay leads to equal or higher productivity, improved worker wellbeing, and should be adopted broadly across industries.",
+    "confidence_score": 54,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 9
+  },
+  {
+    "id": "student-debt-forgiveness",
+    "title": "Student Debt Forgiveness",
+    "meta_claim": "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
+    "confidence_score": 78,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 9
+  },
+  {
+    "id": "inflation-monetary-policy",
+    "title": "Inflation & Monetary Policy",
+    "meta_claim": "Post-pandemic inflation was primarily driven by excessive government spending and monetary expansion, not supply chain disruptions.",
+    "confidence_score": 49,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "global-housing-bubble",
+    "title": "Is There a Global Housing Bubble About to Burst?",
+    "meta_claim": "Major housing markets worldwide are in an unsustainable bubble driven by low interest rates, speculation, and foreign investment, and a correction is imminent.",
+    "confidence_score": 69,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "us-national-debt-crisis",
+    "title": "Is the US National Debt a Ticking Time Bomb?",
+    "meta_claim": "The US national debt, exceeding $36 trillion, poses an existential threat to economic stability and will lead to a fiscal crisis within a generation.",
+    "confidence_score": 59,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "return-to-office-productivity",
+    "title": "Does Return-to-Office Actually Improve Productivity?",
+    "meta_claim": "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
+    "confidence_score": 35,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
     "evidenceCount": 12
   },
   {
@@ -470,23 +830,183 @@
     "evidenceCount": 6
   },
   {
-    "id": "us-iran-conflict",
-    "title": "The US-Iran Conflict",
-    "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
-    "confidence_score": 50,
+    "id": "consciousness-hard-problem",
+    "title": "The Hard Problem of Consciousness",
+    "meta_claim": "Consciousness — subjective experience or 'what it is like' to be something — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
+    "confidence_score": 69,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 3,
+    "evidenceCount": 10
+  },
+  {
+    "id": "artificial-reproduction-ethics",
+    "title": "Artificial Wombs & Synthetic Embryos",
+    "meta_claim": "Ectogenesis (artificial womb technology) and in-vitro gametogenesis (creating eggs/sperm from skin cells) will fundamentally alter human reproduction within 15 years, raising profound ethical questions about parenthood, consent, and biological boundaries.",
+    "confidence_score": 69,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 9
+  },
+  {
+    "id": "government-platform-bans",
+    "title": "Government Bans on Social Media Platforms",
+    "meta_claim": "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms like TikTok on national security grounds, even at the cost of restricting free expression for millions of citizens.",
+    "confidence_score": 63,
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 8
   },
   {
-    "id": "epstein-files",
-    "title": "The Epstein Files",
-    "meta_claim": "The Jeffrey Epstein case reveals systemic institutional failure — and possibly deliberate coverup — in prosecuting high-level sex trafficking connected to powerful individuals.",
-    "confidence_score": 50,
+    "id": "gain-of-function-research-ban",
+    "title": "Should Gain-of-Function Research Be Banned?",
+    "meta_claim": "Gain-of-function research that enhances the transmissibility or pathogenicity of potential pandemic pathogens poses an existential biosecurity risk that outweighs its scientific benefits and should be permanently banned worldwide.",
+    "confidence_score": 57,
     "status": "contested",
     "category": "policy",
-    "pillarCount": 5,
-    "evidenceCount": 12
+    "pillarCount": 3,
+    "evidenceCount": 7
+  },
+  {
+    "id": "children-smartphone-age",
+    "title": "Smartphone Age Restrictions for Children",
+    "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the developmental harms of constant connectivity, social media, and algorithmic content outweigh the benefits of access and safety.",
+    "confidence_score": 71,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 7
+  },
+  {
+    "id": "alternatives-to-democracy",
+    "title": "Are There Better Systems Than Democracy?",
+    "meta_claim": "Liberal democracy, while historically successful, may be structurally incapable of addressing long-term existential challenges like climate change, AI governance, and pandemics, and alternative governance models deserve serious consideration.",
+    "confidence_score": 49,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 3,
+    "evidenceCount": 6
+  },
+  {
+    "id": "geoengineering-climate",
+    "title": "Geoengineering & Carbon Capture",
+    "meta_claim": "Geoengineering interventions — particularly stratospheric aerosol injection and direct air carbon capture — are now a necessary complement to emissions reduction, not a dangerous distraction from it.",
+    "confidence_score": 44,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 7
+  },
+  {
+    "id": "central-bank-digital-currency",
+    "title": "Central Bank Digital Currencies",
+    "meta_claim": "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
+    "confidence_score": 43,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 7
+  },
+  {
+    "id": "masculinity-crisis",
+    "title": "The Modern Masculinity Crisis",
+    "meta_claim": "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
+    "confidence_score": 86,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 3,
+    "evidenceCount": 7
+  },
+  {
+    "id": "ai-deepfakes-truth-collapse",
+    "title": "AI Deepfakes & the Collapse of Shared Truth",
+    "meta_claim": "AI-generated deepfake audio, video, and images have advanced to the point where no digital media can be trusted as authentic, fundamentally undermining evidence-based discourse, journalism, and democratic accountability.",
+    "confidence_score": 72,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 7
+  },
+  {
+    "id": "declining-birth-rates",
+    "title": "The Global Fertility Collapse",
+    "meta_claim": "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
+    "confidence_score": 59,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 7
+  },
+  {
+    "id": "longevity-anti-aging",
+    "title": "Anti-Aging & Radical Life Extension",
+    "meta_claim": "Recent advances in longevity science — including rapamycin, senolytics, epigenetic reprogramming, and caloric restriction mimetics — suggest that meaningful human lifespan extension beyond 120 years is achievable within our lifetimes.",
+    "confidence_score": 62,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 8
+  },
+  {
+    "id": "nuclear-proliferation-new-arms-race",
+    "title": "The New Nuclear Arms Race",
+    "meta_claim": "The collapse of Cold War-era arms control treaties and simultaneous nuclear modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
+    "confidence_score": 86,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 7
+  },
+  {
+    "id": "transgender-athletes-sports",
+    "title": "Transgender Athletes in Competitive Sports",
+    "meta_claim": "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
+    "confidence_score": 44,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 7
+  },
+  {
+    "id": "animal-consciousness-rights",
+    "title": "Animal Consciousness & Moral Rights",
+    "meta_claim": "Scientific evidence increasingly demonstrates that many animals possess rich subjective experiences and consciousness, which morally obligates humanity to extend rights protections far beyond current legal frameworks.",
+    "confidence_score": 74,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 3,
+    "evidenceCount": 8
+  },
+  {
+    "id": "immigration-national-identity",
+    "title": "Mass Immigration & National Identity",
+    "meta_claim": "High levels of immigration fundamentally transform the cultural identity and social cohesion of receiving nations in ways that democratic majorities have not consented to and that integration policies cannot adequately address.",
+    "confidence_score": 49,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 6
+  },
+  {
+    "id": "psychedelic-therapy-hype",
+    "title": "Psychedelic Therapy: Revolution or Overhype?",
+    "meta_claim": "The psychedelic therapy renaissance — with psilocybin, MDMA, and ketamine treatments gaining clinical validation — represents a genuine paradigm shift in mental health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",
+    "confidence_score": 75,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 8
+  },
+  {
+    "id": "affirmative-action-meritocracy",
+    "title": "Affirmative Action & Meritocracy",
+    "meta_claim": "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
+    "confidence_score": 22,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 14
   }
 ]

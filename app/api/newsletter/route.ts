@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db/index";
+import { getDb } from "@/lib/db/index";
 import { newsletters } from "@/lib/db/schema";
 import { rateLimit } from "@/lib/rate-limit";
 
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert into DB — on conflict (already subscribed), do nothing
-    await db
+    await getDb()
       .insert(newsletters)
       .values({
         email: trimmed,

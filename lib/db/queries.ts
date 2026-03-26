@@ -1,5 +1,5 @@
 import { eq, desc, and, gte, sql, count } from "drizzle-orm";
-import { db } from "./index";
+import { getDb } from "./index";
 import {
   analyses,
   debates,
@@ -25,7 +25,7 @@ export async function saveAnalysis(
   },
   result: ExtractedArguments
 ) {
-  const [row] = await db
+  const [row] = await getDb()
     .insert(analyses)
     .values({
       contentHash: input.contentHash,
@@ -46,13 +46,13 @@ export async function saveAnalysis(
 }
 
 export async function getAnalysis(id: string) {
-  return db.query.analyses.findFirst({
+  return getDb().query.analyses.findFirst({
     where: eq(analyses.id, id),
   });
 }
 
 export async function listAnalyses(limit = 20) {
-  return db.query.analyses.findMany({
+  return getDb().query.analyses.findMany({
     orderBy: desc(analyses.createdAt),
     limit,
   });
@@ -69,7 +69,7 @@ export async function saveDebate(input: {
   againstModel: string;
   totalRounds?: number;
 }) {
-  const [row] = await db
+  const [row] = await getDb()
     .insert(debates)
     .values({
       topicId: input.topicId,
@@ -87,7 +87,7 @@ export async function updateDebateStatus(
   status: string,
   winner?: string
 ) {
-  await db
+  await getDb()
     .update(debates)
     .set({ status, winner, updatedAt: new Date() })
     .where(eq(debates.id, id));
@@ -99,19 +99,19 @@ export async function saveDebateRound(input: {
   forContent: string;
   againstContent: string;
 }) {
-  const [row] = await db.insert(debateRounds).values(input).returning();
+  const [row] = await getDb().insert(debateRounds).values(input).returning();
   return row;
 }
 
 export async function getDebate(id: string) {
-  return db.query.debates.findFirst({
+  return getDb().query.debates.findFirst({
     where: eq(debates.id, id),
     with: { rounds: true },
   });
 }
 
 export async function listDebates(limit = 20) {
-  return db.query.debates.findMany({
+  return getDb().query.debates.findMany({
     orderBy: desc(debates.createdAt),
     limit,
   });
@@ -126,7 +126,7 @@ export async function saveJudgment(
   link: { debateId?: string; analysisId?: string }
 ) {
   // Insert the judgment
-  const [judgment] = await db
+  const [judgment] = await getDb()
     .insert(judgments)
     .values({
       debateId: link.debateId,
@@ -141,7 +141,7 @@ export async function saveJudgment(
 
   // Insert individual verdicts
   if (result.verdicts.length > 0) {
-    await db.insert(judgeVerdicts).values(
+    await getDb().insert(judgeVerdicts).values(
       result.verdicts.map((v) => ({
         judgmentId: judgment.id,
         judgeId: v.judgeId,
@@ -160,14 +160,14 @@ export async function saveJudgment(
 }
 
 export async function getJudgment(id: string) {
-  return db.query.judgments.findFirst({
+  return getDb().query.judgments.findFirst({
     where: eq(judgments.id, id),
     with: { verdicts: true },
   });
 }
 
 export async function listJudgments(limit = 20) {
-  return db.query.judgments.findMany({
+  return getDb().query.judgments.findMany({
     orderBy: desc(judgments.createdAt),
     limit,
     with: { verdicts: true },
@@ -179,7 +179,7 @@ export async function listJudgments(limit = 20) {
 // ============================================================================
 
 export async function getSavedTopicIds(userId: string) {
-  const rows = await db.query.savedTopics.findMany({
+  const rows = await getDb().query.savedTopics.findMany({
     where: eq(savedTopics.userId, userId),
     orderBy: desc(savedTopics.savedAt),
   });
@@ -187,7 +187,7 @@ export async function getSavedTopicIds(userId: string) {
 }
 
 export async function saveTopic(userId: string, topicId: string) {
-  const [row] = await db
+  const [row] = await getDb()
     .insert(savedTopics)
     .values({ userId, topicId })
     .onConflictDoNothing()
@@ -196,7 +196,7 @@ export async function saveTopic(userId: string, topicId: string) {
 }
 
 export async function unsaveTopic(userId: string, topicId: string) {
-  await db
+  await getDb()
     .delete(savedTopics)
     .where(
       and(eq(savedTopics.userId, userId), eq(savedTopics.topicId, topicId))
@@ -204,7 +204,7 @@ export async function unsaveTopic(userId: string, topicId: string) {
 }
 
 export async function listUserDebates(userId: string, limit = 20) {
-  return db.query.debates.findMany({
+  return getDb().query.debates.findMany({
     where: eq(debates.userId, userId),
     orderBy: desc(debates.createdAt),
     limit,
@@ -216,7 +216,7 @@ export async function listUserDebates(userId: string, limit = 20) {
 // ============================================================================
 
 export async function recordTopicView(topicId: string, userId?: string) {
-  const [row] = await db
+  const [row] = await getDb()
     .insert(topicViews)
     .values({ topicId, userId: userId ?? null })
     .returning();
@@ -227,7 +227,7 @@ export async function getTrendingTopics(limit = 10) {
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
-  const rows = await db
+  const rows = await getDb()
     .select({
       topicId: topicViews.topicId,
       viewCount: count(topicViews.id),
@@ -246,7 +246,7 @@ export async function getTrendingTopics(limit = 10) {
 // ============================================================================
 
 export async function subscribeTopic(userId: string, topicId: string) {
-  const [row] = await db
+  const [row] = await getDb()
     .insert(topicSubscriptions)
     .values({ userId, topicId })
     .onConflictDoNothing()
@@ -255,7 +255,7 @@ export async function subscribeTopic(userId: string, topicId: string) {
 }
 
 export async function unsubscribeTopic(userId: string, topicId: string) {
-  await db
+  await getDb()
     .delete(topicSubscriptions)
     .where(
       and(
@@ -266,7 +266,7 @@ export async function unsubscribeTopic(userId: string, topicId: string) {
 }
 
 export async function isSubscribed(userId: string, topicId: string) {
-  const row = await db.query.topicSubscriptions.findFirst({
+  const row = await getDb().query.topicSubscriptions.findFirst({
     where: and(
       eq(topicSubscriptions.userId, userId),
       eq(topicSubscriptions.topicId, topicId)
@@ -276,7 +276,7 @@ export async function isSubscribed(userId: string, topicId: string) {
 }
 
 export async function getSubscriberCount(topicId: string) {
-  const [result] = await db
+  const [result] = await getDb()
     .select({ count: count(topicSubscriptions.id) })
     .from(topicSubscriptions)
     .where(eq(topicSubscriptions.topicId, topicId));

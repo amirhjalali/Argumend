@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { getAnalysis } from "@/lib/db/queries";
-import { db } from "@/lib/db";
+import { getDb } from "@/lib/db";
 import { judgments } from "@/lib/db/schema";
 import { JsonLd } from "@/components/JsonLd";
 import { AnalysisView } from "./AnalysisView";
@@ -73,7 +73,7 @@ export default async function AnalysisPage({ params }: PageProps) {
   }
 
   // Fetch associated judgment with verdicts
-  const judgment = await db.query.judgments.findFirst({
+  const judgment = await getDb().query.judgments.findFirst({
     where: eq(judgments.analysisId, id),
     with: { verdicts: true },
   });

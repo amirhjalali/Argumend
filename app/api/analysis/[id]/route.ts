@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import { getAnalysis } from "@/lib/db/queries";
-import { db } from "@/lib/db";
+import { getDb } from "@/lib/db";
 import { judgments } from "@/lib/db/schema";
 
 /**
@@ -36,7 +36,7 @@ export async function GET(
     }
 
     // Fetch associated judgment with verdicts
-    const judgment = await db.query.judgments.findFirst({
+    const judgment = await getDb().query.judgments.findFirst({
       where: eq(judgments.analysisId, id),
       with: { verdicts: true },
     });

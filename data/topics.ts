@@ -49,6 +49,20 @@ import { lithiumMiningEvImpactData } from "./topics/lithium-mining-ev-impact";
 import { cryptocurrencyRegulationData } from "./topics/cryptocurrency-regulation";
 import { pandemicPreparednessData } from "./topics/pandemic-preparedness";
 
+// New topics (March 2026 batch 3)
+import { iranWarJustificationData } from "./topics/iran-war-justification";
+import { inflationMonetaryPolicyData } from "./topics/inflation-monetary-policy";
+import { aiSuperintelligenceTimelineData } from "./topics/ai-superintelligence-timeline";
+import { globalHousingBubbleData } from "./topics/global-housing-bubble";
+import { seedOilsHealthData } from "./topics/seed-oils-health";
+import { usNationalDebtCrisisData } from "./topics/us-national-debt-crisis";
+import { tiktokBrainRotData } from "./topics/tiktok-brain-rot";
+import { obesityPersonalResponsibilityData } from "./topics/obesity-personal-responsibility";
+import { chinaTaiwanInvasionData } from "./topics/china-taiwan-invasion";
+import { returnToOfficeProductivityData } from "./topics/return-to-office-productivity";
+import { nuclearRenaissanceSmrData } from "./topics/nuclear-renaissance-smr";
+import { lonelinessEpidemicData } from "./topics/loneliness-epidemic";
+
 // Newly extracted topics
 import { moonLandingData } from "./topics/moon-landing";
 import { simulationHypothesisData } from "./topics/simulation-hypothesis";
@@ -219,6 +233,20 @@ export const lithiumMiningEvImpact = buildTopic(lithiumMiningEvImpactData);
 export const cryptocurrencyRegulation = buildTopic(cryptocurrencyRegulationData);
 export const pandemicPreparedness = buildTopic(pandemicPreparednessData);
 
+// New topics (March 2026 batch 3)
+export const iranWarJustification = buildTopic(iranWarJustificationData);
+export const inflationMonetaryPolicy = buildTopic(inflationMonetaryPolicyData);
+export const aiSuperintelligenceTimeline = buildTopic(aiSuperintelligenceTimelineData);
+export const globalHousingBubble = buildTopic(globalHousingBubbleData);
+export const seedOilsHealth = buildTopic(seedOilsHealthData);
+export const usNationalDebtCrisis = buildTopic(usNationalDebtCrisisData);
+export const tiktokBrainRot = buildTopic(tiktokBrainRotData);
+export const obesityPersonalResponsibility = buildTopic(obesityPersonalResponsibilityData);
+export const chinaTaiwanInvasion = buildTopic(chinaTaiwanInvasionData);
+export const returnToOfficeProductivity = buildTopic(returnToOfficeProductivityData);
+export const nuclearRenaissanceSmr = buildTopic(nuclearRenaissanceSmrData);
+export const lonelinessEpidemic = buildTopic(lonelinessEpidemicData);
+
 export const topics: Topic[] = [
   // --- Policy & Governance ---
   nuclearEnergySafety,
@@ -245,6 +273,8 @@ export const topics: Topic[] = [
   nuclearWeaponsAbolition,
   schoolPhoneBans,
   pandemicPreparedness,
+  iranWarJustification,
+  chinaTaiwanInvasion,
 
   // --- Technology & Society ---
   socialMediaAgeLimits,
@@ -261,6 +291,9 @@ export const topics: Topic[] = [
   aiRegulation,
   aiWhiteCollarDisplacement,
   eaccVsTechRegulation,
+  aiSuperintelligenceTimeline,
+  nuclearRenaissanceSmr,
+  tiktokBrainRot,
 
   // --- Science & Environment ---
   climateChange,
@@ -279,6 +312,9 @@ export const topics: Topic[] = [
   glp1WeightLossDrugs,
   fluorideWaterSupplies,
   lithiumMiningEvImpact,
+  seedOilsHealth,
+  obesityPersonalResponsibility,
+  lonelinessEpidemic,
 
   // --- Economics & Education ---
   remoteWorkPermanence,
@@ -292,6 +328,10 @@ export const topics: Topic[] = [
   housingAffordabilityCrisis,
   fourDayWorkWeek,
   studentDebtForgiveness,
+  inflationMonetaryPolicy,
+  globalHousingBubble,
+  usNationalDebtCrisis,
+  returnToOfficeProductivity,
 
   // --- Philosophy & Speculation ---
   freeWill,
@@ -493,6 +533,20 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "animal-consciousness-rights": ["consciousness-ai-systems", "factory-farming-ban", "veganism-environmental-impact", "meaning-without-religion"],
   "immigration-national-identity": ["immigration-wage-impact", "open-borders", "declining-birth-rates", "housing-affordability-crisis"],
   "psychedelic-therapy-hype": ["psychedelics-mental-health", "drug-decriminalization", "glp1-weight-loss-drugs", "social-media-mental-health"],
+
+  // New topics batch 3 clusters
+  "iran-war-justification": ["us-iran-conflict", "nuclear-proliferation-new-arms-race", "surveillance-public-safety", "china-taiwan-invasion"],
+  "inflation-monetary-policy": ["us-national-debt-crisis", "wealth-tax", "housing-affordability-crisis", "central-bank-digital-currency"],
+  "ai-superintelligence-timeline": ["ai-risk", "consciousness-ai-systems", "eacc-vs-tech-regulation", "ai-regulation"],
+  "global-housing-bubble": ["housing-affordability-crisis", "inflation-monetary-policy", "wealth-tax", "declining-birth-rates"],
+  "seed-oils-health": ["ultra-processed-food", "organic-food-health", "obesity-personal-responsibility", "glp1-weight-loss-drugs"],
+  "us-national-debt-crisis": ["inflation-monetary-policy", "wealth-tax", "universal-basic-income", "central-bank-digital-currency"],
+  "tiktok-brain-rot": ["social-media-mental-health", "social-media-age-limits", "children-smartphone-age", "school-phone-bans"],
+  "obesity-personal-responsibility": ["glp1-weight-loss-drugs", "ultra-processed-food", "seed-oils-health", "universal-healthcare"],
+  "china-taiwan-invasion": ["us-iran-conflict", "nuclear-proliferation-new-arms-race", "surveillance-public-safety", "iran-war-justification"],
+  "return-to-office-productivity": ["remote-work-permanence", "four-day-work-week", "gig-economy-regulation", "loneliness-epidemic"],
+  "nuclear-renaissance-smr": ["nuclear-energy-safety", "climate-change", "geoengineering-climate", "space-colonization-feasibility"],
+  "loneliness-epidemic": ["social-media-mental-health", "masculinity-crisis", "declining-birth-rates", "return-to-office-productivity"],
 };
 
 /**
