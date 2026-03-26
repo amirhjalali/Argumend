@@ -1163,6 +1163,13 @@ export default function TopicDetailView({
                   title={`${topic.title} — Argument Analysis`}
                   url={`https://argumend.org/topics/${topic.id}`}
                   description={`${topic.meta_claim} — ${getVerdictLabel(topic.confidence_score)}`}
+                  topicMeta={{
+                    metaClaim: topic.meta_claim,
+                    confidenceScore: topic.confidence_score,
+                    status: topic.status,
+                    cruxQuestion: topic.pillars[0]?.crux?.title,
+                    topicTitle: topic.title,
+                  }}
                 />
                 <CopyLinkButton url={`https://argumend.org/topics/${topic.id}`} />
                 <EmbedButton topicId={topic.id} />
@@ -1884,6 +1891,13 @@ export default function TopicDetailView({
                 title={`${topic.title} — Argument Analysis | Argumend`}
                 url={`https://argumend.org/topics/${topic.id}`}
                 description={topic.meta_claim}
+                topicMeta={{
+                  metaClaim: topic.meta_claim,
+                  confidenceScore: topic.confidence_score,
+                  status: topic.status,
+                  cruxQuestion: topic.pillars[0]?.crux?.title,
+                  topicTitle: topic.title,
+                }}
               />
               <CopyLinkButton url={`https://argumend.org/topics/${topic.id}`} />
             </div>
