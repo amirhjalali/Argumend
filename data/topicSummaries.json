@@ -260,6 +260,26 @@
     "evidenceCount": 12
   },
   {
+    "id": "global-water-crisis",
+    "title": "Is the World Heading for Water Wars?",
+    "meta_claim": "Freshwater scarcity will become the defining geopolitical conflict of the 21st century, potentially triggering wars and mass migration.",
+    "confidence_score": 67,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "sugar-tax-effectiveness",
+    "title": "Do Sugar Taxes Actually Reduce Obesity?",
+    "meta_claim": "Sugar taxes on sweetened beverages are an effective public health intervention that meaningfully reduces sugar consumption and obesity rates.",
+    "confidence_score": 67,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
     "id": "social-media-age-limits",
     "title": "Social Media Age Limits",
     "meta_claim": "Children under 16 should be legally prohibited from using social media platforms.",
@@ -426,6 +446,26 @@
     "confidence_score": 64,
     "status": "contested",
     "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "ai-replacing-doctors",
+    "title": "Will AI Replace Doctors Within a Decade?",
+    "meta_claim": "AI systems will be capable of diagnosing and treating most medical conditions better than human physicians within 10 years, fundamentally disrupting healthcare.",
+    "confidence_score": 49,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "privacy-vs-convenience",
+    "title": "Have We Already Lost the Battle for Digital Privacy?",
+    "meta_claim": "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
+    "confidence_score": 51,
+    "status": "contested",
+    "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12
   },
@@ -770,6 +810,36 @@
     "evidenceCount": 12
   },
   {
+    "id": "lab-diamonds-ethics",
+    "title": "Are Lab-Grown Diamonds More Ethical Than Mined Diamonds?",
+    "meta_claim": "Lab-grown diamonds are the ethical choice — they avoid the human rights abuses and environmental destruction of diamond mining.",
+    "confidence_score": 60,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "rent-control-effectiveness",
+    "title": "Does Rent Control Help or Hurt Renters?",
+    "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
+    "confidence_score": 57,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
+    "id": "degrowth-economics",
+    "title": "Is Degrowth the Only Way to Save the Planet?",
+    "meta_claim": "Endless GDP growth is incompatible with ecological survival. Rich nations must deliberately shrink their economies to stay within planetary boundaries.",
+    "confidence_score": 56,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 12
+  },
+  {
     "id": "free-will",
     "title": "Free Will",
     "meta_claim": "Human beings possess genuine free will—the ability to have done otherwise in any given situation.",
@@ -828,6 +898,16 @@
     "category": "philosophy",
     "pillarCount": 2,
     "evidenceCount": 6
+  },
+  {
+    "id": "meritocracy-myth",
+    "title": "Is Meritocracy a Myth?",
+    "meta_claim": "The belief that success is primarily determined by individual talent and effort is a myth that legitimizes systemic inequality.",
+    "confidence_score": 68,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 3,
+    "evidenceCount": 12
   },
   {
     "id": "consciousness-hard-problem",

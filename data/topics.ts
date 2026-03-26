@@ -62,6 +62,14 @@ import { chinaTaiwanInvasionData } from "./topics/china-taiwan-invasion";
 import { returnToOfficeProductivityData } from "./topics/return-to-office-productivity";
 import { nuclearRenaissanceSmrData } from "./topics/nuclear-renaissance-smr";
 import { lonelinessEpidemicData } from "./topics/loneliness-epidemic";
+import { aiReplacingDoctorsData } from "./topics/ai-replacing-doctors";
+import { globalWaterCrisisData } from "./topics/global-water-crisis";
+import { sugarTaxEffectivenessData } from "./topics/sugar-tax-effectiveness";
+import { labDiamondsEthicsData } from "./topics/lab-diamonds-ethics";
+import { rentControlEffectivenessData } from "./topics/rent-control-effectiveness";
+import { privacyVsConvenienceData } from "./topics/privacy-vs-convenience";
+import { meritocracyMythData } from "./topics/meritocracy-myth";
+import { degrowthEconomicsData } from "./topics/degrowth-economics";
 
 // Newly extracted topics
 import { moonLandingData } from "./topics/moon-landing";
@@ -246,6 +254,14 @@ export const chinaTaiwanInvasion = buildTopic(chinaTaiwanInvasionData);
 export const returnToOfficeProductivity = buildTopic(returnToOfficeProductivityData);
 export const nuclearRenaissanceSmr = buildTopic(nuclearRenaissanceSmrData);
 export const lonelinessEpidemic = buildTopic(lonelinessEpidemicData);
+export const aiReplacingDoctors = buildTopic(aiReplacingDoctorsData);
+export const globalWaterCrisis = buildTopic(globalWaterCrisisData);
+export const sugarTaxEffectiveness = buildTopic(sugarTaxEffectivenessData);
+export const labDiamondsEthics = buildTopic(labDiamondsEthicsData);
+export const rentControlEffectiveness = buildTopic(rentControlEffectivenessData);
+export const privacyVsConvenience = buildTopic(privacyVsConvenienceData);
+export const meritocracyMyth = buildTopic(meritocracyMythData);
+export const degrowthEconomics = buildTopic(degrowthEconomicsData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -275,6 +291,8 @@ export const topics: Topic[] = [
   pandemicPreparedness,
   iranWarJustification,
   chinaTaiwanInvasion,
+  globalWaterCrisis,
+  sugarTaxEffectiveness,
 
   // --- Technology & Society ---
   socialMediaAgeLimits,
@@ -294,6 +312,8 @@ export const topics: Topic[] = [
   aiSuperintelligenceTimeline,
   nuclearRenaissanceSmr,
   tiktokBrainRot,
+  aiReplacingDoctors,
+  privacyVsConvenience,
 
   // --- Science & Environment ---
   climateChange,
@@ -332,6 +352,9 @@ export const topics: Topic[] = [
   globalHousingBubble,
   usNationalDebtCrisis,
   returnToOfficeProductivity,
+  labDiamondsEthics,
+  rentControlEffectiveness,
+  degrowthEconomics,
 
   // --- Philosophy & Speculation ---
   freeWill,
@@ -340,6 +363,7 @@ export const topics: Topic[] = [
   minneapolisShooting,
   aiConsciousness,
   meaningWithoutReligion,
+  meritocracyMyth,
   consciousnessHardProblem,
 
   // --- New Topics (March 2026) ---
@@ -547,6 +571,16 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "return-to-office-productivity": ["remote-work-permanence", "four-day-work-week", "gig-economy-regulation", "loneliness-epidemic"],
   "nuclear-renaissance-smr": ["nuclear-energy-safety", "climate-change", "geoengineering-climate", "space-colonization-feasibility"],
   "loneliness-epidemic": ["social-media-mental-health", "masculinity-crisis", "declining-birth-rates", "return-to-office-productivity"],
+
+  // New topics batch 4 clusters
+  "ai-replacing-doctors": ["ai-risk", "ai-job-displacement", "ai-regulation", "universal-healthcare"],
+  "global-water-crisis": ["climate-change", "geoengineering-climate", "foreign-aid-effectiveness", "immigration-border-crisis"],
+  "sugar-tax-effectiveness": ["obesity-personal-responsibility", "ultra-processed-food", "universal-healthcare", "glp1-weight-loss-drugs"],
+  "lab-diamonds-ethics": ["factory-farming-ban", "veganism-environmental-impact", "foreign-aid-effectiveness", "climate-change"],
+  "rent-control-effectiveness": ["housing-affordability-crisis", "global-housing-bubble", "minimum-wage-effects", "wealth-tax"],
+  "privacy-vs-convenience": ["surveillance-public-safety", "big-tech-antitrust", "ai-deepfakes-truth-collapse", "government-platform-bans"],
+  "meritocracy-myth": ["affirmative-action-meritocracy", "billionaire-wealth", "reparations-slavery", "college-value-proposition"],
+  "degrowth-economics": ["climate-change", "wealth-tax", "universal-basic-income", "geoengineering-climate"],
 };
 
 /**
