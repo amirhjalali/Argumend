@@ -10,6 +10,7 @@ import {
 } from "@/data/blog";
 import { getAllQuestionVariations } from "@/lib/questions";
 import { COMPARISON_PAIRS } from "@/app/topics/compare/comparisonPairs";
+import { isClaims } from "@/data/is-claims";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://argumend.org";
@@ -123,6 +124,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }),
   );
+
+  // ── "Is [claim] true?" pages (priority 0.7) ──────────────────────────
+  const isClaimPages: MetadataRoute.Sitemap = isClaims.map((c, index) => ({
+    url: `${baseUrl}/is/${c.slug}`,
+    lastModified: new Date(
+      topicBaseDate.getTime() + index * 24 * 60 * 60 * 1000,
+    ),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
 
   // ── Glossary (priority 0.7) ───────────────────────────────────────────
   const glossaryPage: MetadataRoute.Sitemap = [
@@ -283,6 +294,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guidePages,
     ...comparisonPages,
     ...questionPages,
+    ...isClaimPages,
     ...glossaryPage,
     ...conceptPages,
     ...secondaryPages,
