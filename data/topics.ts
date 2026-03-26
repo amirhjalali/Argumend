@@ -44,6 +44,7 @@ import { immigrationNationalIdentityData } from "./topics/immigration-national-i
 import { psychedelicTherapyHypeData } from "./topics/psychedelic-therapy-hype";
 import { eaccVsTechRegulationData } from "./topics/eacc-vs-tech-regulation";
 import { affirmativeActionMeritocracyData } from "./topics/affirmative-action-meritocracy";
+import { fluorideWaterSuppliesData } from "./topics/fluoride-water-supplies";
 
 // Newly extracted topics
 import { moonLandingData } from "./topics/moon-landing";
@@ -210,6 +211,7 @@ export const immigrationNationalIdentity = buildTopic(immigrationNationalIdentit
 export const psychedelicTherapyHype = buildTopic(psychedelicTherapyHypeData);
 export const eaccVsTechRegulation = buildTopic(eaccVsTechRegulationData);
 export const affirmativeActionMeritocracy = buildTopic(affirmativeActionMeritocracyData);
+export const fluorideWaterSupplies = buildTopic(fluorideWaterSuppliesData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -268,6 +270,7 @@ export const topics: Topic[] = [
   genderAffirmingCareMinors,
   microplasticsHealthCrisis,
   glp1WeightLossDrugs,
+  fluorideWaterSupplies,
 
   // --- Economics & Education ---
   remoteWorkPermanence,
