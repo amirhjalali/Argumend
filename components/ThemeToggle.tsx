@@ -10,7 +10,8 @@ export function ThemeToggle() {
 
   // Prevent hydration mismatch
   useEffect(() => {
-    setMounted(true);
+    const handle = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(handle);
   }, []);
 
   if (!mounted) {

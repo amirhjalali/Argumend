@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 
 // ---------------------------------------------------------------------------
@@ -60,7 +61,7 @@ export default function HomePage() {
           <div>
             <h1 className="font-serif text-2xl text-primary mb-4">ARGUMEND</h1>
             <p className="text-secondary mb-4">JavaScript is required for the interactive argument maps.</p>
-            <a href="/topics" className="text-deep underline">Browse all topics</a>
+            <Link href="/topics" className="text-deep underline">Browse all topics</Link>
           </div>
         </div>
       </noscript>

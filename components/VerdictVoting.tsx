@@ -116,7 +116,9 @@ function removeVote(topicId: string, currentVote: number): void {
       existing.count = existing.votes.length;
     }
     if (existing.count === 0) {
-      delete aggregate[topicId];
+      const { [topicId]: _, ...rest } = aggregate;
+      localStorage.setItem(AGGREGATE_KEY, JSON.stringify(rest));
+      return;
     } else {
       aggregate[topicId] = existing;
     }
@@ -137,12 +139,15 @@ export function VerdictVoting({ topicId, topicTitle, confidenceScore }: VerdictV
   // Load existing vote on mount
   useEffect(() => {
     const stored = getStoredVote(topicId);
-    if (stored) {
-      setUserVote(stored.vote);
-      setHasVoted(true);
-    }
     const agg = getAggregateData();
-    setAggregate(agg[topicId] ?? null);
+    const handle = setTimeout(() => {
+      if (stored) {
+        setUserVote(stored.vote);
+        setHasVoted(true);
+      }
+      setAggregate(agg[topicId] ?? null);
+    }, 0);
+    return () => clearTimeout(handle);
   }, [topicId]);
 
   const handleVote = useCallback(

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, forwardRef } from "react";
+import { useState, useEffect, useRef, useCallback, forwardRef, useMemo } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Sword, Shield, Quote, Swords, ArrowRight, Trophy } from "lucide-react";
@@ -78,31 +78,34 @@ function useTypewriter(
   msPerWord: number = 60,
 ) {
   const [wordIndex, setWordIndex] = useState(0);
-  const wordsRef = useRef<string[]>([]);
+  const [prevText, setPrevText] = useState(fullText);
 
-  // Recompute words when fullText changes
-  useEffect(() => {
-    wordsRef.current = fullText.split(/\s+/);
+  // Derive words from fullText (pure computation)
+  const words = useMemo(() => fullText.split(/\s+/), [fullText]);
+
+  // Reset word index when fullText changes (React-recommended pattern)
+  if (prevText !== fullText) {
+    setPrevText(fullText);
     setWordIndex(0);
-  }, [fullText]);
+  }
 
   useEffect(() => {
     if (!active || paused) return;
-    if (wordIndex >= wordsRef.current.length) return;
+    if (wordIndex >= words.length) return;
 
     const timer = setTimeout(() => {
       setWordIndex((i) => i + 1);
     }, msPerWord);
 
     return () => clearTimeout(timer);
-  }, [active, paused, wordIndex, msPerWord]);
+  }, [active, paused, wordIndex, msPerWord, words.length]);
 
   const visibleText =
-    wordIndex >= wordsRef.current.length
+    wordIndex >= words.length
       ? fullText
-      : wordsRef.current.slice(0, wordIndex).join(" ");
+      : words.slice(0, wordIndex).join(" ");
 
-  const done = wordIndex >= wordsRef.current.length;
+  const done = wordIndex >= words.length;
 
   return { visibleText, done };
 }
