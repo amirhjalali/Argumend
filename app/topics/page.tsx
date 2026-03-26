@@ -221,8 +221,9 @@ export default function TopicsPage() {
               )}
             </div>
             <div className="flex items-center gap-2">
-              <label className="text-xs font-medium text-stone-500 whitespace-nowrap">Sort:</label>
+              <label htmlFor="topics-sort-select" className="text-xs font-medium text-stone-500 whitespace-nowrap">Sort:</label>
               <select
+                id="topics-sort-select"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
                 className="text-sm px-3 py-2.5 min-h-[44px] rounded-lg border border-stone-200/60 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"

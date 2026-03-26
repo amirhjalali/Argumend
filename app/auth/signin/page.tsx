@@ -97,7 +97,7 @@ export default async function SignInPage() {
         </div>
 
         {/* Footer note */}
-        <p className="text-center text-[11px] text-muted pt-2">
+        <p className="text-center text-[11px] text-secondary pt-2">
           By signing in, you agree to our{" "}
           <Link href="/about" className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors">
             terms of use

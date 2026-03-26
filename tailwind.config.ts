@@ -17,8 +17,8 @@ const config: Config = {
         overlay: "#e7e0d5",
 
         primary: "#3d3a36",
-        secondary: "#6d645c",
-        muted: "#9c9288",
+        secondary: "#564d45",
+        muted: "#7a7068",
 
         deep: {
           DEFAULT: "#3a6965", // Deep teal — primary accent (darkened for WCAG AA 4.5:1 on parchment)
