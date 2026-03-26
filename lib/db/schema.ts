@@ -145,6 +145,7 @@ export const debates = pgTable(
     index("debates_topicId_idx").on(table.topicId),
     index("debates_status_idx").on(table.status),
     index("debates_createdAt_idx").on(table.createdAt),
+    index("debates_status_createdAt_idx").on(table.status, table.createdAt),
   ]
 );
 
@@ -282,6 +283,7 @@ export const topicViews = pgTable(
   (t) => [
     index("topic_views_topicId_idx").on(t.topicId),
     index("topic_views_viewedAt_idx").on(t.viewedAt),
+    index("topic_views_topicId_viewedAt_idx").on(t.topicId, t.viewedAt),
   ]
 );
 
