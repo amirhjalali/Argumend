@@ -43,6 +43,7 @@ import { animalConsciousnessRightsData } from "./topics/animal-consciousness-rig
 import { immigrationNationalIdentityData } from "./topics/immigration-national-identity";
 import { psychedelicTherapyHypeData } from "./topics/psychedelic-therapy-hype";
 import { eaccVsTechRegulationData } from "./topics/eacc-vs-tech-regulation";
+import { affirmativeActionMeritocracyData } from "./topics/affirmative-action-meritocracy";
 
 // Newly extracted topics
 import { moonLandingData } from "./topics/moon-landing";
@@ -208,6 +209,7 @@ export const animalConsciousnessRights = buildTopic(animalConsciousnessRightsDat
 export const immigrationNationalIdentity = buildTopic(immigrationNationalIdentityData);
 export const psychedelicTherapyHype = buildTopic(psychedelicTherapyHypeData);
 export const eaccVsTechRegulation = buildTopic(eaccVsTechRegulationData);
+export const affirmativeActionMeritocracy = buildTopic(affirmativeActionMeritocracyData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -307,6 +309,7 @@ export const topics: Topic[] = [
   animalConsciousnessRights,
   immigrationNationalIdentity,
   psychedelicTherapyHype,
+  affirmativeActionMeritocracy,
 ];
 
 // ============================================================================
