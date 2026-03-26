@@ -101,6 +101,40 @@ export const tiktokBanData = {
           reasoning:
             "The absence of public evidence is significant but not conclusive — intelligence agencies may have classified evidence they cannot share. The replicability score is lower because classified information is not independently verifiable. This evidence directly challenges the urgency of the claimed threat.",
         },
+        {
+          id: "cfius-review-never-concluded",
+          title: "CFIUS Review of TikTok Never Reached Formal Resolution",
+          description:
+            "The Committee on Foreign Investment in the United States (CFIUS) began reviewing ByteDance's 2017 acquisition of Musical.ly (which became TikTok) in 2019. Despite years of negotiation over Project Texas and other mitigation measures, CFIUS never formally approved or rejected the arrangement. The inability of the national security review process to reach a conclusion — even after TikTok spent $1.5 billion on compliance — led Congress to bypass CFIUS entirely with the Protecting Americans from Foreign Adversary Controlled Applications Act in 2024. This legislative override suggests the executive branch's own review framework was insufficient to resolve the underlying data sovereignty question.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Reuters; Congressional Research Service; The Wall Street Journal",
+          sourceUrl: "https://crsreports.congress.gov/product/pdf/IF/IF12452",
+          reasoning:
+            "The CFIUS timeline is well-documented through official records and investigative reporting. The fact that the US government's own foreign investment review body could not resolve TikTok's status after years of review supports the argument that the structural risk is genuine and not easily mitigated. Directness is slightly lower because CFIUS's indecision does not prove data was compromised — it may reflect bureaucratic dysfunction rather than confirmed risk.",
+        },
+        {
+          id: "bytedance-ccp-committee",
+          title: "ByteDance Internal CCP Committee Influenced Content and Personnel Decisions",
+          description:
+            "Reporting by Reuters and the Financial Times revealed that ByteDance maintains an internal Chinese Communist Party committee that has influenced content moderation policies and personnel decisions. In 2018, ByteDance CEO Zhang Yiming publicly apologized to the CCP after regulators criticized the company's content, pledging to ensure the platform 'channeled positive energy.' The CCP committee within ByteDance reportedly reviews sensitive content decisions and has access to internal communications. In 2023, the Chinese government acquired a 1% 'golden share' in a ByteDance subsidiary, granting it a board seat and potential veto power over certain decisions.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Reuters; Financial Times; The New York Times",
+          sourceUrl: "https://www.reuters.com/technology/bytedance-china-unit-cedes-board-seat-state-entity-2023-08-16/",
+          reasoning:
+            "Multiple independent outlets corroborate the CCP committee's existence and the golden share arrangement. ByteDance's public apology to the CCP is on the record. This directly addresses the structural question of whether ByteDance can operate independently from the Chinese government. Independence is slightly lower because some details rely on anonymous sources, and the golden share is in a domestic Chinese subsidiary, not in TikTok's international operations.",
+        },
       ],
     },
 
@@ -179,6 +213,40 @@ export const tiktokBanData = {
           sourceUrl: "https://knightcolumbia.org/content/tiktok-amicus-brief",
           reasoning:
             "A Supreme Court Justice's opinion and amicus briefs from leading First Amendment institutions carry maximum authority. The precedent concern is a legal argument about future implications rather than a factual claim about current harm, which slightly lowers directness.",
+        },
+        {
+          id: "tiktok-brief-darkness-january-2025",
+          title: "TikTok Went Dark for 14 Hours Before Temporary Executive Extension (January 2025)",
+          description:
+            "On January 18, 2025 — one day after the Supreme Court upheld the ban — TikTok became unavailable in the United States for approximately 14 hours before incoming President Trump signaled he would issue an executive order granting a 90-day extension. During the blackout, 170 million American users lost access to the platform, small businesses lost their primary marketing channel, and creators saw their livelihoods vanish overnight. The brief shutdown demonstrated the concrete, immediate impact of a ban on speech and commerce, and illustrated how executive discretion — rather than settled law — was determining whether a major communication platform could operate.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 10,
+            directness: 9,
+          },
+          source: "The New York Times; The Washington Post; Reuters",
+          sourceUrl: "https://www.nytimes.com/2025/01/18/technology/tiktok-ban-shut-down.html",
+          reasoning:
+            "The brief TikTok blackout is an undisputed, widely documented event. It provides the most direct evidence of what a ban actually looks like in practice — not theoretical harm, but real disruption to 170 million users. The reliance on executive whim rather than clear legal framework raises serious rule-of-law concerns regardless of one's position on TikTok's ownership.",
+        },
+        {
+          id: "first-amendment-content-neutrality",
+          title: "First Amendment Scholars Argue Ban Fails Content-Neutrality Requirement",
+          description:
+            "A coalition of First Amendment scholars from Harvard, Yale, Stanford, and Columbia law schools argued in amicus briefs that the TikTok ban is not content-neutral because its stated justification — preventing foreign influence over information Americans consume — is inherently about controlling the content and algorithmic curation of speech. Under established First Amendment doctrine, content-based restrictions require strict scrutiny, the most demanding standard of judicial review. The scholars argued the Court applied an inappropriately lenient standard by treating the ban as a foreign ownership regulation rather than a speech restriction, despite the government's own rationale focusing on the information environment rather than corporate structure alone.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 9,
+            directness: 8,
+          },
+          source: "Harvard Law Review Forum; Columbia Knight First Amendment Institute; Yale Information Society Project",
+          sourceUrl: "https://harvardlawreview.org/forum/vol-138/tiktok-first-amendment/",
+          reasoning:
+            "Leading constitutional scholars from multiple institutions provide independent, credentialed analysis. The content-neutrality argument is a well-established First Amendment framework, not a novel theory. However, the Supreme Court majority rejected this framing, and legal scholars disagreeing with a court ruling does not change the law — it indicates the precedent is contested within the legal community.",
         },
       ],
     },
@@ -261,6 +329,119 @@ export const tiktokBanData = {
         },
       ],
     },
+
+    // =========================================================================
+    // PILLAR 4: Geopolitics & Data Sovereignty
+    // =========================================================================
+    {
+      id: "geopolitics-data-sovereignty",
+      title: "Geopolitics & Data Sovereignty",
+      short_summary:
+        "The TikTok debate is part of a broader global reckoning over whether foreign adversaries should control major information platforms. India banned TikTok in 2020, the EU imposed strict data localization requirements, and the US RESTRICT Act proposed a framework for evaluating foreign technology threats. The question extends beyond one app to whether nations have sovereign authority over the information infrastructure their citizens depend on.",
+      icon_name: "AlertTriangle" as const,
+      skeptic_premise:
+        "The data sovereignty framing is a pretext for digital protectionism and information balkanization. The US cannot credibly claim to defend an open internet while banning foreign apps — American tech companies collect far more data globally than TikTok collects domestically. NSA surveillance programs (revealed by Snowden) demonstrated that the US government itself exploits American tech platforms for intelligence gathering at a scale dwarfing anything alleged about TikTok. India's 2020 TikTok ban was primarily a retaliatory trade measure following the Galwan Valley border clashes, not a principled data sovereignty action. Fragmenting the internet into national walled gardens harms innovation, restricts information flow, and empowers authoritarian governments to justify their own censorship by pointing to Western precedent.",
+      proponent_rebuttal:
+        "Data sovereignty is a legitimate national security principle, not protectionism. China itself operates the most restrictive internet regime in the world through the Great Firewall — Beijing has already balkanized the internet for its own strategic advantage. Allowing a Chinese-controlled platform to shape the information environment of 170 million Americans while China blocks all American platforms is not openness; it is strategic naivety. India's TikTok ban provides a real-world case study: domestic alternatives emerged rapidly, no lasting economic damage materialized, and India eliminated a potential Chinese intelligence vector. The EU's approach — requiring data localization and algorithmic transparency rather than outright bans — offers a middle path, but it depends on enforcement mechanisms that TikTok's corporate structure makes impractical. The RESTRICT Act framework correctly recognizes that certain foreign technology relationships create unacceptable risks regardless of whether specific abuse has been documented.",
+      crux: {
+        id: "data-sovereignty-framework-test",
+        title: "The Sovereign Platform Control Assessment",
+        description:
+          "The decisive question is whether a nation-state has a legitimate interest in preventing foreign adversary control over mass communication platforms used by a significant percentage of its population, even absent proof of specific abuse. If the structural risk alone justifies regulatory action, then the TikTok ban is a principled application of data sovereignty. If action requires demonstrated harm, then the ban is premature and sets a dangerous precedent for government control of information platforms.",
+        methodology:
+          "Conduct a comparative policy analysis of TikTok-related actions across the US, India, EU, UK, Australia, and Canada. For each jurisdiction, document the specific rationale (national security, data protection, trade retaliation), the action taken (ban, data localization, divestiture requirement), and measurable outcomes (impact on user access, domestic platform growth, intelligence risk reduction, economic effects). Cross-reference with intelligence community threat assessments where declassified. This would establish whether data sovereignty concerns are globally shared or primarily US-China competition.",
+        verification_status: "theoretical" as const,
+        cost_to_verify:
+          "$150K-400K (Multi-jurisdiction comparative policy analysis requiring access to classified threat assessments and economic data)",
+      },
+      evidence: [
+        {
+          id: "india-tiktok-ban-2020-outcomes",
+          title: "India Banned TikTok in 2020: Domestic Alternatives Thrived, No Lasting Economic Harm",
+          description:
+            "India banned TikTok and 58 other Chinese apps in June 2020 following the Galwan Valley border clash with China. At the time, TikTok had approximately 200 million users in India — its largest market. Within 18 months, domestic alternatives including Instagram Reels, YouTube Shorts, Josh, and Moj absorbed the user base. By 2023, India's short-form video market was larger than before the ban, with domestic platforms commanding over 70% market share. Content creators reported initial disruption but successfully migrated audiences. No significant economic damage was documented at the macro level, though individual creators faced transition costs.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "RedSeer Consulting; The Economic Times; Reuters",
+          sourceUrl: "https://www.reuters.com/technology/india-tiktok-ban-three-years-later-2023-06-29/",
+          reasoning:
+            "India's ban provides the closest real-world analogy to a US ban. The evidence that domestic alternatives emerged rapidly and the market recovered directly challenges the argument that a ban would cause irreparable harm. However, the Indian market differs from the US in key ways — lower average incomes, different creator economy structures, and the ban was part of broader trade retaliation against China rather than a standalone national security action.",
+        },
+        {
+          id: "eu-data-sovereignty-framework",
+          title: "EU's GDPR and Digital Services Act Impose Strict Data Sovereignty Requirements on TikTok",
+          description:
+            "The European Union, through GDPR enforcement and the Digital Services Act (DSA), has required TikTok to establish European data centers, submit to algorithmic transparency audits, and comply with data processing restrictions that go far beyond US requirements. In 2023, TikTok was fined 345 million euros for GDPR violations related to children's data and was under investigation for transferring European user data to China. The EU's approach — regulate rather than ban — represents an alternative model, but enforcement has been hampered by TikTok's corporate complexity and questions about whether algorithmic transparency audits can be meaningfully conducted when the algorithm is developed in Beijing.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "European Commission; Irish Data Protection Commission; Financial Times",
+          sourceUrl: "https://ec.europa.eu/commission/presscorner/detail/en/ip_23_4457",
+          reasoning:
+            "EU regulatory actions are official government records with high reliability. The European approach demonstrates that alternatives to an outright ban exist, but the ongoing enforcement challenges also illustrate the difficulty of regulating a platform whose core technology is developed outside the regulating jurisdiction. Directness is moderate because EU regulations address data protection broadly, not the specific US national security concerns about Chinese government access.",
+        },
+        {
+          id: "restrict-act-framework",
+          title: "The RESTRICT Act Proposed a Systematic Framework for Foreign Technology Threats",
+          description:
+            "In 2023, Senators Warner and Thune introduced the RESTRICT Act (S.686), which proposed giving the Commerce Department authority to review and potentially ban information and communication technology transactions that pose national security risks from foreign adversaries. Unlike the TikTok-specific ban, RESTRICT would have created a systematic process applicable to any foreign-controlled technology. The bill was endorsed by the Biden White House but stalled in Congress due to concerns about executive overreach and its broad scope. Critics argued it could be used to ban VPNs or any foreign software; proponents argued a systematic framework was preferable to ad hoc legislative bans targeting individual companies.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 9,
+            directness: 6,
+          },
+          source: "Congress.gov; Senate Intelligence Committee; Lawfare",
+          sourceUrl: "https://www.congress.gov/bill/118th-congress/senate-bill/686",
+          reasoning:
+            "The RESTRICT Act is publicly available legislation with clear provenance. Its bipartisan sponsorship suggests that concerns about foreign technology control transcend party lines. However, directness is lower because the bill did not pass, and the decision to pursue a TikTok-specific ban instead may reflect political expediency rather than the superiority of targeted legislation. The Act's broad scope — which alarmed civil libertarians — also illustrates the difficulty of crafting foreign technology regulations that do not overreach.",
+        },
+        {
+          id: "us-hypocrisy-surveillance",
+          title: "Snowden Revelations: US Government's Own Mass Surveillance Undermines Data Sovereignty Claims",
+          description:
+            "The NSA programs revealed by Edward Snowden in 2013 — including PRISM, which compelled American tech companies to provide user data to intelligence agencies — demonstrated that the US government conducts mass surveillance through domestic platforms at a scale far exceeding anything alleged about TikTok. Section 702 of FISA, reauthorized in 2024, allows warrantless surveillance of foreign nationals' communications that inevitably sweeps up American citizens' data. Commercial data brokers legally sell location, browsing, and behavioral data on Americans to anyone willing to pay — including foreign governments. Critics argue that a government conducting mass surveillance through its own tech platforms lacks credibility when claiming to protect citizens from foreign surveillance through TikTok.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 6,
+          },
+          source: "The Guardian; ACLU; Privacy and Civil Liberties Oversight Board (PCLOB)",
+          sourceUrl: "https://www.aclu.org/issues/national-security/privacy-and-surveillance/nsa-surveillance",
+          reasoning:
+            "The Snowden revelations are among the most thoroughly documented intelligence disclosures in history, with government confirmation. The existence of US mass surveillance programs is not disputed. However, directness is lower because the US government's own surveillance practices, while undermining its moral authority, do not negate the factual question of whether Chinese government access to TikTok data poses an independent risk. Two wrongs do not make a right — but the selective application of data sovereignty principles raises legitimate questions about the ban's true motivation.",
+        },
+        {
+          id: "tiktok-algorithm-beijing-control",
+          title: "TikTok's Recommendation Algorithm Is Developed and Maintained in Beijing",
+          description:
+            "Despite Project Texas isolating US user data on Oracle servers, TikTok's core recommendation algorithm — which determines what 170 million Americans see in their feeds — continues to be developed, trained, and maintained by ByteDance engineers in Beijing. This algorithm is arguably more strategically significant than raw user data: it shapes information consumption, political awareness, cultural trends, and attention patterns at population scale. China's export control laws, updated in 2020, classify recommendation algorithms as restricted technology that cannot be sold to foreign entities without government approval — a rule that would block any divestiture from transferring TikTok's actual competitive advantage. This creates a paradox: meaningful divestiture requires algorithm transfer, but China will not permit it.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "The Wall Street Journal; MIT Technology Review; China's Ministry of Commerce",
+          sourceUrl: "https://www.wsj.com/articles/china-tiktok-ban-algorithm-export-control-11675443601",
+          reasoning:
+            "The location of algorithm development is confirmed by TikTok itself and independently verified by technical analysts. China's export control classification of recommendation algorithms is a matter of public regulatory record. This evidence is highly direct because it addresses the core data sovereignty concern: even with data isolation, the entity controlling what information reaches 170 million Americans is headquartered in a foreign adversary nation and subject to that government's legal authority.",
+        },
+      ],
+    },
   ],
   references: [
     {
@@ -283,6 +464,26 @@ export const tiktokBanData = {
       title: "The TikTok Ban Threatens Everyone's Free Speech — ACLU",
       url: "https://www.aclu.org/news/free-speech/the-tiktok-ban-threatens-everyones-free-speech",
     },
+    {
+      title: "India's TikTok Ban, Three Years Later — Reuters",
+      url: "https://www.reuters.com/technology/india-tiktok-ban-three-years-later-2023-06-29/",
+    },
+    {
+      title: "RESTRICT Act (S.686) — Congress.gov",
+      url: "https://www.congress.gov/bill/118th-congress/senate-bill/686",
+    },
+    {
+      title: "EU Digital Services Act: TikTok Compliance — European Commission",
+      url: "https://ec.europa.eu/commission/presscorner/detail/en/ip_23_4457",
+    },
+    {
+      title: "ByteDance China Unit Cedes Board Seat to State Entity — Reuters",
+      url: "https://www.reuters.com/technology/bytedance-china-unit-cedes-board-seat-state-entity-2023-08-16/",
+    },
+    {
+      title: "TikTok's Brief US Shutdown and Executive Extension — The New York Times",
+      url: "https://www.nytimes.com/2025/01/18/technology/tiktok-ban-shut-down.html",
+    },
   ],
   questions: [
     {
@@ -302,6 +503,12 @@ export const tiktokBanData = {
       title: "Is this really about security or about protecting American tech monopolies?",
       content:
         "Meta spent $30 million lobbying during the ban legislation while Instagram Reels stood to capture TikTok's users and ad revenue. China bans all American social media. Is a TikTok ban principled national security policy, protectionist trade retaliation, or a gift to domestic monopolists?",
+    },
+    {
+      id: "q4",
+      title: "Should nations have sovereign control over foreign-operated information platforms?",
+      content:
+        "India banned TikTok in 2020 and domestic alternatives thrived. The EU imposes strict data localization requirements. China blocks all American platforms behind its Great Firewall. TikTok's algorithm — which shapes what 170 million Americans see daily — is developed in Beijing and classified as restricted technology under Chinese export controls. Does data sovereignty justify regulating foreign control of mass communication platforms, or does it lead to a fragmented, censored internet?",
     },
   ],
 };
