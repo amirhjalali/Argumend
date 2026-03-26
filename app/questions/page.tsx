@@ -38,11 +38,20 @@ export const metadata: Metadata = {
     description: `Browse controversial questions across 5 categories. Steel-manned arguments, weighted evidence, and crux questions for each.`,
     url: "https://argumend.org/questions",
     siteName: "ARGUMEND",
+    images: [
+      {
+        url: `https://argumend.org/api/og?title=${encodeURIComponent(`${totalCount}+ Questions Analyzed`)}&subtitle=${encodeURIComponent("Evidence-based answers to controversial questions")}`,
+        width: 1200,
+        height: 630,
+        alt: `${totalCount}+ Questions Analyzed with Evidence on Argumend`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${totalCount}+ Questions Analyzed with Evidence`,
     description: `Browse controversial questions with steel-manned arguments and weighted evidence.`,
+    images: [`https://argumend.org/api/og?title=${encodeURIComponent(`${totalCount}+ Questions Analyzed`)}&subtitle=${encodeURIComponent("Evidence-based answers to controversial questions")}`],
   },
 };
 

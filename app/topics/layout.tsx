@@ -18,11 +18,21 @@ export const metadata: Metadata = {
     title: "Explore 60+ Controversial Topics — Argumend",
     description: "Visual argument maps for the most debated issues. See both sides, weigh the evidence, find what actually matters.",
     url: "https://argumend.org/topics",
+    siteName: "ARGUMEND",
+    images: [
+      {
+        url: `https://argumend.org/api/og?title=${encodeURIComponent("Explore Topics")}&subtitle=${encodeURIComponent("60+ controversial issues analyzed with argument maps")}`,
+        width: 1200,
+        height: 630,
+        alt: "Explore 60+ Controversial Topics on Argumend",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Explore 60+ Controversial Topics — Argumend",
     description: "Visual argument maps for the most debated issues. See both sides.",
+    images: [`https://argumend.org/api/og?title=${encodeURIComponent("Explore Topics")}&subtitle=${encodeURIComponent("60+ controversial issues analyzed with argument maps")}`],
   },
   alternates: {
     canonical: "https://argumend.org/topics",
