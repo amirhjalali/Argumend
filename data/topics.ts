@@ -42,6 +42,7 @@ import { transgenderAthletesSportsData } from "./topics/transgender-athletes-spo
 import { animalConsciousnessRightsData } from "./topics/animal-consciousness-rights";
 import { immigrationNationalIdentityData } from "./topics/immigration-national-identity";
 import { psychedelicTherapyHypeData } from "./topics/psychedelic-therapy-hype";
+import { fluorideWaterSuppliesData } from "./topics/fluoride-water-supplies";
 
 // Newly extracted topics
 import { moonLandingData } from "./topics/moon-landing";
@@ -206,6 +207,7 @@ export const transgenderAthletesSports = buildTopic(transgenderAthletesSportsDat
 export const animalConsciousnessRights = buildTopic(animalConsciousnessRightsData);
 export const immigrationNationalIdentity = buildTopic(immigrationNationalIdentityData);
 export const psychedelicTherapyHype = buildTopic(psychedelicTherapyHypeData);
+export const fluorideWaterSupplies = buildTopic(fluorideWaterSuppliesData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -263,6 +265,7 @@ export const topics: Topic[] = [
   genderAffirmingCareMinors,
   microplasticsHealthCrisis,
   glp1WeightLossDrugs,
+  fluorideWaterSupplies,
 
   // --- Economics & Education ---
   remoteWorkPermanence,
