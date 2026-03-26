@@ -46,6 +46,7 @@ import { eaccVsTechRegulationData } from "./topics/eacc-vs-tech-regulation";
 import { affirmativeActionMeritocracyData } from "./topics/affirmative-action-meritocracy";
 import { fluorideWaterSuppliesData } from "./topics/fluoride-water-supplies";
 import { lithiumMiningEvImpactData } from "./topics/lithium-mining-ev-impact";
+import { cryptocurrencyRegulationData } from "./topics/cryptocurrency-regulation";
 
 // Newly extracted topics
 import { moonLandingData } from "./topics/moon-landing";
@@ -214,6 +215,7 @@ export const eaccVsTechRegulation = buildTopic(eaccVsTechRegulationData);
 export const affirmativeActionMeritocracy = buildTopic(affirmativeActionMeritocracyData);
 export const fluorideWaterSupplies = buildTopic(fluorideWaterSuppliesData);
 export const lithiumMiningEvImpact = buildTopic(lithiumMiningEvImpactData);
+export const cryptocurrencyRegulation = buildTopic(cryptocurrencyRegulationData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -282,6 +284,7 @@ export const topics: Topic[] = [
   billionaireWealth,
   foreignAidEffectiveness,
   cryptocurrencyValue,
+  cryptocurrencyRegulation,
   gigEconomyRegulation,
   housingAffordabilityCrisis,
   fourDayWorkWeek,
@@ -464,7 +467,8 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "gain-of-function-research-ban": ["lab-leak-theory", "surveillance-public-safety", "covid-origins", "ai-risk"],
 
   // Economics cluster (new topics)
-  "central-bank-digital-currency": ["cryptocurrency-value", "surveillance-public-safety", "wealth-tax", "big-tech-antitrust"],
+  "cryptocurrency-regulation": ["cryptocurrency-value", "central-bank-digital-currency", "big-tech-antitrust", "ai-regulation"],
+  "central-bank-digital-currency": ["cryptocurrency-value", "cryptocurrency-regulation", "surveillance-public-safety", "wealth-tax"],
 
   // Philosophy cluster (new topics)
   "alternatives-to-democracy": ["mandatory-voting", "electoral-college-reform", "media-bias-democracy", "free-will"],
