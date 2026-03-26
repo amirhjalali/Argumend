@@ -60,8 +60,8 @@ export function AnimateOnScroll({
     // Respect prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      setIsVisible(true);
-      return;
+      const handle = setTimeout(() => setIsVisible(true), 0);
+      return () => clearTimeout(handle);
     }
 
     const observer = new IntersectionObserver(

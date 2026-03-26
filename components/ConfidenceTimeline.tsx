@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback, useMemo } from "react";
+import { useState, useRef, useEffect, useCallback, useId, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import type { TimelineEvent } from "@/lib/topicTimelines";
 
@@ -167,8 +167,9 @@ export function ConfidenceTimeline({ events, topicTitle }: ConfidenceTimelinePro
     [],
   );
 
-  // Gradient definition ID
-  const gradientId = `confidence-gradient-${useMemo(() => Math.random().toString(36).slice(2, 8), [])}`;
+  // Gradient definition ID — useId() provides a stable, SSR-safe unique ID
+  const reactId = useId();
+  const gradientId = `confidence-gradient-${reactId}`;
   const areaGradientId = `area-gradient-${gradientId}`;
 
   return (
