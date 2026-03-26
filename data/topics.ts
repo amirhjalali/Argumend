@@ -47,6 +47,7 @@ import { affirmativeActionMeritocracyData } from "./topics/affirmative-action-me
 import { fluorideWaterSuppliesData } from "./topics/fluoride-water-supplies";
 import { lithiumMiningEvImpactData } from "./topics/lithium-mining-ev-impact";
 import { cryptocurrencyRegulationData } from "./topics/cryptocurrency-regulation";
+import { pandemicPreparednessData } from "./topics/pandemic-preparedness";
 
 // Newly extracted topics
 import { moonLandingData } from "./topics/moon-landing";
@@ -216,6 +217,7 @@ export const affirmativeActionMeritocracy = buildTopic(affirmativeActionMeritocr
 export const fluorideWaterSupplies = buildTopic(fluorideWaterSuppliesData);
 export const lithiumMiningEvImpact = buildTopic(lithiumMiningEvImpactData);
 export const cryptocurrencyRegulation = buildTopic(cryptocurrencyRegulationData);
+export const pandemicPreparedness = buildTopic(pandemicPreparednessData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -242,6 +244,7 @@ export const topics: Topic[] = [
   socialMediaElections,
   nuclearWeaponsAbolition,
   schoolPhoneBans,
+  pandemicPreparedness,
 
   // --- Technology & Society ---
   socialMediaAgeLimits,
@@ -463,8 +466,11 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "children-smartphone-age": ["social-media-age-limits", "social-media-mental-health", "school-phone-bans", "masculinity-crisis"],
   "ai-deepfakes-truth-collapse": ["ai-content-labeling", "media-bias-democracy", "surveillance-public-safety", "ai-risk"],
 
+  // Pandemic preparedness cluster
+  "pandemic-preparedness": ["gain-of-function-research-ban", "covid-origins", "universal-healthcare", "surveillance-public-safety"],
+
   // Policy cluster (new topics)
-  "gain-of-function-research-ban": ["lab-leak-theory", "surveillance-public-safety", "covid-origins", "ai-risk"],
+  "gain-of-function-research-ban": ["lab-leak-theory", "surveillance-public-safety", "covid-origins", "pandemic-preparedness"],
 
   // Economics cluster (new topics)
   "cryptocurrency-regulation": ["cryptocurrency-value", "central-bank-digital-currency", "big-tech-antitrust", "ai-regulation"],
