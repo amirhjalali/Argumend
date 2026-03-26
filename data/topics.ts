@@ -45,6 +45,7 @@ import { psychedelicTherapyHypeData } from "./topics/psychedelic-therapy-hype";
 import { eaccVsTechRegulationData } from "./topics/eacc-vs-tech-regulation";
 import { affirmativeActionMeritocracyData } from "./topics/affirmative-action-meritocracy";
 import { fluorideWaterSuppliesData } from "./topics/fluoride-water-supplies";
+import { pandemicPreparednessData } from "./topics/pandemic-preparedness";
 
 // Newly extracted topics
 import { moonLandingData } from "./topics/moon-landing";
@@ -212,6 +213,7 @@ export const psychedelicTherapyHype = buildTopic(psychedelicTherapyHypeData);
 export const eaccVsTechRegulation = buildTopic(eaccVsTechRegulationData);
 export const affirmativeActionMeritocracy = buildTopic(affirmativeActionMeritocracyData);
 export const fluorideWaterSupplies = buildTopic(fluorideWaterSuppliesData);
+export const pandemicPreparedness = buildTopic(pandemicPreparednessData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -238,6 +240,7 @@ export const topics: Topic[] = [
   socialMediaElections,
   nuclearWeaponsAbolition,
   schoolPhoneBans,
+  pandemicPreparedness,
 
   // --- Technology & Society ---
   socialMediaAgeLimits,
@@ -457,8 +460,11 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "children-smartphone-age": ["social-media-age-limits", "social-media-mental-health", "school-phone-bans", "masculinity-crisis"],
   "ai-deepfakes-truth-collapse": ["ai-content-labeling", "media-bias-democracy", "surveillance-public-safety", "ai-risk"],
 
+  // Pandemic preparedness cluster
+  "pandemic-preparedness": ["gain-of-function-research-ban", "covid-origins", "universal-healthcare", "surveillance-public-safety"],
+
   // Policy cluster (new topics)
-  "gain-of-function-research-ban": ["lab-leak-theory", "surveillance-public-safety", "covid-origins", "ai-risk"],
+  "gain-of-function-research-ban": ["lab-leak-theory", "surveillance-public-safety", "covid-origins", "pandemic-preparedness"],
 
   // Economics cluster (new topics)
   "central-bank-digital-currency": ["cryptocurrency-value", "surveillance-public-safety", "wealth-tax", "big-tech-antitrust"],
