@@ -155,9 +155,39 @@ export default async function ComparisonPage({ params }: PageProps) {
     ],
   };
 
+  // JSON-LD ItemList structured data for comparison
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Comparison: ${topic1.title} vs ${topic2.title}`,
+    description: `Side-by-side evidence comparison of "${topic1.title}" and "${topic2.title}" with confidence scores, argument pillars, and crux questions.`,
+    numberOfItems: 2,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "Article",
+          name: topic1.title,
+          url: `https://argumend.org/topics/${id1}`,
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "Article",
+          name: topic2.title,
+          url: `https://argumend.org/topics/${id2}`,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={itemListJsonLd} />
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
