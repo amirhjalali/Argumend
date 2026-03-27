@@ -5,41 +5,53 @@ import * as schema from "./schema";
 type Database = ReturnType<typeof drizzle<typeof schema>>;
 
 let _db: Database | null = null;
-let _initError: string | null = null;
+let _initialized = false;
 
-try {
+/**
+ * Lazily initialize the database connection on first use.
+ * This prevents the postgres pool from being created at module load,
+ * which would crash the server when the DB is unreachable.
+ */
+function initDb(): Database | null {
+  if (_initialized) return _db;
+  _initialized = true;
+
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) {
-    _initError = "DATABASE_URL environment variable is not set";
-    console.warn(`[db] ${_initError} — running without database`);
-  } else {
+    console.warn("[db] DATABASE_URL not set — running without database");
+    return null;
+  }
+
+  try {
     const client = postgres(connectionString, {
-      max: 50,
-      idle_timeout: 30,
-      connect_timeout: 10,
+      max: 5,
+      idle_timeout: 20,
+      connect_timeout: 5,
     });
     _db = drizzle(client, { schema });
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    console.warn(`[db] Failed to initialize: ${msg}`);
   }
-} catch (e) {
-  _initError = e instanceof Error ? e.message : String(e);
-  console.warn(`[db] Failed to initialize database: ${_initError} — running without database`);
+
+  return _db;
 }
 
 /**
- * Database instance. May be `null` if DATABASE_URL is missing or connection failed.
- * Use `getDb()` when you need a guaranteed non-null instance (throws if unavailable).
+ * Database instance. `null` until first access via getDb().
+ * Kept for backwards compatibility — auth.ts checks `if (db)`.
+ * Always null at module load; use getDb() for actual access.
  */
-export const db: Database | null = _db;
+export const db: Database | null = null;
 
 /**
  * Returns the database instance or throws if unavailable.
- * Use this in API routes that truly require the database.
+ * Lazily creates the connection pool on first call.
  */
 export function getDb(): Database {
-  if (!_db) {
-    throw new Error(
-      `Database is not available${_initError ? `: ${_initError}` : ""}`
-    );
+  const instance = initDb();
+  if (!instance) {
+    throw new Error("Database is not available");
   }
-  return _db;
+  return instance;
 }
