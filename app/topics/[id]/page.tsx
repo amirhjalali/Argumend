@@ -1,17 +1,8 @@
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { topics, CATEGORY_LABELS, getCrossCategoryRelated } from "@/data/topics";
+import { topics, CATEGORY_LABELS } from "@/data/topics";
 import { getVerdictLabel } from "@/lib/schemas/topic";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import TopicDetailView from "./TopicDetailView";
-
-// ---------------------------------------------------------------------------
-// ISR: Revalidate every 24 hours
-// ---------------------------------------------------------------------------
-
-// Static generation — no ISR needed, data comes from static files
-export const dynamic = "force-static";
+import TopicPageClient from "./TopicPageClient";
 
 // ---------------------------------------------------------------------------
 // Static Generation
@@ -81,7 +72,7 @@ export async function generateMetadata({
 }
 
 // ---------------------------------------------------------------------------
-// Page Component (Server)
+// Page Component — thin server wrapper, rendering done client-side
 // ---------------------------------------------------------------------------
 
 export default async function TopicPage({ params }: PageProps) {
@@ -89,118 +80,63 @@ export default async function TopicPage({ params }: PageProps) {
   const topic = topics.find((t) => t.id === id);
 
   if (!topic) {
-    notFound();
+    return <TopicPageClient />;
   }
 
-  // Related topics: same category, excluding current, max 4
-  const relatedTopics = topics
-    .filter((t) => t.category === topic.category && t.id !== topic.id)
-    .slice(0, 4);
-
-  // Cross-category related topics (thematic clusters)
-  const crossCategoryTopics = getCrossCategoryRelated(topic.id, topic.category, 4);
-
-  // JSON-LD structured data: ClaimReview (for Google fact-check rich results)
   const categoryLabel = CATEGORY_LABELS[topic.category];
-  const claimReviewJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ClaimReview",
-    url: `https://argumend.org/topics/${topic.id}`,
-    claimReviewed: topic.meta_claim,
-    datePublished: "2025-01-01",
-    author: {
-      "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://argumend.org/icon.png",
-      },
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: topic.confidence_score,
-      bestRating: 100,
-      worstRating: 0,
-      alternateName: getVerdictLabel(topic.confidence_score),
-    },
-    itemReviewed: {
-      "@type": "Claim",
-      name: topic.title,
-      description: topic.meta_claim,
-      author: {
-        "@type": "Organization",
-        name: "Various Sources",
-      },
-    },
-  };
-
-  // JSON-LD structured data: Article (for page content)
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: topic.title,
-    description: topic.meta_claim,
-    url: `https://argumend.org/topics/${topic.id}`,
-    image: topic.imageUrl || `https://argumend.org/api/og/${topic.id}`,
-    datePublished: "2025-01-01",
-    dateModified: new Date().toISOString().split('T')[0],
-    articleSection: categoryLabel,
-    inLanguage: "en-US",
-    author: {
-      "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://argumend.org/icon.png",
-      },
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://argumend.org/topics/${topic.id}`,
-    },
-    ...(topic.references && {
-      citation: topic.references.map((ref) => ({
-        "@type": "CreativeWork",
-        name: ref.title,
-        url: ref.url,
-      })),
-    }),
-  };
-
-  // FAQ JSON-LD structured data (FAQPage schema for AEO)
-  const faqJsonLd = topic.questions?.length ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: topic.questions.map(q => ({
-      "@type": "Question",
-      name: q.title,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: q.content,
-      },
-    })),
-  } : null;
 
   return (
     <>
-      <JsonLd data={claimReviewJsonLd} />
-      <JsonLd data={articleJsonLd} />
-      {faqJsonLd && <JsonLd data={faqJsonLd as unknown as Record<string, unknown>} />}
-      <Breadcrumbs
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Topics", href: "/topics" },
-          { label: topic.title },
-        ]}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ClaimReview",
+          url: `https://argumend.org/topics/${topic.id}`,
+          claimReviewed: topic.meta_claim,
+          datePublished: "2025-01-01",
+          author: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: topic.confidence_score,
+            bestRating: 100,
+            worstRating: 0,
+            alternateName: getVerdictLabel(topic.confidence_score),
+          },
+          itemReviewed: {
+            "@type": "Claim",
+            name: topic.title,
+            description: topic.meta_claim,
+          },
+        }}
       />
-      <TopicDetailView topic={topic} relatedTopics={relatedTopics} crossCategoryTopics={crossCategoryTopics} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: topic.title,
+          description: topic.meta_claim,
+          url: `https://argumend.org/topics/${topic.id}`,
+          image: `https://argumend.org/api/og/${topic.id}`,
+          articleSection: categoryLabel,
+          inLanguage: "en-US",
+          author: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
+          publisher: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
+        }}
+      />
+      {topic.questions?.length ? (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: topic.questions.map((q) => ({
+              "@type": "Question",
+              name: q.title,
+              acceptedAnswer: { "@type": "Answer", text: q.content },
+            })),
+          } as unknown as Record<string, unknown>}
+        />
+      ) : null}
+      <TopicPageClient />
     </>
   );
 }
