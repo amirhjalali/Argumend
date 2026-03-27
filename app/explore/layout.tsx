@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Explore Topics | Argumend",
     description:
-      "Search and filter 60+ controversial topics with visual argument maps and evidence scoring.",
+      "Search and filter 109+ controversial topics with visual argument maps and evidence scoring.",
     images: [`https://argumend.org/api/og?title=${encodeURIComponent("Explore Topics")}&subtitle=${encodeURIComponent("Search and filter evidence-based analyses across 5 categories")}`],
   },
   alternates: {

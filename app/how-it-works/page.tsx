@@ -1,12 +1,7 @@
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { DiamondDiagram } from "@/components/DiamondDiagram";
 import { JsonLd } from "@/components/JsonLd";
-import {
-  Scale,
-  Swords,
-  Shield,
-  Landmark,
-} from "lucide-react";
 
 const nodeTypes = [
   {
@@ -134,71 +129,8 @@ export default function HowItWorksPage() {
             Every topic uses the same structure. Learn it once and you can read any debate on the platform.
           </p>
 
-          {/* Simple visual diagram */}
-          <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] rounded-2xl border border-stone-200/60 p-8 md:p-12 overflow-hidden">
-            {/* Connection lines (simplified) */}
-            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }} aria-hidden="true">
-              <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                  <polygon points="0 0, 10 3.5, 0 7" fill="#b05434" />
-                </marker>
-              </defs>
-              {/* Meta to Skeptic */}
-              <line x1="50%" y1="80" x2="25%" y2="160" stroke="#b05434" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
-              {/* Meta to Proponent */}
-              <line x1="50%" y1="80" x2="75%" y2="160" stroke="#b05434" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
-              {/* Both to Crux */}
-              <line x1="25%" y1="220" x2="50%" y2="300" stroke="#b05434" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
-              <line x1="75%" y1="220" x2="50%" y2="300" stroke="#b05434" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrowhead)" />
-            </svg>
-
-            {/* Nodes */}
-            <div className="relative z-10 flex flex-col items-center gap-12">
-              {/* Meta Node */}
-              <div className="flex flex-col items-center">
-                <div className="px-6 py-3 rounded-xl bg-gradient-to-r from-deep to-deep-dark text-white font-semibold shadow-lg">
-                  <div className="flex items-center gap-2">
-                    <Landmark className="h-4 w-4" />
-                    <span>Meta Claim</span>
-                  </div>
-                </div>
-                <p className="mt-2 text-xs text-secondary italic">The central topic</p>
-              </div>
-
-              {/* Skeptic and Proponent Row */}
-              <div className="flex items-center justify-center gap-8 md:gap-24 w-full">
-                <div className="flex flex-col items-center">
-                  <div className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#8B5A3C] to-[#A67350] text-white font-semibold shadow-md">
-                    <div className="flex items-center gap-2">
-                      <Swords className="h-4 w-4" />
-                      <span>Skeptic</span>
-                    </div>
-                  </div>
-                  <p className="mt-2 text-xs text-secondary italic text-center">Strongest objection</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white font-semibold shadow-md">
-                    <div className="flex items-center gap-2">
-                      <Shield className="h-4 w-4" />
-                      <span>Proponent</span>
-                    </div>
-                  </div>
-                  <p className="mt-2 text-xs text-secondary italic text-center">Best response</p>
-                </div>
-              </div>
-
-              {/* Crux Node */}
-              <div className="flex flex-col items-center">
-                <div className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] text-white font-bold shadow-lg ring-2 ring-[#a23b3b]/20 ring-offset-2">
-                  <div className="flex items-center gap-2">
-                    <Scale className="h-4 w-4" />
-                    <span>Crux</span>
-                  </div>
-                </div>
-                <p className="mt-2 text-xs text-crux font-medium">What would settle this?</p>
-              </div>
-            </div>
-          </div>
+          {/* Interactive diamond diagram with properly connected arrows */}
+          <DiamondDiagram />
         </section>
 
         {/* Node Types Reference */}

@@ -9,7 +9,7 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "ARGUMEND — Map Arguments, Not Win Them",
   description:
-    "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. Explore 52 topics analyzed with structured reasoning.",
+    "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. Explore 109+ topics analyzed with structured reasoning.",
   openGraph: {
     title: "ARGUMEND — Map Arguments, Not Win Them",
     description:

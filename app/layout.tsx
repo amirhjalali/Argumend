@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s | ARGUMEND",
   },
   description:
-    "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. 52+ topics analyzed.",
+    "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. 109+ topics analyzed.",
   keywords: [
     "argument mapping",
     "argument map tool",

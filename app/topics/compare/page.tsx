@@ -14,7 +14,7 @@ export const revalidate = 86400;
 export const metadata: Metadata = {
   title: "Compare Topics Side by Side — Argument Comparison",
   description:
-    "Compare controversial debates side by side. See confidence scores, evidence balance, and argument pillars for two topics at once. Pick any two of 60+ analyzed issues.",
+    "Compare controversial debates side by side. See confidence scores, evidence balance, and argument pillars for two topics at once. Pick any two of 109+ analyzed issues.",
   keywords: [
     "compare arguments",
     "debate comparison",
