@@ -31,9 +31,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 const PRIMARY_NAV = [
   { label: "Home", icon: Compass, href: "/" },
-  { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
+  { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard", noPrefetch: true },
   { label: "Analyze Text", icon: Brain, href: "/analyze", highlight: true },
-  { label: "Recent Analyses", icon: History, href: "/analyses" },
+  { label: "Recent Analyses", icon: History, href: "/analyses", noPrefetch: true },
   { label: "Explore Topics", icon: ListChecks, href: "/topics" },
   { label: "Compare Topics", icon: ArrowLeftRight, href: "/topics/compare" },
   { label: "Explore Map", icon: Network, href: "/explore" },
@@ -111,12 +111,13 @@ export function Sidebar({
       <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5">
         {/* Primary Navigation */}
         <nav className="space-y-0.5 pb-5">
-          {PRIMARY_NAV.map(({ label, icon: Icon, href, highlight }) => {
+          {PRIMARY_NAV.map(({ label, icon: Icon, href, highlight, noPrefetch }) => {
             const isActive = isActiveRoute(href);
             return (
               <Link
                 key={label}
                 href={href}
+                prefetch={noPrefetch ? false : undefined}
                 aria-current={isActive ? "page" : undefined}
                 className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                   isActive
