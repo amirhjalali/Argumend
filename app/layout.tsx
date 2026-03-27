@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { SessionProvider } from "@/components/SessionProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
@@ -124,7 +125,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <ThemeProvider>
-          {children}
+          <SessionProvider>{children}</SessionProvider>
         </ThemeProvider>
         <JsonLd
           data={{
