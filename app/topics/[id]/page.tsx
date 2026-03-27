@@ -10,7 +10,8 @@ import TopicDetailView from "./TopicDetailView";
 // ISR: Revalidate every 24 hours
 // ---------------------------------------------------------------------------
 
-export const revalidate = 86400;
+// Static generation — no ISR needed, data comes from static files
+export const dynamic = "force-static";
 
 // ---------------------------------------------------------------------------
 // Static Generation

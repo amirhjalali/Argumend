@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-export const revalidate = 86400; // ISR: 24 hours
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Explore Topics — 109+ Controversial Issues Analyzed",
