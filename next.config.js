@@ -9,7 +9,7 @@ const isDev = process.env.NODE_ENV === 'development';
 // Build Content-Security-Policy header value
 const cspDirectives = [
   "default-src 'self'",
-  `script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com${isDev ? " 'unsafe-eval' 'unsafe-inline'" : ''}`,
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' https://images.unsplash.com https://www.google-analytics.com data:",
   "font-src 'self'",
