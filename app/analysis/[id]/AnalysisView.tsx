@@ -26,7 +26,7 @@ import { ConfidenceGauge } from "@/components/ConfidenceGauge";
 // Heavy component — only rendered when judging result exists
 const JudgingResults = dynamic(
   () => import("@/components/JudgingResults").then((m) => ({ default: m.JudgingResults })),
-  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 rounded-lg" /> }
+  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 dark:bg-[var(--bg-overlay)] rounded-lg" /> }
 );
 import { topicSummaries } from "@/data/topicIndex";
 import type { TopicSummary } from "@/data/topicIndex";
@@ -106,7 +106,7 @@ function SectionDivider({ label, icon: Icon }: { label: string; icon: React.Comp
         <Icon className="h-4 w-4 text-deep" />
         <h3 className="font-serif text-lg font-semibold text-primary">{label}</h3>
       </div>
-      <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />
+      <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 dark:from-[rgba(61,58,54,0.8)] to-transparent" />
     </div>
   );
 }
@@ -116,10 +116,10 @@ function SectionDivider({ label, icon: Icon }: { label: string; icon: React.Comp
 function StrengthBadge({ score }: { score: number }) {
   const strength = getArgumentStrength(score);
   const styles = {
-    strong: "bg-emerald-100 text-emerald-700 border-emerald-200",
+    strong: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/50",
     moderate: "bg-deep/10 text-deep border-deep/20",
-    weak: "bg-stone-100 text-stone-500 border-stone-200",
-    unsupported: "bg-red-50 text-red-500 border-red-100",
+    weak: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 border-stone-200 dark:border-[#3d3a36]",
+    unsupported: "bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400 border-red-100 dark:border-red-800/40",
   };
 
   return (
@@ -135,7 +135,7 @@ function PositionStrengthBar({ score, side }: { score: number; side: "for" | "ag
   const pct = (score / 10) * 100;
   return (
     <div className="flex items-center gap-2 mt-1">
-      <div className="flex-1 h-1.5 rounded-full bg-stone-100 overflow-hidden">
+      <div className="flex-1 h-1.5 rounded-full bg-stone-100 dark:bg-[var(--bg-overlay)] overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${pct}%` }}
@@ -143,7 +143,7 @@ function PositionStrengthBar({ score, side }: { score: number; side: "for" | "ag
           className={`h-full rounded-full ${side === "for" ? "bg-rust-400" : "bg-stone-400"}`}
         />
       </div>
-      <span className={`text-[10px] font-mono font-semibold tabular-nums ${side === "for" ? "text-rust-600" : "text-stone-500"}`}>
+      <span className={`text-[10px] font-mono font-semibold tabular-nums ${side === "for" ? "text-rust-600" : "text-stone-500 dark:text-stone-400"}`}>
         {score.toFixed(1)}
       </span>
     </div>
@@ -170,21 +170,21 @@ function SplitStrengthBar({ forScore, againstScore }: { forScore: number; agains
           <span className="text-lg font-mono font-bold text-rust-600">{forScore}/10</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-lg font-mono font-bold text-stone-600">{againstScore}/10</span>
-          <span className="text-sm font-semibold text-stone-600">Against</span>
+          <span className="text-lg font-mono font-bold text-stone-600 dark:text-stone-400">{againstScore}/10</span>
+          <span className="text-sm font-semibold text-stone-600 dark:text-stone-400">Against</span>
           <div className="w-3 h-3 rounded-full bg-stone-500" />
         </div>
       </div>
 
       {/* The split bar */}
-      <div className="h-3 rounded-full overflow-hidden bg-stone-100 flex">
+      <div className="h-3 rounded-full overflow-hidden bg-stone-100 dark:bg-[var(--bg-overlay)] flex">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${forPct}%` }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="h-full bg-gradient-to-r from-rust-400 to-rust-500 rounded-l-full"
         />
-        <div className="w-px bg-white" />
+        <div className="w-px bg-white dark:bg-[var(--bg-card)]" />
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${againstPct}%` }}
@@ -199,7 +199,7 @@ function SplitStrengthBar({ forScore, againstScore }: { forScore: number; agains
           {Math.round(forPct)}%
           {forScore >= 7 ? " — Strong" : forScore >= 4 ? " — Moderate" : " — Weak"}
         </span>
-        <span className="text-[10px] font-medium text-stone-500">
+        <span className="text-[10px] font-medium text-stone-500 dark:text-stone-400">
           {againstScore >= 7 ? "Strong — " : againstScore >= 4 ? "Moderate — " : "Weak — "}
           {Math.round(againstPct)}%
         </span>
@@ -211,11 +211,11 @@ function SplitStrengthBar({ forScore, againstScore }: { forScore: number; agains
 function ConfidenceExplainer({ score }: { score: number }) {
   const info = getConfidenceInfo(score);
   const colorMap = {
-    "very-high": "border-emerald-200 bg-emerald-50 text-emerald-800",
-    "high": "border-emerald-200/60 bg-emerald-50/50 text-emerald-700",
-    "moderate": "border-stone-200 bg-stone-50 text-stone-700",
-    "low": "border-red-200/60 bg-red-50/50 text-red-700",
-    "very-low": "border-red-200 bg-red-50 text-red-800",
+    "very-high": "border-emerald-200 dark:border-emerald-800/50 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300",
+    "high": "border-emerald-200/60 dark:border-emerald-800/40 bg-emerald-50/50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400",
+    "moderate": "border-stone-200 dark:border-[#3d3a36] bg-stone-50 dark:bg-[var(--bg-overlay)] text-stone-700 dark:text-stone-300",
+    "low": "border-red-200/60 dark:border-red-800/40 bg-red-50/50 dark:bg-red-900/20 text-red-700 dark:text-red-400",
+    "very-low": "border-red-200 dark:border-red-800/50 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300",
   };
 
   return (
@@ -227,7 +227,7 @@ function ConfidenceExplainer({ score }: { score: number }) {
 }
 
 function BiasCard({ bias }: { bias: DetectedBias }) {
-  const impactColor = bias.impact >= 7 ? "text-red-600 bg-red-50 border-red-200" : bias.impact >= 4 ? "text-stone-600 bg-stone-50 border-stone-200" : "text-stone-500 bg-stone-50/50 border-stone-100";
+  const impactColor = bias.impact >= 7 ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800/40" : bias.impact >= 4 ? "text-stone-600 dark:text-stone-400 bg-stone-50 dark:bg-[var(--bg-overlay)] border-stone-200 dark:border-[#3d3a36]" : "text-stone-500 dark:text-stone-400 bg-stone-50/50 dark:bg-[var(--bg-overlay)] border-stone-100 dark:border-[#3d3a36]";
   const sideLabel = bias.affectedSide === "for" ? "FOR side" : bias.affectedSide === "against" ? "AGAINST side" : "Both sides";
 
   return (
@@ -242,15 +242,15 @@ function BiasCard({ bias }: { bias: DetectedBias }) {
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-stone-800 font-medium">{bias.type}</span>
+            <span className="text-stone-800 dark:text-[var(--text-heading)] font-medium">{bias.type}</span>
             <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${impactColor}`}>
               Impact: {bias.impact}/10
             </span>
-            <span className="text-[10px] bg-stone-100 text-stone-500 px-2 py-0.5 rounded-full">
+            <span className="text-[10px] bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 px-2 py-0.5 rounded-full">
               {sideLabel}
             </span>
           </div>
-          <p className="mt-1.5 text-sm text-stone-600 leading-relaxed">{bias.explanation}</p>
+          <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{bias.explanation}</p>
         </div>
       </div>
     </motion.div>
@@ -263,32 +263,32 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
   const aggregateStrength = computePositionStrength(position);
 
   const cardStyles = isFor
-    ? "border-l-rust-500 bg-gradient-to-r from-rust-50/40 to-white"
-    : "border-l-stone-500 bg-gradient-to-r from-stone-50/40 to-white";
+    ? "border-l-rust-500 bg-gradient-to-r from-rust-50/40 dark:from-rust-900/20 to-white dark:to-[var(--bg-card)]"
+    : "border-l-stone-500 bg-gradient-to-r from-stone-50/40 dark:from-stone-800/20 to-white dark:to-[var(--bg-card)]";
 
   return (
     <motion.div
       initial={{ opacity: 0, x: isFor ? -20 : 20 }}
       animate={{ opacity: 1, x: 0 }}
-      className={`rounded-xl border border-stone-200/80 border-l-[4px] ${cardStyles} overflow-hidden shadow-sm hover:shadow-md transition-shadow`}
+      className={`rounded-xl border border-stone-200/80 dark:border-[var(--border-default)] border-l-[4px] ${cardStyles} overflow-hidden shadow-sm hover:shadow-md transition-shadow`}
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-4 md:p-5 text-left hover:bg-white/40 transition-colors"
+        className="w-full p-4 md:p-5 text-left hover:bg-white/40 dark:hover:bg-[#252420]/40 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div
               className={`px-3 py-1 rounded-full text-xs font-semibold tracking-wide ${
                 isFor
-                  ? "bg-rust-100 text-rust-700"
-                  : "bg-stone-100 text-stone-600"
+                  ? "bg-rust-100 dark:bg-rust-900/30 text-rust-700 dark:text-rust-400"
+                  : "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-600 dark:text-stone-400"
               }`}
             >
               {isFor ? "FOR" : "AGAINST"}
             </div>
             {position.speaker && (
-              <span className="text-sm text-stone-600 font-medium">
+              <span className="text-sm text-stone-600 dark:text-stone-400 font-medium">
                 {position.speaker}
               </span>
             )}
@@ -320,14 +320,14 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="px-4 md:px-5 pb-4 md:pb-5 border-t border-stone-100">
+            <div className="px-4 md:px-5 pb-4 md:pb-5 border-t border-stone-100 dark:border-[#3d3a36]">
               <div className="pt-4 space-y-5">
                 {position.arguments.map((arg, idx) => {
-                  const borderAccent = isFor ? "border-rust-200" : "border-stone-300";
+                  const borderAccent = isFor ? "border-rust-200 dark:border-rust-800/50" : "border-stone-300 dark:border-[#3d3a36]";
                   return (
                     <div key={idx} className={`pl-4 border-l-2 ${borderAccent}`}>
                       <div className="flex items-start justify-between gap-2">
-                        <p className="text-stone-800 font-medium leading-snug">{arg.claim}</p>
+                        <p className="text-stone-800 dark:text-[var(--text-heading)] font-medium leading-snug">{arg.claim}</p>
                         {arg.strengthScore != null && (
                           <StrengthBadge score={arg.strengthScore} />
                         )}
@@ -339,12 +339,12 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
                       )}
                       {arg.evidence && arg.evidence.length > 0 && (
                         <div className="mt-3 space-y-1.5">
-                          <span className="text-[10px] text-stone-400 uppercase tracking-wider font-semibold">
+                          <span className="text-[10px] text-stone-400 dark:text-[var(--text-muted)] uppercase tracking-wider font-semibold">
                             Evidence
                           </span>
                           <ul className="space-y-1.5">
                             {arg.evidence.map((e, i) => (
-                              <li key={i} className={`text-sm text-stone-600 leading-relaxed pl-3 border-l-2 ${isFor ? "border-rust-100" : "border-stone-200/60"}`}>
+                              <li key={i} className={`text-sm text-stone-600 dark:text-stone-400 leading-relaxed pl-3 border-l-2 ${isFor ? "border-rust-100 dark:border-rust-800/40" : "border-stone-200/60 dark:border-[var(--border-default)]"}`}>
                                 {e}
                               </li>
                             ))}
@@ -352,7 +352,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
                         </div>
                       )}
                       {arg.source && (
-                        <p className="mt-2 text-xs text-stone-500 flex items-center gap-1.5 bg-stone-50/80 rounded-md px-2.5 py-1.5 w-fit">
+                        <p className="mt-2 text-xs text-stone-500 dark:text-stone-400 flex items-center gap-1.5 bg-stone-50/80 dark:bg-[var(--bg-overlay)] rounded-md px-2.5 py-1.5 w-fit">
                           <ExternalLink className="h-3 w-3 text-deep flex-shrink-0" />
                           <span className="text-deep font-medium">{arg.source}</span>
                         </p>
@@ -382,10 +382,10 @@ function CruxCard({ crux, index }: { crux: IdentifiedCrux; index: number }) {
           <Target className="h-4.5 w-4.5 text-deep" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-stone-800 font-medium leading-snug">{crux.description}</p>
+          <p className="text-stone-800 dark:text-[var(--text-heading)] font-medium leading-snug">{crux.description}</p>
           <div className="mt-2 flex items-start gap-2">
             <div className="w-1 h-1 rounded-full bg-deep/40 mt-2 flex-shrink-0" />
-            <p className="text-sm text-stone-600 leading-relaxed italic">{crux.significance}</p>
+            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed italic">{crux.significance}</p>
           </div>
         </div>
       </div>
@@ -397,15 +397,15 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
   const severity = fallacy.severity ?? "possible";
 
   const severityStyles = {
-    confirmed: "bg-red-100 text-red-700 border-red-200",
-    likely: "bg-rust-100 text-rust-700 border-rust-200",
-    possible: "bg-stone-100 text-stone-500 border-stone-200",
+    confirmed: "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800/50",
+    likely: "bg-rust-100 dark:bg-rust-900/30 text-rust-700 dark:text-rust-400 border-rust-200 dark:border-rust-800/50",
+    possible: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 border-stone-200 dark:border-[#3d3a36]",
   };
 
   const cardStyles = {
-    confirmed: "bg-red-50/60 border-red-200/60",
-    likely: "bg-rust-50/40 border-rust-200/50",
-    possible: "bg-stone-50/50 border-stone-200/60",
+    confirmed: "bg-red-50/60 dark:bg-red-900/15 border-red-200/60 dark:border-red-800/40",
+    likely: "bg-rust-50/40 dark:bg-rust-900/15 border-rust-200/50 dark:border-rust-800/40",
+    possible: "bg-stone-50/50 dark:bg-[var(--bg-overlay)] border-stone-200/60 dark:border-[var(--border-default)]",
   };
 
   const SeverityIcon = severity === "confirmed" ? AlertTriangle : severity === "likely" ? AlertTriangle : Info;
@@ -424,12 +424,12 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-stone-800 font-medium">{fallacy.type}</span>
+            <span className="text-stone-800 dark:text-[var(--text-heading)] font-medium">{fallacy.type}</span>
             <span className={`text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full border ${severityStyles[severity]}`}>
               {severity}
             </span>
             {fallacy.impact != null && (
-              <span className="text-[10px] font-semibold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full border border-stone-200/60">
+              <span className="text-[10px] font-semibold text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-[var(--bg-overlay)] px-2 py-0.5 rounded-full border border-stone-200/60 dark:border-[var(--border-default)]">
                 Impact: {fallacy.impact}/10
               </span>
             )}
@@ -439,9 +439,9 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
               </span>
             )}
           </div>
-          <p className="mt-1.5 text-sm text-stone-600 leading-relaxed">{fallacy.explanation}</p>
+          <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{fallacy.explanation}</p>
           {fallacy.quote && (
-            <p className="mt-2.5 text-sm text-stone-500 italic border-l-2 border-stone-300 pl-3 bg-white/60 py-1.5 rounded-r-md">
+            <p className="mt-2.5 text-sm text-stone-500 dark:text-stone-400 italic border-l-2 border-stone-300 dark:border-[#3d3a36] pl-3 bg-white/60 dark:bg-[#252420]/60 py-1.5 rounded-r-md">
               &ldquo;{fallacy.quote}&rdquo;
             </p>
           )}
@@ -455,11 +455,11 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
 function ConfidenceBadge({ score }: { score: number }) {
   let color: string;
   if (score >= 80) {
-    color = "bg-emerald-100 text-emerald-700";
+    color = "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400";
   } else if (score >= 50) {
-    color = "bg-stone-100 text-stone-600";
+    color = "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-600 dark:text-stone-400";
   } else {
-    color = "bg-red-100 text-red-700";
+    color = "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400";
   }
 
   return (
@@ -473,14 +473,14 @@ function RelatedTopicCard({ topic }: { topic: TopicSummary }) {
   return (
     <Link
       href={`/topics/${topic.id}`}
-      className="group block bg-white border border-stone-200/80 rounded-xl p-4 hover:border-deep/40 hover:shadow-md transition-all"
+      className="group block bg-white dark:bg-[var(--bg-card)] border border-stone-200/80 dark:border-[var(--border-default)] rounded-xl p-4 hover:border-deep/40 hover:shadow-md transition-all"
     >
       <div className="space-y-2">
         <div className="flex items-start justify-between gap-2">
           <h4 className="font-serif font-semibold text-primary text-sm group-hover:text-deep transition-colors leading-snug">
             {topic.title}
           </h4>
-          <ArrowRight className="h-4 w-4 text-stone-300 group-hover:text-deep transition-colors flex-shrink-0 mt-0.5" />
+          <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep transition-colors flex-shrink-0 mt-0.5" />
         </div>
         <p className="text-xs text-secondary line-clamp-2 leading-relaxed">
           {topic.meta_claim}
@@ -494,11 +494,11 @@ function RelatedTopicCard({ topic }: { topic: TopicSummary }) {
 /** Positive empty-state for no fallacies/biases */
 function EmptyPositiveState({ label, icon: Icon }: { label: string; icon: React.ComponentType<{ className?: string }> }) {
   return (
-    <div className="flex items-center gap-3 p-4 bg-emerald-50/50 border border-emerald-200/40 rounded-xl">
-      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100/80 flex items-center justify-center">
-        <Icon className="h-4 w-4 text-emerald-600" />
+    <div className="flex items-center gap-3 p-4 bg-emerald-50/50 dark:bg-emerald-900/15 border border-emerald-200/40 dark:border-emerald-800/30 rounded-xl">
+      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100/80 dark:bg-emerald-900/30 flex items-center justify-center">
+        <Icon className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
       </div>
-      <p className="text-sm text-emerald-700 font-medium">{label}</p>
+      <p className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">{label}</p>
     </div>
   );
 }
@@ -549,7 +549,7 @@ export function AnalysisView({
             >
               Analyses
             </Link>
-            <ChevronRight className="h-3.5 w-3.5 text-stone-400" />
+            <ChevronRight className="h-3.5 w-3.5 text-stone-400 dark:text-[var(--text-muted)]" />
             <span className="text-primary font-medium truncate max-w-[280px] sm:max-w-none">
               {extracted.topic}
             </span>
@@ -559,7 +559,7 @@ export function AnalysisView({
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative overflow-hidden rounded-2xl border border-stone-200/60 bg-gradient-to-br from-white via-[#fdfbf8] to-deep/[0.04] shadow-card"
+            className="relative overflow-hidden rounded-2xl border border-stone-200/60 dark:border-[var(--border-default)] bg-gradient-to-br from-white dark:from-[var(--bg-card)] via-[#fdfbf8] dark:via-[#2a2825] to-deep/[0.04] shadow-card"
           >
             {/* Subtle decorative gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-rust-500/[0.03] via-transparent to-deep/[0.03] pointer-events-none" />
@@ -571,7 +571,7 @@ export function AnalysisView({
                   <Brain className="h-3 w-3" />
                   Analysis Report
                 </div>
-                <span className="flex items-center gap-1.5 text-xs text-stone-400">
+                <span className="flex items-center gap-1.5 text-xs text-stone-400 dark:text-[var(--text-muted)]">
                   <Clock className="h-3 w-3" />
                   Generated {formattedDate} at {formattedTime}
                 </span>
@@ -751,7 +751,7 @@ export function AnalysisView({
             transition={{ delay: 0.4 }}
             className="pt-4"
           >
-            <div className="relative overflow-hidden bg-gradient-to-br from-[#fefcf9] to-deep/[0.03] border border-stone-200/60 rounded-2xl p-6 md:p-8 text-center space-y-4">
+            <div className="relative overflow-hidden bg-gradient-to-br from-[#fefcf9] dark:from-[var(--bg-card)] to-deep/[0.03] border border-stone-200/60 dark:border-[var(--border-default)] rounded-2xl p-6 md:p-8 text-center space-y-4">
               <div className="absolute inset-0 bg-gradient-to-r from-rust-500/[0.02] via-transparent to-deep/[0.02] pointer-events-none" />
               <div className="relative">
                 <h3 className="font-serif text-xl font-bold text-primary">

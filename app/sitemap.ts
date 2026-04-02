@@ -165,6 +165,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
+  // ── Questions listing page (priority 0.8) ──────────────────────────────
+  const questionsListingPage: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/questions`,
+      lastModified: new Date("2026-03-18"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+  ];
+
   // ── Informational / secondary pages (priority 0.6) ────────────────────
   const secondaryPages: MetadataRoute.Sitemap = [
     {
@@ -293,6 +303,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogArticlePages,
     ...guidePages,
     ...comparisonPages,
+    ...questionsListingPage,
     ...questionPages,
     ...isClaimPages,
     ...glossaryPage,

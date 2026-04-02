@@ -79,7 +79,7 @@ export default async function AnalysisPage({ params }: PageProps) {
   });
 
   // Reconstruct the shape that the JudgingResults component expects.
-  // The DB stores aggregatedScores/disagreements as jsonb, and verdicts
+  // The DB stores aggregatedScores/disagreements as typed jsonb, and verdicts
   // come from the relation. We need to rebuild the JudgingResult shape.
   let judgingResult = null;
   if (judgment) {
@@ -88,30 +88,31 @@ export default async function AnalysisPage({ params }: PageProps) {
         judgeId: v.judgeId,
         judgeName: v.judgeName,
         model: v.model as import("@/types/logic").LLMModel,
-        forScore: v.forScore as import("@/lib/judge/rubric").JudgeScore,
-        againstScore: v.againstScore as import("@/lib/judge/rubric").JudgeScore,
+        forScore: v.forScore,
+        againstScore: v.againstScore,
         winner: v.winner as "for" | "against" | "draw",
         overallReasoning: v.overallReasoning,
         latencyMs: v.latencyMs ?? undefined,
       })),
       winner: judgment.winner as "for" | "against" | "draw" | null,
       hasConsensus: judgment.hasConsensus,
-      aggregatedScores: judgment.aggregatedScores as import("@/lib/judge/rubric").JudgingResult["aggregatedScores"],
-      disagreements: judgment.disagreements as import("@/lib/judge/rubric").JudgingResult["disagreements"],
+      aggregatedScores: judgment.aggregatedScores,
+      disagreements: judgment.disagreements,
       flaggedForReview: judgment.flaggedForReview,
       timestamp: judgment.createdAt.getTime(),
     };
   }
 
-  // Build extracted arguments shape from the DB row
+  // Build extracted arguments shape from the DB row.
+  // The jsonb columns are already typed via $type<T>() in the schema.
   const extracted = {
     topic: analysis.topic,
     summary: analysis.summary,
-    positions: analysis.positions as import("@/lib/analyze/extractor").ExtractedPosition[],
-    identifiedCruxes: analysis.cruxes as import("@/lib/analyze/extractor").IdentifiedCrux[],
-    potentialFallacies: analysis.fallacies as import("@/lib/analyze/extractor").PotentialFallacy[],
+    positions: analysis.positions,
+    identifiedCruxes: analysis.cruxes,
+    potentialFallacies: analysis.fallacies,
     confidence: analysis.confidence,
-    detectedBiases: (analysis.detectedBiases as import("@/lib/analyze/extractor").DetectedBias[]) ?? [],
+    detectedBiases: analysis.detectedBiases ?? [],
     forStrength: analysis.forStrength ?? undefined,
     againstStrength: analysis.againstStrength ?? undefined,
   };

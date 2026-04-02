@@ -55,9 +55,9 @@ async function generateWithClaude(
       messages: [{ role: "user", content: userPrompt }],
     });
 
-    const textBlock = response.content.find((block: any) => block.type === "text");
+    const textBlock = response.content.find((block) => block.type === "text");
     return {
-      argument: textBlock ? textBlock.text : "Unable to generate argument.",
+      argument: textBlock && "text" in textBlock ? textBlock.text : "Unable to generate argument.",
       actualModel: "claude",
     };
   } catch (error) {

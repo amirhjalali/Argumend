@@ -55,12 +55,12 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="bg-white/80 rounded-xl border border-[#e8e0d4] overflow-hidden hover:shadow-md transition-all duration-200">
+    <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-[#e8e0d4] dark:border-[#3d3a36] overflow-hidden hover:shadow-md transition-all duration-200">
       {/* Header */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
-        className="w-full p-5 text-left hover:bg-[#faf8f5] transition-colors"
+        className="w-full p-5 text-left hover:bg-[#faf8f5] dark:hover:bg-[#302e2a] transition-colors"
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
@@ -76,7 +76,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
               {exchange.lesson}
             </p>
           </div>
-          <div className="flex-shrink-0 p-2 rounded-lg bg-[#f5f1ea] border border-[#e8e0d4]">
+          <div className="flex-shrink-0 p-2 rounded-lg bg-[#f5f1ea] dark:bg-[#302e2a] border border-[#e8e0d4] dark:border-[#3d3a36]">
             {isExpanded ? (
               <ChevronUp className="h-4 w-4 text-secondary" />
             ) : (
@@ -88,7 +88,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
 
       {/* Expanded Content */}
       {isExpanded && (
-        <div className="border-t border-[#e8e0d4]">
+        <div className="border-t border-[#e8e0d4] dark:border-[#3d3a36]">
           {/* The Exchange */}
           <div className="p-5 space-y-4">
             {exchange.exchanges.map((msg, idx) => (
@@ -99,7 +99,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                   msg.isResponse
                     ? "bg-gradient-to-br from-[#4f7b77] to-[#3d6360] text-white"
-                    : "bg-[#f5f1ea] text-secondary border border-[#e8e0d4]"
+                    : "bg-[#f5f1ea] dark:bg-[#302e2a] text-secondary border border-[#e8e0d4] dark:border-[#3d3a36]"
                 }`}>
                   {msg.isResponse ? (
                     <CrabIcon className="h-4 w-4" />
@@ -129,7 +129,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
           </div>
 
           {/* Lesson Box */}
-          <div className="mx-5 mb-5 p-4 bg-gradient-to-br from-[#faf8f5] to-[#f5f1ea] rounded-lg border border-[#e8e0d4]">
+          <div className="mx-5 mb-5 p-4 bg-gradient-to-br from-[#faf8f5] to-[#f5f1ea] dark:from-[#302e2a] dark:to-[#252420] rounded-lg border border-[#e8e0d4] dark:border-[#3d3a36]">
             <div className="flex items-start gap-3">
               <Quote className="h-4 w-4 text-rust-500 flex-shrink-0 mt-0.5" />
               <div>
@@ -146,7 +146,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
             {exchange.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs text-secondary bg-[#f5f1ea] px-2 py-1 rounded-md"
+                className="text-xs text-secondary bg-[#f5f1ea] dark:bg-[#302e2a] px-2 py-1 rounded-md"
               >
                 #{tag}
               </span>
@@ -263,14 +263,14 @@ export default function LessonsFromTheDeepPage() {
             All Moltbook Posts
           </h2>
           <p className="text-lg text-secondary mb-8">Every post we have shared on Moltbook, newest first.</p>
-          <div className="bg-white/80 rounded-2xl border border-[#e8e0d4] divide-y divide-[#e8e0d4] overflow-hidden">
+          <div className="bg-white/80 dark:bg-[#252420]/80 rounded-2xl border border-[#e8e0d4] dark:border-[#3d3a36] divide-y divide-[#e8e0d4] dark:divide-[#3d3a36] overflow-hidden">
             {moltbookPosts.map((post) => (
               <a
                 key={post.id}
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-4 hover:bg-[#faf8f5] transition-colors group"
+                className="block p-4 hover:bg-[#faf8f5] dark:hover:bg-[#302e2a] transition-colors group"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">

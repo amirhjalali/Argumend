@@ -192,10 +192,10 @@ export function VerdictVoting({ topicId, topicTitle, confidenceScore }: VerdictV
   const votedLabel = votedOptionIndex !== null ? VOTE_OPTIONS[votedOptionIndex].label : "";
 
   return (
-    <section className="bg-transparent rounded-xl border border-stone-200/60 p-6 sm:p-8 mb-8">
+    <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 sm:p-8 mb-8">
       {/* Header */}
       <div className="text-center mb-6">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider border border-stone-200/50 mb-4">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-stone-800/80 rounded-full text-xs font-medium text-stone-600 dark:text-stone-300 uppercase tracking-wider border border-stone-200/50 dark:border-[var(--border-default)] mb-4">
           <Vote className="h-3.5 w-3.5" />
           Community Verdict
         </div>
@@ -289,7 +289,7 @@ export function VerdictVoting({ topicId, topicTitle, confidenceScore }: VerdictV
                           {option.label}
                           {isUserChoice && " *"}
                         </span>
-                        <div className="flex-1 h-6 rounded-md bg-stone-100 overflow-hidden relative">
+                        <div className="flex-1 h-6 rounded-md bg-stone-100 dark:bg-stone-800 overflow-hidden relative">
                           <motion.div
                             className={`h-full rounded-md ${option.barColor} ${
                               isUserChoice ? "ring-2 ring-inset ring-white/30" : ""
@@ -367,7 +367,7 @@ export function VerdictVoting({ topicId, topicTitle, confidenceScore }: VerdictV
               <button
                 type="button"
                 onClick={handleChangeVote}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-700 hover:bg-stone-100 transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-700 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 Change your vote

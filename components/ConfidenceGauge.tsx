@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { motion } from "framer-motion";
 
 interface ConfidenceGaugeProps {
@@ -7,7 +8,7 @@ interface ConfidenceGaugeProps {
   size?: number;
 }
 
-export function ConfidenceGauge({ score, size = 120 }: ConfidenceGaugeProps) {
+export const ConfidenceGauge = memo(function ConfidenceGauge({ score, size = 120 }: ConfidenceGaugeProps) {
   const strokeWidth = 7;
   const radius = (size - strokeWidth * 2 - 8) / 2;
   const circumference = 2 * Math.PI * radius;
@@ -122,4 +123,4 @@ export function ConfidenceGauge({ score, size = 120 }: ConfidenceGaugeProps) {
       </div>
     </div>
   );
-}
+});

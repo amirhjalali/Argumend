@@ -18,14 +18,13 @@ import {
   Gavel,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import { useLogicGraph } from "@/hooks/useLogicGraph";
+import { useLogicGraph, getLoadedTopics } from "@/hooks/useLogicGraph";
 
 // Heavy component — only rendered after judging completes
 const JudgingResults = dynamic(
   () => import("@/components/JudgingResults").then((m) => ({ default: m.JudgingResults })),
   { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 rounded-lg" /> }
 );
-import { topics } from "@/data/topics";
 import type { DebateMessage } from "@/types/debate";
 import {
   LLM_OPTIONS,
@@ -196,7 +195,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
               className={`text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 font-medium ${
                 isFor
                   ? "bg-rust-100/80 text-rust-700 border border-rust-200/50"
-                  : "bg-stone-100/80 text-stone-600 border border-stone-200/50"
+                  : "bg-stone-100/80 dark:bg-stone-800/80 text-stone-600 dark:text-stone-300 border border-stone-200/50 dark:border-[var(--border-default)]"
               }`}
             >
               {isFor ? (
@@ -377,7 +376,7 @@ function DebateHeader({
           {(isDebating || isPaused) && (
             <button
               onClick={onTogglePause}
-              className="p-2 rounded-lg hover:bg-stone-100 transition-colors text-stone-500"
+              className="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors text-stone-500"
               aria-label={isPaused ? "Resume debate" : "Pause debate"}
             >
               {isPaused ? (
@@ -389,7 +388,7 @@ function DebateHeader({
           )}
           <button
             onClick={onReset}
-            className="p-2 rounded-lg hover:bg-stone-100 transition-colors text-stone-500"
+            className="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors text-stone-500"
             aria-label="Reset debate"
           >
             <RotateCcw className="h-4 w-4" />
@@ -406,7 +405,8 @@ function DebateHeader({
 
 export function DebateView() {
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
-  const topic = topics.find((t) => t.id === currentTopicId);
+  const topics = getLoadedTopics();
+  const topic = topics?.find((t) => t.id === currentTopicId);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const {
@@ -460,7 +460,7 @@ export function DebateView() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 rounded-full text-xs font-medium text-stone-600 uppercase tracking-wider border border-stone-200/50">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-stone-800/80 rounded-full text-xs font-medium text-stone-600 dark:text-stone-300 uppercase tracking-wider border border-stone-200/50 dark:border-[var(--border-default)]">
             <Swords className="h-3.5 w-3.5" />
             Debate Chamber
           </div>
@@ -555,7 +555,7 @@ export function DebateView() {
                   ${
                     canStart
                       ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-lg hover:shadow-xl btn-lift"
-                      : "bg-stone-100 text-stone-400 cursor-not-allowed"
+                      : "bg-stone-100 dark:bg-stone-800 text-stone-400 cursor-not-allowed"
                   }
                 `}
               >

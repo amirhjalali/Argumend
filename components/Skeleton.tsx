@@ -22,7 +22,7 @@ export function Skeleton({ className = "", radius = "rounded", ...props }: Skele
   return (
     <div
       aria-hidden
-      className={`animate-pulse bg-stone-200/60 ${radius} ${className}`}
+      className={`animate-pulse bg-stone-200/60 dark:bg-stone-700/60 ${radius} ${className}`}
       {...props}
     />
   );

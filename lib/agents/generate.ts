@@ -6,14 +6,15 @@
  */
 
 import { buildCruxtaceanPrompt, type CruxtaceanContext } from "./cruxtacean";
+import type Anthropic from "@anthropic-ai/sdk";
 
 // Lazy initialization to avoid build-time errors
-let anthropic: any = null;
+let anthropic: Anthropic | null = null;
 
-async function getAnthropic() {
+async function getAnthropic(): Promise<Anthropic> {
   if (!anthropic) {
-    const Anthropic = (await import("@anthropic-ai/sdk")).default;
-    anthropic = new Anthropic();
+    const AnthropicClass = (await import("@anthropic-ai/sdk")).default;
+    anthropic = new AnthropicClass();
   }
   return anthropic;
 }
@@ -35,9 +36,9 @@ export async function generateCruxtaceanResponse(
   });
 
   const textBlock = response.content.find(
-    (block: any) => block.type === "text"
+    (block) => block.type === "text"
   );
-  return textBlock?.text || "Unable to generate response.";
+  return textBlock && "text" in textBlock ? textBlock.text : "Unable to generate response.";
 }
 
 /**

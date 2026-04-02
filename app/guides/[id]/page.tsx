@@ -118,10 +118,10 @@ export default async function GuidePage({ params }: PageProps) {
           />
 
           {/* Header */}
-          <header className="mb-12 pb-8 border-b border-stone-200/60">
+          <header className="mb-12 pb-8 border-b border-stone-200/60 dark:border-[var(--border-default)]">
             <div className="flex items-center gap-3 mb-5">
               <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center border border-stone-200/60"
+                className="w-12 h-12 rounded-xl flex items-center justify-center border border-stone-200/60 dark:border-[var(--border-default)]"
                 style={{ backgroundColor: `${guide.color}12` }}
               >
                 <Icon
@@ -185,7 +185,7 @@ export default async function GuidePage({ params }: PageProps) {
           </div>
 
           {/* Key Takeaways */}
-          <section className="my-12 bg-gradient-to-br from-[#faf8f5] to-canvas rounded-xl p-6 md:p-8 border border-stone-200/60">
+          <section className="my-12 bg-gradient-to-br from-[#faf8f5] to-canvas dark:from-[#252420] dark:to-[#302e2a] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)]">
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 flex items-center gap-2">
               <CheckCircle2 className="h-5 w-5 text-deep" />
               Key Takeaways
@@ -215,7 +215,7 @@ export default async function GuidePage({ params }: PageProps) {
               {guide.furtherReading.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between p-4 rounded-xl bg-white/80 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm transition-all duration-200"
+                  className="flex items-center justify-between p-4 rounded-xl bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
                 >
                   <div>
                     <span className="font-medium text-primary">{item.title}</span>
@@ -238,7 +238,7 @@ export default async function GuidePage({ params }: PageProps) {
           </section>
 
           {/* Navigation */}
-          <nav className="mt-14 pt-8 border-t border-stone-200/60">
+          <nav className="mt-14 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
             <p className="text-sm text-muted mb-5 font-medium">Continue learning</p>
             <div className="grid md:grid-cols-2 gap-3">
               {guides
@@ -249,11 +249,11 @@ export default async function GuidePage({ params }: PageProps) {
                     <Link
                       key={otherGuide.id}
                       href={`/guides/${otherGuide.id}`}
-                      className="group flex items-center gap-3 p-4 rounded-xl bg-white/80 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                      className="group flex items-center gap-3 p-4 rounded-xl bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
                       style={{ animationDelay: `${idx * 60}ms` }}
                     >
                       <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-stone-200/40"
+                        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-stone-200/40 dark:border-[var(--border-default)]"
                         style={{ backgroundColor: `${otherGuide.color}12` }}
                       >
                         <OtherIcon
@@ -270,7 +270,7 @@ export default async function GuidePage({ params }: PageProps) {
                           {otherGuide.subtitle}
                         </p>
                       </div>
-                      <ArrowRight className="h-4 w-4 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 transition-all duration-200" />
+                      <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-500 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 transition-all duration-200" />
                     </Link>
                   );
                 })}

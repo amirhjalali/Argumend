@@ -74,7 +74,7 @@ export function OnboardingOverlay() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.95 }}
             transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-            className="relative w-full max-w-lg bg-[#faf8f5] rounded-2xl border border-stone-200/40 shadow-2xl overflow-hidden"
+            className="relative w-full max-w-lg bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] shadow-2xl overflow-hidden"
           >
             {/* Subtle top accent border */}
             <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-deep/40 via-deep to-deep/40" />
@@ -82,7 +82,7 @@ export function OnboardingOverlay() {
             {/* Close button */}
             <button
               onClick={handleDismiss}
-              className="absolute top-4 right-4 p-2 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors z-10"
+              className="absolute top-4 right-4 p-2 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors z-10"
               aria-label="Close"
             >
               <X className="h-5 w-5" />
@@ -94,7 +94,7 @@ export function OnboardingOverlay() {
                 <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
                   Welcome to Argumend
                 </h2>
-                <p className="mt-2 text-sm text-stone-500 max-w-sm mx-auto leading-relaxed">
+                <p className="mt-2 text-sm text-stone-500 dark:text-[#8a8279] max-w-sm mx-auto leading-relaxed">
                   Clarity and evidence instead of outrage. Here&apos;s how it works.
                 </p>
               </div>
@@ -135,7 +135,7 @@ export function OnboardingOverlay() {
                             {step.title}
                           </h3>
                         </div>
-                        <p className="mt-0.5 text-sm text-stone-500 leading-relaxed">
+                        <p className="mt-0.5 text-sm text-stone-500 dark:text-[#8a8279] leading-relaxed">
                           {step.description}
                         </p>
                       </div>
@@ -155,7 +155,7 @@ export function OnboardingOverlay() {
                 </button>
                 <button
                   onClick={handleDismiss}
-                  className="text-xs text-stone-500 hover:text-stone-600 transition-colors"
+                  className="text-xs text-stone-500 hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
                 >
                   Skip &mdash; I know my way around
                 </button>

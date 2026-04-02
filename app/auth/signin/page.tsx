@@ -34,7 +34,7 @@ export default async function SignInPage() {
         </div>
 
         {/* Sign-in card */}
-        <div className="bg-white/80 rounded-xl border border-stone-200/60 p-6 sm:p-8 shadow-card">
+        <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 sm:p-8 shadow-card">
           <h2 className="font-serif text-xl text-primary text-center mb-2">
             Welcome back
           </h2>
@@ -50,7 +50,7 @@ export default async function SignInPage() {
           >
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-3 rounded-xl border border-stone-200/60 bg-white px-4 py-3.5 text-sm font-medium text-primary shadow-sm transition-all hover:bg-stone-50 hover:border-stone-300 hover:shadow-md hover:-translate-y-0.5 duration-200"
+              className="flex w-full items-center justify-center gap-3 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white dark:bg-[var(--bg-card)] px-4 py-3.5 text-sm font-medium text-primary shadow-sm transition-all hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-300 dark:hover:border-[#4a4640] hover:shadow-md hover:-translate-y-0.5 duration-200"
             >
               <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
                 <path

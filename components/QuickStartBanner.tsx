@@ -84,7 +84,7 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                       className={`px-3.5 py-2 min-h-[44px] rounded-full text-xs font-medium transition-all border ${
                         isActive
                           ? "bg-deep text-white border-deep"
-                          : "bg-white text-stone-600 border-stone-200 hover:border-deep/40 hover:text-deep"
+                          : "bg-white dark:bg-[var(--bg-card)] text-stone-600 dark:text-stone-300 border-stone-200 dark:border-[var(--border-default)] hover:border-deep/40 hover:text-deep"
                       }`}
                     >
                       {CATEGORY_LABELS[cat]}
@@ -126,7 +126,7 @@ export function QuickStartBanner({ onTopicSelect }: QuickStartBannerProps) {
                             onTopicSelect(topic.id);
                             handleDismiss();
                           }}
-                          className={`group text-left p-3.5 bg-white border border-stone-200/60 border-l-2 ${CATEGORY_BORDER_COLORS[topic.category]} rounded-xl hover:border-deep/30 hover:shadow-sm transition-all duration-200`}
+                          className={`group text-left p-3.5 bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] border-l-2 ${CATEGORY_BORDER_COLORS[topic.category]} rounded-xl hover:border-deep/30 hover:shadow-sm transition-all duration-200`}
                         >
                           <h4 className="font-serif text-xs font-medium text-primary group-hover:text-deep transition-colors leading-snug">
                             {topic.title}

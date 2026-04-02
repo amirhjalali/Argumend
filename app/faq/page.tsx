@@ -1,29 +1,11 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { JsonLd } from "@/components/JsonLd";
 import { faqs } from "@/data/faqs";
 
 export default function FAQPage() {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    name: "Frequently Asked Questions",
-    description: "The questions people actually ask us about Argumend, answered honestly.",
-    url: "https://argumend.org/faq",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
   return (
     <AppShell>
-      <JsonLd data={faqJsonLd} />
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
         {/* Breadcrumb with BreadcrumbList JSON-LD */}
         <Breadcrumbs
@@ -44,7 +26,7 @@ export default function FAQPage() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white/80 rounded-xl p-5 border border-[#e8e0d4]"
+              className="bg-white/80 dark:bg-[#252420]/80 rounded-xl p-5 border border-[#e8e0d4] dark:border-[#3d3a36]"
             >
               <h2 className="font-serif text-lg text-primary mb-2">
                 {faq.question}
@@ -64,7 +46,7 @@ export default function FAQPage() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-stone-200/60">
+        <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
           <p className="text-sm text-secondary">
             Still have questions? We probably missed something. Head to the{" "}
             <a href="/community" className="text-deep hover:underline">Community page</a> and let us know.

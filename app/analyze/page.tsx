@@ -31,7 +31,7 @@ import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 // Heavy component — only rendered after analysis completes
 const JudgingResults = dynamic(
   () => import("@/components/JudgingResults").then((m) => ({ default: m.JudgingResults })),
-  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 rounded-lg" /> }
+  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 dark:bg-[#302e2a] rounded-lg" /> }
 );
 import type { JudgingResult } from "@/lib/judge/rubric";
 import type {
@@ -61,35 +61,35 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
   const isFor = position.side === "for";
 
   const cardStyles = isFor
-    ? "border-l-rust-500 bg-gradient-to-r from-rust-50/50 to-white"
-    : "border-l-stone-500 bg-gradient-to-r from-stone-50/50 to-white";
+    ? "border-l-rust-500 bg-gradient-to-r from-rust-50/50 to-white dark:from-rust-500/10 dark:to-[var(--bg-card)]"
+    : "border-l-stone-500 bg-gradient-to-r from-stone-50/50 to-white dark:from-stone-500/10 dark:to-[var(--bg-card)]";
 
   return (
     <motion.div
       initial={{ opacity: 0, x: isFor ? -20 : 20 }}
       animate={{ opacity: 1, x: 0 }}
-      className={`rounded-xl border border-stone-200/80 border-l-4 ${cardStyles} overflow-hidden shadow-sm`}
+      className={`rounded-xl border border-stone-200/80 dark:border-[var(--border-default)] border-l-4 ${cardStyles} overflow-hidden shadow-sm`}
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
-        className="w-full p-3 md:p-4 text-left hover:bg-white/50 transition-colors"
+        className="w-full p-3 md:p-4 text-left hover:bg-white/50 dark:hover:bg-[#302e2a]/50 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div
               className={`px-3 py-1 rounded-full text-xs font-medium ${
                 isFor
-                  ? "bg-rust-100 text-rust-700"
-                  : "bg-stone-100 text-stone-600"
+                  ? "bg-rust-100 text-rust-700 dark:bg-rust-500/20 dark:text-rust-300"
+                  : "bg-stone-100 text-stone-600 dark:bg-stone-700/30 dark:text-stone-400"
               }`}
             >
               {isFor ? "FOR" : "AGAINST"}
             </div>
             {position.speaker && (
-              <span className="text-sm text-stone-600">{position.speaker}</span>
+              <span className="text-sm text-stone-600 dark:text-stone-400">{position.speaker}</span>
             )}
-            <span className="text-sm text-stone-400">
+            <span className="text-sm text-stone-400 dark:text-stone-500">
               {position.arguments.length} argument
               {position.arguments.length !== 1 ? "s" : ""}
             </span>
@@ -98,7 +98,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            <ChevronDown className="h-5 w-5 text-stone-400" />
+            <ChevronDown className="h-5 w-5 text-stone-400 dark:text-stone-500" />
           </motion.div>
         </div>
       </button>
@@ -108,18 +108,18 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          className="px-3 md:px-4 pb-3 md:pb-4 border-t border-stone-100"
+          className="px-3 md:px-4 pb-3 md:pb-4 border-t border-stone-100 dark:border-[var(--border-subtle)]"
         >
           <div className="pt-4 space-y-4">
             {position.arguments.map((arg, idx) => (
-              <div key={idx} className="pl-4 border-l-2 border-stone-200">
-                <p className="text-stone-700 font-medium">{arg.claim}</p>
+              <div key={idx} className="pl-4 border-l-2 border-stone-200 dark:border-stone-600">
+                <p className="text-stone-700 dark:text-stone-300 font-medium">{arg.claim}</p>
                 {arg.evidence && arg.evidence.length > 0 && (
                   <div className="mt-2 space-y-1">
-                    <span className="text-xs text-stone-500 uppercase tracking-wide">
+                    <span className="text-xs text-stone-500 dark:text-stone-400 uppercase tracking-wide">
                       Evidence:
                     </span>
-                    <ul className="list-disc list-inside text-sm text-stone-600 space-y-1">
+                    <ul className="list-disc list-inside text-sm text-stone-600 dark:text-stone-400 space-y-1">
                       {arg.evidence.map((e, i) => (
                         <li key={i}>{e}</li>
                       ))}
@@ -127,7 +127,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
                   </div>
                 )}
                 {arg.source && (
-                  <p className="mt-1 text-xs text-stone-500">
+                  <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">
                     Source: {arg.source}
                   </p>
                 )}
@@ -145,15 +145,15 @@ function CruxCard({ crux }: { crux: IdentifiedCrux }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-4 bg-[#f2f7f6] border border-deep/15 rounded-xl hover:border-deep/25 transition-colors duration-200"
+      className="p-4 bg-[#f2f7f6] dark:bg-[#1e2a29] border border-deep/15 rounded-xl hover:border-deep/25 transition-colors duration-200"
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-deep/10 flex items-center justify-center">
           <Target className="h-4 w-4 text-deep" />
         </div>
         <div>
-          <p className="text-stone-800 font-medium leading-snug">{crux.description}</p>
-          <p className="mt-1.5 text-sm text-stone-500 leading-relaxed">{crux.significance}</p>
+          <p className="text-stone-800 dark:text-[var(--text-heading)] font-medium leading-snug">{crux.description}</p>
+          <p className="mt-1.5 text-sm text-stone-500 dark:text-stone-400 leading-relaxed">{crux.significance}</p>
         </div>
       </div>
     </motion.div>
@@ -165,24 +165,24 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-4 bg-rust-50/60 border border-rust-200/50 rounded-xl hover:border-rust-200/80 transition-colors duration-200"
+      className="p-4 bg-rust-50/60 dark:bg-rust-500/10 border border-rust-200/50 dark:border-rust-500/20 rounded-xl hover:border-rust-200/80 dark:hover:border-rust-500/30 transition-colors duration-200"
     >
       <div className="flex items-start gap-3">
-        <div className="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-rust-100 flex items-center justify-center">
-          <AlertTriangle className="h-4 w-4 text-rust-600" />
+        <div className="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-rust-100 dark:bg-rust-500/20 flex items-center justify-center">
+          <AlertTriangle className="h-4 w-4 text-rust-600 dark:text-rust-400" />
         </div>
         <div>
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-stone-800 font-medium">{fallacy.type}</span>
+            <span className="text-stone-800 dark:text-[var(--text-heading)] font-medium">{fallacy.type}</span>
             {fallacy.attributedTo && (
-              <span className="text-xs bg-rust-100 text-rust-700 px-2 py-0.5 rounded-full font-medium">
+              <span className="text-xs bg-rust-100 dark:bg-rust-500/20 text-rust-700 dark:text-rust-300 px-2 py-0.5 rounded-full font-medium">
                 {fallacy.attributedTo}
               </span>
             )}
           </div>
-          <p className="mt-1.5 text-sm text-stone-500 leading-relaxed">{fallacy.explanation}</p>
+          <p className="mt-1.5 text-sm text-stone-500 dark:text-stone-400 leading-relaxed">{fallacy.explanation}</p>
           {fallacy.quote && (
-            <p className="mt-2 text-sm text-stone-500 italic border-l-2 border-rust-300 pl-3 leading-relaxed">
+            <p className="mt-2 text-sm text-stone-500 dark:text-stone-400 italic border-l-2 border-rust-300 dark:border-rust-500/40 pl-3 leading-relaxed">
               &ldquo;{fallacy.quote}&rdquo;
             </p>
           )}
@@ -217,7 +217,7 @@ function ShareLink({ analysisId }: { analysisId: string }) {
     <button
       onClick={handleCopy}
       aria-label={copied ? "Link copied to clipboard" : "Copy share link"}
-      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-stone-200/80 rounded-lg text-xs font-medium text-stone-600 hover:bg-stone-50 hover:border-stone-300 transition-all shadow-sm"
+      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-[var(--bg-card)] border border-stone-200/80 dark:border-[var(--border-default)] rounded-lg text-xs font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-300 dark:hover:border-stone-600 transition-all shadow-sm"
     >
       {copied ? (
         <>
@@ -364,7 +364,7 @@ export default function AnalyzePage() {
         {/* Main content */}
         <main id="main-content" className="relative flex-1 min-w-0 overflow-y-auto">
           {/* Subtle top gradient for visual warmth */}
-          <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#f4f1eb]/60 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#f4f1eb]/60 dark:from-[#1a1917]/60 to-transparent pointer-events-none" />
 
           <div className="relative max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-8">
             {/* Header */}
@@ -379,7 +379,7 @@ export default function AnalyzePage() {
                   Argument Analysis
                 </div>
                 {!liveAnalyzeEnabled && (
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-full text-xs font-medium text-emerald-700 tracking-wide">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-full text-xs font-medium text-emerald-700 dark:text-emerald-400 tracking-wide">
                     <Lock className="h-3.5 w-3.5" />
                     Programmatic Mode
                   </div>
@@ -393,7 +393,7 @@ export default function AnalyzePage() {
                 We&apos;ll pull out the positions, find the crux, and tell you how strong the reasoning is.
               </p>
               {!liveAnalyzeEnabled && (
-                <p className="text-sm text-emerald-700/80 max-w-2xl mx-auto">
+                <p className="text-sm text-emerald-700/80 dark:text-emerald-400/80 max-w-2xl mx-auto">
                   Running in local/offline mode to keep analysis costs predictable.
                 </p>
               )}
@@ -408,7 +408,7 @@ export default function AnalyzePage() {
               >
                 {/* Content Type Selector — segmented control */}
                 <div className="flex justify-center">
-                  <div className="inline-flex bg-stone-100 rounded-xl p-1 gap-0.5" role="tablist" aria-label="Content type">
+                  <div className="inline-flex bg-stone-100 dark:bg-[var(--bg-surface)] rounded-xl p-1 gap-0.5" role="tablist" aria-label="Content type">
                     {(
                       [
                         { type: "freeform" as ContentType, icon: PenLine, label: "Freeform" },
@@ -424,7 +424,7 @@ export default function AnalyzePage() {
                         className={`relative flex items-center gap-1.5 px-4 py-2 min-h-[40px] rounded-lg text-xs font-medium transition-all duration-200 ${
                           contentType === type
                             ? "bg-deep text-white shadow-sm"
-                            : "bg-transparent text-stone-500 hover:text-stone-700 hover:bg-white/60"
+                            : "bg-transparent text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 hover:bg-white/60 dark:hover:bg-[#302e2a]"
                         }`}
                       >
                         <Icon className="h-3.5 w-3.5" aria-hidden="true" />
@@ -435,7 +435,7 @@ export default function AnalyzePage() {
                 </div>
 
                 {/* Text Input */}
-                <div className="bg-white rounded-2xl border border-stone-200/60 p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <div className="bg-white dark:bg-[var(--bg-card)] rounded-2xl border border-stone-200/60 dark:border-[var(--border-default)] p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                     <label className="text-sm font-serif font-semibold text-primary">
                       Content to Analyze
@@ -452,9 +452,9 @@ export default function AnalyzePage() {
                         <Beaker className="h-3.5 w-3.5 text-deep" />
                         <span className="text-xs font-medium text-deep">Try an Example</span>
                       </button>
-                      <label className="flex items-center gap-1.5 px-3 py-1.5 bg-stone-50 hover:bg-stone-100 border border-stone-200/60 rounded-lg cursor-pointer transition-all duration-200">
-                        <Upload className="h-3.5 w-3.5 text-stone-400" />
-                        <span className="text-xs font-medium text-stone-500">Upload</span>
+                      <label className="flex items-center gap-1.5 px-3 py-1.5 bg-stone-50 dark:bg-[var(--bg-surface)] hover:bg-stone-100 dark:hover:bg-[#302e2a] border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg cursor-pointer transition-all duration-200">
+                        <Upload className="h-3.5 w-3.5 text-stone-400 dark:text-stone-500" />
+                        <span className="text-xs font-medium text-stone-500 dark:text-stone-400">Upload</span>
                         <input
                           type="file"
                           accept=".txt,.md"
@@ -477,11 +477,11 @@ export default function AnalyzePage() {
                       }}
                       placeholder="Paste an article, argument, or any text you'd like analyzed..."
                       aria-label="Text to analyze"
-                      className="w-full min-h-[200px] md:min-h-[240px] p-4 bg-[#faf8f5] border border-stone-200/60 rounded-xl text-stone-700 text-sm leading-relaxed placeholder-stone-400/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white"
+                      className="w-full min-h-[200px] md:min-h-[240px] p-4 bg-[#faf8f5] dark:bg-[var(--bg-input)] border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl text-stone-700 dark:text-[var(--text-primary)] text-sm leading-relaxed placeholder-stone-400/70 dark:placeholder-stone-500/70 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40 focus:bg-white dark:focus:bg-[var(--bg-surface)]"
                     />
                     {/* Word/char count indicator */}
                     <div className="absolute bottom-3 right-3 pointer-events-none">
-                      <span className="text-xs text-stone-400/70 tabular-nums">
+                      <span className="text-xs text-stone-400/70 dark:text-stone-500/70 tabular-nums">
                         {content.trim()
                           ? `${content.trim().split(/\s+/).length} words`
                           : ""}
@@ -500,13 +500,13 @@ export default function AnalyzePage() {
                   </div>
 
                   {/* Bottom bar: keyboard hint + judging toggle */}
-                  <div className="flex items-center justify-between mt-3 pt-3 border-t border-stone-100">
-                    <span className="text-xs text-stone-400">
+                  <div className="flex items-center justify-between mt-3 pt-3 border-t border-stone-100 dark:border-[var(--border-subtle)]">
+                    <span className="text-xs text-stone-400 dark:text-[var(--text-muted)]">
                       {content.length > 0
                         ? `${content.length.toLocaleString()} characters`
                         : ""}
                       {content.trim() && (
-                        <span className="ml-2 text-stone-300">{"\u2318"}Enter to analyze</span>
+                        <span className="ml-2 text-stone-300 dark:text-stone-600">{"\u2318"}Enter to analyze</span>
                       )}
                     </span>
                     <label className="flex items-center gap-2 cursor-pointer group">
@@ -516,7 +516,7 @@ export default function AnalyzePage() {
                         onChange={(e) => setIncludeJudging(e.target.checked)}
                         className="rounded border-stone-300 text-deep focus:ring-deep/30 transition-colors"
                       />
-                      <span className="text-xs text-stone-500 group-hover:text-stone-700 transition-colors">
+                      <span className="text-xs text-stone-500 dark:text-stone-400 group-hover:text-stone-700 dark:group-hover:text-stone-200 transition-colors">
                         {liveJudgingEnabled
                           ? "Include AI Judgment"
                           : "Include Programmatic Judgment"}
@@ -530,11 +530,11 @@ export default function AnalyzePage() {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-4 bg-red-50/80 border border-red-200/60 rounded-xl flex items-start gap-3"
+                    className="p-4 bg-red-50/80 dark:bg-red-500/10 border border-red-200/60 dark:border-red-500/20 rounded-xl flex items-start gap-3"
                     role="alert"
                   >
                     <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <p className="text-red-700 text-sm">{error}</p>
+                    <p className="text-red-700 dark:text-red-400 text-sm">{error}</p>
                   </motion.div>
                 )}
 
@@ -549,7 +549,7 @@ export default function AnalyzePage() {
                       isAnalyzing
                         ? "bg-gradient-to-r from-rust-400 to-rust-500 text-white/90 shadow-md cursor-wait"
                         : !content.trim()
-                        ? "bg-stone-100 text-stone-400 cursor-not-allowed"
+                        ? "bg-stone-100 dark:bg-[var(--bg-surface)] text-stone-400 dark:text-stone-600 cursor-not-allowed"
                         : "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700"
                     }`}
                   >
@@ -581,18 +581,18 @@ export default function AnalyzePage() {
               >
                 {/* Section divider */}
                 <div className="flex items-center gap-3">
-                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 to-transparent" />
-                  <span className="text-xs font-medium text-stone-400 tracking-wide uppercase">
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 dark:via-stone-600/60 to-transparent" />
+                  <span className="text-xs font-medium text-stone-400 dark:text-[var(--text-muted)] tracking-wide uppercase">
                     Results
                   </span>
-                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 to-transparent" />
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 dark:via-stone-600/60 to-transparent" />
                 </div>
 
                 {/* Action Bar */}
                 <div className="flex items-center justify-between">
                   <button
                     onClick={clearResults}
-                    className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-deep transition-colors font-medium"
+                    className="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-deep transition-colors font-medium"
                   >
                     &larr; Analyze another
                   </button>
@@ -604,7 +604,7 @@ export default function AnalyzePage() {
                   initial={{ opacity: 0, scale: 1.04 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-center bg-white rounded-2xl border border-stone-200/60 p-6 md:p-8 shadow-sm"
+                  className="text-center bg-white dark:bg-[var(--bg-card)] rounded-2xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 shadow-sm"
                 >
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep tracking-wide">
                     <MessageSquare className="h-3.5 w-3.5" />
@@ -613,10 +613,10 @@ export default function AnalyzePage() {
                   <h2 className="mt-4 font-serif text-2xl sm:text-3xl text-primary mb-4">
                     {result.extracted.topic}
                   </h2>
-                  <p className="mt-2 text-stone-500 text-sm max-w-xl mx-auto leading-relaxed">
+                  <p className="mt-2 text-stone-500 dark:text-stone-400 text-sm max-w-xl mx-auto leading-relaxed">
                     {result.extracted.summary}
                   </p>
-                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 rounded-full text-xs text-stone-400 font-mono tabular-nums">
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 dark:bg-[var(--bg-surface)] rounded-full text-xs text-stone-400 dark:text-[var(--text-muted)] font-mono tabular-nums">
                     Confidence: {Math.round(result.extracted.confidence * 100)}%
                   </div>
                 </motion.div>
@@ -639,7 +639,7 @@ export default function AnalyzePage() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-stone-500 text-center py-4">
+                    <p className="text-stone-500 dark:text-stone-400 text-center py-4">
                       No clear positions found &mdash; the text might not contain a structured argument.
                     </p>
                   )}
@@ -656,7 +656,7 @@ export default function AnalyzePage() {
                     <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
                       <Target className="h-4 w-4 text-deep" />
                       Key Cruxes
-                      <span className="text-sm font-sans font-normal text-stone-400">
+                      <span className="text-sm font-sans font-normal text-stone-400 dark:text-[var(--text-muted)]">
                         Points of Disagreement
                       </span>
                     </h3>
@@ -679,7 +679,7 @@ export default function AnalyzePage() {
                     <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
                       <AlertTriangle className="h-4 w-4 text-rust-500" />
                       Potential Fallacies
-                      <span className="text-sm font-sans font-normal text-stone-400">
+                      <span className="text-sm font-sans font-normal text-stone-400 dark:text-[var(--text-muted)]">
                         {result.extracted.potentialFallacies.length} detected
                       </span>
                     </h3>
@@ -699,11 +699,11 @@ export default function AnalyzePage() {
                     transition={{ duration: 0.4, delay: 0.55 }}
                   >
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 to-transparent" />
-                      <span className="text-xs font-medium text-stone-400 tracking-wide uppercase">
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 dark:via-stone-600/60 to-transparent" />
+                      <span className="text-xs font-medium text-stone-400 dark:text-[var(--text-muted)] tracking-wide uppercase">
                         AI Judgment
                       </span>
-                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 to-transparent" />
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 dark:via-stone-600/60 to-transparent" />
                     </div>
                     <JudgingResults result={result.judgingResult} />
                   </motion.div>

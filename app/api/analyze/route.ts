@@ -143,10 +143,26 @@ export async function POST(request: NextRequest) {
  * Returns recent analyses.
  */
 export async function GET(request: NextRequest) {
+  // Rate limit: 30 requests per minute per IP
+  const getIp = request.headers.get("x-forwarded-for") || "unknown";
+  const getLimit = rateLimit(`analyze-list:${getIp}`, { maxRequests: 30, windowMs: 60 * 1000 });
+  if (!getLimit.success) {
+    return NextResponse.json(
+      { error: "Rate limited. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((getLimit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
+
   try {
     const { searchParams } = new URL(request.url);
-    const limit = Math.min(parseInt(searchParams.get("limit") || "20"), 100);
-    const results = await listAnalyses(limit);
+    const pageLimit = Math.min(parseInt(searchParams.get("limit") || "20"), 100);
+    if (isNaN(pageLimit) || pageLimit < 1) {
+      return NextResponse.json(
+        { error: "Invalid limit parameter" },
+        { status: 400 }
+      );
+    }
+    const results = await listAnalyses(pageLimit);
     return NextResponse.json({ analyses: results });
   } catch (error) {
     console.error("Failed to list analyses:", error);

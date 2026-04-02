@@ -77,18 +77,18 @@ export default function LibraryPage() {
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Topics Overview
             </h2>
-            <div className="bg-white/80 rounded-xl border border-stone-200/60 overflow-hidden shadow-card">
+            <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden shadow-card">
               <table className="w-full">
-                <thead className="bg-gradient-to-b from-[#faf8f5] to-[#f4f1eb]">
+                <thead className="bg-gradient-to-b from-[#faf8f5] to-[#f4f1eb] dark:from-[#302e2a] dark:to-[#252420]">
                   <tr>
                     <th className="text-left px-5 py-3.5 text-sm font-semibold text-primary">Topic</th>
                     <th className="text-left px-5 py-3.5 text-sm font-semibold text-primary hidden sm:table-cell">Pillars</th>
                     <th className="text-right px-5 py-3.5 text-sm font-semibold text-primary">Confidence</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-stone-200/60">
+                <tbody className="divide-y divide-stone-200/60 dark:divide-[var(--border-default)]">
                   {topics.map((topic) => (
-                    <tr key={topic.id} className="hover:bg-[#faf8f5] transition-colors">
+                    <tr key={topic.id} className="hover:bg-[#faf8f5] dark:hover:bg-[#302e2a] transition-colors">
                       <td className="px-5 py-3.5 text-sm md:text-base">
                         <Link href={`/topics/${topic.id}`} className="font-medium text-primary hover:text-deep transition-colors">
                           {topic.title}
@@ -99,7 +99,7 @@ export default function LibraryPage() {
                       </td>
                       <td className="px-5 py-3.5 text-right">
                         <div className="flex items-center justify-end gap-2">
-                          <div className="w-16 h-1.5 bg-stone-100 rounded-full overflow-hidden hidden sm:block">
+                          <div className="w-16 h-1.5 bg-stone-100 dark:bg-[#302e2a] rounded-full overflow-hidden hidden sm:block">
                             <div
                               className="h-full bg-deep rounded-full"
                               style={{ width: `${topic.confidence_score}%` }}
@@ -136,7 +136,7 @@ export default function LibraryPage() {
                         href={resource.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center justify-between bg-white/80 rounded-xl px-5 py-4 border border-stone-200/60 shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                        className="group flex items-center justify-between bg-white/80 dark:bg-[#252420]/80 rounded-xl px-5 py-4 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
                         style={{ animationDelay: `${(catIdx * 3 + resIdx) * 50}ms` }}
                       >
                         <div>
@@ -157,7 +157,7 @@ export default function LibraryPage() {
           </section>
 
           {/* Explore CTA */}
-          <section className="bg-white/80 rounded-xl border border-stone-200/60 p-6 md:p-8 text-center mb-16 md:mb-24">
+          <section className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 text-center mb-16 md:mb-24">
             <h2 className="font-serif text-xl text-primary mb-2">
               Ready to dig deeper?
             </h2>
@@ -174,7 +174,7 @@ export default function LibraryPage() {
               </Link>
               <Link
                 href="/guides"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-stone-200/60 text-primary text-sm font-medium hover:border-deep/30 hover:bg-stone-50 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[#302e2a] transition-all duration-200"
               >
                 Browse Guides
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -183,7 +183,7 @@ export default function LibraryPage() {
           </section>
 
           {/* Footer note */}
-          <div className="pt-8 border-t border-stone-200/60">
+          <div className="pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
             <p className="text-sm text-muted italic">
               These shaped how we think. Read them and decide for yourself.
             </p>

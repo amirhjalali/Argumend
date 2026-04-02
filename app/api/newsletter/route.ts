@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { getDb } from "@/lib/db/index";
 import { newsletters } from "@/lib/db/schema";
 import { rateLimit } from "@/lib/rate-limit";
+
+const NewsletterRequestSchema = z.object({
+  email: z.string().email("Please enter a valid email address.").max(254),
+  source: z.string().max(100).optional(),
+});
 
 /**
  * POST /api/newsletter
@@ -30,26 +36,17 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body = await request.json();
-    const { email, source } = body as { email?: string; source?: string };
-
-    // Validate email presence
-    if (!email || typeof email !== "string") {
+    const raw = await request.json();
+    const parseResult = NewsletterRequestSchema.safeParse(raw);
+    if (!parseResult.success) {
+      const firstError = parseResult.error.issues[0]?.message || "Invalid request";
       return NextResponse.json(
-        { error: "Email is required." },
+        { error: firstError },
         { status: 400 }
       );
     }
-
-    // Validate email format
+    const { email, source } = parseResult.data;
     const trimmed = email.trim().toLowerCase();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(trimmed)) {
-      return NextResponse.json(
-        { error: "Please enter a valid email address." },
-        { status: 400 }
-      );
-    }
 
     // Insert into DB — on conflict (already subscribed), do nothing
     await getDb()

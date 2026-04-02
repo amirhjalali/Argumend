@@ -1,8 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState, type ReactNode, type CSSProperties } from "react";
+import React, { useRef, useCallback, useEffect, useState, type ReactNode, type CSSProperties } from "react";
 
 type AnimationVariant = "fade-up" | "fade-in" | "fade-left" | "fade-right" | "scale-up";
+
+type AllowedTags = "div" | "section" | "article" | "li";
 
 interface AnimateOnScrollProps {
   children: ReactNode;
@@ -17,7 +19,7 @@ interface AnimateOnScrollProps {
   /** IntersectionObserver threshold (default 0.1) */
   threshold?: number;
   /** Wrapper element type (default "div") */
-  as?: "div" | "section" | "article" | "li";
+  as?: AllowedTags;
 }
 
 const VARIANTS: Record<AnimationVariant, { from: CSSProperties; to: CSSProperties }> = {
@@ -53,10 +55,16 @@ export function AnimateOnScroll({
   threshold = 0.1,
   as: Tag = "div",
 }: AnimateOnScrollProps) {
-  const ref = useRef<HTMLElement>(null);
+  const [element, setElement] = useState<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  const refCallback = useCallback((node: HTMLElement | null) => {
+    setElement(node);
+  }, []);
+
   useEffect(() => {
+    if (!element) return;
+
     // Respect prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
@@ -74,9 +82,9 @@ export function AnimateOnScroll({
       { threshold, rootMargin: "0px 0px -40px 0px" }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(element);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [element, threshold]);
 
   const { from, to } = VARIANTS[variant];
   const activeStyle = isVisible ? to : from;
@@ -90,8 +98,7 @@ export function AnimateOnScroll({
 
   return (
     <Tag
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ref={ref as any}
+      ref={refCallback as React.RefCallback<HTMLElement>}
       className={className}
       style={{
         ...style,

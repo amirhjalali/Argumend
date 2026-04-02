@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#f4f1eb] flex flex-col items-center justify-center px-6 py-20 text-center">
+    <div className="min-h-screen bg-[#f4f1eb] dark:bg-[#1a1916] flex flex-col items-center justify-center px-6 py-20 text-center">
       {/* Icon */}
       <div className="mb-8">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#efe9df] border border-stone-200/60">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#efe9df] dark:bg-[#302e2a] border border-stone-200/60 dark:border-[var(--border-default)]">
           <Compass className="w-9 h-9 text-deep" strokeWidth={1.5} />
         </div>
       </div>
@@ -44,21 +44,21 @@ export default function NotFound() {
         </Link>
         <Link
           href="/topics"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 text-primary bg-white hover:bg-stone-50 hover:border-stone-400 transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
         >
           <MessageSquare className="w-4 h-4" strokeWidth={1.8} />
           Browse Topics
         </Link>
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 text-primary bg-white hover:bg-stone-50 hover:border-stone-400 transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
         >
           <BookOpen className="w-4 h-4" strokeWidth={1.8} />
           Read the Blog
         </Link>
         <Link
           href="/analyze"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 text-primary bg-white hover:bg-stone-50 hover:border-stone-400 transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
         >
           <Brain className="w-4 h-4" strokeWidth={1.8} />
           Run an Analysis
@@ -66,7 +66,7 @@ export default function NotFound() {
       </nav>
 
       {/* Helpful note */}
-      <div className="pt-6 border-t border-stone-200/60 max-w-sm w-full">
+      <div className="pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)] max-w-sm w-full">
         <p className="font-sans text-sm text-muted">
           If you had something specific in mind, our{" "}
           <Link href="/topics" className="text-deep hover:underline">
@@ -86,7 +86,7 @@ export default function NotFound() {
           <span className="font-serif text-base font-medium tracking-[0.08em] text-muted group-hover:text-primary transition-colors">
             ARGUMEND
           </span>
-          <span className="text-[10px] font-sans text-stone-400">
+          <span className="text-[10px] font-sans text-stone-400 dark:text-stone-500">
             Disagree better.
           </span>
         </Link>

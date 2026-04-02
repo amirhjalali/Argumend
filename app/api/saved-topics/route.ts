@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { auth } from "@/lib/auth";
+import { rateLimit } from "@/lib/rate-limit";
 import { getSavedTopicIds, saveTopic, unsaveTopic } from "@/lib/db/queries";
+
+const SavedTopicRequestSchema = z.object({
+  topicId: z.string().min(1, "topicId is required").max(200),
+});
 
 /**
  * GET /api/saved-topics
@@ -37,16 +43,25 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  try {
-    const body = await request.json();
-    const { topicId } = body as { topicId?: string };
+  // Rate limit: 30 requests per minute per user
+  const limit = rateLimit(`saved-topics:${session.user.id}`, { maxRequests: 30, windowMs: 60 * 1000 });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Rate limited. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
 
-    if (!topicId || typeof topicId !== "string") {
+  try {
+    const raw = await request.json();
+    const parseResult = SavedTopicRequestSchema.safeParse(raw);
+    if (!parseResult.success) {
       return NextResponse.json(
-        { error: "topicId is required" },
+        { error: "Invalid request", details: parseResult.error.flatten() },
         { status: 400 }
       );
     }
+    const { topicId } = parseResult.data;
 
     await saveTopic(session.user.id, topicId);
     return NextResponse.json({ success: true });
@@ -71,16 +86,25 @@ export async function DELETE(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  try {
-    const body = await request.json();
-    const { topicId } = body as { topicId?: string };
+  // Rate limit: 30 requests per minute per user
+  const limit = rateLimit(`saved-topics:${session.user.id}`, { maxRequests: 30, windowMs: 60 * 1000 });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Rate limited. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
 
-    if (!topicId || typeof topicId !== "string") {
+  try {
+    const raw = await request.json();
+    const parseResult = SavedTopicRequestSchema.safeParse(raw);
+    if (!parseResult.success) {
       return NextResponse.json(
-        { error: "topicId is required" },
+        { error: "Invalid request", details: parseResult.error.flatten() },
         { status: 400 }
       );
     }
+    const { topicId } = parseResult.data;
 
     await unsaveTopic(session.user.id, topicId);
     return NextResponse.json({ success: true });

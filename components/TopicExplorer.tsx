@@ -125,7 +125,7 @@ function TopicMapNode({ data }: { data: TopicNodeData }) {
 
   return (
     <div
-      className="w-[200px] rounded-lg border bg-white shadow-[0_1px_4px_rgba(120,100,80,0.1)] transition-shadow duration-150 hover:shadow-[0_4px_12px_rgba(120,100,80,0.15)] cursor-pointer"
+      className="w-[200px] rounded-lg border bg-white dark:bg-[var(--bg-card)] shadow-[0_1px_4px_rgba(120,100,80,0.1)] transition-shadow duration-150 hover:shadow-[0_4px_12px_rgba(120,100,80,0.15)] cursor-pointer"
       style={{
         borderLeft: `3px solid ${borderColor}`,
         borderColor: data.selected ? "#C4613C" : "rgba(214, 208, 198, 0.6)",
@@ -308,6 +308,240 @@ function computeForceLayout(
   }
 
   return positions;
+}
+
+// ---------------------------------------------------------------------------
+// Filter Panel (desktop map overlay)
+// ---------------------------------------------------------------------------
+
+interface FilterPanelProps {
+  activeCategories: Set<TopicCategory>;
+  activeStatuses: Set<TopicStatus>;
+  confidenceRange: [number, number];
+  categoryLabels: Record<TopicCategory, string>;
+  filteredCount: number;
+  totalCount: number;
+  hasActiveFilters: boolean;
+  onToggleCategory: (cat: TopicCategory) => void;
+  onToggleStatus: (status: TopicStatus) => void;
+  onSetConfidenceRange: (range: [number, number]) => void;
+  onReset: () => void;
+}
+
+function FilterPanel({
+  activeCategories,
+  activeStatuses,
+  confidenceRange,
+  categoryLabels,
+  filteredCount,
+  totalCount,
+  hasActiveFilters,
+  onToggleCategory,
+  onToggleStatus,
+  onSetConfidenceRange,
+  onReset,
+}: FilterPanelProps) {
+  return (
+    <div
+      id="topic-filter-panel"
+      role="region"
+      aria-label="Topic filters"
+      className="absolute top-14 left-4 z-10 w-[260px] bg-white dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] shadow-lw p-4 space-y-4"
+    >
+      <div className="flex items-center justify-between">
+        <h3 className="text-sm font-medium text-primary">Filters</h3>
+        {hasActiveFilters && (
+          <button
+            onClick={onReset}
+            aria-label="Reset all filters"
+            className="text-[11px] text-stone-500 hover:text-stone-700 transition-colors"
+          >
+            Reset
+          </button>
+        )}
+      </div>
+
+      {/* Categories */}
+      <div>
+        <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
+          Category
+        </p>
+        <div className="space-y-1">
+          {ALL_CATEGORIES.map((cat) => (
+            <label
+              key={cat}
+              className="flex items-center gap-2 cursor-pointer py-1 group"
+            >
+              <input
+                type="checkbox"
+                checked={activeCategories.has(cat)}
+                onChange={() => onToggleCategory(cat)}
+                className="h-3.5 w-3.5 rounded border-stone-300 text-deep focus:ring-deep/20 cursor-pointer"
+              />
+              <span
+                className="h-2.5 w-2.5 rounded-full flex-shrink-0"
+                style={{ backgroundColor: CATEGORY_BORDER_COLORS[cat] }}
+              />
+              <span className="text-xs text-stone-600 group-hover:text-stone-800 capitalize">
+                {categoryLabels[cat]}
+              </span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Status */}
+      <div>
+        <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
+          Status
+        </p>
+        <div className="space-y-1">
+          {ALL_STATUSES.map((status) => {
+            const Icon = STATUS_ICONS[status];
+            return (
+              <label
+                key={status}
+                className="flex items-center gap-2 cursor-pointer py-1 group"
+              >
+                <input
+                  type="checkbox"
+                  checked={activeStatuses.has(status)}
+                  onChange={() => onToggleStatus(status)}
+                  className="h-3.5 w-3.5 rounded border-stone-300 text-deep focus:ring-deep/20 cursor-pointer"
+                />
+                <Icon
+                  className={`h-3 w-3 ${STATUS_COLORS[status]}`}
+                  strokeWidth={2}
+                />
+                <span className="text-xs text-stone-600 group-hover:text-stone-800">
+                  {STATUS_LABELS[status]}
+                </span>
+              </label>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Confidence Range */}
+      <div>
+        <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
+          Confidence Range
+        </p>
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] text-stone-500 w-7 text-right font-mono">
+              {confidenceRange[0]}
+            </span>
+            <input
+              type="range"
+              min={0}
+              max={100}
+              value={confidenceRange[0]}
+              onChange={(e) =>
+                onSetConfidenceRange([
+                  Math.min(Number(e.target.value), confidenceRange[1]),
+                  confidenceRange[1],
+                ])
+              }
+              aria-label="Minimum confidence"
+              className="flex-1 h-1 appearance-none bg-stone-200 rounded-full accent-deep"
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] text-stone-500 w-7 text-right font-mono">
+              {confidenceRange[1]}
+            </span>
+            <input
+              type="range"
+              min={0}
+              max={100}
+              value={confidenceRange[1]}
+              onChange={(e) =>
+                onSetConfidenceRange([
+                  confidenceRange[0],
+                  Math.max(Number(e.target.value), confidenceRange[0]),
+                ])
+              }
+              aria-label="Maximum confidence"
+              className="flex-1 h-1 appearance-none bg-stone-200 rounded-full accent-deep"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Count */}
+      <div className="pt-2 border-t border-stone-100">
+        <p className="text-[11px] text-stone-500">
+          Showing{" "}
+          <span className="font-medium text-stone-700">
+            {filteredCount}
+          </span>{" "}
+          of {totalCount} topics
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Selected Topic Detail Panel (desktop map overlay)
+// ---------------------------------------------------------------------------
+
+interface SelectedTopicPanelProps {
+  topic: TopicSummary;
+  onClose: () => void;
+  onNavigate: (id: string) => void;
+}
+
+function SelectedTopicPanel({ topic, onClose, onNavigate }: SelectedTopicPanelProps) {
+  return (
+    <div className="absolute bottom-4 right-4 z-10 w-[300px] bg-white dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] shadow-lw overflow-hidden">
+      {/* Category color bar */}
+      <div
+        className="h-1"
+        style={{ backgroundColor: CATEGORY_BORDER_COLORS[topic.category] }}
+      />
+      <div className="p-4">
+        <div className="flex items-start justify-between mb-2">
+          <h3 className="font-serif text-base text-primary leading-snug pr-4">
+            {topic.title}
+          </h3>
+          <button
+            onClick={onClose}
+            aria-label="Close topic details"
+            className="flex-shrink-0 p-1 text-stone-400 hover:text-stone-600 transition-colors"
+          >
+            <X className="h-3.5 w-3.5" aria-hidden="true" />
+          </button>
+        </div>
+        <p className="text-xs text-stone-500 leading-relaxed line-clamp-3 mb-3">
+          {topic.meta_claim}
+        </p>
+        <div className="flex items-center gap-2 mb-3">
+          <span
+            className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium border capitalize ${
+              CATEGORY_PILL_CLASSES[topic.category]
+            }`}
+          >
+            {topic.category}
+          </span>
+          <span className="text-[10px] text-stone-500">
+            {topic.pillarCount} pillars
+          </span>
+          <span className="font-mono text-xs text-stone-600 ml-auto">
+            {topic.confidence_score}%
+          </span>
+        </div>
+        <button
+          onClick={() => onNavigate(topic.id)}
+          className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 px-4 py-2.5 text-sm font-medium text-white hover:from-rust-600 hover:to-rust-700 transition-colors"
+        >
+          View Analysis
+          <ArrowRight className="h-3.5 w-3.5" />
+        </button>
+      </div>
+    </div>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -516,7 +750,7 @@ function TopicExplorerInner({
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all capitalize ${
                     activeCategories.has(cat)
                       ? "bg-deep text-white"
-                      : "bg-white text-stone-400 border border-stone-200/60"
+                      : "bg-white dark:bg-[var(--bg-card)] text-stone-400 border border-stone-200/60 dark:border-[var(--border-default)]"
                   }`}
                 >
                   {categoryLabels[cat]}
@@ -532,7 +766,7 @@ function TopicExplorerInner({
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className="flex items-center gap-3 p-3 bg-white rounded-lg border border-stone-200/60 hover:border-deep/30 transition-colors"
+                    className="flex items-center gap-3 p-3 bg-white dark:bg-[var(--bg-card)] rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 transition-colors"
                     style={{
                       borderLeftWidth: 3,
                       borderLeftColor: CATEGORY_BORDER_COLORS[topic.category],
@@ -615,28 +849,32 @@ function TopicExplorerInner({
         {/* Filter Toggle Button */}
         <button
           onClick={() => setShowFilters(!showFilters)}
+          aria-expanded={showFilters}
+          aria-controls="topic-filter-panel"
+          aria-label={`Filters${hasActiveFilters ? " (active)" : ""}`}
           className={`absolute top-4 left-4 z-10 flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors shadow-card ${
             showFilters
               ? "bg-deep text-white"
-              : "bg-white text-stone-700 border border-stone-200/60 hover:border-deep/30"
+              : "bg-white dark:bg-[var(--bg-card)] text-stone-700 dark:text-stone-300 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30"
           }`}
         >
-          <Filter className="h-4 w-4" />
+          <Filter className="h-4 w-4" aria-hidden="true" />
           Filters
           {hasActiveFilters && (
-            <span className="flex h-2 w-2 rounded-full bg-rust-500" />
+            <span className="flex h-2 w-2 rounded-full bg-rust-500" aria-hidden="true" />
           )}
         </button>
 
         {/* Filter Panel */}
         {showFilters && (
-          <div className="absolute top-14 left-4 z-10 w-[260px] bg-white rounded-xl border border-stone-200/60 shadow-lw p-4 space-y-4">
+          <div id="topic-filter-panel" role="region" aria-label="Topic filters" className="absolute top-14 left-4 z-10 w-[260px] bg-white dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] shadow-lw p-4 space-y-4">
             {/* Header */}
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-medium text-primary">Filters</h3>
               {hasActiveFilters && (
                 <button
                   onClick={resetFilters}
+                  aria-label="Reset all filters"
                   className="text-[11px] text-stone-500 hover:text-stone-700 transition-colors"
                 >
                   Reset
@@ -726,6 +964,7 @@ function TopicExplorerInner({
                         confidenceRange[1],
                       ])
                     }
+                    aria-label="Minimum confidence"
                     className="flex-1 h-1 appearance-none bg-stone-200 rounded-full accent-deep"
                   />
                 </div>
@@ -744,6 +983,7 @@ function TopicExplorerInner({
                         Math.max(Number(e.target.value), confidenceRange[0]),
                       ])
                     }
+                    aria-label="Maximum confidence"
                     className="flex-1 h-1 appearance-none bg-stone-200 rounded-full accent-deep"
                   />
                 </div>
@@ -765,7 +1005,7 @@ function TopicExplorerInner({
 
         {/* Selected Topic Detail Panel */}
         {selectedTopic && (
-          <div className="absolute bottom-4 right-4 z-10 w-[300px] bg-white rounded-xl border border-stone-200/60 shadow-lw overflow-hidden">
+          <div className="absolute bottom-4 right-4 z-10 w-[300px] bg-white dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] shadow-lw overflow-hidden">
             {/* Category color bar */}
             <div
               className="h-1"
@@ -780,9 +1020,10 @@ function TopicExplorerInner({
                 </h3>
                 <button
                   onClick={() => setSelectedNodeId(null)}
+                  aria-label="Close topic details"
                   className="flex-shrink-0 p-1 text-stone-400 hover:text-stone-600 transition-colors"
                 >
-                  <X className="h-3.5 w-3.5" />
+                  <X className="h-3.5 w-3.5" aria-hidden="true" />
                 </button>
               </div>
               <p className="text-xs text-stone-500 leading-relaxed line-clamp-3 mb-3">
@@ -815,7 +1056,7 @@ function TopicExplorerInner({
         )}
 
         {/* Legend */}
-        <div className="absolute bottom-4 left-4 z-10 bg-white/90 backdrop-blur rounded-lg border border-stone-200/60 p-3">
+        <div className="absolute bottom-4 left-4 z-10 bg-white/90 dark:bg-[#252420]/90 backdrop-blur rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] p-3">
           <p className="text-[10px] font-medium text-stone-400 mb-2 tracking-wide">
             Categories
           </p>
@@ -838,7 +1079,7 @@ function TopicExplorerInner({
         </div>
 
         {/* Topic count badge */}
-        <div className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur rounded-lg border border-stone-200/60 px-3 py-1.5">
+        <div className="absolute top-4 right-4 z-10 bg-white/90 dark:bg-[#252420]/90 backdrop-blur rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] px-3 py-1.5">
           <p className="text-xs text-stone-600">
             <span className="font-mono font-medium">{filteredTopics.length}</span>{" "}
             topics &middot;{" "}

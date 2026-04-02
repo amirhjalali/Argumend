@@ -68,7 +68,7 @@ export default function CommunityPage() {
       />
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero — no label */}
-        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent dark:from-[#252420]/80 dark:to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20">
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -95,10 +95,10 @@ export default function CommunityPage() {
             {principles.map((principle) => (
               <div
                 key={principle.title}
-                className="bg-[#faf8f5] rounded-xl p-6 border border-stone-200/60"
+                className="bg-[#faf8f5] dark:bg-[#252420] rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)]"
               >
                 <div className="flex items-start gap-5">
-                  <span className="font-serif text-2xl font-bold text-stone-300 flex-shrink-0">{principle.number}</span>
+                  <span className="font-serif text-2xl font-bold text-stone-300 dark:text-stone-600 flex-shrink-0">{principle.number}</span>
                   <div>
                     <h3 className="font-serif text-lg text-primary mb-2">
                       {principle.title}
@@ -119,9 +119,9 @@ export default function CommunityPage() {
             How to Contribute
           </h2>
           <p className="text-lg text-secondary mb-8">All contributions happen on GitHub.</p>
-          <div className="bg-white/80 rounded-2xl border border-[#e8e0d4] divide-y divide-[#e8e0d4] overflow-hidden">
+          <div className="bg-white/80 dark:bg-[#252420]/80 rounded-2xl border border-[#e8e0d4] dark:border-[#3d3a36] divide-y divide-[#e8e0d4] dark:divide-[#3d3a36] overflow-hidden">
             {contributing.map((item, i) => (
-              <div key={item.title} className="p-6 hover:bg-[#faf8f5]/50 transition-colors">
+              <div key={item.title} className="p-6 hover:bg-[#faf8f5]/50 dark:hover:bg-[#302e2a]/50 transition-colors">
                 <div className="flex items-start gap-4">
                   <span className="font-mono text-xs font-bold text-deep/40 mt-1">0{i + 1}</span>
                   <div>

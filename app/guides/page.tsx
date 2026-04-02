@@ -120,7 +120,7 @@ export default function GuidesPage() {
                 className="group block animate-card-fade-in"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
-                <div className="relative h-full bg-white/80 rounded-xl p-6 border border-stone-200/60 shadow-card hover:shadow-lw-hover hover:-translate-y-1 transition-all duration-200 hover:border-deep-light/40 flex flex-col">
+                <div className="relative h-full bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-1 transition-all duration-200 hover:border-deep-light/40 flex flex-col">
                   {/* Icon + badges row */}
                   <div className="flex items-start justify-between mb-4">
                     <div
@@ -135,7 +135,7 @@ export default function GuidesPage() {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="inline-flex items-center gap-1 bg-stone-100 px-2 py-0.5 rounded-full text-xs text-stone-500">
+                      <span className="inline-flex items-center gap-1 bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 rounded-full text-xs text-stone-500 dark:text-stone-400">
                         <Clock className="h-3 w-3" />
                         {guide.readTime}
                       </span>
@@ -153,7 +153,7 @@ export default function GuidesPage() {
                   </p>
 
                   {/* Description (clamp to 2 lines) */}
-                  <p className="text-sm text-[#7a7269] leading-relaxed line-clamp-2 mb-4">
+                  <p className="text-sm text-[#7a7269] dark:text-[var(--text-secondary)] leading-relaxed line-clamp-2 mb-4">
                     {guide.description}
                   </p>
 
@@ -169,7 +169,7 @@ export default function GuidesPage() {
                       {guide.keyTakeaways.slice(0, 2).map((takeaway, idx) => (
                         <li
                           key={idx}
-                          className="flex items-start gap-2 text-xs text-[#7a7269] leading-snug"
+                          className="flex items-start gap-2 text-xs text-[#7a7269] dark:text-[var(--text-secondary)] leading-snug"
                         >
                           <CheckCircle2
                             className="h-3.5 w-3.5 flex-shrink-0 mt-0.5"
@@ -247,7 +247,7 @@ export default function GuidesPage() {
                       </div>
 
                       {/* Card */}
-                      <div className="flex-1 bg-white/80 rounded-xl p-4 sm:p-5 border border-stone-200/60 shadow-card group-hover:shadow-lw-hover group-hover:-translate-y-0.5 group-hover:border-deep-light/40 transition-all duration-200">
+                      <div className="flex-1 bg-white/80 dark:bg-[#252420]/80 rounded-xl p-4 sm:p-5 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card group-hover:shadow-lw-hover group-hover:-translate-y-0.5 group-hover:border-deep-light/40 transition-all duration-200">
                         <div className="flex items-start gap-3">
                           <div
                             className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -268,7 +268,7 @@ export default function GuidesPage() {
                                     ? "bg-deep/10 text-deep"
                                     : isAdvanced
                                       ? "bg-rust-50 text-rust-600"
-                                      : "bg-stone-100 text-stone-500"
+                                      : "bg-stone-100 dark:bg-[#302e2a] text-stone-500 dark:text-stone-400"
                                 }`}
                               >
                                 {step.label}
@@ -282,12 +282,12 @@ export default function GuidesPage() {
                               {guide.title}
                             </h3>
 
-                            <p className="text-sm text-[#7a7269] mt-0.5">
+                            <p className="text-sm text-[#7a7269] dark:text-[var(--text-secondary)] mt-0.5">
                               {step.why}
                             </p>
                           </div>
 
-                          <ArrowRight className="h-4 w-4 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 mt-1 transition-all duration-200" />
+                          <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-500 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 mt-1 transition-all duration-200" />
                         </div>
                       </div>
                     </Link>
@@ -303,7 +303,7 @@ export default function GuidesPage() {
             ═══════════════════════════════════════════════════════════════ */}
         <section className="mb-16">
           <Link href="/for-educators" className="group block">
-            <div className="relative overflow-hidden rounded-xl border border-stone-200/60 bg-gradient-to-br from-[#faf8f3] to-[#f5f2eb] p-8 sm:p-10 shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
+            <div className="relative overflow-hidden rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-gradient-to-br from-[#faf8f3] to-[#f5f2eb] dark:from-[#252420] dark:to-[#302e2a] p-8 sm:p-10 shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
                 <div className="w-14 h-14 rounded-xl bg-deep/10 flex items-center justify-center flex-shrink-0">
                   <GraduationCap
@@ -335,7 +335,7 @@ export default function GuidesPage() {
         {/* ═══════════════════════════════════════════════════════════════
             PHILOSOPHY / WHY THESE MATTER
             ═══════════════════════════════════════════════════════════════ */}
-        <div className="bg-gradient-to-br from-[#faf8f3] to-[#f5f2eb] rounded-xl p-6 border border-[#e8e0d4]">
+        <div className="bg-gradient-to-br from-[#faf8f3] to-[#f5f2eb] dark:from-[#252420] dark:to-[#302e2a] rounded-xl p-6 border border-[#e8e0d4] dark:border-[var(--border-default)]">
           <h3 className="font-serif text-lg text-primary mb-2">
             Why These Foundations Matter
           </h3>
@@ -355,7 +355,7 @@ export default function GuidesPage() {
         {/* ═══════════════════════════════════════════════════════════════
             FOOTER
             ═══════════════════════════════════════════════════════════════ */}
-        <div className="mt-12 pt-8 border-t border-stone-200/60">
+        <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
           <p className="text-sm text-secondary">
             These guides synthesize research from epistemology, cognitive
             science, and the philosophy of science. Sources are provided in each

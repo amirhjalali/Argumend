@@ -110,7 +110,7 @@ export function Sidebar({
 
       <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5">
         {/* Primary Navigation */}
-        <nav className="space-y-0.5 pb-5">
+        <div className="space-y-0.5 pb-5" role="list" aria-label="Primary navigation">
           {PRIMARY_NAV.map(({ label, icon: Icon, href, highlight, noPrefetch }) => {
             const isActive = isActiveRoute(href);
             return (
@@ -137,7 +137,7 @@ export function Sidebar({
               </Link>
             );
           })}
-        </nav>
+        </div>
 
         {/* Trending This Week */}
         <TrendingTopics />
@@ -148,6 +148,7 @@ export function Sidebar({
             onClick={() => setLearnOpen(!learnOpen)}
             className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
             aria-expanded={learnOpen}
+            aria-controls="learn-explore-menu"
             aria-label="Learn & Explore"
           >
             {learnOpen ? (
@@ -163,7 +164,7 @@ export function Sidebar({
               learnOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
             }`}
           >
-            <nav className="mt-0.5 space-y-0.5 pl-3 overflow-hidden">
+            <div id="learn-explore-menu" className="mt-0.5 space-y-0.5 pl-3 overflow-hidden" role="list" aria-label="Learn & Explore">
               {LEARN_NAV.map(({ label, icon: Icon, href }) => {
                 const isActive = isActiveRoute(href);
                 return (
@@ -188,7 +189,7 @@ export function Sidebar({
                   </Link>
                 );
               })}
-            </nav>
+            </div>
           </div>
         </div>
 
@@ -196,10 +197,10 @@ export function Sidebar({
         <div className="h-px bg-stone-200/50 dark:bg-[#3d3a36]/50 mb-5" />
 
         {/* Featured Topics (limited to 8) */}
-        <section className="pb-5">
-          <p className="text-[11px] font-medium text-stone-400 px-3 mb-3 tracking-wide">
+        <section className="pb-5" aria-labelledby="sidebar-topics-heading">
+          <h2 id="sidebar-topics-heading" className="text-[11px] font-medium text-stone-400 px-3 mb-3 tracking-wide">
             Topics
-          </p>
+          </h2>
 
           <ul className="space-y-0.5">
             {topicSummaries.slice(0, 8).map((topic) => {

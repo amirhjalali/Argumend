@@ -30,17 +30,17 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
 };
 
 const statusColors: Record<TopicStatus, string> = {
-  settled: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  contested: "bg-rust-50 text-rust-700 border-rust-200/60",
-  highly_speculative: "bg-stone-100 text-stone-600 border-stone-200/60",
+  settled: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border-emerald-200/60 dark:border-emerald-800/40",
+  contested: "bg-rust-50 dark:bg-rust-950/40 text-rust-700 dark:text-rust-400 border-rust-200/60 dark:border-rust-800/40",
+  highly_speculative: "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-200/60 dark:border-stone-700/40",
 };
 
 const categoryColors: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep border-deep/20",
-  technology: "bg-stone-100 text-stone-600 border-stone-200/60",
-  science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
-  economics: "bg-rust-50 text-rust-700 border-rust-200/60",
-  philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
+  policy: "bg-deep/10 text-deep dark:text-deep-light border-deep/20",
+  technology: "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-200/60 dark:border-stone-700/40",
+  science: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200/60 dark:border-emerald-800/40",
+  economics: "bg-rust-50 dark:bg-rust-950/40 text-rust-700 dark:text-rust-400 border-rust-200/60 dark:border-rust-800/40",
+  philosophy: "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-200/60 dark:border-stone-700/40",
 };
 
 const categoryTopBorder: Record<TopicCategory, string> = {
@@ -165,7 +165,7 @@ export default function TopicsPage() {
               Explore Topics
             </h1>
             <p className="text-lg text-secondary leading-relaxed max-w-2xl">
-              <span className="font-mono text-stone-700">{topicSummaries.length}</span> topics
+              <span className="font-mono text-stone-700 dark:text-stone-300">{topicSummaries.length}</span> topics
               mapped across {CATEGORY_ORDER.length} categories. Each one structured with
               steel-man arguments, weighted evidence, and crux questions.
             </p>
@@ -178,7 +178,7 @@ export default function TopicsPage() {
               className={`px-4 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition-all ${
                 activeCategory === "all"
                   ? "bg-deep text-white shadow-sm"
-                  : "bg-white text-stone-500 border border-stone-200/60 hover:border-deep/30 hover:text-stone-700"
+                  : "bg-white dark:bg-[var(--bg-card)] text-stone-500 dark:text-stone-400 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 dark:hover:border-deep/50 hover:text-stone-700 dark:hover:text-stone-300"
               }`}
             >
               All ({categoryCounts.all})
@@ -190,7 +190,7 @@ export default function TopicsPage() {
                 className={`px-4 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition-all capitalize ${
                   activeCategory === cat
                     ? "bg-deep text-white shadow-sm"
-                    : "bg-white text-stone-500 border border-stone-200/60 hover:border-deep/30 hover:text-stone-700"
+                    : "bg-white dark:bg-[var(--bg-card)] text-stone-500 dark:text-stone-400 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 dark:hover:border-deep/50 hover:text-stone-700 dark:hover:text-stone-300"
                 }`}
               >
                 {CATEGORY_LABELS[cat]} ({categoryCounts[cat]})
@@ -208,7 +208,7 @@ export default function TopicsPage() {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search topics..."
                 aria-label="Search topics"
-                className="w-full pl-9 pr-9 py-2.5 min-h-[44px] text-sm bg-white border border-stone-200/60 rounded-lg text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
+                className="w-full pl-9 pr-9 py-2.5 min-h-[44px] text-sm bg-white dark:bg-[var(--bg-input)] border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg text-stone-700 dark:text-[var(--text-primary)] placeholder-stone-400 dark:placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               />
               {search && (
                 <button
@@ -226,7 +226,7 @@ export default function TopicsPage() {
                 id="topics-sort-select"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="text-sm px-3 py-2.5 min-h-[44px] rounded-lg border border-stone-200/60 bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
+                className="text-sm px-3 py-2.5 min-h-[44px] rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] bg-white dark:bg-[var(--bg-input)] text-stone-700 dark:text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               >
                 {SORT_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -241,7 +241,7 @@ export default function TopicsPage() {
           <div className="flex items-center justify-between mb-5">
             <p className="text-sm text-stone-500">
               Showing{" "}
-              <span className="font-semibold text-stone-700">
+              <span className="font-semibold text-stone-700 dark:text-stone-300">
                 {filteredTopics.length}
               </span>{" "}
               of {topicSummaries.length} topics
@@ -259,7 +259,7 @@ export default function TopicsPage() {
 
           {/* Topic Grid */}
           {filteredTopics.length === 0 ? (
-            <div className="text-center py-20 bg-white rounded-xl border border-stone-200/60">
+            <div className="text-center py-20 bg-white dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-default)]">
               <SearchX className="h-10 w-10 text-stone-300 mx-auto mb-4" />
               <p className="text-stone-600 font-medium mb-1">No topics found</p>
               <p className="text-sm text-stone-500 mb-5 max-w-xs mx-auto">
@@ -282,11 +282,11 @@ export default function TopicsPage() {
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className={`group flex flex-col bg-white border border-stone-200/60 border-t-[3px] rounded-xl p-5 pb-4 shadow-card hover:border-x-deep/30 hover:border-b-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in card-hover ${categoryTopBorder[topic.category]}`}
+                    className={`group flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] border-t-[3px] rounded-xl p-5 pb-4 shadow-card hover:border-x-deep/30 hover:border-b-deep/30 dark:hover:border-x-deep/50 dark:hover:border-b-deep/50 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in card-hover ${categoryTopBorder[topic.category]}`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {/* Title */}
-                    <h2 className="font-serif text-lg text-stone-900 group-hover:text-deep transition-colors leading-snug mb-3">
+                    <h2 className="font-serif text-lg text-stone-900 dark:text-[var(--text-heading)] group-hover:text-deep transition-colors leading-snug mb-3">
                       {topic.title}
                     </h2>
 
@@ -298,7 +298,7 @@ export default function TopicsPage() {
                     {/* Confidence score bar */}
                     <div className="flex items-center gap-2.5 mb-3">
                       <div
-                        className="h-1.5 flex-1 bg-stone-100 rounded-full overflow-hidden"
+                        className="h-1.5 flex-1 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden"
                         role="meter"
                         aria-valuenow={topic.confidence_score}
                         aria-valuemin={0}
@@ -311,13 +311,13 @@ export default function TopicsPage() {
                           aria-hidden="true"
                         />
                       </div>
-                      <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600">
+                      <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600 dark:text-stone-400">
                         {topic.confidence_score}%
                       </span>
                     </div>
 
                     {/* Footer: pills + pillar count */}
-                    <div className="flex items-center justify-between gap-2 pt-3 mt-auto border-t border-stone-100">
+                    <div className="flex items-center justify-between gap-2 pt-3 mt-auto border-t border-stone-100 dark:border-stone-700/50">
                       <div className="flex flex-wrap items-center gap-1.5">
                         {/* Category pill */}
                         <span
@@ -347,7 +347,7 @@ export default function TopicsPage() {
           )}
 
           {/* Footer */}
-          <div className="mt-10 pt-6 border-t border-stone-200/60">
+          <div className="mt-10 pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)]">
             <p className="text-sm text-stone-500">
               {topicSummaries.length} topics mapped. Click any topic to read its full analysis
               with steel-man arguments, weighted evidence, and crux questions.

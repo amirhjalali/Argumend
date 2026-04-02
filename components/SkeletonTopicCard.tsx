@@ -14,7 +14,7 @@ import {
 
 export function SkeletonTopicCard() {
   return (
-    <div className="flex flex-col bg-white border border-stone-200/60 border-t-[3px] border-t-stone-200 rounded-xl p-5 pb-4">
+    <div className="flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] border-t-[3px] border-t-stone-200 dark:border-t-stone-700 rounded-xl p-5 pb-4">
       {/* Title (serif placeholder) */}
       <Skeleton className="h-5 w-3/4 mb-3" />
 
@@ -31,7 +31,7 @@ export function SkeletonTopicCard() {
       </div>
 
       {/* Footer: pills + pillar count */}
-      <div className="flex items-center justify-between gap-2 pt-3 mt-auto border-t border-stone-100">
+      <div className="flex items-center justify-between gap-2 pt-3 mt-auto border-t border-stone-100 dark:border-stone-800">
         <div className="flex flex-wrap items-center gap-1.5">
           <SkeletonBadge width="w-16" className="h-5" />
           <SkeletonBadge width="w-20" className="h-5" />

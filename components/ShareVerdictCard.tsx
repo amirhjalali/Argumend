@@ -322,7 +322,7 @@ export function ShareVerdictCard({
       {/* Trigger button */}
       <button
         onClick={handleOpen}
-        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-deep bg-white border border-stone-200 rounded-xl hover:bg-stone-50 transition-colors shadow-sm"
+        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-deep dark:text-[var(--text-primary)] bg-white dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-default)] rounded-xl hover:bg-stone-50 dark:hover:bg-[var(--bg-overlay)] transition-colors shadow-sm"
         aria-label="Share verdict"
       >
         <Share2 className="h-4 w-4" />
@@ -345,10 +345,10 @@ export function ShareVerdictCard({
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden"
+              className="w-full max-w-lg bg-white dark:bg-[var(--bg-card)] rounded-2xl shadow-2xl overflow-hidden"
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-stone-100">
+              <div className="flex items-center justify-between px-5 py-4 border-b border-stone-100 dark:border-stone-800">
                 <div className="flex items-center gap-2">
                   <ImageIcon className="w-4 h-4 text-deep" />
                   <h3 className="font-serif font-semibold text-primary">
@@ -357,7 +357,7 @@ export function ShareVerdictCard({
                 </div>
                 <button
                   onClick={handleClose}
-                  className="p-1.5 hover:bg-stone-100 rounded-lg transition-colors"
+                  className="p-1.5 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] rounded-lg transition-colors"
                   aria-label="Close"
                 >
                   <X className="w-4 h-4 text-stone-500" />
@@ -371,13 +371,13 @@ export function ShareVerdictCard({
                   <span className="text-xs text-stone-500 uppercase tracking-wider font-medium">
                     Format
                   </span>
-                  <div className="flex gap-1 bg-stone-100 rounded-lg p-0.5">
+                  <div className="flex gap-1 bg-stone-100 dark:bg-stone-800 rounded-lg p-0.5">
                     <button
                       onClick={() => setFormat("twitter")}
                       className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
                         format === "twitter"
-                          ? "bg-white text-primary shadow-sm"
-                          : "text-stone-500 hover:text-stone-700"
+                          ? "bg-white dark:bg-[var(--bg-card)] text-primary shadow-sm"
+                          : "text-stone-500 hover:text-stone-700 dark:hover:text-stone-300"
                       }`}
                     >
                       Twitter / X
@@ -386,8 +386,8 @@ export function ShareVerdictCard({
                       onClick={() => setFormat("instagram")}
                       className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
                         format === "instagram"
-                          ? "bg-white text-primary shadow-sm"
-                          : "text-stone-500 hover:text-stone-700"
+                          ? "bg-white dark:bg-[var(--bg-card)] text-primary shadow-sm"
+                          : "text-stone-500 hover:text-stone-700 dark:hover:text-stone-300"
                       }`}
                     >
                       Instagram
@@ -421,7 +421,7 @@ export function ShareVerdictCard({
 
                   <button
                     onClick={handleCopyLink}
-                    className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-stone-700 bg-stone-100 rounded-xl hover:bg-stone-200 transition-colors"
+                    className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 bg-stone-100 dark:bg-stone-800 rounded-xl hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
                   >
                     {copied ? (
                       <>
@@ -456,7 +456,7 @@ export function ShareVerdictCard({
                   {supportsNativeShare && (
                     <button
                       onClick={handleShareNative}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-deep border border-stone-200 rounded-xl hover:bg-stone-50 transition-colors"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-deep dark:text-[var(--text-primary)] border border-stone-200 dark:border-[var(--border-default)] rounded-xl hover:bg-stone-50 dark:hover:bg-[var(--bg-overlay)] transition-colors"
                     >
                       <Share2 className="h-4 w-4" />
                       More...

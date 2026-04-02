@@ -1,6 +1,6 @@
 "use client";
 
-import { generateBlueprint, getEvidenceIdsForPillar } from "@/data/logicBlueprint";
+import { generateBlueprint } from "@/data/logicBlueprint";
 import type { EvidenceNodeData } from "@/components/nodes/EvidenceNode";
 
 // Lazy-loaded to prevent 500KB topics.ts from being bundled into every page
@@ -18,6 +18,15 @@ async function getTopicsModule() {
 
 // Synchronous access after module is loaded (for use inside store actions)
 function getTopicsSync() {
+  return _topics;
+}
+
+/**
+ * Public synchronous access for lazy-loaded components (DebateView, ScalesOfEvidence, etc.)
+ * that are only rendered after the store has already loaded topics.
+ * Returns null if topics haven't been loaded yet.
+ */
+export function getLoadedTopics() {
   return _topics;
 }
 
@@ -366,34 +375,35 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
     if (!pillarNode) return;
 
     const currentBlueprint = getBlueprintForTopic(currentTopicId);
-    const evidenceIds = getEvidenceIdsForPillar(topic, pillarId);
 
-    // Create evidence nodes positioned below the pillar
     const newNodes: LogicNode[] = [];
     const newEdges: Edge[] = [];
 
-    // Split evidence by side for layout
     const forEvidence = pillar.evidence.filter((e) => e.side === "for");
     const againstEvidence = pillar.evidence.filter((e) => e.side === "against");
 
-    // Position "for" evidence to the left-bottom, "against" to the right-bottom
     const baseY = pillarNode.position.y + 450;
     const evidenceSpacing = 300;
 
-    forEvidence.forEach((ev, index) => {
+    // Shared helper to create a node + edge for one piece of evidence
+    const addEvidenceNode = (
+      ev: (typeof pillar.evidence)[number],
+      index: number,
+      birthOrderOffset: number,
+      xDirection: 1 | -1,
+      edgeColor: string,
+    ) => {
       const evidenceId = `evidence-${ev.id}`;
       const blueprintNode = currentBlueprint[evidenceId];
       if (!blueprintNode) return;
 
-      const position = {
-        x: pillarNode.position.x - 200 - (index * evidenceSpacing * 0.3),
-        y: baseY + (index * 320),
-      };
-
       newNodes.push({
         id: evidenceId,
         type: "evidenceNode",
-        position,
+        position: {
+          x: pillarNode.position.x + xDirection * (200 + index * evidenceSpacing * 0.3),
+          y: baseY + index * 320,
+        },
         data: {
           variant: "evidence",
           title: ev.title,
@@ -402,7 +412,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
           score: blueprintNode.evidenceData?.score ?? 0,
           source: ev.source,
           sourceUrl: ev.sourceUrl,
-          birthOrder: index,
+          birthOrder: birthOrderOffset + index,
         } as unknown as LogicNodeData,
       });
 
@@ -414,47 +424,13 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
         targetHandle: "top",
         type: "bezier",
         animated: false,
-        style: { stroke: "#C4613C", strokeOpacity: 0.5 },
+        style: { stroke: edgeColor, strokeOpacity: 0.5 },
       });
-    });
+    };
 
-    againstEvidence.forEach((ev, index) => {
-      const evidenceId = `evidence-${ev.id}`;
-      const blueprintNode = currentBlueprint[evidenceId];
-      if (!blueprintNode) return;
-
-      const position = {
-        x: pillarNode.position.x + 200 + (index * evidenceSpacing * 0.3),
-        y: baseY + (index * 320),
-      };
-
-      newNodes.push({
-        id: evidenceId,
-        type: "evidenceNode",
-        position,
-        data: {
-          variant: "evidence",
-          title: ev.title,
-          description: ev.description,
-          side: ev.side,
-          score: blueprintNode.evidenceData?.score ?? 0,
-          source: ev.source,
-          sourceUrl: ev.sourceUrl,
-          birthOrder: forEvidence.length + index,
-        } as unknown as LogicNodeData,
-      });
-
-      newEdges.push({
-        id: `edge-${pillarId}-${evidenceId}`,
-        source: pillarId,
-        target: evidenceId,
-        sourceHandle: "bottom",
-        targetHandle: "top",
-        type: "bezier",
-        animated: false,
-        style: { stroke: "#78716C", strokeOpacity: 0.5 },
-      });
-    });
+    // "for" evidence positioned left-bottom; "against" positioned right-bottom
+    forEvidence.forEach((ev, i) => addEvidenceNode(ev, i, 0, -1, "#C4613C"));
+    againstEvidence.forEach((ev, i) => addEvidenceNode(ev, i, forEvidence.length, 1, "#78716C"));
 
     if (newNodes.length === 0) return;
 

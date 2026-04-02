@@ -61,7 +61,7 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center justify-center h-11 w-11 rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
+        className="inline-flex items-center justify-center h-11 w-11 rounded-lg text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors"
         aria-label="Embed this topic"
         title="Embed"
       >
@@ -69,7 +69,7 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
       </button>
 
       {open && (
-        <div role="dialog" aria-label="Embed code" className="absolute left-0 top-full mt-2 z-50 w-[340px] sm:w-[400px] rounded-lg border border-stone-200 bg-white shadow-lw p-4 animate-in fade-in slide-in-from-top-1">
+        <div role="dialog" aria-label="Embed code" className="absolute left-0 top-full mt-2 z-50 w-[340px] sm:w-[400px] rounded-lg border border-stone-200 dark:border-[var(--border-default)] bg-white dark:bg-[var(--bg-card)] shadow-lw p-4 animate-in fade-in slide-in-from-top-1">
           {/* Header */}
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-semibold text-primary">
@@ -78,7 +78,7 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center h-6 w-6 rounded text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
+              className="inline-flex items-center justify-center h-6 w-6 rounded text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors"
               aria-label="Close"
             >
               <X className="h-3.5 w-3.5" />
@@ -91,8 +91,8 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
           </p>
 
           {/* Code block */}
-          <div className="relative rounded-md bg-stone-50 border border-stone-200 p-3">
-            <pre className="text-[11px] leading-relaxed text-stone-600 font-mono whitespace-pre-wrap break-all select-all">
+          <div className="relative rounded-md bg-stone-50 dark:bg-[var(--bg-muted)] border border-stone-200 dark:border-[var(--border-default)] p-3">
+            <pre className="text-[11px] leading-relaxed text-stone-600 dark:text-[#b0a99f] font-mono whitespace-pre-wrap break-all select-all">
               {embedCode}
             </pre>
           </div>

@@ -100,20 +100,20 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
   return (
     <div className="w-full mb-8">
       <div
-        className="relative bg-transparent rounded-xl border border-stone-200/60 p-5 sm:p-6"
+        className="relative bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-5 sm:p-6"
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
       >
         {/* Header row */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <h3 className="text-xs font-medium text-stone-500 uppercase tracking-widest">
+            <h3 className="text-xs font-medium text-stone-500 dark:text-[#8a8279] uppercase tracking-widest">
               Controversy Meter
             </h3>
             {/* Info dot */}
             <button
               type="button"
-              className="relative w-4 h-4 rounded-full bg-stone-200 text-stone-500 text-[10px] font-bold leading-none flex items-center justify-center hover:bg-stone-300 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+              className="relative w-4 h-4 rounded-full bg-stone-200 dark:bg-[#3d3a36] text-stone-500 dark:text-[#8a8279] text-[10px] font-bold leading-none flex items-center justify-center hover:bg-stone-300 dark:hover:bg-[#4a4640] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
               aria-label="What does this meter mean?"
               onClick={() => setShowTooltip((v) => !v)}
             >
@@ -124,7 +124,7 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
         </div>
 
         {/* Bar */}
-        <div className="relative h-3 sm:h-4 rounded-full bg-stone-200/80 overflow-visible">
+        <div className="relative h-3 sm:h-4 rounded-full bg-stone-200/80 dark:bg-[#302e2a] overflow-visible">
           {/* Gradient fill */}
           <div
             className={`absolute inset-0 rounded-full bg-gradient-to-r ${config.barClass} ${config.animationClass} ${config.glowClass}`}
@@ -149,17 +149,17 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
 
         {/* Scale labels */}
         <div className="flex justify-between mt-2">
-          <span className="text-[10px] sm:text-xs text-stone-400 font-medium">
+          <span className="text-[10px] sm:text-xs text-stone-400 dark:text-[#8a8279] font-medium">
             Settled
           </span>
-          <span className="text-[10px] sm:text-xs text-stone-400 font-medium">
+          <span className="text-[10px] sm:text-xs text-stone-400 dark:text-[#8a8279] font-medium">
             Speculative
           </span>
         </div>
 
         {/* Tooltip */}
         {showTooltip && (
-          <div className="absolute z-20 top-full left-1/2 -translate-x-1/2 mt-2 w-72 sm:w-80 p-4 rounded-lg bg-white border border-stone-200 shadow-lw text-sm text-stone-600 leading-relaxed">
+          <div className="absolute z-20 top-full left-1/2 -translate-x-1/2 mt-2 w-72 sm:w-80 p-4 rounded-lg bg-white dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-default)] shadow-lw text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
             <p className="font-medium text-primary mb-1">{displayLabel}</p>
             <p>{config.description}</p>
             <p className="mt-2 text-xs text-stone-400">
@@ -167,7 +167,7 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
               evidence quality, expert agreement, and verification status.
             </p>
             {/* Arrow */}
-            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-white border-l border-t border-stone-200" />
+            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-white dark:bg-[var(--bg-card)] border-l border-t border-stone-200 dark:border-[var(--border-default)]" />
           </div>
         )}
       </div>

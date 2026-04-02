@@ -3,6 +3,7 @@ import { eq } from "drizzle-orm";
 import { getAnalysis } from "@/lib/db/queries";
 import { getDb } from "@/lib/db";
 import { judgments } from "@/lib/db/schema";
+import { rateLimit } from "@/lib/rate-limit";
 
 /**
  * GET /api/analysis/[id]
@@ -13,6 +14,16 @@ export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  // Rate limit: 30 requests per minute per IP
+  const ip = _request.headers.get("x-forwarded-for") || "unknown";
+  const limit = rateLimit(`analysis:${ip}`, { maxRequests: 30, windowMs: 60 * 1000 });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Rate limited. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
+
   try {
     const { id } = await params;
 

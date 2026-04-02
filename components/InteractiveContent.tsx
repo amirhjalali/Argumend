@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { memo } from "react";
 import { ConceptData } from "@/types/graph";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import {
@@ -15,7 +15,7 @@ interface InteractiveContentProps {
   nodeId: string;
 }
 
-export function InteractiveContent({ content, concepts, nodeId }: InteractiveContentProps) {
+export const InteractiveContent = memo(function InteractiveContent({ content, concepts, nodeId }: InteractiveContentProps) {
   const spawnConceptNode = useLogicGraph((state) => state.spawnConceptNode);
 
   if (!concepts || Object.keys(concepts).length === 0) {
@@ -57,4 +57,4 @@ export function InteractiveContent({ content, concepts, nodeId }: InteractiveCon
       })}
     </p>
   );
-}
+});

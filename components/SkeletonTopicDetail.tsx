@@ -83,7 +83,7 @@ function ScanViewSkeleton() {
         {Array.from({ length: 3 }).map((_, i) => (
           <div
             key={i}
-            className="rounded-lg border border-stone-200/60 bg-white/60 p-4"
+            className="rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-4"
           >
             <div className="flex items-start gap-2.5 mb-2.5">
               <Skeleton className="w-7 h-7" radius="rounded-lg" />

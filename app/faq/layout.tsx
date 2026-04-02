@@ -27,6 +27,9 @@ export const metadata: Metadata = {
 const faqStructuredData = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  name: "Frequently Asked Questions",
+  description: "The questions people actually ask us about Argumend, answered honestly.",
+  url: "https://argumend.org/faq",
   mainEntity: faqs.map((faq) => ({
     "@type": "Question",
     name: faq.question,

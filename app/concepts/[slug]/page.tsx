@@ -144,7 +144,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
               Key Points
             </h2>
-            <div className="bg-white/80 rounded-xl border border-stone-200/60 p-6 md:p-8">
+            <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
               <ul className="space-y-4">
                 {concept.keyPoints.map((point, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -170,7 +170,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                   <Link
                     key={topic!.id}
                     href={`/?topic=${topic!.id}`}
-                    className="group flex items-center justify-between p-4 rounded-xl bg-white/80 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm transition-all duration-200"
+                    className="group flex items-center justify-between p-4 rounded-xl bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-deep" />
@@ -178,7 +178,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                         {topic!.title}
                       </span>
                     </div>
-                    <ArrowRight className="h-4 w-4 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 transition-all duration-200" />
+                    <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep group-hover:translate-x-0.5 transition-all duration-200" />
                   </Link>
                 ))}
               </div>
@@ -196,7 +196,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                   <Link
                     key={related!.id}
                     href={`/concepts/${related!.id}`}
-                    className="group bg-white/80 rounded-xl p-5 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm transition-all duration-200"
+                    className="group bg-white/80 dark:bg-[#252420]/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
                   >
                     <h3 className="font-serif text-lg text-primary group-hover:text-deep transition-colors mb-1">
                       {related!.title}
@@ -211,7 +211,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
           )}
 
           {/* CTA */}
-          <section className="text-center py-10 border-t border-stone-200/60">
+          <section className="text-center py-10 border-t border-stone-200/60 dark:border-[var(--border-default)]">
             <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
               See this in practice
             </h3>
@@ -228,7 +228,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
               </Link>
               <Link
                 href="/concepts"
-                className="inline-flex items-center px-5 py-2.5 rounded-xl border border-stone-200/60 text-primary text-sm font-medium hover:border-deep/30 hover:bg-stone-50 transition-all duration-200"
+                className="inline-flex items-center px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[#302e2a] transition-all duration-200"
               >
                 All Concepts
               </Link>
@@ -236,7 +236,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
           </section>
 
           {/* Footer */}
-          <div className="pt-6 border-t border-stone-200/60 mt-4">
+          <div className="pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)] mt-4">
             <p className="text-sm text-muted italic text-center">
               Understanding the framework is the first step toward better reasoning.
             </p>

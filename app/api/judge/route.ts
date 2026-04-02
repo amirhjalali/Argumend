@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { createJudgeCouncil } from "@/lib/judge/council";
 import type { DebateMessageInput as DebateMessage } from "@/types/debate";
@@ -9,15 +10,20 @@ import { modelsToAgents } from "@/lib/agents/types";
 import type { LLMModel } from "@/types/logic";
 import type { JudgingResult } from "@/lib/judge/rubric";
 
-interface JudgeRequest {
-  type: "debate" | "content";
-  messages?: DebateMessage[];
-  topic?: string;
-  content?: string;
-  contentType?: "transcript" | "article" | "freeform";
-  judgeModels?: LLMModel[];
-  debateId?: string;
-}
+const JudgeRequestSchema = z.object({
+  type: z.enum(["debate", "content"]),
+  messages: z.array(z.object({
+    side: z.enum(["for", "against"]),
+    content: z.string().min(1),
+    round: z.number().int().min(1),
+    model: z.string().optional(),
+  })).optional(),
+  topic: z.string().max(500).optional(),
+  content: z.string().max(50000).optional(),
+  contentType: z.enum(["transcript", "article", "freeform"]).optional(),
+  judgeModels: z.array(z.enum(["claude", "gpt-4", "gemini", "grok"])).optional(),
+  debateId: z.string().optional(),
+});
 
 function isLiveJudgingEnabled(): boolean {
   return (
@@ -49,17 +55,18 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body: JudgeRequest = await request.json();
-    const { type, messages, topic, content, contentType, judgeModels } = body;
-
-    // Validate request
-    if (!type) {
+    const raw = await request.json();
+    const parseResult = JudgeRequestSchema.safeParse(raw);
+    if (!parseResult.success) {
       return NextResponse.json(
-        { error: "Missing required field: type" },
+        { error: "Invalid request", details: parseResult.error.flatten() },
         { status: 400 }
       );
     }
+    const body = parseResult.data;
+    const { type, messages, topic, content, contentType, judgeModels } = body;
 
+    // Validate type-specific requirements
     if (type === "debate" && (!messages || messages.length === 0)) {
       return NextResponse.json(
         { error: "Debate type requires messages array" },
@@ -124,10 +131,26 @@ export async function POST(request: NextRequest) {
  * Returns recent judgments.
  */
 export async function GET(request: NextRequest) {
+  // Rate limit: 30 requests per minute per IP
+  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const limit = rateLimit(`judge-list:${ip}`, { maxRequests: 30, windowMs: 60 * 1000 });
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: "Rate limited. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
+
   try {
     const { searchParams } = new URL(request.url);
-    const limit = Math.min(parseInt(searchParams.get("limit") || "20"), 100);
-    const results = await listJudgments(limit);
+    const pageLimit = Math.min(parseInt(searchParams.get("limit") || "20"), 100);
+    if (isNaN(pageLimit) || pageLimit < 1) {
+      return NextResponse.json(
+        { error: "Invalid limit parameter" },
+        { status: 400 }
+      );
+    }
+    const results = await listJudgments(pageLimit);
     return NextResponse.json({ judgments: results });
   } catch (error) {
     console.error("Failed to list judgments:", error);

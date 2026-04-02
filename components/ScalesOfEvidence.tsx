@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { Scale, ExternalLink, ChevronDown } from "lucide-react";
 import { useState, useMemo } from "react";
-import { useLogicGraph } from "@/hooks/useLogicGraph";
-import { topics } from "@/data/topics";
+import { useLogicGraph, getLoadedTopics } from "@/hooks/useLogicGraph";
 import type { Evidence, EvidenceWeight, Topic, Pillar } from "@/types/logic";
 import { calculateEvidenceScore, getVerdictLabel } from "@/types/logic";
 
@@ -368,7 +367,8 @@ function generateEvidenceFromTopic(topic: Topic): Evidence[] {
 
 export function ScalesOfEvidence() {
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
-  const topic = topics.find((t) => t.id === currentTopicId);
+  const topics = getLoadedTopics();
+  const topic = topics?.find((t) => t.id === currentTopicId);
 
   const allEvidence = useMemo(() => {
     if (!topic) return [];

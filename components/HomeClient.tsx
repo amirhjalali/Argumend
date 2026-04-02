@@ -51,6 +51,65 @@ const OnboardingOverlay = dynamic(
   { ssr: false }
 );
 
+// ---------------------------------------------------------------------------
+// Sidebar layout wrapper -- eliminates duplication between hero and canvas views
+// ---------------------------------------------------------------------------
+
+interface SidebarLayoutProps {
+  sidebar: ReturnType<typeof useSidebarState>;
+  currentTopicId: string;
+  onTopicSelect: (id: string) => void;
+  children: React.ReactNode;
+}
+
+function SidebarLayout({
+  sidebar,
+  currentTopicId,
+  onTopicSelect,
+  children,
+}: SidebarLayoutProps) {
+  return (
+    <div className="flex min-h-0 flex-1 overflow-hidden">
+      {/* Mobile overlay when sidebar is open */}
+      <div
+        className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
+          sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        role="button"
+        tabIndex={sidebar.isOpen ? 0 : -1}
+        aria-label="Close sidebar"
+        onClick={sidebar.close}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sidebar.close(); } }}
+      />
+
+      {/* Sidebar Container */}
+      <aside
+        aria-label="Sidebar navigation"
+        className={`
+          fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
+          flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+          ${sidebar.isOpen ? "w-[260px]" : "w-0 md:w-0"}
+        `}
+      >
+        <div
+          className={`absolute top-0 bottom-0 left-0 w-[260px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            sidebar.isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <Sidebar
+            isOpen={sidebar.isOpen}
+            onClose={sidebar.close}
+            currentTopicId={currentTopicId}
+            onTopicSelect={onTopicSelect}
+          />
+        </div>
+      </aside>
+
+      {children}
+    </div>
+  );
+}
+
 function CanvasExperience() {
   const nodeTypes = useMemo(
     () => ({
@@ -80,9 +139,9 @@ function CanvasExperience() {
   const reactFlow = useReactFlow();
   const didHandleParams = useRef(false);
 
-  const getNodeColor = (node: Node<LogicNodeData>): string => {
+  const getNodeColor = useCallback((node: Node<LogicNodeData>): string => {
     return getMiniMapColor(node?.data?.variant);
-  };
+  }, []);
 
   const handleTopicSelect = useCallback(
     (id: string) => {
@@ -133,98 +192,50 @@ function CanvasExperience() {
   if (showHero) {
     return (
       <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"
+        >
+          Skip to main content
+        </a>
         <OnboardingOverlay />
         <TopBar onMenuClick={sidebar.toggle} showBackToHero={false} />
 
-        <div className="flex min-h-0 flex-1 overflow-hidden">
-          {/* Mobile overlay when sidebar is open */}
-          <div
-            className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
-              sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
-            role="button"
-            tabIndex={sidebar.isOpen ? 0 : -1}
-            aria-label="Close sidebar"
-            onClick={sidebar.close}
-            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sidebar.close(); } }}
-          />
-
-          {/* Sidebar Container */}
-          <div
-            className={`
-              fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
-              flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
-              ${sidebar.isOpen ? "w-[260px]" : "w-0 md:w-0"}
-            `}
-          >
-            <div
-              className={`absolute top-0 bottom-0 left-0 w-[260px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                sidebar.isOpen ? "translate-x-0" : "-translate-x-full"
-              }`}
-            >
-              <Sidebar
-                isOpen={sidebar.isOpen}
-                onClose={sidebar.close}
-                currentTopicId={currentTopicId}
-                onTopicSelect={handleTopicSelect}
-              />
-            </div>
-          </div>
-
-          {/* Hero Content */}
-          <main id="main-content" className="relative flex-1 min-w-0 overflow-y-auto">
+        <SidebarLayout
+          sidebar={sidebar}
+          currentTopicId={currentTopicId}
+          onTopicSelect={handleTopicSelect}
+        >
+          <main id="main-content" role="main" className="relative flex-1 min-w-0 overflow-y-auto">
             <QuickStartBanner onTopicSelect={handleTopicSelect} />
             <HeroAnalyze onTopicSelect={handleTopicSelect} />
             <Footer />
           </main>
-        </div>
+        </SidebarLayout>
       </div>
     );
   }
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"
+      >
+        Skip to main content
+      </a>
       <TopBar
         onMenuClick={sidebar.toggle}
         showBackToHero
         onBackToHero={() => setShowHero(true)}
       />
 
-      <div className="flex min-h-0 flex-1 overflow-hidden">
-        {/* Mobile overlay when sidebar is open */}
-        <div
-          className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
-            sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
-          role="button"
-          aria-label="Close sidebar"
-          onClick={sidebar.close}
-        />
-
-        {/* Sidebar Container */}
-        <div
-          className={`
-            fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
-            flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
-            ${sidebar.isOpen ? "w-[260px]" : "w-0 md:w-0"}
-          `}
-        >
-          <div
-            className={`absolute top-0 bottom-0 left-0 w-[260px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-              sidebar.isOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
-          >
-            <Sidebar
-              isOpen={sidebar.isOpen}
-              onClose={sidebar.close}
-              currentTopicId={currentTopicId}
-              onTopicSelect={handleTopicSelect}
-            />
-          </div>
-        </div>
-
-        {/* Canvas Area */}
-        <main id="main-content" className="relative flex-1 min-w-0">
+      <SidebarLayout
+        sidebar={sidebar}
+        currentTopicId={currentTopicId}
+        onTopicSelect={handleTopicSelect}
+      >
+        <main id="main-content" role="main" className="relative flex-1 min-w-0">
           {currentView === "scales" ? (
             <ScalesOfEvidence />
           ) : currentView === "debate" ? (
@@ -282,7 +293,7 @@ function CanvasExperience() {
             </div>
           )}
         </main>
-      </div>
+      </SidebarLayout>
     </div>
   );
 }

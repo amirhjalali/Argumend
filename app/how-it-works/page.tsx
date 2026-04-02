@@ -80,7 +80,7 @@ export default function HowItWorksPage() {
       <JsonLd data={howToJsonLd} />
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero — subtitle before heading for variety */}
-        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent dark:from-[#1a1917]/80 -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -94,7 +94,7 @@ export default function HowItWorksPage() {
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary leading-[1.08]">
             Mapping arguments,<br />
-            <span className="text-stone-500">not winning them</span>
+            <span className="text-stone-500 dark:text-stone-400">not winning them</span>
           </h1>
         </div>
 
@@ -108,7 +108,7 @@ export default function HowItWorksPage() {
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="flex gap-4 p-5 md:p-6 rounded-xl bg-[#fefcf9] border border-stone-200/60"
+                className="flex gap-4 p-5 md:p-6 rounded-xl bg-[#fefcf9] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)]"
               >
                 <span className="font-mono text-sm font-bold text-stone-400 mt-0.5 flex-shrink-0">{step.number}</span>
                 <div className="flex-1">
@@ -143,33 +143,33 @@ export default function HowItWorksPage() {
             {nodeTypes.map((type) => (
               <div
                 key={type.name}
-                className="p-5 rounded-xl bg-[#fefcf9] border border-stone-200/60"
+                className="p-5 rounded-xl bg-[#fefcf9] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)]"
                 style={{ borderLeftWidth: "4px", borderLeftColor: type.color }}
               >
                 <h3 className="font-serif text-lg font-semibold text-primary mb-1">{type.name}</h3>
                 <p className="text-sm text-secondary mb-2">{type.description}</p>
-                <p className="text-xs font-mono text-stone-400 italic bg-stone-50 inline-block px-2 py-0.5 rounded">Example: {type.example}</p>
+                <p className="text-xs font-mono text-stone-400 italic bg-stone-50 dark:bg-[#302e2a] inline-block px-2 py-0.5 rounded">Example: {type.example}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Confidence Scores */}
-        <section className="mb-16 md:mb-24 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1917]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Reading confidence scores
           </h2>
           <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
             We don&apos;t claim certainty. These numbers tell you how confident the evidence makes us&mdash;nothing more.
           </p>
-          <div className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 border border-stone-200/60">
+          <div className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-2xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)]">
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-4 text-center">
                 <p className="font-mono tabular-nums text-deep text-2xl font-bold mb-2">90%+</p>
                 <h3 className="font-serif text-base text-primary mb-1">Settled</h3>
                 <p className="text-sm text-stone-500">The evidence is overwhelming. Think: &ldquo;Did we land on the moon?&rdquo;</p>
               </div>
-              <div className="p-4 text-center border-x border-stone-200/50">
+              <div className="p-4 text-center border-x border-stone-200/50 dark:border-[var(--border-default)]">
                 <p className="font-mono tabular-nums text-deep text-2xl font-bold mb-2">50-89%</p>
                 <h3 className="font-serif text-base text-primary mb-1">Probable</h3>
                 <p className="text-sm text-stone-500">Good evidence, but real uncertainty remains.</p>
@@ -184,7 +184,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* The Philosophy */}
-        <section className="mb-12 md:mb-16 bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/60">
+        <section className="mb-12 md:mb-16 bg-[#faf8f3] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)]">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">The crux is everything</h2>
           <p className="text-secondary leading-relaxed mb-4">
             Every disagreement has a crux&mdash;the specific evidence or experiment that would change minds.

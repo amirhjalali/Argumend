@@ -29,9 +29,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         data={{
           "@context": "https://schema.org",
           "@type": "AboutPage",
+          name: "About Argumend",
           headline: "About ARGUMEND",
           description:
             "ARGUMEND maps controversial topics visually with steel-manned arguments, crux identification, and calibrated confidence scores.",
+          url: "https://argumend.org/about",
+          mainEntity: {
+            "@type": "Organization",
+            name: "Argumend",
+            url: "https://argumend.org",
+          },
           publisher: {
             "@type": "Organization",
             name: "ARGUMEND",

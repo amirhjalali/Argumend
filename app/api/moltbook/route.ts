@@ -5,10 +5,50 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { auth } from "@/lib/auth";
+import { rateLimit } from "@/lib/rate-limit";
 import { MoltbookClient } from "@/lib/moltbook/client";
 import { MoltbookDebateService, NOTABLE_DEBATE_AGENTS } from "@/lib/moltbook/debate-integration";
 import { topics } from "@/data/topics";
+
+const MoltbookPostSchema = z.discriminatedUnion("action", [
+  z.object({
+    action: z.literal("post"),
+    submolt: z.string().min(1).max(200),
+    title: z.string().min(1).max(500),
+    content: z.string().max(50000).optional(),
+    url: z.string().url().max(2000).optional(),
+  }),
+  z.object({
+    action: z.literal("post_debate"),
+    topicId: z.string().min(1).max(200),
+  }),
+  z.object({
+    action: z.literal("post_invitation"),
+    topicId: z.string().min(1).max(200),
+    position: z.enum(["for", "against"]),
+  }),
+  z.object({
+    action: z.literal("post_argument"),
+    postId: z.string().min(1),
+    round: z.number().int().min(1).max(20),
+    side: z.enum(["for", "against"]),
+    agentName: z.string().min(1).max(200),
+    argument: z.string().min(1).max(50000),
+    parentCommentId: z.string().optional(),
+  }),
+  z.object({
+    action: z.literal("fetch_responses"),
+    postId: z.string().min(1),
+  }),
+  z.object({
+    action: z.literal("invite_agent"),
+    agentName: z.string().min(1).max(200),
+    topicTitle: z.string().min(1).max(500),
+    postId: z.string().min(1),
+  }),
+]);
 
 // Lazy initialization to avoid build-time errors
 function getClient(): MoltbookClient | null {
@@ -148,6 +188,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  // Rate limit: 15 requests per hour per user
+  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const limit = rateLimit(`moltbook:${ip}`, { maxRequests: 15, windowMs: 60 * 60 * 1000 });
+  if (!limit.success) {
+    return NextResponse.json(
+      { success: false, error: "Rate limited. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+    );
+  }
+
   const client = getClient();
   if (!client) {
     return NextResponse.json(
@@ -158,10 +208,9 @@ export async function POST(request: NextRequest) {
 
   const service = new MoltbookDebateService(client);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let body: any;
+  let raw: unknown;
   try {
-    body = await request.json();
+    raw = await request.json();
   } catch {
     return NextResponse.json(
       { success: false, error: "Invalid JSON in request body" },
@@ -169,17 +218,18 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  const parseResult = MoltbookPostSchema.safeParse(raw);
+  if (!parseResult.success) {
+    return NextResponse.json(
+      { success: false, error: "Invalid request", details: parseResult.error.flatten() },
+      { status: 400 }
+    );
+  }
+  const body = parseResult.data;
   const { action } = body;
 
   if (action === "post") {
     const { submolt, title, content, url } = body;
-
-    if (!submolt || !title) {
-      return NextResponse.json(
-        { success: false, error: "submolt and title are required" },
-        { status: 400 }
-      );
-    }
 
     const response = await client.createPost({
       submolt,
@@ -254,13 +304,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (position !== "for" && position !== "against") {
-      return NextResponse.json(
-        { success: false, error: "Position must be 'for' or 'against'" },
-        { status: 400 }
-      );
-    }
-
     const result = await service.postDebateInvitation({
       topicId: topic.id,
       topicTitle: topic.title,
@@ -286,13 +329,6 @@ export async function POST(request: NextRequest) {
   // Post a debate argument
   if (action === "post_argument") {
     const { postId, round, side, agentName, argument, parentCommentId } = body;
-
-    if (!postId || !round || !side || !agentName || !argument) {
-      return NextResponse.json(
-        { success: false, error: "Missing required fields" },
-        { status: 400 }
-      );
-    }
 
     const result = await service.postDebateArgument(
       postId,
@@ -320,13 +356,6 @@ export async function POST(request: NextRequest) {
   if (action === "fetch_responses") {
     const { postId } = body;
 
-    if (!postId) {
-      return NextResponse.json(
-        { success: false, error: "postId is required" },
-        { status: 400 }
-      );
-    }
-
     const comments = await service.fetchDebateResponses(postId);
     return NextResponse.json({
       success: true,
@@ -338,17 +367,11 @@ export async function POST(request: NextRequest) {
   if (action === "invite_agent") {
     const { agentName, topicTitle, postId } = body;
 
-    if (!agentName || !topicTitle || !postId) {
-      return NextResponse.json(
-        { success: false, error: "Missing required fields" },
-        { status: 400 }
-      );
-    }
-
     const success = await service.inviteAgentToDebate(agentName, topicTitle, postId);
     return NextResponse.json({ success });
   }
 
+  // This should be unreachable due to Zod discriminated union validation
   return NextResponse.json(
     { success: false, error: "Unknown action" },
     { status: 400 }

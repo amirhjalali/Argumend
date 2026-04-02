@@ -12,12 +12,17 @@ export function TopicIntroPanel() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [prevTopicId, setPrevTopicId] = useState<string | null>(null);
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
-  const nodes = useLogicGraph((state) => state.nodes);
+  // Subscribe to only the crux node ID, not the entire nodes array
+  const cruxNodeId = useLogicGraph((state) => {
+    const crux = state.nodes.find((n) => n.data.variant === "crux");
+    return crux?.id ?? null;
+  });
+  // Derive a boolean rather than subscribing to the full expandedNodes object
+  const hasExpandedAny = useLogicGraph((state) =>
+    Object.values(state.expandedNodes).some(Boolean)
+  );
 
   const topic = topicSummaries.find((t) => t.id === currentTopicId);
-
-  // Find the crux node for this topic
-  const cruxNode = nodes.find((n) => n.data.variant === "crux");
 
   // Reset visibility when topic changes (using state to avoid ref-during-render and setState-in-effect)
   if (prevTopicId !== currentTopicId) {
@@ -27,14 +32,10 @@ export function TopicIntroPanel() {
   }
 
   const handleFocusCrux = () => {
-    if (cruxNode) {
-      useLogicGraph.getState().setFocusTargets([cruxNode.id]);
+    if (cruxNodeId) {
+      useLogicGraph.getState().setFocusTargets([cruxNodeId]);
     }
   };
-
-  // Check if any nodes have been expanded
-  const expandedNodes = useLogicGraph((state) => state.expandedNodes);
-  const hasExpandedAny = Object.values(expandedNodes).some(Boolean);
 
   return (
     <AnimatePresence>
@@ -47,9 +48,9 @@ export function TopicIntroPanel() {
         transition={{ type: "spring", duration: 0.4, bounce: 0.15 }}
         className="absolute z-20 top-auto bottom-3 left-1/2 -translate-x-1/2 w-[94%] max-w-xs md:top-4 md:bottom-auto md:left-auto md:right-4 md:translate-x-0 md:w-72"
       >
-        <div className="bg-[#faf8f5]/95 backdrop-blur-sm rounded-2xl border border-stone-200/40 shadow-2xl overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
+        <div className="bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] shadow-2xl overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-stone-200/40">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-stone-200/40 dark:border-[var(--border-default)]">
             <div className="flex items-center gap-2">
               <Map className="h-3.5 w-3.5 text-deep" />
               <span className="text-[11px] font-semibold text-deep tracking-wide uppercase">
@@ -59,7 +60,7 @@ export function TopicIntroPanel() {
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
+                className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
                 aria-label={isMinimized ? "Show topic details" : "Hide topic details"}
               >
                 <ChevronRight
@@ -68,7 +69,7 @@ export function TopicIntroPanel() {
               </button>
               <button
                 onClick={() => setIsVisible(false)}
-                className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition-colors"
+                className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
                 aria-label="Dismiss topic panel"
               >
                 <X className="h-4 w-4" />
@@ -111,12 +112,12 @@ export function TopicIntroPanel() {
                   </div>
 
                   {/* Brief description */}
-                  <p className="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">
+                  <p className="text-xs text-stone-500 dark:text-[#8a8279] leading-relaxed mb-4 line-clamp-2">
                     {topic.meta_claim}
                   </p>
 
                   {/* Contextual Action */}
-                  {hasExpandedAny && cruxNode ? (
+                  {hasExpandedAny && cruxNodeId ? (
                     <button
                       onClick={handleFocusCrux}
                       className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#a23b3b] text-white text-sm font-semibold hover:bg-[#8a3232] transition-all shadow-sm hover:shadow-md"

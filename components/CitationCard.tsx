@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { memo, useState, useRef } from "react";
 import { ExternalLink, FileText, BookOpen, Globe, Calendar } from "lucide-react";
 import type { Reference } from "@/types/graph";
 
@@ -33,7 +33,7 @@ function SourceIcon({ url, source, className, strokeWidth }: { url?: string; sou
   return <FileText className={className} strokeWidth={strokeWidth} />;
 }
 
-export function CitationCard({ reference, index }: CitationCardProps) {
+export const CitationCard = memo(function CitationCard({ reference, index }: CitationCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [showAbove, setShowAbove] = useState(false);
   const triggerRef = useRef<HTMLAnchorElement>(null);
@@ -88,7 +88,7 @@ export function CitationCard({ reference, index }: CitationCardProps) {
       {/* Hover Card */}
       {isHovered && (
         <div
-          className={`absolute z-50 w-72 p-4 bg-white rounded-xl shadow-xl border border-stone-200 ${
+          className={`absolute z-50 w-72 p-4 bg-white dark:bg-[var(--bg-card)] rounded-xl shadow-xl border border-stone-200 dark:border-[var(--border-default)] ${
             showAbove ? "bottom-full mb-2" : "top-full mt-2"
           } left-0 animate-in fade-in duration-150`}
           onMouseEnter={handleMouseEnter}
@@ -144,7 +144,7 @@ export function CitationCard({ reference, index }: CitationCardProps) {
 
           {/* Arrow indicator */}
           <div
-            className={`absolute w-3 h-3 bg-white border-stone-200 transform rotate-45 ${
+            className={`absolute w-3 h-3 bg-white dark:bg-[var(--bg-card)] border-stone-200 dark:border-[var(--border-default)] transform rotate-45 ${
               showAbove
                 ? "bottom-[-6px] left-4 border-r border-b"
                 : "top-[-6px] left-4 border-l border-t"
@@ -154,4 +154,4 @@ export function CitationCard({ reference, index }: CitationCardProps) {
       )}
     </span>
   );
-}
+});

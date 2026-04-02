@@ -2,35 +2,39 @@
  * Shared debate utilities used by both the standard and streaming API routes.
  */
 
-// Lazy SDK singletons
-let anthropic: any = null;
-let openai: any = null;
-let gemini: any = null;
+import type Anthropic from "@anthropic-ai/sdk";
+import type OpenAI from "openai";
+import type { GoogleGenerativeAI } from "@google/generative-ai";
 
-export async function getAnthropic() {
+// Lazy SDK singletons
+let anthropic: Anthropic | null = null;
+let openai: OpenAI | null = null;
+let gemini: GoogleGenerativeAI | null = null;
+
+export async function getAnthropic(): Promise<Anthropic> {
   if (!anthropic) {
-    const Anthropic = (await import("@anthropic-ai/sdk")).default;
-    anthropic = new Anthropic();
+    const AnthropicClass = (await import("@anthropic-ai/sdk")).default;
+    anthropic = new AnthropicClass();
   }
   return anthropic;
 }
 
-export async function getOpenAI() {
+export async function getOpenAI(): Promise<OpenAI> {
   if (!openai) {
-    const OpenAI = (await import("openai")).default;
-    openai = new OpenAI();
+    const OpenAIClass = (await import("openai")).default;
+    openai = new OpenAIClass();
   }
   return openai;
 }
 
-export async function getGemini() {
+export async function getGemini(): Promise<GoogleGenerativeAI> {
   if (!gemini) {
-    const { GoogleGenerativeAI } = await import("@google/generative-ai");
+    const { GoogleGenerativeAI: GoogleAIClass } = await import("@google/generative-ai");
     const apiKey = process.env.GOOGLE_AI_API_KEY || process.env.GEMINI_API_KEY;
     if (!apiKey) {
       throw new Error("GOOGLE_AI_API_KEY or GEMINI_API_KEY environment variable is required");
     }
-    gemini = new GoogleGenerativeAI(apiKey);
+    gemini = new GoogleAIClass(apiKey);
   }
   return gemini;
 }

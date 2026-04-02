@@ -86,22 +86,27 @@ export function NavigationPath() {
   };
 
   return (
-    <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 max-w-[600px]">
-      <div className="flex items-center gap-1 rounded-lg border border-stone-200/60 bg-[#fefcf9]/90 backdrop-blur-sm px-3 py-2 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
-        <Home className="h-3.5 w-3.5 text-rust-500 flex-shrink-0" />
+    <nav aria-label="Argument path" className="absolute top-4 left-1/2 -translate-x-1/2 z-50 max-w-[600px]">
+      <ol className="flex items-center gap-1 rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] bg-[#fefcf9]/90 dark:bg-[var(--bg-card)]/90 backdrop-blur-sm px-3 py-2 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
+        <li className="flex items-center" aria-hidden="true">
+          <Home className="h-3.5 w-3.5 text-rust-500 flex-shrink-0" />
+        </li>
 
         {path.map((item, index) => (
-          <div key={item.id} className="flex items-center">
+          <li key={item.id} className="flex items-center">
             {index > 0 && (
-              <ChevronRight className="h-3 w-3 text-muted mx-1 flex-shrink-0" />
+              <ChevronRight className="h-3 w-3 text-muted mx-1 flex-shrink-0" aria-hidden="true" />
             )}
             <button
               onClick={() => handleNodeClick(item.id)}
-              className="group flex items-center gap-1.5 rounded-md px-2 py-1 text-xs transition-all hover:bg-stone-200"
+              aria-label={`Navigate to: ${item.title}`}
+              aria-current={index === path.length - 1 ? "location" : undefined}
+              className="group flex items-center gap-1.5 rounded-md px-2 py-1 text-xs transition-all hover:bg-stone-200 dark:hover:bg-[#302e2a]"
             >
               <div
                 className="h-2 w-2 rounded-full flex-shrink-0"
                 style={{ backgroundColor: getVariantColor(item.variant) }}
+                aria-hidden="true"
               />
               <span
                 className="font-medium truncate max-w-[120px] group-hover:text-primary"
@@ -110,12 +115,12 @@ export function NavigationPath() {
                 {item.title.length > 25 ? `${item.title.slice(0, 25)}...` : item.title}
               </span>
               {index === path.length - 1 && (
-                <Target className="h-3 w-3 text-rust-500 flex-shrink-0" />
+                <Target className="h-3 w-3 text-rust-500 flex-shrink-0" aria-hidden="true" />
               )}
             </button>
-          </div>
+          </li>
         ))}
-      </div>
-    </div>
+      </ol>
+    </nav>
   );
 }

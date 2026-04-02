@@ -54,7 +54,7 @@ export function TrendingTopics() {
     <div className="pb-5">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 transition-colors"
+        className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
         aria-expanded={isOpen}
         aria-label="Trending This Week"
       >
@@ -78,7 +78,7 @@ export function TrendingTopics() {
               {Array.from({ length: 3 }).map((_, i) => (
                 <div
                   key={i}
-                  className="h-8 rounded-md bg-stone-100 animate-pulse"
+                  className="h-8 rounded-md bg-stone-100 dark:bg-[#302e2a] animate-pulse"
                 />
               ))}
             </div>
@@ -93,7 +93,7 @@ export function TrendingTopics() {
                     <Link
                       href={`/topics/${item.topicId}`}
                       tabIndex={isOpen ? 0 : -1}
-                      className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 min-h-[40px] text-[13px] text-stone-500 hover:text-stone-800 hover:bg-stone-50/50 transition-colors group"
+                      className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 min-h-[40px] text-[13px] text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50 transition-colors group"
                     >
                       <span
                         className={`flex-shrink-0 w-5 text-right font-mono text-[11px] tabular-nums ${
@@ -114,7 +114,7 @@ export function TrendingTopics() {
                         />
                       )}
 
-                      <span className="flex-shrink-0 text-[10px] font-mono tabular-nums text-stone-400 group-hover:text-stone-500">
+                      <span className="flex-shrink-0 text-[10px] font-mono tabular-nums text-stone-400 group-hover:text-stone-500 dark:group-hover:text-stone-300">
                         {item.viewCount}
                       </span>
                     </Link>

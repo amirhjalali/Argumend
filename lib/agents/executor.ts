@@ -51,36 +51,40 @@ async function withRetry<T>(
 }
 
 // Lazy initialization to avoid build-time errors
-let anthropic: any = null;
-let openai: any = null;
-let gemini: any = null;
+import type Anthropic from "@anthropic-ai/sdk";
+import type OpenAI from "openai";
+import type { GoogleGenerativeAI } from "@google/generative-ai";
 
-async function getAnthropic() {
+let anthropic: Anthropic | null = null;
+let openai: OpenAI | null = null;
+let gemini: GoogleGenerativeAI | null = null;
+
+async function getAnthropic(): Promise<Anthropic> {
   if (!anthropic) {
-    const Anthropic = (await import("@anthropic-ai/sdk")).default;
-    anthropic = new Anthropic();
+    const AnthropicClass = (await import("@anthropic-ai/sdk")).default;
+    anthropic = new AnthropicClass();
   }
   return anthropic;
 }
 
-async function getOpenAI() {
+async function getOpenAI(): Promise<OpenAI> {
   if (!openai) {
-    const OpenAI = (await import("openai")).default;
-    openai = new OpenAI();
+    const OpenAIClass = (await import("openai")).default;
+    openai = new OpenAIClass();
   }
   return openai;
 }
 
-async function getGemini() {
+async function getGemini(): Promise<GoogleGenerativeAI> {
   if (!gemini) {
-    const { GoogleGenerativeAI } = await import("@google/generative-ai");
+    const { GoogleGenerativeAI: GoogleAIClass } = await import("@google/generative-ai");
     const apiKey = process.env.GOOGLE_AI_API_KEY || process.env.GEMINI_API_KEY;
     if (!apiKey) {
       throw new Error(
         "GOOGLE_AI_API_KEY or GEMINI_API_KEY environment variable is required"
       );
     }
-    gemini = new GoogleGenerativeAI(apiKey);
+    gemini = new GoogleAIClass(apiKey);
   }
   return gemini;
 }
@@ -102,9 +106,9 @@ async function executeWithClaude(
     });
 
     const textBlock = response.content.find(
-      (block: any) => block.type === "text"
+      (block) => block.type === "text"
     );
-    return textBlock?.text || "";
+    return textBlock && "text" in textBlock ? textBlock.text : "";
   });
 }
 

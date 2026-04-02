@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { topics } from "@/data/topics";
-import { useLogicGraph } from "@/hooks/useLogicGraph";
+import { useLogicGraph, getLoadedTopics } from "@/hooks/useLogicGraph";
 import { calculateEvidenceScore } from "@/types/logic";
 import type { Pillar, Evidence } from "@/types/logic";
 import {
@@ -61,6 +60,8 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
   return (
     <button
       onClick={() => setExpanded(!expanded)}
+      aria-expanded={expanded}
+      aria-label={`${isFor ? "Supporting" : "Opposing"} evidence: ${evidence.title}`}
       className="w-full text-left"
     >
       <div
@@ -144,10 +145,11 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
   const againstEvidence = evidence.filter((e) => e.side === "against");
 
   return (
-    <div className="border border-stone-200/60 rounded-xl overflow-hidden bg-white/50">
+    <div className="border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl overflow-hidden bg-white/50 dark:bg-[#252420]/50">
       {/* Pillar header */}
       <button
         onClick={() => setExpanded(!expanded)}
+        aria-expanded={expanded}
         className="flex w-full items-center gap-3 px-4 py-3.5 text-left hover:bg-stone-50/50 transition-colors"
       >
         <span className="flex h-6 w-6 items-center justify-center rounded-full bg-stone-100 text-[11px] font-medium text-stone-500 flex-shrink-0">
@@ -255,7 +257,8 @@ export function MobileArgumentList() {
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const setView = useLogicGraph((state) => state.setView);
   const currentView = useLogicGraph((state) => state.currentView);
-  const topic = topics.find((t) => t.id === currentTopicId);
+  const topics = getLoadedTopics();
+  const topic = topics?.find((t) => t.id === currentTopicId);
 
   if (!topic) return null;
 
@@ -293,7 +296,7 @@ export function MobileArgumentList() {
         </div>
 
         {/* View switcher (mobile-optimized) */}
-        <div className="flex gap-1 p-1 rounded-lg bg-stone-100/80">
+        <div className="flex gap-1 p-1 rounded-lg bg-stone-100/80 dark:bg-stone-800/80" role="tablist" aria-label="View mode">
           {(
             [
               { id: "logic-map" as const, label: "Arguments", icon: Scale },
@@ -304,13 +307,15 @@ export function MobileArgumentList() {
             <button
               key={id}
               onClick={() => setView(id)}
+              role="tab"
+              aria-selected={currentView === id}
               className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-md text-[13px] font-medium transition-colors ${
                 currentView === id
-                  ? "bg-white text-stone-800 shadow-sm"
+                  ? "bg-white dark:bg-[var(--bg-card)] text-stone-800 dark:text-[var(--text-primary)] shadow-sm"
                   : "text-stone-500"
               }`}
             >
-              <Icon className="h-3.5 w-3.5" />
+              <Icon className="h-3.5 w-3.5" aria-hidden="true" />
               {label}
             </button>
           ))}

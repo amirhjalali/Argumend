@@ -75,7 +75,7 @@ export function MapLegend() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="w-48 md:w-56 lg:w-64 rounded-2xl border border-stone-200/40 bg-[#faf8f5]/95 backdrop-blur-sm p-4 md:p-5 shadow-2xl max-h-[45vh] md:max-h-none overflow-y-auto"
+            className="w-48 md:w-56 lg:w-64 rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm p-4 md:p-5 shadow-2xl max-h-[45vh] md:max-h-none overflow-y-auto"
           >
             {/* Header */}
             <div className="mb-4 flex items-center justify-between">
@@ -84,7 +84,7 @@ export function MapLegend() {
               </h3>
               <button
                 onClick={() => setIsOpen(false)}
-                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 dark:hover:bg-[#302e2a] hover:text-stone-600 dark:hover:text-stone-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
                 aria-label="Collapse legend"
               >
                 <X className="h-4 w-4" />
@@ -112,7 +112,7 @@ export function MapLegend() {
                     >
                       {item.label}
                     </p>
-                    <p className="text-[10px] md:text-[11px] leading-snug text-stone-500 mt-0.5">
+                    <p className="text-[10px] md:text-[11px] leading-snug text-stone-500 dark:text-[#8a8279] mt-0.5">
                       {item.description}
                     </p>
                   </div>
@@ -121,8 +121,8 @@ export function MapLegend() {
             </div>
 
             {/* Tip */}
-            <div className="mt-4 border-t border-stone-200/60 pt-3">
-              <p className="text-[11px] md:text-xs text-stone-500 leading-relaxed">
+            <div className="mt-4 border-t border-stone-200/60 dark:border-[var(--border-default)] pt-3">
+              <p className="text-[11px] md:text-xs text-stone-500 dark:text-[#8a8279] leading-relaxed">
                 <span className="font-semibold text-deep">Tip:</span> Click &ldquo;Explore&rdquo; on nodes to reveal deeper arguments.
               </p>
             </div>
@@ -134,7 +134,8 @@ export function MapLegend() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="flex items-center gap-1.5 rounded-xl border border-stone-200/40 bg-[#faf8f5]/95 backdrop-blur-sm px-3 py-2 text-xs text-stone-500 shadow-lg hover:border-stone-300 hover:shadow-xl transition-all"
+            aria-label="Show map legend"
+            className="flex items-center gap-1.5 rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm px-3 py-2 text-xs text-stone-500 dark:text-[#8a8279] shadow-lg hover:border-stone-300 dark:hover:border-[#4a4640] hover:shadow-xl transition-all"
           >
             <Info className="h-3.5 w-3.5 text-deep" />
             <span className="font-medium">Legend</span>

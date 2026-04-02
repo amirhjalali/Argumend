@@ -138,19 +138,19 @@ ${againstMsg?.content || "*No argument*"}
   };
 
   return (
-    <div className="bg-white/80 backdrop-blur-sm rounded-xl border border-stone-200/60 overflow-hidden">
+    <div className="bg-white/80 dark:bg-[#252420]/80 backdrop-blur-sm rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-stone-200/60">
+      <div className="flex items-center justify-between p-4 border-b border-stone-200/60 dark:border-[var(--border-default)]">
         <div className="flex items-center gap-2">
           <Share2 className="w-4 h-4 text-deep" />
-          <span className="font-serif font-semibold text-stone-800">
+          <span className="font-serif font-semibold text-stone-800 dark:text-[#e8e4de]">
             Share to Moltbook
           </span>
         </div>
         {onClose && (
           <button
             onClick={onClose}
-            className="p-1.5 hover:bg-stone-100 rounded-lg transition-colors"
+            className="p-1.5 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] rounded-lg transition-colors"
             aria-label="Close share dialog"
           >
             <X className="w-4 h-4 text-stone-500" />
@@ -169,7 +169,7 @@ ${againstMsg?.content || "*No argument*"}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <p className="text-sm text-stone-600 mb-4">
+              <p className="text-sm text-stone-600 dark:text-[#b0a99f] mb-4">
                 Share this debate with the Moltbook AI agent community. Your debate
                 will be posted to the <span className="font-medium">argumend</span>{" "}
                 submolt where other AI agents can discuss and respond.
@@ -178,7 +178,7 @@ ${againstMsg?.content || "*No argument*"}
               <div className="flex gap-3">
                 <button
                   onClick={handlePreview}
-                  className="flex-1 px-4 py-2.5 text-sm font-medium text-stone-600 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors"
+                  className="flex-1 px-4 py-2.5 text-sm font-medium text-stone-600 dark:text-[#b0a99f] bg-stone-100 dark:bg-[#302e2a] hover:bg-stone-200 dark:hover:bg-[#3d3a36] rounded-lg transition-colors"
                 >
                   Preview Post
                 </button>
@@ -201,8 +201,8 @@ ${againstMsg?.content || "*No argument*"}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className="bg-stone-50 rounded-lg p-3 mb-4 max-h-64 overflow-y-auto">
-                <pre className="text-xs text-stone-600 whitespace-pre-wrap font-mono">
+              <div className="bg-stone-50 dark:bg-[#201f1c] rounded-lg p-3 mb-4 max-h-64 overflow-y-auto">
+                <pre className="text-xs text-stone-600 dark:text-[#b0a99f] whitespace-pre-wrap font-mono">
                   {formatDebateContent()}
                 </pre>
               </div>
@@ -210,7 +210,7 @@ ${againstMsg?.content || "*No argument*"}
               <div className="flex gap-3">
                 <button
                   onClick={handleBack}
-                  className="flex-1 px-4 py-2.5 text-sm font-medium text-stone-600 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors"
+                  className="flex-1 px-4 py-2.5 text-sm font-medium text-stone-600 dark:text-[#b0a99f] bg-stone-100 dark:bg-[#302e2a] hover:bg-stone-200 dark:hover:bg-[#3d3a36] rounded-lg transition-colors"
                 >
                   Back
                 </button>
@@ -235,7 +235,7 @@ ${againstMsg?.content || "*No argument*"}
               className="flex flex-col items-center py-6"
             >
               <Loader2 className="w-8 h-8 animate-spin text-deep mb-3" />
-              <p className="text-sm text-stone-600">Posting to Moltbook...</p>
+              <p className="text-sm text-stone-600 dark:text-[#b0a99f]">Posting to Moltbook...</p>
             </motion.div>
           )}
 
@@ -249,10 +249,10 @@ ${againstMsg?.content || "*No argument*"}
               className="text-center py-4"
             >
               <CheckCircle className="w-10 h-10 text-emerald-500 mx-auto mb-3" />
-              <p className="font-serif text-lg text-stone-800 mb-2">
+              <p className="font-serif text-lg text-stone-800 dark:text-[#e8e4de] mb-2">
                 Shared Successfully!
               </p>
-              <p className="text-sm text-stone-600 mb-4">
+              <p className="text-sm text-stone-600 dark:text-[#b0a99f] mb-4">
                 Your debate is now live on Moltbook.
               </p>
               {postUrl && (
@@ -279,17 +279,17 @@ ${againstMsg?.content || "*No argument*"}
               className="text-center py-4"
             >
               <Clock className="w-10 h-10 text-rust-500 mx-auto mb-3" />
-              <p className="font-serif text-lg text-stone-800 mb-2">
+              <p className="font-serif text-lg text-stone-800 dark:text-[#e8e4de] mb-2">
                 Rate Limited
               </p>
-              <p className="text-sm text-stone-600 mb-4">
+              <p className="text-sm text-stone-600 dark:text-[#b0a99f] mb-4">
                 Moltbook allows 1 post per 30 minutes. Please wait
                 {cooldownMinutes ? ` ${cooldownMinutes} minutes` : ""} before
                 posting again.
               </p>
               <button
                 onClick={handleBack}
-                className="px-4 py-2 text-sm font-medium text-stone-600 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors"
+                className="px-4 py-2 text-sm font-medium text-stone-600 dark:text-[#b0a99f] bg-stone-100 dark:bg-[#302e2a] hover:bg-stone-200 dark:hover:bg-[#3d3a36] rounded-lg transition-colors"
               >
                 Got it
               </button>
@@ -316,7 +316,7 @@ ${againstMsg?.content || "*No argument*"}
               <div className="flex gap-3">
                 <button
                   onClick={handleBack}
-                  className="flex-1 px-4 py-2.5 text-sm font-medium text-stone-600 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors"
+                  className="flex-1 px-4 py-2.5 text-sm font-medium text-stone-600 dark:text-[#b0a99f] bg-stone-100 dark:bg-[#302e2a] hover:bg-stone-200 dark:hover:bg-[#3d3a36] rounded-lg transition-colors"
                 >
                   Back
                 </button>

@@ -1,11 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { auth } from "@/lib/auth";
+import { rateLimit } from "@/lib/rate-limit";
 import {
   subscribeTopic,
   unsubscribeTopic,
   isSubscribed,
   getSubscriberCount,
 } from "@/lib/db/queries";
+
+const SubscriptionRequestSchema = z.object({
+  topicId: z.string().min(1, "topicId is required").max(200),
+  subscribe: z.boolean(),
+});
 
 /**
  * GET /api/topic-subscriptions?topicId=xxx
@@ -15,7 +22,7 @@ export async function GET(req: NextRequest) {
   try {
     const url = new URL(req.url);
     const topicId = url.searchParams.get("topicId");
-    if (!topicId) {
+    if (!topicId || topicId.length > 200) {
       return NextResponse.json(
         { error: "topicId is required" },
         { status: 400 }
@@ -54,17 +61,24 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { topicId, subscribe } = (await req.json()) as {
-      topicId?: string;
-      subscribe?: boolean;
-    };
-
-    if (!topicId || typeof topicId !== "string") {
+    // Rate limit: 20 requests per minute per user
+    const limit = rateLimit(`topic-sub:${session.user.id}`, { maxRequests: 20, windowMs: 60 * 1000 });
+    if (!limit.success) {
       return NextResponse.json(
-        { error: "topicId is required" },
+        { error: "Rate limited. Please try again later." },
+        { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+      );
+    }
+
+    const raw = await req.json();
+    const parseResult = SubscriptionRequestSchema.safeParse(raw);
+    if (!parseResult.success) {
+      return NextResponse.json(
+        { error: "Invalid request", details: parseResult.error.flatten() },
         { status: 400 }
       );
     }
+    const { topicId, subscribe } = parseResult.data;
 
     if (subscribe) {
       await subscribeTopic(session.user.id, topicId);
@@ -75,7 +89,7 @@ export async function POST(req: NextRequest) {
     const subscriberCount = await getSubscriberCount(topicId);
 
     return NextResponse.json({
-      subscribed: !!subscribe,
+      subscribed: subscribe,
       subscriberCount,
     });
   } catch {

@@ -75,11 +75,11 @@ export default function ConceptsPage() {
               <Link
                 key={concept.id}
                 href={`/concepts/${concept.id}`}
-                className="group bg-white/80 rounded-xl p-6 border border-stone-200/60 shadow-card hover:border-[#4f7b77]/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                className="group bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:border-[#4f7b77]/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3.5 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] rounded-xl border border-[#e8e0d4] shadow-sm">
+                  <div className="p-3.5 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] dark:from-[#302e2a] dark:to-[#252420] rounded-xl border border-[#e8e0d4] dark:border-[#3d3a36] shadow-sm">
                     <Icon className="h-6 w-6 text-deep" strokeWidth={1.8} />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -95,7 +95,7 @@ export default function ConceptsPage() {
                         <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                       {concept.topicExamples.length > 0 && (
-                        <span className="text-[11px] text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">
+                        <span className="text-[11px] text-stone-400 dark:text-stone-500 bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 rounded-full">
                           Used in {concept.topicExamples.length} topics
                         </span>
                       )}
@@ -107,7 +107,7 @@ export default function ConceptsPage() {
           })}
         </div>
 
-        <div className="mt-10 bg-white/80 rounded-xl p-6 border border-[#e8e0d4]">
+        <div className="mt-10 bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-[#e8e0d4] dark:border-[#3d3a36]">
           <h2 className="font-serif text-xl text-primary mb-3">
             The Methodology
           </h2>
@@ -134,7 +134,7 @@ export default function ConceptsPage() {
           </ul>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-stone-200/60">
+        <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
           <p className="text-sm text-secondary">
             These concepts form the backbone of productive disagreement.
           </p>

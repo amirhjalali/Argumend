@@ -91,14 +91,14 @@ export default async function DashboardPage() {
 
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#f4f1eb]">
+      <div className="min-h-screen bg-[#f4f1eb] dark:bg-[var(--bg-canvas)]">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {/* Header */}
           <div className="mb-10">
             <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary mb-2 leading-[1.08]">
               Welcome back, {firstName}
             </h1>
-            <p className="text-base text-stone-500 leading-relaxed">
+            <p className="text-base text-stone-500 dark:text-[var(--text-muted)] leading-relaxed">
               Your saved topics and recent debate activity.
             </p>
           </div>
@@ -110,15 +110,15 @@ export default async function DashboardPage() {
               <h2 className="font-serif text-2xl text-primary">
                 Saved Topics
               </h2>
-              <span className="ml-auto text-sm text-stone-400 font-mono tabular-nums">
+              <span className="ml-auto text-sm text-stone-400 dark:text-[var(--text-muted)] font-mono tabular-nums">
                 {savedTopicsList.length}
               </span>
             </div>
 
             {savedTopicsList.length === 0 ? (
-              <div className="rounded-xl border border-stone-200/60 bg-white/60 p-8 text-center">
-                <Bookmark className="h-8 w-8 text-stone-300 mx-auto mb-3" />
-                <p className="text-stone-500 mb-4">
+              <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-8 text-center">
+                <Bookmark className="h-8 w-8 text-stone-300 dark:text-[var(--text-muted)] mx-auto mb-3" />
+                <p className="text-stone-500 dark:text-[var(--text-secondary)] mb-4">
                   No saved topics yet. Browse topics and hit the bookmark button
                   to save them here.
                 </p>
@@ -140,27 +140,27 @@ export default async function DashboardPage() {
                     <Link
                       key={topic.id}
                       href={`/topics/${topic.id}`}
-                      className={`group flex flex-col bg-white border border-stone-200/60 border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}
+                      className={`group flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}
                     >
                       <h3 className="font-serif text-base text-primary group-hover:text-deep transition-colors leading-snug mb-1.5">
                         {topic.title}
                       </h3>
-                      <p className="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-4 flex-1">
+                      <p className="text-xs text-stone-500 dark:text-[var(--text-muted)] leading-relaxed line-clamp-2 mb-4 flex-1">
                         {topic.meta_claim}
                       </p>
 
                       {/* Confidence bar */}
                       <div className="mb-3">
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-[11px] font-medium text-stone-500 uppercase tracking-widest">
+                          <span className="text-[11px] font-medium text-stone-500 dark:text-[var(--text-muted)] uppercase tracking-widest">
                             Confidence
                           </span>
-                          <span className="font-mono text-xs tabular-nums text-stone-600 font-semibold">
+                          <span className="font-mono text-xs tabular-nums text-stone-600 dark:text-stone-400 font-semibold">
                             {topic.confidence_score}%
                           </span>
                         </div>
                         <div
-                          className="h-1.5 rounded-full bg-stone-200/80 overflow-hidden"
+                          className="h-1.5 rounded-full bg-stone-200/80 dark:bg-[var(--bg-overlay)] overflow-hidden"
                           role="meter"
                           aria-valuenow={topic.confidence_score}
                           aria-valuemin={0}
@@ -189,7 +189,7 @@ export default async function DashboardPage() {
                             {statusLabels[topic.status]}
                           </span>
                         </div>
-                        <ArrowRight className="h-3.5 w-3.5 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 transition-all flex-shrink-0" />
+                        <ArrowRight className="h-3.5 w-3.5 text-stone-300 dark:text-[var(--text-muted)] group-hover:text-deep group-hover:translate-x-0.5 transition-all flex-shrink-0" />
                       </div>
                     </Link>
                   );
@@ -205,15 +205,15 @@ export default async function DashboardPage() {
               <h2 className="font-serif text-2xl text-primary">
                 Recent Debates
               </h2>
-              <span className="ml-auto text-sm text-stone-400 font-mono tabular-nums">
+              <span className="ml-auto text-sm text-stone-400 dark:text-[var(--text-muted)] font-mono tabular-nums">
                 {recentDebates.length}
               </span>
             </div>
 
             {recentDebates.length === 0 ? (
-              <div className="rounded-xl border border-stone-200/60 bg-white/60 p-8 text-center">
-                <Swords className="h-8 w-8 text-stone-300 mx-auto mb-3" />
-                <p className="text-stone-500 mb-4">
+              <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-8 text-center">
+                <Swords className="h-8 w-8 text-stone-300 dark:text-[var(--text-muted)] mx-auto mb-3" />
+                <p className="text-stone-500 dark:text-[var(--text-secondary)] mb-4">
                   No debates yet. Start a debate on any topic to see it here.
                 </p>
                 <Link
@@ -229,7 +229,7 @@ export default async function DashboardPage() {
                 {recentDebates.map((debate) => (
                   <div
                     key={debate.id}
-                    className="flex items-center gap-4 rounded-xl border border-stone-200/60 bg-white/80 p-4 hover:shadow-sm transition-shadow"
+                    className="flex items-center gap-4 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/80 dark:bg-[#252420]/80 p-4 hover:shadow-sm transition-shadow"
                   >
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
                       <Swords className="h-5 w-5 text-deep" />
@@ -240,10 +240,10 @@ export default async function DashboardPage() {
                         {debate.topicTitle}
                       </h3>
                       <div className="flex items-center gap-3 mt-1">
-                        <span className="text-xs text-stone-400 font-mono">
+                        <span className="text-xs text-stone-400 dark:text-[var(--text-muted)] font-mono">
                           {debate.forModel} vs {debate.againstModel}
                         </span>
-                        <span className="text-xs text-stone-400 flex items-center gap-1">
+                        <span className="text-xs text-stone-400 dark:text-[var(--text-muted)] flex items-center gap-1">
                           <Clock className="h-3 w-3" />
                           {formatDate(debate.createdAt)}
                         </span>

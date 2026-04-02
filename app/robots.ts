@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/auth/", "/dashboard"],
+      disallow: ["/api/", "/auth/", "/dashboard", "/embed/"],
     },
     sitemap: "https://argumend.org/sitemap.xml",
   };

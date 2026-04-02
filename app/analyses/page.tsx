@@ -100,8 +100,8 @@ export default async function AnalysesPage() {
 
           {/* Analyses List */}
           {analyses.length === 0 ? (
-            <div className="bg-white/80 border border-stone-200/60 rounded-xl p-10 md:p-14 text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-stone-100 mb-5">
+            <div className="bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-10 md:p-14 text-center">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-stone-100 dark:bg-[var(--bg-overlay)] mb-5">
                 <FileSearch className="h-7 w-7 text-muted" strokeWidth={1.5} />
               </div>
               <h3 className="font-serif text-lg text-primary mb-2">
@@ -131,7 +131,7 @@ export default async function AnalysesPage() {
                   <Link
                     key={analysis.id}
                     href={`/analysis/${analysis.id}`}
-                    className="group block bg-white/80 border border-stone-200/60 rounded-xl p-5 md:p-6 shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                    className="group block bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-5 md:p-6 shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -147,7 +147,7 @@ export default async function AnalysesPage() {
 
                         {/* Confidence bar */}
                         <div className="mt-3 flex items-center gap-3">
-                          <div className="flex-1 max-w-[120px] h-1.5 bg-stone-100 rounded-full overflow-hidden">
+                          <div className="flex-1 max-w-[120px] h-1.5 bg-stone-100 dark:bg-[var(--bg-overlay)] rounded-full overflow-hidden">
                             <div
                               className="h-full bg-deep rounded-full transition-all duration-500"
                               style={{ width: `${confidencePct}%` }}
@@ -163,12 +163,12 @@ export default async function AnalysesPage() {
                             <Clock className="h-3 w-3" />
                             {date}
                           </span>
-                          <span className="px-2 py-0.5 bg-stone-100 rounded-full text-stone-500 text-[11px]">
+                          <span className="px-2 py-0.5 bg-stone-100 dark:bg-[var(--bg-overlay)] rounded-full text-stone-500 dark:text-stone-400 text-[11px]">
                             {analysis.contentType}
                           </span>
                         </div>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 mt-1 transition-all duration-200" />
+                      <ChevronRight className="h-5 w-5 text-stone-300 dark:text-stone-600 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 mt-1 transition-all duration-200" />
                     </div>
                   </Link>
                 );

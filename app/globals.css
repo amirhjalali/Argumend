@@ -1,4 +1,4 @@
-@import 'katex/dist/katex.min.css';
+/* katex CSS moved to CruxModal component — only loaded when math is displayed */
 
 @tailwind base;
 @tailwind components;
@@ -23,7 +23,7 @@
 
   --text-primary: #3d3a36;
   --text-secondary: #564d45;
-  --text-muted: #7a7068;
+  --text-muted: #6d6058; /* Darkened from #7a7068 for WCAG AA 4.5:1 on parchment */
   --text-paragraph: rgba(31, 31, 29, 0.85);
   --text-heading: #1f1f1d;
 

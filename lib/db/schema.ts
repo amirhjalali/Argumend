@@ -13,6 +13,13 @@ import {
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 import type { AdapterAccountType } from "next-auth/adapters";
+import type {
+  ExtractedPosition,
+  IdentifiedCrux,
+  PotentialFallacy,
+  DetectedBias,
+} from "@/lib/analyze/extractor";
+import type { JudgeScore, JudgingResult } from "@/lib/judge/rubric";
 
 // ============================================================================
 // Auth.js tables — users, accounts, sessions, verification tokens
@@ -96,13 +103,13 @@ export const analyses = pgTable(
     topic: text("topic").notNull(),
     summary: text("summary").notNull(),
     /** Full extracted positions as JSON */
-    positions: jsonb("positions").notNull(),
+    positions: jsonb("positions").$type<ExtractedPosition[]>().notNull(),
     /** Identified cruxes as JSON */
-    cruxes: jsonb("cruxes").notNull(),
+    cruxes: jsonb("cruxes").$type<IdentifiedCrux[]>().notNull(),
     /** Potential fallacies as JSON */
-    fallacies: jsonb("fallacies").notNull(),
+    fallacies: jsonb("fallacies").$type<PotentialFallacy[]>().notNull(),
     /** Detected biases as JSON */
-    detectedBiases: jsonb("detected_biases"),
+    detectedBiases: jsonb("detected_biases").$type<DetectedBias[]>(),
     /** Extraction confidence 0-1 */
     confidence: real("confidence").notNull(),
     /** Overall FOR position strength 1-10 */
@@ -190,9 +197,9 @@ export const judgments = pgTable(
     hasConsensus: boolean("has_consensus").notNull(),
     flaggedForReview: boolean("flagged_for_review").notNull(),
     /** Aggregated scores { for: { average, byDimension }, against: { ... } } */
-    aggregatedScores: jsonb("aggregated_scores").notNull(),
+    aggregatedScores: jsonb("aggregated_scores").$type<JudgingResult["aggregatedScores"]>().notNull(),
     /** Disagreement details */
-    disagreements: jsonb("disagreements").notNull(),
+    disagreements: jsonb("disagreements").$type<JudgingResult["disagreements"]>().notNull(),
     createdAt: timestamp("created_at").defaultNow().notNull(),
   },
   (table) => [
@@ -216,9 +223,9 @@ export const judgeVerdicts = pgTable(
     judgeName: text("judge_name").notNull(),
     model: text("model").notNull(),
     /** Full score object for "for" side */
-    forScore: jsonb("for_score").notNull(),
+    forScore: jsonb("for_score").$type<JudgeScore>().notNull(),
     /** Full score object for "against" side */
-    againstScore: jsonb("against_score").notNull(),
+    againstScore: jsonb("against_score").$type<JudgeScore>().notNull(),
     winner: text("winner").notNull(),
     overallReasoning: text("overall_reasoning").notNull(),
     latencyMs: integer("latency_ms"),

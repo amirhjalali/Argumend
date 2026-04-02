@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
 import { chunkForSse, generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
@@ -13,14 +14,27 @@ import {
   type DebateMessage,
 } from "@/lib/debate/shared";
 
-interface StreamRequest {
-  topic: string;
-  side: "for" | "against";
-  model: "claude" | "gpt-4" | "gemini" | "grok";
-  round: number;
-  previousMessages: DebateMessage[];
-  pillars?: DebatePillar[];
-}
+const StreamRequestSchema = z.object({
+  topic: z.string().min(1).max(500),
+  side: z.enum(["for", "against"]),
+  model: z.enum(["claude", "gpt-4", "gemini", "grok"]),
+  round: z.number().int().min(1).max(20),
+  previousMessages: z.array(z.object({
+    id: z.string().optional(),
+    side: z.enum(["for", "against"]),
+    content: z.string(),
+    round: z.number().int().min(1),
+    model: z.string().optional(),
+    role: z.string().optional(),
+  })),
+  pillars: z.array(z.object({
+    title: z.string(),
+    skepticPremise: z.string(),
+    proponentRebuttal: z.string(),
+  })).optional(),
+});
+
+type StreamRequest = z.infer<typeof StreamRequestSchema>;
 
 /**
  * SSE helper: encode a data event
@@ -211,19 +225,23 @@ export async function POST(request: NextRequest) {
 
   let body: StreamRequest;
   try {
-    body = await request.json();
+    const raw = await request.json();
+    const parseResult = StreamRequestSchema.safeParse(raw);
+    if (!parseResult.success) {
+      return new Response(
+        JSON.stringify({ error: "Invalid request", details: parseResult.error.flatten() }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+    body = parseResult.data;
   } catch {
     return new Response(JSON.stringify({ error: "Invalid JSON" }), {
       status: 400,
+      headers: { "Content-Type": "application/json" },
     });
   }
 
   const { topic, side, model, round, previousMessages, pillars } = body;
-  if (!topic || !side || !model || !round) {
-    return new Response(JSON.stringify({ error: "Missing required fields" }), {
-      status: 400,
-    });
-  }
 
   try {
     if (!isLiveDebateEnabled()) {

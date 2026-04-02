@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { JsonLd } from "@/components/JsonLd";
 import { ArrowRight } from "lucide-react";
 import { quotes as allQuotes } from "@/data/quotes";
 
@@ -45,24 +44,9 @@ const quotes = allQuotes.slice(0, 6);
 export default function AboutPage() {
   return (
     <AppShell>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "AboutPage",
-          name: "About Argumend",
-          description:
-            "What if we could disagree without destroying each other? Argumend maps controversial topics visually with steel-manned arguments and evidence-based reasoning.",
-          url: "https://argumend.org/about",
-          mainEntity: {
-            "@type": "Organization",
-            name: "Argumend",
-            url: "https://argumend.org",
-          },
-        }}
-      />
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         {/* Hero — no label, heading-first */}
-        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-16 md:mb-24">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent dark:from-[#1a1917]/80 -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-16 md:mb-24">
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -71,7 +55,7 @@ export default function AboutPage() {
           />
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
             What if we could disagree<br />
-            <span className="text-stone-500">without destroying each other?</span>
+            <span className="text-stone-500 dark:text-stone-400">without destroying each other?</span>
           </h1>
           <p className="text-lg text-secondary leading-relaxed max-w-2xl">
             Most debates generate heat, not light. We yell past each other, strawman positions we don&apos;t understand,
@@ -90,7 +74,7 @@ export default function AboutPage() {
             {stakes.map((stake) => (
               <div
                 key={stake.title}
-                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/60"
+                className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)]"
               >
                 <h3 className="font-semibold text-primary mb-1.5">{stake.title}</h3>
                 <p className="text-sm text-secondary leading-relaxed">{stake.description}</p>
@@ -133,7 +117,7 @@ export default function AboutPage() {
             {principles.map((principle, i) => (
               <div
                 key={principle.title}
-                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/60"
+                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[var(--border-default)]"
               >
                 <span className="font-mono text-xs font-bold text-stone-400/80 mb-3 block">0{i + 1}</span>
                 <h3 className="font-serif text-lg text-primary mb-2">{principle.title}</h3>
@@ -144,7 +128,7 @@ export default function AboutPage() {
         </section>
 
         {/* Philosophy */}
-        <section className="mb-16 md:mb-24 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1917]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Philosophy</h2>
           <div className="space-y-5 text-base md:text-lg text-secondary leading-[1.75]">
             <p>
@@ -171,7 +155,7 @@ export default function AboutPage() {
         </section>
 
         {/* Confidence Explainer */}
-        <section className="bg-[#faf8f5] rounded-2xl p-6 md:p-8 mb-16 md:mb-24 border border-stone-200/60">
+        <section className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-2xl p-6 md:p-8 mb-16 md:mb-24 border border-stone-200/60 dark:border-[var(--border-default)]">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Understanding confidence scores</h2>
           <p className="text-sm text-secondary mb-6">
             We don&apos;t claim to know the truth. We show you how confident the evidence makes us&mdash;and let you decide.
@@ -181,24 +165,24 @@ export default function AboutPage() {
               <span className="font-mono tabular-nums text-deep text-2xl font-bold w-16 text-center">
                 90%+
               </span>
-              <p className="text-sm text-stone-600">
-                <strong className="text-stone-900">Settled</strong> — Overwhelming evidence, scientific consensus
+              <p className="text-sm text-stone-600 dark:text-stone-400">
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Settled</strong> — Overwhelming evidence, scientific consensus
               </p>
             </div>
             <div className="flex items-center gap-4">
               <span className="font-mono tabular-nums text-deep text-2xl font-bold w-16 text-center">
                 50-89%
               </span>
-              <p className="text-sm text-stone-600">
-                <strong className="text-stone-900">Probable</strong> — Good evidence, some uncertainty remains
+              <p className="text-sm text-stone-600 dark:text-stone-400">
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Probable</strong> — Good evidence, some uncertainty remains
               </p>
             </div>
             <div className="flex items-center gap-4">
               <span className="font-mono tabular-nums text-deep text-2xl font-bold w-16 text-center">
                 &lt;50%
               </span>
-              <p className="text-sm text-stone-600">
-                <strong className="text-stone-900">Contested</strong> — Genuine uncertainty, reasonable people disagree
+              <p className="text-sm text-stone-600 dark:text-stone-400">
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Contested</strong> — Genuine uncertainty, reasonable people disagree
               </p>
             </div>
           </div>
@@ -211,7 +195,7 @@ export default function AboutPage() {
             {quotes.map((quote, i) => (
               <div
                 key={i}
-                className="break-inside-avoid p-5 rounded-xl border border-stone-200/60 bg-white/50"
+                className="break-inside-avoid p-5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/50 dark:bg-[#1a1917]/50"
               >
                 <p className="font-serif text-lg text-primary italic leading-relaxed mb-3">
                   &ldquo;{quote.text}&rdquo;

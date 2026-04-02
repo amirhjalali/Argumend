@@ -142,7 +142,7 @@ export default function MethodologyPage() {
       />
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero — keep label, omit subtitle (heading is self-explanatory) */}
-        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent dark:from-[#1a1917]/80 -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -154,7 +154,7 @@ export default function MethodologyPage() {
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary leading-[1.08]">
             Not just another<br />
-            <span className="text-stone-500">AI opinion</span>
+            <span className="text-stone-500 dark:text-stone-400">AI opinion</span>
           </h1>
         </div>
 
@@ -173,7 +173,7 @@ export default function MethodologyPage() {
             {chatgptProblems.map((problem) => (
               <div
                 key={problem.title}
-                className="p-5 rounded-xl bg-[#faf8f5] border border-stone-200/60"
+                className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)]"
               >
                 <h3 className="font-semibold text-primary mb-1.5">
                   {problem.title}
@@ -196,11 +196,11 @@ export default function MethodologyPage() {
           </p>
 
           <div className="relative space-y-4">
-            <div className="absolute left-[2.25rem] top-8 bottom-8 w-px bg-gradient-to-b from-stone-200 via-stone-300 to-stone-200 hidden md:block" />
+            <div className="absolute left-[2.25rem] top-8 bottom-8 w-px bg-gradient-to-b from-stone-200 via-stone-300 to-stone-200 dark:from-[#3d3a36] dark:via-[#4a4640] dark:to-[#3d3a36] hidden md:block" />
             {methodologySteps.map((step) => (
               <div
                 key={step.number}
-                className="relative bg-[#fefcf9] rounded-xl border border-stone-200/60 overflow-hidden"
+                className="relative bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden"
                 style={{ borderLeftWidth: "4px", borderLeftColor: step.color }}
               >
                 <div className="p-5 md:p-6">
@@ -255,7 +255,7 @@ export default function MethodologyPage() {
             Multiple models, independent evaluation, aggregated results.
           </p>
 
-          <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] rounded-2xl border border-stone-200/60 p-8 md:p-12">
+          <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] dark:from-[var(--bg-card)] dark:to-[#302e2a] rounded-2xl border border-stone-200/60 dark:border-[var(--border-default)] p-8 md:p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {[
                 { name: "Claude", label: "Judge 1" },
@@ -265,7 +265,7 @@ export default function MethodologyPage() {
               ].map((judge) => (
                 <div
                   key={judge.name}
-                  className="flex flex-col items-center p-4 rounded-xl bg-white border border-stone-200/60 shadow-sm"
+                  className="flex flex-col items-center p-4 rounded-xl bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] shadow-sm"
                 >
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4f7b77]/20 to-[#4f7b77]/5 flex items-center justify-center mb-2">
                     <span className="font-serif text-sm font-bold text-deep">{judge.name[0]}</span>
@@ -278,11 +278,11 @@ export default function MethodologyPage() {
 
             <div className="flex justify-center mb-6">
               <div className="flex flex-col items-center gap-1">
-                <div className="w-px h-6 bg-stone-300" />
+                <div className="w-px h-6 bg-stone-300 dark:bg-[#3d3a36]" />
                 <div className="text-[11px] text-stone-400 font-medium tracking-wide">
                   INDEPENDENT SCORING
                 </div>
-                <div className="w-px h-6 bg-stone-300" />
+                <div className="w-px h-6 bg-stone-300 dark:bg-[#3d3a36]" />
               </div>
             </div>
 
@@ -303,7 +303,7 @@ export default function MethodologyPage() {
         </section>
 
         {/* Evidence Weighting */}
-        <section className="mb-16 md:mb-24 bg-white/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1917]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
             Evidence scoring dimensions
           </h2>
@@ -318,7 +318,7 @@ export default function MethodologyPage() {
             {evidenceDimensions.map((dim) => (
               <div
                 key={dim.name}
-                className="bg-[#fefcf9] rounded-xl p-5 md:p-6 border border-stone-200/60"
+                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[var(--border-default)]"
                 style={{ borderLeftWidth: "4px", borderLeftColor: dim.color }}
               >
                 <div className="flex items-center justify-between mb-3">
@@ -351,14 +351,14 @@ export default function MethodologyPage() {
             model&apos;s opinion.
           </p>
 
-          <div className="bg-[#faf8f3] rounded-xl p-6 md:p-8 border border-stone-200/60 mb-6">
+          <div className="bg-[#faf8f3] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)] mb-6">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
                 <span className="font-mono text-sm font-bold text-deep">f(x)</span>
               </div>
               <div>
                 <p className="text-sm font-semibold text-primary">The Formula</p>
-                <p className="font-mono text-xs text-stone-500">
+                <p className="font-mono text-xs text-stone-500 dark:text-stone-400">
                   confidence = forScore / (forScore + againstScore + 1) x 100
                 </p>
               </div>
@@ -369,33 +369,33 @@ export default function MethodologyPage() {
                 <span className="w-14 text-center text-sm font-mono font-medium text-deep">
                   90%+
                 </span>
-                <div className="flex-1 h-2 bg-stone-200/50 rounded-full overflow-hidden">
+                <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
                   <div className="h-full w-[95%] bg-gradient-to-r from-[#4f7b77] to-[#5a8a86] rounded-full" />
                 </div>
-                <p className="text-sm text-stone-600 w-48">
-                  <strong className="text-stone-900">Settled</strong> — Scientific consensus
+                <p className="text-sm text-stone-600 dark:text-stone-400 w-48">
+                  <strong className="text-stone-900 dark:text-[var(--text-heading)]">Settled</strong> — Scientific consensus
                 </p>
               </div>
               <div className="flex items-center gap-4">
                 <span className="w-14 text-center text-sm font-mono font-medium text-rust-500">
                   50-89%
                 </span>
-                <div className="flex-1 h-2 bg-stone-200/50 rounded-full overflow-hidden">
+                <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
                   <div className="h-full w-[65%] bg-gradient-to-r from-rust-500 to-rust-600 rounded-full" />
                 </div>
-                <p className="text-sm text-stone-600 w-48">
-                  <strong className="text-stone-900">Probable</strong> — Good evidence, some uncertainty
+                <p className="text-sm text-stone-600 dark:text-stone-400 w-48">
+                  <strong className="text-stone-900 dark:text-[var(--text-heading)]">Probable</strong> — Good evidence, some uncertainty
                 </p>
               </div>
               <div className="flex items-center gap-4">
                 <span className="w-14 text-center text-sm font-mono font-medium text-[#a23b3b]">
                   &lt;50%
                 </span>
-                <div className="flex-1 h-2 bg-stone-200/50 rounded-full overflow-hidden">
+                <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
                   <div className="h-full w-[35%] bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] rounded-full" />
                 </div>
-                <p className="text-sm text-stone-600 w-48">
-                  <strong className="text-stone-900">Contested</strong> — Genuine uncertainty
+                <p className="text-sm text-stone-600 dark:text-stone-400 w-48">
+                  <strong className="text-stone-900 dark:text-[var(--text-heading)]">Contested</strong> — Genuine uncertainty
                 </p>
               </div>
             </div>
@@ -403,7 +403,7 @@ export default function MethodologyPage() {
         </section>
 
         {/* What This Means */}
-        <section className="mb-16 md:mb-24 border border-stone-200/60 rounded-2xl p-8 md:p-10">
+        <section className="mb-16 md:mb-24 border border-stone-200/60 dark:border-[var(--border-default)] rounded-2xl p-8 md:p-10">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-6">
             What this means for you
           </h2>
@@ -434,7 +434,7 @@ export default function MethodologyPage() {
           </Link>
           <Link
             href="/topics"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-300 text-stone-600 hover:border-deep/30 text-sm font-medium hover:bg-white/60 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-300 dark:border-[#3d3a36] text-stone-600 dark:text-stone-400 hover:border-deep/30 text-sm font-medium hover:bg-white/60 dark:hover:bg-[#302e2a] transition-colors"
           >
             Explore topics
             <Scale className="h-3.5 w-3.5" />

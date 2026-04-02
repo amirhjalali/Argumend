@@ -38,14 +38,14 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
             return (
               <li key={index} className="flex items-center gap-1.5">
                 {index > 0 && (
-                  <span className="text-stone-300 select-none">/</span>
+                  <span className="text-stone-300 dark:text-[#3d3a36] select-none">/</span>
                 )}
                 {isLast || !item.href ? (
-                  <span className="text-stone-600">{item.label}</span>
+                  <span className="text-stone-600 dark:text-[#b0a99f]">{item.label}</span>
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-stone-400 hover:text-stone-600 transition-colors"
+                    className="text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
                   >
                     {item.label}
                   </Link>
