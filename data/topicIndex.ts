@@ -53,10 +53,10 @@ export const CATEGORY_ORDER: TopicCategory[] = [
 ];
 
 /** Rotate this ID weekly to feature a different debate on the homepage. */
-export const featuredTopicId = "social-media-mental-health";
+export const featuredTopicId = "gun-control-effectiveness";
 
 /** Short editorial hook explaining why this topic is featured right now. */
 export const featuredReason =
-  "The Surgeon General just called for warning labels on social media. Where does the evidence actually land?";
+  "America's most argued topic. 400 million guns, 45,000 deaths a year. Where does the evidence actually land?";
 
 export type { TopicCategory, TopicStatus };
