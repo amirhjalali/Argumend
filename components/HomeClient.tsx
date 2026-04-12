@@ -27,8 +27,11 @@ import { ZoomIndicator } from "@/components/ZoomIndicator";
 import { NavigationPath } from "@/components/NavigationPath";
 import { TopicIntroPanel } from "@/components/TopicIntroPanel";
 import { HeroAnalyze } from "@/components/HeroAnalyze";
-import { QuickStartBanner } from "@/components/QuickStartBanner";
+import { FeaturedTopicHero } from "@/components/FeaturedTopicHero";
 import { Footer } from "@/components/Footer";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
+import { topicSummaries, CATEGORY_ORDER } from "@/data/topicIndex";
 import { getMiniMapColor } from "@/lib/variantStyles";
 import { GRAPH, MINIMAP } from "@/lib/constants";
 import type { LogicNodeData } from "@/types/graph";
@@ -44,10 +47,6 @@ const DebateView = dynamic(
 );
 const MobileArgumentList = dynamic(
   () => import("@/components/MobileArgumentList").then((m) => m.MobileArgumentList),
-  { ssr: false }
-);
-const OnboardingOverlay = dynamic(
-  () => import("@/components/OnboardingOverlay").then((m) => m.OnboardingOverlay),
   { ssr: false }
 );
 
@@ -109,6 +108,8 @@ function SidebarLayout({
     </div>
   );
 }
+
+const GRID_TOPICS_COUNT = 6;
 
 function CanvasExperience() {
   const nodeTypes = useMemo(
@@ -190,6 +191,11 @@ function CanvasExperience() {
 
   // Show the hero landing when no topic has been explicitly selected
   if (showHero) {
+    const gridTopics = CATEGORY_ORDER
+      .map((cat) => topicSummaries.find((t) => t.category === cat))
+      .filter(Boolean)
+      .slice(0, GRID_TOPICS_COUNT) as typeof topicSummaries;
+
     return (
       <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
         <a
@@ -198,7 +204,6 @@ function CanvasExperience() {
         >
           Skip to main content
         </a>
-        <OnboardingOverlay />
         <TopBar onMenuClick={sidebar.toggle} showBackToHero={false} />
 
         <SidebarLayout
@@ -207,8 +212,54 @@ function CanvasExperience() {
           onTopicSelect={handleTopicSelect}
         >
           <main id="main-content" role="main" className="relative flex-1 min-w-0 overflow-y-auto">
-            <QuickStartBanner onTopicSelect={handleTopicSelect} />
+            {/* Section 1: Featured Topic Hero */}
+            <FeaturedTopicHero onTopicSelect={handleTopicSelect} />
+
+            {/* Section 2: Topic Grid */}
+            <div className="px-4 md:px-8 py-10">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="font-serif text-xl font-semibold text-primary mb-5">
+                  {topicSummaries.length} topics analyzed
+                </h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                  {gridTopics.map((topic) => (
+                    <button
+                      key={topic.id}
+                      onClick={() => handleTopicSelect(topic.id)}
+                      className="group text-left p-4 bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] rounded-xl hover:border-deep/30 hover:shadow-md hover:scale-[1.01] hover:-translate-y-0.5 transition-all"
+                    >
+                      <h3 className="font-serif text-sm font-medium text-primary group-hover:text-deep transition-colors leading-snug line-clamp-2">
+                        {topic.title}
+                      </h3>
+                      <span
+                        className={`mt-2 inline-block text-xs font-mono px-1.5 py-0.5 rounded-md ${
+                          topic.confidence_score >= 80
+                            ? "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400"
+                            : topic.confidence_score >= 50
+                            ? "bg-rust-50 dark:bg-rust-900/30 text-rust-600 dark:text-rust-400"
+                            : "bg-stone-50 dark:bg-[#302e2a] text-stone-500"
+                        }`}
+                      >
+                        {topic.confidence_score}%
+                      </span>
+                    </button>
+                  ))}
+                </div>
+                <div className="mt-5 text-center">
+                  <Link
+                    href="/topics"
+                    className="inline-flex items-center gap-1 text-sm font-serif font-medium text-deep hover:text-deep-dark transition-colors group"
+                  >
+                    Browse all topics
+                    <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Section 3: Demoted Analyze CTA */}
             <HeroAnalyze onTopicSelect={handleTopicSelect} />
+
             <Footer />
           </main>
         </SidebarLayout>
