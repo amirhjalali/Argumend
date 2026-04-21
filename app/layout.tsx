@@ -21,7 +21,8 @@ const sans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-MD0CVQQZW6";
 
 export const viewport: Viewport = {
   themeColor: [
