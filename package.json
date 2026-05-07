@@ -1,7 +1,7 @@
 {
   "name": "argumend",
   "version": "1.0.0",
-  "description": "Argumend is a service which utilizes AI to provide context about varying perspectives on issues.",
+  "description": "AI-powered argument mapping for contentious topics.",
   "scripts": {
     "dev": "bun --bun next dev",
     "build": "bun --bun next build && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static",
@@ -14,8 +14,14 @@
     "db:studio": "drizzle-kit studio",
     "analyze": "ANALYZE=true next build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "ai",
+    "argument-mapping",
+    "discourse",
+    "debate",
+    "llm"
+  ],
+  "author": "Amir H. Jalali",
   "license": "ISC",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
