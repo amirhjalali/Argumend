@@ -62,25 +62,27 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  try {
-    const url = new URL(req.url);
-    const pageLimit = Math.min(
-      parseInt(url.searchParams.get("limit") ?? "10", 10),
-      50
+  const url = new URL(req.url);
+  const pageLimit = Math.min(
+    parseInt(url.searchParams.get("limit") ?? "10", 10),
+    50
+  );
+  if (isNaN(pageLimit) || pageLimit < 1) {
+    return NextResponse.json(
+      { error: "Invalid limit parameter" },
+      { status: 400 }
     );
-    if (isNaN(pageLimit) || pageLimit < 1) {
-      return NextResponse.json(
-        { error: "Invalid limit parameter" },
-        { status: 400 }
-      );
-    }
+  }
 
+  try {
     const trending = await getTrendingTopics(pageLimit);
     return NextResponse.json({ trending });
-  } catch {
-    return NextResponse.json(
-      { error: "Failed to fetch trending topics" },
-      { status: 500 }
-    );
+  } catch (err) {
+    // Trending topics are non-critical UI. Degrade gracefully instead of 5xx
+    // so the page renders without the widget instead of failing. Log the
+    // actual cause so it shows up in server logs.
+    const msg = err instanceof Error ? err.message : String(err);
+    console.warn(`[topic-views] getTrendingTopics failed: ${msg}`);
+    return NextResponse.json({ trending: [] });
   }
 }
