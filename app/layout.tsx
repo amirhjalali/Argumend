@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
 import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { JsonLd } from "@/components/JsonLd";
+import { GAPageView } from "@/components/GAPageView";
 import "./globals.css";
 
 const serif = EB_Garamond({
@@ -112,7 +114,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}');
+              gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
             `}
           </Script>
         </>
@@ -124,6 +126,11 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        {GA_MEASUREMENT_ID ? (
+          <Suspense fallback={null}>
+            <GAPageView measurementId={GA_MEASUREMENT_ID} />
+          </Suspense>
+        ) : null}
         <ThemeProvider>
           {children}
         </ThemeProvider>
