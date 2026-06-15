@@ -12,18 +12,23 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 
 ---
 
+## PROGRESS LOG (loop state — read this first on each wake)
+- Branch: `ui-improvements-2026-06`. Commits: `42578a2` (Tier 0 batch), `3c06a11` (Tier 1 batch).
+- DONE: Tier 0; Tier 1 except 1.6. NEXT: 1.6 glossary tooltips, then Tier 2.
+- Dev server: `bun dev` on :3001 (may need restart). Verify each item: tsc + vitest (206) + route 200.
+
 ## TIER 0 — Land what's already done
-- [ ] **0.1 Commit the shipped batch** (Tier-1 foundation + 8 UI fixes already in the working tree). Conventional commits, grouped sensibly.
+- [x] **0.1 Commit the shipped batch** — done (`42578a2`).
 
 ## TIER 1 — Finish the cheap, high-confidence UI/trust backlog (no decisions needed)
-- [ ] **1.1 Provenance strip on Read Mode** — add `last_updated`/`analyzed_at` (+ `methodology_version`) to `lib/schemas/topic.ts` (optional, backfilled default), render "Analyzed [date] · Methodology v[x] · N sources" under the Read-Mode header. *Done: field in schema + visible strip + tests green.* (audit 4 C2 — top trust gap)
-- [ ] **1.2 Surface evidence grading + bottom-line in Read Mode** — short verdict-synthesis paragraph under the claim; render `ControversyMeter` (already built) inline; expose the 4-axis weight bars on strongest evidence. *Done: renders on a topic read page.* (audit 4 H1+H3)
-- [ ] **1.3 Bring engagement components into Read Mode** — mount `VerdictVoting`, Related Topics, `SaveTopicButton` ("ping me if confidence shifts" copy) at end of `ReadModeView`; swap bare reference links for `CitationCard`. *Done: components render, no dead-end.* (audit 4 H4/M2)
-- [ ] **1.4 Sticky pillar TOC + reading-progress bar** on Read Mode (anchors already exist). *Done: TOC jumps to pillars; progress bar tracks scroll.* (audit 4 H2)
-- [ ] **1.5 Fix Save button (localStorage-first)** — un-break the disabled/opacity-50 `SaveTopicButton`; persist saved topics locally; show on read + dashboard. *Done: can save/unsave without auth.* (gap #32)
+- [x] **1.1 Provenance strip on Read Mode** — add `last_updated`/`analyzed_at` (+ `methodology_version`) to `lib/schemas/topic.ts` (optional, backfilled default), render "Analyzed [date] · Methodology v[x] · N sources" under the Read-Mode header. *Done: field in schema + visible strip + tests green.* (audit 4 C2 — top trust gap)
+- [x] **1.2 Surface evidence grading + bottom-line in Read Mode** — short verdict-synthesis paragraph under the claim; render `ControversyMeter` (already built) inline; expose the 4-axis weight bars on strongest evidence. *Done: renders on a topic read page.* (audit 4 H1+H3)
+- [x] **1.3 Bring engagement components into Read Mode** — mount `VerdictVoting`, Related Topics, `SaveTopicButton` ("ping me if confidence shifts" copy) at end of `ReadModeView`; swap bare reference links for `CitationCard`. *Done: components render, no dead-end.* (audit 4 H4/M2)
+- [x] **1.4 Sticky pillar TOC + reading-progress bar** on Read Mode (anchors already exist). *Done: TOC jumps to pillars; progress bar tracks scroll.* (audit 4 H2)
+- [x] **1.5 Fix Save button (localStorage-first)** — un-break the disabled/opacity-50 `SaveTopicButton`; persist saved topics locally; show on read + dashboard. *Done: can save/unsave without auth.* (gap #32)
 - [ ] **1.6 Inline glossary `<dfn>`/tooltip** for pillar / crux / verification-status / steel-man on first use. *Done: hover defs in both views.* (gap, audit 4 M5)
-- [ ] **1.7 Quiet edges + canvas a11y polish** — set edge `animated:false` under `prefers-reduced-motion`; confirm `aria-expanded` on all expanders (done for nodes — verify). *Done: reduced-motion has no marching-ants.* (audit 2)
-- [ ] **1.8 Mobile touch-target sweep** on topic detail (breadcrumb, Print, share/save chips, related-topic links → ≥44px); add `inputmode/autocomplete/enterkeyhint` to email inputs; `active:` variants on cards. *Done: targets ≥44px.* (audit 3 #4/#5)
+- [x] **1.7 Quiet edges + canvas a11y polish** — set edge `animated:false` under `prefers-reduced-motion`; confirm `aria-expanded` on all expanders (done for nodes — verify). *Done: reduced-motion has no marching-ants.* (audit 2)
+- [x] **1.8 Mobile touch-target sweep** on topic detail (breadcrumb, Print, share/save chips, related-topic links → ≥44px); add `inputmode/autocomplete/enterkeyhint` to email inputs; `active:` variants on cards. *Done: targets ≥44px.* (audit 3 #4/#5)
 
 ## TIER 2 — The big builds
 - [ ] **2.1 Live mini-canvas hero (Experiment 01)** — new `HeroMiniCanvas` (constrained ~240px React Flow, zoom/pan/drag off, auto-expands root→pillars over ~2.5s then freezes), SSR/mobile poster fallback, behind a flag for A/B. Swap into `HomeClient` hero. *Done: animates on `/`, mobile gets poster, tsc+tests green.* (research: "largest single conversion lever")
