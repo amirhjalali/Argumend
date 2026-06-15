@@ -85,6 +85,10 @@ export default async function TopicPage({ params }: PageProps) {
 
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
+  // Honest dates: published constant, modified from topic.last_updated if present.
+  const datePublished = "2025-01-01";
+  const dateModified = topic.last_updated ?? "2026-06-15";
+
   return (
     <>
       <JsonLd
@@ -93,7 +97,8 @@ export default async function TopicPage({ params }: PageProps) {
           "@type": "ClaimReview",
           url: `https://argumend.org/topics/${topic.id}`,
           claimReviewed: topic.meta_claim,
-          datePublished: "2025-01-01",
+          datePublished,
+          dateModified,
           author: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
           reviewRating: {
             "@type": "Rating",
@@ -119,6 +124,8 @@ export default async function TopicPage({ params }: PageProps) {
           image: `https://argumend.org/api/og/${topic.id}`,
           articleSection: categoryLabel,
           inLanguage: "en-US",
+          datePublished,
+          dateModified,
           author: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
           publisher: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
         }}

@@ -11,6 +11,13 @@ import {
 import { getAllQuestionVariations } from "@/lib/questions";
 import { COMPARISON_PAIRS } from "@/app/topics/compare/comparisonPairs";
 import { isClaims } from "@/data/is-claims";
+import { getAllFallacySlugs } from "@/data/fallacies";
+import { topicSummaries, CATEGORY_ORDER } from "@/data/topicIndex";
+
+/** Mirror of the tag-page slug scheme (lowercase, spaces → hyphens). */
+function tagToTopicSlug(tag: string): string {
+  return tag.toLowerCase().trim().replace(/\s+/g, "-").replace(/-+/g, "-");
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://argumend.org";
@@ -282,6 +289,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // ── Fallacies hub (priority 0.7) ──────────────────────────────────────
+  const fallacyPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/fallacies`,
+      lastModified: CONTENT_LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...getAllFallacySlugs().map((slug) => ({
+      url: `${baseUrl}/fallacies/${slug}`,
+      lastModified: CONTENT_LAST_UPDATED,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  // ── Topic category landing pages (priority 0.7) ───────────────────────
+  const topicCategoryPages: MetadataRoute.Sitemap = CATEGORY_ORDER.map(
+    (cat) => ({
+      url: `${baseUrl}/topics/category/${cat}`,
+      lastModified: CONTENT_LAST_UPDATED,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    }),
+  );
+
+  // ── Topic tag landing pages (priority 0.6) ────────────────────────────
+  const topicTagSlugs = Array.from(
+    new Set(
+      topicSummaries.flatMap((t) => (t.tags ?? []).map(tagToTopicSlug)),
+    ),
+  ).filter(Boolean);
+  const topicTagPages: MetadataRoute.Sitemap = topicTagSlugs.map((slug) => ({
+    url: `${baseUrl}/topics/tag/${slug}`,
+    lastModified: CONTENT_LAST_UPDATED,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
   return [
     ...homepage,
     ...listingPages,
@@ -300,5 +346,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogCategoryPages,
     ...blogTagPages,
     ...toolPages,
+    ...fallacyPages,
+    ...topicCategoryPages,
+    ...topicTagPages,
   ];
 }

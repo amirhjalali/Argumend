@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import {
   Landmark,
   Swords,
@@ -54,16 +55,15 @@ const LEGEND_ITEMS = [
 ];
 
 export function MapLegend() {
-  // Open by default on desktop; on mobile, auto-collapse after 4 seconds
-  const [isOpen, setIsOpen] = useState(true);
+  // Open on desktop (lg and up); start collapsed below 1024px so it doesn't
+  // cover the canvas on tablet portrait and mobile.
+  const isLargeScreen = useMediaQuery("(min-width: 1024px)");
+  const [isOpen, setIsOpen] = useState(isLargeScreen);
 
+  // React to crossing the lg breakpoint (e.g. tablet rotation / resize).
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.innerWidth < 768) {
-      const timer = setTimeout(() => setIsOpen(false), 4000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+    setIsOpen(isLargeScreen);
+  }, [isLargeScreen]);
 
   return (
     <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 z-50" aria-label="Map legend" role="region">

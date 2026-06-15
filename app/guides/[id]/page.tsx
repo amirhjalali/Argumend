@@ -60,13 +60,18 @@ export default async function GuidePage({ params }: PageProps) {
 
   const Icon = guide.icon;
 
-  // JSON-LD structured data (enhanced Article)
+  // JSON-LD structured data — LearningResource is the correct type for an educational guide.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "LearningResource",
+    name: guide.title,
     headline: guide.title,
     description: guide.description,
     url: `https://argumend.org/guides/${guide.id}`,
+    learningResourceType: "Guide",
+    educationalLevel: "Beginner",
+    teaches: guide.keyTakeaways,
+    timeRequired: guide.readTime,
     author: {
       "@type": "Organization",
       name: "ARGUMEND",

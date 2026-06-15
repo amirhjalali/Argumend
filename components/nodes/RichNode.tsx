@@ -45,7 +45,7 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
 
   return (
     <div
-      className={`relative w-[340px] rounded-xl border border-stone-200/80 border-l-[3px] ${style.borderClass} bg-[#fefcf9] shadow-[0_1px_3px_rgba(120,100,80,0.08)] transition-shadow duration-200 hover:shadow-[0_4px_16px_rgba(120,100,80,0.12)] node-enter`}
+      className={`relative w-[300px] md:w-[340px] rounded-xl border border-stone-200/80 border-l-[3px] ${style.borderClass} bg-[#fefcf9] shadow-[0_1px_3px_rgba(120,100,80,0.08)] transition-shadow duration-200 hover:shadow-[0_4px_16px_rgba(120,100,80,0.12)] node-enter`}
       style={{ animationDelay: `${((data.birthOrder as number) ?? 0) * 80}ms` }}
       tabIndex={0}
       role="group"

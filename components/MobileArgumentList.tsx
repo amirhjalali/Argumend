@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLogicGraph, getLoadedTopics } from "@/hooks/useLogicGraph";
+import { MiniGraphPreview } from "@/components/MiniGraphPreview";
 import { calculateEvidenceScore } from "@/types/logic";
 import type { Pillar, Evidence } from "@/types/logic";
 import {
@@ -257,10 +258,21 @@ export function MobileArgumentList() {
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const setView = useLogicGraph((state) => state.setView);
   const currentView = useLogicGraph((state) => state.currentView);
+  const pillarListRef = useRef<HTMLDivElement>(null);
   const topics = getLoadedTopics();
   const topic = topics?.find((t) => t.id === currentTopicId);
 
   if (!topic) return null;
+
+  const scrollToPillars = () => {
+    pillarListRef.current?.scrollIntoView({
+      behavior: typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "start",
+    });
+  };
 
   const statusColors = {
     settled: "bg-emerald-100 text-emerald-700",
@@ -321,9 +333,19 @@ export function MobileArgumentList() {
           ))}
         </div>
 
+        {/* Mini-graph preview — the product's signature map shape, shown before
+            the accordion so phone users see it first. Static, non-interactive. */}
+        {currentView === "logic-map" && (
+          <MiniGraphPreview
+            topicTitle={topic.title}
+            pillars={topic.pillars}
+            onTap={scrollToPillars}
+          />
+        )}
+
         {/* Pillar list (shown when in logic-map mode, which is the mobile default) */}
         {currentView === "logic-map" && (
-          <div className="space-y-3">
+          <div ref={pillarListRef} className="space-y-3 scroll-mt-4">
             <p className="text-[11px] font-medium text-stone-400 uppercase tracking-wide">
               {topic.pillars.length} Key Arguments
             </p>

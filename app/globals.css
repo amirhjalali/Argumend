@@ -404,10 +404,16 @@ html {
 
 .react-flow__pane {
   cursor: grab;
+  /* Let React Flow own single-finger pan/zoom on touch instead of native scroll */
+  touch-action: none;
 }
 
 .react-flow__pane:active {
   cursor: grabbing;
+}
+
+.react-flow__node {
+  touch-action: none;
 }
 
 /* Canvas */

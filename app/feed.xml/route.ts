@@ -1,4 +1,12 @@
 import { articles } from "@/data/blog";
+import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
+
+/**
+ * Stable fallback publish date for topic items. Topic summaries carry no
+ * per-item `addedAt`, so we use a single deterministic constant rather than
+ * fabricating recent dates (which would churn the feed on every build).
+ */
+const TOPIC_PUB_DATE = new Date("2025-01-01T00:00:00Z").toUTCString();
 
 function escapeXml(str: string): string {
   return str
@@ -10,7 +18,7 @@ function escapeXml(str: string): string {
 }
 
 export async function GET() {
-  const rssItems = articles
+  const blogItems = articles
     .sort(
       (a, b) =>
         new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
@@ -27,6 +35,27 @@ export async function GET() {
     </item>`,
     )
     .join("");
+
+  const topicItems = topicSummaries
+    .map((topic) => {
+      const url = `https://argumend.org/topics/${topic.id}`;
+      const categoryLabel = CATEGORY_LABELS[topic.category] ?? topic.category;
+      const pubDate = topic.addedAt
+        ? new Date(topic.addedAt).toUTCString()
+        : TOPIC_PUB_DATE;
+      return `
+    <item>
+      <title>${escapeXml(topic.title)}</title>
+      <link>${url}</link>
+      <description>${escapeXml(topic.meta_claim)}</description>
+      <pubDate>${pubDate}</pubDate>
+      <category>${escapeXml(categoryLabel)}</category>
+      <guid>${url}</guid>
+    </item>`;
+    })
+    .join("");
+
+  const rssItems = blogItems + topicItems;
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

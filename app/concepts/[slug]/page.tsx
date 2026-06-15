@@ -82,13 +82,19 @@ export default async function ConceptDetailPage({ params }: PageProps) {
   // Split description into paragraphs
   const paragraphs = concept.description.split("\n\n");
 
-  // JSON-LD structured data
+  // JSON-LD structured data — DefinedTerm is the correct type for a concept/term page.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: concept.title,
+    "@type": "DefinedTerm",
+    name: concept.title,
     description: paragraphs[0]?.slice(0, 160),
     url: `https://argumend.org/concepts/${concept.id}`,
+    termCode: concept.id,
+    inDefinedTermSet: {
+      "@type": "DefinedTermSet",
+      name: "Argumend Glossary",
+      url: "https://argumend.org/glossary",
+    },
     publisher: {
       "@type": "Organization",
       name: "Argumend",
@@ -97,10 +103,6 @@ export default async function ConceptDetailPage({ params }: PageProps) {
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://argumend.org/concepts/${concept.id}`,
-    },
-    about: {
-      "@type": "Thing",
-      name: concept.title,
     },
   };
 
