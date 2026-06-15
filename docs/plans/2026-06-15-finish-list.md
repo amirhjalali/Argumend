@@ -14,7 +14,7 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 
 ## PROGRESS LOG (loop state — read this first on each wake)
 - Branch: `ui-improvements-2026-06`. Commits through Tier 2 on this branch (see git log).
-- DONE: Tier 0, Tier 1, Tier 2. NEXT: Tier 3 (needs mobile decision 3.1), then Tier 4 (SEO, unblocked by 2.2 tags).
+- DONE: Tiers 0-2, Tier 3 (3.2/3.3), Tier 4 (4.1-4.5). PENDING: 3.1 (mobile decision - USER), 3.4 (RF code-split), 4.6 (nav/redirect), Tier 5 (content), Tier 6 (verification), Tier 7 (distribution drafts). NEXT: 3.4 + 4.6, then Tier 5 content.
 - Dev server: `bun dev` on :3001 (may need restart). Verify each item: tsc + vitest (206) + route 200.
 
 ## TIER 0 — Land what's already done
@@ -38,16 +38,16 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 
 ## TIER 3 — Mobile strategy (NEEDS a decision: accordion-canonical vs touch-native graph)
 - [ ] **3.1 [decide] Mobile graph direction** — pick: (a) make the accordion canonical + re-shoot OG/README around the reading view, or (b) build a touch-native mobile graph. Then:
-- [ ] **3.2 Mobile mini-graph preview** atop `MobileArgumentList` (static SVG snapshot) — safe under either choice. *Done: preview renders on phone.* (gap #21)
-- [ ] **3.3 Tablet (768–1023px) touch tuning** — `touch-action:none` on `.react-flow__pane/__node`; MapLegend starts collapsed below `lg`; responsive node widths. *Done: canvas usable on iPad portrait.* (audit 3 #2)
+- [x] **3.2 Mobile mini-graph preview** atop `MobileArgumentList` (static SVG snapshot) — safe under either choice. *Done: preview renders on phone.* (gap #21)
+- [x] **3.3 Tablet (768–1023px) touch tuning** — `touch-action:none` on `.react-flow__pane/__node`; MapLegend starts collapsed below `lg`; responsive node widths. *Done: canvas usable on iPad portrait.* (audit 3 #2)
 - [ ] **3.4 Code-split React Flow off the mobile bundle** (`next/dynamic` like sibling views). *Done: ~80KB off phone sessions.* (gap, audit 3 #3)
 
 ## TIER 4 — Programmatic SEO/AEO (depends on 2.2)
-- [ ] **4.1 `/fallacies/[slug]` hub** — the "highest-leverage SEO play"; one page per fallacy with examples + linked topics. *Done: pages render + in sitemap + schema.* (gap #40)
-- [ ] **4.2 `/topics/category/[slug]` landing pages.** *Done: 5 category pages + sitemap.* (gap #38)
-- [ ] **4.3 `/topics/tag/[slug]` landing pages** (uses 2.2 tags). *Done: tag pages + sitemap.* (gap #39)
-- [ ] **4.4 Per-topic RSS items** — add 109 topics to `feed.xml` (ACX/LW run on RSS). *Done: feed validates with topic items.* (gap #33)
-- [ ] **4.5 ClaimReview/DefinedTerm/LearningResource schema** verification + `dateModified` dynamic on topic pages. *Done: rich-results test passes.* (improve-argumend B)
+- [x] **4.1 `/fallacies/[slug]` hub** — the "highest-leverage SEO play"; one page per fallacy with examples + linked topics. *Done: pages render + in sitemap + schema.* (gap #40)
+- [x] **4.2 `/topics/category/[slug]` landing pages.** *Done: 5 category pages + sitemap.* (gap #38)
+- [x] **4.3 `/topics/tag/[slug]` landing pages** (uses 2.2 tags). *Done: tag pages + sitemap.* (gap #39)
+- [x] **4.4 Per-topic RSS items** — add 109 topics to `feed.xml` (ACX/LW run on RSS). *Done: feed validates with topic items.* (gap #33)
+- [x] **4.5 ClaimReview/DefinedTerm/LearningResource schema** verification + `dateModified` dynamic on topic pages. *Done: rich-results test passes.* (improve-argumend B)
 - [ ] **4.6 Resolve `/explore` vs `/topics` redundancy** — pick one canonical index, 301 the other, slim nav 9→~5. *Done: one index, redirects in place.* (gap #41/#44)
 
 ## TIER 5 — Content production (token-heavy; parallelize)
