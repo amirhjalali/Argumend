@@ -4400,6 +4400,270 @@ This is how Argumend handles expertise throughout: as weighted evidence anchored
 
 Appeal to authority is the misuse of a genuinely useful instinct. Expertise is strong evidence — within its domain, when it reflects consensus, and as a pointer to the evidence beneath it. It becomes a fallacy the moment it is treated as proof, stretched outside its field, or offered in place of evidence you could examine yourself. The goal is neither blind trust nor blanket suspicion, but calibration: let authority raise the probability, and let the evidence settle the question.`,
   },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Both Sides Case Study: Universal Basic Income
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "universal-basic-income-both-sides",
+    title: "Universal Basic Income: What Both Sides Actually Believe",
+    description:
+      "Supporters call it freedom from poverty; critics call it a budget-breaking work disincentive. We steel-man both sides of the universal basic income debate and locate the real crux—which turns out to be smaller and more empirical than the shouting suggests.",
+    author: "Argumend Team",
+    publishedAt: "2026-03-27T09:00:00Z",
+    readingTime: "9 min read",
+    tags: ["universal basic income", "both sides", "case study", "economics", "steel man argument"],
+    category: "Both Sides",
+    content: `## A Debate Where Almost Everyone Talks Past Each Other
+
+Few policy ideas trigger reactions as instant and as opposite as universal basic income (UBI): an unconditional cash payment sent to every adult, no means test, no work requirement, no strings. To one side it is the most humane and efficient anti-poverty tool ever proposed. To the other it is a fiscal fantasy that pays people not to work. Both reactions are confident, and both are mostly aimed at a caricature of the other position.
+
+If you want to actually understand this debate—rather than win it at a dinner party—you have to do something uncomfortable: build the strongest possible version of each side before you judge either. That is the discipline of [steel-manning](/blog/why-steel-manning-makes-you-smarter), and it is the only way to find the place where the disagreement genuinely lives.
+
+## Steel-Manning the Case For UBI
+
+The strongest case for UBI is not "free money." It is a claim about how poverty actually works and what existing welfare systems get wrong.
+
+### Poverty is fundamentally a shortage of cash
+
+The most direct way to fix a cash shortage is cash. A large body of evidence on direct transfers—from GiveDirectly's randomized trials in Kenya to the U.S. expanded Child Tax Credit in 2021, which cut child poverty by roughly 30 to 40 percent in months—shows that giving people money reliably reduces material hardship. People do not, as a rule, blow it on alcohol and tobacco; spending on those categories tends to fall slightly. Recipients buy food, fix vehicles that get them to work, and pay down debt.
+
+### Existing welfare is a maze that punishes effort
+
+Means-tested programs create "benefit cliffs": earn one extra dollar and you can lose far more in benefits, an effective marginal tax rate that sometimes exceeds 100 percent. The bureaucracy required to police eligibility is expensive, intrusive, and excludes many genuinely eligible people who cannot navigate it. A universal payment has no cliff, no stigma, and near-zero administrative gatekeeping. Money goes out; people decide.
+
+### It is insurance against a more automated, more precarious economy
+
+As gig work, automation, and AI reshape labor (a tension we map in [Will AI Take the Jobs?](/topics/ai-job-displacement)), the assumption that a stable full-time job is available to anyone who wants one looks shakier. UBI provides a floor that does not collapse when a particular industry does—decoupling basic survival from the volatility of any single labor market.
+
+### Freedom and bargaining power
+
+A guaranteed floor gives workers the ability to refuse exploitative jobs, leave abusive employers, retrain, care for family, or start a business. Proponents frame UBI less as charity than as a structural shift in power toward the individual.
+
+## Steel-Manning the Case Against UBI
+
+Now the harder discipline: build the opposing case so well that a committed supporter would nod along.
+
+### The arithmetic is genuinely brutal
+
+This is the strongest objection, and it is not rhetorical. A UBI of \\$1,000 per month to roughly 260 million American adults costs on the order of \\$3 trillion per year—comparable to the entire existing federal budget outside of itself. You can shrink that number by clawing it back from higher earners through taxes, but then it is no longer truly universal, and the net cost still runs into the trillions. Funding it requires some combination of large tax increases, cutting existing programs, or deficits. Each of those has real costs that proponents often wave away.
+
+### The targeting objection
+
+Sending money to wealthy and middle-class households who do not need it is, dollar for dollar, a less efficient way to fight poverty than concentrating resources on the poor. A skeptic argues: if the goal is to help the bottom 20 percent, why spend most of the budget on the other 80 percent? A generous negative income tax or expanded targeted credits could deliver more anti-poverty bang per dollar.
+
+### Replacement risk
+
+Many UBI plans propose paying for it partly by consolidating existing programs. But housing assistance, disability support, and health subsidies are tailored to specific, expensive needs. A flat payment that replaces them could leave the most vulnerable—people with disabilities, high medical costs, or large families—worse off than before. The universal flat structure is a feature for simplicity but a bug for people whose needs are far from average.
+
+### The work-incentive question
+
+Critics worry that an unconditional income reduces the incentive to work, shrinking the tax base that funds the program and the economic output society depends on. Supporters point to pilots showing small labor-supply effects; critics counter that pilots are temporary, locally funded, and known to be temporary by recipients—none of which tells you what happens when an entire economy expects the payment to be permanent. This is a genuine evidentiary gap, not a settled question.
+
+## Where the Real Crux Lives
+
+Here is what steel-manning both sides reveals: the two camps agree on far more than they admit.
+
+Almost no serious participant denies that **cash transfers reduce hardship**—the pro-UBI evidence on that is strong and the critics rarely contest it. And almost no serious participant denies that **a fully universal \\$1,000/month payment is fiscally enormous**—supporters concede the arithmetic and pivot to financing. The shouting match makes it sound like one side believes in magic money and the other hates the poor. Neither is true.
+
+The disagreement actually narrows to a small cluster of [cruxes](/blog/what-is-a-crux-and-why-it-matters)—the specific points where, if you changed your mind, your conclusion would flip:
+
+**Crux 1 — Universality vs. targeting.** Is the simplicity, dignity, and cliff-elimination of a universal payment worth the cost of sending money to people who do not need it? Or does targeting deliver more poverty reduction per dollar, cliffs and stigma notwithstanding? This is partly an empirical question (how large are the administrative and exclusion costs of means-testing, really?) and partly a values question (how much do we weight dignity and simplicity against raw efficiency?).
+
+**Crux 2 — The labor-supply elasticity.** How much would a *permanent, economy-wide* UBI reduce work? Pilots suggest "a little." Skeptics argue pilots cannot answer the question. Whoever is right about this number is most of the way to being right about the policy, because it drives both the cost and the output effects. This is a genuinely open empirical crux.
+
+**Crux 3 — What it replaces.** A UBI layered *on top of* existing supports is a different animal from one that *replaces* them. Much apparent disagreement is really two people arguing about two different policies wearing the same name.
+
+Notice how different this is from "free money vs. fiscal apocalypse." The honest debate is about elasticities, replacement design, and how to weigh dignity against targeting efficiency. Those are answerable—or at least narrowable—with evidence.
+
+## A Note on the Fallacies That Keep This Stuck
+
+This debate is a magnet for [logical fallacies](/blog/5-logical-fallacies-in-online-debates). The [straw man](/fallacies/straw-man) runs both ways: "they want to pay people to do nothing" against "they want poor children to starve." There is a persistent [false dilemma](/fallacies/false-dilemma)—UBI or the status quo—when the real design space includes negative income taxes, targeted credits, job guarantees, and hybrids. And [slippery slope](/fallacies) arguments ("it will inevitably collapse the work ethic") substitute a vivid fear for the actual, modest evidence. Spotting these is most of the work of thinking clearly here.
+
+## Inspect the Evidence Yourself
+
+We have mapped this entire argument—the strongest proponent and skeptic positions, the supporting evidence, and the cruxes above—on an interactive graph. You can expand each claim, follow it to its sources, and decide for yourself where the evidence actually points.
+
+Explore the live argument map: **[Universal Basic Income](/topics/universal-basic-income)**.
+
+If this debate interests you, the [four-day work week](/topics/four-day-work-week) raises a structurally similar question—how to redistribute the gains from a more productive economy—and rewards the same both-sides treatment.
+
+The goal was never to tell you what to conclude. It was to make sure that whatever you conclude, you reached it after genuinely understanding the strongest version of the view you reject. That is where good thinking starts.`,
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Both Sides Case Study: The Death Penalty
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "death-penalty-both-sides",
+    title: "The Death Penalty: A Both-Sides Case Study in Where the Evidence Ends",
+    description:
+      "Does capital punishment deter murder, deliver justice, or risk executing the innocent? We steel-man both sides of the death penalty debate and show why the real crux is not empirical at all—it's a moral question the data can't settle.",
+    author: "Argumend Team",
+    publishedAt: "2026-03-28T09:00:00Z",
+    readingTime: "9 min read",
+    tags: ["death penalty", "both sides", "case study", "criminal justice", "ethics"],
+    category: "Both Sides",
+    content: `## A Debate Where the Data Runs Out
+
+The death penalty is one of those topics where everyone is sure and almost no one is calm. It sits at the intersection of justice, deterrence, racial fairness, irreversible error, and the basic question of what a state is permitted to do to a person. That density is exactly why it is worth running through a disciplined both-sides analysis: when you separate the empirical claims from the moral ones, you discover that much of the argument is happening on terrain where evidence has already run out.
+
+We are going to [steel-man](/blog/why-steel-manning-makes-you-smarter) both positions—stating each in its strongest form before judging either—and then locate the [crux](/blog/what-is-a-crux-and-why-it-matters) where the disagreement actually lives.
+
+## Steel-Manning the Case For Capital Punishment
+
+The strongest case for the death penalty rests on three pillars: deterrence, retribution as justice, and incapacitation.
+
+### Some crimes warrant the ultimate response
+
+The retributive argument is not bloodlust; it is a claim about proportionality. For the most heinous crimes—premeditated mass murder, torture-killings, terrorism—proponents argue that any lesser punishment fails to match the gravity of what was done, and that justice for victims and their families requires the state to mark certain acts as beyond the pale. On this view, refusing to execute the worst murderers is itself a moral failure: it treats the deliberate destruction of innocent life as fungible with a prison term.
+
+### A credible deterrent saves lives
+
+If the threat of execution prevents even a small number of murders, proponents argue, then abolishing it costs innocent lives. Some econometric studies in the 2000s claimed each execution deterred multiple homicides. The logic is intuitive: rational actors weigh consequences, and death is the most severe consequence available.
+
+### Permanent incapacitation
+
+An executed murderer cannot kill again—not another inmate, not a guard, not someone after a future escape or parole error. For the rare offender who remains lethal behind bars, proponents argue, execution is the only certain protection for others.
+
+## Steel-Manning the Case Against Capital Punishment
+
+Now the strongest opposing case—stated so well that a supporter would concede each point is real.
+
+### The irreversibility problem is decisive
+
+No justice system is error-free, and execution is the one punishment that cannot be undone. In the United States, more than 190 people who had been sentenced to death have later been exonerated. Each exoneration is proof that the system convicts innocent people of capital crimes; the only question is how many were not lucky enough to be cleared before the sentence was carried out. For abolitionists, the near-certainty that the state has executed innocent people is, on its own, sufficient.
+
+### The deterrence evidence does not hold up
+
+This is the empirical heart of the matter, and it cuts hard against the pro side. The strong deterrence studies were sharply criticized for fragile model specifications, and a 2012 National Research Council review concluded that the existing research is so flawed it should *not* be used to assess deterrence at all—it cannot show the death penalty deters, nor that it does not. States and nations that abolished the death penalty did not see murder rates rise relative to comparable jurisdictions. The honest reading of the evidence is not "it deters" but "we cannot demonstrate that it deters more than life imprisonment."
+
+### It is applied unequally
+
+The death penalty's application correlates with the race of the victim, the quality of the defendant's legal representation, and the county in which the crime occurred. A punishment that is supposed to track the worst crimes instead tracks geography and resources. If a sanction is irreversible, abolitionists argue, the bar for fairness must be extraordinarily high—and the system does not clear it.
+
+### It costs more, not less
+
+Counterintuitively, capital cases are far more expensive than life imprisonment, driven by the lengthy, constitutionally required appeals process. The "tough and efficient" framing gets the economics backwards.
+
+## Where the Real Crux Lives
+
+Here is what falls out when you steel-man both sides honestly. Several of the apparent disagreements are not really disagreements at all once you look at the evidence:
+
+- **Deterrence:** The strongest available evidence does not support a deterrent effect beyond life imprisonment. This is close to a resolved empirical point, and it removes one of the pro side's three pillars. A supporter can still favor the death penalty—but probably not *primarily* on deterrence grounds.
+- **Innocence:** That the system convicts and sometimes executes innocent people is not seriously contestable; exonerations prove it. The disagreement is about how much weight that risk should carry, not whether it exists.
+- **Cost:** The empirical record shows capital cases cost more, not less.
+
+Strip those away and the debate does not vanish—it relocates. The real [crux](/blog/finding-the-crux-of-debates) is a moral one that no study can settle:
+
+**The crux: Is execution ever a just response to a crime, and how much innocent-person risk is acceptable to administer that justice?**
+
+A retributivist who believes certain acts *demand* death as a matter of proportional justice, and who accepts some non-zero risk of executing the innocent as the tragic price of a justice system, will support capital punishment even granting every empirical concession above. An abolitionist who believes the state should never deliberately kill a person it has in custody, or that no level of wrongful-execution risk is acceptable for an irreversible sanction, will oppose it even if deterrence were someday proven.
+
+That is the genuine disagreement: a clash of moral axioms about justice, state power, and the weighting of irreversible error. It is not the kind of thing data resolves—and recognizing that is itself progress, because it tells you to stop arguing about murder statistics and start arguing about the value question that is actually dividing you.
+
+## The Fallacies to Watch
+
+This debate is thick with [logical fallacies](/blog/5-logical-fallacies-in-online-debates). [Appeal to emotion](/fallacies) runs both ways—horrific crime-scene details for one side, a single wrongful execution for the other—and emotion, while relevant, is not an argument. The [false dilemma](/fallacies/false-dilemma) of "execution or letting murderers go free" ignores life-without-parole. And [appeals to authority](/blog/appeal-to-authority-fallacy-explained) about what "the studies show" deserve scrutiny precisely because, here, the studies show less than either side claims.
+
+## Inspect the Evidence Yourself
+
+We have mapped the full argument—proponent and skeptic positions, the deterrence and innocence evidence, and the moral crux above—as an interactive graph you can explore claim by claim, source by source.
+
+Explore the live argument map: **[The Death Penalty](/topics/death-penalty-deterrence)**.
+
+For a related case where empirical and moral claims tangle in a similar way, see [drug decriminalization](/topics/drug-decriminalization), where the question of what the state should punish meets the question of what the evidence actually shows.
+
+The point of a both-sides analysis is not to make you neutral. It is to make sure you are disagreeing about the thing that actually matters—here, a moral question—rather than fighting over evidence that has already spoken.`,
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Both Sides Case Study: Drug Decriminalization
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "drug-decriminalization-both-sides",
+    title: "Drug Decriminalization: Steel-Manning Both Sides of a Messy Debate",
+    description:
+      "Is treating drug use as a health issue rather than a crime compassionate and effective, or a recipe for open-air drug markets and rising harm? We steel-man both sides and surface the crux that Portugal and Oregon together expose.",
+    author: "Argumend Team",
+    publishedAt: "2026-03-29T09:00:00Z",
+    readingTime: "9 min read",
+    tags: ["drug decriminalization", "both sides", "case study", "public health", "policy"],
+    category: "Both Sides",
+    content: `## Two Famous Experiments, Two Opposite Headlines
+
+Drug decriminalization—removing criminal penalties for possessing small amounts of drugs while keeping trafficking illegal—has two famous case studies, and people cite them as if they prove opposite things. Portugal decriminalized all drugs in 2001 and is held up as a triumph. Oregon decriminalized in 2020 and rolled it back in 2024, held up as a cautionary tale. If a single policy can be both, the debate is more complicated than either side's talking points.
+
+So let us do the harder, more useful thing: [steel-man](/blog/why-steel-manning-makes-you-smarter) both positions in their strongest form, then find the [crux](/blog/what-is-a-crux-and-why-it-matters) that the contradictory case studies are actually pointing at.
+
+## Steel-Manning the Case For Decriminalization
+
+The strongest case is not "drugs are fine." It is a claim about which policy lever reduces total harm.
+
+### Criminalization causes harms of its own
+
+A criminal record for simple possession can permanently damage employment, housing, and family stability—often doing more lasting damage than the drug use itself. Enforcement falls unequally across racial and class lines. And the threat of arrest pushes use into the shadows, discouraging people from carrying naloxone, using safely, or seeking help. Proponents argue that much of the "drug problem" is really a *prohibition* problem.
+
+### Treating addiction as a health issue works better than treating it as a crime
+
+The core claim is that addiction responds to treatment, not punishment. Decriminalization lets you redirect resources from arrests and incarceration toward treatment, harm reduction, and outreach. Portugal paired decriminalization with major investment in treatment and saw drug-related deaths and HIV infections among people who use drugs fall substantially over the following years, with no explosion in use rates. The model, supporters stress, is *decriminalization plus treatment*, not decriminalization alone.
+
+### Removing fear of arrest brings people into contact with help
+
+When using drugs is not a crime, people are likelier to call for help during an overdose, engage with outreach workers, and accept treatment referrals. The policy's purpose is to convert a population that hides from the state into one that can be reached by it.
+
+## Steel-Manning the Case Against Decriminalization
+
+Now the opposing case, built to be genuinely persuasive.
+
+### Decriminalization without robust treatment can fail badly
+
+This is the strongest objection, and Oregon is its evidence. Oregon's Measure 110 removed criminal penalties but the treatment infrastructure it was supposed to fund rolled out slowly and unevenly. With the legal pressure to enter treatment gone and the treatment capacity not yet there, the state saw visible public drug use, and overdose deaths continued to climb amid the fentanyl crisis. In 2024 Oregon recriminalized possession. The lesson critics draw: removing penalties is easy; standing up the treatment system that makes decriminalization work is hard, and if you get the sequencing wrong, you get the worst of both worlds.
+
+### Legal consequences can be a path into treatment
+
+Critics argue that the criminal-justice "stick"—drug courts, mandated treatment, the leverage of an arrest—is, for some people, what finally gets them into recovery. Remove every consequence and you may remove the moment of intervention. Coercion is uncomfortable, but for a disease marked by denial, supporters of the status quo argue it sometimes saves lives.
+
+### Public-order and normalization concerns are real
+
+Visible, concentrated public drug use degrades neighborhoods, harms local businesses, and can make residents feel unsafe—costs that fall hardest on the low-income communities decriminalization is meant to help. And critics worry that removing penalties signals social approval, potentially increasing initiation among the young. The Portuguese model's defenders concede these risks are real if the surrounding services are absent.
+
+### The fentanyl era is different
+
+Much of the optimistic evidence predates fentanyl, a drug so lethal that the margin for error in a "use more safely" approach has collapsed. A policy that worked for heroin in 2005 Lisbon may not transfer to fentanyl in 2024 Portland.
+
+## Where the Real Crux Lives
+
+Steel-manning both sides resolves the apparent Portugal-vs-Oregon contradiction. They are not evidence for opposite conclusions about decriminalization. They are evidence about the *same* variable:
+
+**The crux: decriminalization is not a standalone policy—its outcome depends almost entirely on whether it is coupled with adequately funded, promptly available treatment and harm-reduction services and an enforcement environment that channels people toward them.**
+
+Portugal decriminalized *and* built the treatment system, *and* retained administrative "dissuasion commissions" that nudge users toward services. Oregon decriminalized *first* and the treatment system lagged, with no comparable channeling mechanism. Same headline policy, opposite implementation, opposite results. The two cases are not a debate; they are the two halves of one conditional.
+
+That reframes the disagreement into sharper, more answerable [cruxes](/blog/finding-the-crux-of-debates):
+
+**Crux 1 — Implementation feasibility.** Can a given jurisdiction realistically fund and deliver the treatment infrastructure *before or alongside* removing penalties? If yes, the Portugal path is open. If the political and fiscal reality means treatment will lag, the critics' Oregon warning has real force.
+
+**Crux 2 — The role of coercion.** Does removing legal consequences eliminate a useful pathway into treatment, or does it eliminate a counterproductive source of harm? Portugal kept a soft form of pressure; pure decriminalization removes it entirely. How much that matters is genuinely contested.
+
+**Crux 3 — Does the fentanyl era change the calculus?** How much of the favorable evidence transfers to a fentanyl-dominated drug supply? This is an open empirical question, not a settled one.
+
+Notice that "compassion vs. public order" was never the real fault line. Both sides want fewer deaths and safer communities. They disagree about a conditional—what decriminalization requires to work—and about three feasibility and evidence questions underneath it. That is a debate you can actually make progress on.
+
+## The Fallacies That Distort It
+
+This topic invites [logical fallacies](/blog/5-logical-fallacies-in-online-debates). The biggest is [false equivalence and cherry-picking](/fallacies)—citing Portugal *or* Oregon alone while ignoring the implementation difference that distinguishes them. There is a recurring [false dilemma](/fallacies/false-dilemma) between "lock everyone up" and "anything goes," when the live options are several models of decriminalization-plus-services. And [hasty generalization](/fallacies) from a single jurisdiction to "decriminalization works / fails" ignores the variable that actually drives the outcome.
+
+## Inspect the Evidence Yourself
+
+We have mapped the full argument—proponent and skeptic positions, the Portugal and Oregon evidence, and the implementation crux above—as an interactive graph you can explore claim by claim.
+
+Explore the live argument map: **[Drug Decriminalization](/topics/drug-decriminalization)**.
+
+If the tension between moral framing and hard evidence interests you, the [death penalty](/topics/death-penalty-deterrence) is a revealing companion case—another debate about what the state should punish, where separating the empirical from the moral changes everything.
+
+A both-sides analysis will not tell you whether to support decriminalization. It will tell you that the question "does it work?" is the wrong one—and that "under what conditions does it work, and can we meet them?" is the question worth your attention.`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {
