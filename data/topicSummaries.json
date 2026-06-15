@@ -1415,5 +1415,70 @@
     "tags": [
       "policy"
     ]
+  },
+  {
+    "id": "ukraine-peace-terms",
+    "title": "How the Russia-Ukraine War Should End",
+    "meta_claim": "A negotiated settlement that freezes the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
+    "confidence_score": 38,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 16,
+    "tags": [
+      "policy"
+    ]
+  },
+  {
+    "id": "trump-tariffs",
+    "title": "Trump's Tariffs & Protectionist Trade Policy",
+    "meta_claim": "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
+    "confidence_score": 29,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 4,
+    "evidenceCount": 16,
+    "tags": [
+      "economics"
+    ]
+  },
+  {
+    "id": "rfk-health-policy",
+    "title": "RFK Jr's Health Policy Agenda (MAHA)",
+    "meta_claim": "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
+    "confidence_score": 44,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 16,
+    "tags": [
+      "policy"
+    ]
+  },
+  {
+    "id": "doge-federal-cuts",
+    "title": "DOGE & Federal Spending Cuts",
+    "meta_claim": "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
+    "confidence_score": 31,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 4,
+    "evidenceCount": 16,
+    "tags": [
+      "policy"
+    ]
+  },
+  {
+    "id": "open-weight-ai-models",
+    "title": "Releasing Open-Weight Frontier AI Models",
+    "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
+    "confidence_score": 52,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 4,
+    "evidenceCount": 16,
+    "tags": [
+      "technology"
+    ]
   }
 ]

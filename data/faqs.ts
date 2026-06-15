@@ -124,4 +124,62 @@ export const faqs: FAQ[] = [
     question: "Can AI really analyze arguments objectively?",
     answer: "No AI is perfectly objective, which is exactly why we use a multi-model judge council rather than a single model. Each AI judge scores arguments independently on structured rubrics. We aggregate scores, flag disagreements between judges, and report whether there is consensus. This doesn\u2019t eliminate bias, but it reduces the chance that any single model\u2019s training biases dominate the result. We also show you the full reasoning, so you can evaluate the analysis yourself.",
   },
+  {
+    question: "How do I tell if an argument is good?",
+    answer: "A good argument has three traits: (1) true premises \u2014 the starting claims are accurate and well-sourced; (2) valid structure \u2014 the conclusion actually follows from the premises rather than relying on a logical leap; and (3) relevance \u2014 the evidence directly addresses the claim instead of changing the subject. A useful test: try to steel-man the opposing view. If you can\u2019t state the other side\u2019s best case, you don\u2019t yet understand the argument well enough to judge it. Argumend evaluates arguments on exactly these dimensions and can flag fallacies that break the chain of reasoning.",
+    linkText: "Try the argument analyzer",
+    linkHref: "/analyze",
+  },
+  {
+    question: "What is a crux in a debate or disagreement?",
+    answer: "A crux is the single point where a disagreement actually turns \u2014 the specific question that, if answered, would change one or both sides\u2019 minds. Most arguments stall because people debate everything at once. Finding the crux strips the disagreement down to the one testable claim that matters. For example, two people arguing about a policy may really disagree about a single empirical question: does the policy reduce the harm it targets? Answer that, and the rest of the debate resolves. Argumend identifies the crux of every topic it maps.",
+    linkText: "Learn about cruxes",
+    linkHref: "/concepts/cruxes",
+  },
+  {
+    question: "What is the difference between a debate and an argument map?",
+    answer: "A debate is a live, adversarial exchange \u2014 two sides take turns trying to win. An argument map is a static, structured picture of a disagreement: it lays out the core claim, the strongest objections, the best responses, and the evidence behind each, all at once. A debate is optimized for persuasion; an argument map is optimized for understanding. Argumend turns the chaos of a debate into a map so you can see where the real disagreement lives instead of just who argued more forcefully.",
+    linkText: "Browse argument maps",
+    linkHref: "/topics",
+  },
+  {
+    question: "How do I steelman an argument?",
+    answer: "To steelman an argument, restate the opposing position in its strongest, most charitable form \u2014 stronger even than its own advocates might phrase it \u2014 before you respond. Three steps: (1) identify the best version of their core claim, not the weakest thing someone said online; (2) supply the most reasonable evidence and assumptions that would support it; (3) confirm you\u2019ve captured it (\u201cIs this a fair statement of your view?\u201d). Steelmanning is the opposite of a straw man. If you can\u2019t articulate why a thoughtful person holds a position, you don\u2019t understand it well enough to disagree.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is epistemic humility?",
+    answer: "Epistemic humility is holding your beliefs proportional to your evidence \u2014 being confident where the evidence is strong, uncertain where it is weak, and willing to update when it shifts. It is not wishy-washy relativism; some questions really are settled. It simply means you separate how sure you feel from how sure the evidence warrants. Argumend builds this into its confidence scores: instead of declaring winners, it tells you \u201chere\u2019s 60% confidence, and here\u2019s exactly why,\u201d which is more honest than pretending certainty no one has earned.",
+  },
+  {
+    question: "How can I change someone\u2019s mind with evidence?",
+    answer: "People rarely change their minds when attacked, but they often do when they feel understood. The most effective approach: (1) steel-man their view first, so they know you get it; (2) find the crux \u2014 ask what specific evidence would change their mind, and what would change yours; (3) present sources that are independent, replicable, and directly relevant, not just authoritative-sounding; (4) make it safe to update by treating belief change as a strength, not a loss. Argument maps help by moving the conversation from \u201cwho wins\u201d to \u201cwhat would actually settle this.\u201d",
+    linkText: "Improve your reasoning",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is the strongest argument for or against a controversial topic?",
+    answer: "There\u2019s rarely a single \u201cstrongest\u201d argument \u2014 the honest answer is that it depends on which crux you care about. That\u2019s why Argumend breaks each controversial topic into pillars and shows the best case on every side, with the supporting evidence weighted and scored. Instead of handing you one talking point, it shows you where the strongest evidence actually points, where reasonable people still disagree, and what specific question would resolve the dispute. Pick any topic to see its steel-manned arguments side by side.",
+    linkText: "Browse all topics",
+    linkHref: "/topics",
+  },
+  {
+    question: "How does Argumend stay unbiased and handle political bias?",
+    answer: "We use several safeguards rather than claiming perfect neutrality. Every position \u2014 including minority and unpopular ones \u2014 gets steel-manned. Confidence scores track the weight of evidence, not editorial preference, and the full methodology is transparent so you can trace each one. Submitted arguments run through a multi-model AI judge council, which reduces the chance that any single model\u2019s training bias dominates. When the evidence genuinely favors one political side on a topic, we report it as evidence rather than adjusting reality for the sake of balance. The goal is to show you where disagreement lives, not to tell you what to think.",
+    linkText: "Read our methodology",
+    linkHref: "/methodology",
+  },
+  {
+    question: "Where does Argumend\u2019s evidence come from?",
+    answer: "For curated topics, evidence is drawn from peer-reviewed research, primary data, expert consensus statements, official records, and reputable reporting \u2014 then weighted on four dimensions: source reliability, independence, replicability, and directness. We prioritize independent, replicable findings over single studies or appeals to authority. Each evidence item is scored and the balance of supporting versus opposing evidence drives the topic\u2019s confidence score. When evidence is thin or contested, we say so rather than overstating certainty.",
+    linkText: "Learn about our evidence methodology",
+    linkHref: "/methodology",
+  },
+  {
+    question: "Can I use Argumend for school debate or education?",
+    answer: "Yes \u2014 Argumend is built for it. Use curated argument maps to show students how a messy debate decomposes into testable claims, evidence, and a crux. Have them steel-man opposing sides, locate logical fallacies in real arguments, or submit their own essays for structured analysis. It fits debate clubs, IB Theory of Knowledge, AP Government, A-Level Critical Thinking, and any course where evidence-based reasoning matters. Browsing requires no account, so it works in any classroom.",
+    linkText: "Lesson plans & educator resources",
+    linkHref: "/for-educators",
+  },
 ];

@@ -119,6 +119,13 @@ import { gigEconomyRegulationData } from "./topics/gig-economy-regulation";
 import { surveillancePublicSafetyData } from "./topics/surveillance-public-safety";
 import { meaningWithoutReligionData } from "./topics/meaning-without-religion";
 
+// New topics (June 2026 batch — current controversies)
+import { ukrainePeaceTermsData } from "./topics/ukraine-peace-terms";
+import { trumpTariffsData } from "./topics/trump-tariffs";
+import { rfkHealthPolicyData } from "./topics/rfk-health-policy";
+import { dogeFederalCutsData } from "./topics/doge-federal-cuts";
+import { openWeightAiModelsData } from "./topics/open-weight-ai-models";
+
 // labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
 const labLeakTheoryData = covidOriginsData;
 
@@ -267,6 +274,11 @@ export const rentControlEffectiveness = buildTopic(rentControlEffectivenessData)
 export const privacyVsConvenience = buildTopic(privacyVsConvenienceData);
 export const meritocracyMyth = buildTopic(meritocracyMythData);
 export const degrowthEconomics = buildTopic(degrowthEconomicsData);
+export const ukrainePeaceTerms = buildTopic(ukrainePeaceTermsData);
+export const trumpTariffs = buildTopic(trumpTariffsData);
+export const rfkHealthPolicy = buildTopic(rfkHealthPolicyData);
+export const dogeFederalCuts = buildTopic(dogeFederalCutsData);
+export const openWeightAiModels = buildTopic(openWeightAiModelsData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -391,6 +403,11 @@ export const topics: Topic[] = [
   immigrationNationalIdentity,
   psychedelicTherapyHype,
   affirmativeActionMeritocracy,
+  ukrainePeaceTerms,
+  trumpTariffs,
+  rfkHealthPolicy,
+  dogeFederalCuts,
+  openWeightAiModels,
 ];
 
 // ============================================================================
