@@ -13,8 +13,8 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 ---
 
 ## PROGRESS LOG (loop state — read this first on each wake)
-- Branch: `ui-improvements-2026-06`. Commits: `42578a2` (Tier 0 batch), `3c06a11` (Tier 1 batch).
-- DONE: Tier 0; Tier 1 except 1.6. NEXT: 1.6 glossary tooltips, then Tier 2.
+- Branch: `ui-improvements-2026-06`. Commits through Tier 2 on this branch (see git log).
+- DONE: Tier 0, Tier 1, Tier 2. NEXT: Tier 3 (needs mobile decision 3.1), then Tier 4 (SEO, unblocked by 2.2 tags).
 - Dev server: `bun dev` on :3001 (may need restart). Verify each item: tsc + vitest (206) + route 200.
 
 ## TIER 0 — Land what's already done
@@ -26,15 +26,15 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 - [x] **1.3 Bring engagement components into Read Mode** — mount `VerdictVoting`, Related Topics, `SaveTopicButton` ("ping me if confidence shifts" copy) at end of `ReadModeView`; swap bare reference links for `CitationCard`. *Done: components render, no dead-end.* (audit 4 H4/M2)
 - [x] **1.4 Sticky pillar TOC + reading-progress bar** on Read Mode (anchors already exist). *Done: TOC jumps to pillars; progress bar tracks scroll.* (audit 4 H2)
 - [x] **1.5 Fix Save button (localStorage-first)** — un-break the disabled/opacity-50 `SaveTopicButton`; persist saved topics locally; show on read + dashboard. *Done: can save/unsave without auth.* (gap #32)
-- [ ] **1.6 Inline glossary `<dfn>`/tooltip** for pillar / crux / verification-status / steel-man on first use. *Done: hover defs in both views.* (gap, audit 4 M5)
+- [x] **1.6 Inline glossary `<dfn>`/tooltip** for pillar / crux / verification-status / steel-man on first use. *Done: hover defs in both views.* (gap, audit 4 M5)
 - [x] **1.7 Quiet edges + canvas a11y polish** — set edge `animated:false` under `prefers-reduced-motion`; confirm `aria-expanded` on all expanders (done for nodes — verify). *Done: reduced-motion has no marching-ants.* (audit 2)
 - [x] **1.8 Mobile touch-target sweep** on topic detail (breadcrumb, Print, share/save chips, related-topic links → ≥44px); add `inputmode/autocomplete/enterkeyhint` to email inputs; `active:` variants on cards. *Done: targets ≥44px.* (audit 3 #4/#5)
 
 ## TIER 2 — The big builds
-- [ ] **2.1 Live mini-canvas hero (Experiment 01)** — new `HeroMiniCanvas` (constrained ~240px React Flow, zoom/pan/drag off, auto-expands root→pillars over ~2.5s then freezes), SSR/mobile poster fallback, behind a flag for A/B. Swap into `HomeClient` hero. *Done: animates on `/`, mobile gets poster, tsc+tests green.* (research: "largest single conversion lever")
-- [ ] **2.2 Topic schema migration** — add `tags`, `addedAt`, `aliases`, optional `fallaciesPresent` to `lib/schemas/topic.ts` + `buildTopic`; backfill across 109 topics; add to `topicSummaries.json` generation. *Done: fields present + typed + tests green.* (UNBLOCKS Tier 4)
-- [ ] **2.3 Real search (MiniSearch)** — replace `String.includes()` in `SearchModal` with a ranked index (title/claim/tags/aliases); build `searchIndex.json` at build time. *Done: ranked results, typo tolerance, 109 topics.* (gap #37)
-- [ ] **2.4 Collapse the triple-confidence redundancy** in `TopicDetailView` (merge KeyTakeaways+QuickStats; one verdict display). *Done: no 3× confidence number.* (audit 4 / gap #47)
+- [x] **2.1 Live mini-canvas hero (Experiment 01)** — new `HeroMiniCanvas` (constrained ~240px React Flow, zoom/pan/drag off, auto-expands root→pillars over ~2.5s then freezes), SSR/mobile poster fallback, behind a flag for A/B. Swap into `HomeClient` hero. *Done: animates on `/`, mobile gets poster, tsc+tests green.* (research: "largest single conversion lever")
+- [x] **2.2 Topic schema migration** — add `tags`, `addedAt`, `aliases`, optional `fallaciesPresent` to `lib/schemas/topic.ts` + `buildTopic`; backfill across 109 topics; add to `topicSummaries.json` generation. *Done: fields present + typed + tests green.* (UNBLOCKS Tier 4)
+- [x] **2.3 Real search (MiniSearch)** — replace `String.includes()` in `SearchModal` with a ranked index (title/claim/tags/aliases); build `searchIndex.json` at build time. *Done: ranked results, typo tolerance, 109 topics.* (gap #37)
+- [x] **2.4 Collapse the triple-confidence redundancy** in `TopicDetailView` (merge KeyTakeaways+QuickStats; one verdict display). *Done: no 3× confidence number.* (audit 4 / gap #47)
 
 ## TIER 3 — Mobile strategy (NEEDS a decision: accordion-canonical vs touch-native graph)
 - [ ] **3.1 [decide] Mobile graph direction** — pick: (a) make the accordion canonical + re-shoot OG/README around the reading view, or (b) build a touch-native mobile graph. Then:
