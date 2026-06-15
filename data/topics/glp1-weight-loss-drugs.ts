@@ -316,14 +316,14 @@ export const glp1WeightLossDrugsData = {
           "If a substantial portion of GLP-1 prescriptions (>25%) are for patients who do not meet clinical obesity criteria and are driven by cosmetic desire rather than medical necessity, this represents indication creep that distorts clinical evidence, strains drug supply, increases costs, and normalizes pharmaceutical weight management for healthy individuals. If prescribing remains clinically appropriate, the concern is overblown.",
         methodology:
           "Analyze a nationally representative prescription claims database (e.g., IQVIA, Symphony Health) to determine the BMI distribution, comorbidity profiles, and indication codes for all GLP-1 agonist prescriptions over 2022-2026. Compare on-label vs. off-label prescribing rates. Survey prescribing physicians on their clinical rationale. Cross-reference with patient-reported outcomes to assess whether off-label users experience meaningful health benefits.",
-        verification_status: "verified" as const,
+        verification_status: "theoretical" as const,
         cost_to_verify:
           "$0-500K (Claims database analysis using existing prescription data)",
       },
       evidence: [
         {
           id: "off-label-prescribing-rates",
-          title: "An Estimated 40% of GLP-1 Prescriptions May Be Off-Label or Cosmetic",
+          title: "An Estimated 30-50% of GLP-1 Prescriptions May Be Off-Label or Cosmetic",
           description:
             "Analysis of prescription data by telehealth platforms, pharmacy benefit managers, and investigative journalists suggests that a significant portion of GLP-1 prescriptions — estimated at 30-50% depending on the data source — are for patients who do not meet FDA-approved criteria for obesity (BMI >= 30 or BMI >= 27 with comorbidities). Telehealth companies like Calibrate, Found, and Ro have made GLP-1 prescriptions available with minimal clinical evaluation. A 2024 Epic Research analysis of electronic health records found that 1 in 8 semaglutide patients had no documented obesity diagnosis.",
           side: "against" as const,

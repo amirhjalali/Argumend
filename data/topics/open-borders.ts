@@ -173,7 +173,7 @@ export const openBordersData = {
           title: "Border Enforcement Costs $20B+/Year with Limited Effectiveness",
           description:
             "US Customs and Border Protection's budget exceeds $20B annually. Despite this spending, an estimated 10-11 million undocumented immigrants live in the US. A 2019 Cato Institute analysis found that border walls and enforcement have not significantly reduced unauthorized immigration — they have redirected flows to more dangerous routes and reduced circular migration.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,

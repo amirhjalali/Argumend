@@ -124,7 +124,7 @@ export const immigrationBorderCrisisData = {
           "If immigration primarily depresses wages for native-born low-skill workers, enforcement and restriction are economically justified for protecting vulnerable American workers. If wage effects are negligible or offset by complementary economic benefits (lower consumer prices, business creation, social security contributions), the economic case for restriction collapses.",
         methodology:
           "Replicate and extend the Borjas (2003) and Card (2005) methodologies using 2015-2025 data from the Current Population Survey and American Community Survey. Compare wage trajectories in high-immigration metropolitan areas versus low-immigration areas, controlling for cost of living, industry composition, and education levels. Separately analyze effects on native-born workers without a high school diploma, with a high school diploma, and with a college degree. Include analysis of consumer price effects and business creation rates.",
-        verification_status: "verified" as const,
+        verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 (Census microdata and CPS data are publicly available for analysis)",
       },

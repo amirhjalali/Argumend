@@ -273,7 +273,7 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
           "Conduct comprehensive phylogenetic analysis of all known sarbecoviruses and related coronaviruses. Calculate the probability of a 12-nucleotide in-frame insertion at the S1/S2 junction arising through natural recombination vs. directed insertion. Analyze codon usage bias at the insertion site compared to the rest of the SARS-CoV-2 genome and natural sarbecovirus populations. Model evolutionary pathways that could produce the specific CGG-CGG arginine codon pair.",
         equation:
           "P(\\text{FCS}_{\\text{natural}}) = P(\\text{insertion}) \\times P(\\text{PRRA sequence}) \\times P(\\text{CGG-CGG codons} | \\text{context})",
-        verification_status: "verified" as const,
+        verification_status: "theoretical" as const,
         cost_to_verify: "$100K (Bioinformatics and evolutionary analysis)",
       },
       evidence: [

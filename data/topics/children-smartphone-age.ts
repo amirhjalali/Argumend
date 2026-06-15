@@ -71,7 +71,7 @@ export const childrenSmartphoneAgeData = {
       evidence: [
         {
           id: "cdc-youth-mental-health-data",
-          title: "CDC Data Shows 65% Increase in Teen Girl Depression (2011-2019)",
+          title: "CDC Data Shows 58% Increase in Teen Girl Depression (2011-2021)",
           description:
             "The CDC Youth Risk Behavior Survey shows persistent feelings of sadness or hopelessness among US high school girls increased from 36% in 2011 to 57% in 2021. Suicide attempts among teen girls rose from 10% to 13% over the same period. For boys, persistent sadness increased from 21% to 29%. The timing coincides with mass smartphone adoption among adolescents, which crossed 50% in 2012-2013.",
           side: "for" as const,

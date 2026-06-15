@@ -64,7 +64,7 @@ export const aiRiskData = {
           "Train RL agents in diverse environments with randomized terminal goals. Measure frequency of emergent behaviors: resource hoarding, self-preservation, resistance to shutdown, and goal modification prevention.",
         equation:
           "P(\\text{power-seeking} | \\text{rational agent}) \\to 1 \\text{ as capability} \\to \\infty",
-        verification_status: "verified" as const,
+        verification_status: "theoretical" as const,
         cost_to_verify:
           "$100K (Large-scale RL experiments; Omohundro 2008, Turner et al. 2021)",
       },

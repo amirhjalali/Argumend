@@ -265,7 +265,7 @@ export const nuclearRenaissanceSmrData = {
         {
           id: "vogtle-delays-precedent",
           title:
-            "Vogtle 3 & 4: 7 Years Late and $19B Over Budget",
+            "Vogtle 3 & 4: 14 Years to Build and $21B Over Budget",
           description:
             "The only new US nuclear units in a generation took 14 years to complete (2009-2023) at $35 billion, more than doubling the $14 billion estimate, bankrupting Westinghouse in the process.",
           side: "against" as const,

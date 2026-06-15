@@ -116,7 +116,7 @@ export const spaceExplorationValueData = {
           "Quantify scientific publications, discoveries, and technological capabilities per dollar spent for human vs. robotic missions. Include strategic defense value and public engagement metrics.",
         equation:
           "\\frac{\\text{Science Output}_{\\text{human}}}{\\text{Cost}_{\\text{human}}} \\overset{?}{>} \\frac{\\text{Science Output}_{\\text{robotic}}}{\\text{Cost}_{\\text{robotic}}}",
-        verification_status: "verified" as const,
+        verification_status: "theoretical" as const,
         cost_to_verify: "$200K (Comparative meta-analysis)",
       },
       evidence: [

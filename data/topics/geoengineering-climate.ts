@@ -153,7 +153,7 @@ export const geoengineeringClimateData = {
           title: "Studies Show SRM Could Reduce Monsoon Rainfall by 5-10%",
           description:
             "Multiple climate modeling studies, including a 2022 Nature Geoscience paper, find that stratospheric aerosol injection designed to offset global warming would reduce precipitation in tropical monsoon regions by 5-10%. The Indian and West African monsoon systems, which support food production for over 2 billion people, would be disproportionately affected. This creates a fundamental equity problem: the nations most vulnerable to geoengineering side effects are those least responsible for climate change.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,

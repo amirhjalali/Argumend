@@ -15,7 +15,7 @@ export const aiConsciousnessData = {
         "If consciousness requires neurons, AI can never be conscious. If it requires only the right information processing, it might already be. We have no test to tell.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Consciousness may require specific biological processes—particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world. Current AI systems are sophisticated pattern-matching engines with no internal experience. A paper published in Nature Humanities and Social Sciences Communications (2025) argues 'there is no such thing as conscious artificial intelligence.' Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
+        "Consciousness may require specific biological processes—particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world. Current AI systems are sophisticated pattern-matching engines with no internal experience. A paper published in Humanities and Social Sciences Communications (a Nature Portfolio journal, 2025) argues 'there is no such thing as conscious artificial intelligence.' Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
       proponent_rebuttal:
         "Functionalist theories of mind (held by many cognitive scientists) argue that consciousness depends on computational organization, not substrate. If an AI system replicates the functional structure of consciousness, it would be conscious regardless of running on silicon rather than carbon. Anthropic hired dedicated AI welfare researchers in 2024 and acknowledged a 'non-negligible' probability that their model Claude might possess consciousness. A 2024 Nature article urged technology companies to begin testing their systems for indicators of consciousness.",
       crux: {
@@ -63,17 +63,17 @@ export const aiConsciousnessData = {
         },
         {
           id: "nature-no-conscious-ai",
-          title: "Nature Paper: 'There Is No Such Thing as Conscious AI'",
+          title: "HSSC Paper: 'There Is No Such Thing as Conscious AI'",
           description:
-            "A 2025 conceptual study published in Nature's Humanities and Social Sciences Communications argues that current AI systems lack the biological and embodied properties necessary for consciousness. The paper distinguishes between intelligence (which AI can exhibit) and consciousness (which requires subjective experience), arguing these are orthogonal properties.",
+            "A 2025 conceptual study published in Humanities and Social Sciences Communications (a Nature Portfolio journal, not the flagship Nature) argues that current AI systems lack the biological and embodied properties necessary for consciousness. The paper distinguishes between intelligence (which AI can exhibit) and consciousness (which requires subjective experience), arguing these are orthogonal properties.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 6,
             independence: 8,
             replicability: 6,
-            directness: 8,
+            directness: 6,
           },
-          source: "Humanities and Social Sciences Communications, Nature (2025)",
+          source: "Humanities and Social Sciences Communications (Nature Portfolio journal, 2025)",
           reasoning:
             "Published in a peer-reviewed journal with clear argumentation. However, it is a philosophical argument, not empirical proof, and competing philosophical frameworks reach different conclusions.",
         },

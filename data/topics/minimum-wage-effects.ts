@@ -27,7 +27,7 @@ export const minimumWageEffectsData = {
           "Natural experiments comparing employment trends in counties/states that raised minimum wages to $15+ versus neighboring jurisdictions that did not. Use synthetic control methods and border discontinuity designs.",
         equation:
           "\\epsilon = \\frac{\\%\\Delta \\text{Employment}}{\\%\\Delta \\text{Minimum Wage}}",
-        verification_status: "verified" as const,
+        verification_status: "theoretical" as const,
         cost_to_verify: "$200K (Analysis of existing state/county employment data)",
       },
       evidence: [

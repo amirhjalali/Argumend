@@ -150,7 +150,7 @@ export const trumpTariffsData = {
           id: "yale-employment-projection",
           title: "Yale Budget Lab: Total Employment Down 0.3pp, Unemployment Up 0.3pp",
           description:
-            "The Yale Budget Lab's 2026 modeling projected that durable-goods manufacturing output expands only modestly in the long run, while total employment falls 0.3 percentage points and unemployment rises 0.3 percentage points by the end of 2026, once downstream input-cost shocks are counted. HCSS and academic critics characterized the 2025 'Liberation Day' tariffs as having failed to deliver on their manufacturing-revival promise.",
+            "The Yale Budget Lab's 2026 modeling projected that durable-goods manufacturing output expands only modestly in the long run, while total employment falls 0.3 percentage points and unemployment rises 0.3 percentage points by the end of 2026, once downstream input-cost shocks are counted. Academic critics characterized the 2025 'Liberation Day' tariffs as having failed to deliver on their manufacturing-revival promise.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -158,7 +158,7 @@ export const trumpTariffsData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Yale Budget Lab; HCSS",
+          source: "Yale Budget Lab",
           sourceUrl: "https://budgetlab.yale.edu/research/tracking-economic-effects-tariffs",
           reasoning:
             "The Yale Budget Lab is a credible, independent fiscal-modeling shop. The projection of net-negative employment directly contradicts the reshoring promise, though it is a model-based forecast rather than realized data, leaving room for the proponent argument that effects are lagged.",

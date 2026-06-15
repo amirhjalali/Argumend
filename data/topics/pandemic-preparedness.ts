@@ -183,7 +183,7 @@ export const pandemicPreparednessData = {
           title:
             "Strategic National Stockpile Depleted and Not Replenished Despite Warnings",
           description:
-            "The Strategic National Stockpile (SNS), established in 1999, was significantly depleted during the 2009 H1N1 pandemic response — using 85 million N95 masks and other supplies. Despite multiple government reports recommending replenishment, the stockpile was never fully restored. By January 2020, the SNS held only 12 million N95 masks against a projected pandemic need of 3.5 billion. The HHS Inspector General found in 2020 that 'ichthe SNS had not maintained adequate supplies or developed relationships with manufacturers to rapidly scale production.' This failure occurred across three presidential administrations (Obama, Trump, Biden), illustrating that stockpile maintenance lacks political constituency.",
+            "The Strategic National Stockpile (SNS), established in 1999, was significantly depleted during the 2009 H1N1 pandemic response — using 85 million N95 masks and other supplies. Despite multiple government reports recommending replenishment, the stockpile was never fully restored. By January 2020, the SNS held only 12 million N95 masks against a projected pandemic need of 3.5 billion. The HHS Inspector General found in 2020 that 'the SNS had not maintained adequate supplies or developed relationships with manufacturers to rapidly scale production.' This failure occurred across three presidential administrations (Obama, Trump, Biden), illustrating that stockpile maintenance lacks political constituency.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
