@@ -46,12 +46,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/explore`,
-      lastModified: CONTENT_LAST_UPDATED,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
   ];
 
   // ── Content hub pages (priority 0.8) ──────────────────────────────────

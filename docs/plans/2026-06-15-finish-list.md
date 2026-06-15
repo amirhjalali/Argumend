@@ -36,8 +36,8 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 - [x] **2.3 Real search (MiniSearch)** — replace `String.includes()` in `SearchModal` with a ranked index (title/claim/tags/aliases); build `searchIndex.json` at build time. *Done: ranked results, typo tolerance, 109 topics.* (gap #37)
 - [x] **2.4 Collapse the triple-confidence redundancy** in `TopicDetailView` (merge KeyTakeaways+QuickStats; one verdict display). *Done: no 3× confidence number.* (audit 4 / gap #47)
 
-## TIER 3 — Mobile strategy (NEEDS a decision: accordion-canonical vs touch-native graph)
-- [ ] **3.1 [decide] Mobile graph direction** — pick: (a) make the accordion canonical + re-shoot OG/README around the reading view, or (b) build a touch-native mobile graph. Then:
+## TIER 3 — Mobile strategy
+- [x] **3.1 [DECIDED: accordion-canonical]** — Mobile is reading-first: renders `MobileArgumentList` + the `MiniGraphPreview` signature visual, and React Flow is code-split off mobile entirely (3.4). The full interactive graph is the desktop/shareable artifact. Chosen over a touch-native rebuild (2-3 wk, out of scope). Code already implements this; founder follow-up = re-shoot OG/positioning around the reading view if desired.
 - [x] **3.2 Mobile mini-graph preview** atop `MobileArgumentList` (static SVG snapshot) — safe under either choice. *Done: preview renders on phone.* (gap #21)
 - [x] **3.3 Tablet (768–1023px) touch tuning** — `touch-action:none` on `.react-flow__pane/__node`; MapLegend starts collapsed below `lg`; responsive node widths. *Done: canvas usable on iPad portrait.* (audit 3 #2)
 - [x] **3.4 Code-split React Flow off the mobile bundle** (`next/dynamic` like sibling views). *Done: ~80KB off phone sessions.* (gap, audit 3 #3)
@@ -48,7 +48,7 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 - [x] **4.3 `/topics/tag/[slug]` landing pages** (uses 2.2 tags). *Done: tag pages + sitemap.* (gap #39)
 - [x] **4.4 Per-topic RSS items** — add 109 topics to `feed.xml` (ACX/LW run on RSS). *Done: feed validates with topic items.* (gap #33)
 - [x] **4.5 ClaimReview/DefinedTerm/LearningResource schema** verification + `dateModified` dynamic on topic pages. *Done: rich-results test passes.* (improve-argumend B)
-- [ ] **4.6 Resolve `/explore` vs `/topics` redundancy** — pick one canonical index, 301 the other, slim nav 9→~5. *Done: one index, redirects in place.* (gap #41/#44)
+- [x] **4.6 [DECIDED: /topics canonical]** — `/explore` was a redundant second browser; 308-redirect `/explore`→`/topics` (next.config), removed the page, dropped "Explore Map" from nav, added `/fallacies` to nav, removed `/explore` from sitemap. Verified: `/explore` → 308 → `/topics`. (gap #41/#44)
 
 ## TIER 5 — Content production (token-heavy; parallelize)
 - [ ] **5.1 New topics on trending controversies** — build 5–10 from `docs/research/2026-04-28-current-controversies/` (Iran-Israel, open-weight AI reg, China-Taiwan, tariffs, Ukraine terms, housing/zoning, geoengineering, RFK health, DOGE cuts, AI-2027). Follow `data/topics/us-iran-conflict.ts` format exactly; register in `data/topics.ts`; regenerate summaries. *Done per topic: passes topic schema tests, renders, in sitemap.*

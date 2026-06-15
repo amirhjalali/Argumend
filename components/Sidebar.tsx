@@ -36,7 +36,6 @@ const PRIMARY_NAV = [
   { label: "Recent Analyses", icon: History, href: "/analyses", noPrefetch: true },
   { label: "Explore Topics", icon: ListChecks, href: "/topics" },
   { label: "Compare Topics", icon: ArrowLeftRight, href: "/topics/compare" },
-  { label: "Explore Map", icon: Network, href: "/explore" },
   { label: "How It Works", icon: Map, href: "/how-it-works" },
   { label: "About", icon: HelpCircle, href: "/about" },
 ];
@@ -45,6 +44,7 @@ const LEARN_NAV = [
   { label: "Blog", icon: Newspaper, href: "/blog" },
   { label: "Research", icon: FileText, href: "/research" },
   { label: "Guides", icon: GraduationCap, href: "/guides" },
+  { label: "Fallacies", icon: Network, href: "/fallacies" },
   { label: "Concepts", icon: Layers, href: "/concepts" },
   { label: "Perspectives", icon: Eye, href: "/perspectives" },
   { label: "Library", icon: BookOpen, href: "/library" },

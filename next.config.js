@@ -56,6 +56,13 @@ const nextConfig = {
         destination: 'https://argumend.org/:path*',
         permanent: true,
       },
+      // /explore was a redundant second topic-browser; /topics is canonical.
+      // 301 consolidates SEO authority onto /topics.
+      {
+        source: '/explore',
+        destination: '/topics',
+        permanent: true,
+      },
     ];
   },
   async headers() {
