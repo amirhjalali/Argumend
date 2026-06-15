@@ -100,6 +100,9 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
         <div className="flex-1 min-w-0">
           <input
             type="email"
+            inputMode="email"
+            autoComplete="email"
+            enterKeyHint="send"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);

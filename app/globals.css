@@ -725,6 +725,22 @@ html {
   .link-underline::after {
     transition: none;
   }
+
+  /* React Flow node birth animation */
+  .node-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* React Flow edge "marching ants" dashes.
+     The `animated` flag is also gated in buildEdge (useLogicGraph.ts); this is
+     a CSS backstop for any edges that still carry the dash animation. */
+  .react-flow__edge.animated path,
+  .react-flow__edge-path {
+    stroke-dasharray: none !important;
+    animation: none !important;
+  }
 }
 
 /* Canvas background dots */

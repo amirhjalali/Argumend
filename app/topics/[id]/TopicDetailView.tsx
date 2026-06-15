@@ -480,7 +480,7 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
       <div className="flex items-center gap-3 pt-2 border-t border-stone-100 dark:border-[#3d3a36]">
         <Link
           href={`/topics/${topic.id}`}
-          className="inline-flex items-center gap-1 text-xs font-medium text-deep hover:text-deep-dark transition-colors"
+          className="inline-flex items-center gap-1 min-h-[44px] py-2 -my-2 text-xs font-medium text-deep hover:text-deep-dark active:text-deep-dark transition-colors"
         >
           Read analysis
           <ArrowRight className="h-3 w-3" />
@@ -488,7 +488,7 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
         {currentTopicId && (
           <Link
             href={`/topics/compare/${currentTopicId}/vs/${topic.id}`}
-            className="inline-flex items-center gap-1 text-xs font-medium text-stone-500 hover:text-deep transition-colors"
+            className="inline-flex items-center gap-1 min-h-[44px] py-2 -my-2 text-xs font-medium text-stone-500 hover:text-deep active:text-deep transition-colors"
           >
             <GitCompare className="h-3 w-3" />
             Compare
@@ -1147,11 +1147,11 @@ export default function TopicDetailView({
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-stone-500 mb-6">
-            <Link href="/" className="text-deep hover:text-deep-dark transition-colors">
+            <Link href="/" className="inline-flex items-center min-h-[44px] py-2 -my-2 text-deep hover:text-deep-dark active:text-deep-dark transition-colors">
               Home
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/topics" className="text-deep hover:text-deep-dark transition-colors">
+            <Link href="/topics" className="inline-flex items-center min-h-[44px] py-2 -my-2 text-deep hover:text-deep-dark active:text-deep-dark transition-colors">
               Topics
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -1217,7 +1217,7 @@ export default function TopicDetailView({
                 <button
                   type="button"
                   onClick={() => window.print()}
-                  className="no-print inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-700 hover:bg-stone-100 transition-colors"
+                  className="no-print inline-flex items-center justify-center gap-1.5 min-h-[44px] px-3 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-700 hover:bg-stone-100 active:bg-stone-200 transition-colors"
                   title="Print this analysis"
                 >
                   <Printer className="h-3.5 w-3.5" />

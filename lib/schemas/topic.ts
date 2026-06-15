@@ -135,6 +135,9 @@ export const TopicSchema = z.object({
   imageUrl: z.string().url().optional(),
   references: z.array(ReferenceSchema).optional(),
   questions: z.array(QuestionSchema).optional(),
+  // Provenance / trust signals (optional — existing topics validate unchanged)
+  last_updated: z.string().optional(), // ISO date, e.g. "2026-06-15"
+  methodology_version: z.string().optional(), // e.g. "v2.1"
 });
 
 // ============================================================================

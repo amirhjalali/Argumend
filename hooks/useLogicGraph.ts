@@ -122,6 +122,21 @@ function mapBlueprintToData(blueprint: BlueprintNode): LogicNodeData {
   };
 }
 
+/**
+ * Whether edge "marching ants" dash animation should be enabled.
+ * Respects the user's prefers-reduced-motion setting. React Flow drives the
+ * dash animation via JS/SVG, so the CSS catch-all alone cannot stop it — we
+ * must gate the `animated` flag at edge-build time.
+ * Defaults to animated on the server (no matchMedia) so SSR markup matches the
+ * motion-OK client; edges are (re)built on the client at expand time.
+ */
+function shouldAnimateEdges(): boolean {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return true;
+  }
+  return !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 function buildEdge(source: string, target: string, slot: ChildSlot, targetVariant?: string): Edge {
   let sourceHandle = "bottom";
   let targetHandle = "top";
@@ -142,7 +157,7 @@ function buildEdge(source: string, target: string, slot: ChildSlot, targetVarian
     sourceHandle,
     targetHandle,
     type: "bezier",
-    animated: true,
+    animated: shouldAnimateEdges(),
     className: "logic-edge",
     style: { stroke: edgeColor, strokeOpacity: 0.5 },
     markerEnd: {
