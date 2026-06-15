@@ -57,7 +57,7 @@ export default function HomePage() {
         }}
       />
       <noscript>
-        <div className="p-8 text-center bg-[#f4f1eb] min-h-screen flex items-center justify-center">
+        <div className="p-8 text-center bg-[#f4f1eb] min-h-[100svh] flex items-center justify-center">
           <div>
             <h1 className="font-serif text-2xl text-primary mb-4">ARGUMEND</h1>
             <p className="text-secondary mb-4">JavaScript is required for the interactive argument maps.</p>

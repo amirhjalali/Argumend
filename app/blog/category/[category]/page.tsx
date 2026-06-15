@@ -73,7 +73,7 @@ export default async function CategoryPage({ params }: PageProps) {
   if (!category) {
     return (
       <AppShell>
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-[100svh] flex items-center justify-center">
           <p className="text-secondary">Category not found.</p>
         </div>
       </AppShell>
@@ -103,7 +103,7 @@ export default async function CategoryPage({ params }: PageProps) {
   return (
     <AppShell>
       <JsonLd data={jsonLd} />
-      <div className="min-h-screen">
+      <div className="min-h-[100svh]">
         {/* Hero */}
         <div className="bg-[#faf8f5]/60 dark:bg-[#1a1916]/60 border-b border-[#e8e0d4] dark:border-[#3d3a36]">
           <div className="mx-auto max-w-4xl px-4 md:px-8 py-10 md:py-16">

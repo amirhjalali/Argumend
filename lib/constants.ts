@@ -49,7 +49,7 @@ export const GRAPH = {
   /** Padding for fit view */
   FIT_VIEW_PADDING: 0.4,
   /** Duration for animated transitions (ms) */
-  TRANSITION_DURATION: 800,
+  TRANSITION_DURATION: 450,
   /** Background grid gap */
   GRID_GAP: 24,
   /** Background dot size */

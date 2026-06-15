@@ -91,7 +91,7 @@ export default async function DashboardPage() {
 
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#f4f1eb] dark:bg-[var(--bg-canvas)]">
+      <div className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[var(--bg-canvas)]">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {/* Header */}
           <div className="mb-10">

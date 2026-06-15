@@ -18,7 +18,7 @@ export default function TopicPageClient() {
   if (!topic) {
     return (
       <AppShell>
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-[100svh] flex items-center justify-center">
           <div className="text-center">
             <h1 className="font-serif text-2xl text-primary mb-2">Topic Not Found</h1>
             <p className="text-secondary mb-4">This topic doesn&apos;t exist.</p>

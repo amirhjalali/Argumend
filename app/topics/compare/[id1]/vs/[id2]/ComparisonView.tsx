@@ -298,7 +298,7 @@ export default function ComparisonView({
 }: ComparisonViewProps) {
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#f4f1eb] dark:bg-[#121210] overflow-x-hidden">
+      <div className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[#121210] overflow-x-hidden">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
           {/* Header */}
           <header className="text-center mb-8">

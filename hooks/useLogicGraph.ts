@@ -2,6 +2,7 @@
 
 import { generateBlueprint } from "@/data/logicBlueprint";
 import type { EvidenceNodeData } from "@/components/nodes/EvidenceNode";
+import { trackEvent } from "@/lib/analytics";
 
 // Lazy-loaded to prevent 500KB topics.ts from being bundled into every page
 let _topics: typeof import("@/data/topics").topics | null = null;
@@ -92,6 +93,7 @@ type GraphStore = {
   setTopic: (topicId: string) => void;
   setView: (view: ArgumentView) => void;
   expandNode: (nodeId: string) => void;
+  collapseNode: (nodeId: string) => void; // Remove a node's descendants; re-enables Explore
   loadEvidence: (pillarId: string) => void; // Lazy load evidence for a pillar
   spawnConceptNode: (sourceNodeId: string, concept: ConceptData) => void;
   openCrux: (nodeId: string) => void;
@@ -281,6 +283,9 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       currentTopicId: moonLanding.id,
       _initialized: true,
     });
+    // Auto-expand the root so the first canvas paint shows the pillar tree,
+    // not a lone node on an empty grid (the biggest first-impression dead zone).
+    get().expandNode("root");
   },
 
   setView: (view: ArgumentView) => set({ currentView: view }),
@@ -314,6 +319,9 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
         sequence: 0,
         _initialized: true,
       });
+      // Auto-expand the root so clicking a topic lands on a populated pillar
+      // tree instead of a single lonely node.
+      get().expandNode("root");
     };
 
     const topics = getTopicsSync();
@@ -356,6 +364,62 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       expandedNodes: { ...expandedNodes, [nodeId]: true },
       focusTargets: childNodes.map((node) => node.id),
       sequence: nextSequence,
+    });
+
+    // Funnel: a node expansion is the core "interacted with the map" signal.
+    // Guarded above by the early `if (expandedNodes[nodeId]) return`, so this
+    // fires at most once per node per session.
+    trackEvent({
+      action: "node_expand",
+      topicId: currentTopicId ?? "unknown",
+      nodeId,
+    });
+  },
+
+  collapseNode: (nodeId: string) => {
+    const { nodes, edges, expandedNodes, evidenceLoadedNodes } = get();
+
+    // Build a parent→children adjacency map from edges, then collect every
+    // descendant of nodeId so the whole subtree (children, evidence, concepts)
+    // can be removed in one pass.
+    const childrenOf = new Map<string, string[]>();
+    for (const e of edges) {
+      const list = childrenOf.get(e.source);
+      if (list) list.push(e.target);
+      else childrenOf.set(e.source, [e.target]);
+    }
+
+    const toRemove = new Set<string>();
+    const stack = [...(childrenOf.get(nodeId) ?? [])];
+    while (stack.length) {
+      const id = stack.pop()!;
+      if (toRemove.has(id)) continue;
+      toRemove.add(id);
+      for (const child of childrenOf.get(id) ?? []) stack.push(child);
+    }
+
+    if (toRemove.size === 0) return;
+
+    // The collapsed node itself is no longer expanded (and its evidence, if any,
+    // is gone), so its Explore / Show Evidence buttons reset — drop its key plus
+    // every removed descendant's key by rebuilding the maps.
+    const dropped = new Set(toRemove);
+    dropped.add(nodeId);
+    const prune = (record: Record<string, boolean>) =>
+      Object.fromEntries(
+        Object.entries(record).filter(([key]) => !dropped.has(key)),
+      );
+    const nextExpanded = prune(expandedNodes);
+    const nextEvidence = prune(evidenceLoadedNodes);
+
+    set({
+      nodes: nodes.filter((node) => !toRemove.has(node.id)),
+      edges: edges.filter(
+        (e) => !toRemove.has(e.source) && !toRemove.has(e.target),
+      ),
+      expandedNodes: nextExpanded,
+      evidenceLoadedNodes: nextEvidence,
+      focusTargets: [nodeId],
     });
   },
 

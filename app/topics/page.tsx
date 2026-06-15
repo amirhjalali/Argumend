@@ -151,7 +151,7 @@ export default function TopicsPage() {
   return (
     <AppShell>
       <JsonLd data={topicsJsonLd} />
-      <div className="min-h-screen bg-transparent">
+      <div className="min-h-[100svh] bg-transparent">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {/* Header */}
           <div className="mb-8">

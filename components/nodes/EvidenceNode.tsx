@@ -3,6 +3,7 @@
 import { memo } from "react";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
 import { Scale, ThumbsUp, ThumbsDown, ExternalLink } from "lucide-react";
+import { ConfidenceBar } from "@/components/ConfidenceBar";
 
 export interface EvidenceNodeData {
   variant: "evidence";
@@ -106,6 +107,11 @@ export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<
               {data.score}/40 · {scoreLabel}
             </span>
           </div>
+        </div>
+
+        {/* Weight bar — visualizes the 0–40 score shown in the badge above */}
+        <div className="mb-3">
+          <ConfidenceBar value={data.score} max={40} tone={data.side} />
         </div>
 
         {/* Title */}

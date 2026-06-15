@@ -721,7 +721,7 @@ function TopicExplorerInner({
   if (isMobile) {
     return (
       <AppShell>
-        <div className="min-h-screen bg-transparent">
+        <div className="min-h-[100svh] bg-transparent">
           <div className="mx-auto max-w-2xl px-4 py-6">
             {/* Header */}
             <div className="mb-6">

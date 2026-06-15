@@ -12,6 +12,8 @@ type AnalyticsEvent =
   | { action: "analysis_submit"; contentType: string }
   | { action: "analysis_complete"; topicCount: number }
   | { action: "view_switch"; view: "logic-map" | "scales" | "debate" }
+  | { action: "node_expand"; topicId: string; nodeId: string }
+  | { action: "engaged_2min"; topicId: string }
   | { action: "newsletter_signup"; source: string }
   | { action: "share_click"; platform: string; topicId: string }
   | { action: "cta_click"; ctaName: string; location: string };

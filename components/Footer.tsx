@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const FOOTER_COLUMNS = [
   {
@@ -36,16 +37,24 @@ export function Footer() {
   return (
     <footer className="bg-[#f4f1eb] dark:bg-[#1a1917] border-t border-stone-200 dark:border-[#3d3a36]" role="contentinfo">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        {/* Top section: logo + tagline */}
-        <div className="mb-10">
-          <Link href="/" className="inline-block">
-            <span className="font-serif text-xl font-semibold text-stone-700 dark:text-stone-200">
-              Argumend
-            </span>
-          </Link>
-          <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400">
-            Disagree better.
-          </p>
+        {/* Top section: logo + tagline, with newsletter capture */}
+        <div className="mb-10 grid gap-8 md:grid-cols-2 md:items-start">
+          <div>
+            <Link href="/" className="inline-block">
+              <span className="font-serif text-xl font-semibold text-stone-700 dark:text-stone-200">
+                Argumend
+              </span>
+            </Link>
+            <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400">
+              Disagree better.
+            </p>
+          </div>
+          <div className="md:max-w-sm md:justify-self-end">
+            <h3 className="font-serif text-base text-stone-700 dark:text-stone-200 mb-3">
+              Get new arguments in your inbox
+            </h3>
+            <NewsletterSignup variant="compact" source="footer" />
+          </div>
         </div>
 
         {/* Link columns */}

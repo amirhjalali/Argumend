@@ -138,7 +138,7 @@ export default function QuestionsIndexPage() {
     <>
       <JsonLd data={collectionJsonLd} />
 
-      <div className="min-h-screen bg-canvas">
+      <div className="min-h-[100svh] bg-canvas">
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <Breadcrumbs

@@ -15,11 +15,17 @@ import { isClaims } from "@/data/is-claims";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://argumend.org";
 
+  // Topics, guides, and concept pages have no per-item timestamps in the data
+  // model, so we can't fabricate a real per-page freshness signal. Instead we
+  // expose ONE honest "content corpus last revised" date. Bump this whenever
+  // the topic/guide/concept corpus is meaningfully updated.
+  const CONTENT_LAST_UPDATED = new Date("2026-06-15");
+
   // ── Homepage (priority 1.0) ───────────────────────────────────────────
   const homepage: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date("2026-03-18"),
+      lastModified: CONTENT_LAST_UPDATED,
       changeFrequency: "daily",
       priority: 1,
     },
@@ -29,13 +35,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const listingPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/topics`,
-      lastModified: new Date("2026-03-18"),
+      lastModified: CONTENT_LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/explore`,
-      lastModified: new Date("2026-03-18"),
+      lastModified: CONTENT_LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
@@ -64,19 +70,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/topics/compare`,
-      lastModified: new Date("2026-03-18"),
+      lastModified: CONTENT_LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.8,
     },
   ];
 
   // ── Topic detail pages (priority 0.8) ─────────────────────────────────
-  const topicBaseDate = new Date("2026-03-01");
-  const topicPages: MetadataRoute.Sitemap = topics.map((topic, index) => ({
+  const topicPages: MetadataRoute.Sitemap = topics.map((topic) => ({
     url: `${baseUrl}/topics/${topic.id}`,
-    lastModified: new Date(
-      topicBaseDate.getTime() + index * 24 * 60 * 60 * 1000,
-    ),
+    lastModified: CONTENT_LAST_UPDATED,
     changeFrequency: "weekly",
     priority: 0.8,
   }));
@@ -90,23 +93,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // ── Guide detail pages (priority 0.7) ─────────────────────────────────
-  const guideBaseDate = new Date("2025-11-15");
-  const guidePages: MetadataRoute.Sitemap = guides.map((guide, index) => ({
+  const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
     url: `${baseUrl}/guides/${guide.id}`,
-    lastModified: new Date(
-      guideBaseDate.getTime() + index * 24 * 60 * 60 * 1000,
-    ),
+    lastModified: CONTENT_LAST_UPDATED,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
   // ── Comparison pages (priority 0.7) ───────────────────────────────────
   const comparisonPages: MetadataRoute.Sitemap = COMPARISON_PAIRS.map(
-    ([id1, id2], index) => ({
+    ([id1, id2]) => ({
       url: `${baseUrl}/topics/compare/${id1}/vs/${id2}`,
-      lastModified: new Date(
-        topicBaseDate.getTime() + index * 24 * 60 * 60 * 1000,
-      ),
+      lastModified: CONTENT_LAST_UPDATED,
       changeFrequency: "monthly",
       priority: 0.7,
     }),
@@ -114,23 +112,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Question pages (priority 0.7) ─────────────────────────────────────
   const questionVariations = getAllQuestionVariations(topics);
-  const questionPages: MetadataRoute.Sitemap = questionVariations.map(
-    (v, index) => ({
-      url: `${baseUrl}/questions/${v.slug}`,
-      lastModified: new Date(
-        topicBaseDate.getTime() + index * 24 * 60 * 60 * 1000,
-      ),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    }),
-  );
+  const questionPages: MetadataRoute.Sitemap = questionVariations.map((v) => ({
+    url: `${baseUrl}/questions/${v.slug}`,
+    lastModified: CONTENT_LAST_UPDATED,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
 
   // ── "Is [claim] true?" pages (priority 0.7) ──────────────────────────
-  const isClaimPages: MetadataRoute.Sitemap = isClaims.map((c, index) => ({
+  const isClaimPages: MetadataRoute.Sitemap = isClaims.map((c) => ({
     url: `${baseUrl}/is/${c.slug}`,
-    lastModified: new Date(
-      topicBaseDate.getTime() + index * 24 * 60 * 60 * 1000,
-    ),
+    lastModified: CONTENT_LAST_UPDATED,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
@@ -153,23 +145,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "verification-status",
     "steel-manning",
   ];
-  const conceptBaseDate = new Date("2025-11-20");
-  const conceptPages: MetadataRoute.Sitemap = conceptSlugs.map(
-    (slug, index) => ({
-      url: `${baseUrl}/concepts/${slug}`,
-      lastModified: new Date(
-        conceptBaseDate.getTime() + index * 24 * 60 * 60 * 1000,
-      ),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    }),
-  );
+  const conceptPages: MetadataRoute.Sitemap = conceptSlugs.map((slug) => ({
+    url: `${baseUrl}/concepts/${slug}`,
+    lastModified: CONTENT_LAST_UPDATED,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
 
   // ── Questions listing page (priority 0.8) ──────────────────────────────
   const questionsListingPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/questions`,
-      lastModified: new Date("2026-03-18"),
+      lastModified: CONTENT_LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.8,
     },

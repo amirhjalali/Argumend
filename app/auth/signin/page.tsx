@@ -19,7 +19,7 @@ export default async function SignInPage() {
   if (session) redirect("/");
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-canvas px-4">
+    <div className="flex min-h-[100svh] items-center justify-center bg-canvas px-4">
       <div className="w-full max-w-sm space-y-10">
         {/* Logo / Wordmark */}
         <div className="text-center">

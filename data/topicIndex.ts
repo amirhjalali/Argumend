@@ -53,10 +53,10 @@ export const CATEGORY_ORDER: TopicCategory[] = [
 ];
 
 /** Rotate this ID weekly to feature a different debate on the homepage. */
-export const featuredTopicId = "gun-control-effectiveness";
+export const featuredTopicId = "consciousness-ai-systems";
 
 /** Short editorial hook explaining why this topic is featured right now. */
 export const featuredReason =
-  "America's most argued topic. 400 million guns, 45,000 deaths a year. Where does the evidence actually land?";
+  "Anthropic now studies model welfare. Could today's AI already have a stake in how we treat it? Where the evidence actually lands.";
 
 export type { TopicCategory, TopicStatus };

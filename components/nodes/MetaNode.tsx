@@ -13,6 +13,7 @@ import { ChevronRight, Crown, FileText } from "lucide-react";
 export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const expanded = useLogicGraph((state) => state.expandedNodes[id]);
   const expandNode = useLogicGraph((state) => state.expandNode);
+  const collapseNode = useLogicGraph((state) => state.collapseNode);
 
   if (data.variant !== "meta") {
     return null;
@@ -106,12 +107,12 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
 
           {data.hasChildren ? (
             <button
-              className="flex items-center gap-1.5 rounded-md bg-deep px-4 py-2 text-sm font-medium text-white hover:bg-deep-dark transition-colors disabled:cursor-not-allowed disabled:opacity-40"
-              onClick={() => expandNode(id)}
-              disabled={expanded}
+              className="flex items-center gap-1.5 rounded-md bg-deep px-4 py-2 text-sm font-medium text-white hover:bg-deep-dark transition-colors"
+              onClick={() => (expanded ? collapseNode(id) : expandNode(id))}
+              aria-expanded={expanded}
             >
-              {expanded ? "Expanded" : "Explore"}
-              {expanded ? null : <ChevronRight className="h-3.5 w-3.5" />}
+              {expanded ? "Collapse" : "Explore"}
+              <ChevronRight className={`h-3.5 w-3.5 transition-transform ${expanded ? "rotate-90" : ""}`} />
             </button>
           ) : (
             <div className="text-sm text-stone-300">

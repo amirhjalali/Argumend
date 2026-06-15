@@ -180,7 +180,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
   return (
     <BlogArticleClient>
-      <div className="min-h-screen bg-canvas">
+      <div className="min-h-[100svh] bg-canvas">
         {/* JSON-LD (placed early for crawlers) */}
         <JsonLd data={jsonLd} />
 

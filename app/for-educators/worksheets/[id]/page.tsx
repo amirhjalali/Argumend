@@ -458,7 +458,7 @@ export default async function WorksheetPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#1a1916]">
+    <div className="min-h-[100svh] bg-white dark:bg-[#1a1916]">
       {/* Print-optimized styles */}
       <style>{`
         @media print {

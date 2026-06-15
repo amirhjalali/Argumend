@@ -1102,9 +1102,48 @@ export default function TopicDetailView({
     trackEvent({ action: "topic_view", topicId: topic.id, topicTitle: topic.title });
   }, [topic.id, topic.title]);
 
+  // Funnel: a session that stays 2 minutes on a topic is "engaged" — the
+  // north-star proxy. Only counts foreground time; the timer pauses while the
+  // tab is hidden so background tabs don't inflate the metric. Fires once.
+  useEffect(() => {
+    const ENGAGED_MS = 2 * 60 * 1000;
+    let elapsed = 0;
+    let fired = false;
+    let lastTick = Date.now();
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+
+    const fire = () => {
+      if (fired) return;
+      fired = true;
+      if (intervalId) clearInterval(intervalId);
+      trackEvent({ action: "engaged_2min", topicId: topic.id });
+    };
+
+    const tick = () => {
+      const now = Date.now();
+      if (document.visibilityState === "visible") {
+        elapsed += now - lastTick;
+        if (elapsed >= ENGAGED_MS) fire();
+      }
+      lastTick = now;
+    };
+
+    const onVisibility = () => {
+      lastTick = Date.now();
+    };
+
+    document.addEventListener("visibilitychange", onVisibility);
+    intervalId = setInterval(tick, 5000);
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [topic.id]);
+
   return (
     <AppShell>
-      <div className="min-h-screen bg-[#f4f1eb] dark:bg-[#121210] overflow-x-hidden">
+      <div className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[#121210] overflow-x-hidden">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-stone-500 mb-6">

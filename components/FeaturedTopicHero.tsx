@@ -179,7 +179,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
             onClick={() => onTopicSelect(featuredTopicId)}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-serif font-semibold text-sm bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 hover:scale-[1.03] hover:-translate-y-px active:scale-[0.97] transition-all duration-200"
           >
-            See the full analysis
+            Open the interactive map
             <ArrowRight className="h-4 w-4" />
           </button>
         </div>

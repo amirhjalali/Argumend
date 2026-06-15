@@ -6,9 +6,11 @@ import { trackEvent } from "@/lib/analytics";
 
 interface NewsletterSignupProps {
   variant?: "default" | "compact";
+  /** Overrides the variant-derived analytics source (e.g. "footer"). */
+  source?: string;
 }
 
-export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps) {
+export function NewsletterSignup({ variant = "default", source }: NewsletterSignupProps) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -42,7 +44,7 @@ export function NewsletterSignup({ variant = "default" }: NewsletterSignupProps)
       }
 
       setSubmitted(true);
-      trackEvent({ action: "newsletter_signup", source: variant === "compact" ? "blog-post" : "blog-index" });
+      trackEvent({ action: "newsletter_signup", source: source ?? (variant === "compact" ? "blog-post" : "blog-index") });
     } catch {
       setError("Network error. Please check your connection and try again.");
     } finally {

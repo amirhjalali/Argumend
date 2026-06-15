@@ -29,6 +29,7 @@ function getStatusStyle(status: string): string {
 
 export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<LogicNodeData>>) {
   const expandNode = useLogicGraph((state) => state.expandNode);
+  const collapseNode = useLogicGraph((state) => state.collapseNode);
   const openCrux = useLogicGraph((state) => state.openCrux);
   const loadEvidence = useLogicGraph((state) => state.loadEvidence);
   const expanded = useLogicGraph((state) => state.expandedNodes[id]);
@@ -145,15 +146,11 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
           <div className="flex items-center gap-2">
             {hasChildren ? (
               <button
-                className={`flex flex-1 items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
-                  expanded
-                    ? "text-stone-400 bg-stone-50"
-                    : "text-stone-700 bg-stone-100 hover:bg-stone-200"
-                }`}
-                onClick={() => expandNode(id)}
-                disabled={expanded}
+                className="flex flex-1 items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors"
+                onClick={() => (expanded ? collapseNode(id) : expandNode(id))}
+                aria-expanded={expanded}
               >
-                {expanded ? "Expanded" : "Explore"}
+                {expanded ? "Collapse" : "Explore"}
                 <ChevronDown className={`h-3 w-3 transition-transform ${expanded ? "rotate-180" : ""}`} />
               </button>
             ) : (

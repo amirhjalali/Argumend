@@ -196,7 +196,7 @@ function PillarDeepDiveSkeleton() {
 
 export function SkeletonTopicDetail() {
   return (
-    <div className="min-h-screen bg-[#f4f1eb]">
+    <div className="min-h-[100svh] bg-[#f4f1eb]">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
         <BreadcrumbSkeleton />
         <HeroCardSkeleton />

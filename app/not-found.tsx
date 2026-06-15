@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#f4f1eb] dark:bg-[#1a1916] flex flex-col items-center justify-center px-6 py-20 text-center">
+    <div className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[#1a1916] flex flex-col items-center justify-center px-6 py-20 text-center">
       {/* Icon */}
       <div className="mb-8">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#efe9df] dark:bg-[#302e2a] border border-stone-200/60 dark:border-[var(--border-default)]">

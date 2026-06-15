@@ -203,7 +203,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
   return (
     <div
       ref={ref}
-      className="min-h-screen flex items-center justify-center px-4 md:px-8 py-10 md:py-20 relative overflow-hidden"
+      className="min-h-[100svh] flex items-center justify-center px-4 md:px-8 py-10 md:py-20 relative overflow-hidden"
       style={{
         background: `linear-gradient(180deg,
           ${index === 0 ? '#f5f0e8' : '#ebe6de'} 0%,
@@ -363,7 +363,7 @@ export default function PerspectivesPage() {
       {/* Hero with parallax */}
       <motion.div
         ref={heroRef}
-        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-canvas to-overlay px-4 relative overflow-hidden"
+        className="min-h-[100svh] flex items-center justify-center bg-gradient-to-b from-canvas to-overlay px-4 relative overflow-hidden"
         style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
       >
         {/* Background decorative elements */}

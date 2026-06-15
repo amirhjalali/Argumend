@@ -323,7 +323,7 @@ export default function AnalyzePage() {
   }, []);
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
+    <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary">
       <TopBar onMenuClick={sidebar.toggle} />
 
       <div className="flex min-h-0 flex-1 overflow-hidden">

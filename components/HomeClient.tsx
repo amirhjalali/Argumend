@@ -176,8 +176,14 @@ function CanvasExperience() {
 
   useEffect(() => {
     if (!focusTargets.length) return;
-    const targetNodes = nodes.filter((node) =>
-      focusTargets.includes(node.id)
+    const focusSet = new Set(focusTargets);
+    // Also keep the parent of the focused nodes in frame so expanding a node
+    // doesn't yank the camera off the node the user just clicked.
+    const parentIds = new Set(
+      edges.filter((e) => focusSet.has(e.target)).map((e) => e.source),
+    );
+    const targetNodes = nodes.filter(
+      (node) => focusSet.has(node.id) || parentIds.has(node.id),
     );
     if (!targetNodes.length) return;
 
@@ -187,7 +193,7 @@ function CanvasExperience() {
       duration: GRAPH.TRANSITION_DURATION,
     });
     consumeFocusTargets();
-  }, [consumeFocusTargets, focusTargets, nodes, reactFlow]);
+  }, [consumeFocusTargets, focusTargets, nodes, edges, reactFlow]);
 
   // Show the hero landing when no topic has been explicitly selected
   if (showHero) {
@@ -197,7 +203,7 @@ function CanvasExperience() {
       .slice(0, GRID_TOPICS_COUNT) as typeof topicSummaries;
 
     return (
-      <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
+      <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"
@@ -268,7 +274,7 @@ function CanvasExperience() {
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-transparent font-sans text-primary">
+    <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"
