@@ -1,5 +1,15 @@
 # Verification Sweep — Index & Triage (Tier 6)
 
+> **Update (2026-06-15, post-fix):** The structural findings and the high-priority citation issues have been FIXED and pushed to `main` (commits `18a4d0b`, `9fd27ab`, `95457b6`, `7282750`). Specifically resolved:
+> - **Empty-evidence topics filled** (cryptocurrency-value, social-media-mental-health) with real, weighted evidence.
+> - **Fabricated citations corrected via live web** — tiktok-brain-rot (fake "Xu/Nature" → Su et al. medRxiv), ai-in-education (phantom DOI → Kosmyna/MIT + Digital Promise), meaning-without-religion (→ Frost 2025, Zagonari 2024), consciousness-hard-problem (dead DOI → Cogitate 2025 Nature).
+> - **Launch topic `consciousness-ai-systems`** now has a verified `sourceUrl` on every evidence item + the Butlin/Long 2023 and Long/Sebo 2024 canonical refs.
+> - **Specific mis-cites corrected** (web-verified): wealth-tax (ProPublica true-tax-rate), gun-control (Kleck/Gertz not "CDC"), tiktok-ban (9-0, Sotomayor concurred not "dissent"), factory-farming (Sentience Institute not "USDA NASS"), universal-healthcare (Galvani/Cai split), ai-regulation (IC3 total not AI-specific), eacc (Jia/Jin/Wagman ~22%), global-water-crisis (17.7 not 54 km³/yr), ai-content-labeling (EU AI Act primary), ai-deepfakes ($40B projection), immigration-national-identity (Gallup 2024), lab-grown-meat (parity not "indistinguishable"), lab-diamonds (Trucost 511kg/2019).
+> - **~12 overstated `verification_status: "verified"` downgraded to "theoretical"**; side-coding inversions, internal date/number contradictions, and garbled text fixed; low-authority sources de-weighted.
+>
+> **Still open (long-tail, lower-value-per-item):** systemic missing `sourceUrl`s across many older topics (one-by-one web backfill), and post-cutoff 2026 figures in the 5 new forward-looking topics (inherently need live confirmation as events resolve). The per-batch docs below remain the working lists.
+
+
 A citation-integrity + balance review of **all 114 topic maps**. Detailed per-topic findings live in:
 - `consciousness-ai-systems.md`, `ukraine-peace-terms.md`, `trump-tariffs.md`, `rfk-health-policy.md`, `doge-federal-cuts.md`, `open-weight-ai-models.md` (deep reviews)
 - `batch-0`…`batch-5-citation-scan.md` (the other 108 topics, focused scans)
