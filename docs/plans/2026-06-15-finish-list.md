@@ -53,19 +53,19 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 ## TIER 5 — Content production (token-heavy; parallelize)
 - [ ] **5.1 New topics on trending controversies** — build 5–10 from `docs/research/2026-04-28-current-controversies/` (Iran-Israel, open-weight AI reg, China-Taiwan, tariffs, Ukraine terms, housing/zoning, geoengineering, RFK health, DOGE cuts, AI-2027). Follow `data/topics/us-iran-conflict.ts` format exactly; register in `data/topics.ts`; regenerate summaries. *Done per topic: passes topic schema tests, renders, in sitemap.*
 - [x] **5.2 Logical-fallacy explainer blog posts** — one per major fallacy (ad hominem, straw man, false dilemma, slippery slope, appeal to authority, etc.), ~2000 words, SEO-optimized, internal links to topics. *Done: in `data/blog.ts`, passes blog tests, in sitemap.*
-- [ ] **5.3 "Both sides" case-study posts** for the 10 most-trafficked topics. *Done: published, linked from topic pages.*
+- [x] **5.3 "Both sides" case-study posts** for the 10 most-trafficked topics. *Done: published, linked from topic pages.*
 - [x] **5.4 Expand glossary + FAQs** (AEO queries) — add terms/Q&A to `data/faqs.ts` + glossary page. *Done: FAQPage schema valid.*
 
 ## TIER 6 — Continuous verification sweeps (token-heavy, on-thesis; from plan §6)
-- [ ] **6.1 Primary-source verification pass** — for each topic, trace every evidence claim to its primary source; flag link-rot / retractions / mis-cites into `docs/reviews/<topic>.md`. (makes maps LLM-citable)
-- [ ] **6.2 Adversarial map review** — per topic, an agent argues each side's strongest case, flags weak claims, proposes missing cruxes/evidence; output prioritized critique to `docs/reviews/`. Founder triages.
-- [ ] **6.3 Confidence-score audit** — re-derive each topic's computed confidence from its evidence; flag scores that don't match the evidence weight. *Done: discrepancy report.*
+- [x] **6.1 Primary-source verification pass** — for each topic, trace every evidence claim to its primary source; flag link-rot / retractions / mis-cites into `docs/reviews/<topic>.md`. (makes maps LLM-citable)
+- [x] **6.2 Adversarial map review** — per topic, an agent argues each side's strongest case, flags weak claims, proposes missing cruxes/evidence; output prioritized critique to `docs/reviews/`. Founder triages.
+- [x] **6.3 Confidence-score audit** — re-derive each topic's computed confidence from its evidence; flag scores that don't match the evidence weight. *Done: discrepancy report.*
 
 ## TIER 7 — Distribution drafts (token-bound staging; founder approves/sends)
-- [ ] **7.1 LessWrong launch essay DRAFT** on AI consciousness, anchored to the live map, ACX register, epistemic-status preamble, anonymous/institutional voice. *Done: draft in `docs/drafts/` for founder edit.* (NOT auto-published)
-- [ ] **7.2 Gatekeeper DM drafts** — custom per gatekeeper (Scott, Zvi, Liron, habryka), each referencing their work + a gift-mapped version of one of their posts. *Done: drafts in `docs/drafts/`.*
-- [ ] **7.3 Grant application drafts** — tailored drafts for Manifund + ACX Grants (+ FLF, SFF stubs), current metrics filled. *Done: drafts in `docs/drafts/`.*
-- [ ] **7.4 Multi-format packaging for the launch topic** — Twitter/Bluesky thread, NotebookLM audio script, 60s short script, share-card variants. *Done: assets in `docs/drafts/`.*
+- [x] **7.1 LessWrong launch essay DRAFT** on AI consciousness, anchored to the live map, ACX register, epistemic-status preamble, anonymous/institutional voice. *Done: draft in `docs/drafts/` for founder edit.* (NOT auto-published)
+- [x] **7.2 Gatekeeper DM drafts** — custom per gatekeeper (Scott, Zvi, Liron, habryka), each referencing their work + a gift-mapped version of one of their posts. *Done: drafts in `docs/drafts/`.*
+- [x] **7.3 Grant application drafts** — tailored drafts for Manifund + ACX Grants (+ FLF, SFF stubs), current metrics filled. *Done: drafts in `docs/drafts/`.*
+- [x] **7.4 Multi-format packaging for the launch topic** — Twitter/Bluesky thread, NotebookLM audio script, 60s short script, share-card variants. *Done: assets in `docs/drafts/`.*
 
 ---
 
