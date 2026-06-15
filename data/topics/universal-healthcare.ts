@@ -33,9 +33,9 @@ export const universalHealthcareData = {
       evidence: [
         {
           id: "lancet-single-payer-savings",
-          title: "Lancet: Single-Payer Would Save $450B Annually",
+          title: "Lancet: Single-Payer Would Save $450B Annually, Prevent 68,000 Deaths",
           description:
-            "A 2020 Lancet meta-analysis of 22 single-payer cost analyses found that 19 of 22 predicted net savings. The median estimate was $450B per year in savings, primarily from administrative simplification ($200B) and drug price negotiation ($150B). The study also estimated 68,000 fewer deaths per year from universal coverage.",
+            "A 2020 Lancet study by Galvani et al. modeled a US single-payer (Medicare for All) system and estimated it would yield a 13% reduction in national health expenditure — equivalent to more than $450B per year in savings — while preventing more than 68,000 deaths and 1.73 million life-years lost annually compared with the status quo.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -44,8 +44,28 @@ export const universalHealthcareData = {
             directness: 8,
           },
           source: "The Lancet, Galvani et al. (2020)",
+          sourceUrl:
+            "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(19)33019-3/fulltext",
           reasoning:
-            "Top-tier medical journal with rigorous methodology; models inherently depend on assumptions about transition efficiency and political implementation.",
+            "Top-tier medical journal with rigorous methodology; this is a single Yale-led model, not a literature review, and its results depend on assumptions about transition efficiency and political implementation.",
+        },
+        {
+          id: "plos-single-payer-review",
+          title: "PLOS Medicine: 19 of 22 Cost Analyses Predict Single-Payer Savings",
+          description:
+            "A 2020 PLOS Medicine systematic review by Cai et al. of 22 economic analyses of US single-payer financing found that 19 (86%) predicted net savings in the first year of operation, with the largest projected savings coming from administrative simplification and drug-price negotiation. Estimates ranged from a 7% net cost increase to a 15% net cost reduction.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "PLOS Medicine, Cai et al. (2020)",
+          sourceUrl:
+            "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1003013",
+          reasoning:
+            "Peer-reviewed systematic review aggregating across 22 independent models gives strong replicability; the underlying analyses span advocacy and non-advocacy sources, and the near-consensus on savings is robust to that heterogeneity.",
         },
         {
           id: "cms-health-expenditure",

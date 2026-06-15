@@ -199,9 +199,9 @@ export const eaccVsTechRegulationData = {
         },
         {
           id: "gdpr-startup-impact",
-          title: "GDPR Reduced EU Tech Investment by 26% and Disproportionately Harmed Startups",
+          title: "GDPR Cut EU Tech Venture Deals ~22% and Removed a Third of Available Apps",
           description:
-            "A 2020 study in the Journal of Empirical Legal Studies found that GDPR implementation reduced the number of apps available in the EU by one-third and decreased venture capital investment in EU tech startups by 26% compared to US counterparts. Large companies like Google and Facebook could absorb compliance costs estimated at $7-8 billion collectively, while small competitors could not. A 2022 NBER working paper found that GDPR strengthened the market position of large incumbents by raising barriers to entry, the opposite of its intended competitive effect.",
+            "Two NBER studies document GDPR's disproportionate burden on smaller players. Jia, Jin & Wagman (NBER w25248, Marketing Science 2021) found that after GDPR's 2018 rollout, EU tech ventures saw roughly a 22% decline in the number of venture deals from foreign investors and about a 42% reduction in per-deal amounts relative to US counterparts, concentrated among newer and data-related startups. Separately, Janßen, Kesler, Kummer & Waldfogel (NBER w30028) found GDPR induced the exit of about one-third of available apps on the Google Play Store, with entry of new apps falling by half in the quarters after implementation. Large firms like Google and Facebook could absorb compliance costs that small competitors could not, raising barriers to entry — the opposite of GDPR's intended competitive effect.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -209,10 +209,11 @@ export const eaccVsTechRegulationData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Journal of Empirical Legal Studies; National Bureau of Economic Research",
-          sourceUrl: "https://www.nber.org/papers/w30028",
+          source:
+            "Jia, Jin & Wagman (NBER w25248 / Marketing Science 2021); Janßen, Kesler, Kummer & Waldfogel (NBER w30028)",
+          sourceUrl: "https://www.nber.org/papers/w25248",
           reasoning:
-            "The NBER and academic journal sources are credible, though the 26% VC reduction figure has been challenged by some economists as overstating the GDPR-specific effect (other factors like Brexit uncertainty also affected EU investment). This evidence directly supports the e/acc argument that regulation creates barriers to entry and entrenches incumbents. However, GDPR has also been credited with reducing data breaches and giving consumers meaningful privacy controls.",
+            "Both NBER sources are credible peer-reviewed/working-paper studies, but the figures must be attributed precisely: the venture-investment decline (~22% fewer deals, ~42% smaller per-deal amounts) comes from Jia-Jin-Wagman, while the one-third app-exit figure comes from the separate Janßen et al. Play Store study. The earlier widely-circulated '26% VC reduction' headline was an imprecise blend of these and has been challenged as overstating the GDPR-specific effect (confounders like Brexit uncertainty also affected EU investment). This evidence supports the e/acc argument that regulation entrenches incumbents — though GDPR has also been credited with reducing data breaches and giving consumers meaningful privacy controls.",
         },
       ],
     },
@@ -364,7 +365,11 @@ export const eaccVsTechRegulationData = {
       url: "https://www.nationalacademies.org/our-work/human-gene-editing",
     },
     {
-      title: "The GDPR and Competition for Online Advertising — National Bureau of Economic Research",
+      title: "The Short-Run Effects of GDPR on Technology Venture Investment (Jia, Jin & Wagman) — National Bureau of Economic Research",
+      url: "https://www.nber.org/papers/w25248",
+    },
+    {
+      title: "GDPR and the Lost Generation of Innovative Apps (Janßen, Kesler, Kummer & Waldfogel) — National Bureau of Economic Research",
       url: "https://www.nber.org/papers/w30028",
     },
     {

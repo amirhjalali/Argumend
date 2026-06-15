@@ -71,7 +71,7 @@ export const aiRegulationData = {
           id: "present-harms-bias-surveillance",
           title: "AI Is Causing Measurable Harm Today: Bias, Deepfakes, and Surveillance",
           description:
-            "AI systems are already causing documented harms that regulation should address. Facial recognition systems show error rates 10-100x higher for dark-skinned women than white men (NIST 2019). AI-generated deepfakes have been used for election manipulation, nonconsensual pornography, and financial fraud — the FBI reported $12.5 billion in AI-enabled cybercrime in 2023. Predictive policing algorithms reinforce racial bias in criminal justice. Generative AI has been used to produce child sexual abuse material. These concrete, present harms affect millions of people today, unlike speculative existential risks.",
+            "AI systems are already causing documented harms that regulation should address. Facial recognition systems show error rates 10-100x higher for dark-skinned women than white men (NIST 2019). AI-generated deepfakes have been used for election manipulation, nonconsensual pornography, and financial fraud — the FBI's IC3 logged a record $12.5 billion in total internet-crime losses in 2023, and a growing share of high-value scams (such as voice-cloning and deepfake-enabled fraud) now use generative AI. Predictive policing algorithms reinforce racial bias in criminal justice. Generative AI has been used to produce child sexual abuse material. These concrete, present harms affect millions of people today, unlike speculative existential risks.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -79,10 +79,10 @@ export const aiRegulationData = {
             replicability: 8,
             directness: 7,
           },
-          source: "NIST; FBI IC3; MIT Media Lab; Human Rights Watch",
+          source: "NIST; FBI IC3 2023 Internet Crime Report; MIT Media Lab; Human Rights Watch",
           sourceUrl: "https://www.nist.gov/news-events/news/2019/12/nist-study-evaluates-effects-race-age-sex-face-recognition-software",
           reasoning:
-            "These harms are documented by authoritative independent sources and represent real, measurable suffering. The directness score reflects a subtle point: this evidence argues for regulating present harms, not necessarily against regulating existential risk. Both can be true simultaneously. But it challenges the prioritization of speculative future risks over concrete current ones.",
+            "These harms are documented by authoritative independent sources and represent real, measurable suffering. Note that the $12.5B IC3 figure is total 2023 internet-crime losses across all categories, not an AI-specific total — the AI angle is the rising use of generative tools within those scams, not the full sum. The directness score reflects a subtle point: this evidence argues for regulating present harms, not necessarily against regulating existential risk. Both can be true simultaneously. But it challenges the prioritization of speculative future risks over concrete current ones.",
         },
       ],
     },

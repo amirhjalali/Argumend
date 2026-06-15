@@ -57,7 +57,7 @@ export const globalWaterCrisisData = {
           title:
             "India Extracts More Groundwater Than Any Nation — 600 Million Face Extreme Water Stress",
           description:
-            "India extracts approximately 250 cubic kilometers of groundwater annually — more than the US and China combined — accounting for 25% of global groundwater withdrawal. A 2018 report by India's government think tank NITI Aayog warned that 21 major Indian cities would run out of groundwater by 2020 (later revised to 2030), and that 600 million Indians face 'high to extreme water stress.' Satellite data from NASA GRACE shows that northwestern India's groundwater is declining at a rate of 54 cubic kilometers per year. The Punjab and Haryana breadbasket regions, which produce a disproportionate share of India's wheat and rice, have seen water tables drop 1-3 meters per year in some districts.",
+            "India extracts approximately 250 cubic kilometers of groundwater annually — more than the US and China combined — accounting for 25% of global groundwater withdrawal. A 2018 report by India's government think tank NITI Aayog warned that 21 major Indian cities would run out of groundwater by 2020 (later revised to 2030), and that 600 million Indians face 'high to extreme water stress.' Satellite data from NASA GRACE (Rodell et al., Nature 2009) shows that groundwater in northwestern India — the Punjab, Haryana, Delhi and Rajasthan region — was depleting at roughly 17.7 ± 4.5 cubic kilometers per year over 2002–2008. The Punjab and Haryana breadbasket regions, which produce a disproportionate share of India's wheat and rice, have seen water tables drop 1-3 meters per year in some districts.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -65,11 +65,10 @@ export const globalWaterCrisisData = {
             replicability: 8,
             directness: 9,
           },
-          source: "NITI Aayog; NASA GRACE Mission",
-          sourceUrl:
-            "https://www.niti.gov.in/writereaddata/files/document_publication/2018-05-18-Water-Index-Report_vS8-compressed.pdf",
+          source: "NITI Aayog; NASA GRACE Mission (Rodell et al., Nature 2009)",
+          sourceUrl: "https://www.nature.com/articles/nature08238",
           reasoning:
-            "NITI Aayog is India's own government planning body, making this an authoritative domestic assessment rather than an external critique. NASA GRACE satellite data provides independent physical confirmation of depletion. The NITI Aayog timeline predictions have proven overly aggressive (cities have not fully 'run out' as predicted), but the underlying depletion trend is confirmed by multiple data sources.",
+            "NITI Aayog is India's own government planning body, making this an authoritative domestic assessment rather than an external critique. NASA GRACE satellite data provides independent physical confirmation of depletion. The depletion rate is given as the peer-reviewed Rodell et al. (2009) estimate of ~17.7 km³/yr for the three-state northwestern region; an earlier draft cited ~54 km³/yr, which overstated the published figure roughly threefold. The NITI Aayog timeline predictions have proven overly aggressive (cities have not fully 'run out' as predicted), but the underlying depletion trend is confirmed by multiple data sources.",
         },
         {
           id: "glacier-retreat-asia",

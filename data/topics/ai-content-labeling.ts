@@ -35,7 +35,7 @@ export const aiContentLabelingData = {
           id: "eu-ai-act-provisions",
           title: "EU AI Act Mandates Labeling for Deepfakes",
           description:
-            "The EU AI Act (2024) requires that AI-generated or manipulated content (deepfakes) must be clearly labeled. Violations carry fines up to 3% of global revenue.",
+            "The EU AI Act (Regulation (EU) 2024/1689), Article 50, requires that AI-generated or manipulated content (deepfakes) be clearly disclosed as artificially generated or manipulated, with these transparency obligations taking effect in August 2026. Under Article 99, non-compliance with the Article 50 transparency obligations can carry administrative fines of up to €15 million or 3% of total worldwide annual turnover, whichever is higher.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -43,10 +43,10 @@ export const aiContentLabelingData = {
             replicability: 7,
             directness: 7,
           },
-          source: "European Parliament",
-          sourceUrl: "https://artificialintelligenceact.eu",
+          source: "Regulation (EU) 2024/1689 (EU AI Act), Articles 50 and 99 — Official Journal of the EU",
+          sourceUrl: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689",
           reasoning:
-            "Major democratic body enacted this after extensive deliberation; sets global precedent.",
+            "This is the binding primary-source legal text in the Official Journal of the EU, not a third-party explainer; the labeling mandate (Art. 50) and the 3%/€15M penalty tier (Art. 99) are quoted directly from the regulation. An earlier draft attributed this to 'European Parliament' with a third-party explainer URL (artificialintelligenceact.eu); the underlying figures were correct but the attribution was not, so the source has been corrected to the primary text while keeping the high reliability score.",
         },
         {
           id: "deepfake-detection-rates",

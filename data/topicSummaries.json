@@ -16,11 +16,11 @@
     "id": "universal-healthcare",
     "title": "Universal Healthcare in the US",
     "meta_claim": "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
-    "confidence_score": 65,
+    "confidence_score": 69,
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "tags": [
       "policy"
     ]
@@ -575,7 +575,7 @@
     "id": "tiktok-brain-rot",
     "title": "Is Short-Form Video Causing Cognitive Decline?",
     "meta_claim": "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
-    "confidence_score": 64,
+    "confidence_score": 63,
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -640,7 +640,7 @@
     "id": "factory-farming-ban",
     "title": "Should We Ban Factory Farming?",
     "meta_claim": "Industrial animal agriculture (factory farming) should be banned or drastically reformed due to its ethical, environmental, and public health costs.",
-    "confidence_score": 67,
+    "confidence_score": 66,
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
@@ -1147,11 +1147,11 @@
     "id": "consciousness-ai-systems",
     "title": "Consciousness in AI Systems",
     "meta_claim": "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
-    "confidence_score": 36,
+    "confidence_score": 40,
     "status": "highly_speculative",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 5,
+    "evidenceCount": 7,
     "tags": [
       "philosophy"
     ]
@@ -1160,7 +1160,7 @@
     "id": "meaning-without-religion",
     "title": "Meaning of Life Without Religion",
     "meta_claim": "A meaningful, fulfilling human life is fully achievable without religious belief, and secular philosophical frameworks provide adequate foundations for purpose, ethics, and existential satisfaction.",
-    "confidence_score": 67,
+    "confidence_score": 66,
     "status": "highly_speculative",
     "category": "philosophy",
     "pillarCount": 2,
