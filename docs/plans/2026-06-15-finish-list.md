@@ -52,9 +52,9 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 
 ## TIER 5 — Content production (token-heavy; parallelize)
 - [ ] **5.1 New topics on trending controversies** — build 5–10 from `docs/research/2026-04-28-current-controversies/` (Iran-Israel, open-weight AI reg, China-Taiwan, tariffs, Ukraine terms, housing/zoning, geoengineering, RFK health, DOGE cuts, AI-2027). Follow `data/topics/us-iran-conflict.ts` format exactly; register in `data/topics.ts`; regenerate summaries. *Done per topic: passes topic schema tests, renders, in sitemap.*
-- [ ] **5.2 Logical-fallacy explainer blog posts** — one per major fallacy (ad hominem, straw man, false dilemma, slippery slope, appeal to authority, etc.), ~2000 words, SEO-optimized, internal links to topics. *Done: in `data/blog.ts`, passes blog tests, in sitemap.*
+- [x] **5.2 Logical-fallacy explainer blog posts** — one per major fallacy (ad hominem, straw man, false dilemma, slippery slope, appeal to authority, etc.), ~2000 words, SEO-optimized, internal links to topics. *Done: in `data/blog.ts`, passes blog tests, in sitemap.*
 - [ ] **5.3 "Both sides" case-study posts** for the 10 most-trafficked topics. *Done: published, linked from topic pages.*
-- [ ] **5.4 Expand glossary + FAQs** (AEO queries) — add terms/Q&A to `data/faqs.ts` + glossary page. *Done: FAQPage schema valid.*
+- [x] **5.4 Expand glossary + FAQs** (AEO queries) — add terms/Q&A to `data/faqs.ts` + glossary page. *Done: FAQPage schema valid.*
 
 ## TIER 6 — Continuous verification sweeps (token-heavy, on-thesis; from plan §6)
 - [ ] **6.1 Primary-source verification pass** — for each topic, trace every evidence claim to its primary source; flag link-rot / retractions / mis-cites into `docs/reviews/<topic>.md`. (makes maps LLM-citable)
