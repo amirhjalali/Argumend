@@ -46,7 +46,7 @@ export const ukrainePeaceTermsData = {
             directness: 8,
           },
           source: "Institute for the Study of War (ISW) via Kyiv Post; Critical Threats",
-          sourceUrl: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-april-19-2026",
+          sourceUrl: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-april-27-2026",
           reasoning:
             "ISW's control-of-terrain assessments are the gold-standard, independently reproducible daily record of the front. A months-long stalemate supports the proponent claim that ratifying de facto lines reflects military reality. But the same data is cited by hawks as proof Russia 'cannot break through,' so it is genuinely double-edged.",
         },
@@ -80,7 +80,7 @@ export const ukrainePeaceTermsData = {
             directness: 8,
           },
           source: "Kyiv Independent; Ukrainian government statements",
-          sourceUrl: "https://kyivindependent.com/",
+          sourceUrl: "https://kyivindependent.com/elections-or-referendum-zelensky-affirms-ukrainians-will-decide-territorial-concessions/",
           reasoning:
             "Zelensky's referendum position is well-documented but is a party to the dispute, lowering independence. It directly addresses the sovereignty pillar: it establishes a constitutional barrier to ceding territory that is independent of military feasibility, complicating any imposed settlement.",
         },
@@ -192,8 +192,8 @@ export const ukrainePeaceTermsData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Mark Galeotti, In Moscow's Shadows; The Spectator",
-          sourceUrl: "https://spectator.com/article/why-ukraines-peace-talks-with-russia-matter/",
+          source: "Mark Galeotti, In Moscow's Shadows; The Spectator (spectator.com)",
+          sourceUrl: "https://www.spectator.com/article/why-ukraines-peace-talks-with-russia-matter/",
           reasoning:
             "The 2014-2022 sequence is undisputed historical fact; Galeotti's interpretation of regime intent is a serious but contestable analytic judgment, not a counted quantity. It directly supports the rearm-and-relaunch concern but rests on a forecast about Russian behavior.",
         },

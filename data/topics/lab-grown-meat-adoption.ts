@@ -90,7 +90,7 @@ export const labGrownMeatData = {
       skeptic_premise:
         "Surveys consistently show that 35-50% of consumers are unwilling to try cultivated meat. The 'yuck factor' is strong: people associate lab-grown products with unnaturalness. Taste and texture remain inferior to conventional meat for structured cuts. Cultural and religious objections add further resistance. The term 'lab-grown' itself is a marketing liability.",
       proponent_rebuttal:
-        "Consumer acceptance improves dramatically after tasting. 3D bioprinting techniques in 2025 are making cultivated meat 'virtually indistinguishable' from conventional beef, chicken, and pork. Younger consumers (18-34) show much higher acceptance rates (65-70%). Environmental and animal welfare concerns are increasingly driving food choices in wealthy nations. Plant-based meat similarly faced skepticism before achieving mainstream retail presence.",
+        "Consumer acceptance improves after tasting. In a blind taste test run by Aleph Farms, its cultivated steak reached acceptance parity with conventional beef (96% vs 98%), though independent academic tasting studies are more mixed and the producer framed this as 'parity,' not literal indistinguishability. Younger consumers (18-34) show much higher acceptance rates (65-70%). Environmental and animal welfare concerns are increasingly driving food choices in wealthy nations. Plant-based meat similarly faced skepticism before achieving mainstream retail presence.",
       crux: {
         id: "blind-taste-acceptance",
         title: "Blind Taste Test at Price Parity",
@@ -120,19 +120,20 @@ export const labGrownMeatData = {
         },
         {
           id: "bioprinting-advances-2025",
-          title: "2025: 3D Bioprinting Makes Cultivated Meat Structurally Identical",
+          title: "Cultivated Steak Reaches Consumer Acceptance Parity in a Blind Taste Test",
           description:
-            "By 2025, plant-based scaffolding and 3D bioprinting techniques are producing cultivated meat products 'virtually indistinguishable from traditional beef, chicken, and pork' according to industry reports, enabling production of structured products like steaks and whole muscle cuts rather than just ground meat.",
+            "Industry progress in plant-based scaffolding and structured-tissue techniques has begun closing the gap for whole cuts rather than just ground meat. In a blind taste test run by Aleph Farms, 96% of participants accepted its cultivated steak versus 98% for conventional beef — a difference the company said was not statistically significant — with similar restaurant-ordering intent (50% vs 51%). The company framed the result as 'parity,' not literal indistinguishability. Independent academic work is more mixed: some tasters find cultivated meat comparable, while others rate it similar or inferior, with texture the decisive factor.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
             independence: 4,
             replicability: 4,
-            directness: 7,
+            directness: 6,
           },
-          source: "Industry reports; DigiComply Lab-Grown Meat Report (2025)",
+          source: "Aleph Farms blind taste test (via Green Queen); academic tasting studies (PMC)",
+          sourceUrl: "https://www.greenqueen.com.hk/aleph-farms-cultivated-meat-lab-grown-beef-steak-taste-test/",
           reasoning:
-            "Industry sources have incentives to exaggerate progress. 'Virtually indistinguishable' claims need independent verification through blinded taste tests, which are not yet widely published.",
+            "An earlier version claimed cultivated meat was 'virtually indistinguishable from beef, chicken, and pork' citing only an unsourced industry report — that overstated the evidence and has been softened. The strongest real result (Aleph Farms) shows consumer-acceptance parity in a single company-run blind test, not blinded indistinguishability of the product itself; independent academic tasting studies find acceptance 'fairly divided.' Because the headline figures come from an interested producer, independence and replicability stay low.",
         },
       ],
     },

@@ -79,8 +79,8 @@ export const dogeFederalCutsData = {
             replicability: 8,
             directness: 6,
           },
-          source: "U.S. Government Accountability Office; factually.co fact-check",
-          sourceUrl: "https://factually.co/fact-checks/finance/how-much-fraud-doge-found-2015ba",
+          source: "U.S. Government Accountability Office (GAO-24-105833)",
+          sourceUrl: "https://www.gao.gov/products/gao-24-105833",
           reasoning:
             "GAO is an authoritative nonpartisan source and the improper-payments figure establishes that real inefficiency exists, supporting the proponent case. But its directness is limited: improper payments are not the same as fraud or as savings DOGE realized.",
         },
@@ -153,12 +153,12 @@ export const dogeFederalCutsData = {
             "After roughly 7,500 employees were pushed out of the Social Security Administration, phone wait times peaked at about 2.5 hours, with an estimated 6 million cases backlogged in processing centers and around 12 million transactions backed up in field offices — directly degrading service to retirees and disability beneficiaries.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 5,
             independence: 7,
             replicability: 7,
             directness: 8,
           },
-          source: "Moneywise; Social Security Administration reporting",
+          source: "Moneywise (personal-finance aggregator) relaying Social Security Administration service reporting",
           sourceUrl: "https://moneywise.com/managing-money/retirement-planning/the-system-is-a-shambles-doges-ssa-staff-cuts-spark-long-waits-and-have-beneficiaries-fuming-experts-urge-older-americans-to-prepare-for-delays",
           reasoning:
             "SSA serves nearly every American household, making its service metrics a direct and high-salience measure of disruption. The backlog figures are concrete and tied to a specific staffing reduction, though attributing the full effect to DOGE alone requires controlling for pre-existing trends.",
@@ -187,12 +187,12 @@ export const dogeFederalCutsData = {
             "Several of DOGE's most aggressive proposals were checked before causing lasting damage: Congress rejected the administration's FY2026 request for a 37% cut to the National Park Service, and a federal court struck down DOGE's proposed cap on NIH 'indirect cost' reimbursements, with the NIH research cuts later reported officially dead. Proponents argue this shows the system contained the excesses while preserving genuine reform.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 7,
             replicability: 7,
             directness: 6,
           },
-          source: "GearJunkie; Washington Post; congressional appropriations records",
+          source: "Washington Post; congressional appropriations records; GearJunkie (NPS-cut figure)",
           sourceUrl: "https://www.washingtonpost.com/opinions/2026/04/13/nih-research-cuts-doge-economy/",
           reasoning:
             "That Congress and the courts blocked the deepest cuts supports the proponent claim that institutional checks contained the harm. But it also concedes the original cuts were severe enough to require blocking, and the directness to the efficiency claim is moderate.",
@@ -402,8 +402,9 @@ export const dogeFederalCutsData = {
       url: "https://www.pbs.org/newshour/show/a-look-at-the-misleading-and-incorrect-claims-on-doges-wall-of-receipts",
     },
     {
-      title: "How much fraud did DOGE actually find? - factually.co fact-check",
-      url: "https://factually.co/fact-checks/finance/how-much-fraud-doge-found-2015ba",
+      title:
+        "Fraud Risk Management: 2018-2022 Data Show Federal Government Loses an Estimated $233B-$521B Annually to Fraud - U.S. GAO (GAO-24-105833)",
+      url: "https://www.gao.gov/products/gao-24-105833",
     },
     {
       title: "A Weakened IRS Has Substantial Consequences - Yale Budget Lab",

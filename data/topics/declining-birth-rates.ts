@@ -73,7 +73,7 @@ export const decliningBirthRatesData = {
           id: "south-korea-tfr-record",
           title: "South Korea's Fertility Rate Hits Record Low of 0.72 (2023)",
           description:
-            "South Korea's total fertility rate fell to 0.72 in 2023, the lowest ever recorded by any nation in peacetime. This means Korean women are having roughly one-third the children needed for population replacement. At this rate, South Korea's population will halve within 50 years and shrink by 75% within a century. The government has spent over $280 billion on pro-natalist policies since 2006 with virtually no effect on fertility trends.",
+            "South Korea's total fertility rate fell to 0.72 in 2023, the lowest ever recorded by any nation in peacetime. This means Korean women are having roughly one-third the children needed for population replacement. At this rate, South Korea's population will halve within 50 years and shrink by 75% within a century. The government has spent over $280 billion (about ₩380 trillion) on low-birthrate and related family/aging programs since 2006 — much of it pro-natalist measures such as childcare subsidies — with virtually no effect on fertility trends.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -90,7 +90,7 @@ export const decliningBirthRatesData = {
           id: "japan-per-capita-gdp-growth",
           title: "Japan's Per Capita GDP Has Grown Despite Population Decline",
           description:
-            "Despite Japan's population declining since 2008 and its total GDP growth being among the slowest in the developed world, Japan's GDP per capita has grown at approximately 1.2% annually over 2010-2023 — comparable to the US rate when adjusted for PPP. Unemployment is at historic lows (2.5%), crime rates are minimal, and quality of life indicators remain high. This suggests that population decline does not necessarily mean declining living standards for those who remain.",
+            "Despite Japan's population declining since 2008 and its total GDP growth being among the slowest in the developed world, Japan's GDP per capita has still grown at roughly 0.9-1.2% annually over 2010-2023 — positive growth, though the US outpaced it over the same window even on a PPP-adjusted basis. Unemployment is at historic lows (2.5%), crime rates are minimal, and quality of life indicators remain high. This suggests that population decline does not necessarily mean declining living standards for those who remain.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,

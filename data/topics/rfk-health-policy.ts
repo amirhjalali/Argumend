@@ -96,7 +96,7 @@ export const rfkHealthPolicyData = {
             replicability: 8,
             directness: 6,
           },
-          source: "STAT; Wikipedia (MAHA report)",
+          source: "STAT; NOTUS (original reporting on fabricated citations)",
           sourceUrl: "https://www.statnews.com/2025/09/09/rfk-maha-report-make-our-children-healthy-again-strategy/",
           reasoning:
             "The fabricated-citation problem is documented by multiple outlets. It does not refute every MAHA claim on its own, but it directly damages the evidentiary credibility of the agenda's foundational reports, supporting the skeptic position on rigor.",
@@ -271,7 +271,8 @@ export const rfkHealthPolicyData = {
             replicability: 6,
             directness: 7,
           },
-          source: "Axios; House testimony coverage",
+          source:
+            "Axios (Apr 2025 directive and Utah ban background); March 2026 House Appropriations NIH oversight hearing testimony coverage",
           sourceUrl: "https://www.axios.com/2026/02/02/fluoride-ban-water-kennedy-rfk-epa",
           reasoning:
             "An HHS official walking back the anti-fluoridation message in sworn testimony is a notable concession that the benefit-harm case at 0.7 mg/L remains contested even inside the administration, weighing against ending the recommendation outright.",
@@ -359,7 +360,7 @@ export const rfkHealthPolicyData = {
           id: "internal-contradiction-prasad-makary",
           title: "MAHA's Approval-Standard Faction Lost: Prasad Out as Makary Loosens Rules",
           description:
-            "Vinay Prasad, brought in to lead the FDA's vaccine and gene-therapy division and known for demanding stricter approval evidence, departed in late April 2026. Meanwhile FDA Commissioner Marty Makary moved to loosen approval standards — proposing a single Phase 3 trial instead of two, expanding over-the-counter access, and using priority-review vouchers. The trajectory shows the coalition favoring faster approvals prevailed over the stricter-evidence faction, contradicting MAHA's rigor rhetoric.",
+            "Vinay Prasad, brought in to lead the FDA's vaccine and gene-therapy division and known for demanding stricter approval evidence, was reported in early March 2026 to be leaving the agency at the end of April. Meanwhile FDA Commissioner Marty Makary moved to loosen approval standards — proposing a single Phase 3 trial instead of two, expanding over-the-counter access, and using priority-review vouchers. The trajectory shows the coalition favoring faster approvals prevailed over the stricter-evidence faction, contradicting MAHA's rigor rhetoric.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,

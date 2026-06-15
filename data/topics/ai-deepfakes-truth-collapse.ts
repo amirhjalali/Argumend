@@ -229,20 +229,20 @@ export const aiDeepfakesTruthCollapseData = {
         },
         {
           id: "deepfake-fraud-financial-losses",
-          title: "Deepfake Fraud Cost Businesses $25 Billion in 2024",
+          title: "Deloitte Projects Generative-AI Fraud Losses Reaching $40 Billion by 2027",
           description:
-            "Deloitte estimated that deepfake-enabled fraud — including CEO voice impersonation scams, fake video conference participants, and synthetic identity fraud — cost businesses approximately $25 billion in 2024. A Hong Kong finance employee transferred $25 million after a video call with deepfaked versions of the company's CFO and colleagues. These financial losses create concrete economic incentives for businesses to invest in verification and provenance infrastructure, potentially accelerating adoption beyond what voluntary standards alone would achieve.",
+            "Deloitte's Center for Financial Services projects that generative-AI-enabled fraud — including CEO voice impersonation scams, fake video conference participants, and synthetic identity fraud — could push US fraud losses to roughly $40 billion by 2027, up from an estimated $12.3 billion in 2023 (a ~32% compound annual growth rate). The risk is already concrete: a Hong Kong finance employee at engineering firm Arup transferred $25 million after a video call with deepfaked versions of the company's CFO and colleagues. These mounting losses create economic incentives for businesses to invest in verification and provenance infrastructure, potentially accelerating adoption beyond what voluntary standards alone would achieve.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 7,
-            directness: 8,
+            replicability: 6,
+            directness: 7,
           },
-          source: "Deloitte; CNN; South China Morning Post",
-          sourceUrl: "https://www.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk/index.html",
+          source: "Deloitte Center for Financial Services; CNN",
+          sourceUrl: "https://www.deloitte.com/us/en/insights/industry/financial-services/deepfake-banking-fraud-risk-on-the-rise.html",
           reasoning:
-            "The $25 billion loss figure from Deloitte provides a concrete measure of deepfake harm beyond theoretical information integrity concerns. The Hong Kong incident is specifically well-documented. However, fraud loss estimates vary widely across sources and may include losses that are only partially attributable to deepfake technology.",
+            "The $40 billion figure is a Deloitte projection for 2027, not a measured 2024 loss — an earlier version of this item conflated it with a measured number, which has been corrected. It is a forward-looking model (conservative scenarios put it closer to $22 billion), so replicability and directness are lower than a settled measurement. The Hong Kong/Arup incident is specifically well-documented (the figure there is $25 million, not billion). Projected fraud losses still establish a real and growing economic incentive for provenance infrastructure.",
         },
       ],
     },

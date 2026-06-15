@@ -140,7 +140,7 @@ export const immigrationNationalIdentityData = {
         "Polls consistently show that democratic majorities in most developed nations want immigration levels reduced or held constant, yet governments continue to admit immigrants at rates that exceed public preferences. The gap between public opinion and immigration policy raises fundamental questions about democratic self-determination and whether citizens have a right to control the demographic composition of their nation.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "In virtually every Western democracy, polls show that a majority or plurality of citizens want immigration reduced. A 2023 Gallup poll found 55% of Americans want immigration decreased — the highest since 2005. In the UK, reducing immigration was the top issue driving the Brexit vote. In Germany, the AfD's rise is directly correlated with immigration levels. Yet governments of both left and right consistently maintain immigration levels that exceed public preferences because business interests want cheap labor, progressives want demographic change, and bureaucratic momentum perpetuates existing policies. This gap between public preference and policy is a democratic deficit that breeds populist backlash. Citizens have a right to determine the character and composition of their political community through democratic processes — this is not xenophobia but self-determination, the same principle that underpins national sovereignty and decolonization.",
+        "In virtually every Western democracy, polls show that a majority or plurality of citizens want immigration reduced. A 2024 Gallup poll found 55% of Americans want immigration decreased — the first majority favoring less immigration since 2005. In the UK, reducing immigration was the top issue driving the Brexit vote. In Germany, the AfD's rise is directly correlated with immigration levels. Yet governments of both left and right consistently maintain immigration levels that exceed public preferences because business interests want cheap labor, progressives want demographic change, and bureaucratic momentum perpetuates existing policies. This gap between public preference and policy is a democratic deficit that breeds populist backlash. Citizens have a right to determine the character and composition of their political community through democratic processes — this is not xenophobia but self-determination, the same principle that underpins national sovereignty and decolonization.",
       proponent_rebuttal:
         "Democratic opinion polls on immigration are heavily influenced by media framing and economic conditions rather than reflecting stable preferences. When polls ask about immigration abstractly, majorities favor reduction; when they ask about specific immigrants (their neighbor, their colleague, refugees fleeing war), attitudes are far more favorable. The 'democratic deficit' argument assumes that immigration policy should be determined by simple majority preference, but liberal democracies have always limited majority rule through rights protections — the majority cannot vote to expel citizens or deny refugees protection under international law. Moreover, the politicians who promise to reduce immigration and win elections (Trump, Johnson, Meloni) consistently fail to do so because the economic dependence on immigrant labor is structural, not a policy choice. Without immigration, aging developed nations face labor shortages that threaten healthcare, agriculture, construction, and eldercare. The 'consent' framing frames immigration as something done to citizens rather than a structural economic and demographic necessity.",
       crux: {
@@ -157,9 +157,9 @@ export const immigrationNationalIdentityData = {
       evidence: [
         {
           id: "gallup-immigration-polls",
-          title: "55% of Americans Want Immigration Decreased — Highest Since 2005 (Gallup, 2023)",
+          title: "55% of Americans Want Immigration Decreased — First Majority Since 2005 (Gallup, 2024)",
           description:
-            "Gallup's annual immigration survey found that 55% of Americans in 2023 wanted immigration to the US decreased, up from 28% in 2020 — the largest shift in Gallup's polling history on the question. Only 24% wanted immigration increased, and 19% wanted it kept at present levels. The shift occurred across all demographic groups, including Hispanics (41% favoring decrease) and Democrats (25% favoring decrease, up from 5% in 2020). The finding is consistent with polling from Pew Research Center and AP-NORC showing growing public concern about immigration levels.",
+            "Gallup's annual immigration survey found that 55% of Americans in 2024 wanted immigration to the US decreased — a 14-point jump from 41% in 2023 and up from a low of 28% in 2020. This was the first time a majority favored less immigration since 2005, and the largest share since a 58% reading in 2001. The 2024 swing was driven across party lines, including an 11-point rise among independents (to 50%) and a 10-point rise among Democrats (to 28%). The finding is consistent with polling from Pew Research Center and AP-NORC showing growing public concern about immigration levels. (Note: Gallup's 2025 follow-up showed this concern abating as the figure fell back toward 30%.)",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -168,9 +168,9 @@ export const immigrationNationalIdentityData = {
             directness: 8,
           },
           source: "Gallup",
-          sourceUrl: "https://news.gallup.com/poll/1660/immigration.aspx",
+          sourceUrl: "https://news.gallup.com/poll/647123/sharply-americans-curb-immigration.aspx",
           reasoning:
-            "Gallup is among the most reputable polling organizations with consistent methodology over decades. The finding of majority support for immigration reduction, corroborated by other major polls, directly supports the 'democratic deficit' claim. However, polls measure stated preferences, not informed policy positions — respondents may not understand the economic trade-offs of reduced immigration.",
+            "Gallup is among the most reputable polling organizations with consistent methodology over decades. The 55% figure is from the 2024 survey (an earlier version of this item mis-dated it to 2023, when the reading was 41%); the year has been corrected. The finding of majority support for immigration reduction, corroborated by other major polls, directly supports the 'democratic deficit' claim. However, polls measure stated preferences, not informed policy positions, and the 2024 peak partly reversed in 2025 — public preference is more volatile than a stable mandate.",
         },
         {
           id: "aging-workforce-dependency",
@@ -202,8 +202,8 @@ export const immigrationNationalIdentityData = {
       url: "https://doi.org/10.1111/j.1467-9477.2007.00176.x",
     },
     {
-      title: "Gallup Immigration Polls",
-      url: "https://news.gallup.com/poll/1660/immigration.aspx",
+      title: "Sharply More Americans Want to Curb Immigration to U.S. — Gallup (2024)",
+      url: "https://news.gallup.com/poll/647123/sharply-americans-curb-immigration.aspx",
     },
     {
       title: "OECD International Migration Outlook 2023",

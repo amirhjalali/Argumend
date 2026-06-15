@@ -118,7 +118,7 @@ export const labDiamondsEthicsData = {
         "Diamond mining causes massive land disruption, water contamination, and significant carbon emissions. Lab-grown diamonds avoid land destruction but require enormous energy — often sourced from coal-fired grids in India and China. The true environmental comparison depends heavily on the energy source powering lab production.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Lab-grown diamond producers market themselves as the green alternative, but the energy math tells a different story. Growing a single one-carat diamond by Chemical Vapor Deposition (CVD) requires approximately 250-750 kWh of electricity, depending on the process and equipment. The majority of lab-grown diamonds are produced in India and China, where the electrical grid is 60-75% coal-powered. A 2023 analysis by Trucost (an S&P Global division) estimated that lab-grown diamonds produced on India's grid generate roughly 510 kg of CO₂ per polished carat — comparable to or exceeding the carbon footprint of efficiently mined diamonds from producers like Botswana's Debswana (160 kg CO₂ per carat). HPHT (High Pressure, High Temperature) production is even more energy-intensive. Furthermore, lab-grown diamond factories consume significant quantities of methane gas and industrial chemicals. The 'zero environmental impact' marketing claims by lab-grown producers are misleading at best.",
+        "Lab-grown diamond producers market themselves as the green alternative, but the energy math tells a different story. Growing a single one-carat diamond by Chemical Vapor Deposition (CVD) requires approximately 250-750 kWh of electricity, depending on the process and equipment. The majority of lab-grown diamonds are produced in India and China, where the electrical grid is 60-75% coal-powered. A 2019 analysis by Trucost (an S&P Global division), commissioned by the Diamond Producers Association, estimated that lab-grown diamonds produced on a fossil-fuel grid generate roughly 511 kg of CO₂ per polished carat — comparable to or exceeding the carbon footprint of efficiently mined diamonds from producers like Botswana's Debswana (160 kg CO₂ per carat in that study). HPHT (High Pressure, High Temperature) production is even more energy-intensive. Furthermore, lab-grown diamond factories consume significant quantities of methane gas and industrial chemicals. The 'zero environmental impact' marketing claims by lab-grown producers are misleading at best.",
       proponent_rebuttal:
         "The comparison must account for the full scope of mining's environmental destruction, not just carbon emissions. Open-pit diamond mines like Mirny (Russia), Jwaneng (Botswana), and Catoca (Angola) create craters visible from space — the Mirny mine is 525 meters deep and 1.2 kilometers wide. Diamond mining globally disturbs an estimated 1,750 acres of land per million carats produced, destroys ecosystems, and generates billions of tons of waste rock. The 2023 collapse of a tailings dam at an Angola diamond mine contaminated rivers serving millions of people. Water usage in diamond mining averages 480 liters per carat, often in water-scarce regions. While lab-grown production is energy-intensive, the energy source is a solvable problem — companies like Diamond Foundry use 100% hydroelectric power, producing diamonds at under 20 kg CO₂ per carat. Mining's land destruction and water contamination are inherent and irreversible. As electrical grids decarbonize, the environmental gap between lab-grown and mined diamonds will widen decisively in favor of lab-grown.",
       crux: {
@@ -157,17 +157,18 @@ export const labDiamondsEthicsData = {
           title:
             "Majority of Lab-Grown Diamonds Produced on Coal-Heavy Grids (India, China)",
           description:
-            "An estimated 60-70% of lab-grown diamonds are produced in India and China, where electrical grids rely on coal for 60-75% of generation. A Trucost (S&P Global) analysis estimated lab-grown diamonds produced on India's grid generate approximately 510 kg CO₂ per polished carat. Some HPHT processes consume up to 750 kWh per carat. Marketing claims of 'zero carbon' or 'sustainable' production often fail to account for the actual grid mix.",
+            "An estimated 60-70% of lab-grown diamonds are produced in India and China, where electrical grids rely on coal for 60-75% of generation. The Trucost (S&P Global) 'Total Clarity' analysis, commissioned by the Diamond Producers Association in 2019, estimated lab-grown diamonds produced on a fossil-fuel grid generate roughly 511 kg CO₂ per polished carat, versus 160 kg for mined diamonds in that study. Some HPHT processes consume up to 750 kWh per carat. Marketing claims of 'zero carbon' or 'sustainable' production often fail to account for the actual grid mix.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
+            sourceReliability: 7,
+            independence: 5,
             replicability: 7,
             directness: 8,
           },
-          source: "Trucost (S&P Global); Diamond Producers Association",
+          source: "Trucost (S&P Global) 'Total Clarity' report (2019), commissioned by the Diamond Producers Association",
+          sourceUrl: "https://www.trucost.com/publication/the-socioeconomic-and-environmental-impact-of-large-scale-diamond-mining/",
           reasoning:
-            "The energy consumption data is credible, though industry-funded studies may overstate lab-grown emissions. The core point — that coal-powered lab production has a significant carbon footprint — is valid. However, this compares only one dimension (carbon) while ignoring land, water, and ecosystem impacts where mining performs worse.",
+            "The 511 kg figure is verified against the 2019 Trucost 'Total Clarity' report, but that report was commissioned by the Diamond Producers Association (a mined-diamond industry body), so independence is scored low and the comparison is contested. The core point — that coal-powered lab production has a significant carbon footprint — is valid. However, this compares only one dimension (carbon) while ignoring land, water, and ecosystem impacts where mining performs worse, and renewable-powered lab production is far lower (see counter-item).",
         },
         {
           id: "renewable-powered-lab-diamonds",
@@ -268,9 +269,9 @@ export const labDiamondsEthicsData = {
         {
           id: "lab-grown-market-disruption",
           title:
-            "Lab-Grown Diamonds Captured 20% of Engagement Ring Market by 2025",
+            "Lab-Grown Diamonds Reached Roughly Half of US Engagement-Ring Sales by 2024",
           description:
-            "Lab-grown diamonds grew from under 2% of the diamond jewelry market in 2018 to approximately 20% of the US engagement ring market by 2025, driven by 70-85% lower prices per carat. Morgan Stanley projected lab-grown could reach 30-40% of the bridal market by 2030. Mined diamond prices have declined 20-30% in response to lab-grown competition, directly reducing revenue for producing nations.",
+            "Lab-grown diamonds grew from under 2% of the diamond jewelry market in 2018 to roughly 45-50% of US engagement-ring sales by 2024 — passing the 50% mark in some 2024-2025 readings (The Knot) — driven by 73-83% lower prices per carat. As lab-grown supply scaled, natural 1-carat diamond prices fell from roughly $6,000 in 2021 to about $4,200 in 2025 (a ~30% decline, with some indices showing the steepest natural-diamond price drop this century), directly reducing revenue for producing nations.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -278,9 +279,9 @@ export const labDiamondsEthicsData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Morgan Stanley; Bain & Company Diamond Industry Report; Edahn Golan Diamond Research",
+          source: "The Knot 2024-2025 Jewelry & Engagement Study; Bain & Company Diamond Industry Report; Edahn Golan Diamond Research",
           reasoning:
-            "Market data from major financial institutions is reliable. The rapid market share growth demonstrates that consumer preferences are already shifting, making the economic transition question urgent regardless of ethical arguments. Directness is moderate because market disruption is economic data, not a direct measure of ethical impact.",
+            "Market data from major industry trackers is reliable. An earlier version understated the shift as '20% by 2025'; lab-grown actually reached roughly half of US engagement-ring sales by 2024, and the corrected figure makes the disruption clearer. The rapid share growth demonstrates consumer preferences are already shifting, making the economic transition question urgent regardless of ethical arguments. Directness is moderate because market disruption is economic data, not a direct measure of ethical impact.",
         },
         {
           id: "resource-depletion-diversification",
@@ -315,8 +316,8 @@ export const labDiamondsEthicsData = {
     },
     {
       title:
-        "Trucost (S&P Global): Environmental Impact of Diamond Production — Mined vs Lab-Grown",
-      url: "https://www.spglobal.com/esg/trucost",
+        "Trucost (S&P Global): The Socioeconomic and Environmental Impact of Large-Scale Diamond Mining ('Total Clarity', 2019)",
+      url: "https://www.trucost.com/publication/the-socioeconomic-and-environmental-impact-of-large-scale-diamond-mining/",
     },
   ],
   questions: [
@@ -332,7 +333,7 @@ export const labDiamondsEthicsData = {
       title:
         "Does the energy source of lab-grown production determine the environmental winner?",
       content:
-        "Lab-grown diamonds produced on India's coal-heavy grid may emit 510 kg CO₂ per carat — comparable to mined diamonds. But renewable-powered producers like Diamond Foundry achieve under 20 kg CO₂ per carat, far below any mining operation. Meanwhile, mining causes irreversible land destruction, water contamination, and ecosystem loss that carbon accounting alone does not capture. Should environmental comparisons focus solely on carbon, or must they include land, water, and biodiversity impacts?",
+        "Lab-grown diamonds produced on India's coal-heavy grid may emit ~511 kg CO₂ per carat (per a 2019 industry-commissioned Trucost study) — comparable to mined diamonds. But renewable-powered producers like Diamond Foundry achieve under 20 kg CO₂ per carat, far below any mining operation. Meanwhile, mining causes irreversible land destruction, water contamination, and ecosystem loss that carbon accounting alone does not capture. Should environmental comparisons focus solely on carbon, or must they include land, water, and biodiversity impacts?",
     },
     {
       id: "q3",
