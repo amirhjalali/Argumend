@@ -173,19 +173,37 @@ function BalanceMeter({ forWeight, againstWeight }: {
         <div className="flex flex-col items-center gap-1">
           <span className="text-[10px] uppercase tracking-[0.3em] text-stone-400">Balance</span>
           <div className="w-[140px] md:w-[180px]">
-          <svg width="100%" height="70" viewBox="0 0 180 70" className="text-stone-400" role="img" aria-label="Balance scale visualization showing evidence weight distribution">
-            <line x1="90" y1="24" x2="90" y2="58" stroke="currentColor" strokeWidth="2" />
-            <line x1="70" y1="58" x2="110" y2="58" stroke="currentColor" strokeWidth="2" />
-            <g transform={`rotate(${tiltDeg} 90 24)`}>
-              <line x1="30" y1="24" x2="150" y2="24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              <circle cx="30" cy="24" r="4" fill="#4f7b77" />
-              <circle cx="150" cy="24" r="4" fill="#78716c" />
-              <line x1="30" y1="24" x2="30" y2="40" stroke="#4f7b77" strokeWidth="2" />
-              <line x1="150" y1="24" x2="150" y2="40" stroke="#78716c" strokeWidth="2" />
-              <line x1="20" y1="40" x2="40" y2="40" stroke="#4f7b77" strokeWidth="2" />
-              <line x1="140" y1="40" x2="160" y2="40" stroke="#78716c" strokeWidth="2" />
+          <svg width="100%" height="80" viewBox="0 0 180 80" role="img" aria-label={`Balance scale: ${forPercent}% for, ${againstPercent}% against`}>
+            {/* Stationary pedestal */}
+            <ellipse cx="90" cy="73" rx="30" ry="2.4" fill="#78716c" opacity="0.18" />
+            <path d="M70 72 Q90 68 110 72 L108 70 Q90 67 72 70 Z" fill="#57534e" />
+            <rect x="70" y="71.3" width="40" height="2.4" rx="1.2" fill="#57534e" />
+            <path d="M82 70 L98 70 L95 64 L85 64 Z" fill="#57534e" />
+            <path d="M88.4 64 L91.6 64 L90.8 30 L89.2 30 Z" fill="#6b6258" />
+            <path d="M84 30 L90 22 L96 30 Z" fill="#3a6965" />
+            <circle cx="90" cy="26" r="2.2" fill="#2c514e" />
+            {/* Beam + pans rotate with the balance */}
+            <g
+              transform={`rotate(${tiltDeg} 90 26)`}
+              style={{ transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1)" }}
+            >
+              <path d="M32 26 Q90 21.5 148 26 Q90 30.5 32 26 Z" fill="#3a6965" />
+              <line x1="34" y1="25.2" x2="146" y2="25.2" stroke="#5b8d88" strokeWidth="0.6" opacity="0.8" />
+              <circle cx="90" cy="26" r="3.4" fill="#3a6965" />
+              <circle cx="90" cy="26" r="1.4" fill="#bcd2cf" />
+              <circle cx="32" cy="26" r="2.1" fill="#3a6965" />
+              <circle cx="148" cy="26" r="2.1" fill="#3a6965" />
+              {/* Left pan — FOR (teal) */}
+              <line x1="32" y1="26" x2="22" y2="45" stroke="#3a6965" strokeWidth="0.9" />
+              <line x1="32" y1="26" x2="42" y2="45" stroke="#3a6965" strokeWidth="0.9" />
+              <path d="M17 45 L47 45 Q42 56 32 56 Q22 56 17 45 Z" fill="#3a6965" fillOpacity="0.16" stroke="#3a6965" strokeWidth="1.3" />
+              <line x1="15.5" y1="45" x2="48.5" y2="45" stroke="#3a6965" strokeWidth="1.5" strokeLinecap="round" />
+              {/* Right pan — AGAINST (brown) */}
+              <line x1="148" y1="26" x2="138" y2="45" stroke="#8B5A3C" strokeWidth="0.9" />
+              <line x1="148" y1="26" x2="158" y2="45" stroke="#8B5A3C" strokeWidth="0.9" />
+              <path d="M133 45 L163 45 Q158 56 148 56 Q138 56 133 45 Z" fill="#8B5A3C" fillOpacity="0.14" stroke="#8B5A3C" strokeWidth="1.3" />
+              <line x1="131.5" y1="45" x2="164.5" y2="45" stroke="#8B5A3C" strokeWidth="1.5" strokeLinecap="round" />
             </g>
-            <circle cx="90" cy="24" r="6" fill="#fefcf9" stroke="#78716c" strokeWidth="2" />
           </svg>
           </div>
         </div>

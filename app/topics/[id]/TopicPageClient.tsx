@@ -1,14 +1,18 @@
 "use client";
 
-import { useParams } from "next/navigation";
-import { topics, CATEGORY_LABELS, getCrossCategoryRelated } from "@/data/topics";
+import { useParams, useSearchParams } from "next/navigation";
+import { topics, getCrossCategoryRelated } from "@/data/topics";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ReadModeView } from "@/components/ReadModeView";
+import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import TopicDetailView from "./TopicDetailView";
 import Link from "next/link";
 
 export default function TopicPageClient() {
   const params = useParams<{ id: string }>();
+  const searchParams = useSearchParams();
+  const view = searchParams.get("view") === "graph" ? "graph" : "read";
   const topic = topics.find((t) => t.id === params.id);
 
   if (!topic) {
@@ -23,6 +27,21 @@ export default function TopicPageClient() {
             </Link>
           </div>
         </div>
+      </AppShell>
+    );
+  }
+
+  if (view === "read") {
+    return (
+      <AppShell>
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Topics", href: "/topics" },
+            { label: topic.title },
+          ]}
+        />
+        <ReadModeView topic={topic} />
       </AppShell>
     );
   }
@@ -42,6 +61,9 @@ export default function TopicPageClient() {
           { label: topic.title },
         ]}
       />
+      <div className="fixed top-20 right-5 z-30">
+        <ReadGraphToggle current="graph" />
+      </div>
       <TopicDetailView
         topic={topic}
         relatedTopics={relatedTopics}
