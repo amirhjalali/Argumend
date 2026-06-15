@@ -40,7 +40,7 @@ Purpose: an ordered, autonomously-completable backlog for a long-running loop. E
 - [ ] **3.1 [decide] Mobile graph direction** — pick: (a) make the accordion canonical + re-shoot OG/README around the reading view, or (b) build a touch-native mobile graph. Then:
 - [x] **3.2 Mobile mini-graph preview** atop `MobileArgumentList` (static SVG snapshot) — safe under either choice. *Done: preview renders on phone.* (gap #21)
 - [x] **3.3 Tablet (768–1023px) touch tuning** — `touch-action:none` on `.react-flow__pane/__node`; MapLegend starts collapsed below `lg`; responsive node widths. *Done: canvas usable on iPad portrait.* (audit 3 #2)
-- [ ] **3.4 Code-split React Flow off the mobile bundle** (`next/dynamic` like sibling views). *Done: ~80KB off phone sessions.* (gap, audit 3 #3)
+- [x] **3.4 Code-split React Flow off the mobile bundle** (`next/dynamic` like sibling views). *Done: ~80KB off phone sessions.* (gap, audit 3 #3)
 
 ## TIER 4 — Programmatic SEO/AEO (depends on 2.2)
 - [x] **4.1 `/fallacies/[slug]` hub** — the "highest-leverage SEO play"; one page per fallacy with examples + linked topics. *Done: pages render + in sitemap + schema.* (gap #40)
