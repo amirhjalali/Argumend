@@ -4,6 +4,17 @@
  * Issue #12: Extract magic numbers and constants to a single location.
  */
 
+// Experimental feature flags. All default values here are the SOURCE OF TRUTH —
+// flipping one back to `false` must fully restore the prior behavior.
+export const FEATURES = {
+  /**
+   * Live mini argument-map preview in the homepage hero. When enabled (and on
+   * non-mobile viewports) the hero VISUAL becomes a small, self-building React
+   * Flow showpiece instead of the static featured-topic poster.
+   */
+  LIVE_HERO_CANVAS: true,
+} as const;
+
 // Animation timing (in milliseconds)
 export const ANIMATION = {
   /** Fast UI feedback */

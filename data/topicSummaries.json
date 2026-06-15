@@ -7,7 +7,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "universal-healthcare",
@@ -17,7 +20,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "gun-control-effectiveness",
@@ -27,7 +33,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "minimum-wage-effects",
@@ -37,7 +46,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "drug-decriminalization",
@@ -47,7 +59,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "death-penalty-deterrence",
@@ -57,7 +72,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "police-reform",
@@ -67,7 +85,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "mandatory-voting",
@@ -77,7 +98,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "reparations-slavery",
@@ -87,7 +111,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "immigration-wage-impact",
@@ -97,7 +124,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "open-borders",
@@ -107,7 +137,10 @@
     "status": "highly_speculative",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "universal-basic-income",
@@ -117,7 +150,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 13
+    "evidenceCount": 13,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "wealth-tax",
@@ -127,7 +163,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "standardized-testing-debate",
@@ -137,7 +176,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 5
+    "evidenceCount": 5,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "electoral-college-reform",
@@ -147,7 +189,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 5
+    "evidenceCount": 5,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "surveillance-public-safety",
@@ -157,7 +202,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 5
+    "evidenceCount": 5,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "us-iran-conflict",
@@ -167,7 +215,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "epstein-files",
@@ -177,7 +228,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "tiktok-ban",
@@ -187,7 +241,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 4,
-    "evidenceCount": 19
+    "evidenceCount": 19,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "immigration-border-crisis",
@@ -197,7 +254,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10
+    "evidenceCount": 10,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "social-media-elections",
@@ -207,7 +267,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10
+    "evidenceCount": 10,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -217,7 +280,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10
+    "evidenceCount": 10,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "school-phone-bans",
@@ -227,7 +293,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "pandemic-preparedness",
@@ -237,7 +306,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 14
+    "evidenceCount": 14,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "iran-war-justification",
@@ -247,7 +319,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "china-taiwan-invasion",
@@ -257,7 +332,10 @@
     "status": "highly_speculative",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "global-water-crisis",
@@ -267,7 +345,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -277,7 +358,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "social-media-age-limits",
@@ -287,7 +371,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "social-media-mental-health",
@@ -297,7 +384,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 0
+    "evidenceCount": 0,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "ai-risk",
@@ -307,7 +397,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "ai-content-labeling",
@@ -317,7 +410,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "big-tech-antitrust",
@@ -327,7 +423,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "cancel-culture",
@@ -337,7 +436,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "media-bias-democracy",
@@ -347,7 +449,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "space-colonization-feasibility",
@@ -357,7 +462,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 5
+    "evidenceCount": 5,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "lab-grown-meat-adoption",
@@ -367,7 +475,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 5
+    "evidenceCount": 5,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "ai-job-displacement",
@@ -377,7 +488,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 17
+    "evidenceCount": 17,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "ai-in-education",
@@ -387,7 +501,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 10
+    "evidenceCount": 10,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "ai-regulation",
@@ -397,7 +514,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 9
+    "evidenceCount": 9,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "ai-white-collar-displacement",
@@ -407,7 +527,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 4,
-    "evidenceCount": 19
+    "evidenceCount": 19,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -417,7 +540,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 14
+    "evidenceCount": 14,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "ai-superintelligence-timeline",
@@ -427,7 +553,10 @@
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -437,7 +566,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "tiktok-brain-rot",
@@ -447,7 +579,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "ai-replacing-doctors",
@@ -457,7 +592,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "privacy-vs-convenience",
@@ -467,7 +605,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "climate-change",
@@ -477,7 +618,10 @@
     "status": "settled",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "ev-environmental-impact",
@@ -487,7 +631,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "factory-farming-ban",
@@ -497,7 +644,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "organic-food-health",
@@ -507,7 +657,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "gene-editing-embryos",
@@ -517,7 +670,10 @@
     "status": "highly_speculative",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "space-exploration-value",
@@ -527,7 +683,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "veganism-environmental-impact",
@@ -537,7 +696,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 5
+    "evidenceCount": 5,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "psychedelics-mental-health",
@@ -547,7 +709,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 5
+    "evidenceCount": 5,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "lab-leak-theory",
@@ -557,7 +722,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 21
+    "evidenceCount": 21,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "ultra-processed-food",
@@ -567,7 +735,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10
+    "evidenceCount": 10,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "longevity-science",
@@ -577,7 +748,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "gender-affirming-care-minors",
@@ -587,7 +761,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10
+    "evidenceCount": 10,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "microplastics-health-crisis",
@@ -597,7 +774,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "glp1-weight-loss-drugs",
@@ -607,7 +787,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 4,
-    "evidenceCount": 15
+    "evidenceCount": 15,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "fluoride-water-supplies",
@@ -617,7 +800,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "lithium-mining-ev-impact",
@@ -627,7 +813,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 14
+    "evidenceCount": 14,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "seed-oils-health",
@@ -637,7 +826,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "obesity-personal-responsibility",
@@ -647,7 +839,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "loneliness-epidemic",
@@ -657,7 +852,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "remote-work-permanence",
@@ -667,7 +865,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "college-value-proposition",
@@ -677,7 +878,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "homeschooling-effectiveness",
@@ -687,7 +891,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "billionaire-wealth",
@@ -697,7 +904,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -707,7 +917,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "cryptocurrency-value",
@@ -717,7 +930,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 0
+    "evidenceCount": 0,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "cryptocurrency-regulation",
@@ -727,7 +943,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 15
+    "evidenceCount": 15,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "gig-economy-regulation",
@@ -737,7 +956,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 5
+    "evidenceCount": 5,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "housing-affordability-crisis",
@@ -747,7 +969,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "four-day-work-week",
@@ -757,7 +982,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 9
+    "evidenceCount": 9,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "student-debt-forgiveness",
@@ -767,7 +995,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 9
+    "evidenceCount": 9,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "inflation-monetary-policy",
@@ -777,7 +1008,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "global-housing-bubble",
@@ -787,7 +1021,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "us-national-debt-crisis",
@@ -797,7 +1034,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "return-to-office-productivity",
@@ -807,7 +1047,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "lab-diamonds-ethics",
@@ -817,7 +1060,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "rent-control-effectiveness",
@@ -827,7 +1073,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "degrowth-economics",
@@ -837,7 +1086,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "free-will",
@@ -847,7 +1099,10 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "simulation-hypothesis",
@@ -857,7 +1112,10 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "moon-landing",
@@ -867,7 +1125,10 @@
     "status": "settled",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "minneapolis-shooting",
@@ -877,7 +1138,10 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 4
+    "evidenceCount": 4,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "consciousness-ai-systems",
@@ -887,7 +1151,10 @@
     "status": "highly_speculative",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 5
+    "evidenceCount": 5,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "meaning-without-religion",
@@ -897,7 +1164,10 @@
     "status": "highly_speculative",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 6
+    "evidenceCount": 6,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "meritocracy-myth",
@@ -907,7 +1177,10 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 12
+    "evidenceCount": 12,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "consciousness-hard-problem",
@@ -917,7 +1190,10 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 10
+    "evidenceCount": 10,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "artificial-reproduction-ethics",
@@ -927,7 +1203,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 9
+    "evidenceCount": 9,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "government-platform-bans",
@@ -937,7 +1216,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "gain-of-function-research-ban",
@@ -947,7 +1229,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "children-smartphone-age",
@@ -957,7 +1242,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "alternatives-to-democracy",
@@ -967,7 +1255,10 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 6
+    "evidenceCount": 6,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "geoengineering-climate",
@@ -977,7 +1268,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "central-bank-digital-currency",
@@ -987,7 +1281,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "masculinity-crisis",
@@ -997,7 +1294,10 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -1007,7 +1307,10 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "technology"
+    ]
   },
   {
     "id": "declining-birth-rates",
@@ -1017,7 +1320,10 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "economics"
+    ]
   },
   {
     "id": "longevity-anti-aging",
@@ -1027,7 +1333,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -1037,7 +1346,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "transgender-athletes-sports",
@@ -1047,7 +1359,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7
+    "evidenceCount": 7,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "animal-consciousness-rights",
@@ -1057,7 +1372,10 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "philosophy"
+    ]
   },
   {
     "id": "immigration-national-identity",
@@ -1067,7 +1385,10 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 6
+    "evidenceCount": 6,
+    "tags": [
+      "policy"
+    ]
   },
   {
     "id": "psychedelic-therapy-hype",
@@ -1077,7 +1398,10 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 8
+    "evidenceCount": 8,
+    "tags": [
+      "science"
+    ]
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -1087,6 +1411,9 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 14
+    "evidenceCount": 14,
+    "tags": [
+      "policy"
+    ]
   }
 ]

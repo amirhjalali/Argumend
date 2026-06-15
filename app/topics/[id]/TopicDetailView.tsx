@@ -500,108 +500,14 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
 }
 
 // ---------------------------------------------------------------------------
-// Key Takeaways Box
+// Crux Verification Bar
 // ---------------------------------------------------------------------------
+// Shows the verification-status breakdown of cruxes. Confidence, pillar/
+// evidence/crux counts, and the evidence for/against balance are shown
+// canonically in the hero stats row and the 30-Second Summary, so they are
+// deliberately not repeated here.
 
-function KeyTakeawaysBox({
-  topic,
-  totalEvidence,
-  totalFor,
-  totalAgainst,
-}: {
-  topic: Topic;
-  totalEvidence: number;
-  totalFor: number;
-  totalAgainst: number;
-}) {
-  const StatusIcon = statusIcons[topic.status];
-  const totalCruxes = topic.pillars.length; // One crux per pillar
-
-  return (
-    <div className="rounded-xl border border-stone-200/60 dark:border-[#3d3a36] bg-gradient-to-br from-[#faf8f5] to-[#f4f1eb] dark:from-[#1a1916] dark:to-[#121210] p-6 sm:p-8 mb-8">
-      <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4">
-        Key Takeaways
-      </p>
-
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-6">
-        {/* Confidence score large */}
-        <div className="flex items-center gap-4">
-          <span
-            className={`text-4xl sm:text-5xl font-mono font-bold tabular-nums leading-none ${
-              topic.confidence_score >= 85
-                ? "text-emerald-700"
-                : topic.confidence_score >= 60
-                  ? "text-deep"
-                  : topic.confidence_score >= 40
-                    ? "text-rust-700"
-                    : "text-stone-600"
-            }`}
-          >
-            {topic.confidence_score}%
-          </span>
-          <div className="flex flex-col gap-1">
-            <span className="text-sm font-medium text-primary leading-tight">
-              {getVerdictLabel(topic.confidence_score)}
-            </span>
-            <span
-              className={`inline-flex items-center gap-1 w-fit px-2 py-0.5 rounded-full text-[11px] font-medium border ${statusColors[topic.status]}`}
-            >
-              <StatusIcon className="h-3 w-3" />
-              {statusLabels[topic.status]}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Stats grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="rounded-lg bg-white/60 dark:bg-[#252420]/60 border border-stone-200/40 dark:border-[#3d3a36] p-3 text-center">
-          <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
-            {topic.pillars.length}
-          </span>
-          <span className="text-xs text-stone-500">Pillars Analyzed</span>
-        </div>
-        <div className="rounded-lg bg-white/60 dark:bg-[#252420]/60 border border-stone-200/40 dark:border-[#3d3a36] p-3 text-center">
-          <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
-            {totalEvidence}
-          </span>
-          <span className="text-xs text-stone-500">Evidence Items</span>
-        </div>
-        <div className="rounded-lg bg-white/60 dark:bg-[#252420]/60 border border-stone-200/40 dark:border-[#3d3a36] p-3 text-center">
-          <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
-            {totalCruxes}
-          </span>
-          <span className="text-xs text-stone-500">Cruxes Identified</span>
-        </div>
-        <div className="rounded-lg bg-white/60 dark:bg-[#252420]/60 border border-stone-200/40 dark:border-[#3d3a36] p-3 text-center">
-          <span className="block text-lg font-mono font-semibold text-rust-700 tabular-nums">
-            {totalFor}
-          </span>
-          <span className="text-xs text-stone-500">For</span>
-          <span className="text-xs text-stone-400 mx-1">/</span>
-          <span className="block text-lg font-mono font-semibold text-stone-600 tabular-nums inline">
-            {totalAgainst}
-          </span>
-          <span className="text-xs text-stone-500 ml-0.5">Against</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Quick Stats Bar
-// ---------------------------------------------------------------------------
-
-function QuickStatsBar({
-  topic,
-  totalFor,
-  totalAgainst,
-}: {
-  topic: Topic;
-  totalFor: number;
-  totalAgainst: number;
-}) {
+function QuickStatsBar({ topic }: { topic: Topic }) {
   // Count verification statuses across all cruxes
   const verificationCounts = topic.pillars.reduce(
     (acc, p) => {
@@ -614,52 +520,11 @@ function QuickStatsBar({
 
   return (
     <div className="rounded-xl border border-stone-200/60 dark:border-[#3d3a36] bg-white/60 dark:bg-[#252420]/60 p-4 mb-8">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        {/* Evidence For */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-2.5 h-2.5 rounded-full bg-rust-500" />
-          <div>
-            <span className="text-sm font-mono font-semibold text-rust-700 tabular-nums">
-              {totalFor}
-            </span>
-            <span className="text-xs text-stone-500 ml-1.5">Evidence For</span>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="hidden sm:block h-6 w-px bg-stone-200/80 dark:bg-[#3d3a36]" />
-
-        {/* Evidence Against */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-2.5 h-2.5 rounded-full bg-stone-400" />
-          <div>
-            <span className="text-sm font-mono font-semibold text-stone-600 tabular-nums">
-              {totalAgainst}
-            </span>
-            <span className="text-xs text-stone-500 ml-1.5">Evidence Against</span>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="hidden sm:block h-6 w-px bg-stone-200/80 dark:bg-[#3d3a36]" />
-
-        {/* Cruxes */}
-        <div className="flex items-center gap-2.5">
-          <FlaskConical className="h-3.5 w-3.5 text-deep" />
-          <div>
-            <span className="text-sm font-mono font-semibold text-primary tabular-nums">
-              {topic.pillars.length}
-            </span>
-            <span className="text-xs text-stone-500 ml-1.5">Cruxes</span>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="hidden sm:block h-6 w-px bg-stone-200/80 dark:bg-[#3d3a36]" />
-
+      <div className="flex flex-wrap items-center gap-4">
         {/* Verification breakdown */}
         <div className="flex items-center gap-2.5">
           <Shield className="h-3.5 w-3.5 text-emerald-600" />
+          <span className="text-xs text-stone-500 mr-1">Crux verification:</span>
           <div className="flex items-center gap-1.5">
             {verificationCounts.verified ? (
               <span className="text-xs text-emerald-700 font-medium">
@@ -1270,23 +1135,9 @@ export default function TopicDetailView({
           </header>
           </AnimateOnScroll>
 
-          {/* ── Key Takeaways ── */}
-          <AnimateOnScroll variant="fade-up" delay={50}>
-            <KeyTakeawaysBox
-              topic={topic}
-              totalEvidence={totalEvidence}
-              totalFor={totalFor}
-              totalAgainst={totalAgainst}
-            />
-          </AnimateOnScroll>
-
-          {/* ── Quick Stats Bar ── */}
+          {/* ── Crux Verification Bar ── */}
           <AnimateOnScroll variant="fade-up" delay={80}>
-            <QuickStatsBar
-              topic={topic}
-              totalFor={totalFor}
-              totalAgainst={totalAgainst}
-            />
+            <QuickStatsBar topic={topic} />
           </AnimateOnScroll>
 
           {/* ── Controversy Meter ── */}

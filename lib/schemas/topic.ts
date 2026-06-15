@@ -138,6 +138,10 @@ export const TopicSchema = z.object({
   // Provenance / trust signals (optional — existing topics validate unchanged)
   last_updated: z.string().optional(), // ISO date, e.g. "2026-06-15"
   methodology_version: z.string().optional(), // e.g. "v2.1"
+  // Discovery / navigation (optional — existing topics validate unchanged)
+  tags: z.array(z.string()).optional(), // for tag pages (buildTopic guarantees >= 1)
+  addedAt: z.string().optional(), // ISO date — for "recently added" sorting
+  aliases: z.array(z.string()).optional(), // alternate names for search
 });
 
 // ============================================================================

@@ -136,9 +136,14 @@ function buildTopic(data: Omit<Topic, "confidence_score"> & { confidence_score?:
     ? Math.max(computedScore, data.confidence_score ?? 0)
     : computedScore;
 
+  // Guarantee every topic has at least one tag so tag pages always have content.
+  // Always include the category, then any explicit tags (deduped).
+  const tags = Array.from(new Set([data.category, ...(data.tags ?? [])]));
+
   return TopicSchema.parse({
     ...data,
     confidence_score: finalScore,
+    tags,
   });
 }
 

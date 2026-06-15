@@ -20,6 +20,8 @@ const summaries = topics.map((t) => ({
     (sum, p) => sum + (p.evidence?.length ?? 0),
     0
   ),
+  tags: t.tags ?? [],
+  ...(t.addedAt ? { addedAt: t.addedAt } : {}),
 }));
 
 const outPath = join(__dirname, "../data/topicSummaries.json");

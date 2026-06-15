@@ -13,6 +13,7 @@ import { ConfidenceBar } from "@/components/ConfidenceBar";
 import { VerdictVoting } from "@/components/VerdictVoting";
 import { CitationCard } from "@/components/CitationCard";
 import { SaveTopicButton } from "@/components/SaveTopicButton";
+import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { topics, getCrossCategoryRelated } from "@/data/topics";
 
 const statusMeta: Record<TopicStatus, { label: string; icon: typeof CheckCircle; chip: string }> = {
@@ -300,7 +301,8 @@ export function ReadModeView({ topic }: { topic: Topic }) {
               >
                 <div className="mb-4">
                   <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary mb-1">
-                    Pillar {idx + 1} of {topic.pillars.length}
+                    <GlossaryTerm term="pillar">Pillar</GlossaryTerm> {idx + 1} of{" "}
+                    {topic.pillars.length}
                   </div>
                   <h2 className="font-serif text-[28px] leading-tight text-primary">
                     {pillar.title}
@@ -362,7 +364,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                   className="mt-6 rounded-lg border border-[color:var(--crux-crimson,#a23b3b)]/30 bg-[color:var(--crux-crimson,#a23b3b)]/5 px-5 py-4 scroll-mt-24"
                 >
                   <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[color:var(--crux-crimson,#a23b3b)] mb-1">
-                    ◆ Crux — what would settle this
+                    ◆ <GlossaryTerm term="crux">Crux</GlossaryTerm> — what would settle this
                   </div>
                   <h4 className="font-serif text-[19px] text-primary mb-1.5">
                     {pillar.crux.title}
@@ -378,7 +380,10 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                   </div>
                   <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-mono text-secondary">
                     <span>cost: {pillar.crux.cost_to_verify}</span>
-                    <span>status: {pillar.crux.verification_status}</span>
+                    <span>
+                      <GlossaryTerm term="verification status">status</GlossaryTerm>:{" "}
+                      {pillar.crux.verification_status}
+                    </span>
                   </div>
                 </aside>
               </section>

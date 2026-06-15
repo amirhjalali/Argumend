@@ -31,9 +31,9 @@ import { FeaturedTopicHero } from "@/components/FeaturedTopicHero";
 import { Footer } from "@/components/Footer";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { topicSummaries, CATEGORY_ORDER } from "@/data/topicIndex";
+import { topicSummaries, CATEGORY_ORDER, featuredTopicId } from "@/data/topicIndex";
 import { getMiniMapColor } from "@/lib/variantStyles";
-import { GRAPH, MINIMAP } from "@/lib/constants";
+import { GRAPH, MINIMAP, FEATURES } from "@/lib/constants";
 import type { LogicNodeData } from "@/types/graph";
 
 // Heavy view components — only loaded when the user switches to them
@@ -49,6 +49,13 @@ const MobileArgumentList = dynamic(
   () => import("@/components/MobileArgumentList").then((m) => m.MobileArgumentList),
   { ssr: false }
 );
+
+// Self-building mini argument-map shown in the hero. Isolated React Flow
+// instance (its own provider + local state), client-only to avoid SSR/hydration
+// issues. Gated behind FEATURES.LIVE_HERO_CANVAS + non-mobile in CanvasExperience.
+const HeroMiniCanvas = dynamic(() => import("@/components/HeroMiniCanvas"), {
+  ssr: false,
+});
 
 // ---------------------------------------------------------------------------
 // Sidebar layout wrapper -- eliminates duplication between hero and canvas views
@@ -219,6 +226,19 @@ function CanvasExperience() {
         >
           <main id="main-content" role="main" className="relative flex-1 min-w-0 overflow-y-auto">
             {/* Section 1: Featured Topic Hero */}
+            {/* Live mini-canvas showpiece — additive hero VISUAL above the
+                existing featured-topic content. Flag-gated and desktop-only;
+                flipping FEATURES.LIVE_HERO_CANVAS to false fully restores the
+                prior poster-only hero. */}
+            {FEATURES.LIVE_HERO_CANVAS && !isMobile && (
+              <div className="px-4 md:px-8 pt-8 bg-gradient-to-b from-[#f4f1eb] to-[#f4f1eb] dark:from-[#1a1917] dark:to-[#1a1917]">
+                <div className="w-full max-w-2xl mx-auto">
+                  <HeroMiniCanvas
+                    onClick={() => handleTopicSelect(featuredTopicId)}
+                  />
+                </div>
+              </div>
+            )}
             <FeaturedTopicHero onTopicSelect={handleTopicSelect} />
 
             {/* Section 2: Topic Grid */}

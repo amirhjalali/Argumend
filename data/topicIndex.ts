@@ -27,6 +27,8 @@ export interface TopicSummary {
   category: TopicCategory;
   pillarCount: number;
   evidenceCount: number;
+  tags: string[];
+  addedAt?: string;
 }
 
 /** Pre-computed summaries — ~17KB vs ~500KB for the full topics array. */

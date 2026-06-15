@@ -13,6 +13,7 @@ import {
   CornerDownLeft,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import MiniSearch from "minisearch";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
 import { articles } from "@/data/blog";
@@ -33,6 +34,11 @@ interface SearchResult {
   // Topic-specific fields
   category?: TopicCategory;
   confidenceScore?: number;
+  // Extra searchable text (not rendered) — indexed by MiniSearch
+  meta_claim?: string;
+  categoryText?: string;
+  tags?: string;
+  aliases?: string;
 }
 
 interface SearchGroup {
@@ -134,12 +140,6 @@ const FEATURED_TOPIC_IDS = [
 // Helpers
 // ---------------------------------------------------------------------------
 
-function matchesQuery(text: string, query: string): boolean {
-  const lower = text.toLowerCase();
-  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
-  return terms.every((term) => lower.includes(term));
-}
-
 function getVerdictInfo(score: number): { label: string; color: string } {
   if (score >= 65) return { label: "For", color: "text-rust-600" };
   if (score <= 35) return { label: "Against", color: "text-deep" };
@@ -205,15 +205,24 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   // -----------------------------------------------------------------------
 
   const allItems = useMemo<SearchResult[]>(() => {
-    const topicResults: SearchResult[] = topicSummaries.map((t) => ({
-      id: `topic-${t.id}`,
-      title: t.title,
-      subtitle: t.meta_claim,
-      type: "topic" as const,
-      href: `/topics/${t.id}`,
-      category: t.category,
-      confidenceScore: t.confidence_score,
-    }));
+    const topicResults: SearchResult[] = topicSummaries.map((t) => {
+      // `tags`/`aliases` may be added by a concurrent schema change — read
+      // them defensively so this keeps working whether or not they exist.
+      const extra = t as typeof t & { tags?: string[]; aliases?: string[] };
+      return {
+        id: `topic-${t.id}`,
+        title: t.title,
+        subtitle: t.meta_claim,
+        type: "topic" as const,
+        href: `/topics/${t.id}`,
+        category: t.category,
+        confidenceScore: t.confidence_score,
+        meta_claim: t.meta_claim,
+        categoryText: `${t.category} ${CATEGORY_LABELS[t.category]}`,
+        tags: (extra.tags ?? []).join(" "),
+        aliases: (extra.aliases ?? []).join(" "),
+      };
+    });
 
     const blogResults: SearchResult[] = articles.map((a) => ({
       id: `blog-${a.slug}`,
@@ -221,6 +230,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       subtitle: a.description,
       type: "blog" as const,
       href: `/blog/${a.slug}`,
+      meta_claim: a.description,
+      tags: (a.tags ?? []).join(" "),
     }));
 
     const conceptResults: SearchResult[] = concepts.map((c) => ({
@@ -229,10 +240,43 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       subtitle: c.description.slice(0, 160) + (c.description.length > 160 ? "..." : ""),
       type: "concept" as const,
       href: `/concepts/${c.id}`,
+      meta_claim: c.description,
     }));
 
-    return [...topicResults, ...blogResults, ...conceptResults, ...STATIC_PAGES];
+    const pageResults: SearchResult[] = STATIC_PAGES.map((p) => ({
+      ...p,
+      meta_claim: p.subtitle,
+    }));
+
+    return [...topicResults, ...blogResults, ...conceptResults, ...pageResults];
   }, []);
+
+  // -----------------------------------------------------------------------
+  // Build the MiniSearch index from allItems (memoized — built once on the
+  // client). SearchModal is a client component, so this is SSR-safe.
+  // -----------------------------------------------------------------------
+
+  const miniSearch = useMemo(() => {
+    const ms = new MiniSearch<SearchResult>({
+      idField: "id",
+      fields: ["title", "meta_claim", "categoryText", "tags", "aliases"],
+      storeFields: ["id"],
+      searchOptions: {
+        boost: { title: 3, aliases: 2 },
+        fuzzy: 0.2,
+        prefix: true,
+      },
+    });
+    ms.addAll(allItems);
+    return ms;
+  }, [allItems]);
+
+  // Fast lookup from result id back to the full SearchResult for rendering.
+  const itemsById = useMemo(() => {
+    const map = new Map<string, SearchResult>();
+    for (const item of allItems) map.set(item.id, item);
+    return map;
+  }, [allItems]);
 
   // -----------------------------------------------------------------------
   // Search logic
@@ -258,20 +302,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       return [{ label: "Popular Topics", type: "topic", results: featured }];
     }
 
-    // Filter items
-    const matched = allItems.filter((item) => {
-      let searchable = `${item.title} ${item.subtitle}`;
-      if (item.type === "topic" && item.category) {
-        searchable += ` ${item.category} ${CATEGORY_LABELS[item.category]}`;
-      }
-      if (item.type === "blog") {
-        const article = articles.find((a) => `blog-${a.slug}` === item.id);
-        if (article) {
-          return matchesQuery(`${searchable} ${article.tags.join(" ")}`, trimmed);
-        }
-      }
-      return matchesQuery(searchable, trimmed);
-    });
+    // Ranked fuzzy search via MiniSearch — results come back ordered by score.
+    const matched = miniSearch
+      .search(trimmed)
+      .map((r) => itemsById.get(r.id as string))
+      .filter((item): item is SearchResult => item != null);
 
     // Group by type
     const typeOrder: ResultType[] = ["topic", "blog", "concept", "page"];
@@ -289,7 +324,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
 
     return grouped;
-  }, [query, allItems]);
+  }, [query, miniSearch, itemsById]);
 
   // Flat list of all visible results for keyboard navigation
   const flatResults = useMemo(
