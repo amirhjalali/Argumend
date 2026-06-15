@@ -80,7 +80,7 @@ export const gunControlEffectivenessData = {
           id: "defensive-gun-use",
           title: "Defensive Gun Uses Save Lives",
           description:
-            "CDC estimates 500K-3M defensive gun uses annually in the US.",
+            "Estimates of annual defensive gun uses (DGUs) range from roughly 500,000 to 3 million. The high end derives from Kleck & Gertz's 1995 random-digit-dial survey (~2.5 million/year); the National Crime Victimization Survey yields far lower figures (~60,000-120,000/year). A 2013 National Research Council report (commissioned via the CDC) noted the 500,000-3 million range across survey-based studies but did not endorse a single number.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -88,7 +88,12 @@ export const gunControlEffectivenessData = {
             replicability: 4,
             directness: 6,
           },
-          reasoning: "Highly contested estimates with methodological issues.",
+          source:
+            "Kleck & Gertz (1995); NCVS (BJS); National Research Council (2013)",
+          sourceUrl:
+            "https://en.wikipedia.org/wiki/Defensive_gun_use",
+          reasoning:
+            "Highly contested estimates with large methodological disagreements between survey-based (Kleck/Gertz) and victimization-survey (NCVS) approaches; the wide range is not a CDC original estimate.",
         },
       ],
     },

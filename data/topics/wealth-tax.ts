@@ -50,9 +50,9 @@ export const wealthTaxData = {
         },
         {
           id: "effective-tax-rates",
-          title: "Billionaires Pay Lower Effective Rates",
+          title: "Billionaires' 'True Tax Rate' Is Tiny Relative to Wealth Growth",
           description:
-            "ProPublica leak showed many billionaires pay lower effective tax rates than middle-class workers.",
+            "ProPublica's 2021 'Secret IRS Files' found the 25 richest Americans saw their collective wealth grow $401 billion from 2014 to 2018 while paying $13.6 billion in federal income tax — a 'true tax rate' of just 3.4% measured against wealth growth. The low rate reflects that most billionaire wealth gains are unrealized capital gains that go untaxed under current income-tax rules, not a comparison of effective income-tax rates against middle-class workers.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -60,8 +60,11 @@ export const wealthTaxData = {
             replicability: 6,
             directness: 7,
           },
-          source: "ProPublica (2021)",
-          reasoning: "Direct evidence of current system's gaps.",
+          source: "ProPublica, 'The Secret IRS Files' (2021)",
+          sourceUrl:
+            "https://www.propublica.org/article/the-secret-irs-files-trove-of-never-before-seen-records-reveal-how-the-wealthiest-avoid-income-tax",
+          reasoning:
+            "Illustrates how wealth accumulates as untaxed unrealized gains — the core gap a wealth tax targets. Note this is a 'true tax rate' vs. wealth growth, not an effective income-tax-rate comparison.",
         },
         {
           id: "european-repeal",

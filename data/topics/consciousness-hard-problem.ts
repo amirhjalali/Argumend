@@ -71,7 +71,7 @@ export const consciousnessHardProblemData = {
           id: "ncc-neuroscience-progress",
           title: "Neural Correlates of Consciousness Research Identifies Specific Brain Signatures (2000-2025)",
           description:
-            "Twenty-five years of neural correlates of consciousness (NCC) research has identified specific brain activity patterns associated with conscious experience. Global Workspace Theory (Baars, Dehaene) identifies late cortical ignition and prefrontal-parietal activation as markers of conscious access. The Perturbational Complexity Index (PCI), developed by Casali et al. (2013), can distinguish conscious from unconscious states with over 95% accuracy by measuring the complexity of the brain's response to transcranial magnetic stimulation. The Adversarial Collaboration between Global Workspace and Integrated Information Theory, funded by the Templeton Foundation (2019-2023), produced results that partially supported both theories while fully confirming neither.",
+            "Twenty-five years of neural correlates of consciousness (NCC) research has identified specific brain activity patterns associated with conscious experience. Global Workspace Theory (Baars, Dehaene) identifies late cortical ignition and prefrontal-parietal activation as markers of conscious access. The Perturbational Complexity Index (PCI), developed by Casali et al. (2013), can distinguish conscious from unconscious states with over 95% accuracy by measuring the complexity of the brain's response to transcranial magnetic stimulation. The Cogitate adversarial collaboration between Global Workspace and Integrated Information Theory, funded by the Templeton World Charity Foundation (collaboration launched 2019; results published in Nature in 2025), produced results that partially supported both theories while fully confirming neither.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -79,8 +79,8 @@ export const consciousnessHardProblemData = {
             replicability: 8,
             directness: 6,
           },
-          source: "Science; Melloni et al. (2023); Templeton World Charity Foundation",
-          sourceUrl: "https://doi.org/10.1126/science.adi3076",
+          source: "Cogitate Consortium, Nature 642, 133-142 (2025); Templeton World Charity Foundation",
+          sourceUrl: "https://doi.org/10.1038/s41586-025-08888-1",
           reasoning:
             "The NCC research program represents rigorous empirical science. The PCI's clinical success in detecting consciousness is impressive. However, directness is scored lower because identifying neural correlates of consciousness is precisely what Chalmers categorized as an 'easy problem' — it tells us what brain activity accompanies experience, not why there is experience at all. The Templeton adversarial collaboration's inconclusive results also suggest we lack a complete functional theory, let alone a solution to the hard problem.",
         },
@@ -116,7 +116,7 @@ export const consciousnessHardProblemData = {
       skeptic_premise:
         "The proliferation of competing consciousness theories reflects a healthy, pre-paradigmatic science — not evidence that consciousness is inexplicable. Global Workspace Theory (GWT) explains consciousness as information broadcast to a 'global workspace' enabling flexible behavioral response. Integrated Information Theory (IIT) identifies consciousness with integrated information (phi). Higher-Order Theories locate consciousness in meta-representations. Predictive Processing views consciousness as the brain's best prediction about the causes of sensory input. These theories disagree, but disagreement is normal at the frontiers of science — quantum mechanics and general relativity also disagree, and no one concludes gravity is non-physical. The correct theory may not yet exist, but the expectation should be that it will be physical, as every other successful scientific explanation has been.",
       proponent_rebuttal:
-        "The disagreement among theories is not merely about mechanisms — it is about what consciousness fundamentally is. IIT, developed by Giulio Tononi, predicts that consciousness exists wherever there is sufficiently integrated information — potentially including thermostats and the internet — and explicitly claims the hard problem is real and requires new physics. GWT, by contrast, treats consciousness as a functional property and considers the hard problem dissolved. These are not competing hypotheses about the same phenomenon; they disagree on whether the phenomenon needing explanation exists. The Templeton Foundation's adversarial collaboration (2019-2023) between GWT and IIT, designed to resolve the debate empirically, produced results that partially supported and partially contradicted both theories — suggesting neither is correct. This level of foundational disagreement after 30 years of intensive research suggests the problem is genuinely harder than normal science.",
+        "The disagreement among theories is not merely about mechanisms — it is about what consciousness fundamentally is. IIT, developed by Giulio Tononi, predicts that consciousness exists wherever there is sufficiently integrated information — potentially including thermostats and the internet — and explicitly claims the hard problem is real and requires new physics. GWT, by contrast, treats consciousness as a functional property and considers the hard problem dissolved. These are not competing hypotheses about the same phenomenon; they disagree on whether the phenomenon needing explanation exists. The Templeton-funded Cogitate adversarial collaboration between GWT and IIT (launched 2019; results published in Nature in 2025), designed to resolve the debate empirically, produced results that partially supported and partially contradicted both theories — suggesting neither is correct. This level of foundational disagreement after 30 years of intensive research suggests the problem is genuinely harder than normal science.",
       crux: {
         id: "theory-empirical-test",
         title: "The Decisive Empirical Test Between Theories",
@@ -131,9 +131,9 @@ export const consciousnessHardProblemData = {
       evidence: [
         {
           id: "templeton-adversarial-2023",
-          title: "Templeton Adversarial Collaboration Fails to Decisively Support Either GWT or IIT (2023)",
+          title: "Cogitate Adversarial Collaboration Fails to Decisively Support Either GWT or IIT (Nature, 2025)",
           description:
-            "The largest structured test of consciousness theories, funded by the Templeton World Charity Foundation and published in Nature in 2023, pitted Global Workspace Theory against Integrated Information Theory in a pre-registered adversarial collaboration. Six experiments tested predictions about neural activity during conscious perception. Results were mixed: GWT's prediction of prefrontal cortex involvement during conscious perception was only partially supported (sustained activity was found but not the predicted 'ignition' pattern). IIT's prediction of posterior cortex involvement was better supported, but its specific predictions about the role of integrated information were not confirmed. Neither theory was falsified, and neither was fully validated. The collaboration's principal investigator acknowledged the results 'humble us.'",
+            "The largest structured test of consciousness theories, funded by the Templeton World Charity Foundation and published in Nature in 2025 (the Cogitate Consortium collaboration, launched 2019), pitted Global Workspace Theory against Integrated Information Theory in a pre-registered adversarial collaboration. Six experiments tested predictions about neural activity during conscious perception. Results were mixed: GWT's prediction of prefrontal cortex involvement during conscious perception was only partially supported (sustained activity was found but not the predicted 'ignition' pattern). IIT's prediction of posterior cortex involvement was better supported, but its specific predictions about the role of integrated information were not confirmed. Neither theory was falsified, and neither was fully validated. The collaboration's principal investigator acknowledged the results 'humble us.'",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -141,8 +141,8 @@ export const consciousnessHardProblemData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Nature; Melloni, L. et al. (2023); Templeton World Charity Foundation",
-          sourceUrl: "https://doi.org/10.1126/science.adi3076",
+          source: "Cogitate Consortium, Nature 642, 133-142 (2025); Templeton World Charity Foundation",
+          sourceUrl: "https://doi.org/10.1038/s41586-025-08888-1",
           reasoning:
             "This represents the gold standard of consciousness science: pre-registered, adversarial, well-funded, and published in the top journal. The inconclusive results are significant precisely because of the rigor — if the best-designed experiments cannot discriminate between theories, this suggests the problem is genuinely harder than standard neuroscience. Scored as 'for' the meta-claim because the failure to resolve the theoretical debate empirically supports the view that consciousness requires new frameworks.",
         },
@@ -280,8 +280,8 @@ export const consciousnessHardProblemData = {
       url: "https://doi.org/10.1038/nrn.2016.44",
     },
     {
-      title: "Adversarial Collaboration: Testing GNW and IIT — Melloni et al., Science (2023)",
-      url: "https://doi.org/10.1126/science.adi3076",
+      title: "Adversarial testing of global neuronal workspace and integrated information theories of consciousness — Cogitate Consortium, Nature 642, 133-142 (2025)",
+      url: "https://doi.org/10.1038/s41586-025-08888-1",
     },
     {
       title: "Consciousness in Artificial Intelligence: Insights from the Science of Consciousness — Butlin et al. (2023)",

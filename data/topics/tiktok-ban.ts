@@ -148,7 +148,7 @@ export const tiktokBanData = {
         "Banning TikTok would silence the speech of 170 million American users and set a precedent for government control over which platforms citizens can use. The Supreme Court upheld the ban in January 2025, but the ruling remains deeply controversial among First Amendment scholars.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "A TikTok ban is unprecedented government censorship of a platform used by 170 million Americans for political speech, journalism, small business marketing, and creative expression. The Supreme Court's January 2025 ruling in TikTok v. Garland upheld the Protecting Americans from Foreign Adversary Controlled Applications Act, but the decision prioritized national security deference over rigorous First Amendment scrutiny. Justice Sotomayor's dissent warned that the majority 'failed to apply the demanding First Amendment standard' and that the precedent could justify banning any foreign-owned communication platform. Content creators, journalists, and small businesses that built livelihoods on TikTok face devastating economic consequences.",
+        "A TikTok ban is unprecedented government censorship of a platform used by 170 million Americans for political speech, journalism, small business marketing, and creative expression. The Supreme Court's January 2025 ruling in TikTok v. Garland upheld the Protecting Americans from Foreign Adversary Controlled Applications Act in a unanimous per curiam decision, but critics argue it prioritized national security deference over rigorous First Amendment scrutiny. Justice Sotomayor concurred but wrote separately to insist the Act plainly implicates the First Amendment, while Justice Gorsuch's concurrence voiced 'serious reservations' about whether the law was content neutral and worried the precedent could be stretched to other foreign-owned platforms. Content creators, journalists, and small businesses that built livelihoods on TikTok face devastating economic consequences.",
       proponent_rebuttal:
         "The ban targets foreign adversary ownership and control, not speech content. Americans would remain free to express identical content on Instagram Reels, YouTube Shorts, or any other platform. The Supreme Court correctly held that national security interests in preventing a foreign adversary from controlling a mass communication channel justify the ownership restriction. Congress offered a clear alternative — divestiture — that would preserve the platform while removing the security risk. This is not censorship; it is preventing a hostile government from operating a surveillance and influence tool disguised as a social media app inside American borders.",
       crux: {
@@ -199,9 +199,9 @@ export const tiktokBanData = {
         },
         {
           id: "sotomayor-dissent-precedent",
-          title: "Justice Sotomayor Warns Ban Sets Dangerous Censorship Precedent",
+          title: "Concurring Justices Flag First Amendment Concerns Over the Ban",
           description:
-            "In her concurrence/partial dissent in TikTok v. Garland, Justice Sotomayor wrote that the Court 'fails to appreciate the gravity of what it allows' and that banning an entire communication platform 'without proof of an actual problem, cannot be squared with the First Amendment.' She warned that the reasoning could justify banning any foreign-owned media outlet, messaging app, or news organization if the government asserts a national security rationale. First Amendment scholars at Columbia, Harvard, and Stanford filed amicus briefs echoing these concerns.",
+            "TikTok v. Garland (Jan. 17, 2025) was decided 9-0 in a per curiam opinion upholding the Act. No Justice dissented. Justice Sotomayor concurred in part and in the judgment, writing separately to argue the Court should have squarely held that the Act implicates the First Amendment rather than merely assuming it does. Justice Gorsuch concurred in the judgment, expressing 'serious reservations' about whether the law was content neutral and cautioning that the Court had only 'a fortnight' to resolve a major First Amendment dispute affecting 170 million Americans. First Amendment institutions including Columbia's Knight First Amendment Institute filed amicus briefs raising precedent concerns.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -209,10 +209,10 @@ export const tiktokBanData = {
             replicability: 10,
             directness: 8,
           },
-          source: "Supreme Court of the United States; Columbia Knight First Amendment Institute",
-          sourceUrl: "https://knightcolumbia.org/content/tiktok-amicus-brief",
+          source: "Supreme Court of the United States, TikTok Inc. v. Garland (2025); Columbia Knight First Amendment Institute",
+          sourceUrl: "https://www.supremecourt.gov/opinions/24pdf/24-656_ca7d.pdf",
           reasoning:
-            "A Supreme Court Justice's opinion and amicus briefs from leading First Amendment institutions carry maximum authority. The precedent concern is a legal argument about future implications rather than a factual claim about current harm, which slightly lowers directness.",
+            "Supreme Court concurrences and amicus briefs from leading First Amendment institutions carry maximum authority. The precedent concern is a legal argument about future implications rather than a factual claim about current harm, which slightly lowers directness. Note: the decision was unanimous; Sotomayor and Gorsuch concurred, neither dissented.",
         },
         {
           id: "tiktok-brief-darkness-january-2025",
@@ -496,7 +496,7 @@ export const tiktokBanData = {
       id: "q2",
       title: "Does banning a platform used by 170 million people violate the First Amendment?",
       content:
-        "The Supreme Court upheld the ban, but Justice Sotomayor warned it sets a precedent for government-directed platform shutdowns. If the government can ban TikTok for potential foreign influence, what stops it from targeting other foreign-owned media it considers threatening?",
+        "The Supreme Court unanimously upheld the ban, though concurring Justices (Sotomayor and Gorsuch) flagged unresolved First Amendment questions and Gorsuch voiced reservations about how far the reasoning could extend. If the government can ban TikTok for potential foreign influence, what stops it from targeting other foreign-owned media it considers threatening?",
     },
     {
       id: "q3",

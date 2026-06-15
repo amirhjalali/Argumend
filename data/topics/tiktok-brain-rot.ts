@@ -20,7 +20,7 @@ export const tiktokBrainRotData = {
       skeptic_premise:
         "The 'declining attention span' narrative is largely a moral panic. The oft-cited statistic that human attention spans dropped from 12 seconds to 8 seconds (below a goldfish) traces back to a 2015 Microsoft Canada report that cited no peer-reviewed source for the claim. Attention is not a single measurable quantity — it varies by context, motivation, and task type. People binge 3-hour podcasts and 10-episode TV series while supposedly having 8-second attention spans. What's actually changing is voluntary allocation of attention in low-stakes browsing contexts, not underlying cognitive capacity. Humans have always skimmed, channel-surfed, and sought novelty — short-form video is just the latest medium.",
       proponent_rebuttal:
-        "While the 'goldfish' statistic is indeed bogus, the underlying concern has legitimate empirical support. A 2019 study in Nature Communications by Lorenz-Spreen et al. analyzed Twitter, Google, Reddit, and movie ticket data and found that collective attention spans for cultural topics have measurably shortened over decades — topics trend faster and fade faster. At the individual level, a 2023 study published in Nature by Xu et al. using fMRI found that heavy TikTok users showed reduced activity in brain regions associated with sustained attention and cognitive control compared to non-users. A 2022 study in Computers in Human Behavior found that participants who watched short-form videos for just one hour showed significantly reduced performance on subsequent sustained attention tasks compared to controls. The distinction between 'voluntary allocation' and 'capacity' blurs when habitual content consumption patterns reshape default neural responses to stimuli requiring extended focus.",
+        "While the 'goldfish' statistic is indeed bogus, the underlying concern has legitimate empirical support. A 2019 study in Nature Communications by Lorenz-Spreen et al. analyzed Twitter, Google, Reddit, and movie ticket data and found that collective attention spans for cultural topics have measurably shortened over decades — topics trend faster and fade faster. At the individual level, an fMRI study by Su et al. (2023) found that watching preferred short videos deactivated cognitive-control regions (dorsolateral prefrontal cortex and dorsal anterior cingulate cortex) while activating the amygdala, with stronger suppression in viewers lower in trait self-control. A 2022 study in Computers in Human Behavior found that participants who watched short-form videos for just one hour showed significantly reduced performance on subsequent sustained attention tasks compared to controls. The distinction between 'voluntary allocation' and 'capacity' blurs when habitual content consumption patterns reshape default neural responses to stimuli requiring extended focus.",
       crux: {
         id: "sustained-attention-task-performance",
         title: "The Sustained Attention Task Performance Test",
@@ -52,19 +52,20 @@ export const tiktokBrainRotData = {
         },
         {
           id: "xu-fmri-tiktok-users",
-          title: "fMRI Shows Reduced Attention-Related Brain Activity in Heavy Users",
+          title: "fMRI Shows Suppressed Prefrontal Control Activity During Short-Video Viewing",
           description:
-            "Xu et al. (2023) found that heavy short-form video users showed reduced activation in dorsolateral prefrontal cortex and anterior cingulate cortex during sustained attention tasks, suggesting neural adaptation to rapid-switching content.",
+            "Su et al. (2023), in an fMRI study of short-video viewing, found that watching preferred short videos deactivated cognitive-control regions — the dorsolateral prefrontal cortex (dlPFC), dorsal anterior cingulate cortex (dACC), anterior insula, and pre-supplementary motor area — while activating the amygdala, with stronger suppression in individuals lower in trait self-control. This suggests short-form content can downregulate the brain's self-control system during viewing.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 5,
             independence: 7,
-            replicability: 6,
-            directness: 8,
+            replicability: 5,
+            directness: 7,
           },
-          source: "Xu et al., Nature (2023)",
+          source: "Su, Teng, Zhou, Geng & Hu, medRxiv preprint (2023)",
+          sourceUrl: "https://doi.org/10.1101/2023.10.30.23296738",
           reasoning:
-            "Neuroimaging evidence is compelling but cross-sectional — cannot establish whether TikTok caused the difference or if individuals with lower sustained attention gravitate toward short-form video.",
+            "Neuroimaging evidence is suggestive but limited: this is a non-peer-reviewed preprint with a cross-sectional design, and it measures neural activity during viewing rather than a lasting deficit. It cannot establish whether short-form video causes reduced self-control or whether individuals with lower self-control gravitate toward such content. Earlier claims of a Nature (2023) study by 'Xu et al.' could not be verified and have been replaced with this real, correctly-attributed source.",
         },
         {
           id: "attention-context-dependent",

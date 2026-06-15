@@ -20,7 +20,7 @@ export const aiInEducationData = {
       skeptic_premise:
         "AI tutoring benefits are overstated and unevenly distributed. While controlled studies show learning gains, these typically measure performance on narrow assessments in ideal conditions — computer labs with reliable internet, motivated students, and researcher oversight. The 'digital divide' means students who most need help have least access to the technology. A 2024 UNESCO report found that only 40% of schools in low-income countries have reliable internet, and AI tutoring systems require consistent connectivity. Furthermore, students from disadvantaged backgrounds who do access AI tools show smaller learning gains due to lower digital literacy and less parental support for technology use. AI may widen, not close, achievement gaps.",
       proponent_rebuttal:
-        "Benjamin Bloom's famous 1984 '2 Sigma Problem' showed that one-on-one human tutoring improves student performance by two standard deviations — but human tutoring is prohibitively expensive for most families. AI tutoring systems are approaching this benchmark at near-zero marginal cost. A 2024 meta-analysis of 146 randomized controlled trials found that AI-powered intelligent tutoring systems produced an average effect size of 0.66 standard deviations — roughly equivalent to moving a student from the 50th to the 75th percentile. Khan Academy's Khanmigo pilot in 2023-2024 showed that students using the AI tutor completed 1.8x more practice problems and showed 14% greater mastery gains, with the largest improvements among previously struggling students. Mobile-first AI tutors like Sana and Mindspark are already reaching students in India and sub-Saharan Africa via smartphones.",
+        "Benjamin Bloom's famous 1984 '2 Sigma Problem' showed that one-on-one human tutoring improves student performance by two standard deviations — but human tutoring is prohibitively expensive for most families. AI tutoring systems are approaching this benchmark at near-zero marginal cost. A 2024 meta-analysis of 146 randomized controlled trials found that AI-powered intelligent tutoring systems produced an average effect size of 0.66 standard deviations — roughly equivalent to moving a student from the 50th to the 75th percentile. Khan Academy's Khanmigo AI tutor scaled rapidly across classrooms in 2023-2025, though rigorous independent evidence of its learning gains is still limited. Mobile-first AI tutors like Sana and Mindspark are already reaching students in India and sub-Saharan Africa via smartphones.",
       crux: {
         id: "ai-achievement-gap-rct",
         title: "The At-Scale Achievement Gap Trial",
@@ -52,20 +52,20 @@ export const aiInEducationData = {
         },
         {
           id: "khanmigo-pilot-2024",
-          title: "Khanmigo AI Tutor Pilot Shows 14% Greater Mastery in 8,000-Student Study (2024)",
+          title: "Khanmigo AI Tutor Piloted at Scale, but Rigorous Efficacy Evidence Remains Limited (2024)",
           description:
-            "Khan Academy's Khanmigo AI tutor, powered by GPT-4, was piloted in the 2023-2024 school year across 35 school districts in the United States with approximately 8,000 students. Students using Khanmigo completed 1.8 times more practice problems per session and demonstrated 14% greater mastery gains on Khan Academy's internal assessments compared to students using Khan Academy without AI. Teacher surveys reported that 89% found the tool helpful for differentiated instruction. The largest gains were observed among students who began below grade level.",
+            "Khan Academy's Khanmigo AI tutor, powered by GPT-4, was deployed in classroom pilots during 2023-2024, with reported users growing from roughly 68,000 in 2023-24 to over 700,000 in 2024-25. Independent and exploratory evaluations to date are mostly small-scale and contextual rather than controlled efficacy trials—for example, Digital Promise's Gates-funded 'Estudia Khanmigo' pilot examined the Spanish-language tool in Puerto Rican classrooms and surfaced equity and infrastructure barriers (unreliable internet, power, and devices) rather than measured learning gains. As of this writing, no large-scale randomized evaluation establishing specific mastery-gain percentages from Khanmigo has been published.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 4,
             independence: 4,
-            replicability: 6,
-            directness: 7,
+            replicability: 4,
+            directness: 5,
           },
-          source: "Khan Academy; Stanford HAI preliminary evaluation",
-          sourceUrl: "https://blog.khanacademy.org/khanmigo-impact-report-2024/",
+          source: "Khan Academy usage figures; Digital Promise / Gates Foundation, 'Estudia Khanmigo' pilot (2024)",
+          sourceUrl: "https://digitalpromise.org/wp-content/uploads/2024/09/SRM-Gates-Khanmigo-Report-Final.pdf",
           reasoning:
-            "The pilot provides real-world evidence at meaningful scale. However, independence is low because the study was conducted by Khan Academy on its own product using its own assessments. Mastery gains on internal metrics may not translate to standardized test improvements. The self-selection of early-adopter districts introduces bias. Independent replication with external assessments is needed.",
+            "Khanmigo's rapid adoption shows real-world demand and reach, but adoption is not the same as demonstrated learning impact. Evidence is weighted low: the available pilots are exploratory or vendor-adjacent, and earlier circulated figures (e.g., '14% greater mastery / 1.8x practice / 8,000 students across 35 districts') could not be verified against any published evaluation and have been removed. Independent, controlled studies with external assessments are still needed.",
         },
         {
           id: "unesco-digital-divide-2024",
@@ -114,7 +114,7 @@ export const aiInEducationData = {
         "LLMs can generate essays, solve problems, and write code that is often indistinguishable from student work, posing unprecedented challenges to academic integrity and potentially reducing students' development of independent thinking skills.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "AI-generated work has fundamentally undermined traditional assessment methods. A 2024 survey by the International Center for Academic Integrity found that 56% of college students admitted to using AI on assignments without disclosure, and AI-detection tools produce false positive rates of 10-20%, disproportionately flagging non-native English speakers. More concerning than cheating is the cognitive outsourcing effect: students who use LLMs for problem-solving show measurable declines in effortful thinking. A 2025 study in Nature Human Behaviour found that students who regularly used ChatGPT for homework scored 17% lower on surprise closed-book exams than students who completed work independently, suggesting AI assistance was substituting for rather than supplementing learning.",
+        "AI-generated work has fundamentally undermined traditional assessment methods. A 2024 survey by the International Center for Academic Integrity found that 56% of college students admitted to using AI on assignments without disclosure, and AI-detection tools produce false positive rates of 10-20%, disproportionately flagging non-native English speakers. More concerning than cheating is the cognitive outsourcing effect: students who use LLMs for problem-solving show measurable declines in effortful thinking. A 2025 MIT Media Lab study (Kosmyna et al.) using EEG found that participants who wrote essays with ChatGPT showed the weakest brain connectivity and the lowest sense of ownership over their work, and underperformed at neural, linguistic, and behavioral levels over four months — suggesting AI assistance can substitute for rather than supplement the cognitive work of learning.",
       proponent_rebuttal:
         "Assessment has always evolved with technology — calculators, spell-checkers, and Google each triggered similar moral panics. The solution is not to ban AI but to redesign assessment around skills that AI enhances rather than replaces: oral defense of written work, collaborative problem-solving, experimental design, and metacognitive reflection. Schools that have integrated AI transparently report that students develop stronger skills in prompt engineering, critical evaluation of AI output, and iterative refinement — all valuable 21st-century competencies. A 2024 study at Georgia Tech found that students who used AI assistants while being required to explain and critique AI-generated solutions performed 23% better on conceptual transfer tests than students who neither used AI nor learned to evaluate it.",
       crux: {
@@ -131,20 +131,20 @@ export const aiInEducationData = {
       evidence: [
         {
           id: "nature-cognitive-decline",
-          title: "ChatGPT Users Score 17% Lower on Surprise Closed-Book Exams (2025)",
+          title: "MIT 'Your Brain on ChatGPT' Study Links LLM Use to Reduced Cognitive Engagement (2025)",
           description:
-            "A study published in Nature Human Behaviour in January 2025 tracked 1,200 university students across 8 introductory courses. Students who self-reported regular ChatGPT use for homework (3+ times per week) scored 17% lower on surprise, closed-book midterm exams compared to students who completed work independently. The effect was strongest in courses requiring analytical reasoning (philosophy, statistics) and weakest in factual recall courses (introductory biology). The authors controlled for prior academic performance, finding that the gap persisted even among students with similar entering GPAs.",
+            "An MIT Media Lab study (Kosmyna et al., 2025) used EEG to track 54 participants writing essays over four months under three conditions: using an LLM (ChatGPT), using a search engine, or using no tools ('brain-only'). LLM users showed the weakest brain connectivity, reported the lowest sense of ownership over their essays, and struggled to quote their own work. Across sessions, LLM users 'consistently underperformed at neural, linguistic, and behavioral levels,' which the authors describe as an accumulation of 'cognitive debt' that raises concerns about long-term reliance on AI assistants for learning.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 5,
             independence: 8,
-            replicability: 7,
-            directness: 9,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Nature Human Behaviour; University of Pennsylvania",
-          sourceUrl: "https://doi.org/10.1038/s41562-024-02077-2",
+          source: "Kosmyna et al., MIT Media Lab, arXiv:2506.08872 (2025)",
+          sourceUrl: "https://arxiv.org/abs/2506.08872",
           reasoning:
-            "Published in a high-impact journal with reasonable sample size and statistical controls. The finding directly addresses whether AI use harms independent learning. However, self-reported AI usage may be inaccurate, and the study cannot distinguish between students who used AI as a crutch versus those who failed to engage with the material for other reasons (reverse causality).",
+            "A widely discussed study that directly probes whether AI use undermines cognitive engagement during learning tasks. Weighted cautiously: it is a non-peer-reviewed preprint with a small sample (n=54) on an essay-writing task rather than course grades, and it measures engagement and ownership rather than long-term learning outcomes, so it cannot establish that AI use causes lasting academic harm. (An earlier version of this item cited a Nature Human Behaviour study reporting a specific '17% lower exam' effect that could not be verified—the DOI resolved to an unrelated paper—and has been replaced with this real source.)",
         },
         {
           id: "georgia-tech-scaffolded-ai",

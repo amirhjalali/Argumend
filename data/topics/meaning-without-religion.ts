@@ -31,17 +31,18 @@ export const meaningWithoutReligionData = {
       evidence: [
         {
           id: "committed-nonreligious-wellbeing",
-          title: "Committed Atheists Report Wellbeing Equal to Religious Practitioners",
+          title: "Among the Nonreligious, Commitment and Community—Not Mere Unbelief—Predict Wellbeing",
           description:
-            "A 2025 study published in PMC examined nonreligious wellbeing across four dimensions: identity, community involvement, identity duration, and affective orientation. Researchers found that committed nonreligious people—those with strong secular identities and community engagement—report levels of life satisfaction and psychological wellbeing similar to committed religious practitioners. The key factor is commitment to a worldview, not the presence of religious belief.",
+            "A 2025 study in Sociology of Health & Illness (Frost, Edgell & Miller) examined nonreligious wellbeing across multiple dimensions: nonreligious identity, organizational involvement, identity duration, and affective orientation. The strongest predictor of wellbeing among the nonreligious was affective orientation—whether people experience their nonreligion as comforting rather than anxiety-producing—which is itself shaped over time by participation in nonreligious organizations. This indicates that how committed and supported nonreligious people are in their worldview matters more than the mere absence of religious belief.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,
             replicability: 6,
-            directness: 8,
+            directness: 7,
           },
-          source: "Varieties of Nonreligious Experience, PMC (2025)",
+          source: "Frost, Edgell & Miller, Sociology of Health & Illness 47(5):e70060 (2025)",
+          sourceUrl: "https://doi.org/10.1111/1467-9566.70060",
           reasoning:
             "Important nuance: the comparison is between committed secular people and committed religious people. The broader nonreligious population (which includes disengaged and apathetic individuals) may fare worse.",
         },
@@ -120,17 +121,18 @@ export const meaningWithoutReligionData = {
           id: "plos-one-both-paths",
           title: "Both Religious and Secular Ethics Predict Wellbeing",
           description:
-            "A 2024 study published in PLOS ONE using panel data found that both religious and secular ethical frameworks predicted happiness and health outcomes. The study used a dynamic theoretical model showing that the mechanism matters more than the content—active engagement with any coherent moral framework (religious or secular) produced positive outcomes.",
+            "A 2024 study in PLOS ONE (Zagonari) used a dynamic theoretical model and panel data to evaluate how both religious and secular ethics, coupled with education, affect happiness and health. It found that both individual and social ethics—religious or secular—can produce beneficial happiness and health outcomes, particularly when paired with education policies, with the model emphasizing that active engagement with a coherent ethical framework, rather than its specific content, drives the benefit.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 8,
-            replicability: 6,
-            directness: 7,
+            replicability: 5,
+            directness: 6,
           },
-          source: "PLOS ONE (2024)",
+          source: "Zagonari, PLOS ONE 19(4):e0301905 (2024)",
+          sourceUrl: "https://doi.org/10.1371/journal.pone.0301905",
           reasoning:
-            "Peer-reviewed with panel data methodology. Supports the view that secular and religious ethics are functionally equivalent for human flourishing. However, a single study should not be treated as definitive.",
+            "Peer-reviewed, but largely a theoretical/modeling exercise rather than a direct empirical comparison of religious vs. secular individuals; its conclusions are model-dependent and nuanced (no single ethics benefits both happiness and health at every level). Lends qualified support to the view that secular and religious ethics can be functionally comparable for flourishing. A single modeling study should not be treated as definitive.",
         },
         {
           id: "atheist-regimes-atrocities",

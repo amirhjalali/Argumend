@@ -33,19 +33,21 @@ export const factoryFarmingBanData = {
       evidence: [
         {
           id: "usda-farm-size-data",
-          title: "USDA: 99% of US Farmed Animals in Factory Farms",
+          title: "~99% of US Farmed Animals in Factory Farms (Sentience Institute)",
           description:
-            "USDA National Agricultural Statistics Service data shows that 98.7% of US farmed animals live in concentrated animal feeding operations (CAFOs). This represents approximately 10 billion land animals per year in the US alone. The 'humane' market share is under 1% of total production.",
+            "The Sentience Institute estimates that ~99% of US farmed animals live in factory farms (concentrated animal feeding operations), derived by applying EPA CAFO size definitions to USDA Census of Agriculture data. Species breakdowns include 98.6% of pigs, 98.3% of egg-laying hens, and over 99.9% of meat chickens; this covers roughly 10 billion land animals raised per year. The 'humane' market share is a small fraction of total production.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
             directness: 8,
           },
-          source: "USDA NASS, Sentience Institute Analysis",
+          source:
+            "Sentience Institute, 'US Factory Farming Estimates' (using USDA Census of Agriculture + EPA CAFO definitions)",
+          sourceUrl: "https://www.sentienceinstitute.org/us-factory-farming-estimates",
           reasoning:
-            "Government data with high reliability; directly establishes the scale of factory farming.",
+            "An advocacy-research estimate built on government data (USDA Census of Agriculture) and EPA CAFO definitions, not a direct USDA statistic; reliability/replicability weighted accordingly given it is a derived estimate.",
         },
         {
           id: "cambridge-declaration-consciousness",
