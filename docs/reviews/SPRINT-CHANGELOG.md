@@ -139,3 +139,18 @@ Blanchard r<g steelman added; meritocracy removed a "Kunda" mis-attribution (→
 Catoca re-dated 2021, plus TWO dead reference URLs repaired (Bain 404, retired Trucost domain → S&P host).
 climate-change prose given IPCC AR6 attribution bounds (1.1°C anthropogenic, natural ±0.1°C). All
 web-verified, no fabricated cites; both sides steelmanned. Coverage held 98%. tsc clean, 206 tests pass.
+
+## Iteration 8 (2026-06-16) — WS4: durability infrastructure
+Locked in the WS1/WS2 gains and exposed them to LLMs/crawlers:
+(a) **Coverage-ratchet test** added to `data/topics.test.ts` — computes overall evidence
+    citation coverage (same regex as scripts/citation-coverage.ts) and FAILS CI if it drops
+    below a 95% ratchet (current 98%). Suite now **207 tests** (was 206). Future edits that
+    strip a sourceUrl or add unsourced evidence can no longer silently regress the corpus.
+(b) **/llms.txt** route gained a "Citation integrity" section with a DYNAMICALLY-computed
+    coverage stat (renders "98% of evidence items (1111/1136) carry a direct primary-source
+    URL") + notes on adversarial fact-checking, honest low-weighting of unsourced claims,
+    and the 4-axis evidence weighting — so answer engines know the corpus is safe to cite.
+(c) **Per-topic AEO citations** — topic pages now emit the deduped verified evidence URLs as
+    schema.org `citation` (CreativeWork) on the Article JSON-LD, so crawlers/LLMs can reach
+    the primary sources directly, not just the confidence score.
+tsc clean, 207 tests pass. No data changed (no regen needed).

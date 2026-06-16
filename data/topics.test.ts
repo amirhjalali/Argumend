@@ -93,6 +93,27 @@ describe("topics data integrity", () => {
       });
     });
   });
+
+  // Citation-coverage ratchet (Citation Moat sprint, 2026-06-16).
+  // The sprint web-verified primary-source URLs onto evidence items, lifting
+  // overall coverage from 56% to 98%. This test locks that in: if a future
+  // change strips sourceUrls (or adds unsourced evidence) and drops overall
+  // coverage below the ratchet, CI fails. Mirrors scripts/citation-coverage.ts.
+  const CITATION_URL_RE = /^https?:\/\/\S+\.\S+/;
+  const COVERAGE_RATCHET = 0.95; // current is ~0.98; never let it fall below 95%.
+
+  it(`maintains >=${COVERAGE_RATCHET * 100}% evidence citation coverage (ratchet)`, () => {
+    const evidence = topics.flatMap((t) => t.pillars.flatMap((p) => p.evidence ?? []));
+    const withUrl = evidence.filter(
+      (e) => typeof e.sourceUrl === "string" && CITATION_URL_RE.test(e.sourceUrl),
+    ).length;
+    const coverage = evidence.length === 0 ? 0 : withUrl / evidence.length;
+    expect(
+      coverage,
+      `Citation coverage ${(coverage * 100).toFixed(1)}% (${withUrl}/${evidence.length}) ` +
+        `fell below the ${COVERAGE_RATCHET * 100}% ratchet. Backfill sourceUrls on new/edited evidence.`,
+    ).toBeGreaterThanOrEqual(COVERAGE_RATCHET);
+  });
 });
 
 describe("specific topics", () => {

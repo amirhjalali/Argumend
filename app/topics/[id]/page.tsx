@@ -89,6 +89,26 @@ export default async function TopicPage({ params }: PageProps) {
   const datePublished = "2025-01-01";
   const dateModified = topic.last_updated ?? "2026-06-15";
 
+  // Extractable primary-source citations for AI answer engines (AEO).
+  // Surfaces the verified evidence URLs as schema.org `citation` so crawlers and
+  // LLMs can reach the underlying sources, not just the confidence score.
+  const URL_RE = /^https?:\/\/\S+\.\S+/;
+  const seenCitationUrls = new Set<string>();
+  const citations = topic.pillars
+    .flatMap((p) => p.evidence ?? [])
+    .filter(
+      (e) =>
+        typeof e.sourceUrl === "string" &&
+        URL_RE.test(e.sourceUrl) &&
+        !seenCitationUrls.has(e.sourceUrl) &&
+        seenCitationUrls.add(e.sourceUrl),
+    )
+    .map((e) => ({
+      "@type": "CreativeWork" as const,
+      name: e.source ?? e.title ?? "Source",
+      url: e.sourceUrl as string,
+    }));
+
   return (
     <>
       <JsonLd
@@ -128,6 +148,7 @@ export default async function TopicPage({ params }: PageProps) {
           dateModified,
           author: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
           publisher: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
+          ...(citations.length ? { citation: citations } : {}),
         }}
       />
       {topic.questions?.length ? (
