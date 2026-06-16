@@ -4,7 +4,7 @@ export const collegeValuePropositionData = {
   id: "college-value-proposition",
   title: "The Value of a College Degree",
   meta_claim:
-    "A four-year college degree remains the best investment in future earnings and career outcomes for most young adults.",
+    "For most students who complete it, a four-year degree still earns a strong financial return — but the payoff varies enormously by major, institution, and completion, so it is no longer a safe bet for everyone.",
   status: "contested" as const,
   category: "economics" as const,
   pillars: [
@@ -12,12 +12,12 @@ export const collegeValuePropositionData = {
       id: "economic-returns",
       title: "Economic Returns",
       short_summary:
-        "The average bachelor's degree holder earns $1.2M more over a lifetime. The average student loan balance is $37K. The math looks simple until you disaggregate by major.",
+        "The median bachelor's holder earns roughly $1.2M more over a lifetime (Georgetown), and the NY Fed still estimates a ~12.5% annual return. The average graduate carries about $37K in debt. The aggregate math looks favorable — until you disaggregate by major, institution, and completion.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Student debt crisis ($1.77T total), degree inflation, and trade skills shortage suggest the ROI is declining. Average student graduates with $37K in debt. Many graduates are underemployed in jobs that don't require degrees. For-profit colleges and low-value majors drag down the averages.",
+        "The headline averages hide enormous variance. Roughly $1.77T in outstanding student debt, sticker prices that have outpaced inflation for decades, and persistent underemployment (many graduates in jobs that never required a degree) suggest the return is real but far from guaranteed. The typical graduate leaves with about $37K in debt, and Georgetown's own data show at least a quarter of high-school graduates out-earn the typical associate-degree holder — so 'the average degree pays off' tells an individual student almost nothing about their own bet, which turns on major, institution, and whether they finish at all.",
       proponent_rebuttal:
-        "College graduates still earn $1.2M more over a lifetime than high school graduates. The wage premium (84% higher median earnings) has been stable for decades. Default rates are highest among dropouts, not graduates — the problem is non-completion, not college itself. Even adjusting for debt and opportunity cost, the ROI remains strongly positive for most completers.",
+        "For completers, the return is still strong. Georgetown puts median lifetime earnings at $2.8M for bachelor's holders vs. $1.6M for high-school graduates (a ~75% gap), and the NY Fed estimates a roughly 12.5% annualized rate of return — a figure that has held between 12-13% for three decades. The current college wage premium is about 68% in annual earnings (NY Fed: ~$80K vs. ~$47K), and BLS weekly-earnings data show bachelor's holders earning roughly two-thirds more (about $1,533 vs. $946 in 2024). Crucially, defaults concentrate among non-completers and for-profit attendees, not degree-holders — so most of the visible distress reflects a completion and institution-quality problem, not the value of finishing a degree.",
       crux: {
         id: "roi-by-institution-major",
         title: "Disaggregated ROI by Institution and Major",
@@ -52,7 +52,7 @@ export const collegeValuePropositionData = {
           id: "fed-wage-premium",
           title: "NY Fed: College Wage Premium Has Held Steady; ~12.5% Annual Return",
           description:
-            "The New York Fed ('Is College Still Worth It?', April 2025) finds the median worker with only a bachelor's degree earned about $80K vs. $47K for the median high school graduate — roughly a 68% earnings gap. The annualized financial return to a degree has held between 12-13% over the past three decades and was 12.5% in 2024. (Recent grads aged 22-27 earned a median of $60K vs. $36K for high school graduates.)",
+            "The New York Fed ('Is College Still Worth It?', April 2025) finds the median worker with only a bachelor's degree earned about $80K vs. $47K for the median high school graduate — a premium of over $32K per year, or roughly 68%, near its all-time high. Critically, this is the wage gap, not the rate of return: the same analysis estimates the annualized financial return to a degree at 12.5%, a figure that has held between 12-13% over the past three decades.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -105,12 +105,12 @@ export const collegeValuePropositionData = {
       id: "alternative-pathways",
       title: "Alternative Pathways",
       short_summary:
-        "Bootcamp graduates report $20K+ salary jumps in 6 months. But 10-year career trajectories tell a different story.",
+        "CIRR-member bootcamps report ~80% in-field placement within six months, and employers have dropped degree requirements from many roles. But hiring has barely followed the rhetoric, and 10-year trajectories for non-degree paths remain thinly documented.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Tech bootcamps, apprenticeships, and self-directed learning provide faster, cheaper paths to high-paying careers. Coding bootcamps cost $15K and take 12 weeks vs. $100K+ and 4 years for a CS degree. Google, Apple, and IBM have dropped degree requirements. The credential is becoming irrelevant.",
+        "For some fields, faster and cheaper paths now exist. A coding bootcamp can cost ~$15K over 12 weeks against $100K+ and four years for a CS degree, and CIRR-member bootcamps report ~80% in-field placement within six months. Apprenticeship systems like Germany's place roughly half of school-leavers into paid, employer-based training with strong employment outcomes. Major employers (Google, Apple, IBM) have publicly dropped degree requirements for many roles. The signal that a four-year degree is the only credible on-ramp is weakening.",
       proponent_rebuttal:
-        "Alternative pathways work for a narrow set of fields (primarily software engineering and some tech roles). College provides broad skills, critical thinking, networking, and credentials that transfer across careers. Mid-career pivots are much harder without a degree. Bootcamp placement rates are often inflated, and earnings plateau faster than degree holders.",
+        "The 'degree is becoming irrelevant' claim runs well ahead of the evidence. When employers removed degree requirements, actual hiring of non-degree candidates rose only about 3.5 percentage points (Burning Glass / Harvard) — the announcements far outpaced practice. Alternative pathways are concentrated in a narrow band of mostly software and skilled-trade roles; bootcamp placement is self-reported (CIRR exists precisely because earlier numbers were unreliable) and definitions of 'placement' vary. Beyond first-job outcomes, the degree still tends to compound: the NY Fed finds the wage premium widens with age, and mid-career pivots remain harder without a transferable credential.",
       crux: {
         id: "long-term-career-trajectory",
         title: "10-Year Career Trajectory Comparison",
@@ -179,7 +179,7 @@ export const collegeValuePropositionData = {
           id: "mid-career-earnings-by-education",
           title: "College Wage Premium Widens with Age",
           description:
-            "The New York Fed ('Is College Still Worth It?', 2025) shows the college wage premium grows over a career: college-educated workers earn about 27% more than high school graduates at age 25, widening to roughly 60% by age 55, because wages grow faster for degree holders. Across all ages, bachelor's holders' median weekly earnings are about 84% above high school graduates' (BLS, 2025).",
+            "The college wage premium grows over a career. An NBER/Harvard analysis ('Why Do Wages Grow Faster for Educated Workers?') finds college-educated workers earn about 27% more than high school graduates at age 25, widening to roughly 60% by age 55, as degree holders sort into occupations with steeper wage growth — a pattern the NY Fed ('Is College Still Worth It?', 2025) also notes when it observes the premium 'tends to grow over one's career.' Across all ages, BLS (2024) reports median weekly earnings of about $1,533 for bachelor's holders vs. $946 for high school graduates — roughly two-thirds higher.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -187,10 +187,10 @@ export const collegeValuePropositionData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Federal Reserve Bank of New York (2025); BLS",
+          source: "NBER/Harvard ('Why Do Wages Grow Faster for Educated Workers?'); NY Fed (2025); BLS (2024)",
           sourceUrl: "https://libertystreeteconomics.newyorkfed.org/2025/04/is-college-still-worth-it/",
           reasoning:
-            "Authoritative cross-sectional data; directness limited by selection effects and survivor bias, and the age-profile reflects cross-sectional snapshots rather than tracked cohorts.",
+            "The 27%-to-60% age profile is from the NBER/Harvard study, not the NY Fed (which only notes the premium grows with age); directness is limited by selection effects and survivor bias, and the age-profile reflects cross-sectional snapshots rather than tracked cohorts.",
         },
       ],
     },

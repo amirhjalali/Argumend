@@ -12,17 +12,17 @@ export const psychedelicsMentalHealthData = {
       id: "clinical-trial-evidence",
       title: "Clinical Trial Evidence",
       short_summary:
-        "Phase II and Phase III clinical trials show significant therapeutic effects of psilocybin for depression and MDMA for PTSD, but the FDA has demanded additional evidence.",
+        "Phase II and Phase III trials report large therapeutic effects for psilocybin in depression and MDMA in PTSD, but an FDA advisory committee voted against MDMA-assisted therapy (2-9 on efficacy, 1-10 on benefit-risk) and the agency issued a Complete Response Letter citing functional unblinding and expectancy effects.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The FDA rejected MDMA-assisted therapy for PTSD in August 2024, citing flawed trial design in the MAPP1 and MAPP2 studies. Blinding is nearly impossible in psychedelic trials because participants know whether they received a psychedelic. The expectancy effect is enormous: patients who believe they received a powerful mind-altering substance may improve regardless of the drug's efficacy. Many trials are small, short-term, and funded by organizations with strong ideological commitments.",
+        "An FDA advisory committee voted 2-9 that the MAPP1 and MAPP2 data did not show MDMA-assisted therapy is effective for PTSD, and 1-10 that its benefits did not outweigh its risks; the FDA then issued a Complete Response Letter in August 2024 declining approval and requesting another Phase III trial. Blinding is nearly impossible in psychedelic trials because participants can tell whether they received an active psychedelic, and the FDA flagged probable functional unblinding in MAPP2. The expectancy effect is large: patients who believe they received a powerful mind-altering substance may improve regardless of pharmacology. Many trials are small, short-term, and run by organizations with strong prior commitments to the result, and some sites had unreported adverse events and alleged misconduct.",
       proponent_rebuttal:
-        "Over 130 psilocybin clinical trials are now registered on ClinicalTrials.gov. MAPS' Phase III trial showed 71% of PTSD patients no longer met diagnostic criteria after three MDMA sessions (vs. 48% placebo). Johns Hopkins research demonstrated psilocybin-assisted therapy has antidepressant effects lasting at least one year. Two companies (Compass Pathways and Usona Institute) have Phase III trials underway for psilocybin and depression. The FDA's rejection of MDMA was about trial design, not efficacy.",
+        "Psychedelic research has scaled rapidly, with well over 100 psilocybin studies now registered on ClinicalTrials.gov. In MAPS' second confirmatory Phase III trial (MAPP2, n=104), 71.2% of MDMA-group participants no longer met PTSD criteria by week 18 versus 47.6% in the placebo-with-therapy group—a large effect for a hard-to-treat condition. A Johns Hopkins follow-up reported antidepressant effects persisting at 12 months, though only 24 participants completed that uncontrolled follow-up. Compass Pathways and Usona Institute have Phase III psilocybin-for-depression trials underway. Proponents argue the FDA's concerns center on blinding and trial conduct that are inherent to psychedelic research rather than on the drugs being inert, and that better-designed trials can address them—though they should concede the advisory committee voted directly against efficacy (2-9), not merely against trial design.",
       crux: {
         id: "phase-3-psilocybin-approval",
         title: "Psilocybin Phase III Trial Results and FDA Decision",
         description:
-          "The FDA rejected MDMA therapy in 2024 over methodology concerns despite strong Phase II data. Psilocybin trials face the same scrutiny.",
+          "An FDA advisory committee voted against MDMA-assisted therapy in 2024 (2-9 on efficacy, 1-10 on benefit-risk) and the FDA issued a Complete Response Letter citing functional unblinding and expectancy effects. Whether psilocybin's Phase III program can survive the same scrutiny is the open question.",
         methodology:
           "Monitor Compass Pathways and Usona Institute Phase III trials. Evaluate primary endpoints (MADRS depression scale scores at 6 and 12 weeks), adverse events, and long-term follow-up data. Assess FDA advisory committee response.",
         verification_status: "theoretical" as const,
@@ -86,12 +86,12 @@ export const psychedelicsMentalHealthData = {
       id: "policy-regulatory-path",
       title: "Policy & Regulatory Pathway",
       short_summary:
-        "Psilocybin is Schedule I ('no accepted medical use') despite Phase II trials showing 4x the response rate of SSRIs. The FDA wants more data.",
+        "Psilocybin is Schedule I ('no accepted medical use') even though Phase II trials report meaningful antidepressant effects—though a head-to-head trial did not find it superior to an SSRI on its primary endpoint. States (Oregon, Colorado) have created supervised-access programs ahead of any FDA approval.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "Psilocybin and MDMA are Schedule I controlled substances—classified as having high abuse potential and no accepted medical use. Decriminalization and state-level legalization (Oregon, Colorado) have outpaced clinical evidence. Widespread access without proper clinical infrastructure risks adverse events, misuse, and undermining the rigorous FDA approval process that protects patients.",
       proponent_rebuttal:
-        "Oregon legalized psilocybin services at licensed centers in 2020, and Colorado followed in 2022. More than 36 psychedelic health-related initiatives were introduced across a dozen states in 2024-2025. The Schedule I classification is based on 1970s politics, not science—psilocybin has extremely low addiction potential and no lethal dose has been established. A supervised clinical model (as in Oregon) provides appropriate guardrails.",
+        "Oregon voters approved regulated psilocybin services in 2020 (Measure 109; centers opened in 2023), and Colorado followed in 2022, with psychedelic-policy bills introduced in numerous other states since. The Schedule I classification dates to 1970s politics rather than current science: psilocybin has extremely low addiction potential (no physical dependence; rapid tolerance prevents binge use) and no established lethal dose in humans. A supervised, facilitator-led access model (as in Oregon) offers more guardrails than the unregulated use that decriminalization alone would allow—even if it is not yet an approved medical treatment and lacks systematic outcome data.",
       crux: {
         id: "state-level-outcome-data",
         title: "Oregon Psilocybin Service Center Outcomes",

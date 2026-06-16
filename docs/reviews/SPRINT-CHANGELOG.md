@@ -208,3 +208,21 @@ mis-cites; homeschooling Ray-2010 "persists across income" + Cardus voting direc
 "zombie stats" removed (unsourced "10-30% lost to corruption", "30-40% reaches recipients"). Several
 agents added verified topic-level references[] (all URLs already in-file evidence). All web-verified, no
 fabricated cites, both sides steelmanned. Coverage held 98%. tsc clean, 207 tests pass.
+
+## Iteration 12 (2026-06-16) — WS2 pass 4: prose sweep, 10 more maps
+Swept prose of: billionaire-wealth, college-value-proposition, psychedelics-mental-health, moon-landing,
+wealth-tax, factory-farming-ban, organic-food-health, social-media-age-limits, reparations-slavery,
+gene-editing-embryos. Notable fixes: psychedelics prose FDA framing corrected (advisory committee voted
+2-9 against efficacy / 1-10 against benefit-risk + CRL; not "rejected over trial design") and removed an
+unsupported "4x the response rate of SSRIs" (the NEJM head-to-head did NOT find psilocybin superior);
+college return-vs-premium conflation fixed (84% "premium" was the annualized return; real wage gap ~68%)
++ a misattributed age-premium curve re-cited to the NBER/Harvard paper; reparations Fed wealth-gap "$171K
+vs $17K / 8x" → 2022 SCF (~$285K vs ~$45K, ~6x); factory-farming "80% of US antibiotics" → ~two-thirds US
+(~70% global), dead-zone re-attributed to cropland-dominant Mississippi watershed; gene-editing fixed a
+science error (Casgevy edits BCL11A, it does NOT "delete the sickle-cell gene"); billionaire-wealth top-
+0.001% stat → Fed top-1%~30%/bottom-50%~2.5%, lobbying $3.7B→$4.4B (2024); social-media-age-limits Surgeon
+General framing (can-have-risk, causation not proven) + Haidt "meta-analysis"→trade book + a circumvention-
+rates URL repointed to its supporting Ofcom source; organic-food pesticide "60% in one week"→verified
+~49-95% range; moon-landing transit dose →0.16-1.14 rad + LRO URL fixed; wealth-tax verified clean.
+All web-verified, no fabricated cites, both sides steelmanned. Coverage held 98%. tsc clean, 207 tests.
+Swept so far: 42 maps (passes 1-4) + 5 WS3 cluster. Remaining un-swept hardened: ~16.

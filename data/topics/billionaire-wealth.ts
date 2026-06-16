@@ -12,12 +12,12 @@ export const billionaireWealthData = {
       id: "economic-impact",
       title: "Economic Impact",
       short_summary:
-        "The top 0.001% hold more wealth than the bottom 50% combined. One side sees a rigged game; the other sees the reward for building Amazon.",
+        "The top 1% hold about 30% of US household wealth; the bottom 50% hold roughly 2.5%. One side sees a rigged game; the other sees the reward for building Amazon.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Billionaires create jobs, fund innovation, and drive economic growth. Gates, Musk, and Bezos built platforms that millions depend on. Wealth taxes cause capital flight and are administratively impractical — every European country that tried one repealed it.",
+        "Billionaires create jobs, fund innovation, and drive economic growth. Gates, Musk, and Bezos built firms that employ over a million people each and platforms millions depend on. Wealth taxes have a poor track record: of the dozen OECD countries that levied them in 1990, most repealed them by 2017 — citing high administrative cost, capital flight, and disappointing revenue — leaving only a handful (Norway, Spain, Switzerland) still collecting.",
       proponent_rebuttal:
-        "The top 0.001% now hold more wealth than the bottom 50%. This concentration reduces social mobility, captures political power, and distorts markets. Innovation happens in labs and garages funded by public research grants, not in billionaire bank accounts. Most billionaire wealth comes from rent extraction, not value creation.",
+        "Concentration is extreme and widening: the top 1% hold roughly 30% of US household net worth while the bottom 50% hold about 2.5%, and the top 0.1% alone hold several times more wealth than the entire bottom half combined (Fed Distributional Financial Accounts). Piketty's r>g framework shows why this compounds mechanically when returns on capital outrun growth. This concentration can blunt social mobility, capture political power, and distort markets — and a large share of foundational innovation originates in publicly funded labs and research grants, not in billionaire bank accounts.",
       crux: {
         id: "wealth-concentration-mobility",
         title: "Wealth Concentration vs. Social Mobility",
@@ -113,9 +113,9 @@ export const billionaireWealthData = {
         "Billionaires fund campaigns, buy media outlets, and lobby Congress. Is that free speech or legalized oligarchy?",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Billionaire philanthropy fills gaps government can't — the Gates Foundation has saved millions of lives from malaria and polio. Campaign finance is regulated. Many billionaires advocate for higher taxes on themselves. Private initiative is more agile than government bureaucracy.",
+        "Billionaire philanthropy can fill gaps government won't — the Gates Foundation is among the largest funders of global health, helping drive the multi-donor campaigns behind a roughly 60% fall in malaria death rates (2000-2015) and the near-eradication of wild polio, now endemic in just two countries. Campaign finance is regulated and disclosed in part. Many billionaires advocate for higher taxes on themselves and pledge most of their wealth to charity. Private initiative can move faster and take bigger risks than government bureaucracy.",
       proponent_rebuttal:
-        "Billionaires exert outsized influence through lobbying ($3.7B annually), media ownership, and political donations. Gilens & Page showed US policy responds to elite preferences, not the median voter. This is plutocracy, not democracy. The philanthropy model makes public goods dependent on private whims — unaccountable and undemocratic.",
+        "Wealth buys outsized influence through lobbying (federal lobbying hit a record $4.4B in 2024), media ownership, and political donations — including the dark money and super PAC spending that exploded after Citizens United. Gilens & Page found that across 1,779 policy issues, economic elites and business groups shaped outcomes while average citizens had little independent influence. The philanthropy defense cuts the other way: it makes public goods dependent on private whims, letting unelected donors set agendas in health, education, and science with no democratic accountability.",
       crux: {
         id: "policy-responsiveness-test",
         title: "Policy Responsiveness to Wealth vs. Median Voter",
@@ -199,6 +199,31 @@ export const billionaireWealthData = {
             "Pledge demonstrates intent but is non-binding. IPS analysis shows wealth growth outpacing donations. Signatory counts and donation figures are partly self-reported, so independence is moderate.",
         },
       ],
+    },
+  ],
+  references: [
+    {
+      title:
+        "Federal Reserve, Distributional Financial Accounts — Distribution of Household Wealth",
+      url: "https://www.federalreserve.gov/releases/z1/dataviz/dfa/distribute/chart/",
+    },
+    {
+      title:
+        "OECD Tax Policy Studies No. 26 — The Role and Design of Net Wealth Taxes in the OECD (2018)",
+      url: "https://www.oecd.org/en/publications/the-role-and-design-of-net-wealth-taxes-in-the-oecd_9789264290303-en.html",
+    },
+    {
+      title:
+        "Gilens & Page, \"Testing Theories of American Politics,\" Perspectives on Politics (2014)",
+      url: "https://doi.org/10.1017/S1537592714001595",
+    },
+    {
+      title: "OpenSecrets — Federal lobbying set a new record ($4.4B) in 2024",
+      url: "https://www.opensecrets.org/news/2025/02/federal-lobbying-set-new-record-in-2024/",
+    },
+    {
+      title: "WHO World Malaria Report 2015 (≈60% decline in malaria death rate since 2000)",
+      url: "https://www.who.int/publications/i/item/9789241565158",
     },
   ],
 };

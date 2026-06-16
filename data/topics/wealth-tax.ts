@@ -119,7 +119,7 @@ export const wealthTaxData = {
       skeptic_premise:
         "Taxing wealth discourages investment and entrepreneurship. Billionaires' wealth is mostly productive capital (company equity), not cash. Forcing annual liquidation to pay taxes could harm companies and employees.",
       proponent_rebuttal:
-        "Extreme wealth concentration harms growth by reducing consumer spending and increasing rent-seeking. A 2% tax is far below typical investment returns, so investment incentives remain. Billionaires don't create jobs—consumer demand does.",
+        "A 2% annual levy is well below typical long-run equity returns, so the incentive to invest and build largely survives. Because the marginal propensity to consume falls sharply with wealth, taxing top fortunes diverts dollars that would mostly have stayed in assets toward public spending that supports demand. IMF cross-country work (Ostry et al.) finds lower net inequality correlates with more durable growth and that redistribution shows little adverse growth effect except in extreme cases — undercutting a strict equity-efficiency trade-off, though it is not direct proof a billionaire wealth tax raises GDP.",
       crux: {
         id: "investment-impact",
         title: "Investment Impact Analysis",

@@ -15,14 +15,14 @@ export const organicFoodHealthData = {
         "A Stanford meta-analysis of 237 studies found no strong evidence that organic food is more nutritious. Organic advocates say nutrition is the wrong metric.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Stanford's comprehensive 2012 meta-analysis of 237 studies found no significant nutritional advantage for organic foods. The organic label does not mean pesticide-free — it means different (often less-tested) pesticides are used. The price premium of 20-100% makes healthy eating less accessible, potentially worsening public health by pricing people out of fruits and vegetables entirely.",
+        "Stanford's 2012 review (Smith-Spangler et al., Annals of Internal Medicine, 237 studies) found no consistent vitamin or mineral advantage for organic foods. Even the antioxidant gaps later reported by Barański are concentration differences on the plant, not demonstrated health benefits in people — no trial shows that the extra flavonols lower disease risk at the doses a normal diet delivers. The organic label is not 'pesticide-free'; it permits its own (often less-studied) inputs. And a 20-100% price premium can price shoppers out of fruits and vegetables entirely, which would harm public health more than any residue.",
       proponent_rebuttal:
-        "The British Journal of Nutrition's larger 2014 meta-analysis of 343 studies found 18-69% more antioxidants in organic crops, including significantly higher levels of flavanones, flavonols, and anthocyanins. Organic produce has significantly lower cadmium levels (a toxic heavy metal) and far fewer pesticide residues. The Stanford study has been criticized for methodological limitations.",
+        "Vitamins were never the strongest case. The British Journal of Nutrition's larger 2014 meta-analysis (Barański et al., 343 studies) found organic crops carried 18-69% higher antioxidant/(poly)phenol concentrations — flavanones up ~69%, anthocyanins ~51%, flavonols ~50%, stilbenes ~28% — plus roughly 48% lower cadmium (a toxic heavy metal) and detectable pesticide residues about four times less often. The Stanford review counted vitamins and minerals but largely set antioxidants aside, which is where the real organic-vs-conventional gap shows up.",
       crux: {
         id: "health-outcome-organic-diet",
         title: "Health Outcomes from Long-Term Organic Diet",
         description:
-          "A French cohort study of 69,000 people found 25% lower cancer rates among organic food consumers. Selection bias could explain all of it.",
+          "The French NutriNet-Santé cohort (Baudry et al. 2018, ~69,000 adults) found ~25% lower overall cancer incidence among the highest organic-food consumers (HR ~0.75). But organic buyers also exercise more, smoke less, and eat more produce — residual confounding or selection bias could explain much or all of it.",
         methodology:
           "Large-scale prospective cohort study (50,000+ participants) comparing health outcomes over 10+ years between verified organic consumers and matched conventional food consumers, controlling for income, overall diet quality, exercise, and other confounders.",
         verification_status: "theoretical" as const,
@@ -110,9 +110,9 @@ export const organicFoodHealthData = {
         "Every apple you eat contains pesticide residues below the safety threshold. The real question: what happens after 30 years of daily 'safe' exposures?",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Conventional pesticide residues are well below EPA safety thresholds, which already include 100-1000x safety margins. The dose makes the poison — trace amounts detected on produce pose negligible risk to healthy adults. Organic farming uses pesticides too, including copper sulfate (which accumulates in soil) and rotenone (linked to Parkinson's in animal studies).",
+        "Conventional residues sit well below EPA tolerances, which build in 100-fold (or larger) safety margins. The dose makes the poison — trace amounts on produce pose negligible risk to healthy adults. Organic farming uses pesticides too, including copper sulfate (which accumulates in soil) and, historically, rotenone (linked to Parkinson's in animal studies). And the headline cohort result cuts both ways: NutriNet-Santé participants who buy the most organic also tend to be wealthier, leaner, and more health-conscious, so an observational 25% gap is exactly what selection bias would produce even if organic food did nothing.",
       proponent_rebuttal:
-        "EPA tolerance levels are set based on single-chemical exposure in adults and do not adequately account for chronic low-dose exposure, cumulative effects of multiple pesticides, or heightened vulnerability of children. Studies show switching to an organic diet reduces urinary pesticide metabolites by 60% within one week. The French NutriNet-Sante study found 25% lower cancer risk among high organic consumers.",
+        "EPA tolerances are derived largely from single-chemical exposure in adults and were not designed to capture chronic low-dose intake, cumulative effects of pesticide mixtures, or the heightened vulnerability of developing children. Controlled intervention studies (Curl 2003; Oates 2014; Hyland 2019) show that switching to an organic diet sharply lowers urinary pesticide metabolites within days — reductions that vary by chemical, from roughly 49% up to ~95% for malathion. The French NutriNet-Santé cohort (Baudry 2018) further found ~25% lower cancer incidence among the highest organic consumers, consistent with — though not proof of — a real effect.",
       crux: {
         id: "chronic-low-dose-effects",
         title: "Chronic Low-Dose Pesticide Exposure Health Effects",

@@ -12,12 +12,12 @@ export const geneEditingEmbryosData = {
       id: "medical-promise-safety",
       title: "Medical Promise vs. Safety",
       short_summary:
-        "CRISPR can delete the gene for sickle cell disease. It can also make off-target edits we cannot predict. The first gene-edited babies were born in 2018; the scientist went to prison.",
+        "CRISPR can already treat sickle cell disease in adults (FDA-approved in 2023). It can also make off-target edits we cannot fully predict. The first gene-edited babies were born in 2018; the scientist was jailed for three years.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "He Jiankui's 2018 experiment showed the technology is not ready — off-target edits had unknown effects on the twin girls born from the procedure. Germline changes are irreversible and affect all future generations. We don't understand gene interactions (pleiotropy, epistasis) well enough to predict consequences. Preimplantation genetic testing (PGT-M) already allows screening for most genetic diseases without modifying the genome.",
+        "He Jiankui's 2018 experiment showed the technology was used before it was ready — the intended CCR5-Δ32 edit was not faithfully reproduced (mosaicism, atypical and partial edits) and off-target risks were never independently verified. Germline changes are heritable and effectively irreversible, so any error propagates to people who could never consent — a profound problem of the rights of future generations. We do not understand gene interactions (pleiotropy, epistasis) well enough to predict downstream effects; CCR5 loss itself carries trade-offs. And for most carrier couples, preimplantation genetic testing (PGT-M) already lets unaffected embryos be selected without editing the genome at all, so the marginal benefit of editing is small relative to the risk.",
       proponent_rebuttal:
-        "CRISPR could eliminate Huntington's disease, sickle cell anemia, cystic fibrosis, and thousands of other genetic diseases that cause immense suffering. The technology is advancing rapidly — off-target rates have dropped dramatically since 2018. Base editing and prime editing offer even greater precision. Restricting research condemns future children to preventable suffering when the tools to help them exist.",
+        "Heritable editing could in principle prevent Huntington's disease, sickle cell anemia, cystic fibrosis, and other serious single-gene disorders that cause immense suffering. The underlying technology is advancing fast: newer base and prime editors avoid the double-strand breaks behind much of Cas9's collateral damage, and FDA's 2023 approval of a CRISPR therapy (Casgevy) shows the chemistry can be made clinically reliable in humans. He Jiankui is best read as a warning about rogue, premature practice rather than proof the field can never be safe. The strongest case is narrow — couples for whom embryo screening cannot work (both parents affected, or a dominant de novo mutation) — where editing may be the only path to a genetically related, unaffected child.",
       crux: {
         id: "crispr-precision-threshold",
         title: "CRISPR Precision Sufficient for Germline Application",
@@ -52,7 +52,7 @@ export const geneEditingEmbryosData = {
           id: "crispr-precision-improvement-2023",
           title: "Newer Editors (Base, Prime) Reduce Off-Target Editing vs. Original Cas9",
           description:
-            "Base editing (Komor et al., Nature 2016) and prime editing (Anzalone et al., Nature 2019) avoid the double-strand breaks that drive much of Cas9's collateral damage. Whole-genome-sequencing studies in human cells have reported no detectable guide-RNA-independent off-target mutations from prime editors, suggesting greater precision than first-generation Cas9. These remain cell-line and stem-cell findings, not whole-embryo or lifetime safety data.",
+            "Base editing (Komor et al., Nature 2016) and prime editing (Anzalone et al., Nature 2019) avoid the double-strand breaks that drive much of Cas9's collateral damage. Subsequent whole-genome-sequencing studies in cultured human cells have reported little or no detectable guide-RNA-independent off-target mutation from prime editors, consistent with greater precision than first-generation Cas9. These remain cell-line and stem-cell findings, not whole-embryo or lifetime safety data, and editing efficiency in embryos can be low and uneven.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -110,7 +110,7 @@ export const geneEditingEmbryosData = {
       skeptic_premise:
         "The slippery slope to designer babies is real — once you allow editing for disease, the line to enhancement (intelligence, height, appearance) is impossible to hold. Wealthy access to genetic enhancement would create a literal genetic class system. Disability rights advocates argue that editing out genetic conditions signals that disabled lives aren't worth living. The history of eugenics in the 20th century makes this territory uniquely dangerous.",
       proponent_rebuttal:
-        "The distinction between therapy (fixing disease-causing genes) and enhancement (making 'better' humans) is clear and regulatable. We already accept prenatal screening and selective termination without sliding into eugenics. International regulatory frameworks can draw enforceable lines. Banning research doesn't prevent it — it pushes development to unregulated jurisdictions like He Jiankui's experiment in China.",
+        "Independent ethics bodies have concluded heritable editing could be acceptable in principle if it secures the welfare of the future person and does not worsen social inequality (Nuffield Council, 2018), and the WHO has published a governance framework (2021) — so the question is how to regulate, not whether regulation is conceivable. A defensible line can be drawn at preventing serious, well-characterized monogenic disease, the same category society already treats as legitimate to screen for. And a ban is not neutral: prohibition pushes work into unregulated settings, which is precisely the gap He Jiankui exploited. Better to permit tightly licensed research than to cede the field to rogue actors.",
       crux: {
         id: "therapy-enhancement-boundary",
         title: "Enforceability of Therapy vs. Enhancement Boundary",

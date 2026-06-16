@@ -16,7 +16,7 @@ export const moonLandingData = {
     },
     {
       title: "LRO Imagery Verification",
-      url: "https://www.nasa.gov/mission_pages/LRO/main/index.html",
+      url: "https://science.nasa.gov/mission/lro/",
     },
   ],
   questions: [
@@ -63,7 +63,7 @@ export const moonLandingData = {
       skeptic_premise:
         "Even the Hubble telescope cannot see the flags or the Lunar Module. Without physical confirmation, we only have NASA's word.",
       proponent_rebuttal:
-        "While we cannot resolve the landers visually due to diffraction limits, we can interact with the Laser Ranging Retroreflectors (LRRR) left by the crew.",
+        "While no Earth telescope can resolve the landers (a diffraction limit, not a cover-up), observatories on multiple continents — including non-NASA institutions such as the Observatoire de la Côte d'Azur — routinely bounce lasers off the Laser Ranging Retroreflectors (LRRR) the crews left behind, returning signals from precisely surveyed Apollo coordinates.",
       crux: {
         id: "apache-point",
         title: "The Apache Point Operation",
@@ -159,7 +159,7 @@ export const moonLandingData = {
       skeptic_premise:
         "The Van Allen belts contain lethal doses of protons and electrons. No human could survive the transit without meters of lead shielding.",
       proponent_rebuttal:
-        "Dose is a function of Intensity × Time. The Apollo trajectory bypassed the inner belt and traversed the outer belt at 25,000mph, resulting in a total transit dose of ~1.8 rads (survivable).",
+        "Dose is a function of Intensity × Time. The Apollo trajectory crossed the thinner edge of the belts at ~25,000 mph, so the full belt transit took only minutes. Measured whole-mission skin doses ranged from 0.16 rad (Apollo 8) to 1.14 rad (Apollo 14) — most of it accrued during that brief belt crossing — orders of magnitude below the hundreds of rads needed to cause acute harm.",
       crux: {
         id: "dosimeter-audit",
         title: "The Dosimeter Audit",

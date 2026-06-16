@@ -15,9 +15,9 @@ export const socialMediaAgeLimitsData = {
         "Evidence on whether social media causally harms children's mental health, particularly for adolescents under 16.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Correlation isn't causation; teen mental health was declining before social media became widespread. Economic anxiety, academic pressure, and reduced outdoor play also increased. Bans push kids to less safe, unmoderated platforms. Most studies rely on self-reported screen time, which is unreliable.",
+        "Correlation isn't causation, and peer researchers (e.g., Candice Odgers in Nature) argue the large effects Haidt invokes have not held up: hundreds of studies yield mostly small, null, or mixed associations. Confounders rose in the same window — economic anxiety, academic pressure, reduced sleep and outdoor play, and greater willingness to report and diagnose distress. Most studies rely on self-reported screen time, which is unreliable. A blanket under-16 ban is a blunt instrument that can push kids to less moderated spaces and cut off teens (LGBTQ youth, isolated kids) for whom these platforms provide genuine support.",
       proponent_rebuttal:
-        "Jonathan Haidt's comprehensive review in 'The Anxious Generation' documents the sharp inflection in teen mental health precisely when smartphone/social media adoption hit critical mass (2012). The US Surgeon General's 2023 advisory specifically cited sufficient evidence of harm. Internal Facebook research (leaked by Frances Haugen) showed Instagram makes body image worse for 1 in 3 teen girls. Delay-of-smartphone initiatives in schools show measurable improvements in attention and wellbeing.",
+        "Jonathan Haidt's 'The Anxious Generation' (a trade book, not a meta-analysis) documents a sharp inflection in teen depression and anxiety beginning around 2012, when smartphones and social media reached saturation, across several anglophone countries. The US Surgeon General's 2023 advisory, while stressing the evidence is not yet sufficient to call social media safe, warned it 'can have a profound risk of harm.' Internal Facebook research leaked by Frances Haugen showed Instagram made body image worse for a meaningful share of teen girls who already felt bad about their bodies. The precautionary case does not require proven causation: when a plausible mechanism, a dose-response pattern, and an unprecedented population-level decline coincide, waiting for a perfect RCT before acting may itself harm a generation of children.",
       crux: {
         id: "causal-mechanism-study",
         title: "Randomized Social Media Abstinence Trial",
@@ -111,12 +111,12 @@ export const socialMediaAgeLimitsData = {
       id: "enforcement-rights",
       title: "Enforcement & Rights",
       short_summary:
-        "Age verification requires either collecting IDs (a privacy nightmare) or trusting self-reported birthdays (which no teenager has ever lied about).",
+        "Whether under-16s can actually be kept off platforms without either collecting IDs (a privacy and data-breach risk for all users) or relying on self-reported birthdays (which Ofcom finds roughly a fifth of teens already falsify).",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Age verification requires invasive ID checks that violate privacy for all users, not just children. Teens will circumvent any ban using VPNs, fake birthdays, or parents' accounts. Government shouldn't decide what children can access — that's a parental decision.",
+        "Robust age verification forces every user, adult or child, to prove their age — via ID upload or biometric face scans — creating honeypots of sensitive data and chilling anonymous speech. Facial age estimation is imprecise right at the 16 cutoff and, per Australia's own trial, less accurate for darker skin tones, so it both wrongly blocks adults and misses teens. Teens still circumvent via VPNs, false birthdays, or borrowed accounts. And in many traditions deciding what a 15-year-old may access is a parental and free-expression question, not one for the state to settle with a blanket prohibition.",
       proponent_rebuttal:
-        "We already age-gate alcohol, driving, gambling, and voting. Imperfect enforcement doesn't mean we abandon the principle — underage drinking laws reduce teen alcohol use despite circumvention. Age estimation technology (facial analysis, device attestation) offers privacy-preserving approaches. Parents need legal backing because individual parents can't enforce rules when all peers are on platforms.",
+        "We already age-gate alcohol, driving, gambling, and voting. Imperfect enforcement doesn't mean we abandon the principle — underage drinking laws reduce teen alcohol use despite circumvention. Australia's government-commissioned trial concluded age assurance 'can be done,' with facial age estimation and device-level signals offering relatively privacy-preserving options (no need to store an ID), even though it found no single guaranteed method and flagged accuracy gaps near the 16-year boundary. The point of a law is to shift the default and give parents legal backing, since an individual parent can't enforce a rule when every peer is on the platform; it doesn't need to be airtight to change population-level behavior.",
       crux: {
         id: "enforcement-effectiveness",
         title: "Age Verification Effectiveness Study",
@@ -190,7 +190,7 @@ export const socialMediaAgeLimitsData = {
           id: "circumvention-rates",
           title: "Teen Circumvention of Existing Restrictions Is Common",
           description:
-            "UK survey data (Internet Matters / Ofcom-cited research, ~2024-2025) indicates 36% of young people have entered a false age online to gain access, while smaller shares use borrowed credentials (15%), VPNs (11%), or age-spoofing apps (10%); roughly 8% of children used a VPN in the past year. More than 70% of teens report hiding some online activity from parents. Any age-based ban therefore creates a cat-and-mouse dynamic, though no single circumvention method is near-universal.",
+            "Ofcom-commissioned research (YouGov, 1,700+ UK children aged 8-17, 2024) found about 22% of 8-to-17-year-olds with a social media profile have a user age of 18 or over, i.e. they signed up with a false date of birth to appear older. Separately, Internet Matters' tracker reports roughly 8% of children used a VPN in the past twelve months (about 10% of 13-14s and 11% of 15-17s). Self-declared age is therefore widely circumvented, though no single circumvention method is near-universal and VPN use among children did not spike after the UK introduced age checks in 2025.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -199,11 +199,11 @@ export const socialMediaAgeLimitsData = {
             directness: 7,
           },
           source:
-            "Internet Matters / Ofcom-cited youth online-safety surveys (UK, 2024-2025)",
+            "Ofcom / YouGov, 'Children's Online User Ages' (UK, 2024); Internet Matters VPN-use tracker (UK, 2025)",
           sourceUrl:
-            "https://www.internetmatters.org/hub/research/data-shows-no-rise-childrens-vpn-use-amid-online-age-checks/",
+            "https://www.ofcom.org.uk/online-safety/protecting-children/a-third-of-children-have-false-social-media-age-of-18",
           reasoning:
-            "The prior '67% know how to bypass' and 'VPN doubled 2020-2024' figures, and the NCSC/Bark attribution, could not be verified against primary sources and were replaced with documented UK survey numbers (36% false age; ~8-11% VPN use). Real evidence of circumvention, but the original overstated its scale, so weights were trimmed.",
+            "The earlier '36% false age / 15% borrowed credentials / 10% spoofing apps' figures were attributed to an Internet Matters VPN-use page that does not contain them, so they were removed as unverifiable. Replaced with Ofcom's documented ~22% false-DOB figure (primary, robust) and the Internet Matters VPN numbers the cited tracker actually reports. Real evidence of circumvention; weights unchanged since the corrected figures remain solid.",
         },
       ],
     },
