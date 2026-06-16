@@ -4664,6 +4664,196 @@ If the tension between moral framing and hard evidence interests you, the [death
 
 A both-sides analysis will not tell you whether to support decriminalization. It will tell you that the question "does it work?" is the wrong one—and that "under what conditions does it work, and can we meet them?" is the question worth your attention.`,
   },
+  {
+    slug: "ai-policy-wars-five-debates-mapped",
+    title: "The AI and Tech Policy Wars: Five Debates, Mapped",
+    description:
+      "Generative-AI copyright, facial recognition, net neutrality, self-driving safety, and fusion's timeline. Five technology fights where the real disagreement is a specific crux, not a culture-war slogan—each mapped to its primary sources.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-16T09:00:00Z",
+    readingTime: "9 min read",
+    tags: ["AI policy", "technology", "regulation", "both sides", "crux"],
+    category: "Issue Guides",
+    content: `## The Slogans Are Hiding the Real Disagreements
+
+Almost every technology-policy fight you see online is conducted in slogans: "AI is theft," "regulation kills innovation," "the robots are coming." Slogans are useless because they hide where the disagreement actually lives. In nearly every one of these debates, both sides agree on far more than they admit—and the live question is a narrow, often empirical, *crux*.
+
+We have mapped five of the most consequential technology debates, each with steel-manned positions on both sides, weighted evidence traced to primary sources, and the specific crux that would move reasonable people. Here is the tour.
+
+## 1. Does Training AI on Copyrighted Work Count as Fair Use?
+
+The loudest framing is "AI companies are stealing from artists." The strongest version of *each* side is more interesting. Proponents of training point to a real line of copyright law—from *Authors Guild v. Google* (scanning millions of books was "highly transformative") to recent rulings calling model training "exceedingly transformative." Critics point to the opposite signal: a court rejecting fair use for AI training in *Thomson Reuters v. Ross*, the U.S. Copyright Office's "market dilution" analysis, and a landmark settlement in the billion-dollar range.
+
+**The crux** is not "is copying bad." It is whether training is *transformative* use that produces a new tool, or *substitutive* use that floods and dilutes the market the original works compete in. The case law is genuinely split, which is why this is contested rather than settled.
+
+Explore it: **[Generative AI & Art Copyright](/topics/generative-ai-art-copyright)**.
+
+## 2. Does Facial Recognition Do More Harm Than Good?
+
+Here the seductive techno-optimist claim is: "the algorithms keep getting more accurate, so the bias problem solves itself." The evidence map shows why that's the wrong inference. NIST's testing documents large demographic differentials, and the research on whether accuracy gains *reliably* shrink relative bias is far less reassuring than the optimistic story—improving overall accuracy does not guarantee equitable error rates. On the other side sit documented wrongful arrests and the question of whether any error rate is acceptable for a tool used to justify detention.
+
+**The crux:** is the harm a *technical* problem that better models fix, or a *structural* one about deploying probabilistic identification in high-stakes policing at all?
+
+Explore it: **[Facial Recognition in Policing](/topics/facial-recognition-policing)**.
+
+## 3. Does Net Neutrality Protect the Internet or Strangle Investment?
+
+This one has a twenty-year evidentiary record—Madison River blocking VoIP, Comcast throttling BitTorrent, the FaceTime fights—which is exactly why it's a good test of reasoning. The pro-rules side reads that history as proof that without a rule, gatekeepers discriminate. The anti-rules side argues the documented harms are few, were addressed without heavy regulation, and that Title II classification chills the capital investment that actually expands access.
+
+**The crux** is empirical and measurable: did the rules measurably depress broadband investment, and do the documented discrimination episodes justify standing regulation? Reasonable economists read the investment data differently—and the courts have moved, too (the Sixth Circuit's 2025 ruling).
+
+Explore it: **[Net Neutrality](/topics/net-neutrality)**.
+
+## 4. Are Self-Driving Cars Already Safer Than Humans?
+
+The strongest pro case isn't hype—it's mileage. Peer-reviewed studies of tens of millions of driverless miles report large reductions in injury-causing and intersection crashes versus human benchmarks. The strongest skeptic case isn't Luddism—it's that the comparison is rigged: robotaxis operate in geofenced, well-mapped, fair-weather conditions, and high-profile incidents and federal investigations show the tail risks are real.
+
+**The crux:** are the favorable safety numbers a *like-for-like* comparison, or an artifact of where and when these vehicles are allowed to drive? Until the operating domains overlap, both the optimists and skeptics can be locally correct.
+
+Explore it: **[Self-Driving Car Safety](/topics/self-driving-car-safety)**.
+
+## 5. Will Fusion Actually Power the Grid in Twenty Years?
+
+Fusion is where it pays to separate *physics* from *engineering*. The 2022 ignition milestone at the National Ignition Facility was real and repeated—a genuine scientific threshold. But the map lays out the engineering gap honestly: the wall-plug energy balance is still far underwater, and tritium fuel breeding at commercial scale has never been demonstrated. Optimists point to private capital and aggressive Q>1 targets; skeptics point to the gap between a lab shot and a power plant.
+
+**The crux:** is the remaining problem "scale up known engineering" or "solve unsolved engineering"? Your answer to that determines whether "two decades" is a forecast or a hope.
+
+Explore it: **[Nuclear Fusion Timeline](/topics/nuclear-fusion-timeline)**.
+
+## The Pattern
+
+Five debates, one shape: a culture-war slogan on top, a specific and often empirical crux underneath. If you want to argue about technology well, find the crux and argue about *that*. For the broader governance questions these connect to, see our maps on **[AI Regulation](/topics/ai-regulation)**, **[Open-Weight AI Models](/topics/open-weight-ai-models)**, and **[AI Content Labeling](/topics/ai-content-labeling)**—and watch for the [logical fallacies](/blog/5-logical-fallacies-in-online-debates) that thrive when slogans replace cruxes.`,
+  },
+  {
+    slug: "contested-health-claims-mapped",
+    title: "Contested Health Claims, Mapped: What the Evidence Actually Says",
+    description:
+      "GMO safety, antidepressant efficacy, and vaccine mandates are three health debates where the science is strong but the public fight is loud. We map where the evidence is settled, where it's genuinely contested, and where the disagreement is really about values.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-16T11:00:00Z",
+    readingTime: "8 min read",
+    tags: ["health", "science", "evidence", "both sides", "public health"],
+    category: "Issue Guides",
+    content: `## Loud Does Not Mean Unsettled
+
+Some health debates are loud because the evidence is genuinely split. Others are loud because a settled empirical question is entangled with an unsettled question about values—and the two get argued as if they were one. The fastest way to think clearly is to pull them apart. Here are three maps that do exactly that.
+
+## GMO Crops: A Safety Question and an Agronomy Question
+
+The public argues "are GMOs safe?" as a single yes/no. The map shows it's at least two separate questions. On *human health*, the weight of evidence—large reviews and national-academy assessments—lands firmly on "safe to eat," and that side of the map reflects it. On *agronomy and ecology*, the picture is more mixed: documented farmer-profit and pesticide-use benefits sit alongside genuine concerns about herbicide-resistant weeds and glyphosate.
+
+**The crux:** "GMO" bundles a food-safety claim (well supported) with an industrial-agriculture and herbicide claim (contested). People talk past each other because they're answering different questions under one acronym.
+
+Explore it: **[GMO Crops Safety](/topics/gmo-crops-safety)**.
+
+## Antidepressants: Statistically Real, Clinically… Debated
+
+This is the cleanest example of a *statistical-significance vs. clinical-significance* fight you'll find. The largest network meta-analyses of hundreds of trials find that antidepressants beat placebo—the effect is real and statistically robust. But critics argue the *average* effect size is small enough that its clinical meaningfulness for milder depression is debatable, and that landmark effectiveness trials look weaker on independent re-analysis.
+
+**The crux** is not "do they work?"—on average, beyond placebo, the trials say yes. It's "is the average benefit *clinically meaningful*, and for whom?" That is a question about effect size and patient subgroups, not a yes/no.
+
+Explore it: **[SSRI Antidepressant Efficacy](/topics/ssri-antidepressant-efficacy)**.
+
+## Vaccine Mandates: Where the Real Disagreement Is a Value
+
+Mandates are the case where separating empirical from moral matters most. The empirical questions—do mandates raise uptake, do the vaccines reduce transmission and for how long—have reasonably good answers in the map. But even if you grant every empirical point, you still face a genuine values question with a long legal history (from *Jacobson v. Massachusetts* in 1905 to the modern *NFIB v. OSHA* stay): when does a collective health benefit justify overriding individual bodily autonomy?
+
+**The crux:** mandates are an *ethics* debate wearing an *evidence* costume. The fight is rarely about whether mandates raise uptake (they generally do); it's about whether that justification is sufficient.
+
+Explore it: **[Vaccine Mandates](/topics/vaccine-mandates)**.
+
+## How to Read Any Health Debate
+
+The recurring move across all three: separate the empirical claim from the values claim, then separate the bundled empirical claims from each other. Once you do, "are GMOs safe," "do antidepressants work," and "are mandates justified" each split into a settled part and a genuinely open part. That's where honest disagreement lives.
+
+For more health maps where this same discipline pays off, see **[Ultra-Processed Food](/topics/ultra-processed-food)**, **[Seed Oils & Health](/topics/seed-oils-health)**, **[GLP-1 Weight-Loss Drugs](/topics/glp1-weight-loss-drugs)**, and **[Microplastics](/topics/microplastics-health-crisis)**—and the guide on [false balance](/blog/false-balance-both-sides), which is the failure mode that haunts health reporting.`,
+  },
+  {
+    slug: "economic-policy-fights-mapped",
+    title: "Four Economic Policy Fights, Mapped",
+    description:
+      "Carbon taxes, congestion pricing, the Social Security retirement age, and right to repair. Four economic-policy debates where the disagreement is about trade-offs and design, not good versus evil—each mapped to the evidence.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-16T13:00:00Z",
+    readingTime: "8 min read",
+    tags: ["economics", "policy", "trade-offs", "both sides", "public policy"],
+    category: "Issue Guides",
+    content: `## Economics Is the Study of Trade-Offs, Not Villains
+
+The fastest way to misunderstand an economic-policy debate is to look for the villain. Most of these fights are between people who want similar outcomes and disagree about *mechanisms, magnitudes, and who bears the cost*. Here are four maps that put the trade-offs in plain view.
+
+## Carbon Taxes: Does Pricing Carbon Actually Cut Emissions?
+
+The pro case is the cleanest idea in environmental economics: put a price on a harm and people do less of it, efficiently. Real-world programs give it support. The skeptic case isn't denial—it's about *magnitude and leakage*: how price-responsive emissions really are in the short run, whether production simply moves to unpriced jurisdictions, and whether the politics of a visible tax survive contact with voters.
+
+**The crux:** is the emissions response to a given carbon price large enough, and leakage small enough, to justify a carbon tax over the alternatives? That's an elasticity question, not a morality play.
+
+Explore it: **[Carbon Tax Effectiveness](/topics/carbon-tax-effectiveness)**.
+
+## Congestion Pricing: Proven Tool or Regressive Toll?
+
+On the empirical question, the map is relatively strong: cordon-pricing schemes in London, Stockholm, and Singapore measurably cut traffic and raised transit funds, and New York's 2025 program is the live North American test. The genuine fight is *distributional*: a flat cordon charge can hit lower-income drivers hardest, and whether the scheme is fair depends entirely on how the revenue is recycled.
+
+**The crux:** congestion pricing's *traffic* effect is well evidenced; its *fairness* depends on design. Arguing about whether it "works" misses that both can be true—it reduces congestion *and* can be regressive unless deliberately offset.
+
+Explore it: **[Congestion Pricing](/topics/congestion-pricing)**.
+
+## The Social Security Retirement Age: Necessary, or One Option Among Several?
+
+The trust-fund math is real—depletion is projected in the mid-2030s, after which scheduled benefits exceed dedicated revenue. The proponent case is that raising the full retirement age tracks rising longevity. The skeptic case has two strong prongs: longevity gains are *unequal* (lower earners gained far less, so an age hike cuts their lifetime benefits hardest), and an age increase is only *one* lever—lifting or removing the payroll-tax cap, where a large share of high earners' wages currently escape the tax, closes much of the gap without cutting benefits.
+
+**The crux:** is raising the retirement age *necessary*, or merely *one option* whose burden falls regressively? "Necessary" is doing a lot of work that the alternatives undercut.
+
+Explore it: **[Social Security Retirement Age](/topics/social-security-retirement-age)**.
+
+## Right to Repair: Consumer Win or Safety and IP Risk?
+
+The pro-repair case is concrete: lower repair costs, longer device lifespans, less e-waste, more independent-shop competition. The manufacturer case is not pure self-interest—it raises real questions about safety (high-voltage batteries), cybersecurity, and intellectual property in repair documentation. The wave of state laws is the natural experiment.
+
+**The crux:** do the consumer and environmental gains outweigh the safety/security/IP costs the manufacturers cite—and are those costs real or defensive? The state laws now rolling out will help answer it.
+
+Explore it: **[Right to Repair](/topics/right-to-repair)**.
+
+## The Common Move
+
+In all four, the slogan-level question ("is it good?") dissolves into a trade-off question: *how big is the effect, who pays, and compared to which alternative?* That's the question worth arguing. For adjacent fiscal debates that reward the same discipline, see **[Wealth Tax](/topics/wealth-tax)**, **[Trump Tariffs](/topics/trump-tariffs)**, and **[Universal Basic Income](/topics/universal-basic-income)**.`,
+  },
+  {
+    slug: "rights-and-hard-tradeoffs-mapped",
+    title: "Rights and Hard Trade-offs: Two Maps Where Facts Aren't Enough",
+    description:
+      "Assisted dying and the Second Amendment are debates where more data won't settle it—because the disagreement is partly about values and constitutional meaning. We map where the evidence ends and the moral and legal crux begins.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-16T15:00:00Z",
+    readingTime: "7 min read",
+    tags: ["rights", "ethics", "law", "both sides", "philosophy"],
+    category: "Issue Guides",
+    content: `## Some Debates Don't End With a Better Study
+
+We are evidence-first at Argumend, but honesty requires admitting that some disagreements aren't waiting on a better dataset. They turn on a value or on the meaning of a legal text. The useful thing a map can do here is show *exactly where* the empirical questions end and the irreducible disagreement begins—so people stop pretending a values fight is a facts fight. Two maps make this vivid.
+
+## Assisted Dying: Autonomy Versus the Slippery Slope
+
+The empirical layer of this debate is richer than people assume. Jurisdictions with assisted-dying laws—Oregon's long-running Death with Dignity program, and the more expansive Canadian MAiD regime—generate real data on uptake, safeguards, and who uses these laws and why. That data can inform the debate. But it cannot resolve it, because two genuine values sit underneath.
+
+**The crux** is a clash of real principles: individual *autonomy* over the end of one's life versus the *slippery-slope* worry that safeguards erode and eligibility expands over time. The Oregon-vs-Canada contrast is exactly where this gets concrete—one narrow and stable, one expanding—so the slope question is empirical *and* moral at once.
+
+Explore it: **[Assisted Dying & Euthanasia](/topics/assisted-dying-euthanasia)**.
+
+## The Second Amendment: A Question of Constitutional Meaning
+
+This map is unusual because it is not primarily about gun-policy outcomes—it's about *interpretation*. Does the Second Amendment protect an individual right to bear arms, or a collective, militia-tied right? The Supreme Court answered "individual" in *District of Columbia v. Heller* (2008) and extended its logic in *NYSRPA v. Bruen* (2022). But serious historical and legal scholarship exists on both sides of what the text originally meant, and that scholarship is what the map steel-mans.
+
+**The crux:** the disagreement is about *constitutional and historical meaning*, not about whether guns are dangerous. Conflating "what does the Amendment protect" with "what gun policy is wise" is the single most common error in this debate—and they are different questions.
+
+Explore it: **[Second Amendment as an Individual Right](/topics/second-amendment-individual-right)**.
+
+## Keep the Empirical and the Normative Apart
+
+The discipline these two maps demand is the same one that makes every hard debate tractable: name which sub-questions are empirical (what do the data from existing regimes show; what did the text originally mean) and which are irreducibly normative (how much autonomy, how much risk, whose reading of history). When you keep them apart, you can make progress on the parts that data touches—and argue honestly about the parts it doesn't.
+
+For companion debates where the same empirical-versus-moral split runs deep, see **[Gun Control Effectiveness](/topics/gun-control-effectiveness)** (the *policy-outcomes* question that pairs with the rights question above), **[Death Penalty Deterrence](/topics/death-penalty-deterrence)**, and **[Drug Decriminalization](/topics/drug-decriminalization)**. And if you want the method itself, start with [what a crux is and why it matters](/blog/what-is-a-crux-and-why-it-matters).`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {
