@@ -1730,5 +1730,202 @@
       "aging",
       "inequality"
     ]
+  },
+  {
+    "id": "estate-inheritance-tax",
+    "title": "The Estate Tax",
+    "meta_claim": "The estate (inheritance) tax is a fair and economically sound policy.",
+    "confidence_score": 70,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2,
+    "evidenceCount": 8,
+    "tags": [
+      "economics",
+      "estate-tax",
+      "inheritance",
+      "wealth-inequality",
+      "taxation",
+      "fiscal-policy"
+    ]
+  },
+  {
+    "id": "occupational-licensing-reform",
+    "title": "Occupational Licensing Reform",
+    "meta_claim": "Occupational licensing does more economic harm than good and should be rolled back.",
+    "confidence_score": 63,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2,
+    "evidenceCount": 8,
+    "tags": [
+      "economics",
+      "labor",
+      "regulation",
+      "deregulation",
+      "wages",
+      "competition"
+    ]
+  },
+  {
+    "id": "encryption-backdoors",
+    "title": "Encryption Backdoors",
+    "meta_claim": "Governments should be able to compel lawful-access (\"backdoor\") capabilities in encrypted communications.",
+    "confidence_score": 35,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 8,
+    "tags": [
+      "technology",
+      "encryption",
+      "privacy",
+      "surveillance",
+      "security",
+      "law-enforcement"
+    ]
+  },
+  {
+    "id": "section-230-reform",
+    "title": "Reforming Section 230",
+    "meta_claim": "Section 230 should be significantly reformed or repealed.",
+    "confidence_score": 42,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 7,
+    "tags": [
+      "technology",
+      "section-230",
+      "content-moderation",
+      "free-speech",
+      "platform-liability",
+      "internet-policy"
+    ]
+  },
+  {
+    "id": "autonomous-weapons-ban",
+    "title": "Banning Killer Robots",
+    "meta_claim": "Lethal autonomous weapons should be banned by international treaty.",
+    "confidence_score": 59,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 2,
+    "evidenceCount": 7,
+    "tags": [
+      "technology",
+      "autonomous-weapons",
+      "ai",
+      "arms-control",
+      "international-law",
+      "warfare"
+    ]
+  },
+  {
+    "id": "ai-energy-water-footprint",
+    "title": "AI's Energy & Water Footprint",
+    "meta_claim": "AI's energy and water footprint is a serious environmental problem that warrants intervention.",
+    "confidence_score": 54,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 8,
+    "tags": [
+      "technology",
+      "ai",
+      "energy",
+      "water",
+      "data-centers",
+      "sustainability"
+    ]
+  },
+  {
+    "id": "adhd-overdiagnosis",
+    "title": "Is ADHD Overdiagnosed?",
+    "meta_claim": "ADHD is substantially overdiagnosed.",
+    "confidence_score": 58,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 7,
+    "tags": [
+      "science",
+      "adhd",
+      "psychiatry",
+      "diagnosis",
+      "mental-health",
+      "neurodevelopment"
+    ]
+  },
+  {
+    "id": "vaping-harm-reduction",
+    "title": "Vaping as Harm Reduction",
+    "meta_claim": "E-cigarettes are an effective and acceptable harm-reduction tool for smokers.",
+    "confidence_score": 52,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 2,
+    "evidenceCount": 6,
+    "tags": [
+      "science",
+      "vaping",
+      "smoking",
+      "harm-reduction",
+      "public-health",
+      "nicotine"
+    ]
+  },
+  {
+    "id": "sex-work-decriminalization",
+    "title": "Decriminalizing Sex Work",
+    "meta_claim": "Full decriminalization of sex work improves health and safety outcomes.",
+    "confidence_score": 69,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2,
+    "evidenceCount": 8,
+    "tags": [
+      "policy",
+      "sex-work",
+      "public-health",
+      "criminal-justice",
+      "hiv",
+      "harm-reduction"
+    ]
+  },
+  {
+    "id": "congressional-term-limits",
+    "title": "Congressional Term Limits",
+    "meta_claim": "Congressional term limits would improve American governance.",
+    "confidence_score": 32,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 8,
+    "tags": [
+      "policy",
+      "governance",
+      "elections",
+      "congress",
+      "reform",
+      "incumbency"
+    ]
+  },
+  {
+    "id": "effective-altruism",
+    "title": "Effective Altruism",
+    "meta_claim": "Effective altruism is a sound framework for doing good.",
+    "confidence_score": 57,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 2,
+    "evidenceCount": 7,
+    "tags": [
+      "philosophy",
+      "ethics",
+      "philanthropy",
+      "global-health",
+      "longtermism"
+    ]
   }
 ]

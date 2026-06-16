@@ -142,6 +142,19 @@ import { vaccineMandatesData } from "./topics/vaccine-mandates";
 import { ssriAntidepressantEfficacyData } from "./topics/ssri-antidepressant-efficacy";
 import { socialSecurityRetirementAgeData } from "./topics/social-security-retirement-age";
 
+// Breadth Sprint — Tier 2 (June 2026): web-verified, firewall-passed maps
+import { estateInheritanceTaxData } from "./topics/estate-inheritance-tax";
+import { occupationalLicensingReformData } from "./topics/occupational-licensing-reform";
+import { encryptionBackdoorsData } from "./topics/encryption-backdoors";
+import { section230ReformData } from "./topics/section-230-reform";
+import { autonomousWeaponsBanData } from "./topics/autonomous-weapons-ban";
+import { aiEnergyWaterFootprintData } from "./topics/ai-energy-water-footprint";
+import { adhdOverdiagnosisData } from "./topics/adhd-overdiagnosis";
+import { vapingHarmReductionData } from "./topics/vaping-harm-reduction";
+import { sexWorkDecriminalizationData } from "./topics/sex-work-decriminalization";
+import { congressionalTermLimitsData } from "./topics/congressional-term-limits";
+import { effectiveAltruismData } from "./topics/effective-altruism";
+
 // labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
 const labLeakTheoryData = covidOriginsData;
 
@@ -312,6 +325,19 @@ export const vaccineMandates = buildTopic(vaccineMandatesData);
 export const ssriAntidepressantEfficacy = buildTopic(ssriAntidepressantEfficacyData);
 export const socialSecurityRetirementAge = buildTopic(socialSecurityRetirementAgeData);
 
+// Breadth Sprint — Tier 2 (June 2026)
+export const estateInheritanceTax = buildTopic(estateInheritanceTaxData);
+export const occupationalLicensingReform = buildTopic(occupationalLicensingReformData);
+export const encryptionBackdoors = buildTopic(encryptionBackdoorsData);
+export const section230Reform = buildTopic(section230ReformData);
+export const autonomousWeaponsBan = buildTopic(autonomousWeaponsBanData);
+export const aiEnergyWaterFootprint = buildTopic(aiEnergyWaterFootprintData);
+export const adhdOverdiagnosis = buildTopic(adhdOverdiagnosisData);
+export const vapingHarmReduction = buildTopic(vapingHarmReductionData);
+export const sexWorkDecriminalization = buildTopic(sexWorkDecriminalizationData);
+export const congressionalTermLimits = buildTopic(congressionalTermLimitsData);
+export const effectiveAltruism = buildTopic(effectiveAltruismData);
+
 export const topics: Topic[] = [
   // --- Policy & Governance ---
   nuclearEnergySafety,
@@ -456,6 +482,19 @@ export const topics: Topic[] = [
   vaccineMandates,
   ssriAntidepressantEfficacy,
   socialSecurityRetirementAge,
+
+  // --- Breadth Sprint Tier 2 (June 2026) ---
+  estateInheritanceTax,
+  occupationalLicensingReform,
+  encryptionBackdoors,
+  section230Reform,
+  autonomousWeaponsBan,
+  aiEnergyWaterFootprint,
+  adhdOverdiagnosis,
+  vapingHarmReduction,
+  sexWorkDecriminalization,
+  congressionalTermLimits,
+  effectiveAltruism,
 ];
 
 // ============================================================================
