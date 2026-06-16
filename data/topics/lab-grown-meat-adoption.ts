@@ -12,19 +12,19 @@ export const labGrownMeatData = {
       id: "cost-scalability",
       title: "Cost & Scalability",
       short_summary:
-        "In 2013, the first lab-grown burger cost $330,000. By 2024, some producers claim costs under $10/lb. The gap to $3/lb ground beef remains stubborn.",
+        "In 2013, the first lab-grown burger cost $330,000. By 2024, a peer-reviewed model projected ~$6.20/lb chicken at a hypothetical scaled plant — but that is a projection, not an achieved cost, and the gap to $3/lb ground beef remains stubborn.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The first lab-grown burger in 2013 cost $330,000 to produce. Despite years of investment and promises, cultivated meat remains far too expensive for mass markets. Scaling cell culture from laboratory flasks to industrial bioreactors faces fundamental biological challenges: maintaining sterility, preventing cell death, and producing structured cuts (not just mince). Funding has slowed significantly in 2024-2025 as investors reassess feasibility.",
+        "The first lab-grown burger in 2013 cost $330,000 to produce. Despite years of investment and promises, cultivated meat remains far too expensive for mass markets, and the headline low-cost figures are techno-economic projections for facilities that do not yet exist — not prices anyone has actually achieved at retail scale. Scaling cell culture from laboratory flasks to the 50,000-litre-class industrial bioreactors those models assume faces fundamental challenges: maintaining sterility at volume, preventing cell death and shear damage, sourcing affordable food-grade growth medium, and producing structured cuts (not just mince). A widely cited engineering critique argues that several of these costs may have hard floors set by chemistry and contamination risk. Funding fell sharply in 2024-2025 as investors reassessed feasibility, and some producers have shut down or pivoted.",
       proponent_rebuttal:
-        "Costs have dropped by over 99% since 2013. A 2024 peer-reviewed study reported production costs of $6.20/lb for cultivated chicken as a hybrid plant-and-cell-based product at scale. The global market was valued at $1.03 billion in 2024 and is projected to reach $10.8 billion by 2033 (CAGR 16.5%). AI and machine learning integration in 2025 is optimizing cell growth conditions and reducing production time.",
+        "Costs have dropped by orders of magnitude since the 2013 burger, as medium and bioreactor design have improved. A 2024 peer-reviewed paper in Nature Food (Nahmias et al.) modeled a continuous-manufacturing process that, in a techno-economic analysis of a hypothetical 50,000-litre facility, could produce cultivated chicken at about $6.20/lb — within the range of organic chicken. This is an engineering projection, not yet an achieved cost, but it is a credible demonstration that a scaled cost near parity is at least biologically and chemically plausible rather than fantastical. Market-research firms value the (still tiny) cultivated-meat market in the low billions and project double-digit CAGRs to the 2030s, and process advances such as cheaper growth media, perfusion bioreactors, and cell-line optimization are the specific levers expected to close the remaining gap.",
       crux: {
         id: "cost-parity-timeline",
         title: "Cost Parity with Conventional Meat",
         description:
-          "Determining when (or whether) cultivated meat production costs will reach parity with conventionally farmed chicken ($3-4/lb) and beef ($5-8/lb).",
+          "Determining when (or whether) actual, demonstrated cultivated-meat production costs — not techno-economic projections for facilities that have not been built — will reach parity with conventionally farmed chicken ($3-4/lb) and beef ($5-8/lb).",
         methodology:
-          "Track production costs across leading cultivated meat companies quarterly. Model cost curves based on bioreactor scaling, cell line optimization, and growth medium costs. Compare to conventional meat prices including externalities (environmental costs).",
+          "Track audited, demonstrated production costs (not modeled projections) across leading cultivated meat companies quarterly, distinguishing pilot-scale actuals from at-scale models. Model cost curves based on bioreactor scaling, cell line optimization, and growth medium costs, and check whether built facilities hit the costs their techno-economic analyses predicted. Compare to conventional meat prices including externalities (environmental costs).",
         equation:
           "t_{\\text{parity}} = t_0 + \\frac{\\ln(C_{\\text{current}}/C_{\\text{target}})}{r_{\\text{cost reduction}}}",
         verification_status: "theoretical" as const,
@@ -69,7 +69,7 @@ export const labGrownMeatData = {
           id: "funding-slowdown",
           title: "Investment Has Slowed as Investors Reassess",
           description:
-            "Investment in cultivated meat has fallen sharply from its 2021-2022 peak. Per the Good Food Institute's State of the Industry data, the sector raised about $139 million in 2024 — roughly a 40% year-over-year decline and the lowest annual total since 2019 — versus $1.3 billion in 2021, $917 million in 2022 and $230 million in 2023. The number of cultivated-meat companies tracked fell from ~155 to ~140, with shutdowns and consolidation, and US federal research support was cut.",
+            "Investment in cultivated meat has fallen sharply from its 2021-2022 peak. Per the Good Food Institute's State of the Industry data, the sector raised roughly $140 million in 2024 (reported in the ~$139-144 million range depending on which late-stage rounds are counted) — about a 40% year-over-year decline and one of the lowest annual totals since 2019 — versus a ~$1.3 billion peak in 2021, ~$917 million in 2022 and ~$230 million in 2023. GFI later reported a further drop to roughly $74 million in 2025. The number of cultivated-meat companies tracked stayed around 140-150, with notable shutdowns and consolidation, and some US federal and state research support was curtailed.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -80,7 +80,7 @@ export const labGrownMeatData = {
           source: "Good Food Institute (GFI) State of the Industry Report 2024",
           sourceUrl: "https://gfi.org/resource/cultivated-meat-seafood-and-ingredients-state-of-the-industry/",
           reasoning:
-            "The funding figures come from GFI, an industry-advocacy nonprofit that promotes alternative proteins, so its data should be read with mild caution even though here it documents a downturn that cuts against its own optimism (which raises confidence). Sharp investment declines are informative market signals, though emerging technologies often see boom-bust funding cycles. Independence trimmed from 8 to 7 to reflect GFI's advocacy role.",
+            "The funding figures come from GFI (with Net Zero Insights), an industry-advocacy nonprofit that promotes alternative proteins, so its data should be read with mild caution even though here it documents a downturn that cuts against its own optimism (which raises confidence). The exact 2024 total is reported in a band (~$139-144M) because a single large late-stage round shifts the headline number, so the figure is given as approximate rather than precise. Sharp investment declines are informative market signals, though capital-intensive deep-tech often sees boom-bust funding cycles and a retrenchment is not by itself proof the technology cannot scale. Independence trimmed from 8 to 7 to reflect GFI's advocacy role.",
         },
       ],
     },

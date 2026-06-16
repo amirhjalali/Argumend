@@ -21,8 +21,8 @@ export const chinaTaiwanInvasionData = {
     },
     {
       title:
-        "Brookings Institution: How to Prevent a War Over Taiwan",
-      url: "https://www.brookings.edu/articles/how-to-prevent-a-war-over-taiwan/",
+        "Brookings Institution: How serious is the risk of war over Taiwan? (Bush, Hass & Dollar, 2023)",
+      url: "https://www.brookings.edu/articles/how-serious-is-the-risk-of-war-over-taiwan/",
     },
   ],
   questions: [
@@ -35,8 +35,9 @@ export const chinaTaiwanInvasionData = {
         "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=800&q=60",
       references: [
         {
-          title: "CIA Director Burns on the 2027 Timeline",
-          url: "https://www.cbsnews.com/news/cia-director-william-burns-china-taiwan-2027/",
+          title:
+            "Radio Free Asia: CIA Director Burns on the 2027 PLA readiness timeline (Feb. 2023)",
+          url: "https://www.rfa.org/english/news/china/cia-taiwan-invasion-02032023160341.html",
         },
       ],
     },
@@ -69,14 +70,14 @@ export const chinaTaiwanInvasionData = {
       skeptic_premise:
         "China's military buildup is defensive and modernization-focused, not invasion-oriented. The PLA has never conducted a major amphibious operation, and the Taiwan Strait crossing would be the most complex military operation in history—requiring air superiority, naval dominance, and landing hundreds of thousands of troops on heavily fortified beaches. China's shipbuilding surge includes civilian vessels and coast guard ships, not purpose-built amphibious assault craft at the scale an invasion demands. The 2027 date is a readiness benchmark, not an invasion deadline.",
       proponent_rebuttal:
-        "China's military spending has grown at double-digit rates for decades, and the PLA Navy is now the world's largest fleet by hull count. China has built six large amphibious assault ships (Type 075/076) since 2019 and is rapidly expanding its sealift capacity through dual-use civilian roll-on/roll-off ferries. The PLA Rocket Force has deployed over 1,500 short-range ballistic missiles opposite Taiwan. Xi Jinping has explicitly tied his legacy to reunification and told the PLA to be 'ready' by 2027. U.S. intelligence assessments from multiple directors consistently cite this window. Furthermore, China's demographic decline means its military-age population peaks this decade—the capability window may be closing, not opening.",
+        "China's military spending has grown rapidly for decades, and the PLA Navy is now the world's largest fleet by hull count. China has built several large amphibious assault ships (Type 075/076) since 2019 and is expanding its sealift capacity through dual-use civilian roll-on/roll-off ferries. The PLA Rocket Force has deployed large numbers of short-range ballistic missiles opposite Taiwan. Xi Jinping has explicitly tied his legacy to reunification, and U.S. officials say he directed the PLA to be capable of taking Taiwan by 2027—the 'Davidson window.' Crucially, those same officials frame 2027 as a readiness benchmark, not a decision to invade; the point is that capability would no longer be the binding constraint. Furthermore, China's demographic decline means its military-age population peaks this decade, so on a capabilities timeline the window may be closing rather than opening.",
       crux: {
         id: "amphibious-capacity-assessment",
         title: "PLA Amphibious Sealift Capacity Assessment",
         description:
           "Determine whether China's combined military and dual-use sealift capacity is sufficient to transport and sustain the forces needed for a contested Taiwan Strait crossing.",
         methodology:
-          "Inventory all PLA Navy amphibious vessels (Type 071, 075, 076 classes). Catalog requisitioned civilian RO-RO ferries and their military conversion status. Estimate total first-wave troop and vehicle capacity. Compare against defense analyst estimates of minimum force requirements (typically 1-2 million troops for a contested amphibious landing). Assess logistics sustainability for a multi-week campaign.",
+          "Inventory all PLA Navy amphibious vessels (Type 071, 075, 076 classes). Catalog requisitioned civilian RO-RO ferries and their military conversion status. Estimate total first-wave troop and vehicle capacity. Compare against defense analyst estimates of force requirements (commonly cited at roughly 300,000 to 1 million-plus troops for a contested amphibious landing and follow-on occupation). Assess logistics sustainability for a multi-week campaign.",
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5M (satellite imagery analysis + classified intelligence assessment)",
@@ -114,9 +115,9 @@ export const chinaTaiwanInvasionData = {
             directness: 6,
           },
           source:
-            "CIA Director William Burns (2023 remarks) and INDOPACOM Commander Adm. John Aquilino (2024 congressional testimony)",
+            "CIA Director William Burns (Feb. 2023 remarks, reported by Radio Free Asia) and INDOPACOM Commander Adm. John Aquilino (2024 congressional testimony)",
           sourceUrl:
-            "https://www.cbsnews.com/news/cia-director-william-burns-china-taiwan-2027/",
+            "https://www.rfa.org/english/news/china/cia-taiwan-invasion-02032023160341.html",
           reasoning:
             "Based on U.S. intelligence assessments, not public statements from China. Burns himself stressed this is a directive on military capability, NOT a decision to invade; a March 2026 U.S. intelligence assessment likewise concluded China is not committed to a 2027 invasion. Replicability and independence kept low because multiple U.S. officials may draw on the same underlying intelligence and the date is contested.",
         },
@@ -168,7 +169,7 @@ export const chinaTaiwanInvasionData = {
         "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Economic interdependence makes invasion irrational. China's economy depends on $3.6 trillion in annual trade, much of it with nations that would impose severe sanctions. A Taiwan conflict would trigger the most devastating sanctions regime in history, far exceeding those imposed on Russia. China imports 70% of its oil by sea through chokepoints the U.S. Navy controls. TSMC's fabs would be destroyed or rendered inoperable in a conflict, eliminating the semiconductor prize. The economic catastrophe would threaten CCP domestic legitimacy far more than the Taiwan issue.",
+        "Economic interdependence makes invasion irrational. China runs roughly $6 trillion in annual goods trade, much of it with nations that would impose severe sanctions, and an Atlantic Council/Rhodium study estimates a Taiwan-crisis sanctions regime could put on the order of $3 trillion in trade and financial flows at immediate risk. A Taiwan conflict could trigger sanctions exceeding those imposed on Russia, and China imports a large share of its oil by sea through chokepoints the U.S. Navy could interdict. TSMC's then-chairman argued in 2022 that an invasion would render the fabs 'not operable,' eliminating much of the semiconductor prize. The resulting economic shock could threaten CCP domestic legitimacy far more than the Taiwan issue itself.",
       proponent_rebuttal:
         "The 'economic interdependence prevents war' thesis failed spectacularly with Russia's invasion of Ukraine in 2022—Russia was deeply integrated into European energy markets yet invaded anyway. Xi has explicitly prioritized 'national rejuvenation' over economic growth and has been systematically reducing China's vulnerabilities: stockpiling commodities, building overland energy pipelines, developing domestic semiconductor capacity (though still far behind), and creating alternative financial systems (CIPS). China's leadership may calculate that short-term economic pain is acceptable for the permanent strategic gain of controlling Taiwan, especially if they believe the economic order is already fragmenting. Authoritarian regimes can absorb economic pain that democracies cannot.",
       crux: {

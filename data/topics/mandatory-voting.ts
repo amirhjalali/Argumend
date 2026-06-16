@@ -12,12 +12,12 @@ export const mandatoryVotingData = {
       id: "democratic-representation",
       title: "Democratic Representation",
       short_summary:
-        "Australia's mandatory voting pushes turnout above 90%. The question is whether that extra 40% of voters improves representation or dilutes it.",
+        "Australia's mandatory voting pushes turnout above 90% — up roughly 32 points, from 59.4% in 1922 to 91.4% in 1925. The question is whether those additional voters improve representation or dilute it.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Forced participation creates uninformed voters, donkey voting, and resentment. Freedom includes the right NOT to vote. Voluntary participation signals genuine engagement — compulsion dilutes the quality of democratic input.",
+        "Compelling abstainers to the booth draws in the least interested and least informed citizens, whose ballots — as Selb and Lachat find — track their own stated preferences less consistently, so 'equal turnout' need not mean equal representation. Add donkey votes (ranking candidates in ballot order) and resentment, and forced participation can add noise rather than signal. There is also a liberty claim: the freedom to vote should include the freedom to decline, and a non-vote can itself be a deliberate political statement.",
       proponent_rebuttal:
-        "Australia has 90%+ turnout vs. US 60%. Mandatory voting reduces the influence of extreme partisans, forces parties to appeal to the center rather than mobilize fringe bases, and makes voter suppression impossible. The 'uninformed voter' concern is paternalistic — all citizens are affected by policy regardless of engagement level.",
+        "Australia sustains 90%+ turnout versus roughly 60% in the US. When everyone must vote, campaigns cannot win by suppressing the other side's turnout, so they have to court the whole electorate — including lower-propensity, working-class voters whose preferences are otherwise underweighted. Fowler's quasi-experimental study of Australia's staggered roll-out found exactly such a redistributive shift (higher Labor vote and pension spending), not a move toward bland centrism. The 'uninformed voter' worry is also partly paternalistic: every citizen lives under the policy that results, whatever their prior level of engagement.",
       crux: {
         id: "turnout-representation-link",
         title: "Turnout–Representation Correlation",
@@ -110,9 +110,9 @@ export const mandatoryVotingData = {
         "Compulsory voting treats a symptom. If citizens are disengaged, does forcing them into a booth fix the underlying problem?",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Enforcement is expensive and intrusive. Fines are regressive, hitting the poor hardest. Compulsory voting doesn't address root causes of disengagement — bad candidates, gerrymandering, and a captured political system. It's a Band-Aid on a structural wound.",
+        "A flat penalty is regressive: the same $20 notice (or $330 court fine) bites a low-income non-voter far harder than a wealthy one, so the cost of compulsion falls unevenly. And forcing attendance treats a symptom, not the disease — disengagement is driven by uncompetitive seats, weak candidates and a system many voters feel is captured. Mandating turnout can mask that rot behind a healthy-looking participation figure rather than fixing it.",
       proponent_rebuttal:
-        "Australia's fine is ~$20 — minimal enforcement cost with near-universal compliance. Countries with compulsory voting have lower political polarization and higher civic engagement beyond just elections. When everyone votes, politicians must earn broad support rather than suppress opposition turnout.",
+        "Australia's first-line fine is ~$20, escalating to a court-imposed maximum of $330 — modest enforcement paired with near-universal compliance. The US, a voluntary-voting system, also saw by far the largest rise in affective polarization among twelve OECD democracies (Boxell, Gentzkow & Shapiro), which is at least suggestive — though not proof — that universal turnout may dampen the incentive to win by polarizing and suppressing rather than persuading.",
       crux: {
         id: "enforcement-cost-benefit",
         title: "Enforcement Cost–Benefit Analysis",

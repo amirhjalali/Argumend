@@ -4,7 +4,7 @@ export const surveillancePublicSafetyData = {
   id: "surveillance-public-safety",
   title: "Surveillance and Public Safety",
   meta_claim:
-    "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety.",
+    "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety—a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
   status: "contested" as const,
   category: "policy" as const,
   pillars: [
@@ -15,9 +15,9 @@ export const surveillancePublicSafetyData = {
         "London has 700,000 CCTV cameras. Studies show they reduce property crime in parking lots and have near-zero effect on violent crime.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Evidence that surveillance reduces crime is thin and mixed. CCTV has modest effects on property crime in parking lots but minimal impact on violent crime. Predictive policing algorithms often simply redirect resources to already-over-policed communities. A comprehensive review by the EFF found 'scant evidence' that these technologies reduce crime at the system level. Crime displacement—not reduction—is the more likely outcome.",
+        "Evidence that surveillance reduces crime is real but narrow. The leading 40-year meta-analysis (Piza, Welsh, Farrington & Thomas, 2019) finds CCTV produces a significant but modest overall crime decrease, concentrated in car parks (roughly a 37% reduction there) and driven by property—not violent—crime, with weak or non-significant effects in city centers and on transit; the largest gains come when cameras are actively monitored and paired with other interventions, meaning the camera alone is rarely the cause. Predictive policing algorithms can redirect resources toward already-over-policed communities, and a measured share of any effect is crime displacement rather than prevention. The honest reading is not 'surveillance does nothing' but 'its benefits are conditional, often small, and easy to overstate.'",
       proponent_rebuttal:
-        "A 2024 study analyzing 268 US cities from 1997-2020 found that police adoption of facial recognition technology facilitated reductions in felony violence and homicide rates without contributing to over-policing or racial disparities in arrests. London's CCTV network is credited with significant investigative assistance. License plate readers have proven effective for recovering stolen vehicles and identifying suspects in serious crimes.",
+        "Modest is not nothing, and the strongest evidence points the right way. A 2024 study of 268 US cities from 1997-2020 (Johnson et al., Cities) found that police adoption of facial recognition was associated with reductions in felony violence and homicide—larger for early adopters—without measurable increases in over-policing or racial arrest disparities for violent offenses; it is observational rather than a controlled experiment, but it is the largest analysis to date and it cuts against the assumption that these tools only harm. The same meta-analysis skeptics cite confirms CCTV genuinely cuts crime where it is deployed well. Beyond aggregate crime rates, surveillance has clear investigative value: London's CCTV network has materially aided major investigations, and license plate readers reliably recover stolen vehicles and identify suspects in serious crimes. The policy question is how to capture these benefits, not whether they exist.",
       crux: {
         id: "surveillance-crime-rct",
         title: "Randomized Controlled Trial of Surveillance Expansion",
@@ -51,7 +51,7 @@ export const surveillancePublicSafetyData = {
           id: "false-arrest-cases",
           title: "Facial Recognition Has Caused False Arrests of Innocent People",
           description:
-            "In January 2020 in Detroit, Michigan, Robert Williams—a Black man—was wrongfully arrested based on an incorrect facial recognition match; the ACLU sued and won a landmark settlement. As of 2025 the ACLU documents at least 14 wrongful arrests in the US linked to police use of facial recognition, nearly all of Black people. Separately, the 2018 'Gender Shades' study by Buolamwini and Gebru found that commercial gender-classification systems misclassified darker-skinned women at error rates up to 34.7%, versus a maximum of 0.8% for lighter-skinned men.",
+            "In January 2020 in Detroit, Michigan, Robert Williams—a Black man—was wrongfully arrested based on an incorrect facial recognition match; the ACLU sued and won a landmark settlement. The ACLU now documents at least 14 wrongful arrests in the US linked to police use of facial recognition, nearly all of Black people (the true count is likely higher, since many departments do not disclose when a match drove an arrest). Separately, the 2018 'Gender Shades' study by Buolamwini and Gebru found that commercial gender-classification systems misclassified darker-skinned women at error rates up to 34.7%, versus a maximum of 0.8% for lighter-skinned men.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -90,12 +90,12 @@ export const surveillancePublicSafetyData = {
       id: "privacy-civil-liberties",
       title: "Privacy & Civil Liberties",
       short_summary:
-        "Facial recognition has a 96% accuracy rate for white men and an 80% accuracy rate for Black women. The false positives are not randomly distributed.",
+        "Facial recognition errors are not randomly distributed: a federal NIST evaluation found one-to-many matching produces the highest false-positive rates for Black women, and the wrongful arrests documented so far have nearly all been of Black people.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "Mass surveillance creates a chilling effect on free speech, political dissent, and freedom of movement. Data collected for crime prevention is routinely repurposed for immigration enforcement, political monitoring, and commercial use. The Fourth Amendment was designed precisely to prevent government from watching all citizens at all times. Once surveillance infrastructure exists, it is virtually impossible to dismantle.",
       proponent_rebuttal:
-        "Surveillance in public spaces does not violate reasonable expectations of privacy—you have no expectation of privacy on a public street. Targeted surveillance with judicial oversight (warrants) is constitutional and effective. Technology-specific regulations can provide guardrails: banning real-time facial recognition while allowing post-crime investigation, requiring data retention limits, and mandating transparency reports.",
+        "Observing public conduct is not the same as warrantless search: courts have long held there is no reasonable expectation of privacy in what one does on a public street, and targeted surveillance backed by judicial oversight (warrants, particularized suspicion) is both constitutional and effective. The civil-liberties harms skeptics cite are real, but most are failures of governance, not of the technology itself—and they are addressable. Technology-specific guardrails can capture the safety benefits while bounding the risks: prohibiting real-time mass facial recognition while permitting post-crime investigative use with human review, capping data retention, requiring audit logs and transparency reports, and barring repurposing for immigration or political monitoring. The documented wrongful arrests argue for treating a face match as an investigative lead requiring corroboration, not for abandoning the tool entirely.",
       crux: {
         id: "surveillance-oversight-framework",
         title: "Effective Surveillance Oversight Model",

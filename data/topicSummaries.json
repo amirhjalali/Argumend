@@ -197,7 +197,7 @@
   {
     "id": "surveillance-public-safety",
     "title": "Surveillance and Public Safety",
-    "meta_claim": "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety.",
+    "meta_claim": "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety—a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
     "confidence_score": 19,
     "status": "contested",
     "category": "policy",
@@ -561,7 +561,7 @@
   {
     "id": "nuclear-renaissance-smr",
     "title": "Can Small Modular Reactors Save Nuclear Energy?",
-    "meta_claim": "Small modular reactors represent a viable path to carbon-free baseload power that can be deployed at scale within this decade.",
+    "meta_claim": "Small modular reactors represent a viable path to carbon-free baseload power that can be deployed at meaningful scale within the next decade — a proposition advocates treat as imminent and skeptics regard as perennially deferred.",
     "confidence_score": 46,
     "status": "contested",
     "category": "technology",

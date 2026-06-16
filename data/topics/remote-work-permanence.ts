@@ -15,9 +15,9 @@ export const remoteWorkPermanenceData = {
         "Research on whether remote workers maintain or exceed office-based productivity and innovation output.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Remote work erodes spontaneous collaboration, mentorship, and innovation. Water cooler conversations, whiteboard sessions, and in-person brainstorming generate ideas that Zoom calls cannot replicate. Companies like Google, Apple, and JPMorgan have mandated return-to-office for these reasons.",
+        "Remote work erodes spontaneous collaboration, mentorship, and the tacit knowledge transfer that drives breakthrough innovation. Peer-reviewed evidence backs this: Microsoft's study of 61,182 employees found firm-wide remote work made collaboration networks more siloed, and a Nature 2023 analysis of ~20M papers and ~4M patents found distributed teams consistently produce fewer 'disruptive' breakthroughs than on-site ones. Major employers - Apple (three-day hybrid), JPMorgan, and ultimately Amazon (five days from Jan 2025) - have tightened in-office requirements citing collaboration, mentorship, and culture.",
       proponent_rebuttal:
-        "Stanford economist Nick Bloom's research consistently shows equal or higher individual productivity for remote workers. Microsoft's Work Trend Index found that async communication actually increases deep-focus work time. Innovation metrics like patents filed haven't declined at remote-first companies. Tooling (Figma, Miro, Slack huddles) keeps narrowing the collaboration gap.",
+        "Stanford economist Nick Bloom's randomized work-from-home experiment showed a 13% productivity gain for remote call-center staff, and his later research finds well-run hybrid does not hurt productivity while sharply cutting attrition. The collaboration costs are real but addressable: the Microsoft and Nature findings concern firm-wide, sudden remote shifts and fully distributed science teams, not deliberate hybrid designs with periodic in-person gatherings. Aggregate US patent filings did not collapse through the remote shift, and modern tooling (Figma, Miro, Slack huddles) keeps narrowing the synchronous-collaboration gap.",
       crux: {
         id: "innovation-output-measurement",
         title: "Remote vs. In-Office Innovation Output",
@@ -90,7 +90,7 @@ export const remoteWorkPermanenceData = {
           id: "patent-innovation-data",
           title: "Patent Filing Rates Roughly Stable Through the Remote Shift",
           description:
-            "US utility patent filings stayed broadly flat across 2020-2024 (roughly 650-670k applications a year) rather than collapsing during the remote shift. This is only suggestive: patent counts have many drivers and a long lag, and the link to remote work is not established. Notably, peer-reviewed work (Lin, Frey & Wu, Nature 2023) finds remote/distributed research teams produce fewer breakthrough, 'disruptive' ideas, cutting against a clean pro-remote reading.",
+            "US utility patent filings stayed broadly flat across 2020-2024 (roughly 650-670k applications a year) rather than collapsing during the remote shift. This is only suggestive: patent counts have many drivers and a long lag, and the link to remote work is not established. Notably, peer-reviewed work analyzing ~20M papers and ~4M patents (Lin, Frey & Wu, \"Remote collaboration fuses fewer breakthrough ideas,\" Nature 623, 987-991, 2023) finds remote/distributed research teams are consistently less likely to produce breakthrough, 'disruptive' ideas than on-site teams, cutting against a clean pro-remote reading.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -99,7 +99,7 @@ export const remoteWorkPermanenceData = {
             directness: 2,
           },
           source:
-            "USPTO patent statistics (aggregate filing counts); offsetting evidence in Nature 615, 2023",
+            "USPTO patent statistics (aggregate filing counts); offsetting evidence in Lin, Frey & Wu, Nature 623, 987-991, 2023",
           sourceUrl:
             "https://www.uspto.gov/learning-and-resources/statistics/patent-statistics",
           reasoning:
@@ -114,9 +114,9 @@ export const remoteWorkPermanenceData = {
         "The broader economic and social consequences of a permanent shift away from office-centric work.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Commercial real estate collapse, urban decay, and weakened company culture make full remote unsustainable. Downtown economies depend on office workers. Junior employees lose mentorship. Company loyalty and culture erode when people never meet in person.",
+        "The shift imposes real, concentrated costs. US office vacancy hit a record 19.8% in Q1 2024, over $1 trillion of commercial real estate debt is maturing with the office segment most stressed, and downtown tax bases and service economies that depend on commuters are strained. Junior employees lose informal mentorship, and company culture and loyalty are harder to sustain when colleagues rarely meet in person.",
       proponent_rebuttal:
-        "Geographic flexibility reduces housing costs, improves work-life balance, and expands talent pools to previously excluded geographies. Cities will adapt as they always have — converting offices to housing. Employee surveys consistently show remote/hybrid as the #1 desired benefit, more valued than salary increases.",
+        "These costs are transitional, not permanent. Geographic flexibility lowers housing costs, improves work-life balance, and widens talent pools to previously excluded regions, and cities have repeatedly repurposed obsolete building stock - office-to-residential conversions are accelerating where zoning allows. The structural demand is durable: remote/hybrid job postings have settled near 3x their pre-pandemic share, and employees rank flexibility among their most-valued benefits, sometimes above pay. A stressed CRE sector reflects mispriced legacy assets repricing, not an unsustainable way of working.",
       crux: {
         id: "urban-economic-adaptation",
         title: "Urban Economic Adaptation Timeline",
@@ -153,7 +153,7 @@ export const remoteWorkPermanenceData = {
           id: "gallup-employee-engagement",
           title: "Gallup: Hybrid Workers Report Highest Engagement",
           description:
-            "Gallup's 2024 data on remote-capable workers found, globally, hybrid employees had the highest engagement (about 35%), ahead of fully remote (~33%) and on-site (~27%). In the US/Canada the gap between hybrid and fully remote is small (remote slightly higher in some cuts), so the result supports flexible/hybrid models more than fully remote specifically.",
+            "Gallup's State of the Global Workplace: 2024 data on remote-capable workers found that in the US and Canada, fully remote (36% engaged) and hybrid (35%) employees were close and both ahead of on-site staff, and 62% of hybrid employees said they were 'thriving' versus 59% of remote and about half of on-site workers. The remote-vs-hybrid ranking is narrow and region-dependent, so the result supports flexible arrangements broadly rather than fully remote specifically.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -165,7 +165,7 @@ export const remoteWorkPermanenceData = {
           sourceUrl:
             "https://www.gallup.com/workplace/349484/state-of-the-global-workplace.aspx",
           reasoning:
-            "Large-scale, independent survey. Directness lowered because engagement is an indirect proxy for the meta-claim and the hybrid-vs-remote ranking is region-dependent; it supports hybrid more cleanly than fully remote.",
+            "Large-scale, independent survey. Directness lowered because engagement is an indirect proxy for the meta-claim and the remote-vs-hybrid ranking is narrow and region-dependent; the headline ~35-36% figures are US/Canada-specific, and global engagement runs lower, so it supports flexible arrangements broadly rather than fully remote per se.",
         },
         {
           id: "remote-job-listings",

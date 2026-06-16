@@ -226,3 +226,24 @@ rates URL repointed to its supporting Ofcom source; organic-food pesticide "60% 
 ~49-95% range; moon-landing transit dose →0.16-1.14 rad + LRO URL fixed; wealth-tax verified clean.
 All web-verified, no fabricated cites, both sides steelmanned. Coverage held 98%. tsc clean, 207 tests.
 Swept so far: 42 maps (passes 1-4) + 5 WS3 cluster. Remaining un-swept hardened: ~16.
+
+## Iteration 13 (2026-06-16) — WS2 pass 5: prose sweep, 11 more maps (after spend-limit recovery)
+Swept prose of: china-taiwan-invasion, gig-economy-regulation, remote-work-permanence,
+surveillance-public-safety, standardized-testing-debate, mandatory-voting, nuclear-renaissance-smr,
+iran-war-justification, lab-grown-meat-adoption, privacy-vs-convenience, electoral-college-reform.
+Notable fixes: china-taiwan inflated "$3.6T annual trade"→~$6T goods / ~$3T at-risk flows + TSMC
+"not operable" attributed to Mark Liu + 2 dead URLs repaired (Brookings 404, CBS Burns 404→RFA);
+gig-economy McKinsey "70M"→~58M + Prop22 "59%"→58.6% (Castellanos upheld) + Bolt "worker not employee";
+remote-work Nature-2023 patent vol corrected (623 not 615) + Gallup engagement scoped US/Canada;
+surveillance unverifiable "EFF scant evidence"→Piza/Welsh/Farrington meta-analysis + a phantom
+"96%/80% accuracy" stat→NIST 2019; standardized-testing income-score "r=0.42/$20K→20pts" + "$2.6B
+test-prep" + "100-150pt" coaching all removed (→Opportunity Insights 13x, Briggs/NACAC tens-of-points);
+mandatory-voting Fowler "appeals to center" misreading fixed (→Labor/pension shift) + Selb-Lachat
+"less consistent" framing; nuclear-SMR South Korea SMART (never built)→HTR-PM + Gallup "60%+"→55%;
+iran inspector "kicked out 2023"→de-designated Sept-2023/cameras-2022 + Houthi "15%"→~12% + Hezbollah
+"150k rockets"→130-150k estimate + IAEA reference re-dated to GOV/2025/24; lab-grown $6.20/lb framed as
+projection-not-achieved + market figures hedged; privacy Brave 100M MAU re-dated (Oct 2025) + "160+
+countries"→137/194; electoral-college NPVIC 209/17→222/18 (Virginia Apr-2026) + Pew Republican 46% added.
+All web-verified, no fabricated cites, both sides steelmanned. Coverage held 98%. tsc clean, 207 tests.
+Swept so far: 53 maps + 5 WS3 cluster. Remaining un-swept hardened: 5 (simulation-hypothesis,
+space-colonization-feasibility, ai-content-labeling, minneapolis-shooting, meaning-without-religion).
