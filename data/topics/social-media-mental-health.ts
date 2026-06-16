@@ -62,8 +62,8 @@ export const socialMediaMentalHealthData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Orben & Przybylski, Nature Human Behaviour (2019)",
-          sourceUrl: "https://www.nature.com/nhumbeh/",
+          source: "Orben & Przybylski, Nature Human Behaviour 3, 173–182 (2019)",
+          sourceUrl: "https://doi.org/10.1038/s41562-018-0506-1",
           reasoning:
             "Peer-reviewed in a top journal, using transparent specification-curve methods across multiple large datasets, making it reliable and replicable. It directly rebuts the 'primary cause' claim by showing the cross-sectional effect size is very small.",
         },

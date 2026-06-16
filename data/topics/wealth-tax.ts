@@ -166,7 +166,7 @@ export const wealthTaxData = {
           source:
             "Carroll, Slacalek, Tokuoka & White (2017), 'The Distribution of Wealth and the Marginal Propensity to Consume', Quantitative Economics",
           sourceUrl:
-            "https://www.econ2.jhu.edu/people/ccarroll/papers/cstwMPC.pdf",
+            "https://econ-ark.org/materials/distributionofwealthmpc/",
           reasoning:
             "Peer-reviewed consumption-theory result. Directness lowered: low billionaire MPC is suggestive but not direct proof a wealth tax improves growth (forgone investment is also a channel).",
         },

@@ -139,8 +139,10 @@ export const socialMediaElectionsData = {
             replicability: 8,
             directness: 7,
           },
-          source: "US Department of Justice; Mueller Report Volume I",
-          sourceUrl: "https://www.justice.gov/sco/press-release/file/1035477/dl",
+          source:
+            "US Department of Justice, Office of Special Counsel — Indictment, United States v. Internet Research Agency LLC et al. (D.D.C., No. 1:18-cr-00032, filed Feb. 16, 2018)",
+          sourceUrl:
+            "https://www.justice.gov/d9/fieldable-panel-panes/basic-panes/attachments/2018/02/16/internet_research_agency_indictment.pdf",
           reasoning:
             "Federal indictments represent the highest evidentiary standard in the US legal system. The details of Russian operations are now well-established fact. However, the indictment establishes that interference occurred, not that it was effective — the distinction between operation and impact is critical to this debate.",
         },

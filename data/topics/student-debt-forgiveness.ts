@@ -52,9 +52,9 @@ export const studentDebtForgivenessData = {
         },
         {
           id: "roosevelt-gdp-boost",
-          title: "Roosevelt Institute: $50K Forgiveness Could Boost GDP by $86-108 Billion Annually",
+          title: "Levy Economics Institute: Student Debt Cancellation Could Boost GDP by $86-108 Billion Annually",
           description:
-            "A 2018 Levy Economics Institute study (updated by the Roosevelt Institute) modeled the macroeconomic effects of student debt cancellation. The analysis found that canceling $50,000 per borrower would increase GDP by $86-108 billion per year for the first several years, create 1.2-1.5 million new jobs, and reduce the unemployment rate by 0.22-0.36 percentage points. The model assumes freed-up monthly payments would be redirected to consumer spending, housing, and small business investment.",
+            "A 2018 Levy Economics Institute study by Scott Fullwiler, Stephanie Kelton, Catherine Ruetschlin, and Marshall Steinbaum modeled the macroeconomic effects of canceling all outstanding student debt. The analysis found that cancellation would increase real GDP by an average of $86-108 billion per year over a 10-year horizon, create 1.2-1.5 million new jobs, and reduce the average unemployment rate by 0.22-0.36 percentage points with little inflationary pressure. The model assumes freed-up monthly payments would be redirected to consumer spending, housing, and small business investment.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -62,10 +62,10 @@ export const studentDebtForgivenessData = {
             replicability: 5,
             directness: 7,
           },
-          source: "Levy Economics Institute; Roosevelt Institute",
-          sourceUrl: "http://www.levyinstitute.org/pubs/rr_18_1.pdf",
+          source: "Levy Economics Institute of Bard College",
+          sourceUrl: "https://www.levyinstitute.org/publications/the-macroeconomic-effects-of-student-debt-cancellation/",
           reasoning:
-            "The Levy Institute is a respected economic research center, but the Roosevelt Institute has a progressive policy orientation, lowering independence. The model's assumptions about how borrowers would redirect payments are plausible but unverified — replicability is lower because other models (Penn Wharton, CRFB) produced different estimates. The study does not account for the fiscal cost or inflationary effects of adding $1 trillion+ to the national debt.",
+            "The Levy Institute is a respected economic research center, though several of the authors are associated with heterodox (Modern Monetary Theory) and progressive policy orientations, lowering independence. The model's assumptions about how borrowers would redirect payments are plausible but unverified — replicability is lower because other models (Penn Wharton, CRFB) produced different estimates. The study does not account for the fiscal cost or inflationary effects of adding $1 trillion+ to the national debt.",
         },
         {
           id: "crfb-regressive-distribution",
@@ -256,7 +256,7 @@ export const studentDebtForgivenessData = {
     },
     {
       title: "The Macroeconomic Effects of Student Debt Cancellation — Levy Economics Institute",
-      url: "http://www.levyinstitute.org/pubs/rr_18_1.pdf",
+      url: "https://www.levyinstitute.org/publications/the-macroeconomic-effects-of-student-debt-cancellation/",
     },
     {
       title: "Federal Student Loan Servicing — Government Accountability Office",

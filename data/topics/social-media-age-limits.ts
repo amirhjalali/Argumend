@@ -180,9 +180,9 @@ export const socialMediaAgeLimitsData = {
             directness: 6,
           },
           source:
-            "Yoti, 'Facial Age Estimation White Paper' (Dec 2023 / Sep 2024); platform device-attestation announcements",
+            "Yoti, 'Facial Age Estimation White Paper' (September 2024, public version); platform device-attestation announcements",
           sourceUrl:
-            "https://www.yoti.com/wp-content/uploads/2024/04/Yoti-Age-Estimation-White-Paper-December-2023.pdf",
+            "https://cdn.aws.yoti.com/wp-content/uploads/2024/11/Yoti-Age-Estimation-White-Paper-September-2024-PUBLIC.pdf",
           reasoning:
             "The prior '98%+ accuracy' framing was imprecise; the vendor's actual published metric is MAE of ~1.3-1.4 years for teens, which leaves a meaningful error band right at the 16 cutoff. Self-published by a commercial vendor with an interest in the result, so independence is low.",
         },

@@ -96,8 +96,8 @@ export const tiktokBanData = {
             replicability: 6,
             directness: 8,
           },
-          source: "Senate Intelligence Committee hearings; FBI Director testimony; ACLU",
-          sourceUrl: "https://www.aclu.org/news/free-speech/the-tiktok-ban-threatens-everyones-free-speech",
+          source: "Senate Intelligence Committee hearings; FBI Director testimony; ACLU (statement on the Supreme Court TikTok ruling, Jan. 17, 2025)",
+          sourceUrl: "https://www.aclu.org/press-releases/aclu-slams-supreme-court-tiktok-ruling",
           reasoning:
             "The absence of public evidence is significant but not conclusive — intelligence agencies may have classified evidence they cannot share. The replicability score is lower because classified information is not independently verifiable. This evidence directly challenges the urgency of the claimed threat.",
         },
@@ -243,8 +243,8 @@ export const tiktokBanData = {
             replicability: 9,
             directness: 8,
           },
-          source: "Harvard Law Review Forum; Columbia Knight First Amendment Institute; Yale Information Society Project",
-          sourceUrl: "https://harvardlawreview.org/forum/vol-138/tiktok-first-amendment/",
+          source: "Harvard Law Review, TikTok Inc. v. Garland (Constitutional Law Leading Case, 139 Harv. L. Rev. 280); Columbia Knight First Amendment Institute; Yale Information Society Project",
+          sourceUrl: "https://harvardlawreview.org/print/vol-139/tiktok-inc-v-garland/",
           reasoning:
             "Leading constitutional scholars from multiple institutions provide independent, credentialed analysis. The content-neutrality argument is a well-established First Amendment framework, not a novel theory. However, the Supreme Court majority rejected this framing, and legal scholars disagreeing with a court ruling does not change the law — it indicates the precedent is contested within the legal community.",
         },
@@ -461,8 +461,8 @@ export const tiktokBanData = {
       url: "https://crsreports.congress.gov/product/pdf/IF/IF12452",
     },
     {
-      title: "The TikTok Ban Threatens Everyone's Free Speech — ACLU",
-      url: "https://www.aclu.org/news/free-speech/the-tiktok-ban-threatens-everyones-free-speech",
+      title: "ACLU Slams Supreme Court TikTok Ruling — ACLU",
+      url: "https://www.aclu.org/press-releases/aclu-slams-supreme-court-tiktok-ruling",
     },
     {
       title: "India's TikTok Ban, Three Years Later — Reuters",
