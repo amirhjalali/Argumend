@@ -1712,5 +1712,23 @@
       "medicine",
       "placebo"
     ]
+  },
+  {
+    "id": "social-security-retirement-age",
+    "title": "Raising the Retirement Age",
+    "meta_claim": "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
+    "confidence_score": 42,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 2,
+    "evidenceCount": 7,
+    "tags": [
+      "economics",
+      "social-security",
+      "retirement",
+      "fiscal-policy",
+      "aging",
+      "inequality"
+    ]
   }
 ]

@@ -417,3 +417,34 @@ evidence (not reweighting):
   (1986) peak to ~12,000 (FAS); US deployed warheads flat under New START (~1,398→1,419, ACA); the "nth
   country" forecast of 15-25 nuclear states never materialized (only 9; SA/Ukraine/Kazakhstan/Libya gave up).
 Both scores now grounded in real two-sided primary evidence and consistent with "contested." tsc clean, 207 tests.
+
+## Breadth-as-Distribution Sprint — Tier 1 (2026-06-16)
+Plan: `docs/plans/2026-06-16-breadth-distribution-sprint.md`. Goal: grow citable reference surface
+(the one autonomous/compounding distribution lever) by adding NEW bulletproof maps. Corpus **114 → 128**.
+
+**Method (Workflow-orchestrated):** 14 new maps, each authored from primary sources by one agent, then
+independently re-checked by an adversarial **fabrication firewall** agent (re-fetch every URL; verify
+resolves / supports-claim / correct-side / not-fabricated). Only firewall-passed maps were registered.
+
+**Firewall results — 5 clean on first pass, 9 flagged, all defects web-corrected + re-verified:**
+- Batch A (clean): carbon-tax-effectiveness, congestion-pricing, right-to-repair, assisted-dying-euthanasia,
+  second-amendment-individual-right.
+- Batch B (fixed + re-verified clean): self-driving-car-safety (primary-sourced a remote-ops claim),
+  net-neutrality (corrected a FABRICATED author/journal — "Bauer & Shin" → real Garrett et al.),
+  generative-ai-art-copyright (fixed wrong-cohort earnings figures), facial-recognition-policing (removed an
+  INVERTED NIST/FAS claim), gmo-crops-safety (Klümper & Qaim 68→69%), nuclear-fusion-timeline (FABRICATED
+  author "Acerbi" → real Delaporte-Mathurin; DOE $10B→$9B), vaccine-mandates (removed a FABRICATED study
+  jurisdiction, "Spain"), ssri-antidepressant-efficacy (WRONG-PAPER/inverted STAR*D item re-sourced to the
+  real Pigott reanalysis).
+- Batch C (second-pass fix): social-security-retirement-age — first fixed a misrepresented CBO 60516 figure
+  (FRA-to-69 not 70; ~13% benefit cut; ~24% imbalance reduction), then the re-verify caught a second stat
+  error (payroll cap: "6% of earnings" → ~17–18% of *covered earnings*; 6% is the *worker* share) — corrected
+  and web-verified (SSA/CRS: ~83% of covered earnings below the cap in 2023).
+
+**The firewall caught, before anything shipped:** 2 fabricated author attributions, 1 fabricated study
+jurisdiction, 1 wrong-paper/inverted citation, 1 inverted finding, and several misread statistics — exactly
+the failure modes the Citation Moat sprint was built to prevent, now caught at authoring time.
+
+**Verification:** tsc clean; 207 tests green; dead-link sweep **0 DEAD / 1247 URLs**; citation coverage 98.3%
+(1247/1268). Per-batch commit + push. Both sides steelmanned; no house position; computed confidence scores.
+Founder-gated topics (abortion, israel-palestine, existence-of-god) NOT built this round per the plan.
