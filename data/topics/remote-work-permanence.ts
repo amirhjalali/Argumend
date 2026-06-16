@@ -35,65 +35,75 @@ export const remoteWorkPermanenceData = {
           id: "bloom-stanford-study",
           title: "Stanford/Bloom Study: Remote Workers 13% More Productive",
           description:
-            "Nick Bloom's landmark 2015 study at Ctrip (16,000 employees) found remote workers were 13% more productive, took fewer sick days, and reported higher satisfaction. His 2022 follow-up confirmed hybrid models show no productivity loss.",
+            "Nicholas Bloom et al.'s randomized 2015 experiment at Ctrip, a ~16,000-employee Chinese travel agency, found call-center staff working from home had a 13% performance increase (about 9% from more minutes worked per shift, 4% from more calls per minute), took fewer breaks/sick days, and reported higher satisfaction. The setting was a single firm of call-center workers and predates the pandemic.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 6,
+            independence: 7,
             replicability: 5,
-            directness: 7,
+            directness: 6,
           },
-          source: "Stanford University, Quarterly Journal of Economics",
+          source:
+            "Bloom, Liang, Roberts & Ying, \"Does Working from Home Work? Evidence from a Chinese Experiment,\" Quarterly Journal of Economics 130(1), 2015",
+          sourceUrl: "https://academic.oup.com/qje/article-abstract/130/1/165/2337855",
           reasoning:
-            "Gold-standard randomized experiment at scale, though limited to one company context and pre-dates the pandemic shift.",
+            "Gold-standard randomized experiment at scale, but limited to one company and call-center work, and predates the pandemic shift. The original claim's '2022 follow-up confirmed no productivity loss' is removed as unverified.",
         },
         {
           id: "microsoft-collaboration-data",
           title: "Microsoft Research Shows Communication Pattern Shifts",
           description:
-            "Microsoft's analysis of 60,000+ employees found remote work increased async communication but reduced cross-team connections by 25%. Atlassian's data showed similar patterns but noted that structured 'intentional collaboration' rituals recovered most lost connections.",
+            "A study of 61,182 US Microsoft employees over the first half of 2020 found firm-wide remote work made collaboration networks more static and siloed, decreased synchronous communication and increased asynchronous communication, and reduced the share of collaboration time spent on cross-group ties by about 25% relative to pre-pandemic. Atlassian's own research separately argues that intentional, purposeful team gatherings boost connection more than routine office attendance.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 7,
-            replicability: 8,
+            replicability: 7,
             directness: 8,
           },
-          source: "Microsoft Research, Nature Human Behaviour (2022)",
+          source:
+            "Yang et al., \"The effects of remote work on collaboration among information workers,\" Nature Human Behaviour 6, 43-54 (2022)",
+          sourceUrl: "https://www.nature.com/articles/s41562-021-01196-4",
           reasoning:
-            "Large-scale internal data showing real collaboration costs, published in top-tier journal.",
+            "Large-scale Microsoft workforce data showing real collaboration costs, published in a top-tier journal. The Atlassian point is reframed as a separate, weaker company finding rather than a direct rebuttal of the 25% figure.",
         },
         {
           id: "rto-mandate-outcomes",
           title: "Major Companies Mandating Return-to-Office",
           description:
-            "Amazon, Google, Meta, JPMorgan, and Goldman Sachs have mandated 3-5 days in office, citing innovation and culture needs. These are some of the most data-driven companies in the world, and they've concluded remote work has costs.",
+            "Amazon announced in Sept 2024 a five-day in-office mandate effective Jan 2, 2025, with CEO Andy Jassy citing collaboration, learning, and culture. JPMorgan and Goldman Sachs have likewise pushed staff back toward full-time in-office attendance. The companies assert these benefits, but have not published the internal data behind the decisions.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Company Announcements, Wall Street Journal",
+          source:
+            "Amazon (Andy Jassy update on return-to-office plans, Sept 16, 2024); CNBC reporting",
+          sourceUrl:
+            "https://www.aboutamazon.com/news/company-news/ceo-andy-jassy-latest-update-on-amazon-return-to-office-manager-team-ratio",
           reasoning:
-            "Revealed preferences of major employers suggest remote work has real drawbacks they've measured internally.",
+            "Revealed preferences of major employers, but the asserted productivity/innovation rationale is self-reported and not backed by released data, so independence and directness are lowered. The original claim that Google and Meta mandated 5 days is removed as not cleanly verified (their policies were 3-day hybrid).",
         },
         {
           id: "patent-innovation-data",
-          title: "Patent Filing Rates Stable Despite Remote Shift",
+          title: "Patent Filing Rates Roughly Stable Through the Remote Shift",
           description:
-            "USPTO data shows no decline in patent application rates during 2020-2024 despite massive shift to remote work. Remote-first companies like GitLab, Automattic, and Zapier maintain strong innovation output.",
+            "US utility patent filings stayed broadly flat across 2020-2024 (roughly 650-670k applications a year) rather than collapsing during the remote shift. This is only suggestive: patent counts have many drivers and a long lag, and the link to remote work is not established. Notably, peer-reviewed work (Lin, Frey & Wu, Nature 2023) finds remote/distributed research teams produce fewer breakthrough, 'disruptive' ideas, cutting against a clean pro-remote reading.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 7,
-            replicability: 6,
-            directness: 3,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 5,
+            directness: 2,
           },
-          source: "USPTO, Company Annual Reports",
+          source:
+            "USPTO patent statistics (aggregate filing counts); offsetting evidence in Nature 615, 2023",
+          sourceUrl:
+            "https://www.uspto.gov/learning-and-resources/statistics/patent-statistics",
           reasoning:
-            "Broad economic data; directness limited because many factors influence patent rates.",
+            "Aggregate patent counts are a weak, heavily confounded proxy with long lags. Directness lowered to 2 and the claim de-inflated because the 'no decline = remote works for innovation' inference is not supported, and at least one peer-reviewed study points the other way. The original GitLab/Automattic/Zapier 'strong innovation output' assertion is removed as unmeasured.",
         },
       ],
     },
@@ -122,67 +132,77 @@ export const remoteWorkPermanenceData = {
       evidence: [
         {
           id: "cre-vacancy-data",
-          title: "US Office Vacancy Rate Hits Record 20%",
+          title: "US Office Vacancy Rate Hits Record ~20%",
           description:
-            "Commercial real estate vacancy rates reached 20.1% in Q3 2024, the highest ever recorded. Moody's estimates $1.2T in CRE debt is at risk. This creates genuine economic disruption in downtown cores.",
+            "Moody's Analytics reported the US office vacancy rate hit a record 19.8% in Q1 2024, surpassing the early-1990s peak. Separately, industry estimates put well over $1 trillion of commercial real estate debt maturing in 2025 (with the wall peaking later in the decade), of which the office segment is most stressed. This creates genuine economic disruption in downtown cores.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
           },
-          source: "Moody's Analytics, CoStar Group",
+          source:
+            "Moody's Analytics office vacancy data (Q1 2024, via Bloomberg); CRE debt-maturity estimates",
+          sourceUrl:
+            "https://www.bloomberg.com/news/articles/2024-04-02/office-vacancy-rate-nears-20-to-set-fresh-record-moody-s-says",
           reasoning:
-            "Hard economic data showing real costs of the remote transition; direct evidence of unsustainability concerns.",
+            "Hard vacancy data showing real costs of the remote transition. The original '20.1% in Q3 2024' was corrected to the verified 19.8% in Q1 2024, and the precise '$1.2T at risk' claim was softened to the verifiable 'over $1T of CRE debt maturing in 2025' since the exact at-risk figure and its attribution were not confirmed.",
         },
         {
           id: "gallup-employee-engagement",
           title: "Gallup: Hybrid Workers Report Highest Engagement",
           description:
-            "Gallup's 2024 State of the Workplace report found hybrid workers (2-3 days in office) report the highest engagement scores, above both fully remote and fully in-office workers.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 6,
-          },
-          source: "Gallup (2024)",
-          reasoning:
-            "Large-scale, independent survey; supports hybrid model specifically rather than fully remote.",
-        },
-        {
-          id: "remote-job-listings",
-          title: "Remote Job Listings Stabilized at 3x Pre-Pandemic Levels",
-          description:
-            "ZipRecruiter and Indeed data show remote job postings stabilized at roughly 15% of all listings (vs. 5% pre-pandemic), suggesting permanent structural shift even as some companies mandate return.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 6,
-          },
-          source: "ZipRecruiter, Indeed Hiring Lab",
-          reasoning:
-            "Market-based signal that remote work is a permanent feature, not a temporary anomaly.",
-        },
-        {
-          id: "demographic-shift-data",
-          title: "Remote Work Drives Geographic Redistribution",
-          description:
-            "Census and USPS data show accelerated migration from high-cost metros to mid-size cities. Boise, Austin, and Nashville grew 5-10% as remote workers relocated. This creates both opportunity (affordable housing) and tension (gentrification).",
+            "Gallup's 2024 data on remote-capable workers found, globally, hybrid employees had the highest engagement (about 35%), ahead of fully remote (~33%) and on-site (~27%). In the US/Canada the gap between hybrid and fully remote is small (remote slightly higher in some cuts), so the result supports flexible/hybrid models more than fully remote specifically.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 6,
+            directness: 5,
+          },
+          source: "Gallup, State of the Global Workplace: 2024 Report",
+          sourceUrl:
+            "https://www.gallup.com/workplace/349484/state-of-the-global-workplace.aspx",
+          reasoning:
+            "Large-scale, independent survey. Directness lowered because engagement is an indirect proxy for the meta-claim and the hybrid-vs-remote ranking is region-dependent; it supports hybrid more cleanly than fully remote.",
+        },
+        {
+          id: "remote-job-listings",
+          title: "Remote Job Listings Settled at ~3x Pre-Pandemic Levels",
+          description:
+            "Indeed Hiring Lab data show the share of US job postings advertising remote or hybrid work was 7.8% as of October 2024 - down from the 10.4% peak (Feb 2022) but still roughly 3x the 2.6% pre-pandemic level (Jan 2019). This points to a durable structural shift even as some employers mandate return.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Indeed Hiring Lab, November 2024 US Labor Market Update",
+          sourceUrl:
+            "https://www.hiringlab.org/2024/11/19/november-labor-market-update-remote-work/",
+          reasoning:
+            "Market-based signal of durable remote work. The original '15% (vs 5% pre-pandemic)' figures were wrong and were corrected to the verified 7.8% current / 2.6% pre-pandemic; the unverified ZipRecruiter co-attribution was dropped.",
+        },
+        {
+          id: "demographic-shift-data",
+          title: "Remote Work Drives Geographic Redistribution",
+          description:
+            "Migration during the pandemic accelerated out of high-cost coastal metros toward more affordable mid-size 'Zoom cities' such as Boise, Austin, and Nashville, with remote work cited as a key driver (Census-based analyses report low-single-digit annual growth rates for these metros, e.g. Austin ~3%+ at the peak). This creates both opportunity (affordable housing) and tension (gentrification).",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
             directness: 4,
           },
-          source: "US Census Bureau, USPS Change of Address Data",
+          source:
+            "US Census Bureau metro-area population estimates; analyses of pandemic-era domestic migration",
+          sourceUrl:
+            "https://www.census.gov/library/stories/2025/04/metro-area-trends.html",
           reasoning:
-            "Solid demographic data; directness limited because migration has many drivers.",
+            "Directional migration trend is well documented, but the specific '5-10% growth' figures and the 'USPS Change of Address' attribution could not be verified, so they were softened to verifiable low-single-digit Census growth rates and the USPS source was removed. Directness stays low because migration has many drivers besides remote work.",
         },
       ],
     },

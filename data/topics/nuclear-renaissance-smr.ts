@@ -86,23 +86,26 @@ export const nuclearRenaissanceSmrData = {
           id: "nuscale-cancellation",
           title: "NuScale UAMPS Project Cancelled After Cost Overruns",
           description:
-            "The most advanced US SMR project was terminated in November 2023 after costs rose 76% to $9.3 billion, making power uncompetitive at $89/MWh.",
+            "The most advanced US SMR project (the Carbon Free Power Project) was terminated on November 8, 2023, by mutual agreement of NuScale and UAMPS after the target power price rose to $89/MWh (from $58/MWh in 2021) and the total estimated cost rose ~75% from $5.3 billion to $9.3 billion, leaving the project short of subscriptions.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 9,
+            independence: 8,
             replicability: 8,
             directness: 10,
           },
-          source: "NuScale Power, Utah Associated Municipal Power Systems",
+          source:
+            "NuScale Power / UAMPS joint press release (SEC Form 8-K, Nov 2023); IEEFA cost analysis",
+          sourceUrl:
+            "https://www.sec.gov/Archives/edgar/data/0001822966/000182296623000256/uampsnuscalejointpressre.htm",
           reasoning:
-            "Real-world cost data from the furthest-along Western SMR project; directly demonstrates economic challenge.",
+            "Real-world cost data from the furthest-along Western SMR project, confirmed by SEC filing; directly demonstrates economic challenge. Independence slightly reduced because the headline figures originate from the project parties themselves, though corroborated by independent analysts (IEEFA).",
         },
         {
           id: "china-htr-pm-operational",
           title: "China's HTR-PM Achieved Commercial Operation",
           description:
-            "China's high-temperature gas-cooled reactor at Shidao Bay began commercial operation in December 2023, becoming the world's first operational Generation IV SMR.",
+            "China's HTR-PM high-temperature gas-cooled pebble-bed plant at Shidao Bay (twin 100 MWt reactors driving one 210 MWe turbine) entered commercial operation on December 6, 2023, described by China's National Energy Administration as the world's first commercial Generation IV reactor.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -110,41 +113,46 @@ export const nuclearRenaissanceSmrData = {
             replicability: 6,
             directness: 7,
           },
-          source: "China National Nuclear Corporation, World Nuclear News",
+          source: "World Nuclear News; NucNet (citing China's National Energy Administration)",
+          sourceUrl:
+            "https://www.world-nuclear-news.org/Articles/Chinese-HTR-PM-Demo-begins-commercial-operation",
           reasoning:
-            "Demonstrates technical feasibility but cost data is opaque; state-funded project may not reflect true market economics.",
+            "Demonstrates technical feasibility but cost data is opaque; the 'first Gen IV' claim is China's own characterization and the state-funded demonstration project may not reflect true market economics.",
         },
         {
           id: "solar-storage-learning-curve",
-          title: "Solar+Storage Costs Declining 10-15% Annually",
+          title: "Solar and Battery Costs Have Fallen Dramatically",
           description:
-            "Utility-scale solar LCOE dropped 90% since 2010; lithium-ion battery costs fell 97% since 1991. Combined solar+4hr storage now bids below $50/MWh in many markets.",
+            "Lazard's unsubsidized utility-scale solar LCOE fell roughly 90% over 2009-2020 (from ~$359 to ~$37/MWh midpoint), and lithium-ion battery pack costs have fallen by well over 90% since the early 1990s. Cost declines have slowed since 2021 amid inflation and supply-chain pressures, but solar and wind remain the lowest-LCOE new-build sources in Lazard's analysis.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 8,
-            replicability: 9,
-            directness: 7,
+            replicability: 8,
+            directness: 6,
           },
-          source: "Lazard LCOE Analysis, BloombergNEF",
+          source: "Lazard Levelized Cost of Energy+ analysis",
+          sourceUrl:
+            "https://www.lazard.com/research-insights/levelized-cost-of-energyplus/",
           reasoning:
-            "Established cost trajectory makes the competitive bar a moving target; SMRs must beat future, not current, renewable costs.",
+            "Established cost trajectory makes the competitive bar a moving target; SMRs must beat future, not current, renewable costs. Note that recent (post-2021) renewable cost declines have flattened, so the '10-15% annually' framing was overstated and has been corrected; directness lowered because LCOE comparisons rarely include the firming/storage needed to match SMR dispatchability.",
         },
         {
           id: "factory-fabrication-potential",
-          title: "Factory Fabrication Could Cut Construction Costs 30-50%",
+          title: "Vendors Claim Factory Fabrication Will Cut Costs",
           description:
-            "Engineering analyses suggest modular factory assembly of reactor components could reduce labor costs by 30-50% compared to stick-built construction, following shipbuilding and aerospace precedents.",
+            "SMR vendors argue that moving most assembly into factory conditions reduces cost and schedule risk; Rolls-Royce SMR, for example, claims roughly 90% of manufacturing and assembly is done in-factory. Specific cost-reduction percentages remain unvalidated vendor projections — no SMR factory has yet operated at scale to confirm them.",
           side: "for" as const,
           weight: {
-            sourceReliability: 5,
-            independence: 4,
+            sourceReliability: 3,
+            independence: 2,
             replicability: 3,
             directness: 4,
           },
-          source: "DOE Office of Nuclear Energy, Rolls-Royce SMR projections",
+          source: "Rolls-Royce SMR (vendor marketing material)",
+          sourceUrl: "https://www.rolls-royce-smr.com/our-approach",
           reasoning:
-            "Theoretical projections from vendors with financial interests; no SMR factory has operated at scale to validate claims.",
+            "Promotional projections from a vendor with a direct financial interest; the prior '30-50%' figure could not be tied to a verifiable independent source and was removed. No SMR factory has operated at scale to validate the claim, so independence and reliability are scored very low.",
         },
       ],
     },
@@ -176,7 +184,7 @@ export const nuclearRenaissanceSmrData = {
           id: "nuscale-design-certification",
           title: "NuScale Received First-Ever US SMR Design Certification",
           description:
-            "In January 2023, the NRC issued the first-ever Standard Design Approval for an SMR, after a multi-year review confirming passive safety systems meet all regulatory requirements.",
+            "On January 19, 2023, the NRC published a rule certifying NuScale's 50 MWe Power Module design (effective February 21, 2023) — the first SMR design and only the seventh reactor design ever certified in the US — after a multi-year review of its passive safety systems. (A separate, uprated 77 MWe Standard Design Approval application was submitted later in 2023.)",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -184,57 +192,67 @@ export const nuclearRenaissanceSmrData = {
             replicability: 7,
             directness: 8,
           },
-          source: "US Nuclear Regulatory Commission",
+          source:
+            "US Nuclear Regulatory Commission / Federal Register design certification rule",
+          sourceUrl:
+            "https://www.federalregister.gov/documents/2023/01/19/2023-00729/nuscale-small-modular-reactor-design-certification",
           reasoning:
-            "Independent regulatory body validated safety claims through rigorous review process.",
+            "Independent regulatory body validated the design through a rigorous rulemaking. Corrected the instrument: the January 2023 action was a Design Certification of the 50 MWe module, not a Standard Design Approval (which was a distinct, later application for the uprated 77 MWe design).",
         },
         {
           id: "public-support-rising",
           title: "Public Support for Nuclear at Record Highs",
           description:
-            "Gallup polling shows 55% of Americans favor nuclear energy as of 2023, up from 44% in 2020. Climate concerns are shifting attitudes, especially among younger demographics.",
+            "Gallup's March 2023 poll found 55% of Americans favor nuclear energy — the highest in a decade and up from 44% in 2016 (it was roughly tied near 49% around 2019-2020). Climate concerns are shifting attitudes.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 8,
+            sourceReliability: 8,
+            independence: 9,
             replicability: 7,
             directness: 6,
           },
-          source: "Gallup, Pew Research Center",
+          source: "Gallup (March 2023 Environment poll)",
+          sourceUrl:
+            "https://news.gallup.com/poll/474650/americans-support-nuclear-energy-highest-decade.aspx",
           reasoning:
-            "Broad polling data, though support for nuclear in general may not translate to support for a reactor in one's community (NIMBY effect).",
+            "Independent national pollster. Corrected the baseline: the 44% figure is from 2016, not 2020 (support was near 49% around 2020). Support for nuclear in general may not translate to support for a reactor in one's own community (NIMBY effect).",
         },
         {
           id: "proliferation-distributed-risk",
           title: "More Reactor Sites Increase Distributed Security Risk",
           description:
-            "Deploying dozens of smaller reactors across many sites increases the number of locations requiring security, spent fuel management, and emergency planning — spreading nuclear risk rather than concentrating it.",
+            "The Union of Concerned Scientists (Edwin Lyman) argues that many SMR designs do not clearly improve on large reactors for safety, security, or proliferation, and that deploying many smaller reactors across more sites multiplies the locations requiring security, spent-fuel management, and emergency planning.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Union of Concerned Scientists, Nuclear proliferation analysts",
+          source:
+            "Union of Concerned Scientists — 'Nuclear Power Reactors: Is Smaller Better?' (Edwin Lyman)",
+          sourceUrl: "https://www.ucs.org/resources/nuclear-power-reactors-smaller-better",
           reasoning:
-            "Legitimate security and logistics concern, though SMR proponents argue smaller sites have proportionally smaller risk profiles.",
+            "Sourced to a specific UCS analysis by a named nuclear-safety expert, but UCS is an advocacy organization with a critical stance on nuclear, so independence is moderate. SMR proponents argue smaller sites carry proportionally smaller source terms and risk.",
         },
         {
           id: "fukushima-legacy-distrust",
           title: "Fukushima Legacy Continues to Shape Public Opposition",
           description:
-            "Post-Fukushima, Germany, Belgium, and Italy moved to phase out nuclear entirely. Local opposition has blocked or delayed projects in the US, UK, and EU despite national policy support.",
+            "Germany accelerated its nuclear phase-out after Fukushima and shut its last three reactors on April 15, 2023. (Italy had already banned domestic nuclear power by referendum, reaffirmed in 2011, and Belgium has repeatedly delayed rather than completed its phase-out.) Local opposition and political reversals have continued to shape nuclear policy across Europe.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 8,
+            independence: 7,
             replicability: 8,
-            directness: 6,
+            directness: 5,
           },
-          source: "World Nuclear Association, national energy policy records",
+          source:
+            "German Federal Office for the Safety of Nuclear Waste Management (BASE); contemporaneous reporting",
+          sourceUrl:
+            "https://www.base.bund.de/en/nuclear-safety/nuclear-phase-out/nuclear-phase-out_content.html",
           reasoning:
-            "Documented political reality, though applies to nuclear generally — SMR-specific opposition data is limited.",
+            "Germany's post-Fukushima phase-out is well documented. Corrected an overstatement: Italy's nuclear ban predates Fukushima (referendum-based) and Belgium has repeatedly postponed rather than completed its phase-out, so the original 'moved to phase out entirely' framing was inaccurate. Applies to nuclear generally — SMR-specific opposition data is limited, hence lower directness.",
         },
       ],
     },
@@ -265,25 +283,27 @@ export const nuclearRenaissanceSmrData = {
         {
           id: "vogtle-delays-precedent",
           title:
-            "Vogtle 3 & 4: 14 Years to Build and $21B Over Budget",
+            "Vogtle 3 & 4: Years Late and Roughly Double the Original Estimate",
           description:
-            "The only new US nuclear units in a generation took 14 years to complete (2009-2023) at $35 billion, more than doubling the $14 billion estimate, bankrupting Westinghouse in the process.",
+            "The only new US reactors in a generation, Vogtle Units 3 and 4, came online in July 2023 and April 2024 — about seven years late against an original ~2016/2017 schedule. Originally estimated near $14 billion, total project cost reached roughly $35 billion (including ~$3.7 billion Westinghouse paid to exit), and lead contractor Westinghouse went bankrupt in 2017.",
           side: "against" as const,
           weight: {
-            sourceReliability: 10,
+            sourceReliability: 9,
             independence: 9,
             replicability: 9,
             directness: 6,
           },
-          source: "Georgia Public Service Commission, Southern Company filings",
+          source:
+            "US EIA 'Today in Energy'; Georgia Public Broadcasting; contemporaneous filings",
+          sourceUrl: "https://www.eia.gov/todayinenergy/detail.php?id=61963",
           reasoning:
-            "Directly relevant precedent for US nuclear construction, though large-scale projects differ structurally from SMRs.",
+            "Directly relevant precedent for US nuclear construction. Corrected the headline: the project ran ~7 years late (not 14 years of construction) and roughly doubled from ~$14B to ~$35B; the original '14 years / $21B over budget' framing conflated metrics. Large bespoke gigawatt projects differ structurally from SMRs.",
         },
         {
           id: "russia-floating-smr",
           title: "Russia's Akademik Lomonosov Operating Since 2020",
           description:
-            "The world's first floating nuclear power plant, using two KLT-40S reactors (35 MWe each), has been supplying power to Pevek, Russia since May 2020.",
+            "The world's only operating floating nuclear power plant, using two KLT-40S reactors (about 35 MWe each), connected to the grid at Pevek in December 2019 and was fully commissioned (declared in commercial operation) in May 2020.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -291,42 +311,46 @@ export const nuclearRenaissanceSmrData = {
             replicability: 4,
             directness: 6,
           },
-          source: "Rosatom, World Nuclear Association",
+          source: "World Nuclear Association — Nuclear Power in Russia / SMR profile",
+          sourceUrl:
+            "https://www.world-nuclear.org/information-library/country-profiles/countries-o-s/russia-nuclear-power",
           reasoning:
-            "Demonstrates SMR-scale deployment is achievable, but Russian state nuclear program operates under very different regulatory and economic conditions.",
+            "Demonstrates SMR-scale deployment is achievable, but Russia's state nuclear program operates under very different regulatory and economic conditions, and reporting depends heavily on Rosatom; independence kept low.",
         },
         {
           id: "nrc-workforce-bottleneck",
           title: "NRC Licensing Bottleneck and Workforce Shortage",
           description:
-            "The NRC has limited staff to review multiple simultaneous SMR applications. The US nuclear workforce shrank 30% since 2012. New reactor licensing typically requires 3-5 years of review even with streamlined processes.",
+            "Reviewing many simultaneous advanced-reactor applications strains NRC staff capacity, and analysts warn of a looming nuclear-workforce gap — DOE estimates roughly 375,000 additional workers would be needed to add 200 GW of nuclear by 2050, with about 40% of the current workforce eligible to retire within a decade. New reactor licensing has historically taken multiple years even under streamlined processes.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 7,
-            directness: 8,
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
           },
           source:
-            "NRC Annual Reports, Nuclear Energy Institute workforce studies",
+            "Federation of American Scientists analysis of NRC hiring; DOE workforce estimates",
+          sourceUrl: "https://fas.org/publication/new-nuclear-energy-hiring-nrc/",
           reasoning:
-            "Institutional capacity constraints are well-documented and directly impact deployment timelines.",
+            "Institutional capacity constraints are documented and bear on deployment timelines. Replaced the unverifiable 'workforce shrank 30% since 2012' figure with sourced DOE workforce projections; the precise prior number could not be confirmed, so the specific claim was removed and weights lowered.",
         },
         {
           id: "advance-act-acceleration",
           title: "US ADVANCE Act Streamlines Nuclear Licensing",
           description:
-            "The ADVANCE Act signed in 2024 reduces NRC licensing fees, creates milestone-based review schedules, and directs the NRC to develop a regulatory framework specifically for advanced reactors within 2 years.",
+            "The ADVANCE Act, signed into law on July 9, 2024 (88-2 Senate, 393-13 House), directs the NRC to reduce licensing fees for advanced-reactor applicants, modernize and accelerate its review processes, and develop streamlined siting (including at retired coal sites). The NRC's FY2025 fee rule cut the advanced-reactor hourly rate by more than 50%.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 6,
+            independence: 7,
             replicability: 6,
             directness: 7,
           },
-          source: "US Congress, NRC implementation guidance",
+          source: "US NRC — About the ADVANCE Act",
+          sourceUrl: "https://www.nrc.gov/about-nrc/governing-laws/advance-act/about-advance-act",
           reasoning:
-            "Legislative action directly addresses regulatory timeline concerns, though implementation effectiveness remains to be seen.",
+            "Legislative action directly addresses regulatory timeline concerns and is now being implemented (FY2025 fee cut), though its ultimate effect on deployment timelines remains to be seen.",
         },
       ],
     },

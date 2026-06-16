@@ -35,7 +35,7 @@ export const openBordersData = {
           id: "clemens-gdp-estimates",
           title: "Clemens: Open Borders Could Double World GDP",
           description:
-            "Economist Michael Clemens's survey of four independent economic models found that open borders would increase world GDP by 50-150%, with a median estimate near 100% (doubling). The gains come primarily from moving workers from low-productivity to high-productivity environments. Even a 10% liberalization of barriers would yield trillions in gains.",
+            "Economist Michael Clemens's survey of the modeling literature found that fully removing barriers to labor mobility could raise world GDP by roughly 50-150% (on the order of doubling). Clemens stresses these are 'large fractions of world GDP' — one or two orders of magnitude larger than the gains from removing all remaining barriers to trade and capital — hence 'trillion-dollar bills on the sidewalk.' The gains come primarily from moving workers from low-productivity to high-productivity environments.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -43,9 +43,11 @@ export const openBordersData = {
             replicability: 5,
             directness: 5,
           },
-          source: "Clemens, 'Economics and Emigration,' Journal of Economic Perspectives (2011)",
+          source:
+            "Clemens, 'Economics and Emigration: Trillion-Dollar Bills on the Sidewalk?', Journal of Economic Perspectives 25(3):83-106 (2011)",
+          sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/jep.25.3.83",
           reasoning:
-            "Published in a top economics journal, but models are highly theoretical and extrapolate from marginal changes to revolutionary ones. Real-world frictions would reduce gains substantially.",
+            "Published in a top economics journal. Clemens characterizes the gains as 'large fractions of world GDP' — one or two orders of magnitude larger than gains from liberalizing trade and capital flows; the often-cited 50-150% range comes from his survey of a handful of theoretical models. The models are highly theoretical and extrapolate from marginal changes to revolutionary ones, so real-world frictions would reduce gains substantially.",
         },
         {
           id: "borjas-wage-impact",
@@ -59,7 +61,8 @@ export const openBordersData = {
             replicability: 6,
             directness: 7,
           },
-          source: "Borjas, 'Immigration Economics,' Harvard University Press",
+          source: "Borjas, 'Immigration Economics,' Harvard University Press (2014)",
+          sourceUrl: "https://www.hup.harvard.edu/books/9780674049772",
           reasoning:
             "Respected labor economist with rigorous methodology; findings are contested by Card and others who find smaller wage effects. Extrapolation to open borders is speculative.",
         },
@@ -73,17 +76,19 @@ export const openBordersData = {
             sourceReliability: 8,
             independence: 8,
             replicability: 5,
-            directness: 6,
+            directness: 5,
           },
-          source: "European Commission, Kahanec & Zimmermann (IZA)",
+          source:
+            "Kahanec, Zaiceva & Zimmermann, 'Lessons from Migration after EU Enlargement,' IZA Discussion Paper No. 4230 (2009)",
+          sourceUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1423346",
           reasoning:
-            "Real-world natural experiment with credible data; replicability limited because EU members shared cultural proximity and institutional convergence that wouldn't apply globally.",
+            "Real-world natural experiment with credible data; this IZA review finds post-enlargement flows did not produce the negative labor-market or welfare effects many predicted. The specific '2-3% moved West' and East-West wage figures in the description are approximate and drawn from secondary summaries rather than a single quoted statistic, so directness is moderate. Replicability is limited because EU members shared cultural proximity and institutional convergence that wouldn't apply globally.",
         },
         {
           id: "fiscal-impact-analyses",
           title: "Fiscal Impact Meta-Analyses Show Mixed Results",
           description:
-            "Meta-analyses of immigration's fiscal impact show wide variation: the National Academy of Sciences found a net positive fiscal impact of $259K per immigrant over 75 years, but negative impact in the short term at state/local level. Low-skilled immigrants are net fiscal drains for 15-20 years before becoming net contributors. Results are highly sensitive to assumptions about discount rates and public goods.",
+            "The National Academies of Sciences, Engineering, and Medicine (2016) report shows immigration's long-run fiscal impact varies widely with assumptions: under one 75-year scenario the net present value of a newly arrived immigrant is about +$259,000 (and roughly +$58,000 across all first-generation immigrants), but impacts are negative in the short term and at the state/local level. Results are highly sensitive to assumptions about discount rates and how the cost of public goods (e.g., defense) is allocated.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -91,7 +96,9 @@ export const openBordersData = {
             replicability: 6,
             directness: 6,
           },
-          source: "National Academy of Sciences, 'The Economic and Fiscal Consequences of Immigration'",
+          source:
+            "National Academies of Sciences, Engineering, and Medicine, 'The Economic and Fiscal Consequences of Immigration' (2016)",
+          sourceUrl: "https://www.nationalacademies.org/publications/23550",
           reasoning:
             "Authoritative source; the mixed results and sensitivity to assumptions make this evidence cut both ways, leaning against given short-term fiscal pressures under open borders.",
         },
@@ -133,6 +140,7 @@ export const openBordersData = {
             directness: 6,
           },
           source: "Carens, 'The Ethics of Immigration,' Oxford University Press (2013)",
+          sourceUrl: "https://en.wikipedia.org/wiki/The_Ethics_of_Immigration",
           reasoning:
             "Influential and well-argued philosophical work; replicability is low because philosophical arguments aren't empirically testable. Directness limited by the gap between normative theory and policy.",
         },
@@ -140,23 +148,24 @@ export const openBordersData = {
           id: "friedman-welfare-argument",
           title: "Friedman: Open Borders Incompatible with Welfare State",
           description:
-            "Milton Friedman argued that 'you can have open borders or a welfare state, but not both.' The logic: generous social benefits attract disproportionate migration by those who would consume more than they contribute. This creates a fiscal death spiral. Most open borders advocates acknowledge this tension but propose solutions (delayed access to benefits, earned citizenship).",
+            "Milton Friedman argued (in a 1999 ISIL conference Q&A, echoing remarks he made repeatedly) that 'you cannot simultaneously have free immigration and a welfare state.' The logic: generous social benefits attract disproportionate migration by those who would consume more than they contribute, creating fiscal strain. Most open borders advocates acknowledge this tension but propose solutions (delayed access to benefits, earned citizenship).",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 7,
-            replicability: 5,
+            replicability: 4,
             directness: 7,
           },
-          source: "Milton Friedman, various interviews and lectures",
+          source: "Milton Friedman, ISIL conference Q&A (1999) and earlier lectures",
+          sourceUrl: "https://openborders.info/friedman-immigration-welfare-state/",
           reasoning:
-            "Compelling theoretical argument from a Nobel laureate; empirical support is mixed (EU experience partially contradicts it). The tension is real even if not absolute.",
+            "Compelling theoretical argument from a Nobel laureate, but it is an off-the-cuff verbal remark rather than a peer-reviewed finding, and empirical support is mixed (EU experience partially contradicts it). The linked page documents the quote's provenance; the tension is real even if not absolute. Reliability tempered accordingly.",
         },
         {
           id: "remittance-vs-aid-data",
-          title: "Remittances ($656B) Dwarf Foreign Aid ($204B)",
+          title: "Remittances (~$626B) Dwarf Foreign Aid (~$204B)",
           description:
-            "World Bank data shows that remittances to low- and middle-income countries reached $656B in 2022 — more than 3x total foreign aid ($204B) and exceeding foreign direct investment. Remittances go directly to families, have lower overhead, and are countercyclical (increase during recipient-country crises). Migration is the most effective anti-poverty tool available.",
+            "World Bank data shows remittances to low- and middle-income countries reached about $626B in 2022 (initial estimate; later revised upward to roughly $647B) — roughly 3x total official development assistance (~$204B in 2022, per OECD) and exceeding foreign direct investment. Remittances go directly to families, have lower overhead, and are often countercyclical (rising during recipient-country crises). Proponents argue migration is among the most effective anti-poverty tools available.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -164,15 +173,17 @@ export const openBordersData = {
             replicability: 8,
             directness: 6,
           },
-          source: "World Bank Migration and Remittances Data",
+          source:
+            "World Bank, 'Remittances Remain Resilient but Likely to Slow' (June 2023); OECD ODA statistics (2022)",
+          sourceUrl: "https://www.worldbank.org/en/news/press-release/2023/06/13/remittances-remain-resilient-likely-to-slow",
           reasoning:
-            "Highly reliable data demonstrating migration's development impact; directness limited because current remittance flows occur under restricted migration, not open borders.",
+            "Highly reliable data demonstrating migration's development impact. Note the original $656B figure was inaccurate for 2022: the World Bank's LMIC estimate was $626B (later revised to ~$647B). Directness limited because current remittance flows occur under restricted migration, not open borders.",
         },
         {
           id: "border-security-cost-effectiveness",
           title: "Border Enforcement Costs $20B+/Year with Limited Effectiveness",
           description:
-            "US Customs and Border Protection's budget exceeds $20B annually. Despite this spending, an estimated 10-11 million undocumented immigrants live in the US. A 2019 Cato Institute analysis found that border walls and enforcement have not significantly reduced unauthorized immigration — they have redirected flows to more dangerous routes and reduced circular migration.",
+            "US Customs and Border Protection's annual budget exceeds $20B (roughly $20-23B in recent fiscal years). Despite sustained spending, an estimated 10-11 million undocumented immigrants live in the US. A Cato Institute analysis ('Why the Wall Won't Work,' David J. Bier, 2017) argues that border walls and enforcement have not meaningfully reduced unauthorized immigration — they have redirected flows to more dangerous routes (driving up migrant deaths) and reduced circular migration, trapping migrants who once returned home seasonally.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -180,9 +191,11 @@ export const openBordersData = {
             replicability: 7,
             directness: 5,
           },
-          source: "CBP Budget Data, Cato Institute",
+          source:
+            "Cato Institute, Bier, 'Why the Wall Won't Work' (2017); CBP/DHS budget data",
+          sourceUrl: "https://www.cato.org/publications/commentary/why-wall-wont-work",
           reasoning:
-            "Demonstrates enforcement limitations, but Cato has a known libertarian/pro-immigration stance. The evidence argues against current enforcement but doesn't directly support fully open borders.",
+            "Demonstrates enforcement limitations, but Cato has a known libertarian/pro-immigration stance. The evidence argues against the effectiveness of current enforcement but doesn't directly support fully open borders.",
         },
       ],
     },

@@ -31,41 +31,43 @@ export const psychedelicsMentalHealthData = {
       evidence: [
         {
           id: "maps-phase-3-mdma",
-          title: "MAPS Phase III: 71% of PTSD Patients No Longer Met Criteria",
+          title: "MAPP2 Phase III: 71% of PTSD Patients No Longer Met Criteria",
           description:
-            "The MAPS-sponsored Phase III clinical trial of MDMA-assisted therapy for PTSD found that 71% of participants no longer met PTSD diagnostic criteria after three MDMA-assisted therapy sessions, compared to 48% in the therapy-plus-placebo group. The results were published in Nature Medicine (2023).",
+            "The MAPS-sponsored second confirmatory Phase III trial (MAPP2) of MDMA-assisted therapy for moderate-to-severe PTSD found that by study end (18 weeks), 37 of 52 (71.2%) participants in the MDMA group no longer met DSM-5 criteria for PTSD, versus 20 of 42 (47.6%) in the placebo-with-therapy group; remission rates were 46.2% vs 21.4%. Results were published in Nature Medicine (2023). The trial was small (n=104 randomized) and the FDA later flagged probable functional unblinding (most participants could guess their assignment).",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 5,
-            replicability: 6,
+            sourceReliability: 6,
+            independence: 4,
+            replicability: 5,
             directness: 9,
           },
-          source: "Mitchell et al., Nature Medicine (2023)",
+          source: "Mitchell et al., \"MDMA-assisted therapy for moderate to severe PTSD: a randomized, placebo-controlled phase 3 trial,\" Nature Medicine 29, 2473–2480 (2023)",
+          sourceUrl: "https://www.nature.com/articles/s41591-023-02565-4",
           reasoning:
-            "Published in a top medical journal with strong results. However, the FDA subsequently rejected the NDA citing concerns about trial design, functional unblinding, and potential data integrity issues—reducing confidence in reliability.",
+            "Published in a top medical journal with strong reported effect sizes. But the FDA declined the NDA in August 2024 citing functional unblinding, strong expectancy effects, possible selection bias, and unreported adverse events at some sites—recommending an independent third-party data audit. The sponsor (MAPS/Lykos) is an advocacy-aligned developer, so independence is low. Weights de-inflated accordingly.",
         },
         {
           id: "hopkins-psilocybin-depression",
           title: "Johns Hopkins: Psilocybin Effects Last 12+ Months",
           description:
-            "Johns Hopkins research demonstrated that psilocybin-assisted therapy produced substantial and sustained antidepressant effects. In a 2022 follow-up study, 75% of participants still showed clinically significant response at 12 months, and 58% were in remission. These durability results are unusual for any psychiatric treatment.",
+            "A Johns Hopkins 12-month prospective follow-up of psilocybin-assisted therapy for major depressive disorder reported sustained antidepressant effects: among the 24 participants who completed follow-up, 75% met response criteria (≥50% reduction in GRID-HAMD) and 58% met remission criteria at 12 months. Durability of this magnitude is unusual in psychiatry, though the follow-up was uncontrolled (the parent study was a small waitlist-controlled trial).",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 6,
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 5,
             directness: 9,
           },
-          source: "Johns Hopkins Center for Psychedelic and Consciousness Research (2022)",
+          source: "Gukasyan et al., \"Efficacy and safety of psilocybin-assisted treatment for major depressive disorder: Prospective 12-month follow-up,\" Journal of Psychopharmacology 36(2):151–158 (2022)",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/35166158/",
           reasoning:
-            "Strong institutional credibility and remarkable durability of effects. However, sample sizes remain small and the open-label design introduces expectancy bias.",
+            "Strong institutional credibility and durable effects. But the sample is very small (24 completers) and the 12-month follow-up had no concurrent control group, so expectancy and selection effects cannot be excluded. Weights de-inflated for small n and lack of long-term control.",
         },
         {
           id: "fda-mdma-rejection",
           title: "FDA Rejected MDMA Therapy in August 2024",
           description:
-            "On August 9, 2024, the FDA declined to approve MDMA-assisted therapy for PTSD, requesting an additional Phase III study from Lykos Therapeutics. The FDA cited concerns about the MAPP1 and MAPP2 trial designs, including inadequate blinding, potential data manipulation, and insufficient long-term safety data. The FDA advisory committee had voted 9-2 against approval.",
+            "On August 9, 2024, the FDA issued a Complete Response Letter declining to approve MDMA-assisted therapy for PTSD and requesting an additional Phase III study from Lykos Therapeutics. The agency cited concerns spanning the MAPP1 and MAPP2 trials, including functional unblinding, strong expectancy effects, possible selection bias, unreported adverse events at some sites, and insufficient durability data; it recommended an independent third-party data audit. Earlier, on June 4, 2024, the FDA's advisory committee voted 2–9 that the data did not show efficacy and 1–10 that benefits did not outweigh risks.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,
@@ -73,9 +75,10 @@ export const psychedelicsMentalHealthData = {
             replicability: 8,
             directness: 9,
           },
-          source: "FDA; NPR; Science (AAAS) reporting (August 2024)",
+          source: "FDA Complete Response Letter to Lykos Therapeutics (Aug 9, 2024; publicly released Sept 2025); FDA Psychopharmacologic Drugs Advisory Committee vote, June 4, 2024",
+          sourceUrl: "https://psychedelicalpha.com/news/breaking-fda-publishes-lykos-therapeutics-mdma-complete-response-letter-crl",
           reasoning:
-            "The FDA is the gold standard for drug safety evaluation. Their rejection signals serious methodological concerns that must be addressed before psychedelic therapy can be considered validated.",
+            "The FDA is the gold standard for drug-approval evaluation. The advisory committee's lopsided votes (2–9 on efficacy, 1–10 on benefit-risk) and the CRL signal serious methodological concerns—functional unblinding, expectancy, and data-integrity—that must be addressed before psychedelic-assisted therapy can be considered validated.",
         },
       ],
     },
@@ -104,17 +107,18 @@ export const psychedelicsMentalHealthData = {
           id: "oregon-psilocybin-services",
           title: "Oregon: First US State to Legalize Psilocybin Services",
           description:
-            "Oregon's Measure 109 (passed November 2020) created a regulated framework for psilocybin-assisted therapy at licensed service centers, which began operating in 2023. Clients must complete a preparatory session, ingest psilocybin under supervision of a trained facilitator, and complete an integration session. Early data suggests high satisfaction rates, though systematic outcome data is still being collected.",
+            "Oregon's Measure 109 (passed November 2020, codified as ORS 475A) created the first US regulated framework for supervised psilocybin services at licensed service centers, which opened in summer 2023 and are administered by the Oregon Health Authority. Clients complete a preparation session, ingest psilocybin under a trained facilitator's supervision, and are offered an integration session. This is a supervised-use access model, not an approved medical treatment, and systematic clinical-outcome data are not yet published.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 6,
-            replicability: 6,
-            directness: 7,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Oregon Psilocybin Services; Oregon Health Authority",
+          source: "Oregon Health Authority — Oregon Psilocybin Services (Measure 109 / ORS 475A)",
+          sourceUrl: "https://www.oregon.gov/oha/ph/preventionwellness/pages/oregon-psilocybin-services.aspx",
           reasoning:
-            "Real-world implementation provides invaluable data. However, early adopters are self-selected and likely differ from the broader patient population. Systematic outcomes data is not yet available.",
+            "Confirms a real-world regulated framework exists, which is policy-relevant. But it is an access program, not a controlled trial: it produces no comparative efficacy evidence, clients are self-selected, and systematic outcomes are not yet available. Directness to the efficacy claim lowered accordingly.",
         },
         {
           id: "schedule-1-outdated",
@@ -124,13 +128,14 @@ export const psychedelicsMentalHealthData = {
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
+            independence: 8,
+            replicability: 7,
             directness: 6,
           },
-          source: "Nutt et al., The Lancet (2010); Johnson et al., Neuropharmacology (2018)",
+          source: "Nutt, King & Phillips, \"Drug harms in the UK: a multicriteria decision analysis,\" The Lancet 376:1558–1565 (2010); Johnson, Griffiths, Hendricks & Henningfield, \"The abuse potential of medical psilocybin according to the 8 factors of the Controlled Substances Act,\" Neuropharmacology 142:143–166 (2018)",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/29753748/",
           reasoning:
-            "The mismatch between Schedule I criteria and psilocybin's pharmacological profile is well-documented. However, rescheduling is a policy question that involves more than pharmacology—public health infrastructure and abuse prevention matter too.",
+            "Peer-reviewed analyses (Lancet MCDA harm rankings; a Neuropharmacology review applying the CSA's own 8 abuse-potential factors to psilocybin) document a mismatch between Schedule I criteria and psilocybin's low dependence and toxicity profile. The primary sourceUrl links the Johnson et al. CSA-factors paper, which is most directly on point for scheduling. Still, rescheduling is a policy judgment that also weighs public-health infrastructure and abuse prevention, so directness to the meta-claim is moderate.",
         },
       ],
     },

@@ -36,3 +36,20 @@ voting claim flipped (homeschool grads vote *less* locally); foreign-aid Mozambi
 corrected ($1B→~$2B, were commercial loans not aid); global-housing first-time-buyer-low
 re-dated 2023→2022, Airbnb "15-30% rent" → ~1.9% avg (García-López). Weights de-inflated
 throughout where reliability rested on advocacy sources or unverifiable figures.
+
+## Iteration 3 (2026-06-16) — coverage 73% → 83%
+Hardened 12 zero-coverage maps (1 web-agent each): inflation-monetary-policy, mandatory-voting,
+media-bias-democracy, meritocracy-myth, nuclear-renaissance-smr, open-borders, organic-food-health,
+police-reform, psychedelics-mental-health, remote-work-permanence, reparations-slavery,
+return-to-office-productivity. 106 evidence items moved 0→verified URL.
+Notable corrections beyond URL backfill (factual errors caught): psychedelics FDA vote was
+**2-9 against efficacy** (file said "9-2 against approval" — inverted); inflation Bernanke-Blanchard
+**side flipped** (NBER WP 31417 found supply shocks, not labor tightness, drove the 2021 surge — was
+coded "for" demand-driven); reparations Fed wealth-gap figures corrected ($171K/$17.1K/10:1 → 2022 SCF
+~$285K/$45K/~6.3:1); RTO-productivity fabricated claims stripped (Envoy "2.3x with 10yr leases" and a
+phantom "12 companies 33-50% top-quartile" replaced with the real SSRN Brain-Drain paper); police-reform
+US-vs-Australia gap corrected (~4x, not "30-60x"), Rialto body-cam result caveated with null DC RCT;
+mandatory-voting "OECD Democracy Index" (doesn't exist) → EIU index, two journals mis-cited fixed;
+meritocracy legacy-admissions "45% boost/160 SAT pts" unverifiable → real Chetty 2023 (top-1% ~5x);
+remote-work Google/Meta "5-day mandate" false (were 3-day hybrid); media-bias Reuters "trust down from
+44%" false (stable 40%). Many weights de-inflated; one RTO item left URL-less + low-weight (no source found).

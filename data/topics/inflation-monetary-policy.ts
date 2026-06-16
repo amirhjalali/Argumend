@@ -86,7 +86,7 @@ export const inflationMonetaryPolicyData = {
           id: "m2-growth-unprecedented",
           title: "M2 Growth Rate Was Historically Unprecedented",
           description:
-            "M2 money supply grew from $15.4T to $21.7T between February 2020 and February 2022, a ~40% increase — the fastest two-year expansion since WWII-era money creation.",
+            "M2 money supply (FRED series M2SL, seasonally adjusted) grew from about $15.5T in February 2020 to roughly $21.7T by early 2022, a ~40% increase — the fastest two-year expansion in the post-WWII era.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -94,31 +94,33 @@ export const inflationMonetaryPolicyData = {
             replicability: 10,
             directness: 7,
           },
-          source: "Federal Reserve Economic Data (FRED)",
+          source: "Federal Reserve Economic Data (FRED) — M2 (M2SL), Federal Reserve Bank of St. Louis",
+          sourceUrl: "https://fred.stlouisfed.org/series/M2SL",
           reasoning:
-            "Indisputable measurement from the Fed itself. Directness is 7 because M2 growth is a necessary but not sufficient condition for demand-pull inflation.",
+            "Indisputable measurement published by the Federal Reserve. Directness is 7 because M2 growth is a necessary but not sufficient condition for demand-pull inflation. Note: the M2 definition was revised in May 2020, which slightly affects pre/post comparisons.",
         },
         {
           id: "fiscal-transfers-direct",
           title: "Fiscal Transfers Went Directly to Consumers",
           description:
-            "Unlike 2008 QE which expanded bank reserves, 2020-2021 stimulus ($814B in direct payments, $800B+ in PPP) put money directly into household and business spending accounts.",
+            "Unlike 2008 QE which expanded bank reserves, 2020-2021 relief sent money directly to households and firms: roughly $814B across three rounds of Economic Impact Payments and about $800B in PPP loans (most later forgiven).",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 9,
-            directness: 8,
+            directness: 7,
           },
-          source: "U.S. Treasury, Congressional Budget Office",
+          source: "Pandemic Response Accountability Committee (Economic Impact Payments); Autor et al., NBER WP 29669 (PPP)",
+          sourceUrl: "https://www.pandemicoversight.gov/data-interactive-tools/data-stories/update-three-rounds-stimulus-checks-see-how-many-went-out-and",
           reasoning:
-            "Direct fiscal transfers are a more inflationary transmission mechanism than QE. Personal savings rate spiked then rapidly fell as spending surged.",
+            "Payment totals are well documented ($814B EIP; ~$800B PPP). Directness lowered to 7 because the inflationary potency of direct transfers vs. QE is an inference, not a measurement — much of the transfer initially became savings before being spent.",
         },
         {
           id: "post-2008-no-inflation",
           title: "Post-2008 QE Did Not Produce Consumer Inflation",
           description:
-            "The Fed's balance sheet expanded from $900B to $4.5T between 2008-2014 with QE1-QE3, yet CPI inflation remained below the 2% target for most of the following decade.",
+            "The Fed's balance sheet (FRED series WALCL) expanded from roughly $0.9T to about $4.5T between 2008 and 2014 via QE1-QE3, yet PCE/CPI inflation ran below the 2% target for most of the following decade.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -126,7 +128,8 @@ export const inflationMonetaryPolicyData = {
             replicability: 10,
             directness: 7,
           },
-          source: "Federal Reserve, BLS CPI Data",
+          source: "Federal Reserve H.4.1 / FRED Total Assets (WALCL); BLS CPI",
+          sourceUrl: "https://fred.stlouisfed.org/series/WALCL",
           reasoning:
             "Demonstrates that monetary expansion alone does not mechanically produce inflation — the transmission mechanism matters. Weakens strict monetarist claims.",
         },
@@ -134,7 +137,7 @@ export const inflationMonetaryPolicyData = {
           id: "velocity-collapse",
           title: "Money Velocity Collapsed During the Pandemic",
           description:
-            "M2 velocity (GDP/M2) fell from 1.43 to 1.10 between Q4 2019 and Q2 2020, meaning a large portion of new money did not circulate through the economy.",
+            "M2 velocity (GDP/M2, FRED series M2V) fell sharply from roughly 1.30 in Q4 2019 to about 0.98 in Q2 2020, meaning a large portion of the new money did not circulate through the economy.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -142,7 +145,8 @@ export const inflationMonetaryPolicyData = {
             replicability: 10,
             directness: 6,
           },
-          source: "FRED — Velocity of M2 Money Stock",
+          source: "FRED — Velocity of M2 Money Stock (M2V), Federal Reserve Bank of St. Louis",
+          sourceUrl: "https://fred.stlouisfed.org/series/M2V",
           reasoning:
             "Low velocity partially offsets the inflationary impact of M2 growth. However, velocity recovered as the economy reopened, complicating this argument.",
         },
@@ -178,15 +182,16 @@ export const inflationMonetaryPolicyData = {
           id: "shipping-costs-spike",
           title: "Global Shipping Costs Rose 10x",
           description:
-            "The Drewry World Container Index surged from ~$1,500 to over $10,000 per 40ft container between mid-2020 and late 2021, reflecting severe supply chain disruption.",
+            "The Drewry World Container Index surged from roughly $1,500 pre-pandemic to a peak of about $10,377 per 40ft container in September 2021, reflecting severe supply chain disruption.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 9,
-            replicability: 10,
+            replicability: 9,
             directness: 7,
           },
-          source: "Drewry World Container Index",
+          source: "Drewry Supply Chain Advisors — World Container Index",
+          sourceUrl: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
           reasoning:
             "Direct evidence of supply-side cost pressure. However, shipping costs normalized by mid-2022 while inflation persisted, limiting explanatory power for later inflation.",
         },
@@ -194,40 +199,42 @@ export const inflationMonetaryPolicyData = {
           id: "core-services-inflation",
           title: "Core Services Inflation Surged Despite No Supply Shock",
           description:
-            "Core services ex-housing inflation rose above 7% in 2022, a category largely insulated from global supply chain disruptions, indicating demand-pull pressure.",
+            'Core services ex-housing ("supercore") inflation ran near 6-7% during 2022 (a 3-month annualized peak around 6.8% in mid-2022), a category largely insulated from global supply chain disruptions, suggesting demand-pull pressure.',
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 8,
-            replicability: 9,
-            directness: 9,
+            replicability: 8,
+            directness: 8,
           },
-          source: "BLS CPI Detailed Reports",
+          source: "BLS CPI (services less rent of shelter); analysis in CEA / Brookings commentary",
+          sourceUrl: "https://www.bls.gov/cpi/",
           reasoning:
-            "Services inflation cannot be explained by shipping disruptions or factory closures. Points to excess demand and tight labor markets.",
+            "BLS does not publish an official 'supercore' index; the ~7% figure is derived from CPI components, so directness and replicability are moderate. Services inflation is hard to attribute to shipping or factory disruptions, pointing toward demand and tight labor markets.",
         },
         {
           id: "bernanke-blanchard-decomposition",
-          title: "Bernanke-Blanchard Found Mixed Causes",
+          title: "Bernanke-Blanchard Attributed Most of the Surge to Supply Shocks",
           description:
-            "The 2023 Bernanke-Blanchard analysis concluded supply shocks initiated inflation, but demand pressures and labor market tightness sustained it beyond 2021.",
-          side: "for" as const,
+            "Bernanke & Blanchard (2023) found that most of the 2021 inflation surge came from shocks to prices given wages — commodity price spikes and sector-specific supply/demand-composition shocks — rather than an overheated labor market. They project that as those shocks fade, labor-market tightness becomes the more persistent driver requiring restrictive policy.",
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 7,
+            independence: 8,
             replicability: 7,
             directness: 8,
           },
           source:
-            "Brookings Papers on Economic Activity, 2023",
+            "Bernanke & Blanchard, \"What Caused the U.S. Pandemic-Era Inflation?\", NBER Working Paper 31417 (2023)",
+          sourceUrl: "https://www.nber.org/papers/w31417",
           reasoning:
-            "Authoritative analysis from two Nobel-caliber economists. Supports a nuanced view where both supply and demand played roles at different stages.",
+            "Authoritative analysis by two leading macroeconomists. Its central finding — that supply-side and commodity shocks, not an overheated labor market, drove the initial surge — cuts against the claim that inflation was primarily a demand/money-printing phenomenon; hence coded 'against'. Labor-market tightness matters more for persistence than for the initial spike.",
         },
         {
           id: "inflation-fell-without-recession",
           title: "Inflation Fell Without Major Recession",
           description:
-            "CPI inflation dropped from 9.1% (June 2022) to ~3% by mid-2023 without significant rise in unemployment, suggesting supply normalization was a key factor.",
+            "Headline CPI inflation fell from its 9.1% year-over-year peak in June 2022 to about 3% by mid-2023 without a significant rise in unemployment, suggesting supply normalization was a key factor.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -235,7 +242,8 @@ export const inflationMonetaryPolicyData = {
             replicability: 10,
             directness: 7,
           },
-          source: "BLS CPI and Employment Data",
+          source: "BLS Consumer Price Index (news releases) and Employment Situation",
+          sourceUrl: "https://www.bls.gov/cpi/",
           reasoning:
             "If inflation were purely demand-driven, disinflation would typically require slack in the labor market. The soft landing suggests supply-side resolution played a major role.",
         },
@@ -271,39 +279,41 @@ export const inflationMonetaryPolicyData = {
           id: "summers-warning-2021",
           title: "Larry Summers Warned of Overheating in February 2021",
           description:
-            "Economist Larry Summers publicly warned that the $1.9T American Rescue Plan was three times larger than the output gap, risking inflation not seen in a generation.",
+            'In a Feb. 4, 2021 Washington Post op-ed, Lawrence Summers warned that the $1.9T American Rescue Plan was several times larger than the estimated output gap and risked "inflationary pressures of a kind we have not seen in a generation."',
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Washington Post Op-Ed, February 2021",
+          source: 'Lawrence H. Summers, "The Biden stimulus is admirably ambitious, but it brings some big risks, too," The Washington Post, Feb. 4, 2021',
+          sourceUrl: "https://www.washingtonpost.com/opinions/2021/02/04/larry-summers-biden-covid-stimulus/",
           reasoning:
-            "Credible expert warning that proved prescient. Independence limited because Summers had political motivations; replicability is lower for opinion-based predictions.",
+            "Credible expert warning that proved prescient on the direction of inflation. This is an op-ed forecast, not empirical evidence, so independence and replicability are low; a single ex-ante prediction does not establish causation.",
         },
         {
           id: "taylor-rule-divergence",
           title: "Taylor Rule Indicated Rates Should Have Risen by Mid-2021",
           description:
-            "The Taylor Rule — a standard monetary policy benchmark — suggested the fed funds rate should have been 2-3% by late 2021, while the actual rate remained at 0-0.25%.",
+            "Standard Taylor Rule specifications imply the fed funds rate should have been materially positive (commonly estimated in the low-single-digit range) by late 2021, while the actual rate remained at 0-0.25%. Exact prescriptions vary with the chosen inflation gauge and inputs.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
           },
-          source: "Atlanta Fed Taylor Rule Utility",
+          source: "Federal Reserve Bank of Atlanta — Taylor Rule Utility (Center for Quantitative Economic Research)",
+          sourceUrl: "https://www.atlantafed.org/cqer/research/taylor-rule",
           reasoning:
-            "Mechanical rule-based benchmark shows the Fed deviated significantly from standard monetary policy prescriptions. High independence as it is formula-driven.",
+            "Rule-based benchmark showing the Fed deviated from standard prescriptions. Independence/replicability lowered to reflect that the exact 'should-have-been' rate is sensitive to which Taylor Rule variant and inflation measure are used; the '2-3%' figure is one plausible estimate, not a unique answer.",
         },
         {
           id: "soft-landing-achieved",
           title: "Soft Landing Was Achieved Despite Delayed Tightening",
           description:
-            "Inflation fell from 9.1% to ~3% without recession, and unemployment remained below 4%. This outcome suggests the Fed's overall strategy — including the late start — was not catastrophic.",
+            "Headline CPI inflation fell from its 9.1% peak (June 2022) toward ~3% by mid-2023 without a recession, while the unemployment rate stayed near or below 4%. This outcome suggests the Fed's overall strategy — including the late start — was not catastrophic.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -311,7 +321,8 @@ export const inflationMonetaryPolicyData = {
             replicability: 8,
             directness: 7,
           },
-          source: "BLS, BEA National Accounts",
+          source: "BLS Consumer Price Index and Employment Situation",
+          sourceUrl: "https://www.bls.gov/cpi/",
           reasoning:
             "The favorable outcome weakens claims that the delayed response caused lasting damage, though counterfactual of earlier action remains unknowable.",
         },
@@ -319,7 +330,7 @@ export const inflationMonetaryPolicyData = {
           id: "inflation-expectations-anchored",
           title: "Long-Term Inflation Expectations Remained Anchored",
           description:
-            "Despite the inflation surge, 5-year and 10-year breakeven inflation rates stayed near 2.5%, suggesting the Fed's credibility was not seriously damaged.",
+            "Despite the inflation surge, market-implied long-term expectations stayed broadly anchored: the 10-year breakeven (FRED T10YIE) briefly peaked around 3% in April 2022 but re-anchored toward ~2.3-2.5%, suggesting the Fed's credibility was not seriously damaged.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -327,7 +338,8 @@ export const inflationMonetaryPolicyData = {
             replicability: 9,
             directness: 6,
           },
-          source: "FRED — Treasury Breakeven Inflation Rates",
+          source: "FRED — 10-Year Breakeven Inflation Rate (T10YIE), Federal Reserve Bank of St. Louis",
+          sourceUrl: "https://fred.stlouisfed.org/series/T10YIE",
           reasoning:
             "Anchored expectations suggest the 'transitory' misstep did not fundamentally undermine Fed credibility, though it does not prove the delay was costless.",
         },

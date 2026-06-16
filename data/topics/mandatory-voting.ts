@@ -33,7 +33,7 @@ export const mandatoryVotingData = {
           id: "mv-aus-turnout",
           title: "Australian Electoral Commission Turnout Data",
           description:
-            "Australia consistently achieves 91-95% voter turnout since introducing compulsory voting in 1924, compared to 55-65% in comparable voluntary systems.",
+            "Australia introduced compulsory voting federally via the Commonwealth Electoral Act 1924. Turnout jumped from 59.4% at the 1922 election to 91.4% in 1925 and has not fallen below ~90% since, averaging around 95% for much of the 20th century — far above turnout in comparable voluntary systems.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -41,57 +41,65 @@ export const mandatoryVotingData = {
             replicability: 9,
             directness: 7,
           },
-          source: "Australian Electoral Commission",
+          source: "Australian Electoral Commission, 'Compulsory voting in Australia'",
+          sourceUrl: "https://www.aec.gov.au/about_aec/publications/voting/",
           reasoning:
-            "Official government data with decades of consistency. High directness for turnout claim but less direct for representation quality.",
+            "Official government data with decades of consistency; the 1922-to-1925 jump (59.4% to 91.4%) is well documented. High directness for the turnout claim but less direct for representation quality.",
         },
         {
           id: "mv-uninformed-voters",
           title: "Uninformed Voter Behavior Studies",
           description:
-            "Research shows compelled voters are more likely to cast random or donkey votes, and score lower on political knowledge tests than voluntary voters.",
+            "Selb & Lachat (2009) find that compulsory voting draws in less interested and less informed citizens whose party choices are less consistent with their own stated preferences, and that compulsory voting does not raise overall political knowledge. The 'donkey vote' (ranking candidates top-to-bottom in ballot order) is separately estimated at roughly 1-2% of formal ballots in Australia.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
             independence: 7,
             replicability: 5,
-            directness: 7,
+            directness: 6,
           },
-          source: "Selb & Lachat, Electoral Studies 2009",
+          source:
+            "Selb & Lachat, 'The more, the better? Counterfactual evidence on the effect of compulsory voting on the consistency of party choice', European Journal of Political Research 48(5), 2009",
+          sourceUrl:
+            "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-6765.2009.01834.x",
           reasoning:
-            "Peer-reviewed but contested methodology. The 'donkey vote' effect is real but small (1-2% of ballots in Australia).",
+            "Peer-reviewed but based on counterfactual modelling of Belgian survey data, so the magnitude is contested. The paper supports the 'less consistent vote' claim more directly than a generic 'random voting' or knowledge-test framing; directness de-inflated accordingly. The separate donkey-vote figure (~1-2%) comes from Australian electoral commentary, not this paper.",
         },
         {
           id: "mv-oecd-democracy",
-          title: "OECD Democracy Index Comparisons",
+          title: "Democracy Index Comparisons",
           description:
-            "Countries with compulsory voting score comparably or higher on democracy indices, suggesting forced turnout does not degrade democratic quality.",
+            "Several countries with enforced compulsory voting — including Australia, Uruguay and (historically) Belgium — are classified as 'full democracies' near the top of the Economist Intelligence Unit Democracy Index, indicating that compelled turnout is at least compatible with high-quality democracy.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
-            independence: 8,
-            replicability: 7,
-            directness: 5,
+            independence: 7,
+            replicability: 6,
+            directness: 4,
           },
-          source: "OECD, Economist Intelligence Unit",
+          source: "Economist Intelligence Unit, Democracy Index; International IDEA compulsory voting data",
+          sourceUrl:
+            "https://www.idea.int/data-tools/data/voter-turnout-database/compulsory-voting",
           reasoning:
-            "Authoritative cross-national data, but democracy indices measure many factors beyond voting, reducing directness.",
+            "There is no 'OECD Democracy Index'; the relevant index is the Economist Intelligence Unit's, corrected here. Compulsory-voting countries do rank highly, but this is a correlation across very different polities and the index measures many factors beyond voting rules, so directness is low.",
         },
         {
           id: "mv-policy-moderation",
-          title: "Compulsory Voting and Policy Moderation Studies",
+          title: "Compulsory Voting and Policy Consequences Study",
           description:
-            "Analysis of Australian and Belgian policy shows compulsory voting correlates with higher social spending and more centrist policy platforms.",
+            "Fowler (2013), exploiting the staggered roll-out of compulsory voting across Australian states, estimates it raised turnout by ~24 points and increased the Labor Party's vote and seat shares by 7-10 points, with associated increases in pension spending. This implies compulsory voting shifted outcomes toward lower-turnout (working-class) preferences, not necessarily toward the center.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 7,
             independence: 6,
             replicability: 5,
             directness: 6,
           },
-          source: "Fowler, Journal of Politics 2013",
+          source:
+            "Anthony Fowler, 'Electoral and Policy Consequences of Voter Turnout: Evidence from Compulsory Voting in Australia', Quarterly Journal of Political Science 8(2), 2013",
+          sourceUrl: "https://www.nowpublishers.com/article/Details/QJPS-12055",
           reasoning:
-            "Observational study with plausible causal mechanism, but confounders (political culture, institutions) are hard to isolate.",
+            "Corrected the journal (Quarterly Journal of Political Science, not Journal of Politics) and the substance: Fowler finds a partisan/distributive shift toward Labor and higher pension spending, not 'more centrist platforms', so the original 'policy moderation' framing was a misreading. Plausible quasi-experimental design, but observational and Australia-specific.",
         },
       ],
     },
@@ -118,51 +126,56 @@ export const mandatoryVotingData = {
       evidence: [
         {
           id: "mv-aus-enforcement",
-          title: "Australian Enforcement Cost Data",
+          title: "Australian Enforcement Penalty Data",
           description:
-            "Australia spends less per voter on election administration than the US, with fines generating revenue that partially offsets enforcement. Compliance is 94% without any enforcement action needed.",
+            "Australia's first-line penalty for an apparent failure to vote is a $20 administrative fee; non-payment can escalate to a court-imposed fine of up to $330 plus a possible conviction. Because the great majority of electors vote and most who do not provide a valid reason or pay the $20 notice, enforcement remains low-cost relative to the near-universal turnout it sustains.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 7,
-            directness: 8,
+            replicability: 6,
+            directness: 6,
           },
-          source: "Australian Electoral Commission Annual Reports",
+          source: "Australian Electoral Commission, non-voter penalty notices and FAQs",
+          sourceUrl: "https://www.aec.gov.au/faqs/post-election.htm",
           reasoning:
-            "Official data showing the system is self-sustaining. High compliance reduces enforcement burden.",
+            "AEC sourcing confirms the $20 first-line penalty (and $330 court maximum). De-inflated the specific 'less per voter than the US', 'revenue offsets enforcement' and '94% compliance' claims, which were not verifiable from AEC sources; the verifiable point is the modest penalty schedule paired with high turnout.",
         },
         {
           id: "mv-polarization-comparison",
           title: "Political Polarization Comparison",
           description:
-            "Countries with compulsory voting show lower levels of affective polarization and partisan hostility compared to voluntary systems like the US and UK.",
+            "Boxell, Gentzkow & Shapiro track affective polarization across twelve OECD democracies over four decades and find the United States — a voluntary-voting system — had by far the largest increase, while several other countries saw flat or declining polarization. The study does not test compulsory voting as a cause, so it is only suggestive evidence that voting rules might dampen polarization.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 6,
-            directness: 5,
+            directness: 3,
           },
-          source: "Boxell, Gentzkow & Shapiro, NBER 2020",
+          source:
+            "Levi Boxell, Matthew Gentzkow & Jesse M. Shapiro, 'Cross-Country Trends in Affective Polarization', NBER Working Paper 26669, 2020",
+          sourceUrl: "https://www.nber.org/papers/w26669",
           reasoning:
-            "Cross-national polarization data is robust, but many factors beyond voting rules drive polarization.",
+            "The paper robustly documents that US affective polarization rose most among 12 OECD countries, but it makes no claim about compulsory voting as the driver; directness de-inflated because the link from this finding to voting rules is inferential.",
         },
         {
           id: "mv-suppression-counterfactual",
           title: "Voter Suppression Counterfactual Analysis",
           description:
-            "Studies estimate that voter ID laws, purges, and polling place closures in the US suppress 2-3% of eligible votes disproportionately among minorities — a phenomenon that is structurally impossible under compulsory voting.",
+            "The Brennan Center documents that US voter-ID laws, voter-roll purges and polling-place closures depress turnout and fall disproportionately on voters of color. Proponents argue an enforced compulsory-voting regime, which puts the onus on the state to enable every elector to vote, would blunt these tactics.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 6,
-            replicability: 5,
-            directness: 4,
+            sourceReliability: 5,
+            independence: 5,
+            replicability: 4,
+            directness: 3,
           },
-          source: "Brennan Center for Justice",
+          source: "Brennan Center for Justice, voter suppression research",
+          sourceUrl:
+            "https://www.brennancenter.org/topics/voting-elections/voter-suppression",
           reasoning:
-            "The suppression data supports the 'for' case, but the counterfactual framing — that compulsory voting would solve this — is speculative and context-dependent.",
+            "The Brennan Center documents suppression effects directionally, but I could not verify the specific '2-3% of eligible votes' figure as a Brennan Center estimate, so that number was removed and weights de-inflated. The counterfactual that compulsory voting would eliminate suppression is also advocacy-framed and context-dependent.",
         },
       ],
     },

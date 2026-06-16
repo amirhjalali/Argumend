@@ -77,17 +77,19 @@ export const meritocracyMythData = {
           id: "chetty-mobility-decline",
           title: "Absolute Mobility Fell from 90% to 50%",
           description:
-            "Chetty et al. found that the fraction of children earning more than their parents declined from ~90% for the 1940 birth cohort to ~50% for the 1984 cohort.",
+            "Chetty et al. found that the fraction of children earning more than their parents (at age 30) fell from ~90% for the 1940 birth cohort to ~50% for the 1980 cohort. The decline was driven mostly by the more unequal distribution of growth, not slower aggregate growth.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 9,
+            replicability: 8,
             directness: 9,
           },
-          source: "Opportunity Insights, Harvard University",
+          source:
+            "Chetty, Grusky, Hell, Hendren, Manduca & Narang, \"The fading American dream: Trends in absolute income mobility since 1940,\" Science 356:398-406 (2017)",
+          sourceUrl: "https://doi.org/10.1126/science.aal4617",
           reasoning:
-            "Based on comprehensive US tax records covering millions of parent-child pairs.",
+            "Based on de-identified US tax records combined with Census/CPS data covering millions of parent-child pairs.",
         },
         {
           id: "great-gatsby-curve",
@@ -98,34 +100,39 @@ export const meritocracyMythData = {
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 8,
+            replicability: 6,
             directness: 7,
           },
-          source: "Miles Corak, Journal of Economic Perspectives",
+          source:
+            "Miles Corak, \"Income Inequality, Equality of Opportunity, and Intergenerational Mobility,\" Journal of Economic Perspectives 27(3):79-102 (2013); curve named by Alan Krueger (2012)",
+          sourceUrl: "https://doi.org/10.1257/jep.27.3.79",
           reasoning:
-            "Replicated across dozens of countries using comparable methodologies.",
+            "Cross-sectional correlation across a set of mostly OECD countries; widely cited, though the small country sample and choice of mobility estimates are debated.",
         },
         {
           id: "wealth-persistence",
           title: "Intergenerational Wealth Persistence Over Centuries",
           description:
-            "Gregory Clark's research on surname analysis suggests that social status persists across 10-15 generations, far longer than standard economic models predict.",
+            "Gregory Clark's surname-tracking analysis argues that underlying social status is highly persistent (implied intergenerational correlation ~0.7-0.8), so status regresses to the mean very slowly — over many generations rather than the 3-5 implied by conventional single-generation estimates.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 7,
-            replicability: 6,
-            directness: 6,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 4,
+            directness: 5,
           },
-          source: "Gregory Clark, The Son Also Rises",
+          source:
+            "Gregory Clark, The Son Also Rises: Surnames and the History of Social Mobility (Princeton University Press, 2014)",
+          sourceUrl:
+            "https://press.princeton.edu/books/hardcover/9780691162546/the-son-also-rises",
           reasoning:
-            "Methodology is debated, but findings are directionally consistent across multiple countries and time periods.",
+            "Methodology (surname-group averages, the assumed 'social competence' latent variable) is heavily contested by economists; treat as suggestive, not settled.",
         },
         {
           id: "immigrant-upward-mobility",
           title: "Immigrant Families Show Significant Upward Mobility",
           description:
-            "Children of low-income immigrants in the US show substantially higher rates of upward mobility than children of native-born parents at similar income levels.",
+            "Children of low-income immigrants in the US show higher rates of upward mobility than children of US-born parents raised at a similar income level — a pattern holding across most sending countries and across two centuries. The authors attribute much of the gap to immigrants settling in higher-opportunity areas, not innate cultural advantage.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -133,9 +140,11 @@ export const meritocracyMythData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Chetty et al., Immigration and Upward Mobility",
+          source:
+            "Abramitzky, Boustan, Jacome & Perez, \"Intergenerational Mobility of Immigrants in the United States over Two Centuries,\" American Economic Review 111(2):580-608 (2021); see also Abramitzky & Boustan, Streets of Gold (2022)",
+          sourceUrl: "https://doi.org/10.1257/aer.20191586",
           reasoning:
-            "Suggests cultural and motivational factors can overcome structural barriers, though selection effects complicate interpretation.",
+            "Robust across cohorts, but the result is partly geographic (where immigrants locate) rather than evidence that effort alone overcomes structural barriers; selection into migration complicates interpretation.",
         },
       ],
     },
@@ -150,7 +159,7 @@ export const meritocracyMythData = {
       skeptic_premise:
         "While some structural advantages exist, they are being addressed through financial aid, affirmative action, and expanding access to education. The system self-corrects over time. Moreover, many structural factors (stable families, emphasis on education) reflect cultural values and choices rather than arbitrary privilege. Attributing all outcomes to structure denies human agency.",
       proponent_rebuttal:
-        "Legacy admissions at elite universities give applicants a 45% boost in acceptance probability — a form of inherited privilege with nothing to do with merit. Children in high-income zip codes receive dramatically better-funded schools, safer environments, and richer extracurricular opportunities. Social capital networks — who your parents know — determine access to internships, mentorships, and career opportunities. These advantages compound: a child born to wealthy parents in a wealthy zip code attending a legacy-admission school enters the job market with structural advantages that no amount of individual effort from a disadvantaged peer can overcome. The playing field was never level.",
+        "Legacy admissions at elite universities sharply raise an applicant's odds of acceptance — among top-1% families, legacies are roughly five times as likely to be admitted as comparable applicants — a form of inherited privilege with nothing to do with merit. Children in high-income zip codes receive dramatically better-funded schools, safer environments, and richer extracurricular opportunities. Social capital networks — who your parents know — determine access to internships, mentorships, and career opportunities. These advantages compound: a child born to wealthy parents in a wealthy zip code attending a legacy-admission school enters the job market with structural advantages that no amount of individual effort from a disadvantaged peer can overcome. The playing field was never level.",
       crux: {
         id: "structural-decomposition",
         title: "The Structural Advantage Decomposition",
@@ -167,25 +176,27 @@ export const meritocracyMythData = {
       evidence: [
         {
           id: "legacy-admissions",
-          title: "Legacy Admissions Provide 45% Acceptance Boost",
+          title: "Legacy Applicants Are Far More Likely to Be Admitted",
           description:
-            "Research on elite university admissions shows legacy applicants receive a substantial advantage equivalent to scoring 160 points higher on the SAT.",
+            "At Ivy-Plus colleges, legacy applicants are admitted at much higher rates than non-legacies with comparable test scores; among applicants from the top 1% of families, legacies are roughly five times as likely to be admitted as the average applicant with comparable credentials.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 7,
-            directness: 9,
+            replicability: 6,
+            directness: 8,
           },
-          source: "Opportunity Insights, Ivy-Plus admissions data",
+          source:
+            "Chetty, Deming & Friedman, \"Diversifying Society's Leaders? The Determinants and Causal Effects of Admission to Highly Selective Private Colleges,\" NBER Working Paper 31492 (2023)",
+          sourceUrl: "https://www.nber.org/papers/w31492",
           reasoning:
-            "Based on internal admissions data from selective universities.",
+            "Based on linked admissions and tax records from Ivy-Plus colleges. (The often-quoted '160 SAT-point' legacy equivalence comes from separate Espenshade-era work, not this study, so it is not asserted here.)",
         },
         {
           id: "zip-code-effects",
-          title: "Zip Code Predicts Life Outcomes More Than Test Scores",
+          title: "Moving to a Lower-Poverty Neighborhood Raises Children's Earnings",
           description:
-            "The Moving to Opportunity experiment showed that children who moved from high-poverty to low-poverty neighborhoods earned 31% more as adults.",
+            "Re-analysis of the randomized Moving to Opportunity experiment found that children whose families used a voucher to move to a low-poverty neighborhood before age 13 earned about 31% more (roughly $3,500/year) as young adults than the control group; moving as a teenager showed little or slightly negative effect.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -193,41 +204,47 @@ export const meritocracyMythData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Chetty, Hendren & Katz, American Economic Review",
+          source:
+            "Chetty, Hendren & Katz, \"The Effects of Exposure to Better Neighborhoods on Children: New Evidence from the Moving to Opportunity Experiment,\" American Economic Review 106(4):855-902 (2016)",
+          sourceUrl: "https://doi.org/10.1257/aer.20150572",
           reasoning:
-            "Randomized experiment — gold standard for causal inference on neighborhood effects.",
+            "Built on a randomized housing-voucher experiment — strong causal design — though the earnings effect is concentrated among those who moved young.",
         },
         {
           id: "social-capital-networks",
           title: "Social Capital Networks Drive Career Outcomes",
           description:
-            "Chetty's analysis of Facebook data showed that cross-class friendships (economic connectedness) are among the strongest predictors of upward mobility.",
+            "Chetty et al.'s analysis of 21 billion Facebook friendships (72.2 million US users) found that 'economic connectedness' — the share of high-SES friends among low-SES people — is among the strongest known correlates of upward income mobility across areas.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
             replicability: 7,
-            directness: 7,
+            directness: 6,
           },
-          source: "Chetty et al., Social Capital I & II, Nature 2022",
+          source:
+            "Chetty et al., \"Social capital I: measurement and associations with economic mobility\" & \"Social capital II,\" Nature 608:108-121 & 122-134 (2022)",
+          sourceUrl: "https://doi.org/10.1038/s41586-022-04996-4",
           reasoning:
-            "Massive dataset (21 billion friendships) with strong causal identification.",
+            "Massive dataset, but the headline result is an area-level association/predictor, not an established causal effect — the authors are explicit that connectedness is correlational.",
         },
         {
           id: "talent-still-matters",
-          title: "Cognitive Ability Remains a Strong Predictor of Income",
+          title: "Cognitive Ability Strongly Predicts Job Performance",
           description:
-            "Meta-analyses show that cognitive ability (IQ) explains approximately 20-25% of variance in job performance and income, independent of socioeconomic background.",
+            "Schmidt & Hunter's meta-analysis of 85 years of personnel-selection research found general mental ability is the single best predictor of job performance, with an operational validity of about r = 0.51 (around a quarter of the variance) — higher than experience or education.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 8,
-            directness: 6,
+            replicability: 7,
+            directness: 5,
           },
-          source: "Schmidt & Hunter, Psychological Bulletin",
+          source:
+            "Schmidt & Hunter, \"The Validity and Utility of Selection Methods in Personnel Psychology,\" Psychological Bulletin 124(2):262-274 (1998)",
+          sourceUrl: "https://doi.org/10.1037/0033-2909.124.2.262",
           reasoning:
-            "Robust finding, though critics argue IQ itself is partly shaped by structural advantages.",
+            "Robust for job performance, but the study did not measure income and did not control for socioeconomic background; critics also argue measured ability is itself partly shaped by structural advantages.",
         },
       ],
     },
@@ -257,19 +274,21 @@ export const meritocracyMythData = {
       evidence: [
         {
           id: "system-justification",
-          title: "Meritocratic Belief Reduces Support for Redistribution",
+          title: "Meritocratic Belief Functions to Justify Inequality",
           description:
-            "Experimental studies show that priming meritocratic beliefs decreases willingness to support redistributive policies and increases blame directed at disadvantaged groups.",
+            "System-justification theory holds that people are motivated to defend existing social arrangements, with meritocratic 'legitimizing myths' and complementary stereotypes leading them to rationalize inequality — crediting the advantaged and blaming the disadvantaged.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 7,
-            directness: 8,
+            replicability: 6,
+            directness: 6,
           },
-          source: "Jost & Banaji, System Justification Theory",
+          source:
+            "Jost & Banaji, \"The role of stereotyping in system-justification and the production of false consciousness,\" British Journal of Social Psychology 33(1):1-27 (1994)",
+          sourceUrl: "https://doi.org/10.1111/j.2044-8309.1994.tb01008.x",
           reasoning:
-            "Well-replicated finding in social psychology across multiple cultural contexts.",
+            "Influential, much-cited theoretical framework with supporting experiments; the specific claim that priming meritocracy lowers redistribution support rests on later studies and is more contested than the core theory.",
         },
         {
           id: "meritocratic-hubris",
@@ -283,40 +302,49 @@ export const meritocracyMythData = {
             replicability: 5,
             directness: 7,
           },
-          source: "Michael Sandel, The Tyranny of Merit",
+          source:
+            "Michael J. Sandel, The Tyranny of Merit: What's Become of the Common Good? (Farrar, Straus and Giroux / Penguin, 2020)",
+          sourceUrl: "https://www.hup.harvard.edu/books/9780674248090",
           reasoning:
-            "Philosophical argument supported by survey data on attitudes toward non-college-educated workers.",
+            "A normative/philosophical argument, not an empirical study; cites survey evidence on attitudes toward non-college-educated workers but is interpretive rather than causal.",
         },
         {
           id: "effort-motivation",
-          title: "Meritocratic Belief Increases Effort and Persistence",
+          title: "Belief That Effort Is Rewarded Can Increase Persistence",
           description:
-            "Studies show that individuals who believe effort is rewarded work harder, persist longer at difficult tasks, and achieve better educational outcomes.",
+            "Popular research on 'growth mindset' (Dweck) and 'grit' (Duckworth) argues that believing effort and ability can grow leads people to persist longer and, in some studies, achieve modestly better outcomes — though the size and reliability of these effects are disputed.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 4,
+            directness: 5,
           },
-          source: "Dweck, Mindset; Duckworth, Grit",
+          source:
+            "Carol S. Dweck, Mindset: The New Psychology of Success (Random House, 2006); Angela Duckworth, Grit (Scribner, 2016)",
+          sourceUrl:
+            "https://www.penguinrandomhouse.com/books/44330/mindset-by-carol-s-dweck-phd/",
           reasoning:
-            "Robust finding, though critics note it may conflate growth mindset with meritocratic ideology.",
+            "Competing meta-analyses (e.g. Sisk et al. 2018) find growth-mindset interventions have small and inconsistent achievement effects; this also conflates a psychological belief about ability with meritocratic ideology about society.",
         },
         {
           id: "aspirational-framework",
           title: "Meritocracy as Aspirational Standard Drives Reform",
           description:
-            "Historical civil rights movements have invoked meritocratic ideals — judging people by character, not skin color — as the moral basis for demanding structural reform.",
+            "Civil rights advocacy has invoked the ideal of judging people 'by the content of their character' rather than ascribed traits — as in King's 1963 'I Have a Dream' speech — using a meritocratic aspiration as the moral basis for demanding structural reform.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 6,
-            replicability: 5,
-            directness: 6,
+            replicability: 4,
+            directness: 5,
           },
+          source:
+            "Martin Luther King Jr., \"I Have a Dream\" (March on Washington, August 28, 1963)",
+          sourceUrl:
+            "https://www.loc.gov/static/programs/national-recording-preservation-board/documents/IHaveADream.pdf",
           reasoning:
-            "Meritocratic ideals have historically been a tool for expanding inclusion, not just maintaining status quo.",
+            "An interpretive historical argument: a single famous speech illustrates that meritocratic ideals have been used to expand inclusion, but it does not establish a general empirical claim.",
         },
       ],
     },
