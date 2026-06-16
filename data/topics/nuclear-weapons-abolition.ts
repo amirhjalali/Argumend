@@ -45,8 +45,8 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 10,
             directness: 7,
           },
-          source: "John Lewis Gaddis, 'The Long Peace' (1987); Correlates of War Project (COW War Data, 1816–2007)",
-          sourceUrl: "https://correlatesofwar.org/data-sets/cow-war/",
+          source: "John Lewis Gaddis, 'The Long Peace' (1987); Our World in Data, 'War and Peace' (citing Correlates of War Project, 1816–2007)",
+          sourceUrl: "https://ourworldindata.org/war-and-peace",
           reasoning:
             "The historical record of great power peace since 1945 is an undeniable fact, earning high reliability and replicability scores. However, directness is lower because correlation does not establish causation — multiple factors changed simultaneously in 1945 (nuclear weapons, UN, decolonization, bipolarity), making it impossible to isolate the nuclear variable from historical data alone.",
         },

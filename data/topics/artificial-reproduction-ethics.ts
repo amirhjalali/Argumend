@@ -256,8 +256,8 @@ export const artificialReproductionEthicsData = {
             replicability: 8,
             directness: 6,
           },
-          source: "UNESCO; National Academies of Sciences",
-          sourceUrl: "https://www.unesco.org/en/ethics-science-technology/human-cloning",
+          source: "UNESCO Universal Declaration on the Human Genome and Human Rights (Art. 11)",
+          sourceUrl: "https://www.unesco.org/en/legal-affairs/universal-declaration-human-genome-and-human-rights",
           reasoning:
             "The track record of cloning bans provides strong evidence that international governance of reproductive technology can work. However, cloning had limited demand and clear scientific consensus against it — reproductive enhancement technologies may face much stronger commercial pressure and less scientific opposition, making the analogy imperfect.",
         },
