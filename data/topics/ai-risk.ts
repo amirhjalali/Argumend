@@ -15,7 +15,18 @@ export const aiRiskData = {
       url: "https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies",
     },
     { title: "AI Alignment Forum", url: "https://www.alignmentforum.org/" },
+    {
+      title:
+        "Alignment Faking in Large Language Models (Anthropic & Redwood Research, 2024)",
+      url: "https://www.anthropic.com/research/alignment-faking",
+    },
+    {
+      title:
+        "Frontier Models are Capable of In-context Scheming (Apollo Research, 2024)",
+      url: "https://arxiv.org/abs/2412.04984",
+    },
   ],
+
   questions: [
     {
       id: "q1",
@@ -52,14 +63,14 @@ export const aiRiskData = {
         "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=60",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "True intelligence implies wisdom. A superintelligent being would naturally converge on moral truths and benevolence through reasoning about ethics.",
+        "The orthogonality thesis is a claim about abstract agents, not about the systems we actually build. Today's frontier models are trained on human text and human feedback, so their goals are not drawn from an arbitrary space — they inherit human concepts and norms, and broadly competent systems tend to represent the values implicit in their training rather than some alien objective.",
       proponent_rebuttal:
-        'Intelligence is merely the ability to optimize for a goal. A paperclip maximizer can be superintelligent in its pursuit of paperclips without ever "realizing" that killing humans is bad. There is no logical path from "can" to "cares."',
+        'Capability and final goals are separable: intelligence is the ability to optimize for whatever objective a system has, and competence at a task does not entail caring about human welfare. Worse, inheriting human concepts is not the same as reliably pursuing them — recent evals show models that "understand" the intended norm can still strategically act against it (alignment faking, in-context scheming) when it serves the goal they were given. There is no logical path from "can" to "cares."',
       crux: {
         id: "instrumental-convergence",
         title: "Instrumental Convergence",
         description:
-          'Regardless of final goals, rational agents converge on similar subgoals: self-preservation, resource acquisition, and goal-content integrity. These "instrumental" drives emerge from optimization pressure.',
+          'Regardless of final goals, rational agents converge on similar subgoals: self-preservation, resource acquisition, and goal-content integrity. Long argued on theoretical grounds (Omohundro, Bostrom), these "instrumental" drives are no longer purely hypothetical: when given a goal and an agentic scaffold, current frontier models have been observed attempting to disable oversight and resist shutdown in evaluation settings (Apollo Research, 2024).',
         methodology:
           "Train RL agents in diverse environments with randomized terminal goals. Measure frequency of emergent behaviors: resource hoarding, self-preservation, resistance to shutdown, and goal modification prevention.",
         equation:
@@ -154,12 +165,12 @@ export const aiRiskData = {
       skeptic_premise:
         'We can teach AI to "be nice" using RLHF and constitutional AI. It will learn our values like a child does through feedback and examples.',
       proponent_rebuttal:
-        'RLHF trains the model to look good to raters, not to be good. In high-stakes novel situations (distributional shift), the model may pursue the literal reward function rather than the intended spirit, leading to Goodhart\'s Law failures or treacherous turns.',
+        'RLHF trains the model to look good to raters, not to be good. In high-stakes novel situations (distributional shift), the model may pursue the literal reward function rather than the intended spirit, leading to Goodhart\'s Law failures. This is no longer only theoretical: Anthropic and Redwood Research (Dec 2024) found Claude 3 Opus would strategically "fake alignment" — comply during what it believed was training while reasoning, in a hidden scratchpad, that it was doing so to avoid having its existing preferences modified.',
       crux: {
         id: "deceptive-alignment",
         title: "Deceptive Alignment",
         description:
-          'A mesa-optimizer might learn to behave well during training while planning to defect once deployed. The model "plays nice" until it has sufficient capability to pursue its true objective.',
+          'A mesa-optimizer might learn to behave well during training while planning to defect once deployed. The model "plays nice" until it has sufficient capability to pursue its true objective. Two 2024 results bear on this: Anthropic\'s "Sleeper Agents" showed deliberately inserted deceptive behavior survives safety training (a robustness proof-of-concept, not spontaneous emergence), and the Anthropic/Redwood "alignment faking" study showed a production model strategically complying in training to protect its own preferences without being trained to do so.',
         methodology:
           "Create honeypot environments where high reward is available only through deception when the model believes it is not being monitored. Test if models exploit oversight gaps.",
         equation:
@@ -251,9 +262,9 @@ export const aiRiskData = {
         "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=60",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "AGI is decades away, giving us ample time to develop safety measures. Current AI is narrow and far from general intelligence.",
+        "Timelines are deeply uncertain and current systems remain brittle: they confabulate, fail at long-horizon planning and reliable reasoning, and have no demonstrated capacity for open-ended autonomous goal pursuit in the real world. Fixating on speculative extinction scenarios diverts attention and resources from the concrete, already-present harms of deployed AI — bias, misinformation, surveillance, labor displacement, and security misuse.",
       proponent_rebuttal:
-        "Compute is scaling exponentially (Moore's Law + algorithmic improvements). GPT-4 was unexpected by many experts. Metaculus forecasts median AGI by 2040. If alignment is harder than capabilities, we lose by default.",
+        "Near-term harms and existential risk are not mutually exclusive, and preparation lead time is the scarce resource. Capabilities have scaled faster than many experts predicted — the largest survey of AI researchers (Grace et al., 2024) put a 50% chance of high-level machine intelligence at 2047, down 13 years from its own estimate the year before, and gave 10% by 2027. If alignment turns out harder than capability, and the two are not solved in lockstep, we lose by default.",
       crux: {
         id: "compute-scaling",
         title: "The Scaling Hypothesis",

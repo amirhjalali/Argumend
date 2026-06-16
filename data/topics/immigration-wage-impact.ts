@@ -17,7 +17,7 @@ export const immigrationWageImpactData = {
       skeptic_premise:
         "David Card's Mariel boatlift study and subsequent research show minimal wage effects from even sudden, large immigration flows. Immigrants create jobs, start businesses at higher rates than natives, and fill complementary roles that make native workers more productive rather than displacing them.",
       proponent_rebuttal:
-        "George Borjas's reanalysis of the Mariel boatlift, focusing on the most directly competing workers (male high school dropouts), found a 10-30% wage decline for that group. Basic supply and demand dictates that adding labor supply at a given skill level, holding demand constant, puts downward pressure on wages. National Academy of Sciences found short-term negative effects on prior immigrants.",
+        "Card's city-level comparisons can mask wage effects if natives migrate away from immigrant-heavy areas, diluting the local shock. Borjas's national skill-cell approach — comparing workers by education and experience across the whole country — finds that a 10% immigration-driven rise in a skill group's supply lowers that group's wages by roughly 3-4%, and his 2017 Mariel reappraisal found a 10-30% relative wage drop for the most directly competing workers (non-Hispanic male high-school dropouts). Basic supply and demand dictates that adding labor at a given skill level, holding demand constant, pushes wages down. Even the National Academies' consensus report concedes short-term negative effects concentrated on prior immigrants and native dropouts.",
       crux: {
         id: "wage-elasticity-immigration",
         title: "Labor Demand Elasticity for Low-Skill Workers",
@@ -111,9 +111,9 @@ export const immigrationWageImpactData = {
         "Immigrants started 55% of U.S. billion-dollar startups. They also compete for entry-level jobs. Both facts are true simultaneously.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Immigrants are net fiscal contributors over their lifetimes and their children even more so. Innovation rates among immigrants are disproportionately high — immigrants are 80% more likely to found a company and account for 36% of US patent filings. H-1B workers raise wages for complementary native workers with different skills.",
+        "Immigrants are net fiscal contributors over their lifetimes and their children even more so. Innovation rates among immigrants are disproportionately high — immigrants are about 80% more likely to found a firm than native-born Americans (Azoulay, Jones, Kim & Miranda), and immigrant-founded firms are roughly 35% more likely to hold a patent. H-1B and other high-skill workers tend to raise wages for complementary native workers with different skills rather than displacing them.",
       proponent_rebuttal:
-        "Short-term fiscal costs are real, particularly at the state and local level where education, healthcare, and housing costs land. Integration costs, school overcrowding, and housing price pressure are felt acutely by communities even if aggregate GDP grows. The benefits accrue to capital owners and high-skill workers while costs fall on low-wage native workers.",
+        "Aggregate GDP gains say little about distribution. The National Academies' 2017 consensus report finds that when immigration does depress wages, the losses concentrate on prior immigrants and native-born workers without a high-school degree — exactly the groups least able to absorb them. Short-term fiscal costs are also real and unevenly borne: education, healthcare, and housing costs land disproportionately on state and local governments, while school overcrowding and housing-price pressure are felt acutely by receiving communities even as national output grows. The gains tend to accrue to capital owners and high-skill workers; the costs fall on low-wage natives and earlier arrivals.",
       crux: {
         id: "distributional-impact",
         title: "Distributional Analysis of Immigration Benefits and Costs",

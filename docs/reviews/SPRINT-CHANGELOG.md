@@ -96,3 +96,25 @@ mis-dated/mis-cited (Autor-Palmer-Pathak JPE 2014, not "2023"); universal-health
 ($4.3T→$4.9T) + VA wait-time and pharma-R&D figures de-inflated; lab-grown-meat $6.20/lb exposed as a
 techno-economic *projection* by a Believer-Meats founder (independence 6→3); privacy FBI "going dark"
 device count flagged as FBI-admitted overcount. Many weights de-inflated; ~25 items honestly URL-less.
+
+## Iteration 6 (2026-06-16) — WS2 pass 1: narrative-prose citation-integrity sweep
+Swept the pillar NARRATIVE prose (proponent_rebuttal/skeptic_premise/short_summary/crux/references[])
+of 12 maps that had evidence corrected in iters 1-5, fixing fabricated/stale cites stranded in prose
+that the evidence-only agents couldn't reach, and steelmanning weak pillars. Files: tiktok-brain-rot,
+cancel-culture, universal-healthcare, police-reform, veganism-environmental-impact, ev-environmental-impact,
+immigration-wage-impact, ai-risk, obesity-personal-responsibility, rent-control-effectiveness,
+gun-control-effectiveness, seed-oils-health.
+HEADLINE FIX: tiktok-brain-rot's proponent_rebuttal no longer asserts the FABRICATED "Hancock et al. 2023,
+72 studies" meta-analysis as real (→ real Marker/Gnambs/Appel 2018, r≈−0.07); phantom "Montag 2022 striatal
+gambling" and mischaracterized "Baert 2020 natural experiment" purged from prose + references[].
+Other prose fixes: cancel-culture "Pew shows 62%" → Cato/YouGov 2020 everywhere; universal-healthcare
+"$4.3T/17.3%" → "$4.9T/17.6%" + Mercatus M4A framing corrected ($57.6T vs $59.4T national) + "11 nations"→10;
+police-reform CAHOOTS "150/day"→~66/day and STAR "2,500+/2,700"→748 handled; veganism "73%/75% water/biodiv"
+→ 54% water use / 66% biodiversity (Scarborough 2023); ev-impact phantom MIT grid cost & "191 MPG" purged
+from prose; immigration "36% of patents" → ~23% inventors / 35% more likely to hold a patent; ai-risk stale
+"Metaculus AGI 2040" → Grace 2024 (50% HLMI 2047) and alignment-faking/Apollo scheming now reflected;
+obesity fabricated food-desert "25-50%" and "$15,000/yr GLP-1" purged from prose; rent-control Cambridge
+"2023"→Autor-Palmer-Pathak JPE 2014 and fabricated "15.4pp displacement" → verifiable Diamond ~20% mobility;
+gun-control Australia "42%" replaced + DGU NRC 500k-3M range now in prose; seed-oils references[0] Farvid
+"AJCN"→Circulation 2014, wrong "2017 Cochrane 27%/RR0.73"→Hooper 2020 (17%/RR0.83), Israeli-Paradox reframed.
+All edits web-verified, no fabricated cites; both sides steelmanned. tsc clean, 206 tests pass.

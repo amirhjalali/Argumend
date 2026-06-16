@@ -17,9 +17,9 @@ export const gunControlEffectivenessData = {
         "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=800&q=60",
       icon_name: "Scale" as const,
       skeptic_premise:
-        'Comparing the US to other countries ignores unique factors: 400M existing guns, constitutional protections, cultural differences, gang violence concentrated in specific areas. Switzerland has high gun ownership with low violence. Criminals don\'t follow laws.',
+        'Comparing the US to other countries ignores unique factors: ~393M existing guns already in circulation, constitutional protections, cultural differences, and violence concentrated in specific areas. Switzerland has high gun ownership with comparatively low violence. Guns are also used defensively: even the conservative National Crime Victimization Survey records tens of thousands of defensive uses a year, and a 2013 National Research Council review put survey-based estimates in a wide 500,000-3 million range. New sales restrictions barely reach the existing stockpile, and criminals do not follow laws.',
       proponent_rebuttal:
-        "Australia's 1996 gun buyback saw mass shootings drop to near zero. Japan, UK, and most of Europe have strict laws and far fewer gun deaths per capita. The \"criminals don't follow laws\" argument applies to all laws; we don't abandon murder laws because murderers break them.",
+        "After Australia's 1996 National Firearms Agreement, fatal mass shootings fell from 13 in the prior 18 years to zero for the next two decades, and total firearm deaths fell from a mean 3.6 to 1.2 per 100,000 (the study's authors caution they cannot prove the law caused this, since non-firearm deaths also fell). Japan, the UK, and most of Europe pair strict laws with far fewer gun deaths per capita. The \"criminals don't follow laws\" argument applies to all laws; we don't abandon murder laws because murderers break them.",
       crux: {
         id: "natural-experiment",
         title: "Policy Change Natural Experiments",
@@ -114,9 +114,9 @@ export const gunControlEffectivenessData = {
         "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Mass shootings are rare events driven by mental health crises, not gun availability. Determined attackers will find weapons or use other methods (vehicles, bombs). Most mass shooters pass background checks.",
+        "Mass shootings are rare events often driven by mental-health crises, not gun availability. Determined attackers will find weapons or use other methods (vehicles, bombs). In Mother Jones' database of mass shootings since 1982, roughly 74% of the guns used were obtained legally, so most perpetrators passed (or would have passed) a background check.",
       proponent_rebuttal:
-        "Red flag laws, waiting periods, and assault weapon restrictions can prevent impulsive violence. The lethality of attacks depends heavily on weapon type—semi-automatic rifles with high-capacity magazines enable far more casualties than other weapons.",
+        "Red flag laws, waiting periods, and assault-weapon restrictions can prevent impulsive violence. Lethality depends heavily on weapon type: across US mass shootings from 2015-2022, Everytown found incidents involving assault weapons averaged 11.5 killed versus 5.1 for incidents with other guns. Even where most shooters buy legally, removing high-capacity weapons from the legal market lowers the ceiling on casualties.",
       crux: {
         id: "assault-weapon-lethality",
         title: "Weapon Type and Casualty Analysis",

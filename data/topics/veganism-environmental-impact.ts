@@ -12,12 +12,12 @@ export const veganismEnvironmentalData = {
       id: "emissions-land-use",
       title: "Emissions & Land Use Reduction",
       short_summary:
-        "Vegan diets produce 75% less greenhouse gas emissions and use 75% less land than high-meat diets, according to large-scale Oxford research.",
+        "Vegan diets produce about 75% less greenhouse gas emissions and use about 75% less land than high-meat diets, with roughly two-thirds less biodiversity loss and around half the water use, according to large-scale Oxford research.",
       icon_name: "Atom" as const,
       skeptic_premise:
         "Food system emissions are only 26% of the global total; transport and energy dwarf dietary choices. Not all land used for grazing is suitable for crops—much grassland cannot grow vegetables. Ruminants on non-arable land convert inedible grass into protein. A focus on individual diet distracts from systemic industrial change.",
       proponent_rebuttal:
-        "A 2023 Oxford study of 55,000 UK residents published in Nature Food found vegan diets produce just 25% of the greenhouse gas emissions of high-meat diets, use 75% less land, cause 75% less biodiversity loss, and create 73% less water pollution. If everyone went vegan, global farmland could be reduced by 75%—an area the size of the US, China, Australia, and the EU combined. This is not about individual virtue; it is about the single largest lever available for food system decarbonization.",
+        "A 2023 Oxford study of 55,504 UK residents published in Nature Food found vegan diets produce just 25% of the greenhouse gas emissions of high-meat diets and use about 75% less land. The same study put vegans at roughly a third of high-meat-eaters' biodiversity-loss impact (~66% lower), about a quarter of their eutrophication (water-pollution) impact (~73% lower), and under half their water use (~54% lower). Separately, Poore & Nemecek's Science meta-analysis estimates a global shift to plant-based diets could cut food's land use by about 76% and its greenhouse emissions by about 49%—freeing farmland on the scale of the US, China, Australia, and the EU combined. This is not about individual virtue; it is the single largest lever available for food-system decarbonization.",
       crux: {
         id: "global-dietary-shift-modeling",
         title: "Global Dietary Shift Impact Modeling",
@@ -93,7 +93,7 @@ export const veganismEnvironmentalData = {
       skeptic_premise:
         "Vegan diets require careful planning to avoid deficiencies in B12, iron, omega-3, zinc, and calcium. In developing nations, animal products are often the most accessible source of complete protein and bioavailable micronutrients. Children, pregnant women, and the elderly face higher risks. Supplements are not universally available or affordable.",
       proponent_rebuttal:
-        "Major nutrition bodies (Academy of Nutrition and Dietetics, British Dietetic Association) state well-planned vegan diets are nutritionally adequate for all life stages. B12 supplementation costs pennies per day. A 2025 Frontiers in Nutrition study found plant-based diets are equally nutritious and healthy as Mediterranean diets, with small deficits in vitamin D, iodine, and B12 easily remedied with supplements.",
+        "Major nutrition bodies (Academy of Nutrition and Dietetics, British Dietetic Association) state appropriately planned vegan diets are nutritionally adequate for all life stages. B12 supplementation costs pennies per day, and a 2025 Frontiers in Nutrition modelling study found a vegan menu nutritionally equivalent to a Mediterranean diet apart from small, supplement-remediable deficits in vitamin D, iodine, and B12. Crucially, the environmental case targets where the impact actually concentrates: high-income, high-meat consumers. It does not require subsistence farmers in food-insecure regions—who depend on animal-source foods for bioavailable iron, zinc, and B12 and lack reliable supplement supply chains—to abandon livestock. The claim is that affluent populations, whose dietary choices are unconstrained, can shift to plant-based diets without nutritional penalty, which is precisely where the largest emissions and land-use savings sit.",
       crux: {
         id: "population-nutrition-outcomes",
         title: "Large-Scale Vegan Population Health Outcomes",

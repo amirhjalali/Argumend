@@ -12,12 +12,12 @@ export const evEnvironmentalImpactData = {
       id: "manufacturing-battery-impact",
       title: "Manufacturing & Battery Impact",
       short_summary:
-        "An EV starts its life with a larger carbon debt than a gas car. It takes 15,000-40,000 miles of driving to break even, depending on the grid.",
+        "An EV starts its life with a larger carbon debt than a gas car. By Volvo's own accounting it takes roughly 30,000 miles on a clean grid to about 68,000 miles on the global average grid to break even.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Battery production requires massive lithium and cobalt mining, causing deforestation, water pollution, and environmental devastation in the DRC, Chile, and Australia. Manufacturing an EV produces 50-70% more CO2 than an equivalent ICE car. Battery disposal remains an unsolved problem with millions of tons of waste expected by 2040.",
+        "Battery production requires lithium, nickel, and cobalt mining, with real impacts: water-intensive lithium extraction in Chile, hard-rock mining in Australia, and cobalt mining in the DRC tied to toxic waste and child labor. Building an EV emits substantially more CO2 up front than building an equivalent gas car — Volvo's own figures put battery-EV manufacturing about 70% higher. And large volumes of spent batteries are projected by 2040, so end-of-life recycling must scale far beyond today before the loop is genuinely closed.",
       proponent_rebuttal:
-        "The higher manufacturing footprint is offset within 1-3 years of typical driving. Battery recycling technology is advancing rapidly, with Redwood Materials and Li-Cycle already recovering 95%+ of critical minerals. The environmental impact of oil extraction — including spills, refinery emissions, and methane leaks — dwarfs lithium mining at comparable energy scales.",
+        "The higher manufacturing footprint is offset well within the vehicle's lifetime — at typical US mileage that is a matter of a few years of driving, and sooner on cleaner electricity. Battery recycling is scaling: Redwood Materials and Li-Cycle report recovering 95%+ of critical minerals, even if recycled material is still a small share of supply today. And the impacts of oil extraction and refining — spills, refinery emissions, and methane leaks — are large and ongoing, not a one-time manufacturing cost.",
       crux: {
         id: "lifecycle-breakeven",
         title: "Lifecycle Emissions Breakeven Point",
@@ -107,12 +107,12 @@ export const evEnvironmentalImpactData = {
       id: "grid-dependency",
       title: "Grid Dependency",
       short_summary:
-        "An EV charged in Norway (98% renewable grid) saves 70% of lifecycle emissions. Charged in Poland (coal grid), the savings shrink to 25%.",
+        "An EV on Norway's near-100% renewable grid cuts lifecycle emissions by roughly 75-80%. On Poland's coal-heavy grid the advantage shrinks dramatically — close to break-even with a gas car.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "EVs charged on coal-heavy grids can produce more lifecycle emissions than efficient hybrid vehicles. The grid is not ready for mass EV adoption — widespread charging would strain infrastructure, cause blackouts, and require billions in upgrades. In regions like West Virginia or Poland, EVs are effectively coal-powered cars.",
+        "On the dirtiest coal-heavy grids, an EV's lifecycle advantage can shrink to near parity with an efficient hybrid — ICCT finds EVs in Poland barely beat, or roughly match, a comparable gasoline car. Unmanaged charging concentrated at evening peaks could also force costly new generation capacity. In coal-reliant places like West Virginia or Poland, an EV is, in carbon terms, largely a coal-powered car.",
       proponent_rebuttal:
-        "Even on the average US grid mix, EVs produce 60-68% fewer tailpipe-equivalent emissions than ICE vehicles. Grids are rapidly greening — US coal dropped from 45% to 16% of generation in 15 years. Smart charging during off-peak hours can actually stabilize grids by absorbing excess renewable generation, and vehicle-to-grid technology can provide storage.",
+        "Even on the average US grid mix, ICCT puts an EV's lifecycle emissions roughly 60-68% below a comparable gasoline car, and the average US EV is already as clean as a hypothetical 94 MPG gas car (UCS, 2024). Grids are greening fast — US coal fell from a ~48% share of generation around 2007 to about 16% by 2023. And MIT finds that delayed home charging plus workplace charging can smooth peaks and soak up midday solar, so the grid-strain worry is largely a management problem, not an inherent barrier.",
       crux: {
         id: "grid-carbon-threshold",
         title: "Grid Carbon Intensity Threshold for EV Advantage",

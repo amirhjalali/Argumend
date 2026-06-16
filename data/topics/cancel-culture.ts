@@ -17,14 +17,14 @@ export const cancelCultureData = {
       skeptic_premise:
         "\"Cancel culture\" is just accountability with a new name. Marginalized groups finally have tools to challenge powerful people who previously faced no consequences. The supposedly \"canceled\" almost always keep their platforms, wealth, and influence. Social consequences for speech have always existed — this is democracy, not tyranny.",
       proponent_rebuttal:
-        "Fear of cancellation creates a measurable chilling effect on public discourse. Pew Research shows 62% of Americans say the political climate prevents them from sharing their views. Disproportionate punishment — losing a career over a single tweet from a decade ago — violates basic proportionality. Mob justice operates without due process, presumption of innocence, or right of appeal.",
+        "Fear of cancellation tracks with a measurable rise in self-censorship. A 2020 Cato Institute/YouGov survey found 62% of Americans say the political climate prevents them from sharing things they believe — up from 58% in 2017 — and the discomfort spans the spectrum (77% of Republicans, 59% of independents, even 52% of Democrats). Disproportionate punishment — losing a career over a single old tweet — violates basic proportionality, and online pile-ons operate without due process, presumption of innocence, or right of appeal.",
       crux: {
         id: "chilling-effect-measurement",
         title: "Quantifying the Chilling Effect on Public Discourse",
         description:
           "Measuring whether fear of social media backlash measurably reduces the diversity and honesty of publicly expressed viewpoints across institutional and public settings.",
         methodology:
-          "Compare self-reported willingness to express views (Pew, FIRE surveys) with behavioral data: op-ed submission rates, academic paper topic diversity, and public comment participation rates over time. Control for political climate and platform changes.",
+          "Compare self-reported willingness to express views (e.g., Cato/YouGov and FIRE surveys) with behavioral data: op-ed submission rates, academic paper topic diversity, and public comment participation rates over time. Control for political climate and platform changes.",
         equation:
           "\\text{Chilling Index} = 1 - \\frac{\\text{Expressed View Diversity}_{t}}{\\text{Privately Held View Diversity}_{t}}",
         verification_status: "theoretical" as const,
@@ -104,12 +104,12 @@ export const cancelCultureData = {
       id: "social-cultural-impact",
       title: "Social & Cultural Impact",
       short_summary:
-        "62% of Americans say the political climate prevents them from sharing their views. Self-censorship may be rational, but it is not free speech.",
+        "In a 2020 Cato/YouGov poll, 62% of Americans said the political climate prevents them from sharing things they believe. Self-censorship may be rational, but it is not free speech.",
       icon_name: "Users" as const,
       skeptic_premise:
         "Power structures need disruption, and social media gives marginalized people tools to fight back. #MeToo removed actual predators who operated with impunity for decades. Cultural shift toward inclusion requires discomfort. Cancel culture is overstated — most 'cancelations' are temporary, and the discourse about cancel culture is louder than the phenomenon itself.",
       proponent_rebuttal:
-        "Cancel culture disproportionately hits ordinary people without the resources, legal teams, or platforms to fight back. It enforces ideological conformity rather than genuine progress — people learn to perform the correct opinions rather than examine their beliefs. Fear-based compliance is not the same as changed minds and may actually increase hidden resentment.",
+        "Celebrities have legal teams and audiences; ordinary people do not. When a non-public figure like data analyst David Shor loses a job over a single tweet, there is no platform to mount a defense. Survey data also points to conformity pressure that falls unevenly: FIRE's 2024 rankings found conservative students self-censor far more than liberal peers (e.g., 38% vs. 19% in conversations with other students). That gap suggests people are learning to perform accepted opinions rather than examine their beliefs — and fear-based compliance is not the same as changed minds, and may simply drive resentment underground.",
       crux: {
         id: "ordinary-vs-powerful-impact",
         title: "Differential Impact on Ordinary vs. Powerful People",

@@ -12,12 +12,12 @@ export const universalHealthcareData = {
       id: "cost-efficiency",
       title: "Cost & Efficiency",
       short_summary:
-        "The U.S. spends $4.3 trillion on healthcare annually -- 17.3% of GDP. Every country with universal coverage spends less per capita and covers everyone.",
+        "The U.S. spends $4.9 trillion on healthcare annually -- 17.6% of GDP, about $14,570 per person. Every country with universal coverage spends less per capita and covers everyone.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Single-payer would cost $32 trillion over 10 years according to Mercatus Center estimates. Government programs are notoriously inefficient — the VA has documented wait times exceeding 30 days for 30% of veterans. Innovation in pharmaceuticals and medical devices would decline without profit incentives: the US produces 44% of global pharmaceutical R&D. You can't add 27 million people and spend less.",
+        "The Mercatus Center estimated Senator Sanders's Medicare for All Act would add roughly $32 trillion in new federal spending over 10 years — a near-doubling of the federal budget that doubling all individual and corporate income taxes would not cover. Government-run delivery has documented failures: a 2014 VA audit found more than 120,000 veterans left waiting or never seen, with schedulers falsifying records to hide the delays. And the US is the dominant funder of pharmaceutical innovation — PhRMA members account for the large majority of industry R&D per the CBO — so price controls risk weakening the global pipeline. Covering roughly 26 million more people while cutting total spending is not guaranteed.",
       proponent_rebuttal:
-        "The US already spends $4.3 trillion per year on healthcare — more than any country — while covering fewer people. Administrative costs consume 34% of US healthcare spending vs. 17% in Canada. Every other universal system achieves better outcomes at lower per-capita cost. The $32T estimate actually showed savings vs. the current trajectory of $34T+ over the same period. Consolidated purchasing power would reduce drug prices.",
+        "The US already spends $4.9 trillion per year on healthcare (17.6% of GDP, about $14,570 per person) — more than any country — while leaving millions uncovered. A 2017 study by Woolhandler and Himmelstein found administration consumed 34.2% of US health spending versus 17.0% in Canada. Every other wealthy universal system achieves comparable or better outcomes at lower per-capita cost. The same Mercatus analysis that produced the $32T federal figure also projected total national health spending of about $57.6 trillion under Medicare for All versus roughly $59.4 trillion on the current trajectory over 2022-2031 — a net reduction — driven largely by administrative simplification and monopsony drug-price negotiation.",
       crux: {
         id: "administrative-savings-calculation",
         title: "Administrative Savings Under Single-Payer",
@@ -126,12 +126,12 @@ export const universalHealthcareData = {
       id: "quality-access",
       title: "Quality & Access",
       short_summary:
-        "Canada has universal coverage and 6-month surgical wait times. The U.S. has no waits for those who can pay and 28 million uninsured who cannot.",
+        "Canada has universal coverage but a record 27.7-week median wait from referral to treatment. The U.S. has minimal waits for those who can pay and roughly 26 million uninsured who cannot.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "The US leads in cancer survival rates (5-year survival: 67% vs. 55% in UK). American medical innovation — from mRNA vaccines to robotic surgery — leads the world. Wait times in universal systems are significant: median 27.7 weeks for specialist care in Canada. People cross borders TO the US for specialized care. Equalizing access often means equalizing down.",
+        "The US leads on many cancer survival metrics — CONCORD-3 put US 5-year breast-cancer survival at 90.2%, among the highest worldwide, and US prostate-cancer survival far exceeds the UK's. American medical innovation — from mRNA vaccines to robotic surgery — leads the world. Wait times in universal systems are significant: the Fraser Institute measured a record median of 27.7 weeks from GP referral to treatment in Canada in 2023. People cross borders TO the US for specialized care. Equalizing access can mean equalizing down.",
       proponent_rebuttal:
-        "27 million Americans are uninsured and 40% skip needed care due to cost. The US ranks dead last among 11 wealthy nations on the Commonwealth Fund healthcare scorecard. Infant mortality (5.4/1,000) exceeds all peer nations. Life expectancy (77.5 years) is 3+ years below comparable countries. Medical debt is the #1 cause of personal bankruptcy — 530,000 families per year.",
+        "Roughly 26 million Americans are uninsured and many more skip needed care because of cost. The US ranks dead last overall among the 10 high-income nations in the Commonwealth Fund's 2024 Mirror, Mirror scorecard, despite spending the most. US infant mortality (about 5.4-5.6 per 1,000) is among the highest of peer nations, and US life expectancy (about 77 years) sits roughly 3 years below the OECD average. Medical problems contribute to about 66.5% of US bankruptcies — an estimated 530,000 families per year — a phenomenon essentially unique to the US among wealthy nations.",
       crux: {
         id: "outcomes-comparison",
         title: "Risk-Adjusted Health Outcomes Comparison",

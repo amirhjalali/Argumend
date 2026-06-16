@@ -12,12 +12,12 @@ export const policeReformData = {
       id: "use-of-force-accountability",
       title: "Use of Force & Accountability",
       short_summary:
-        "U.S. police kill roughly 1,100 people per year. Germany, with a quarter of the population, averages about 10. The gap demands explanation.",
+        "U.S. police kill more than 1,200 people per year (1,329 recorded in 2023). Germany, with a quarter of the population, averages about 10. The gap demands explanation.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The vast majority of police interactions are lawful and professional. Reform efforts have led to depolicing and crime spikes in cities that defunded. Officers face genuine life-threatening situations daily, and armchair critics underestimate the split-second decisions required.",
+        "The vast majority of police interactions are lawful and professional, and fatal encounters are a tiny fraction of tens of millions of contacts each year. The largest body-camera RCTs (e.g. the ~2,200-officer Washington, DC trial) found no significant effect on use of force, so the marquee accountability fix is not clearly causal. International comparisons are confounded by uniquely high US civilian gun ownership, which raises the threat officers reasonably perceive. Officers face genuine life-threatening situations, and critics underestimate the split-second decisions required.",
       proponent_rebuttal:
-        "US police kill approximately 1,100 people annually — far more than any peer nation per capita. Qualified immunity effectively blocks accountability for misconduct. Body camera studies show a 50% reduction in use of force, suggesting that accountability itself changes behavior. The system protects bad actors.",
+        "US police kill more than 1,200 people annually (1,329 recorded in 2023) — far more than any peer nation per capita, and fewer than 3% of those killings result in an officer being charged. Qualified immunity effectively blocks accountability for misconduct. The single-site Rialto body-camera RCT found roughly a 50% reduction in use-of-force incidents; later larger trials found no significant effect, so the headline figure does not robustly generalize — but the persistent racial disparity (Black Americans about 2.8x more likely to be killed) and the near-total absence of charges point to a system that protects bad actors.",
       crux: {
         id: "accountability-use-of-force-link",
         title: "Accountability–Use of Force Causal Link",
@@ -103,12 +103,12 @@ export const policeReformData = {
       id: "alternative-response-models",
       title: "Alternative Response Models",
       short_summary:
-        "Denver's STAR program diverted 2,700+ calls from police in its first year. Zero required police backup. Scale remains the open question.",
+        "Denver's STAR team handled 748 calls in its first six months with zero arrests and no police backup needed, and a Stanford study tied it to a 34% drop in low-level crime. Scale remains the open question.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
-        "Social workers cannot handle dangerous situations. CAHOOTS-style programs work in small, low-crime cities but don't scale to Chicago or Detroit. Removing police from mental health calls shifts risk to untrained responders. Most calls that seem non-violent can escalate without warning.",
+        "The headline results come from places that may not generalize: Eugene is a small, relatively low-crime, predominantly white city, and Denver's STAR was a six-month pilot in 8 of 36 precincts handling carefully pre-screened, low-level call types. Neither has been demonstrated at the scale or call-mix of Chicago or Detroit. Removing police from crisis calls shifts risk to unarmed responders, and calls that screen as non-violent can escalate without warning.",
       proponent_rebuttal:
-        "CAHOOTS in Eugene, OR handles 20% of all calls with zero weapons and over 150 calls per day. Denver's STAR program diverted 2,500+ calls from police with zero arrests needed. Analysis of 911 calls shows the majority are non-violent — noise complaints, mental health crises, welfare checks — and do not require armed response.",
+        "CAHOOTS in Eugene, OR handled roughly 24,000 calls in 2019 (~66/day) with unarmed teams — about 20% of dispatch volume — requesting police backup on only 311 of them (~1.3%). Denver's STAR team responded to 748 calls in its six-month pilot with zero arrests and no backup needed, and a peer-reviewed Stanford evaluation found it cut targeted low-level crime by ~34% at roughly a quarter of the cost of police-only response. Vera Institute analysis of NYC 911 data found violent-crime calls were only about 4% of dispatches — the bulk are non-emergency, social-need, or administrative matters that do not require an armed response.",
       crux: {
         id: "alternative-response-scalability",
         title: "Scalability of Non-Police Response Models",
