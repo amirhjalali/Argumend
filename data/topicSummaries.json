@@ -132,7 +132,7 @@
   {
     "id": "open-borders",
     "title": "The Case for Open Borders",
-    "meta_claim": "Significantly relaxing or eliminating immigration restrictions would produce massive economic gains and is morally justified.",
+    "meta_claim": "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
     "confidence_score": 62,
     "status": "highly_speculative",
     "category": "policy",
@@ -886,7 +886,7 @@
   {
     "id": "homeschooling-effectiveness",
     "title": "Homeschooling vs. Public School",
-    "meta_claim": "Homeschooled students achieve better academic and social outcomes than public school students on average.",
+    "meta_claim": "Homeschooled students post higher average test scores than public school students, but it is contested whether homeschooling causes the gap or simply reflects the advantaged families who choose it.",
     "confidence_score": 52,
     "status": "contested",
     "category": "economics",

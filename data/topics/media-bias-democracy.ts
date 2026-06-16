@@ -7,6 +7,38 @@ export const mediaBiasDemocracyData = {
     "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
   status: "contested" as const,
   category: "technology" as const,
+  references: [
+    {
+      title:
+        "Groseclose & Milyo, 'A Measure of Media Bias,' Quarterly Journal of Economics 120(4), 2005",
+      url: "https://academic.oup.com/qje/article-abstract/120/4/1191/1926642",
+    },
+    {
+      title:
+        "Gallup, 'Americans' Trust in Media Remains at Trend Low' (2024)",
+      url: "https://news.gallup.com/poll/651977/americans-trust-media-remains-trend-low.aspx",
+    },
+    {
+      title:
+        "Reuters Institute, Digital News Report 2024 — Executive Summary",
+      url: "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024/dnr-executive-summary",
+    },
+    {
+      title:
+        "Pew Research Center, 'Political Polarization & Media Habits' (2014)",
+      url: "https://www.pewresearch.org/journalism/2014/10/21/political-polarization-media-habits/",
+    },
+    {
+      title:
+        "Gentzkow & Shapiro, 'Ideological Segregation Online and Offline,' QJE 126(4), 2011",
+      url: "https://web.stanford.edu/~gentzkow/research/echo_chambers.pdf",
+    },
+    {
+      title:
+        "Huszár et al., 'Algorithmic amplification of politics on Twitter,' PNAS 119(1), 2022",
+      url: "https://www.pnas.org/doi/10.1073/pnas.2025334119",
+    },
+  ],
   pillars: [
     {
       id: "existence-extent-bias",
@@ -15,9 +47,9 @@ export const mediaBiasDemocracyData = {
         "Studies consistently find media bias. They just disagree about which direction it runs, which says something about the researchers too.",
       icon_name: "FileText" as const,
       skeptic_premise:
-        "Claims of 'media bias' are often just disagreement with factual reporting that challenges one's priors. Professional journalism has editorial standards, fact-checking processes, and corrections policies. The real threat to informed citizenship is misinformation from unvetted social media and partisan blogs, not mainstream outlets with reputational stakes. Imperfect journalism is still far better than no institutional journalism.",
+        "Perceived 'bias' is often disagreement with factual reporting that challenges one's priors, and the leading bias-measurement studies are themselves contested: Groseclose & Milyo's think-tank-citation method has been widely criticized for construct validity, and AllSides is an advocacy organization, not peer-reviewed. Professional journalism still maintains editorial standards, multi-source verification, and corrections policies, and the number of fact-checking organizations grew sharply over the past decade. The larger threat to informed citizenship is unvetted misinformation on social media and partisan blogs, not mainstream outlets that carry reputational and legal stakes. Imperfect institutional journalism is still far better than none.",
       proponent_rebuttal:
-        "Studies consistently find mainstream media skews left on social issues and right on economic/military issues. Ownership concentration — 6 corporations own approximately 90% of US media — creates structural bias through editorial pressure and story selection. Coverage choices (what to cover, how much airtime, which experts to feature) are inherently biased even when individual facts are correct. Framing effects shape public opinion as powerfully as outright falsehood.",
+        "Even granting methodological disputes, multiple independent approaches converge on detectable slant — Groseclose & Milyo found all but two of twenty outlets scored left of the median member of Congress, and blind cross-partisan ratings place CNN/MSNBC left and Fox right of center. Bias need not be falsehood: story selection, airtime, and which experts get featured are editorial choices that shape perception even when every individual fact is accurate, and ownership concentration creates structural pressure on what gets covered. Robust standards and growing fact-checking reduce outright error but do not neutralize framing, which research shows can move opinion as powerfully as a false claim.",
       crux: {
         id: "quantitative-bias-measurement",
         title: "Quantitative Media Bias Measurement",
@@ -114,9 +146,9 @@ export const mediaBiasDemocracyData = {
         "Americans now self-sort into separate information ecosystems. The left and right do not just disagree on opinions -- they disagree on facts.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Media pluralism is at an all-time high with internet access. People can access diverse viewpoints more easily than at any point in history — from international outlets to independent journalists to primary source documents. Blaming media for polarization ignores personal responsibility for information consumption and deeper socioeconomic drivers of political division.",
+        "Media pluralism is at an all-time high with internet access. People can access diverse viewpoints more easily than at any point in history — from international outlets to independent journalists to primary source documents. The strongest echo-chamber claims are empirically weaker than headlines suggest: peer-reviewed work (Gentzkow & Shapiro; Flaxman, Goel & Rao) finds online news segregation is modest in absolute terms and well below the segregation of in-person social ties, and the U.S. polarization surge predates social media. Blaming media for polarization understates personal responsibility for information consumption and deeper socioeconomic and partisan-sorting drivers of political division.",
       proponent_rebuttal:
-        "Filter bubbles and algorithmic amplification create echo chambers that reinforce existing beliefs. Trust in media is at historic lows — 32% per Gallup — undermining the shared factual basis democracy requires. Polarized media consumption correlates strongly with political extremism. When citizens cannot agree on basic facts, democratic deliberation becomes impossible.",
+        "Choice and abundance do not guarantee diverse consumption: when given the option, the most ideologically consistent partisans concentrate in like-minded outlets and networks (Pew, 2014). Algorithmic amplification rewards outrage and engagement — Facebook's own researchers flagged that weighting 'angry' reactions surfaced toxic content, and a peer-reviewed audit by Twitter's ML team found systematic political amplification (Huszár et al., PNAS 2022). Trust in mass media sits at a trend low of 31% (Gallup, 2024) and is starkly partisan, eroding the shared factual basis democracy requires. When citizens cannot agree on basic facts, deliberation degrades even if no single outlet lies.",
       crux: {
         id: "echo-chamber-effect",
         title: "Echo Chamber Causation Analysis",

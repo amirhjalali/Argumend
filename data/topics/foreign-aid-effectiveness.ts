@@ -12,12 +12,12 @@ export const foreignAidEffectivenessData = {
       id: "development-outcomes",
       title: "Development Outcomes",
       short_summary:
-        "Bed nets cost $2 each and prevent 500,000+ malaria deaths per year. Not all aid is this legible. Most of it is not.",
+        "A few dollars buys an insecticide-treated bed net, and epidemiological modeling credits nets with averting millions of malaria deaths over the past two decades. Not all aid is this legible. Most of it is not.",
       icon_name: "Target" as const,
       skeptic_premise:
         "Over $4.6 trillion in aid has been transferred to developing countries since 1960, yet many recipient countries remain poor. Aid creates dependency, funds corrupt governments, and distorts local markets by undercutting local producers. Dambisa Moyo's 'Dead Aid' argues that aid is the primary cause of Africa's poverty trap, not the solution.",
       proponent_rebuttal:
-        "Specific, well-targeted interventions work extraordinarily well. Insecticide-treated bed nets cost $2-3 each and prevent malaria cases at $100 per DALY saved. Oral rehydration therapy, vaccines, and deworming have clear RCTs showing massive impact. Under-5 child mortality has fallen 50% since 1990, partly attributable to aid-funded health programs. The aggregate critique conflates bad aid with all aid.",
+        "Specific, well-targeted interventions work extraordinarily well. Insecticide-treated bed nets cost a few dollars each, and cost-effectiveness reviews put them well under $100 per DALY averted. Oral rehydration therapy, vaccines, and deworming have clear RCTs showing large impact. Under-5 child mortality has fallen by roughly 60% since 1990 (UN IGME), partly attributable to aid-funded health programs such as immunization and malaria control. The aggregate critique conflates bad aid with all aid.",
       crux: {
         id: "targeted-vs-general-aid",
         title: "Effectiveness of Targeted Health Aid vs. General Budget Support",
@@ -103,12 +103,12 @@ export const foreignAidEffectivenessData = {
       id: "efficiency-accountability",
       title: "Efficiency & Accountability",
       short_summary:
-        "Estimates suggest 10-30% of aid funds are lost to corruption and administrative overhead. Defenders say that still beats doing nothing.",
+        "How much of a dollar actually reaches the poor depends heavily on the channel — and the headline 'X% lost to corruption' figures turn out to be largely unsourced. Defenders say even imperfect delivery can beat doing nothing.",
       icon_name: "FileText" as const,
       skeptic_premise:
-        "Only 30-40% of aid reaches the intended recipients, with the rest consumed by overhead, consultant fees, and corruption. Tied aid — which requires recipients to purchase goods from the donor country — serves donor economic interests more than recipient needs. Aid conditionality often backfires, imposing harmful structural adjustment. The aid industry itself employs hundreds of thousands of well-paid professionals in donor countries.",
+        "A meaningful share of every aid dollar is consumed before it reaches the intended recipient — through layered overhead, expatriate consultant fees, and, in weak-governance settings, outright leakage. Tied aid, which requires recipients to procure goods from the donor country, demonstrably raises costs and serves donor economic interests more than recipient needs. Aid conditionality has at times imposed harmful structural adjustment. And the aid industry itself sustains a large, well-paid professional class in donor countries, creating an institutional interest in aid volume rather than aid outcomes.",
       proponent_rebuttal:
-        "Cash transfer programs bypass overhead entirely and put money directly in the hands of the poor. GiveDirectly's model shows that 90%+ of donations reach recipients, and rigorous studies show cash transfers improve nutrition, education, and business investment. Aid transparency has improved dramatically since the 2000s with IATI reporting standards. Comparing aid efficiency to doing nothing is the wrong counterfactual — the question is whether it's better than alternatives.",
+        "Cash transfer programs collapse most of the overhead and put money directly in the hands of the poor: GiveDirectly delivers roughly 90% of donated funds to recipients, and RCTs (Haushofer & Shapiro 2016; Egger et al. 2022) show transfers raise consumption, assets, and food security with large local spillovers. Where leakage is documented, it concentrates in specific weak-governance contexts rather than describing aid as a whole. Aid transparency has also improved since the 2000s under the IATI reporting standard. And 'better than nothing' is the wrong counterfactual — the real question is whether a given channel beats the alternatives.",
       crux: {
         id: "delivery-mechanism-comparison",
         title: "Aid Delivery Mechanism Efficiency Comparison",

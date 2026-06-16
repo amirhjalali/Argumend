@@ -4,7 +4,7 @@ export const homeschoolingEffectivenessData = {
   id: "homeschooling-effectiveness",
   title: "Homeschooling vs. Public School",
   meta_claim:
-    "Homeschooled students achieve better academic and social outcomes than public school students on average.",
+    "Homeschooled students post higher average test scores than public school students, but it is contested whether homeschooling causes the gap or simply reflects the advantaged families who choose it.",
   status: "contested" as const,
   category: "economics" as const,
   pillars: [
@@ -12,12 +12,12 @@ export const homeschoolingEffectivenessData = {
       id: "academic-achievement",
       title: "Academic Achievement",
       short_summary:
-        "Homeschooled students score 15-30 percentile points higher on standardized tests. But the families who homeschool are not a random sample.",
+        "Homeschooled students score roughly 15-25 percentile points higher on standardized tests. But the families who homeschool are not a random sample, and even the institute reporting that gap says the studies cannot show homeschooling caused it.",
       icon_name: "FileText" as const,
       skeptic_premise:
-        "Self-selection bias inflates homeschool test scores — homeschool families are disproportionately affluent, educated, and motivated. There is no standardized accountability, and some homeschooled children receive inadequate education. Voluntary testing means only high-performers are measured.",
+        "Self-selection bias inflates homeschool test scores — homeschool families are disproportionately affluent, educated, and motivated, and the largest cited samples are overwhelmingly white, college-educated, and religiously homogeneous. Even NHERI concedes its studies cannot show homeschooling causes the gap rather than family demographics. Testing is voluntary, so the lowest-performing children may never be measured, and because most states require little oversight, some homeschooled children receive inadequate education that no system catches.",
       proponent_rebuttal:
-        "NHERI data shows homeschoolers score 15-30 percentile points above public school averages on standardized tests. Even controlling for demographics, homeschoolers outperform. The personalized pace, curriculum flexibility, and one-on-one instruction are inherent structural advantages over 30-student classrooms.",
+        "NHERI data show homeschoolers scoring about 15-25 percentile points above public school averages, and the gap has been consistent across roughly three decades of studies. The mechanism is plausible: personalized pace, curriculum flexibility, and effectively one-on-one instruction are structural advantages a 30-student classroom cannot match. Some studies report homeschoolers outscoring expectations even within lower-income or minority subgroups, suggesting the format adds value on top of family background, not just selection.",
       crux: {
         id: "selection-bias-controlled",
         title: "Selection-Bias-Controlled Achievement Comparison",
@@ -106,9 +106,9 @@ export const homeschoolingEffectivenessData = {
         "The socialization objection is the first thing everyone raises. The research on it is surprisingly thin in both directions.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Homeschoolers miss critical socialization, conflict resolution with diverse peers, and exposure to different backgrounds and viewpoints. Some experience educational neglect or ideological isolation. The home environment cannot replicate the social complexity of a school.",
+        "Homeschoolers can miss everyday conflict resolution with diverse peers and sustained exposure to different backgrounds and viewpoints. The favorable socialization studies rest on small, self-selected samples, so they cannot rule out that engaged families — not the schooling format — produce the good outcomes. Cardus data point the other way on civic life: homeschool graduates are less likely to register to vote and less likely to vote in local elections. And with minimal oversight in most states, a minority of children face real educational neglect or ideological isolation that no one detects.",
       proponent_rebuttal:
-        "Homeschoolers participate in co-ops, sports leagues, community activities, and religious organizations. Studies show equivalent or better social skills and self-esteem. Public school 'socialization' includes bullying, peer pressure, and artificial age segregation — not an obvious advantage.",
+        "Homeschoolers participate in co-ops, sports leagues, community activities, and religious organizations, so the 'isolated child' stereotype rarely matches reality. The available reviews find their social skills, self-esteem, and adult relationships at least comparable to conventionally schooled peers, and Cardus data show homeschool graduates volunteer and give to charity at higher rates. Public school 'socialization' also includes bullying, peer pressure, and artificial age segregation — not an unqualified advantage.",
       crux: {
         id: "socialization-measurement",
         title: "Standardized Socialization Assessment",

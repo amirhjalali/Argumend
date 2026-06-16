@@ -190,3 +190,21 @@ dozens of fabricated/inverted/mis-attributed citations corrected; prose swept on
 maps; 5 launch-cluster maps upgraded to 100%; a CI ratchet locking coverage ≥95%; LLM/crawler exposure
 via /llms.txt + per-topic schema.org citation; founder launch dossier delivered. 10 commits, each
 web-verified + tsc-clean + 207 tests green + pushed. Remaining work is founder-bound distribution.
+
+## Iteration 11 (2026-06-16) — WS2 pass 3: prose sweep, 10 more maps
+Post-sprint completeness extension — swept prose of 10 hardened-but-unswept maps: big-tech-antitrust,
+inflation-monetary-policy, return-to-office-productivity, global-housing-bubble, media-bias-democracy,
+open-borders, space-exploration-value, sugar-tax-effectiveness, homeschooling-effectiveness,
+foreign-aid-effectiveness. Notable prose fixes: big-tech DMA "structural separation" false claim
+corrected (conduct regulation) + $17.5K WTA re-scoped to search-only; inflation Bernanke-Blanchard
+framing fixed (supply shocks initiated, demand/labor sustained — prose had leaned demand-primary);
+RTO fabricated Envoy lease-correlation removed + Gallup engagement flip corrected (remote ~36% ≈ hybrid
+~35%); global-housing lock-in 85%→76%/57%, Airbnb "15-30%"→~1.9%, institutional share→Urban Institute;
+media-bias stale "6 corps own 90%" removed + Gallup 31% correctly attributed; open-borders remittances
+$656B→$626B + Clemens "double GDP"→"50-150% of world GDP"; space-exploration "$7-14 per $1" ROI myth
+purged from prose (+ corrected a false debunk: memory foam IS a real NASA spinoff); sugar-tax removed a
+prose claim that soda demand is "inelastic" (evidence shows the OPPOSITE, ~0.7-0.8 elasticity) + 2 journal
+mis-cites; homeschooling Ray-2010 "persists across income" + Cardus voting direction fixed; foreign-aid
+"zombie stats" removed (unsourced "10-30% lost to corruption", "30-40% reaches recipients"). Several
+agents added verified topic-level references[] (all URLs already in-file evidence). All web-verified, no
+fabricated cites, both sides steelmanned. Coverage held 98%. tsc clean, 207 tests pass.

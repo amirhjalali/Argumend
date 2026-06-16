@@ -4,7 +4,7 @@ export const openBordersData = {
   id: "open-borders",
   title: "The Case for Open Borders",
   meta_claim:
-    "Significantly relaxing or eliminating immigration restrictions would produce massive economic gains and is morally justified.",
+    "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
   status: "highly_speculative" as const,
   category: "policy" as const,
   pillars: [
@@ -12,12 +12,12 @@ export const openBordersData = {
       id: "economic-arguments",
       title: "Economic Arguments",
       short_summary:
-        "Economists estimate open borders could double world GDP. The question nobody can model: what happens to social trust and welfare states?",
+        "A handful of theoretical models put the gains from free labor mobility at 50-150% of world GDP. The question nobody can model: what happens to social trust, wages, and welfare states under flows that large?",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Open borders would create unsustainable fiscal pressure on welfare states — healthcare, education, and social services would be overwhelmed. Wage depression for low-skilled native workers would be severe: Borjas estimates a 3-4% wage decline per 10% increase in labor supply. Housing crises would worsen dramatically in destination cities already facing shortages.",
+        "The headline GDP gains assume institutions, capital, and public services scale frictionlessly with population — but absorptive capacity is finite, and migration at open-borders scale could erode the very high-productivity institutions that generate the gains. Welfare states face fiscal pressure: healthcare, education, and social services have fixed near-term capacity. Wage depression for low-skilled native workers is plausibly severe at large inflows; Borjas estimates roughly a 3-4% wage decline per 10% increase in competing labor supply, concentrated among the least-educated (a figure Card and others contest as too high). Housing crises would worsen in destination cities already facing shortages. None of the optimistic models survive if integration and institutional quality break down under the load.",
       proponent_rebuttal:
-        "Economists estimate open borders could double world GDP — what Clemens calls 'trillion-dollar bills on the sidewalk.' Geographic restrictions on labor are the largest remaining market distortion in the global economy. Immigrants are net fiscal contributors over their lifetimes in most studies. EU free movement between vastly different economies (Germany, Romania) produced manageable migration and mutual prosperity rather than collapse.",
+        "Clemens's survey of the modeling literature puts the gains from fully removing labor-mobility barriers at roughly 50-150% of world GDP — one or two orders of magnitude larger than the gains from removing all remaining barriers to trade and capital, hence 'trillion-dollar bills on the sidewalk.' The mechanism is uncontroversial even if the magnitude is uncertain: the same worker is far more productive in a high-capital, high-institution economy than in a low-productivity one, so geographic restrictions on labor are plausibly the largest remaining distortion in the global economy. Over a long horizon, immigrants are net fiscal contributors in most US estimates. EU free movement between vastly different economies (Germany, Romania) produced manageable migration and mutual prosperity rather than collapse. Proponents grant the headline figures are theoretical extrapolations from marginal changes, but argue even a fraction of them would dwarf any other available anti-poverty intervention.",
       crux: {
         id: "gdp-gains-estimation",
         title: "Global GDP Gains from Labor Mobility",
@@ -111,9 +111,9 @@ export const openBordersData = {
         "If you think borders are morally arbitrary, open borders follow logically. If you think nations have the right to self-determination, they do not.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Sovereign nations have the right and duty to control their borders — this is foundational to the nation-state system. Open borders are incompatible with welfare states, as Milton Friedman argued. Security screening requires controlled entry points and manageable volumes. Cultural integration requires manageable flows to prevent parallel societies and social fragmentation.",
+        "A bounded political community has a legitimate interest in self-determination — including who joins it — much as an association may set its own membership; this is foundational to the nation-state system, not mere prejudice. Milton Friedman's worry that free immigration and a generous welfare state are in tension (a verbal remark, not a formal proof, and only partly borne out by evidence) points at a real fiscal coordination problem. Security screening requires controlled entry points and manageable volumes. And there is suggestive evidence that rapid, large-scale inflows can strain social trust and slow integration absent the time and institutions to absorb newcomers — so the rate and composition of migration, not just its existence, may matter for whether it succeeds.",
       proponent_rebuttal:
-        "Restricting movement based on birth location is arbitrary discrimination — morally analogous to restricting rights based on race or gender. The 'birthplace lottery' is the largest determinant of lifetime income, dwarfing all other factors. Brain drain concerns are overstated; remittances ($656B in 2022) vastly outweigh foreign aid ($204B). Illegal immigration exists precisely BECAUSE legal pathways are too narrow — open borders would eliminate it.",
+        "Restricting movement based on birth location is arbitrary discrimination — morally analogous to restricting rights based on race or gender. The 'birthplace lottery' is among the largest determinants of lifetime income. Brain drain concerns are partly offset by return migration and skill formation, and remittances to low- and middle-income countries (~$626B in 2022, per the World Bank) vastly outweigh official development assistance (~$204B). Much illegal immigration exists precisely because legal pathways are too narrow — wider legal channels would shrink the unauthorized flows that current enforcement struggles to stop.",
       crux: {
         id: "moral-framework-analysis",
         title: "Moral Framework for Freedom of Movement",

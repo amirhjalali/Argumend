@@ -17,13 +17,13 @@ export const sugarTaxEffectivenessData = {
     },
     {
       title:
-        "Colchero et al. — Beverage Purchases After Mexico's Sugar Tax (BMJ, 2016)",
-      url: "https://www.bmj.com/content/352/bmj.h6704",
+        "Colchero et al. — Sustained Consumer Response Two Years After Mexico's Sugar Tax (Health Affairs, 2017)",
+      url: "https://www.healthaffairs.org/doi/10.1377/hlthaff.2016.1231",
     },
     {
       title:
-        "Scarborough et al. — Impact of the UK Soft Drinks Industry Levy (BMJ, 2024)",
-      url: "https://www.bmj.com/content/385/bmj-2023-077288",
+        "Scarborough et al. — Impact of the UK Soft Drinks Industry Levy on Sugar Content of Soft Drinks (PLoS Medicine, 2020)",
+      url: "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1003025",
     },
   ],
   questions: [
@@ -62,9 +62,9 @@ export const sugarTaxEffectivenessData = {
         "https://images.unsplash.com/photo-1527960471264-932f39eb5846?auto=format&fit=crop&w=800&q=60",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Sugar taxes produce only modest short-term declines in purchasing. Consumers adapt by cross-border shopping, switching to untaxed sugary alternatives, or simply absorbing the price increase. Mexico's initial 6% decline faded over time. Philadelphia saw residents drive to neighboring jurisdictions to buy soda. The demand for sweetened beverages is relatively inelastic, and any reduction is too small to affect population-level health outcomes.",
+        "Sugar taxes shift purchasing more than they shrink total sugar intake. In small jurisdictions, consumers cross-border shop, switch to untaxed sugary alternatives, or face taxes that retailers pass through only partially. Philadelphia is the strongest case: cross-shopping at stores outside the city offset more than half of the in-city sales drop, leaving a net reduction near 22%. Even where demand for soda is genuinely price-responsive, a tax that raises shelf prices only modestly produces a correspondingly modest consumption change — and substitution toward other calorie-dense foods can erode even that. None of this guarantees a population-level health effect.",
       proponent_rebuttal:
-        "Mexico's peso-per-liter tax produced a sustained 7.6% reduction in taxed beverage purchases over two years, with the largest declines (11.7%) among low-income households — the population most vulnerable to obesity-related disease. The UK's tiered levy triggered industry-wide reformulation: average sugar content in soft drinks dropped 46% between 2015 and 2020, affecting every consumer regardless of purchasing behavior. Philadelphia's tax reduced sugary drink sales by 38% within city limits, and even accounting for cross-border shopping, net consumption fell approximately 22%. These are not trivial effects when applied to entire populations over years.",
+        "Mexico's peso-per-liter tax produced a sustained 7.6% average reduction in taxed beverage purchases over two years (rising to 9.7% in year two), with the largest declines among the lowest-income households (about 9% in 2014 and 14.3% in 2015) — the population most vulnerable to obesity-related disease. Soft drinks are in fact among the most price-responsive food categories (elasticity ~0.7-0.8 in Andreyeva et al.'s 160-study review), so price tools bite. The UK's tiered levy also triggered industry-wide reformulation: a peer-reviewed analysis found the sales-weighted sugar content of soft drinks fell roughly 30-34% over 2015-2018 (a later government review cited ~46% over a longer window), affecting every consumer regardless of purchasing behavior. Even Philadelphia, the leakiest case — a 46% in-city sales drop more than half offset by cross-shopping — still shows a net reduction near 22%. These are not trivial effects when applied to entire populations over years.",
       crux: {
         id: "net-consumption-reduction",
         title: "Net Consumption Reduction Test",
@@ -162,9 +162,9 @@ export const sugarTaxEffectivenessData = {
         "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=60",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Sugary beverages account for only a fraction of total caloric intake. Even a meaningful reduction in soda consumption may be compensated by increased consumption of other calorie-dense foods. Obesity is driven by complex interactions between diet, exercise, genetics, and environment — no single-product tax can meaningfully dent it. After a decade of sugar taxes worldwide, no country has demonstrated a statistically significant reduction in obesity rates attributable to the tax.",
+        "Sugary beverages account for only a fraction of total caloric intake. Even a meaningful reduction in soda consumption may be compensated by increased consumption of other calorie-dense foods. Obesity is driven by complex interactions between diet, exercise, genetics, and environment — no single-product tax can meaningfully dent it. After a decade of sugar taxes worldwide, no jurisdiction has demonstrated a causally attributable, population-wide reduction in obesity from a tax alone. The strongest health finding to date — an associational ~8% relative drop in obesity among UK year-6 girls — did not extend to boys or younger children and cannot, by its observational design, isolate the levy from everything else changing at once.",
       proponent_rebuttal:
-        "Sugar-sweetened beverages are the single largest source of added sugars in Western diets, contributing 24% of added sugar intake in the US. Unlike solid foods, liquid calories bypass satiety signals, making them uniquely obesogenic — people don't compensate by eating less. Modeling studies estimate Mexico's tax could prevent 239,000 cases of obesity over a decade. The UK has already seen childhood obesity in year 6 girls decline after the levy. The time lag between consumption reduction and measurable population health outcomes is 5-10 years, so expecting immediate obesity data is unreasonable. Early signals from dental health data (reduced tooth decay in children) confirm the biological pathway is working.",
+        "Sugar-sweetened beverages are the single largest source of added sugars in Western diets — roughly a quarter of added-sugar intake among US adults, and even more among children. Unlike solid foods, liquid calories bypass satiety signals, making them uniquely obesogenic — people don't compensate by eating less. A Health Affairs cohort-simulation model projects Mexico's tax could prevent about 239,900 cases of obesity over a decade (39% of them in children). The UK has already seen an associational ~8% relative decline in obesity prevalence among year-6 girls after the levy (Rogers et al. 2023, PLoS Medicine). The lag between consumption reduction and measurable population health outcomes is 5-10 years, so expecting immediate obesity data is unreasonable. And an early signal from dental data — a ~12% relative fall in children's carious tooth-extraction admissions after the levy (Rogers et al. 2023, BMJ Nutr Prev Health) — is consistent with the sugar-reduction pathway working.",
       crux: {
         id: "obesity-rate-attribution",
         title: "Obesity Rate Attribution Study",
@@ -264,7 +264,7 @@ export const sugarTaxEffectivenessData = {
       skeptic_premise:
         "Sugar taxes are textbook regressive taxation. Low-income households spend a higher proportion of their income on food and beverages, so the tax burden falls hardest on those least able to afford it. This is paternalism dressed as public health — governments telling poor people what they can and cannot consume. Revenue is rarely earmarked for health programs in affected communities. The tax penalizes individual choice while ignoring the structural causes of obesity: food deserts, lack of healthcare access, and economic stress.",
       proponent_rebuttal:
-        "The regressivity argument treats only the financial cost while ignoring the health benefit distribution. Low-income communities bear the highest burden of obesity, type 2 diabetes, and cardiovascular disease — conditions driven partly by sugary beverage consumption. Mexico's data showed the largest consumption reductions (11.7%) among low-income households, meaning the health benefits flow disproportionately to the most vulnerable. When tax revenue is earmarked — as in Berkeley (funding nutrition programs) and Philadelphia (funding pre-K education) — the policy becomes net progressive. The WHO explicitly recommends sugar taxes as a pro-equity intervention because the disease burden they address is concentrated in disadvantaged populations.",
+        "The regressivity argument treats only the financial cost while ignoring the health benefit distribution. Low-income communities bear the highest burden of obesity, type 2 diabetes, and cardiovascular disease — conditions driven partly by sugary beverage consumption. Mexico's data showed the largest consumption reductions among the lowest-income households (about 9% in 2014 and 14.3% in 2015, versus a 7.6% average), meaning any behavioral health benefit flows disproportionately to the most vulnerable. When tax revenue is earmarked — as in Berkeley (funding nutrition programs) and Philadelphia (funding pre-K) — the policy can become net progressive, though whether earmarking actually flips the net incidence is contested and many jurisdictions absorb revenue into general funds. The WHO recommends sugar taxes as a pro-equity intervention because the disease burden they address is concentrated in disadvantaged populations.",
       crux: {
         id: "net-welfare-distribution",
         title: "Net Welfare Distribution Analysis",

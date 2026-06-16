@@ -12,12 +12,12 @@ export const spaceExplorationValueData = {
       id: "economic-returns-spinoffs",
       title: "Economic Returns & Spin-offs",
       short_summary:
-        "NASA claims $7-14 of economic return per dollar spent. Critics say that number relies on counting every downstream use of Teflon and memory foam.",
+        "The popular \"$7-14 back per dollar\" spin-off figure turns out to be a 1970s-90s estimate built on an assumed rate of return, not measured revenue; better-grounded analyses land closer to 2-3:1. The honest case for funding rests on the genuine technologies and the large, fast-growing commercial space sector — not a magic multiplier.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "NASA's $25B+ annual budget could fund universal pre-K, clean water infrastructure, or homelessness solutions with immediate, measurable impact. Space tourism is a billionaire's playground subsidized by taxpayers. Most spin-off claims are exaggerated — memory foam and Tang were not invented by NASA. The opportunity cost of space spending is enormous when millions lack basic needs.",
+        "NASA's ~$24.9B FY2024 budget could instead seed domestic priorities — childcare, water infrastructure, housing — with nearer-term, easier-to-measure impact. Space tourism in particular looks like a billionaire's playground riding on taxpayer-funded launch capability. And the spin-off story is oversold: Tang was a Kraft product NASA merely flew (not invented), and the famous \"$7-14 per dollar\" multiplier is a promotional estimate, not a measured return. Strip away the exaggeration and the question is whether the genuine benefits justify spending public money on space rather than on people who lack basics today.",
       proponent_rebuttal:
-        "NASA estimates a 7:1 ROI through technology spin-offs including GPS navigation, water purification systems, medical imaging (CT/MRI advances), scratch-resistant lenses, and satellite communications. The space economy is projected to reach $1.8 trillion by 2035. Asteroid mining could solve rare-earth resource scarcity. SpaceX has already reduced launch costs by 90%, creating an entirely new commercial sector.",
+        "Skip the inflated multiplier and the case still holds. Real, attributable spin-offs include advances embedded in GPS, water purification, medical imaging, and satellite communications, and NASA has documented over 2,000 such technology transfers since 1976. The commercial space economy reached roughly $570B in 2023 and a 2024 WEF/McKinsey forecast projects ~$1.8T by 2035. SpaceX's reusable rockets cut launch costs dramatically, seeding a private sector that now dwarfs government spending — even if the headline ROI ratio was never solid.",
       crux: {
         id: "space-economy-roi",
         title: "Space Investment ROI Calculation",
@@ -108,9 +108,9 @@ export const spaceExplorationValueData = {
         "The Mars Perseverance rover cost $2.7B. A crewed mission would cost $100B+. The rover does not inspire children to become engineers, but it also does not need life support.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Robotic missions accomplish 90% of the science at 1% the cost of human missions. The ISS cost $150B and hasn't produced game-changing discoveries. Space debris is becoming a catastrophic risk — there are 27,000 tracked pieces of orbital junk threatening all satellite infrastructure. Militarizing space accelerates a dangerous arms race.",
+        "Robotic missions deliver most of the achievable science at a small fraction of the cost and none of the risk to human life. The ISS cost well over $100B and, for that price, has produced incremental rather than game-changing science. Space debris is a mounting, possibly self-reinforcing risk — ESA tracked roughly 35,000 objects in 2024 (about 26,000 of them debris larger than 10cm), with over a million fragments above 1cm estimated in orbit, threatening the satellites that underpin GPS, weather, and communications. And militarizing orbit accelerates a dangerous arms race.",
       proponent_rebuttal:
-        "Climate monitoring satellites are essential for understanding and responding to Earth's changing climate. NASA's DART mission successfully demonstrated asteroid deflection — an existential defense capability. Space capabilities provide critical military strategic advantage (GPS, reconnaissance, communications). Human missions drive public engagement and inspire STEM careers in ways robots cannot.",
+        "Much of this value has no Earth-bound substitute. Earth-observing satellites supply continuous, planet-wide climate and disaster data that ground networks cannot replicate. NASA's DART mission (a ~$324.5M test) measurably shifted asteroid Dimorphos's orbit, proving a real, if low-probability, planetary-defense capability. Orbital assets — positioning, reconnaissance, communications — are now core strategic infrastructure. The human-vs-robotic tradeoff is genuinely contested: robots win on cost-per-result, but crewed missions drive public engagement and STEM pipelines in ways uncrewed probes have not matched. The strongest case leans on the robotic and dual-use wins, not on assuming human missions pay for themselves.",
       crux: {
         id: "human-vs-robotic-value",
         title: "Human vs. Robotic Mission Value Comparison",

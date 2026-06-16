@@ -15,9 +15,9 @@ export const bigTechAntitrustData = {
         "Google holds 90% of search, Apple and Google split mobile OS, Amazon handles 40% of e-commerce. Standard Oil had less market share when it was broken up.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Big tech companies got big by building products people love. Network effects are natural, not anti-competitive. Breaking them up would destroy value and convenience for consumers who benefit from integrated ecosystems. European regulation hasn't produced European tech champions — it has just added bureaucracy.",
+        "Big tech companies got big by building products people love. Network effects are natural, not anti-competitive. Breaking them up would destroy value and convenience for consumers who benefit from integrated ecosystems — choice-experiment estimates put the willingness-to-accept for giving up a free search engine alone at roughly $17,500/year per user. Europe's conduct-based regulation (the DMA) has changed gatekeeper behavior at the margins but has not produced European tech champions, and its early competitive effects look modest.",
       proponent_rebuttal:
-        "Google controls 90%+ of search, Apple and Google control 99% of mobile OS, Amazon is both the marketplace and the competitor on it. This is textbook monopoly power. Startup formation has declined as incumbents acquire or copy every competitive threat. The DOJ's antitrust case against Google found it paid $26B annually to maintain its search default — that's not organic preference, it's a moat bought with monopoly profits.",
+        "Google controls roughly 90% of search, Apple and Google together control about 99% of mobile OS, Amazon is both the marketplace and a competitor selling on it. This is textbook monopoly power. There is a documented pattern of incumbents acquiring nascent rivals (Instagram, WhatsApp, Waze), and the 'kill zone' research strand argues such acquisitions can chill venture funding and entry in adjacent segments — though that empirical claim is genuinely contested. The DOJ's antitrust case against Google established it paid about $26B in 2021 to lock in default-search placement — a moat bought with monopoly profits, not organic preference.",
       crux: {
         id: "consumer-harm-measurement",
         title: "Measuring Consumer Harm in Zero-Price Markets",

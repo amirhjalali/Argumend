@@ -12,11 +12,11 @@ export const globalHousingBubbleData = {
   references: [
     {
       title: "OECD Housing Prices Database",
-      url: "https://www.oecd.org/housing/data/price/",
+      url: "https://www.oecd.org/en/data/indicators/housing-prices.html",
     },
     {
       title: "IMF Global Housing Watch",
-      url: "https://www.imf.org/external/research/housing/",
+      url: "https://www.imf.org/external/research/housing/index.htm",
     },
     {
       title: "Federal Reserve Financial Stability Report",
@@ -34,7 +34,7 @@ export const globalHousingBubbleData = {
       references: [
         {
           title: "OECD Price-to-Income Ratios by Country",
-          url: "https://data.oecd.org/price/housing-prices.htm",
+          url: "https://www.oecd.org/en/data/indicators/housing-prices.html",
         },
       ],
     },
@@ -67,7 +67,7 @@ export const globalHousingBubbleData = {
       skeptic_premise:
         "High price-to-income ratios do not necessarily indicate a bubble. Structural factors have permanently shifted housing valuations upward: constrained land supply in desirable cities, stricter building regulations, dual-income households becoming the norm, and the financialization of housing as a wealth-storage vehicle. Japan's experience in the 1990s is often cited, but most Western markets have fundamentally different demographics and supply constraints. Ratios can stay elevated indefinitely if supply remains restricted.",
       proponent_rebuttal:
-        "In Canada, Australia, New Zealand, and parts of Europe, price-to-income ratios have reached 8-12x median household income, far exceeding the 3-5x range historically considered sustainable. The OECD reports that real house prices outpaced real incomes by over 30% in many member countries between 2015-2022. Every previous episode of such extreme divergence has ended in a correction. Structural arguments were made before the 2008 US crash ('land is limited in coastal cities'), before Japan's 1991 crash ('Japanese culture values property'), and before Ireland's 2007 crash ('the Celtic Tiger is different'). The math of affordability eventually reasserts itself: when mortgage payments consume 40-50% of median income, the buyer pool shrinks until prices must adjust.",
+        "In Canada, Australia, New Zealand, and parts of Europe, price-to-income ratios in major cities sit far above the 3-5x range historically considered sustainable. On the OECD's standardized measure, house prices outpaced household incomes by roughly 17% across member countries between 2015 and 2023, with the steepest divergences in Portugal, Canada, and the US—and the ratio hit record highs in the most stretched markets. Every previous episode of such extreme divergence has eventually ended in a correction. Structural arguments were made before the 2008 US crash ('land is limited in coastal cities'), before Japan's 1991 crash ('Japanese culture values property'), and before Ireland's 2007 crash ('the Celtic Tiger is different'). The math of affordability reasserts itself: once mortgage payments consume an outsized share of income—in Toronto, over half of median after-tax family income on the Fraser Institute's measure—the buyer pool contracts until prices must adjust.",
       crux: {
         id: "affordability-threshold",
         title: "The Affordability Threshold Test",
@@ -167,9 +167,9 @@ export const globalHousingBubbleData = {
         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=60",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Institutional investors represent a small fraction of total housing transactions (under 3% in most markets). Their presence adds liquidity, improves property management standards, and reflects rational investment in a real asset. Foreign investment is heavily regulated in most countries and has declined significantly since 2017 peak levels. Airbnb listings represent less than 1% of total housing stock in most cities. Blaming institutions and foreigners for a structural supply problem is politically convenient but empirically weak.",
+        "Large institutional investors are a small share of the market: the Urban Institute finds firms owning 1,000+ homes hold only about 3% of single-family rentals and under 0.5% of the total single-family stock, and made under 1% of single-family purchases in 2021. Their presence adds liquidity, professionalizes property management, and reflects rational investment in a real asset rather than froth. Foreign investment is heavily regulated in most countries and US foreign-buyer volume has fallen sharply from its 2017 peak. Short-term rentals are typically a single-digit share of housing stock and their measured price effects are modest outside a few tourist cores. Blaming institutions and foreigners for what is fundamentally a supply-and-rate problem is politically convenient but empirically thin.",
       proponent_rebuttal:
-        "Institutional impact is concentrated in specific markets and price tiers where their effect is outsized. In cities like Atlanta, Charlotte, and Phoenix, institutional buyers purchased 25-30% of starter homes in some quarters of 2021-2022, directly competing with first-time buyers in the most price-sensitive segment. Foreign capital distorts markets even at low volumes because it targets premium properties, creating a cascade effect that reprices entire neighborhoods. Airbnb has removed an estimated 1-3% of rental stock in tourist-heavy cities like Barcelona, Lisbon, and Amsterdam, meaningfully tightening an already constrained market. When these investors exit—as they historically do during downturns—the concentrated selling pressure can accelerate declines.",
+        "Even if institutional ownership is small nationally, investor activity is concentrated in specific markets and price tiers where its effect is outsized. In Sun Belt metros like Atlanta and Phoenix, all investors combined bought roughly a quarter to a third of homes sold at the 2021-2022 peak (Redfin: ~28% in Atlanta and ~26% in Phoenix in Q3 2022), skewed toward lower-priced homes that compete directly with first-time buyers. Foreign capital can distort premium segments even at low volumes by targeting trophy properties and repricing surrounding blocks. And short-term rentals, while only a single-digit share of stock in most cities, measurably tighten supply where they cluster—García-López et al. find Airbnb raised Barcelona rents ~1.9% on average and ~7% in the highest-activity neighborhoods. When investors retreat in a downturn—as Redfin shows they did, with purchases falling roughly 45-65% year-over-year across these metros in late 2022—the same concentration that lifted prices can amplify declines on the way down.",
       crux: {
         id: "institutional-exit-risk",
         title: "The Institutional Exit Risk Assessment",
@@ -267,16 +267,16 @@ export const globalHousingBubbleData = {
         "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=60",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Housing markets have already absorbed the rate shock of 2022-2023 without a crash. US home prices continued rising despite 7%+ mortgage rates, Canada avoided a crash, and most European markets saw modest corrections at most. Homeowners locked into low fixed rates have no incentive to sell ('lock-in effect'), constraining supply and supporting prices. Central banks will eventually cut rates, reigniting demand. The housing market has proven far more resilient to rate increases than pessimists predicted.",
+        "Housing markets have already absorbed the sharp rate shock of 2022-2023 without a crash. US home prices reached fresh records even as mortgage rates topped 7%, Canada avoided the widely predicted collapse, and most European markets saw only modest corrections. The lock-in effect is a powerful structural support: with roughly 76% of US mortgages below 5% and 57% below 4%, owners have little reason to sell into a higher-rate market, which throttles for-sale supply and underpins prices. Tight supply, resilient labor markets, and the eventual return of rate cuts all argue for a gradual adjustment rather than a bust. The market has proven far more resilient to tightening than the crash narrative predicted.",
       proponent_rebuttal:
-        "The full impact of higher rates has not yet materialized due to the lag effect. In the US, 85% of mortgages are locked at sub-5% rates, creating a temporary 'golden handcuffs' effect that suppresses both supply and transaction volume. But life events (divorce, job loss, relocation, death) force approximately 4-5% of homeowners to sell annually regardless of rates. As more households roll onto higher rates—particularly in countries with variable-rate mortgages like Canada (5-year terms), Australia, and the UK—the affordability squeeze will intensify. Canada alone faces $900B in mortgage renewals at significantly higher rates through 2026. The Bank for International Settlements warns that the sensitivity of household debt service to rate increases is at its highest level in decades.",
+        "The full impact of higher rates has not yet materialized because of the lag effect. In the US, the lock-in effect is real but finite: roughly 76% of mortgages carry rates below 5% and about 57% below 4%, creating 'golden handcuffs' that suppress supply and transaction volume—yet life events (divorce, job loss, relocation, death) still force a steady stream of owners to sell regardless of rates. The greater exposure is in shorter-term-fixed and variable-rate markets. In Canada, the Bank of Canada estimates about 60% of outstanding mortgages renew across 2025-2026, with five-year fixed holders facing average payment increases of roughly 15-20% (about $5,100 a year) versus December 2024. Australia and the UK, with similar rollover structures, face comparable squeezes. The Bank for International Settlements notes that household debt-service sensitivity to rate increases remains historically elevated in several advanced economies, so the adjustment may still be unfolding rather than over.",
       crux: {
         id: "mortgage-renewal-stress",
         title: "The Mortgage Renewal Stress Test",
         description:
           "Model the impact of upcoming mortgage renewals at higher rates on household finances and forced selling pressure.",
         methodology:
-          "Calculate the volume and timing of mortgage renewals across major markets. Model payment shock for households renewing from sub-3% to 5%+ rates. Estimate the percentage of households that will face debt-service ratios exceeding 40% of gross income. Project forced selling volume and its price impact.",
+          "Calculate the volume and timing of mortgage renewals across major markets. Model the payment shock for households renewing from pandemic-era lows (roughly 2-3%) onto current rates, consistent with the Bank of Canada's estimate of ~15-20% average payment increases for five-year fixed holders in 2025-2026. Estimate the share of households whose debt-service ratios exceed 40% of gross income, and project forced-selling volume and its price impact.",
         equation:
           "\\Delta P_{monthly} = L \\times \\left(\\frac{r_{new}}{12} - \\frac{r_{old}}{12}\\right) \\times \\frac{(1+r_{new}/12)^n}{(1+r_{new}/12)^n - 1}",
         verification_status: "theoretical" as const,
