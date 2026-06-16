@@ -79,19 +79,21 @@ export const moonLandingData = {
       evidence: [
         {
           id: "lrrr-independent",
-          title: "Retroreflector Verified by 12+ Countries",
+          title: "Retroreflectors Ranged by Multiple Nations",
           description:
-            "Observatories in USA, France, Germany, Italy, Australia, Japan, and others have independently bounced lasers off Apollo retroreflectors since 1969.",
+            "Observatories in the USA, France, Germany, Italy, Japan, and China have independently bounced lasers off the Apollo 11, 14, and 15 retroreflector arrays. McDonald Observatory began routine ranging within weeks of Apollo 11.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
-            independence: 10,
-            replicability: 10,
+            independence: 9,
+            replicability: 9,
             directness: 10,
           },
-          source: "Apache Point Observatory",
+          source:
+            "Wikipedia: Lunar Laser Ranging experiment (citing McDonald Observatory, Observatoire de la Côte d'Azur, and the APOLLO collaboration)",
+          sourceUrl: "https://en.wikipedia.org/wiki/Lunar_Laser_Ranging_experiment",
           reasoning:
-            "Multiple independent nations, including Cold War adversaries, have verified the retroreflectors.",
+            "Multiple independent nations have ranged to the Apollo arrays. Note: the USSR ranged its own Lunokhod reflectors rather than the Apollo arrays, so this is not a direct Cold-War-adversary check of Apollo hardware.",
         },
         {
           id: "lro-imagery",
@@ -105,16 +107,16 @@ export const moonLandingData = {
             replicability: 8,
             directness: 9,
           },
-          source: "NASA LRO",
-          sourceUrl:
-            "https://www.nasa.gov/mission_pages/LRO/news/apollo-sites.html",
-          reasoning: "Direct photographic evidence, though from NASA source.",
+          source: "NASA Science — Apollo 11 Landing Site (LRO/LROC imagery)",
+          sourceUrl: "https://science.nasa.gov/resource/apollo-11-landing-site/",
+          reasoning:
+            "Direct photographic evidence showing the descent stage and astronaut footprint trails, though from a NASA source.",
         },
         {
           id: "moon-rocks",
           title: "842 Pounds of Lunar Samples",
           description:
-            "Apollo missions returned 842 pounds of lunar rocks studied by scientists worldwide. Isotopic composition differs from Earth rocks.",
+            "Six Apollo missions returned 382 kg (842 lbs) of lunar rocks and soil — about 2,200 samples — studied by labs worldwide. Isotopic and mineralogical composition differs from Earth rocks.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -122,6 +124,8 @@ export const moonLandingData = {
             replicability: 9,
             directness: 10,
           },
+          source: "NASA Astromaterials Curation — Lunar Rocks and Soils from Apollo Missions",
+          sourceUrl: "https://curator.jsc.nasa.gov/lunar/",
           reasoning:
             "Physical samples distributed to labs globally; composition impossible to fake.",
         },
@@ -137,8 +141,10 @@ export const moonLandingData = {
             replicability: 2,
             directness: 2,
           },
+          source:
+            "Diffraction-limit optics (Hubble's ~0.05 arcsec resolution corresponds to ~90 m at lunar distance, far larger than a 4 m lander)",
           reasoning:
-            "This is a misunderstanding of optics, not evidence of fakery. Diffraction limits apply.",
+            "True statement of optics, but not evidence of fakery: Hubble's diffraction limit makes a few-meter object unresolvable at 384,000 km. Orbiters like LRO image the sites instead.",
         },
       ],
     },
@@ -170,7 +176,7 @@ export const moonLandingData = {
           id: "dosimeter-records",
           title: "Astronaut Dosimeter Readings",
           description:
-            "Personal dosimeters worn by astronauts recorded 0.18-1.14 rad total exposure, well below dangerous levels.",
+            "Personal dosimeters worn by astronauts recorded roughly 0.16-1.14 rad total mission skin dose (Apollo 11 lowest, Apollo 14 highest), well below dangerous levels.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -178,13 +184,17 @@ export const moonLandingData = {
             replicability: 7,
             directness: 9,
           },
-          reasoning: "Direct measurement, though NASA-controlled data.",
+          source:
+            "NASA, Biomedical Results of Apollo / Apollo Experience Report — Protection Against Radiation (NASA Technical Reports Server)",
+          sourceUrl: "https://ntrs.nasa.gov/citations/19760005583",
+          reasoning:
+            "Direct measurement, though NASA-controlled data. Recorded doses are consistent with the short, high-speed belt transits.",
         },
         {
           id: "trajectory-analysis",
           title: "Optimal Trajectory Through Belts",
           description:
-            "Apollo trajectories were specifically designed to minimize time in radiation belts, passing through thinnest regions at high speed.",
+            "Apollo trajectories were designed to cross the belts quickly through thinner regions, bypassing the inner belt entirely (with Apollo 14 the partial exception that passed nearer the trapped-radiation core).",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -192,28 +202,35 @@ export const moonLandingData = {
             replicability: 10,
             directness: 8,
           },
+          source:
+            "Wikipedia: Van Allen radiation belt (Apollo astronauts section, citing NASA mission planning)",
+          sourceUrl: "https://en.wikipedia.org/wiki/Van_Allen_radiation_belt",
           reasoning:
-            "Physics-based analysis that can be independently verified.",
+            "Physics-based trajectory analysis that can be independently verified from published flight paths.",
         },
         {
           id: "soviet-verification",
-          title: "Soviet Union Tracked Missions",
+          title: "Independent Tracking and Soviet Acquiescence",
           description:
-            "The USSR, with every incentive to expose a fake, tracked Apollo missions with their own radar and never disputed their authenticity.",
+            "Jodrell Bank Observatory (UK) independently received Apollo 11's transmissions and simultaneously tracked the Soviet Luna 15 probe in lunar orbit. The USSR, with every incentive to expose a fake, never disputed the landings' authenticity.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 10,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 8,
+            independence: 9,
+            replicability: 5,
+            directness: 6,
           },
-          reasoning: "Cold War adversary verification is highly independent.",
+          source:
+            "Jodrell Bank Centre for Astrophysics — history of space tracking (Apollo 11 / Luna 15)",
+          sourceUrl: "https://www.jb.man.ac.uk/history/tracking/part2.html",
+          reasoning:
+            "Non-NASA tracking by a third-party observatory, plus the absence of any Soviet challenge despite Cold War incentive, are strongly independent corroboration.",
         },
         {
           id: "belt-intensity-claim",
           title: "Van Allen Belts Are Lethal",
           description:
-            "Claims that Van Allen belt radiation would kill astronauts instantly.",
+            "Hoax claim that Van Allen belt radiation would kill astronauts during transit.",
           side: "against" as const,
           weight: {
             sourceReliability: 2,
@@ -221,8 +238,10 @@ export const moonLandingData = {
             replicability: 1,
             directness: 3,
           },
+          source:
+            "Debunked: contradicted by measured Apollo dosimeter doses (~0.16-1.14 rad; NASA SP-368)",
           reasoning:
-            "Misunderstands that dose = intensity × time; fast transit means low dose.",
+            "Misunderstands that dose = intensity × time; the fast belt transit produced only ~1-2 rad, far below a lethal (hundreds of rad) dose.",
         },
       ],
     },

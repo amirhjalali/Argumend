@@ -57,18 +57,19 @@ export const privacyVsConvenienceData = {
           title:
             "Meta Maintains Shadow Profiles on Non-Users via Contact Harvesting",
           description:
-            "Research from Northeastern University and Max Planck Institute demonstrated that Facebook constructs detailed profiles on individuals who have never created accounts, using contact lists uploaded by other users, tracking pixels on third-party websites, and facial recognition in tagged photos. A 2018 congressional inquiry confirmed that Facebook collected data on non-users. Data broker Acxiom claims to hold profiles on 2.5 billion consumers globally, aggregated from public records, purchase data, and digital tracking — most of whom never consented to data collection.",
+            "An academic study (Aguiar, Peukert, Schäfer & Ullrich, 2022) estimated that Facebook is able to track roughly 40% of the web browsing time of both users and non-users, partly because users sharing demographic data lets the platform infer details (such as age and gender) about non-users who never consented. Separately, in April 2018 congressional testimony, Mark Zuckerberg acknowledged that Facebook collects data on people who are not signed up. Data broker Acxiom states in its own marketing materials that it reaches over 2.5 billion of the world's consumers, aggregated from public records, purchase data, and digital tracking — most of whom never directly consented.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 9,
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 8,
           },
           source:
-            "Northeastern University / Max Planck Research; US Congressional Hearing Testimony (2018)",
+            "Aguiar, Peukert, Schäfer & Ullrich, 'Facebook Shadow Profiles' (arXiv:2202.04131, 2022); Zuckerberg US Congressional Testimony (April 2018); Acxiom Global Data marketing brochure",
+          sourceUrl: "https://arxiv.org/abs/2202.04131",
           reasoning:
-            "Academic research and congressional testimony are credible independent sources. Shadow profiles directly demonstrate that individual opt-out choices are insufficient when the social graph exposes you through others' behavior. This is the strongest evidence that privacy is not purely an individual choice.",
+            "The 'Facebook Shadow Profiles' working paper is independent academic work; its 40% browsing-time tracking figure is the directly verifiable claim. Zuckerberg's 2018 admission is a matter of public record. The Acxiom 2.5 billion figure is the company's own self-reported marketing claim, so reliability is moderate. Weights were lowered from the prior version because earlier attributions (Northeastern/Max Planck, facial recognition in tagged photos) could not be verified. Shadow profiles still demonstrate that individual opt-out is insufficient when others' behavior exposes you.",
         },
         {
           id: "device-fingerprinting-accuracy",
@@ -91,20 +92,21 @@ export const privacyVsConvenienceData = {
         {
           id: "privacy-tools-adoption",
           title:
-            "Privacy Tools Reaching Meaningful Scale: Signal 40M+, Brave 60M+ Monthly Users",
+            "Privacy Tools Reaching Meaningful Scale: Brave 100M+ MAU, Signal ~40M",
           description:
-            "Privacy-focused alternatives have achieved significant adoption: Signal has over 40 million monthly active users, Brave browser has 60+ million monthly users, DuckDuckGo processes 100+ million daily searches, and ProtonMail serves 100+ million accounts. Ad blocker usage exceeds 40% of internet users globally. These numbers, while small relative to mainstream platforms, demonstrate that privacy-preserving tools can reach scale and that consumer demand for privacy is real and growing.",
+            "Privacy-focused alternatives have achieved significant adoption. Brave Software announced in late 2023 that its browser passed 100 million monthly active users. Signal reported around 40 million monthly active users (2021 figure), and DuckDuckGo has processed roughly 100 million searches per day. These numbers, while small relative to mainstream platforms (Brave's 100M+ vs Chrome's billions; Signal's ~40M vs WhatsApp's 2B+), demonstrate that privacy-preserving tools can reach meaningful scale and that consumer demand for privacy is real.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
             directness: 6,
           },
           source:
-            "Signal Foundation; Brave Software; DuckDuckGo; Proton Technologies",
+            "Brave Software ('Brave passes 100 million monthly active users'); Signal Foundation (2021 figure); DuckDuckGo",
+          sourceUrl: "https://brave.com/blog/100m-mau/",
           reasoning:
-            "Usage numbers are self-reported by companies, slightly reducing reliability. The scale is real but represents a small fraction of total internet users (Signal's 40M vs WhatsApp's 2B). Directness is moderate because tool adoption doesn't prove effective privacy protection — users of these tools may still be tracked through other vectors.",
+            "Usage numbers are largely self-reported by the companies, reducing reliability and independence; the Signal figure in particular dates to 2021. The Brave 100M MAU claim is verified via Brave's own announcement. The scale is real but represents a small fraction of total internet users. Directness is moderate because tool adoption doesn't prove effective privacy protection — users of these tools may still be tracked through other vectors.",
         },
       ],
     },
@@ -139,7 +141,7 @@ export const privacyVsConvenienceData = {
           title:
             "Section 702 Reauthorized and Expanded in 2024 Despite Privacy Concerns",
           description:
-            "In April 2024, Congress reauthorized Section 702 of the Foreign Intelligence Surveillance Act for two years, rejecting proposals to require warrants for querying Americans' data swept up in foreign intelligence collection. The reauthorized version expanded the definition of 'electronic communications service provider,' potentially compelling more companies to assist surveillance. The ODNI's annual transparency report disclosed that the FBI conducted 204,090 queries of Section 702 data using US person identifiers in 2022 — later revised downward after an audit found 'significant overcounting,' illustrating the opacity of these programs.",
+            "In April 2024, Congress passed the Reforming Intelligence and Securing America Act (RISAA), reauthorizing Section 702 of the Foreign Intelligence Surveillance Act for two years (sunset April 2026) and rejecting proposals to require warrants for querying Americans' data swept up in foreign intelligence collection. The reauthorized version expanded the statutory definition of 'electronic communications service provider,' which privacy advocates warned could compel a broader set of entities to assist surveillance. Public ODNI transparency reporting on FBI queries of Section 702 data using US-person identifiers has been marked by large year-over-year swings and acknowledged overcounting, illustrating the opacity of these programs.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -148,7 +150,8 @@ export const privacyVsConvenienceData = {
             directness: 9,
           },
           source:
-            "Office of the Director of National Intelligence; Congressional Research Service; FISA Court Public Opinions",
+            "Congressional Research Service, 'FISA Section 702 and the 2024 Reforming Intelligence and Securing America Act' (R48592); Office of the Director of National Intelligence transparency reports",
+          sourceUrl: "https://www.congress.gov/crs-product/R48592",
           reasoning:
             "Official government disclosures and congressional records are highly reliable. The reauthorization with expanded scope directly contradicts the narrative that surveillance is being reined in. The FBI query numbers demonstrate the scale of domestic impact from a program nominally targeting foreigners.",
         },
@@ -195,18 +198,20 @@ export const privacyVsConvenienceData = {
           title:
             "Default Encryption on Billions of Devices Has Created Real Government Blind Spots",
           description:
-            "Since 2014, Apple and Google have implemented default full-disk encryption on iOS and Android devices. End-to-end encryption in iMessage, WhatsApp (2 billion users), and Signal means that even with a lawful warrant, service providers cannot decrypt message contents. FBI Director Christopher Wray testified in 2023 that the bureau was unable to access data on thousands of devices despite having legal authority. The 'going dark' problem is real — encryption has created genuine technical barriers to surveillance that no legal authority can overcome without device-level access.",
+            "Since 2014, Apple and Google have implemented default full-disk encryption on iOS and Android devices. End-to-end encryption in iMessage, WhatsApp (2 billion users), and Signal means that even with a lawful warrant, service providers cannot decrypt message contents — the FBI's long-running 'going dark' campaign reflects that these barriers are real. A cautionary note on the headline numbers: in 2017-2018 the FBI repeatedly told Congress it could not access nearly 7,800 locked devices, but the bureau later admitted a programming error caused 'significant over-counting' and the true figure was likely closer to 1,200-2,000 devices. The technical barrier is genuine even if specific government statistics have been overstated.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 7,
-            replicability: 8,
-            directness: 8,
+            replicability: 7,
+            directness: 6,
           },
           source:
-            "FBI Congressional Testimony; Apple Security Documentation; WhatsApp Technical White Paper",
+            "The Washington Post, 'FBI repeatedly overstated encryption threat figures to Congress, public' (May 2018); Apple platform security documentation; WhatsApp Encryption Overview",
+          sourceUrl:
+            "https://www.washingtonpost.com/world/national-security/fbi-repeatedly-overstated-encryption-threat-figures-to-congress-public/2018/05/22/5b68ae90-5dce-11e8-a4a4-c070ef53f315_story.html",
           reasoning:
-            "FBI testimony about investigative limitations is a credible admission against interest. The technical reality of end-to-end encryption is well-established and independently verifiable. However, metadata (who contacts whom, when, and where) remains accessible even with content encryption, and governments have invested heavily in endpoint exploitation (device hacking) to circumvent encryption.",
+            "The technical reality of end-to-end encryption is well-established and independently verifiable. Weights were lowered from the prior version because the original 'thousands of devices / 2023 testimony' framing relied on an FBI figure that was publicly retracted as a large overcount (~7,775 claimed vs ~1,200-2,000 actual). Metadata (who contacts whom, when, where) also remains accessible even with content encryption, and governments invest in endpoint exploitation to circumvent it — so encryption is a real but partial blind spot.",
         },
       ],
     },
@@ -260,7 +265,7 @@ export const privacyVsConvenienceData = {
           title:
             "Dark Patterns in Cookie Consent Result in 90%+ Acceptance Rates",
           description:
-            "Research from Ruhr University Bochum and the University of Michigan found that the design of cookie consent interfaces dramatically affects user choices: when 'reject all' is as easy as 'accept all,' rejection rates reach 60-80%. But most implementations use dark patterns — pre-checked boxes, hidden reject options, and confusing multi-step flows — resulting in 90%+ acceptance rates. A 2022 study of the top 10,000 websites found that only 11.8% offered a reject-all option equal in prominence to the accept-all button. The European Data Protection Board issued guidelines against dark patterns in 2022, but enforcement has been slow, and the consent banner experience remains widely regarded as GDPR's most visible failure.",
+            "A widely cited CHI 2020 study by Nouwens, Liccardi, Veale, Karger & Kagal scraped the consent interfaces of the top 10,000 websites in the UK and found that only 11.8% met the minimal requirements of European law, with dark patterns and implied consent ubiquitous. In a paired field experiment (n=40), the authors showed that removing the 'reject all' button from the first page — forcing users through a 'more options' step — substantially increased the share of users who consented, confirming that interface design drives consent outcomes more than user preference. The European Data Protection Board later issued guidelines against deceptive design patterns (03/2022), but enforcement has been uneven, and the consent banner remains widely regarded as GDPR's most visible shortcoming.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -269,16 +274,17 @@ export const privacyVsConvenienceData = {
             directness: 8,
           },
           source:
-            "Ruhr University Bochum; University of Michigan; European Data Protection Board Guidelines 03/2022",
+            "Nouwens, Liccardi, Veale, Karger & Kagal, 'Dark Patterns after the GDPR' (CHI 2020); European Data Protection Board Guidelines 03/2022",
+          sourceUrl: "https://dl.acm.org/doi/10.1145/3313831.3376321",
           reasoning:
-            "Academic research with large sample sizes from independent universities. The finding that consent design determines outcomes more than user preferences directly undermines the consent-based regulatory model. Replicability is strong as multiple studies reach similar conclusions. Demonstrates that regulation can be rendered ineffective through implementation choices.",
+            "Peer-reviewed academic research (CHI 2020) by independent authors at MIT, UCL, and Aarhus University with a large website sample (n=680 of the top 10,000 UK sites) plus a controlled experiment. The prior version mis-attributed the work to Ruhr University Bochum and the University of Michigan; that attribution has been corrected. The 11.8% figure refers to minimal GDPR compliance, not specifically reject-all prominence. The finding that consent design determines outcomes more than user preference directly undermines the consent-based regulatory model.",
         },
         {
           id: "federal-privacy-law-failure",
           title:
             "US Federal Privacy Legislation Has Failed Repeatedly Since 2012",
           description:
-            "The United States remains the only major democracy without comprehensive federal privacy legislation. Since the Obama administration's 2012 Consumer Privacy Bill of Rights, at least 12 major federal privacy bills have been introduced and failed, including the American Data Privacy and Protection Act (ADPPA) in 2022, which had rare bipartisan support but stalled over preemption disputes with California. As of 2026, only sector-specific laws exist (HIPAA for health, COPPA for children, GLBA for finance). Meanwhile, 19 states have enacted their own privacy laws, creating a fragmented patchwork that is difficult for consumers to navigate and for companies to comply with. The lobbying expenditure of tech companies on privacy legislation exceeds $100 million annually.",
+            "The United States still lacks a comprehensive federal privacy law. The American Data Privacy and Protection Act (ADPPA) advanced out of the House Energy and Commerce Committee in July 2022 on a 53-2 bipartisan vote — a rare moment of momentum — but never received a floor vote. House Speaker Nancy Pelosi declined to bring it up over its preemption provisions, which California argued would weaken the CCPA/CPRA. A successor effort, the American Privacy Rights Act, was introduced in 2024 but also stalled. As a result only sector-specific federal laws exist (HIPAA for health, COPPA for children, GLBA for finance), while a growing number of states have enacted their own privacy laws, creating a fragmented patchwork.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -287,16 +293,18 @@ export const privacyVsConvenienceData = {
             directness: 8,
           },
           source:
-            "Congressional Research Service; International Association of Privacy Professionals (IAPP); OpenSecrets Lobbying Data",
+            "IAPP, 'Pelosi opposes proposed American Data Privacy and Protection Act, seeks new preemption compromise'; Congressional records on ADPPA (H.R. 8152) and the American Privacy Rights Act",
+          sourceUrl:
+            "https://iapp.org/news/a/pelosi-rejects-proposed-american-data-privacy-and-protection-act-seeks-new-compromise",
           reasoning:
-            "Legislative history is a matter of public record and highly reliable. The repeated failure of federal privacy legislation despite broad public support (polls consistently show 70-80% favoring stronger privacy laws) demonstrates the structural obstacles to regulatory reform in the US. The lobbying data from OpenSecrets illustrates the industry opposition dimension.",
+            "Legislative history is a matter of public record and highly reliable. The repeated failure of federal privacy legislation despite broad public support demonstrates structural obstacles to US regulatory reform. The earlier '12 bills since 2012' count and '$100M annual lobbying' figure were dropped because they could not be pinned to a specific verifiable source; the ADPPA 53-2 committee vote and Pelosi's preemption objection are well-documented.",
         },
         {
           id: "global-privacy-expansion",
           title:
-            "Privacy Regulation Expanding Globally: 160+ Countries Now Have Data Protection Laws",
+            "Privacy Regulation Expanding Globally: ~137 of 194 Countries Have Data Protection Laws",
           description:
-            "According to the UNCTAD, over 160 countries have enacted data protection and privacy legislation as of 2024, up from 76 in 2010. India's Digital Personal Data Protection Act (2023) covers 1.4 billion people. Brazil's LGPD (2020) has established an independent enforcement authority. Japan, South Korea, and Thailand have strengthened their privacy frameworks to achieve EU adequacy decisions. The African Union's Malabo Convention has driven adoption across the continent. While enforcement quality varies widely, the global trajectory is unambiguously toward more regulation, not less. Companies are increasingly adopting GDPR-level protections as a global baseline to avoid managing jurisdiction-specific compliance.",
+            "According to UNCTAD, 137 of 194 countries (about 71%) have enacted data protection and privacy legislation, with another 9% having draft legislation; adoption ranges from roughly 96% in Europe down to about 50% in Africa. India's Digital Personal Data Protection Act (2023) covers more than 1.4 billion people, Brazil's LGPD (2020) established an independent enforcement authority, and several Asian jurisdictions have strengthened frameworks toward EU adequacy. While enforcement quality varies widely, the global trajectory is toward more regulation, not less, and companies increasingly adopt GDPR-level protections as a global baseline.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -305,11 +313,11 @@ export const privacyVsConvenienceData = {
             directness: 7,
           },
           source:
-            "UNCTAD Data Protection Legislation Database; World Bank Digital Development Reports",
+            "UNCTAD, 'Data Protection and Privacy Legislation Worldwide'",
           sourceUrl:
             "https://unctad.org/page/data-protection-and-privacy-legislation-worldwide",
           reasoning:
-            "UNCTAD and World Bank are authoritative international sources. The global expansion of privacy legislation is an objective fact. Directness is moderate because the existence of laws does not guarantee effective enforcement — many of the 160+ countries have minimal enforcement capacity. However, the trend creates a regulatory ratchet that makes reversal difficult.",
+            "UNCTAD is an authoritative international source. The prior '160+ countries, up from 76 in 2010' figures were corrected to UNCTAD's actual count of 137 of 194 countries (71%). Directness is moderate because the existence of laws does not guarantee effective enforcement — many countries have minimal enforcement capacity — but the trend creates a regulatory ratchet that makes reversal difficult.",
         },
       ],
     },

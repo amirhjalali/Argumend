@@ -34,47 +34,56 @@ export const gunControlEffectivenessData = {
       evidence: [
         {
           id: "australia-buyback",
-          title: "Australia's Gun Buyback Success",
+          title: "Australia's Gun Buyback and Mass Shootings",
           description:
-            "After the 1996 buyback of 650,000 firearms, Australia has had zero mass shootings (vs. 13 in prior 18 years) and gun homicides dropped 42%.",
+            "After the 1996 National Firearms Agreement (which banned semiautomatic rifles and bought back ~650,000 firearms), Australia recorded 13 fatal mass shootings in 1979-1996 and zero from 1997 through May 2016. Total firearm deaths fell from a mean 3.6 to 1.2 per 100,000, with the pre-existing decline accelerating. The authors caution they cannot determine whether the law caused the change, since non-firearm deaths also declined over the period.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 6,
-            directness: 9,
+            replicability: 5,
+            directness: 6,
           },
-          source: "JAMA (2016)",
-          reasoning: "Natural experiment with clear before/after comparison.",
+          source: "Chapman, Alpers & Jones, JAMA (2016)",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/27332876/",
+          reasoning:
+            "Strong natural experiment, but the authors explicitly decline to claim causation, and the firearm-homicide acceleration was not statistically significant. The earlier '42% drop in gun homicides' figure is not from this study; corrected.",
         },
         {
           id: "international-rates",
-          title: "US Gun Death Rate 25x Higher Than Peers",
+          title: "US Gun Death Rate Far Higher Than Peer Nations",
           description:
-            "The US has 12.21 gun deaths per 100K vs. 0.5 in UK, 0.04 in Japan.",
+            "The US total firearm death rate (homicide + suicide + accidental) was about 12.2 per 100,000 in IHME's 2019 Global Burden of Disease estimates, and the CDC reported 12.8 per 100,000 for 2024 (~44,000 deaths). This is an order of magnitude higher than other wealthy democracies such as the UK and Japan, which have among the lowest firearm death rates in the world.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 10,
-            directness: 7,
+            replicability: 9,
+            directness: 6,
           },
-          source: "IHME, CDC",
-          reasoning: "Clear correlation but causation debated.",
+          source: "IHME Global Burden of Disease (2019); CDC/NCHS (2024)",
+          sourceUrl:
+            "https://www.pewresearch.org/short-reads/2026/04/28/what-the-data-says-about-gun-deaths-in-the-us/",
+          reasoning:
+            "Cross-national rate gap is robust and well-documented; the directness of the causal inference (laws vs. many confounders) remains debated. Exact UK/Japan decimals vary by dataset and homicide-only vs. all-cause framing, so stated qualitatively.",
         },
         {
           id: "existing-guns",
-          title: "400 Million Guns Already in Circulation",
+          title: "Hundreds of Millions of Guns Already in Circulation",
           description:
-            "The US has more guns than people. New laws can't address existing stockpile.",
+            "The 2017 Small Arms Survey estimated ~393 million civilian-held firearms in the US (about 120 per 100 residents, more than any other country and more guns than people). New restrictions on sales do not directly reach this existing stockpile.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 9,
+            replicability: 8,
             directness: 6,
           },
-          reasoning: "Practical implementation challenge.",
+          source: "Small Arms Survey, Global Firearms Holdings (2017)",
+          sourceUrl:
+            "https://www.smallarmssurvey.org/database/global-firearms-holdings",
+          reasoning:
+            "Practical implementation challenge. The US has no national firearm registry, so the count is a modeled estimate, not an exact inventory.",
         },
         {
           id: "defensive-gun-use",
@@ -89,11 +98,11 @@ export const gunControlEffectivenessData = {
             directness: 6,
           },
           source:
-            "Kleck & Gertz (1995); NCVS (BJS); National Research Council (2013)",
+            "RAND, 'The Challenges of Defining and Measuring Defensive Gun Use'; Kleck & Gertz (1995); National Research Council (2013); NCVS (BJS)",
           sourceUrl:
-            "https://en.wikipedia.org/wiki/Defensive_gun_use",
+            "https://www.rand.org/research/gun-policy/analysis/essays/defensive-gun-use.html",
           reasoning:
-            "Highly contested estimates with large methodological disagreements between survey-based (Kleck/Gertz) and victimization-survey (NCVS) approaches; the wide range is not a CDC original estimate.",
+            "Highly contested estimates with large methodological disagreements. RAND notes the National Research Council's 500,000-3 million range, judges the Kleck/Gertz ~2.5 million figure 'not plausible' against the total number of people shot each year, and says the NCVS almost certainly underestimates DGUs. The wide range is not a CDC original estimate.",
         },
       ],
     },
@@ -123,47 +132,58 @@ export const gunControlEffectivenessData = {
       evidence: [
         {
           id: "assault-weapon-casualties",
-          title: "Assault Weapons Cause 2x Casualties",
+          title: "Mass Shootings With Assault Weapons Are Deadlier",
           description:
-            "Mass shootings with assault-style rifles average 8.2 deaths vs. 4.4 with other weapons.",
+            "Across US mass shootings from 2015-2022, Everytown found the 30 incidents involving assault weapons averaged 11.5 killed and 35.4 shot per incident, vs. 5.1 killed and 6.1 shot in the 78 incidents using other guns.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 7,
             directness: 8,
           },
-          source: "Everytown Research",
-          reasoning: "Clear statistical pattern, though advocacy source.",
+          source: "Everytown Research (advocacy org), 2015-2022 data",
+          sourceUrl:
+            "https://everytownresearch.org/report/assault-weapons-and-high-capacity-magazines/",
+          reasoning:
+            "Clear and large statistical pattern, but the source is a gun-control advocacy organization (not peer-reviewed/independent), so reliability and independence are lowered. RAND separately rates causal evidence on assault-weapon bans as inconclusive. Earlier '8.2 vs 4.4' figures did not match the source and were corrected.",
         },
         {
           id: "red-flag-laws",
-          title: "Red Flag Laws Reduce Suicides",
+          title: "Red Flag Laws May Reduce Firearm Suicides",
           description:
-            "States with Extreme Risk Protection Orders show 5-14% reduction in firearm suicides.",
+            "Studies of early extreme-risk protection order (ERPO) laws estimated roughly a 7.5% firearm-suicide reduction in Indiana and ~13.7% in Connecticut (Swanson et al.). RAND's evidence synthesis rates this as 'limited' evidence that ERPO laws may reduce firearm and total suicides, noting some offsetting increase in non-firearm suicides.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
+            independence: 8,
+            replicability: 5,
             directness: 6,
           },
-          source: "Annals of Internal Medicine",
-          reasoning: "Suicides are clearer to study than rare mass shootings.",
+          source:
+            "RAND, The Science of Gun Policy (ERPO/suicide); Swanson et al. (Connecticut, Indiana)",
+          sourceUrl:
+            "https://www.rand.org/research/gun-policy/analysis/extreme-risk-protection-orders/suicide.html",
+          reasoning:
+            "Suicide is easier to study than rare mass shootings, but RAND classifies the evidence as 'limited' (most studies have methodological concerns), so replicability is lowered and the claim is hedged.",
         },
         {
           id: "background-check-pass",
-          title: "Most Mass Shooters Pass Background Checks",
+          title: "Most Mass Shooters Obtain Guns Legally",
           description:
-            "77% of mass shooters obtained weapons legally or would have passed checks.",
+            "In Mother Jones' database of US mass shootings since 1982, about 74% of the firearms used were obtained legally, implying most perpetrators passed (or would have passed) a background check.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
+            sourceReliability: 6,
+            independence: 6,
             replicability: 7,
-            directness: 7,
+            directness: 6,
           },
-          reasoning: "Limits effectiveness of background check expansion.",
+          source: "Mother Jones US Mass Shootings Database (since 1982)",
+          sourceUrl:
+            "https://www.motherjones.com/politics/2012/12/mass-shootings-mother-jones-full-data/",
+          reasoning:
+            "Limits the expected effect of background-check expansion on this specific subset of crime. The dataset is a journalistic compilation using a narrow definition of 'mass shooting,' so it is not peer-reviewed; '74%' obtained-legally is the verifiable figure (the earlier '77%' was not matched to a source).",
         },
         {
           id: "substitute-methods",

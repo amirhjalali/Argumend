@@ -40,7 +40,7 @@ export const rentControlEffectivenessData = {
           title:
             "Stanford Study: San Francisco Rent Control Reduced Rental Supply by 15%",
           description:
-            "Diamond, McQuade, and Qian (2019) exploited the 1994 ballot initiative that extended San Francisco rent control to small multifamily buildings built before 1980. Using a difference-in-differences design comparing buildings just above and below the size threshold, they found that affected landlords reduced rental housing supply by 15% — primarily through condo conversions and building demolitions. The authors estimated that the resulting supply contraction raised market-rate rents by 5.1% citywide, partially offsetting the benefits to protected tenants.",
+            "Diamond, McQuade, and Qian (2019), published in the American Economic Review (vol. 109, no. 9), exploited a 1994 San Francisco law change that extended rent control to small multifamily buildings (four or fewer units) built before 1980. Using a difference-in-differences design comparing buildings just above and below the threshold, they found that landlords treated by rent control reduced rental housing supply by 15% — by selling to owner-occupants and redeveloping buildings. The abstract concludes that the lost rental supply 'likely drove up market rents in the long run, ultimately undermining the goals of the law'; the paper estimates a roughly 5.1% citywide market-rent increase.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -48,53 +48,55 @@ export const rentControlEffectivenessData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Diamond, McQuade & Qian, American Economic Review (2019)",
+          source:
+            "Diamond, McQuade & Qian, American Economic Review, 109(9): 3365-94 (2019)",
           sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
           reasoning:
-            "Published in the American Economic Review, the top economics journal, using a rigorous natural experiment design. The finding directly demonstrates supply reduction from rent control. However, the study examined a strict, pre-1994 policy without vacancy decontrol or new-construction exemptions — limiting generalizability to modern rent stabilization designs.",
+            "Published in the American Economic Review, the top economics journal, using a rigorous natural experiment design. The 15% supply reduction is stated directly in the abstract (verified); the 5.1% citywide rent figure appears in the paper body and is widely cited. The study examined a strict policy without vacancy decontrol or new-construction exemptions — limiting generalizability to modern rent stabilization designs.",
         },
         {
           id: "cambridge-decontrol-study",
           title:
-            "Cambridge Decontrol Did Not Increase New Construction (Autor, Palmer & Pathak 2023)",
+            "Cambridge Decontrol Raised Property Values via Spillovers, Not Mainly New Construction (Autor, Palmer & Pathak 2014)",
           description:
-            "Autor, Palmer, and Pathak studied the 1995 elimination of rent control in Cambridge, Massachusetts. While decontrol increased property values of formerly controlled units by 25% and generated positive spillover effects on neighboring property values, the authors found no statistically significant increase in new housing construction following decontrol. This challenges the core supply argument — if removing rent control does not spur new building, then rent control may not be the primary constraint on supply.",
+            "Autor, Palmer, and Pathak studied the unanticipated 1995 elimination of rent control in Cambridge, Massachusetts. They found that decontrol generated large, positive house-price spillovers, accounting for about a quarter of Cambridge's roughly $7.8 billion in residential property appreciation between 1994 and 2004 — with more than half of the induced appreciation accruing to never-controlled properties. The authors note that residential investment can explain only a small fraction of these value gains, implying that the appreciation reflected neighborhood-amenity spillovers rather than a surge in new construction. This complicates the simple 'remove rent control and supply will follow' narrative.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
-            directness: 8,
+            replicability: 6,
+            directness: 6,
           },
-          source: "Autor, Palmer & Pathak, Journal of Political Economy (2023)",
-          sourceUrl: "https://doi.org/10.1086/722218",
+          source:
+            "Autor, Palmer & Pathak, Journal of Political Economy, 122(3): 661-717 (2014)",
+          sourceUrl: "https://doi.org/10.1086/675536",
           reasoning:
-            "Published in a top-five economics journal by leading researchers. The finding that decontrol raised property values but not construction suggests that zoning, permitting, and land-use constraints — not rent control — are the binding supply constraint. Replicability is somewhat lower because Cambridge is a single dense urban market with unique characteristics.",
+            "Published in the Journal of Political Economy by leading researchers (verified: 2014, vol. 122 no. 3, DOI 10.1086/675536 — an earlier draft mislabeled this as a 2023 paper with an incorrect DOI). The paper's central result is about price spillovers, not a direct test of new-construction response, so directness for the supply argument is lower than previously stated and weights are de-inflated accordingly.",
         },
         {
           id: "new-construction-exemptions",
           title:
             "Modern Rent Stabilization Exempts New Construction, Preserving Building Incentives",
           description:
-            "Oregon's statewide rent stabilization (SB 608, 2019), California's Tenant Protection Act (AB 1482, 2019), and most European rent regulations explicitly exempt new construction for 15-30 years. Economic theory predicts that if new buildings are exempt from price caps, the incentive to build is unaffected. Early data from Oregon shows no decline in multifamily building permits in the two years following adoption, though the COVID-19 pandemic complicates causal inference.",
+            "Oregon's statewide rent stabilization (SB 608, 2019) and California's Tenant Protection Act (AB 1482, 2019), along with many European rent regulations, explicitly exempt newer construction from rent caps for a fixed window (Oregon and California exempt buildings for roughly their first 15 years). Economic theory predicts that if new buildings are exempt from price caps, the marginal incentive to build is largely unaffected, removing the classic mechanism by which rent control suppresses supply. Whether construction has in fact held steady under these specific laws is an empirical question complicated by the COVID-19 pandemic and interest-rate shifts; the earlier claim of 'no decline in Oregon permits' was not verified against a primary data source here.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
           },
           source:
-            "Oregon Bureau of Labor and Industries; California Department of Housing and Community Development",
+            "Oregon SB 608 (2019) and California AB 1482 (2019) statutory text — policy-design point; permit-trend claim not independently verified",
           reasoning:
-            "The policy design argument is logically sound — exempting new construction removes the theoretical mechanism through which rent control reduces supply. However, empirical evidence is still emerging for these newer policies, and the COVID-19 pandemic disrupted housing markets, making causal attribution difficult.",
+            "The policy-design argument is logically sound — exempting new construction removes the theoretical mechanism through which rent control reduces supply, and the new-construction exemptions in SB 608 and AB 1482 are a matter of statute. However, the specific empirical claim that permits did not decline was not verifiable against a primary source, so it has been qualified and weights lowered. No sourceUrl is asserted because none was web-verified.",
         },
         {
           id: "economist-consensus-survey",
           title:
-            "IGM Forum Survey: 81% of Economists Agree Rent Control Reduces Housing Quality and Quantity",
+            "IGM Forum Survey: Roughly 82% of Economists Reject the Claim That Rent Control Has Improved Affordable Housing",
           description:
-            "The University of Chicago IGM Forum surveyed leading economists in 2012 on whether rent ceilings reduce the quantity and quality of housing available. 81% agreed or strongly agreed, 2% disagreed, and 17% were uncertain. This represents one of the strongest consensus positions in economics, comparable to trade liberalization benefits. However, critics note the survey question referenced generic 'rent ceilings' rather than modern rent stabilization with vacancy decontrol and new-construction exemptions.",
+            "The University of Chicago IGM Economic Experts Panel surveyed leading economists on February 7, 2012, on the statement: 'Local ordinances that limit rent increases for some rental housing units, such as in New York and San Francisco, have had a positive impact over the past three decades on the amount and quality of broadly affordable rental housing in cities that have used them.' Of the panelists who responded, 13 strongly disagreed and 24 disagreed (about 82% of respondents), only 1 agreed (Bengt Holmström, who reported low confidence), and 3 were uncertain. This near-unanimous rejection is one of the stronger consensus positions in economics. However, the question referenced traditional rent-ceiling ordinances rather than modern rent stabilization with vacancy decontrol and new-construction exemptions.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -102,11 +104,11 @@ export const rentControlEffectivenessData = {
             replicability: 8,
             directness: 6,
           },
-          source: "University of Chicago IGM Forum (2012)",
-          sourceUrl:
-            "https://www.igmchicago.org/surveys/rent-control/",
+          source:
+            "University of Chicago Booth IGM / Kent Clark Center Forum (Feb. 2012)",
+          sourceUrl: "https://www.igmchicago.org/surveys/rent-control/",
           reasoning:
-            "The IGM Forum polls top economists from leading universities and is a respected measure of expert opinion. The near-consensus is striking. However, directness is lower because the question addressed generic rent ceilings rather than specific modern policy designs, and several respondents noted in comments that the answer depends heavily on implementation details.",
+            "The IGM Forum polls top economists from leading universities and is a respected measure of expert opinion. The response distribution is verified directly against the survey page (~82% disagree/strongly disagree; one panelist agreed). Note: an earlier draft framed this as '81% agree rent control reduces quantity/quality,' which inverted the actual question — the panel was asked whether rent control had a positive impact, and overwhelmingly said no. Directness is lower because the question addressed traditional rent ceilings, not modern policy designs.",
         },
       ],
     },
@@ -139,45 +141,46 @@ export const rentControlEffectivenessData = {
         {
           id: "displacement-prevention",
           title:
-            "Rent Control Reduced Tenant Displacement by 15.4 Percentage Points in San Francisco",
+            "Rent Control Lowered Displacement and Limited Renter Mobility by 20% in San Francisco",
           description:
-            "The Diamond et al. (2019) study found that tenants in rent-controlled buildings were 15.4 percentage points more likely to remain at their address over the study period compared to tenants in uncontrolled buildings. The effect was largest for elderly tenants and minority households — groups most vulnerable to displacement and with the fewest alternative housing options. The authors calculated that incumbent tenants received a cumulative benefit of $2.9 billion in reduced rent payments over the study period.",
+            "The Diamond, McQuade & Qian (2019) study found that rent control limited renters' mobility by 20% and lowered the displacement of incumbent tenants from San Francisco — a result stated directly in the paper's abstract. The benefits were concentrated among more vulnerable incumbent tenants who were able to stay in place. The authors document a substantial wealth transfer from landlords to protected tenants, though that transfer must be weighed against the long-run market-rent increase caused by the same supply contraction.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 8,
-            directness: 9,
+            directness: 8,
           },
-          source: "Diamond, McQuade & Qian, American Economic Review (2019)",
+          source:
+            "Diamond, McQuade & Qian, American Economic Review, 109(9): 3365-94 (2019)",
           sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
           reasoning:
-            "Same rigorous study that documented supply reduction also documented significant displacement prevention benefits. This is 'against' the meta claim that rent control hurts renters, because it shows clear measurable benefits for incumbent tenants. The $2.9 billion benefit to tenants is a direct welfare gain, though it must be weighed against the supply reduction costs documented in the same study.",
+            "Same rigorous study that documented supply reduction also documented displacement-prevention benefits, so it is 'against' the meta claim that rent control hurts renters. The 20% mobility reduction and the lower-displacement finding are verified in the abstract. An earlier draft cited a specific '15.4 percentage point' displacement effect and a '$2.9 billion' tenant benefit; those precise figures could not be confirmed from the source and have been replaced with the abstract's directly verifiable claims.",
         },
         {
           id: "stockholm-queue",
           title:
             "Stockholm Rent Control Creates 9-12 Year Queue for Housing",
           description:
-            "Stockholm's comprehensive rent regulation system has created a housing queue that averaged 9 years as of 2020, with waits of 15-20 years for desirable central locations. The queue system, managed by the Stockholm Housing Agency, had over 700,000 registered applicants for a city of 975,000 residents. A thriving black market for rental contracts emerged, with controlled apartments illegally sublet at 2-3x the regulated rent. Young Swedes are effectively locked out of the housing market, with the average age of first independent rental at 27.",
+            "Stockholm's comprehensive rent regulation system is widely reported to have produced long waiting queues for first-hand rental contracts, allocated through the municipal Bostadsförmedlingen (Stockholm Housing Agency), with multi-year average waits and far longer waits for desirable central locations. The regulated system is also associated with a sizeable secondary (sublet) market in which contracts change hands above the regulated rent. The specific figures sometimes cited (e.g., a 9-12 year average queue, 700,000+ registrants) have not been verified here against a primary Housing Agency source and should be treated as indicative rather than exact.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 8,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
           },
           source:
-            "Swedish National Board of Housing; Bostadsformedlingen (Stockholm Housing Agency)",
+            "Bostadsförmedlingen (Stockholm Housing Agency); secondary press and policy reporting — specific figures not independently verified",
           reasoning:
-            "The Stockholm queue is the most extreme documented case of rent control creating housing access barriers for newcomers. The data from the Housing Agency is authoritative. However, Stockholm represents an unusually strict system without vacancy decontrol, combined with restrictive zoning — making it a worst-case rather than representative example of rent regulation outcomes.",
+            "Stockholm is frequently cited as a case where rent regulation, combined with restrictive zoning and no vacancy decontrol, creates long access queues for newcomers. The qualitative pattern is well established in the literature, but no primary Housing Agency source URL could be verified for the precise queue-length and registrant numbers, so the specific figures were softened and weights lowered. No sourceUrl is asserted because none was web-verified.",
         },
         {
           id: "nyc-misallocation",
           title:
             "NYC Rent Stabilization: Significant Mismatch Between Unit Size and Household Size",
           description:
-            "A 2018 New York City Housing and Vacancy Survey found that rent-stabilized tenants had a median tenure of 13 years compared to 4 years for market-rate tenants. Studies by Glaeser and Luttmer (2003) documented significant misallocation: rent-controlled households were more likely to occupy units that did not match their household size — elderly singles in large family apartments, and families in studios. The below-market rents created strong incentives to hold units regardless of fit, reducing turnover and preventing more efficient matching of units to household needs.",
+            "Glaeser and Luttmer's 'The Misallocation of Housing Under Rent Control' (American Economic Review, vol. 93, no. 4, 2003) developed a framework to test for misallocation by comparing consumption patterns across demographic subgroups in rent-controlled versus free-market settings. In New York City they found that an economically and statistically significant fraction of apartments appears to be misallocated across demographic subgroups — for example, household size not matching unit size. Below-market rents create incentives to hold units regardless of fit, reducing turnover. (NYC Housing and Vacancy Survey tenure differences are often cited alongside this, but the specific '13 years vs 4 years' median-tenure figure was not verified against a primary HVS source here.)",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -186,27 +189,29 @@ export const rentControlEffectivenessData = {
             directness: 7,
           },
           source:
-            "NYC Housing and Vacancy Survey (2018); Glaeser & Luttmer, Journal of Political Economy (2003)",
+            "Glaeser & Luttmer, American Economic Review, 93(4): 1027-46 (2003)",
+          sourceUrl:
+            "https://www.aeaweb.org/articles?id=10.1257/000282803769206188",
           reasoning:
-            "The NYC Housing and Vacancy Survey is the official data source mandated by city law. Glaeser and Luttmer's study is methodologically sound and published in a top journal. The misallocation finding is well-documented but must be weighed against the displacement prevention benefits — elderly tenants in 'too large' apartments may have no affordable alternative if forced to move.",
+            "Glaeser and Luttmer's study is methodologically sound and published in the American Economic Review (verified — an earlier draft incorrectly attributed it to the Journal of Political Economy). The misallocation finding is well documented but must be weighed against displacement-prevention benefits. The cited NYC HVS median-tenure figure could not be verified against a primary source, so it is qualified rather than asserted.",
         },
         {
           id: "low-income-disproportionate-benefit",
           title:
             "Rent Stabilization Disproportionately Benefits Low-Income and Minority Households",
           description:
-            "Analysis of the 2021 NYC Housing and Vacancy Survey shows that 61% of rent-stabilized tenants have household incomes below $50,000, compared to 39% of market-rate tenants. Rent-stabilized tenants are disproportionately Black and Hispanic (58% vs 35% of market-rate tenants). The median rent burden for stabilized tenants is 33% of income vs 41% for market-rate low-income tenants. Without stabilization, the NYC Comptroller estimated that 300,000+ households would face rent increases exceeding 30%, with low-income communities of color bearing the heaviest displacement burden.",
+            "The NYC Housing and Vacancy Survey (HVS), the official triennial survey mandated by city and state law, is widely used to document that rent-stabilized tenants in New York skew lower-income and are disproportionately Black and Hispanic relative to market-rate tenants — challenging the claim that rent regulation mainly benefits affluent insiders. The specific percentages previously cited here (e.g., 61% of stabilized tenants below $50,000 in income; 58% Black/Hispanic; a 33% vs 41% rent-burden comparison; a 300,000+ household NYC Comptroller estimate) could not be verified against a primary HVS or Comptroller source and are presented as illustrative pending direct confirmation.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 7,
-            directness: 8,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
+            directness: 7,
           },
           source:
-            "NYC Housing and Vacancy Survey (2021); NYC Comptroller's Office",
+            "NYC Housing and Vacancy Survey — directional pattern; specific figures not independently verified",
           reasoning:
-            "The Housing and Vacancy Survey is the official, legally mandated data source for NYC housing policy. The demographic data directly challenges the narrative that rent control primarily benefits affluent insiders. However, the data does not distinguish between tenants who genuinely need the subsidy and those who could afford market rates — a persistent critique of universal rather than means-tested rent regulation.",
+            "The HVS is the official, legally mandated data source for NYC housing policy, and the directional finding that stabilized tenants skew lower-income and more non-white is well established. However, the precise percentages and the Comptroller estimate were not verifiable against a primary source here, so weights were lowered and the figures qualified. No sourceUrl is asserted because none was web-verified.",
         },
       ],
     },
@@ -241,63 +246,63 @@ export const rentControlEffectivenessData = {
           title:
             "Minneapolis Eliminated Single-Family Zoning; Rents Stabilized While Neighbors Rose",
           description:
-            "In 2018, Minneapolis passed the Minneapolis 2040 plan, eliminating single-family-only zoning citywide and allowing duplexes and triplexes on all residential lots. By 2023, the city had seen a 12% increase in housing permits for small multifamily buildings. Zillow data showed Minneapolis median rents were roughly flat from 2019-2023 while comparable Midwestern cities (Milwaukee, Kansas City, Indianapolis) saw 15-25% increases. However, critics note that most new construction was market-rate, that the affordable housing impact was modest, and that Minneapolis also adopted a rent stabilization ballot measure in St. Paul (later modified) suggesting that supply alone was seen as insufficient.",
+            "In 2018, Minneapolis adopted the Minneapolis 2040 comprehensive plan, which eliminated single-family-only zoning citywide and allowed up to three units on residential lots — a widely cited US example of broad zoning liberalization. Reporting and analyses (e.g., Pew, Brookings) have noted that Minneapolis added housing and saw relatively restrained rent growth compared with peer cities over the following years. The specific figures previously cited here (a 12% increase in small-multifamily permits; flat 2019-2023 median rents versus 15-25% increases in Milwaukee, Kansas City, and Indianapolis) were not verified against a primary data source and are presented as illustrative. Neighboring St. Paul separately adopted a rent-stabilization ballot measure in 2021 (later amended), indicating that supply reform alone was viewed by some as insufficient.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
           },
           source:
-            "Minneapolis Community Planning and Economic Development; Zillow Rent Index; Brookings Institution",
+            "Minneapolis 2040 plan; secondary analyses (Pew, Brookings) — directional pattern; specific figures not independently verified",
           reasoning:
-            "The Minneapolis experience is the most-cited US example of supply-side reform producing affordability results. The data is publicly available and the natural experiment design is compelling. However, the concurrent pandemic makes causal attribution difficult, the effects on bottom-quartile rents are less clear than on medians, and the fact that neighboring St. Paul adopted rent control suggests political recognition that supply alone was insufficient.",
+            "The Minneapolis 2040 upzoning is the most-cited US example of supply-side reform, and its adoption and broad design are well documented. However, the precise permit and rent figures were not verifiable against a primary source here, the concurrent pandemic complicates attribution, and effects on bottom-quartile rents are less clear than on medians — so the figures were qualified and weights lowered. No sourceUrl is asserted because none was web-verified.",
         },
         {
           id: "vienna-social-housing",
           title:
             "Vienna's Social Housing Model: 60% of Residents in Public or Subsidized Housing",
           description:
-            "Vienna has maintained one of Europe's most affordable housing markets through a social housing model where the city directly builds and manages housing. Approximately 60% of Vienna's residents live in Gemeindebau (public housing) or subsidized cooperative housing. Average rents in Vienna are 50-60% lower than comparable European capitals (London, Paris, Amsterdam). The city continuously builds 5,000-7,000 new social housing units per year, funded through a dedicated housing tax. The model has operated for over 100 years, creating a housing stock that acts as a permanent anchor on private market rents.",
+            "Vienna is widely cited as maintaining one of Europe's more affordable big-city housing markets through a large social-housing sector in which the city directly builds and manages housing (Gemeindebau) and subsidizes cooperative (limited-profit) housing. A commonly cited figure is that roughly half to 60% of Vienna's residents live in municipally owned or subsidized housing, supported by a dedicated housing-contribution levy and a system over a century old, which acts as an anchor on private-market rents. The more specific claims previously stated here (rents 50-60% below London/Paris/Amsterdam; 5,000-7,000 new units built per year) were not verified against a primary City of Vienna source and are presented as illustrative.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 5,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 4,
+            directness: 6,
           },
           source:
-            "City of Vienna Housing Department; European Federation for Living (EFL)",
+            "City of Vienna social-housing program (Gemeindebau / Wohnbauförderung) — directional pattern; specific figures not independently verified",
           reasoning:
-            "Vienna's model is the gold standard for supply-side affordability. The data on rents and housing quality is well-documented. However, replicability is low because the model required a century of continuous political commitment, massive public investment, and a legal framework that no US jurisdiction has. Proponents of rent control argue that Vienna demonstrates that alternatives take generations to build, making interim price protections necessary.",
+            "Vienna is the most-cited example of supply-side, publicly led affordability, and the broad shape of its model (a large municipal/subsidized housing stock, dedicated funding, century-long commitment) is well established. However, the precise rent-gap and annual-construction figures were not verifiable against a primary source here, so they were qualified and weights lowered. Replicability is low given the unique fiscal and political preconditions. No sourceUrl is asserted because none was web-verified.",
         },
         {
           id: "housing-voucher-underfunding",
           title:
             "Only 1 in 4 Eligible US Households Receives Housing Voucher Assistance",
           description:
-            "The US Housing Choice Voucher program (Section 8) serves approximately 2.3 million households, but the Center on Budget and Policy Priorities estimates that only 1 in 4 eligible households receives assistance due to chronic federal underfunding. Average wait times for vouchers are 2.5 years, with some jurisdictions reporting waits of 5-10 years. Many waiting lists are closed entirely. A 2019 Harvard Joint Center for Housing Studies report found that 10.6 million extremely low-income renter households had severe cost burdens (paying over 50% of income on rent), and expanding vouchers to cover all eligible households would cost an additional $22 billion per year.",
+            "Federal rental assistance reaches only a minority of eligible low-income renters. The Center on Budget and Policy Priorities reports that roughly three out of four low-income renters who need federal rental assistance do not receive it because the programs are not funded as entitlements — i.e., only about 1 in 4 eligible households is served. Voucher waitlists are frequently years long and many are closed to new applicants. (An earlier draft also cited Harvard JCHS figures of 10.6 million severely cost-burdened extremely-low-income renters and a $22 billion annual cost to cover all eligible households; those specific figures were not verified here and are omitted from the core claim.)",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 8,
             replicability: 8,
             directness: 7,
           },
           source:
-            "Center on Budget and Policy Priorities; Harvard Joint Center for Housing Studies (2019)",
+            "Center on Budget and Policy Priorities, 'Three Out of Four Low-Income At-Risk Renters Do Not Receive Federal Rental Assistance'",
           sourceUrl:
             "https://www.cbpp.org/research/housing/three-out-of-four-low-income-at-risk-renters-do-not-receive-federal-rental-assistance",
           reasoning:
-            "CBPP and Harvard JCHS are among the most authoritative housing policy research organizations. The voucher underfunding data is well-documented and not disputed. This evidence directly challenges the argument that vouchers are a viable alternative to rent control — if the preferred alternative is chronically underfunded, arguing against rent control as a second-best policy is less persuasive.",
+            "CBPP is among the most authoritative housing-policy research organizations, and the 'three out of four do not receive assistance' (≈1 in 4 served) finding is verified directly on the cited CBPP page. This challenges the claim that vouchers are a ready substitute for rent control, since the preferred alternative is chronically underfunded. Unverified Harvard JCHS dollar/household specifics were removed to keep the claim tight.",
         },
         {
           id: "auckland-upzoning-results",
           title:
-            "Auckland Upzoning Reduced Rents 26-33% in Affected Areas (Greenaway-McGrevy & Phillips 2023)",
+            "Auckland Upzoning Lowered Rents Roughly 22-28% Below Counterfactual (Greenaway-McGrevy)",
           description:
-            "Greenaway-McGrevy and Phillips (2023) studied the effects of Auckland, New Zealand's 2016 upzoning reform, which allowed higher-density development across 75% of the city's residential land. Using a synthetic control method, they estimated that upzoning increased housing construction by 25-30% and reduced rents by 26-33% relative to the counterfactual in areas where development actually occurred. The effect took 3-5 years to materialize and was concentrated in areas where new construction was physically feasible and economically viable.",
+            "Auckland's 2016 Unitary Plan upzoned about three-quarters of the city's residential land for higher-density housing. Two strands of work by Greenaway-McGrevy and co-authors study the effects. On construction, Greenaway-McGrevy & Phillips ('The Impact of Upzoning on Housing Construction in Auckland,' Journal of Housing Economics, 2023) find the reform added tens of thousands of additional dwelling consents within several years (on the order of ~4-9% of the housing stock). On rents, 'Can Zoning Reform Reduce Housing Costs? Evidence from Rents in Auckland' (Greenaway-McGrevy, with So) uses a synthetic-control design and estimates that rents for comparable properties are roughly 20-28% lower than they would otherwise have been several years post-reform, with cumulative Auckland rent growth (~20% over 2016-2023) well below comparable NZ cities.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -306,9 +311,11 @@ export const rentControlEffectivenessData = {
             directness: 8,
           },
           source:
-            "Greenaway-McGrevy & Phillips, working paper (2023); New Zealand Productivity Commission",
+            "Greenaway-McGrevy & Phillips, Journal of Housing Economics (2023) — construction; Greenaway-McGrevy, 'Can Zoning Reform Reduce Housing Costs? Evidence from Rents in Auckland' (working paper) — rents",
+          sourceUrl:
+            "https://cdn.auckland.ac.nz/assets/business/about/our-research/research-institutes-and-centres/Economic-Policy-Centre--EPC-/WP016.pdf",
           reasoning:
-            "The synthetic control method is rigorous and the Auckland reform is one of the most comprehensive upzoning experiments globally. The 26-33% rent reduction in affected areas is large and directly relevant. However, the effect took 3-5 years to materialize and was geographically concentrated — suggesting that supply expansion works but not quickly or universally enough to protect all vulnerable tenants in the interim.",
+            "The synthetic-control design is rigorous and the Auckland reform is one of the most comprehensive upzoning experiments globally. An earlier draft attributed the rent-reduction finding to 'Greenaway-McGrevy & Phillips' and cited 26-33%; the rent result is actually from the separate 'Evidence from Rents in Auckland' paper (Greenaway-McGrevy, with So), which estimates rents roughly 20-28% below counterfactual — Phillips is a co-author on the construction paper. Effects took several years to materialize, so supply expansion works but not quickly enough to protect all vulnerable tenants in the interim.",
         },
       ],
     },
@@ -321,8 +328,8 @@ export const rentControlEffectivenessData = {
     },
     {
       title:
-        "Housing Market Spillovers: Evidence from the End of Rent Control in Cambridge, Massachusetts — Autor, Palmer & Pathak, Journal of Political Economy (2023)",
-      url: "https://doi.org/10.1086/722218",
+        "Housing Market Spillovers: Evidence from the End of Rent Control in Cambridge, Massachusetts — Autor, Palmer & Pathak, Journal of Political Economy, 122(3) (2014)",
+      url: "https://doi.org/10.1086/675536",
     },
     {
       title:

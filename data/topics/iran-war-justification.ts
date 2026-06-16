@@ -76,35 +76,39 @@ export const iranWarJustificationData = {
           title:
             "IAEA Confirms 408 kg of 60% Enriched Uranium and 83.7% Particles",
           description:
-            "The IAEA's quarterly reports document Iran's stockpile of highly enriched uranium at levels with no plausible civilian use. Particles enriched to 83.7% were detected at Fordow — just below the 90% weapons-grade threshold.",
+            "The IAEA's quarterly verification reports document Iran's growing stockpile of highly enriched uranium at levels with no plausible civilian use. The 408.6 kg figure (of 60% HEU, in uranium mass) is from the IAEA's May 2025 report; particles enriched to 83.7% were detected at Fordow in early 2023 — just below the 90% weapons-grade threshold. Iran told the IAEA these were 'unintended fluctuations' during a cascade reconfiguration, an explanation the agency assessed as not inconsistent with its findings.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
             independence: 10,
             replicability: 9,
-            directness: 8,
+            directness: 7,
           },
-          source: "IAEA Board of Governors Reports (2023-2024)",
-          sourceUrl: "https://www.iaea.org/newscenter/focus/iran",
+          source:
+            "IAEA Board of Governors Reports (GOV/2025/24, May 2025; quarterly reports 2023)",
+          sourceUrl: "https://www.iaea.org/sites/default/files/25/06/gov2025-24.pdf",
           reasoning:
-            "IAEA is an independent international body with on-the-ground inspectors. Data is measured, not estimated. However, enrichment capability alone does not equal a weapon — directness is slightly reduced because the claim is about justifying military action, not just enrichment levels.",
+            "IAEA is an independent international body with on-the-ground inspectors; the stockpile data is measured, not estimated. Note the 408 kg and 83.7% figures are from different reports (2025 and 2023 respectively), and the 83.7% particles were a transient detection Iran attributed to a cascade reconfiguration. Enrichment capability alone does not equal a weapon — directness is reduced because the claim is marshalled to justify military action, not just to describe enrichment levels.",
         },
         {
           id: "inspector-expulsion",
           title:
-            "Iran Expelled Experienced IAEA Inspectors and Destroyed Cameras (2023)",
+            "Iran Withdrew Designations of Experienced IAEA Inspectors (2023) and Removed JCPOA Cameras (2022)",
           description:
-            "Iran designated multiple experienced IAEA inspectors as persona non grata and removed monitoring cameras installed under the JCPOA, creating significant gaps in the international community's ability to verify the program's status.",
+            "In September 2023 Iran withdrew the designations of several of the IAEA's most experienced inspectors — about a third of the core group assigned to Iran — which Director General Grossi called an 'unprecedented and disproportionate' measure (though formally permitted under the NPT Safeguards Agreement). Separately, in June 2022 the IAEA removed its JCPOA surveillance and monitoring equipment at Iran's request. Together these created significant gaps in the agency's ability to verify the program's status.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 8,
-            directness: 6,
+            replicability: 7,
+            directness: 5,
           },
-          source: "IAEA Director General Reports; Reuters",
+          source:
+            "IAEA Director General's Statement on Verification in Iran (16 Sept 2023)",
+          sourceUrl:
+            "https://www.iaea.org/newscenter/pressreleases/iaea-director-generals-statement-on-verification-in-iran-0",
           reasoning:
-            "Obstructing inspections is concerning but does not itself prove weaponization. Could indicate a weapons program or could be political retaliation for US sanctions. Directness is moderate.",
+            "Corrected: the inspectors were de-designated (a step permitted under the safeguards agreement), not declared 'persona non grata,' and the camera removal was 2022, not 2023. Obstructing monitoring is concerning but does not itself prove weaponization — it could reflect a weapons program or political retaliation over the JCPOA's collapse and sanctions. Directness lowered accordingly.",
         },
         {
           id: "iraq-wmd-precedent",
@@ -120,26 +124,31 @@ export const iranWarJustificationData = {
             directness: 6,
           },
           source:
-            "Senate Select Committee on Intelligence (2004); Chilcot Inquiry (2016)",
+            "Senate Select Committee on Intelligence Report on the U.S. Intelligence Community's Prewar Intelligence Assessments on Iraq (S. Rept. 108-301, 2004); Iraq (Chilcot) Inquiry (2016)",
+          sourceUrl:
+            "https://www.congress.gov/committee-report/108th-congress/senate-report/301/1",
           reasoning:
-            "The Iraq precedent is historically verified and directly relevant as an institutional warning. However, directness is limited because the Iran case involves different evidence sources (IAEA vs national intelligence) and different factual circumstances.",
+            "The Iraq precedent is historically verified — the Senate report found prewar WMD estimates 'overstated' and 'not supported by the intelligence' — and is directly relevant as an institutional warning. However, directness is limited because the Iran case rests on different evidence sources (IAEA on-site measurement vs. national intelligence and defector reporting) and different factual circumstances.",
         },
         {
           id: "nie-no-weapons-program",
           title:
             "US National Intelligence Estimate: Iran Halted Weapons Program in 2003",
           description:
-            "The 2007 US NIE assessed with high confidence that Iran halted its nuclear weapons design work in 2003. Subsequent assessments have not reversed this finding, though they note Iran has kept the option open. There is no public US intelligence assessment concluding Iran has restarted a dedicated weapons program.",
+            "The November 2007 US NIE 'Iran: Nuclear Intentions and Capabilities' judged with high confidence that Tehran halted its nuclear weapons program in fall 2003, with moderate confidence it had not restarted as of mid-2007. (The 'weapons program' was narrowly defined to exclude declared enrichment work, a definition critics dispute.) Subsequent assessments have not formally reversed this finding, though they note Iran has kept the option open. There is no public US intelligence assessment concluding Iran has restarted a dedicated weaponization program.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 5,
             replicability: 4,
-            directness: 7,
+            directness: 6,
           },
-          source: "US Office of the Director of National Intelligence (2007)",
+          source:
+            "Office of the Director of National Intelligence, National Intelligence Estimate, Iran: Nuclear Intentions and Capabilities (Nov 2007), declassified key judgments",
+          sourceUrl:
+            "https://www.armscontrol.org/issue-briefs/2010-08/iran-nuclear-nie-2007-revise-reject-reiterate",
           reasoning:
-            "The NIE is from the same intelligence community that got Iraq wrong, which cuts both ways — they may have overcorrected. Independence is low since it is a US government product. But directness is high because it directly addresses whether Iran has a weapons program.",
+            "The NIE is from the same intelligence community that got Iraq wrong, which cuts both ways. Independence is low since it is a US government product, and the 'high confidence' headline rested on a narrow definition of 'weapons program' that excluded enrichment — so directness and reliability are de-inflated. Citation points to the Arms Control Association issue brief, which reproduces the declassified key judgments (the primary ODNI/CIA document is not reliably web-accessible).",
         },
       ],
     },
@@ -171,70 +180,81 @@ export const iranWarJustificationData = {
         {
           id: "proxy-attacks-escalation",
           title:
-            "Iranian Proxies Launched 300+ Attacks on US and Allied Forces Since October 2023",
+            "Iranian Proxies Attacked US Forces 180+ Times Since October 2023, Plus Hezbollah and Houthi Fronts",
           description:
-            "Hezbollah opened a second front against Israel, Houthis attacked global shipping with 100+ strikes, and Iraqi militias targeted US bases over 180 times — all coordinated through Iran's IRGC Quds Force, demonstrating the existing cost of inaction.",
+            "Iran-aligned militias attacked US forces in Iraq, Syria, and Jordan more than 180 times between October 2023 and early 2024 (killing three US soldiers at Tower 22), Hezbollah opened a second front against Israel, and the Houthis attacked Red Sea shipping — activity broadly coordinated through Iran's IRGC Quds Force, demonstrating an existing cost of inaction.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 7,
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 6,
           },
-          source: "US Central Command; UN Panel of Experts on Yemen",
+          source:
+            "US Institute of Peace, Iran Primer 'Timeline of Proxy Attacks'; US Central Command statements",
+          sourceUrl:
+            "https://iranprimer.usip.org/blog/2024/feb/01/timeline-proxy-attacks-iraq-syria-and-jordan",
           reasoning:
-            "Attack counts are well-documented by military and UN sources. Directness is moderate because the evidence shows the problem exists, but does not prove that military strikes on Iran would solve it.",
+            "Corrected: the prior '300+' headline conflated distinct counts; the well-documented figure is 180+ attacks on US forces (Oct 2023–early 2024), separate from Houthi shipping and Hezbollah fronts. Directness is moderate because the evidence shows the problem exists but does not prove that striking Iran itself would reduce it.",
         },
         {
           id: "houthi-shipping-disruption",
           title:
-            "Houthi Red Sea Attacks Disrupted 15% of Global Trade Despite US-UK Strikes",
+            "Houthi Red Sea Attacks Disrupted a Route Carrying ~12% of Global Trade Despite US-UK Strikes",
           description:
-            "Despite months of US and UK airstrikes on Houthi positions in Yemen, the group continued launching anti-ship missiles and drones. Major shipping lines rerouted around the Cape of Good Hope, adding 10-14 days to voyages and increasing freight costs by 300%.",
+            "Despite months of US and UK airstrikes on Houthi positions in Yemen, the group continued launching anti-ship missiles and drones (190+ attacks by late 2024). Major shipping lines rerouted around the Cape of Good Hope — the Red Sea/Suez route normally carries about 12% of global maritime trade — adding roughly 10-14 days to Asia-Europe voyages and sharply raising freight rates (Asia-Europe rates rose on the order of 40-60% in early 2024).",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
             directness: 8,
           },
-          source: "Lloyd's List; Maersk; US Naval Institute",
+          source:
+            "Wikipedia 'Houthi attacks on commercial vessels' (citing IMF PortWatch, Maplecroft, Coface); industry freight-rate reporting",
+          sourceUrl:
+            "https://en.wikipedia.org/wiki/Houthi_attacks_on_commercial_vessels",
           reasoning:
-            "This is direct evidence that military strikes on a proxy did not degrade its operational capability. Highly relevant to the question of whether striking Iran itself would reduce proxy threats. The Houthis demonstrated resilience against sustained bombardment.",
+            "Corrected: ~12% of global trade transits the route (it was not all 'disrupted'), and freight costs rose roughly 40-60% on key lanes, not a flat 300%. This remains direct evidence that strikes on a proxy did not degrade its operational capability — relevant to whether striking Iran would reduce proxy threats. Slightly de-inflated because the cited synthesis is secondary rather than a single primary maritime authority.",
         },
         {
           id: "hezbollah-arsenal-growth",
           title:
-            "Hezbollah's Arsenal Grew From 10,000 Rockets (2006) to 150,000+ (2024) Despite Israeli Operations",
+            "Hezbollah's Arsenal Grew From ~15,000 Rockets (2006) to an Estimated 120,000-150,000 Despite Israeli Operations",
           description:
-            "After the 2006 Lebanon War, Israel declared it had significantly degraded Hezbollah's capabilities. In the 18 years since, Hezbollah's rocket arsenal grew 15x, added precision-guided munitions, and expanded to include anti-ship missiles and drones — all supplied through Iranian logistics networks via Syria.",
+            "After the 2006 Lebanon War, Israel declared it had significantly degraded Hezbollah's capabilities. In the years since, estimates of Hezbollah's rocket and missile arsenal rose roughly ten-fold — CSIS puts it around 130,000, with broader estimates spanning 120,000-200,000 — adding precision-guided munitions and longer-range systems supplied through Iranian logistics networks via Syria.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 7,
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
             directness: 8,
           },
-          source: "Center for Strategic and International Studies (CSIS); IDF",
+          source:
+            "CSIS Missile Threat, 'Missiles and Rockets of Hezbollah'",
+          sourceUrl: "https://missilethreat.csis.org/country/hezbollahs-rocket-arsenal/",
           reasoning:
-            "Historical evidence that military action against proxies (and even against supply lines) did not prevent arsenal growth. Directness is high because it directly tests the theory that force degrades proxy capability.",
+            "Corrected: the 2006 baseline was roughly 15,000-20,000 rockets (not 10,000), and the upper figure is an estimate (CSIS ~130,000; Israeli officials say ~150,000; full range 120,000-200,000) rather than a verified count, so independence and replicability are de-inflated. Still solid historical evidence that force against proxies and supply lines did not prevent arsenal growth — directness remains high.",
         },
         {
           id: "quds-force-command",
           title:
             "IRGC Quds Force Provides Strategic Command, Weapons, and $700M+ Annual Funding to Proxies",
           description:
-            "The Quds Force under the late Qasem Soleimani (killed 2020) and his successor Esmail Qaani coordinates operations across all Iranian proxies. US Treasury and UN reports document $700M+ annually to Hezbollah alone, plus advanced weapons transfers including precision-guidance kits, drone technology, and anti-ship missiles.",
+            "The Quds Force under the late Qasem Soleimani (killed 2020) and his successor Esmail Qaani coordinates operations across Iranian proxies. A senior US Treasury official (Under Secretary Sigal Mandelker) estimated in 2018 that Iran provides Hezbollah more than $700 million per year, alongside weapons transfers including precision-guidance kits, drones, and anti-ship missiles documented in US sanctions actions.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 5,
+            directness: 6,
           },
-          source: "US Treasury OFAC; UN Panel of Experts",
+          source:
+            "US Treasury Under Secretary Sigal Mandelker, remarks at FDD (2018), as reported by The National",
+          sourceUrl:
+            "https://www.thenationalnews.com/world/the-americas/iran-pays-hezbollah-700-million-a-year-us-official-says-1.737347",
           reasoning:
-            "Funding and weapons transfer documentation is solid but exact figures are estimates. The killing of Soleimani in 2020 did not collapse proxy operations, which somewhat undercuts the argument that degrading command infrastructure would be decisive.",
+            "Corrected attribution: the $700M figure is a 2018 estimate by a single US official, not a measured Treasury/UN audit, so independence and replicability are de-inflated. The killing of Soleimani in 2020 did not collapse proxy operations, which undercuts the argument that degrading command infrastructure would be decisive — directness lowered.",
         },
       ],
     },
@@ -287,7 +307,7 @@ export const iranWarJustificationData = {
           title:
             "JCPOA Sunset Clauses Would Allow Unrestricted Enrichment by 2030-2031",
           description:
-            "Key JCPOA restrictions on enrichment levels and centrifuge numbers expire between 2025-2031. Critics argue this created a 'patient pathway' to a bomb with international legitimacy, making the deal fundamentally flawed regardless of short-term compliance.",
+            "Key JCPOA restrictions phase out on a staggered schedule: limits on first-generation centrifuge numbers and advanced-centrifuge R&D begin lapsing around 2025-2028, while the 3.67% enrichment cap and 300 kg stockpile limit run until roughly 2030-2031. Critics argue this created a 'patient pathway' to a bomb with international legitimacy, making the deal fundamentally flawed regardless of short-term compliance.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -295,43 +315,52 @@ export const iranWarJustificationData = {
             replicability: 9,
             directness: 6,
           },
-          source: "Brookings Institution; Foundation for Defense of Democracies",
+          source:
+            "Arms Control Association, 'The Joint Comprehensive Plan of Action (JCPOA) at a Glance'; USIP Iran Primer explainer on sunset timing",
+          sourceUrl:
+            "https://www.armscontrol.org/factsheets/joint-comprehensive-plan-action-jcpoa-glance",
           reasoning:
-            "The sunset clauses are a real structural weakness in the JCPOA. However, directness is moderate because the clauses were designed to be renegotiated as confidence-building progressed — the deal was meant to be a floor, not a ceiling.",
+            "The staggered sunset clauses are a real, document-verifiable structural feature of the JCPOA (enrichment/stockpile limits to ~2030-2031). Directness is moderate because the clauses were designed to be revisited as confidence-building progressed — proponents read them as a floor to renegotiate, critics as an expiry date.",
         },
         {
           id: "failed-post-jcpoa-diplomacy",
           title:
             "Multiple Post-JCPOA Diplomatic Initiatives Have Stalled (2019-2024)",
           description:
-            "The EU proposed an interim deal in 2022 that would freeze enrichment at 60% in exchange for partial sanctions relief. Negotiations collapsed after Iran demanded IRGC delisting. The Biden administration's indirect talks through Oman produced no agreement. China and Qatar mediation efforts in 2023-2024 yielded temporary prisoner exchanges but no nuclear deal.",
+            "EU-coordinated talks to revive the JCPOA reached a near-final draft in 2022 but collapsed in mid-2022, with Iran's demand that the IRGC be removed from the US Foreign Terrorist Organization list emerging as a central obstacle that the Biden administration refused. Subsequent indirect US-Iran talks via Oman, and later Qatari mediation, yielded prisoner exchanges and informal understandings but no restored nuclear agreement.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
             directness: 7,
           },
-          source: "European External Action Service; Reuters; Al Jazeera",
+          source:
+            "USIP Iran Primer, 'Iran Deal: The IRGC is the Final Hurdle' (2022); contemporaneous reporting",
+          sourceUrl:
+            "https://iranprimer.usip.org/blog/2022/apr/07/iran-deal-irgc-final-hurdle",
           reasoning:
-            "Multiple failed initiatives are documented, but 'failure' must be contextualized: diplomacy was attempted under maximum-pressure sanctions, which Iran argues makes good-faith negotiation impossible. The question is whether these were genuine attempts or performative.",
+            "Corrected: the 2022 effort was a JCPOA-revival negotiation that stalled over the IRGC delisting demand — not specifically an 'interim deal freezing enrichment at 60%' (that framing conflated later informal proposals). Failure must be contextualized: talks proceeded under maximum-pressure sanctions, which Iran argues prevents good-faith bargaining, so whether these were genuine or performative remains the contested question.",
         },
         {
           id: "historical-diplomatic-success",
           title:
             "Historical Precedent: Diplomacy Resolved Comparable Nuclear Crises (Libya 2003, South Africa 1989)",
           description:
-            "Libya voluntarily dismantled its nuclear program through diplomatic engagement in 2003. South Africa abandoned its six completed nuclear weapons through negotiated transition in 1989-1991. Both cases demonstrate that nuclear proliferation can be reversed without military action when the right incentives and security guarantees are offered.",
+            "Libya agreed in December 2003 to eliminate its WMD programs — including an early-stage nuclear weapons effort — through US/UK diplomatic engagement. South Africa built six nuclear weapons during apartheid, then voluntarily abandoned the program in 1989 and dismantled the devices by 1991. Both cases show nuclear proliferation can be reversed without military action when incentives and security/political conditions align.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 5,
+            replicability: 4,
             directness: 5,
           },
-          source: "Nuclear Threat Initiative (NTI); Arms Control Association",
+          source:
+            "Nuclear Threat Initiative (NTI), 'Nuclear Disarmament South Africa'",
+          sourceUrl:
+            "https://www.nti.org/analysis/articles/south-africa-nuclear-disarmament/",
           reasoning:
-            "Historical precedents are real but replicability is low — Libya and South Africa had very different strategic contexts. Gaddafi's fate after disarmament (overthrown and killed in 2011) is now cited by Iran as a reason not to disarm, which complicates this evidence.",
+            "Historical precedents are real but replicability is low — Libya (a nascent program) and South Africa (an indigenous arsenal abandoned amid the end of apartheid) had very different strategic contexts from Iran's. Gaddafi's overthrow and death in 2011 after disarming is now cited by Iran as a reason not to disarm, which further complicates the analogy.",
         },
       ],
     },

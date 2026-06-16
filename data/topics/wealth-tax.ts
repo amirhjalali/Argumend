@@ -37,16 +37,20 @@ export const wealthTaxData = {
           id: "us-billionaire-growth",
           title: "US Billionaire Wealth Grew $2T in COVID",
           description:
-            "During 2020-2021, US billionaire wealth increased from $3T to $5T while millions lost jobs.",
+            "Between the March 2020 onset of the pandemic and October 2021, the collective wealth of US billionaires rose roughly 70% — from just under $3 trillion to over $5 trillion — per Americans for Tax Fairness and the Institute for Policy Studies, which analyze Forbes data. The number of US billionaires grew from 614 to 745 over the same window.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 8,
             directness: 6,
           },
-          source: "Forbes, Americans for Tax Fairness",
-          reasoning: "Demonstrates concentrated wealth available for taxation.",
+          source:
+            "Americans for Tax Fairness & Institute for Policy Studies, analysis of Forbes data (2021)",
+          sourceUrl:
+            "https://americansfortaxfairness.org/2-years-covid-u-s-billionaires-1-7-trillion-57-richer/",
+          reasoning:
+            "Demonstrates concentrated wealth available for taxation. Source is an advocacy-group analysis of Forbes estimates (not an independent peer-reviewed dataset), so independence/reliability are moderated; the underlying Forbes wealth figures are widely reported.",
         },
         {
           id: "effective-tax-rates",
@@ -70,7 +74,7 @@ export const wealthTaxData = {
           id: "european-repeal",
           title: "Most European Countries Repealed Wealth Taxes",
           description:
-            "France, Sweden, Germany, Austria, and others repealed wealth taxes due to capital flight and low yield.",
+            "The number of OECD countries levying an individual net wealth tax fell from 12 in 1990 to 4 by 2017 (France, Norway, Spain, Switzerland). Repeals — Austria (1994), Denmark and Germany (1997), the Netherlands (2001), Finland, Iceland and Luxembourg (2006), Sweden (2007), France (2018) — were typically justified by efficiency and administrative concerns, capital flight, and the fact that revenues raised were, with few exceptions, very low.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -78,13 +82,18 @@ export const wealthTaxData = {
             replicability: 8,
             directness: 8,
           },
-          reasoning: "Historical evidence of implementation failures.",
+          source:
+            "OECD (2018), 'The Role and Design of Net Wealth Taxes in the OECD', OECD Tax Policy Studies No. 26",
+          sourceUrl:
+            "https://www.oecd.org/en/publications/the-role-and-design-of-net-wealth-taxes-in-the-oecd_9789264290303-en.html",
+          reasoning:
+            "Authoritative OECD comparative review documenting the repeal record and its stated rationale.",
         },
         {
           id: "valuation-problems",
           title: "Wealth Valuation Is Extremely Difficult",
           description:
-            "Private companies, art, complex derivatives are hard to value annually without creating gaming opportunities.",
+            "Annually valuing infrequently traded assets — private businesses, real estate, art — is a central administrative difficulty of net wealth taxes. The OECD notes such hard-to-value assets were often exempted or narrowed the base, and recommends using market value (possibly discounted to e.g. 80–85%) to limit valuation disputes.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -92,7 +101,11 @@ export const wealthTaxData = {
             replicability: 7,
             directness: 7,
           },
-          reasoning: "Major administrative challenge.",
+          source:
+            "OECD (2018), 'The Role and Design of Net Wealth Taxes in the OECD', OECD Tax Policy Studies No. 26",
+          sourceUrl:
+            "https://www.oecd.org/en/publications/the-role-and-design-of-net-wealth-taxes-in-the-oecd_9789264290303-en.html",
+          reasoning: "Major administrative challenge documented in the OECD review.",
         },
       ],
     },
@@ -123,58 +136,77 @@ export const wealthTaxData = {
           id: "inequality-harms-growth",
           title: "Inequality Reduces Growth",
           description:
-            "IMF research shows extreme inequality reduces GDP growth by lowering consumer demand and increasing instability.",
+            "An IMF staff study (Ostry, Berg & Tsangarides 2014) finds that lower net inequality is robustly associated with faster and more durable growth, and that fiscal redistribution — except in extreme cases — shows little evidence of adverse growth effects. The result challenges a strict equity-efficiency trade-off rather than proving that inequality directly reduces GDP via lower demand.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
-            directness: 5,
+            replicability: 6,
+            directness: 4,
           },
-          source: "IMF Working Papers",
-          reasoning: "Established economic research, indirect relevance.",
+          source:
+            "Ostry, Berg & Tsangarides (2014), 'Redistribution, Inequality, and Growth', IMF Staff Discussion Note SDN/14/02",
+          sourceUrl:
+            "https://www.elibrary.imf.org/view/journals/006/2014/002/article-A001-en.xml",
+          reasoning:
+            "Established IMF cross-country research. Claim reworded to match the study's actual finding (inequality/growth-spell correlation), and directness lowered because the link to a billionaire wealth tax specifically is indirect.",
         },
         {
           id: "wealth-not-consumed",
           title: "Billionaire Wealth Isn't Consumed",
           description:
-            "Marginal propensity to consume decreases with wealth; billionaire wealth sits in assets, not economic circulation.",
+            "The marginal propensity to consume falls sharply with wealth: high-wealth households save a far larger share of income, so most of their wealth is held in assets rather than spent. Carroll et al. show MPC is heavily concentrated among lower-wealth households, a standard result in the consumption-saving literature.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 7,
-            directness: 6,
+            directness: 5,
           },
-          reasoning: "Standard economics, though investment is also valuable.",
+          source:
+            "Carroll, Slacalek, Tokuoka & White (2017), 'The Distribution of Wealth and the Marginal Propensity to Consume', Quantitative Economics",
+          sourceUrl:
+            "https://www.econ2.jhu.edu/people/ccarroll/papers/cstwMPC.pdf",
+          reasoning:
+            "Peer-reviewed consumption-theory result. Directness lowered: low billionaire MPC is suggestive but not direct proof a wealth tax improves growth (forgone investment is also a channel).",
         },
         {
           id: "capital-flight-risk",
           title: "Capital Flight Risk",
           description:
-            "Wealthy individuals can move to tax-friendly jurisdictions, taking jobs and investment with them.",
+            "Wealthy individuals can relocate to lower-tax jurisdictions. The OECD identifies capital flight and taxpayer migration as recurring problems that contributed to European wealth-tax repeals, though it notes the effect depends heavily on design and enforcement.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 6,
-            directness: 7,
+            directness: 6,
           },
-          reasoning: "Real concern, though US exit taxes mitigate.",
+          source:
+            "OECD (2018), 'The Role and Design of Net Wealth Taxes in the OECD', OECD Tax Policy Studies No. 26",
+          sourceUrl:
+            "https://www.oecd.org/en/publications/the-role-and-design-of-net-wealth-taxes-in-the-oecd_9789264290303-en.html",
+          reasoning:
+            "Real concern documented by the OECD, though US citizenship-based taxation and exit taxes (e.g. a 40% exit levy in the Warren proposal) and empirical findings that billionaires relocate less than average would mitigate it.",
         },
         {
           id: "equity-illiquidity",
           title: "Most Billionaire Wealth Is Illiquid",
           description:
-            "Forcing sale of company stock to pay taxes could destabilize companies and markets.",
+            "Much billionaire wealth is concentrated in company equity rather than cash. The OECD flags liquidity problems for asset-rich, income-poor taxpayers as a real difficulty of net wealth taxes; forcing annual stock sales to pay the levy could pressure ownership stakes (proponents counter that billionaire-only thresholds and deferral provisions limit this).",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 7,
+            replicability: 6,
             directness: 7,
           },
-          reasoning: "Practical implementation concern.",
+          source:
+            "OECD (2018), 'The Role and Design of Net Wealth Taxes in the OECD', OECD Tax Policy Studies No. 26",
+          sourceUrl:
+            "https://www.oecd.org/en/publications/the-role-and-design-of-net-wealth-taxes-in-the-oecd_9789264290303-en.html",
+          reasoning:
+            "Practical implementation concern documented in the OECD review of liquidity issues.",
         },
       ],
     },

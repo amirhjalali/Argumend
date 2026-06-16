@@ -33,25 +33,26 @@ export const labGrownMeatData = {
       evidence: [
         {
           id: "cost-reduction-trajectory",
-          title: "Cultivated Chicken Cost Down to $6.20/lb at Scale",
+          title: "Modeled $6.20/lb Cultivated Chicken at a Hypothetical 50,000-L Facility",
           description:
-            "A 2024 peer-reviewed study published in the journal Food Research International reported that cultivated chicken meat produced as a hybrid plant-and-cell-based product could be manufactured at $6.20/lb at scale. This represents a >99.99% cost reduction from the $330,000 first burger in 2013.",
+            "A 2024 peer-reviewed paper in Nature Food (Nahmias et al., 'Continuous manufacturing of cultivated meat,' DOI 10.1038/s43016-024-01022-w) used a continuous tangential-flow-filtration process and an inexpensive ($0.63/L) culture medium to project a production cost of $6.20/lb for cultivated chicken — at parity with USDA Organic chicken. Critically, $6.20/lb is a techno-economic MODEL of a hypothetical 50,000-litre facility, not a measured production cost; the lab process itself operated at far smaller scale.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 5,
-            directness: 8,
+            sourceReliability: 6,
+            independence: 3,
+            replicability: 4,
+            directness: 6,
           },
-          source: "Food Research International (2024)",
+          source: "Nahmias et al., Nature Food (2024)",
+          sourceUrl: "https://www.nature.com/articles/s43016-024-01022-w",
           reasoning:
-            "Peer-reviewed but based on modeled costs at projected scale rather than actual production at that scale. The hybrid approach (mixing cultured cells with plant proteins) may reduce costs but also reduces the 'pure cultivated meat' proposition.",
+            "Peer-reviewed in a strong journal, but the $6.20/lb is a modeled projection for a 50,000-L plant that does not yet exist, not an achieved cost — cultivated-meat cost claims are routinely overstated this way. The lead author, Yaakov Nahmias, is the founder of Believer Meats, so this is an interested party modeling its own favorable scenario; independence is low. An earlier version mis-attributed this to 'Food Research International' and described a 'hybrid plant-and-cell' product — both corrected here, and weights de-inflated to reflect that it is a projection from a stakeholder.",
         },
         {
           id: "regulatory-approvals",
           title: "Three Countries Have Approved Cultivated Meat Sales",
           description:
-            "Singapore approved cultivated meat for sale in 2020, the US followed in 2023 (GOOD Meat and UPSIDE Foods received USDA approval), and Israel approved in 2024. The UK approved lab-grown chicken for pet food in February 2025. This regulatory momentum indicates growing institutional acceptance.",
+            "Singapore became the first country to approve cultivated meat for sale in December 2020 (GOOD Meat / Eat Just chicken). The US followed in June 2023, when USDA granted final approval to GOOD Meat and UPSIDE Foods to sell cultivated chicken (after FDA 'no questions' letters). In January 2024 Israel's Ministry of Health granted the world's first regulatory approval for cultivated BEEF (Aleph Farms). This regulatory momentum indicates growing institutional acceptance.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -59,25 +60,27 @@ export const labGrownMeatData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Singapore Food Agency; USDA; Israel Ministry of Health",
+          source: "Good Food Institute (GFI) press release on USDA approval; Food Safety News on Israel approval",
+          sourceUrl: "https://gfi.org/press/good-meat-and-upside-foods-approved-to-sell-cultivated-chicken-following-landmark-usda-action/",
           reasoning:
-            "Regulatory approval is necessary but not sufficient for market success. Approval proves safety, not commercial viability.",
+            "The US (June 2023), Singapore (Dec 2020) and Israel (Jan 2024) approvals are all well-documented in primary regulator statements and trade press. Regulatory approval is necessary but not sufficient for market success — it proves safety, not commercial viability or cost. An earlier version's unverified UK 'pet food, February 2025' claim was removed as it could not be confirmed against a primary source.",
         },
         {
           id: "funding-slowdown",
           title: "Investment Has Slowed as Investors Reassess",
           description:
-            "Venture capital funding for cultivated meat companies declined significantly in 2024-2025 compared to 2021-2022 peak levels. Investors are reevaluating commitments due to concerns over cost-efficiency, regulatory roadblocks, and consumer skepticism. Several cultivated meat startups have laid off workers or pivoted strategies.",
+            "Investment in cultivated meat has fallen sharply from its 2021-2022 peak. Per the Good Food Institute's State of the Industry data, the sector raised about $139 million in 2024 — roughly a 40% year-over-year decline and the lowest annual total since 2019 — versus $1.3 billion in 2021, $917 million in 2022 and $230 million in 2023. The number of cultivated-meat companies tracked fell from ~155 to ~140, with shutdowns and consolidation, and US federal research support was cut.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
-            independence: 8,
+            independence: 7,
             replicability: 7,
             directness: 7,
           },
-          source: "PitchBook; GFI (Good Food Institute) State of the Industry Reports",
+          source: "Good Food Institute (GFI) State of the Industry Report 2024",
+          sourceUrl: "https://gfi.org/resource/cultivated-meat-seafood-and-ingredients-state-of-the-industry/",
           reasoning:
-            "Market signals from sophisticated investors are informative. However, investment cycles are common in emerging technology—clean energy saw similar skepticism before achieving cost parity.",
+            "The funding figures come from GFI, an industry-advocacy nonprofit that promotes alternative proteins, so its data should be read with mild caution even though here it documents a downturn that cuts against its own optimism (which raises confidence). Sharp investment declines are informative market signals, though emerging technologies often see boom-bust funding cycles. Independence trimmed from 8 to 7 to reflect GFI's advocacy role.",
         },
       ],
     },
@@ -114,9 +117,10 @@ export const labGrownMeatData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Various consumer surveys; Bryant & Barnett, Meat Science (2020)",
+          source: "Bryant & Barnett, 'Consumer Acceptance of Cultured Meat: An Updated Review (2018-2020),' Applied Sciences 10(15):5201 (2020)",
+          sourceUrl: "https://www.mdpi.com/2076-3417/10/15/5201",
           reasoning:
-            "Consumer intent surveys are directionally informative but may overstate resistance—many people who say they won't try something do try it when available.",
+            "This peer-reviewed review synthesizes 26 empirical consumer-acceptance studies and supports the general finding that a large minority of consumers express unwillingness, though exact percentages vary by study, framing and country and the specific '35-50%' band is an approximation across surveys rather than a single reported figure. An earlier version cited 'Bryant & Barnett, Meat Science (2020)' — a conflation of their 2018 Meat Science systematic review with this 2020 Applied Sciences update; corrected to the 2020 paper that the year refers to. Stated intent surveys are directionally informative but may overstate resistance, since many who say they won't try a product do try it once available.",
         },
         {
           id: "bioprinting-advances-2025",

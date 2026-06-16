@@ -69,9 +69,9 @@ export const universalHealthcareData = {
         },
         {
           id: "cms-health-expenditure",
-          title: "CMS: US Spends $4.3T on Healthcare (18% of GDP)",
+          title: "CMS: US Spends $4.9T on Healthcare (17.6% of GDP)",
           description:
-            "The Centers for Medicare & Medicaid Services reports US national health expenditure reached $4.3 trillion in 2023 (17.6% of GDP). Per capita spending is $13,493 — roughly double the OECD average of $6,651. Despite this spending, the US has lower life expectancy and higher infant mortality than peer nations.",
+            "The Centers for Medicare & Medicaid Services reports US national health expenditure reached $4.9 trillion in 2023, or 17.6% of GDP, growing 7.5% from 2022. Per capita spending was $14,570 — far above peer nations. Despite this spending, the US has lower life expectancy and higher infant mortality than other wealthy countries.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -79,41 +79,46 @@ export const universalHealthcareData = {
             replicability: 10,
             directness: 7,
           },
-          source: "CMS National Health Expenditure Data",
+          source: "CMS National Health Expenditure Data (2023)",
+          sourceUrl:
+            "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet",
           reasoning:
             "Authoritative government data documenting the spending problem; doesn't directly prove a specific solution would work, but establishes the baseline.",
         },
         {
           id: "va-wait-time-data",
-          title: "VA Wait Times Exceed 30 Days for Many Veterans",
+          title: "2014 VA Scandal: Long Wait Times and Falsified Records",
           description:
-            "The VA Inspector General found that 30% of veterans waited more than 30 days for primary care appointments. Some facilities had average waits exceeding 60 days. The VA scandal of 2014 revealed systematic data falsification to conceal delays. Critics argue this demonstrates government healthcare's inherent inefficiency.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 6,
-          },
-          source: "VA Inspector General, Government Accountability Office",
-          reasoning:
-            "Well-documented government failures, though the VA is a unique system (direct provision, not insurance) and may not generalize to a Medicare-for-All model.",
-        },
-        {
-          id: "pharma-innovation-comparison",
-          title: "US Produces 44% of Global Pharmaceutical R&D",
-          description:
-            "The US accounts for 44% of global pharmaceutical R&D spending and produces the plurality of new molecular entities approved worldwide. Defenders of the current system argue that high US drug prices effectively subsidize global drug development. Countries with price controls free-ride on US innovation.",
+            "A 2014 VA internal audit found more than 120,000 veterans were left waiting or never got care, and the VA Office of Inspector General documented systematic falsification of scheduling data to conceal delays at facilities including Phoenix, where some patients waited far longer than reported. Critics argue this demonstrates risks of government-run healthcare.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 6,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
           },
-          source: "PhRMA, Congressional Research Service",
+          source: "VA Office of Inspector General, Report 14-02603-267 (2014)",
+          sourceUrl:
+            "https://www.vaoig.gov/sites/default/files/reports/2014-08/VAOIG-14-02603-267.pdf",
           reasoning:
-            "Valid concern about innovation incentives, but PhRMA data may overstate the link between high prices and R&D (much spending goes to marketing, not research).",
+            "Well-documented government failures, though the VA is a unique system (direct government provision of care, not insurance) and may not generalize to a Medicare-for-All insurance model. Directness lowered: the headline '30 days' figure was not verified, so the description now reflects the audit and OIG findings.",
+        },
+        {
+          id: "pharma-innovation-comparison",
+          title: "The US Is the Leading Source of Pharmaceutical R&D",
+          description:
+            "The US biopharmaceutical sector is the world's largest source of drug R&D and new molecular entities. A 2021 Congressional Budget Office report notes that PhRMA member companies' worldwide R&D, much of it US-based, accounts for roughly 75-85% of the industry total. Defenders of the current system argue high US drug prices effectively subsidize global drug development and that price-control countries free-ride on US innovation.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "Congressional Budget Office, 'Research and Development in the Pharmaceutical Industry' (2021)",
+          sourceUrl: "https://www.cbo.gov/publication/57126",
+          reasoning:
+            "Valid concern about innovation incentives, but the link between high US prices and global R&D is contested (much industry spending goes to marketing, not research). Weights lowered and the previously cited '44% of global R&D' figure removed: it could not be verified against a primary source, so the claim now reflects the CBO's PhRMA-share finding.",
         },
       ],
     },
@@ -142,9 +147,9 @@ export const universalHealthcareData = {
       evidence: [
         {
           id: "commonwealth-fund-ranking",
-          title: "Commonwealth Fund: US Ranks Last Among 11 Nations",
+          title: "Commonwealth Fund: US Ranks Last Among 10 Nations",
           description:
-            "The Commonwealth Fund's 2024 Mirror, Mirror report ranks the US last overall among 11 high-income countries on healthcare performance. The US ranks last in access, equity, and health outcomes, despite spending the most. Australia, the Netherlands, and the UK top the rankings. The US's only above-average ranking is in care process quality.",
+            "The Commonwealth Fund's 2024 Mirror, Mirror report ranks the US last overall among 10 high-income countries on healthcare performance, despite spending the most. The US ranks lowest on health outcomes, access, and equity. Australia, the Netherlands, and the UK are the top performers. Care process is the one area where the US scores closer to average.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -152,7 +157,9 @@ export const universalHealthcareData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Commonwealth Fund, 'Mirror, Mirror' (2024)",
+          source: "Commonwealth Fund, 'Mirror, Mirror 2024'",
+          sourceUrl:
+            "https://www.commonwealthfund.org/publications/fund-reports/2024/sep/mirror-mirror-2024",
           reasoning:
             "Well-regarded comparative study with transparent methodology; somewhat limited by the Commonwealth Fund's known advocacy for universal coverage.",
         },
@@ -160,7 +167,7 @@ export const universalHealthcareData = {
           id: "oecd-health-outcomes",
           title: "OECD: US Lags Peers on Life Expectancy and Infant Mortality",
           description:
-            "OECD data shows US life expectancy at 77.5 years, 3.2 years below the OECD average of 80.7. US infant mortality is 5.4 per 1,000 live births vs. OECD average of 4.5. The US has the highest rate of preventable deaths (amenable mortality) among wealthy nations at 112 per 100,000 vs. 55 in France.",
+            "OECD Health at a Glance data shows US life expectancy around 77 years, roughly 3 years below the OECD average of about 80, ranking near the bottom of member countries. US infant mortality is 5.4 per 1,000 live births, among the highest in the OECD. The US also has one of the highest rates of avoidable (treatable plus preventable) mortality among wealthy nations.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -168,7 +175,9 @@ export const universalHealthcareData = {
             replicability: 9,
             directness: 7,
           },
-          source: "OECD Health Statistics",
+          source: "OECD, 'Health at a Glance 2023'",
+          sourceUrl:
+            "https://www.oecd.org/en/publications/health-at-a-glance-2023_7a7afb35-en.html",
           reasoning:
             "Highly reliable international data; directness limited because US outcomes reflect many factors beyond healthcare system design (gun violence, obesity, drug overdoses).",
         },
@@ -176,7 +185,7 @@ export const universalHealthcareData = {
           id: "us-cancer-survival",
           title: "US Leads in Cancer Survival Rates",
           description:
-            "The US has the highest 5-year cancer survival rates among wealthy nations for most cancers. Breast cancer: 90% (US) vs. 85% (OECD). Colon cancer: 65% vs. 60%. The US leads in early detection, access to cutting-edge treatments, and clinical trial participation. For serious conditions, the US healthcare system delivers world-class care.",
+            "The CONCORD-3 global study (The Lancet, 2018) found the US among the countries with the highest 5-year net cancer survival for most cancers. US 5-year breast-cancer survival for women diagnosed 2010-14 was 90.2%, among the highest worldwide. The US leads in early detection, access to cutting-edge treatments, and clinical-trial participation. For serious conditions, US care is world-class.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -184,7 +193,9 @@ export const universalHealthcareData = {
             replicability: 8,
             directness: 7,
           },
-          source: "CONCORD Global Surveillance, Lancet Oncology",
+          source: "CONCORD-3, Allemani et al., The Lancet (2018)",
+          sourceUrl:
+            "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(17)33326-3/fulltext",
           reasoning:
             "Genuine US advantage; may partly reflect lead-time bias (earlier detection inflates survival stats without improving mortality) and selective access.",
         },
@@ -200,7 +211,9 @@ export const universalHealthcareData = {
             replicability: 7,
             directness: 8,
           },
-          source: "American Journal of Public Health, Himmelstein et al.",
+          source: "American Journal of Public Health, Himmelstein et al. (2019)",
+          sourceUrl:
+            "https://ajph.aphapublications.org/doi/10.2105/AJPH.2018.304901",
           reasoning:
             "Widely cited peer-reviewed study; some methodological debate about how to attribute bankruptcy causation, but the scale of medical debt is undeniable.",
         },

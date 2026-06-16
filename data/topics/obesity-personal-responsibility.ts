@@ -57,53 +57,59 @@ export const obesityPersonalResponsibilityData = {
           title:
             "23.5 Million Americans Live in Food Deserts with Limited Healthy Options",
           description:
-            "USDA data shows 23.5 million Americans live in food deserts — low-income areas more than one mile from a supermarket in urban areas or ten miles in rural areas. These communities have 2-3x more fast food restaurants per capita than affluent neighborhoods. Research published in the American Journal of Preventive Medicine found that residents of food deserts have 25-50% higher obesity rates than those with access to full-service grocery stores, even after controlling for income.",
+            "A widely-cited 2009 USDA report to Congress estimated that about 23.5 million Americans live in low-income areas more than one mile (urban) or ten miles (rural) from a supermarket — so-called 'food deserts.' Whether limited supermarket access itself causes obesity is contested. A randomized-area study in the American Journal of Preventive Medicine (Ghosh-Dastidar et al. 2014) found that in two low-income urban food deserts, distance to a supermarket was NOT independently associated with obesity once food prices were accounted for — only higher relative prices of healthy vs. junk food predicted obesity. This suggests the relevant systemic lever is food affordability and marketing rather than physical distance alone.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 7,
-            replicability: 8,
-            directness: 7,
+            replicability: 6,
+            directness: 4,
           },
-          source: "USDA Economic Research Service; American Journal of Preventive Medicine",
+          source:
+            "USDA Economic Research Service, Access to Affordable and Nutritious Food (2009 Report to Congress); Ghosh-Dastidar et al., American Journal of Preventive Medicine (2014)",
+          sourceUrl:
+            "https://doi.org/10.1016/j.amepre.2014.07.005",
           reasoning:
-            "USDA food access data is comprehensive and publicly available. The correlation between food access and obesity is well-documented across multiple studies. Directness is moderate because food deserts are correlated with other poverty-related health determinants, making it difficult to isolate food access as the causal factor.",
+            "The 23.5M food-desert figure is a real, publicly documented USDA estimate. However, directness is LOW: the cited primary AJPM study actually found that supermarket distance was not significant after controlling for prices, so it does not establish that food-desert access causally drives obesity. The earlier draft overstated this item by asserting a '25-50% higher obesity rate even after controlling for income' that the source does not support; that fabricated figure has been removed and the claim re-scoped to what the literature shows. Food access is confounded with poverty, marketing, and price, making causal attribution weak.",
         },
         {
           id: "chile-junk-food-regulations",
           title:
             "Chile's Junk Food Regulations Reduced Sugary Drink Purchases by 24%",
           description:
-            "Chile implemented comprehensive food labeling laws (2016) requiring black warning labels on foods high in sugar, sodium, fat, or calories, along with bans on marketing unhealthy foods to children and removing them from schools. A study in PLOS Medicine (2020) found sugary drink purchases fell 24% in the 18 months following implementation, with the largest reductions among the heaviest consumers. Subsequent data showed a measurable reduction in childhood obesity rates in regulated school environments.",
+            "Chile implemented comprehensive food labeling laws (2016) requiring black warning labels on foods high in sugar, sodium, fat, or calories, along with bans on marketing unhealthy foods to children and removing them from schools. A before-and-after study in PLOS Medicine (Taillie et al. 2020) found the purchased volume of 'high-in' sugar-sweetened beverages fell 23.7% in the post-implementation period (comparing 2015 to 2017), one of the largest beverage-purchase changes attributed to a labeling and marketing policy. The policy's effect on population obesity rates was not yet established in this study and remains under longer-term evaluation.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 8,
+            directness: 7,
           },
           source: "Taillie et al., PLOS Medicine (2020)",
           sourceUrl:
             "https://doi.org/10.1371/journal.pmed.1003015",
           reasoning:
-            "Published in a respected journal with a strong quasi-experimental design leveraging a national policy change. The 24% reduction in sugary drinks is a large effect from a labeling intervention alone. Replicability is moderate because Chile's results may not generalize perfectly to other cultural contexts.",
+            "Published in a respected journal with a strong before-and-after design leveraging a national policy change; the ~24% reduction in sugary-drink purchases is well-documented. Directness reduced slightly from the prior draft because the study measures purchasing behavior, not obesity outcomes directly, and the earlier claim of a 'measurable reduction in childhood obesity rates' was not supported by this source and has been removed. Replicability is moderate because Chile's results may not generalize to other cultural contexts.",
         },
         {
           id: "personal-agency-cross-cultural",
           title:
             "Countries with Similar Food Industries Have Very Different Obesity Rates",
           description:
-            "Japan (obesity rate ~4%) and South Korea (~6%) have access to the same global food corporations and ultra-processed products as the US (~42%) yet maintain dramatically lower obesity rates. Critics of the systemic argument point to cultural factors — smaller portions, walking-oriented infrastructure, social norms around body weight, school lunch programs emphasizing whole foods — as evidence that individual and cultural choices, not food industry presence alone, determine obesity outcomes.",
+            "Japan (adult obesity ~3-4%) and South Korea (~6%) have access to many of the same global food corporations and ultra-processed products as the US (~42%) yet report dramatically lower obesity rates (World Obesity Federation / OECD data). Some critics of the systemic argument cite cultural factors — smaller portions, walking-oriented infrastructure, social norms, school lunch programs emphasizing whole foods. However, these cross-country gaps cannot cleanly isolate 'individual choice': measurement differs (East-Asian BMI thresholds and self-report vs. measured-height methods differ across countries), and Japan/Korea's outcomes are themselves shaped by strong food policy and built environment — which are systemic, not individual, factors.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 6,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
+            directness: 3,
           },
-          source: "WHO Global Health Observatory; OECD Health Statistics",
+          source:
+            "World Obesity Federation Global Obesity Observatory; OECD Health at a Glance",
+          sourceUrl:
+            "https://data.worldobesity.org/rankings/",
           reasoning:
-            "Cross-national comparisons are informative but imperfect. Proponents counter that Japan and South Korea have extensive government food regulation, mandatory school lunch programs, and cultural infrastructure that represent systemic solutions — not proof that individual willpower alone explains the difference. Directness is limited because many confounding variables differ between countries.",
+            "Cross-national prevalence figures are real and publicly available, but as evidence for the 'personal choice' thesis they are weak. Directness lowered substantially from the prior draft (false-balance correction): the data show a between-country difference, not that individual willpower rather than systemic factors drives it. Japan and South Korea have extensive food regulation, mandatory school lunch programs, and walkable infrastructure — themselves systemic solutions — and BMI is measured with different cutoffs and methods across these countries, so the comparison cannot support the inference that personal choice dominates.",
         },
       ],
     },
@@ -138,7 +144,7 @@ export const obesityPersonalResponsibilityData = {
           title:
             "Twin Studies Show 40-70% Heritability of BMI Across Populations",
           description:
-            "A meta-analysis of twin studies encompassing over 140,000 twin pairs from multiple countries (Elks et al., American Journal of Clinical Nutrition, 2012) found that genetic factors account for 40-70% of variation in BMI, with shared environment accounting for only 10-25% in childhood and near zero in adulthood. Identical twins reared apart have BMIs nearly as correlated as those reared together, demonstrating that genetic influence persists independent of shared food environment.",
+            "A systematic review and meta-regression of twin and family studies (Elks et al., Frontiers in Endocrinology, 2012), aggregating 88 twin-study estimates across roughly 140,525 twins, found high heritability of BMI. Twin-study heritability estimates ranged from 0.47 to 0.90 (median ~0.75), with family-study estimates somewhat lower. Twin studies consistently show that shared (family) environment explains relatively little of adult BMI variation, indicating that genetic influence persists largely independent of the shared childhood food environment. The commonly cited '40-70%' range is a conservative summary spanning twin and family designs.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -146,9 +152,11 @@ export const obesityPersonalResponsibilityData = {
             replicability: 9,
             directness: 8,
           },
-          source: "Elks et al., American Journal of Clinical Nutrition (2012)",
+          source: "Elks et al., Frontiers in Endocrinology (2012)",
+          sourceUrl:
+            "https://doi.org/10.3389/fendo.2012.00029",
           reasoning:
-            "Twin studies are the gold standard for estimating heritability, and this meta-analysis aggregates decades of data across multiple populations. The consistency of findings (40-70%) across different countries and time periods is highly compelling. Directness is slightly reduced because heritability measures genetic contribution to variation within an environment, not the absolute biological constraint on an individual.",
+            "Twin studies are the gold standard for estimating heritability, and this meta-regression aggregates decades of data across many populations. The prior draft mis-attributed this paper to the American Journal of Clinical Nutrition; it was published in Frontiers in Endocrinology, and the source has been corrected. Twin estimates actually cluster higher (median ~0.75) than the headline '40-70%', so the claim is if anything understated. Directness is slightly reduced because heritability measures genetic contribution to variation within an environment, not the absolute biological constraint on an individual.",
         },
         {
           id: "metabolic-adaptation-biggest-loser",
@@ -174,17 +182,19 @@ export const obesityPersonalResponsibilityData = {
           title:
             "Gut Microbiome Transplant from Obese to Lean Mice Causes Weight Gain",
           description:
-            "Turnbaugh et al. (2006, Nature) demonstrated that transplanting gut microbiota from obese mice into germ-free lean mice caused significantly greater fat gain than transplanting microbiota from lean mice, with no difference in food intake. Subsequent human studies (Ridaura et al., Science, 2013) confirmed that transplanting gut bacteria from obese human twins into germ-free mice reproduced the obesity phenotype. The obese-associated microbiome was more efficient at extracting calories from food.",
+            "Turnbaugh et al. (2006, Nature) demonstrated that colonizing germ-free mice with an 'obese' gut microbiota produced significantly greater increases in total body fat than colonizing with a 'lean' microbiota, and characterized the obese-associated microbiome as having an increased capacity to harvest energy from the diet. Ridaura et al. (2013, Science) extended this to humans: transplanting fecal microbiota from human twin pairs discordant for obesity into germ-free mice transmitted the donor's adiposity and metabolic phenotype, with the obesity phenotype being diet-dependent.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 8,
-            directness: 7,
+            directness: 6,
           },
           source: "Turnbaugh et al., Nature (2006); Ridaura et al., Science (2013)",
+          sourceUrl:
+            "https://doi.org/10.1038/nature05414",
           reasoning:
-            "Published in the two highest-impact scientific journals with rigorous germ-free mouse methodology. The causal design (transplant causing weight gain without dietary change) is compelling. Directness is somewhat limited because mouse microbiome findings do not always translate directly to human obesity, and the magnitude of effect in humans remains under investigation.",
+            "Published in the two highest-impact scientific journals with rigorous germ-free mouse methodology (Turnbaugh, Nature 2006: https://doi.org/10.1038/nature05414; Ridaura, Science 2013: https://doi.org/10.1126/science.1241214). The transplant design is suggestive of causation. Directness is limited (lowered from the prior draft) because these are mouse models receiving human or mouse microbiota; the magnitude and causal weight of microbiome effects on human obesity remain actively debated and the phenotype in Ridaura was diet-dependent.",
         },
         {
           id: "obesity-tripled-50-years",
@@ -199,7 +209,10 @@ export const obesityPersonalResponsibilityData = {
             replicability: 10,
             directness: 7,
           },
-          source: "CDC NHANES; Swinburn et al., The Lancet (2011)",
+          source:
+            "CDC/NCHS NHANES (Prevalence of Obesity Among Adults, 1960-1962 through 2017-2018); Swinburn et al., The Lancet (2011)",
+          sourceUrl:
+            "https://doi.org/10.1016/S0140-6736(11)60813-1",
           reasoning:
             "NHANES is the gold standard for US population health surveillance, and the obesity trend is among the most replicated findings in public health. The argument that genes cannot explain a 50-year population shift is logically sound. However, proponents counter that the gene-environment interaction framework explains precisely this: genetically susceptible individuals were always present but only became obese when exposed to the modern food environment, which is itself a systemic (not individual choice) argument.",
         },
@@ -274,7 +287,7 @@ export const obesityPersonalResponsibilityData = {
           title:
             "67% of Weight Regained Within One Year of GLP-1 Discontinuation",
           description:
-            "The STEP 1 extension trial (Wilding et al., Diabetes Obes Metab 2022) followed participants who discontinued semaglutide after 68 weeks for an additional year. Participants regained two-thirds (67%) of their lost weight within one year of stopping the drug, despite continued lifestyle counseling. Proponents argue this proves biological drive; skeptics argue it proves pharmaceutical dependency, not disease treatment.",
+            "The STEP 1 trial extension (Wilding et al., Diabetes, Obesity and Metabolism 2022) followed a representative subset of participants who discontinued semaglutide and lifestyle intervention after 68 weeks for an additional year. One year after withdrawal, participants regained about two-thirds (~67%) of their prior weight loss, with cardiometabolic variables reverting in parallel. Proponents argue this reflects the body's biological defense of a higher weight; skeptics argue it shows pharmaceutical dependency rather than cure.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -283,6 +296,8 @@ export const obesityPersonalResponsibilityData = {
             directness: 7,
           },
           source: "Wilding et al., Diabetes, Obesity and Metabolism (2022)",
+          sourceUrl:
+            "https://doi.org/10.1111/dom.14725",
           reasoning:
             "Well-designed extension study from a top-tier trial. The weight regain data is used by both sides: proponents say it proves the body biologically defends its higher weight (disease model), while skeptics say it proves the drugs create dependency rather than curing anything. Directness is moderate because the interpretation depends on one's prior framework.",
         },
@@ -291,17 +306,20 @@ export const obesityPersonalResponsibilityData = {
           title:
             "GLP-1 Drugs Cost $1,000-1,500/Month, Creating Massive Health Equity Gaps",
           description:
-            "Semaglutide (Wegovy) carries a list price of approximately $1,350/month in the US, and tirzepatide (Zepbound) approximately $1,060/month. As of 2025, most insurance plans provide limited or no coverage for obesity drugs. The populations with the highest obesity rates — low-income, rural, and minority communities — are least able to afford pharmacological treatment. A JP Morgan analysis estimated the total addressable market for GLP-1 obesity drugs at $100+ billion annually, raising concerns that the medical-industrial complex is profiting from a condition driven by the food-industrial complex.",
+            "Semaglutide (Wegovy) has carried a US list price of roughly $1,350/month and tirzepatide (Zepbound) roughly $1,060/month, though discounted cash and direct-to-consumer prices have been substantially lower and are changing rapidly. Coverage for obesity (as opposed to diabetes) indications has historically been limited: as of early 2026, only a minority of state Medicaid programs covered GLP-1s for obesity. The populations with the highest obesity rates — low-income, rural, and minority communities — are generally least able to afford treatment, raising concerns that a condition shaped by the food environment is being met with an expensive pharmaceutical fix unevenly available across income groups.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 7,
-            replicability: 9,
-            directness: 6,
+            replicability: 8,
+            directness: 5,
           },
-          source: "KFF Health Policy Analysis; JP Morgan Healthcare Research",
+          source:
+            "KFF, Medicaid Coverage of and Spending on GLP-1s; published US list prices for Wegovy and Zepbound",
+          sourceUrl:
+            "https://www.kff.org/medicaid/medicaid-coverage-of-and-spending-on-glp-1s/",
           reasoning:
-            "Drug pricing data is publicly verifiable and the equity implications are well-documented. However, directness is limited because cost and equity are implementation concerns, not evidence against the disease model of obesity itself. Proponents argue that insulin is also expensive and creates dependency, yet no one argues diabetes is merely a lifestyle choice.",
+            "List-price data is publicly verifiable, and limited obesity-indication coverage is documented by KFF. The prior draft's specific '$15,000/year' and '$100B JP Morgan addressable-market' figures were removed because they could not be primary-source verified and the pricing/coverage landscape is shifting quickly (cash prices have fallen well below list). Directness lowered: cost and equity are implementation concerns, not evidence against the disease model itself — proponents note insulin is also costly and creates dependency, yet diabetes is not deemed a mere lifestyle choice.",
         },
       ],
     },

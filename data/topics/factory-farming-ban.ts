@@ -35,7 +35,7 @@ export const factoryFarmingBanData = {
           id: "usda-farm-size-data",
           title: "~99% of US Farmed Animals in Factory Farms (Sentience Institute)",
           description:
-            "The Sentience Institute estimates that ~99% of US farmed animals live in factory farms (concentrated animal feeding operations), derived by applying EPA CAFO size definitions to USDA Census of Agriculture data. Species breakdowns include 98.6% of pigs, 98.3% of egg-laying hens, and over 99.9% of meat chickens; this covers roughly 10 billion land animals raised per year. The 'humane' market share is a small fraction of total production.",
+            "The Sentience Institute estimates that ~99% of US farmed animals live in factory farms (concentrated animal feeding operations), derived by applying EPA CAFO size definitions to USDA Census of Agriculture data. Species breakdowns include 98.6% of pigs, 98.3% of egg-laying hens, and over 99.9% of meat chickens. The 'humane' market share is a small fraction of total production.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -53,49 +53,55 @@ export const factoryFarmingBanData = {
           id: "cambridge-declaration-consciousness",
           title: "Cambridge Declaration on Consciousness (2012)",
           description:
-            "A prominent group of neuroscientists signed the Cambridge Declaration stating that 'non-human animals possess the neurological substrates that generate consciousness.' This includes all mammals and birds, covering all major farmed species. The declaration was signed at Cambridge University in the presence of Stephen Hawking.",
+            "A group of neuroscientists signed the Cambridge Declaration on Consciousness (July 7, 2012), concluding that 'humans are not unique in possessing the neurological substrates that generate consciousness' and that 'non-human animals, including all mammals and birds,' possess these substrates. This covers all major farmed species. It was proclaimed at the Francis Crick Memorial Conference at Churchill College, University of Cambridge, with Stephen Hawking as guest of honor.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 7,
-            replicability: 7,
-            directness: 7,
+            replicability: 6,
+            directness: 6,
           },
-          source: "Cambridge Declaration on Consciousness, 2012",
+          source:
+            "Low P, Panksepp J, Reiss D, Edelman D, Van Swinderen B, Koch C, 'The Cambridge Declaration on Consciousness' (2012)",
+          sourceUrl: "https://fcmconference.org/img/CambridgeDeclarationOnConsciousness.pdf",
           reasoning:
-            "Authoritative scientific statement; somewhat limited by philosophical debate over what 'consciousness' implies for moral status.",
+            "A signed declaration by reputable neuroscientists, not a peer-reviewed study; it speaks to consciousness substrates, not directly to moral status, so directness/replicability weighted down accordingly.",
         },
         {
           id: "welfare-improvement-trends",
           title: "Animal Welfare Standards Have Steadily Improved",
           description:
-            "Since 2000, the EU has banned battery cages and gestation crates. US states (CA, MA, WA) have passed similar laws. McDonald's, Walmart, and major retailers have committed to cage-free eggs. Industry groups argue voluntary improvement is more effective than prohibition.",
+            "The EU banned conventional battery cages (effective 2012) and restricted sow gestation crates (effective 2013). US states including California (Prop 12) and Massachusetts (Question 3) have passed confinement bans, and roughly a dozen states mandate cage-free eggs. Many major retailers pledged cage-free eggs by 2025, though several (including Walmart and Target) publicly fell short of that deadline citing supply and price. Industry groups argue voluntary improvement is more effective than prohibition.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 6,
-            replicability: 7,
+            replicability: 6,
             directness: 6,
           },
-          source: "ASPCA, National Chicken Council",
+          source:
+            "EU Council Directive 1999/74/EC (battery cages) and 2008/120/EC (sows); California Proposition 12 (2018); industry reporting on cage-free pledges",
+          sourceUrl: "https://ballotpedia.org/California_Proposition_12,_Farm_Animal_Confinement_Initiative_(2018)",
           reasoning:
-            "Real progress exists, but critics note improvements are marginal (cage-free still allows extreme crowding) and timelines are slow.",
+            "Real legislative and corporate progress exists, but improvements are partial (cage-free still permits crowding) and several voluntary 2025 pledges were missed; the aggregated source is general rather than a single primary dataset, so weighted modestly.",
         },
         {
           id: "food-price-impact",
-          title: "Banning Factory Farming Would Raise Food Prices 20-50%",
+          title: "Replacing Factory Farming Would Sharply Raise Land and Production Costs",
           description:
-            "Economic modeling suggests replacing factory farming with pasture-based systems would increase meat prices 20-50% and require 2-3x more land. Low-income households spend 30%+ of income on food; price increases would disproportionately harm them. Protein deficiency could increase in developing nations.",
+            "A peer-reviewed analysis found a nationwide US shift to exclusively grass-fed beef would require expanding the cattle herd from 77 to 100 million head (+30%), and that present-day pastureland can sustain only about 27% of current beef output without large pasture-productivity gains or land conversion. Because pasture systems grow animals more slowly and use far more land per unit of output, production costs and consumer prices would rise materially, which would weigh most on low-income households. The exact price increase is uncertain and depends on whether consumers shift toward cheaper plant proteins rather than buying like-for-like replacement meat.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 6,
-            directness: 7,
+            directness: 5,
           },
-          source: "USDA Economic Research Service, FAO",
+          source:
+            "Hayek MN, Garrett RD, 'Nationwide shift to grass-fed beef requires larger cattle population,' Environmental Research Letters 13(8) (2018)",
+          sourceUrl: "https://iopscience.iop.org/article/10.1088/1748-9326/aad401",
           reasoning:
-            "Credible economic modeling, though it assumes a direct replacement rather than dietary shifts toward plant protein.",
+            "Peer-reviewed land/herd estimate is solid, but the specific 20-50% price figure was not traceable to a single authoritative source, so the price claim is stated qualitatively and directness is weighted down; modeling also assumes substitution toward replacement meat rather than plant protein.",
         },
       ],
     },
@@ -134,57 +140,63 @@ export const factoryFarmingBanData = {
             replicability: 8,
             directness: 8,
           },
-          source: "FAO 'Tackling Climate Change Through Livestock' (2013)",
+          source: "FAO, 'Tackling Climate Change Through Livestock' (2013)",
+          sourceUrl: "https://www.fao.org/3/i3437e/i3437e.pdf",
           reasoning:
-            "Gold-standard international assessment with transparent methodology; widely cited in climate policy.",
+            "Gold-standard international assessment with transparent methodology; widely cited in climate policy. FAO confirms livestock = 14.5% of anthropogenic GHG and cattle = 65% of the sector's emissions.",
         },
         {
           id: "who-antibiotic-resistance",
-          title: "WHO: Agricultural Antibiotic Use Drives Resistance Crisis",
+          title: "Antibiotic Use in Livestock Contributes to Resistance Crisis",
           description:
-            "The WHO identifies antibiotic use in livestock as a primary driver of antimicrobial resistance, which kills 1.27 million people annually and is projected to cause 10 million deaths/year by 2050. 80% of antibiotics sold in the US are used in animal agriculture, primarily for growth promotion rather than treating illness.",
+            "The Lancet/GRAM study estimated that bacterial antimicrobial resistance was directly responsible for 1.27 million deaths and associated with 4.95 million deaths globally in 2019. A widely cited (and contested) UK government review projected up to 10 million deaths per year by 2050. Health bodies identify antibiotic use in livestock as one driver of resistance. Roughly two-thirds of medically important antibiotics sold in the US go to food-producing animals (the ~80% figure refers to global sales, not the US).",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 7,
-            directness: 7,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
           },
-          source: "WHO Antimicrobial Resistance Global Report",
+          source:
+            "Murray CJL et al., 'Global burden of bacterial antimicrobial resistance in 2019,' The Lancet (2022); FDA antibiotic sales data; O'Neill Review on AMR (2016, for 2050 projection)",
+          sourceUrl: "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)02724-0/fulltext",
           reasoning:
-            "Authoritative source with strong methodology; causal link between specific farm practices and resistance is well-established.",
+            "Death-burden figure is from the peer-reviewed Lancet GRAM study, re-attributed from an incorrect 'WHO report' label. The 10M/2050 projection is the contested O'Neill estimate, now flagged as such. The 80% antibiotics claim was overstated for the US (it is global; US is ~two-thirds), and the livestock-to-human-resistance link is real but not the sole cause, so directness is weighted down.",
         },
         {
           id: "plant-protein-adequacy",
           title: "Plant-Based Diets Can Lack Key Nutrients Without Supplements",
           description:
-            "Systematic reviews find that plant-based diets are nutritionally adequate for all life stages when properly planned, but many people fail to supplement B12, iron, zinc, and omega-3s. Developing nations with limited food diversity face greater risks. The American Dietetic Association endorses well-planned plant-based diets but emphasizes the 'well-planned' caveat.",
+            "The Academy of Nutrition and Dietetics (formerly the American Dietetic Association) holds that appropriately planned vegetarian and vegan diets are healthful and nutritionally adequate for all life stages, including pregnancy, infancy, and older adulthood. The position stresses the 'appropriately planned' caveat, since poorly planned plant-based diets risk shortfalls in nutrients such as B12, iron, zinc, and omega-3s — a greater concern where food diversity or supplementation is limited.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 7,
-            directness: 5,
+            replicability: 6,
+            directness: 4,
           },
-          source: "American Dietetic Association, Cochrane Reviews",
+          source:
+            "Melina V, Craig W, Levin S, 'Position of the Academy of Nutrition and Dietetics: Vegetarian Diets,' J Acad Nutr Diet (2016)",
+          sourceUrl: "https://www.jandonline.org/article/S2212-2672(16)31192-3/abstract",
           reasoning:
-            "Valid nutritional concern, though directness is limited since a factory farming ban doesn't require eliminating all animal products.",
+            "Authoritative dietetics position, re-attributed to its correct (renamed) body and the 2016 paper. Directness is low: the source actually affirms plant-based diets are adequate when planned, and a factory-farming ban does not require eliminating all animal products.",
         },
         {
           id: "mississippi-dead-zone",
           title: "Agricultural Runoff Creates 6,000 sq mi Dead Zone",
           description:
-            "The Gulf of Mexico 'dead zone' covers approximately 6,334 square miles annually — an area the size of Connecticut and Rhode Island combined. It is primarily caused by nitrogen and phosphorus runoff from agricultural operations in the Mississippi River watershed, with animal manure being the largest single source.",
+            "The Gulf of Mexico 'dead zone' (hypoxic area) measured about 6,334 square miles in 2021 — roughly the size of Connecticut and Rhode Island combined — and has averaged several thousand square miles annually; the largest on record was 8,776 sq mi in 2017. NOAA attributes it to excess nitrogen and phosphorus nutrient pollution carried from across the Mississippi River watershed, dominated by agriculture (including cropland fertilizer and livestock manure) alongside urban runoff.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 8,
-            directness: 7,
+            directness: 5,
           },
-          source: "NOAA, USGS, EPA Gulf of Mexico Hypoxia Task Force",
+          source: "NOAA / USGS, Gulf of Mexico hypoxia ('dead zone') measurements",
+          sourceUrl: "https://www.noaa.gov/news-release/larger-than-average-gulf-of-mexico-dead-zone-measured",
           reasoning:
-            "Well-documented environmental phenomenon with clear causal link to agricultural practices; directness slightly limited as crop agriculture also contributes.",
+            "Well-documented phenomenon, but directness is weighted down: NOAA attributes the nutrient load to the whole Mississippi watershed (cropland fertilizer is a dominant source), so the prior claim that animal manure is 'the largest single source' was an overstatement and has been corrected.",
         },
       ],
     },

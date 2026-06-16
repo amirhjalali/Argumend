@@ -31,9 +31,9 @@ export const meaningWithoutReligionData = {
       evidence: [
         {
           id: "committed-nonreligious-wellbeing",
-          title: "Among the Nonreligious, Commitment and Community—Not Mere Unbelief—Predict Wellbeing",
+          title: "Among the Nonreligious, Comfort and Community—Not Mere Unbelief—Predict Wellbeing",
           description:
-            "A 2025 study in Sociology of Health & Illness (Frost, Edgell & Miller) examined nonreligious wellbeing across multiple dimensions: nonreligious identity, organizational involvement, identity duration, and affective orientation. The strongest predictor of wellbeing among the nonreligious was affective orientation—whether people experience their nonreligion as comforting rather than anxiety-producing—which is itself shaped over time by participation in nonreligious organizations. This indicates that how committed and supported nonreligious people are in their worldview matters more than the mere absence of religious belief.",
+            "A 2025 study in Sociology of Health & Illness, \"Varieties of Nonreligious Experience\" (Frost, Edgell & Miller), used a 2020 national survey of Americans to examine how nonreligious identity, identity duration, involvement in nonreligious organizations, and affective orientation predict self-reported health, happiness, and life satisfaction. The primary predictor of wellbeing among the nonreligious was affective orientation—whether people experience their nonreligion as comforting rather than anxiety-producing—which the authors find is shaped over time by participation in nonreligious organizations. This indicates that how supported nonreligious people feel in their worldview matters more than the mere absence of religious belief.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -41,7 +41,8 @@ export const meaningWithoutReligionData = {
             replicability: 6,
             directness: 7,
           },
-          source: "Frost, Edgell & Miller, Sociology of Health & Illness 47(5):e70060 (2025)",
+          source:
+            "Frost, Edgell & Miller, \"Varieties of Nonreligious Experience: Expanding Understandings of Nonreligious Wellbeing,\" Sociology of Health & Illness 47(5):e70060 (2025)",
           sourceUrl: "https://doi.org/10.1111/1467-9566.70060",
           reasoning:
             "Important nuance: the comparison is between committed secular people and committed religious people. The broader nonreligious population (which includes disengaged and apathetic individuals) may fare worse.",
@@ -58,7 +59,10 @@ export const meaningWithoutReligionData = {
             replicability: 9,
             directness: 7,
           },
-          source: "Pew Research Center, Global Attitudes Survey",
+          source:
+            "Pew Research Center, \"Religion's Relationship to Happiness, Civic Engagement and Health Around the World\" (Jan. 31, 2019)",
+          sourceUrl:
+            "https://www.pewresearch.org/religion/2019/01/31/religions-relationship-to-happiness-civic-engagement-and-health-around-the-world/",
           reasoning:
             "Gold-standard polling data. However, the happiness gap may reflect social community effects (church attendance provides social bonds) rather than metaphysical beliefs per se. In more secular societies (Northern Europe), the gap narrows or disappears.",
         },
@@ -66,7 +70,7 @@ export const meaningWithoutReligionData = {
           id: "scandinavian-secular-happiness",
           title: "Most Secular Nations Rank Among the Happiest",
           description:
-            "Denmark, Sweden, Finland, and the Netherlands—among the most secular nations on Earth—consistently rank in the top 10 of the World Happiness Report. These societies have some of the lowest rates of religious belief but achieve high life satisfaction through strong social safety nets, trust in institutions, and cultural emphasis on community. This suggests societal-level secularism is compatible with (and may even facilitate) human flourishing.",
+            "Finland, Denmark, Sweden, and the Netherlands—among the most secular nations on Earth—consistently rank in the top 10 of the World Happiness Report; in the 2024 edition Finland was 1st, Denmark 2nd, Sweden 4th, and the Netherlands 6th. These societies have some of the lowest rates of religious belief but achieve high life satisfaction through strong social safety nets, trust in institutions, and cultural emphasis on community. This suggests societal-level secularism is compatible with (and may even facilitate) human flourishing.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -74,7 +78,9 @@ export const meaningWithoutReligionData = {
             replicability: 9,
             directness: 6,
           },
-          source: "World Happiness Report (2024); Pew Research Center",
+          source:
+            "World Happiness Report 2024 (Wellbeing Research Centre, University of Oxford / Gallup / UN SDSN)",
+          sourceUrl: "https://www.worldhappiness.report/ed/2024/",
           reasoning:
             "Robust data across multiple years and metrics. However, directness is limited because these nations' happiness likely stems from social democratic institutions, not secularism itself—it is difficult to isolate the effect of irreligion from strong safety nets.",
         },
@@ -103,52 +109,57 @@ export const meaningWithoutReligionData = {
       evidence: [
         {
           id: "euthyphro-dilemma",
-          title: "Euthyphro Dilemma: Divine Command Theory Is Incoherent",
+          title: "Euthyphro Dilemma: A Standing Challenge to Divine Command Theory",
           description:
-            "Plato's Euthyphro dilemma (circa 380 BCE) poses a fundamental challenge to religious moral foundations: Is something good because God commands it, or does God command it because it is good? If the former, morality is arbitrary (God could command cruelty). If the latter, goodness exists independently of God, and religion is unnecessary for ethics. After 2,400 years, no widely accepted resolution has been offered.",
+            "Plato's Euthyphro dilemma (circa 380 BCE) poses a challenge to religious moral foundations: Is something good because God commands it, or does God command it because it is good? If the former, morality risks being arbitrary (God could command cruelty); if the latter, goodness exists independently of God, so religion is not strictly necessary for ethics. The dilemma remains a central reference point in the philosophy of religion, though it is not settled—the Stanford Encyclopedia of Philosophy notes that contemporary philosophers have defended divine command theory against this and related objections.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 9,
-            replicability: 9,
-            directness: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
           },
-          source: "Plato, Euthyphro; Stanford Encyclopedia of Philosophy",
+          source:
+            "Plato, Euthyphro; \"Religion and Morality,\" Stanford Encyclopedia of Philosophy (rev. 2024)",
+          sourceUrl: "https://plato.stanford.edu/entries/religion-morality/",
           reasoning:
-            "One of the most durable arguments in philosophy. However, sophisticated theologians (Aquinas, Plantinga) have offered responses, and the dilemma's force depends on accepting its framing.",
+            "One of the most durable arguments in philosophy, but it is a contested philosophical thesis, not an empirical finding. Sophisticated theologians (Aquinas, Adams, Plantinga) have offered responses, and the dilemma's force depends on accepting its framing—so replicability and directness are limited.",
         },
         {
           id: "plos-one-both-paths",
-          title: "Both Religious and Secular Ethics Predict Wellbeing",
+          title: "Both Religious and Secular Ethics Have Roles in Happiness and Health",
           description:
-            "A 2024 study in PLOS ONE (Zagonari) used a dynamic theoretical model and panel data to evaluate how both religious and secular ethics, coupled with education, affect happiness and health. It found that both individual and social ethics—religious or secular—can produce beneficial happiness and health outcomes, particularly when paired with education policies, with the model emphasizing that active engagement with a coherent ethical framework, rather than its specific content, drives the benefit.",
+            "A 2024 study in PLOS ONE (Zagonari), \"Both religious and secular ethics to achieve both happiness and health,\" used a dynamic theoretical model and panel data to evaluate how religious and secular ethics, coupled with education, affect happiness and health. Its central finding is qualified: no single ethics—religious or secular—delivers beneficial impacts on both happiness and health at both the individual and social levels, so the author argues the two kinds of ethics are needed as complements (with happiness raising health after a lag of about four years, and education policies generally improving health). The work supports the view that secular ethics is a viable component of flourishing, not that secular ethics alone matches religious ethics on every outcome.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 8,
-            replicability: 5,
-            directness: 6,
+            replicability: 4,
+            directness: 5,
           },
-          source: "Zagonari, PLOS ONE 19(4):e0301905 (2024)",
+          source:
+            "Zagonari, \"Both religious and secular ethics to achieve both happiness and health,\" PLOS ONE 19(4):e0301905 (2024)",
           sourceUrl: "https://doi.org/10.1371/journal.pone.0301905",
           reasoning:
-            "Peer-reviewed, but largely a theoretical/modeling exercise rather than a direct empirical comparison of religious vs. secular individuals; its conclusions are model-dependent and nuanced (no single ethics benefits both happiness and health at every level). Lends qualified support to the view that secular and religious ethics can be functionally comparable for flourishing. A single modeling study should not be treated as definitive.",
+            "Peer-reviewed, but a theoretical/modeling exercise rather than a direct empirical comparison of religious vs. secular individuals; its conclusions are model-dependent and explicitly nuanced (no single ethics benefits both happiness and health at every level, and it argues religious and secular ethics complement each other). Lends only qualified support to functional comparability. A single modeling study should not be treated as definitive.",
         },
         {
           id: "atheist-regimes-atrocities",
-          title: "Atheist Regimes Committed History's Worst Atrocities",
+          title: "Officially Atheist Communist Regimes Committed Mass Atrocities",
           description:
-            "The explicitly atheistic regimes of the 20th century—the Soviet Union under Stalin, China under Mao, and Cambodia under the Khmer Rouge—committed some of history's worst mass atrocities, killing tens of millions. Critics argue this demonstrates what happens when societies abandon religious moral constraints and replace them with ideological absolutes.",
+            "The officially atheist communist regimes of the 20th century—the Soviet Union under Stalin, China under Mao, and Cambodia under the Khmer Rouge—committed some of history's worst mass atrocities, killing tens of millions. The Black Book of Communism (Courtois et al., Harvard University Press, 1999) estimated roughly 20 million deaths under the USSR, 65 million in China, and 1.7 million in Cambodia. Critics argue this demonstrates what happens when societies abandon religious moral constraints and replace them with ideological absolutes.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 4,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
+            directness: 3,
           },
-          source: "Historical consensus; various historians",
+          source:
+            "Stéphane Courtois et al., The Black Book of Communism: Crimes, Terror, Repression (Harvard University Press, 1999)",
+          sourceUrl: "https://www.hup.harvard.edu/books/9780674076082",
           reasoning:
-            "The atrocities are historical fact. However, directness is low because these regimes were authoritarian ideologies that replaced religion with state worship—they did not represent secular humanism, liberal atheism, or philosophical naturalism.",
+            "The atrocities are historical fact, though specific death-toll figures are contested—even the book's own contributors (Werth, Margolin) disputed the editor's aggregate totals as inflated. Directness is low because these regimes were authoritarian ideologies that replaced religion with state worship; they did not represent secular humanism, liberal atheism, or philosophical naturalism.",
         },
       ],
     },

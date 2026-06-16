@@ -76,3 +76,23 @@ KNOWN FOLLOW-UP (for WS2/cleanup pass): several agents flagged that some pillar 
 references that were out of their evidence-only edit scope — notably tiktok-brain-rot's rebuttal still
 cites the fabricated "Hancock et al. 2023" and a "Baert et al. 2020", and cancel-culture's prose still
 carries the "Pew 62%" stat that was re-attributed to Cato in the evidence. WS2 should sweep narrative prose.
+
+## Iteration 5 (2026-06-16) — coverage 91% → 98% ✅ WS1 COMPLETE
+Hardened the 13 highest-traffic low-coverage maps: gun-control-effectiveness, wealth-tax,
+moon-landing, factory-farming-ban, universal-healthcare, iran-war-justification,
+lab-grown-meat-adoption, lab-diamonds-ethics, minneapolis-shooting, meaning-without-religion,
+obesity-personal-responsibility, rent-control-effectiveness, privacy-vs-convenience.
+~77 evidence items moved to verified URL; overall coverage now **98%** (1111/1136). The remaining
+~25 URL-less items are genuinely-unsourceable normative/theoretical/argument claims, intentionally
+left honest + low-weight (no fabrication). WS1 (citation integrity) target exceeded.
+Notable fabricated/misattributed cites caught: lab-diamonds "1,750 acres/million carats" was a
+garbled metric (real figure is ~1,750 *tonnes earth moved per carat*) → removed; obesity food-desert
+"25-50% higher even controlling for income" fabricated → real Ghosh-Dastidar AJPM finds distance NOT
+significant once prices controlled (a false-balance fix, directness 7→4); gun-control Australia "42%
+gun-homicide drop" not in the JAMA source → corrected to mass-shooting/total-death figures with the
+authors' own no-causation caveat; rent-control IGM survey was INVERTED (file said "81% agree rent
+control reduces quantity" — actual: ~82% disagreed it improves affordability), Cambridge study
+mis-dated/mis-cited (Autor-Palmer-Pathak JPE 2014, not "2023"); universal-healthcare CMS NHE updated
+($4.3T→$4.9T) + VA wait-time and pharma-R&D figures de-inflated; lab-grown-meat $6.20/lb exposed as a
+techno-economic *projection* by a Believer-Meats founder (independence 6→3); privacy FBI "going dark"
+device count flagged as FBI-admitted overcount. Many weights de-inflated; ~25 items honestly URL-less.

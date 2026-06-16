@@ -84,26 +84,28 @@ export const labDiamondsEthicsData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Kimberley Process; World Diamond Council; De Beers Group",
+          source: "Kimberley Process (official); World Diamond Council; De Beers Group",
+          sourceUrl: "https://www.kimberleyprocess.com/en/what-kp",
           reasoning:
-            "The reduction in conflict diamond trade is real and significant. However, industry self-reporting raises independence concerns, the narrow definition of 'conflict' understates ongoing abuses, and the 1% figure excludes state violence and exploitative artisanal mining conditions.",
+            "The Kimberley Process's own site confirms the headline claim that conflict diamonds fell from ~15% in the 1990s to under 1% of global production, with participants representing ~99.8% of rough production. The reduction is real and significant. But the source is the scheme itself (and allied industry bodies), so independence is low; the narrow definition of 'conflict' (rebel-financing only) excludes state violence and exploitative artisanal mining conditions, so the <1% figure understates ongoing harm. The Tracr 'over a third of production' detail is De Beers' own marketing claim and is not independently audited.",
         },
         {
           id: "lab-diamond-labor-concerns",
           title:
             "Lab-Grown Diamond Cutting and Polishing Concentrated in Low-Wage Indian Facilities",
           description:
-            "Over 90% of the world's diamonds — both mined and lab-grown — are cut and polished in Surat, India, where workers earn $150-300 per month and face occupational hazards including repetitive strain injuries and silicosis from diamond dust. Lab-grown diamonds do not eliminate downstream labor concerns, as they pass through the same cutting centers as mined stones.",
+            "Roughly 90% of the world's diamonds — both mined and lab-grown — are cut and polished in Surat, India, where the industry employs an estimated 800,000+ workers. Reporting describes piece-rate pay (commonly on the order of a few hundred US dollars per month), poor ventilation, and occupational illnesses including silicosis and vision damage from diamond dust. Lab-grown diamonds do not eliminate downstream labor concerns, as they pass through the same cutting centers as mined stones.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 7,
+            replicability: 6,
             directness: 6,
           },
-          source: "Reuters; The Guardian; Gem & Jewellery Export Promotion Council of India",
+          source: "BBC News (Surat diamond-polishing reporting)",
+          sourceUrl: "https://feeds.bbci.co.uk/news/articles/c1e866ypp1zo",
           reasoning:
-            "Valid point that lab-grown diamonds share post-production labor concerns with mined diamonds. However, directness is moderate because this is a shared industry problem, not a reason to prefer mined over lab-grown — it affects both equally and does not offset the upstream mining abuses that lab-grown avoids.",
+            "BBC reporting confirms the ~90% concentration in Surat, the ~800,000 workforce, and the poor working conditions (low piece-rate pay, silicosis risk). The original '$150-300/month' figure is not precisely pinned to a single primary source, so the description is softened to 'a few hundred US dollars' consistent with reporting. Directness is moderate: this is a shared industry problem affecting both mined and lab-grown stones, not a reason to prefer mined over lab-grown, and it does not offset the upstream mining abuses that lab-grown avoids.",
         },
       ],
     },
@@ -138,19 +140,20 @@ export const labDiamondsEthicsData = {
         {
           id: "mining-land-destruction",
           title:
-            "Diamond Mining Creates Massive Land Disruption — 1,750 Acres per Million Carats",
+            "Open-Pit Diamond Mines Are Among the Largest Human-Made Excavations on Earth",
           description:
-            "Open-pit diamond mines create some of the largest human-made excavations on Earth. The Mirny mine in Russia is 525 meters deep and 1.2 km across. Globally, diamond mining disturbs an estimated 1,750 acres of land per million carats, displaces local communities, destroys habitats, and generates billions of tons of waste rock. Ecosystem restoration at former mine sites takes decades and is rarely completed to pre-mining conditions.",
+            "Open-pit diamond mines create some of the largest human-made excavations on Earth. The Mir (Mirny) mine in Russia's Sakha Republic is roughly 525 meters deep and about 1,200 meters across. Extracting diamonds requires moving enormous volumes of earth — on the order of one to two thousand tonnes of ore per carat recovered at large operations — generating vast quantities of waste rock and tailings, and ecosystem restoration at former mine sites is slow and rarely returns land to pre-mining condition. Lab-grown production requires only factory floor space.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 9,
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
           },
-          source: "Environmental Science & Technology; UNEP Mining Reports",
+          source: "Mir mine technical/encyclopedic records (dimensions)",
+          sourceUrl: "https://en.wikipedia.org/wiki/Mir_mine",
           reasoning:
-            "Land destruction is inherent to open-pit mining and well-documented through satellite imagery. Lab-grown production requires only factory floor space, categorically eliminating this impact.",
+            "CORRECTION: the original headline figure of '1,750 acres of land per million carats' could not be verified and appears to conflate a different and widely-cited statistic — roughly 1,750 TONNES of earth/ore moved per CARAT — into a land-area claim. That fabricated acreage figure was removed. The verifiable facts retained are the Mir mine's dimensions (~525 m deep, ~1,200 m wide) and the general truth that open-pit diamond mining is extremely earth-moving-intensive. Weights de-inflated because the per-carat land/waste magnitudes circulate mostly through retail and advocacy sites rather than a clean peer-reviewed primary source.",
         },
         {
           id: "lab-grown-coal-power",
@@ -175,34 +178,36 @@ export const labDiamondsEthicsData = {
           title:
             "Renewable-Powered Lab Diamonds Achieve Under 20 kg CO₂ per Carat",
           description:
-            "Diamond Foundry, a US-based lab-grown producer, operates using 100% hydroelectric power and has been certified carbon-neutral by third-party auditors. Their production emits under 20 kg CO₂ per carat — roughly 8-10x less than the most efficient mining operations (Debswana at ~160 kg CO₂) and 25x less than coal-grid lab production. As renewable energy expands, all lab producers can eventually achieve similar footprints.",
+            "Diamond Foundry, a US-based lab-grown producer, runs its Wenatchee, Washington facility on 100% hydroelectric power from the Columbia River and markets itself as the first 'carbon-neutral' diamond producer. SCS Global Services' SCS-007 jewelry sustainability standard certifies qualifying lab-grown (and natural) diamonds as 'Certified Climate Neutral,' showing that net-zero-carbon production is technically achievable. By comparison, the industry-commissioned Trucost study put efficient mined production at ~160 kg CO₂ per polished carat, so a renewable-powered grower's footprint is dramatically lower than both coal-grid lab production and mining. As grids decarbonize, more lab producers can approach similar footprints.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 8,
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 6,
+            directness: 7,
           },
-          source: "Diamond Foundry; SCS Global Services certification",
+          source: "SCS Global Services (SCS-007 climate-neutral certification); Diamond Foundry company claims",
+          sourceUrl: "https://www.scsglobalservices.com/news/new-third-party-diamond-standard-certifies-worlds-first-climate-neutral-lab-grown-diamonds",
           reasoning:
-            "Demonstrates that the energy problem is solvable with current technology. Independence score is lower because the data comes partly from the company itself. Replicability depends on access to renewable energy, which is expanding but not yet universal for lab-grown production.",
+            "Verified: Diamond Foundry's flagship Wenatchee plant runs on Columbia River hydropower, and SCS-007 is a real third-party standard certifying 'climate neutral' diamonds. Independence is LOW because the specific 'under 20 kg CO₂/carat' figure traces to the company itself rather than an independent audit; the original 'under 20 kg' precise number is not pinned to a verifiable third-party measurement, so it was replaced with the certified-climate-neutral framing and the Trucost ~160 kg comparison point. Note 'carbon/climate neutral' can rely on offsets, not just zero gross emissions. Weights de-inflated accordingly. The core point — that the lab-grown energy problem is solvable with renewables — stands.",
         },
         {
           id: "mining-water-contamination",
           title:
-            "Diamond Mining Consumes 480 Liters per Carat and Risks Water Contamination",
+            "Diamond Mining Carries Catastrophic Water-Contamination Tail Risk (Catoca, 2021)",
           description:
-            "Diamond mining operations consume an average of 480 liters of water per carat produced, often in water-scarce regions of sub-Saharan Africa. Tailings dams holding mining waste have failed catastrophically — a 2023 dam collapse at Angola's Catoca mine sent contaminated waste into rivers serving millions. Acid mine drainage from abandoned diamond mines continues to pollute groundwater decades after closure.",
+            "Diamond mining is water-intensive (industry and advocacy comparisons commonly cite figures on the order of hundreds of liters per carat) and often operates in water-scarce regions. The tail risk is severe: in July 2021 a tailings-dam spillway failure at Angola's Catoca mine — the world's fourth-largest diamond mine, co-owned by Angola's Endiama and Russia's ALROSA — released mining waste into the Lova, Tshikapa, and Kasai rivers, turning them red for hundreds of kilometers into the DRC, killing aquatic life, and reportedly killing about 12 people and sickening thousands downstream. Lab-grown production uses minimal water and carries no comparable tailings-dam risk.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
+            sourceReliability: 7,
+            independence: 7,
             replicability: 7,
             directness: 8,
           },
-          source: "UNEP; Water Resources Research; Angolan Ministry of Environment",
+          source: "Mongabay; peer-reviewed remote-sensing analysis of the 2021 Catoca tailings spill",
+          sourceUrl: "https://news.mongabay.com/2022/10/the-mine-leak-was-bad-the-drc-and-angolas-response-are-no-better-report-says/",
           reasoning:
-            "Water impacts of mining are well-documented and inherent to the extraction process. Lab-grown production uses minimal water by comparison. The Catoca dam failure demonstrates the catastrophic tail risk of mining waste infrastructure.",
+            "CORRECTION: the Catoca tailings-dam failure occurred in July 2021, not 2023 as originally stated — fixed. The spill, ALROSA/Endiama ownership, the red rivers spanning Angola into the DRC, and roughly 12 deaths are documented by Mongabay and a peer-reviewed remote-sensing study (ScienceDirect, 2023). The '480 liters per carat' precise figure traces mainly to retail/advocacy comparison pages rather than a clean primary source, so it was softened to 'hundreds of liters per carat.' The original source list (UNEP / 'Water Resources Research' / Angolan Ministry of Environment) could not be verified for these specific numbers and was replaced. Weights de-inflated slightly given the imprecise per-carat figure.",
         },
       ],
     },
@@ -245,33 +250,35 @@ export const labDiamondsEthicsData = {
             replicability: 7,
             directness: 9,
           },
-          source: "World Bank; IMF Country Reports; Acemoglu & Robinson (2012)",
+          source: "IMF 2024 Article IV Consultation (Botswana); World Bank; Acemoglu & Robinson (2012)",
+          sourceUrl: "https://www.elibrary.imf.org/view/journals/002/2024/286/article-A001-en.xml",
           reasoning:
-            "Botswana's development story is one of the best-documented cases in development economics. The causal role of diamond revenue is well-established. Directly demonstrates that diamond mining has delivered enormous positive outcomes for at least one African nation. Replicability is lower because Botswana's success depended on uniquely good governance that other diamond-producing nations have not replicated.",
+            "The IMF's 2024 Article IV report confirms the dependency figures used in this pillar: diamonds account for roughly a quarter of GDP, about 80% of exports, and around a third of fiscal revenue. Botswana's development story is one of the best-documented cases in development economics and the causal role of diamond revenue is well-established. The specific historical figures (12 km of road / $70 per-capita GDP at 1966 independence) are commonly cited and broadly consistent with the record, though not pinned to this single source. Replicability is lower because Botswana's success depended on uniquely good governance other diamond producers have not replicated.",
         },
         {
           id: "artisanal-mining-livelihoods",
           title:
             "10 Million People in Africa Depend on Diamond Mining Livelihoods",
           description:
-            "An estimated 1.5 million artisanal and small-scale diamond miners work across sub-Saharan Africa, supporting approximately 10 million dependents. In countries like Sierra Leone and the DRC, artisanal mining is one of few available income sources in rural areas. While conditions are often poor, eliminating demand for mined diamonds without providing alternative livelihoods would deepen poverty for these communities.",
+            "The Diamond Development Initiative (DDI), an official Kimberley Process observer, estimates that artisanally mined diamonds are the main livelihood for more than 1.5 million miners across roughly 18 countries in Africa and South America, supporting around 10 million family members. In countries like Sierra Leone and the DRC, artisanal mining is one of few available income sources in rural areas. While conditions are often poor, eliminating demand for mined diamonds without providing alternative livelihoods would deepen poverty for these communities.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
             directness: 8,
           },
-          source: "Diamond Development Initiative; World Bank Artisanal Mining Report",
+          source: "Diamond Development Initiative (Kimberley Process observer)",
+          sourceUrl: "https://www.kimberleyprocess.com/observers/diamond-development-initiative",
           reasoning:
-            "Livelihood dependency data comes from credible development organizations. The ethical tension is real — poor mining conditions are bad, but no income is often worse. However, this argument implicitly accepts exploitation as preferable to unemployment, rather than demanding better alternatives.",
+            "The DDI is a recognized Kimberley Process observer focused on artisanal/alluvial mining; the linked KP page verifies its mandate. CORRECTION: the original said miners work 'across sub-Saharan Africa,' but the widely-cited DDI figure (1.5 million miners / ~10 million dependents) spans ~18 countries in BOTH Africa and South America — scope corrected. The specific numbers are DDI estimates rather than independently audited census data, so independence/reliability/replicability are de-inflated. The ethical tension is real, but the argument implicitly accepts exploitation as preferable to unemployment rather than demanding better alternatives.",
         },
         {
           id: "lab-grown-market-disruption",
           title:
             "Lab-Grown Diamonds Reached Roughly Half of US Engagement-Ring Sales by 2024",
           description:
-            "Lab-grown diamonds grew from under 2% of the diamond jewelry market in 2018 to roughly 45-50% of US engagement-ring sales by 2024 — passing the 50% mark in some 2024-2025 readings (The Knot) — driven by 73-83% lower prices per carat. As lab-grown supply scaled, natural 1-carat diamond prices fell from roughly $6,000 in 2021 to about $4,200 in 2025 (a ~30% decline, with some indices showing the steepest natural-diamond price drop this century), directly reducing revenue for producing nations.",
+            "Per The Knot's 2025 Real Weddings Study, 52% of US couples married in 2024 had an engagement ring featuring a lab-grown center stone — up sharply from a low-single-digit share several years earlier — driven by far lower prices. The Knot reports that in early 2025 an unbranded 1-carat lab-grown diamond averaged roughly $845 versus about $3,895 for a comparable natural diamond, and that lab-grown's success has pushed natural-diamond prices down well beyond what the mining industry expected, reducing revenue for producing nations.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -279,26 +286,28 @@ export const labDiamondsEthicsData = {
             replicability: 8,
             directness: 7,
           },
-          source: "The Knot 2024-2025 Jewelry & Engagement Study; Bain & Company Diamond Industry Report; Edahn Golan Diamond Research",
+          source: "The Knot 2025 Real Weddings Study (reported via CNBC); Bain & Company Global Diamond Industry Report",
+          sourceUrl: "https://www.cnbc.com/2025/03/10/more-couples-are-choosing-lab-grown-diamonds-vs-natural-for-engagement-rings.html",
           reasoning:
-            "Market data from major industry trackers is reliable. An earlier version understated the shift as '20% by 2025'; lab-grown actually reached roughly half of US engagement-ring sales by 2024, and the corrected figure makes the disruption clearer. The rapid share growth demonstrates consumer preferences are already shifting, making the economic transition question urgent regardless of ethical arguments. Directness is moderate because market disruption is economic data, not a direct measure of ethical impact.",
+            "Verified: The Knot's 2025 study found 52% of 2024 engagement rings featured a lab-grown stone, and reported ~$845 (lab) vs ~$3,895 (natural) for an unbranded 1-carat stone in early 2025. CORRECTION: the earlier text's specific price path ('~$6,000 in 2021 to about $4,200 in 2025') and the '73-83% lower' and '~30% decline' figures were not matched to the verified source, so they were replaced with The Knot's directly-reported $845 vs $3,895 comparison. Directness is moderate because market disruption is economic data, not a direct measure of ethical impact.",
         },
         {
           id: "resource-depletion-diversification",
           title:
             "Botswana's Diamond Reserves Expected to Deplete Significantly by 2050",
           description:
-            "Botswana's major diamond mines, including the flagship Jwaneng mine, are projected to see significant production declines by 2040-2050 as reserves deplete. The Botswana government has acknowledged this timeline and launched Vision 2036, a national development plan emphasizing economic diversification into financial services, technology, and tourism. The need for diversification exists regardless of lab-grown competition — lab-grown merely accelerates an inevitable transition.",
+            "Botswana's flagship Jwaneng mine has a finite open-pit life — reported around the mid-2030s — and Debswana is investing billions (the Cut-9 extension and a planned underground conversion) to prolong it toward roughly 2054. The Botswana government's Vision 2036 national development plan explicitly prioritizes economic diversification beyond diamonds. The need to diversify exists regardless of lab-grown competition; lab-grown merely accelerates an inevitable transition as ore grades and reserves decline.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
+            sourceReliability: 7,
+            independence: 7,
             replicability: 7,
             directness: 7,
           },
-          source: "Botswana Vision 2036; De Beers Annual Reports; World Bank Botswana Assessment",
+          source: "Mining Technology (Jwaneng mine life / Cut-9 and underground extension); Botswana Vision 2036",
+          sourceUrl: "https://www.mining-technology.com/projects/jwaneng-diamond-mine/",
           reasoning:
-            "Resource depletion timelines are based on geological surveys and production data. The argument that mining communities face economic transition regardless of lab-grown competition is logically strong and reframes the ethical question from 'should we protect mining jobs' to 'should we help communities transition sooner or later.'",
+            "Verified: Jwaneng's open-pit life runs to roughly the mid-2030s, with the Cut-9 extension and a planned underground operation intended to push it toward ~2054 — confirming both the depletion pressure and the heavy capital needed to fight it. Vision 2036 is a real national plan emphasizing diversification. CORRECTION: the original 'significant declines by 2040-2050' was loosely stated; the open-pit horizon is nearer the mid-2030s (life-extension projects, not the base reserve, push it later), so wording was tightened. The reframing — communities face transition regardless of lab-grown competition — remains logically strong.",
         },
       ],
     },
