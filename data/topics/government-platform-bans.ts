@@ -98,8 +98,8 @@ export const governmentPlatformBansData = {
             replicability: 9,
             directness: 6,
           },
-          source: "European Commission; BBC; Government of Canada",
-          sourceUrl: "https://www.bbc.com/news/technology-64804870",
+          source: "Fortune (US, EU, and Canada government device bans, March 2023)",
+          sourceUrl: "https://fortune.com/2023/03/01/why-tiktok-banned-government-phones-us-eu-canada/",
           reasoning:
             "The convergent assessment across multiple allied security agencies strongly suggests a genuine security concern rather than US-specific protectionism. However, device bans are a much less restrictive measure than consumer bans, so the directness of this evidence for justifying a complete ban is moderate.",
         },

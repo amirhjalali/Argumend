@@ -223,7 +223,7 @@ export const gainOfFunctionResearchBanData = {
             directness: 8,
           },
           source: "Arms Control Association; United Nations Office for Disarmament Affairs",
-          sourceUrl: "https://www.armscontrol.org/factsheets/bwcataglance",
+          sourceUrl: "https://www.armscontrol.org/factsheets/biological-weapons-convention-bwc-glance-0",
           reasoning:
             "The BWC's enforcement failure is well-documented and directly relevant to the feasibility of enforcing a GOF ban. Major state violations went undetected for decades, demonstrating the difficulty of verifying compliance in biological research. This is among the strongest evidence against enforceability.",
         },
@@ -239,8 +239,9 @@ export const gainOfFunctionResearchBanData = {
             replicability: 7,
             directness: 7,
           },
-          source: "International Gene Synthesis Consortium; Nuclear Threat Initiative",
-          sourceUrl: "https://www.nti.org/analysis/articles/the-gene-synthesis-screening-revolution/",
+          source:
+            "International Gene Synthesis Consortium; Nuclear Threat Initiative, \"Common Mechanism to Prevent Illicit Gene Synthesis\"",
+          sourceUrl: "https://www.nti.org/analysis/articles/common-mechanism-prevent-illicit-gene-synthesis/",
           reasoning:
             "DNA synthesis screening provides a concrete enforcement mechanism that already exists and covers the majority of the market. However, gaps remain — not all synthesis providers participate, and advanced labs can synthesize DNA without commercial suppliers. The 80% coverage rate suggests meaningful but imperfect enforcement.",
         },

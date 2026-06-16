@@ -79,8 +79,9 @@ export const genderAffirmingCareMinorsData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Finnish COHERE; Swedish National Board of Health and Welfare (Socialstyrelsen)",
-          sourceUrl: "https://segm.org/Finland_deviates_from_WPATH_prioritizes_psychotherapy",
+          source: "Finnish COHERE/PALKO recommendation (2020); Swedish National Board of Health and Welfare (Socialstyrelsen, 2022)",
+          sourceUrl:
+            "https://palveluvalikoima.fi/documents/1237350/22895008/Summary_minors_en.pdf/aaf9a6e7-b970-9de9-165c-abedfae46f2e/Summary_minors_en.pdf",
           reasoning:
             "These decisions by Nordic health authorities carry exceptional weight because they come from countries with progressive social policies, universal healthcare, and strong LGBTQ+ rights protections. They cannot be dismissed as politically motivated. Multiple countries independently reaching the same conclusion about evidence quality strengthens the finding. The convergence across different health systems is itself a form of replication.",
         },
@@ -280,8 +281,9 @@ export const genderAffirmingCareMinorsData = {
       url: "https://www.tandfonline.com/doi/full/10.1080/26895269.2022.2100644",
     },
     {
-      title: "Finland's Gender Identity Services for Minors: COHERE Recommendation (2020)",
-      url: "https://segm.org/Finland_deviates_from_WPATH_prioritizes_psychotherapy",
+      title:
+        "Medical Treatment Methods for Dysphoria Related to Gender Variance in Minors — COHERE/PALKO Finland Recommendation, Official English Summary (2020)",
+      url: "https://palveluvalikoima.fi/documents/1237350/22895008/Summary_minors_en.pdf/aaf9a6e7-b970-9de9-165c-abedfae46f2e/Summary_minors_en.pdf",
     },
     {
       title: "Sweden Restricts Hormonal Treatment for Gender Dysphoric Minors — Socialstyrelsen (2022)",

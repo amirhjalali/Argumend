@@ -177,8 +177,8 @@ export const aiDeepfakesTruthCollapseData = {
             replicability: 9,
             directness: 8,
           },
-          source: "Microsoft Research; MIT Technology Review; Sensity AI",
-          sourceUrl: "https://www.technologyreview.com/2023/01/09/1066502/voice-clone-ai-three-seconds/",
+          source: "Microsoft Research (Wang et al., 'Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers,' VALL-E, 2023)",
+          sourceUrl: "https://www.microsoft.com/en-us/research/publication/neural-codec-language-models-are-zero-shot-text-to-speech-synthesizers/",
           reasoning:
             "The technical capability is well-documented and independently verifiable — anyone can test voice cloning services. The 3-second threshold is specific and concerning because virtually every public figure has that much audio available. The directness score reflects that this describes capability, not demonstrated widespread harm.",
         },

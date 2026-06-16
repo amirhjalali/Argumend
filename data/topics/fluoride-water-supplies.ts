@@ -96,8 +96,8 @@ export const fluorideWaterSuppliesData = {
             replicability: 8,
             directness: 7,
           },
-          source: "CDC NHANES; Journal of Dental Research; Community Dentistry and Oral Epidemiology",
-          sourceUrl: "https://www.cdc.gov/nchs/nhanes/index.htm",
+          source: "CDC/NCHS Data Brief No. 307 (NHANES); Journal of Dental Research; Community Dentistry and Oral Epidemiology",
+          sourceUrl: "https://www.cdc.gov/nchs/products/databriefs/db307.htm",
           reasoning:
             "NHANES is a rigorous nationally representative health survey. The equity argument — that fluoridation primarily benefits those who cannot access alternatives — is one of the strongest justifications for the policy. The Calgary natural experiment provides quasi-experimental evidence. However, directness is somewhat lower because the disparity could also be addressed through targeted interventions like school-based programs.",
         },

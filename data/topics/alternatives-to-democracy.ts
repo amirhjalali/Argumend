@@ -71,9 +71,9 @@ export const alternativesToDemocracyData = {
       evidence: [
         {
           id: "pew-declining-democratic-satisfaction",
-          title: "Pew: Declining Satisfaction with Democracy Across All Major Democracies",
+          title: "Pew: Satisfaction with Democracy Has Declined in High-Income Nations",
           description:
-            "Pew Research Center surveys from 2019-2024 show that majorities in most democracies are dissatisfied with how their democracy is working. In the US, 72% say they are dissatisfied; in France, 69%; in the UK, 69%; in Japan, 62%. Satisfaction with democracy has declined in 17 of 24 countries surveyed since 2017. The global trend suggests structural rather than country-specific dysfunction.",
+            "Pew Research Center's spring 2024 survey of 31 nations found a median of 54% are dissatisfied with how their democracy is working, versus 45% satisfied. Among 12 high-income democracies tracked since 2017, satisfaction fell from 49% in 2021 to just 36% in 2024. The cross-national pattern of declining satisfaction suggests structural rather than purely country-specific dysfunction.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -82,7 +82,7 @@ export const alternativesToDemocracyData = {
             directness: 6,
           },
           source: "Pew Research Center",
-          sourceUrl: "https://www.pewresearch.org/global/2024/02/12/in-many-countries-people-are-dissatisfied-with-democracy/",
+          sourceUrl: "https://www.pewresearch.org/short-reads/2024/06/18/satisfaction-with-democracy-has-declined-in-recent-years-in-high-income-nations/",
           reasoning:
             "Pew surveys are methodologically rigorous and globally representative. The cross-national pattern of dissatisfaction is compelling. However, dissatisfaction with democracy does not mean alternative systems would perform better — people may be dissatisfied with specific outcomes rather than the system itself, which limits directness.",
         },
@@ -144,7 +144,7 @@ export const alternativesToDemocracyData = {
             directness: 8,
           },
           source: "The Citizens' Assembly of Ireland; The Irish Times",
-          sourceUrl: "https://www.citizensassembly.ie/en/",
+          sourceUrl: "https://www.citizensassembly.ie/",
           reasoning:
             "This is a well-documented, real-world application of sortition that produced a measurably better outcome than elected representatives achieved. Independence and reliability are high because the process was publicly transparent with documented proceedings. Replicability is somewhat lower because the specific conditions (small, relatively homogeneous country with high social trust) may not translate to larger, more diverse nations.",
         },

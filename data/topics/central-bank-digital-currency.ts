@@ -160,8 +160,8 @@ export const centralBankDigitalCurrencyData = {
             replicability: 8,
             directness: 8,
           },
-          source: "World Bank; MIT; Safaricom Annual Report",
-          sourceUrl: "https://www.worldbank.org/en/news/feature/2021/06/24/in-kenya-and-beyond-mobile-money-is-changing-lives",
+          source: "NPR (Goats and Soda); Suri & Jack, Science 2016 (MIT/Georgetown)",
+          sourceUrl: "https://www.npr.org/sections/goatsandsoda/2016/12/09/504540392/dial-m-for-money-can-mobile-banking-lift-people-out-of-poverty",
           reasoning:
             "M-Pesa is the best-documented example of mobile financial inclusion, studied extensively by independent researchers. It directly challenges the claim that CBDCs are necessary for financial inclusion by showing that the private sector achieved comparable results with simpler technology.",
         },
@@ -239,8 +239,8 @@ export const centralBankDigitalCurrencyData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Federal Reserve; BIS Quarterly Review; Brookings Institution",
-          sourceUrl: "https://www.brookings.edu/articles/the-dollar-and-the-future-of-the-international-monetary-system/",
+          source: "Brookings Institution (Ben S. Bernanke); BIS Quarterly Review",
+          sourceUrl: "https://www.brookings.edu/articles/the-dollars-international-role-an-exorbitant-privilege-2/",
           reasoning:
             "The structural analysis of dollar dominance is well-established in international economics literature. The institutional foundations — legal system, capital market depth, central bank credibility — are not technical capabilities that can be replicated by CBDC technology. However, the argument addresses current structural advantages, and long-term erosion through gradual diversification remains a possibility.",
         },

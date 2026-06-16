@@ -94,8 +94,8 @@ export const aiJobDisplacementData = {
             replicability: 9,
             directness: 6,
           },
-          source: "Bureau of Labor Statistics; James Bessen, 'Learning by Doing' (2015); MIT Work of the Future Task Force",
-          sourceUrl: "https://economics.mit.edu/sites/default/files/publications/The%20Future%20of%20Work.pdf",
+          source: "David Autor, 'Why Are There Still So Many Jobs? The History and Future of Workplace Automation,' Journal of Economic Perspectives 29(3), 2015; Bureau of Labor Statistics",
+          sourceUrl: "https://economics.mit.edu/sites/default/files/inline-files/Why%20Are%20there%20Still%20So%20Many%20Jobs_0.pdf",
           reasoning:
             "BLS data is independently verified and spans decades. The historical pattern is robust and well-documented. However, critics argue AI is qualitatively different from prior technologies because it automates cognitive rather than physical tasks, making historical analogies potentially misleading.",
         },

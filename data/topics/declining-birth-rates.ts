@@ -239,8 +239,8 @@ export const decliningBirthRatesData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Ministry of Health, Labour and Welfare (Japan); International Federation of Robotics",
-          sourceUrl: "https://www.mhlw.go.jp/english/",
+          source: "International Federation of Robotics (IFR) — World Robotics Report, Robot Density press release",
+          sourceUrl: "https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas",
           reasoning:
             "Japan's 30+ year experience with automation in the context of population aging is the best available natural experiment. The persistent labor shortages despite massive robotics investment directly challenge the 'technology escape valve' thesis. The evidence is particularly strong because Japan had both the incentive and the capability to automate but could not solve its demographic challenges through technology alone.",
         },
