@@ -107,7 +107,7 @@ export const artificialReproductionEthicsData = {
           id: "nicu-survival-limits",
           title: "Current NICU Technology Hits Hard Viability Limit at 22 Weeks",
           description:
-            "Despite decades of neonatal advancement, survival rates for infants born before 22 weeks remain near zero. Even at 22 weeks, survival is roughly 10-30% with severe disability rates of 50-70%. Conventional ventilator-based approaches damage underdeveloped lungs, creating a physiological barrier that incremental improvements cannot overcome — a fundamentally different approach like artificial womb technology may be required.",
+            "Despite decades of neonatal advancement, survival rates for infants born before 22 weeks remain near zero. Even at 22 weeks, survival is roughly 25-35% with active care, and around half of survivors face moderate-to-severe neurodevelopmental impairment (severe impairment in roughly 20%). Conventional ventilator-based approaches damage underdeveloped lungs, creating a physiological barrier that incremental improvements cannot overcome — a fundamentally different approach like artificial womb technology may be required.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -186,7 +186,7 @@ export const artificialReproductionEthicsData = {
           id: "genetic-parenthood-objection",
           title: "Reproductive Self-Determination Extends Beyond Bodily Autonomy",
           description:
-            "Legal scholars including Sonia Suter and I. Glenn Cohen have argued that the right to abortion encompasses more than bodily autonomy — it includes the right not to become a genetic parent. Under this framework, ectogenesis would not resolve the core ethical question because a person would still be compelled to have a genetic child against their will. This argument has gained traction in legal scholarship since the Dobbs decision eliminated federal abortion protections.",
+            "Legal scholars including Sonia Suter and I. Glenn Cohen have argued that the right to abortion encompasses more than bodily autonomy. Cohen's framework conceives the right not to procreate as a bundle of distinct interests — the right not to be a genetic parent, not to be a gestational parent, and not to be a legal parent. Under this framework, ectogenesis would not resolve the core ethical question because a person would still be compelled to become a genetic parent against their will. This line of scholarship has gained renewed attention since the Dobbs decision eliminated federal abortion protections.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -248,7 +248,7 @@ export const artificialReproductionEthicsData = {
           id: "human-cloning-ban-effectiveness",
           title: "International Human Cloning Bans Have Held for 25+ Years",
           description:
-            "Despite the capability to clone human embryos existing since the late 1990s, no confirmed human reproductive cloning has occurred. Over 70 countries have enacted cloning bans, and the scientific community has largely self-regulated against reproductive cloning even where laws are absent. This suggests that international governance of reproductive technology can be effective when there is broad scientific and public consensus against misuse.",
+            "Despite the capability to clone human embryos existing since the late 1990s, no confirmed human reproductive cloning has occurred. Roughly 30-50 countries have enacted explicit reproductive cloning bans (and ~70 have addressed cloning in legislation), and the scientific community has largely self-regulated against reproductive cloning even where laws are absent. This suggests that international governance of reproductive technology can be effective when there is broad scientific and public consensus against misuse.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,

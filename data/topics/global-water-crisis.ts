@@ -75,7 +75,7 @@ export const globalWaterCrisisData = {
           title:
             "Himalayan Glaciers Losing Ice at Accelerating Rates, Threatening 1.6 Billion People",
           description:
-            "A 2023 study in Science found that Himalayan glaciers lost ice 65% faster in the 2010s compared to the 2000s. The Hindu Kush Himalayan region, sometimes called the 'Third Pole,' contains the largest store of frozen freshwater outside the polar regions and feeds 10 major river systems including the Indus, Ganges, Brahmaputra, Yangtze, and Mekong. Under a 2 degrees C warming scenario, the region is projected to lose one-third of its glacier volume by 2100; under 4 degrees C, two-thirds. During dry seasons, glacial meltwater provides 30-70% of river flow in the upper Indus Basin, making it critical for Pakistan's agriculture and India's northern plains.",
+            "ICIMOD's 2023 Hindu Kush Himalaya assessment (HI-WISE) found that the region's glaciers disappeared 65% faster in 2011–2020 than in the previous decade. The Hindu Kush Himalayan region, sometimes called the 'Third Pole,' contains the largest store of frozen freshwater outside the polar regions and feeds 12 major river systems including the Indus, Ganges, Brahmaputra, Yangtze, and Mekong, supplying water to roughly 240 million mountain residents and 1.65 billion people downstream. ICIMOD projects that at 1.5–2 degrees C of warming the region will lose 30–50% of its glacier volume by 2100, rising to up to 75–80% on current emissions trajectories. The peer-reviewed Rounce et al. (Science, 2023) global glacier model reinforces that every increment of warming sharply increases projected loss. During dry seasons, glacial meltwater provides 30-70% of river flow in the upper Indus Basin, making it critical for Pakistan's agriculture and India's northern plains.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -83,11 +83,11 @@ export const globalWaterCrisisData = {
             replicability: 9,
             directness: 8,
           },
-          source: "Science; ICIMOD Hindu Kush Himalayan Assessment",
+          source: "ICIMOD HI-WISE Hindu Kush Himalaya Assessment (2023); Rounce et al., Science (2023)",
           sourceUrl:
-            "https://www.science.org/doi/10.1126/science.abo1324",
+            "https://www.icimod.org/press-release/landmark-report-on-impacts-of-disappearing-snow-and-ice-in-the-hindu-kush-himalaya-current-emissions-path-threatens-two-billion-people-and-is-accelerating-species-extinction/",
           reasoning:
-            "Glacier retreat rates are measured by satellite and ground-based observations with high confidence. The long-term threat to dry-season river flow is physically well-understood. However, the timeline matters enormously — glacier loss is a multi-decadal process, and near-term water supply depends more on monsoon variability than glacier volume. The 'crisis' framing may understate how much adaptation time remains.",
+            "Glacier retreat rates are measured by satellite and ground-based observations with high confidence. The '65% faster' acceleration and the downstream population and volume-loss figures come from ICIMOD's 2023 HI-WISE regional assessment; an earlier draft attributed the 65% figure to the Science (Rounce et al.) paper, which actually models global glacier loss by temperature scenario rather than reporting the HKH decadal acceleration. The long-term threat to dry-season river flow is physically well-understood. However, the timeline matters enormously — glacier loss is a multi-decadal process, and near-term water supply depends more on monsoon variability than glacier volume. The 'crisis' framing may understate how much adaptation time remains.",
         },
         {
           id: "water-efficiency-gains",

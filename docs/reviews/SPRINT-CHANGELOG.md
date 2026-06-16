@@ -376,3 +376,32 @@ misattributed Hickel→Haberl 2020. social-media-mental-health verified clean (w
 Side-coding clean this batch (no hard inversions; a few judgment-call flags noted). Several agents flagged
 scores running 3-5 pts high (social-media-elections 69) — left to founder judgment. All web-verified.
 tsc clean, 207 tests.
+
+## Red-Team Pass — batch 5 (2026-06-16), final 9 topics — RED-TEAM COMPLETE
+Reviewed: pandemic-preparedness, global-water-crisis, lithium-mining-ev-impact, loneliness-epidemic,
+artificial-reproduction-ethics, gain-of-function-research-ban, central-bank-digital-currency,
+declining-birth-rates, immigration-national-identity.
+FABRICATED STUDY caught: loneliness-epidemic "Kara et al. 2023" (450k participants, invented HRs)
+attached to a real DOI that actually belongs to Wang et al. (a meta-analysis finding the OPPOSITE) →
+replaced with the real Liang et al. 2024 UK Biobank MR study; plus invented biomarker effect sizes
+(CRP/fibrinogen d-values) corrected to the real Smith 2020 (IL-6 only). Other fabricated/wrong stats:
+declining-birth-rates "340,000 nurse shortage" (unverifiable → real care-worker figure) + dependency
+ratio "30%→60% doubling" (real ~31→52%) + SK "$280B" (₩380T ≈ $270B); lithium Deepwater Horizon "210M
+gallons"→134M + Niger Delta "10,000 spills"→7,000+; global-water glacier "65% faster" mis-attributed
+(Science paper → ICIMOD HI-WISE 2023); artificial-reproduction cloning "70 countries"→30-50 + 22-week
+disability figure; pandemic-preparedness lab-leak "FBI+DOE both lab-origin" → added the 4-agencies-favor-
+natural context; CBDC stale Fed stance (EO 14178 ban added) + ECB "anonymity"→"cash-like privacy" + e-CNY
+260M→180M wallets. SIDE-CODING SCOPE-MISMATCH flagged (not forced): central-bank-digital-currency Pillar 2
+(M-Pesa/eNaira) — the low score 43 is partly a coding artifact; needs founder call on meta_claim scope.
+Other side-coding verified clean. All web-verified. tsc clean, 207 tests.
+
+=== RED-TEAM COMPLETE: all 51 previously-unreviewed topics adversarially reviewed (batches 1-5) ===
+Across the 5 batches the red-team found: 4 hard SIDE-CODING INVERSIONS (affirmative-action 12-of-14 items
+backwards [score 22→78], geoengineering Pillar 3, epstein transparency-act, ai-job-displacement JPMorgan,
+psychedelic-therapy 4 items) + 1 scope-mismatch flag (CBDC); ~15 FABRICATED studies/statistics asserted
+as real (incl. ones attached to real-but-wrong DOIs that passed dead-link checks); 1 backwards finding
+(social-media-elections Meta RCT); 2 missing landmark facts added (Biden v Nebraska, OpenResearch UBI RCT);
+and dozens of stale-figure/mis-attribution/de-inflation corrections. STRUCTURAL FALSE BALANCE flagged for
+follow-up: masculinity-crisis (~85) and nuclear-proliferation (~86) have one-sided evidence (needs added
+opposing evidence, not reweighting). All confidence scores now far more defensible. The corpus has been
+adversarially stress-tested end to end.

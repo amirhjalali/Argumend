@@ -38,7 +38,7 @@ export const lonelinessEpidemicData = {
           title:
             "Social Isolation Increases Mortality Risk by 29% Across 3.4 Million Participants",
           description:
-            "Julianne Holt-Lunstad's 2015 meta-analysis published in Perspectives on Psychological Science analyzed 70 prospective studies encompassing over 3.4 million participants. Social isolation was associated with a 29% increased risk of all-cause mortality (HR 1.29, 95% CI 1.06-1.56), loneliness with a 26% increase (HR 1.26, 95% CI 1.04-1.53), and living alone with a 32% increase (HR 1.32, 95% CI 1.14-1.53). Effects persisted after controlling for age, sex, baseline health status, and depression. The study built on her earlier 2010 meta-analysis of 148 studies and 308,849 participants which found an overall 50% increased likelihood of survival for those with stronger social relationships.",
+            "Julianne Holt-Lunstad's 2015 meta-analysis published in Perspectives on Psychological Science analyzed 70 prospective studies encompassing over 3.4 million participants. Reported as weighted-average odds ratios, social isolation was associated with a 29% increased likelihood of mortality (OR 1.29), loneliness with a 26% increase (OR 1.26), and living alone with a 32% increase (OR 1.32). The study built on her earlier 2010 meta-analysis of 148 studies and 308,849 participants which found an overall 50% increased likelihood of survival for those with stronger social relationships (OR 1.50). A recognized limitation is that few primary studies fully adjusted for baseline health, leaving room for confounding.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -74,37 +74,38 @@ export const lonelinessEpidemicData = {
         {
           id: "reverse-causation-confounding",
           title:
-            "Reverse Causation and Confounding May Explain Much of the Loneliness-Mortality Link",
+            "Genetic Evidence Disagrees With Observational Data on Loneliness Causing Disease",
           description:
-            "A 2023 analysis published in Nature Human Behaviour by Kara et al. re-examined the loneliness-mortality association using UK Biobank data from over 450,000 participants. After comprehensive adjustment for 106 confounders — including baseline physical health, mental health diagnoses, disability, socioeconomic deprivation, and health behaviors — the loneliness-mortality association was attenuated by approximately 50%, with the hazard ratio dropping from 1.26 to 1.14. The study also found evidence of reverse causation: individuals who developed chronic illnesses showed subsequent increases in loneliness, suggesting that illness drives isolation rather than isolation driving illness. A Mendelian randomization analysis within the same study found no significant causal effect of genetic liability to loneliness on mortality.",
+            "A 2024 analysis published in Nature Human Behaviour by Liang et al. examined the loneliness-disease association using UK Biobank data from 476,100 participants over a median 12.2-year follow-up. Observationally, loneliness was associated with greater risk in 13 of 14 disease categories and 30 of 56 individual diseases. However, when the authors applied Mendelian randomization — using genetic variants associated with loneliness to estimate causal effects independent of confounding and reverse causation — genetic liability to loneliness showed a non-causal association for 20 of 26 specific diseases tested, with only six (including depression, sleep apnea, and substance abuse) showing potentially causal links. The authors concluded that loneliness is 'more a potential surrogate marker than a direct cause' for most diseases, implying that observational associations are substantially inflated by confounding (pre-existing illness, disability, socioeconomic disadvantage) and reverse causation.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
             replicability: 8,
-            directness: 9,
+            directness: 8,
           },
-          source: "Nature Human Behaviour",
+          source:
+            "Liang et al., 'Observational and genetic evidence disagree on the association between loneliness and risk of multiple diseases', Nature Human Behaviour 8, 2209-2221 (2024), doi:10.1038/s41562-024-01970-0",
           sourceUrl:
-            "https://www.nature.com/articles/s41562-023-01617-6",
+            "https://www.nature.com/articles/s41562-024-01970-0",
           reasoning:
-            "Published in a top-tier journal with rigorous methodology using one of the world's largest biobank datasets. The substantial attenuation of the effect after comprehensive confounding adjustment and the null Mendelian randomization result directly challenge the causal narrative. However, residual confounding can never be fully eliminated in observational data, and Mendelian randomization for behavioral traits has known limitations including horizontal pleiotropy.",
+            "Published in a top-tier journal with rigorous methodology using one of the world's largest biobank datasets. The sharp divergence between observational associations and Mendelian randomization estimates — with most disease links failing to replicate under genetic instruments — directly challenges the causal narrative and supports a major confounding/reverse-causation interpretation. However, residual confounding can never be fully eliminated in observational data, and Mendelian randomization for behavioral traits has known limitations including horizontal pleiotropy and weak-instrument bias; the directness score reflects that this study targets disease incidence rather than all-cause mortality directly.",
         },
         {
           id: "inflammatory-biomarker-evidence",
           title:
             "Chronic Loneliness Elevates Inflammatory Markers and Suppresses Immune Function",
           description:
-            "Multiple studies have demonstrated biological pathways linking loneliness to health outcomes. Steve Cole's research on the conserved transcriptional response to adversity (CTRA) showed that socially isolated individuals exhibit upregulated pro-inflammatory gene expression (NF-kB pathway) and downregulated antiviral/antibody gene expression. Kiecolt-Glaser's longitudinal studies found that lonely older adults had significantly elevated levels of C-reactive protein and IL-6 — markers that predict cardiovascular disease and cancer progression. A 2021 meta-analysis of 41 studies in Neuroscience & Biobehavioral Reviews confirmed that loneliness was associated with elevated CRP (d = 0.26), IL-6 (d = 0.18), and fibrinogen (d = 0.21), though effect sizes were small to moderate.",
+            "Multiple studies have demonstrated candidate biological pathways linking loneliness to health outcomes. Steve Cole's research on the conserved transcriptional response to adversity (CTRA) showed that socially isolated individuals exhibit upregulated pro-inflammatory gene expression (NF-kB pathway) and downregulated antiviral/antibody gene expression. Kiecolt-Glaser's longitudinal studies found that lonely individuals had elevated levels of inflammatory markers such as IL-6 that predict cardiovascular disease. However, a 2020 systematic review and meta-analysis in Neuroscience & Biobehavioral Reviews (Smith et al.) found a more limited and inconsistent picture: loneliness was significantly associated with IL-6 (in most-adjusted models) but NOT with CRP or fibrinogen, whereas objective social isolation was associated with CRP and fibrinogen. The authors emphasized that methodological heterogeneity strongly affected results, undercutting any clean inflammatory signature of loneliness specifically.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
-            directness: 7,
+            replicability: 6,
+            directness: 6,
           },
           source:
-            "PNAS (Cole); Psychoneuroendocrinology (Kiecolt-Glaser); Neuroscience & Biobehavioral Reviews",
+            "PNAS (Cole); Psychoneuroendocrinology (Kiecolt-Glaser); Neuroscience & Biobehavioral Reviews (Smith et al., 2020)",
           sourceUrl:
             "https://www.pnas.org/doi/10.1073/pnas.0712251105",
           reasoning:
@@ -181,7 +182,7 @@ export const lonelinessEpidemicData = {
           title:
             "Digital Tools Maintained Social Connection for Billions During COVID-19 Lockdowns",
           description:
-            "During the COVID-19 pandemic, digital communication tools became the primary means of social connection for billions of people. Zoom usage increased from 10 million daily meeting participants in December 2019 to 300 million by April 2020. A 2021 study in PNAS by Luchetti et al. tracking 1,545 US adults found that despite unprecedented physical isolation during lockdowns, average loneliness levels did not increase significantly — and those who maintained digital social contact reported lower loneliness than those who did not. For elderly and immunocompromised individuals, telehealth and video calls were literally lifesaving social connections. However, a separate 2022 meta-analysis found that digital-only social interaction was associated with higher loneliness than mixed digital-and-in-person interaction.",
+            "During the COVID-19 pandemic, digital communication tools became the primary means of social connection for billions of people. Zoom usage increased from 10 million daily meeting participants in December 2019 to 300 million by April 2020. A 2020 study in American Psychologist by Luchetti et al. tracking 1,545 US adults found that, despite unprecedented physical isolation during lockdowns, average loneliness levels did not increase significantly between January and April 2020 — though older adults showed a small increase after social distancing began. For elderly and immunocompromised individuals, telehealth and video calls were often vital social connections. However, other research finds that digital-only social interaction is associated with higher loneliness than mixed digital-and-in-person interaction.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -189,9 +190,9 @@ export const lonelinessEpidemicData = {
             replicability: 7,
             directness: 8,
           },
-          source: "PNAS (Luchetti et al.); American Psychologist",
+          source: "Luchetti et al., American Psychologist (2020), doi:10.1037/amp0000690",
           sourceUrl:
-            "https://www.pnas.org/doi/10.1073/pnas.2016632118",
+            "https://psycnet.apa.org/doi/10.1037/amp0000690",
           reasoning:
             "The COVID-19 period provided a natural experiment testing whether digital tools can mitigate loneliness during extreme physical isolation. The finding that loneliness did not spike as expected during lockdowns, partly due to digital connection, is an important counterpoint. However, the pandemic was an extraordinary context, and what works during forced isolation may not generalize to normal conditions where digital use might displace rather than substitute for in-person interaction.",
         },
@@ -200,7 +201,7 @@ export const lonelinessEpidemicData = {
           title:
             "Teens Spending 5+ Hours Daily on Devices Are 66% More Likely to Have Depression Risk Factor",
           description:
-            "Jean Twenge's analysis of Monitoring the Future data from 8.2 million US adolescents (published in Clinical Psychological Science, 2017) found a dose-response relationship between electronic device use and depressive symptoms. Teens who spent 5+ hours per day on electronic devices were 66% more likely to have at least one risk factor for suicide compared to those spending one hour. The association was specific to new media (smartphones, social media) rather than older electronic media (TV, which showed a weaker relationship). The inflection point appeared around 2-3 hours of daily use, beyond which negative associations accelerated. Subsequent Twenge analyses found similar patterns for loneliness specifically, with heavy social media users reporting higher loneliness scores.",
+            "Jean Twenge's analysis of Monitoring the Future and YRBSS data from over 500,000 US adolescents (published in Clinical Psychological Science, 2017) found a dose-response relationship between electronic device use and suicide-related outcomes: 48% of teens who spent 5+ hours per day on electronic devices reported at least one suicide-related outcome, versus 28% of those spending less than one hour — a roughly 66% higher relative prevalence of depressive symptoms in the heavy-use group. The association was specific to new media (smartphones, social media) rather than older electronic media (TV, which showed a weaker relationship). A separate Twenge analysis of 8.2 million US adolescents (Journal of Social and Personal Relationships, 2019) found that in-person social interaction declined sharply among teens after 2010, with heavy digital-media users reporting higher loneliness scores.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
