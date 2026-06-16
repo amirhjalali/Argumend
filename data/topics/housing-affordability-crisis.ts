@@ -112,7 +112,7 @@ export const housingAffordabilityCrisisData = {
         "Rent control directly protects existing tenants from displacement, but economists overwhelmingly warn it reduces housing supply, misallocates units, and raises rents for non-controlled tenants in the long run.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The near-unanimous consensus among economists is that rent control reduces housing quality and supply. A landmark Stanford study of San Francisco's rent control found that while controlled tenants saved 2-5% in rent, landlords responded by converting 15% of controlled units to condos or demolishing them, reducing rental supply by 6% citywide. The resulting scarcity increased market-rate rents by 5-7% for tenants in non-controlled units. A 2012 IGM Forum survey found 81% of economists agreed that rent ceilings reduce housing quantity and quality. Rent control treats symptoms while worsening the underlying disease.",
+        "The near-unanimous consensus among economists is that rent control reduces housing quality and supply. A landmark Stanford study of San Francisco's rent control found that while it lowered displacement of incumbent tenants, landlords responded by selling to owner-occupants and redeveloping buildings, reducing the rental housing supply by 15% — which the authors conclude likely drove up market-rate rents over the long run, ultimately undermining the policy's goals. In a 2012 IGM Forum survey, only 1 of roughly 32 leading economists who took a position agreed that rent control in cities like San Francisco and New York had a positive impact on the amount and quality of affordable housing. Rent control treats symptoms while worsening the underlying disease.",
       proponent_rebuttal:
         "Rent control is a necessary emergency measure in a market that has failed low-income tenants for decades. In the US, 11 million renter households spend more than 50% of income on rent — the crisis is now, not in some theoretical long run. Newer forms of rent stabilization — vacancy decontrol, inflation-indexed increases, exemptions for new construction — avoid the worst distortions of hard rent ceilings. Oregon's 2019 statewide rent cap (7% + CPI) did not reduce construction; permits actually increased. The theoretical harm of rent control must be weighed against the immediate, concrete harm of displacement: each eviction increases a family's risk of homelessness by 400% and a child's risk of changing schools by 200%.",
       crux: {
@@ -131,7 +131,7 @@ export const housingAffordabilityCrisisData = {
           id: "stanford-sf-rent-control",
           title: "Stanford Study: San Francisco Rent Control Reduced Supply by 6% (2019)",
           description:
-            "A Stanford study by Diamond, McQuade, and Qian examined San Francisco's 1994 expansion of rent control to small multi-family buildings. They found that rent control reduced tenant displacement by 15% and saved controlled tenants 2-5% on rent. However, landlords responded by converting 15% of controlled units to condos, redeveloping buildings, or removing them from the rental market, reducing rental supply by 6% and increasing market-rate rents by 5-7% citywide. The net effect was a transfer from new renters to incumbent renters.",
+            "A Stanford study by Diamond, McQuade, and Qian examined San Francisco's 1994 expansion of rent control to small multi-family buildings. They found that rent control limited renters' mobility by 20% and lowered displacement from San Francisco for incumbent tenants. However, landlords subject to rent control reduced the rental housing supply by 15% — by selling units to owner-occupants and redeveloping buildings — which the authors conclude likely drove up market-rate rents in the long run, ultimately undermining the law's goals. The net effect was a transfer from prospective and future renters to incumbent renters.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -146,9 +146,9 @@ export const housingAffordabilityCrisisData = {
         },
         {
           id: "igm-economist-consensus",
-          title: "81% of Economists Agree Rent Control Reduces Housing Quality and Quantity (2012)",
+          title: "Economists Overwhelmingly Reject That Rent Control Helps Affordability (IGM, 2012)",
           description:
-            "The University of Chicago's IGM Forum surveyed 41 leading economists on whether local ordinances limiting rent increases reduce the quantity and quality of housing. 81% agreed or strongly agreed, 2% disagreed, and 17% were uncertain. Nobel laureate Paul Krugman has called rent control 'among the best-understood issues in all of economics.' This represents one of the strongest professional consensus positions in economics, comparable to consensus on free trade benefits.",
+            "The University of Chicago's IGM Forum asked leading economists whether local ordinances limiting rent increases (such as in New York and San Francisco) 'have had a positive impact over the past three decades on the amount and quality of broadly affordable rental housing.' Of those who took a position, only one agreed; roughly 79% of all respondents disagreed or strongly disagreed, with the remainder uncertain or not answering. Nobel laureate Paul Krugman has called rent control 'among the best-understood issues in all of economics.' This represents one of the strongest professional consensus positions in economics, comparable to consensus on free trade benefits.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,

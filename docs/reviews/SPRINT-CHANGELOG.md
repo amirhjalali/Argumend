@@ -354,3 +354,25 @@ declassified-intel item de-inflated (2023 ODNI "no progenitor" added) + RaTG13 9
 Many animal-only / theoretical / presence-only items de-inflated on directness/replicability. Several
 agents flagged confidence scores that should drift a few points (consciousness 69, ai-job 57, longevity 65)
 — left to founder judgment. All web-verified. tsc clean, 207 tests.
+
+## Red-Team Pass — batch 4 (2026-06-16), 10 tech/econ/policy topics
+Reviewed: school-phone-bans, social-media-mental-health, social-media-elections,
+eacc-vs-tech-regulation, cryptocurrency-value, cryptocurrency-regulation,
+housing-affordability-crisis, four-day-work-week, degrowth-economics, government-platform-bans.
+BACKWARDS FINDING fixed: social-media-elections described the Meta 2020 RCT as the chronological
+feed "reducing exposure to misinformation by 33%" — the Guess et al. Science 2023 result is the
+OPPOSITE (untrustworthy content ROSE ~69% without the engagement algorithm).
+FABRICATED STATISTICS removed/corrected (the dominant theme this batch): school-phone-bans "Victoria
+46% cyberbullying reduction" + invented sub-stats (conflated from the Norway study) + wrong Beland-Murphy
+URL/title + "Dexterity G7"→Dexcom G7; housing rent-control "6% supply / 5-7% rent" (real Diamond-McQuade-Qian:
+15% supply reduction) + IGM survey mischaracterized ("81% agree reduces quantity" vs the real "positive
+impact" question, ~79% disagreed); four-day-week France GDP/hour "exceeds the US" (FALSE — US leads) +
+fabricated "31% reverted in 18mo" + fabricated OECD-cost & EPI-equity citations (de-weighted, kept as
+hedged); cryptocurrency-regulation "117,000 scam tokens" (real ~9,900) + stale Coinbase(dismissed Feb 2025)/
+Ripple(closed 2025) cases; eacc auto-fatality rate 1.37→1.10 + Facebook "6x misinformation" unsupported
+(→ the real 5x-angry-reaction weighting) + nuclear "4 years" construction unsupported; government-platform-bans
+SCOTUS "majority opinion"→per curiam + Meta lobbying "$30M"→$19.3M/$24.4M; degrowth "835 studies"
+misattributed Hickel→Haberl 2020. social-media-mental-health verified clean (well-calibrated at 47).
+Side-coding clean this batch (no hard inversions; a few judgment-call flags noted). Several agents flagged
+scores running 3-5 pts high (social-media-elections 69) — left to founder judgment. All web-verified.
+tsc clean, 207 tests.

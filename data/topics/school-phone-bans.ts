@@ -18,7 +18,7 @@ export const schoolPhoneBansData = {
       skeptic_premise:
         "The academic evidence for phone bans is weaker and more nuanced than advocates claim. The most-cited study — Beland and Murphy's analysis of English schools — found test score improvements equivalent to one additional week of schooling per year, but only for below-average students; high-performing students showed no benefit. A 2023 UNESCO report acknowledged potential benefits but warned that bans may be 'a blunt instrument' that fails to address the underlying issue of digital literacy. Norwegian research found that phone bans improved grades for girls but had no significant effect for boys. Students in ban-enforcing schools often report increased anxiety about not being able to check notifications, suggesting the problem is psychological dependency that a ban does not treat. The real solution is teaching self-regulation and digital citizenship, not prohibition.",
       proponent_rebuttal:
-        "The evidence base for phone bans is growing and increasingly robust. A landmark London School of Economics study found that banning phones improved test scores by 6.4% of a standard deviation overall — equivalent to adding five extra school days per year — with effects twice as large for low-achieving students and students with special educational needs. France banned phones in all schools for students under 15 in 2018, and follow-up assessments showed improved classroom engagement. Australia's state of Victoria implemented a ban in 2020 and reported reduced cyberbullying incidents by 46%. In the US, a 2024 National Center for Education Statistics survey found that 77% of teachers reported student phone use as a significant distraction. The distraction is not theoretical — brain imaging studies show that mere proximity to a phone reduces available cognitive capacity, even when the phone is turned off.",
+        "The evidence base for phone bans is growing and increasingly robust. A landmark London School of Economics study found that banning phones improved test scores by 6.4% of a standard deviation overall — equivalent to adding five extra school days per year — with effects twice as large for low-achieving students and students with special educational needs. France banned phones in all schools for students under 15 in 2018, and follow-up assessments showed improved classroom engagement. Australia's state of Victoria banned phones in all government schools from 2020, with the Education Department reporting that most principals saw students as less distracted. In the US, a 2024 National Center for Education Statistics survey found that 77% of teachers reported student phone use as a significant distraction. The distraction is not theoretical — brain imaging studies show that mere proximity to a phone reduces available cognitive capacity, even when the phone is turned off.",
       crux: {
         id: "phone-ban-causal-impact",
         title: "The Randomized Phone Ban Trial",
@@ -43,8 +43,8 @@ export const schoolPhoneBansData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Beland & Murphy, Labour Economics (2016)",
-          sourceUrl: "https://www.sciencedirect.com/science/article/pii/S0927537116000227",
+          source: "Beland & Murphy, 'Ill Communication: Technology, distraction & student performance', Labour Economics (2016)",
+          sourceUrl: "https://www.sciencedirect.com/science/article/pii/S0927537116300136",
           reasoning:
             "Published in a peer-reviewed economics journal with a large sample size and difference-in-differences methodology. The finding that low-performing students benefit most is policy-relevant and has been cited by governments worldwide. However, the study period (2001-2013) predates the smartphone era — early phones were far less capable than modern smartphones with social media, which could mean current effects are larger, or that the ban dynamics are different.",
         },
@@ -67,9 +67,9 @@ export const schoolPhoneBansData = {
         },
         {
           id: "norway-gender-differential",
-          title: "Norwegian Study: Phone Bans Improve Girls' Grades but Not Boys' (2023)",
+          title: "Norwegian Study: Phone Bans Improve Girls' Grades but Not Boys' (2024)",
           description:
-            "A 2023 study of Norwegian middle schools by Abrahamsson found that phone bans improved GPA for girls by approximately 0.04 standard deviations but had no statistically significant effect on boys' grades. Girls also showed improvements in psychological well-being, while boys did not. The study analyzed data from 2010 to 2020 across hundreds of schools using a staggered adoption design. The gender differential was robust across specifications and school types, suggesting that the mechanisms of phone distraction may differ by gender — potentially related to social media use patterns.",
+            "A 2024 study of Norwegian middle schools by Sara Abrahamsson found that phone bans improved GPA for girls by approximately 0.08 standard deviations but had no statistically significant effect on boys' grades. Girls also showed improvements in mathematics test results, a higher likelihood of choosing an academic high school track, improved psychological well-being, and reported roughly 46% less bullying after three years under the ban, while boys did not show these gains. The study used a staggered adoption (difference-in-differences) design across Norwegian middle schools. The gender differential was robust across specifications and school types, suggesting that the mechanisms of phone distraction may differ by gender — potentially related to social media use patterns.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -77,8 +77,8 @@ export const schoolPhoneBansData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Abrahamsson, 'The Effect of Mobile Phone Bans on Academic Achievement' (2023)",
-          sourceUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4528768",
+          source: "Abrahamsson, 'Smartphone Bans, Student Outcomes and Mental Health' (2024)",
+          sourceUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4735240",
           reasoning:
             "Uses a rigorous quasi-experimental design with a large dataset. The gender differential finding is nuanced and important for policy design — a universal ban may not benefit all students equally. The effect size for girls, while statistically significant, is modest. The null result for boys suggests that for half the student population, phone bans may not improve academic outcomes.",
         },
@@ -114,7 +114,7 @@ export const schoolPhoneBansData = {
       skeptic_premise:
         "The 'smartphones caused the teen mental health crisis' narrative promoted by Jonathan Haidt and others relies primarily on correlational evidence. A comprehensive meta-analysis by Andrew Przybylski at the Oxford Internet Institute found that the association between screen time and well-being was 'tiny' — smaller than the effect of regularly wearing glasses or eating potatoes. Teen depression rates began rising before smartphone saturation. The crisis is international, affecting countries with different phone cultures. School phone bans address 6-7 hours of a 16-hour waking day and do nothing about evening and weekend use, which is when most social media-related harm occurs. Banning phones in schools is a feel-good policy that lets adults avoid addressing the real drivers of teen distress: academic pressure, economic insecurity, climate anxiety, and social isolation that predates smartphones.",
       proponent_rebuttal:
-        "The correlation between smartphone adoption and teen mental health decline is too strong, too consistent, and too global to dismiss. Between 2012 and 2022, teen depression rates in the US doubled, self-harm hospitalizations for girls aged 10-14 tripled, and teen suicide rates increased 60%. This inflection point coincides precisely with when smartphone ownership among teens crossed 50% and social media use became ubiquitous. Jonathan Haidt's meta-analysis of 40+ studies in 'The Anxious Generation' found consistent harmful effects of social media on teen girls' mental health, with effect sizes comparable to lead exposure. School phone bans do not solve the problem but provide 6-7 hours of daily respite — a 'phone-free sanctuary' — during the developmental period when face-to-face social interaction is most critical. Australia's state of Victoria reported a 46% reduction in cyberbullying incidents after implementing a school phone ban.",
+        "The correlation between smartphone adoption and teen mental health decline is too strong, too consistent, and too global to dismiss. Between 2012 and 2022, teen depression rates in the US doubled, self-harm hospitalizations for girls aged 10-14 tripled, and teen suicide rates increased 60%. This inflection point coincides precisely with when smartphone ownership among teens crossed 50% and social media use became ubiquitous. Jonathan Haidt's meta-analysis of 40+ studies in 'The Anxious Generation' found consistent harmful effects of social media on teen girls' mental health, with effect sizes comparable to lead exposure. School phone bans do not solve the problem but provide 6-7 hours of daily respite — a 'phone-free sanctuary' — during the developmental period when face-to-face social interaction is most critical. Quasi-experimental evidence from Norway found that girls reported roughly 46% less bullying after three years under a school phone ban.",
       crux: {
         id: "phone-ban-mental-health-impact",
         title: "The School Phone Ban Mental Health Assessment",
@@ -162,21 +162,21 @@ export const schoolPhoneBansData = {
             "Published in a top journal with a massive dataset and transparent specification curve analysis. The tiny effect size is an important counter to moral panic. However, the study measured total screen time (including educational use, passive video watching) rather than specifically social media use — which Haidt and Twenge argue is where the harm concentrates. Aggregating all screen time may dilute the signal from the most harmful categories.",
         },
         {
-          id: "victoria-cyberbullying-reduction",
-          title: "Victoria, Australia Reports 46% Reduction in Cyberbullying After School Phone Ban (2020-2022)",
+          id: "victoria-phone-ban-implementation",
+          title: "Victoria, Australia Bans Phones in All Government Schools; Officials Report Less Distraction (2020)",
           description:
-            "The state of Victoria, Australia, implemented a blanket smartphone ban in all public schools in 2020, requiring students to store phones in lockers or hand them in at the start of the day. By 2022, the Victorian Department of Education reported a 46% reduction in cyberbullying incidents during school hours, a 30% decrease in confiscation-related disciplinary events, and positive teacher survey responses (78% of teachers reported improved classroom focus). Student surveys showed 65% initially opposed the ban but 58% supported it after one year of implementation.",
+            "The state of Victoria, Australia, implemented a blanket smartphone ban in all government schools from Term 1 2020, requiring students to store phones in lockers or hand them in at the start of the day. The state government framed the policy as a way to reduce distraction, tackle cyberbullying, and improve learning, and the Education Department subsequently reported that a large majority of principals saw students as less distracted and individual schools described improved classroom focus and more face-to-face interaction. However, the government has not published rigorous causal evaluation data, and independent analyses have cautioned that a school-hours ban may shift bullying to after-school hours rather than eliminate it.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 8,
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 6,
+            directness: 7,
           },
-          source: "Victorian Department of Education; The Age (Melbourne); ABC News Australia",
-          sourceUrl: "https://www.vic.gov.au/mobile-phones-schools",
+          source: "Victorian Department of Education / Premier of Victoria; ABC News Australia",
+          sourceUrl: "https://www.premier.vic.gov.au/mobile-phones-be-banned-next-year-all-state-schools",
           reasoning:
-            "Government-reported data from a large-scale state-wide implementation with thousands of schools. The 46% cyberbullying reduction during school hours is significant. However, the data is self-reported by the implementing government (lowering independence), and the ban coincided with COVID-19 disruptions in 2020-2021, complicating causal attribution. The shift in student opinion from opposition to support is notable.",
+            "Evidence of a large-scale, state-wide implementation demonstrating feasibility, with officials reporting reduced distraction. However, the outcome data is self-reported by the implementing government (lowering independence), largely qualitative rather than measured, and the ban coincided with COVID-19 disruptions in 2020-2021, complicating causal attribution. Earlier specific claims of a '46% cyberbullying reduction' could not be verified and appear to have been conflated with a separate Norwegian study; the weight is reduced accordingly.",
         },
         {
           id: "haidt-anxious-generation",
@@ -261,7 +261,7 @@ export const schoolPhoneBansData = {
           id: "medical-device-accommodations",
           title: "Students with Diabetes and Other Conditions Require Smartphone Access for Health Monitoring",
           description:
-            "Approximately 283,000 Americans under 20 have diagnosed diabetes, many using continuous glucose monitors (CGMs) like Dexterity G7 that transmit data to smartphones. The American Diabetes Association has warned that phone bans without explicit medical accommodations could endanger students who rely on smartphone alerts for dangerous blood sugar levels. Similarly, students with epilepsy may use phone-connected seizure detection devices. Schools implementing bans must create medical accommodation processes — which adds administrative burden and potentially stigmatizes students who must request exceptions.",
+            "Approximately 283,000 Americans under 20 have diagnosed diabetes, many using continuous glucose monitors (CGMs) like the Dexcom G7 that transmit data to smartphones. The American Diabetes Association has warned that phone bans without explicit medical accommodations could endanger students who rely on smartphone alerts for dangerous blood sugar levels. Similarly, students with epilepsy may use phone-connected seizure detection devices. Schools implementing bans must create medical accommodation processes — which adds administrative burden and potentially stigmatizes students who must request exceptions.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -286,8 +286,8 @@ export const schoolPhoneBansData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Beland & Murphy, Labour Economics (2016)",
-          sourceUrl: "https://www.sciencedirect.com/science/article/pii/S0927537116000227",
+          source: "Beland & Murphy, 'Ill Communication: Technology, distraction & student performance', Labour Economics (2016)",
+          sourceUrl: "https://www.sciencedirect.com/science/article/pii/S0927537116300136",
           reasoning:
             "This finding directly addresses the equity argument by showing that bans disproportionately help the students that equity advocates aim to protect. Peer-reviewed and using a large sample. The counterargument is that academic gains for disadvantaged students must be weighed against the other equity concerns (discriminatory enforcement, medical needs, safety) — the academic benefit does not automatically outweigh other harms.",
         },
@@ -300,8 +300,8 @@ export const schoolPhoneBansData = {
       url: "https://www.unesco.org/gem-report/en/technology",
     },
     {
-      title: "The Effect of Mobile Phone Bans on Student Achievement — Beland & Murphy, Labour Economics (2016)",
-      url: "https://www.sciencedirect.com/science/article/pii/S0927537116000227",
+      title: "Ill Communication: Technology, distraction & student performance — Beland & Murphy, Labour Economics (2016)",
+      url: "https://www.sciencedirect.com/science/article/pii/S0927537116300136",
     },
     {
       title: "Brain Drain: The Mere Presence of One's Own Smartphone Reduces Available Cognitive Capacity — Ward et al. (2017)",

@@ -90,7 +90,7 @@ export const governmentPlatformBansData = {
           id: "allied-government-device-bans",
           title: "EU, UK, Canada, and Australia Ban TikTok on Government Devices",
           description:
-            "Between 2022 and 2023, the European Commission, UK Parliament, Canadian government, and Australian government all banned TikTok on official devices, citing cybersecurity concerns. The European Commission stated the ban was necessary to protect against 'potential data collection and misuse.' These decisions were made independently by security agencies across allied democracies with access to classified intelligence assessments.",
+            "Between late 2022 and 2023, the United States, the European Commission, Canada, the UK, and Australia all banned or restricted TikTok on official government devices, citing cybersecurity concerns. The European Commission cited the need to protect against potential data collection and misuse. These device-level restrictions were adopted by security agencies across allied democracies, several of which share classified intelligence. Note these are restrictions on official devices, not consumer-facing bans on the general public.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -152,7 +152,7 @@ export const governmentPlatformBansData = {
           id: "scotus-tiktok-ruling-2025",
           title: "Supreme Court Upholds TikTok Ban-or-Sell Law (January 2025)",
           description:
-            "The Supreme Court unanimously upheld the Protecting Americans from Foreign Adversary Controlled Applications Act, accepting the government's national security rationale for requiring ByteDance to divest TikTok's US operations. The majority opinion held that the law targeted foreign adversary control rather than speech content. However, Justice Sotomayor warned in her concurrence that the ruling failed to apply rigorous First Amendment scrutiny and could justify banning any foreign-owned communication platform.",
+            "The Supreme Court unanimously upheld the Protecting Americans from Foreign Adversary Controlled Applications Act in a per curiam opinion, accepting the government's national security rationale for requiring ByteDance to divest TikTok's US operations. The Court held that the law targeted foreign adversary control rather than speech content and satisfied intermediate First Amendment scrutiny. Justice Sotomayor (concurring in part) argued the Court should have squarely held that the Act implicates the First Amendment rather than merely assuming it, and Justice Gorsuch's concurrence voiced unease about relying on classified evidence and the breadth of the precedent.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -229,9 +229,9 @@ export const governmentPlatformBansData = {
       evidence: [
         {
           id: "meta-lobbying-tiktok-ban",
-          title: "Meta Spent $30M+ Lobbying During TikTok Ban Legislation",
+          title: "Meta Set Record Lobbying Spending During TikTok Ban Legislation",
           description:
-            "OpenSecrets data shows Meta spent over $30 million on federal lobbying in 2023-2024, with TikTok regulation among its top priorities. Meta-funded groups including the American Edge Project ran campaigns highlighting TikTok's Chinese ownership. Instagram Reels — launched specifically to compete with TikTok — stood to capture the majority of TikTok's $12 billion US ad revenue if the ban took effect.",
+            "OpenSecrets data shows Meta's federal lobbying spending hit record levels while the TikTok ban was debated — roughly $19.3 million in 2023 and $24.4 million in 2024, including a record first quarter of 2024 as the House passed the divest-or-ban bill. Meta-funded groups including the American Edge Project ran campaigns highlighting TikTok's Chinese ownership. Instagram Reels — launched specifically to compete with TikTok — stood to capture a large share of TikTok's roughly $11 billion in US ad revenue if the ban took effect.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,

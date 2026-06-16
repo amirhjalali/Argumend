@@ -45,8 +45,8 @@ export const socialMediaMentalHealthData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Twenge et al., Clinical Psychological Science (2018); CDC YRBS; Monitoring the Future",
-          sourceUrl: "https://journals.sagepub.com/home/cpx",
+          source: "Twenge, Joiner, Rogers & Martin, Clinical Psychological Science 6(1), 3–17 (2018); CDC YRBS; Monitoring the Future",
+          sourceUrl: "https://doi.org/10.1177/2167702617723376",
           reasoning:
             "The trend data come from large, reputable national surveys and are reproducible. But the link to social media specifically is correlational, and the author is a prominent advocate of the harm hypothesis, so independence and directness are moderate.",
         },

@@ -20,7 +20,7 @@ export const degrowthEconomicsData = {
       skeptic_premise:
         "Green growth is already happening. Multiple high-income countries have achieved absolute decoupling — their GDP has grown while territorial CO2 emissions have fallen. The UK cut emissions 44% between 1990 and 2019 while GDP grew 75%. Sweden, Denmark, and Germany show similar trajectories. Renewable energy costs have plummeted 90% in a decade, electric vehicle adoption is accelerating exponentially, and energy efficiency gains are compounding. The OECD projects that continued technological innovation and carbon pricing can deliver net-zero emissions by 2050 without sacrificing growth. Degrowth advocates cherry-pick consumption-based accounting to inflate rich-country footprints, but as clean energy scales globally, offshored emissions will decline too. History shows that economic growth drives the very innovation needed for ecological transition — the solar revolution was funded by wealthy economies investing in R&D.",
       proponent_rebuttal:
-        "Territorial decoupling is an accounting illusion. When consumption-based emissions are counted — including all the goods manufactured in China and shipped to Western consumers — the UK's emissions reductions shrink dramatically. Hickel and Kallis (2020) conducted a systematic review of 835 empirical studies and found zero evidence of absolute decoupling of GDP from resource use or carbon emissions at rates consistent with the Paris Agreement's 1.5°C target. Even the most optimistic decoupling scenarios require emissions to fall 7-10% per year globally, while actual decoupling rates in the best-performing countries are 1-3% per year. Moreover, climate is only one boundary — GDP growth correlates with material throughput (minerals, biomass, water), and no country has decoupled GDP from aggregate material footprint. The UNEP International Resource Panel found that global material extraction has tripled since 1970 and shows no sign of peaking. Green growth is a comforting story, but the physics of material throughput do not bend to economic optimism.",
+        "Territorial decoupling is an accounting illusion. When consumption-based emissions are counted — including all the goods manufactured in China and shipped to Western consumers — the UK's emissions reductions shrink dramatically. Hickel and Kallis (2020), reviewing the empirical decoupling literature, found no evidence of absolute decoupling of GDP from resource use or carbon emissions at rates consistent with the Paris Agreement's 1.5°C target. A separate large systematic review by Haberl et al. (2020) screened over 11,500 papers and analyzed 835 empirical studies, reaching the same conclusion: no economy-wide absolute decoupling fast enough to meet climate targets. Even the most optimistic decoupling scenarios require emissions to fall 7-10% per year globally, while actual decoupling rates in the best-performing countries are 1-3% per year. Moreover, climate is only one boundary — GDP growth correlates with material throughput (minerals, biomass, water), and no country has decoupled GDP from aggregate material footprint. The UNEP International Resource Panel found that global material extraction has tripled since 1970 and shows no sign of peaking. Green growth is a comforting story, but the physics of material throughput do not bend to economic optimism.",
       crux: {
         id: "absolute-decoupling-rate",
         title: "The Absolute Decoupling Rate Test",
@@ -36,9 +36,9 @@ export const degrowthEconomicsData = {
         {
           id: "hickel-kallis-review",
           title:
-            "Systematic Review Finds No Evidence of Sufficient Decoupling (Hickel & Kallis 2020)",
+            "Review Finds No Evidence of Sufficient Decoupling (Hickel & Kallis 2020)",
           description:
-            "Jason Hickel and Giorgos Kallis reviewed 835 empirical studies on the relationship between GDP growth and environmental pressures. They found that while relative decoupling (emissions growing slower than GDP) is common, absolute decoupling at rates consistent with 1.5°C or 2°C targets has never been observed in any country when consumption-based emissions and material footprint are both considered. The fastest observed absolute decoupling rates are 1-3% per year, while Paris-aligned pathways require 7-10% per year.",
+            "Jason Hickel and Giorgos Kallis reviewed the empirical literature and model-based projections on the relationship between GDP growth and environmental pressures. They found that while relative decoupling (emissions growing slower than GDP) is common, absolute decoupling at rates consistent with 1.5°C or 2°C targets has never been observed in any country when consumption-based emissions and material footprint are both considered. The fastest observed absolute decoupling rates are far below the pace Paris-aligned pathways require. (The frequently cited '835 studies' figure belongs to a separate systematic review by Haberl et al. (2020), which reached a similar conclusion.)",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -50,7 +50,7 @@ export const degrowthEconomicsData = {
           sourceUrl:
             "https://doi.org/10.1080/13563467.2019.1598964",
           reasoning:
-            "Published in a peer-reviewed journal with transparent methodology covering 835 studies. Directly addresses the central empirical question. Independence is somewhat lower because both authors are prominent degrowth advocates, though the data compilation is replicable.",
+            "Published in a peer-reviewed journal with transparent methodology synthesizing the empirical decoupling literature. Directly addresses the central empirical question. Independence is somewhat lower because both authors are prominent degrowth advocates, though the underlying data is from standard sources and the conclusion is corroborated by the independent Haberl et al. (2020) systematic review of 835 studies.",
         },
         {
           id: "uk-territorial-decoupling",
@@ -95,7 +95,7 @@ export const degrowthEconomicsData = {
           title:
             "Solar Energy Costs Fell 90% in a Decade, Enabling Rapid Decarbonization",
           description:
-            "The levelized cost of solar photovoltaic electricity fell approximately 90% between 2010 and 2022, from $0.381/kWh to $0.049/kWh, according to IRENA. Wind energy costs fell 70% over the same period. These cost declines have made renewables cheaper than new fossil fuel generation in most markets worldwide. Green growth advocates argue this demonstrates that technological innovation — driven by economic growth and R&D investment — can deliver decarbonization without requiring economic contraction.",
+            "The levelized cost of solar photovoltaic electricity fell approximately 89% between 2010 and 2022, from $0.445/kWh to $0.049/kWh, according to IRENA. Wind energy costs fell 70% over the same period. These cost declines have made renewables cheaper than new fossil fuel generation in most markets worldwide. Green growth advocates argue this demonstrates that technological innovation — driven by economic growth and R&D investment — can deliver decarbonization without requiring economic contraction.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,

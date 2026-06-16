@@ -113,7 +113,7 @@ export const cryptocurrencyValueData = {
           id: "drawdown-history",
           title: "Bitcoin Has Repeatedly Suffered 70-85% Peak-to-Trough Drawdowns",
           description:
-            "Bitcoin's price history includes multiple drawdowns of roughly 70-85% from prior highs: an ~85% fall after the 2017 peak (from ~$19,000 to ~$3,200 by late 2018) and a ~75% fall from the November 2021 high near $69,000 to ~$16,000 in late 2022. Realized annualized volatility has routinely exceeded 60-80%, several times that of gold (typically ~15-20%). Such drawdowns are difficult to reconcile with the function of a stable store of value over short and medium horizons.",
+            "Bitcoin's price history includes multiple drawdowns of roughly 70-85% from prior highs: an ~85% fall after the 2017 peak (from ~$19,000 to ~$3,200 by late 2018) and a ~77% fall from the November 2021 high near $69,000 to roughly $15,500 in late 2022. Realized annualized volatility has routinely exceeded 60-80%, several times that of gold (typically ~15-20%). Such drawdowns are difficult to reconcile with the function of a stable store of value over short and medium horizons.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -147,7 +147,7 @@ export const cryptocurrencyValueData = {
           id: "long-horizon-returns",
           title: "On Multi-Year Holding Periods Bitcoin Has Historically Posted High Returns",
           description:
-            "Over its full history, every four-year holding window for Bitcoin had, as of early 2026, ended in positive returns, and its compound annual return since inception has exceeded that of equities, bonds, and gold despite far higher volatility. Proponents argue a store of value should be judged over long horizons, where Bitcoin has preserved and grown purchasing power, not over short windows where volatility dominates.",
+            "Over most of its history, four-year holding windows for Bitcoin have ended in positive returns, and its compound annual return since inception has far exceeded that of equities, bonds, and gold despite much higher volatility. Proponents argue a store of value should be judged over long horizons, where Bitcoin has so far preserved and grown purchasing power, not over short windows where volatility dominates. The pattern is weakening, however: 2025 was the first post-halving year to close with a negative annual return, narrowing the margin by which long-horizon windows have stayed positive.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
