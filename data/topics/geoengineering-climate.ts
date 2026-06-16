@@ -34,7 +34,7 @@ export const geoengineeringClimateData = {
       id: "q2",
       title: "Is direct air carbon capture economically viable at the scale needed?",
       content:
-        "Current cost: $400-600 per ton of CO2. We need to remove 10+ gigatons per year. The total annual cost could exceed global military spending. Is this a realistic pathway, or an expensive distraction from emission reduction?",
+        "Current cost: real-world direct air capture runs near $1,000 per ton of CO2 today, with industry targets of $400-600/ton by 2030. We need to remove 10+ gigatons per year. The total annual cost could exceed global military spending. Is this a realistic pathway, or an expensive distraction from emission reduction?",
     },
     {
       id: "q3",
@@ -54,7 +54,7 @@ export const geoengineeringClimateData = {
         "Even with the most aggressive emissions cuts, we have already locked in warming that exceeds safe thresholds. The IPCC states that all pathways to limiting warming to 1.5 degrees Celsius require carbon dioxide removal at scale. The question is not whether geoengineering is ideal, but whether it is necessary given the reality of accumulated emissions.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "The necessity framing is premature and self-serving. We have not yet tried aggressive emissions reduction — global fossil fuel subsidies still exceed $7 trillion annually (IMF 2023), and no major economy has implemented carbon pricing at levels economists recommend. Declaring geoengineering 'necessary' before exhausting conventional mitigation gives political cover for inaction on emissions. The IPCC scenarios that require carbon removal assume we fail to cut emissions fast enough — they describe a failure mode, not a preferred pathway. Direct air capture at current costs ($400-600/ton) is orders of magnitude more expensive than preventing emissions in the first place (~$50-100/ton through renewable energy deployment). Every dollar spent on geoengineering R&D is a dollar not spent on proven emission reduction strategies.",
+        "The necessity framing is premature and self-serving. We have not yet tried aggressive emissions reduction — global fossil fuel subsidies still exceed $7 trillion annually (IMF 2023), and no major economy has implemented carbon pricing at levels economists recommend. Declaring geoengineering 'necessary' before exhausting conventional mitigation gives political cover for inaction on emissions. The IPCC scenarios that require carbon removal assume we fail to cut emissions fast enough — they describe a failure mode, not a preferred pathway. Direct air capture at current costs (near $1,000/ton today, with $400-600/ton only a 2030 target) is orders of magnitude more expensive than preventing emissions in the first place (~$50-100/ton through renewable energy deployment). Every dollar spent on geoengineering R&D is a dollar not spent on proven emission reduction strategies.",
       proponent_rebuttal:
         "The either-or framing is a false choice that ignores atmospheric physics. Even if the world achieved net-zero emissions tomorrow, the 1.5 trillion tons of CO2 already in the atmosphere will continue warming the planet for centuries. The carbon budget for 1.5 degrees Celsius has already been largely exhausted — the IPCC's AR6 report gives a remaining budget of only 500 gigatons of CO2, roughly 12 years of current emissions. This arithmetic reality means carbon removal is not an alternative to emission cuts but a necessary complement. Waiting until we have 'tried hard enough' on emissions means waiting until it is too late for removal to matter. The National Academies of Sciences recommended a major research program in solar geoengineering precisely because the gap between current emissions trajectories and safe warming levels is growing, not shrinking.",
       crux: {
@@ -105,9 +105,9 @@ export const geoengineeringClimateData = {
         },
         {
           id: "climeworks-orca-plant",
-          title: "Climeworks' Orca DAC Plant Captures 4,000 Tons CO2/Year at ~$600/Ton",
+          title: "Climeworks' Orca DAC Plant Captures 4,000 Tons CO2/Year at ~$1,000/Ton",
           description:
-            "Climeworks' Orca plant in Iceland, operational since 2021, is the world's largest direct air capture facility, removing approximately 4,000 tons of CO2 per year. At an estimated cost of $600/ton, removing the 40 gigatons the world emits annually would cost $24 trillion — exceeding the US GDP. The successor Mammoth plant aims to capture 36,000 tons/year, still minuscule against the scale required. Costs must drop 90%+ for DAC to be viable at climate-relevant scale.",
+            "Climeworks' Orca plant in Iceland, operational since 2021, removes approximately 4,000 tons of CO2 per year. Climeworks executives have stated current costs are 'closer to the $1,000 per tonne mark than to $100,' with the company targeting $400-600/ton by 2030 and $200-350/ton by 2040. At ~$1,000/ton, removing the 40 gigatons the world emits annually would cost roughly $40 trillion — exceeding the GDP of any single nation. The larger Mammoth plant, switched on in 2024, has a nameplate capacity of up to 36,000 tons/year, still minuscule against the scale required. Costs must fall by an order of magnitude for DAC to be viable at climate-relevant scale.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -215,7 +215,7 @@ export const geoengineeringClimateData = {
           title: "Fossil Fuel Companies Invest in CCS While Expanding Production",
           description:
             "Major oil and gas companies have invested billions in carbon capture and storage while simultaneously expanding fossil fuel production. Shell's Quest CCS project in Canada captures 1 million tons of CO2 annually — while Shell's global operations produce over 1.3 billion tons of CO2-equivalent emissions per year. Occidental Petroleum's Stratos DAC project received $600 million in tax credits while the company increased oil production. The ratio of captured to emitted CO2 across the industry is less than 0.1%, suggesting CCS functions more as a narrative tool than a meaningful climate solution.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
@@ -225,24 +225,24 @@ export const geoengineeringClimateData = {
           source: "Global CCS Institute; Carbon Tracker; The Guardian",
           sourceUrl: "https://www.globalccsinstitute.com/resources/global-status-of-ccs-2023/",
           reasoning:
-            "The disproportion between CCS investment/capture and continued emissions expansion is well-documented across multiple independent sources. This directly supports the moral hazard thesis by showing that industry behavior is consistent with using CCS as political cover for continued production.",
+            "The disproportion between CCS investment/capture and continued emissions expansion is well-documented across multiple independent sources. This supports the moral hazard objection — that industry behavior is consistent with using CCS as political cover for continued production — and therefore counts against the meta-claim that geoengineering is a genuine necessary complement rather than a distraction.",
         },
         {
           id: "moral-hazard-survey-evidence",
           title: "Study: Geoengineering Awareness Does Not Reduce Emission Reduction Support",
           description:
-            "A 2023 study published in Nature Climate Change found that informing participants about solar geoengineering did not significantly reduce their support for emission reduction policies. Participants maintained or slightly increased support for carbon taxes and clean energy mandates after learning about SRM as a potential complement. The researchers concluded that the moral hazard concern, while theoretically plausible, is not supported by available experimental evidence.",
-          side: "against" as const,
+            "Survey experiments, including a nationally representative study in Britain and balanced-information experiments in the US and Singapore, found that informing participants about solar geoengineering did not on average reduce their support for emission reduction policies, taxing polluting energy, or trust in climate science. Participants maintained or in some cases increased support after learning about SRM as a potential complement. The researchers concluded that the moral hazard concern, while theoretically plausible, is not supported by the available experimental evidence — though findings are mixed and effects could differ over longer time horizons.",
+          side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 6,
             directness: 9,
           },
-          source: "Nature Climate Change",
-          sourceUrl: "https://www.nature.com/articles/s41558-023-01668-5",
+          source: "Climatic Change (Fairbrother 2016); Scientific Reports (2023)",
+          sourceUrl: "https://www.nature.com/articles/s41598-023-46952-w",
           reasoning:
-            "This directly tests the moral hazard hypothesis using experimental methods and finds no support for it. Published in a top climate journal with strong methodology. Replicability is lower because survey experiments may not capture long-term political dynamics — people may maintain abstract support while becoming less willing to bear concrete costs if they believe a technological fix exists.",
+            "These experiments directly test the moral hazard hypothesis and find no average support for it, which undercuts the 'dangerous distraction' charge and therefore supports the meta-claim. Replicability is lower because survey experiments may not capture long-term political dynamics — people may maintain abstract support while becoming less willing to bear concrete costs if they believe a technological fix exists — and the broader literature reports mixed results.",
         },
       ],
     },

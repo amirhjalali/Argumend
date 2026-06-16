@@ -15,10 +15,10 @@ export const trumpTariffsData = {
       id: "inflation-passthrough",
       title: "Consumer Prices & Inflation Pass-Through",
       short_summary:
-        "Trump claimed foreign exporters would pay the tariffs, but the empirical question is who actually bears the cost. Studies converge on substantial US consumer and importer incidence: Cavallo finds ~20% retail pass-through, HBS puts the consumer share near 43%, and the Federal Reserve estimates tariffs raised core goods prices by 3.1%.",
+        "Trump claimed foreign exporters would pay the tariffs, but the empirical question is who actually bears the cost. The mainstream finding is that tariff pass-through to US importers and consumers is high — the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. The ~20% figure from Cavallo et al. is a short-run *retail* pass-through measured by September 2025 that the same literature shows rising over time; HBS puts the consumer share near 43%, and the Federal Reserve estimated tariffs raised core goods prices by about 3.1%.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Tariffs are a tax paid by Americans, not by foreign exporters. The 'China pays the tariff' claim is empirically false. The Federal Reserve estimated that without tariffs, inflation would have returned to its 2% target during 2025; instead tariffs added roughly 0.4 percentage points to annual inflation and left the price level about 0.9% higher by the end of 2026. The Yale Budget Lab projects a $760-$1,200 annual loss per household, with the bottom income decile absorbing roughly three times the burden of the top decile. This is a regressive consumption tax dressed up as trade policy.",
+        "Tariffs are a tax paid by Americans, not by foreign exporters. The 'China pays the tariff' claim is empirically false: the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. Federal Reserve analysis indicated that, absent tariffs, inflation would plausibly have returned to its 2% target during 2025; the CBO estimated tariffs added roughly 0.4 percentage points to annual inflation and left the price level about 0.9% higher by the end of 2026. The Yale Budget Lab projects a $760-$1,200 annual loss per household, with the bottom income decile absorbing roughly three times the burden of the top decile. This is a regressive consumption tax dressed up as trade policy.",
       proponent_rebuttal:
         "Pass-through is partial, not total — and that is the point. The Harvard Business School analysis found foreign exporters absorbed roughly 20% of the burden and importing firms compressed margins to absorb more, meaning the policy does shift real costs onto trading partners. Effective tariff rates near 11.8% are far below the deadweight catastrophe critics predicted, and core inflation effects have been a one-time price-level adjustment, not a sustained inflationary spiral. Tariff revenue — $171-207 billion in FY2026 — can fund offsetting tax cuts that change the net distributional picture, especially if structured progressively.",
       crux: {
@@ -54,24 +54,24 @@ export const trumpTariffsData = {
           id: "hbs-burden-split",
           title: "HBS Finds Consumers Absorb 43% of the Tariff Burden",
           description:
-            "A Harvard Business School analysis of the seven months of sweeping 2025 tariffs found the burden split roughly: consumers absorbing about 43%, importing firms about 37% through compressed margins, and foreign exporters about 20%. This shows the cost is shared rather than borne entirely by any one party, complicating both the 'China pays' claim and the 'tariffs are a pure consumer tax' claim.",
+            "A Harvard Business School analysis of the seven months of sweeping 2025 tariffs found the burden split roughly: consumers absorbing about 43%, importing firms about 37% through compressed margins, and foreign exporters about 20%. This shows the cost is shared rather than borne entirely by any one party, complicating both the 'China pays' claim and the 'tariffs are a pure consumer tax' claim. Note that the ~20% foreign-exporter share is at the high end of the literature: the New York Fed estimated foreign exporters absorbed only about 6-14% of the 2025 burden, with roughly 90% falling on US firms and consumers.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
+            replicability: 6,
             directness: 8,
           },
-          source: "Harvard Business School Working Knowledge",
+          source: "Harvard Business School Working Knowledge; New York Fed (Liberty Street Economics)",
           sourceUrl: "https://www.library.hbs.edu/working-knowledge/tariffs-leave-consumers-and-companies-splitting-the-tab",
           reasoning:
-            "Proponents cite the ~20% foreign-exporter share as evidence the policy shifts real costs abroad. The analysis is methodologically credible and independent, but the consumer share (43%) is the largest single component, meaning the strongest version of 'China pays' remains false even on this favorable reading.",
+            "Proponents cite the ~20% foreign-exporter share as evidence the policy shifts real costs abroad. The analysis is methodologically credible and independent, but the consumer share (43%) is the largest single component, and the New York Fed's independent estimate puts the foreign-exporter share lower still (~6-14%) — so the strongest version of 'China pays' remains false even on this favorable reading. Replicability is downgraded because the foreign-exporter share is the most contested component across studies.",
         },
         {
           id: "fed-inflation-counterfactual",
           title: "Federal Reserve: Without Tariffs, Inflation Would Have Hit 2% in 2025",
           description:
-            "The Federal Reserve's April 2026 FEDS Note estimated tariffs raised core goods prices by 3.1% and concluded that, absent tariffs, inflation would have returned to the Fed's 2% target during 2025. The CBO estimated tariffs added 0.4 percentage points to annual inflation across 2025-2026, leaving the price level about 0.9% higher by the end of 2026.",
+            "A 2026 Federal Reserve FEDS Note estimated tariffs raised retail goods price levels by about 3.1% and indicated that, absent tariffs, inflation would plausibly have returned to the Fed's 2% target during 2025 — an explicitly counterfactual inference rather than a direct measurement. The CBO separately estimated tariffs added about 0.4 percentage points to annual inflation across 2025-2026, leaving the price level roughly 0.9% higher by the end of 2026.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -325,7 +325,7 @@ export const trumpTariffsData = {
           id: "savings-investment-identity",
           title: "Bilateral Deficits Reflect Savings-Investment Imbalances, Not Unfair Trade",
           description:
-            "Orthodox trade economists (PIIE, Krugman, Mankiw) argue the trade deficit is determined by the national savings-investment gap and the dollar's reserve-currency role, meaning tariffs cannot durably close it — they reshuffle which countries run surpluses. Krugman has called the 2025 tariff structure 'the second coming of Smoot-Hawley,' while critics note the analogy is overdrawn given the current 11.8% effective rate versus Smoot-Hawley's ~59% on dutiable imports.",
+            "Orthodox trade economists (PIIE, Krugman, Mankiw) argue the trade deficit is determined by the national savings-investment gap and the dollar's reserve-currency role, meaning tariffs cannot durably close it — they reshuffle which countries run surpluses. The 2018 round of Trump tariffs is the natural test case: the aggregate US trade deficit did not shrink and in fact widened alongside the savings-investment gap, with the China bilateral deficit largely reallocating to Vietnam, Mexico, and other partners rather than disappearing. Krugman has called the 2025 tariff structure 'the second coming of Smoot-Hawley,' while critics note the analogy is overdrawn given the current ~11.8% effective rate versus Smoot-Hawley's ~59% on dutiable imports.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -423,7 +423,7 @@ export const trumpTariffsData = {
       id: "q1",
       title: "Who actually pays Trump's tariffs?",
       content:
-        "Trump claimed foreign exporters would pay, but Cavallo finds ~20% retail pass-through, HBS puts the consumer share near 43%, and the Federal Reserve estimates tariffs raised core goods prices by 3.1%. The strongest version of 'China pays' — that some burden falls on exporters — is true but trivial; the campaign-rally version is a category error. Does the partial pass-through vindicate the policy as cost-shifting, or refute it as a domestic consumption tax?",
+        "Trump claimed foreign exporters would pay, but the New York Fed estimates ~90% of the 2025 burden fell on US firms and consumers (only ~6-14% on foreign exporters); Cavallo finds a ~20% short-run retail pass-through rising over time, HBS puts the consumer share near 43%, and the Federal Reserve estimates tariffs raised goods prices by about 3.1%. The strongest version of 'China pays' — that some burden falls on exporters — is true but small; the campaign-rally version is a category error. Does the partial pass-through vindicate the policy as cost-shifting, or refute it as a domestic consumption tax?",
     },
     {
       id: "q2",

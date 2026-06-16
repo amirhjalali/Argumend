@@ -20,7 +20,7 @@ export const nuclearWeaponsAbolitionData = {
       skeptic_premise:
         "The claim that nuclear weapons prevented great power war is unfalsifiable and likely wrong. The 'Long Peace' coincided with the creation of the United Nations, unprecedented economic interdependence through globalization, the spread of democracy, and the exhaustion of European imperial rivalries — any of which could explain the absence of major war. Attributing peace to nuclear weapons is post hoc reasoning. Meanwhile, nuclear deterrence has repeatedly failed to prevent wars between nuclear and non-nuclear states (Korea, Vietnam, Afghanistan, the Falklands), and the theory assumes perfect rationality from leaders — an assumption contradicted by the Cuban Missile Crisis, the 1983 Able Archer incident, and the 1995 Norwegian rocket incident, all of which brought the world to the brink of nuclear war through miscalculation rather than rational strategy.",
       proponent_rebuttal:
-        "No theory can be 'proven' in international relations, but the nuclear peace hypothesis has powerful explanatory logic: when both sides in a conflict face total annihilation from escalation, the cost of war exceeds any conceivable benefit, making major war irrational. This is not merely theoretical — Soviet archives reveal that during the Berlin crises of 1948 and 1961, Soviet leaders explicitly cited nuclear consequences as the reason for restraint. The Korean War remained limited precisely because nuclear escalation was feared. India and Pakistan have fought four wars before 1998 (when both tested nuclear weapons) and zero since, despite multiple crises (Kargil 1999, Mumbai 2008, Pulwama 2019). The alternative explanations (UN, trade, democracy) existed during WWI and WWII as well — the League of Nations, extensive pre-WWI trade, and the democratic peace theory all failed to prevent those wars.",
+        "No theory can be 'proven' in international relations, but the nuclear peace hypothesis has powerful explanatory logic: when both sides in a conflict face total annihilation from escalation, the cost of war exceeds any conceivable benefit, making major war irrational. This is not merely theoretical — Soviet archives reveal that during the Berlin crises of 1948 and 1961, Soviet leaders explicitly cited nuclear consequences as the reason for restraint. The Korean War remained limited precisely because nuclear escalation was feared. India and Pakistan fought three full-scale wars before both tested nuclear weapons in 1998 (1947, 1965, 1971) and none since, despite multiple crises and the limited 1999 Kargil border conflict (Mumbai 2008, Pulwama 2019). The alternative explanations (UN, trade, democracy) existed during WWI and WWII as well — the League of Nations, extensive pre-WWI trade, and the democratic peace theory all failed to prevent those wars.",
       crux: {
         id: "nuclear-peace-causation",
         title: "The Nuclear Peace Counterfactual Test",
@@ -52,9 +52,9 @@ export const nuclearWeaponsAbolitionData = {
         },
         {
           id: "india-pakistan-nuclear",
-          title: "India-Pakistan: Four Wars Before Nuclear Weapons, Zero Since (1947-present)",
+          title: "India-Pakistan: Three Full-Scale Wars Before Nuclear Weapons, None Since (1947-present)",
           description:
-            "India and Pakistan fought four wars before both became nuclear-armed: 1947, 1965, 1971, and the Kargil conflict in 1999 (which occurred during the year after Pakistan's nuclear tests, when deterrence doctrine was not yet established). Since both countries achieved secure second-strike capability in the early 2000s, they have experienced multiple severe crises — the 2001 Parliament attack, 2008 Mumbai attacks, and 2019 Pulwama crisis — without escalation to full-scale war. During Kargil, Pakistani Prime Minister Nawaz Sharif explicitly cited nuclear escalation risk as the reason for withdrawal.",
+            "India and Pakistan fought three full-scale wars before both overtly tested nuclear weapons in 1998: 1947, 1965, and 1971. The 1999 Kargil conflict — a limited border war — occurred the year after both states' tests, before mature deterrence doctrine; during it, Pakistani Prime Minister Nawaz Sharif reportedly cited nuclear escalation risk as a factor in withdrawal. Since both countries achieved secure second-strike capability in the early 2000s, they have experienced multiple severe crises — the 2001 Parliament attack, 2008 Mumbai attacks, and 2019 Pulwama crisis — without escalation to full-scale war. (Skeptics note this is also consistent with the stability-instability paradox, in which nuclear weapons deter major war but enable sub-conventional conflict.)",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -88,7 +88,7 @@ export const nuclearWeaponsAbolitionData = {
           id: "able-archer-1983",
           title: "Able Archer 83: NATO Exercise Nearly Triggered Soviet Nuclear First Strike",
           description:
-            "In November 1983, NATO conducted Able Archer 83, a routine nuclear war simulation exercise. Declassified Soviet intelligence reports reveal that the KGB and GRU interpreted the exercise as potential cover for an actual first strike, placing Soviet nuclear forces on heightened alert. Soviet leader Yuri Andropov, influenced by the KGB's Operation RYAN (which sought indicators of Western attack preparations), seriously considered a preemptive nuclear strike. Only the cautious assessment of Soviet double-agent Oleg Gordievsky, relayed to British intelligence, alerted the West to the danger. A 2015 US National Intelligence Board review concluded that 'the risk of nuclear war was greater during Able Archer than previously recognized.'",
+            "In November 1983, NATO conducted Able Archer 83, a routine nuclear war simulation exercise. Declassified Soviet intelligence reports reveal that the KGB and GRU interpreted the exercise as potential cover for an actual first strike, placing Soviet nuclear forces on heightened alert. Soviet leader Yuri Andropov, influenced by the KGB's Operation RYAN (which sought indicators of Western attack preparations), seriously considered a preemptive nuclear strike. Only the cautious assessment of Soviet double-agent Oleg Gordievsky, relayed to British intelligence, alerted the West to the danger. A 1990 President's Foreign Intelligence Advisory Board (PFIAB) report — declassified in 2015 — concluded that Able Archer 83 'may have inadvertently placed our relations with the Soviet Union on a hair trigger,' and that US assessments at the time understated the risks.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -133,18 +133,18 @@ export const nuclearWeaponsAbolitionData = {
           id: "tpnw-entry-force",
           title: "Treaty on the Prohibition of Nuclear Weapons Enters into Force with 70+ Parties (2021)",
           description:
-            "The TPNW, adopted in 2017 and entering into force on January 22, 2021, comprehensively prohibits the development, testing, production, stockpiling, transfer, use, and threat of use of nuclear weapons. As of 2025, 70 states have ratified and 93 have signed. However, no nuclear-armed state has joined, and all NATO members (except the Netherlands, which voted against during negotiations) boycotted the negotiations. The treaty creates a legal norm but lacks enforcement mechanisms. Proponents cite the Anti-Personnel Mine Ban Treaty as a precedent where stigmatization eventually changed behavior even among non-signatory states.",
+            "The TPNW, adopted in 2017 and entering into force on January 22, 2021, comprehensively prohibits the development, testing, production, stockpiling, transfer, use, and threat of use of nuclear weapons. As of late 2025, 74 states have ratified and 95 have signed. However, no nuclear-armed state has joined, and all NATO members (except the Netherlands, which voted against during negotiations) boycotted the negotiations. The treaty creates a legal norm but lacks enforcement mechanisms. Proponents cite the Anti-Personnel Mine Ban Treaty as a precedent where stigmatization eventually changed behavior even among non-signatory states.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 9,
+            independence: 6,
             replicability: 9,
-            directness: 7,
+            directness: 5,
           },
           source: "United Nations Office for Disarmament Affairs; ICAN (International Campaign to Abolish Nuclear Weapons)",
           sourceUrl: "https://treaties.unoda.org/t/tpnw",
           reasoning:
-            "The treaty's existence is unambiguous fact. However, its direct impact on abolition is limited by the absence of all nuclear-armed states. The evidence is scored 'against' the meta-claim because the treaty represents a global majority arguing that nuclear weapons should be abolished, directly contesting the claim that deterrence makes the world safer. The lack of nuclear-state participation also demonstrates the practical barriers to abolition.",
+            "The treaty's existence is unambiguous fact (high reliability/replicability). But it is fundamentally a NORMATIVE instrument — a statement by non-nuclear states that nuclear weapons SHOULD be abolished — not empirical evidence that abolition WOULD make the world safer, which is what the meta-claim disputes. Independence is discounted because a co-source (ICAN) is an abolition-advocacy organization, and directness is low because no nuclear-armed state has joined, so the treaty bears only weakly on the empirical deterrence-vs-abolition question. It belongs on the 'against' side as an expression of international preference, not as proof of the meta-claim's falsity.",
         },
         {
           id: "nuclear-near-misses",

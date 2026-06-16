@@ -309,3 +309,23 @@ MAJOR STRUCTURAL FINDINGS:
   consensus. FLAGGED FOR FOLLOW-UP: needs genuine web-sourced opposing evidence added (not fabricated).
 Plus dozens of factual corrections (suicide rates, warhead counts, treaty status, Australia ban now
 enforced Dec 2025, Canon C2PA date, etc.). All web-verified, no fabricated cites. tsc clean, 207 tests.
+
+## Red-Team Pass — batch 2 (2026-06-16), 10 low-confidence + politically-sensitive topics
+Reviewed: nuclear-weapons-abolition, geoengineering-climate, fluoride-water-supplies,
+doge-federal-cuts, trump-tariffs, ukraine-peace-terms, immigration-border-crisis,
+us-iran-conflict, epstein-files, tiktok-ban.
+SIDE-CODING INVERSIONS found & fixed: geoengineering-climate (Pillar 3, 2 items — moral-hazard
+items coded backwards); epstein-files (transparency-act-passage "for"→"against", 70→61).
+Other major fixes: tiktok-ban First-Amendment standard mischaracterized ("deferential" → it was
+INTERMEDIATE scrutiny, content-neutral) + stale divestiture (Dec 2025 Oracle/Silver Lake deal) +
+golden-share date 2023→2021; doge-federal-cuts GAO fraud-vs-improper-payments conflation + IRS
+"$861B" mis-attribution (combined, not revenue-agents alone) + savings-timeline conflation;
+trump-tariffs false balance on incidence (added NY Fed ~90% domestic / ~6-14% foreign) + 2018
+tariffs did NOT shrink trade deficit; fluoride Cochrane 2015→2024 update (benefit shrank to ~0.24
+DMFS) + the 2024 court "unreasonable risk" ruling was VACATED by the 9th Circuit May 2026; epstein
+conspiracy-feeding q2 "orange figure" framing corrected to the official innocuous interpretations,
+poll figures updated (57/81/95%); us-iran June-2025 strike figures de-conflated (Israel Rising Lion
+vs US Midnight Hammer); immigration death-toll re-attributed (CBP not IOM) + backlog 3.7M→3.4M;
+nuclear-weapons Able Archer attribution (1990 PFIAB, declassified 2015) + TPNW counts; ukraine
+"Miami"→Mar-a-Lago. Side-coding verified CORRECT on the other 8. All web-verified, post-cutoff
+(2026) specifics kept attributed/dated not asserted. tsc clean, 207 tests.

@@ -52,9 +52,9 @@ export const immigrationBorderCrisisData = {
         },
         {
           id: "encounters-drop-post-restrictions",
-          title: "Encounters Dropped 60%+ After Asylum Restrictions in 2023-2025",
+          title: "Encounters Dropped Sharply After Asylum Restrictions in 2023-2025",
           description:
-            "Following the Biden administration's asylum transit ban (June 2023), encounters at the southwest border dropped significantly. Under the Trump administration's reinstated Remain in Mexico policy, expanded expedited removal, and third-country transit bars in 2025, monthly encounters fell to approximately 47,000-60,000 by early 2025 — a 75% decline from FY2023 peaks. Proponents cite this as proof that enforcement and policy restrictions deter crossings.",
+            "Following the Biden administration's asylum transit ban (June 2023) and the June 2024 'Securing the Border' rule, encounters at the southwest border dropped significantly. Under the Trump administration's reinstated Remain in Mexico policy, expanded expedited removal, and shutdown of the CBP One app in early 2025, monthly Border Patrol apprehensions between ports of entry fell below 10,000 by February 2025 — the lowest monthly totals in over 25 years of available data and an extraordinary decline from the FY2023 peaks (when monthly encounters exceeded 200,000). Proponents cite this as proof that enforcement and policy restrictions deter crossings.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -69,9 +69,9 @@ export const immigrationBorderCrisisData = {
         },
         {
           id: "enforcement-spending-333-billion",
-          title: "$333 Billion Spent on Immigration Enforcement Since 1986 with Recurring Crises",
+          title: "Hundreds of Billions Spent on Immigration Enforcement Since 1986 with Recurring Crises",
           description:
-            "The American Immigration Council calculated that the US spent $333 billion (inflation-adjusted) on immigration enforcement between 1986 and 2023. Border Patrol staffing grew from 3,700 agents in 1992 to over 19,500 by 2023. Despite this massive investment, unauthorized border crossings have surged repeatedly — in the late 1990s, mid-2000s, 2019, and 2021-2023 — suggesting that enforcement alone does not produce durable deterrence.",
+            "The American Immigration Council has estimated cumulative federal immigration-enforcement spending in the hundreds of billions of dollars since 1986 — a frequently cited figure of roughly $333 billion covers the period through the early 2020s — with enforcement-agency budgets continuing to climb (AIC's more recent tallies put spending on enforcement agencies since the 2003 creation of DHS alone at well over $300 billion). Border Patrol staffing grew from about 3,700 agents in 1992 to roughly 19,500 by 2023. Despite this massive investment, unauthorized border crossings surged repeatedly — in the late 1990s, mid-2000s, 2019, and 2021-2023 — suggesting that enforcement spending alone does not produce durable deterrence.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -80,15 +80,15 @@ export const immigrationBorderCrisisData = {
             directness: 8,
           },
           source: "American Immigration Council; Congressional Research Service; DHS Budget Data",
-          sourceUrl: "https://www.americanimmigrationcouncil.org/research/the-cost-of-immigration-enforcement",
+          sourceUrl: "https://www.americanimmigrationcouncil.org/research/the-cost-of-immigration-enforcement-and-border-security",
           reasoning:
             "The spending data is drawn from official budget documents and is independently verifiable. The recurring nature of border surges despite decades of escalating enforcement directly challenges the claim that enforcement is effective. However, proponents argue that surges would have been worse without enforcement investment.",
         },
         {
           id: "migrant-death-toll-record",
-          title: "Record 890+ Migrant Deaths at the Border in FY2022",
+          title: "Record ~890 Migrant Deaths at the Border in FY2022",
           description:
-            "The International Organization for Migration recorded over 890 migrant deaths along the US-Mexico border in FY2022, the deadliest year on record. Causes include dehydration, drowning in the Rio Grande, heat exposure in remote desert areas, and suffocation in smuggling vehicles. Research from the University of Arizona's Binational Migration Institute shows that increased enforcement in urban crossing areas has pushed migrants into more remote, deadly terrain — a phenomenon documented since Operation Gatekeeper in 1994.",
+            "US Customs and Border Protection recorded approximately 890 migrant deaths in the southwest border sectors in FY2022, the deadliest year on record by that count; the International Organization for Migration's Missing Migrants Project separately documented at least 686 deaths and disappearances on the US-Mexico border in calendar 2022 and called it the world's deadliest land migration route (counts differ by methodology and coverage). Causes include dehydration, drowning in the Rio Grande, heat exposure in remote desert areas, and suffocation in smuggling vehicles. Research from the University of Arizona's Binational Migration Institute shows that increased enforcement in urban crossing areas has pushed migrants into more remote, deadly terrain — a phenomenon documented since Operation Gatekeeper in 1994.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -96,7 +96,7 @@ export const immigrationBorderCrisisData = {
             replicability: 7,
             directness: 7,
           },
-          source: "International Organization for Migration; University of Arizona Binational Migration Institute",
+          source: "US Customs and Border Protection (Southwest Border deaths); International Organization for Migration Missing Migrants Project; University of Arizona Binational Migration Institute",
           sourceUrl: "https://missingmigrants.iom.int/region/americas",
           reasoning:
             "IOM is the authoritative independent body for migrant death tracking, and academic research on the 'funnel effect' of enforcement is peer-reviewed. This evidence challenges the moral legitimacy of enforcement-first approaches but does not directly address their effectiveness in reducing crossings. Proponents argue that fewer crossings ultimately means fewer deaths.",
@@ -190,7 +190,7 @@ export const immigrationBorderCrisisData = {
       id: "humanitarian-concerns",
       title: "Humanitarian Concerns & Asylum",
       short_summary:
-        "The US asylum system faces a backlog of 3.7+ million cases with average wait times exceeding 4 years. Asylum restrictions may violate international law obligations, while the lack of processing capacity leaves genuine refugees in limbo and incentivizes unauthorized crossings.",
+        "The US immigration court backlog peaked near 3.7 million cases at the end of FY2024 before declining to roughly 3.4 million during FY2025 — the first drop in over a decade — with long multi-year waits for many pending cases. Asylum restrictions may violate international law obligations, while the lack of processing capacity leaves genuine refugees in limbo and incentivizes unauthorized crossings.",
       icon_name: "Users" as const,
       skeptic_premise:
         "The US has binding obligations under the 1951 Refugee Convention and the 1967 Protocol not to return refugees to countries where they face persecution. Asylum restrictions — including transit bans, Remain in Mexico, and expedited removal — violate these obligations by denying asylum seekers access to the process. The immigration court backlog of 3.7 million cases with 4+ year wait times is a policy choice, not an inevitability — Congress could fund more immigration judges but has chronically underfunded the courts while expanding enforcement. Detention conditions have been condemned by DHS's own Inspector General, with documented overcrowding, inadequate medical care, and at least 200 deaths in ICE custody since 2004. The separation of families, including children, represents a moral catastrophe regardless of its deterrent effect.",
@@ -210,9 +210,9 @@ export const immigrationBorderCrisisData = {
       evidence: [
         {
           id: "court-backlog-3-7-million",
-          title: "Immigration Court Backlog Exceeds 3.7 Million Cases",
+          title: "Immigration Court Backlog Peaked Near 3.7 Million Cases",
           description:
-            "As of early 2025, the Executive Office for Immigration Review reported a backlog exceeding 3.7 million pending immigration cases, up from 1.1 million in 2019. The average wait time for a hearing exceeds 4 years, with some jurisdictions taking 7+ years. There are approximately 600 immigration judges handling this caseload — compared to roughly 680 federal district judges handling all civil and criminal cases in the entire federal system. The chronic underfunding of immigration courts relative to enforcement spending (ICE and CBP budgets exceed EOIR's by more than 10:1) is a structural choice.",
+            "Per TRAC (Syracuse University) data, the immigration court backlog reached an all-time high of roughly 3.7 million pending cases at the end of FY2024 — up from about 1.1 million in 2019 — before declining to approximately 3.4 million during FY2025, the first sustained decrease since at least 2012. Many pending cases still face multi-year waits (TRAC reported an average wait around 636 days as of March 2025, with some individual cases and jurisdictions extending far longer). There are roughly 600-700 immigration judges handling this caseload — comparable in number to the federal district judges handling all civil and criminal cases in the entire federal system. The chronic underfunding of immigration courts relative to enforcement spending (ICE and CBP budgets dwarf EOIR's) is a structural choice.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -277,7 +277,7 @@ export const immigrationBorderCrisisData = {
     },
     {
       title: "The Cost of Immigration Enforcement — American Immigration Council",
-      url: "https://www.americanimmigrationcouncil.org/research/the-cost-of-immigration-enforcement",
+      url: "https://www.americanimmigrationcouncil.org/research/the-cost-of-immigration-enforcement-and-border-security",
     },
     {
       title: "Missing Migrants Project: Americas — International Organization for Migration",
@@ -289,7 +289,7 @@ export const immigrationBorderCrisisData = {
       id: "q1",
       title: "Does enforcement actually deter unauthorized crossings?",
       content:
-        "The US has spent $333 billion on immigration enforcement since 1986, yet unauthorized crossings have surged repeatedly. Encounters dropped 60%+ after 2023 restrictions, but was this due to US enforcement, Mexican cooperation, economic shifts, or all three? Can enforcement-only approaches produce durable results without addressing root causes?",
+        "The US has spent hundreds of billions of dollars on immigration enforcement since 1986 (a commonly cited estimate is roughly $333 billion through the early 2020s), yet unauthorized crossings have surged repeatedly. Encounters then fell sharply after 2023-2025 restrictions, but was this due to US enforcement, Mexican cooperation, economic shifts, or all three? Can enforcement-only approaches produce durable results without addressing root causes?",
     },
     {
       id: "q2",
@@ -301,7 +301,7 @@ export const immigrationBorderCrisisData = {
       id: "q3",
       title: "Can the asylum system function without fundamental reform?",
       content:
-        "With 3.7 million pending cases, 4+ year wait times, and grant rates ranging from 5% to 90% depending on the judge, the asylum system satisfies neither enforcement advocates nor refugee protection advocates. Is the crisis a result of too many frivolous claims, chronic underfunding of courts, or a system designed in 1980 that cannot handle modern migration patterns?",
+        "With a backlog that peaked near 3.7 million cases in FY2024 (since easing to roughly 3.4 million), multi-year waits for many cases, and grant rates ranging from 5% to 90% depending on the judge, the asylum system satisfies neither enforcement advocates nor refugee protection advocates. Is the crisis a result of too many frivolous claims, chronic underfunding of courts, or a system designed in 1980 that cannot handle modern migration patterns?",
     },
   ],
 };

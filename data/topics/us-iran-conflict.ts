@@ -18,7 +18,7 @@ export const usIranConflictData = {
         "US withdrawal from the JCPOA and subsequent military strikes aimed to prevent Iranian nuclear breakout, but Iran's enrichment has accelerated from 3.67% to 60% and its stockpile has grown enough for multiple weapons.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "US policy has accelerated, not prevented, nuclear proliferation. Iran was verifiably compliant with the JCPOA when the US unilaterally withdrew in 2018, confirmed by 11 consecutive IAEA reports. Every Iranian escalation — enriching to 20%, then 60%, amassing 408 kg of near-weapons-grade material — occurred after the US reneged on the deal. The June 2025 military strikes on Natanz destroyed facilities but did not eliminate knowledge or centrifuge technology, and by March 2026 the IAEA confirmed the underground Natanz facility remained intact though inaccessible. Maximum pressure created maximum proliferation risk.",
+        "US policy has accelerated, not prevented, nuclear proliferation. Iran was verifiably compliant with the JCPOA when the US unilaterally withdrew in 2018, confirmed by 11 consecutive IAEA reports. Every Iranian escalation — enriching to 20%, then 60%, amassing 408 kg of near-weapons-grade material — occurred after the US reneged on the deal. The June 2025 military strikes on Natanz destroyed facilities but did not eliminate Iran's enrichment knowledge or centrifuge expertise, and by early 2026 the IAEA had lost continuity of knowledge over the program, leaving residual underground capacity contested. Maximum pressure, critics argue, created maximum proliferation risk.",
       proponent_rebuttal:
         "The JCPOA had fatal sunset clauses that would have allowed Iran unrestricted enrichment by 2030, and it never addressed ballistic missiles or regional aggression. By 2025, Iran had stockpiled 408 kg of 60% enriched uranium — enough for 7-9 weapons with just three weeks of further enrichment — and the IAEA detected particles at 83.7%. The June 2025 strikes destroyed critical centrifuge cascades and set back Iran's program by years. Without military pressure, Iran would have achieved breakout capability, triggering a regional nuclear arms race among Saudi Arabia, Turkey, and Egypt.",
       crux: {
@@ -54,7 +54,7 @@ export const usIranConflictData = {
           id: "iran-enrichment-escalation",
           title: "Iran Amasses 408 kg of 60% Enriched Uranium by 2025",
           description:
-            "After the US withdrawal, Iran progressively exceeded JCPOA limits: breaching the 300 kg low-enriched uranium cap in 2019, enriching to 20% in January 2021, then 60% in April 2021. By May 2025, Iran had amassed 408.6 kg of 60% enriched uranium — a 50% increase in just three months. The IAEA detected particles at 83.7%. Experts estimate Iran could produce weapons-grade material for 7-9 weapons within three weeks of a political decision.",
+            "After the US withdrawal, Iran progressively exceeded JCPOA limits: breaching the 300 kg low-enriched uranium cap in 2019, enriching to 20% in January 2021, then 60% in April 2021. By May 2025, Iran had amassed 408.6 kg of 60% enriched uranium — a roughly 50% increase since the February 2025 report. The IAEA had earlier detected particles enriched to 83.7% at Fordow in January 2023. Experts estimate Iran could produce weapons-grade material for up to 9 weapons within weeks of a political decision.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -71,7 +71,7 @@ export const usIranConflictData = {
           id: "june-2025-strikes-nuclear",
           title: "US-Israel Strikes on Natanz, Fordow, and Isfahan (June 2025)",
           description:
-            "On June 13, 2025, Israel launched strikes on Iranian nuclear facilities at Natanz, Fordow, and Isfahan with US military support on June 22. Over 200 fighter jets dropped 330+ munitions on approximately 100 targets. The strikes destroyed surface infrastructure and centrifuge halls but the underground Natanz facility survived. By March 2026, the IAEA confirmed the facility remained intact though its entrance buildings were inaccessible.",
+            "On June 13, 2025, Israel launched its opening strikes (Operation Rising Lion) on Iranian nuclear and military targets, with over 200 fighter jets reportedly dropping 330+ munitions on roughly 100 targets. The US joined on June 22 with Operation Midnight Hammer, sending seven B-2 bombers and bunker-buster munitions against Fordow, Natanz, and Isfahan. The strikes destroyed surface infrastructure and centrifuge halls, but damage to the deepest underground enrichment halls was disputed, and a leaked US Defense Intelligence Agency assessment judged the setback to be months rather than years. As of early 2026, the IAEA had lost continuity of knowledge over much of Iran's program, and the extent of residual underground capacity remained contested.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

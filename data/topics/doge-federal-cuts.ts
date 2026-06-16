@@ -15,12 +15,12 @@ export const dogeFederalCutsData = {
       id: "claimed-vs-verified-savings",
       title: "Claimed vs. Verified Savings",
       short_summary:
-        "DOGE's 'Wall of Receipts' claimed $175 billion in savings by mid-2025, but independent reconciliation by NPR and the Washington Post verified only a fraction, after the ledger was caught listing the same contracts multiple times and inflating figures by orders of magnitude.",
+        "DOGE's 'Wall of Receipts' grew to a claimed $175 billion in savings by late May 2025, but independent review by NPR could document only a fraction (about $2 billion verifiable in February 2025; roughly $63 billion of $160 billion claimed by late April), after the ledger was caught listing the same contracts multiple times and inflating figures by orders of magnitude.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "DOGE's savings claims are largely fictional. Its public ledger has been repeatedly caught in basic arithmetic errors: an ICE contract listed at $8 billion was actually $8 million, an SSA contract listed at $232 million was actually $560,000, and a single USAID contract was counted three times for $650 million. When NPR and the Washington Post independently reconciled the receipts in February 2025, only roughly $2 billion was verifiable against DOGE's headline claims of $65-175 billion. Meanwhile, the IRS revenue-agent cuts alone are projected to forgo $861 billion in tax revenue over a decade — meaning DOGE may be losing far more money than it saves.",
+        "DOGE's savings claims are largely fictional. Its public ledger has been repeatedly caught in basic arithmetic errors: an ICE contract listed at $8 billion was actually $8 million, an SSA contract listed at $232 million was actually about $560,000, and a single USAID contract was triple-counted for up to $655 million. When NPR reviewed the receipts in February 2025, only about $2 billion was verifiable against the roughly $55 billion DOGE claimed at the time; by late April NPR could account for just $63 billion of about $160 billion claimed, and the headline grew to $175 billion by late May 2025. Meanwhile, the Yale Budget Lab projects that DOGE-era IRS staffing cuts and the funding clawback together forgo roughly $861 billion in tax revenue over 2026-2035 — meaning DOGE may be losing far more money than it saves.",
       proponent_rebuttal:
-        "Early ledger errors are real but reflect the speed of a startup-style operation, not the absence of waste. GAO's own estimates put annual federal improper payments at $233-521 billion, an enormous pool of genuine inefficiency that prior administrations never seriously attacked. DOGE forced a culture of scrutiny on contracts that had renewed automatically for decades, and even conservative verified figures represent billions returned to taxpayers. The ledger is being corrected as discrepancies surface — transparency about errors is a feature, not proof the savings are imaginary.",
+        "Early ledger errors are real but reflect the speed of a startup-style operation, not the absence of waste. GAO's own 2024 estimate puts direct annual federal losses to fraud at $233-521 billion (FY2018-2022 data), an enormous pool of genuine inefficiency that prior administrations never seriously attacked. DOGE forced a culture of scrutiny on contracts that had renewed automatically for decades, and even conservative verified figures represent billions returned to taxpayers. The ledger is being corrected as discrepancies surface — transparency about errors is a feature, not proof the savings are imaginary.",
       crux: {
         id: "savings-reconciliation-audit",
         title: "The Savings Reconciliation Audit",
@@ -30,14 +30,14 @@ export const dogeFederalCutsData = {
           "Take DOGE's published 'Wall of Receipts' and match each line item against the authoritative contract record in USASpending.gov and FPDS, distinguishing ceiling value from obligated funds from money actually saved. Net the verified savings against documented revenue losses (e.g., the Yale Budget Lab IRS projection) and the cost of rehiring essential staff. A net-savings figure can be produced from entirely public federal procurement data.",
         verification_status: "verified" as const,
         cost_to_verify:
-          "$0 (USASpending.gov, FPDS, and GAO improper-payment data are publicly available)",
+          "$0 (USASpending.gov, FPDS, and GAO fraud-loss and improper-payment data are publicly available)",
       },
       evidence: [
         {
           id: "wall-of-receipts-errors",
           title: "DOGE 'Wall of Receipts' Repeatedly Inflated by Orders of Magnitude",
           description:
-            "DOGE's public savings ledger had to be repeatedly edited after fact-checkers found systematic errors: an ICE contract listed at $8 billion was actually $8 million (a 1,000x overstatement), an SSA contract listed at $232 million was actually about $560,000, and a single USAID contract was listed three times totaling $650 million. The errors consistently ran in the direction of overstating savings.",
+            "DOGE's public savings ledger had to be repeatedly edited after fact-checkers found systematic errors: an ICE contract listed at $8 billion was actually $8 million (a 1,000x overstatement), an SSA contract listed at $232 million yielded only about $560,000 in real savings, and a single USAID contract was triple-counted for up to $655 million (later revised to roughly $18 million). The errors consistently ran in the direction of overstating savings.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -52,9 +52,9 @@ export const dogeFederalCutsData = {
         },
         {
           id: "npr-wapo-verified-savings",
-          title: "Independent Reconciliation Found ~$2B Verifiable Against $65-175B Claimed",
+          title: "Independent Review Found Only a Fraction of Claimed Savings Documented",
           description:
-            "When NPR and the Washington Post independently reconciled DOGE's receipts in February 2025, only roughly $2 billion was verifiable against DOGE's claimed savings, which ranged from $65 billion to a later headline of $175 billion. Much of the claimed savings reflected contract ceiling values (maximum possible spend) rather than money actually obligated or recovered.",
+            "When NPR reviewed DOGE's receipts in February 2025, only about $2 billion was verifiable against the roughly $55 billion DOGE claimed at that point; by late April NPR could account for just $63 billion of about $160 billion claimed, and the headline grew to $175 billion by late May 2025. Much of the claimed savings reflected contract ceiling values (maximum possible spend) rather than money actually obligated or recovered, and over half of touted contracts had not actually been terminated.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -62,16 +62,16 @@ export const dogeFederalCutsData = {
             replicability: 8,
             directness: 9,
           },
-          source: "NPR; Washington Post; Wikipedia (Department of Government Efficiency)",
-          sourceUrl: "https://www.npr.org/2025/02/11/nx-s1-5290288/doge-savings-billions-contracts-musk-trump",
+          source: "NPR (analysis of FPDS/USASpending procurement data); CNN (savings scorecard)",
+          sourceUrl: "https://www.npr.org/2025/02/19/nx-s1-5302705/doge-overstates-savings-federal-contracts",
           reasoning:
-            "Independent newsroom reconciliation against the federal procurement record is the closest available proxy for an audit. The gap between ~$2B verified and $65-175B claimed is the core of the savings dispute.",
+            "Independent newsroom reconciliation against the federal procurement record is the closest available proxy for an audit. The persistent gap between documented savings and the headline claim — CNN found less than half of the $175B backed by even basic documentation — is the core of the savings dispute.",
         },
         {
           id: "gao-improper-payments",
-          title: "GAO Estimates $233-521B in Annual Federal Improper Payments",
+          title: "GAO Estimates $233-521B in Annual Federal Losses to Fraud",
           description:
-            "The Government Accountability Office's 2024 work estimated annual federal improper payments in the range of $233-521 billion, a genuinely large pool of inefficiency. GAO is explicit, however, that 'improper payments' include unintentional administrative and documentation errors — not only fraud — so the figure cannot be read as a measure of recoverable fraud or of savings DOGE actually captured.",
+            "The Government Accountability Office's April 2024 report (GAO-24-105833) estimated direct annual federal losses to fraud at $233-521 billion based on FY2018-2022 data — about 3-7% of average federal obligations and a genuinely large pool of waste. GAO is explicit, however, that this is a modeled estimate spanning different risk environments, and that confirmed fraud is only part of broader 'improper payments'; the figure cannot be read as money DOGE actually identified or recovered.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -82,13 +82,13 @@ export const dogeFederalCutsData = {
           source: "U.S. Government Accountability Office (GAO-24-105833)",
           sourceUrl: "https://www.gao.gov/products/gao-24-105833",
           reasoning:
-            "GAO is an authoritative nonpartisan source and the improper-payments figure establishes that real inefficiency exists, supporting the proponent case. But its directness is limited: improper payments are not the same as fraud or as savings DOGE realized.",
+            "GAO is an authoritative nonpartisan source and the fraud-loss estimate establishes that real waste exists, supporting the proponent case. But its directness is limited: a modeled estimate of fraud exposure is not the same as savings DOGE actually identified or recovered.",
         },
         {
           id: "irs-foregone-revenue",
-          title: "IRS Cuts Projected to Forgo $861B in Revenue Over a Decade",
+          title: "Weakened IRS Projected to Forgo ~$861B in Revenue Over a Decade",
           description:
-            "By March 2025 the IRS had lost about 31% of its revenue agents (roughly 3,623 auditors). The Yale Budget Lab projected that the weakened enforcement capacity would forgo approximately $861 billion in federal revenue over 2026-2035. If accurate, the revenue lost from cutting tax collectors dwarfs DOGE's verified savings, inverting the efficiency claim.",
+            "By March 2025 the IRS had lost about 31% of its revenue agents — roughly 3,623 auditors — per a TIGTA report. The Yale Budget Lab projected that the weakened enforcement capacity would forgo approximately $861 billion in federal revenue over 2026-2035: about $598 billion attributed to 2025 staffing reductions plus about $263 billion from the $20 billion IRS funding clawback. If accurate, the revenue lost dwarfs DOGE's verified savings, inverting the efficiency claim.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -428,7 +428,7 @@ export const dogeFederalCutsData = {
       id: "q1",
       title: "Did DOGE actually save money, or just claim it?",
       content:
-        "DOGE's ledger claimed up to $175 billion in savings, but independent reconciliation verified only about $2 billion, after the receipts were caught inflating figures by up to 1,000x. Meanwhile, cutting 31% of IRS revenue agents is projected to forgo $861 billion in revenue. When verified savings are netted against revenue losses and the cost of rehiring essential staff, did DOGE leave the government better off financially — or worse?",
+        "DOGE's ledger grew to a claimed $175 billion in savings, but independent review documented only a fraction (about $2 billion verifiable in February 2025; less than half of the headline backed by basic documentation), after the receipts were caught inflating figures by up to 1,000x. Meanwhile, the Yale Budget Lab projects DOGE-era IRS staffing cuts plus the funding clawback together forgo roughly $861 billion in revenue over a decade. When verified savings are netted against revenue losses and the cost of rehiring essential staff, did DOGE leave the government better off financially — or worse?",
     },
     {
       id: "q2",

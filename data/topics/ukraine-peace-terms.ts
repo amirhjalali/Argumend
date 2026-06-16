@@ -20,7 +20,7 @@ export const ukrainePeaceTermsData = {
       skeptic_premise:
         "Ceding territory under duress rewards aggression and sets a catastrophic precedent. The original 28-point plan recognized Crimea, Luhansk, and Donetsk as 'de facto Russian, including by the United States' and demanded Ukraine withdraw from unoccupied parts of Donetsk it still holds — handing Russia land it never conquered. Roughly 4 million Ukrainians live in occupied territories that would be surrendered. Zelensky has said any territorial settlement requires a national referendum because no leader can constitutionally sign away sovereign land. An unjust peace is also an existential threat to Poland and the Baltics, who see themselves as the next dominoes.",
       proponent_rebuttal:
-        "The front line has barely moved in months and Ukraine cannot realistically retake Crimea or the Donbas by force on any feasible time horizon — the maps make this plain. Continuing to fight for territory that cannot be liberated only adds to the 80,000-110,000 Ukrainian dead and the acute manpower crisis. Ratifying de facto control without de jure recognition of Russian sovereignty — the Korea-style armistice model — stops the killing while preserving Ukraine's legal claim. The December 2025 Miami revisions stripped the most overtly pro-Russian provisions, including the forced withdrawal from unoccupied Donetsk, converting the plan into a more balanced 20-point framework.",
+        "The front line has barely moved in months and Ukraine cannot realistically retake Crimea or the Donbas by force on any feasible time horizon — the maps make this plain. Continuing to fight for territory that cannot be liberated only adds to the 80,000-110,000 Ukrainian dead and the acute manpower crisis. Ratifying de facto control without de jure recognition of Russian sovereignty — the Korea-style armistice model — stops the killing while preserving Ukraine's legal claim. The December 2025 Florida (Mar-a-Lago) revisions stripped the most overtly pro-Russian provisions, including the forced withdrawal from unoccupied Donetsk, converting the plan into a more balanced 20-point framework.",
       crux: {
         id: "line-of-contact-feasibility",
         title: "The Battlefield Reversibility Test",
@@ -86,9 +86,9 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "miami-revisions-20-point",
-          title: "December 2025 Miami Talks Stripped Most Pro-Russian Provisions",
+          title: "December 2025 Florida Talks Stripped Most Pro-Russian Provisions",
           description:
-            "After the December 2025 Zelensky-Trump meeting in Miami, Ukraine succeeded in stripping the most overtly pro-Russian provisions from the 28-point plan — including the forced withdrawal from unoccupied Donetsk — and converting it into a 20-point framework. European, US, and Ukrainian officials subsequently described the deal as '90 percent complete,' suggesting a settlement that ratifies de facto control without the most punitive terms is negotiable.",
+            "After the December 2025 Zelensky-Trump meeting in Florida (Mar-a-Lago), Ukraine succeeded in stripping the most overtly pro-Russian provisions from the 28-point plan — including the forced withdrawal from unoccupied Donetsk — and converting it into a 20-point framework. European, US, and Ukrainian officials subsequently described the deal as '90 percent complete,' suggesting a settlement that ratifies de facto control without the most punitive terms is negotiable.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,

@@ -44,14 +44,14 @@ export const epsteinFilesData = {
       id: "q1",
       title: "Why were no co-conspirators beyond Maxwell criminally charged?",
       content:
-        "FBI documents identify at least eight alleged co-conspirators in Epstein's trafficking operation, including former Victoria's Secret CEO Les Wexner, modeling agent Jean-Luc Brunel, and several named associates. The 2007 non-prosecution agreement granted blanket immunity to unnamed co-conspirators. Despite the Maxwell conviction, the 2019 SDNY indictment, and 3.5 million pages of released documents, no additional criminal prosecutions have been brought in the United States. Deputy Attorney General Todd Blanche stated in 2025 that nothing in the files allowed further prosecutions. Is this a genuine absence of prosecutable evidence, or a systemic failure of political will?",
+        "A 2019 FBI internal document listed eight people as alleged co-conspirators in Epstein's operation, including modeling agent Jean-Luc Brunel, Epstein's secretary Lesley Groff, and — as a 'secondary co-conspirator' against whom the memo itself noted 'limited evidence' — former L Brands CEO Les Wexner. Being named in an internal FBI memo is an investigative designation, not a charge or a finding of guilt. The 2007 non-prosecution agreement granted blanket immunity to unnamed co-conspirators. Despite the Maxwell conviction, the 2019 SDNY indictment, and 3.5 million pages of released documents, no additional criminal prosecutions have been brought in the United States. Deputy Attorney General Todd Blanche stated in 2025 that nothing in the files allowed further prosecutions. Is this a genuine absence of prosecutable evidence, or a systemic failure of political will?",
     },
     {
       id: "q2",
       title:
         "Did Epstein's death foreclose accountability, or was it incidental to the broader failure?",
       content:
-        "Epstein's death at the Metropolitan Correctional Center on August 10, 2019 eliminated the possibility of trial testimony and cross-examination. The DOJ Inspector General documented extensive failures: guards sleeping and shopping online instead of performing checks, his cellmate transferred out without replacement, and excessive bed linens left in the cell. Newly released 2026 surveillance logs show an unidentified figure near Epstein's tier at 10:39 PM the night before his death. The medical examiner ruled suicide, and the DOJ concurred. But even if his death was a suicide, the institutional negligence that made it possible mirrors the broader pattern of institutional failure that defined the case.",
+        "Epstein's death at the Metropolitan Correctional Center on August 10, 2019 eliminated the possibility of trial testimony and cross-examination. The DOJ Inspector General documented extensive failures: guards sleeping and shopping online instead of performing checks, his cellmate transferred out without replacement, and excessive bed linens left in the cell. In FBI logs released in early 2026, investigators reviewing MCC surveillance noted a brief ‘flash of orange’ moving up the L-tier stairs around 10:39 PM on August 9, 2019 (the night before the death) and back down about two minutes later; the FBI memo itself assessed it could ‘possibly be an inmate escorted up to that Tier,’ and the DOJ Inspector General suggested it could have been a corrections officer or someone carrying inmate linen — not evidence of an intruder. The medical examiner ruled suicide, and the DOJ concurred. Even taking the suicide finding as correct, the institutional negligence that made it possible mirrors the broader pattern of institutional failure that defined the case.",
     },
     {
       id: "q3",
@@ -177,7 +177,7 @@ export const epsteinFilesData = {
       skeptic_premise:
         "The system ultimately worked. Congress passed the Transparency Act with near-unanimous support. The DOJ released 3.5 million pages of documents. A July 2025 DOJ memo concluded that no \u2018client list\u2019 existed, no credible evidence supported blackmail claims, and Epstein\u2019s death was a suicide. The files revealed extensive social connections but no evidence of a grand criminal conspiracy beyond what was already prosecuted. The document release demonstrates institutional transparency, not cover-up.",
       proponent_rebuttal:
-        "The release came 20 years after the initial investigation and only after extraordinary public pressure and a near-unanimous congressional mandate. The initial December 2025 release missed the legal deadline and contained hundreds of entirely blacked-out pages. Attorneys for survivors reported that the DOJ redacted the names of perpetrators while failing to redact at least 31 victims who were minors at the time of their abuse \u2014 the precise opposite of the law\u2019s intent. A January 2026 CNN poll found only 6% of Americans were satisfied with what had been released, and nearly half of Republicans, three-quarters of independents, and 9 in 10 Democrats believed the government was still withholding information. Transparency forced by public outcry two decades after the fact is evidence of institutional resistance, not institutional accountability.",
+        "The release came 20 years after the initial investigation and only after extraordinary public pressure and a near-unanimous congressional mandate. The initial December 2025 release missed the legal deadline and contained hundreds of entirely blacked-out pages. Attorneys for survivors reported that the DOJ redacted the names of perpetrators while failing to redact at least 31 victims who were minors at the time of their abuse \u2014 the precise opposite of the law\u2019s intent. A January 2026 CNN/SSRS poll found only 6% of Americans were satisfied with what had been released, and that the belief the government was intentionally withholding information cut across party lines — 57% of Republicans, 81% of independents, and 95% of Democrats. Transparency forced by public outcry two decades after the fact is evidence of institutional resistance, not institutional accountability.",
       crux: {
         id: "redaction-justification",
         title: "The Redaction Audit",
@@ -195,19 +195,19 @@ export const epsteinFilesData = {
           title:
             "Congress Passed Transparency Act 427\u20131 with Bipartisan Supermajority",
           description:
-            "The Epstein Files Transparency Act passed the House 427\u20131 on November 18, 2025, with only Rep. Clay Higgins (R-LA) voting against. The Senate passed it by unanimous consent the next day. President Trump signed it into law. The overwhelming bipartisan support reflects a rare consensus that the public interest demanded disclosure.",
-          side: "for" as const,
+            "The Epstein Files Transparency Act passed the House 427\u20131 on November 18, 2025, with only Rep. Clay Higgins (R-LA) voting against. The Senate passed it by unanimous consent the next day. President Trump signed it into law on November 19, 2025. The overwhelming bipartisan support reflects a rare consensus that the public interest demanded disclosure \u2014 and that the legislative branch was ultimately able to compel it.",
+          side: "against" as const,
           weight: {
             sourceReliability: 10,
             independence: 9,
             replicability: 10,
-            directness: 7,
+            directness: 5,
           },
           source: "Congress.gov; Library of Congress",
           sourceUrl:
             "https://www.congress.gov/bill/119th-congress/house-bill/4405",
           reasoning:
-            "Congressional voting records are a matter of public record. The near-unanimity is extraordinary and demonstrates broad recognition that existing institutional processes had failed to deliver transparency. However, passage of a transparency law is only indirectly evidence of institutional failure; it more directly demonstrates institutional correction.",
+            "Congressional voting records are a matter of public record. While the near-unanimity reflects broad recognition that prior processes had failed to deliver transparency, the successful passage and signing of a forcing statute is most directly evidence of institutional self-correction \u2014 a check functioning \u2014 which cuts against the claim that the system simply protects the powerful. It is therefore coded as supporting the skeptic side; the delay and the contested implementation (handled by the separate deadline/redaction evidence) are where the failure case actually rests.",
         },
         {
           id: "doj-missed-deadline",

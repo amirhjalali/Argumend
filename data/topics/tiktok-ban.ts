@@ -122,7 +122,7 @@ export const tiktokBanData = {
           id: "bytedance-ccp-committee",
           title: "ByteDance Internal CCP Committee Influenced Content and Personnel Decisions",
           description:
-            "Reporting by Reuters and the Financial Times revealed that ByteDance maintains an internal Chinese Communist Party committee that has influenced content moderation policies and personnel decisions. In 2018, ByteDance CEO Zhang Yiming publicly apologized to the CCP after regulators criticized the company's content, pledging to ensure the platform 'channeled positive energy.' The CCP committee within ByteDance reportedly reviews sensitive content decisions and has access to internal communications. In 2023, the Chinese government acquired a 1% 'golden share' in a ByteDance subsidiary, granting it a board seat and potential veto power over certain decisions.",
+            "Reporting by Reuters and the Financial Times revealed that ByteDance maintains an internal Chinese Communist Party committee that has influenced content moderation policies and personnel decisions. In 2018, ByteDance CEO Zhang Yiming publicly apologized to the CCP after regulators criticized the company's content, pledging to ensure the platform 'channeled positive energy.' The CCP committee within ByteDance reportedly reviews sensitive content decisions and has access to internal communications. In 2021, a Chinese state-backed entity acquired a 1% 'golden share' in ByteDance's main domestic subsidiary (Beijing Douyin Information Service Co.), placing a Cyberspace Administration of China official on its board and granting certain governance rights.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -145,7 +145,7 @@ export const tiktokBanData = {
       id: "free-speech-rights",
       title: "Free Speech & First Amendment",
       short_summary:
-        "Banning TikTok would silence the speech of 170 million American users and set a precedent for government control over which platforms citizens can use. The Supreme Court upheld the ban in January 2025, but the ruling remains deeply controversial among First Amendment scholars.",
+        "Banning TikTok would silence the speech of 170 million American users and set a precedent for government control over which platforms citizens can use. The Supreme Court upheld the law 9-0 in January 2025, applying intermediate scrutiny after finding it content-neutral, but the ruling remains controversial among First Amendment scholars who argue strict scrutiny should have applied.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "A TikTok ban is unprecedented government censorship of a platform used by 170 million Americans for political speech, journalism, small business marketing, and creative expression. The Supreme Court's January 2025 ruling in TikTok v. Garland upheld the Protecting Americans from Foreign Adversary Controlled Applications Act in a unanimous per curiam decision, but critics argue it prioritized national security deference over rigorous First Amendment scrutiny. Justice Sotomayor concurred but wrote separately to insist the Act plainly implicates the First Amendment, while Justice Gorsuch's concurrence voiced 'serious reservations' about whether the law was content neutral and worried the precedent could be stretched to other foreign-owned platforms. Content creators, journalists, and small businesses that built livelihoods on TikTok face devastating economic consequences.",
@@ -167,7 +167,7 @@ export const tiktokBanData = {
           id: "scotus-upholds-ban",
           title: "Supreme Court Upholds TikTok Ban in TikTok v. Garland (January 2025)",
           description:
-            "On January 17, 2025, the Supreme Court unanimously upheld the Protecting Americans from Foreign Adversary Controlled Applications Act, which required ByteDance to divest TikTok's US operations or face a ban. The Court held that the law addressed a national security concern — foreign adversary control of a mass communication platform — rather than targeting speech content. However, Justice Sotomayor's concurrence raised concerns about the majority's lenient First Amendment analysis, and legal scholars remain divided on whether the precedent could justify broader government control over foreign-owned platforms.",
+            "On January 17, 2025, the Supreme Court unanimously (9-0, per curiam) upheld the Protecting Americans from Foreign Adversary Controlled Applications Act, which required ByteDance to divest TikTok's US operations or face a ban. The Court found the Act content-neutral as applied to TikTok — because it targeted foreign adversary control rather than viewpoint or content — and held that it satisfied intermediate scrutiny given the government's national security interest. Justice Sotomayor concurred (urging the Court to hold squarely that the Act implicates the First Amendment), and Justice Gorsuch concurred in the judgment with reservations. Legal scholars remain divided on whether the precedent could justify broader government control over foreign-owned platforms.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -178,7 +178,7 @@ export const tiktokBanData = {
           source: "Supreme Court of the United States; SCOTUSblog",
           sourceUrl: "https://www.supremecourt.gov/opinions/24pdf/24-656_ca7d.pdf",
           reasoning:
-            "A Supreme Court opinion is the highest legal authority in the US. The ruling directly addresses the constitutionality of the ban. However, legal scholars note that the Court applied an unusually deferential standard to the government's national security claims rather than strict scrutiny.",
+            "A Supreme Court opinion is the highest legal authority in the US. The ruling directly addresses the constitutionality of the ban. The Court applied intermediate scrutiny (not strict scrutiny) after concluding the Act was content-neutral as applied to TikTok; critics argue strict scrutiny should have applied because the government's rationale concerns the information environment, making the standard of review the central contested point rather than the outcome.",
         },
         {
           id: "creator-economic-impact",
@@ -235,7 +235,7 @@ export const tiktokBanData = {
           id: "first-amendment-content-neutrality",
           title: "First Amendment Scholars Argue Ban Fails Content-Neutrality Requirement",
           description:
-            "A coalition of First Amendment scholars from Harvard, Yale, Stanford, and Columbia law schools argued in amicus briefs that the TikTok ban is not content-neutral because its stated justification — preventing foreign influence over information Americans consume — is inherently about controlling the content and algorithmic curation of speech. Under established First Amendment doctrine, content-based restrictions require strict scrutiny, the most demanding standard of judicial review. The scholars argued the Court applied an inappropriately lenient standard by treating the ban as a foreign ownership regulation rather than a speech restriction, despite the government's own rationale focusing on the information environment rather than corporate structure alone.",
+            "A coalition of First Amendment scholars from Harvard, Yale, Stanford, and Columbia law schools argued in amicus briefs that the TikTok ban is not content-neutral because one of its stated justifications — preventing foreign influence over information Americans consume — is inherently about controlling the content and algorithmic curation of speech. Under established First Amendment doctrine, content-based restrictions require strict scrutiny, the most demanding standard of judicial review. The Supreme Court instead found the Act content-neutral as applied and upheld it under intermediate scrutiny; the scholars argue this was the wrong standard given that the government's own rationale focused partly on the information environment rather than corporate structure alone.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -314,7 +314,7 @@ export const tiktokBanData = {
           id: "forced-sale-preserves-competition",
           title: "Forced Divestiture Could Preserve TikTok While Removing Security Risk",
           description:
-            "The legislation does not mandate a ban — it requires ByteDance to sell TikTok's US operations to a non-adversary owner. Multiple bidders emerged, including consortiums involving Frank McCourt's Project Liberty, former Treasury Secretary Steven Mnuchin, and tech investor Bobby Kotick. A successful divestiture would preserve TikTok's technology, user base, and competitive pressure on Meta and Google while removing the foreign adversary ownership concern. However, China indicated it would block the sale of TikTok's algorithm, potentially making divestiture technically impossible.",
+            "The legislation does not mandate a ban — it requires ByteDance to sell TikTok's US operations to a non-adversary owner. After the law took effect, President Trump issued repeated 90-day extensions through 2025 while a deal was negotiated. In September 2025 Trump signed an executive order approving a US joint venture, and in December 2025 ByteDance signed a deal divesting roughly 80% of the US operation to an Oracle-led American investor group (with Silver Lake and Abu Dhabi's MGX), establishing a majority-American board; the entity was set up in January 2026. Rather than transferring the algorithm outright — which China's export controls restrict — Oracle takes a licensed copy retrained on US data. This shows divestiture preserving TikTok's user base and competitive pressure on Meta and Google was achievable, though critics question whether a relicensed, retrained algorithm fully severs the foreign-control concern.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -325,7 +325,7 @@ export const tiktokBanData = {
           source: "Reuters; The New York Times; Bloomberg",
           sourceUrl: "https://www.reuters.com/technology/tiktok-ban-us-what-you-need-know-2025-01-13/",
           reasoning:
-            "The divestiture option is a factual part of the legislation that potentially resolves both security and competition concerns. However, China's potential blocking of algorithm transfer introduces significant uncertainty about whether divestiture is practically achievable, and a TikTok without its recommendation algorithm would be a fundamentally different product.",
+            "The divestiture option is a factual part of the legislation that resolves both security and competition concerns in principle, and the 2025-2026 Oracle-led deal demonstrated it was achievable. The open question shifts from whether divestiture is possible to whether a licensed-and-retrained algorithm, with ByteDance retaining a minority stake, fully removes the foreign-control risk the law targeted.",
         },
       ],
     },
@@ -427,7 +427,7 @@ export const tiktokBanData = {
           id: "tiktok-algorithm-beijing-control",
           title: "TikTok's Recommendation Algorithm Is Developed and Maintained in Beijing",
           description:
-            "Despite Project Texas isolating US user data on Oracle servers, TikTok's core recommendation algorithm — which determines what 170 million Americans see in their feeds — continues to be developed, trained, and maintained by ByteDance engineers in Beijing. This algorithm is arguably more strategically significant than raw user data: it shapes information consumption, political awareness, cultural trends, and attention patterns at population scale. China's export control laws, updated in 2020, classify recommendation algorithms as restricted technology that cannot be sold to foreign entities without government approval — a rule that would block any divestiture from transferring TikTok's actual competitive advantage. This creates a paradox: meaningful divestiture requires algorithm transfer, but China will not permit it.",
+            "For most of the dispute, TikTok's core recommendation algorithm — which determines what 170 million Americans see in their feeds — was developed, trained, and maintained by ByteDance engineers in Beijing. This algorithm is arguably more strategically significant than raw user data: it shapes information consumption, political awareness, cultural trends, and attention patterns at population scale. China's export control laws, updated in 2020, classify recommendation algorithms as restricted technology that cannot be sold to foreign entities without government approval. The 2025 divestiture deal worked around this not via an outright transfer but by having Oracle take a licensed copy of the algorithm and retrain it on US data, with China signaling acceptance rather than formal approval — leaving open the contested question of whether a ByteDance-derived, relicensed algorithm meaningfully removes the foreign-control risk.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
