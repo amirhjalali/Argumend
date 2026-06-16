@@ -31,67 +31,76 @@ export const deathPenaltyDeterrenceData = {
       evidence: [
         {
           id: "dp-nas-review",
-          title: "NAS 2012 Deterrence Review",
+          title: "National Research Council 2012 Deterrence Review",
           description:
-            "The National Academy of Sciences committee found that existing studies on the deterrent effect of capital punishment are 'fundamentally flawed' and should not be used to inform policy.",
+            "A National Research Council committee (chaired by Daniel Nagin) reviewed three decades of econometric research and concluded the studies 'are not informative about whether capital punishment increases, decreases, or has no effect on homicide rates' and should not be used to inform policy.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,
             independence: 10,
             replicability: 8,
-            directness: 9,
+            directness: 8,
           },
-          source: "National Research Council, 2012",
+          source:
+            "National Research Council, Deterrence and the Death Penalty (National Academies Press, 2012)",
+          sourceUrl: "https://nap.nationalacademies.org/catalog/13363/deterrence-and-the-death-penalty",
           reasoning:
-            "Gold-standard scientific review by the US's most authoritative body. Reviewed all major econometric studies and found systemic methodological problems.",
+            "Gold-standard consensus review by the US's most authoritative scientific body. Its conclusion is agnostic (no reliable evidence either way), not an affirmative finding of zero deterrence — directness lowered to reflect this.",
         },
         {
           id: "dp-dezhbakhsh-study",
-          title: "Dezhbakhsh Econometric Study",
+          title: "Dezhbakhsh, Rubin & Shepherd Econometric Study",
           description:
-            "Econometric analysis using county-level data found each execution prevents roughly 18 murders, with results robust to multiple model specifications.",
+            "Using post-moratorium county-level panel data and simultaneous equations, the authors estimated each execution is associated with on average 18 fewer murders (margin of error +/- 10). The 2012 National Research Council review judged this and similar studies methodologically uninformative.",
           side: "for" as const,
           weight: {
-            sourceReliability: 5,
+            sourceReliability: 4,
             independence: 4,
-            replicability: 3,
-            directness: 7,
+            replicability: 2,
+            directness: 6,
           },
-          source: "Dezhbakhsh, Rubin & Shepherd, American Law and Economics Review 2003",
+          source:
+            "Dezhbakhsh, Rubin & Shepherd, 'Does Capital Punishment Have a Deterrent Effect? New Evidence from Postmoratorium Panel Data,' American Law and Economics Review 5(2): 344-376 (2003)",
+          sourceUrl: "https://academic.oup.com/aler/article-abstract/5/2/344/131680",
           reasoning:
-            "Published in peer-reviewed journal but heavily criticized by NAS. Results are sensitive to model specification and data choices. Low replicability as other researchers have failed to reproduce.",
+            "Peer-reviewed, but the headline '18 murders deterred' estimate is fragile: it carries a large stated margin of error, is highly sensitive to specification, and was specifically among the studies the NRC committee found not informative. Replicability lowered accordingly.",
         },
         {
           id: "dp-state-murder-rates",
           title: "State Murder Rate Comparisons",
           description:
-            "States without the death penalty have consistently lower murder rates (4.0 per 100K) than death penalty states (5.3 per 100K) over the past 30 years.",
+            "Aggregating FBI data, the Death Penalty Information Center reports that states without the death penalty have had consistently lower murder rates than death penalty states for over 30 years, and the gap has widened since 1990 (e.g., in 2020, 4.7 vs 7.3 per 100,000).",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 9,
+            independence: 7,
             replicability: 9,
-            directness: 5,
+            directness: 4,
           },
-          source: "FBI Uniform Crime Reports, Death Penalty Information Center",
+          source:
+            "Death Penalty Information Center, 'Murder Rate of Death Penalty States Compared to Non-Death Penalty States' (FBI Uniform Crime Reports data)",
+          sourceUrl:
+            "https://deathpenaltyinfo.org/facts-and-research/murder-rates/murder-rate-of-death-penalty-states-compared-to-non-death-penalty-states",
           reasoning:
-            "Reliable official data, but correlation does not establish causation. States differ in many ways beyond death penalty policy.",
+            "Underlying FBI counts are reliable, but the comparison is compiled by an advocacy organization (independence lowered) and is purely correlational — death-penalty and abolitionist states differ on many confounders, so it cannot establish (lack of) deterrence. Directness lowered.",
         },
         {
           id: "dp-plea-bargain",
-          title: "Plea Bargain Leverage Data",
+          title: "Plea Bargain Leverage Research",
           description:
-            "Prosecutors report that the death penalty serves as critical leverage in plea negotiations, leading to confessions and cooperation that resolve additional cases.",
+            "Empirical studies find the threat of a capital charge meaningfully increases the probability a defendant pleads guilty (estimates around 20-25 percentage points), giving prosecutors negotiating leverage. This is a leverage finding, not evidence that the death penalty deters murder.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
-            independence: 3,
+            independence: 5,
             replicability: 4,
-            directness: 6,
+            directness: 3,
           },
-          source: "National District Attorneys Association surveys",
+          source:
+            "Ehrhard-Dietzel, 'The Use of Life and Death as Tools in Plea Bargaining,' Criminal Justice Policy Review 23(1) (2012); Thaxton, 'Leveraging Death,' Journal of Criminal Law & Criminology (working paper, SSRN 2138627)",
+          sourceUrl: "https://journals.sagepub.com/doi/10.1177/0734016811431979",
           reasoning:
-            "Self-reported by prosecutors with institutional interest. Anecdotal and difficult to quantify systematically. Low independence score.",
+            "Replaces an unverifiable 'NDAA survey' citation with peer-reviewed empirical work. The leverage effect is real, but it speaks to plea dynamics, not to deterring murder — and the claim that it 'resolves additional cases' is not established. Directness lowered sharply.",
         },
       ],
     },
@@ -118,9 +127,9 @@ export const deathPenaltyDeterrenceData = {
       evidence: [
         {
           id: "dp-exonerations",
-          title: "Innocence Project Exoneration Data",
+          title: "Death-Row Exoneration & False-Conviction Data",
           description:
-            "Over 190 people have been exonerated from death row since 1973. A 2014 PNAS study estimated that at least 4.1% of death row inmates are likely innocent.",
+            "Per the Death Penalty Information Center's innocence database, over 200 people have been exonerated and released from death row since 1973. A 2014 PNAS study (Gross et al.) estimated, as a conservative lower bound, that at least 4.1% of defendants sentenced to death in the US would be exonerated if all stayed on death row indefinitely.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -128,57 +137,65 @@ export const deathPenaltyDeterrenceData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Innocence Project, PNAS (Gross et al. 2014)",
+          source:
+            "Death Penalty Information Center, Innocence Database; Gross, O'Brien, Hu & Kennedy, PNAS 111(20): 7230-7235 (2014)",
+          sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.1306417111",
           reasoning:
-            "Rigorous statistical methodology published in top-tier journal. The 4.1% figure is considered a conservative lower bound.",
+            "Exoneration count is from DPIC's database (not the Innocence Project, whose DNA work is broader). The 4.1% PNAS estimate uses rigorous survival analysis and is framed by its authors as a conservative lower bound on the false-conviction rate among those sentenced to death.",
         },
         {
           id: "dp-racial-disparity",
           title: "Death Penalty Racial Disparity Studies",
           description:
-            "Black defendants are 3x more likely to be sentenced to death than white defendants for similar crimes, especially when the victim is white.",
+            "A 1990 GAO synthesis of 28 studies found the victim's race influenced death-sentencing in 82% of them: killings of white victims were more likely to draw a death sentence, a pattern 'remarkably consistent' across data sets. The Baldus study of Georgia cases found defendants charged with killing white victims were ~4.3x more likely to be sentenced to death.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 8,
-            directness: 8,
+            directness: 7,
           },
-          source: "Baldus Study, GAO Report on Racial Disparities in Sentencing",
+          source:
+            "U.S. GAO, 'Death Penalty Sentencing: Research Indicates Pattern of Racial Disparities' (GGD-90-57, 1990); Baldus, Pulaski & Woodworth (cited in McCleskey v. Kemp, 1987)",
+          sourceUrl: "https://www.gao.gov/products/ggd-90-57",
           reasoning:
-            "Multiple independent studies over decades reach consistent conclusions. Landmark Baldus study influenced McCleskey v. Kemp.",
+            "Multiple independent studies converge over decades; the Baldus study underpinned McCleskey v. Kemp. Corrected: the robust, well-documented disparity is driven by the race of the VICTIM, not simply a '3x defendant-race' effect as previously stated. Directness lowered since this bears on fairness, not deterrence.",
         },
         {
           id: "dp-cost-analysis",
           title: "Execution Cost Analyses",
           description:
-            "Death penalty cases cost 2-3x more than equivalent non-death penalty cases due to mandatory appeals, specialized housing, and prolonged litigation. California spent $184M per year on its death penalty system.",
+            "A 2011 study by Judge Arthur Alarcon and Prof. Paula Mitchell estimated that California's death penalty added roughly $184 million per year over a life-without-parole system, and that the state had spent about $4 billion on capital punishment since reinstatement in 1978.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 7,
-            replicability: 7,
-            directness: 6,
+            replicability: 6,
+            directness: 4,
           },
-          source: "California Commission on the Fair Administration of Justice",
+          source:
+            "Alarcon & Mitchell, 'Executing the Will of the Voters?,' Loyola of Los Angeles Law Review 44 (2011)",
+          sourceUrl: "https://digitalcommons.lmu.edu/llr/vol44/iss0/1/",
           reasoning:
-            "Authoritative fiscal analysis. Cost is real but is an argument about efficiency, not justice — somewhat indirect.",
+            "Detailed, widely cited California-specific fiscal study (corrected attribution from the unrelated 'Fair Administration of Justice' commission). Cost is real but is an efficiency argument, not one about justice or deterrence, and is specific to California — directness lowered.",
         },
         {
           id: "dp-victim-families",
-          title: "Victim Family Impact Statements",
+          title: "Victim Family 'Closure' Claims",
           description:
-            "Surveys of murder victims' families show a majority support the death penalty for their loved one's killer, reporting that execution provides a sense of closure and justice.",
+            "Proponents argue execution gives murder victims' families closure and a sense of justice. However, empirical research finds little support for the closure claim: studies of co-victims who witnessed executions found only a minority reported closure, and some scholars conclude executions do not aid healing and can be retraumatizing. Victims' families are not unified — many actively oppose the death penalty.",
           side: "for" as const,
           weight: {
-            sourceReliability: 5,
-            independence: 4,
-            replicability: 5,
-            directness: 7,
+            sourceReliability: 2,
+            independence: 2,
+            replicability: 3,
+            directness: 4,
           },
-          source: "National Organization of Parents Of Murdered Children surveys",
+          source:
+            "Closure argument as discussed in Death Penalty Information Center, 'Victims' Families'; contrasted with research (e.g., Bandes; Madeira, Killing McVeigh, 2012) finding the closure claim empirically unsupported",
+          sourceUrl: "https://deathpenaltyinfo.org/policy-issues/victims-families",
           reasoning:
-            "Emotional testimony from directly affected parties. Self-selected samples and not all families agree. Some victim family organizations actively oppose the death penalty.",
+            "Corrected: the prior 'majority of families support execution for closure (POMC surveys)' claim could not be verified and is contradicted by the available research, which finds the closure narrative largely unsupported and victims' families deeply divided. Reframed honestly and weights lowered to reflect that this 'for' rationale is more rhetorical than evidentiary.",
         },
       ],
     },

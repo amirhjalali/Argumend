@@ -10,13 +10,23 @@ export const climateChangeData = {
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "IPCC Sixth Assessment Report (2021)",
-      url: "https://www.ipcc.ch/assessment-report/ar6/",
+      title:
+        "IPCC AR6 WG1 Summary for Policymakers (2021) — \"It is unequivocal that human influence has warmed the atmosphere, ocean and land\"",
+      url: "https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/",
     },
-    { title: "NASA Climate Evidence", url: "https://climate.nasa.gov/evidence/" },
     {
-      title: "The Suess Effect Explained",
-      url: "https://en.wikipedia.org/wiki/Suess_effect",
+      title: "NASA: The Causes of Climate Change",
+      url: "https://science.nasa.gov/climate-change/causes/",
+    },
+    {
+      title:
+        "Lynas, Houlton & Perry (2021), Greater than 99% consensus on human-caused climate change, Environmental Research Letters 16:114005",
+      url: "https://doi.org/10.1088/1748-9326/ac2966",
+    },
+    {
+      title:
+        "NOAA Global Monitoring Laboratory: What δ13C Tells Us (the Suess Effect)",
+      url: "https://gml.noaa.gov/ccgg/isotopes/c13tellsus.html",
     },
   ],
   questions: [
@@ -29,8 +39,8 @@ export const climateChangeData = {
         "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=800&q=60",
       references: [
         {
-          title: "Carbon Isotope Analysis",
-          url: "https://www.esrl.noaa.gov/gmd/outreach/isotopes/",
+          title: "NOAA GML: Carbon Isotopes and the Suess Effect",
+          url: "https://gml.noaa.gov/ccgg/isotopes/",
         },
       ],
     },
@@ -81,7 +91,7 @@ export const climateChangeData = {
           id: "isotope-measurements",
           title: "δ¹³C Decline Matches Fossil Fuel Signature",
           description:
-            "Atmospheric δ¹³C has declined from -6.5‰ to -8.5‰ since 1850, exactly as predicted from fossil fuel combustion.",
+            "Atmospheric δ¹³C has declined from roughly -6.5‰ before the industrial era to about -8‰ today, as predicted from fossil fuel combustion (the Suess effect).",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -89,9 +99,11 @@ export const climateChangeData = {
             replicability: 10,
             directness: 10,
           },
-          source: "NOAA, Scripps CO2 Program",
+          source:
+            "NOAA Global Monitoring Laboratory; Scripps CO2 Program (Keeling)",
+          sourceUrl: "https://gml.noaa.gov/ccgg/isotopes/c13tellsus.html",
           reasoning:
-            "Chemical fingerprint measured by dozens of independent labs worldwide.",
+            "Chemical fingerprint measured by independent labs worldwide; NOAA GML reports the -6.5‰ to ~-8‰ shift directly.",
         },
         {
           id: "oxygen-decline",
@@ -105,14 +117,16 @@ export const climateChangeData = {
             replicability: 10,
             directness: 9,
           },
-          source: "Scripps O2 Program",
-          reasoning: "Independent chemical evidence confirming combustion source.",
+          source: "Scripps O2 Program (R. Keeling, Scripps Institution of Oceanography)",
+          sourceUrl: "https://scrippso2.ucsd.edu/",
+          reasoning:
+            "Independent chemical evidence confirming combustion source; the Scripps O2 Program directly measures the declining atmospheric O2/N2 ratio tracking fossil-fuel burning.",
         },
         {
           id: "ocean-acidification",
           title: "Ocean pH Declining (Acidification)",
           description:
-            "Ocean pH has dropped 0.1 units since pre-industrial times as CO₂ dissolves, creating carbonic acid.",
+            "Surface-ocean pH has dropped about 0.1 units (from ~8.2 to ~8.1) since pre-industrial times—a ~30% increase in acidity—as CO₂ dissolves to form carbonic acid.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -120,7 +134,10 @@ export const climateChangeData = {
             replicability: 9,
             directness: 8,
           },
-          reasoning: "Measured by thousands of ocean monitoring stations.",
+          source: "NOAA PMEL Carbon Program; IPCC AR6 WG1",
+          sourceUrl: "https://www.pmel.noaa.gov/co2/story/Ocean+Acidification",
+          reasoning:
+            "The ~0.1 pH-unit decline is documented by NOAA PMEL and IPCC AR6; directness is moderate because acidification corroborates the carbon source rather than proving human attribution on its own.",
         },
         {
           id: "natural-co2-claim",
@@ -133,8 +150,11 @@ export const climateChangeData = {
             replicability: 2,
             directness: 3,
           },
+          source: "NOAA Climate.gov (volcanoes vs. human CO₂)",
+          sourceUrl:
+            "https://www.climate.gov/news-features/climate-qa/which-emits-more-carbon-dioxide-volcanoes-or-human-activities",
           reasoning:
-            "Contradicted by isotopic evidence; volcanoes emit ~0.3 Gt CO₂/year vs 36 Gt from humans.",
+            "Contradicted by isotopic evidence and mass balance: volcanoes emit ~0.3–0.6 Gt CO₂/year versus ~40 Gt/year from human activity (60–90x more), per NOAA/USGS. The ocean is a net CO₂ sink, not source.",
         },
       ],
     },
@@ -175,42 +195,53 @@ export const climateChangeData = {
             replicability: 10,
             directness: 10,
           },
-          source: "NASA, NOAA satellite data",
-          reasoning: "Solar warming would heat all layers; greenhouse traps heat below.",
+          source:
+            "Santer et al. (2023), PNAS 120:e2300758120; NASA/NOAA satellite (MSU/AMSU) records",
+          sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.2300758120",
+          reasoning:
+            "Solar warming would heat all layers; greenhouse traps heat below while cooling the stratosphere. Santer et al. detect this vertical 'fingerprint' in satellite data at high confidence.",
         },
         {
           id: "nights-faster",
-          title: "Nights Warming Faster Than Days",
+          title: "Nights Warmed Faster Than Days (20th-century trend)",
           description:
-            "Minimum temperatures rising faster than maximum—consistent with greenhouse blanket effect.",
+            "Over 1950–2000 the diurnal temperature range narrowed as minimum (night) temperatures rose faster than maximum (day) temperatures—consistent with a greenhouse 'blanket' effect.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 5,
           },
-          reasoning: "Pattern predicted by greenhouse theory, not solar.",
+          source: "IPCC AR4/AR6 WG1; surface station records",
+          sourceUrl:
+            "https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-2/",
+          reasoning:
+            "Robust signal for the late 20th century, but de-weighted because post-1980 the diurnal range has partly reversed (declining cloud cover / solar brightening drives faster daytime warming in recent decades). A supporting but no longer clean fingerprint.",
         },
         {
           id: "polar-amplification",
-          title: "Arctic Warming 2-3x Faster Than Global Average",
+          title: "Arctic Warming ~4x Faster Than Global Average",
           description:
-            "Polar amplification matches model predictions for greenhouse-driven warming.",
+            "Since 1979 the Arctic has warmed nearly four times faster than the global mean—polar amplification consistent with greenhouse-driven warming and ice-albedo feedback.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
             independence: 9,
             replicability: 10,
-            directness: 8,
+            directness: 7,
           },
-          reasoning: "Ice-albedo feedback predicted and observed.",
+          source:
+            "Rantanen et al. (2022), Communications Earth & Environment 3:168",
+          sourceUrl: "https://doi.org/10.1038/s43247-022-00498-3",
+          reasoning:
+            "Ice-albedo feedback predicted and observed; directness trimmed because amplification is also expected from other forcings, so it corroborates rather than uniquely fingerprints greenhouse warming. Rantanen et al. measure ~4x (higher than older 2–3x estimates).",
         },
         {
           id: "model-uncertainty",
           title: "Climate Models Have Uncertainty Ranges",
           description:
-            "Models show spread in predictions, and some have run warmer than observations.",
+            "Models show spread in predictions, and a subset of high-sensitivity CMIP6 models run warmer than observations.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -218,7 +249,10 @@ export const climateChangeData = {
             replicability: 6,
             directness: 4,
           },
-          reasoning: "Valid but observations fall within model uncertainty bounds.",
+          source: "IPCC AR6 WG1 Chapter 1/4 (model evaluation)",
+          sourceUrl: "https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-4/",
+          reasoning:
+            "Valid caveat, but IPCC AR6 down-weights the hottest CMIP6 models and constrains warming with observations; the attribution conclusion does not depend on the high-sensitivity outliers.",
         },
       ],
     },
@@ -258,8 +292,12 @@ export const climateChangeData = {
             replicability: 10,
             directness: 9,
           },
-          source: "PMOD, ACRIM satellite composites",
-          reasoning: "Direct measurement rules out solar driver.",
+          source:
+            "NASA (Is the Sun causing global warming?); PMOD/ACRIM TSI satellite composites",
+          sourceUrl:
+            "https://science.nasa.gov/climate-change/faq/is-the-sun-causing-global-warming/",
+          reasoning:
+            "Direct TSI measurement since 1978 shows no upward trend (slight decline) while temperatures rose, ruling out a solar driver—NASA's stated conclusion.",
         },
         {
           id: "pinatubo-test",
@@ -273,14 +311,17 @@ export const climateChangeData = {
             replicability: 8,
             directness: 7,
           },
+          source:
+            "Hansen et al. (1992), Geophysical Research Letters 19:215 (NASA GISS)",
+          sourceUrl: "https://doi.org/10.1029/91GL02788",
           reasoning:
-            "Natural experiment validated model response to volcanic forcing.",
+            "Natural experiment: Hansen's GISS model predicted ~0.5 °C transient cooling before the data came in, and observed cooling matched—validating the model's response to volcanic forcing.",
         },
         {
           id: "energy-imbalance",
           title: "Earth's Energy Imbalance Measured",
           description:
-            "Satellites measure Earth absorbing ~0.7 W/m² more than it radiates—energy is accumulating.",
+            "Satellites and Argo floats show Earth absorbing roughly 0.5–1.0 W/m² more than it radiates—and the imbalance has been rising—so energy is accumulating in the climate system.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -288,14 +329,18 @@ export const climateChangeData = {
             replicability: 9,
             directness: 9,
           },
-          source: "CERES satellite data",
-          reasoning: "Direct measurement of energy accumulation.",
+          source:
+            "Loeb et al. (2021), Geophysical Research Letters; NASA/NOAA CERES satellite + Argo",
+          sourceUrl:
+            "https://www.nasa.gov/centers-and-facilities/langley/joint-nasa-noaa-study-finds-earths-energy-imbalance-has-doubled/",
+          reasoning:
+            "Direct measurement of energy accumulation; CERES+Argo found the imbalance roughly doubled from ~0.5 to ~1.0 W/m² over two decades, updating the older ~0.7 W/m² figure.",
         },
         {
           id: "solar-correlation-historical",
           title: "Historical Solar-Climate Correlations",
           description:
-            "Past periods like the Maunder Minimum show solar-climate connections.",
+            "Past periods like the Maunder Minimum (c. 1645–1715) show genuine solar-climate connections.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -303,8 +348,11 @@ export const climateChangeData = {
             replicability: 5,
             directness: 4,
           },
+          source: "NOAA Climate.gov (Couldn't the Sun be the cause?)",
+          sourceUrl:
+            "https://www.climate.gov/news-features/climate-qa/couldnt-sun-be-cause-global-warming",
           reasoning:
-            "Historical correlations exist but don't explain post-1980 divergence.",
+            "Historical solar influence is real but small, and modern TSI has been flat/declining since 1979 while warming accelerated—so it cannot explain the post-1980 divergence.",
         },
       ],
     },

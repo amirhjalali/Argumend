@@ -33,67 +33,71 @@ export const geneEditingEmbryosData = {
       evidence: [
         {
           id: "he-jiankui-off-target",
-          title: "He Jiankui Experiment Revealed Dangerous Off-Target Edits",
+          title: "He Jiankui Experiment Produced Mosaic, Non-Standard CCR5 Edits",
           description:
-            "He Jiankui's 2018 experiment editing CCR5 in human embryos (resulting in twin girls Lulu and Nana) was found to have introduced unintended mutations. The edit may not have even provided the intended HIV resistance. He was sentenced to three years in prison. The experiment demonstrated that the technology was not ready for human application.",
+            "He Jiankui's 2018 experiment editing CCR5 in human embryos (resulting in twin girls Lulu and Nana) did not reproduce the protective CCR5-Δ32 deletion: Nana carried atypical deletions and Lulu was only heterozygous, so the intended HIV resistance was not established. Evidence of mosaicism and unexamined off-target risk drew near-universal condemnation. A Shenzhen court sentenced He to three years in prison and a 3 million yuan fine in December 2019 for illegal medical practice.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
+            replicability: 6,
             directness: 9,
           },
-          source: "MIT Technology Review, Nature, Chinese court records",
+          source: "MIT Technology Review (Regalado, 2018); Cyranoski & Ledford, Nature (2018); Shenzhen court verdict (Dec 2019)",
+          sourceUrl: "https://en.wikipedia.org/wiki/He_Jiankui_affair",
           reasoning:
-            "The most direct evidence of premature human germline editing. Highly informative about risks, though this was a rogue experiment with poor technique — not representative of the field's best practices.",
+            "The most direct evidence of premature human germline editing. Highly informative about risks, though this was a rogue experiment with poor technique — not representative of the field's best practices. Replicability lowered: the embryos were never independently sequenced and the full data was never published, so off-target claims rest on leaked/partial reports rather than verified analysis.",
         },
         {
           id: "crispr-precision-improvement-2023",
-          title: "CRISPR Precision Has Improved Dramatically Since 2018",
+          title: "Newer Editors (Base, Prime) Reduce Off-Target Editing vs. Original Cas9",
           description:
-            "Base editing (2017) and prime editing (2019) have reduced off-target rates by 10-100x compared to original Cas9. A 2023 Nature study demonstrated prime editing with undetectable off-target effects in human cell lines. The technology is on a steep improvement curve, similar to early DNA sequencing.",
+            "Base editing (Komor et al., Nature 2016) and prime editing (Anzalone et al., Nature 2019) avoid the double-strand breaks that drive much of Cas9's collateral damage. Whole-genome-sequencing studies in human cells have reported no detectable guide-RNA-independent off-target mutations from prime editors, suggesting greater precision than first-generation Cas9. These remain cell-line and stem-cell findings, not whole-embryo or lifetime safety data.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
-            replicability: 7,
-            directness: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 5,
           },
-          source: "Anzalone et al., Nature; Liu Lab, Broad Institute",
+          source: "Komor et al., Nature 2016 (base editing); Anzalone et al., Nature 2019 (prime editing); both from D. Liu lab, Broad Institute",
+          sourceUrl: "https://www.nature.com/articles/s41586-019-1711-4",
           reasoning:
-            "Rigorous peer-reviewed research showing rapid improvement. However, cell line results don't guarantee safety in whole embryos over a lifetime.",
+            "Foundational peer-reviewed work; the precision gain over Cas9 is real and directional. But the original '10-100x' and 'undetectable off-target' figures were overstated and not traceable to a single 2023 study, so the specific numbers were removed. Independence and directness lowered: the core papers come from one lab, and cell-line results don't establish safety in whole embryos over a lifetime.",
         },
         {
           id: "sickle-cell-crispr-success",
           title: "CRISPR Treatment for Sickle Cell Approved by FDA",
           description:
-            "In December 2023, the FDA approved Casgevy (exagamglogene autotemcel), the first CRISPR-based therapy, for sickle cell disease. The treatment edits patients' own blood stem cells to produce functional hemoglobin. Clinical trials showed 97% of patients were free of vaso-occlusive crises for at least 12 months. This is somatic (non-heritable) editing, but demonstrates the therapeutic potential.",
+            "In December 2023, the FDA approved Casgevy (exagamglogene autotemcel), the first CRISPR/Cas9-based therapy, for sickle cell disease. The treatment edits patients' own blood stem cells (BCL11A) to reactivate fetal hemoglobin. In the pivotal trial, 29 of 31 evaluable patients (93.5%) were free of severe vaso-occlusive crises for at least 12 consecutive months. This is somatic (non-heritable) editing, but demonstrates the therapeutic potential.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 7,
-            directness: 5,
+            directness: 4,
           },
-          source: "FDA, Vertex Pharmaceuticals, NEJM",
+          source: "U.S. FDA press announcement (Dec 8, 2023); manufacturer Vertex/CRISPR Therapeutics",
+          sourceUrl: "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
           reasoning:
-            "Landmark FDA approval demonstrates clinical viability. Directness is limited because somatic editing (non-heritable) has fundamentally different risk profile than germline editing.",
+            "Landmark FDA approval demonstrates clinical viability; the 97% figure was overstated and corrected to the trial's 93.5% (29/31 evaluable patients). Directness lowered to 4 because somatic editing of an adult patient's own cells has a fundamentally different — and far lower — risk profile than heritable germline editing of an embryo.",
         },
         {
           id: "pgt-m-alternative",
           title: "PGT-M Already Screens for Most Genetic Diseases",
           description:
-            "Preimplantation genetic testing for monogenic disorders (PGT-M) can screen IVF embryos for virtually any known single-gene disease, avoiding the need to edit the genome. Success rates are high (95%+ accuracy), and it's already widely available. For most carrier couples, PGT-M eliminates the need for germline editing entirely.",
+            "Preimplantation genetic testing for monogenic conditions (PGT-M) can screen IVF embryos for essentially any known single-gene disorder, selecting unaffected embryos for transfer instead of editing the genome. The ASRM's 2023 committee opinion describes it as an established, widely available clinical option. For most carrier couples, PGT-M removes the need for germline editing entirely.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 8,
-            directness: 8,
+            replicability: 7,
+            directness: 7,
           },
-          source: "ASRM (American Society for Reproductive Medicine), multiple IVF clinics",
+          source: "ASRM Practice Committee, \"Indications and management of PGT for monogenic conditions,\" Fertil Steril 2023;120:61–71",
+          sourceUrl: "https://www.fertstert.org/article/S0015-0282(23)00210-8/fulltext",
           reasoning:
-            "Strong evidence that a safer alternative exists for most use cases. Less applicable for cases where both parents are homozygous for a disease (all embryos affected) or de novo mutations.",
+            "Strong evidence that a safer alternative exists for most use cases. The unsourced '95%+ accuracy' figure was removed (PGT-M reliability is condition- and lab-dependent, and misdiagnosis risk is non-zero). Directness lowered to 7: PGT-M selects among existing embryos and cannot help when all embryos are affected (both parents homozygous) or for de novo mutations — exactly the cases proponents cite for editing.",
         },
       ],
     },
@@ -124,7 +128,7 @@ export const geneEditingEmbryosData = {
           id: "nuffield-council-report",
           title: "Nuffield Council: Germline Editing Could Be Ethically Acceptable",
           description:
-            "The UK's Nuffield Council on Bioethics concluded in 2018 that heritable genome editing could be ethically acceptable if it is intended to secure the welfare of the future person, and if it is consistent with principles of social justice and solidarity. The report emphasized the need for broad societal debate and robust regulation, not an outright ban.",
+            "The UK's Nuffield Council on Bioethics concluded in its July 2018 report 'Genome editing and human reproduction' that heritable genome editing could be ethically acceptable, on two conditions: that it is intended to secure the welfare of the future person, and that it does not increase disadvantage, discrimination, or division in society. The report called for broad public deliberation and robust regulation, not an outright ban.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -132,7 +136,8 @@ export const geneEditingEmbryosData = {
             replicability: 6,
             directness: 6,
           },
-          source: "Nuffield Council on Bioethics (UK)",
+          source: "Nuffield Council on Bioethics (UK), \"Genome editing and human reproduction\" (July 2018)",
+          sourceUrl: "https://www.nuffieldbioethics.org/publications/genome-editing-and-human-reproduction",
           reasoning:
             "Highly respected, independent ethics body. The conditional endorsement is nuanced — it supports the possibility, not current practice. Directness limited because ethical conclusions don't resolve empirical safety questions.",
         },
@@ -140,15 +145,16 @@ export const geneEditingEmbryosData = {
           id: "disability-rights-critique",
           title: "Disability Rights Advocates Challenge Genetic 'Correction'",
           description:
-            "Disability rights organizations argue that gene editing to eliminate conditions like deafness, dwarfism, or autism implies these lives are defective and not worth living. Many people with genetic conditions report high quality of life and reject the premise that they need 'fixing.' The social model of disability holds that society, not genes, is what needs changing.",
+            "Disability rights organizations argue that selecting against or editing out conditions like deafness or dwarfism implies these lives are defective and not worth living. The U.S. National Council on Disability's 2019 report found that biases devaluing disabled lives are pervasive and shape genetic-testing practice. Many people with genetic conditions report high quality of life; the social model of disability holds that society, not genes, is what needs changing.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,
-            replicability: 6,
-            directness: 7,
+            replicability: 5,
+            directness: 6,
           },
-          source: "National Council on Disability, disability studies literature",
+          source: "National Council on Disability, \"Genetic Testing and the Rush to Perfection\" (Oct 2019), Bioethics and Disability Report Series",
+          sourceUrl: "https://www.ncd.gov/report/genetic-testing-and-the-rush-to-perfection/",
           reasoning:
             "Important ethical perspective that challenges the foundational premise of 'fixing' genetic variation. Somewhat less applicable to fatal or severely debilitating conditions like Huntington's or Tay-Sachs.",
         },
@@ -156,33 +162,35 @@ export const geneEditingEmbryosData = {
           id: "international-regulation-comparison",
           title: "International Regulatory Landscape Shows Possible Governance",
           description:
-            "Over 70 countries have some form of regulation on human germline editing. The UK's HFEA provides a model for permissive but tightly regulated research. China strengthened its regulations after the He Jiankui scandal. The WHO convened a global governance framework committee. This suggests international coordination is feasible, though imperfect.",
+            "Many countries already restrict or prohibit clinical heritable human genome editing, and surveys (e.g. Baylis et al., 2020) document this near-global policy coverage. The UK's HFEA offers a model of permissive but tightly licensed embryo research; China tightened its rules after the He Jiankui scandal. In July 2021 the WHO Expert Advisory Committee published a governance framework and recommendations for human genome editing. This suggests international coordination is feasible, though imperfect and largely untested clinically.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 6,
-            directness: 5,
+            directness: 4,
           },
-          source: "WHO Expert Advisory Committee, HFEA (UK), Nature Reviews Genetics",
+          source: "WHO Expert Advisory Committee, \"Human genome editing: recommendations\" (2021); HFEA (UK)",
+          sourceUrl: "https://www.who.int/publications/i/item/9789240030381",
           reasoning:
-            "Demonstrates that governance infrastructure exists. Directness limited because regulatory frameworks are untested against the commercial pressures that would arise if editing became clinically viable.",
+            "Demonstrates that governance infrastructure exists. The '70 countries' claim was softened to 'many countries' since the exact tally varies by survey and category. Directness lowered to 4: these frameworks govern a procedure almost nobody is doing clinically, so they remain untested against the commercial pressures that would arise if heritable editing became viable.",
         },
         {
           id: "enhancement-therapy-distinction",
           title: "Therapy-Enhancement Distinction Is Philosophically Unstable",
           description:
-            "Bioethicists argue the line between therapy and enhancement is blurrier than proponents claim. Is editing for 'short stature' therapy or enhancement? What about genetic predisposition to obesity, depression, or low IQ? Every trait exists on a spectrum, and 'disease' is often socially defined. Historical precedent with cosmetic surgery shows medical technology migrates from therapeutic to elective use.",
+            "Bioethicists argue the line between therapy and enhancement is blurrier than proponents claim. Is editing for 'short stature' therapy or enhancement? What about genetic predisposition to obesity, depression, or low IQ? Every trait exists on a spectrum, and 'disease' is often socially defined. Michael Sandel's 'The Case Against Perfection' is a canonical statement of this critique; cosmetic surgery's drift from reconstructive to elective use is a cited precedent.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 7,
-            replicability: 7,
-            directness: 7,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Sandel, Savulescu, Buchanan — bioethics literature",
+          source: "Michael Sandel, \"The Case Against Perfection\" (Atlantic 2004 / Harvard Univ. Press 2007); broader bioethics debate incl. Savulescu, Buchanan",
+          sourceUrl: "https://www.theatlantic.com/magazine/archive/2004/04/the-case-against-perfection/302927/",
           reasoning:
-            "Well-established philosophical argument. The analogy to cosmetic surgery's migration from reconstructive to elective is historically grounded and directionally concerning.",
+            "Well-established philosophical argument anchored to a named, citable source rather than a list of surnames. SourceReliability and replicability lowered because this is normative philosophy, not an empirical finding — it cannot be 'replicated' and reasonable bioethicists (e.g. Savulescu) reach the opposite conclusion. The cosmetic-surgery analogy is historically grounded and directionally concerning.",
         },
       ],
     },

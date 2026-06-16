@@ -93,38 +93,47 @@ export const freeWillData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Libet et al. (1983)",
-          reasoning: "Replicated many times, though interpretation debated.",
+          source:
+            "Libet, Gleason, Wright & Pearl, Brain 106:623-642 (1983)",
+          sourceUrl: "https://academic.oup.com/brain/article-abstract/106/3/623/271932",
+          reasoning:
+            "Robust, much-replicated finding; the deterministic interpretation (not the data) is what's contested.",
         },
         {
           id: "soon-fmri",
           title: "Soon et al. fMRI Prediction",
           description:
-            "Brain activity up to 10 seconds before conscious decision predicts the choice with ~60% accuracy.",
+            "fMRI patterns in prefrontal and parietal cortex predicted a left/right button choice up to ~10s before the reported decision, but only ~60% of the time (chance = 50%).",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 6,
-            directness: 7,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Nature Neuroscience (2008)",
-          reasoning: "Extends Libet findings but 60% accuracy is modest.",
+          source:
+            "Soon, Brass, Heinze & Haynes, Nature Neuroscience 11:543-545 (2008)",
+          sourceUrl: "https://www.nature.com/articles/nn.2112",
+          reasoning:
+            "Extends Libet, but ~60% accuracy is barely above chance — a weak bias signal, not a determined outcome.",
         },
         {
           id: "veto-evidence",
           title: "Subjects Can Veto Actions",
           description:
-            "Libet found subjects could consciously abort movements after readiness potential began.",
+            'Libet reported subjects could consciously abort (veto) a prepared movement after the readiness potential began — the "free won\'t."',
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 5,
+            directness: 6,
           },
+          source:
+            "Libet, Behavioral and Brain Sciences 8:529-566 (1985)",
+          sourceUrl: "https://doi.org/10.1017/S0140525X00044903",
           reasoning:
-            'Preserves role for conscious "free won\'t" if not "free will."',
+            'Preserves a role for conscious "free won\'t" if not "free will"; based on subjective veto reports, not independently replicated as cleanly as the RP itself.',
         },
         {
           id: "schurger-reinterpretation",
@@ -138,8 +147,11 @@ export const freeWillData = {
             replicability: 6,
             directness: 6,
           },
-          source: "PNAS (2012)",
-          reasoning: "Alternative interpretation of the same data.",
+          source:
+            "Schurger, Sitt & Dehaene, PNAS 109:E2904-E2913 (2012)",
+          sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.1210467109",
+          reasoning:
+            "Influential stochastic-accumulator reinterpretation: the RP may be an artifact of averaging spontaneous fluctuations, undercutting the determinist reading of Libet.",
         },
       ],
     },
@@ -172,59 +184,75 @@ export const freeWillData = {
           id: "physical-closure",
           title: "Causal Closure of Physics",
           description:
-            "Every physical event has a sufficient physical cause. There's no room for non-physical mental causation.",
+            "Every physical event has a sufficient physical cause (the causal-closure principle), leaving no room for non-physical mental causation.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 8,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
           },
-          reasoning: "Strong argument from philosophy of physics.",
+          source:
+            "Papineau, 'The Causal Closure of the Physical and Naturalism', in The Oxford Handbook of Philosophy of Mind (2009)",
+          sourceUrl: "https://philpapers.org/rec/PAPTCC-4",
+          reasoning:
+            "Widely-held metaphysical thesis, not an empirical result; its bearing on free will depends on contested premises about mental causation.",
         },
         {
           id: "laplace-demon",
           title: "Laplacian Determinism",
           description:
-            "Given complete knowledge of the universe's state, all future states are predictable in principle.",
+            "Laplace's demon: given complete knowledge of the universe's state and laws, all future states are fixed and predictable in principle.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
           },
+          source:
+            "Laplace, A Philosophical Essay on Probabilities (1814)",
+          sourceUrl:
+            "https://plato.stanford.edu/entries/determinism-causal/",
           reasoning:
-            "Classical determinism, though quantum mechanics complicates this.",
+            "Foundational statement of classical determinism; superseded as physics by indeterministic quantum mechanics, so weighted as a historical/conceptual argument.",
         },
         {
           id: "compatibilism",
           title: "Compatibilist Free Will",
           description:
-            "Most professional philosophers accept compatibilism: free will is compatible with determinism.",
+            "In the 2020 PhilPapers Survey, 62% of professional philosophers accepted or leaned toward compatibilism (vs. 13% libertarianism, 10% no free will).",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 5,
-            directness: 6,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
           },
-          source: "PhilPapers Survey",
-          reasoning: "Expert consensus, though appeals to redefinition.",
+          source:
+            "Bourget & Chalmers, 'Philosophers on Philosophy: The 2020 PhilPapers Survey'",
+          sourceUrl: "https://survey2020.philpeople.org/survey/results/4838",
+          reasoning:
+            "A plurality of experts, though directness is low: it reflects opinion and a reinterpretation of 'free,' not first-order evidence about whether libertarian free will exists.",
         },
         {
           id: "quantum-indeterminacy",
           title: "Quantum Mechanics Is Indeterministic",
           description:
-            "Fundamental physics includes genuine randomness, breaking strict determinism.",
+            "On standard (e.g. Copenhagen) interpretations, fundamental physics includes genuine indeterminism, breaking strict Laplacian determinism.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
             replicability: 9,
-            directness: 5,
+            directness: 3,
           },
-          reasoning: "Established physics, but randomness ≠ free will.",
+          source:
+            "Stanford Encyclopedia of Philosophy, 'Causal Determinism' (Hoefer)",
+          sourceUrl:
+            "https://plato.stanford.edu/entries/determinism-causal/",
+          reasoning:
+            "Well-established physics, but directness is very low: quantum randomness undermines determinism without delivering agent control — randomness is not the same as free will.",
         },
       ],
     },
@@ -257,60 +285,74 @@ export const freeWillData = {
           id: "universal-responsibility",
           title: "All Cultures Have Moral Responsibility",
           description:
-            "Every known human culture has concepts of praise, blame, and moral responsibility.",
+            "Praise, blame, and holding-responsible appear on standard lists of human universals — found in every documented culture.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 9,
-            replicability: 8,
-            directness: 5,
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 4,
           },
+          source: "Brown, Human Universals (McGraw-Hill, 1991)",
+          sourceUrl:
+            "https://en.wikipedia.org/wiki/Cultural_universal",
           reasoning:
-            "Universal human intuition, though could be pragmatic rather than metaphysical.",
+            "Universality of the practice doesn't establish libertarian free will — the intuition could be pragmatic or adaptive rather than tracking a metaphysical fact.",
         },
         {
           id: "responsibility-beliefs-matter",
           title: "Belief in Free Will Affects Behavior",
           description:
-            "Studies show people who are told free will is an illusion cheat more and behave less prosocially.",
+            "Vohs & Schooler (2008) found participants primed with anti-free-will text cheated more; however, a large preregistered multi-lab replication (Buttrick et al., 2020) failed to reproduce the effect.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 6,
-            directness: 4,
+            sourceReliability: 4,
+            independence: 5,
+            replicability: 2,
+            directness: 3,
           },
-          source: "Vohs & Schooler (2008)",
-          reasoning: "Pragmatic argument for maintaining belief.",
+          source:
+            "Vohs & Schooler, Psychological Science 19(1):49-54 (2008); failed replication: Buttrick et al., J. Exp. Soc. Psychol. 91 (2020)",
+          sourceUrl: "https://doi.org/10.1111/j.1467-9280.2008.02045.x",
+          reasoning:
+            "Originally cited as a pragmatic argument for believing in free will, but the headline effect did not survive a preregistered replication — weight heavily discounted.",
         },
         {
           id: "brain-damage-cases",
           title: "Brain Damage Changes Moral Behavior",
           description:
-            "Phineas Gage and similar cases show physical brain changes alter personality and moral behavior.",
+            "Phineas Gage's frontal-lobe injury (1848) and modern lesion/tumor cases show that physical brain changes can alter personality and moral behavior.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 7,
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
           },
-          reasoning: "Demonstrates physical basis of moral character.",
+          source:
+            "Harlow, 'Passage of an Iron Rod Through the Head', Boston Med. Surg. J. (1848); see also Damasio et al., Science 264:1102-1105 (1994)",
+          sourceUrl:
+            "https://en.wikipedia.org/wiki/Phineas_Gage",
+          reasoning:
+            "Demonstrates a physical basis for moral character; note the popular Gage narrative is partly embellished, so the case is suggestive rather than decisive on its own.",
         },
         {
           id: "genetics-of-behavior",
           title: "Behavioral Genetics",
           description:
-            "Twin studies show 40-60% heritability for many personality traits and behavioral tendencies.",
+            "A meta-analysis of 50 years of twin studies (17,804 traits) found ~49% average heritability across human traits, including many personality and behavioral tendencies.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 8,
-            directness: 6,
+            directness: 5,
           },
+          source:
+            "Polderman et al., Nature Genetics 47:702-709 (2015)",
+          sourceUrl: "https://www.nature.com/articles/ng.3285",
           reasoning:
-            "Genes significantly influence behavior we hold people responsible for.",
+            "Genes significantly influence behavior we hold people responsible for; but heritability is a population statistic, not a measure of individual fate, so directness to free will is limited.",
         },
       ],
     },

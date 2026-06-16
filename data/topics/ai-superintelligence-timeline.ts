@@ -21,8 +21,8 @@ export const aiSuperintelligenceTimelineData = {
     },
     {
       title:
-        "Epoch AI — Scaling Laws Literature Review",
-      url: "https://epochai.org/blog/scaling-laws-literature-review",
+        "Epoch AI — Trends in Machine Learning (compute & scaling)",
+      url: "https://epoch.ai/trends",
     },
   ],
   questions: [
@@ -89,9 +89,11 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 9,
             directness: 7,
           },
-          source: "Kaplan et al. 2020, Hoffmann et al. 2022 (Chinchilla)",
+          source:
+            "Kaplan et al. 2020, 'Scaling Laws for Neural Language Models' (arXiv:2001.08361); Hoffmann et al. 2022, 'Training Compute-Optimal Large Language Models' / Chinchilla (arXiv:2203.15556)",
+          sourceUrl: "https://arxiv.org/abs/2203.15556",
           reasoning:
-            "Empirically robust across multiple labs and architectures, but directness limited because loss improvement does not guarantee capability emergence.",
+            "Empirically robust across multiple labs and architectures, but directness limited because loss improvement does not guarantee capability emergence. Note both papers fit power laws over training-time loss (up to ~10^24 FLOP), not the 10^25 frontier; the broader 'five orders of magnitude' claim is an extrapolation.",
         },
         {
           id: "emergent-capabilities",
@@ -105,15 +107,17 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Wei et al. 2022 (Emergent Abilities of Large Language Models)",
+          source:
+            "Wei et al. 2022, 'Emergent Abilities of Large Language Models' (arXiv:2206.07682); contested by Schaeffer et al. 2023, 'Are Emergent Abilities a Mirage?' (arXiv:2304.15004)",
+          sourceUrl: "https://arxiv.org/abs/2206.07682",
           reasoning:
-            "Documented across multiple models, but recent work questions whether emergence is an artifact of metric choice rather than a true phase transition.",
+            "Documented across multiple models, but Schaeffer et al. (2023) argue emergence is largely an artifact of discontinuous metric choice rather than a true phase transition — which is why directness is held low.",
         },
         {
           id: "compute-doubling-time",
-          title: "AI Training Compute Doubles Every 6-10 Months",
+          title: "Frontier AI Training Compute Doubles Roughly Every 6 Months",
           description:
-            "The compute used in frontier AI training runs has been doubling every 6-10 months, far outpacing Moore's Law.",
+            "Epoch AI estimates the training compute of frontier AI models has grown about 4-5x per year since 2020 (a doubling time near 5-6 months), far outpacing Moore's Law.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -121,7 +125,10 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 9,
             directness: 5,
           },
-          source: "Epoch AI Compute Trends",
+          source:
+            "Epoch AI — 'Training compute of frontier AI models grows by 4-5x per year' (2024)",
+          sourceUrl:
+            "https://epoch.ai/blog/training-compute-of-frontier-ai-models-grows-by-4-5x-per-year",
           reasoning:
             "Hardware trend is well-documented, but whether more compute translates to AGI depends on whether scaling is sufficient — an open question.",
         },
@@ -137,9 +144,11 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 6,
             directness: 8,
           },
-          source: "Chollet 2024 (ARC-AGI benchmark analysis)",
+          source:
+            "Chollet 2019, 'On the Measure of Intelligence' / ARC-AGI (arXiv:1911.01547)",
+          sourceUrl: "https://arxiv.org/abs/1911.01547",
           reasoning:
-            "Directly measures general reasoning rather than narrow capabilities, though benchmarks themselves may not capture full picture.",
+            "ARC-AGI directly targets novel-task generalization rather than narrow capabilities; the underlying benchmark and skill-acquisition-efficiency framing trace to Chollet's 2019 paper, though benchmarks themselves may not capture the full picture.",
         },
       ],
     },
@@ -180,9 +189,11 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 8,
             directness: 6,
           },
-          source: "Bubeck et al. 2023 (Sparks of AGI)",
+          source:
+            "Bubeck et al. 2023, 'Sparks of Artificial General Intelligence: Early experiments with GPT-4' (Microsoft Research, arXiv:2303.12712)",
+          sourceUrl: "https://arxiv.org/abs/2303.12712",
           reasoning:
-            "Well-documented but contested — capabilities may reflect training data patterns rather than genuine reasoning.",
+            "Well-documented but contested — a non-peer-reviewed Microsoft Research report on a pre-release GPT-4; observed capabilities may reflect training-data patterns rather than genuine reasoning, so reliability is held moderate.",
         },
         {
           id: "architectural-innovation-pace",
@@ -191,14 +202,16 @@ export const aiSuperintelligenceTimelineData = {
             "Mixture of experts, state-space hybrids, retrieval augmentation, and test-time compute scaling represent significant architectural evolution without abandoning the core transformer framework.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 6,
             independence: 7,
             replicability: 8,
             directness: 5,
           },
-          source: "Multiple labs (Google, Anthropic, Meta)",
+          source:
+            "Synthesis of primary architecture papers, e.g. Shazeer et al. 2017 (Sparsely-Gated MoE, arXiv:1701.06538) and Gu & Dao 2023 (Mamba state-space models, arXiv:2312.00752). No single source establishes the aggregate 'pace' claim.",
+          sourceUrl: "https://arxiv.org/abs/2312.00752",
           reasoning:
-            "Shows the paradigm is not static, but does not prove these innovations are sufficient for AGI.",
+            "Shows the paradigm is not static, but this is an aggregate characterization across several papers rather than one primary finding — hence reduced source reliability — and it does not prove these innovations are sufficient for AGI.",
         },
         {
           id: "compositionality-failure",
@@ -212,9 +225,11 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Dziri et al. 2023 (Faith and Fate: Limits of Transformers on Compositionality)",
+          source:
+            "Dziri et al. 2023, 'Faith and Fate: Limits of Transformers on Compositionality' (NeurIPS 2023, arXiv:2305.18654)",
+          sourceUrl: "https://arxiv.org/abs/2305.18654",
           reasoning:
-            "Directly tests reasoning ability rather than benchmark performance; replicated across model scales.",
+            "Directly tests compositional reasoning rather than benchmark performance; peer-reviewed (NeurIPS spotlight) and evaluated across model scales.",
         },
         {
           id: "no-world-model",
@@ -228,9 +243,11 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 5,
             directness: 7,
           },
-          source: "LeCun 2023 (A Path Towards Autonomous Machine Intelligence)",
+          source:
+            "LeCun 2022, 'A Path Towards Autonomous Machine Intelligence' (position paper, v0.9.2, OpenReview)",
+          sourceUrl: "https://openreview.net/pdf?id=BZ5a1r-kVsf",
           reasoning:
-            "Theoretical argument supported by empirical failures on physical reasoning, but multimodal models are rapidly closing some gaps.",
+            "A self-published position paper (not peer-reviewed) advancing a theoretical argument supported by empirical failures on physical reasoning; multimodal models are rapidly closing some gaps, so reliability is held moderate.",
         },
       ],
     },
@@ -269,9 +286,11 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 8,
             directness: 5,
           },
-          source: "Anthropic, OpenAI safety publications",
+          source:
+            "Bai et al. 2022, 'Constitutional AI: Harmlessness from AI Feedback' (Anthropic, arXiv:2212.08073); Ouyang et al. 2022, 'Training language models to follow instructions with human feedback' / InstructGPT-RLHF (OpenAI, arXiv:2203.02155)",
+          sourceUrl: "https://arxiv.org/abs/2212.08073",
           reasoning:
-            "Proven on current systems, but whether these techniques scale to superintelligent systems is unknown — hence lower directness.",
+            "Proven on current systems via published lab methods, but whether these techniques scale to superintelligent systems is unknown — hence lower directness.",
         },
         {
           id: "interpretability-breakthroughs",
@@ -285,9 +304,12 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Anthropic Interpretability Team, Neel Nanda et al.",
+          source:
+            "Bricken et al. 2023, 'Towards Monosemanticity: Decomposing Language Models With Dictionary Learning' (Anthropic, transformer-circuits.pub)",
+          sourceUrl:
+            "https://transformer-circuits.pub/2023/monosemantic-features/index.html",
           reasoning:
-            "Promising direction but still far from comprehensive understanding of frontier model internals.",
+            "Promising direction — sparse autoencoders recover concept-aligned features — but demonstrated on a small model (GPT-2-scale) and still far from comprehensive understanding of frontier model internals.",
         },
         {
           id: "instrumental-convergence",
@@ -301,25 +323,29 @@ export const aiSuperintelligenceTimelineData = {
             replicability: 4,
             directness: 7,
           },
-          source: "Bostrom 2014 (Superintelligence), Omohundro 2008",
+          source:
+            "Omohundro 2008, 'The Basic AI Drives' (Proc. First AGI Conference); Bostrom 2014, 'Superintelligence: Paths, Dangers, Strategies' (Oxford University Press)",
+          sourceUrl: "https://intelligence.org/files/BasicAIDrives.pdf",
           reasoning:
-            "Theoretically sound but empirically untested — we have no superintelligent systems to observe. Independence is high because the argument follows from basic decision theory.",
+            "Theoretically sound but empirically untested — we have no superintelligent systems to observe, and these are an argument and a monograph rather than experiments. Independence is high because the argument follows from basic decision theory.",
         },
         {
           id: "capabilities-outpace-safety",
           title: "Capabilities Research Vastly Outpaces Safety Research",
           description:
-            "Global investment in AI capabilities exceeds safety research by orders of magnitude. Major labs face competitive pressure to ship faster, creating structural incentives to underinvest in alignment.",
+            "Global investment in AI capabilities vastly exceeds dedicated AI-safety research. Major labs face competitive pressure to ship faster, creating structural incentives to underinvest in alignment.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 7,
             directness: 6,
           },
-          source: "AI Safety funding analyses, Epoch AI",
+          source:
+            "Directional estimate; no single audited primary source. Spending-trend context from Stanford HAI AI Index Report (annual) and Epoch AI investment data; the precise capabilities-vs-safety ratio is not rigorously measured.",
+          sourceUrl: "https://hai.stanford.edu/ai-index",
           reasoning:
-            "Well-documented funding disparity. Directness is moderate because this is about incentive structures rather than technical impossibility.",
+            "The qualitative disparity is widely reported, but the 'orders of magnitude' figure is an estimate rather than an audited statistic — hence reduced source reliability. Directness is moderate because this is about incentive structures rather than technical impossibility.",
         },
       ],
     },

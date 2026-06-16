@@ -11,7 +11,7 @@ export const aiReplacingDoctorsData = {
     "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "WHO Guidance on AI for Health (2021)",
+      title: "WHO — Ethics and Governance of AI for Health (Guidance, 2021)",
       url: "https://www.who.int/publications/i/item/9789240029200",
     },
     {
@@ -20,8 +20,14 @@ export const aiReplacingDoctorsData = {
       url: "https://drerictopol.com/portfolio/deep-medicine/",
     },
     {
-      title: "FDA Artificial Intelligence and Machine Learning in Software as a Medical Device",
-      url: "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-and-machine-learning-software-medical-device",
+      title:
+        "FDA — Artificial Intelligence-Enabled Medical Devices (authorized device list)",
+      url: "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices",
+    },
+    {
+      title:
+        "Singhal et al. — Large language models encode clinical knowledge (Med-PaLM), Nature 620, 172-180 (2023)",
+      url: "https://doi.org/10.1038/s41586-023-06291-2",
     },
   ],
   questions: [
@@ -34,8 +40,14 @@ export const aiReplacingDoctorsData = {
         "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=60",
       references: [
         {
-          title: "Google Health AI for Diabetic Retinopathy",
-          url: "https://health.google/health-research/imaging-and-diagnostics/",
+          title:
+            "FDA permits marketing of IDx-DR, first autonomous AI diagnostic system (diabetic retinopathy), 2018",
+          url: "https://www.fda.gov/news-events/press-announcements/fda-permits-marketing-artificial-intelligence-based-device-detect-certain-diabetes-related-eye",
+        },
+        {
+          title:
+            "Gulshan et al. — Deep learning algorithm for diabetic retinopathy in retinal fundus photographs, JAMA 316(22), 2402-2410 (2016)",
+          url: "https://doi.org/10.1001/jama.2016.17216",
         },
       ],
     },
@@ -86,17 +98,19 @@ export const aiReplacingDoctorsData = {
           id: "radiology-outperformance",
           title: "AI Matches Radiologists in Breast Cancer Screening",
           description:
-            "A 2020 Nature study showed AI matched or outperformed radiologists in breast cancer detection on mammograms, reducing false positives by 5.7% and false negatives by 9.4%.",
+            "A 2020 Nature study (Google Health/DeepMind) showed an AI system reduced false positives by 5.7% and false negatives by 9.4% (absolute) versus the first reader on a US mammography dataset, and outperformed all six radiologists in a reader study.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
-            independence: 8,
-            replicability: 7,
+            independence: 7,
+            replicability: 6,
             directness: 8,
           },
-          source: "McKinney et al., Nature (2020)",
+          source:
+            "McKinney et al., Nature 577, 89-94 (2020), doi:10.1038/s41586-019-1799-6",
+          sourceUrl: "https://doi.org/10.1038/s41586-019-1799-6",
           reasoning:
-            "Published in top-tier journal with large dataset, though real-world deployment results have been more mixed.",
+            "Published in a top-tier journal on large UK/US datasets, but industry-funded (Google) and later criticized for limited reproducibility (Haibe-Kains et al., Nature 2020); real-world deployment results have been more mixed.",
         },
         {
           id: "dermatology-ai",
@@ -110,9 +124,11 @@ export const aiReplacingDoctorsData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Esteva et al., Nature (2017); Haenssle et al., Annals of Oncology (2018)",
+          source:
+            "Esteva et al., Nature 542, 115-118 (2017), doi:10.1038/nature21056; Haenssle et al., Annals of Oncology 29(8), 1836-1842 (2018), doi:10.1093/annonc/mdy166",
+          sourceUrl: "https://doi.org/10.1038/nature21056",
           reasoning:
-            "Replicated across multiple labs, though performance drops on darker skin tones due to training data bias.",
+            "Replicated across multiple labs (Esteva used 21 dermatologists; Haenssle compared a CNN against 58 dermatologists and the CNN outperformed the average), though these are curated test-set benchmarks and performance drops on darker skin tones due to training-data bias.",
         },
         {
           id: "distribution-shift-failures",
@@ -126,25 +142,29 @@ export const aiReplacingDoctorsData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Zech et al., PLOS Medicine (2018)",
+          source:
+            "Zech et al., PLOS Medicine 15(11):e1002683 (2018), doi:10.1371/journal.pmed.1002683",
+          sourceUrl: "https://doi.org/10.1371/journal.pmed.1002683",
           reasoning:
-            "Directly demonstrates the generalization gap between benchmark performance and real-world deployment.",
+            "Directly demonstrates the generalization gap: a pneumonia-detection CNN dropped from AUC 0.931 internally to 0.815 at an outside hospital, and learned to identify the source hospital rather than disease.",
         },
         {
           id: "rare-disease-limitations",
           title: "AI Struggles with Rare and Complex Conditions",
           description:
-            "Rare diseases (affecting ~400 million people globally) have insufficient training data for AI. Diagnostic odysseys averaging 5-7 years still require expert human pattern recognition.",
+            "An estimated 300+ million people live with one of ~7,000 rare diseases, most of which have too few cases to provide adequate AI training data. Diagnostic odysseys frequently span years and still rely on expert human pattern recognition.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
-            independence: 7,
+            independence: 8,
             replicability: 7,
-            directness: 7,
+            directness: 6,
           },
-          source: "Global Genes, NORD rare disease statistics",
+          source:
+            "Nguengang Wakap et al., European Journal of Human Genetics 28, 165-173 (2020), doi:10.1038/s41431-019-0508-0 (prevalence); diagnostic-odyssey duration per rare-disease patient surveys",
+          sourceUrl: "https://doi.org/10.1038/s41431-019-0508-0",
           reasoning:
-            "Data scarcity is a fundamental limitation that more compute alone cannot solve.",
+            "The 300M prevalence figure is from a peer-reviewed Orphanet analysis; the data-scarcity limitation for rare conditions is well-established, though the leap to 'AI cannot help' is partly inferential.",
         },
       ],
     },
@@ -175,33 +195,37 @@ export const aiReplacingDoctorsData = {
           id: "physician-burnout",
           title: "Physician Burnout Epidemic Degrades Care Quality",
           description:
-            "Over 50% of physicians report burnout, which is linked to increased medical errors, reduced empathy, and worse patient outcomes. AI could reduce cognitive load and documentation burden.",
+            "Physician burnout peaked at 62.8% reporting at least one symptom in 2021 and was 45.2% in 2023 — consistently exceeding the general working population — and is linked to increased medical errors and worse patient outcomes. AI could reduce cognitive load and documentation burden.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 8,
-            directness: 6,
+            directness: 5,
           },
-          source: "Shanafelt et al., Mayo Clinic Proceedings",
+          source:
+            "Shanafelt et al., 'Changes in Burnout... Between 2011 and 2023,' Mayo Clinic Proceedings (2024), doi:10.1016/j.mayocp.2024.07.005",
+          sourceUrl: "https://doi.org/10.1016/j.mayocp.2024.07.005",
           reasoning:
-            "Well-documented problem, but AI as solution is indirect and assumes successful integration.",
+            "Burnout prevalence is well-documented and longitudinally tracked, but AI as a solution is indirect, assumes successful integration, and documentation tools can also add burden.",
         },
         {
           id: "ai-chatbot-satisfaction",
-          title: "AI Chatbots Show Comparable Patient Satisfaction",
+          title: "AI Chatbots Rated Higher in Quality and Empathy than Physicians",
           description:
-            "A 2023 JAMA study found that AI chatbot responses to patient questions were rated higher in quality and empathy than physician responses by blinded evaluators.",
+            "A 2023 JAMA Internal Medicine study found that for 195 patient questions from a public forum, a licensed-clinician panel preferred chatbot (ChatGPT) responses 79% of the time and rated them higher in both quality and empathy than the physician responses.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
             replicability: 5,
-            directness: 7,
+            directness: 6,
           },
-          source: "Ayers et al., JAMA Internal Medicine (2023)",
+          source:
+            "Ayers et al., JAMA Internal Medicine 183(6), 589-596 (2023), doi:10.1001/jamainternmed.2023.1838",
+          sourceUrl: "https://doi.org/10.1001/jamainternmed.2023.1838",
           reasoning:
-            "Interesting finding but limited to text-based Q&A, not full clinical encounters.",
+            "Evaluators were clinicians, not patients, and the comparison used volunteer physician forum answers on text-only Q&A — not full clinical encounters — so it overstates real-world equivalence.",
         },
         {
           id: "placebo-therapeutic-relationship",
@@ -215,9 +239,11 @@ export const aiReplacingDoctorsData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Kelley et al., PLOS ONE (2014)",
+          source:
+            "Kelley et al., PLOS ONE 9(4):e94207 (2014), doi:10.1371/journal.pone.0094207",
+          sourceUrl: "https://doi.org/10.1371/journal.pone.0094207",
           reasoning:
-            "The placebo effect and therapeutic alliance have robust evidence that cannot be fully replicated by machines.",
+            "A meta-analysis of RCTs found a small but statistically significant effect of the patient-clinician relationship on healthcare outcomes; whether this advantage can be replicated by machines is contested.",
         },
         {
           id: "cultural-context-medicine",
@@ -261,19 +287,22 @@ export const aiReplacingDoctorsData = {
       evidence: [
         {
           id: "fda-approvals-accelerating",
-          title: "FDA AI Device Approvals Are Accelerating",
+          title: "FDA AI Device Authorizations Are Accelerating",
           description:
-            "The FDA approved over 950 AI/ML-enabled medical devices by 2024, with the annual pace of approvals roughly doubling every 2-3 years, signaling growing regulatory comfort with medical AI.",
+            "The FDA had authorized roughly 1,000 AI/ML-enabled medical devices by late 2024 (882 listed through March 2024), with annual authorizations rising sharply, signaling growing regulatory comfort with medical AI.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
-            independence: 8,
+            independence: 9,
             replicability: 9,
-            directness: 7,
+            directness: 6,
           },
-          source: "FDA AI/ML-Based Software as Medical Device database",
+          source:
+            "FDA — Artificial Intelligence-Enabled Medical Devices (official authorized-device list, updated 2024)",
+          sourceUrl:
+            "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices",
           reasoning:
-            "Strong evidence of regulatory momentum, though approvals are for physician-assist tools, not autonomous systems.",
+            "Strong, primary-source evidence of regulatory momentum, but nearly all authorizations are for physician-assist/narrow tools cleared via 510(k), not autonomous systems, so directness to 'AI replacing doctors' is limited.",
         },
         {
           id: "telemedicine-precedent",
@@ -302,9 +331,11 @@ export const aiReplacingDoctorsData = {
             replicability: 9,
             directness: 9,
           },
-          source: "Price & Cohen, Iowa Law Review (2019)",
+          source:
+            "Price, Gerke & Cohen, 'Potential Liability for Physicians Using Artificial Intelligence,' JAMA 322(18), 1765-1766 (2019), doi:10.1001/jama.2019.15064",
+          sourceUrl: "https://doi.org/10.1001/jama.2019.15064",
           reasoning:
-            "Fundamental legal gap that requires legislative action, which historically takes many years.",
+            "This JAMA Viewpoint maps malpractice liability against the existing human standard of care, confirming the absence of a settled framework for autonomous AI decisions; closing the gap likely requires legislative or case-law development, which historically takes years.",
         },
         {
           id: "institutional-resistance",

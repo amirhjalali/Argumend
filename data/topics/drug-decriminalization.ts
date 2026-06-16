@@ -33,33 +33,38 @@ export const drugDecriminalizationData = {
           id: "portugal-20-year",
           title: "Portugal 20-Year Outcome Data Shows Dramatic Improvements",
           description:
-            "Two decades after decriminalizing all drugs in 2001, Portugal saw drug-induced death rates fall to 3 per million (EU average: 23.7), HIV diagnoses among people who inject drugs dropped from 1,016 in 2001 to 18 in 2017, and overall drug use remained below the European average.",
+            "Two decades after decriminalizing all drugs in 2001, Portugal had a drug-induced death rate of roughly 6 per million among ages 15-64 (EU average: 23.7 per million), new HIV diagnoses attributed to injecting drug use fell from over 1,000 in 2001 to 16 in 2019, and overall drug use remained below the European average.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 5,
+            replicability: 4,
             directness: 9,
           },
-          source: "EMCDDA, Transform Drug Policy Foundation",
+          source:
+            "Transform Drug Policy Foundation, 'Drug decriminalisation in Portugal: setting the record straight' (2021), drawing on EMCDDA data",
+          sourceUrl:
+            "https://transformdrugs.org/blog/drug-decriminalisation-in-portugal-setting-the-record-straight",
           reasoning:
-            "Longest-running natural experiment on decriminalization. High reliability and directness, but replicability is limited because Portugal simultaneously invested heavily in treatment infrastructure.",
+            "Longest-running natural experiment on decriminalization. High reliability and directness, but replicability is limited because Portugal simultaneously invested heavily in treatment and harm-reduction infrastructure, so policy effects cannot be cleanly isolated. Earlier versions of this claim cited a 3-per-million death rate (a ~2012 figure); the ~6-per-million 2019 figure is used here.",
         },
         {
           id: "oregon-measure-110",
-          title: "Oregon Measure 110 Early Results Show Implementation Challenges",
+          title: "Oregon Measure 110 Showed Severe Implementation Failures",
           description:
-            "Oregon decriminalized small amounts of all drugs in 2020 via Measure 110. By 2023, overdose deaths had risen 120% and only 1% of people cited for drug possession sought treatment through the new system. The law was partially rolled back in 2024.",
+            "Oregon decriminalized possession of small amounts of all drugs via Measure 110, effective February 2021. Take-up of the new treatment pathway was minimal: of 6,271 possession tickets issued through September 2023, only about 8% (499 people) called the help hotline and roughly 50 (under 1% of those ticketed) entered treatment through it. Facing public backlash, the legislature repealed the decriminalization provision via House Bill 4002, recriminalizing possession effective September 2024. Note that peer-reviewed analyses (e.g. JAMA, 2023) found Measure 110 itself did not cause Oregon's overdose rise, which tracked the national fentanyl wave.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 8,
+            independence: 6,
+            replicability: 5,
+            directness: 7,
           },
-          source: "Oregon Health Authority, The Oregonian investigative reporting",
+          source:
+            "Oregon Secretary of State Audit 2025-29 'Measure 110 Lacks Stability, Coordination, and Clear Results' (Dec 2025); hotline take-up reporting (KPTV/OPB, 2023)",
+          sourceUrl: "https://sos.oregon.gov/audits/Documents/2025-29.pdf",
           reasoning:
-            "Recent and directly relevant, but confounded by fentanyl wave, COVID-era disruptions, and slow rollout of treatment funding. Short timeframe limits conclusions.",
+            "Demonstrates an implementation and uptake failure of the decriminalization model as enacted in Oregon. Directness lowered because the strongest causal claim against decrim — that it drove overdose deaths — is not supported by peer-reviewed work; the failure was in treatment delivery, not a proven causal harm. Confounded by the fentanyl wave, COVID-era disruptions, and a slow rollout of treatment funding.",
         },
         {
           id: "emcdda-european-comparison",
@@ -73,25 +78,29 @@ export const drugDecriminalizationData = {
             replicability: 6,
             directness: 6,
           },
-          source: "EMCDDA European Drug Report",
+          source:
+            "EMCDDA (now EUDA) European Drug Report — annual statistical bulletin",
+          sourceUrl: "https://www.euda.europa.eu/publications/european-drug-report_en",
           reasoning:
-            "Authoritative pan-European data, though cross-country comparisons are complicated by differences in culture, healthcare systems, and reporting standards.",
+            "Authoritative pan-European data, though cross-country comparisons are complicated by differences in culture, healthcare systems, and reporting standards. The EMCDDA reports the underlying statistics but does not itself frame decriminalization as the cause of lower problematic use — directness is moderate.",
         },
         {
           id: "us-overdose-under-criminalization",
           title: "US Overdose Deaths Hit Record Highs Under Criminalization",
           description:
-            "The United States, with among the harshest drug penalties in the developed world, recorded over 107,000 overdose deaths in 2023 — a 50-fold increase since 1979. The War on Drugs has cost over $1 trillion since 1971 without reducing overall drug use rates.",
+            "The United States, with among the harshest drug penalties in the developed world, recorded an estimated 107,543 drug overdose deaths in 2023 (CDC provisional data) — a historic high, though down ~3% from 2022's 111,029. A 2010 Associated Press investigation estimated the War on Drugs had cost over $1 trillion since 1971 without reducing overall drug use rates.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 9,
-            directness: 5,
+            replicability: 8,
+            directness: 4,
           },
-          source: "CDC WONDER, Drug Policy Alliance",
+          source:
+            "CDC NCHS provisional overdose data (2023); $1 trillion cost estimate: Associated Press investigation (2010)",
+          sourceUrl: "https://blogs.cdc.gov/nchs/2024/05/15/7623/",
           reasoning:
-            "Highly reliable mortality data showing criminalization has failed to prevent harm. Lower directness because rising deaths are driven by fentanyl supply, not just policy approach.",
+            "Highly reliable mortality data showing criminalization has coincided with record harm. Low directness: correlation, not causation — rising deaths are driven primarily by the fentanyl supply shift, not the choice between criminalization and decriminalization. The prior '50-fold increase since 1979' framing was dropped as it overstated a clean causal story.",
         },
       ],
     },
@@ -120,7 +129,7 @@ export const drugDecriminalizationData = {
           id: "aclu-racial-disparity",
           title: "ACLU: Massive Racial Disparities in Drug Enforcement",
           description:
-            "The ACLU found that Black Americans are 3.73 times more likely to be arrested for marijuana possession than white Americans, despite roughly equal usage rates. In some counties, the disparity exceeds 10:1. These arrests create criminal records that reduce lifetime earnings by an estimated 40%.",
+            "The ACLU found that Black Americans are 3.64 times more likely to be arrested for marijuana possession than white Americans, despite roughly equal usage rates. In some counties, the disparity exceeds 10:1. These arrests create criminal records that depress employment and lifetime earnings.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -128,31 +137,37 @@ export const drugDecriminalizationData = {
             replicability: 8,
             directness: 7,
           },
-          source: "ACLU, 'A Tale of Two Countries' Report",
+          source:
+            "ACLU, 'A Tale of Two Countries: Racially Targeted Arrests in the Era of Marijuana Reform' (2020), using FBI Uniform Crime Report data",
+          sourceUrl:
+            "https://www.aclu.org/report/tale-two-countries-racially-targeted-arrests-era-marijuana-reform",
           reasoning:
-            "Advocacy organization but using FBI Uniform Crime Report data. Findings independently replicated by multiple researchers. Directness is good — racial disparities are a core harm of criminalization.",
+            "Advocacy organization but using FBI Uniform Crime Report data; the 3.64x national figure is the report's headline (an earlier draft of this item said 3.73x). The '40% lifetime earnings' claim was removed as it could not be sourced to the report. Findings independently replicable from public arrest data. Directness is good — racial disparities are a core harm of criminalization.",
         },
         {
           id: "cato-portugal-analysis",
           title: "Cato Institute: Portugal's Decriminalization a Success",
           description:
-            "The libertarian Cato Institute's analysis found that Portugal's decriminalization led to reduced drug use among 15-24 year olds, decreased HIV/AIDS cases, reduced burden on the criminal justice system, and no explosion in drug tourism or usage as critics predicted.",
+            "The libertarian Cato Institute's analysis concluded that Portugal's decriminalization had no adverse effect on usage rates, with declining prevalence among the youngest cohorts (13-18), dramatically decreased drug-related pathologies including HIV/AIDS, a reduced criminal-justice burden, and none of the predicted 'drug tourism' or usage explosion.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
+            sourceReliability: 6,
+            independence: 6,
             replicability: 5,
             directness: 8,
           },
-          source: "Cato Institute, Glenn Greenwald",
+          source:
+            "Cato Institute white paper: Glenn Greenwald, 'Drug Decriminalization in Portugal: Lessons for Creating Fair and Successful Drug Policies' (2009)",
+          sourceUrl:
+            "https://www.cato.org/publications/white-paper/drug-decriminalization-portugal-lessons-creating-fair-successful-drug-policies",
           reasoning:
-            "Ideologically diverse source (libertarian think tank) lending cross-spectrum credibility. Portugal-specific findings may not fully generalize.",
+            "Ideologically diverse source (libertarian think tank) lending cross-spectrum credibility, though Greenwald was a decriminalization advocate, so independence is moderate. The paper actually found prevalence declines among 13-18 year olds and slight increases for some older cohorts — the prior 'reduced use among 15-24' wording was corrected. Portugal-specific findings may not fully generalize.",
         },
         {
           id: "drug-court-effectiveness",
           title: "Drug Courts Reduce Recidivism by 8-14 Percentage Points",
           description:
-            "Meta-analyses show drug courts reduce recidivism by 8-14 percentage points compared to traditional prosecution. Participants are less likely to reoffend and more likely to maintain employment. However, drug courts serve only ~5% of the eligible population due to resource constraints.",
+            "Meta-analyses show drug courts reduce recidivism on average by roughly 8-14 percentage points compared to traditional prosecution (mean effect ~12 points), with participants less likely to reoffend. However, drug courts reach only a small share of eligible drug-involved people due to resource constraints.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -160,25 +175,29 @@ export const drugDecriminalizationData = {
             replicability: 7,
             directness: 7,
           },
-          source: "National Association of Drug Court Professionals, RAND Corporation",
+          source:
+            "Marlowe, 'Research Update on Adult Drug Courts' (NADCP, 2010); Mitchell et al., 'Assessing the Effectiveness of Drug Courts on Recidivism' meta-analysis (J. Criminal Justice, 2012)",
+          sourceUrl: "https://www.antoniocasella.eu/archila/Marlowe_drug_courts_2010.pdf",
           reasoning:
-            "Strong evidence that criminal justice-linked treatment can work, supporting the case for maintaining criminal entry points. Limited by small scale and selection bias (motivated participants).",
+            "Strong evidence that criminal-justice-linked treatment can work, supporting the case for maintaining criminal entry points. The '~5% of eligible' figure was softened to a qualitative 'small share' as it could not be pinned to a single authoritative source. Limited by selection bias (motivated participants).",
         },
         {
           id: "incarceration-cost-data",
-          title: "Drug Incarceration Costs $80B+ Annually with Poor Outcomes",
+          title: "Mass Incarceration Is Costly, and Drug Offenses Drive a Large Share",
           description:
-            "The US spends approximately $182 billion annually on the criminal justice system, with drug offenses accounting for roughly 45% of federal prisoners. The average cost of incarcerating one person exceeds $35,000/year. Recidivism rates for drug offenders exceed 75% within five years.",
+            "The US spends roughly $182 billion annually on the broader criminal-justice system (Prison Policy Initiative estimate). Drug offenders made up about 47% of the federal prison population in 2018 (a smaller share of state prisoners). The Vera Institute finds the average cost of incarcerating one person exceeds $30,000/year, rising above $100,000 in some states. Recidivism among released prisoners is high across offense types.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 8,
-            replicability: 8,
-            directness: 6,
+            replicability: 7,
+            directness: 5,
           },
-          source: "Bureau of Justice Statistics, Vera Institute of Justice",
+          source:
+            "Prison Policy Initiative ($182B system-cost estimate); Bureau of Justice Statistics (federal drug-offender share); Vera Institute of Justice (per-person cost)",
+          sourceUrl: "https://www.prisonpolicy.org/research/economics_of_incarceration/",
           reasoning:
-            "Highly reliable government data on costs. Directness moderate — high costs and recidivism suggest failure, but don't prove decriminalization would be better.",
+            "Reliable cost data, but the figures were reconciled: the $182B is the whole criminal-justice system (not drug enforcement alone), and 47% is the federal — not overall — drug-offender share, so the prior '$80B+ drug incarceration' title and '45% of federal prisoners' phrasing overstated the link. Directness lowered to 5 — high costs and recidivism suggest the status quo is failing but don't prove decriminalization would do better.",
         },
       ],
     },

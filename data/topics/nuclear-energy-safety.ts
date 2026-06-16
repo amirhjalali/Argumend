@@ -35,24 +35,27 @@ export const nuclearEnergySafetyData = {
       evidence: [
         {
           id: "deaths-comparison",
-          title: "Nuclear Safest Energy Per TWh",
+          title: "Nuclear Among Safest Energy Per TWh",
           description:
-            "Nuclear: 0.03 deaths/TWh. Coal: 24.6. Oil: 18.4. Gas: 2.8. Wind: 0.04. Solar: 0.05.",
+            "Deaths per TWh (accidents + air pollution): Coal 24.6, Oil 18.4, Gas 2.8, Nuclear 0.03, Wind 0.04, Solar 0.02. Nuclear is comparable to wind and solar and ~800x safer than coal.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 9,
-            directness: 10,
+            replicability: 8,
+            directness: 9,
           },
-          source: "Our World in Data, Markandya & Wilkinson",
-          reasoning: "Peer-reviewed meta-analysis with transparent methodology.",
+          source:
+            "Our World in Data (Ritchie 2020, updated 2022); fossil-fuel rates from Markandya & Wilkinson, Lancet 2007; wind/solar from Sovacool et al. 2016",
+          sourceUrl: "https://ourworldindata.org/safest-sources-of-energy",
+          reasoning:
+            "Aggregates a peer-reviewed Lancet study (fossil fuels) and a published accident database (renewables) with transparent methodology. OWID's headline nuclear figure is 0.03/TWh (Markandya & Wilkinson basis); an alternate OWID estimate that loads all Chernobyl/Fukushima tolls onto generation gives 0.07/TWh — still in the renewables range.",
         },
         {
           id: "fukushima-deaths",
-          title: "Fukushima Radiation: ~1 Direct Death",
+          title: "Fukushima Radiation: ~1 Attributed Death",
           description:
-            "WHO estimates zero acute deaths and minimal long-term cancer increase from Fukushima radiation.",
+            "UNSCEAR found no acute radiation deaths and no observable increase in cancer attributable to radiation; one worker death was later officially attributed to radiation exposure. By contrast, roughly 2,200 deaths are attributed to the evacuation itself.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -60,28 +63,37 @@ export const nuclearEnergySafetyData = {
             replicability: 7,
             directness: 8,
           },
-          source: "WHO, UNSCEAR",
-          reasoning: "Authoritative international assessment.",
+          source:
+            "UNSCEAR 2020/2021 Report, Annex B (Fukushima); WHO 2013 health risk assessment",
+          sourceUrl:
+            "https://www.unscear.org/unscear/en/publications/2020_2021_2.html",
+          reasoning:
+            "Authoritative international assessment. UNSCEAR concludes no discernible radiation-attributable cancer increase is expected; the ~2,200 evacuation-related deaths are a real toll but are not radiation deaths.",
         },
         {
           id: "chernobyl-deaths",
           title: "Chernobyl Caused Thousands of Deaths",
           description:
-            "WHO estimates 4,000 eventual cancer deaths from Chernobyl; some estimates reach 60,000.",
+            "The WHO-led Chernobyl Forum (2006) projected up to ~4,000 eventual cancer deaths among the most-exposed groups; less conservative models (e.g. TORCH) project tens of thousands across the wider European population, but these are contested.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 8,
             independence: 7,
             replicability: 5,
-            directness: 7,
+            directness: 6,
           },
-          reasoning: "Worst-case historical disaster; estimates vary widely.",
+          source:
+            "WHO / IAEA Chernobyl Forum, 'Chernobyl's Legacy' (2006); higher estimates from the TORCH report (2006)",
+          sourceUrl:
+            "https://www.iaea.org/sites/default/files/chernobyl.pdf",
+          reasoning:
+            "Worst-case historical disaster. The ~4,000 figure is the WHO/IAEA consensus for the most-exposed cohort; far higher numbers come from collective-dose extrapolations that the Forum itself treats as highly uncertain.",
         },
         {
           id: "waste-storage",
           title: "Waste Remains Dangerous for Millennia",
           description:
-            "High-level nuclear waste requires secure storage for 10,000+ years.",
+            "High-level nuclear waste stays hazardous for thousands of years; US regulators set repository isolation standards out to 10,000 years (with peak-dose analysis to 1,000,000 years).",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -89,7 +101,12 @@ export const nuclearEnergySafetyData = {
             replicability: 8,
             directness: 6,
           },
-          reasoning: "Real challenge, though volume is small and contained.",
+          source:
+            "US NRC, 'Backgrounder on Radioactive Waste'; US EPA 40 CFR Part 197 repository standards",
+          sourceUrl:
+            "https://www.nrc.gov/reading-rm/doc-collections/fact-sheets/radwaste.html",
+          reasoning:
+            "Real challenge, though the annual volume is small and the waste is contained; long-lived radiotoxicity is why deep geological disposal is required.",
         },
       ],
     },
@@ -120,24 +137,28 @@ export const nuclearEnergySafetyData = {
       evidence: [
         {
           id: "france-decarbonization",
-          title: "France Decarbonized Fastest",
+          title: "France Decarbonized Its Grid Rapidly via Nuclear",
           description:
-            "France went from 0 to 75% nuclear in 15 years, achieving 50 gCO₂/kWh (vs. Germany's 350).",
+            "Following the 1974 Messmer plan, France reached ~70-75% nuclear electricity within about 15 years and now has one of the lowest grid carbon intensities in Europe (~55-85 gCO₂/kWh vs. Germany's ~350-400).",
           side: "for" as const,
           weight: {
-            sourceReliability: 10,
-            independence: 10,
+            sourceReliability: 9,
+            independence: 9,
             replicability: 7,
-            directness: 9,
+            directness: 8,
           },
-          source: "IEA, Our World in Data",
-          reasoning: "Historical fact demonstrating speed and effectiveness.",
+          source:
+            "Our World in Data, 'Carbon intensity of electricity' (Ember / Energy Institute data)",
+          sourceUrl:
+            "https://ourworldindata.org/grapher/carbon-intensity-electricity",
+          reasoning:
+            "Historical fact demonstrating speed and effectiveness. Exact gCO₂/kWh values vary by year; France is consistently several times cleaner than Germany.",
         },
         {
           id: "capacity-factor",
-          title: "Nuclear 93% Capacity Factor",
+          title: "Nuclear ~93% Capacity Factor",
           description:
-            "US nuclear plants operate at 93% capacity factor vs. 25% solar, 35% wind.",
+            "US nuclear plants run at ~93% annual capacity factor vs. ~33% for wind and ~23% for utility-scale solar (EIA, 2021-2023).",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -145,28 +166,36 @@ export const nuclearEnergySafetyData = {
             replicability: 10,
             directness: 8,
           },
-          source: "EIA",
-          reasoning: "Higher reliability means fewer backup requirements.",
+          source:
+            "US EIA, Electric Power Monthly, Table 6.07.B (capacity factors)",
+          sourceUrl: "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_b",
+          reasoning:
+            "Official US generation data. Higher capacity factor means more energy per unit of nameplate capacity and fewer backup/storage requirements.",
         },
         {
           id: "cost-overruns",
           title: "New Nuclear Has Massive Cost Overruns",
           description:
-            "Vogtle 3&4 came in at $35B, more than double original estimate. Hinkley Point C similar.",
+            "Vogtle Units 3 & 4 finished at roughly $35B+ (more than double the ~$14B original estimate) and ~7 years late. The UK's Hinkley Point C has seen comparable schedule slips and large budget increases.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 9,
+            independence: 8,
             replicability: 8,
             directness: 7,
           },
-          reasoning: "Recent Western projects have serious cost issues.",
+          source:
+            "Southern Company / Georgia Power filings; summarized in Wikipedia 'Vogtle Electric Generating Plant' and contemporaneous reporting (AP, Reuters)",
+          sourceUrl:
+            "https://en.wikipedia.org/wiki/Vogtle_Electric_Generating_Plant",
+          reasoning:
+            "Recent Western first-of-a-kind projects have serious cost and schedule problems; this is a genuine weakness for new-build nuclear.",
         },
         {
           id: "renewable-costs",
-          title: "Solar/Wind Now Cheapest",
+          title: "Solar/Wind Have Lower Standalone LCOE",
           description:
-            "Levelized cost of solar ($30/MWh) and wind ($40/MWh) now below nuclear ($150-200/MWh).",
+            "Lazard's unsubsidized levelized cost (LCOE) for utility solar (~$30-60/MWh) and onshore wind (~$30-75/MWh) sits well below new nuclear (~$140-220/MWh).",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -174,9 +203,10 @@ export const nuclearEnergySafetyData = {
             replicability: 8,
             directness: 6,
           },
-          source: "Lazard LCOE Analysis",
+          source: "Lazard, Levelized Cost of Energy+ (latest annual edition)",
+          sourceUrl: "https://www.lazard.com/research-insights/levelized-cost-of-energyplus/",
           reasoning:
-            "Cost comparison excludes storage/integration costs for renewables.",
+            "Standalone LCOE favors solar/wind, but this metric excludes the storage, firming, and grid-integration costs needed to make intermittent sources deliver firm power comparable to nuclear.",
         },
       ],
     },

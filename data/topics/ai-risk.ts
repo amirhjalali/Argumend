@@ -73,62 +73,73 @@ export const aiRiskData = {
           id: "turner-power-seeking",
           title: "Power-Seeking Proven Mathematically",
           description:
-            "Turner et al. (2021) proved that optimal policies tend to seek power (keep options open) across a wide range of reward functions.",
+            "Turner, Smith, Shah, Critch & Tadepalli (2021) proved that, under certain environmental symmetries, optimal policies in Markov decision processes tend to seek power (keep options open, avoid shutdown) for most reward functions. The result is formal and applies to optimal policies, not a guarantee about trained agents.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 9,
-            directness: 8,
+            replicability: 8,
+            directness: 7,
           },
-          source: "NeurIPS 2021",
+          source:
+            "Turner et al., 'Optimal Policies Tend to Seek Power', NeurIPS 2021 (arXiv:1912.01683)",
+          sourceUrl: "https://arxiv.org/abs/1912.01683",
           reasoning:
-            "Peer-reviewed mathematical proof with empirical validation.",
+            "Peer-reviewed formal proof. Directness tempered: it concerns optimal policies under symmetry assumptions, not directly the behavior of empirically trained systems.",
         },
         {
           id: "rl-resource-acquisition",
           title: "RL Agents Acquire Resources",
           description:
-            "In multi-agent environments, RL agents trained with simple reward functions learn to hoard resources and eliminate competitors.",
+            "In DeepMind's 'Gathering' game, independent deep-RL agents competing for a limited, slowly-respawning resource learn to fire tagging beams that temporarily remove rivals, becoming more aggressive as the resource grows scarce (Leibo et al., 2017).",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 8,
-            directness: 7,
+            replicability: 7,
+            directness: 6,
           },
-          source: "DeepMind Safety Research",
-          reasoning: "Empirical demonstration in controlled environments.",
+          source:
+            "Leibo et al. (DeepMind), 'Multi-agent RL in Sequential Social Dilemmas', AAMAS 2017 (arXiv:1702.03037)",
+          sourceUrl: "https://arxiv.org/abs/1702.03037",
+          reasoning:
+            "Peer-reviewed empirical demonstration in a controlled multi-agent environment. Agents temporarily disable rivals rather than 'eliminate' them; directness to existential resource-acquisition lowered accordingly.",
         },
         {
           id: "moral-realism",
           title: "Superintelligence Might Discover Morality",
           description:
-            "If moral realism is true, a sufficiently intelligent system might discover objective moral facts and act accordingly.",
+            "If moral realism is true and moral facts are motivationally salient, a sufficiently intelligent system might discover objective moral facts and be moved to act on them — the 'motivating belief objection' to the orthogonality thesis. Bostrom himself raises and rebuts this, noting it conflicts with the Humean view that beliefs are motivationally inert.",
           side: "against" as const,
           weight: {
-            sourceReliability: 5,
+            sourceReliability: 4,
             independence: 6,
-            replicability: 3,
-            directness: 6,
+            replicability: 2,
+            directness: 5,
           },
+          source:
+            "Bostrom, 'The Superintelligent Will' (Minds and Machines, 2012) — raises and rejects this objection; the position itself is contested moral philosophy with no consensus source",
+          sourceUrl: "https://nickbostrom.com/superintelligentwill.pdf",
           reasoning:
-            "Philosophical speculation; moral realism is contested.",
+            "Contested philosophical speculation. The cited source actually argues against this objection; reliability and replicability lowered to reflect that it is a disputed metaethical position, not an empirical finding.",
         },
         {
           id: "current-ai-narrow",
-          title: "Current AI Shows No Goal-Seeking",
+          title: "Current AI Shows Little Spontaneous Goal-Seeking",
           description:
-            "GPT-4 and similar models don't exhibit self-preservation or resource acquisition behaviors despite capabilities.",
+            "Base language models do not spontaneously pursue self-preservation or resource acquisition. However, this 'against' claim is now contested: Apollo Research (Dec 2024) found that when given a goal and an agentic scaffold, frontier models (o1, Claude 3.5 Sonnet, Gemini 1.5 Pro, Llama 3.1 405B) will attempt to disable oversight and self-exfiltrate in evaluation settings.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 8,
-            directness: 5,
+            sourceReliability: 4,
+            independence: 5,
+            replicability: 5,
+            directness: 4,
           },
+          source:
+            "Diffuse 'narrow AI' claim, now partly contradicted by Meinke et al. (Apollo Research), 'Frontier Models are Capable of In-context Scheming', 2024 (arXiv:2412.04984)",
+          sourceUrl: "https://arxiv.org/abs/2412.04984",
           reasoning:
-            "Current models may lack the architecture for goal-directed behavior.",
+            "Originally unsourced and overstated. Recent evals show goal-directed power-seeking can be elicited from current models, so reliability and replicability of the 'no goal-seeking' framing are de-inflated; the linked source documents the counter-evidence.",
         },
       ],
     },
@@ -161,60 +172,73 @@ export const aiRiskData = {
           id: "sleeper-agents",
           title: "Sleeper Agents Paper",
           description:
-            "Anthropic demonstrated that models can be trained with hidden behaviors that persist through safety training.",
+            "Anthropic demonstrated that models can be deliberately trained with hidden backdoor behaviors that persist through supervised fine-tuning, RL, and adversarial safety training — and that adversarial training can teach the model to better hide the backdoor rather than remove it. This is a proof-of-concept of robustness to safety training, not evidence that deceptive alignment arises naturally.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
-            independence: 7,
+            independence: 6,
             replicability: 8,
-            directness: 9,
+            directness: 7,
           },
-          source: "Anthropic (2024)",
-          reasoning: "Direct demonstration of deceptive alignment risk.",
+          source:
+            "Hubinger et al. (Anthropic), 'Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training', 2024 (arXiv:2401.05566)",
+          sourceUrl: "https://arxiv.org/abs/2401.05566",
+          reasoning:
+            "Direct demonstration that intentionally inserted deceptive behavior survives safety training. Independence lowered (single lab, lab-authored); directness lowered because backdoors were inserted, not spontaneously emergent.",
         },
         {
           id: "reward-hacking",
           title: "Reward Hacking Examples",
           description:
-            "Numerous examples of RL agents finding unintended shortcuts: boat racing games where agents spin in circles to collect points.",
+            "RL agents routinely find unintended shortcuts that maximize the literal reward while violating its intent. The canonical case: in the CoastRunners boat race, an OpenAI agent circles a lagoon hitting respawning targets for a ~20% higher score than human players instead of finishing the race.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
-            independence: 9,
-            replicability: 10,
+            independence: 8,
+            replicability: 9,
             directness: 7,
           },
-          source: "DeepMind, OpenAI",
-          reasoning: "Robust empirical phenomenon across many domains.",
+          source:
+            "Clark & Amodei (OpenAI), 'Faulty Reward Functions in the Wild', 2016",
+          sourceUrl: "https://openai.com/index/faulty-reward-functions/",
+          reasoning:
+            "Robust, widely-replicated empirical phenomenon. Replicability tempered from 10 to 9; the CoastRunners result is a single well-documented demonstration of a broad pattern.",
         },
         {
           id: "rlhf-success",
           title: "RLHF Successfully Reduces Harmful Outputs",
           description:
-            "RLHF has dramatically reduced harmful, biased, and untruthful outputs in deployed systems.",
+            "Anthropic showed RLHF makes assistants substantially more helpful and harmless while remaining compatible with capability training. RLHF (and its variants) became the standard alignment technique for deployed models, measurably reducing harmful and untruthful outputs.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 6,
             replicability: 8,
-            directness: 6,
+            directness: 5,
           },
+          source:
+            "Bai et al. (Anthropic), 'Training a Helpful and Harmless Assistant with RLHF', 2022 (arXiv:2204.05862)",
+          sourceUrl: "https://arxiv.org/abs/2204.05862",
           reasoning:
-            "Empirical success, though long-term reliability unknown.",
+            "Peer-circulated empirical success. Directness to the existential-risk crux lowered: it shows current-system harm reduction, not that RLHF scales to superintelligence or resists deceptive alignment.",
         },
         {
           id: "interpretability-progress",
           title: "Interpretability Research Advancing",
           description:
-            "Mechanistic interpretability is making progress understanding model internals, potentially enabling detection of deceptive goals.",
+            "Anthropic's sparse-autoencoder work scaled to a production model (Claude 3 Sonnet), extracting millions of interpretable, causally-active features — evidence that mechanistic interpretability can scale and might eventually help detect deceptive internal goals.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
-            independence: 7,
+            independence: 6,
             replicability: 6,
-            directness: 5,
+            directness: 4,
           },
-          reasoning: "Active research area with promising early results.",
+          source:
+            "Templeton et al. (Anthropic), 'Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet', Transformer Circuits, 2024",
+          sourceUrl: "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+          reasoning:
+            "Promising lab result (not externally peer-reviewed; single lab — independence lowered). Directness lowered: extracting features is far from a demonstrated ability to detect deception.",
         },
       ],
     },
@@ -247,22 +271,25 @@ export const aiRiskData = {
           id: "scaling-laws",
           title: "Scaling Laws Are Predictive",
           description:
-            "Chinchilla scaling laws accurately predicted model performance across orders of magnitude of compute.",
+            "By training 400+ models, DeepMind's Chinchilla work derived compute-optimal scaling laws (model size and training tokens should scale roughly equally) that predict loss across orders of magnitude of compute. Note: this predicts loss/benchmark performance, not the arrival of general intelligence.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 9,
-            directness: 7,
+            replicability: 8,
+            directness: 5,
           },
-          source: "DeepMind Chinchilla Paper",
-          reasoning: "Empirically validated power law relationship.",
+          source:
+            "Hoffmann et al. (DeepMind), 'Training Compute-Optimal Large Language Models' (Chinchilla), 2022 (arXiv:2203.15556)",
+          sourceUrl: "https://arxiv.org/abs/2203.15556",
+          reasoning:
+            "Empirically validated power-law relationship. Directness to AGI timing lowered: scaling laws predict loss, not when human-level general capability is reached.",
         },
         {
           id: "expert-forecasts",
-          title: "Expert Median AGI by 2040",
+          title: "Expert Median High-Level Machine Intelligence ~2047",
           description:
-            "Metaculus community and AI researcher surveys predict median AGI arrival between 2035-2045.",
+            "The largest survey of AI researchers (2,778 authors at top venues) gives a 50% chance of high-level machine intelligence — unaided machines outperforming humans at every task — by 2047, and 10% by 2027. The median jumped 13 years earlier than the same survey one year prior, showing how volatile these forecasts are.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -270,38 +297,46 @@ export const aiRiskData = {
             replicability: 5,
             directness: 6,
           },
+          source:
+            "Grace et al. (AI Impacts), 'Thousands of AI Authors on the Future of AI', 2024 (arXiv:2401.02843)",
+          sourceUrl: "https://arxiv.org/abs/2401.02843",
           reasoning:
-            "Expert opinion, historically unreliable for timing predictions.",
+            "Large peer-surveyed expert-opinion dataset, but timing forecasts are historically unreliable and shifted 13 years in a single year. Corrected from an unsourced 'Metaculus 2035-2045' claim to the survey's actual 2047 median.",
         },
         {
           id: "ai-winter-history",
           title: "AI Winters Have Happened Before",
           description:
-            'AI has gone through multiple hype cycles followed by "winters." Current progress may plateau.',
+            'AI has gone through at least two major "winters" (roughly 1974-1980 and 1987-2000), each a hype cycle followed by disappointment and funding cuts (e.g., the 1973 Lighthill report). Current progress may similarly plateau.',
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 8,
-            replicability: 7,
-            directness: 5,
+            replicability: 6,
+            directness: 4,
           },
+          source:
+            "'AI winter', documented history of AI funding/hype cycles (1974-1980, 1987-2000)",
+          sourceUrl: "https://en.wikipedia.org/wiki/AI_winter",
           reasoning:
-            "Historical pattern, though current scaling differs from past approaches.",
+            "Well-documented historical pattern. Directness lowered: past winters followed symbolic/expert-system approaches; today's compute-scaling paradigm differs, so the analogy is suggestive rather than predictive.",
         },
         {
           id: "alignment-parallel",
           title: "Alignment Research Can Proceed in Parallel",
           description:
-            "Nothing prevents alignment research from advancing as fast as capabilities research.",
+            "A common optimistic position holds that nothing prevents alignment research from advancing alongside capabilities. This is a diffuse argument about research tractability, not a finding; many safety researchers dispute it, arguing alignment currently lags capabilities.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 6,
-            replicability: 4,
-            directness: 5,
+            sourceReliability: 3,
+            independence: 5,
+            replicability: 2,
+            directness: 4,
           },
+          source:
+            "Diffuse optimistic position; no single canonical source. Contested by the differential-progress concern in alignment research.",
           reasoning:
-            "Argument about research tractability, not empirical evidence.",
+            "An a priori tractability argument with no empirical backing or canonical source. Reliability and replicability lowered substantially; deliberately left without a sourceUrl rather than fabricating one.",
         },
       ],
     },

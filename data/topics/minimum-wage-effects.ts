@@ -35,23 +35,25 @@ export const minimumWageEffectsData = {
           id: "card-krueger-nj-study",
           title: "Card & Krueger: No Job Losses in NJ Minimum Wage Increase",
           description:
-            "David Card and Alan Krueger's 1994 landmark study compared fast-food employment in New Jersey (which raised its minimum wage from $4.25 to $5.05) to neighboring Pennsylvania. They found no reduction in employment — in fact, NJ employment slightly increased. This challenged decades of textbook economic theory.",
+            "David Card and Alan Krueger's 1994 study compared fast-food employment in New Jersey (which raised its minimum wage from $4.25 to $5.05 in April 1992) to neighboring Pennsylvania. Their telephone survey found no reduction in employment — if anything a slight relative increase in NJ. This challenged the textbook competitive-labor-market prediction. A later reanalysis using payroll records (Neumark & Wascher, 2000) disputed the result, finding a modest employment decline, so the finding remains contested.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 7,
+            replicability: 5,
             directness: 9,
           },
-          source: "Card & Krueger, American Economic Review",
+          source:
+            "Card & Krueger, American Economic Review 84(4), 1994, pp. 772–793",
+          sourceUrl: "https://www.jstor.org/stable/2118030",
           reasoning:
-            "Nobel Prize-winning research that fundamentally changed the empirical debate. Extremely influential, though it studied a modest increase from a low baseline.",
+            "Field-defining research that reshaped the empirical debate (Card later shared the 2021 Nobel). Replicability lowered to 5: it studied a modest increase from a low baseline, relied on a phone survey, and Neumark & Wascher's payroll-data reanalysis reached the opposite sign.",
         },
         {
           id: "cbo-15-minimum-analysis",
-          title: "CBO: $15 Minimum Would Cost 1.4 Million Jobs",
+          title: "CBO: $15 Minimum Would Cut 1.4 Million Jobs",
           description:
-            "The Congressional Budget Office's 2021 analysis estimated a $15 federal minimum wage by 2025 would raise wages for 17 million workers and lift 900,000 out of poverty, but would reduce employment by 1.4 million workers (a range of 0 to 2.7 million). The median estimate is a net positive but with significant displacement.",
+            "The Congressional Budget Office's February 2021 analysis of the Raise the Wage Act of 2021 (raising the federal minimum to $15 by June 2025) estimated it would directly raise wages for 17 million workers and lift 0.9 million people out of poverty, but reduce employment by 1.4 million workers (median estimate). CBO judged a two-thirds chance the employment change would fall between roughly zero and 3.7 million jobs lost.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -59,31 +61,35 @@ export const minimumWageEffectsData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Congressional Budget Office",
+          source:
+            "Congressional Budget Office, 'The Budgetary Effects of the Raise the Wage Act of 2021' (Feb. 2021)",
+          sourceUrl: "https://www.cbo.gov/publication/56975",
           reasoning:
-            "Nonpartisan, authoritative source. The wide confidence interval (0 to 2.7M) reflects genuine uncertainty in the evidence base.",
+            "Nonpartisan, authoritative source. The wide two-thirds range (≈0 to 3.7M) reflects genuine uncertainty; critics argue CBO underweighted recent low-elasticity studies.",
         },
         {
           id: "seattle-minimum-wage-study",
-          title: "Seattle $15 Minimum: Mixed but Mostly Positive Results",
+          title: "Seattle UW Study: $13 Minimum Cut Hours and Net Earnings",
           description:
-            "The University of Washington's multi-year study of Seattle's $15 minimum wage found hours worked decreased slightly for low-wage workers, but total earnings increased. Workers earning under $19/hour saw a net wage gain of $8-$12/week. Some workers lost employment, but most benefited.",
-          side: "for" as const,
+            "The University of Washington team's NBER study of Seattle's minimum wage, using administrative payroll data, found the second step (to $13 in 2016) raised hourly wages in low-wage jobs by ~3% but cut hours worked in those jobs by ~6–9%. Because hours fell more than wages rose, total payroll to low-wage jobs declined, implying an average net loss of roughly $125 per month for affected workers. A competing UC Berkeley study (Reich et al.) that looked only at food-service workers found pay gains and no job loss, so the Seattle evidence is genuinely disputed.",
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
+            replicability: 6,
             directness: 9,
           },
-          source: "University of Washington, NBER Working Paper",
+          source:
+            "Jardim, Long, Plotnick, van Inwegen, Vigdor & Wething, NBER Working Paper 23532 (2017)",
+          sourceUrl: "https://www.nber.org/papers/w23532",
           reasoning:
-            "The most comprehensive study of a high minimum wage increase. Results are nuanced — some negative effects but net positive for most workers.",
+            "One of the most detailed studies of a high minimum wage, using individual hours data. Its headline finding cut against the proponent case; the dueling Berkeley result (different sample, restaurants only) is why replicability is set to 6.",
         },
         {
-          id: "dube-border-county-analysis",
-          title: "Dube et al.: Border County Analysis Shows Minimal Job Losses",
+          id: "cengiz-dube-bunching-analysis",
+          title: "Cengiz et al.: Minimum Wage Hikes Don't Shrink Low-Wage Jobs",
           description:
-            "Arindrajit Dube and colleagues compared employment in all contiguous county pairs straddling state borders with different minimum wages. Across hundreds of natural experiments, they found minimum wage increases raised wages without detectable employment losses in the restaurant and retail sectors.",
+            "Cengiz, Dube, Lindner & Zipperer studied 138 state-level minimum wage increases (1979–2016) with a bunching estimator: they counted jobs lost just below the new minimum and jobs gained at or just above it. The number of jobs paying below the new minimum fell sharply, but an almost equal number appeared just above it, so the total count of low-wage jobs was essentially unchanged for five years after each increase. The implied employment elasticity was near zero.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -91,9 +97,12 @@ export const minimumWageEffectsData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Dube, Lester & Reich, Review of Economics and Statistics",
+          source:
+            "Cengiz, Dube, Lindner & Zipperer, Quarterly Journal of Economics 134(3), 2019, pp. 1405–1454",
+          sourceUrl:
+            "https://academic.oup.com/qje/article-abstract/134/3/1405/5484905",
           reasoning:
-            "Methodologically innovative and widely replicated. The border-county design controls for regional economic conditions better than previous methods.",
+            "Methodologically influential, peer-reviewed in a top-five journal, and based on a large sample of policy changes. The bunching design directly measures where jobs go, though it covers historically modest increases, not $15-from-$7.25 jumps.",
         },
       ],
     },
@@ -122,67 +131,78 @@ export const minimumWageEffectsData = {
       evidence: [
         {
           id: "bls-wage-distribution",
-          title: "BLS: 42 Million Workers Earn Under $15/Hour",
+          title: "Tens of Millions Earn Below $15/Hour",
           description:
-            "Bureau of Labor Statistics data shows that while only 1.1% of workers earn exactly the federal minimum of $7.25, approximately 30% of the US workforce — 42 million people — earn less than $15/hour. This includes 55% of Black workers and 60% of Hispanic workers under 25.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "Bureau of Labor Statistics",
-          reasoning:
-            "Authoritative government data that reframes the debate from the narrow '1.1%' figure to the much larger population earning below proposed minimums.",
-        },
-        {
-          id: "productivity-wage-divergence",
-          title: "Worker Productivity Has Outpaced Wages Since 1968",
-          description:
-            "Economic Policy Institute data shows worker productivity grew 64.6% from 1979 to 2019, while hourly compensation grew only 17.5%. If the minimum wage had tracked productivity since 1968, it would exceed $24/hour today. The divergence represents a massive transfer of value from workers to owners and shareholders.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
-            directness: 6,
-          },
-          source: "Economic Policy Institute",
-          reasoning:
-            "Well-documented macroeconomic trend. EPI leans progressive, but the productivity-wage divergence is confirmed by BLS data. Directness is limited because the moral argument doesn't prove $15 is the right number.",
-        },
-        {
-          id: "australia-high-minimum-wage",
-          title: "Australia's $23/Hour Minimum Hasn't Caused Economic Collapse",
-          description:
-            "Australia's national minimum wage of AUD $23.23/hour (~$15.50 USD) is the world's highest. Australia's unemployment rate (3.7%) is comparable to the US (3.7%). Its restaurant and retail sectors function normally. This suggests high minimum wages are compatible with a healthy economy.",
+            "BLS reports that in 2019 only about 1.9% of hourly workers (1.6 million people) were paid at or below the federal minimum of $7.25. But far more earn below $15: an Oxfam America analysis estimated roughly 32% of the US workforce — about 52 million workers — made under $15/hour, including about 47% of Black workers and 46% of Hispanic workers. The narrow '~2% at the minimum' figure understates how many workers a $15 floor would reach.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 5,
-            directness: 6,
+            replicability: 8,
+            directness: 7,
           },
-          source: "Fair Work Commission (Australia), OECD",
+          source:
+            "BLS, 'Characteristics of Minimum Wage Workers, 2019'; Oxfam America, 'The Crisis of Low Wages in the US' (2022)",
+          sourceUrl:
+            "https://www.bls.gov/opub/reports/minimum-wage/2019/home.htm",
           reasoning:
-            "Compelling international comparison, but replicability is limited by significant structural differences between the Australian and US economies (universal healthcare, different labor market institutions).",
+            "BLS supplies the authoritative at-the-minimum count; the much larger 'under $15' headcount and demographic breakdown are Oxfam's broader estimate (it includes tipped, gig and farm workers), so reliability and directness are trimmed and the source is attributed honestly.",
+        },
+        {
+          id: "productivity-wage-divergence",
+          title: "Worker Productivity Has Outpaced Pay Since 1979",
+          description:
+            "Economic Policy Institute analysis of BLS and BEA data finds that from 1979 to 2019 net productivity grew about 59.7% while the typical worker's hourly compensation grew only about 15.8% — productivity rising roughly 3.5 times as fast as pay. EPI also argues that had the minimum wage tracked productivity growth since the late 1960s it would be far above today's $7.25. The divergence is presented as a transfer of value from workers to owners.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "Economic Policy Institute, 'The Productivity–Pay Gap' (updated through 2019)",
+          sourceUrl: "https://www.epi.org/productivity-pay-gap/",
+          reasoning:
+            "The productivity–pay gap is real and rests on government data, but EPI is an advocacy think tank and the exact gap depends on which deflators and compensation measures are used. Directness is low: the gap is a normative/macro argument and does not establish that $15 is the right level or that it avoids job loss.",
+        },
+        {
+          id: "australia-high-minimum-wage",
+          title: "Australia's High Minimum Hasn't Caused Economic Collapse",
+          description:
+            "Australia's Fair Work Commission set the national minimum wage at AUD $23.23/hour (about $15–16 USD) from 1 July 2023 — among the highest in the world — and it has risen further since. Around that time Australia's unemployment rate (~3.7%) was comparable to the US, and its restaurant and retail sectors operated normally. Proponents argue this shows a high minimum wage is compatible with a healthy economy.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 4,
+            directness: 5,
+          },
+          source:
+            "Fair Work Commission (Australia), National Minimum Wage Order 2023; OECD/ABS labour-force data",
+          sourceUrl:
+            "https://www.fwc.gov.au/hearings-decisions/major-cases/annual-wage-reviews/annual-wage-review-2022-23/national-minimum-wage",
+          reasoning:
+            "A real, verifiable comparison, but it is a single-country anecdote: structural differences (universal healthcare, centralized award wages, different industry mix, exchange-rate sensitivity of the USD figure) limit how much it transfers to the US, so replicability and directness are low.",
         },
         {
           id: "eitc-comparison-effectiveness",
           title: "EITC Is a More Targeted Poverty Reduction Tool",
           description:
-            "The Earned Income Tax Credit lifts 5.6 million people out of poverty annually, making it the largest anti-poverty program for working families. Unlike the minimum wage, the EITC targets benefits to families with children based on income, avoids employer cost increases, and incentivizes labor force participation. Studies show the EITC has higher poverty reduction per dollar than minimum wage increases.",
+            "Per the Center on Budget and Policy Priorities, the Earned Income Tax Credit lifted about 5.6 million people out of poverty in 2018, including roughly 3 million children, making it one of the largest anti-poverty programs for working families. Unlike the minimum wage, the EITC targets benefits by family income and size, places no cost on employers, and rewards work. Some economists argue it reduces poverty more efficiently per dollar than a minimum wage hike, though the two policies are complements, not substitutes.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 8,
+            independence: 7,
             replicability: 7,
-            directness: 8,
+            directness: 7,
           },
-          source: "Center on Budget and Policy Priorities, IRS data",
+          source:
+            "Center on Budget and Policy Priorities, 'Policy Basics: The Earned Income Tax Credit' (2018 data)",
+          sourceUrl:
+            "https://www.cbpp.org/research/policy-basics-the-earned-income-tax-credit",
           reasoning:
-            "Strong evidence that the EITC is more efficient at targeting poverty. However, the EITC and minimum wage are not mutually exclusive — many economists advocate for both.",
+            "Well-documented that the EITC targets poverty efficiently. CBPP is a left-of-center think tank but the figure derives from Census/IRS data. Directness trimmed: the EITC and minimum wage are not mutually exclusive — many economists favor both.",
         },
       ],
     },
