@@ -1107,7 +1107,7 @@
   {
     "id": "simulation-hypothesis",
     "title": "The Simulation Hypothesis",
-    "meta_claim": "We are almost certainly living in a computer simulation run by a post-human civilization.",
+    "meta_claim": "Bostrom's simulation argument shows that at least one of three propositions holds: near-universal extinction before a post-human stage, near-universal disinterest in running ancestor-simulations, or our almost certainly living in one. Whether the third disjunct in particular is true, and whether the claim is even testable, remains contested.",
     "confidence_score": 51,
     "status": "contested",
     "category": "philosophy",
@@ -1133,7 +1133,7 @@
   {
     "id": "minneapolis-shooting",
     "title": "Minneapolis ICE Shooting",
-    "meta_claim": "Federal agents acted with excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026.",
+    "meta_claim": "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account.",
     "confidence_score": 85,
     "status": "contested",
     "category": "philosophy",

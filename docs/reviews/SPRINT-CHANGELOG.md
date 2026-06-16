@@ -247,3 +247,37 @@ countries"→137/194; electoral-college NPVIC 209/17→222/18 (Virginia Apr-2026
 All web-verified, no fabricated cites, both sides steelmanned. Coverage held 98%. tsc clean, 207 tests.
 Swept so far: 53 maps + 5 WS3 cluster. Remaining un-swept hardened: 5 (simulation-hypothesis,
 space-colonization-feasibility, ai-content-labeling, minneapolis-shooting, meaning-without-religion).
+
+## Iteration 14 (2026-06-16) — WS2 pass 6 (FINAL): last 5 maps — PROSE SWEEP COMPLETE
+Swept the final 5: simulation-hypothesis, space-colonization-feasibility, ai-content-labeling,
+minneapolis-shooting, meaning-without-religion. Notable: simulation-hypothesis Bostrom "almost
+certainly simulated"→trilemma/disjunction + false "Auger shows no lattice" framing fixed (the
+observed dipole is extragalactic, not a lattice signature) + OpenWorm chemotaxis = future goal;
+space-colonization Starship 100-150t/2026-27-Mars framed as SpaceX projections not demonstrated +
+MOXIE rate + radiation attributed to Zeitlin/RAD + removed an unverifiable "Heliyon 2024 blueprint";
+ai-content-labeling C2PA mislabeled as a pixel watermark→cryptographic provenance + honest watermark-
+robustness framing; minneapolis-shooting (sensitive recent event) prose no longer asserts the disputed
+DHS "handgun" account as fact, quote attributions corrected (Miller vs Noem), impeachment co-sponsors
+attributed (House Democrats, 100→150+), meta_claim neutralized to the contested question; meaning-
+without-religion Zagonari overstatement fixed (it found NEITHER ethics beneficial on both happiness
+AND health — not "both beneficial") + Euthyphro "fatal to divine-command theory" softened to SEP's
+live-debate framing. All web-verified, no fabricated cites, both sides steelmanned. tsc clean, 207 tests.
+
+=== WS2 PROSE SWEEP COMPLETE ===
+Every topic that received an evidence correction in iters 1-5 has now had its NARRATIVE prose
+(proponent_rebuttal/skeptic_premise/short_summary/crux/references) checked against the corrected
+evidence and brought into line. Total prose-swept: 58 maps across passes 1-6 + 5 WS3 cluster maps.
+The remaining ~50 topics never had evidence corrections, so their prose was already consistent.
+
+=== CITATION MOAT SPRINT — FINAL STATE (2026-06-16) ===
+- **Coverage:** 56% → 98% (1,130/1,151 evidence items primary-sourced). Remaining ~2% are
+  genuinely-unsourceable normative/theoretical claims, honestly labeled + low-weighted.
+- **Corpus:** 1,151 evidence items across 114 maps; 5 launch-cluster maps upgraded to 100%.
+- **Integrity:** dozens of fabricated/inverted/mis-attributed citations corrected in BOTH evidence
+  and prose; numerous dead URLs repaired; both sides steelmanned throughout.
+- **Durability:** 95% CI coverage-ratchet test (suite = 207), /llms.txt citation-integrity section
+  (live stat), per-topic schema.org `citation` JSON-LD for AEO.
+- **Launch:** consciousness-ai-systems canonical map bulletproof (12/12); founder dossier at
+  docs/plans/2026-06-16-launch-dossier.md.
+- **Process:** ~14 iterations, each web-verified + tsc-clean + 207 tests green + pushed per batch.
+Remaining work is founder-bound distribution (docs/drafts/ — never auto-sent). SPRINT CLOSED.

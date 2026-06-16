@@ -12,12 +12,12 @@ export const spaceColonizationFeasibilityData = {
       id: "transport-technology",
       title: "Transportation Technology",
       short_summary:
-        "SpaceX's Starship can theoretically carry 100 tons to Mars. Getting humans back alive is a different problem entirely.",
+        "SpaceX projects Starship will carry 100+ tonnes to Mars, but as of 2025 it has demonstrated a booster catch, not a full orbital flight with payload deploy. Getting humans there and back alive is a harder problem still.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Even SpaceX's Starship, the most advanced heavy-lift vehicle, has not yet completed a full orbital mission profile. Mars transit takes 6-9 months with current propulsion, exposing crews to cosmic radiation at minimum 0.66 sieverts per round trip—well above safe annual limits. The cost of establishing a colony is estimated in the hundreds of billions, with no clear economic return.",
+        "Even SpaceX's Starship—the most advanced heavy-lift vehicle in development—had, as of 2025, demonstrated a Super Heavy booster catch (Flight 5, Oct 2024) but not a full orbital flight with payload deployment, and orbital propellant transfer remains undemonstrated. A conventional Mars transit takes 6-9 months, and the RAD instrument aboard the Mars Science Laboratory implies on the order of 0.66 Sv of dose-equivalent for a round trip with comparable shielding—a meaningful fraction of a career limit before any surface stay is counted. The cost of standing up a colony is plausibly in the hundreds of billions, with no demonstrated economic return to amortize it.",
       proponent_rebuttal:
-        "SpaceX has reduced launch costs by 90% in 15 years through reusable rockets. Starship is designed to carry 100+ tonnes to Mars. Research published in Scientific Reports (2025) found trajectories allowing 3-month transfers within NASA career radiation limits. SpaceX plans uncrewed Starship Mars landings by 2026-2027, with human missions targeted for 2028-2031.",
+        "Reusable rockets have already driven launch costs down by roughly an order of magnitude over the past 15 years, and Falcon 9 turned booster reuse from a stunt into routine—so the trajectory of the technology, not just one vehicle, is encouraging. Starship is designed for 100-150 tonnes to orbit (a SpaceX target, not yet flown with payload), and a peer-reviewed Scientific Reports (2025) trajectory study finds 90-104 day Earth-Mars transfers that stay within NASA's ~600 mSv career radiation limit—contingent on Starship-class performance and in-space refueling that have not yet been demonstrated. SpaceX projects uncrewed Mars landings around 2026-2027 and crewed missions later; those dates are company projections, but the engineering path to them is concrete rather than speculative.",
       crux: {
         id: "starship-mars-landing",
         title: "Successful Uncrewed Mars Landing",
@@ -96,7 +96,7 @@ export const spaceColonizationFeasibilityData = {
       skeptic_premise:
         "Every life support system tested (Biosphere 2, ISS) has required constant resupply or failed to maintain atmospheric balance. Mars soil contains toxic perchlorates. Growing food in Martian conditions has never been demonstrated at scale. A colony dependent on Earth resupply every 26 months is not self-sustaining—it is an outpost.",
       proponent_rebuttal:
-        "A 2024 comprehensive blueprint published in Heliyon details feasible approaches to Martian concrete using sulfur binders, aeroponics for food production, and algae bioreactors for oxygen generation. NASA's MOXIE experiment on Perseverance successfully produced oxygen from Martian CO₂. In-situ resource utilization reduces resupply mass by orders of magnitude.",
+        "Self-sufficiency need not be all-or-nothing: in-situ resource utilization (ISRU) reduces the mass that must be shipped from Earth by orders of magnitude, which is what makes a Mars outpost economically conceivable at all. NASA's MOXIE experiment on Perseverance proved the core chemistry end-to-end on Mars, electrolyzing oxygen from atmospheric CO₂ across 16 runs—at a peak of ~12 g/hour and ~122 g total, a deliberately small demonstrator whose process scales with power and reactor size rather than new physics. Published engineering studies sketch plausible (not yet demonstrated) approaches to the remaining pieces—sulfur-based or regolith-based construction, high-efficiency food production, and biological oxygen generation—so the open questions are scale-up and integration, not feasibility in principle.",
       crux: {
         id: "isru-demonstration",
         title: "Mars In-Situ Resource Utilization at Scale",

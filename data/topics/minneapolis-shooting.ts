@@ -4,7 +4,7 @@ export const minneapolisShootingData = {
   id: "minneapolis-shooting",
   title: "Minneapolis ICE Shooting",
   meta_claim:
-    "Federal agents acted with excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026.",
+    "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account.",
   status: "contested" as const,
   category: "philosophy" as const,
   pillars: [
@@ -12,14 +12,14 @@ export const minneapolisShootingData = {
       id: "conflicting-accounts",
       title: "Conflicting Official Accounts",
       short_summary:
-        "Video evidence contradicts the federal government's description of events.",
+        "Independently reviewed bystander video and eyewitness accounts conflict with the federal government's description of events.",
       image_url:
         "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=800&q=60",
       icon_name: "FileText" as const,
       skeptic_premise:
-        'DHS Secretary Noem stated Pretti arrived "to inflict maximum damage" and called his actions "domestic terrorism." Border Patrol Commander Bovino blamed protesters for "vilifying" agents and creating a "preventable tragedy."',
+        'DHS Secretary Noem said Pretti arrived "to inflict maximum damage on individuals and to kill law enforcement," and administration figures (including homeland security adviser Stephen Miller) branded him a "domestic terrorist" — a characterization Noem later declined to retract. Border Patrol commander Greg Bovino blamed politicians, journalists, and protesters for "vilifying" agents and called the shooting a "preventable tragedy."',
       proponent_rebuttal:
-        "Multiple independent videos and eyewitness accounts contradict the administration's description of events. Pretti was an ICU nurse at a VA hospital who was licensed to carry a concealed weapon. The DOJ and Minnesota BCA are conducting investigations.",
+        "Multiple independent video recordings and eyewitness accounts — reviewed by NPR, Reuters, BBC, the NYT, CNN, and The Guardian — contradict the administration's description, with reviewers reporting Pretti held a phone rather than a gun. Pretti was a Minneapolis VA ICU nurse; Minneapolis Police Chief Brian O'Hara said he held a valid Minnesota permit to carry and was lawfully armed. State and federal investigations are underway, though Minnesota officials say federal agents blocked state access to the scene.",
       crux: {
         id: "body-cam-review",
         title: "The Body Camera Analysis",
@@ -120,9 +120,9 @@ export const minneapolisShootingData = {
         "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=800&q=60",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "These are isolated incidents. Federal agents operate in dangerous situations and are authorized to use lethal force when threatened. Increased immigration enforcement naturally leads to more confrontations.",
+        "Two incidents do not by themselves establish a pattern, and each turned on its own contested facts. Federal agents operate in volatile crowd situations and are authorized to use force when they reasonably perceive a threat; a surge in enforcement amid large protests predictably raises the number of confrontations. Officials say body-camera footage exists and that the agents' accounts should be weighed before judgment.",
       proponent_rebuttal:
-        'Two fatal shootings of U.S. citizens in three weeks in one state suggests systemic issues with training, rules of engagement, or supervision. Governor Walz called the agents "untrained." Over 100 House members have co-sponsored an impeachment resolution against Secretary Noem.',
+        'Two fatal shootings of U.S. citizens in roughly three weeks in one state — Renée Good on January 7 and Alex Pretti on January 24, 2026 — suggest possible systemic issues with training, rules of engagement, or supervision. Governor Tim Walz said Trump should "pull these 3,000 untrained agents out of Minnesota." More than 100 House Democrats co-sponsored a resolution to impeach Secretary Noem after the shooting (the count grew past 150).',
       crux: {
         id: "training-standards",
         title: "Training and Rules of Engagement Audit",

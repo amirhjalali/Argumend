@@ -4,7 +4,7 @@ export const simulationHypothesisData = {
   id: "simulation-hypothesis",
   title: "The Simulation Hypothesis",
   meta_claim:
-    "We are almost certainly living in a computer simulation run by a post-human civilization.",
+    "Bostrom's simulation argument shows that at least one of three propositions holds: near-universal extinction before a post-human stage, near-universal disinterest in running ancestor-simulations, or our almost certainly living in one. Whether the third disjunct in particular is true, and whether the claim is even testable, remains contested.",
   status: "contested" as const,
   category: "philosophy" as const,
   imageUrl:
@@ -16,6 +16,11 @@ export const simulationHypothesisData = {
     },
     { title: "OpenWorm Project", url: "https://openworm.org/" },
     { title: "Pierre Auger Observatory", url: "https://www.auger.org/" },
+    {
+      title:
+        "Beane, Davoudi & Savage, 'Constraints on the Universe as a Numerical Simulation' (2014), arXiv:1210.1847",
+      url: "https://arxiv.org/abs/1210.1847",
+    },
   ],
   questions: [
     {
@@ -56,14 +61,14 @@ export const simulationHypothesisData = {
       skeptic_premise:
         "Qualia and consciousness may require specific biological physics (Penrose-Hameroff orchestrated objective reduction) that cannot be simulated on binary logic gates.",
       proponent_rebuttal:
-        'Neurons are information processors obeying physical laws. The OpenWorm project has already simulated C. elegans with 302 neurons. If we map the I/O of a brain perfectly, the resulting system must be functionally conscious.',
+        "Neurons are information processors obeying physical laws. The OpenWorm project has mapped the 302-neuron C. elegans connectome and reproduces basic locomotion in simulation, though full behavioral replication (chemotaxis, learning) remains a stated future goal. The functionalist claim is that if we capture the relevant input-output structure of a brain, the resulting system should be functionally equivalent, and on a functionalist view of mind, conscious.",
       crux: {
         id: "whole-brain-emulation",
         title: "The OpenWorm Test",
         description:
-          "The C. elegans nematode has exactly 302 neurons with a fully mapped connectome. If a digital simulation exhibits identical chemotaxis behavior, substrate independence gains strong evidence.",
+          "The C. elegans nematode has exactly 302 neurons with a fully mapped connectome. If a digital model were to reproduce the worm's full behavioral repertoire (chemotaxis, avoidance, learning) from the connectome alone, functionalism about behavior would gain support. As of the 2014 OpenWorm overview, only basic locomotion has been demonstrated; chemotaxis remains a future goal, so this is a proposed test rather than a settled result.",
         methodology:
-          "Compare simulated worm behavior to biological worm across 50+ behavioral assays: chemotaxis toward food, avoidance of noxious stimuli, mating behavior, and learning patterns.",
+          "Once a connectome-derived model produces candidate behaviors, compare simulated worm behavior to the biological worm across 50+ behavioral assays: chemotaxis toward food, avoidance of noxious stimuli, mating behavior, and learning patterns.",
         equation:
           "H(B_{sim}) \\approx H(B_{bio}) \\implies \\text{Substrate Independence}",
         verification_status: "theoretical" as const,
@@ -160,7 +165,7 @@ export const simulationHypothesisData = {
         id: "fraction-calculation",
         title: "The Fraction Calculation",
         description:
-          "If post-human civilizations run N ancestor simulations each with M conscious observers, and the base reality has B observers, then f_sim = (N×M) / (N×M + B). For plausible values, f_sim approaches 1.",
+          "If post-human civilizations run N ancestor simulations each with M conscious observers, and the base reality has B observers, then f_sim = (N×M) / (N×M + B). Conditional on the first two disjuncts failing (civilizations usually reach a post-human stage AND a non-trivial fraction run ancestor-simulations), large N drives f_sim toward 1. That conditional is exactly what the first two propositions of the trilemma may block, so the high f_sim is one disjunct, not a forced conclusion.",
         methodology:
           "Estimate: (1) probability of reaching post-human stage, (2) fraction running ancestor sims, (3) average number of sims per civilization. Calculate f_sim.",
         equation:
@@ -247,21 +252,21 @@ export const simulationHypothesisData = {
       id: "physical-anomalies",
       title: "Physical Anomalies",
       short_summary:
-        'Certain features of our universe are suspiciously "computational" in nature.',
+        'Proponents read some features of physics as "computational," but each already has a standard physical explanation.',
       image_url:
         "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=60",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        'The Planck scale is a natural consequence of quantum gravity, not evidence of "pixelation." The speed of light limit and quantum discreteness have physical explanations.',
+        'The Planck scale is a natural consequence of quantum gravity, not evidence of "pixelation." The speed-of-light limit follows from relativity, and the "discreteness" proponents cite is selective: only bound-state energies and angular momentum are quantized, while position, momentum, and time remain continuous. None of this requires a simulator.',
       proponent_rebuttal:
         "Multiple features align with computational optimization: the speed of light (bandwidth limit), quantum superposition (lazy evaluation), measurement collapse (rendering on observation), and the holographic principle (data compression).",
       crux: {
         id: "cosmic-ray-anisotropy",
         title: "The GZK Cutoff Test",
         description:
-          "If spacetime is a discrete lattice, ultra-high-energy cosmic rays should show directional bias aligned with lattice axes. The Pierre Auger Observatory can detect this anisotropy.",
+          "Beane, Davoudi and Savage note that if spacetime were a cubic simulation lattice, the highest-energy cosmic rays should show rotational-symmetry breaking aligned with the lattice axes. The Pierre Auger Observatory can search for such a signature. Importantly, the large-scale dipole Auger has actually detected (above 8 EeV) points to an extragalactic astrophysical origin and is not a lattice-orientation pattern, so it is not evidence for a simulated lattice.",
         methodology:
-          "Analyze arrival directions of cosmic rays above the GZK cutoff (5×10¹⁹ eV). Statistical analysis for preferred directions would indicate lattice structure.",
+          "Analyze arrival directions of cosmic rays near the GZK cutoff (~5×10¹⁹ eV) for rotational-symmetry breaking aligned with a cubic lattice, the specific signature Beane et al. derive. A generic dipole (as Auger observes) does not qualify; it must be the lattice-axis pattern. Absence of that pattern bounds the inverse lattice spacing.",
         equation:
           "E_{GZK} \\approx 5 \\times 10^{19} \\text{ eV}; \\quad \\Delta\\theta < 0.1° \\text{ precision}",
         verification_status: "theoretical" as const,

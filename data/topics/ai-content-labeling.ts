@@ -12,19 +12,19 @@ export const aiContentLabelingData = {
       id: "misinformation-prevention",
       title: "Misinformation Prevention",
       short_summary:
-        "Labeling AI content helps the public distinguish real from synthetic media, reducing misinformation spread.",
+        "Proponents argue labeling AI content helps the public distinguish real from synthetic media; skeptics counter that removable labels may do little to slow misinformation.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Labels are trivially removable through screenshots, re-encoding, or adversarial attacks on watermarks. Mandatory labeling creates a false sense of security — unlabeled content gets trusted more, while bad actors simply strip the labels.",
+        "The labels that matter least are the ones adversaries control. Invisible watermarks are removable by diffusion-purification and adversarial attacks (Saberi/Feizi et al. broke every scheme they tested), and metadata-based provenance like C2PA is stripped by any screenshot, re-encode, or upload that drops the signature. Worse, the same techniques let attackers forge labels — flagging genuine images as synthetic. Mandatory labeling can thus create a false sense of security: unlabeled content gets trusted more by default, exactly the inference a motivated bad actor wants, while honest creators bear the compliance cost.",
       proponent_rebuttal:
-        "Even imperfect labeling shifts social norms and creates legal accountability frameworks. The EU AI Act and C2PA standard create infrastructure that makes provenance verifiable at scale. Just as food labeling doesn't prevent all fraud but massively reduces it, content labeling raises the cost of deception.",
+        "No serious proponent claims watermarks are unbreakable — the point is to raise the cost and default expectation of disclosure, not to make evasion impossible. Cryptographic provenance (C2PA Content Credentials) is signed, not a removable watermark: stripping it removes the proof of authenticity rather than forging it, so absent or broken credentials become a signal in themselves. Paired with platform-side detection and legal accountability under the EU AI Act, even imperfect labeling shifts norms the way nutrition and paid-partnership disclosures did — reducing casual deception without pretending to stop a determined attacker.",
       crux: {
         id: "watermark-robustness",
         title: "Watermark Robustness Under Adversarial Conditions",
         description:
           "Testing whether current AI watermarking techniques survive common transformations like screenshotting, compression, cropping, and deliberate adversarial removal attempts.",
         methodology:
-          "Apply state-of-the-art watermarks (C2PA, Google SynthID, Meta Stable Signature) to 10,000 AI-generated images and text samples. Subject each to a battery of transformations. Measure detection rate post-transformation.",
+          "Apply state-of-the-art pixel/signal watermarks (Google SynthID, Meta Stable Signature) and attach C2PA Content Credentials (cryptographic provenance metadata) to 10,000 AI-generated images and text samples. Subject each to a battery of transformations, including diffusion-purification and model-substitution removal attacks. Measure detection rate post-transformation, tracking watermark survival and metadata retention separately.",
         equation:
           "R_{robust} = \\frac{\\text{detected after transform}}{\\text{total watermarked}} \\times 100",
         verification_status: "theoretical" as const,
@@ -108,9 +108,9 @@ export const aiContentLabelingData = {
         "Mandatory labeling may burden legitimate creative, educational, and journalistic uses of AI tools.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Labeling requirements chill creative and educational use of AI tools. Artists using AI assistance, students using writing tools, and journalists using AI transcription would all face compliance burdens. Overly broad mandates could suppress beneficial innovation.",
+        "The hard problem is line-drawing, not disclosure in principle. Where does 'AI-generated' begin — spell-check, autocomplete, AI transcription, a grammar pass, a generated background? Broad mandates sweep in ordinary creative and educational tooling, and compelling expressive (non-commercial) speakers to attach a state-prescribed label invites heightened First Amendment scrutiny, not the deferential review that covers commercial disclosures. The likely result is over-labeling that trains audiences to ignore the tag, plus a chilling effect on creators who fear stigma — a burden that falls hardest on small and independent voices.",
       proponent_rebuttal:
-        "Transparency about authorship is a reasonable baseline that protects informed consent without banning AI use. Disclosing that content is AI-generated is no more burdensome than disclosing paid partnerships or editorial corrections. The right to free expression doesn't include the right to deceive about the nature of content.",
+        "A workable mandate targets deception, not assistance: disclosure can be scoped to realistic synthetic media that could mislead about real people or events, leaving spell-check and routine editing untouched. Within that scope, transparency about provenance is a thin, factual requirement — closer to the paid-partnership and material-connection disclosures that have long coexisted with robust expression than to compelled ideological speech. The right to free expression protects the message; it does not include a right to misrepresent whether a depicted event actually happened.",
       crux: {
         id: "chilling-effect-measurement",
         title: "Measuring Chilling Effects on Creative AI Use",
