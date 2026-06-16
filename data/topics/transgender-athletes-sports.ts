@@ -33,9 +33,9 @@ export const transgenderAthletesSportsData = {
       evidence: [
         {
           id: "bjsm-speed-advantage",
-          title: "Trans Women Retain ~9% Running Speed Advantage After 2 Years HRT (2021)",
+          title: "Trans Women Retain ~12% Running Speed Advantage After 2 Years HRT (2020)",
           description:
-            "A study published in the British Journal of Sports Medicine analyzing US Air Force fitness test data found that transgender women retained approximately a 9% advantage in 1.5-mile run times over cisgender women after two years of hormone therapy, compared to a ~21% pre-transition advantage. The advantage persisted even after testosterone had been suppressed to female-typical levels for the full period. However, push-up and sit-up performance converged with cisgender female norms within the same timeframe.",
+            "A study by Roberts, Smalley and Ahrendt published in the British Journal of Sports Medicine analyzing US Air Force fitness test data found that transgender women retained approximately a 12% advantage in 1.5-mile run times over cisgender women after two years of hormone therapy (and ~9% after one year), compared to a ~21% pre-transition advantage. The speed advantage persisted even after testosterone had been suppressed to female-typical levels for the full period. However, push-up and sit-up performance differences disappeared, converging with cisgender female norms within two years.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -67,20 +67,20 @@ export const transgenderAthletesSportsData = {
         },
         {
           id: "muscle-mass-convergence",
-          title: "Muscle Mass and Strength Approach Female Ranges After 2-3 Years HRT (2023)",
+          title: "Hemoglobin Normalizes Quickly While Muscle Declines Partially After HRT (2021)",
           description:
-            "A 2023 systematic review and meta-analysis in the British Journal of Sports Medicine found that testosterone suppression to female-typical levels reduces muscle mass by 3-5% per year of therapy, with thigh muscle volume approaching cisgender female ranges after approximately 3 years. Hemoglobin levels, which affect oxygen-carrying capacity and endurance, drop to female-typical ranges within 3-4 months of hormone therapy. Grip strength decreases significantly but may retain a small residual advantage. The authors concluded that 'the magnitude of retained strength advantage is sport-dependent and diminishes with longer duration of hormone therapy.'",
+            "A 2021 systematic review by Harper et al. in the British Journal of Sports Medicine found that testosterone-suppressing hormone therapy brings hemoglobin and hematocrit — which affect oxygen-carrying capacity and endurance — to levels equivalent to cisgender women within about four months. Lean body mass, muscle area, and strength all decrease significantly over the first year of therapy, but the review found these values remain above those of cisgender women even after 36 months, concluding that strength 'may be well preserved' during the first three years of hormone therapy. The endurance-relevant changes are rapid; the strength-relevant changes are slower and incomplete.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 8,
+            directness: 7,
           },
           source: "British Journal of Sports Medicine; Systematic Review",
-          sourceUrl: "https://doi.org/10.1136/bjsports-2022-105927",
+          sourceUrl: "https://doi.org/10.1136/bjsports-2020-103106",
           reasoning:
-            "Systematic reviews represent the highest level of evidence synthesis. The finding that muscle mass and hemoglobin approach female ranges directly challenges the claim of blanket physiological advantage. The nuance that advantages are sport-dependent and duration-dependent suggests case-by-case policy may be more appropriate than categorical exclusion.",
+            "Systematic reviews represent a high level of evidence synthesis. The finding that hemoglobin fully normalizes supports the inclusion case for endurance-dominated events, while the finding that muscle mass and strength remain above cisgender female levels at three years partly cuts against it for strength-dominated events. The mixed result suggests that advantage is sport-dependent and that policy may need to be discipline-specific rather than categorical.",
         },
       ],
     },
@@ -112,20 +112,20 @@ export const transgenderAthletesSportsData = {
       evidence: [
         {
           id: "mental-health-impact-exclusion",
-          title: "Transgender Athletes Excluded from Sport Show Higher Rates of Depression and Suicidality",
+          title: "Discrimination in Sport Linked to Worse Mental Health for Transgender Athletes (2024)",
           description:
-            "A 2022 study in the International Review for the Sociology of Sport surveyed 78 transgender athletes across multiple countries and found that those who were excluded from competing in their gender category reported significantly higher rates of depression (3.2x), anxiety (2.8x), and suicidal ideation (4.1x) compared to those permitted to compete. Participants described exclusion as 'a public declaration that I am not a real woman/man' and reported withdrawing from all physical activity, not just competitive sport.",
+            "A 2024 systematic review and meta-analysis in BMC Psychology (Chan et al.) pooled 12 studies covering 21,565 participants and found that roughly a third experienced discrimination in sports participation and healthcare, and that such discrimination and exclusion were associated with elevated depression, psychological distress, and suicide risk. The review reported that transgender athletes who felt welcomed and included by their teams had markedly better mental-health outcomes, framing inclusive sport participation as a protective factor and exclusion as a contributor to harm.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 6,
-            directness: 8,
+            directness: 6,
           },
-          source: "International Review for the Sociology of Sport",
-          sourceUrl: "https://doi.org/10.1177/10126902221111206",
+          source: "BMC Psychology; Systematic Review and Meta-Analysis",
+          sourceUrl: "https://doi.org/10.1186/s40359-023-01493-9",
           reasoning:
-            "The study directly measures the harm of exclusion, which is highly relevant to the policy question. However, the sample size (n=78) is modest, self-selection bias is likely (those most harmed may be most likely to participate), and the survey methodology cannot establish causation. The findings are consistent with broader literature on transgender mental health but specific to the sports context.",
+            "A meta-analysis pooling more than 21,000 participants is a relatively strong evidence base for the association between discrimination/exclusion and poorer mental health. However, the included studies are largely observational and measure discrimination broadly rather than exclusion from a specific competition category, so they establish correlation rather than causation and are only indirectly about eligibility policy itself.",
         },
         {
           id: "no-olympic-domination",
@@ -184,8 +184,8 @@ export const transgenderAthletesSportsData = {
             replicability: 9,
             directness: 8,
           },
-          source: "World Athletics; Associated Press",
-          sourceUrl: "https://www.worldathletics.org/news/press-releases/council-meeting-march-2023-transgender-athletes",
+          source: "World Athletics",
+          sourceUrl: "https://worldathletics.org/news/press-releases/council-meeting-march-2023-russia-belarus-female-eligibility",
           reasoning:
             "World Athletics is the international governing body for the sport, making this an authoritative policy decision. The decision was based on their assessment of scientific evidence. Independence is somewhat lower because governing bodies face political pressure from multiple directions. The policy directly addresses the competitive fairness question but does not resolve the inclusion dimension.",
         },
@@ -219,12 +219,13 @@ export const transgenderAthletesSportsData = {
       url: "https://olympics.com/ioc/news/ioc-updates-framework-on-fairness-inclusion-and-non-discrimination",
     },
     {
-      title: "World Athletics Policy on Transgender Athletes (2023)",
-      url: "https://www.worldathletics.org/news/press-releases/council-meeting-march-2023-transgender-athletes",
+      title: "World Athletics Council Decision on Female Eligibility (March 2023)",
+      url: "https://worldathletics.org/news/press-releases/council-meeting-march-2023-russia-belarus-female-eligibility",
     },
     {
-      title: "Transgender Women in the Female Category of Sport — BJSM Systematic Review (2023)",
-      url: "https://doi.org/10.1136/bjsports-2022-105927",
+      title:
+        "How Does Hormone Transition Change Body Composition, Muscle Strength and Haemoglobin? — BJSM Systematic Review (2021)",
+      url: "https://doi.org/10.1136/bjsports-2020-103106",
     },
     {
       title: "Effects of Testosterone Suppression on Body Composition — Endocrine Reviews (2021)",

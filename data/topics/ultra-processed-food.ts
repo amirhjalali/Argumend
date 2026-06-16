@@ -86,20 +86,20 @@ export const ultraProcessedFoodData = {
         },
         {
           id: "socioeconomic-confounding",
-          title: "Socioeconomic Factors Confound UPF-Obesity Association",
+          title: "Socioeconomic Factors Confound the UPF-Obesity Association",
           description:
-            "Lower-income populations consume more ultra-processed foods and also have higher obesity rates, but they simultaneously face food deserts, chronic stress, less leisure time for exercise, reduced healthcare access, and exposure to environmental obesogens. A 2023 study in The Lancet found that after adjusting for income, education, physical activity, and smoking, the association between UPF intake and obesity was attenuated by 30-40% in several cohorts. In some subgroup analyses of high-income participants with similar UPF intake, the obesity differential largely disappeared.",
+            "Lower-income, more-deprived populations consume more ultra-processed foods and also have higher obesity rates, but they simultaneously face food deserts, chronic stress, less leisure time for exercise, reduced healthcare access, and exposure to environmental obesogens. A UK Biobank prospective cohort study (n=22,659) by Rauber et al. found that higher UPF consumption was associated with obesity, but the analysis had to adjust extensively for socioeconomic deprivation (Index of Multiple Deprivation) and household income — illustrating how tightly UPF intake is entangled with socioeconomic position. Because the most deprived groups eat the most UPFs and are independently at higher obesity risk, residual confounding by socioeconomic status is difficult to fully eliminate in observational designs.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
             replicability: 7,
-            directness: 7,
+            directness: 6,
           },
-          source: "The Lancet Public Health; NutriNet-Sante Cohort",
-          sourceUrl: "https://doi.org/10.1016/S2468-2667(23)00156-3",
+          source: "European Journal of Nutrition, Rauber et al. 2021; UK Biobank",
+          sourceUrl: "https://doi.org/10.1007/s00394-020-02367-1",
           reasoning:
-            "Large cohort studies with detailed socioeconomic adjustment provide important context. The 30-40% attenuation after adjustment is significant and suggests confounding plays a meaningful role. However, attenuation is not elimination — a substantial association persists even after adjustment, and the Hall RCT provides causal evidence that operates independently of socioeconomic factors.",
+            "Large cohort studies that adjust in detail for deprivation and income show how socioeconomic position is entangled with UPF intake, which is the core of the confounding critique. However, in this study the association persisted after socioeconomic adjustment rather than being eliminated — so confounding plausibly inflates the association but does not by itself explain it away, and the Hall RCT provides causal evidence operating independently of socioeconomic factors.",
         },
       ],
     },
@@ -148,9 +148,9 @@ export const ultraProcessedFoodData = {
         },
         {
           id: "emulsifier-gut-study",
-          title: "Common Food Emulsifiers Disrupt Human Gut Microbiome in Randomized Trial (2024)",
+          title: "Dietary Emulsifier Carboxymethylcellulose Disrupts Human Gut Microbiome in Randomized Controlled-Feeding Study (2022)",
           description:
-            "A randomized controlled trial published in Nature in 2024 found that dietary emulsifiers carboxymethylcellulose (CMC) and polysorbate-80 — present in ice cream, sauces, baked goods, and many UPFs — altered the gut microbiome composition in healthy human volunteers within two weeks. CMC specifically reduced microbial diversity, increased pro-inflammatory Proteobacteria, and disrupted the mucus layer separating gut bacteria from the intestinal wall. These changes mirrored those previously seen in animal studies that led to metabolic syndrome and colitis.",
+            "A randomized, double-blind controlled-feeding study published in Gastroenterology by Chassaing et al. found that the dietary emulsifier carboxymethylcellulose (CMC) — present in ice cream, sauces, baked goods, and many UPFs — perturbed the gut microbiome composition in healthy human volunteers fed 15 g/day for 11 days. CMC reduced microbial diversity, altered the fecal metabolome (notably lowering short-chain fatty acids and free amino acids), and in some participants drove bacteria into the normally sterile mucus layer separating gut microbes from the intestinal wall. These changes mirrored those previously seen in animal studies that led to metabolic syndrome and colitis.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -158,10 +158,10 @@ export const ultraProcessedFoodData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Nature, Chassaing et al. 2024; Georgia State University",
-          sourceUrl: "https://doi.org/10.1038/s41586-024-07150-0",
+          source: "Gastroenterology, Chassaing et al. 2022; Georgia State University / INSERM",
+          sourceUrl: "https://doi.org/10.1053/j.gastro.2021.11.006",
           reasoning:
-            "A randomized human trial in a top-tier journal provides strong evidence that specific UPF additives directly affect gut biology. The replication of animal model findings in humans strengthens confidence. However, the doses used were at the high end of typical consumption, the sample size was modest, and long-term health consequences of microbiome changes remain to be established.",
+            "A randomized, double-blind controlled-feeding trial in a top-tier journal provides strong evidence that a specific UPF additive directly affects human gut biology. The replication of animal-model findings in humans strengthens confidence. However, the sample size was small (16 subjects), the CMC dose was at the high end of typical consumption, the feeding period was short (11 days), and long-term health consequences of these microbiome changes remain to be established.",
         },
         {
           id: "fda-additive-safety",
@@ -176,7 +176,7 @@ export const ultraProcessedFoodData = {
             directness: 6,
           },
           source: "FDA GRAS Program; EFSA; Government Accountability Office",
-          sourceUrl: "https://www.fda.gov/food/food-ingredients-packaging/food-additive-status-list",
+          sourceUrl: "https://www.fda.gov/food/food-additives-petitions/food-additive-status-list",
           reasoning:
             "FDA approval provides a regulatory baseline. However, the independence score is lower because the GRAS (Generally Recognized as Safe) system allows manufacturer self-determination, and a 2022 GAO report found the FDA rarely revisits old approvals. Individual additive testing also does not assess cumulative or synergistic effects of consuming dozens of additives simultaneously across multiple products daily — the real-world UPF exposure pattern.",
         },

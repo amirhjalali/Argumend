@@ -19,8 +19,8 @@ export const artificialReproductionEthicsData = {
       url: "https://www.science.org/doi/10.1126/science.abn7953",
     },
     {
-      title: "Ectogenesis and the Ethics of Artificial Wombs — The Hastings Center",
-      url: "https://www.thehastingscenter.org/briefingbook/artificial-wombs/",
+      title: "Ethics and Abortion (incl. Artificial Wombs and Abortion Rights) — The Hastings Center",
+      url: "https://www.thehastingscenter.org/ethics-and-abortion/",
     },
   ],
   questions: [
@@ -132,8 +132,8 @@ export const artificialReproductionEthicsData = {
             replicability: 6,
             directness: 6,
           },
-          source: "The Hastings Center Report; Journal of Medical Ethics",
-          sourceUrl: "https://www.thehastingscenter.org/briefingbook/artificial-wombs/",
+          source: "The Hastings Center (Ethics and Abortion); Hastings Center Report",
+          sourceUrl: "https://www.thehastingscenter.org/ethics-and-abortion/",
           reasoning:
             "Bioethics scholarship from reputable institutions raises legitimate concerns. However, these are speculative arguments about future misuse rather than evidence of current harm, and the commodification concern applies to a technology that does not yet exist for full-term human use.",
         },
@@ -194,8 +194,8 @@ export const artificialReproductionEthicsData = {
             replicability: 6,
             directness: 8,
           },
-          source: "Harvard Law Review; Georgetown Law Journal",
-          sourceUrl: "https://harvardlawreview.org/forum/vol-136/the-constitutional-right-not-to-procreate/",
+          source: "Stanford Law Review (Cohen, \"The Constitution and the Rights Not to Procreate\")",
+          sourceUrl: "https://www.stanfordlawreview.org/print/article/the-constitution-and-the-rights-not-to-procreate/",
           reasoning:
             "This is a well-developed legal argument from top law reviews that directly challenges the claim that ectogenesis resolves the abortion debate. However, it represents one legal interpretation among several, and courts have not definitively ruled on whether reproductive self-determination is a constitutionally protected right distinct from bodily autonomy.",
         },
@@ -273,8 +273,8 @@ export const artificialReproductionEthicsData = {
             replicability: 8,
             directness: 8,
           },
-          source: "MIT Technology Review; Genomic Prediction",
-          sourceUrl: "https://www.technologyreview.com/2022/04/18/1049811/polygenic-scoring-ivf-embryos/",
+          source: "MIT Technology Review (\"The world's first Gattaca baby tests are finally here\"); Genomic Prediction",
+          sourceUrl: "https://www.technologyreview.com/2019/11/08/132018/polygenic-score-ivf-embryo-dna-tests-genomic-prediction-gattaca/",
           reasoning:
             "This evidence directly demonstrates that trait selection in embryos is already commercially available, not hypothetical. The combination of IVG (unlimited embryos) plus advanced PGT (trait selection) creates a near-term pathway to consumer eugenics that is more tangible than theoretical.",
         },

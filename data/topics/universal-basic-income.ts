@@ -35,9 +35,9 @@ export const universalBasicIncomeData = {
       evidence: [
         {
           id: "yang-freedom-dividend-cost",
-          title: "Yang's Freedom Dividend: $2.8 Trillion Gross Cost with $800B VAT Offset",
+          title: "Yang's Freedom Dividend: $2.8 Trillion Gross Cost, ~$1.5 Trillion Annual Deficit Gap",
           description:
-            "Andrew Yang's 2020 presidential campaign proposed a $1,000/month 'Freedom Dividend' for all US adults aged 18+, estimated at $2.8 trillion annually. The funding model relied on a 10% Value Added Tax ($800B), consolidation of overlapping welfare programs ($500-600B), economic growth effects ($500-600B), reduced healthcare and incarceration costs ($100-200B), and a carbon fee/financial transaction tax ($300B). Independent analyses from the Tax Foundation and Tax Policy Center found the funding math did not fully close, with a gap of $400B-$1.4 trillion depending on assumptions about economic growth and program consolidation.",
+            "Andrew Yang's 2020 presidential campaign proposed a $1,000/month 'Freedom Dividend' for all US adults aged 18+, a gross cost of roughly $2.8 trillion annually. The Tax Foundation analyzed the funding model — which relied on a new 10% Value Added Tax plus four other tax increases — and estimated the five proposed taxes would raise only about $1.3 trillion per year on a conventional basis (the broad-based VAT contributing roughly $952 billion). The Tax Foundation concluded that, even after accounting for offsetting spending reductions and economic feedback, the proposal would increase the federal budget deficit by about $1.5 trillion each year. It also estimated that the higher marginal tax rates on labor would reduce economic output by about 3 percent.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -45,10 +45,10 @@ export const universalBasicIncomeData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Tax Foundation; Tax Policy Center; Yang2020 Campaign Policy Documents",
-          sourceUrl: "https://taxfoundation.org/research/all/federal/andrew-yang-universal-basic-income/",
+          source: "Tax Foundation; Yang2020 Campaign Policy Documents",
+          sourceUrl: "https://taxfoundation.org/blog/andrew-yang-value-added-tax-universal-basic-income/",
           reasoning:
-            "The Tax Foundation and Tax Policy Center are credentialed nonpartisan policy organizations. Their analyses directly address the fiscal feasibility question. The persistent funding gap across multiple independent analyses is significant. However, disagreements about dynamic scoring assumptions mean the gap size is uncertain — optimistic growth assumptions narrow it substantially.",
+            "The Tax Foundation is a credentialed, nonpartisan tax policy organization, and its analysis directly addresses the fiscal feasibility question with explicit revenue and deficit estimates. The ~$1.5 trillion annual deficit gap is significant. However, the result depends on conventional (rather than fully dynamic) scoring assumptions — more optimistic growth and program-consolidation assumptions would narrow the gap.",
         },
         {
           id: "alaska-pfd-42-years",
@@ -69,9 +69,9 @@ export const universalBasicIncomeData = {
         },
         {
           id: "penn-wharton-debt-projection",
-          title: "Penn Wharton Model: UBI Would Increase National Debt by 63.5% of GDP Over 10 Years",
+          title: "Penn Wharton Model: Deficit-Financed UBI Would Raise Federal Debt 63.5% by 2027",
           description:
-            "The Penn Wharton Budget Model at the University of Pennsylvania simulated a $12,000/year UBI for all adults, finding it would increase the national debt by approximately 63.5% of GDP over a decade even with offsetting reductions in existing transfer programs. The model incorporated labor supply reductions of 4-7% and projected that the resulting economic contraction would further reduce tax revenue. The analysis concluded that no realistic combination of tax increases could fully fund a $12,000/year UBI without significantly reducing economic output.",
+            "The Penn Wharton Budget Model at the University of Pennsylvania used its dynamic overlapping-generations model to simulate a $6,000/year UBI for every adult. If deficit-financed, the model projected the plan would increase federal debt by over 63.5% by 2027 and by 81.1% by 2032, with GDP falling by 6.1% by 2027 and 9.3% by 2032 as higher anticipated future taxes and reduced saving shrink the capital stock. The analysis concluded that an unconditional UBI of this scale produces meaningful economic contraction unless paired with large offsetting tax increases, which themselves further reduce output.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -80,9 +80,9 @@ export const universalBasicIncomeData = {
             directness: 9,
           },
           source: "Penn Wharton Budget Model, University of Pennsylvania",
-          sourceUrl: "https://budgetmodel.wharton.upenn.edu/issues/2018/3/29/options-for-universal-basic-income",
+          sourceUrl: "https://budgetmodel.wharton.upenn.edu/issues/2018/3/29/options-for-universal-basic-income-dynamic-modeling",
           reasoning:
-            "The Penn Wharton Budget Model is a highly regarded academic policy modeling center. The analysis directly addresses fiscal feasibility with rigorous dynamic scoring. However, it assumes a specific UBI design (flat $12,000 with no phase-out) that may not represent the optimal policy. Negative income tax designs or smaller UBI amounts could produce substantially different results.",
+            "The Penn Wharton Budget Model is a highly regarded academic policy modeling center, and this analysis directly addresses fiscal feasibility with rigorous dynamic (OLG) scoring. However, it models a specific design (a flat $6,000 UBI with no phase-out) under deficit financing; negative income tax designs, smaller amounts, or fully tax-financed variants could produce substantially different debt and output results.",
         },
         {
           id: "roosevelt-institute-gdp-growth",
@@ -131,9 +131,9 @@ export const universalBasicIncomeData = {
       evidence: [
         {
           id: "finland-basic-income-experiment",
-          title: "Finland Experiment (2017-2018): No Employment Effect, Improved Well-being",
+          title: "Finland Experiment (2017-2018): Small Employment Effect, Improved Well-being",
           description:
-            "Finland's national basic income experiment provided 560 euros/month to 2,000 randomly selected unemployed individuals for two years (2017-2018). The final results, published by Kela (Finland's social insurance institution) in 2020, found: (1) no statistically significant difference in employment days between treatment and control groups, (2) recipients reported significantly higher life satisfaction, (3) recipients had greater trust in institutions and other people, (4) recipients reported better health and lower stress, and (5) recipients were more confident in their future. The experiment was limited to unemployed individuals (not universal) and lasted only two years.",
+            "Finland's national basic income experiment provided 560 euros/month to 2,000 randomly selected unemployed individuals for two years (2017-2018). The final results, released on May 6, 2020 by the Ministry of Social Affairs and Health and Kela (Finland's social insurance institution), found: (1) only small employment effects — recipients worked on average about 6 days more over the period than the control group, (2) recipients reported significantly higher life satisfaction, (3) recipients had greater trust in institutions and other people, (4) recipients reported better mental wellbeing, with less mental strain, depression, sadness and loneliness, and (5) recipients felt more secure about their income and future. The experiment was limited to unemployed individuals (not universal) and lasted only two years.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -141,8 +141,8 @@ export const universalBasicIncomeData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Kela (Social Insurance Institution of Finland); Ministry of Social Affairs and Health",
-          sourceUrl: "https://www.kela.fi/web/en/basic-income-experiment",
+          source: "Ministry of Social Affairs and Health, Finland; Kela (Social Insurance Institution of Finland)",
+          sourceUrl: "https://stm.fi/en/-/perustulokokeilun-tulokset-tyollisyysvaikutukset-vahaisia-toimeentulo-ja-psyykkinen-terveys-koettiin-paremmaksi",
           reasoning:
             "This was a government-run, nationally representative RCT — the gold standard for causal inference. The null finding on employment directly addresses the work disincentive concern. However, the experiment was limited to already-unemployed individuals, lasted only 2 years, and the payment (560 euros) was below poverty-line income in Finland. These limitations reduce directness as evidence for a permanent, universal program.",
         },
@@ -336,7 +336,7 @@ export const universalBasicIncomeData = {
     },
     {
       title: "Options for Universal Basic Income: Dynamic Modeling — Penn Wharton Budget Model (2018)",
-      url: "https://budgetmodel.wharton.upenn.edu/issues/2018/3/29/options-for-universal-basic-income",
+      url: "https://budgetmodel.wharton.upenn.edu/issues/2018/3/29/options-for-universal-basic-income-dynamic-modeling",
     },
     {
       title: "Cash Transfers and Temptation Goods: A Review of Global Evidence — Evans & Popova, World Bank Economic Review (2017)",
@@ -359,8 +359,8 @@ export const universalBasicIncomeData = {
       url: "https://aspe.hhs.gov/reports/overview-final-report-seattle-denver-income-maintenance-experiment",
     },
     {
-      title: "Andrew Yang's Universal Basic Income Proposal — Tax Foundation Analysis",
-      url: "https://taxfoundation.org/research/all/federal/andrew-yang-universal-basic-income/",
+      title: "Does Andrew Yang's 'Freedom Dividend' Proposal Add Up? — Tax Foundation Analysis",
+      url: "https://taxfoundation.org/blog/andrew-yang-value-added-tax-universal-basic-income/",
     },
   ],
   questions: [

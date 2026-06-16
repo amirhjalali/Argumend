@@ -15,8 +15,8 @@ export const cryptocurrencyRegulationData = {
       url: "https://www.sec.gov/spotlight/cybersecurity-enforcement-actions",
     },
     {
-      title: "EU Markets in Crypto-Assets Regulation (MiCA) — European Commission",
-      url: "https://finance.ec.europa.eu/digital-finance/digital-assets/markets-crypto-assets-regulation-mica_en",
+      title: "Crypto-assets (Markets in Crypto-Assets Regulation, MiCA) — European Commission",
+      url: "https://finance.ec.europa.eu/digital-finance/crypto-assets_en",
     },
     {
       title: "FTX Collapse: A Summary — Congressional Research Service",
@@ -31,16 +31,16 @@ export const cryptocurrencyRegulationData = {
       url: "https://www.congress.gov/bill/118th-congress/house-bill/4763",
     },
     {
-      title: "Crypto Crime Report 2023 — Chainalysis",
-      url: "https://www.chainalysis.com/blog/crypto-crime-2023/",
+      title: "2022 Biggest Year Ever For Crypto Hacking with $3.8 Billion Stolen — Chainalysis",
+      url: "https://www.chainalysis.com/blog/2022-biggest-year-ever-for-crypto-hacking/",
     },
     {
       title: "SEC v. Ripple Labs — Court Filing",
       url: "https://www.sec.gov/litigation/complaints/2020/comp-pr2020-338.pdf",
     },
     {
-      title: "The Terra/Luna Crash: Lessons for Stablecoin Regulation — Federal Reserve Bank of Chicago",
-      url: "https://www.chicagofed.org/publications/chicago-fed-letter/2022/475",
+      title: "Why Stablecoins Fail: A Look at Terra — Federal Reserve Bank of Richmond",
+      url: "https://www.richmondfed.org/publications/research/economic_brief/2022/eb_22-24",
     },
   ],
   questions: [
@@ -76,7 +76,7 @@ export const cryptocurrencyRegulationData = {
       skeptic_premise:
         "Heavy-handed regulation stifles the most transformative financial innovation since the internet. The United States risks losing its competitive edge as blockchain development migrates to jurisdictions with clearer, more permissive frameworks — Dubai, Singapore, Switzerland, and the UK. The SEC's 'regulation by enforcement' approach, which refuses to provide clear rules and instead sues projects after the fact, has created a hostile environment that punishes legitimate builders while doing nothing to stop actual fraudsters. FTX was regulated in multiple jurisdictions and still collapsed — proving that regulation does not prevent fraud, it merely creates a false sense of security. Innovation in programmable money, decentralized finance, and tokenized assets could democratize access to financial services for billions of unbanked people worldwide. Premature regulation risks freezing the technology in its current form, preventing breakthroughs that could make the financial system faster, cheaper, and more accessible.",
       proponent_rebuttal:
-        "The 'innovation' defense has become a shield for an industry that has produced staggering consumer harm. FTX's collapse wiped out $8 billion in customer funds. The Terra/Luna death spiral destroyed $40 billion in value in a week, devastating retail investors across Southeast Asia and South Korea who were promised 'algorithmic stability.' In 2022 alone, DeFi hacks and exploits cost users $3.8 billion. Rug pulls — where developers abandon projects after collecting investor funds — numbered over 117,000 scam tokens deployed in 2022. Traditional financial regulation exists precisely because unregulated markets produce these outcomes: the Securities Act of 1933 was written after the 1929 crash for the same reasons. The crypto industry's call for 'innovation-friendly' regulation is functionally a request for no regulation — the freedom to operate investment products without the disclosure requirements, investor protections, and fiduciary duties that every other financial instrument must meet. Jurisdictions competing to attract crypto firms are engaged in a race to the bottom, not a race to optimal regulation.",
+        "The 'innovation' defense has become a shield for an industry that has produced staggering consumer harm. FTX's collapse wiped out $8 billion in customer funds. The Terra/Luna death spiral destroyed $40 billion in value in a week, devastating retail investors across Southeast Asia and South Korea who were promised 'algorithmic stability.' In 2022 alone, DeFi hacks and exploits cost users roughly $3.1 billion — the bulk of the record $3.8 billion stolen across all crypto that year. Rug pulls — where developers abandon projects after collecting investor funds — numbered over 117,000 scam tokens deployed in 2022. Traditional financial regulation exists precisely because unregulated markets produce these outcomes: the Securities Act of 1933 was written after the 1929 crash for the same reasons. The crypto industry's call for 'innovation-friendly' regulation is functionally a request for no regulation — the freedom to operate investment products without the disclosure requirements, investor protections, and fiduciary duties that every other financial instrument must meet. Jurisdictions competing to attract crypto firms are engaged in a race to the bottom, not a race to optimal regulation.",
       crux: {
         id: "regulation-innovation-tradeoff",
         title: "The Regulation-Innovation Tradeoff Assessment",
@@ -118,16 +118,16 @@ export const cryptocurrencyRegulationData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Federal Reserve Bank of Chicago; Chainalysis; Bloomberg",
-          sourceUrl: "https://www.chicagofed.org/publications/chicago-fed-letter/2022/475",
+          source: "Federal Reserve Bank of Richmond; Chainalysis; Bloomberg",
+          sourceUrl: "https://www.richmondfed.org/publications/research/economic_brief/2022/eb_22-24",
           reasoning:
             "The Terra/Luna collapse is well-documented and provides strong evidence that unregulated stablecoin mechanisms can produce catastrophic consumer losses. The $40 billion figure represents total market cap destruction and is corroborated by multiple independent sources. Directness is high because the failure directly resulted from the absence of stablecoin reserve requirements that regulation could have mandated.",
         },
         {
           id: "defi-hack-statistics-2022",
-          title: "DeFi Protocols Lost $3.8 Billion to Hacks and Exploits in 2022",
+          title: "DeFi Protocols Accounted for $3.1 Billion of Crypto Stolen in 2022",
           description:
-            "According to Chainalysis, decentralized finance protocols lost $3.8 billion to hacks and exploits in 2022, up from $1.3 billion in 2021. The largest single incident was the Ronin Bridge hack ($625 million), attributed to North Korea's Lazarus Group. Unlike traditional financial institutions, DeFi protocols typically have no insurance, no customer support, and no mechanism for recovering stolen funds. While some protocols have implemented bug bounty programs and security audits, the code-is-law philosophy means that exploitable vulnerabilities result in irrecoverable losses for users.",
+            "According to Chainalysis, a record $3.8 billion in cryptocurrency was stolen via hacking in 2022, of which DeFi protocols accounted for 82.1% — roughly $3.1 billion. Cross-chain bridge exploits alone made up 64% of that $3.1 billion. The largest single incident was the Axie Infinity Ronin Bridge hack (~$625 million), attributed to North Korea's Lazarus Group. Unlike traditional financial institutions, DeFi protocols typically have no insurance, no customer support, and no mechanism for recovering stolen funds. While some protocols have implemented bug bounty programs and security audits, the code-is-law philosophy means that exploitable vulnerabilities result in irrecoverable losses for users.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -135,8 +135,8 @@ export const cryptocurrencyRegulationData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Chainalysis 2023 Crypto Crime Report",
-          sourceUrl: "https://www.chainalysis.com/blog/crypto-crime-2023/",
+          source: "Chainalysis (2022 Biggest Year Ever For Crypto Hacking)",
+          sourceUrl: "https://www.chainalysis.com/blog/2022-biggest-year-ever-for-crypto-hacking/",
           reasoning:
             "Chainalysis is the leading blockchain analytics firm and its crime reports are widely cited by law enforcement and regulators. Independence is slightly lower because Chainalysis has a commercial interest in demonstrating the need for blockchain surveillance tools. Directness is moderate because DeFi hacks involve code vulnerabilities rather than regulatory failures per se, though regulation could mandate security standards and audits.",
         },
@@ -345,7 +345,7 @@ export const cryptocurrencyRegulationData = {
             directness: 8,
           },
           source: "European Commission; European Securities and Markets Authority",
-          sourceUrl: "https://finance.ec.europa.eu/digital-finance/digital-assets/markets-crypto-assets-regulation-mica_en",
+          sourceUrl: "https://finance.ec.europa.eu/digital-finance/crypto-assets_en",
           reasoning:
             "MiCA is the most significant evidence that bespoke crypto regulation is both possible and attractive to the industry. The framework's existence directly challenges the SEC's position that existing securities law is sufficient. Source reliability is high because MiCA is official EU law. However, MiCA's effectiveness at preventing fraud and protecting consumers remains untested given its recent implementation.",
         },

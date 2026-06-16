@@ -167,7 +167,7 @@ export const affirmativeActionMeritocracyData = {
           id: "michigan-post-ban-decline",
           title: "Michigan Proposal 2: Sustained Decline in Minority Enrollment at U of M",
           description:
-            "After Michigan voters passed Proposal 2 in 2006, banning affirmative action in public university admissions, Black enrollment at the University of Michigan fell from 7.1% of the entering class in 2006 to 4.4% in 2021 — a 38% decline — despite the university spending over $250 million on diversity and outreach programs during that period. The decline was most pronounced at Michigan's law school and medical school. A 2014 analysis by the Century Foundation found that race-neutral alternatives adopted by Michigan recovered only about half of the diversity lost by the ban.",
+            "After Michigan voters passed Proposal 2 in 2006, banning affirmative action in public university admissions, Black enrollment at the University of Michigan declined steadily despite extensive race-neutral outreach. Black students made up nearly 9% of the student body in 1996 (the historical peak), 7.2% by 2006 just before the ban took effect, and 4.63% of undergraduates by 2014 — even as roughly 19% of Michigan's college-age population is Black. The university launched outreach and pipeline programs (the Center for Educational Outreach, established 2008) but, by its own later admission, failed to restore diversity 'despite persistent and vigorous race-neutral efforts.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -175,10 +175,10 @@ export const affirmativeActionMeritocracyData = {
             replicability: 8,
             directness: 9,
           },
-          source: "University of Michigan Office of Enrollment Management; Century Foundation",
-          sourceUrl: "https://tcf.org/content/report/race-class-and-college-admission/",
+          source: "The Michigan Daily, 'University continues to struggle with minority enrollment' (2014)",
+          sourceUrl: "https://www.michigandaily.com/uncategorized/minority-enrollment/",
           reasoning:
-            "Official enrollment data from the University of Michigan is publicly available and verifiable. The $250 million investment in alternative strategies without recovering pre-ban diversity levels provides strong evidence that race-neutral approaches are insufficient at highly selective institutions. The 15-year timeframe eliminates the objection that alternatives need more time.",
+            "Enrollment data from the University of Michigan is publicly reported and corroborated by the campus paper's reporting. The sustained decline despite years of outreach and pipeline investment provides evidence that race-neutral approaches struggled to maintain diversity at a highly selective institution. The multi-year timeframe weakens the objection that alternatives merely need more time.",
         },
         {
           id: "post-sffa-enrollment-drops",
@@ -192,16 +192,16 @@ export const affirmativeActionMeritocracyData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Common Data Sets; institutional enrollment reports; Chronicle of Higher Education",
-          sourceUrl: "https://www.chronicle.com/article/after-the-affirmative-action-ruling-tracking-campus-diversity",
+          source: "Inside Higher Ed, 'An Early Look at Diversity Post–Affirmative Action' (Sept. 2024); institutional Common Data Sets",
+          sourceUrl: "https://www.insidehighered.com/news/admissions/traditional-age/2024/09/06/early-look-racial-diversity-post-affirmative-action",
           reasoning:
             "Institutional enrollment data is publicly reported. The post-SFFA data directly tests whether the ruling's promised race-neutral alternatives can maintain diversity. However, this is only one year of data, some institutions may be using essay-based race consideration (allowed under SFFA), and the full impact will take several years to assess. Source reliability is slightly lower because institutional self-reporting may reflect different methodologies.",
         },
         {
           id: "income-based-aa-underperformance",
-          title: "Income-Based Affirmative Action Recovers Only 20-30% of Racial Diversity Lost",
+          title: "Income-Based Affirmative Action Falls Well Short of Racial Diversity Lost",
           description:
-            "A 2020 simulation study by Sean Reardon and colleagues at Stanford, using nationally representative data, found that replacing race-conscious admissions with income-based affirmative action at selective universities would recover only 20-30% of the racial diversity lost. This is because racial disadvantage and income disadvantage overlap but are not identical: middle-class Black and Hispanic families face racial barriers (neighborhood segregation, school quality, discriminatory discipline) that low-income white families do not. Additionally, there are more low-income white applicants than low-income minority applicants in absolute numbers, diluting the racial diversity effect of income-based preferences.",
+            "A simulation study by Sean Reardon, Rachel Baker, Matt Kasman, Daniel Klasik, and Joseph Townsend at Stanford (published in the Journal of Policy Analysis and Management, 2018), using nationally representative data, found that neither socioeconomic-status-based affirmative action nor race-targeted recruiting on its own produces the level of racial diversity achieved by race-based affirmative action. Only the two policies in combination — likely expensive — approach comparable diversity. This is because racial disadvantage and income disadvantage overlap but are not identical: middle-class Black and Hispanic families face racial barriers (neighborhood segregation, school quality, discriminatory discipline) that low-income white families do not. Additionally, there are more low-income white applicants than low-income minority applicants in absolute numbers, diluting the racial-diversity effect of income-based preferences.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -209,10 +209,10 @@ export const affirmativeActionMeritocracyData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Sean Reardon et al., Stanford Center for Education Policy Analysis",
-          sourceUrl: "https://cepa.stanford.edu/content/race-income-and-enrollment-patterns-highly-selective-colleges",
+          source: "Reardon, Baker, Kasman, Klasik & Townsend, Stanford Center for Education Policy Analysis; Journal of Policy Analysis and Management (2018)",
+          sourceUrl: "https://cepa.stanford.edu/content/what-levels-racial-diversity-can-be-achieved-socioeconomic-based-affirmative-action-evidence-simulation-model",
           reasoning:
-            "Stanford CEPA is a leading education policy research center. The simulation methodology is transparent and uses nationally representative data. The finding that income-based alternatives recover only a fraction of racial diversity directly challenges the most commonly proposed race-neutral alternative. However, simulations have limitations compared to real-world implementation.",
+            "Stanford CEPA is a leading education policy research center and this work was peer-reviewed in the Journal of Policy Analysis and Management. The simulation methodology is transparent and uses nationally representative data. The finding that income-based alternatives alone recover only a fraction of racial diversity directly challenges the most commonly proposed race-neutral alternative. However, simulations have limitations compared to real-world implementation.",
         },
       ],
     },
@@ -278,9 +278,9 @@ export const affirmativeActionMeritocracyData = {
         },
         {
           id: "public-opinion-opposition",
-          title: "74% of Americans Oppose Race-Based Admissions Preferences",
+          title: "Half of Americans Disapprove of Race-Based Admissions Preferences",
           description:
-            "A June 2023 Pew Research Center survey found that 74% of Americans — including 59% of Black adults, 68% of Hispanic adults, and 80% of white adults — said race and ethnicity should not be a factor in college admissions decisions. A 2023 Gallup poll found 69% disapproval. However, when the question is framed as 'programs designed to increase diversity,' support rises significantly. Additionally, 62% of Americans in the same Pew survey supported considering whether applicants come from wealthy or low-income backgrounds, suggesting support for socioeconomic preferences even as racial preferences are opposed.",
+            "A June 2023 Pew Research Center survey found that half of U.S. adults (50%) disapprove of selective colleges considering race and ethnicity in admissions to increase diversity, while just 33% approve and 16% are unsure. Disapproval was higher among some groups — about 74% of Republicans and Republican-leaners disapproved, as did 57% of white adults and 52% of Asian adults — while nearly half of Black adults (47%) approved. A 2023 Gallup poll likewise found a majority opposed. Opinion is sensitive to framing: support rises when the question emphasizes 'programs designed to increase diversity,' and many of the same respondents back considering applicants' economic background, suggesting greater openness to socioeconomic than to racial preferences.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -289,9 +289,9 @@ export const affirmativeActionMeritocracyData = {
             directness: 7,
           },
           source: "Pew Research Center; Gallup",
-          sourceUrl: "https://www.pewresearch.org/short-reads/2023/06/08/majorities-of-americans-in-both-parties-say-colleges-should-not-consider-race-in-admissions/",
+          sourceUrl: "https://www.pewresearch.org/politics/2023/06/08/more-americans-disapprove-than-approve-of-colleges-considering-race-ethnicity-in-admissions-decisions/",
           reasoning:
-            "Pew and Gallup are the gold standard for public opinion polling with rigorous methodology. The consistent finding of majority opposition across racial groups supports the social cohesion concern. However, the sensitivity of results to question framing ('race as a factor' vs. 'diversity programs') suggests opinions are more nuanced than simple opposition. Directness is slightly lower because public opinion does not determine whether a policy is effective or just.",
+            "Pew and Gallup are the gold standard for public opinion polling with rigorous methodology. More Americans disapprove than approve of race-conscious admissions, which supports the social cohesion concern. However, opposition is a plurality (50%) rather than an overwhelming majority, and results are sensitive to question framing ('race as a factor' vs. 'diversity programs'), so opinions are more nuanced than simple blanket opposition. Directness is slightly lower because public opinion does not determine whether a policy is effective or just.",
         },
         {
           id: "brazil-quotas-outcomes",
@@ -322,10 +322,10 @@ export const affirmativeActionMeritocracyData = {
             replicability: 6,
             directness: 5,
           },
-          source: "Deshpande, 'The Grammar of Caste'; Bertrand et al., American Economic Review",
-          sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.100.2.9",
+          source: "Deshpande, 'The Grammar of Caste'; Bertrand, Hanna & Mullainathan, Journal of Public Economics (2010), NBER Working Paper 13926",
+          sourceUrl: "https://www.nber.org/papers/w13926",
           reasoning:
-            "Published in the top economics journal, with institutional data from the Indian government. India provides the longest-running large-scale affirmative action experiment globally. The mixed results — genuine gains accompanied by persistent inequality and social friction — provide evidence for both sides. Directness is low because the Indian caste system differs substantially from American racial categories in structure, duration, and social mechanics.",
+            "Bertrand, Hanna and Mullainathan's study of Indian engineering-college admissions was peer-reviewed in the Journal of Public Economics and is among the most cited empirical analyses of caste-based reservations. India provides the longest-running large-scale affirmative action experiment globally. The mixed results — genuine gains, with reservations successfully reaching the financially disadvantaged, alongside persistent inequality and social friction — provide evidence for both sides. Directness is low because the Indian caste system differs substantially from American racial categories in structure, duration, and social mechanics.",
         },
       ],
     },
@@ -356,8 +356,8 @@ export const affirmativeActionMeritocracyData = {
       url: "https://www.annualreviews.org/doi/10.1146/annurev-economics-080315-015041",
     },
     {
-      title: "Americans' Views on Whether Race and Ethnicity Should Be a Factor in College Admissions — Pew Research Center (2023)",
-      url: "https://www.pewresearch.org/short-reads/2023/06/08/majorities-of-americans-in-both-parties-say-colleges-should-not-consider-race-in-admissions/",
+      title: "More Americans Disapprove Than Approve of Colleges Considering Race, Ethnicity in Admissions Decisions — Pew Research Center (2023)",
+      url: "https://www.pewresearch.org/politics/2023/06/08/more-americans-disapprove-than-approve-of-colleges-considering-race-ethnicity-in-admissions-decisions/",
     },
     {
       title: "University of California Standardized Testing Task Force Report (2020)",

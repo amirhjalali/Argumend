@@ -45,8 +45,8 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 10,
             directness: 7,
           },
-          source: "John Lewis Gaddis, 'The Long Peace' (1987); Correlates of War Project",
-          sourceUrl: "https://correlatesofwar.org/",
+          source: "John Lewis Gaddis, 'The Long Peace' (1987); Correlates of War Project (COW War Data, 1816–2007)",
+          sourceUrl: "https://correlatesofwar.org/data-sets/cow-war/",
           reasoning:
             "The historical record of great power peace since 1945 is an undeniable fact, earning high reliability and replicability scores. However, directness is lower because correlation does not establish causation — multiple factors changed simultaneously in 1945 (nuclear weapons, UN, decolonization, bipolarity), making it impossible to isolate the nuclear variable from historical data alone.",
         },
@@ -79,8 +79,8 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 8,
             directness: 9,
           },
-          source: "National Security Archive, George Washington University; Allison & Zelikow (1999)",
-          sourceUrl: "https://nsarchive.gwu.edu/briefing-book/cuba/2022-10-17/cuban-missile-crisis-60",
+          source: "National Security Archive, George Washington University, 'The Underwater Cuban Missile Crisis at 60' (Arkhipov / submarine B-59)",
+          sourceUrl: "https://nsarchive.gwu.edu/briefing-book/russia-programs/2022-10-03/soviet-submarines-nuclear-torpedoes-cuban-missile-crisis",
           reasoning:
             "Declassified primary sources from all three governments provide the highest-quality evidence. The crisis demonstrates that nuclear deterrence, rather than preventing catastrophe, nearly caused it. The revelation that survival depended on the independent judgment of a single submarine officer (Arkhipov) fatally undermines the rational deterrence model. This is the strongest piece of evidence that nuclear weapons pose existential risk rather than ensuring safety.",
         },
@@ -96,8 +96,8 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 7,
             directness: 8,
           },
-          source: "National Security Archive; CIA FOIA releases; Jones (2016), 'Able Archer 83'",
-          sourceUrl: "https://nsarchive.gwu.edu/briefing-book/nuclear-vault/2018-10-24/nuclear-war-scare-1983",
+          source: "National Security Archive, 'The Able Archer 83 Sourcebook'; CIA FOIA releases; Jones (2016), 'Able Archer 83'",
+          sourceUrl: "https://nsarchive.gwu.edu/project/able-archer-83-sourcebook",
           reasoning:
             "Declassified intelligence from both sides confirms the severity of the incident. Able Archer demonstrates that nuclear war can be triggered by misperception during routine activities, not just during crises. The fact that survival depended on the information from a single double-agent underscores the fragility of the deterrence system.",
         },
@@ -237,8 +237,8 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 9,
             directness: 7,
           },
-          source: "Kenneth Waltz, 'The Spread of Nuclear Weapons' (2003); International Security",
-          sourceUrl: "https://doi.org/10.7551/mitpress/6677.001.0001",
+          source: "Scott D. Sagan & Kenneth N. Waltz, 'The Spread of Nuclear Weapons: An Enduring Debate' (W. W. Norton)",
+          sourceUrl: "https://wwnorton.com/books/9780393920109",
           reasoning:
             "The 80-year non-use record is an undeniable historical fact. However, attributing it to deterrence rather than other factors (norms, international institutions, changing economic incentives) is an inference. The 'success' of deterrence also cannot be separated from the near-misses that nearly ended in catastrophe. A system that works until it fails catastrophically is not necessarily a successful system — it may simply be a lucky one.",
         },
@@ -276,8 +276,8 @@ export const nuclearWeaponsAbolitionData = {
       url: "https://doi.org/10.1038/s43016-022-00573-0",
     },
     {
-      title: "The Spread of Nuclear Weapons: An Enduring Debate — Kenneth Waltz & Scott Sagan (2003)",
-      url: "https://doi.org/10.7551/mitpress/6677.001.0001",
+      title: "The Spread of Nuclear Weapons: An Enduring Debate — Scott Sagan & Kenneth Waltz (W. W. Norton)",
+      url: "https://wwnorton.com/books/9780393920109",
     },
     {
       title: "Bulletin of the Atomic Scientists: Nuclear Close Calls Timeline",

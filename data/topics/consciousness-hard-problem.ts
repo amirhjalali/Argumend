@@ -45,8 +45,8 @@ export const consciousnessHardProblemData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Journal of Consciousness Studies; Chalmers, D. (1995)",
-          sourceUrl: "https://doi.org/10.1093/acprof:oso/9780195117899.001.0001",
+          source: "Chalmers, D. (1995). 'Facing Up to the Problem of Consciousness.' Journal of Consciousness Studies 2(3), 200-219",
+          sourceUrl: "https://consc.net/papers/facing.html",
           reasoning:
             "Chalmers' formulation is the foundational text of the modern consciousness debate. It is scored highly for directness because it defines the very problem under discussion. However, it is a philosophical argument, not empirical evidence, and its persuasiveness depends on accepting the distinction between functional and phenomenal consciousness — which Dennett, Frankish, and other 'illusionists' reject.",
         },
@@ -62,8 +62,8 @@ export const consciousnessHardProblemData = {
             replicability: 6,
             directness: 9,
           },
-          source: "Little, Brown (1991); Journal of Consciousness Studies, Frankish (2016)",
-          sourceUrl: "https://doi.org/10.1093/acprof:oso/9780190281625.003.0001",
+          source: "Dennett, D. (1991). Consciousness Explained. Little, Brown; Frankish, K. (2016). 'Illusionism as a Theory of Consciousness.' Journal of Consciousness Studies 23(11-12)",
+          sourceUrl: "https://www.hachettebookgroup.com/titles/daniel-c-dennett/consciousness-explained/9780316180665/",
           reasoning:
             "Dennett is one of the most influential philosophers of mind alive. His functionalist dissolution of the hard problem has significant support among neuroscientists and cognitive scientists. However, many philosophers find illusionism self-refuting: if there is an illusion of consciousness, there must be a subject experiencing the illusion — which is itself a form of consciousness requiring explanation. The replicability score is lower because philosophical arguments cannot be independently 'replicated' in the scientific sense.",
         },
@@ -237,8 +237,8 @@ export const consciousnessHardProblemData = {
             replicability: 6,
             directness: 8,
           },
-          source: "Chalmers, 'The Conscious Mind' (1996); Oxford University Press",
-          sourceUrl: "https://doi.org/10.1093/acprof:oso/9780195117899.001.0001",
+          source: "Chalmers, D. (1996). The Conscious Mind: In Search of a Fundamental Theory. Oxford University Press",
+          sourceUrl: "https://consc.net/the-conscious-mind/",
           reasoning:
             "The zombie argument is central to the hard problem debate. If valid, it establishes that no amount of third-person investigation (behavioral, neurological, or computational) can definitively determine whether a system is conscious. This has direct implications for AI: if we cannot verify consciousness through observation, we face a permanent epistemic barrier. Scored as 'for' because it supports the meta-claim that consciousness cannot be fully explained by functional/physical processes alone.",
         },
@@ -254,8 +254,8 @@ export const consciousnessHardProblemData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Thompson, E. 'Mind in Life' (2007); Varela, Thompson & Rosch (1991)",
-          sourceUrl: "https://doi.org/10.4159/9780674040571",
+          source: "Thompson, E. (2007). Mind in Life: Biology, Phenomenology, and the Sciences of Mind. Harvard University Press; Varela, Thompson & Rosch (1991), The Embodied Mind, MIT Press",
+          sourceUrl: "https://www.hup.harvard.edu/books/9780674057517",
           reasoning:
             "Embodied cognition is a well-established research program with growing empirical support from interoception research. It challenges both pure computationalism and simple substrate independence. However, it does not settle the hard problem — it shifts the question from 'can silicon be conscious?' to 'can disembodied systems be conscious?' Embodied robots might still potentially be conscious, while purely software systems might not.",
         },
@@ -265,7 +265,7 @@ export const consciousnessHardProblemData = {
   references: [
     {
       title: "Facing Up to the Problem of Consciousness — David Chalmers (1995)",
-      url: "https://doi.org/10.1093/acprof:oso/9780195117899.001.0001",
+      url: "https://consc.net/papers/facing.html",
     },
     {
       title: "What Is It Like to Be a Bat? — Thomas Nagel (1974)",

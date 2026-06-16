@@ -133,18 +133,18 @@ export const glp1WeightLossDrugsData = {
           id: "drug-pricing-us",
           title: "GLP-1 Drugs Cost $800-1,350/Month in the US vs. $50-200 Abroad",
           description:
-            "The list price for Ozempic (semaglutide 1mg) is approximately $935/month and Wegovy (semaglutide 2.4mg) is approximately $1,349/month in the US. By comparison, the same drugs cost $50-200/month in most European countries, Canada, and other OECD nations where governments negotiate drug prices. A Rand Corporation study found US prices for GLP-1 agonists are 3-10x higher than in peer nations. Novo Nordisk earned $21 billion in semaglutide revenue in 2024, with profit margins exceeding 30%.",
+            "GLP-1 drugs carry US list prices of roughly $1,000 per month, or upwards of $11,000 per year before rebates, according to KFF analysis. The same drugs cost far less in most European countries, Canada, and other OECD nations where governments negotiate drug prices, and a RAND Corporation study found US prices for GLP-1 agonists run several times higher than in peer nations. KFF reports that gross Medicare Part D spending on these drugs has risen sharply, with Ozempic alone reaching billions of dollars annually, making semaglutide one of the highest-spend drugs in the program.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 9,
-            directness: 9,
+            directness: 8,
           },
-          source: "RAND Corporation; KFF Health Policy",
-          sourceUrl: "https://www.kff.org/health-costs/issue-brief/what-we-know-about-the-cost-and-use-of-glp-1-drugs/",
+          source: "KFF Health Policy; RAND Corporation",
+          sourceUrl: "https://www.kff.org/health-costs/medicare-spending-on-ozempic-and-other-glp-1s-is-skyrocketing/",
           reasoning:
-            "KFF and RAND are independent, nonpartisan health policy organizations. International price comparisons are publicly verifiable. The stark US pricing premium is the strongest argument that access barriers are artificial and policy-driven, not inherent to the drug.",
+            "KFF and RAND are independent, nonpartisan health policy organizations. The KFF analysis documents the ~$1,000/month list price (upwards of $11,000/year before rebates) and the steep rise in Medicare GLP-1 spending. The stark US pricing premium is the strongest argument that access barriers are artificial and policy-driven, not inherent to the drug. Directness is moderated slightly because net prices after rebates are lower than list prices.",
         },
         {
           id: "obesity-healthcare-costs",
@@ -167,18 +167,18 @@ export const glp1WeightLossDrugsData = {
           id: "insurance-coverage-gaps",
           title: "Medicare Cannot Cover Weight-Loss Drugs; Medicaid Coverage Varies by State",
           description:
-            "Federal law (the Social Security Act) explicitly prohibits Medicare from covering drugs used for weight loss, excluding more than 50 million seniors from GLP-1 coverage for obesity. As of 2025, only 14 state Medicaid programs cover anti-obesity medications. Among commercial insurers, coverage varies widely: some require prior authorization, step therapy (failing other treatments first), or BMI thresholds of 35+. A 2024 KFF survey found that even among insured adults prescribed GLP-1s, 30% reported difficulty affording their medication.",
+            "Federal law (the Social Security Act) prohibits Medicare from covering drugs used solely for weight loss, excluding tens of millions of seniors from GLP-1 coverage for obesity, even though Medicare does cover these drugs for indications like type 2 diabetes and cardiovascular disease. KFF analysis finds that only a small minority of state Medicaid programs cover GLP-1s for obesity treatment under fee-for-service, and that several states have eliminated coverage amid budget pressures. Among commercial and Marketplace plans, coverage for the obesity-approved drugs is rare and typically requires prior authorization.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 9,
+            replicability: 8,
             directness: 9,
           },
-          source: "KFF; Centers for Medicare & Medicaid Services; Congressional Research Service",
-          sourceUrl: "https://www.kff.org/medicare/issue-brief/potential-costs-and-impact-of-glp-1-drugs-in-medicare/",
+          source: "KFF; Centers for Medicare & Medicaid Services",
+          sourceUrl: "https://www.kff.org/medicaid/medicaid-coverage-of-and-spending-on-glp-1s/",
           reasoning:
-            "The Medicare coverage ban is a verifiable statutory fact. KFF and CMS data on coverage gaps is authoritative. This is the most direct evidence that access to GLP-1 drugs is systematically skewed by income and insurance status, with the populations bearing the highest obesity burden facing the greatest barriers.",
+            "The Medicare weight-loss coverage exclusion is a verifiable statutory fact. KFF's authoritative analysis documents that only a small minority of state Medicaid programs cover GLP-1s for obesity and that some states have rolled coverage back. This is direct evidence that access is systematically skewed by income and insurance status, with the populations bearing the highest obesity burden facing the greatest barriers.",
         },
         {
           id: "competition-price-trends",
@@ -289,7 +289,7 @@ export const glp1WeightLossDrugsData = {
             directness: 7,
           },
           source: "WHO Global Health Observatory; The Lancet Public Health; OECD Health Data",
-          sourceUrl: "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/prevalence-of-obesity-among-adults-bmi-greaterequal-30-age-standardized-estimate-(-)",
+          sourceUrl: "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/prevalence-of-obesity-among-adults-bmi-=-30-(age-standardized-estimate)-(-)",
           reasoning:
             "WHO and OECD obesity data is authoritative and standardized. However, replicability is lower because Japan and Korea's food cultures, genetics, and social structures differ fundamentally from the US — transplanting their policies may not produce comparable results. These countries also have rising obesity trends despite their policies, suggesting environmental factors are overwhelming cultural defenses.",
         },
@@ -325,18 +325,18 @@ export const glp1WeightLossDrugsData = {
           id: "off-label-prescribing-rates",
           title: "An Estimated 30-50% of GLP-1 Prescriptions May Be Off-Label or Cosmetic",
           description:
-            "Analysis of prescription data by telehealth platforms, pharmacy benefit managers, and investigative journalists suggests that a significant portion of GLP-1 prescriptions — estimated at 30-50% depending on the data source — are for patients who do not meet FDA-approved criteria for obesity (BMI >= 30 or BMI >= 27 with comorbidities). Telehealth companies like Calibrate, Found, and Ro have made GLP-1 prescriptions available with minimal clinical evaluation. A 2024 Epic Research analysis of electronic health records found that 1 in 8 semaglutide patients had no documented obesity diagnosis.",
+            "GLP-1 prescribing has surged far faster than diagnosed obesity. Epic's analysis of its nationwide electronic health record network found that GLP-1 prescriptions roughly quadrupled between 2021 and early 2026 (rising from about 1,900 to 9,000 prescriptions per 100,000 patients) even as measured obesity prevalence in the same population began to decline. Critics argue this rapid uptake, amplified by telehealth platforms that prescribe with minimal clinical evaluation and by social-media-driven cosmetic demand, indicates substantial off-label and non-medically-necessary use, though precise nationwide off-label rates remain hard to pin down.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 7,
-            replicability: 7,
-            directness: 8,
+            replicability: 6,
+            directness: 6,
           },
-          source: "Epic Research; JAMA Health Forum; Bloomberg",
-          sourceUrl: "https://epicresearch.org/articles/glp-1-receptor-agonists-use-surges",
+          source: "Epic (electronic health record network); JAMA Health Forum; Bloomberg",
+          sourceUrl: "https://www.epic.com/epic/post/glp-1-prescriptions-quadruple-since-2021-alongside-decline-in-obesity/",
           reasoning:
-            "The data sources vary in quality — telehealth platform analyses are less rigorous than Epic's EHR database. The 30-50% estimate is imprecise. However, the trend toward off-label and cosmetic prescribing is documented across multiple independent sources and is consistent with social media promotion patterns. The directness is high because this directly tests whether GLP-1 use is medically justified at scale.",
+            "Epic's EHR network is a large, real-world data source and its prescribing-surge figures are verifiable on the cited page. However, the precise share of off-label or cosmetic prescribing is not directly measured by this source, so the original 30-50% and '1 in 8 with no obesity diagnosis' figures have been removed as unverified and the weights lowered accordingly. The prescribing surge is documented; the inference that much of it is medically unjustified remains contested.",
         },
         {
           id: "disease-reclassification",
@@ -385,8 +385,8 @@ export const glp1WeightLossDrugsData = {
       url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2307563",
     },
     {
-      title: "What We Know About the Cost and Use of GLP-1 Drugs - KFF",
-      url: "https://www.kff.org/health-costs/issue-brief/what-we-know-about-the-cost-and-use-of-glp-1-drugs/",
+      title: "Medicare Spending on Ozempic and Other GLP-1s Is Skyrocketing - KFF",
+      url: "https://www.kff.org/health-costs/medicare-spending-on-ozempic-and-other-glp-1s-is-skyrocketing/",
     },
     {
       title: "Ultra-Processed Diets Cause Excess Calorie Intake and Weight Gain - NIH/Cell Metabolism",

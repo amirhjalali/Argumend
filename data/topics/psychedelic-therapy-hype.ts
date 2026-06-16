@@ -52,7 +52,7 @@ export const psychedelicTherapyHypeData = {
           id: "fda-advisory-committee-rejection",
           title: "FDA Advisory Committee Votes Against MDMA Approval (June 2024)",
           description:
-            "In June 2024, the FDA's Psychopharmacologic Drugs Advisory Committee voted 9-2 against recommending MDMA for PTSD treatment, citing concerns about study design flaws (inadequate blinding), potential for abuse, missing safety data, and difficulty distinguishing drug effects from therapy effects. Committee members expressed concern that the therapy-heavy protocol (three preparatory sessions, three 8-hour drug sessions, and nine integration sessions) made the treatment impractical to scale. The FDA typically follows advisory committee recommendations, though it is not required to do so.",
+            "On June 4, 2024, the FDA's Psychopharmacologic Drugs Advisory Committee (PDAC) reviewed Lykos Therapeutics' new drug application (NDA 215455) for midomafetamine (MDMA) capsules for PTSD. The committee voted 2-9 that available data did NOT show the treatment to be effective, and 1-10 that the benefits did NOT outweigh the risks, citing study design flaws (inadequate blinding / functional unblinding), potential for abuse, missing safety data, and difficulty distinguishing drug effects from therapy effects. The therapy-heavy protocol (preparatory sessions, three ~8-hour drug sessions, and integration sessions) also raised scalability concerns. The FDA subsequently issued a Complete Response Letter (CRL) in August 2024 declining to approve the application and requesting an additional Phase 3 trial.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -60,10 +60,10 @@ export const psychedelicTherapyHypeData = {
             replicability: 9,
             directness: 9,
           },
-          source: "FDA; STAT News; Nature",
-          sourceUrl: "https://www.fda.gov/advisory-committees/advisory-committee-calendar/june-4-2024-meeting-psychopharmacologic-drugs-advisory-committee",
+          source: "FDA Psychopharmacologic Drugs Advisory Committee, Final Summary Minutes (June 4, 2024)",
+          sourceUrl: "https://www.fda.gov/media/180463/download",
           reasoning:
-            "The FDA advisory committee is the most authoritative independent body for evaluating drug evidence. A 9-2 vote against is a strong signal of significant evidentiary concerns. The committee's independence is beyond question. This directly challenges the claim that psychedelic therapy has achieved clinical validation sufficient for approval.",
+            "The FDA advisory committee is the most authoritative independent body for evaluating drug evidence. The lopsided votes (2-9 against efficacy, 1-10 against benefit-risk), followed by the FDA's August 2024 Complete Response Letter, are a strong signal of significant evidentiary concerns. The committee's independence is beyond question. This directly challenges the claim that psychedelic therapy has achieved clinical validation sufficient for approval.",
         },
         {
           id: "psilocybin-depression-remission",
@@ -94,8 +94,8 @@ export const psychedelicTherapyHypeData = {
             replicability: 8,
             directness: 7,
           },
-          source: "FDA; Janssen Pharmaceuticals; American Journal of Psychiatry",
-          sourceUrl: "https://www.fda.gov/news-events/press-announcements/fda-approves-new-nasal-spray-medication-treatment-resistant-depression-available-only-certified",
+          source: "Janssen Pharmaceuticals press release (FDA approval, March 5, 2019)",
+          sourceUrl: "https://www.jnj.com/media-center/press-releases/janssen-announces-u-s-fda-approval-of-spravatotm-esketamine-ciii-nasal-spray-for-adults-with-treatment-resistant-depression-trd-who-have-cycled-through-multiple-treatments-without-relief",
           reasoning:
             "FDA approval is the gold standard of clinical validation, based on rigorous Phase 3 trials. Esketamine demonstrates that psychedelic-mechanism drugs can meet regulatory requirements. However, its clinical impact has been moderate — adoption has been slower than expected due to cost ($300/session), administration requirements, and questions about whether the effects are truly sustained or require repeated dosing. Directness for the broader psychedelic therapy claim is moderate because ketamine's mechanism differs from classic psychedelics.",
         },
@@ -156,8 +156,8 @@ export const psychedelicTherapyHypeData = {
             replicability: 8,
             directness: 6,
           },
-          source: "COMPASS Pathways SEC filings; STAT News; The Guardian",
-          sourceUrl: "https://www.compasspathways.com/our-research/",
+          source: "COMPASS Pathways (COMP360 in treatment-resistant depression); SEC filings; STAT News",
+          sourceUrl: "https://compasspathways.com/our-work/comp360-psilocybin-treatment-in-trd/",
           reasoning:
             "The financial facts (NASDAQ listing, patents, trial funding) are publicly verifiable. The conflict of interest is real but standard in drug development — most FDA-approved drugs are tested in company-funded trials. Directness is moderate because the existence of conflicts does not prove that results are biased; it means they should be scrutinized more carefully and replicated by independent investigators.",
         },
@@ -201,16 +201,16 @@ export const psychedelicTherapyHypeData = {
             replicability: 9,
             directness: 9,
           },
-          source: "Oregon Health Authority; Colorado Department of Regulatory Agencies; NPR",
-          sourceUrl: "https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/Pages/Psilocybin-Services.aspx",
+          source: "Oregon Health Authority, Oregon Psilocybin Services; Colorado Department of Regulatory Agencies; NPR",
+          sourceUrl: "https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/Pages/Oregon-Psilocybin-Services.aspx",
           reasoning:
             "The pricing data from state regulatory agencies is highly reliable and directly relevant to the access question. The comparison with SSRI costs starkly illustrates the scaling challenge. The data directly supports the claim that psychedelic therapy faces significant access barriers.",
         },
         {
           id: "group-psilocybin-pilot",
-          title: "Group Psilocybin Therapy Shows Promise in Pilot Studies (2023)",
+          title: "Group Psilocybin Therapy Shows Promise in a Cancer/Depression Trial (2023)",
           description:
-            "A pilot study at NYU Langone administered psilocybin to groups of 3-4 cancer patients with psychological distress simultaneously, with one lead therapist and one co-therapist per group. Preliminary results showed clinically meaningful reductions in anxiety and depression comparable to individual psilocybin therapy at prior studies. If group formats prove effective in larger trials, they could reduce the per-patient therapist time by 60-70% and proportionally reduce costs, making the treatment more accessible.",
+            "An open-label trial (Agrawal et al., published in Cancer, December 2023) administered single-dose psilocybin to 30 patients with cancer and a major depressive disorder in small cohorts (groups of three to four), pairing a one-on-one therapy structure with simultaneous group sessions and a shared dosing day. Results showed clinically meaningful reductions in depression severity sustained at 8 weeks, with no serious treatment-related adverse events. If group formats prove effective in larger controlled trials, they could substantially reduce per-patient therapist time and proportionally reduce costs, making the treatment more accessible.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -218,10 +218,10 @@ export const psychedelicTherapyHypeData = {
             replicability: 5,
             directness: 7,
           },
-          source: "NYU Langone Health; Psychedelic Medicine",
-          sourceUrl: "https://doi.org/10.1089/psymed.2023.0003",
+          source: "Agrawal et al., \"Psilocybin-assisted group therapy in patients with cancer diagnosed with a major depressive disorder,\" Cancer (2023)",
+          sourceUrl: "https://doi.org/10.1002/cncr.35010",
           reasoning:
-            "Pilot study evidence is preliminary with small sample sizes and no control group, hence the lower replicability score. However, the finding that group format may preserve efficacy while dramatically reducing costs is important for the scaling question. More rigorous trials with control groups and larger samples are needed to confirm.",
+            "This is a small, open-label single-arm trial with no placebo control, hence the lower replicability score. However, the finding that a group format may preserve efficacy while dramatically reducing per-patient therapist time is important for the scaling question. Larger controlled trials with comparison groups are needed to confirm.",
         },
       ],
     },
@@ -241,11 +241,11 @@ export const psychedelicTherapyHypeData = {
     },
     {
       title: "Oregon Psilocybin Services — Oregon Health Authority",
-      url: "https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/Pages/Psilocybin-Services.aspx",
+      url: "https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/Pages/Oregon-Psilocybin-Services.aspx",
     },
     {
-      title: "FDA Approval of Esketamine (Spravato) for Treatment-Resistant Depression",
-      url: "https://www.fda.gov/news-events/press-announcements/fda-approves-new-nasal-spray-medication-treatment-resistant-depression-available-only-certified",
+      title: "FDA Approval of Esketamine (Spravato) for Treatment-Resistant Depression — Janssen (2019)",
+      url: "https://www.jnj.com/media-center/press-releases/janssen-announces-u-s-fda-approval-of-spravatotm-esketamine-ciii-nasal-spray-for-adults-with-treatment-resistant-depression-trd-who-have-cycled-through-multiple-treatments-without-relief",
     },
   ],
   questions: [
@@ -253,7 +253,7 @@ export const psychedelicTherapyHypeData = {
       id: "q1",
       title: "How strong is the clinical evidence for psilocybin and MDMA therapy?",
       content:
-        "The results are impressive by psychiatric standards: 71% PTSD remission with MDMA, rapid depression remission with psilocybin. But the FDA advisory committee voted 9-2 against MDMA approval, citing blinding failures, expectancy effects, and safety concerns. The evidence is promising but not yet definitive.",
+        "The results are impressive by psychiatric standards: 71% PTSD remission with MDMA, rapid depression remission with psilocybin. But the FDA advisory committee voted against MDMA (2-9 that it was not effective, 1-10 that benefits did not outweigh risks), and the FDA issued a Complete Response Letter in August 2024, citing blinding failures, expectancy effects, and safety concerns. The evidence is promising but not yet definitive.",
     },
     {
       id: "q2",

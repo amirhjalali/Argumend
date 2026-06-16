@@ -40,13 +40,13 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
     },
     {
       title:
-        "FBI Director Wray testimony reaffirming lab-leak assessment (2024)",
-      url: "https://www.fbi.gov/news/stories/fbi-director-wray-testifies-before-senate",
+        "FBI Director Wray: bureau assesses with 'moderate confidence' a lab-incident origin most likely (CNN, Feb 2023)",
+      url: "https://www.cnn.com/2023/02/28/politics/wray-fbi-covid-origins-lab-china/index.html",
     },
     {
       title:
-        "NIH admits to gain-of-function research oversight failures — Congressional testimony (2024)",
-      url: "https://www.nih.gov/about-nih/who-we-are/nih-director/statements/statement-nih-efforts-enhance-biosafety-biosecurity-oversight",
+        "NIH statement on the release of the USG Policy for Oversight of Dual Use Research of Concern and Pathogens with Enhanced Pandemic Potential (2024)",
+      url: "https://www.nih.gov/about-nih/who-we-are/nih-director/statements/statement-release-usg-policy-oversight-dual-use-research-concern-pathogens-enhanced-pandemic-potential",
     },
     {
       title:
@@ -55,8 +55,8 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
     },
     {
       title:
-        "Gallup poll: 60% of Americans consider lab leak most likely origin (2024)",
-      url: "https://news.gallup.com/poll/510975/americans-covid-origin-beliefs.aspx",
+        "Economist/YouGov poll: two-thirds of Americans believe COVID-19 originated from a lab in China (March 2023)",
+      url: "https://yougov.com/en-us/articles/45389-americans-believe-covid-origin-lab",
     },
   ],
   questions: [
@@ -356,22 +356,22 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
         {
           id: "nih-gof-oversight-failures-2024",
           title:
-            "NIH acknowledged gain-of-function research oversight failures (2024)",
+            "NIH backed an expanded 2024 federal policy strengthening oversight of dangerous pathogen research",
           description:
-            "In 2024 congressional testimony, NIH officials acknowledged that gain-of-function research oversight mechanisms had failed to catch experiments at the WIV that enhanced the pathogenicity of bat coronaviruses. EcoHealth Alliance grants funded research that created chimeric coronaviruses with increased infectivity in human cell cultures, but these experiments were not flagged for enhanced review under the P3CO framework (Potential Pandemic Pathogen Care and Oversight). The NIH subsequently announced reforms to its oversight policies, including expanded definitions of gain-of-function research and stronger reporting requirements.",
+            "In 2024 the White House Office of Science and Technology Policy released a unified US Government Policy for Oversight of Dual Use Research of Concern and Pathogens with Enhanced Pandemic Potential (DURC/PEPP), which NIH stated it would implement. NIH's statement noted the new framework 'expands the scope of research requiring additional scrutiny' and strengthens institutional review, consolidating the earlier dual-use (DURC) and potential pandemic pathogen (P3CO) frameworks that critics argued had not adequately flagged enhanced-pathogenicity experiments. Separately, EcoHealth Alliance grants had funded chimeric bat-coronavirus work at the WIV, and EcoHealth was later debarred by HHS for failing to report experiments that increased viral growth. The strengthened policy was scheduled to take effect in May 2025 before a 2025 executive order directed further revision.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 6,
             replicability: 7,
-            directness: 5,
+            directness: 4,
           },
           source:
-            "NIH Congressional Testimony (2024); House Select Subcommittee Report",
+            "NIH statement on the 2024 USG DURC/PEPP oversight policy; House Select Subcommittee Report (2024)",
           sourceUrl:
-            "https://www.nih.gov/about-nih/who-we-are/nih-director/statements/statement-nih-efforts-enhance-biosafety-biosecurity-oversight",
+            "https://www.nih.gov/about-nih/who-we-are/nih-director/statements/statement-release-usg-policy-oversight-dual-use-research-concern-pathogens-enhanced-pandemic-potential",
           reasoning:
-            "NIH's own admission that oversight failed is significant because it comes from the funding agency itself, not an adversarial source. It confirms that gain-of-function experiments more dangerous than disclosed were conducted at the WIV with US funding. However, the existence of oversight failures does not prove that a specific experiment produced SARS-CoV-2. The reforms NIH announced implicitly acknowledge that the previous system was inadequate, which strengthens concerns about what could have occurred under lax oversight.",
+            "That the federal government overhauled and expanded its biosafety oversight framework in 2024 is an official action confirming the prior system was viewed as insufficient in scope, which lends weight to concerns about how risky pathogen research was reviewed. But this is a forward-looking policy statement, not an admission that a specific WIV experiment produced SARS-CoV-2; the directness is therefore low. The claim that oversight gaps make an accidental origin more plausible in hindsight is an inference, not a finding in the source itself.",
         },
         {
           id: "bat-coronavirus-sampling-expansion-2024",
@@ -500,9 +500,9 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
         {
           id: "fbi-moderate-confidence-2024",
           title:
-            "FBI maintained 'moderate confidence' in lab-leak origin throughout 2024",
+            "FBI assesses with 'moderate confidence' a lab-incident origin is most likely (FBI Director Wray, Feb 2023)",
           description:
-            "FBI Director Christopher Wray testified in 2024 that the FBI continues to assess with 'moderate confidence' that the COVID-19 pandemic most likely originated from a laboratory incident. This is the highest confidence level expressed by any US intelligence agency on the origins question. Wray stated the assessment was based on the FBI's biological weapons expertise, analysis of the virus itself, and classified intelligence. The FBI is the only agency to express 'moderate' rather than 'low' confidence in a lab origin.",
+            "In February 2023, FBI Director Christopher Wray publicly confirmed that the FBI assesses with 'moderate confidence' that the COVID-19 pandemic most likely originated from a 'potential lab incident in Wuhan.' This remained the highest confidence level expressed by any US intelligence agency favoring a lab origin (the Department of Energy reached a similar conclusion with 'low confidence'). Wray said the assessment drew on the FBI's biological-threats expertise but that the supporting details were classified. The FBI is the only agency to express 'moderate' rather than 'low' confidence in a lab origin.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -510,11 +510,11 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
             replicability: 2,
             directness: 5,
           },
-          source: "FBI Director testimony; Senate Intelligence Committee (2024)",
+          source: "FBI Director Christopher Wray, via CNN (February 2023)",
           sourceUrl:
-            "https://www.fbi.gov/news/stories/fbi-director-wray-testifies-before-senate",
+            "https://www.cnn.com/2023/02/28/politics/wray-fbi-covid-origins-lab-china/index.html",
           reasoning:
-            "The FBI's 'moderate confidence' assessment is the strongest position any intelligence agency has taken. The FBI has unique expertise in biological threats and bioweapons analysis. However, intelligence assessments are not scientific peer-reviewed findings, and the underlying evidence remains classified. 'Moderate confidence' still indicates significant uncertainty. Replicability is very low because the classified sources cannot be independently evaluated or reproduced.",
+            "The FBI's 'moderate confidence' assessment is the strongest position any intelligence agency has publicly taken toward a lab origin, and the FBI has relevant expertise in biological threats. However, intelligence assessments are not peer-reviewed scientific findings, and the underlying evidence remains classified, so it cannot be independently evaluated or reproduced. 'Moderate confidence' in intelligence parlance still signals meaningful uncertainty, and the majority of the intelligence community assessed natural origin as more likely or remained undecided.",
         },
         {
           id: "declassified-intelligence-2025",
@@ -538,9 +538,9 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
         {
           id: "public-opinion-shift-2024",
           title:
-            "Public opinion shifted: majority now considers lab leak plausible (2024)",
+            "Public opinion shifted: majority now considers a lab origin likely (Economist/YouGov, 2023)",
           description:
-            "A 2024 Gallup poll found that 60% of Americans considered a laboratory leak the most likely origin of COVID-19, up from approximately 30% in early 2021. The shift crossed political lines, with majorities among Republicans (78%) and independents (56%), and a significant minority of Democrats (38%) supporting the lab-leak hypothesis. This shift occurred alongside increased media coverage of the lab-leak theory, the House Subcommittee investigation, and intelligence agency disclosures.",
+            "A March 2023 Economist/YouGov poll found that 66% of Americans (including 85% of Republicans and 53% of Democrats) said it was definitely or probably true that COVID-19 originated from a lab in China, up sharply from roughly 30% who favored a lab origin in early 2021. The shift crossed political lines and occurred alongside increased media coverage of the lab-leak hypothesis, the House Select Subcommittee investigation, and intelligence-agency disclosures.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -548,11 +548,11 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
             replicability: 7,
             directness: 1,
           },
-          source: "Gallup (2024)",
+          source: "The Economist/YouGov poll (March 2023)",
           sourceUrl:
-            "https://news.gallup.com/poll/510975/americans-covid-origin-beliefs.aspx",
+            "https://yougov.com/en-us/articles/45389-americans-believe-covid-origin-lab",
           reasoning:
-            "Public opinion polls are methodologically rigorous when conducted by established organizations like Gallup, and the trend is independently verifiable across multiple polling organizations. However, public opinion has essentially zero directness as evidence for the actual origin of the virus. Popularity does not determine scientific truth. The shift is relevant as sociological context: it reflects that the lab-leak hypothesis has moved from fringe to mainstream, which affects policy and funding for investigation. The extremely low directness score reflects that public belief is not evidence of fact.",
+            "Public opinion polls from established organizations are methodologically rigorous, and the upward trend is independently corroborated by other pollsters. However, public opinion has essentially zero directness as evidence for the actual origin of the virus, since popularity does not determine scientific truth. The shift matters only as sociological context: the lab-leak hypothesis has moved from fringe to mainstream, which affects policy and investigation funding. The extremely low directness score reflects that public belief is not evidence of fact.",
         },
         {
           id: "virologist-survey-zoonotic-2024",
