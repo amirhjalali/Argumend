@@ -35,39 +35,43 @@ export const spaceColonizationFeasibilityData = {
           id: "starship-progress",
           title: "SpaceX Starship: Rapid Iteration Toward Mars Capability",
           description:
-            "SpaceX's Starship has completed multiple test flights since 2023, demonstrating booster catch and orbital-class performance. The vehicle is designed to carry 100-150 tonnes to low Earth orbit and is the baseline for NASA's Artemis lunar lander. SpaceX targets uncrewed Mars cargo missions by 2026-2027.",
+            "SpaceX's Starship has flown multiple integrated test flights since 2023 and has caught the Super Heavy booster at the launch tower (first achieved on Flight 5, October 2024). SpaceX advertises a target payload of 100-150 tonnes to low Earth orbit, and Starship is the baseline for NASA's Artemis HLS lunar lander. As of 2025, however, Starship had not yet completed a full orbital flight with payload deployment, and SpaceX's uncrewed Mars cargo target of 2026-2027 is a company projection, not a demonstrated capability.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 5,
-            replicability: 6,
-            directness: 8,
+            sourceReliability: 5,
+            independence: 3,
+            replicability: 5,
+            directness: 7,
           },
-          source: "SpaceX mission reports; NASA Artemis HLS contract",
+          source:
+            "SpaceX, \"Starship\" vehicle page (advertised payload); NASA Artemis HLS contract award",
+          sourceUrl: "https://www.spacex.com/vehicles/starship/",
           reasoning:
-            "Demonstrated hardware progress is real, but timelines are from SpaceX (historically optimistic). Independence is limited as primary source is the company itself.",
+            "Booster-catch hardware progress is real and independently observed, but the 100-150 t payload figure and the 2026-2027 Mars timeline are unverified vendor projections from SpaceX itself. Weights de-inflated for low independence and for post-cutoff, undemonstrated claims.",
         },
         {
           id: "three-month-transit",
           title: "Scientific Reports: 3-Month Mars Transit Is Feasible",
           description:
-            "A 2025 study published in Scientific Reports found trajectories allowing human Mars transfer in approximately 3 months, which would keep radiation exposure within NASA career limits. This is a significant improvement over the traditional 6-9 month transit.",
+            "A 2025 study published in Scientific Reports (Kingdon, UC Santa Barbara) identifies two ~90-104 day Earth-Mars transfer trajectories that would keep crew radiation exposure within NASA's ~600 mSv career limit, whereas conventional 180-day trajectories would not. The analysis assumes Starship-class performance and in-space refueling, neither of which has yet been demonstrated.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 8,
-            replicability: 7,
+            replicability: 5,
             directness: 7,
           },
-          source: "Scientific Reports, Nature (2025)",
+          source:
+            "Kingdon, J. \"3 months transit time to Mars for human missions using SpaceX Starship,\" Scientific Reports 15 (2025), DOI 10.1038/s41598-025-00565-7",
+          sourceUrl: "https://www.nature.com/articles/s41598-025-00565-7",
           reasoning:
-            "Peer-reviewed trajectory analysis. Theoretical but based on known physics and Starship performance parameters.",
+            "Peer-reviewed trajectory analysis grounded in known orbital mechanics. Replicability de-inflated because the result is contingent on Starship performance and orbital refueling that remain undemonstrated, making it a feasibility study rather than a verified capability.",
         },
         {
           id: "radiation-health-risks",
           title: "Mars Colonists Face Serious Radiation Exposure",
           description:
-            "Mars lacks a global magnetic field and has a thin atmosphere, exposing surface inhabitants to galactic cosmic rays and solar particle events. A round-trip minimum radiation dose is 0.66 sieverts, and surface habitation adds continuous exposure. Long-term cancer and neurological risks are not yet fully understood.",
+            "Mars lacks a global magnetic field and has a thin atmosphere, exposing surface inhabitants to galactic cosmic rays and solar particle events. The Radiation Assessment Detector (RAD) aboard the Mars Science Laboratory measured an in-transit dose-equivalent rate that implies roughly 0.66 ± 0.12 Sv for the shortest round-trip transit with current propulsion and comparable shielding; surface habitation adds continuous exposure. Long-term cancer and CNS risks remain incompletely characterized.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -75,9 +79,11 @@ export const spaceColonizationFeasibilityData = {
             replicability: 8,
             directness: 8,
           },
-          source: "NASA Human Research Program; Cucinotta et al.",
+          source:
+            "Zeitlin et al., \"Measurements of Energetic Particle Radiation in Transit to Mars on the Mars Science Laboratory,\" Science 340 (2013) 1080-1084",
+          sourceUrl: "https://www.science.org/doi/10.1126/science.1235989",
           reasoning:
-            "Well-established radiation physics. The health risks are real and currently unsolved for long-duration surface stays.",
+            "Direct, in-situ measurement of the deep-space radiation environment from NASA's RAD instrument; the 0.66 Sv round-trip figure is sourced to this peer-reviewed Science paper. Corrected mis-attribution (Zeitlin et al., not Cucinotta). Health risks are real and unsolved for long-duration stays.",
         },
       ],
     },
@@ -106,7 +112,7 @@ export const spaceColonizationFeasibilityData = {
           id: "moxie-success",
           title: "NASA MOXIE Produced Oxygen on Mars",
           description:
-            "The Mars Oxygen In-Situ Resource Utilization Experiment (MOXIE) aboard NASA's Perseverance rover successfully produced oxygen from Martian atmospheric CO₂ across 16 runs in 2021-2023, demonstrating the core ISRU principle works on Mars.",
+            "The Mars Oxygen In-Situ Resource Utilization Experiment (MOXIE) aboard NASA's Perseverance rover produced oxygen from Martian atmospheric CO₂ across 16 runs in 2021-2023, generating a cumulative total of about 122 grams and reaching a peak rate of roughly 12 grams per hour, demonstrating the core ISRU principle works on Mars.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -114,15 +120,17 @@ export const spaceColonizationFeasibilityData = {
             replicability: 7,
             directness: 7,
           },
-          source: "NASA JPL; Science Advances (2023)",
+          source:
+            "Hecht et al., \"Mars Oxygen ISRU Experiment (MOXIE),\" Science Advances (2022); NASA JPL mission summary (2023)",
+          sourceUrl: "https://www.jpl.nasa.gov/news/nasas-oxygen-generating-experiment-moxie-completes-mars-mission/",
           reasoning:
-            "Direct demonstration on Mars, though at tiny scale (6-8 grams/hour vs. tonnes needed for a colony).",
+            "Direct demonstration on Mars, but at tiny scale: peak ~12 g/hour and ~122 g total over the mission, versus the tonnes of oxygen a crewed colony would require. Corrected the production rate (was overstated/garbled as 6-8 g/hour).",
         },
         {
           id: "biosphere-2-failure",
           title: "Biosphere 2 Failed to Maintain Closed Ecosystem",
           description:
-            "The $200M Biosphere 2 experiment (1991-1993) failed to maintain a self-sustaining closed ecosystem for 8 people on Earth. Oxygen levels dropped dangerously, requiring external injection. Food production was insufficient. If a sealed habitat failed on Earth with unlimited access to repair, Mars conditions would be far more challenging.",
+            "The ~$150M Biosphere 2 experiment (first closure 1991-1993) could not maintain a self-sustaining closed ecosystem for its 8 crew. Atmospheric oxygen fell from 20.9% to about 14% over roughly 16 months—driven largely by soil-microbe respiration and CO₂ uptake by exposed concrete—requiring external oxygen injection, and food production was insufficient. A sealed habitat that struggled on Earth with full access to repair underscores how much harder closed-loop life support would be on Mars.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -130,9 +138,11 @@ export const spaceColonizationFeasibilityData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Columbia University; Nelson & Dempster (1996)",
+          source:
+            "Biosphere 2 mission record, summarized by the University of Arizona (current operator) and contemporaneous reporting",
+          sourceUrl: "https://en.wikipedia.org/wiki/Biosphere_2",
           reasoning:
-            "Directly relevant precedent for closed-loop life support. Technology has advanced since 1993, but no full-scale success has been demonstrated.",
+            "Directly relevant precedent for closed-loop life support. Corrected the cost (~$150M, not $200M) and added the documented oxygen decline (to ~14%) and its cause. Could not web-verify the prior \"Nelson & Dempster (1996)\" citation, so the source is now an honest pointer to the well-documented public record rather than a possibly-fabricated reference. Technology has advanced since 1993, but no full-scale closed-loop success has been demonstrated.",
         },
       ],
     },

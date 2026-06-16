@@ -35,65 +35,75 @@ export const socialMediaAgeLimitsData = {
           id: "surgeon-general-advisory",
           title: "US Surgeon General Advisory on Youth Mental Health (2023)",
           description:
-            "Surgeon General Vivek Murthy issued a formal advisory stating social media presents 'a profound risk of harm' to children. Called for warning labels similar to tobacco. Based on review of available evidence showing associations with depression, anxiety, and body image issues.",
+            "Surgeon General Vivek Murthy's May 2023 advisory warned that social media 'can have a profound risk of harm' to the mental health of children and adolescents, citing associations with depression, anxiety, poor sleep, and body image concerns. The advisory explicitly states 'we do not yet have enough evidence to determine if social media is sufficiently safe' rather than asserting proven causal harm. Murthy later (2024) called for a tobacco-style warning label.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 6,
-            directness: 7,
+            replicability: 5,
+            directness: 6,
           },
-          source: "US Surgeon General's Office",
+          source:
+            "U.S. Surgeon General, 'Social Media and Youth Mental Health' advisory (HHS, May 2023)",
+          sourceUrl:
+            "https://www.hhs.gov/sites/default/files/sg-youth-mental-health-social-media-advisory.pdf",
           reasoning:
-            "Highest-level public health advisory; carefully worded but stops short of claiming causation.",
+            "Highest-level public health advisory, but it frames evidence as insufficient/associational rather than proving causation; the warning-label call came separately in 2024. Directness lowered to reflect that the document itself does not claim proven causal harm.",
         },
         {
           id: "haidt-anxious-generation",
-          title: "Haidt's 'The Anxious Generation' Meta-Analysis",
+          title: "Haidt's 'The Anxious Generation'",
           description:
-            "Jonathan Haidt documents that teen depression increased 150% for girls and 50% for boys between 2010-2021, with the inflection point matching smartphone saturation. International data from 7 countries shows the same pattern.",
+            "Jonathan Haidt argues that U.S. adolescent depression and anxiety rose sharply after ~2012, when smartphones and social media reached saturation. Per his data, rates of major depression among teens roughly doubled from 2010-2021 (a relative rise near 150%, larger in absolute terms for girls), and he cites similar inflections in several anglophone countries. This is a trade book, not a peer-reviewed meta-analysis; critics (e.g., Candice Odgers in Nature) argue the correlational evidence cannot establish causation and that the timing claim is contested.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Jonathan Haidt, 'The Anxious Generation' (2024)",
+          source: "Jonathan Haidt, 'The Anxious Generation' (Penguin Press, 2024)",
+          sourceUrl: "https://www.anxiousgeneration.com/research/the-evidence",
           reasoning:
-            "Comprehensive but authored by an advocate; some peer reviewers dispute the causal framing.",
+            "Popular book by an advocate, not a peer-reviewed study; the '150% / 50%' split was overstated (the relative increase is similar across sexes, with absolute rise larger for girls), so the claim was corrected and weights de-inflated. Causal framing is actively disputed in the literature.",
         },
         {
           id: "australia-age-verification",
           title: "Australia Passes Social Media Ban for Under-16s",
           description:
-            "Australia passed legislation in 2024 banning children under 16 from social media. Implementation details and effectiveness data are still emerging. Platform compliance mechanisms remain uncertain.",
+            "Australia's Online Safety Amendment (Social Media Minimum Age) Act 2024 passed Parliament on 29 November 2024, requiring certain platforms to take 'reasonable steps' to prevent under-16s from holding accounts, with civil penalties up to AUD$49.5 million. Enforcement was scheduled to begin roughly 12 months after passage (late 2025). Effectiveness data is still emerging, and compliance mechanisms remain uncertain.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 5,
-            directness: 6,
+            replicability: 4,
+            directness: 5,
           },
-          source: "Australian Parliament, eSafety Commissioner",
+          source:
+            "Parliament of Australia, Online Safety Amendment (Social Media Minimum Age) Act 2024",
+          sourceUrl:
+            "https://www.legislation.gov.au/C2024A00127/asmade/text",
           reasoning:
-            "Democratic nation acted on the evidence; too early for effectiveness data.",
+            "The law's passage is verified; that a democracy legislated is a policy signal, not direct evidence of harm or of enforcement effectiveness, so directness/replicability lowered. Too early for outcome data.",
         },
         {
           id: "teen-self-report-surveys",
           title: "Teens Self-Report Both Harms and Benefits",
           description:
-            "Pew Research surveys show 46% of teens say social media makes them feel worse, but 44% say it makes them feel better, and 80% say it helps them feel more connected to friends. LGBTQ+ youth particularly value online community access.",
+            "Pew Research's 2022 survey of U.S. teens found 80% say social media makes them feel more connected to what is going on in their friends' lives, 67% feel they have people who can support them through tough times, and 58% feel more accepted. On the negative side, 38% feel overwhelmed by drama, 29% feel pressure to post for likes, and 23% feel worse about their own life. A majority (54%) say it would be at least somewhat hard to give up social media.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 7,
+            directness: 6,
           },
-          source: "Pew Research Center (2023)",
+          source:
+            "Pew Research Center, 'Teens, Social Media and Technology 2022' / 'Teens' views about social media'",
+          sourceUrl:
+            "https://www.pewresearch.org/internet/2022/11/16/2-teens-views-about-social-media/",
           reasoning:
-            "Large-scale, independent survey data that complicates the 'purely harmful' narrative.",
+            "Large independent survey. The prior '46% feel worse / 44% feel better' figures did not match Pew and were replaced with verified numbers; the unverifiable LGBTQ-specific claim was removed. Self-reported feelings are indirect evidence of net benefit/harm, so directness is moderate.",
         },
       ],
     },
@@ -122,67 +132,78 @@ export const socialMediaAgeLimitsData = {
       evidence: [
         {
           id: "australia-implementation",
-          title: "Australia's Age Verification Pilot Data",
+          title: "Australia's Age Assurance Technology Trial",
           description:
-            "Australia's eSafety Commissioner trials showed facial age estimation correctly identifies under-16s 95% of the time, but privacy advocates raised concerns about biometric data collection and algorithmic bias against non-white faces.",
+            "Australia's government-commissioned Age Assurance Technology Trial published its final report in September 2025, assessing 48 vendors and 60+ technologies. It concluded that age assurance, including facial age estimation, 'can be done in Australia' and is feasible for real-world use, but found no single guaranteed method and flagged reduced accuracy for users with darker skin tones and those aged 16-20. (The report did not publish a clean '95% of under-16s correctly identified' figure.)",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
-            replicability: 6,
-            directness: 8,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Australian eSafety Commissioner (2024)",
+          source:
+            "Age Assurance Technology Trial, Final Report (commissioned by the Australian Government, September 2025)",
+          sourceUrl: "https://ageassurance.com.au/",
           reasoning:
-            "Government-commissioned pilot; promising but limited sample and context.",
+            "Government-commissioned independent trial. The prior specific '95%' accuracy figure was unverifiable and was removed; the report's actual conclusion is 'feasible, with caveats,' including accuracy gaps near the 16-year boundary, so directness/replicability lowered.",
         },
         {
           id: "coppa-effectiveness",
-          title: "COPPA Has Been Largely Ineffective",
+          title: "COPPA Has Been Hard to Enforce",
           description:
-            "The Children's Online Privacy Protection Act (1998) requires parental consent for under-13s. Studies show 53% of children under 13 use social media anyway, mostly by lying about age. Platforms have little incentive to enforce strictly.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 9,
-          },
-          source: "Common Sense Media, FTC Reports",
-          reasoning:
-            "25 years of evidence that age-based online restrictions are difficult to enforce.",
-        },
-        {
-          id: "age-verification-tech",
-          title: "Age Verification Technology Is Rapidly Improving",
-          description:
-            "Companies like Yoti and SuperAwesome offer facial age estimation with 98%+ accuracy for adults vs. children. Device-level attestation (Apple, Google) can verify age without sharing personal data with platforms.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 6,
-            independence: 4,
-            replicability: 6,
-            directness: 7,
-          },
-          source: "Yoti, SuperAwesome, IEEE Reviews",
-          reasoning:
-            "Industry sources with commercial interests; independent verification needed.",
-        },
-        {
-          id: "circumvention-rates",
-          title: "Teen Circumvention of Existing Restrictions Is High",
-          description:
-            "Surveys indicate 67% of teens know how to bypass parental controls and age restrictions. VPN usage among teens doubled from 2020 to 2024. Any ban creates a cat-and-mouse dynamic.",
+            "The Children's Online Privacy Protection Act (1998) requires verifiable parental consent before sites collect data from under-13s, which is why platforms set a 13+ minimum age. Yet Common Sense Media's 2021 census found 38% of 8- to 12-year-olds use social media despite being under the threshold, typically by entering a false birthdate. The FTC has brought enforcement actions (e.g., against TikTok/Musical.ly and YouTube), but age self-declaration remains easy to circumvent.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 7,
-            directness: 8,
+            replicability: 6,
+            directness: 7,
           },
-          source: "National Cyber Security Centre (UK), Bark Technologies",
+          source:
+            "Common Sense Media, 'The Common Sense Census: Media Use by Tweens and Teens, 2021'; U.S. FTC COPPA enforcement",
+          sourceUrl:
+            "https://www.commonsensemedia.org/sites/default/files/research/report/8-18-census-integrated-report-final-web_0.pdf",
           reasoning:
-            "Practical evidence of enforcement challenges from multiple jurisdictions.",
+            "The prior '53% of under-13s' figure was unverifiable; replaced with Common Sense Media's documented 38% of 8-12 year-olds. Real, dated evidence that age-based self-declaration restrictions are widely circumvented, though weights trimmed since the original stat was inflated.",
+        },
+        {
+          id: "age-verification-tech",
+          title: "Age Verification Technology Is Improving",
+          description:
+            "Vendors such as Yoti report facial age estimation with a mean absolute error of roughly 1.3-1.4 years for 13-to-17-year-olds (per Yoti's own 2023-2024 white papers), meaning a tool can usually place a teen within a year or so of their true age but cannot pinpoint exactly who is under 16. Device-level age signals from Apple/Google aim to verify age without sharing data with platforms. These are vendor-published figures, not independent benchmarks.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 3,
+            replicability: 5,
+            directness: 6,
+          },
+          source:
+            "Yoti, 'Facial Age Estimation White Paper' (Dec 2023 / Sep 2024); platform device-attestation announcements",
+          sourceUrl:
+            "https://www.yoti.com/wp-content/uploads/2024/04/Yoti-Age-Estimation-White-Paper-December-2023.pdf",
+          reasoning:
+            "The prior '98%+ accuracy' framing was imprecise; the vendor's actual published metric is MAE of ~1.3-1.4 years for teens, which leaves a meaningful error band right at the 16 cutoff. Self-published by a commercial vendor with an interest in the result, so independence is low.",
+        },
+        {
+          id: "circumvention-rates",
+          title: "Teen Circumvention of Existing Restrictions Is Common",
+          description:
+            "UK survey data (Internet Matters / Ofcom-cited research, ~2024-2025) indicates 36% of young people have entered a false age online to gain access, while smaller shares use borrowed credentials (15%), VPNs (11%), or age-spoofing apps (10%); roughly 8% of children used a VPN in the past year. More than 70% of teens report hiding some online activity from parents. Any age-based ban therefore creates a cat-and-mouse dynamic, though no single circumvention method is near-universal.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Internet Matters / Ofcom-cited youth online-safety surveys (UK, 2024-2025)",
+          sourceUrl:
+            "https://www.internetmatters.org/hub/research/data-shows-no-rise-childrens-vpn-use-amid-online-age-checks/",
+          reasoning:
+            "The prior '67% know how to bypass' and 'VPN doubled 2020-2024' figures, and the NCSC/Bark attribution, could not be verified against primary sources and were replaced with documented UK survey numbers (36% false age; ~8-11% VPN use). Real evidence of circumvention, but the original overstated its scale, so weights were trimmed.",
         },
       ],
     },

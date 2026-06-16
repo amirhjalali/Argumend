@@ -33,9 +33,9 @@ export const veganismEnvironmentalData = {
       evidence: [
         {
           id: "oxford-nature-food-2023",
-          title: "Oxford Study: Vegan Diets Have 75% Less Environmental Impact",
+          title: "Oxford Study: Vegan Diets Have ~75% Less Environmental Impact",
           description:
-            "Professor Peter Scarborough's team at Oxford analyzed 55,000 UK residents' actual diets and connected them to environmental impact databases. Published in Nature Food (2023), the study found vegan diets produced 75% less greenhouse gas emissions, 75% less land use, 75% less biodiversity harm, and 73% less water pollution compared to high-meat diets.",
+            "Scarborough et al. at Oxford linked dietary data for 55,504 UK adults (vegans, vegetarians, fish-eaters, meat-eaters) to environmental impact databases drawn from a review of 570 life-cycle assessments. Published in Nature Food (2023), the study found vegans' dietary impacts were ~25% of high-meat-eaters' for greenhouse gas emissions (i.e. ~75% lower) and ~25% for land use, with vegans at 27.0% for eutrophication, 34.3% for biodiversity, and 46.4% for water use relative to high-meat-eaters. (Note: the water-use figure is ~54% lower, not 73%.)",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -43,9 +43,10 @@ export const veganismEnvironmentalData = {
             replicability: 8,
             directness: 10,
           },
-          source: "Scarborough et al., Nature Food (2023)",
+          source: "Scarborough et al., Nature Food 4, 565–574 (2023)",
+          sourceUrl: "https://www.nature.com/articles/s43016-023-00795-w",
           reasoning:
-            "Gold-standard study: large sample (55,000), published in a top Nature journal, based on actual dietary data rather than modeled diets. Oxford's LEAP program has no industry funding conflicts.",
+            "Gold-standard study: large sample (55,504), published in Nature Food, based on actual reported dietary data rather than modeled diets. Oxford's LEAP program has no industry funding conflicts. Figures verified against the published article: GHG and land use ~75% lower for vegans, but the original card's '73% less water pollution' overstated the result (eutrophication 27.0%, water use 46.4% of high-meat-eaters).",
         },
         {
           id: "poore-nemecek-2018",
@@ -59,25 +60,27 @@ export const veganismEnvironmentalData = {
             replicability: 9,
             directness: 9,
           },
-          source: "Poore & Nemecek, Science (2018)",
+          source: "Poore & Nemecek, Science 360, 987–992 (2018)",
+          sourceUrl: "https://www.science.org/doi/10.1126/science.aaq0216",
           reasoning:
-            "The largest meta-analysis of food systems ever conducted. Published in Science. Has been replicated and extended by subsequent studies.",
+            "One of the largest meta-analyses of food systems conducted (data from 570 LCA studies covering ~38,700 farms in 119 countries). Published in Science. The 76% land-use reduction (global farmland from ~4 to ~1 billion hectares) and ~49% food-GHG reduction figures for a shift to plant-based diets are verified against the paper and Our World in Data's summary. Widely cited and extended by subsequent work.",
         },
         {
           id: "non-arable-grazing-land",
           title: "Much Grazing Land Cannot Grow Crops",
           description:
-            "Approximately two-thirds of agricultural land globally is grassland unsuitable for crop production. Ruminant animals grazing this land convert inedible cellulose into human-edible protein and nutrients. Eliminating all animal agriculture would leave this land unused, and some ecosystems (e.g., the Great Plains) co-evolved with large grazers.",
+            "About two-thirds of agricultural land globally is permanent meadows and pastures rather than cropland (FAO: ~3.2 of ~4.8 billion hectares), much of it grassland unsuitable for crop production. Mottet et al. (2017) found that ~57% of the land used for livestock feed production is not suitable for growing human food, and that 86% of livestock feed is not human-edible. Ruminants grazing such land convert inedible forage into protein and micronutrients; some ecosystems (e.g., the Great Plains) co-evolved with large grazers.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 8,
+            replicability: 7,
             directness: 6,
           },
-          source: "FAO; Mottet et al., Global Food Security (2017)",
+          source: "FAO land statistics; Mottet et al., Global Food Security 14, 1–8 (2017)",
+          sourceUrl: "https://www.sciencedirect.com/science/article/pii/S2211912417300013",
           reasoning:
-            "Valid point about land suitability. However, directness is moderate because the Poore & Nemecek analysis already accounts for this—the 76% reduction factors in non-convertible land.",
+            "Valid point about land suitability, verified: FAO data put permanent pasture at ~two-thirds of agricultural land, and Mottet et al. quantify ~57% of feed land as non-arable (note: '57% of feed land' is a narrower figure than the broad 'two-thirds of all grazing land' framing). Directness lowered slightly: the Poore & Nemecek analysis already accounts for land convertibility, so this caveat trims rather than overturns the 76% land-reduction estimate.",
         },
       ],
     },
@@ -114,9 +117,10 @@ export const veganismEnvironmentalData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Academy of Nutrition and Dietetics, Position Paper (2016)",
+          source: "Melina, Craig & Levin, J Acad Nutr Diet 116(12):1970–1980 (2016)",
+          sourceUrl: "https://www.jandonline.org/article/S2212-2672(16)31192-3/fulltext",
           reasoning:
-            "Authoritative position from the largest nutrition professional body. However, the qualifier 'appropriately planned' is doing significant work—it implies that poorly planned vegan diets carry real risks.",
+            "Authoritative position from the largest nutrition professional body; the quoted sentence is verbatim from the 2016 position paper (Melina, Craig & Levin). However, the qualifier 'appropriately planned' is doing significant work—it implies that poorly planned vegan diets carry real risks.",
         },
         {
           id: "developing-nation-access",
@@ -130,9 +134,11 @@ export const veganismEnvironmentalData = {
             replicability: 7,
             directness: 7,
           },
-          source: "FAO; WHO; Headey et al., Global Food Security (2018)",
+          source:
+            "Headey, Hirvonen & Hoddinott, Am. J. Agric. Econ. 100(5):1302–1319 (2018); FAO (2023)",
+          sourceUrl: "https://onlinelibrary.wiley.com/doi/full/10.1093/ajae/aay053",
           reasoning:
-            "Legitimate concern for global applicability. The environmental case for veganism is strongest in wealthy nations where dietary choices are unconstrained.",
+            "Legitimate concern for global applicability. Headey et al. (2018) analyzed ~130,000 children across 49 low-income countries and found animal-source food consumption strongly associated with reduced child stunting. (Citation corrected: the study appeared in the American Journal of Agricultural Economics, not Global Food Security.) The environmental case for veganism is strongest in wealthy nations where dietary choices are unconstrained.",
         },
       ],
     },

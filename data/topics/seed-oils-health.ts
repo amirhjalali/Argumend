@@ -80,32 +80,35 @@ export const seedOilsHealthData = {
           title:
             "Omega-6 to Omega-3 Ratio Shifted from ~1:1 to 20:1 in Modern Diets",
           description:
-            "Anthropological and nutritional analyses estimate that pre-industrial human diets contained omega-6 to omega-3 ratios between 1:1 and 4:1. US dietary surveys show the modern ratio has reached 15:1 to 20:1, driven primarily by soybean oil consumption increasing over 1,000-fold in the 20th century. This represents an evolutionary mismatch of a magnitude unprecedented for any macronutrient.",
+            "Anthropological estimates (Simopoulos) put ancestral omega-6 to omega-3 ratios near 1:1, versus roughly 15:1-16.7:1 in modern Western diets. Blasbalg et al. (AJCN 2011), using USDA food-disappearance data, documented that estimated per-capita soybean oil consumption rose more than 1,000-fold between 1909 and 1999, raising linoleic acid from ~2.8% to ~7.2% of energy. The intake shift itself is uncontested; whether the resulting ratio change causes disease is the disputed step.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 7,
-            directness: 5,
+            replicability: 8,
+            directness: 4,
           },
-          source: "Biomedicine & Pharmacotherapy; USDA Economic Research Service",
+          source:
+            "Blasbalg et al., American Journal of Clinical Nutrition (2011); Simopoulos, Biomedicine & Pharmacotherapy (2002)",
+          sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3076650/",
           reasoning:
-            "The dietary shift is well-documented and uncontested. However, documenting a change in intake does not demonstrate harm — it establishes a plausible mechanism that requires downstream evidence of pathology.",
+            "The dietary shift is well-documented and uncontested (Blasbalg 2011 is the canonical intake source). However, documenting a change in intake does not demonstrate harm — it establishes a plausible mechanism that requires downstream evidence of pathology, so directness is low.",
         },
         {
           id: "la-does-not-raise-aa",
           title:
             "Systematic Reviews Show Dietary Linoleic Acid Does Not Increase Tissue Arachidonic Acid",
           description:
-            "A 2014 systematic review in Prostaglandins, Leukotrienes and Essential Fatty Acids analyzed 36 controlled trials and found that increasing dietary linoleic acid intake — even doubling or tripling it — did not significantly increase arachidonic acid concentrations in plasma, serum, or red blood cell phospholipids. The delta-6 desaturase conversion step is rate-limiting, and the body tightly regulates AA levels independent of LA intake.",
+            "Rett & Whelan's systematic review of adult human trials (Nutrition & Metabolism, 2011) found that changing dietary linoleic acid did not significantly change tissue arachidonic acid in plasma/serum phospholipids: increasing LA up to six-fold showed no significant correlation with AA (p=0.72), and decreasing LA by up to 90% likewise had no significant effect (p=0.39). Conversion via delta-6 desaturase is rate-limiting, and the body regulates AA largely independent of LA intake. (Note: 'AA homeostasis' is supported; this does not by itself rule out other LA-related effects.)",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 8,
             replicability: 8,
             directness: 9,
           },
-          source: "Prostaglandins, Leukotrienes and Essential Fatty Acids",
+          source: "Rett & Whelan, Nutrition & Metabolism (London) (2011)",
+          sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3132704/",
           reasoning:
             "This directly tests the mechanistic pathway underlying the ratio hypothesis. If LA does not raise tissue AA, the primary proposed mechanism for seed-oil-driven inflammation is undermined. The review is comprehensive and peer-reviewed.",
         },
@@ -114,7 +117,7 @@ export const seedOilsHealthData = {
           title:
             "AHA Science Advisory Recommends 5-10% of Calories from Omega-6 for Heart Health",
           description:
-            "The 2009 American Heart Association Science Advisory reviewed the totality of evidence and concluded that consuming at least 5-10% of energy from omega-6 polyunsaturated fatty acids reduces the risk of coronary heart disease relative to lower intakes. The advisory specifically addressed and rejected the hypothesis that omega-6 intake promotes inflammation, citing clinical trial and epidemiological evidence.",
+            "The 2009 AHA Science Advisory (Harris et al., Circulation 2009;119:902-907) concluded that an omega-6 PUFA intake of at least 5-10% of energy, in the context of other AHA dietary recommendations, is consistent with reduced coronary heart disease risk relative to lower intakes. The advisory specifically argued against the hypothesis that omega-6 intake promotes cardiovascular harm via inflammation, citing clinical and epidemiological evidence.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -122,7 +125,8 @@ export const seedOilsHealthData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Circulation (American Heart Association)",
+          source: "Harris et al., Circulation (American Heart Association Science Advisory) (2009)",
+          sourceUrl: "https://www.ahajournals.org/doi/10.1161/circulationaha.108.191627",
           reasoning:
             "The AHA is a leading cardiovascular health authority. Independence is slightly reduced because some advisory authors have received industry funding, but the recommendation is consistent with independent meta-analyses.",
         },
@@ -131,17 +135,18 @@ export const seedOilsHealthData = {
           title:
             "Animal Studies Show High Omega-6 Diets Promote Inflammatory Eicosanoid Production",
           description:
-            "Rodent studies have demonstrated that high-linoleic acid diets increase production of pro-inflammatory eicosanoids including prostaglandin E2, thromboxane A2, and leukotriene B4, and promote adipose tissue inflammation, insulin resistance, and weight gain compared to isocaloric diets with balanced omega-6/omega-3 ratios. A 2012 study in Nutrients showed mice fed high-LA diets for 14 weeks developed greater adiposity and liver inflammation than controls.",
+            "Some rodent studies report that high-linoleic-acid diets increase pro-inflammatory eicosanoids (e.g., prostaglandin E2, leukotriene B4) and promote adipose inflammation and weight gain versus diets with more balanced omega-6/omega-3. This is mechanistic, animal-model evidence; it has not translated cleanly to humans, where controlled trials (Rett & Whelan 2011) show dietary LA does not raise tissue arachidonic acid, the proposed upstream step.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 5,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 5,
+            directness: 3,
           },
-          source: "Nutrients; Journal of Lipid Research",
+          source:
+            "Rodent feeding studies (mechanistic/animal evidence); no specific human-verified primary source available",
           reasoning:
-            "Animal models provide mechanistic evidence, but cross-species translation is uncertain. Rodent fatty acid metabolism differs from humans, and doses used often exceed typical human consumption proportionally. Still, the biological pathway is plausible.",
+            "Down-weighted: this rests on animal models and mechanistic speculation. Rodent fatty-acid metabolism differs from humans, doses often exceed proportional human intake, and the key human step (LA raising tissue AA) is not supported by controlled human trials. No specific peer-reviewed primary source could be web-verified for the original 'Nutrients 2012' citation, so attribution is left generic and weights are low.",
         },
       ],
     },
@@ -176,15 +181,16 @@ export const seedOilsHealthData = {
           title:
             "Deep Frying with Seed Oils Generates Cytotoxic Aldehydes at Measurable Levels",
           description:
-            "A 2012 study in Food Chemistry by Csallany et al. measured aldehyde production during deep frying and found that soybean and sunflower oils generated significantly higher levels of 4-hydroxynonenal (4-HNE) and malondialdehyde (MDA) than olive oil or coconut oil after heating to 185C for standard frying durations. 4-HNE is a reactive aldehyde implicated in oxidative stress, mitochondrial dysfunction, and atherosclerotic plaque formation in cell and animal studies. Levels increased dramatically with repeated heating cycles, as commonly occurs in restaurant fryers.",
+            "Csallany et al. (J. American Oil Chemists' Society, 2015) measured the toxic aldehyde 4-hydroxynonenal (4-HNE) in French fries from six fast-food restaurants, finding 7.83-32.15 ug HNE per 100 g of fries. 4-HNE forms from peroxidation of linoleic acid when polyunsaturated oils (e.g., soybean) are heated to frying temperatures, and is cytotoxic/mutagenic in cell studies. Earlier work by the same group documented HNE formation in soybean oil heated at 185C and its incorporation into fried food. Repeated heating increases aldehyde content.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,
             replicability: 8,
-            directness: 6,
+            directness: 5,
           },
-          source: "Food Chemistry",
+          source: "Csallany et al., Journal of the American Oil Chemists' Society (2015)",
+          sourceUrl: "https://link.springer.com/article/10.1007/s11746-015-2699-z",
           reasoning:
             "The chemistry of aldehyde generation from polyunsaturated fats is well-established and replicable. However, measuring aldehyde production in a flask is not the same as demonstrating harm in a human body. The doses used in cell and animal toxicology studies demonstrating 4-HNE harm typically exceed realistic dietary exposure by orders of magnitude.",
         },
@@ -193,51 +199,56 @@ export const seedOilsHealthData = {
           title:
             "Review Finds Aldehyde Levels from Normal Cooking Remain Below Toxicological Thresholds",
           description:
-            "A 2020 comprehensive review in Food Chemistry analyzed aldehyde formation across multiple cooking oil types and conditions. Under standard home cooking conditions — single-use frying at recommended temperatures — aldehyde concentrations in seed oils remained 10-100x below established no-observed-adverse-effect levels (NOAELs). The review concluded that health risks from cooking oil degradation products are primarily associated with repeated, prolonged industrial deep frying, not typical domestic use.",
+            "Aldehyde exposure appears to scale steeply with frying intensity and oil PUFA content. Single, brief domestic cooking generates far less aldehyde than repeated, prolonged deep frying. However, the dose-response picture is genuinely contested: some groups (e.g., Grootveld et al.) report that repeated domestic deep frying with PUFA-rich oils can reach aldehyde levels they characterize as toxicologically significant. There is no single, web-verifiable review that cleanly establishes that typical home use stays 10-100x below all NOAELs, so the magnitude of any margin remains uncertain.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 8,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Food Chemistry",
+          source:
+            "Dose-response is contested; no single primary review web-verified for the specific 'below-NOAEL' claim",
           reasoning:
-            "This directly addresses the dose-response question. If aldehyde levels from normal cooking are orders of magnitude below harm thresholds, the oxidation argument applies primarily to industrial food service, not general seed oil consumption. The review is comprehensive and accounts for multiple oil types and cooking methods.",
+            "Down-weighted and reframed: the original 'specific 2020 Food Chemistry review concluding 10-100x below NOAEL' could not be web-verified, and recent literature actively disputes that home frying is comfortably below harm thresholds. The honest position is uncertainty about the safety margin, not a confirmed large one.",
         },
         {
           id: "hexane-extraction-residues",
           title:
             "Industrial Seed Oil Extraction Uses Hexane Solvent with Trace Residues in Final Product",
           description:
-            "Most commercial seed oils are extracted using n-hexane, a petroleum-derived solvent. While refining is designed to remove hexane, FDA testing has detected trace residues (typically <1 ppm) in finished oils. Chronic hexane exposure at high levels causes peripheral neuropathy, though the concentrations in food oils are far below occupational exposure limits. Critics argue that any petroleum solvent residue in food is unacceptable when mechanical (expeller-pressed) alternatives exist.",
+            "Most commercial seed oils are extracted with n-hexane, a petroleum-derived solvent; refining removes almost all of it (separating ~99.5% of oil from meal, then deodorizing). The EU caps hexane residue at 1 mg/kg (1 ppm) for vegetable oils (Directive 2009/32/EC); the US FDA treats hexane as a processing aid and does not set a maximum residue limit for oils, so routine US residue figures are not officially published. High chronic hexane exposure (occupational) causes peripheral neuropathy, but food-oil residues are orders of magnitude lower. Critics argue any solvent residue is undesirable given expeller-pressed alternatives.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 7,
-            replicability: 7,
-            directness: 4,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 6,
+            directness: 3,
           },
-          source: "FDA; Journal of Food Science",
+          source:
+            "EU Directive 2009/32/EC (1 mg/kg residue limit); FDA treats hexane as a processing aid (no oil MRL)",
+          sourceUrl: "https://www.eufic.org/en/misinformation/article/is-hexane-in-food-a-cause-for-concern",
           reasoning:
-            "Hexane extraction is an industrial reality, but trace residues at <1 ppm are far below any demonstrated harm threshold. The concern is more aesthetic and precautionary than evidence-based. Expeller-pressed alternatives exist but are not economically competitive at scale.",
+            "Corrected: the prior 'FDA testing detected <1 ppm' claim was not web-verifiable — the FDA does not set an oil MRL. Residue limits exist in the EU (1 mg/kg). Trace residues are far below demonstrated harm thresholds, so this is largely a precautionary/aesthetic concern; directness to health harm is low.",
         },
         {
           id: "smoke-point-stability",
           title:
             "Refined Seed Oils Have Higher Smoke Points Than Many Alternative Fats",
           description:
-            "Refined soybean oil (smoke point ~234C), canola oil (~240C), and sunflower oil (~232C) have significantly higher smoke points than butter (~177C), coconut oil (~177C), and extra virgin olive oil (~190C). Cooking above the smoke point accelerates oxidative degradation. When used within their intended temperature range, seed oils are among the most thermally stable cooking fats available, contradicting the narrative that they are uniquely prone to harmful decomposition during cooking.",
+            "Refined soybean oil (smoke point ~232C / 450F), refined canola (~204-246C), and refined sunflower (~232C) have higher smoke points than butter (~150-177C), coconut oil (~177-204C), and extra-virgin olive oil (~160-190C). A higher smoke point means the oil tolerates higher cooking temperatures before rapid degradation, so within their intended range refined seed oils are relatively thermally stable — counter to the claim that they are uniquely fragile for cooking. (Caveat: smoke point measures volatilization onset, not total oxidative stability; PUFA-rich oils still form aldehydes below their smoke point, which is why oxidative stability and smoke point are distinct.)",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 9,
+            sourceReliability: 7,
+            independence: 8,
             replicability: 9,
-            directness: 6,
+            directness: 5,
           },
-          source: "Journal of the American Oil Chemists' Society",
+          source:
+            "Published cooking-oil smoke-point compilations (e.g., North American Olive Oil Assoc. / culinary references)",
+          sourceUrl: "https://www.webstaurantstore.com/article/800/cooking-oil-smoke-points.html",
           reasoning:
-            "Smoke point is a well-established and easily verified property. This challenges the claim that seed oils are uniquely dangerous for cooking by showing they are more stable at high temperatures than proposed alternatives. However, smoke point alone does not capture all degradation pathways — some aldehyde formation occurs below the smoke point.",
+            "Smoke point is easily verified and the relative ranking is uncontested. But smoke point alone does not capture all degradation pathways — aldehyde formation occurs below the smoke point in PUFA-rich oils — so directness was lowered. Source is a secondary compilation, not a single primary paper, hence moderate reliability.",
         },
       ],
     },
@@ -272,24 +283,26 @@ export const seedOilsHealthData = {
           title:
             "Sydney Diet Heart Study and Minnesota Coronary Experiment Showed Increased Mortality with LA-Rich Diets",
           description:
-            "The Sydney Diet Heart Study (1966-1973), re-analyzed in 2013 from recovered data, found that replacing saturated fat with omega-6-rich safflower oil margarine increased all-cause mortality (HR 1.62) and cardiovascular mortality (HR 1.70) in 458 men with recent coronary events. The Minnesota Coronary Experiment (1968-1973), with recovered data re-analyzed in 2016, found that while the LA-rich intervention lowered serum cholesterol, there was no mortality benefit and a trend toward increased death in participants over 65. These are the only large RCTs specifically testing high-LA diets against saturated fat with mortality endpoints.",
+            "Ramsden et al.'s recovered-data analysis of the Sydney Diet Heart Study (BMJ 2013;346:e8707) found that replacing saturated fat with omega-6-rich safflower oil and safflower-oil margarine was associated with higher all-cause mortality (HR 1.62, 95% CI 1.00-2.64) and CVD mortality (HR 1.70, 95% CI 1.03-2.80) in 458 men with prior coronary events. The Minnesota Coronary Experiment (BMJ 2016;353:i1246, recovered data) found the linoleic-acid intervention lowered serum cholesterol but produced no mortality benefit, with greater cholesterol-lowering paradoxically associated with higher death risk, especially in older participants. Both are among the few RCTs testing high-LA diets against saturated fat with mortality endpoints.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,
             replicability: 6,
-            directness: 7,
+            directness: 6,
           },
-          source: "BMJ; The BMJ (recovered data re-analyses)",
+          source:
+            "Ramsden et al., BMJ (2013, Sydney Diet Heart Study) and BMJ (2016, Minnesota Coronary Experiment) — recovered-data analyses",
+          sourceUrl: "https://www.bmj.com/content/346/bmj.e8707",
           reasoning:
-            "These are genuine randomized trials with mortality data — rare and valuable. However, both used margarine containing trans fats as the LA vehicle, confounding the results. Critics argue these are trans fat studies, not seed oil studies. The recovered-data re-analyses were peer-reviewed but conducted decades after the original trials, introducing potential selection and analysis bias.",
+            "These are genuine randomized trials with mortality data — rare and valuable. However, the Sydney trial used safflower-oil margarine that likely contained trans fats, confounding it as a pure 'seed oil' test, and both are old trials reanalyzed decades later from recovered records, introducing analysis-choice and selection concerns. Larger meta-analyses do not corroborate net harm, so directness was trimmed.",
         },
         {
           id: "la-reduces-cvd-meta-analysis",
           title:
             "Meta-Analyses Show Higher Linoleic Acid Intake Associated with Lower CHD Risk",
           description:
-            "A 2014 meta-analysis in the American Journal of Clinical Nutrition pooled data from 13 prospective cohort studies (310,602 participants, 12,479 coronary events) and found that a 5% energy increase from linoleic acid was associated with a 9% lower risk of coronary heart disease events (RR 0.91, 95% CI 0.86-0.96) and a 13% lower risk of CHD death (RR 0.87, 95% CI 0.82-0.94). The 2017 Cochrane Review of RCTs found that replacing saturated fat with polyunsaturated fat reduced cardiovascular events by 27% (RR 0.73, 95% CI 0.58-0.92).",
+            "Farvid et al.'s meta-analysis of 13 prospective cohorts (Circulation 2014;130:1568-1578; 310,602 participants, 12,479 CHD events) found that each 5% of energy from linoleic acid was associated with 9% lower CHD events (RR 0.91, 95% CI 0.87-0.96) and 13% lower CHD death (RR 0.87, 95% CI 0.82-0.94); highest-vs-lowest intake showed 15% lower events (RR 0.85) and 21% lower CHD death (RR 0.79). Separately, the Cochrane review of saturated-fat reduction RCTs (Hooper et al., 2020, CD011737) found a 17% reduction in combined cardiovascular events (RR 0.83, 95% CI 0.70-0.98), with benefit driven by replacing saturated fat with polyunsaturated fat.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -298,7 +311,8 @@ export const seedOilsHealthData = {
             directness: 8,
           },
           source:
-            "American Journal of Clinical Nutrition; Cochrane Database of Systematic Reviews",
+            "Farvid et al., Circulation (2014); Hooper et al., Cochrane Database of Systematic Reviews (2020, CD011737)",
+          sourceUrl: "https://www.ahajournals.org/doi/abs/10.1161/circulationaha.114.010236",
           reasoning:
             "Meta-analyses of prospective cohorts and RCTs represent the highest levels of epidemiological evidence. The consistent finding that LA intake associates with lower CHD risk directly contradicts the seed oil harm narrative. However, observational studies cannot fully eliminate confounding, and the RCTs did not specifically test modern liquid seed oils in isolation.",
         },
@@ -307,15 +321,17 @@ export const seedOilsHealthData = {
           title:
             "Seed Oil Consumption Rose 1,000-Fold Alongside Obesity and Metabolic Disease Epidemics",
           description:
-            "US soybean oil consumption increased from approximately 0.01 kg per capita in 1909 to over 11 kg per capita by 1999 — a roughly 1,000-fold increase. Over the same period, obesity prevalence rose from under 5% to over 30%, type 2 diabetes prevalence increased 7-fold, and cardiovascular disease became the leading cause of death. The temporal correlation is among the strongest for any single dietary change, though total caloric intake, sugar consumption, and physical activity also changed dramatically over this period.",
+            "Blasbalg et al. (AJCN 2011) estimated, from USDA food-disappearance data, that US per-capita soybean oil consumption rose more than 1,000-fold between 1909 and 1999, raising linoleic acid intake substantially. Over a broadly overlapping period, US obesity prevalence rose from low single digits to over 30% and type 2 diabetes rose several-fold. The temporal correlation is real but co-occurs with large changes in total calories, sugar/refined-carbohydrate intake, ultra-processed foods, and physical activity, so it cannot isolate seed oils as the cause.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 9,
-            directness: 3,
+            directness: 2,
           },
-          source: "USDA Economic Research Service; CDC NHANES data",
+          source:
+            "Blasbalg et al., American Journal of Clinical Nutrition (2011); USDA food-disappearance data",
+          sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3076650/",
           reasoning:
             "The ecological correlation is real and replicable from public data, but ecological correlations are the weakest form of epidemiological evidence. Dozens of dietary and lifestyle variables changed simultaneously, making attribution to any single factor speculative. The directness score is low because correlation at the population level cannot establish individual-level causation.",
         },
@@ -324,17 +340,19 @@ export const seedOilsHealthData = {
           title:
             "Israel Has Among the Highest Seed Oil Intake and Highest Life Expectancy Globally",
           description:
-            "Israel has one of the world's highest per-capita consumption rates of omega-6-rich seed oils (particularly soybean and sunflower oil), yet Israeli life expectancy ranks among the top 10 globally at approximately 83 years. This has been termed the 'Israeli Paradox.' While Israel does have relatively high rates of certain cancers and diabetes, overall mortality outcomes do not support the hypothesis that high seed oil consumption drives population-level health decline.",
+            "Israel has among the world's highest per-capita omega-6 intakes yet a high overall life expectancy (~83 years), which seed-oil skeptics cite as evidence against population-level harm. Important caveat: the original 'Israeli Paradox' coinage (Yam, Eliraz & Berry, Israel J. Med. Sci. 1996) actually pointed the other way — it argued that Israel's very high omega-6 intake coincided with high rates of heart disease, diabetes, obesity, and some cancers. So this is a contested, double-edged ecological observation, not a clean exoneration of seed oils.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 8,
-            directness: 5,
+            sourceReliability: 5,
+            independence: 7,
+            replicability: 6,
+            directness: 3,
           },
-          source: "European Journal of Clinical Nutrition; WHO Global Health Observatory",
+          source:
+            "Yam, Eliraz & Berry, Israel Journal of Medical Sciences (1996;32:1134-1143) — 'Israeli Paradox'; national life-expectancy statistics",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/8960090/",
           reasoning:
-            "The Israeli paradox is a frequently cited counterexample to the seed oil harm narrative. However, life expectancy is a crude metric influenced by healthcare quality, genetics, smoking rates, and many non-dietary factors. Israel's relatively high rates of metabolic disease could be consistent with seed oil harm masked by excellent healthcare. The ecological nature of this evidence limits its directness.",
+            "Down-weighted and reframed: the named 'Israeli Paradox' source argues high omega-6 coincides with MORE metabolic disease, so using it as a clean point against harm misreads it. Life expectancy is a crude metric confounded by healthcare, genetics, and smoking. This is a weak, double-edged ecological observation.",
         },
       ],
     },

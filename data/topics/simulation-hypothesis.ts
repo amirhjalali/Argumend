@@ -72,34 +72,39 @@ export const simulationHypothesisData = {
       evidence: [
         {
           id: "openworm-progress",
-          title: "OpenWorm Simulates Nematode Behavior",
+          title: "OpenWorm Builds an Integrative C. elegans Model",
           description:
-            "The OpenWorm project has created a digital simulation of C. elegans that exhibits realistic movement and basic chemotaxis.",
+            "The OpenWorm project is building an open-science, whole-organism computational model of C. elegans, integrating its 302-neuron connectome with a soft-body physics simulation. As of the 2014 overview paper, realistic locomotion and chemotaxis remain explicit future goals rather than achieved results.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 8,
-            directness: 7,
+            replicability: 5,
+            directness: 5,
           },
-          source: "OpenWorm Foundation",
-          sourceUrl: "https://openworm.org",
-          reasoning: "Peer-reviewed progress on whole-organism simulation.",
+          source:
+            "Szigeti et al., 'OpenWorm: an open-science approach to modeling C. elegans,' Frontiers in Computational Neuroscience (2014)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4217485/",
+          reasoning:
+            "Peer-reviewed account of an in-progress whole-organism model; full behavioral replication (locomotion, chemotaxis) is not yet demonstrated, so directness/replicability are lowered.",
         },
         {
           id: "ai-emergence",
-          title: "AI Systems Show Emergent Behaviors",
+          title: "Large Language Models Show Emergent Abilities",
           description:
-            "Large language models exhibit emergent capabilities not explicitly programmed, suggesting complex behaviors can arise from simpler substrates.",
+            "Wei et al. report that large language models display abilities absent in smaller models that are not predictable by extrapolation, an analogy for complex behavior arising from information processing. (Note: whether these are genuine emergence or a measurement artifact is contested.)",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
-            replicability: 7,
-            directness: 5,
+            replicability: 5,
+            directness: 3,
           },
+          source:
+            "Wei et al., 'Emergent Abilities of Large Language Models,' TMLR (2022), arXiv:2206.07682",
+          sourceUrl: "https://arxiv.org/abs/2206.07682",
           reasoning:
-            "Indirect evidence that information processing can produce surprising behaviors.",
+            "An analogy, not direct evidence for substrate independence of consciousness; directness kept low, and the emergence claim itself is disputed.",
         },
         {
           id: "hard-problem",
@@ -113,24 +118,29 @@ export const simulationHypothesisData = {
             replicability: 5,
             directness: 8,
           },
-          source: "David Chalmers",
+          source:
+            "David J. Chalmers, 'Facing Up to the Problem of Consciousness,' Journal of Consciousness Studies 2(3):200-219 (1995)",
+          sourceUrl: "https://consc.net/papers/facing.pdf",
           reasoning:
-            "Philosophical argument that consciousness may not be computable.",
+            "Canonical statement of the 'hard problem'; a philosophical argument, so replicability is inherently low.",
         },
         {
           id: "penrose-argument",
           title: "Penrose-Lucas Argument",
           description:
-            "Gödel's incompleteness theorems suggest human mathematical insight transcends algorithmic computation.",
+            "Lucas (1961) and Penrose (The Emperor's New Mind, 1989; Shadows of the Mind, 1994) argue from Gödel's first incompleteness theorem that human mathematical insight is non-algorithmic and so cannot be reproduced by computation. The argument is widely contested by logicians.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 5,
             independence: 7,
-            replicability: 4,
-            directness: 6,
+            replicability: 3,
+            directness: 5,
           },
+          source:
+            "Roger Penrose, The Emperor's New Mind (1989) / Shadows of the Mind (1994); after J.R. Lucas, 'Minds, Machines and Gödel' (1961)",
+          sourceUrl: "https://iep.utm.edu/lp-argue/",
           reasoning:
-            "Contested but serious argument against computationalism.",
+            "A contested philosophical/logical argument against computationalism; lowered source reliability and replicability to reflect that many logicians reject it.",
         },
       ],
     },
@@ -161,61 +171,75 @@ export const simulationHypothesisData = {
       evidence: [
         {
           id: "trilemma-logic",
-          title: "Trilemma Is Logically Valid",
+          title: "Bostrom's Trilemma Is Logically Valid",
           description:
-            "Given the premises, the mathematical argument is sound: if simulations are run, simulated observers vastly outnumber base reality observers.",
+            "Bostrom argues at least one of three propositions is true: (1) civilizations almost always go extinct before reaching a 'posthuman' stage, (2) posthuman civilizations almost never run ancestor-simulations, or (3) we are almost certainly living in a simulation. Only if (3) holds does it follow that simulated observers vastly outnumber base-reality observers.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 9,
-            directness: 6,
+            replicability: 6,
+            directness: 5,
           },
-          source: "Nick Bostrom (2003)",
-          reasoning: "Published in Philosophical Quarterly, peer-reviewed.",
+          source:
+            "Nick Bostrom, 'Are You Living in a Computer Simulation?', Philosophical Quarterly 53(211):243-255 (2003)",
+          sourceUrl: "https://www.simulation-argument.com/simulation.html",
+          reasoning:
+            "Peer-reviewed in Philosophical Quarterly; the valid conclusion is the disjunction, not proposition (3) alone, so directness toward the simulation claim is moderate.",
         },
         {
           id: "compute-trends",
           title: "Exponential Growth in Computing Power",
           description:
-            "Computing power has grown exponentially for decades, making ancestor simulations increasingly feasible.",
+            "Computing power has grown exponentially for decades. Sevilla et al. document that the compute used to train machine-learning systems grew by a factor of about 10 billion from 2010 onward, doubling roughly every 6 months in the deep-learning era. Whether this trend can extrapolate to ancestor-simulation scale is highly uncertain.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
-            independence: 9,
-            replicability: 10,
-            directness: 5,
+            independence: 8,
+            replicability: 8,
+            directness: 3,
           },
-          reasoning: "Empirical trend, though extrapolation is uncertain.",
+          source:
+            "Sevilla et al., 'Compute Trends Across Three Eras of Machine Learning,' IJCNN 2022, arXiv:2202.05924",
+          sourceUrl: "https://arxiv.org/abs/2202.05924",
+          reasoning:
+            "Well-documented empirical trend, but its relevance to feasibility of conscious ancestor simulations is speculative, so directness is low.",
         },
         {
           id: "premise-rejection",
           title: "Premises May Be Wrong",
           description:
-            "The trilemma depends on contested premises about consciousness, computation, and civilizational behavior.",
+            "The argument depends on contested premises, notably substrate-independence and an indifference principle. Weatherson argues Bostrom needs but lacks a defense of the claim that evidence supervenes on conscious experience, undercutting the inference that we are probably simulated.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,
-            replicability: 6,
-            directness: 7,
+            replicability: 4,
+            directness: 6,
           },
-          reasoning: "Valid logical form doesn't guarantee true premises.",
+          source:
+            "Brian Weatherson, 'Are You a Sim?', Philosophical Quarterly 53(212):425-431 (2003)",
+          sourceUrl: "http://brian.weatherson.org/sims.pdf",
+          reasoning:
+            "Published peer critique of the argument's premises; a philosophical objection, so replicability is low.",
         },
         {
           id: "unfalsifiable",
-          title: "Hypothesis Is Unfalsifiable",
+          title: "Hypothesis Risks Being Unfalsifiable",
           description:
-            'Any evidence could be "simulated," making the hypothesis impossible to test and thus unscientific.',
+            'By Popper\'s demarcation criterion, a theory is scientific only if some conceivable observation could refute it. The objection holds that because any apparent evidence could itself be "simulated," the strong simulation claim may prohibit no observation and so fail the falsifiability test. (Some physicists, e.g. Beane et al., argue specific lattice variants are in fact testable.)',
           side: "against" as const,
           weight: {
             sourceReliability: 6,
             independence: 7,
-            replicability: 5,
-            directness: 6,
+            replicability: 4,
+            directness: 5,
           },
+          source:
+            "Karl Popper, The Logic of Scientific Discovery (1934/1959), falsifiability criterion",
+          sourceUrl: "https://en.wikipedia.org/wiki/Falsifiability",
           reasoning:
-            "Philosophical objection about empirical testability.",
+            "Applies Popper's well-known demarcation criterion; a philosophy-of-science objection, and note that some lattice-simulation variants are testable.",
         },
       ],
     },
@@ -246,63 +270,75 @@ export const simulationHypothesisData = {
       evidence: [
         {
           id: "quantum-discreteness",
-          title: "Quantum Mechanics Is Discrete",
+          title: "Some Quantum Quantities Are Discrete",
           description:
-            "Energy levels, particle spin, and other properties come in discrete quanta, reminiscent of digital systems.",
+            "Bound-state energy levels and angular momentum/spin come in discrete quanta, which proponents liken to digital systems. (Caveat: this is selective. Position, momentum, time, and free-particle energy remain continuous in standard quantum mechanics, so 'reality is discrete' is an overstatement.)",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 10,
-            directness: 4,
+            replicability: 9,
+            directness: 2,
           },
+          source:
+            "Quantization of energy and angular momentum (standard quantum mechanics)",
+          sourceUrl: "https://en.wikipedia.org/wiki/Quantization_(physics)",
           reasoning:
-            'Well-established physics, but interpretation as "simulation evidence" is speculative.',
+            'Underlying physics is well-established, but the "simulation evidence" reading is speculative and the discreteness is selective, so directness is very low.',
         },
         {
           id: "holographic-principle",
           title: "Holographic Principle",
           description:
-            "Information in a volume of space can be encoded on its boundary, suggesting data compression optimization.",
+            "The holographic principle (proposed by 't Hooft, given a string-theoretic form by Susskind in 'The World as a Hologram') holds that the information in a volume of space is bounded by, and can be encoded on, its boundary area. Proponents read this as 'data compression,' but that interpretation is not part of the physics.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 6,
-            directness: 4,
+            replicability: 4,
+            directness: 3,
           },
+          source:
+            "Leonard Susskind, 'The World as a Hologram,' J. Math. Phys. 36:6377 (1995), arXiv:hep-th/9409089",
+          sourceUrl: "https://arxiv.org/abs/hep-th/9409089",
           reasoning:
-            "Theoretical physics result with simulation-compatible interpretation.",
+            "A genuine theoretical-physics result, but the 'simulation/compression' reading is an interpretive overlay, so directness toward the simulation claim is low.",
         },
         {
           id: "no-lattice-detected",
-          title: "No Spacetime Lattice Detected",
+          title: "No Spacetime-Lattice Signature Detected",
           description:
-            "Pierre Auger Observatory data shows no anisotropy in cosmic ray directions that would indicate discrete spacetime.",
+            "Beane, Davoudi and Savage propose that if our universe were a cubic-lattice simulation, the highest-energy cosmic rays should show rotational-symmetry breaking aligned with the lattice. From the cosmic-ray spectrum cutoff they derive a bound on the inverse lattice spacing of b^-1 >~ 10^11 GeV; no such lattice-orientation signature has been observed. (Note: the large-scale dipole Auger does see above 8 EeV is attributed to an extragalactic astrophysical origin, not to a spacetime lattice.)",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
           },
+          source:
+            "Beane, Davoudi & Savage, 'Constraints on the Universe as a Numerical Simulation,' Eur. Phys. J. A 50:148 (2014), arXiv:1210.1847",
+          sourceUrl: "https://arxiv.org/abs/1210.1847",
           reasoning:
-            "Empirical test came back negative for this simulation signature.",
+            "Peer-reviewed physics proposal; it sets a lower bound and a test rather than a fully executed null result, and the only observed cosmic-ray anisotropy is astrophysical, so directness is moderated.",
         },
         {
           id: "natural-explanations",
           title: "Physics Has Natural Explanations",
           description:
-            "Quantum mechanics and relativity have mathematical derivations; no simulation hypothesis needed.",
+            "Quantum mechanics and relativity are derived from independently motivated physical principles, so the 'computational' features cited by proponents already have non-simulation explanations. By Occam's razor (do not multiply entities beyond necessity), invoking an unseen simulator adds assumptions without added explanatory power.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 8,
-            replicability: 8,
-            directness: 6,
+            replicability: 4,
+            directness: 5,
           },
+          source:
+            "Principle of parsimony (Occam's razor) applied to established physics",
+          sourceUrl: "https://plato.stanford.edu/entries/simplicity/",
           reasoning:
-            "Occam's razor favors established physics over simulation speculation.",
+            "A methodological/parsimony argument rather than an empirical finding, so replicability and directness are kept low.",
         },
       ],
     },

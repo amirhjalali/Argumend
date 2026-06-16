@@ -11,8 +11,8 @@ export const usNationalDebtCrisisData = {
     "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "CBO Long-Term Budget Outlook (2025)",
-      url: "https://www.cbo.gov/publication/59711",
+      title: "CBO: The Long-Term Budget Outlook: 2025 to 2055 (March 2025)",
+      url: "https://www.cbo.gov/publication/61270",
     },
     {
       title: "IMF Fiscal Monitor: Fiscal Policy in the Great Election Year (2024)",
@@ -84,9 +84,9 @@ export const usNationalDebtCrisisData = {
       evidence: [
         {
           id: "cbo-projection-unsustainable",
-          title: "CBO Projects Debt Reaching 166% of GDP by 2054",
+          title: "CBO Projects Debt Reaching 156% of GDP by 2055",
           description:
-            "The Congressional Budget Office projects that under current law, federal debt held by the public will rise from 99% of GDP in 2024 to 166% by 2054, driven by mandatory spending growth outpacing revenues.",
+            "In its March 2025 Long-Term Budget Outlook, the Congressional Budget Office projects that under current law, federal debt held by the public will rise from about 100% of GDP in 2025 to 156% by 2055 — surpassing its World War II-era peak around 2029 — driven by rising interest costs and mandatory spending (Medicare, Social Security) outpacing revenues.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -94,31 +94,36 @@ export const usNationalDebtCrisisData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Congressional Budget Office, Long-Term Budget Outlook 2024",
+          source:
+            "Congressional Budget Office, The Long-Term Budget Outlook: 2025 to 2055 (March 2025)",
+          sourceUrl: "https://www.cbo.gov/publication/61270",
           reasoning:
-            "CBO is nonpartisan and highly respected, though projections assume current law continues unchanged over 30 years — a strong assumption.",
+            "CBO is nonpartisan and highly respected. The 156% figure is the March 2025 baseline; CBO's alternative 'current policy' scenario reaches ~175%. The 30-year horizon carries large uncertainty and assumes current law continues unchanged — a strong assumption, not an economic inevitability.",
         },
         {
           id: "structural-deficit-persistent",
           title: "Structural Deficit Persists Across Business Cycles",
           description:
-            "The US has run primary deficits (excluding interest) in most years since 2001, even during economic expansions, indicating the gap is structural rather than cyclical.",
+            "The US has run budget deficits in nearly every year since the 2001 surplus, including the late-2010s expansion when deficits crossed $1 trillion despite a strong economy — a departure from the historical pattern of deficits shrinking during expansions. Federal debt held by the public rose from 32% of GDP in 2001 to ~98% by 2023.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 8,
             replicability: 9,
             directness: 8,
           },
-          source: "CBO Historical Budget Data",
+          source:
+            "US Treasury Fiscal Data (National Deficit); CRFB, 'From Riches to Rags: Causes of Fiscal Deterioration Since 2001' (2024)",
+          sourceUrl:
+            "https://fiscaldata.treasury.gov/americas-finance-guide/national-deficit/",
           reasoning:
-            "Persistent deficits during growth periods confirm the imbalance is baked into tax and spending policy, not just recession-driven.",
+            "Persistent deficits during growth periods (e.g. >$1T in FY2019) confirm the imbalance is largely baked into tax and spending policy, not just recession-driven. Note 'primary deficit' (excluding interest) varies year to year; the broader structural-deficit claim is well-supported by Treasury data and CRFB analysis.",
         },
         {
           id: "japan-high-debt-no-crisis",
           title: "Japan Sustains 250%+ Debt-to-GDP Without Crisis",
           description:
-            "Japan has carried debt above 200% of GDP since 2010, now exceeding 250%, without a sovereign debt crisis, currency collapse, or loss of market access.",
+            "Japan has carried general government gross debt above 200% of GDP for over a decade, reaching roughly 252% in 2023 and remaining above 250% in 2024, without a sovereign debt crisis, currency collapse, or loss of market access.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -126,15 +131,18 @@ export const usNationalDebtCrisisData = {
             replicability: 7,
             directness: 7,
           },
-          source: "IMF World Economic Outlook Database",
+          source:
+            "IMF World Economic Outlook / Fiscal Monitor (general government gross debt, Japan)",
+          sourceUrl:
+            "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO/JPN",
           reasoning:
             "Directly challenges the idea of a fixed debt threshold triggering crisis, though Japan's unique conditions (domestic savings, current account surplus, BOJ purchases) may limit applicability to the US.",
         },
         {
           id: "reinhart-rogoff-debunked",
-          title: "The 90% Debt Threshold Claim Was Debunked",
+          title: "The 90% Debt 'Growth Cliff' Claim Was Substantially Undermined",
           description:
-            "The influential Reinhart-Rogoff finding that growth collapses above 90% debt-to-GDP was shown to contain spreadsheet errors, selective data exclusion, and unconventional weighting by Herndon, Ash, and Pollin (2013).",
+            "Reinhart and Rogoff's influential claim that growth collapses above 90% debt-to-GDP was substantially undermined by Herndon, Ash, and Pollin (2014), who identified a spreadsheet coding error, selective data exclusion, and unconventional weighting. Correcting these, average growth for countries above 90% debt-to-GDP was 2.2%, not the -0.1% Reinhart-Rogoff reported — eliminating the sharp 'cliff' while still showing a modest negative correlation between debt and growth.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -143,9 +151,10 @@ export const usNationalDebtCrisisData = {
             directness: 6,
           },
           source:
-            "Herndon, T., Ash, M., & Pollin, R. — Does High Public Debt Consistently Stifle Economic Growth? Cambridge Journal of Economics (2014)",
+            "Herndon, T., Ash, M., & Pollin, R. — 'Does High Public Debt Consistently Stifle Economic Growth? A Critique of Reinhart and Rogoff', Cambridge Journal of Economics 38(2): 257-279 (2014)",
+          sourceUrl: "https://academic.oup.com/cje/article-abstract/38/2/257/1714018",
           reasoning:
-            "Removes the most widely cited empirical basis for a specific danger threshold, though does not prove high debt is harmless.",
+            "Removes the most widely cited empirical basis for a specific danger threshold and reverses the dramatic growth-cliff result. It does not prove high debt is harmless — a modest negative debt-growth correlation remains, and causation is contested — so this rebuts the threshold claim rather than the broader sustainability concern.",
         },
       ],
     },
@@ -179,39 +188,43 @@ export const usNationalDebtCrisisData = {
           id: "interest-exceeds-defense",
           title: "Net Interest Now Exceeds Defense Spending",
           description:
-            "In FY2024, net interest on federal debt reached approximately $890 billion, surpassing national defense spending (~$850 billion) for the first time in US history.",
+            "In FY2024, net interest on the federal debt reached about $882 billion (up $222 billion / 34% from FY2023), exceeding discretionary national defense outlays (~$874 billion) for the first time — making interest the second-largest line item after Social Security.",
           side: "for" as const,
           weight: {
-            sourceReliability: 10,
+            sourceReliability: 9,
             independence: 9,
             replicability: 10,
             directness: 9,
           },
-          source: "US Treasury Monthly Statement, CBO Budget Review",
+          source:
+            "US Treasury Monthly Treasury Statement (FY2024); CRFB, 'Interest Costs Just Surpassed Defense and Medicare'",
+          sourceUrl: "https://www.crfb.org/blogs/interest-costs-just-surpassed-defense-and-medicare",
           reasoning:
-            "Hard fiscal data directly from the Treasury. The comparison to defense spending illustrates the scale of the burden.",
+            "Hard fiscal data from the Treasury. Comparison is to discretionary defense outlays; the magnitudes ($882B vs ~$874B) illustrate the scale of the burden.",
         },
         {
           id: "rollover-wave-coming",
-          title: "Trillions in Low-Rate Debt Maturing 2025-2028",
+          title: "Roughly $9 Trillion of Debt Matures and Must Be Refinanced Each Year",
           description:
-            "Over $9 trillion in Treasury securities issued during the near-zero rate era will mature and need refinancing at significantly higher rates between 2025 and 2028.",
+            "About $9.2 trillion of Treasury debt — roughly a quarter of the total — matured and had to be refinanced in fiscal year 2025, with a similar ~$9.7 trillion due in FY2026. Much of this is short-term bills rolled continuously, so it reprices quickly at prevailing rates; the share locked in at near-zero pandemic-era rates is a smaller subset.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 8,
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 7,
           },
-          source: "Treasury Bulletin, Maturity Schedule of Outstanding Debt",
+          source:
+            "GAO, 'Federal Debt Management' (GAO-26-107529); US Treasury auction data",
+          sourceUrl: "https://www.gao.gov/products/gao-26-107529",
           reasoning:
-            "Mechanical fact about the maturity wall. The interest cost impact depends on prevailing rates at rollover.",
+            "The maturity wall is real and large, but the original framing overstated it: the bulk is short-dated bills routinely rolled, not long-term near-zero pandemic bonds, so the marginal interest-cost impact depends on where short rates settle, not a one-time repricing. De-inflated accordingly.",
         },
         {
           id: "cbo-interest-share-projection",
-          title: "Interest Projected to Consume 25%+ of Federal Revenue",
+          title: "Interest Projected to Consume ~28% of Federal Revenue by 2055",
           description:
-            "CBO projects net interest will grow from 13% of federal revenue in 2024 to over 25% by 2054, leaving less room for all other government functions.",
+            "CBO's March 2025 outlook projects net interest outlays rising to 5.4% of GDP and roughly 28% of federal revenues by 2055, leaving less room for all other government functions.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -219,26 +232,30 @@ export const usNationalDebtCrisisData = {
             replicability: 7,
             directness: 8,
           },
-          source: "CBO Long-Term Budget Outlook",
+          source:
+            "CBO, The Long-Term Budget Outlook: 2025 to 2055 (March 2025)",
+          sourceUrl: "https://www.cbo.gov/publication/61270",
           reasoning:
-            "Credible projection, but 30-year forecasts carry substantial uncertainty about future rates, growth, and policy responses.",
+            "Credible nonpartisan projection, but a 30-year forecast carries substantial uncertainty about future rates, growth, and policy responses; treat as a scenario, not a verified outcome.",
         },
         {
           id: "real-rates-historically-low",
           title: "Real Interest Rates Remain Low by Historical Standards",
           description:
-            "Despite rate hikes, the real (inflation-adjusted) yield on 10-year Treasuries has averaged around 1-2% — well below the 3-4% typical of the 1990s. The neutral real rate may have permanently shifted lower due to demographics and global savings glut.",
+            "Real (inflation-adjusted) Treasury yields are well below their 1990s levels. Rachel & Summers (2019) estimate the neutral real rate in the industrial world has fallen by at least 300 basis points over a generation, driven by demographics and a global savings glut — and argue it would be significantly negative absent expansionary fiscal policy.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 7,
-            directness: 7,
+            replicability: 6,
+            directness: 6,
           },
           source:
-            "Summers, L. & Rachel, L. — On Secular Stagnation in the Industrialized World, Brookings Papers (2019)",
+            "Rachel, Ł. & Summers, L.H. — 'On Falling Neutral Real Rates, Fiscal Policy, and the Risk of Secular Stagnation', Brookings Papers on Economic Activity (Spring 2019)",
+          sourceUrl:
+            "https://www.brookings.edu/articles/on-falling-neutral-real-rates-fiscal-policy-and-the-risk-of-secular-stagnation/",
           reasoning:
-            "If the secular decline in real rates reflects structural forces, the interest burden may not escalate as dramatically as nominal figures suggest.",
+            "If the secular decline in real rates reflects structural forces, the interest burden may not escalate as dramatically as nominal figures suggest. Note this is a contested 2019 thesis; rates rose materially in 2022-2024, so the secular-stagnation framing is debated rather than settled. Directness lowered: the paper concerns neutral rates broadly, not US debt servicing specifically.",
         },
       ],
     },
@@ -272,7 +289,7 @@ export const usNationalDebtCrisisData = {
           id: "dollar-share-still-dominant",
           title: "Dollar Still Comprises ~58% of Global Reserves",
           description:
-            "Despite decades of predictions about de-dollarization, the US dollar remains the dominant reserve currency at roughly 58% of allocated global foreign exchange reserves, more than triple the euro's share.",
+            "Despite decades of predictions about de-dollarization, the US dollar remained the dominant reserve currency at about 57.8% of allocated global foreign exchange reserves in Q4 2024 — roughly triple the euro's share.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,
@@ -280,15 +297,16 @@ export const usNationalDebtCrisisData = {
             replicability: 10,
             directness: 8,
           },
-          source: "IMF COFER Database, Q4 2024",
+          source: "IMF Currency Composition of Official Foreign Exchange Reserves (COFER), Q4 2024",
+          sourceUrl: "https://data.imf.org/en/datasets/IMF.STA:COFER",
           reasoning:
-            "Hard data from the IMF showing continued dominance, though the slow downward trend from 70% in 2000 is notable.",
+            "Hard data from the IMF showing continued dominance, though the slow downward trend from ~70% in 2000 is notable.",
         },
         {
           id: "no-credible-alternative",
           title: "No Alternative Currency Can Match Dollar Liquidity",
           description:
-            "The US Treasury market is the deepest and most liquid sovereign bond market in the world (~$26 trillion outstanding). No other market comes close in terms of the volume, depth, and safety that global investors require for reserve holdings.",
+            "The US Treasury market is the deepest and most liquid sovereign bond market in the world, with roughly $28 trillion in marketable debt outstanding in 2024 and ~$30 trillion by 2025. No other market comes close in the volume, depth, and safety that global reserve managers require.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -296,7 +314,10 @@ export const usNationalDebtCrisisData = {
             replicability: 8,
             directness: 7,
           },
-          source: "BIS Quarterly Review, Federal Reserve Financial Stability Reports",
+          source:
+            "Federal Reserve, 'The International Role of the U.S. Dollar – 2025 Edition' (FEDS Notes)",
+          sourceUrl:
+            "https://www.federalreserve.gov/econres/notes/feds-notes/the-international-role-of-the-u-s-dollar-2025-edition-20250718.html",
           reasoning:
             "Structural advantage that is extremely difficult for competitors to replicate, though network effects can unravel non-linearly.",
         },
@@ -304,24 +325,26 @@ export const usNationalDebtCrisisData = {
           id: "brics-dedollarization-efforts",
           title: "BRICS Nations Actively Pursuing De-dollarization",
           description:
-            "China, Russia, Brazil, India, and Saudi Arabia are building bilateral trade settlement systems, yuan-denominated oil contracts, and alternative payment networks (mBridge) designed to reduce dollar dependency.",
+            "China, Russia, and other BRICS members are building bilateral local-currency trade settlement, yuan-denominated oil and commodity arrangements, and the mBridge cross-border CBDC platform (China, Hong Kong, Thailand, UAE, with the BIS) to reduce dollar dependency. The renminbi now dominates intra-BRICS trade.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
-            replicability: 6,
+            replicability: 5,
             directness: 5,
           },
           source:
-            "Atlantic Council Dollar Dominance Monitor, BRICS Summit Declarations",
+            "Atlantic Council, Dollar Dominance Monitor",
+          sourceUrl:
+            "https://www.atlanticcouncil.org/programs/geoeconomics-center/dollar-dominance-monitor/",
           reasoning:
-            "Political intent is clear and institutional infrastructure is being built, but actual transaction volumes remain small relative to dollar-denominated flows.",
+            "Political intent is clear and institutional infrastructure is being built, but actual transaction volumes remain small relative to dollar-denominated flows (mBridge cumulative volume was only ~$55B by late 2025). BRICS communiques emphasize deliberation over implemented solutions, so this signals direction, not displacement.",
         },
         {
           id: "foreign-holdings-declining-share",
           title: "Foreign Share of US Debt Holdings Is Declining",
           description:
-            "Foreign holders owned about 33% of US public debt in 2024, down from 49% in 2011. China has reduced holdings from over $1.3 trillion to under $800 billion. The marginal buyer is increasingly the domestic market and the Fed.",
+            "Foreign holders owned about 30% of US debt held by the public in December 2024, down from nearly 50% in the early 2010s. China's holdings fell to ~$759 billion in December 2024, down ~42% from their ~$1.32 trillion peak in 2013. The marginal buyer is increasingly the domestic market.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -329,9 +352,11 @@ export const usNationalDebtCrisisData = {
             replicability: 9,
             directness: 7,
           },
-          source: "Treasury International Capital (TIC) System",
+          source:
+            "US Treasury, Treasury International Capital (TIC) data; CRS, 'Foreign Holdings of Federal Debt' (RS22331, 2025)",
+          sourceUrl: "https://www.congress.gov/crs-product/RS22331",
           reasoning:
-            "Declining foreign demand could increase borrowing costs if domestic absorption cannot compensate, though domestic demand has so far filled the gap.",
+            "Declining foreign share could raise borrowing costs if domestic absorption cannot compensate, though domestic demand has so far filled the gap. Note the share decline partly reflects the total debt growing faster than foreign holdings, not just outright foreign selling.",
         },
       ],
     },

@@ -33,51 +33,60 @@ export const standardizedTestingDebateData = {
       evidence: [
         {
           id: "dartmouth-2025-study",
-          title: "Dartmouth Study: Tests Better Than GPA for Identifying Low-Income Talent",
+          title: "Dartmouth Study: SAT Predicts First-Year GPA Better Than High School Grades",
           description:
-            "A 2025 study by Dartmouth College economists found that SAT and ACT scores predicted first-year college GPA significantly better than high school grades, and that eliminating testing requirements had actually hindered the college's ability to identify high-achieving students from low-income backgrounds. Dartmouth reinstated test requirements based on this evidence.",
+            "A February 2024 analysis by Dartmouth economics and sociology professors found that SAT scores alone explained 22% of the variation in first-year college GPA versus 9% for high school GPA, and that test-optional admissions was unintentionally overlooking high-achieving applicants from less-resourced backgrounds (who submitted scores at lower rates even when their scores would have helped them). Dartmouth reinstated the testing requirement for the Class of 2029 based on this evidence.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 8,
+            independence: 6,
             replicability: 7,
             directness: 9,
           },
-          source: "Dartmouth College Office of Institutional Research (2025)",
+          source:
+            "Dartmouth College, \"Reactivating the SAT/ACT requirement for Dartmouth undergraduate admissions\" (Feb 2024)",
+          sourceUrl:
+            "https://president.dartmouth.edu/news/2024/02/reactivating-satact-requirement-dartmouth-undergraduate-admissions",
           reasoning:
-            "Highly credible because Dartmouth had adopted test-optional and then reversed course based on their own data. The decision went against the prevailing political winds.",
+            "Credible because Dartmouth had adopted test-optional and then reversed course based on its own faculty analysis. Independence is moderate, not high: the study was internal to an institution with an interest in defending its admissions choice, though the underlying Ivy-Plus data overlaps with peer-reviewed work by Opportunity Insights.",
         },
         {
           id: "princeton-reinstates-tests",
-          title: "Princeton Reinstates SAT/ACT Requirement for 2027-28",
+          title: "Princeton Reinstates SAT/ACT Requirement for 2027-28 Cycle",
           description:
-            "In October 2025, Princeton University announced it would require SAT or ACT scores for students applying for the 2027-28 academic year, joining a growing number of elite institutions reinstating testing requirements. Princeton's announcement followed similar reversals by MIT, Georgetown, Dartmouth, Yale, Brown, and Harvard.",
+            "In October 2025, Princeton University announced it would again require SAT or ACT scores starting with the 2027-28 admissions cycle, ending its pandemic-era test-optional policy after a five-year internal review. Princeton joined a wave of selective institutions reinstating testing requirements, including MIT, Dartmouth, Yale, Brown, Harvard, and the University of Pennsylvania.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
-            independence: 6,
+            independence: 5,
             replicability: 7,
-            directness: 6,
+            directness: 5,
           },
-          source: "Princeton University Admissions Office (2025)",
+          source:
+            "The Daily Princetonian, \"Princeton to require SAT or ACT scores for applicants starting fall 2027\" (Oct 2025)",
+          sourceUrl:
+            "https://www.dailyprincetonian.com/article/2025/10/princeton-news-sat-act-standardized-test-optional-required-admissions",
           reasoning:
             "Institutional behavior is informative—elite schools are reinstating tests despite political pressure to remain test-optional. However, this is a policy decision, not empirical evidence.",
         },
         {
           id: "income-score-correlation",
-          title: "SAT Scores Strongly Correlated with Family Income",
+          title: "Test Scores Track Strongly with Family Income",
           description:
-            "Analysis of SAT data consistently shows scores correlate with family income at approximately r=0.42. Students from families earning over $200,000 score an average of 1,200+, while students from families earning under $40,000 average below 1,000. The College Board's own data shows this gap has persisted for decades despite interventions.",
+            "Opportunity Insights' analysis of Ivy-Plus applicant data (Chetty, Friedman, and Deming, 2023) found that children of the wealthiest 1% of families were 13 times likelier than children of low-income families to score 1300 or higher on the SAT/ACT. Roughly one-third of children from the very richest families scored 1300+, versus under 5% of middle-class students. Researchers attribute the gap to unequal out-of-school opportunities accumulating over years rather than the test itself.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 7,
-            replicability: 9,
-            directness: 7,
+            replicability: 7,
+            directness: 6,
           },
-          source: "Brookings Institution; College Board Research",
+          source:
+            "Opportunity Insights (Chetty, Friedman, Deming), via Harvard Gazette (Nov 2023)",
+          sourceUrl:
+            "https://news.harvard.edu/gazette/story/2023/11/new-study-finds-wide-gap-in-sat-act-test-scores-between-wealthy-lower-income-kids/",
           reasoning:
-            "The income correlation is undeniable and well-documented. However, correlation does not prove causation—family income correlates with school quality, educational resources, and many other factors that independently affect academic ability.",
+            "The income gradient in scores is well-documented. However, this is a correlation, not proof the test is biased: family income also tracks school quality, educational resources, and other factors that independently affect measured achievement. The specific correlation coefficient (r=0.42) and per-dollar score figures in earlier versions of this claim could not be verified against a primary source and have been replaced with the documented Opportunity Insights findings; directness is therefore marked lower since these are score-distribution gaps, not a direct measure of test bias.",
         },
       ],
     },
@@ -104,35 +113,39 @@ export const standardizedTestingDebateData = {
       evidence: [
         {
           id: "uc-system-internal-study",
-          title: "UC System Found SAT More Predictive Than GPA for All Groups",
+          title: "UC Academic Senate Found Test Scores Predicted Outcomes Across Groups",
           description:
-            "The University of California Academic Senate's 2020 internal study—the largest single-institution analysis ever conducted—found that SAT scores were better predictors of college success than high school GPA across all racial and income groups. The UC system dropped the SAT despite these findings, in a decision widely characterized as political.",
+            "The University of California Academic Senate's 2020 Standardized Testing Task Force (STTF) report found that test scores predicted first-year GPA, graduation, and final GPA even when students were stratified by income, race, and parental education—and that scores were at least as predictive for underrepresented students as for majority students. Notably, the report found high school GPA's predictive validity was more robust within demographic groups than the SAT's. The UC Regents dropped the SAT/ACT in 2020 despite the task force recommending tests be retained.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 8,
+            sourceReliability: 8,
+            independence: 7,
             replicability: 7,
-            directness: 9,
+            directness: 8,
           },
-          source: "UC Academic Senate Study Group Report (2020)",
+          source: "UC Academic Senate Standardized Testing Task Force (STTF) Report (2020)",
+          sourceUrl:
+            "https://senate.universityofcalifornia.edu/_files/committees/sttf/sttf-report.pdf",
           reasoning:
-            "Exceptionally credible because the UC system acted against its own findings. The study's conclusions were not disputed—the decision to drop the SAT was justified on grounds other than predictive validity.",
+            "Credible because the UC system acted against its own faculty task force's recommendation. The earlier framing—that the SAT was simply 'more predictive than GPA for all groups' and that this was 'the largest single-institution analysis ever conducted'—overstated the report: the STTF actually found high school GPA's within-group validity more robust, and the 'largest ever' superlative is unverified. Claim and weights adjusted accordingly.",
         },
         {
           id: "test-prep-industry-advantage",
-          title: "Test Prep Industry: $2.6B Advantage for Wealthy Families",
+          title: "Paid Test Prep Is a Multi-Billion-Dollar Market, But Coaching Gains Are Modest",
           description:
-            "The test preparation industry generates approximately $2.6 billion annually in the US. High-end tutoring ($200-$500/hour) can boost scores by 100-150 points on the SAT. Students from families earning over $200,000 are 5x more likely to use private test prep than students from families earning under $40,000, creating a structural advantage for wealth.",
+            "The US tutoring and test-preparation market is large—industry trackers put the broader sector in the low tens of billions of dollars annually—and high-end SAT/ACT coaching is concentrated among wealthier families. But peer-reviewed research on coaching effects is sobering: a NACAC review by Derek Briggs found average coaching gains of roughly 10-20 points on SAT math and 5-10 points on critical reading, far below the 100+ point gains advertised by prep companies. This is a real but smaller equity concern than prep marketing implies.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 8,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
+            directness: 5,
           },
-          source: "IBIS World; National Association for College Admission Counseling",
+          source:
+            "Derek Briggs / NACAC, \"Preparation for College Admission Exams\" (2009); industry market-size trackers (IBISWorld, Technavio)",
+          sourceUrl: "https://files.eric.ed.gov/fulltext/ED505529.pdf",
           reasoning:
-            "The test prep advantage is real. However, Khan Academy's free SAT prep has partially democratized access, and the prep advantage is smaller than commonly assumed (typically 30-60 points, not the 100-150 claimed by prep companies).",
+            "A paid-prep advantage exists, but the prior version of this claim was inflated and unverifiable: the specific '$2.6 billion' figure, the '100-150 point' boost, and the '5x more likely' statistic could not be confirmed against primary sources, and the best peer-reviewed estimate (Briggs/NACAC) finds total coaching gains in the tens of points, not hundreds. Free options like Khan Academy's official SAT prep further narrow the gap. Weights de-inflated and directness lowered because market size does not directly measure score advantage.",
         },
       ],
     },

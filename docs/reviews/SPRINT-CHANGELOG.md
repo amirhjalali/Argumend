@@ -53,3 +53,26 @@ mandatory-voting "OECD Democracy Index" (doesn't exist) → EIU index, two journ
 meritocracy legacy-admissions "45% boost/160 SAT pts" unverifiable → real Chetty 2023 (top-1% ~5x);
 remote-work Google/Meta "5-day mandate" false (were 3-day hybrid); media-bias Reuters "trust down from
 44%" false (stable 40%). Many weights de-inflated; one RTO item left URL-less + low-weight (no source found).
+
+## Iteration 4 (2026-06-16) — coverage 83% → 91% ✅ WS1 TARGET MET
+Hardened 12 maps (9 zero-coverage + 3 low): seed-oils-health, social-media-age-limits,
+space-colonization-feasibility, space-exploration-value, standardized-testing-debate,
+sugar-tax-effectiveness, surveillance-public-safety, us-national-debt-crisis,
+veganism-environmental-impact, simulation-hypothesis, tiktok-brain-rot, ai-content-labeling.
+~95 evidence items moved to verified URL; overall coverage now **91%** (1034/1136).
+Notable fabricated/misattributed cites caught: tiktok-brain-rot "Hancock et al. 2023, 72 studies"
+meta-analysis (does not exist) → real Marker/Gnambs/Appel 2018 (r=−0.07, not −0.15/−0.20), plus a
+phantom "Montag 2022 striatal-gambling fMRI" → Su et al. 2021; ai-content-labeling deepfake-detection
+mis-attributed "UW 2023" → Nightingale & Farid PNAS 2022, three unverifiable support-survey/enforcement
+stats stripped; space-exploration NASA "$7-14 per $1" ROI exposed as promotional urban-legend and
+heavily de-weighted, "$1.8T space economy" re-attributed Morgan-Stanley→WEF/McKinsey; us-national-debt
+Reinhart-Rogoff growth-cliff caveated with Herndon-Ash-Pollin (2.2% not −0.1%), Summers/Rachel phantom
+Brookings title corrected; seed-oils "Israeli Paradox" source actually argues the opposite of the file's
+framing; sugar-tax 5 journal mis-citations fixed (BMJ-2016→HealthAffairs-2017 etc.); simulation-hypothesis
+"Auger shows no anisotropy" was false (Auger found an astrophysical dipole) → Beane et al. lattice bound.
+
+KNOWN FOLLOW-UP (for WS2/cleanup pass): several agents flagged that some pillar NARRATIVE prose fields
+(`proponent_rebuttal`, `skeptic_premise`, `short_summary`) still contain old fabricated/mis-cited
+references that were out of their evidence-only edit scope — notably tiktok-brain-rot's rebuttal still
+cites the fabricated "Hancock et al. 2023" and a "Baert et al. 2020", and cancel-culture's prose still
+carries the "Pew 62%" stat that was re-attributed to Cato in the evidence. WS2 should sweep narrative prose.

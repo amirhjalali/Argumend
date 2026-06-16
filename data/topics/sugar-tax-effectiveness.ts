@@ -83,7 +83,7 @@ export const sugarTaxEffectivenessData = {
           id: "mexico-purchase-decline",
           title: "Mexico: 7.6% Sustained Decline in Taxed Beverage Purchases",
           description:
-            "After Mexico introduced a 1-peso-per-liter tax in 2014, purchases of taxed beverages fell 7.6% over two years, with low-income households reducing purchases by 11.7%.",
+            "After Mexico introduced a 1-peso-per-liter tax in 2014, purchases of taxed beverages fell an average of 7.6% over two years (5.5% in 2014, 9.7% in 2015), with the lowest-socioeconomic households showing the largest reductions (about 9% in 2014 and 14.3% in 2015). The single-year 2014 figure was first reported as ~6% in the Colchero et al. 2016 BMJ study.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -91,32 +91,37 @@ export const sugarTaxEffectivenessData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Colchero et al., BMJ 2016",
+          source:
+            "Colchero, Rivera-Dommarco, Popkin & Ng, Health Affairs 2017 (two-year follow-up); Colchero et al., BMJ 2016 (first-year)",
+          sourceUrl: "https://www.healthaffairs.org/doi/10.1377/hlthaff.2016.1231",
           reasoning:
-            "Large national dataset with interrupted time series design and control for confounders.",
+            "Large national household scanner panel with interrupted time series design and control region. The 7.6% two-year average and the larger low-income reductions come from the 2017 Health Affairs follow-up, not the 2016 BMJ paper (which reported the ~6% first-year decline).",
         },
         {
           id: "uk-reformulation-effect",
-          title: "UK Levy Drove 46% Reduction in Soft Drink Sugar Content",
+          title: "UK Levy Drove Large Reduction in Soft Drink Sugar Content",
           description:
-            "The UK's tiered Soft Drinks Industry Levy caused manufacturers to reformulate products, reducing average sugar content by 46% between 2015 and 2020 — before most consumers changed behavior.",
+            "The UK's tiered Soft Drinks Industry Levy incentivized manufacturers to reformulate products. A peer-reviewed controlled interrupted time series (Scarborough et al., PLoS Medicine 2020) found the sales-weighted average sugar content of soft drinks fell from 4.4 g/100ml in 2015 to 2.9 g/100ml in 2018 (a ~34% drop), and per-capita sugar sold from drinks fell ~30% over 2015-2018. A 2024 UK government review later cited an ~46% average reduction in sugar added to soft drinks. Reformulation affects consumers regardless of price sensitivity.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 8,
             replicability: 7,
             directness: 8,
           },
-          source: "Scarborough et al., BMJ 2024",
+          source:
+            "Scarborough et al., PLoS Medicine 2020 (peer-reviewed reformulation analysis); UK government SDIL review 2024 (the ~46% figure)",
+          sourceUrl:
+            "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1003025",
           reasoning:
-            "Reformulation affects all consumers, not just price-sensitive ones. Measured across entire industry.",
+            "Reformulation affects all consumers, not just price-sensitive ones, and is measured across the industry. The peer-reviewed estimate of the sugar-content drop over 2015-2018 is roughly 30-34%; the ~46% figure is a government-review statistic over a longer window, so the original '46% between 2015 and 2020' attribution to a single Scarborough BMJ paper was inaccurate.",
         },
         {
           id: "philadelphia-cross-border",
           title:
-            "Philadelphia: 38% In-City Decline Offset by Cross-Border Shopping",
+            "Philadelphia: 46% In-City Decline Offset by Cross-Border Shopping",
           description:
-            "Philadelphia's 1.5-cent-per-ounce tax reduced in-city sugary drink sales by 38%, but cross-border purchasing offset roughly 40% of that decline, yielding a net reduction of ~22%.",
+            "Philadelphia's 1.5-cent-per-ounce tax (passed through at ~97%, raising prices ~34%) reduced in-city taxed beverage sales by 46%, but cross-shopping at stores outside the city offset more than half of that decline, yielding a net reduction of ~22%.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -124,25 +129,27 @@ export const sugarTaxEffectivenessData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Seiler et al., Quarterly Journal of Economics 2021",
+          source: "Seiler, Tuchman & Yao, Journal of Marketing Research 2021",
+          sourceUrl: "https://journals.sagepub.com/doi/10.1177/0022243720969401",
           reasoning:
-            "Demonstrates real but diminished effect due to geographic leakage in small jurisdictions.",
+            "Demonstrates a real but diminished effect due to geographic leakage in small jurisdictions. Corrected: the study reports a 46% in-city decline (not 38%) with cross-shopping offsetting more than half, and was published in the Journal of Marketing Research, not the QJE.",
         },
         {
           id: "demand-inelasticity",
-          title: "Sugary Drink Demand Is Relatively Inelastic",
+          title: "Soft-Drink Demand Is Price-Responsive but Bounded (~0.8 Elasticity)",
           description:
-            "Meta-analyses estimate the price elasticity of sugary beverages at -0.8 to -1.2, meaning a 10% tax yields only an 8-12% consumption decline — and habitual consumers are least responsive.",
+            "A systematic review of 160 food-price studies estimated the price elasticity of soft drinks at roughly 0.8 (range 0.27-0.81 across food categories), meaning a 10% price increase reduces consumption by about 8-10%. Skeptics note this caps the achievable reduction and that a tax raising prices only modestly yields a correspondingly modest consumption change.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 7,
-            directness: 6,
+            replicability: 6,
+            directness: 5,
           },
-          source: "Andreyeva et al., American Journal of Public Health 2010",
+          source: "Andreyeva, Long & Brownell, American Journal of Public Health 2010",
+          sourceUrl: "https://ajph.aphapublications.org/doi/full/10.2105/AJPH.2008.151415",
           reasoning:
-            "Valid concern about magnitude, though elasticity in this range still produces population-level effects.",
+            "Note: this source actually ranks soft drinks among the MOST price-responsive foods (~0.7-0.8), not inelastic. The original claim of an elasticity up to -1.2, an 'inelastic' framing, and 'habitual consumers least responsive' are not supported by Andreyeva et al.; the corrected version reflects what the review reports, so this is a weaker skeptic point than originally stated.",
         },
       ],
     },
@@ -185,58 +192,64 @@ export const sugarTaxEffectivenessData = {
             directness: 7,
           },
           source: "DiMeglio & Mattes, International Journal of Obesity 2000",
+          sourceUrl: "https://www.nature.com/articles/0801229",
           reasoning:
-            "Establishes the biological mechanism by which reduced soda consumption should reduce obesity.",
+            "Establishes the biological mechanism by which reduced soda consumption should reduce obesity. Verified: in this 4-week crossover, liquid carbohydrate produced near-zero dietary compensation (people did not eat less) while solid carbohydrate produced precise compensation. Note the small sample (15 participants), which limits weight slightly.",
         },
         {
           id: "uk-childhood-obesity-signal",
           title:
-            "UK Childhood Obesity in Girls Declined After Levy Implementation",
+            "UK Childhood Obesity in Year-6 Girls Declined After Levy Implementation",
           description:
-            "NHS data showed a statistically significant reduction in obesity prevalence among year 6 girls following the 2018 Soft Drinks Industry Levy, though confounders exist.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 6,
-            directness: 7,
-          },
-          source: "Scarborough et al., BMJ 2024",
-          reasoning:
-            "Early signal but limited by short follow-up period and potential confounders.",
-        },
-        {
-          id: "dental-health-improvement",
-          title:
-            "Children's Dental Health Improved in Sugar Tax Jurisdictions",
-          description:
-            "Hospital admissions for childhood tooth extraction declined in the UK after the levy, and Berkeley saw reduced dental caries in low-income children.",
+            "Using National Child Measurement Programme data (>1 million children/year), an interrupted time series analysis found the Soft Drinks Industry Levy was associated with an 8% relative reduction in obesity prevalence among girls aged 10-11 (year 6) — an estimated ~5,000 cases prevented per year — with the largest reductions in the most deprived areas. No association was found for boys or for 4-5-year-olds, and the design is associational rather than causal.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Rogers et al., PLoS Medicine 2023 (\"Associations between trajectories of obesity prevalence... and the UK soft drinks industry levy\")",
+          sourceUrl:
+            "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004160",
+          reasoning:
+            "Early signal limited by an observational interrupted-time-series design and confounders; the effect appears only in year-6 girls, not boys or younger children. Corrected: this finding is from Rogers et al. 2023 PLoS Medicine, not a 'Scarborough et al., BMJ 2024' paper.",
+        },
+        {
+          id: "dental-health-improvement",
+          title:
+            "UK Childhood Tooth-Extraction Hospital Admissions Fell After the Levy",
+          description:
+            "An interrupted time series analysis of Hospital Episode Statistics found that, 22 months after the Soft Drinks Industry Levy, hospital admissions for carious tooth extraction in children aged 0-18 fell by an estimated 12% relative to the no-levy counterfactual (about 5,600 admissions avoided), with the largest reductions in children aged 0-9. (A measured, attributable reduction in dental caries specifically in Berkeley low-income children is not established in the peer-reviewed literature; modeling studies project caries reductions from SSB taxes.)",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
             directness: 5,
           },
-          source: "Rogers et al., Journal of Dental Research 2023",
+          source:
+            "Rogers et al., BMJ Nutrition, Prevention & Health 2023 (childhood carious tooth-extraction admissions)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10800259/",
           reasoning:
-            "Dental outcomes confirm the sugar reduction pathway but are only an indirect proxy for obesity.",
+            "Dental outcomes support the sugar-reduction pathway but are only an indirect proxy for obesity, and the design is observational. Corrected: the verified finding is the UK tooth-extraction study (Rogers et al. 2023, BMJ Nutr Prev Health), not 'Journal of Dental Research'; the prior Berkeley dental-caries claim was unsupported and has been flagged as not established.",
         },
         {
           id: "no-obesity-reduction-evidence",
           title:
-            "No Country Has Demonstrated Attributable Obesity Reduction",
+            "Population-Wide Obesity Reduction Attributable to a Tax Alone Remains Unproven",
           description:
-            "Despite sugar taxes existing since 2014 in Mexico and 2015 in Berkeley, no peer-reviewed study has demonstrated a statistically significant, causally attributable reduction in population obesity rates from a sugar tax alone.",
+            "Most sugar-tax evaluations measure purchasing or sugar intake rather than obesity. No study has demonstrated a statistically significant, causally attributable reduction in overall population obesity from a sugar tax alone; the strongest health signal to date is an associational 8% relative obesity reduction in UK year-6 girls (Rogers et al. 2023), which did not extend to boys or younger children. Tax-vs-obesity links are still mostly modeling-based projections.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 8,
-            directness: 9,
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 6,
+            directness: 8,
           },
           reasoning:
-            "The most direct test of the policy's stated goal remains unmet, though time lag is a valid counterpoint.",
+            "No single citable study asserts this negative, so it carries no sourceUrl; it is a characterization of the literature's current state. The most direct test of the policy's stated obesity goal remains unmet, though a 5-10 year measurement lag and the year-6-girls signal are valid counterpoints. Weights de-inflated accordingly.",
         },
       ],
     },
@@ -271,7 +284,7 @@ export const sugarTaxEffectivenessData = {
           title:
             "Low-Income Households Show Largest Consumption Reductions",
           description:
-            "In Mexico, the lowest socioeconomic group reduced taxed beverage purchases by 11.7% compared to 7.6% overall, suggesting the greatest health benefit flows to the most vulnerable population.",
+            "In Mexico, the lowest-socioeconomic households cut taxed beverage purchases the most in both years (about 9% in 2014 and 14.3% in 2015) versus the 7.6% two-year average across all households, suggesting the largest behavioral change — and thus potential health benefit — flows to the most vulnerable population.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -279,16 +292,18 @@ export const sugarTaxEffectivenessData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Colchero et al., BMJ 2016",
+          source:
+            "Colchero, Rivera-Dommarco, Popkin & Ng, Health Affairs 2017",
+          sourceUrl: "https://www.healthaffairs.org/doi/10.1377/hlthaff.2016.1231",
           reasoning:
-            "Demonstrates that price sensitivity in low-income groups produces larger behavioral change and thus larger health benefit.",
+            "Demonstrates that price sensitivity in low-income groups produces larger behavioral change. Corrected: the low-income figures (~9% in 2014, 14.3% in 2015) and the 7.6% two-year average are from the 2017 Health Affairs follow-up, not the 2016 BMJ paper; the prior single '11.7%' figure was an imprecise blend of the two years.",
         },
         {
           id: "revenue-earmarking",
           title:
             "Earmarked Revenue Funds Programs Benefiting Low-Income Communities",
           description:
-            "Berkeley directs sugar tax revenue to nutrition education in underserved neighborhoods. Philadelphia funded universal pre-K. When revenue is targeted, the policy can become net progressive.",
+            "Berkeley directs sugar-tax revenue (over $9M) to community nutrition and cooking/gardening education, including in underserved neighborhoods. Philadelphia's tax raised about $409M over 2017-2022, of which roughly $158M (~39%) funded pre-K slots largely serving low-income families. When revenue is targeted this way, the policy can become more progressive in net terms.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -296,42 +311,46 @@ export const sugarTaxEffectivenessData = {
             replicability: 6,
             directness: 6,
           },
-          source: "City of Berkeley and City of Philadelphia budget reports",
+          source:
+            "Petimar et al., \"Funding quality pre-kindergarten slots with Philadelphia's sugary drink tax\" (peer-reviewed); City of Berkeley revenue allocation reports",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10261412/",
           reasoning:
-            "Depends on political commitment to earmarking; many jurisdictions absorb revenue into general funds.",
+            "Depends on political commitment to earmarking; many jurisdictions absorb revenue into general funds, and whether earmarking makes the tax net-progressive is contested. Philadelphia funded targeted pre-K (not 'universal') pre-K slots, so the prior 'universal pre-K' wording was corrected.",
         },
         {
           id: "regressive-tax-burden",
           title:
             "Tax Falls Hardest on Lowest Income Quintile as Share of Income",
           description:
-            "Households in the lowest income quintile spend 1.5-2x more of their income on sugary beverages than the highest quintile, making the tax functionally regressive in financial terms.",
+            "Lower-income households devote a larger share of income to sugary beverages than higher-income households, so a per-ounce tax takes a larger proportional bite from the poor, making it financially regressive on the spending side. The economic analysis weighs this against the larger health benefits (internalities corrected) that also accrue to lower-income consumers.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 8,
-            directness: 8,
+            replicability: 7,
+            directness: 7,
           },
-          source: "Allcott et al., Quarterly Journal of Economics 2019",
+          source:
+            "Allcott, Lockwood & Taubinsky, \"Regressive Sin Taxes, with an Application to the Optimal Soda Tax,\" Quarterly Journal of Economics 2019",
+          sourceUrl: "https://academic.oup.com/qje/article-abstract/134/3/1557/5499049",
           reasoning:
-            "Well-documented financial regressivity, though does not account for health benefit distribution.",
+            "Source verified (QJE 134(3), 2019). The paper documents spending-side regressivity but frames it within an optimal-tax model where corrective benefits partly offset it; the specific '1.5-2x of income' multiple was not pinned to this source, so the claim was generalized to what the paper supports.",
         },
         {
           id: "paternalism-autonomy",
           title:
             "Tax Reduces Consumer Autonomy Without Addressing Root Causes",
           description:
-            "Sugar taxes target individual purchasing behavior while leaving structural drivers of poor diet untouched: food deserts, agricultural subsidies for corn syrup, and lack of affordable healthy alternatives.",
+            "Sugar taxes target individual purchasing behavior while leaving structural drivers of poor diet largely untouched: food deserts, agricultural subsidies for corn syrup, and lack of affordable healthy alternatives. Critics frame this as paternalism that constrains consumer autonomy without addressing root causes.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 7,
-            replicability: 6,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 5,
             directness: 5,
           },
           reasoning:
-            "Valid critique of policy scope, though not an argument against effectiveness per se.",
+            "This is a normative/values critique of policy scope rather than an empirical finding, so it carries no sourceUrl; weights de-inflated to reflect that it is an argument about policy design and autonomy, not evidence about effectiveness.",
         },
       ],
     },

@@ -47,8 +47,9 @@ export const tiktokBrainRotData = {
             directness: 6,
           },
           source: "Lorenz-Spreen et al., Nature Communications (2019)",
+          sourceUrl: "https://www.nature.com/articles/s41467-019-09311-w",
           reasoning:
-            "Peer-reviewed, multi-platform analysis, but measures collective cultural attention rather than individual cognitive capacity directly.",
+            "Peer-reviewed, multi-platform analysis (Nat Commun 10:1759), but measures collective cultural attention dynamics rather than individual cognitive capacity directly.",
         },
         {
           id: "xu-fmri-tiktok-users",
@@ -86,16 +87,18 @@ export const tiktokBrainRotData = {
           id: "goldfish-myth-debunked",
           title: "The '8-Second Attention Span' Statistic Is Fabricated",
           description:
-            "The widely cited claim that human attention spans dropped to 8 seconds (below a goldfish) originated from a Microsoft Canada marketing report that cited no peer-reviewed source. The BBC and multiple fact-checkers traced it to no credible origin.",
+            "The widely cited claim that human attention spans dropped to 8 seconds (below a goldfish) appeared in a 2015 Microsoft Canada Consumer Insights report, but the figure was sourced to the website Statistic Brain rather than original research. BBC journalist Simon Maybin traced it back and found no credible study behind the number (and that goldfish are in fact used as a model for studying learning and memory).",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 9,
-            replicability: 10,
+            replicability: 9,
             directness: 5,
           },
+          source: "Maybin, 'Busting the attention span myth', BBC News (2017)",
+          sourceUrl: "https://www.bbc.com/news/health-38896790",
           reasoning:
-            "Debunks a specific popular claim, but does not address the broader body of research on attention and media consumption patterns.",
+            "Well-documented debunking of a specific viral statistic (traced to Statistic Brain, not Microsoft's own research), but it does not address the broader body of research on attention and media consumption patterns.",
         },
       ],
     },
@@ -130,62 +133,70 @@ export const tiktokBrainRotData = {
             "Short-form video algorithms deliver unpredictable reward — some videos are highly engaging, others are not — creating variable-ratio reinforcement schedules known to produce the most persistent behavioral patterns in operant conditioning research.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
+            sourceReliability: 6,
+            independence: 6,
             replicability: 8,
-            directness: 7,
+            directness: 5,
           },
-          source: "Montag et al., Addictive Behaviors (2022)",
+          source:
+            "Variable-ratio reinforcement (operant conditioning, Ferster & Skinner) applied to algorithmic feeds",
           reasoning:
-            "The mechanism is well-established in behavioral psychology. Application to algorithmic feeds is logically sound though direct evidence of identical neural pathways is still emerging.",
+            "Variable-ratio reinforcement is well-established in behavioral psychology, and applying it to algorithmic feeds is logically sound — but this is a conceptual/mechanistic argument, not a measured finding from a specific short-video study. A previously listed 'Montag et al., Addictive Behaviors (2022)' citation for this item could not be verified and was removed; no specific empirical source is asserted here.",
         },
         {
           id: "tiktok-internal-documents",
           title: "Internal Documents Show Platforms Optimize for Compulsive Use",
           description:
-            "Documents revealed in US litigation show TikTok internally tracked 'time spent beyond intended' and 'loss of autonomy' metrics. Engineers modeled and optimized for increased session duration, including features specifically designed to reduce user ability to disengage.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 6,
-            replicability: 5,
-            directness: 9,
-          },
-          source: "State of Utah v. TikTok (2023), leaked internal documents",
-          reasoning:
-            "Direct evidence of intent, but documents are selectively disclosed through litigation and may not represent full internal picture.",
-        },
-        {
-          id: "striatal-activation-gambling",
-          title: "Short-Form Video Activates Reward Circuits Similarly to Gambling",
-          description:
-            "Montag et al. (2022) found that short-form video scrolling activated ventral striatum in patterns more similar to gambling tasks than to passive entertainment, suggesting reward prediction error processing.",
+            "Internal TikTok documents quoted in the October 2024 multistate attorneys-general lawsuits (14 states plus DC) — portions of which became public when redactions in Kentucky's complaint were penetrated and reported by NPR — indicate the company tracked metrics related to compulsive use and 'filter bubbles' and was aware its algorithm could hook users quickly. Plaintiffs allege the platform optimized for session duration over user well-being.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
-            independence: 7,
+            independence: 5,
             replicability: 5,
             directness: 8,
           },
-          source: "Montag et al., Addictive Behaviors (2022)",
+          source:
+            "Multistate AG lawsuits v. TikTok (Oct 2024); internal documents reported by NPR",
+          sourceUrl:
+            "https://www.npr.org/2024/10/11/nx-s1-5150088/the-biggest-findings-from-uncensored-tiktok-lawsuit-documents",
           reasoning:
-            "Neuroimaging evidence is suggestive but small sample sizes and reverse inference limitations apply.",
+            "Direct evidence of internal awareness, but the quotes are adversarial litigation excerpts (selectively disclosed by plaintiffs, some via a redaction error) and TikTok disputes the characterizations; they may not represent the full internal context. The earlier 'State of Utah v. TikTok (2023)' attribution was corrected — the widely-reported un-redacted document trove came from the Oct 2024 multistate coalition.",
+        },
+        {
+          id: "striatal-activation-gambling",
+          title: "Personalized Short-Form Video Engages Reward/Dopamine Circuitry",
+          description:
+            "An fMRI study by Su et al. (2021) found that viewing personalized, algorithmically recommended TikTok clips (vs. generalized clips) produced higher activation in the ventral tegmental area (VTA) — a core dopaminergic reward hub — and the default mode network, and that more problematic-use symptoms were associated with lower self-control. This links personalized short-form content to engagement of reward circuitry, though the study did not directly compare it to gambling tasks.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 4,
+            directness: 6,
+          },
+          source:
+            "Su, Zhou, Gong, Teng, Geng & Hu, NeuroImage (2021), 237:118136",
+          sourceUrl: "https://doi.org/10.1016/j.neuroimage.2021.118136",
+          reasoning:
+            "Peer-reviewed neuroimaging evidence that personalized short-form video engages dopaminergic reward circuitry (VTA/DMN), but the sample is small and reverse-inference limitations apply. The original claim attributed a ventral-striatum 'similar to gambling' finding to 'Montag et al., Addictive Behaviors (2022)', which could not be verified; it has been corrected to this real Su et al. (2021) study, whose actual finding (VTA activation, no gambling comparison) is narrower, so weights were de-inflated accordingly.",
         },
         {
           id: "most-users-self-regulate",
           title: "Majority of Users Self-Regulate Without Pathological Consequences",
           description:
-            "Survey data consistently shows that while a minority of users report feeling addicted, 70-80% of short-form video users report moderate use patterns and the ability to stop when they choose. Pew Research (2023) found median daily TikTok use among US adults was 38 minutes.",
+            "Most short-form video users do not meet clinical thresholds for addiction. Validated estimates of problematic short-video use are modest — e.g., Su et al. (2021) estimated roughly 5.9% of TikTok users show significant problematic use — implying the large majority use the platform without pathological loss of control, even though average daily time on TikTok is substantial (industry trackers put it near an hour per day).",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 8,
-            directness: 6,
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
           },
-          source: "Pew Research Center (2023)",
+          source:
+            "Su et al., NeuroImage (2021) problematic-use estimate (~5.9%)",
+          sourceUrl: "https://doi.org/10.1016/j.neuroimage.2021.118136",
           reasoning:
-            "Self-report data on media use is notoriously unreliable (people underestimate screen time by 50%+), but the general finding that most users don't meet clinical thresholds for addiction is likely accurate.",
+            "The general finding that most users don't meet clinical thresholds for addiction is well-supported, but self-report media-use data is unreliable (people underestimate screen time). A previously cited 'Pew Research Center (2023): median daily TikTok use among US adults was 38 minutes' could not be verified — Pew's 2023 data reports frequency of use, not a 38-minute median — so that specific statistic was removed and replaced with a verifiable problematic-use prevalence estimate.",
         },
       ],
     },
@@ -217,48 +228,54 @@ export const tiktokBrainRotData = {
           id: "pisa-reading-decline",
           title: "Largest-Ever Drop in PISA Reading Scores (2022)",
           description:
-            "PISA 2022 results showed the largest single-period decline in reading scores ever recorded across OECD countries — a 10-point average drop, with students reporting heavy social media use showing significantly steeper declines than peers.",
+            "PISA 2022 recorded an unprecedented decline in reading across OECD countries — mean reading fell 10 points versus 2018, roughly twice any previous between-cycle change. The OECD attributes the drop primarily to COVID-19 disruption layered on a pre-pandemic downward trend, and notes the decline is only partly attributable to the pandemic. PISA does not isolate short-form video as a cause.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
             replicability: 8,
-            directness: 6,
+            directness: 4,
           },
-          source: "OECD PISA 2022 Report",
+          source: "OECD, PISA 2022 Results (Volume I)",
+          sourceUrl:
+            "https://www.oecd.org/en/publications/pisa-2022-results-volume-i_53f23881-en.html",
           reasoning:
-            "High-quality international data, but correlation with social media use doesn't isolate short-form video specifically, and COVID disruption is a major confound.",
+            "High-quality international data on a real, unprecedented reading decline, but PISA does not attribute it to social media or short-form video specifically, and COVID disruption plus pre-existing trends are the dominant explanations. The original claim that 'heavy social media users showed significantly steeper declines' was not substantiated in the PISA report and was removed; directness lowered accordingly.",
         },
         {
           id: "hancock-meta-analysis",
-          title: "Meta-Analysis Shows Consistent Negative Association",
+          title: "Meta-Analysis Shows a Small Negative Association",
           description:
-            "Hancock et al. (2023) meta-analysis of 72 studies found a consistent negative association (r = -0.15 to -0.20) between social media use and academic performance, with passive consumption showing larger effects than active use.",
+            "A meta-analysis by Marker, Gnambs & Appel (2018) of 59 independent samples (N = 29,337) found only a small negative association between general social-networking-site use and academic achievement (r = -0.07, 95% CI [-0.12, -0.02]). The association was stronger for media multitasking while studying, and reversed (positive) when social media was used for academic purposes — indicating the effect depends heavily on how the platform is used.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 7,
+            directness: 5,
           },
-          source: "Hancock et al., Educational Psychology Review (2023)",
+          source:
+            "Marker, Gnambs & Appel, Educational Psychology Review (2018), 30:651-677",
+          sourceUrl: "https://doi.org/10.1007/s10648-017-9430-6",
           reasoning:
-            "Large meta-analytic sample, but most included studies are cross-sectional, limiting causal inference.",
+            "Large peer-reviewed meta-analysis, but the overall effect is small (r ≈ -0.07), studies are mostly cross-sectional, and it concerns general social media rather than short-form video specifically. The original 'Hancock et al. (2023), Educational Psychology Review, 72 studies, r = -0.15 to -0.20' citation could not be verified and appears to have been fabricated or conflated (Jeff Hancock's real meta-analysis concerns well-being, not academic performance); it was replaced with this real, correctly-attributed meta-analysis, and the overstated effect size was corrected.",
         },
         {
           id: "china-douyin-restrictions",
           title: "China's Douyin Restrictions Based on Internal Dose-Response Data",
           description:
-            "China imposed 40-minute daily limits on Douyin for minors in 2021, citing internal research showing dose-dependent negative effects on homework completion and reading comprehension.",
+            "In September 2021 Douyin (China's TikTok) restricted users under 14 to 40 minutes per day and blocked overnight access, as part of China's broader push against youth internet addiction following its revised Minor Protection Law. Chinese regulators and ByteDance framed this around concerns about minors' attention and study habits, though any underlying dose-response data on homework or reading comprehension has not been independently published.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
             independence: 3,
             replicability: 4,
-            directness: 7,
+            directness: 5,
           },
+          source: "ByteDance/Douyin under-14 time limit, Sept 2021 (CNN reporting)",
+          sourceUrl: "https://www.cnn.com/2021/09/20/tech/china-tiktok-douyin-usage-limit-intl-hnk",
           reasoning:
-            "The internal research has not been independently published or peer-reviewed. China's regulatory decisions are politically motivated and not transparent. However, the specificity of the dose-response claim suggests real data exists.",
+            "The policy itself (40-minute under-14 limit) is well-documented, but the specific 'internal dose-response research showing effects on homework and reading comprehension' is not publicly verifiable, and China's regulatory decisions are opaque and politically motivated. The earlier wording asserting that the limit 'cited internal research' on dose-dependent effects was softened to avoid implying a verified empirical basis; directness lowered.",
         },
         {
           id: "covid-confound",
@@ -272,9 +289,12 @@ export const tiktokBrainRotData = {
             replicability: 9,
             directness: 7,
           },
-          source: "World Bank, UNESCO, OECD learning loss estimates",
+          source:
+            "OECD PISA 2022 press release; World Bank/UNESCO/UNICEF COVID learning-loss estimates",
+          sourceUrl:
+            "https://www.oecd.org/en/about/news/press-releases/2023/12/decline-in-educational-performance-only-partly-attributable-to-the-covid-19-pandemic.html",
           reasoning:
-            "Strong evidence that COVID is the dominant confound in recent academic data. However, pre-pandemic trends and post-reopening non-recovery suggest additional factors.",
+            "Strong, well-documented evidence that COVID school closures drove large learning losses and are a dominant confound in recent academic data. Note the OECD itself states the PISA decline is 'only partly attributable' to the pandemic, since scores in reading and science were already falling beforehand — so pre-pandemic trends and post-reopening non-recovery point to additional factors.",
         },
       ],
     },
