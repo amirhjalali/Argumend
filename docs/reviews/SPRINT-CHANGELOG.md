@@ -174,3 +174,19 @@ items (15 new, all web-sourced); all 5 now at 100% coverage; overall held 98%.
 - **open-weight-ai-models**: 16→17. Added RAND blinded bioweapon-uplift RCT (no significant uplift —
   the marginal-risk anchor); corrected a misattributed safeguards demo + an unverifiable RAND number.
 All web-verified, no fabricated cites, both sides steelmanned. tsc clean, 207 tests, coverage 98%.
+
+## Iteration 10 (2026-06-16) — WS5: founder launch dossier — SPRINT COMPLETE ✅
+Wrote `docs/plans/2026-06-16-launch-dossier.md` consolidating: (1) the bulletproof canonical launch
+map (consciousness-ai-systems, 12/12 cited, with the Anthropic model-welfare hook, pillars/cruxes/
+verdict); (2) the full sprint results (coverage 56%→98% across 114 maps, corpus now 1,151 evidence
+items, the fabricated/inverted/mis-attributed citations caught, the 95% CI ratchet, /llms.txt
+integrity section, AEO citation JSON-LD); (3) an index of the 4 founder-bound `docs/drafts/` assets
+(LW essay, gatekeeper DMs, grant drafts, launch packaging) with status each; (4) a ready-vs-needs-
+founder action list. Drafts remain founder-review-only — NOT auto-sent.
+
+=== CITATION MOAT SPRINT COMPLETE: WS1 ✅ WS2 ✅ WS3 ✅ WS4 ✅ WS5 ✅ ===
+Net: citation coverage 56%→98% (1,151 evidence items, ~1,130 primary-sourced); ~50 maps hardened;
+dozens of fabricated/inverted/mis-attributed citations corrected; prose swept on the 22 most-corrected
+maps; 5 launch-cluster maps upgraded to 100%; a CI ratchet locking coverage ≥95%; LLM/crawler exposure
+via /llms.txt + per-topic schema.org citation; founder launch dossier delivered. 10 commits, each
+web-verified + tsc-clean + 207 tests green + pushed. Remaining work is founder-bound distribution.
