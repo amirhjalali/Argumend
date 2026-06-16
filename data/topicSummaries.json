@@ -146,11 +146,11 @@
     "id": "universal-basic-income",
     "title": "Universal Basic Income",
     "meta_claim": "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
-    "confidence_score": 76,
+    "confidence_score": 69,
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 13,
+    "evidenceCount": 14,
     "tags": [
       "policy"
     ]
@@ -757,7 +757,7 @@
     "id": "gender-affirming-care-minors",
     "title": "Gender-Affirming Care for Minors",
     "meta_claim": "Evidence-based gender-affirming medical care for transgender adolescents, including puberty blockers and hormone therapy, improves mental health outcomes and should be accessible.",
-    "confidence_score": 36,
+    "confidence_score": 37,
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -991,11 +991,11 @@
     "id": "student-debt-forgiveness",
     "title": "Student Debt Forgiveness",
     "meta_claim": "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
-    "confidence_score": 78,
+    "confidence_score": 69,
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "tags": [
       "economics"
     ]
@@ -1238,7 +1238,7 @@
     "id": "children-smartphone-age",
     "title": "Smartphone Age Restrictions for Children",
     "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the developmental harms of constant connectivity, social media, and algorithmic content outweigh the benefits of access and safety.",
-    "confidence_score": 71,
+    "confidence_score": 72,
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -1290,7 +1290,7 @@
     "id": "masculinity-crisis",
     "title": "The Modern Masculinity Crisis",
     "meta_claim": "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
-    "confidence_score": 86,
+    "confidence_score": 85,
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
@@ -1355,11 +1355,11 @@
     "id": "transgender-athletes-sports",
     "title": "Transgender Athletes in Competitive Sports",
     "meta_claim": "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
-    "confidence_score": 44,
+    "confidence_score": 64,
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "tags": [
       "policy"
     ]
@@ -1394,7 +1394,7 @@
     "id": "psychedelic-therapy-hype",
     "title": "Psychedelic Therapy: Revolution or Overhype?",
     "meta_claim": "The psychedelic therapy renaissance — with psilocybin, MDMA, and ketamine treatments gaining clinical validation — represents a genuine paradigm shift in mental health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",
-    "confidence_score": 75,
+    "confidence_score": 45,
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -1407,7 +1407,7 @@
     "id": "affirmative-action-meritocracy",
     "title": "Affirmative Action & Meritocracy",
     "meta_claim": "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
-    "confidence_score": 22,
+    "confidence_score": 78,
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,

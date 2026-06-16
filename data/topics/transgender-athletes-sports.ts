@@ -16,9 +16,9 @@ export const transgenderAthletesSportsData = {
         "Research shows that some physiological advantages from male puberty — including skeletal structure, lung capacity, and certain muscle characteristics — persist after hormone therapy, while others (muscle mass, hemoglobin) diminish significantly. The debate centers on whether residual advantages are competitively meaningful across different sports.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The science clearly shows that male puberty confers physiological advantages that hormone therapy does not fully reverse. A 2021 British Journal of Sports Medicine study found that transgender women retained approximately a 9% speed advantage over cisgender women after two years of hormone therapy. Skeletal advantages — height, bone density, shoulder width, hip structure, hand and foot size — are permanently established during puberty and are unaffected by hormone therapy. Lung capacity, which is 10-12% greater in males, does not decrease with estrogen. These are not marginal differences; in elite sport, the gap between gold and fourth place is often under 1%. Allowing athletes with these retained advantages to compete in the women's category undermines the entire purpose of sex-segregated sport, which exists to ensure fair competition for female athletes.",
+        "The science clearly shows that male puberty confers physiological advantages that hormone therapy does not fully reverse. A 2020 British Journal of Sports Medicine study (Roberts et al.) found that transgender women retained approximately a 12% running-speed advantage over cisgender women after two years of hormone therapy — down from about 21% before transition, but still substantial. Skeletal advantages — height, bone density, shoulder width, hip structure, hand and foot size — are permanently established during puberty and are unaffected by hormone therapy. Lung volumes, which are substantially greater in males largely because of skeletal frame and stature, are not reduced by estrogen therapy. These are not marginal differences; in elite sport, the gap between gold and fourth place is often under 1%. Allowing athletes with these retained advantages to compete in the women's category undermines the entire purpose of sex-segregated sport, which exists to ensure fair competition for female athletes.",
       proponent_rebuttal:
-        "The research is more nuanced than critics acknowledge. The same BJSM study showed that after two years of hormone therapy, transgender women's push-up and sit-up performance fell within cisgender female ranges. A 2023 systematic review in the British Journal of Sports Medicine found that testosterone suppression reduces muscle mass, strength, and hemoglobin to levels overlapping with cisgender women within 2-3 years. The 9% speed advantage finding is from a military fitness test population (US Air Force), not elite athletes, and measures running in non-competitive conditions. Natural variation within cisgender women is enormous — elite female basketball players are taller than most men; Michael Phelps's wingspan exceeds his height by 3 inches, giving him a structural advantage no one proposes banning. Sport has never been perfectly fair; it rewards genetic outliers. The question is not whether any advantage exists but whether it falls within the natural variation of the women's category.",
+        "The research is more nuanced than critics acknowledge. The same Air Force dataset showed that after two years of hormone therapy, transgender women's push-up and sit-up performance fell within cisgender female ranges. Harper et al.'s 2021 BJSM systematic review found that testosterone suppression brings hemoglobin to cisgender-female levels within about four months and significantly reduces muscle mass and strength over the first year; the proponent case is that the residual strength gap narrows further and may matter little outside strength-dominated sports, though that same review found strength and muscle area still measurably above cisgender-female levels at 36 months. The retained running-speed advantage, meanwhile, comes from a military fitness-test population (US Air Force), not elite athletes, and measures running in non-competitive conditions. Natural variation within cisgender women is enormous — elite female basketball players are taller than most men; Michael Phelps's wingspan exceeds his height by 3 inches, giving him a structural advantage no one proposes banning. Sport has never been perfectly fair; it rewards genetic outliers. The question is not whether any advantage exists but whether it falls within the natural variation of the women's category.",
       crux: {
         id: "sport-specific-advantage-data",
         title: "The Sport-Specific Advantage Quantification",
@@ -97,7 +97,7 @@ export const transgenderAthletesSportsData = {
       skeptic_premise:
         "Inclusion is important but cannot override the fundamental purpose of sex-segregated sport, which is to ensure fair competition for female athletes. Women fought for decades for Title IX and equal sporting opportunities. Allowing athletes with male-puberty advantages to compete in women's categories effectively eliminates the protected category that sex-segregated sport was designed to create. This is not about transgender dignity; it is about fairness for the millions of cisgender women and girls who compete in sport. Excluding transgender women from the women's category is not excluding them from sport — they can compete in men's or open categories, or alternative frameworks can be developed. The rights of transgender athletes must be balanced against the rights of cisgender female athletes, and the current framing treats the former as absolute while dismissing the latter.",
       proponent_rebuttal:
-        "Telling transgender women to compete in the men's category is not a neutral solution — it is a statement that they are not women, which directly contradicts their identity and causes measurable psychological harm. A 2022 study in the International Review for the Sociology of Sport found that transgender athletes who were excluded from competing in their gender category experienced significantly higher rates of depression, anxiety, and suicidal ideation. Sport is not just about elite competition; it is about community, physical health, and belonging. The vast majority of transgender athletes are recreational, not elite, and pose no competitive threat. Policies that exclude all transgender women to address a hypothetical elite-level concern deny thousands of people the social and health benefits of sport participation. Moreover, no transgender woman has won an Olympic gold medal; the predicted 'domination' of women's sport has not materialized despite inclusive policies being in place since 2004.",
+        "Telling transgender women to compete in the men's category is not a neutral solution — it is a statement that they are not women, which directly contradicts their identity. A 2024 systematic review and meta-analysis in BMC Psychology (Chan et al., pooling 12 studies and 21,565 participants) found that discrimination and exclusion in sport were associated with elevated depression, psychological distress, and suicide risk, while athletes who felt welcomed reported markedly better mental health — though, being observational, these studies establish association rather than proof that any specific eligibility rule causes harm. Sport is not just about elite competition; it is about community, physical health, and belonging. The vast majority of transgender athletes are recreational, not elite, and pose no competitive threat. Policies that exclude all transgender women to address a primarily elite-level concern deny many people the social and health benefits of sport participation. Moreover, across the roughly two decades (2004–2025) of inclusive Olympic eligibility, no transgender woman won an Olympic medal, so the predicted elite-level 'domination' of women's sport did not materialize — even though governing bodies including World Athletics (2023) and the IOC (2026) have since moved to exclusion.",
       crux: {
         id: "harm-balancing-test",
         title: "The Comparative Harm Assessment",
@@ -129,9 +129,9 @@ export const transgenderAthletesSportsData = {
         },
         {
           id: "no-olympic-domination",
-          title: "No Transgender Woman Has Won Olympic Gold Despite 20 Years of Inclusive Policy",
+          title: "No Transgender Woman Won Olympic Gold During the Two Decades of Inclusive Eligibility (2004–2025)",
           description:
-            "The IOC has allowed transgender women to compete in women's events since 2004 (originally requiring surgery, updated in 2015 to testosterone suppression). In the 20+ years since the policy was implemented, no transgender woman has won an Olympic medal in any sport. Laurel Hubbard competed in weightlifting at the 2020 Olympics and finished last in her group. This suggests that the predicted 'domination' of women's sport by transgender athletes has not materialized at the elite level.",
+            "From the 2004 Stockholm Consensus (originally requiring genital surgery) through the 2015 shift to a 12-month testosterone-suppression standard, the IOC permitted transgender women to compete in women's events for roughly two decades. In that window, no transgender woman won an Olympic medal in any sport; the most prominent elite case, weightlifter Laurel Hubbard, failed all three of her lifts and placed last at the 2020 Tokyo Games. This cuts against predictions that inclusive eligibility would lead transgender athletes to 'dominate' women's sport at the elite level. The argument is necessarily weak as positive evidence — the number of openly transgender elite athletes is tiny, so an absence of medalists is also consistent with simple small-sample chance — and the eligibility window has since closed, with the IOC moving to exclusion from 2026 (see Pillar 3).",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -191,20 +191,37 @@ export const transgenderAthletesSportsData = {
         },
         {
           id: "ioc-2021-framework",
-          title: "IOC 2021 Framework Emphasizes Inclusion Over Testosterone Thresholds",
+          title: "IOC Reverses Course: From the 2021 Inclusion Framework to a 2026 Female-Category Ban",
           description:
-            "The IOC's 2021 Framework on Fairness, Inclusion and Non-Discrimination on the Basis of Gender Identity and Sex Variations abandoned its previous testosterone threshold approach and instead established principles prioritizing inclusion, harm prevention, and evidence-based policy. The framework shifted responsibility to individual sports federations to develop sport-specific policies based on evidence of competitive advantage in their discipline. It explicitly stated that 'no athlete should be excluded from competition on the sole basis of their transgender identity.'",
-          side: "against" as const,
+            "The IOC's 2021 Framework on Fairness, Inclusion and Non-Discrimination abandoned a uniform testosterone threshold and devolved eligibility to individual sports federations, stating that 'no athlete should be excluded from competition on the sole basis of their transgender identity.' That inclusion-leaning approach has since been reversed at the highest level: in March 2026, under President Kirsty Coventry, the IOC adopted a 'Policy on the Protection of the Female (Women's) Category' that bars athletes with a Y-chromosome (SRY-positive) genetic screen from the female category at IOC events, with a narrow exception for certain DSD conditions that do not confer a testosterone-driven advantage. The policy is slated to apply from the 2028 Los Angeles Games and cites evidence that male-puberty advantages persist despite testosterone suppression. The trajectory illustrates how rapidly elite policy has moved from devolved inclusion toward categorical exclusion.",
+          side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 7,
             replicability: 9,
-            directness: 7,
+            directness: 8,
           },
           source: "International Olympic Committee",
-          sourceUrl: "https://olympics.com/ioc/news/ioc-updates-framework-on-fairness-inclusion-and-non-discrimination",
+          sourceUrl: "https://www.olympics.com/ioc/news/international-olympic-committee-announces-new-policy-on-the-protection-of-the-female-women-s-category-in-olympic-sport",
           reasoning:
-            "The IOC framework represents the highest-level international sports policy statement on transgender inclusion. However, it is a framework of principles rather than specific rules, and many national federations have adopted more restrictive policies. Independence is moderate because the IOC faces intense lobbying from all sides. The framework directly addresses the values balance but leaves practical implementation to individual sports.",
+            "Both the 2021 framework and the 2026 reversal are authoritative, verifiable IOC policy statements. The 2026 policy materially changes the empirical landscape this map describes: the highest-level Olympic body has now adopted categorical exclusion from the female category rather than devolved, sport-by-sport inclusion. Side is coded 'for' (i.e., favouring the meta-claim's opponents) because the governing body's current position weighs against open hormone-based inclusion; the superseded 2021 framework is retained for historical context. Independence is moderate because the IOC faces intense lobbying and political pressure from all directions, and the genetic-screening mechanism itself is scientifically and ethically contested.",
+        },
+        {
+          id: "ncaa-2025-policy",
+          title: "NCAA Restricts Women's College Sport to Athletes Assigned Female at Birth (2025)",
+          description:
+            "On 6 February 2025, the day after a US federal executive order directed that Title IX be read to bar transgender women from female sports, the NCAA replaced its prior sport-by-sport eligibility approach with a policy limiting competition in women's collegiate sports to student-athletes assigned female at birth. Transgender women may still practice with women's teams and receive associated benefits but may not compete in the women's category. The change was effective immediately for all NCAA member schools and is expected to face Title IX litigation. It marks a decisive shift in US collegiate sport from conditional inclusion toward categorical exclusion, paralleling the World Athletics (2023) and IOC (2026) moves.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 6,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "NCAA; CBS News",
+          sourceUrl: "https://www.ncaa.org/news/2025/2/6/media-center-ncaa-announces-transgender-student-athlete-participation-policy-change.aspx",
+          reasoning:
+            "The NCAA decision is a verifiable, authoritative policy change governing the largest body of US collegiate athletics. Side is coded 'for' (favouring the meta-claim's opponents) because the policy excludes hormone-based inclusion from the female category. Independence is lower because the change was adopted under direct federal political pressure rather than as an independent evidence assessment, and its legality under Title IX is unresolved. It is included to keep the institutional landscape current: as of 2025–2026, the dominant trend among elite and collegiate governing bodies is toward exclusion, which the map's earlier inclusion-leaning framing should not obscure.",
         },
       ],
     },
@@ -215,8 +232,16 @@ export const transgenderAthletesSportsData = {
       url: "https://doi.org/10.1136/bjsports-2020-102329",
     },
     {
-      title: "IOC Framework on Fairness, Inclusion and Non-Discrimination (2021)",
+      title: "IOC Framework on Fairness, Inclusion and Non-Discrimination (2021, since superseded)",
       url: "https://olympics.com/ioc/news/ioc-updates-framework-on-fairness-inclusion-and-non-discrimination",
+    },
+    {
+      title: "IOC Policy on the Protection of the Female (Women's) Category (2026)",
+      url: "https://www.olympics.com/ioc/news/international-olympic-committee-announces-new-policy-on-the-protection-of-the-female-women-s-category-in-olympic-sport",
+    },
+    {
+      title: "NCAA Transgender Student-Athlete Participation Policy Change (February 2025)",
+      url: "https://www.ncaa.org/news/2025/2/6/media-center-ncaa-announces-transgender-student-athlete-participation-policy-change.aspx",
     },
     {
       title: "World Athletics Council Decision on Female Eligibility (March 2023)",
@@ -249,7 +274,7 @@ export const transgenderAthletesSportsData = {
       id: "q3",
       title: "Are there policy models that protect both inclusion and competitive integrity?",
       content:
-        "The IOC's 2021 framework emphasizes sport-specific evidence. World Athletics has chosen exclusion at the international level. Some propose open/restricted categories. Others advocate for sport-by-sport analysis based on the degree of advantage in each discipline. No consensus model exists, and the policy landscape is still rapidly evolving.",
+        "The policy landscape has shifted sharply toward exclusion at the elite level. World Athletics excluded transgender women who experienced male puberty from international competition in 2023; the NCAA limited US women's collegiate sport to athletes assigned female at birth in 2025; and the IOC, which devolved eligibility to federations in its 2021 framework, adopted a Policy on the Protection of the Female Category in 2026 (effective LA 2028) barring SRY-positive athletes via genetic screening. Open/restricted category models and sport-by-sport advantage analysis remain proposed compromises, but as of 2026 no inclusive consensus model is ascendant, and the genetic-screening approach is itself scientifically and ethically contested.",
     },
   ],
 };

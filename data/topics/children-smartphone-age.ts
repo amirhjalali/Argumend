@@ -54,9 +54,9 @@ export const childrenSmartphoneAgeData = {
         "Rises in teen anxiety, depression, self-harm, and suicide correlate temporally with smartphone adoption beginning around 2012. The question is whether this correlation reflects causation, and whether the effect sizes are large enough to justify population-level interventions.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The smartphone-mental health link is weaker than headlines suggest. Meta-analyses find effect sizes in the r = 0.05-0.15 range — comparable to the correlation between eating potatoes and suicide. Andrew Przybylski's research at Oxford shows that the association between screen time and wellbeing is smaller than the effect of wearing glasses or eating breakfast regularly. The youth mental health crisis predates smartphone saturation in many countries and has multiple plausible causes: rising economic inequality, academic pressure intensification, COVID-19 isolation, and increased awareness and diagnosis of mental health conditions. Countries that restricted phone access (like France's school phone ban) have not seen mental health improvements. Basing policy on a contested correlation with small effect sizes is a recipe for ineffective regulation that distracts from more impactful interventions.",
+        "The smartphone-mental health link is weaker than headlines suggest. Large correlational analyses find associations in the r = 0.05-0.15 range — in Orben and Przybylski's specification-curve work, the association between screen time and adolescent wellbeing was comparable in magnitude to eating potatoes or wearing glasses, explaining at most ~0.4% of variance. The youth mental health crisis predates smartphone saturation in some accounts and has multiple plausible causes: rising economic inequality, academic pressure intensification, COVID-19 isolation, and increased awareness and diagnosis of mental health conditions. The evidence from school-hours phone restrictions is mixed — France's school ban produced documented behavioral and some mental-health benefits in later evaluations, but school-only bans leave most out-of-school use untouched, so they do not cleanly test the broader hypothesis. Basing population-level policy primarily on a contested correlation with small average effect sizes risks ineffective regulation that distracts from more impactful interventions.",
       proponent_rebuttal:
-        "The effect-size dismissal is misleading because it treats smartphones as a binary variable (screen time hours) rather than examining specific mechanisms. The correlation between smartphone adoption and teen mental health deterioration is remarkably consistent across multiple countries with different cultures, education systems, and economic conditions — all showing the same inflection point around 2012-2014. The US Surgeon General issued a formal advisory in 2023 declaring social media a 'profound risk' to youth mental health. Jean Twenge's analysis of CDC Youth Risk Behavior Survey data shows teen girls' depression rates increased 65% and suicide rates 70% between 2011-2019 — a pace and magnitude inconsistent with gradual social trends. Experimental studies show acute negative mood effects from social media use, particularly from social comparison and algorithmic amplification of distressing content.",
+        "The effect-size dismissal is misleading because the most-cited critiques measure undifferentiated 'screen time hours' rather than specific mechanisms; total screen time is a noisy proxy that likely dilutes real effects of social media in particular. The correlation between smartphone/social-media adoption and teen mental health deterioration is broadly consistent across several Anglosphere and Nordic countries, with inflection points clustering around 2012-2014. The US Surgeon General issued a formal advisory in 2023 calling social media a 'profound risk' to youth mental health. CDC Youth Risk Behavior Survey data show persistent sadness or hopelessness among US teen girls rising from 36% (2011) to 57% (2021), and CDC vital-statistics data show the suicide rate for girls aged 10-14 more than doubling over roughly the same period — increases steep enough to be hard to explain by gradual social trends alone. Haidt and colleagues also catalog 22 experimental studies (16 finding significant harm); social-media-reduction experiments tend to improve mood, though the experimental literature is itself contested and many studies are methodologically weak.",
       crux: {
         id: "causal-mechanism-identification",
         title: "The Causal Mechanism Study",
@@ -71,9 +71,9 @@ export const childrenSmartphoneAgeData = {
       evidence: [
         {
           id: "cdc-youth-mental-health-data",
-          title: "CDC Data Shows 58% Increase in Teen Girl Depression (2011-2021)",
+          title: "CDC Data Shows Teen Girls' Persistent Sadness Rose From 36% to 57% (2011-2021)",
           description:
-            "The CDC Youth Risk Behavior Survey shows persistent feelings of sadness or hopelessness among US high school girls increased from 36% in 2011 to 57% in 2021. Suicide attempts among teen girls rose from 10% to 13% over the same period. For boys, persistent sadness increased from 21% to 29%. The timing coincides with mass smartphone adoption among adolescents, which crossed 50% in 2012-2013.",
+            "The CDC Youth Risk Behavior Survey shows persistent feelings of sadness or hopelessness among US high school girls increased from 36% in 2011 to 57% in 2021 (a ~58% relative rise). Note this self-reported measure indexes sadness/hopelessness, not a clinical depression diagnosis. Seriously considering suicide rose from 19% to 30% among girls, and attempted suicide from roughly 10% to 13%. For boys, persistent sadness increased from 21% to 29%. The timing coincides with mass smartphone adoption among adolescents, which crossed 50% around 2012-2013 — a temporal correlation, not by itself evidence of causation.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -90,7 +90,7 @@ export const childrenSmartphoneAgeData = {
           id: "przybylski-small-effects",
           title: "Oxford Meta-Analysis Finds Small Effect Sizes for Screen Time and Wellbeing",
           description:
-            "Andrew Przybylski and Amy Orben's large-scale analyses using Psychological Science (2019) and Nature Human Behaviour (2021) found that the association between screen time and adolescent wellbeing is statistically significant but practically small — explaining less than 0.4% of variation in wellbeing. They found that wearing glasses and eating potatoes had comparable or larger associations with adolescent wellbeing than screen time, suggesting the public discourse vastly overstates the smartphone-mental health connection.",
+            "Amy Orben and Andrew Przybylski's large-scale specification-curve analyses, published in Nature Human Behaviour (2019) and Psychological Science (2019), found that the association between digital technology use and adolescent wellbeing is statistically significant but practically tiny — explaining at most about 0.4% of variation in wellbeing. They illustrated this by noting that wearing glasses and regularly eating potatoes had associations with adolescent wellbeing comparable to or larger than screen time, arguing that public discourse overstates the smartphone-mental health connection. Critics counter that undifferentiated 'screen time' and self-report time-use measures may obscure harms specific to social media.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -135,7 +135,7 @@ export const childrenSmartphoneAgeData = {
       skeptic_premise:
         "The case for smartphone bans rests on a post-hoc narrative that mistakes correlation for causation. The 2012 inflection point coincides not just with smartphones but with the aftermath of the 2008 financial crisis reaching full impact on families, intensifying academic competition as college became more expensive and more necessary, rising awareness of school shootings after Sandy Hook, the opioid crisis devastating communities nationwide, and growing climate anxiety among young people. Attributing a complex multi-causal phenomenon to a single technology is intellectually lazy and politically convenient — it gives parents and policymakers a visible villain instead of addressing structural problems that are harder to solve.",
       proponent_rebuttal:
-        "The 'many possible causes' argument is unfalsifiable — there will always be additional correlating factors. What makes the smartphone hypothesis compelling is its specificity: the inflection point is remarkably consistent across countries with very different economic conditions, education systems, and policy environments. Nordic countries with strong social safety nets, universal healthcare, and low economic inequality show the same 2012-2014 mental health deterioration as the US. This cross-national consistency is hard to explain through country-specific economic or policy factors but is perfectly consistent with the simultaneous global adoption of smartphones with front-facing cameras and algorithmic social media feeds. The effect is also dose-dependent: heavier social media use correlates with worse mental health outcomes across studies, and experimental withdrawal studies show improvement.",
+        "The 'many possible causes' argument risks being unfalsifiable — there will always be additional correlating factors, and few of the proposed alternatives (financial crisis, academic pressure) show the same sharp post-2012 inflection or the same cross-national pattern. What makes the smartphone hypothesis comparatively specific is its timing: inflection points cluster across several Anglosphere and Nordic countries with very different economic conditions, education systems, and safety nets. That clustering is hard to fully explain through country-specific economic or policy factors and is at least consistent with the near-simultaneous global rollout of front-facing cameras and algorithmic social feeds — though critics note the cross-national data are noisier and less uniform than advocates suggest, and some countries fit poorly. Supporters also point to dose-response patterns (heavier social-media use correlating with worse outcomes) and reduction experiments showing improvement, while acknowledging that observational dose-response is confounded and the experimental literature is contested.",
       crux: {
         id: "cross-national-natural-experiment",
         title: "The Cross-National Adoption Timing Analysis",
@@ -167,20 +167,20 @@ export const childrenSmartphoneAgeData = {
         },
         {
           id: "france-school-phone-ban-results",
-          title: "France's 2018 School Phone Ban Shows Limited Mental Health Impact",
+          title: "France's 2018 School Phone Ban: A School-Only Restriction With Limited Scope",
           description:
-            "France implemented a nationwide ban on smartphone use in schools in 2018. While the ban improved classroom behavior and attention, French adolescent mental health data has not shown significant improvement in the years since implementation. This suggests that school-only restrictions may be insufficient because most social media use occurs outside school hours, or that smartphones are not the primary driver of the mental health crisis.",
+            "France implemented a nationwide ban on smartphone use in schools in 2018 (kindergarten through 9th grade). The ban improved classroom behavior and attention, and some later quasi-experimental evaluations report modest benefits — including reduced bullying and lower health-care take-up for psychological symptoms among girls. But because the ban only covers school hours, while most social-media use occurs outside school, it cannot test whether smartphone ownership drives the broader mental-health crisis. It is therefore weak evidence on either side: neither a clean demonstration that restrictions help population mental health, nor that smartphones are harmless.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 6,
+            directness: 5,
           },
-          source: "French Ministry of Education; Le Monde; European Journal of Education",
+          source: "French Ministry of Education; Le Monde; Norwegian School of Economics working paper (Abrahamsson, 2024, school phone bans and outcomes)",
           sourceUrl: "https://www.lemonde.fr/en/france/article/2023/09/13/phones-in-school-what-assessment-after-five-years-of-ban_6134567_7.html",
           reasoning:
-            "France's experience provides a natural experiment, though the ban only covers school hours (roughly 7 hours of a 16-hour waking day), limiting its ability to test the broader smartphone-harm hypothesis. The absence of improvement may indicate that the ban was too narrow rather than that smartphones are harmless.",
+            "Reframed: the earlier claim that French mental-health data showed 'no improvement' is contradicted by later quasi-experimental evaluations finding modest benefits, so it cannot stand as evidence against the smartphone-harm thesis. The genuine limitation is scope: a school-hours-only ban (~7 of 16 waking hours) is a poor test of the ownership-restriction hypothesis. Directness lowered because this natural experiment speaks only indirectly to the meta_claim about banning ownership.",
         },
       ],
     },
@@ -197,7 +197,7 @@ export const childrenSmartphoneAgeData = {
       skeptic_premise:
         "The collective action problem is real but government mandates are the wrong solution. Smartphone bans for children under 14 would be practically unenforceable — would retailers check IDs? Would police confiscate phones from 13-year-olds? The enforcement mechanisms would either be toothless or invasive. More importantly, a blanket age-based ban treats smartphones as uniformly harmful, ignoring that many children use phones productively for education, creative expression, navigation, and emergency safety. Community-based solutions — phone-free schools, parent pledges like Wait Until 8th, and design regulations targeting addictive features — address the problem without the blunt instrument of government prohibition.",
       proponent_rebuttal:
-        "Voluntary approaches have been tried for a decade and failed. The Wait Until 8th pledge has garnered widespread attention but minimal compliance because the coordination problem is mathematically unsolvable through voluntary action — each family faces a prisoner's dilemma where defection (getting the phone) dominates regardless of what others do. Australia's 2024 social media ban for under-16s demonstrates that democratic governments can implement age-based technology restrictions. Enforcement need not be perfect to be effective — age verification at the platform level, combined with retailer requirements similar to alcohol and tobacco sales, would substantially reduce childhood smartphone access even with imperfect compliance. The argument that children 'need' smartphones for safety ignores that basic phones with calling and GPS but no internet access serve the safety function without the harmful features.",
+        "Voluntary approaches have been tried for a decade and failed. The Wait Until 8th pledge has garnered widespread attention but minimal compliance because the coordination problem is mathematically unsolvable through voluntary action — each family faces a prisoner's dilemma where defection (getting the phone) dominates regardless of what others do. Australia's under-16 social media ban, which commenced enforcement in December 2025, demonstrates that democratic governments can implement age-based technology restrictions at scale. Enforcement need not be perfect to be effective — age verification at the platform level, combined with retailer requirements similar to alcohol and tobacco sales, would substantially reduce childhood smartphone access even with imperfect compliance. The argument that children 'need' smartphones for safety ignores that basic phones with calling and GPS but no internet access serve the safety function without the harmful features.",
       crux: {
         id: "voluntary-vs-mandate-effectiveness",
         title: "The Voluntary vs. Mandate Comparison",
@@ -212,20 +212,20 @@ export const childrenSmartphoneAgeData = {
       evidence: [
         {
           id: "australia-social-media-ban",
-          title: "Australia Passes Social Media Ban for Children Under 16 (2024)",
+          title: "Australia Enacts and Begins Enforcing Social Media Ban for Under-16s (2024-2025)",
           description:
-            "In November 2024, Australia passed the Online Safety Amendment (Social Media Minimum Age) Bill, banning social media access for children under 16. The law places enforcement responsibility on platforms rather than parents or children, requiring age verification systems. While implementation details are still being developed, the legislation represents the strongest government intervention on children's technology access in any Western democracy.",
+            "Australia's parliament passed the Online Safety Amendment (Social Media Minimum Age) Act in late November 2024 (assent December 2024), and the ban commenced on 10 December 2025. It bars under-16s from holding accounts on platforms including TikTok, Instagram, Facebook, Snapchat, X, Reddit, Threads, Twitch and Kick (YouTube's status shifted during rollout), placing enforcement on platforms — with fines up to ~A$50M — rather than on parents or children. In the first days of enforcement, platforms reported removing or restricting around 4.7 million under-16 accounts. It is the strongest government intervention on children's technology access in any Western democracy, though its effect on mental-health outcomes has not yet been evaluated.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 7,
-            directness: 7,
+            replicability: 6,
+            directness: 6,
           },
-          source: "Online Safety Amendment (Social Media Minimum Age) Act 2024 (Cth), Federal Register of Legislation (assented 10 December 2024)",
+          source: "Online Safety Amendment (Social Media Minimum Age) Act 2024 (Cth), Federal Register of Legislation; Australian eSafety Commissioner (ban commenced 10 December 2025)",
           sourceUrl: "https://www.legislation.gov.au/C2024A00127/asmade/text",
           reasoning:
-            "This provides a real legislative precedent from a major democracy. However, the law has not yet been fully implemented or evaluated, so its effectiveness remains untested. The enforcement mechanism (platform-level age verification) faces technical challenges that could limit its practical impact.",
+            "Provides a real, now-operational legislative precedent from a major democracy, demonstrating that age-based platform restrictions are politically and technically implementable. Directness is moderate because the law targets social-media accounts, not smartphone ownership (the meta_claim), and its mental-health effectiveness is still untested. Age-verification accuracy and circumvention (VPNs, false ages) remain open questions.",
         },
         {
           id: "wait-until-8th-adoption-limits",

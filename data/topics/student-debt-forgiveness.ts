@@ -15,12 +15,12 @@ export const studentDebtForgivenessData = {
       id: "economic-stimulus",
       title: "Economic Stimulus & Macroeconomic Effects",
       short_summary:
-        "Proponents argue that canceling $1.77 trillion in student debt would unlock massive consumer spending and economic growth. Critics counter that forgiveness is an inefficient stimulus that adds to the national debt and disproportionately benefits higher earners.",
+        "Proponents argue that canceling roughly $1.69 trillion in federal student debt would unlock consumer spending and economic growth. Critics counter that forgiveness is an inefficient stimulus that adds to the national debt and disproportionately benefits higher earners.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "Student debt forgiveness is one of the least efficient forms of economic stimulus. The Committee for a Responsible Federal Budget estimated that Biden's original $400 billion forgiveness plan would add 0.1-0.3 percentage points to inflation by increasing consumer spending without increasing productive capacity. Unlike targeted stimulus payments to low-income households (which are spent quickly on goods and services), forgiveness disproportionately benefits graduate degree holders — who owe 56% of all student debt and have the highest lifetime earnings. A 2020 Brookings Institution analysis found that the top 40% of income earners hold nearly 60% of student debt. Full cancellation would cost $1.77 trillion — added directly to the national debt at a time when debt-to-GDP already exceeds 120%. That money could fund universal pre-K, community college, or targeted relief for genuinely distressed borrowers at a fraction of the cost.",
+        "Student debt forgiveness is one of the least efficient forms of economic stimulus. The Committee for a Responsible Federal Budget estimated that Biden's 2022 forgiveness plan (up to $20,000 per borrower, roughly $400+ billion before it was struck down by the Supreme Court in Biden v. Nebraska, 2023) would add 0.15-0.27 percentage points to inflation by increasing consumer spending without increasing productive capacity. Unlike targeted stimulus payments to low-income households (which are spent quickly on goods and services), forgiveness disproportionately benefits graduate degree holders — who owe 56% of all student debt and have the highest lifetime earnings. A 2020 Brookings Institution analysis found that the top 40% of income earners hold nearly 60% of student debt. Full cancellation would cost roughly $1.69 trillion — added directly to the national debt at a time when debt-to-GDP already exceeds 120%. That money could fund universal pre-K, community college, or targeted relief for genuinely distressed borrowers at a fraction of the cost.",
       proponent_rebuttal:
-        "Student debt is crushing an entire generation's economic participation. The Federal Reserve has documented that student debt holders have lower homeownership rates, delay marriage and children, start fewer businesses, and save less for retirement than prior generations. The Roosevelt Institute estimated that canceling $50,000 per borrower would boost GDP by $86-108 billion annually and create 1.2-1.5 million jobs over the first few years. Unlike tax cuts for the wealthy (which are saved), debt relief for middle-class borrowers is spent on housing, cars, small businesses, and local economies. The 'regressive' argument is misleading: while graduate degree holders owe more in absolute terms, the borrowers most harmed are those who attended but did not complete college — disproportionately Black and Latino students who carry debt without the credential that would help them repay it. The median student loan balance is $29,400, not the $150,000 graduate school figure critics highlight.",
+        "Student debt is crushing an entire generation's economic participation. The Federal Reserve has documented that student debt holders have lower homeownership rates, delay marriage and children, start fewer businesses, and save less for retirement than prior generations. The Levy Economics Institute (2018) estimated that canceling all outstanding student debt would boost GDP by $86-108 billion annually and create 1.2-1.5 million jobs over the first few years — though this is an advocacy-leaning model whose authors include prominent Modern Monetary Theory economists, and competing models (Penn Wharton, CRFB) reach far less favorable conclusions. Unlike tax cuts for the wealthy (which are saved), debt relief for middle-class borrowers is spent on housing, cars, small businesses, and local economies. The 'regressive' argument is misleading: while graduate degree holders owe more in absolute terms, the borrowers most harmed are those who attended but did not complete college — disproportionately Black and Latino students who carry debt without the credential that would help them repay it. The median student loan balance is $29,400, not the $150,000 graduate school figure critics highlight.",
       crux: {
         id: "fiscal-multiplier-analysis",
         title: "The Fiscal Multiplier Comparison Test",
@@ -35,9 +35,9 @@ export const studentDebtForgivenessData = {
       evidence: [
         {
           id: "total-student-debt-1-77-trillion",
-          title: "US Student Loan Debt Reaches $1.77 Trillion Across 43 Million Borrowers",
+          title: "US Federal Student Loan Debt Stands at Roughly $1.69 Trillion Across ~44 Million Borrowers",
           description:
-            "As of early 2025, federal student loan debt stood at approximately $1.77 trillion held by 43.2 million borrowers, according to the Federal Reserve and Department of Education. The average balance is approximately $37,850. Student debt has grown 3x since 2006, vastly outpacing inflation and wage growth. It is now the second-largest category of consumer debt after mortgages, exceeding both auto loans and credit card debt. Approximately 7 million borrowers are in default, and another 12 million are in forbearance or deferment.",
+            "As of late 2025, federal student loan debt stood at approximately $1.69 trillion held by roughly 43-45 million borrowers, according to the Federal Reserve and Department of Education. Including private loans, total US student debt is approximately $1.87 trillion. The average federal balance is approximately $39,500. Student debt has grown roughly 3x since 2006, outpacing inflation and wage growth. It is the second-largest category of consumer debt after mortgages, exceeding both auto loans and credit card debt. After the COVID payment pause ended (2023) and the SAVE-plan litigation forbearance, delinquency has climbed sharply, with roughly 10% of federal loan dollars delinquent in late 2025.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -107,9 +107,9 @@ export const studentDebtForgivenessData = {
           "If the government routinely forgives or absorbs debt for other constituencies (businesses, banks, farmers, homeowners) without comparable 'moral hazard' objections, the selective application of moral hazard arguments to student borrowers reflects inconsistency rather than principle. If student debt forgiveness is genuinely unique in creating moral hazard, the objection has merit.",
         methodology:
           "Compile a comprehensive list of federal debt forgiveness, bailout, and subsidy programs over the past 25 years: PPP loan forgiveness, TARP bank bailouts, farm subsidies, corporate tax expenditures, mortgage interest deductions, and disaster relief. For each, calculate: (1) total cost to taxpayers, (2) income distribution of beneficiaries, (3) whether moral hazard objections were raised, and (4) whether the forgiveness created subsequent moral hazard (e.g., did PPP loan forgiveness cause businesses to take riskier loans?). Compare with the proposed student debt forgiveness on all four metrics.",
-        verification_status: "verified" as const,
+        verification_status: "theoretical" as const,
         cost_to_verify:
-          "$0 (Federal budget data, CBO scores, and program data are publicly available)",
+          "$0 (Federal budget data, CBO scores, and program data are publicly available, but the comparative synthesis has not been systematically conducted)",
       },
       evidence: [
         {
@@ -176,7 +176,7 @@ export const studentDebtForgivenessData = {
         "Both sides acknowledge that forgiveness alone does not solve the underlying problem. Without structural reform — tuition regulation, increased state funding, bankruptcy discharge, or income-share agreements — the next generation of students will accumulate the same debt. The debate is whether forgiveness should come before, after, or alongside reform.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Forgiveness without reform is treating the symptom while feeding the disease. If the government cancels $1.77 trillion in debt today, universities will continue raising tuition, students will continue overborrowing, and a new debt crisis will emerge within a decade. The Bennett Hypothesis — that federal loan availability enables tuition increases — is supported by a 2017 Federal Reserve Bank of New York study that found a 60-cent tuition increase for every additional dollar of subsidized federal loans. Forgiveness also undermines income-driven repayment (IDR), which already caps payments at 5-10% of discretionary income and forgives remaining balances after 20-25 years. The SAVE Plan, before it was blocked by courts, would have resulted in $0 monthly payments for borrowers earning under 225% of the poverty line. Targeted solutions — strengthening IDR, restoring bankruptcy discharge, funding community colleges, regulating tuition — address root causes without the moral hazard and fiscal cost of blanket forgiveness.",
+        "Forgiveness without reform is treating the symptom while feeding the disease. If the government cancels roughly $1.69 trillion in debt today, universities will continue raising tuition, students will continue overborrowing, and a new debt crisis will emerge within a decade. The Bennett Hypothesis — that federal loan availability enables tuition increases — is supported by a 2017 Federal Reserve Bank of New York study that found a 60-cent tuition increase for every additional dollar of subsidized federal loans. Forgiveness also undermines income-driven repayment (IDR), which already caps payments at 5-10% of discretionary income and forgives remaining balances after 20-25 years. The SAVE Plan — which would have resulted in $0 monthly payments for borrowers earning under 225% of the poverty line — was ruled unlawful by the Eighth Circuit and wound down by court order in 2025-2026, but other IDR plans remain available. Targeted solutions — strengthening IDR, restoring bankruptcy discharge, funding community colleges, regulating tuition — address root causes without the moral hazard and fiscal cost of blanket forgiveness.",
       proponent_rebuttal:
         "No one argues that forgiveness alone is sufficient — it must be paired with structural reform. But requiring that all reforms be implemented simultaneously before any relief is provided is a recipe for paralysis that guarantees no one receives help. IDR programs have been plagued by administrative failures — a 2021 Department of Education review found that loan servicers had mismanaged IDR for over two decades, incorrectly tracking payments and denying forgiveness to borrowers who had qualified. Only 32 borrowers had ever successfully received IDR forgiveness before the Biden administration's fixes. The 'fix the system first' argument has been made for 30 years while 43 million borrowers continue suffering. Forgiveness and reform are not mutually exclusive — we can cancel existing debt while simultaneously implementing tuition controls, restoring bankruptcy rights, and increasing state funding. History shows that crisis-driven relief (the GI Bill, Social Security, Medicare) often catalyzes rather than prevents structural reform.",
       crux: {
@@ -226,6 +226,23 @@ export const studentDebtForgivenessData = {
             "The Department of Education's own review and GAO audit are authoritative government sources documenting a systemic failure. The finding that only 32 borrowers received IDR forgiveness out of millions enrolled is a devastating indictment of the existing system. This directly challenges the argument that IDR is a functional alternative to forgiveness — a system that promises forgiveness but delivers it to 32 people over two decades is not a real alternative.",
         },
         {
+          id: "biden-v-nebraska-scotus",
+          title: "Supreme Court Struck Down Biden's Broad Cancellation Plan in Biden v. Nebraska (2023)",
+          description:
+            "On June 30, 2023, the US Supreme Court ruled 6-3 in Biden v. Nebraska that the Secretary of Education lacked statutory authority under the HEROES Act of 2003 to cancel up to $20,000 in debt for over 40 million borrowers (an estimated $430 billion). The Court applied the 'major questions doctrine,' holding that the power to 'waive or modify' loan provisions did not authorize cancellation of that scale without clear congressional authorization. The administration's subsequent SAVE plan was also ruled unlawful by the Eighth Circuit and wound down in 2025-2026. The practical consequence is that broad student debt forgiveness in the US now requires an act of Congress, not unilateral executive action.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 10,
+            replicability: 10,
+            directness: 8,
+          },
+          source: "Supreme Court of the United States (Biden v. Nebraska, No. 22-506); Congressional Research Service",
+          sourceUrl: "https://www.supremecourt.gov/opinions/22pdf/22-506_nmip.pdf",
+          reasoning:
+            "A binding Supreme Court ruling is an authoritative, indisputable legal fact. It is coded 'against' the meta-claim not because it judges forgiveness unwise, but because it establishes that broad executive cancellation — the actual mechanism most forgiveness proposals relied on — is legally foreclosed, making the 'is justified and is the fairest approach' framing partly moot absent congressional action. Directness is below maximum because the ruling concerns legal authority, not the underlying economic or fairness merits of forgiveness itself.",
+        },
+        {
           id: "racial-wealth-gap-student-debt",
           title: "Student Debt Disproportionately Burdens Black Borrowers — Widening Racial Wealth Gap",
           description:
@@ -255,6 +272,10 @@ export const studentDebtForgivenessData = {
       url: "https://www.brookings.edu/articles/student-loan-forgiveness-is-regressive-whether-measured-by-income-education-or-wealth/",
     },
     {
+      title: "Biden v. Nebraska, No. 22-506 (2023) — Supreme Court Opinion",
+      url: "https://www.supremecourt.gov/opinions/22pdf/22-506_nmip.pdf",
+    },
+    {
       title: "The Macroeconomic Effects of Student Debt Cancellation — Levy Economics Institute",
       url: "https://www.levyinstitute.org/publications/the-macroeconomic-effects-of-student-debt-cancellation/",
     },
@@ -276,7 +297,7 @@ export const studentDebtForgivenessData = {
       id: "q1",
       title: "Is student debt forgiveness an effective economic stimulus or an expensive giveaway?",
       content:
-        "The Roosevelt Institute projects $86-108 billion in annual GDP growth from forgiveness, but the CRFB estimates it would add to inflation and the national debt. The top 40% of earners hold 60% of student debt. Is forgiveness efficient economic policy, or would the same money generate more growth through infrastructure, targeted transfers, or tax credits?",
+        "The Levy Economics Institute (an advocacy-leaning model) projects $86-108 billion in annual GDP growth from forgiveness, but the CRFB estimates it would add 0.15-0.27 points to inflation and to the national debt. The top 40% of earners hold nearly 60% of student debt. Is forgiveness efficient economic policy, or would the same money generate more growth through infrastructure, targeted transfers, or tax credits?",
     },
     {
       id: "q2",

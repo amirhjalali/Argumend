@@ -56,7 +56,7 @@ export const masculinityCrisisData = {
       skeptic_premise:
         "The data points used to construct the 'masculinity crisis' narrative are real, but the gendered framing is misleading. Male suicide rates have been higher than female rates for over a century — this is not a new crisis. The decline in male college enrollment reflects the success of women's educational advancement, not male failure — men still dominate the highest-paying professions, C-suites, and political office. The 'loneliness epidemic' affects both genders, and women report higher rates of anxiety and depression than men. Framing these issues as a 'masculinity crisis' rather than a class crisis allows society to ignore that the men struggling most are poor, rural, and lacking access to economic opportunity — problems that would be better addressed through economic policy than gender identity discourse.",
       proponent_rebuttal:
-        "The 'it's class, not gender' argument is a false dichotomy. Gender and class intersect — working-class men face compounding disadvantages that working-class women do not, including higher rates of workplace death (93% of occupational fatalities are male), harsher criminal sentencing (men receive 63% longer sentences for identical offenses), lower rates of seeking mental health treatment, and the collapse of male-dominated industries without equivalent retraining. The educational decline is not just 'women succeeding' — boys are struggling from elementary school onward, with lower reading scores, higher discipline rates, and higher dropout rates across every demographic group. Richard Reeves' research at Brookings demonstrates that male educational decline is a genuine crisis that, if it were happening to women at the same rate, would be recognized as a national emergency.",
+        "The 'it's class, not gender' argument is a false dichotomy. Gender and class intersect — working-class men face compounding disadvantages that working-class women do not, including higher rates of workplace death (roughly 92% of occupational fatalities are male, per BLS), harsher criminal sentencing (Sonja Starr's analysis of federal cases found men receive about 63% longer sentences than women charged with comparable offenses, though much of that gap originates in prosecutorial charging decisions rather than judges sentencing identical cases), lower rates of seeking mental health treatment, and the collapse of male-dominated industries without equivalent retraining. The educational decline is not just 'women succeeding' — boys are struggling from elementary school onward, with lower reading scores, higher discipline rates, and higher dropout rates across every demographic group. Richard Reeves' research at Brookings demonstrates that male educational decline is a genuine crisis that, if it were happening to women at the same rate, would be recognized as a national emergency.",
       crux: {
         id: "gendered-vs-class-analysis",
         title: "The Gender vs. Class Attribution Study",
@@ -73,7 +73,7 @@ export const masculinityCrisisData = {
           id: "male-suicide-rate-disparity",
           title: "Men Die by Suicide at Nearly 4x the Rate of Women (US)",
           description:
-            "The CDC reports that men account for approximately 80% of all suicides in the United States, dying by suicide at a rate of 23.6 per 100,000 compared to 6.1 per 100,000 for women (2022 data). While women attempt suicide more frequently, men's higher completion rate reflects the use of more lethal methods and lower rates of help-seeking behavior. The male suicide rate has increased by 36% since 2000, even as female rates also rose. Among young men aged 15-24, suicide is the second leading cause of death.",
+            "The CDC reports that men account for approximately 80% of all suicides in the United States, dying by suicide at an age-adjusted rate of about 23 per 100,000 compared to roughly 6 per 100,000 for women (2022 data). While women attempt suicide more frequently, men's higher completion rate reflects the use of more lethal methods and lower rates of help-seeking behavior. The male suicide rate rose roughly 30% from 2000 (17.7 per 100,000) to its 2018 peak (22.8), even as female rates also rose. Among young men aged 15-24, suicide is a leading cause of death.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -88,9 +88,9 @@ export const masculinityCrisisData = {
         },
         {
           id: "male-college-enrollment-decline",
-          title: "Men Now Earn Only 40% of Bachelor's Degrees in the US",
+          title: "Men Now Make Up About 40% of College Students (and ~42% of Bachelor's Degrees)",
           description:
-            "According to the National Student Clearinghouse, men now account for approximately 40% of college students, down from 50% in the 1970s. The gap exists across every racial and ethnic group and has been widening for two decades. Boys also lag behind girls in reading proficiency by an average of 14 points on NAEP assessments starting in elementary school. Some colleges have quietly implemented affirmative action for male applicants to maintain gender balance.",
+            "According to the National Student Clearinghouse, men now account for roughly 40% of college students and about 42% of conferred bachelor's degrees, down from a male majority (around 57% of degrees) in the early 1970s. The enrollment gap exists across every major racial and ethnic group and has been widening for two decades. Boys also lag behind girls in reading proficiency on NAEP assessments starting in elementary school. Some colleges are reported to apply more lenient admissions standards to male applicants to maintain gender balance.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -107,7 +107,7 @@ export const masculinityCrisisData = {
           id: "women-also-struggling-context",
           title: "Women Report Higher Rates of Anxiety and Depression Than Men",
           description:
-            "While men have higher suicide rates, women consistently report higher rates of diagnosed anxiety, depression, and psychological distress across national surveys. The National Health Interview Survey shows that women are 60% more likely than men to be diagnosed with anxiety disorders. This complicates the narrative of a uniquely male crisis — both genders are struggling with mental health, manifesting in different ways.",
+            "While men have higher suicide rates, women consistently report higher rates of diagnosed anxiety, depression, and psychological distress across national surveys. The National Health Interview Survey (2019) shows women report recent anxiety symptoms at about 1.6 times the rate of men (roughly 19% vs 12%), and clinical surveys find women are about twice as likely to meet lifetime criteria for an anxiety disorder. This complicates the narrative of a uniquely male crisis — both genders are struggling with mental health, manifesting in different ways.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -133,9 +133,9 @@ export const masculinityCrisisData = {
         "Is the male crisis primarily about lost manufacturing jobs, declining wages for non-college workers, and economic displacement — or about cultural narratives that leave men without positive identity models? The answer determines whether the solution is economic policy or cultural reconstruction.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The decline of male-dominated industries — manufacturing, mining, construction — has eliminated millions of jobs that provided identity, income, and community to working-class men. Since 1979, real wages for men without college degrees have declined by 14% while women's wages have risen. The prime-age male labor force participation rate has fallen from 97% in 1960 to 86% in 2024, with 7 million working-age men entirely out of the labor force. This is not a cultural or identity crisis — it is an economic crisis. Men who have good jobs, stable relationships, and community connections do not experience a 'masculinity crisis.' The cultural framing obscures the material reality: provide economic opportunity and the identity crisis resolves itself.",
+        "The decline of male-dominated industries — manufacturing, mining, construction — has eliminated millions of jobs that provided identity, income, and community to working-class men. Since 1979, real wages for men without college degrees have declined by 14% while women's wages have risen. The prime-age (25-54) male labor force participation rate has fallen from about 96% in 1970 to roughly 89% in 2024, with millions of prime-age men entirely out of the labor force. This is not a cultural or identity crisis — it is an economic crisis. Men who have good jobs, stable relationships, and community connections do not experience a 'masculinity crisis.' The cultural framing obscures the material reality: provide economic opportunity and the identity crisis resolves itself.",
       proponent_rebuttal:
-        "The economic explanation is necessary but insufficient. The suicide rate among men is highest in affluent professional occupations (physicians, dentists, veterinarians) where economic displacement is not a factor. Japan and South Korea — wealthy nations with low unemployment — have some of the highest male suicide rates globally. The loneliness epidemic disproportionately affects young men who grew up in the digital era with fewer in-person friendships, romantic relationships, and community ties than any previous generation. Richard Reeves documents that male educational decline begins in kindergarten — years before economic factors could operate. The cultural dimension is real: when traditional sources of male identity (provider, protector, father) are devalued without replacement, and when mainstream institutions frame masculinity itself as problematic, men lose access to the narrative resources needed to construct a meaningful life.",
+        "The economic explanation is necessary but insufficient. Suicide rates are elevated even in affluent professional occupations (physicians, dentists, veterinarians) where economic displacement is not a factor. Japan and South Korea — wealthy nations with low unemployment — have some of the highest male suicide rates globally. The loneliness epidemic disproportionately affects young men who grew up in the digital era with fewer in-person friendships, romantic relationships, and community ties than any previous generation. Richard Reeves documents that male educational decline begins in kindergarten — years before economic factors could operate. The cultural dimension is real: when traditional sources of male identity (provider, protector, father) are devalued without replacement, and when mainstream institutions frame masculinity itself as problematic, men lose access to the narrative resources needed to construct a meaningful life.",
       crux: {
         id: "economic-vs-cultural-intervention",
         title: "The Intervention Type Comparison",
@@ -229,15 +229,15 @@ export const masculinityCrisisData = {
         },
         {
           id: "tate-popularity-data",
-          title: "Andrew Tate Became the Most Searched Person on Google in 2022",
+          title: "Andrew Tate Was Among the Most-Searched Figures Online in 2022",
           description:
-            "In 2022, Andrew Tate became the most Googled person on the planet and was the most-watched creator on TikTok, with his content viewed over 11.6 billion times. His audience is overwhelmingly young men aged 14-25. While much of his content promotes misogynistic views, his appeal illustrates the demand for male identity content that mainstream institutions are not providing. Researchers studying his audience find that most followers are drawn by messages about self-improvement and purpose before being exposed to more extreme content.",
+            "In 2022, Andrew Tate topped Google's global 'Who is?' search list and accumulated over 11.6 billion views of his content on TikTok (some claims that he was 'the most Googled person on the planet' are overstated — Google Trends ranked him roughly 8th among the most-searched people that year). His audience skews heavily toward young men. While much of his content promotes misogynistic views, his viral reach illustrates the demand for male identity content that mainstream institutions are not providing. Researchers studying his audience find that many followers are first drawn by messages about self-improvement and purpose before being exposed to more extreme content.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 8,
-            directness: 7,
+            replicability: 6,
+            directness: 6,
           },
           source: "Anti-Defamation League (citing The Guardian and Hope Not Hate)",
           sourceUrl: "https://www.adl.org/resources/article/andrew-tate-five-things-know",

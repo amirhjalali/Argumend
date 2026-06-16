@@ -281,3 +281,31 @@ The remaining ~50 topics never had evidence corrections, so their prose was alre
   docs/plans/2026-06-16-launch-dossier.md.
 - **Process:** ~14 iterations, each web-verified + tsc-clean + 207 tests green + pushed per batch.
 Remaining work is founder-bound distribution (docs/drafts/ — never auto-sent). SPRINT CLOSED.
+
+## Red-Team Pass — batch 1 (2026-06-16), 10 highest-risk un-reviewed topics
+Adversarial review (factual errors, false balance, side-coding, normative-as-empirical,
+confidence-score calibration) of: masculinity-crisis, nuclear-proliferation-new-arms-race,
+student-debt-forgiveness, universal-basic-income, psychedelic-therapy-hype,
+ai-deepfakes-truth-collapse, children-smartphone-age, affirmative-action-meritocracy,
+transgender-athletes-sports, gender-affirming-care-minors.
+MAJOR STRUCTURAL FINDINGS:
+- **affirmative-action-meritocracy: 12 of 14 evidence items were SIDE-CODED BACKWARDS** —
+  the confidence score of 22 was an artifact of inverted coding; corrected → recomputes to 78.
+- **psychedelic-therapy-hype: 4 side-coding inversions** + a conflated NEJM trial (the null
+  escitalopram primary endpoint was presented as a win) + MAPP2 effect size 0.91→0.7 + n=24→233;
+  de-inflated sponsor-aligned evidence. Score 75→45 (now honest).
+- **transgender-athletes-sports: stale IOC framing** (missed the March-2026 IOC female-category
+  policy reversal) + missing 2025 NCAA ban + an internal contradiction (a "2023 BJSM review"
+  claim contradicting Harper 2021) + speed advantage 9%→12%. Score 44→64.
+- **student-debt-forgiveness: missing Biden v. Nebraska (2023 SCOTUS)** — added as high-weight
+  against evidence; Roosevelt→Levy misattribution fixed; a crux verification_status corrected. 78→69.
+- **universal-basic-income: missing the OpenResearch/Altman 2024 RCT** (largest US UBI study,
+  showed real labor reduction) — added; Yang/VAT fiscal contradiction + TANF "57%" error fixed. 76→69.
+- **gender-affirming-care-minors: a misattributed regret citation** (URL pointed to an unrelated
+  hormone-therapy review) corrected to Bustos 2021; garbled "9,000 papers / 9 met standards" York
+  stat fixed (actual: 50 included, 1 high-quality); age-25 brain claim de-inflated.
+- **masculinity-crisis (85) and nuclear-proliferation (86): structural false balance** — both have
+  ~6-7 "for" evidence items vs 1 "against"; the high scores reflect one-sided side-coding, not
+  consensus. FLAGGED FOR FOLLOW-UP: needs genuine web-sourced opposing evidence added (not fabricated).
+Plus dozens of factual corrections (suicide rates, warhead counts, treaty status, Australia ban now
+enforced Dec 2025, Canon C2PA date, etc.). All web-verified, no fabricated cites. tsc clean, 207 tests.

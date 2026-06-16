@@ -28,7 +28,7 @@ export const aiDeepfakesTruthCollapseData = {
       id: "q1",
       title: "Can deepfake detection technology keep pace with generation?",
       content:
-        "Detection accuracy for state-of-the-art deepfakes has fallen to 70-80% and continues declining as generation improves. Real-time generation makes detection at scale impossible. Is this an arms race detection can win, or is the generator permanently advantaged — as in cryptography, where the encoder always has the advantage?",
+        "On in-the-wild benchmarks, the best automated detectors now score around 78% on 2024-era deepfakes — well below the ~90% of expert human analysts — and struggle to generalize to new generation methods. Real-time generation in live video calls adds a further challenge. Is this an arms race detection can win with provenance and contextual signals, or is the generator structurally advantaged because it only needs to fool the average observer while detectors must catch everything?",
     },
     {
       id: "q2",
@@ -54,7 +54,7 @@ export const aiDeepfakesTruthCollapseData = {
         "When anyone can claim that real evidence is a deepfake, accountability collapses. The 'liar's dividend' describes how the mere existence of deepfake technology allows guilty parties to dismiss genuine evidence as fabricated. This second-order effect may be more damaging than deepfakes themselves.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The liar's dividend is not hypothetical — it is already operating. In 2023, a candidate in Turkey's presidential election dismissed a genuine sex tape as an AI deepfake, and voters had no way to verify the claim. Donald Trump has suggested that the Access Hollywood tape — authenticated by multiple forensic analyses — could be a deepfake. Military officials in Myanmar and Gabon have dismissed real evidence of atrocities as AI-generated. The pattern is clear: deepfake technology does not need to be used to fabricate evidence; its mere existence provides a universal alibi for anyone caught on camera. This is not a future threat — it is a present reality that is eroding accountability for the powerful at an accelerating rate.",
+        "The liar's dividend is not hypothetical — it is already operating. In 2023, a candidate in Turkey's presidential election dismissed a genuine sex tape as an AI deepfake, and voters had no way to verify the claim. Donald Trump has suggested that the Access Hollywood tape — authenticated by multiple forensic analyses — could be a deepfake. In Gabon (2018-19), political rivals branded a genuine New Year's video of an ailing President Bongo a 'deepfake,' helping trigger an attempted coup; in Myanmar, a contested confession video was widely dismissed as AI-generated. The pattern is clear: deepfake technology does not need to be used to fabricate evidence; its mere existence provides a universal alibi for anyone caught on camera. This is not a future threat — it is a present reality that is eroding accountability for the powerful at an accelerating rate.",
       proponent_rebuttal:
         "The liar's dividend concern is real but overstated as an existential threat to truth. Society has always navigated claims of fabricated evidence — doctored photographs existed long before AI, and courts have always required authentication. The legal system is adapting: forensic analysis can still detect many deepfakes, chain-of-custody documentation strengthens evidence admissibility, and the C2PA content provenance standard is being adopted by major hardware and software companies. Moreover, the liar's dividend is self-limiting: if every politician dismisses every unfavorable recording as a deepfake, the defense loses credibility. Public trust calibrates over time. The real challenge is building verification infrastructure fast enough, not the impossibility of maintaining truth in a deepfake era.",
       crux: {
@@ -73,7 +73,7 @@ export const aiDeepfakesTruthCollapseData = {
           id: "nh-robocall-deepfake-2024",
           title: "AI-Generated Biden Robocall Targeted New Hampshire Primary Voters (2024)",
           description:
-            "In January 2024, an AI-generated deepfake audio of President Biden was used in robocalls to New Hampshire voters, falsely telling them not to vote in the Democratic primary. The deepfake was convincing enough that many voters could not distinguish it from Biden's real voice. The incident led to an FCC ruling making AI-generated voice robocalls illegal and demonstrated that AI deepfakes could directly interfere in democratic elections.",
+            "In January 2024, an AI-generated deepfake audio of President Biden was used in robocalls to New Hampshire voters, falsely telling them not to vote in the Democratic primary. Political consultant Steve Kramer orchestrated the calls; the FCC subsequently ruled AI-generated voice robocalls illegal under existing law, issued a $6 million forfeiture order against Kramer, and fined transmitting carrier Lingo Telecom $1 million, while New Hampshire indicted Kramer on 26 counts. The incident demonstrated that AI deepfakes could directly interfere in democratic elections.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -107,7 +107,7 @@ export const aiDeepfakesTruthCollapseData = {
           id: "deepfake-detection-declining-accuracy",
           title: "Deepfake Detection Accuracy Declining as Generation Improves",
           description:
-            "Academic benchmarks show that deepfake detection accuracy has declined from over 95% for early GAN-based deepfakes (2019) to approximately 70-80% for state-of-the-art diffusion-based deepfakes (2024-2025). Detection models trained on one generation method often fail on newer techniques. The generator-detector arms race is fundamentally asymmetric: generators need only fool the average human observer, while detectors must catch every fake — a much harder task. Real-time deepfake generation in video calls adds a new dimension that makes detection at scale functionally impossible.",
+            "Detectors that score over 95% on controlled academic datasets degrade sharply on real-world ('in-the-wild') deepfakes. The Deepfake-Eval-2024 benchmark found the best commercial video detector reaches only ~78% accuracy (AUC ≈0.79) on deepfakes circulated on social media in 2024 — with AUC dropping roughly 45-50% versus older academic benchmarks — and still falls short of the ~90% accuracy of expert human forensic analysts. Detection models trained on one generation method often fail on newer techniques. The generator-detector dynamic is asymmetric: generators need only fool the average human observer, while detectors must generalize to every new generation method. Real-time deepfake generation in video calls adds a further dimension that makes detection at scale harder still.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -115,10 +115,10 @@ export const aiDeepfakesTruthCollapseData = {
             replicability: 7,
             directness: 8,
           },
-          source: "IEEE Conference on Computer Vision; MIT Media Lab; Sensity AI",
-          sourceUrl: "https://sensity.ai/reports/",
+          source: "Deepfake-Eval-2024 (arXiv:2503.02857); peer-reviewed detection-generalization literature",
+          sourceUrl: "https://arxiv.org/abs/2503.02857",
           reasoning:
-            "Academic detection benchmarks are rigorous and peer-reviewed. The declining accuracy trend is consistent across multiple research groups. However, benchmarks test detection under controlled conditions — real-world detection has additional contextual signals (metadata, source verification) that can improve accuracy beyond pure visual analysis.",
+            "The ~78% in-the-wild figure comes from a 2024 multi-modal benchmark of real circulated deepfakes, which is more representative than controlled academic datasets. The generalization gap is replicated across multiple research groups. The 'declining toward random chance' framing is removed as speculative: the same benchmark shows human experts still hit ~90%, and real-world detection adds contextual signals (metadata, source verification) beyond pure visual analysis.",
         },
       ],
     },
@@ -133,7 +133,7 @@ export const aiDeepfakesTruthCollapseData = {
         "Current deepfake detection relies on identifying statistical artifacts that generators leave behind. But detection is fundamentally disadvantaged: generators are trained against detectors, and each new generation method defeats models trained on previous ones. The question is whether detection can ever achieve the reliability needed for legal, journalistic, and intelligence applications.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Detection cannot win the arms race, and betting society's information integrity on detection is irresponsible. The fundamental problem is mathematical: generative adversarial networks are literally designed to defeat detectors — that is how they are trained. Each improvement in detection creates a training signal for the next generation of generators. Current detection methods work by identifying subtle statistical patterns (frequency domain artifacts, physiological inconsistencies, temporal coherence failures) that generators have not yet learned to eliminate. But there is no physical law preventing generators from eliminating these artifacts — it is simply a matter of computational resources and training data. The trajectory is clear: detection accuracy will continue declining toward 50% (random chance) as generation technology improves.",
+        "Detection cannot win the arms race, and betting society's information integrity on detection is irresponsible. The fundamental problem is mathematical: generative adversarial networks are literally designed to defeat detectors — that is how they are trained. Each improvement in detection creates a training signal for the next generation of generators. Current detection methods work by identifying subtle statistical patterns (frequency domain artifacts, physiological inconsistencies, temporal coherence failures) that generators have not yet learned to eliminate. But there is no physical law preventing generators from eliminating these artifacts — it is simply a matter of computational resources and training data. Real-world results already bear this out: on 2024 in-the-wild benchmarks, the best automated detectors manage only ~78%, far below their >95% scores on controlled datasets, and they generalize poorly to unseen generation methods. Betting society's information integrity on a defender that must win every round against an adversary trained specifically to beat it is a losing structural position.",
       proponent_rebuttal:
         "The detection pessimism overstates the case. Detection is not limited to pixel-level analysis — it can incorporate metadata analysis, provenance tracking, behavioral pattern detection, and cross-referencing with known authentic sources. A deepfake of a politician saying something cannot erase the real politician's schedule, witness accounts, or communication patterns. Furthermore, the most consequential deepfakes — those that could influence elections, move markets, or trigger military responses — will face the most scrutiny and the most sophisticated detection. The relevant standard is not 'can any deepfake fool any detector' but 'can a consequential deepfake survive the scrutiny it will receive from motivated, well-resourced analysts.' Human judgment, combined with technological tools and contextual analysis, provides a much stronger defense than pure technical detection alone.",
       crux: {
@@ -212,9 +212,9 @@ export const aiDeepfakesTruthCollapseData = {
       evidence: [
         {
           id: "nikon-canon-c2pa-cameras",
-          title: "Nikon and Canon Ship Professional Cameras with C2PA Provenance (2024)",
+          title: "Professional Cameras Ship with C2PA Provenance (2023-2025)",
           description:
-            "Nikon's Z9 and Canon's EOS R1 professional cameras now include C2PA-compliant digital signing that cryptographically authenticates images at the point of capture. These are the cameras used by photojournalists covering wars, elections, and breaking news. The provenance metadata creates a tamper-evident chain of custody from camera sensor to publication. Leica has also announced C2PA support for its M-series cameras. This means the highest-stakes photographic evidence — the images that appear in newspapers and courts — is beginning to carry verifiable provenance.",
+            "Leica's M11-P (October 2023) was the first camera to ship with C2PA Content Credentials built in. Nikon added C2PA support to the Z9 via firmware and field-tested it with Agence France-Presse, and Canon released firmware bringing Content Credentials to the EOS R1 and EOS R5 Mark II in July 2025. These are the cameras used by photojournalists covering wars, elections, and breaking news. The provenance metadata creates a tamper-evident chain of custody from camera sensor to publication. This means the highest-stakes photographic evidence — the images that appear in newspapers and courts — is beginning to carry verifiable provenance.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -222,10 +222,10 @@ export const aiDeepfakesTruthCollapseData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Nikon; Canon; Content Authenticity Initiative; PetaPixel",
+          source: "Leica; Nikon; Canon; Content Authenticity Initiative; PetaPixel",
           sourceUrl: "https://contentauthenticity.org/",
           reasoning:
-            "Hardware implementation of C2PA by the two largest camera manufacturers demonstrates that provenance infrastructure is moving from specification to deployment. However, professional cameras represent a tiny fraction of all image capture (smartphones dominate), and the timeline for smartphone adoption remains uncertain, limiting the near-term impact.",
+            "Hardware and firmware implementation of C2PA by Leica, Nikon, and Canon demonstrates that provenance infrastructure is moving from specification to deployment. However, much of this support arrived only in 2024-2025 (Canon's bodies in mid-2025), professional cameras represent a tiny fraction of all image capture (smartphones dominate), and the timeline for smartphone adoption remains uncertain, limiting the near-term impact.",
         },
         {
           id: "deepfake-fraud-financial-losses",
