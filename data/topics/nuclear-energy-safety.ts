@@ -12,14 +12,14 @@ export const nuclearEnergySafetyData = {
       id: "safety-record",
       title: "Safety Record",
       short_summary:
-        "Nuclear power has the lowest death rate per TWh of any energy source, including renewables.",
+        "Nuclear power has one of the lowest death rates per TWh of any energy source — on par with wind and solar.",
       image_url:
         "https://images.unsplash.com/photo-1591799265444-d66432b91588?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Chernobyl, Fukushima, and Three Mile Island demonstrate catastrophic risks. Long-lived radioactive waste remains dangerous for millennia. A single disaster can render large areas uninhabitable.",
+        "Average death rates understate low-probability, high-consequence tail risk. Chernobyl's most-exposed cohort faces up to ~4,000 projected eventual cancer deaths (with higher collective-dose estimates contested), and a single accident can force mass evacuation and render areas uninhabitable for years — Fukushima's evacuation alone caused roughly 2,200 deaths. High-level waste stays hazardous for thousands of years, and US repository standards require isolation modeled out to 10,000 years (peak-dose analysis to 1,000,000), a multigenerational stewardship burden no other power source imposes.",
       proponent_rebuttal:
-        "Per TWh generated, nuclear causes 0.03 deaths vs. 24.6 for coal, 18.4 for oil, and even 0.04 for wind. Fukushima's radiation killed approximately 1 person directly; the evacuation killed ~2,000. Modern reactor designs (Gen III+, SMRs) have passive safety features making meltdowns physically impossible.",
+        "Per TWh generated, nuclear causes ~0.03 deaths vs. 24.6 for coal, 18.4 for oil, and ~0.04 for wind — comparable to wind and solar. Fukushima's radiation is officially linked to ~1 death; the evacuation itself caused roughly 2,200 deaths. Modern designs (Gen III+, SMRs) use passive cooling that cuts calculated core-damage frequency roughly 10-100x below older plants — not zero risk, but a dramatically smaller accident probability.",
       crux: {
         id: "deaths-per-twh",
         title: "Deaths Per TWh Analysis",
@@ -119,9 +119,9 @@ export const nuclearEnergySafetyData = {
         "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=60",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Nuclear is too slow and expensive. New plants take 10-15 years to build and cost $10B+. Renewables are cheaper and faster to deploy. Battery storage is solving intermittency.",
+        "New Western nuclear is slow and expensive: recent first-of-a-kind projects ran ~7 years late and well over $30B for two units, while utility-scale solar and onshore wind now have far lower standalone LCOE (~$30-75/MWh vs. ~$140-220/MWh for new nuclear). Renewables plus falling-cost batteries are deploying faster, and per-dollar they can displace more carbon sooner.",
       proponent_rebuttal:
-        "France built 56 reactors in 15 years, achieving 75% nuclear electricity and among the lowest carbon intensities in Europe. Nuclear provides 24/7 baseload without the storage requirements of renewables. Countries that closed nuclear (Germany) saw emissions rise.",
+        "France built 56 reactors in roughly 15 years (1974-1989), reaching about 70-75% nuclear electricity and one of the lowest grid carbon intensities in Europe (~55-85 gCO₂/kWh vs. Germany's ~350-450). Nuclear delivers firm 24/7 power at ~93% capacity factor, avoiding the storage and firming costs that standalone-LCOE figures for wind/solar omit. Germany's nuclear phase-out left it more reliant on coal and gas, slowing its decarbonization relative to nuclear-heavy France.",
       crux: {
         id: "grid-decarbonization",
         title: "Grid Decarbonization Speed",

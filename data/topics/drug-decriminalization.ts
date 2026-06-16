@@ -4,7 +4,7 @@ export const drugDecriminalizationData = {
   id: "drug-decriminalization",
   title: "Drug Decriminalization",
   meta_claim:
-    "Decriminalizing personal drug use reduces harm and improves public health outcomes compared to criminalization.",
+    "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
   status: "contested" as const,
   category: "policy" as const,
   pillars: [
@@ -12,12 +12,12 @@ export const drugDecriminalizationData = {
       id: "public-health-outcomes",
       title: "Public Health Outcomes",
       short_summary:
-        "Portugal decriminalized all drugs in 2001. Drug deaths dropped, HIV infections plummeted, and overall use did not increase.",
+        "Portugal decriminalized all drugs in 2001 alongside heavy treatment investment. Drug-induced deaths and HIV infections among people who inject drugs fell sharply, and overall use stayed near the European average.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Decriminalization signals social acceptance and increases use, especially among youth. Without the deterrent of arrest, experimentation rises. Countries and states that decriminalize see drug tourism and open-air drug markets emerge, concentrating harm in specific neighborhoods.",
+        "Removing penalties before treatment capacity exists can strip away the leverage that pushes people toward help while doing nothing to expand care. Oregon's Measure 110 is the cautionary case: it decriminalized possession but the promised treatment pathway barely functioned, and amid visible public-disorder problems voters and lawmakers reversed course within three years. Critics also warn decriminalization can normalize use and let open-air drug markets concentrate harm in specific neighborhoods. (Portugal avoided this — but only because decriminalization arrived bundled with real treatment infrastructure, which is the hard part to replicate.)",
       proponent_rebuttal:
-        "Portugal decriminalized all drugs in 2001 and saw drug-related deaths drop by 80%, HIV infections among people who use drugs fell dramatically, and overall use did not increase significantly. A treatment-first approach redirects resources from punishment to healthcare, catching addiction earlier and reducing overdose deaths.",
+        "Two decades after Portugal decriminalized in 2001, its drug-induced death rate sat around 6 per million adults — far below the EU average of 23.7 — and new HIV diagnoses tied to injecting drug use fell from over 1,000 to a handful per year, while overall use stayed near the European average. The gains came from a package that paired decriminalization with treatment and harm reduction, redirecting resources from punishment to healthcare so addiction is caught earlier. The mechanism — not a magic 'decrim alone' number — is what travels.",
       crux: {
         id: "decrim-use-rates",
         title: "Use Rates Under Decriminalization vs. Criminalization",
@@ -108,12 +108,12 @@ export const drugDecriminalizationData = {
       id: "criminal-justice-impact",
       title: "Criminal Justice Impact",
       short_summary:
-        "The U.S. spends $40B+ annually enforcing drug laws. Recidivism rates for drug offenders hover near 77%. Something is not working.",
+        "The Drug Policy Alliance estimates U.S. drug enforcement costs at least $51B a year across federal, state, and local budgets, and 77% of released drug offenders are rearrested within five years (BJS). The status quo is expensive and leaky.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Without criminal penalties, there is no leverage to push people into treatment. Arrest often serves as the wake-up call that motivates recovery. Drug courts already divert people to treatment within the criminal system, providing structure and accountability that voluntary programs lack.",
+        "Without criminal penalties, there is little leverage to push people into treatment, and arrest can serve as the wake-up call that motivates recovery. Drug courts already divert people to treatment within the criminal system, and meta-analyses credit them with cutting recidivism by roughly 8–14 percentage points — structure and accountability that purely voluntary referral often lacks. Oregon's experience is the warning: when decriminalization removed that entry point without standing up an alternative, almost no one ticketed actually reached treatment.",
       proponent_rebuttal:
-        "Criminalization disproportionately harms racial minorities — Black Americans are 3.7x more likely to be arrested for marijuana despite similar usage rates. The US spends $80B+ per year on drug enforcement and incarceration. Drug courts, while promising, reach only about 5% of eligible individuals and still require a criminal charge as the entry point.",
+        "Criminalization falls unevenly: ACLU data show Black Americans are 3.64x more likely to be arrested for marijuana possession despite similar usage rates. The Drug Policy Alliance puts U.S. drug enforcement at least $51B a year across all levels of government. Drug courts help those they reach, but capacity limits mean they touch only a small share of eligible drug-involved people — and each still requires a criminal charge as the entry point.",
       crux: {
         id: "coerced-vs-voluntary-treatment",
         title: "Coerced vs. Voluntary Treatment Outcomes",

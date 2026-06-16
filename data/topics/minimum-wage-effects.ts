@@ -17,7 +17,7 @@ export const minimumWageEffectsData = {
       skeptic_premise:
         "The Congressional Budget Office estimates a $15 federal minimum would eliminate 1.4 million jobs. Small businesses operate on thin margins and cannot absorb a 107% increase from $7.25. Automation accelerates as labor costs rise — self-checkout kiosks, ordering apps, and robotic food prep replace minimum wage workers. Labor-intensive industries like restaurants and retail are most vulnerable.",
       proponent_rebuttal:
-        "Card and Krueger's 1994 natural experiment found no job losses when New Jersey raised its minimum wage while neighboring Pennsylvania did not. Seattle's $15 minimum wage, the most studied increase ever, showed minimal employment effects. The majority of modern minimum wage studies find small or no negative employment impact — the old textbook model of large job losses is not supported by empirical evidence.",
+        "Card and Krueger's 1994 natural experiment found no job losses when New Jersey raised its minimum wage while neighboring Pennsylvania did not. Cengiz, Dube, Lindner and Zipperer's bunching analysis of 138 state increases found the total number of low-wage jobs essentially unchanged for five years afterward — an employment elasticity near zero. Seattle is the genuine hard case: the University of Washington team found the step to $13 cut hours and net pay for low-wage jobs, but a parallel UC Berkeley study of food-service workers found pay gains and no job loss, so even the most-studied high minimum is contested rather than a clear disemployment verdict. Across the modern literature the textbook prediction of large job losses is not consistently borne out.",
       crux: {
         id: "employment-elasticity-measurement",
         title: "Employment Elasticity at High Minimum Wage Levels",
@@ -71,7 +71,7 @@ export const minimumWageEffectsData = {
           id: "seattle-minimum-wage-study",
           title: "Seattle UW Study: $13 Minimum Cut Hours and Net Earnings",
           description:
-            "The University of Washington team's NBER study of Seattle's minimum wage, using administrative payroll data, found the second step (to $13 in 2016) raised hourly wages in low-wage jobs by ~3% but cut hours worked in those jobs by ~6–9%. Because hours fell more than wages rose, total payroll to low-wage jobs declined, implying an average net loss of roughly $125 per month for affected workers. A competing UC Berkeley study (Reich et al.) that looked only at food-service workers found pay gains and no job loss, so the Seattle evidence is genuinely disputed.",
+            "The University of Washington team's NBER study of Seattle's minimum wage, using administrative payroll data, found the second step (to $13 in 2016) raised hourly wages in low-wage jobs by ~3% but cut hours worked in those jobs by ~6–7%. Because hours fell more than wages rose, total payroll to low-wage jobs declined, lowering the amount paid to those workers by an average of about $74 per month per job in 2016. A competing UC Berkeley study (Reich et al.) that looked only at food-service workers found pay gains and no job loss, and a later UW follow-up tracking individual workers found small net earnings gains, so the Seattle evidence is genuinely disputed.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -110,7 +110,7 @@ export const minimumWageEffectsData = {
       id: "poverty-economic-effects",
       title: "Poverty & Economic Effects",
       short_summary:
-        "A $15 minimum wage would raise pay for 17 million workers. The CBO estimates 1.3 million would lose their jobs. Both numbers are in the same report.",
+        "A $15 minimum wage would raise pay for 17 million workers. The CBO estimates 1.4 million would lose their jobs. Both numbers are in the same report.",
       icon_name: "Users" as const,
       skeptic_premise:
         "Only 1.1% of workers currently earn the federal minimum wage. Most minimum wage earners are teenagers and secondary earners, not family breadwinners. The Earned Income Tax Credit (EITC) is a more targeted and effective poverty reduction tool. Higher wages get passed to consumers as higher prices, disproportionately affecting the low-income people the policy is supposed to help.",

@@ -54,7 +54,7 @@
   {
     "id": "drug-decriminalization",
     "title": "Drug Decriminalization",
-    "meta_claim": "Decriminalizing personal drug use reduces harm and improves public health outcomes compared to criminalization.",
+    "meta_claim": "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
     "confidence_score": 75,
     "status": "contested",
     "category": "policy",
@@ -67,7 +67,7 @@
   {
     "id": "death-penalty-deterrence",
     "title": "The Death Penalty",
-    "meta_claim": "The death penalty serves as an effective deterrent against murder and is justified as a form of criminal justice.",
+    "meta_claim": "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
     "confidence_score": 22,
     "status": "contested",
     "category": "policy",
@@ -548,7 +548,7 @@
   {
     "id": "ai-superintelligence-timeline",
     "title": "Will Artificial Superintelligence Arrive Before 2035?",
-    "meta_claim": "Current AI scaling trends suggest artificial general intelligence, and potentially superintelligence, could emerge within the next decade.",
+    "meta_claim": "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation.",
     "confidence_score": 59,
     "status": "highly_speculative",
     "category": "technology",
@@ -1029,7 +1029,7 @@
   {
     "id": "us-national-debt-crisis",
     "title": "Is the US National Debt a Ticking Time Bomb?",
-    "meta_claim": "The US national debt, exceeding $36 trillion, poses an existential threat to economic stability and will lead to a fiscal crisis within a generation.",
+    "meta_claim": "The US national debt, exceeding $37 trillion, poses a serious threat to economic stability — though whether it triggers a genuine fiscal crisis within a generation, or proves manageable for a sovereign issuer of the world's reserve currency, is sharply contested.",
     "confidence_score": 58,
     "status": "contested",
     "category": "economics",

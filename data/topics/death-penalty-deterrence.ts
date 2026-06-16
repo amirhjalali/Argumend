@@ -4,7 +4,7 @@ export const deathPenaltyDeterrenceData = {
   id: "death-penalty-deterrence",
   title: "The Death Penalty",
   meta_claim:
-    "The death penalty serves as an effective deterrent against murder and is justified as a form of criminal justice.",
+    "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
   status: "contested" as const,
   category: "policy" as const,
   pillars: [
@@ -12,12 +12,12 @@ export const deathPenaltyDeterrenceData = {
       id: "deterrence-effect",
       title: "Deterrence Effect",
       short_summary:
-        "States with the death penalty do not have lower murder rates than states without it. Deterrence advocates say the problem is inconsistent enforcement.",
+        "Death-penalty states do not have lower murder rates than states without it, but this is correlational. The 2012 National Research Council found the deterrence studies are simply not informative either way.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The National Academy of Sciences (2012) concluded there is no reliable evidence that the death penalty deters murder. States without the death penalty consistently have lower murder rates. Most murders are impulsive crimes of passion, not calculated acts where perpetrators weigh consequences.",
+        "The National Research Council (2012) concluded the deterrence studies 'are not informative about whether capital punishment increases, decreases, or has no effect on homicide rates' and should not inform policy. With no demonstrated benefit, the burden is unmet: states without the death penalty have had consistently lower (though only correlated) murder rates, and most murders are impulsive acts, not calculated decisions weighing the ultimate sanction.",
       proponent_rebuttal:
-        "Hashem Dezhbakhsh's econometric study found each execution deters approximately 18 murders. Criminals who face the death penalty are significantly more likely to plea bargain, revealing accomplices and evidence that helps solve other cases. The NAS critique was about methodology, not a finding of no effect.",
+        "The NRC's finding cuts both ways: it concluded the evidence is uninformative, not that deterrence has been disproven. Some econometric work (e.g., Dezhbakhsh, Rubin & Shepherd 2003) estimated each execution is associated with roughly 18 fewer murders, though with a wide margin and contested methods. And capital exposure demonstrably increases plea-bargaining, giving prosecutors leverage. Absent proof of zero effect, even a small deterrent — combined with retributive justice for the worst crimes — can justify the sanction.",
       crux: {
         id: "deterrence-causal-identification",
         title: "Causal Identification of Deterrence",
@@ -108,12 +108,12 @@ export const deathPenaltyDeterrenceData = {
       id: "justice-and-error",
       title: "Justice & Error",
       short_summary:
-        "Since 1973, 200+ U.S. death row inmates have been exonerated. The system executes innocent people at an estimated rate of 4%.",
+        "Since 1973, 200+ U.S. death row inmates have been exonerated. A 2014 PNAS study estimated at least 4.1% of those sentenced to death are likely falsely convicted — and execution is irreversible.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Over 190 death row exonerations since 1973 prove the system convicts innocent people. Racial bias is pervasive — Black defendants are 3x more likely to receive death sentences. Execution costs taxpayers 3x more than life imprisonment due to mandatory appeals. The punishment is irreversible.",
+        "Over 200 death row exonerations since 1973 show the system convicts the innocent, and a 2014 PNAS estimate puts the false-conviction rate among the death-sentenced at 4.1% or higher — an error rate that is irreversible once carried out. Racial bias is well documented: a 1990 GAO synthesis found killings of white victims more likely to draw death sentences in 82% of studies reviewed. Capital cases also cost far more than life without parole because of mandatory appeals.",
       proponent_rebuttal:
-        "Advances in DNA evidence and forensic science dramatically reduce wrongful convictions. The exoneration record actually shows the appeals system works. Victims' families deserve ultimate justice for ultimate crimes. Life without parole — decades in a cage — is arguably crueler than a swift execution.",
+        "DNA and modern forensics reduce wrongful convictions, and that exonerations occur before execution shows the appeals process catches errors. The PNAS 4.1% figure is a rate of likely false convictions among those sentenced, not a measured rate of innocents executed. For the gravest crimes, proponents argue retributive justice demands the ultimate sanction — though the common 'closure for victims' families' rationale is empirically weak, and many victims' families oppose execution.",
       crux: {
         id: "wrongful-execution-rate",
         title: "Wrongful Execution Rate Estimation",

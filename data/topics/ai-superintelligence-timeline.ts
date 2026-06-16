@@ -4,7 +4,7 @@ export const aiSuperintelligenceTimelineData = {
   id: "ai-superintelligence-timeline",
   title: "Will Artificial Superintelligence Arrive Before 2035?",
   meta_claim:
-    "Current AI scaling trends suggest artificial general intelligence, and potentially superintelligence, could emerge within the next decade.",
+    "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation.",
   status: "highly_speculative" as const,
   category: "technology" as const,
   imageUrl:
@@ -23,6 +23,16 @@ export const aiSuperintelligenceTimelineData = {
       title:
         "Epoch AI — Trends in Machine Learning (compute & scaling)",
       url: "https://epoch.ai/trends",
+    },
+    {
+      title:
+        "Grace et al. 2024 — 'Thousands of AI Authors on the Future of AI' (AI Impacts survey, n=2,778; 50% chance of high-level machine intelligence by 2047)",
+      url: "https://arxiv.org/abs/2401.02843",
+    },
+    {
+      title:
+        "Villalobos et al. 2024 — 'Will We Run Out of Data? Limits of LLM Scaling Based on Human-Generated Data' (Epoch AI)",
+      url: "https://arxiv.org/abs/2211.04325",
     },
   ],
   questions: [
@@ -61,9 +71,9 @@ export const aiSuperintelligenceTimelineData = {
         "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=60",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "Scaling laws show diminishing returns on benchmarks that matter for general intelligence. Current models excel at interpolation within their training distribution but fail at genuine out-of-distribution reasoning. We are running into data walls — high-quality text data is finite, and synthetic data introduces compounding errors. Compute costs are growing exponentially while capability gains follow power laws with flattening exponents. The jump from narrow proficiency to general intelligence may require qualitative breakthroughs, not just quantitative scaling.",
+        "Scaling laws describe falling next-token loss, not gains on the reasoning that matters for general intelligence — and the two can decouple. Current models excel at interpolation within their training distribution but stumble on genuine out-of-distribution reasoning. We are approaching a data wall: Epoch AI projects the public stock of human-generated text will be roughly exhausted between about 2026 and 2032 (Villalobos et al.), and synthetic data has reliably helped only in narrow, verifiable domains like math and code. Crucially, loss falls as a power law — each new increment of capability costs exponentially more compute — so the curve flattens in capability terms even as spending explodes. The 'this time is different' framing assumes the jump from narrow proficiency to general intelligence is a smooth extrapolation, but every prior paradigm needed a qualitative architectural break, not just more of the same.",
       proponent_rebuttal:
-        "Scaling laws have held remarkably consistently across five orders of magnitude of compute, from GPT-2 to GPT-4 and beyond. Emergent capabilities — chain-of-thought reasoning, in-context learning, tool use — appeared unpredictably at scale, suggesting we cannot rule out further emergent jumps. Hardware costs are dropping via specialized AI chips and algorithmic efficiency gains (training compute per FLOP has improved ~2x yearly). Data limitations are being addressed through synthetic data generation, self-play, and multimodal training. The consistent track record of expert predictions being too conservative about AI timelines suggests the default should be shorter timelines, not longer.",
+        "Scaling laws have held across many orders of magnitude of compute, from GPT-2 to GPT-4 and beyond, and capability keeps tracking compute even as raw loss gains shrink. Two independent cost curves compound in scaling's favor: hardware price-performance improves roughly 40% per year (Epoch AI), while algorithmic efficiency improves even faster — the compute needed to hit a fixed language-modeling performance has halved roughly every eight months, about 3x per year (Ho et al. / Epoch). So an effective-compute budget grows far faster than dollar spend alone. Data ceilings are being attacked with synthetic data, self-play, multimodal corpora, and reinforcement learning on verifiable rewards. And forecasters keep revising shorter: in the 2024 AI Impacts survey of 2,778 published AI researchers, the median estimate for a 50% chance of high-level machine intelligence fell 13 years (to 2047) versus the 2022 survey — a base rate that argues for treating short timelines as live, not fringe.",
       crux: {
         id: "scaling-ceiling-test",
         title: "The Scaling Ceiling Test",
@@ -161,7 +171,7 @@ export const aiSuperintelligenceTimelineData = {
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Transformers are sophisticated pattern matchers that approximate reasoning through memorized heuristics. They lack persistent memory, cannot update their own weights during inference, struggle with systematic compositionality, and have no grounded world model. The gap between 'looks like reasoning' and 'actually reasons' may be unbridgeable without fundamentally different architectures — perhaps ones incorporating symbolic reasoning, causal inference, or neuromorphic computing. Every major AI paradigm shift (expert systems, connectionism, deep learning) required architectural innovation, not just scaling the previous paradigm.",
+        "Transformers are sophisticated pattern matchers that approximate reasoning through memorized heuristics. They lack persistent memory, cannot update their own weights during inference, and degrade sharply on systematic compositionality — controlled tests (Dziri et al., NeurIPS 2023) show accuracy collapsing as multi-step problems grow, consistent with shortcut-matching rather than learned algorithms. They also have no grounded world model. The gap between 'looks like reasoning' and 'actually reasons' may be unbridgeable without fundamentally different architectures — ones incorporating symbolic reasoning, causal inference, or neuromorphic computing. Every prior AI paradigm shift (expert systems, connectionism, deep learning) required architectural innovation, not just scaling the previous paradigm; assuming this paradigm is the exception is precisely the 'this time is different' bet that has failed before.",
       proponent_rebuttal:
         "Transformers have repeatedly exceeded expected capability limits. The architecture has proven remarkably flexible: chain-of-thought prompting unlocked multi-step reasoning, tool use extended capabilities beyond the model itself, and techniques like RLHF dramatically improved alignment with human intent. Architectural innovations are happening within the transformer paradigm — mixture of experts, state-space models, retrieval augmentation, and test-time compute scaling. The brain itself is built from relatively simple computational units (neurons) that achieve general intelligence through scale and connectivity. There is no strong theoretical argument that transformers cannot achieve AGI — only an intuition that they 'feel' too simple, which has been wrong at every previous scale.",
       crux: {
@@ -262,7 +272,7 @@ export const aiSuperintelligenceTimelineData = {
       skeptic_premise:
         "Even if ASI is technically possible by 2035, deploying it without solving alignment would be catastrophically irresponsible. The alignment problem grows harder as systems become more capable: a superintelligence could find loopholes in any objective function, deceive its overseers, or pursue instrumental subgoals (self-preservation, resource acquisition) that conflict with human interests. Current alignment techniques (RLHF, constitutional AI) are band-aids that work on today's models but have no theoretical guarantee of scaling. The history of AI safety is one of capabilities racing ahead of safety — if ASI arrives before alignment is solved, the timeline question becomes moot because the outcome may be catastrophic.",
       proponent_rebuttal:
-        "Alignment research has made significant concrete progress: RLHF, constitutional AI, mechanistic interpretability, and scalable oversight are not just theoretical — they work in production systems today. The alignment community has grown from a handful of researchers to thousands, with major labs dedicating substantial resources. Interpretability research is beginning to reverse-engineer model internals, making deceptive alignment detectable in principle. The key insight is that alignment doesn't need to be perfect — it needs to be good enough to maintain a corrigible system that humans can iteratively improve. A superintelligence that is even roughly aligned could help solve its own alignment problem more precisely. The real risk is not that alignment is impossible, but that it might not be prioritized sufficiently.",
+        "Alignment research has made concrete progress: RLHF, constitutional AI, mechanistic interpretability, and scalable oversight are not just theoretical — they ship in production systems today. The field has scaled from a handful of researchers to dedicated safety teams at every frontier lab and a growing academic community. Interpretability is beginning to reverse-engineer model internals — sparse autoencoders recover human-interpretable features (Anthropic, Bricken et al. 2023) — making deceptive alignment detectable in principle rather than only in theory. The key insight is that alignment need not be perfect; it needs to be good enough to keep a corrigible system humans can iteratively improve, and a roughly aligned system can help refine its own alignment. The real risk is not that alignment is impossible, but that competitive pressure leaves it under-prioritized relative to capabilities.",
       crux: {
         id: "deceptive-alignment-detection",
         title: "The Deceptive Alignment Detection Test",

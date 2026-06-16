@@ -60,14 +60,14 @@ export const freeWillData = {
       id: "neuroscience-evidence",
       title: "The Neuroscience Evidence",
       short_summary:
-        'Brain activity precedes conscious awareness of decisions, suggesting choices are determined before we "decide."',
+        'Brain activity precedes conscious awareness of a decision — but whether that activity *determines* the choice, or is just spontaneous neural noise accumulating toward a threshold (Schurger et al., 2012), is contested.',
       image_url:
         "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=60",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        'Libet\'s experiments show readiness potential begins 350-500ms before conscious intention. Our sense of "choosing" is a post-hoc narrative constructed by the brain.',
+        'Libet\'s experiments show the readiness potential begins ~350-500ms before reported conscious intention. On the skeptic\'s reading (e.g. Wegner\'s "illusion of conscious will"), the felt sense of "choosing" is a post-hoc narrative the brain constructs after the action is already underway.',
       proponent_rebuttal:
-        'Libet\'s subjects could still veto the action in the final 150ms (the "free won\'t"). Readiness potential may represent preparation of options, not determination. Consciousness may be the arena where competing neural assemblies vie for action selection.',
+        'Libet\'s subjects could still veto the action in the final ~150ms (the "free won\'t"). More fundamentally, Schurger et al. (2012) model the readiness potential as spontaneous neural noise accumulating to a threshold, not a determined decision unfolding — on that account the RP is an artifact of averaging stochastic fluctuations and is *not* evidence that the brain decides before "you" do. The RP may reflect preparation of options, with consciousness as the arena where competing neural assemblies vie for action selection.',
       crux: {
         id: "veto-power",
         title: "The Veto Power Test",
@@ -265,7 +265,7 @@ export const freeWillData = {
         "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "If criminals could not have done otherwise given their genes, upbringing, and circumstances, retributive punishment is unjust. We should focus only on rehabilitation and deterrence.",
+        "Hard incompatibilists (e.g. Pereboom, Caruso) argue that if a person could not have done otherwise given their genes, upbringing, and circumstances, then *backward-looking* retributive punishment is unjust — there is no principled difference between manipulation and ordinary causal history. Justice should rest on forward-looking grounds: rehabilitation, protection, and deterrence.",
       proponent_rebuttal:
         'Even if determinism is true, holding people responsible has pragmatic value—it shapes future behavior through social feedback. The concept of "could have done otherwise" can be reinterpreted as "would have done otherwise if they had different reasons."',
       crux: {
@@ -312,7 +312,7 @@ export const freeWillData = {
             directness: 3,
           },
           source:
-            "Vohs & Schooler, Psychological Science 19(1):49-54 (2008); failed replication: Buttrick et al., J. Exp. Soc. Psychol. 91 (2020)",
+            "Vohs & Schooler, Psychological Science 19(1):49-54 (2008); failed preregistered replication: Buttrick et al. (Many Labs 5), Advances in Methods and Practices in Psychological Science 3(4):429-438 (2020)",
           sourceUrl: "https://doi.org/10.1111/j.1467-9280.2008.02045.x",
           reasoning:
             "Originally cited as a pragmatic argument for believing in free will, but the headline effect did not survive a preregistered replication — weight heavily discounted.",

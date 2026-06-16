@@ -118,3 +118,24 @@ obesity fabricated food-desert "25-50%" and "$15,000/yr GLP-1" purged from prose
 gun-control Australia "42%" replaced + DGU NRC 500k-3M range now in prose; seed-oils references[0] Farvid
 "AJCN"→Circulation 2014, wrong "2017 Cochrane 27%/RR0.73"→Hooper 2020 (17%/RR0.83), Israeli-Paradox reframed.
 All edits web-verified, no fabricated cites; both sides steelmanned. tsc clean, 206 tests pass.
+
+## Iteration 7 (2026-06-16) — WS2 pass 2: prose sweep, 10 more maps
+Swept pillar narrative prose of 10 more heavily-corrected maps: climate-change, minimum-wage-effects,
+drug-decriminalization, death-penalty-deterrence, free-will, nuclear-energy-safety,
+ai-superintelligence-timeline, us-national-debt-crisis, meritocracy-myth, lab-diamonds-ethics.
+Notable prose fixes: minimum-wage SEATTLE backwards-framing corrected (prose had said "minimal
+employment effects" — now reflects the UW hours/earnings-loss finding, with Berkeley/Reich counter);
+death-penalty prose misstated PNAS "executes innocents at 4%" → corrected to the 4.1% false-CONVICTION
+rate among death-sentenced (Gross 2014), NRC "uninformative" deterrence quote restored, victim-race
+disparity (not defendant-race "3x") fixed; drug-decriminalization "deaths drop 80%" causal claim walked
+back to the decrim+treatment package, "$40B/$80B" enforcement reconciled to DPA $51B; free-will Vohs
+failed-replication venue corrected (Many Labs 5, AMPPS 2020) + Libet framed with Schurger reinterpretation;
+nuclear "lowest death rate including renewables" → "on par with wind/solar" (solar 0.02<nuclear 0.03),
+"meltdowns physically impossible" softened; ai-superintelligence muddled compute-doubling figure split
+into hardware (~40%/yr) vs algorithmic (~3x/yr) with Grace 2024 (50% HLMI 2047) + Villalobos data-wall;
+us-debt "$36T"→"$37T", CBO "166%/2054"→"156%/2055", Reinhart-Rogoff cliff→Herndon-Ash-Pollin 2.2%,
+Blanchard r<g steelman added; meritocracy removed a "Kunda" mis-attribution (→Jost-Banaji), Abramitzky
+2021 mobility steelman; lab-diamonds garbled "1,750 acres/million carats" purged from prose (→~tonnes/carat),
+Catoca re-dated 2021, plus TWO dead reference URLs repaired (Bain 404, retired Trucost domain → S&P host).
+climate-change prose given IPCC AR6 attribution bounds (1.1°C anthropogenic, natural ±0.1°C). All
+web-verified, no fabricated cites; both sides steelmanned. Coverage held 98%. tsc clean, 206 tests pass.
