@@ -83,66 +83,78 @@ export const globalHousingBubbleData = {
       evidence: [
         {
           id: "oecd-price-income-divergence",
-          title: "OECD Price-to-Income Ratios at Record Highs",
+          title: "OECD Price-to-Income Ratios Near Record Highs",
           description:
-            "As of 2023, real house prices relative to incomes are at or near all-time highs in Canada, Australia, New Zealand, the UK, and several European countries, exceeding pre-2008 peaks.",
+            "On the OECD's aggregate measure, house prices outpaced household income growth by roughly 17% across member countries between 2015 and 2023. The largest increases since 2014 were in Portugal (+53pp), Canada (+41pp) and the US (+31pp); New Zealand, Canada and Sweden have both the highest ratios and largest increases since 2000. Real prices peaked in 2022 and eased slightly into 2023, so ratios are near rather than uniformly above all-time highs.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 10,
-            directness: 9,
+            replicability: 9,
+            directness: 8,
           },
-          source: "OECD Housing Prices Database",
+          source:
+            "OECD Analytical House Prices Indicators (price-to-income ratio), 2023",
+          sourceUrl: "https://www.oecd.org/en/data/indicators/housing-prices.html",
           reasoning:
-            "OECD data is standardized across countries and independently verified, providing direct measurement of the affordability gap.",
+            "OECD data is standardized across countries and independently compiled, providing a direct measure of the affordability gap. Ratios near (not always above) prior peaks slightly tempers the directness.",
         },
         {
           id: "mortgage-income-share",
           title: "Mortgage Payments Consuming Record Share of Income",
           description:
-            "In markets like Toronto, Sydney, and London, mortgage payments on a median home now consume 50-60% of median household pre-tax income, well above the 30% threshold considered sustainable.",
+            "In Toronto, the mortgage payment on a typical home in 2023 exceeded 50% of median after-tax family income (the Fraser Institute puts it above 100% on its measure), far above the ~30% guideline considered affordable. Exact burdens vary by methodology (pre- vs after-tax) and city; comparable per-city figures for Sydney and London were not verified here.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 9,
-            directness: 9,
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 7,
           },
-          source: "National Association of Realtors, CoreLogic",
+          source:
+            "Fraser Institute, Homeownership Affordability in Canadian CMAs, 2014-2023",
+          sourceUrl:
+            "https://www.fraserinstitute.org/sites/default/files/2025-11/home-ownership-rent-affordability-in-cdn-cmas-2014-2023-newsrelease-on.pdf",
           reasoning:
-            "Mortgage burden directly measures whether current prices are sustainable for typical buyers.",
+            "Mortgage burden directly measures sustainability for typical buyers, but the headline 50-60% pre-tax range was a generalization: verified data is after-tax and specific to Toronto, with Sydney/London unconfirmed.",
         },
         {
           id: "first-time-buyer-collapse",
-          title: "First-Time Buyer Share Declining Sharply",
+          title: "First-Time Buyer Share Near Historic Lows",
           description:
-            "First-time homebuyer participation has fallen to historic lows in the US (26% in 2023), UK, and Australia, suggesting the buyer pool is shrinking under affordability pressure.",
+            "NAR's Profile of Home Buyers and Sellers recorded a record-low 26% first-time-buyer share in 2022 (versus a ~38% historical average); the share rebounded to 32% in 2023, still well below norm. The figure has continued to fall in later editions, indicating sustained affordability pressure on the entry-level buyer pool.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
-            directness: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
           },
-          source: "National Association of Realtors Annual Report",
+          source:
+            "NAR, Profile of Home Buyers and Sellers (2022 record low 26%; 2023 at 32%)",
+          sourceUrl:
+            "https://www.nar.realtor/blogs/economists-outlook/top-9-takeaways-from-nars-2023-profile-of-home-buyers-and-sellers",
           reasoning:
-            "Declining first-time buyers indicate demand erosion, a leading indicator of price vulnerability.",
+            "Declining first-time-buyer share signals demand erosion, but the original claim mis-dated the 26% low to 2023 (it was 2022, with 2023 rebounding to 32%); NAR's survey is also self-reported, lowering independence.",
         },
         {
           id: "supply-constraint-defense",
           title: "Structural Supply Constraints Justify Higher Ratios",
           description:
-            "Zoning laws, NIMBYism, and geographic constraints in major cities have persistently restricted housing supply, meaning higher price-to-income ratios may reflect a permanent shift rather than a bubble.",
+            "Zoning laws, restrictive land-use rules, and geographic constraints in major cities have persistently limited housing supply, so elevated price-to-income ratios may partly reflect a durable structural shift rather than a pure bubble. This is an analytical interpretation, not a single measured statistic.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 6,
-            directness: 5,
+            sourceReliability: 5,
+            independence: 5,
+            replicability: 4,
+            directness: 4,
           },
+          source:
+            "OECD analysis of housing supply responsiveness (interpretive; no single primary statistic)",
+          sourceUrl:
+            "https://www.oecd.org/en/topics/sub-issues/housing-policy.html",
           reasoning:
-            "Supply constraints are real and well-documented, but they also existed before previous corrections. Supply alone doesn't explain the rate of price acceleration.",
+            "Supply constraints are real and documented, but this item is an interpretation rather than a verified figure, and such constraints also existed before previous corrections, so weights are kept low.",
         },
       ],
     },
@@ -171,41 +183,46 @@ export const globalHousingBubbleData = {
       evidence: [
         {
           id: "institutional-starter-home-share",
-          title: "Institutional Buyers Dominating Starter Home Segment",
+          title: "Investor Buyers Concentrated in Sun Belt Starter Segments",
           description:
-            "In 2021-2022, institutional buyers purchased 25-30% of homes priced below the median in Sun Belt cities, directly displacing first-time buyers in the most price-sensitive market segment.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
-            directness: 8,
-          },
-          source: "CoreLogic, Redfin Investor Reports",
-          reasoning:
-            "Concentrated buying in specific segments can distort pricing even if total market share is small.",
-        },
-        {
-          id: "airbnb-rental-reduction",
-          title: "Short-Term Rentals Reducing Long-Term Housing Supply",
-          description:
-            "Cities like Barcelona, Lisbon, and Amsterdam report 2-5% of housing stock converted to short-term rentals, contributing to rental price increases of 15-30% in affected neighborhoods.",
+            "Per Redfin, investors (all sizes, not only large institutions) bought roughly a quarter to a third of homes sold in several Sun Belt metros in Q4 2022 — about 31% in Miami, 27% in Jacksonville and 25% in Atlanta — with purchases skewed toward lower-priced, entry-level homes that compete with first-time buyers.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 7,
-            directness: 7,
+            directness: 6,
           },
-          source: "Inside Airbnb, Municipal Housing Reports",
+          source: "Redfin, Investor Home Purchases by Metro (Q4 2022)",
+          sourceUrl:
+            "https://journalistsresource.org/home/single-family-homes-institutional-investors/",
           reasoning:
-            "Localized supply reduction from short-term rentals is well-documented in tourism-heavy markets.",
+            "Concentrated buying in specific segments can distort local pricing, but the verified figures cover all investors (not large institutions alone) and the share applies to all homes sold in those metros, so 'dominating the below-median segment' was an overstatement.",
+        },
+        {
+          id: "airbnb-rental-reduction",
+          title: "Short-Term Rentals Pushing Up Rents in Tourist Cities",
+          description:
+            "A peer-reviewed study of Barcelona (Garcia-Lopez et al., Journal of Urban Economics) attributes a ~1.9% average rent rise to Airbnb activity, rising to ~7% in the highest-activity neighborhoods. In the historic centres of Lisbon and Porto, where short-term rentals concentrate, estimated price effects exceed 30%. Effects are real but localized and far smaller than a blanket 15-30% city-wide.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Garcia-Lopez et al., 'Do short-term rental platforms affect housing markets?', Journal of Urban Economics (2020)",
+          sourceUrl:
+            "https://www.sciencedirect.com/science/article/pii/S0094119020300498",
+          reasoning:
+            "Localized rent effects from short-term rentals are documented, but the original 15-30% figure overstated the average: peer-reviewed estimates are ~2% city-average and ~7% in hot neighborhoods, with >30% only in concentrated historic cores.",
         },
         {
           id: "foreign-investment-decline",
-          title: "Foreign Investment in Housing Has Declined Since 2017",
+          title: "Foreign Investment in US Housing Has Declined Since 2017",
           description:
-            "Chinese capital controls, Canadian foreign buyer taxes, and New Zealand's foreign buyer ban have significantly reduced cross-border residential investment since the 2015-2017 peak.",
+            "Per NAR, foreign-buyer dollar volume in US existing homes fell from a 2017 peak of $153B (284,500 sales) to about $42B in 2023-24 (the lowest count since 2009). Chinese capital controls, a strong US dollar, Canadian foreign-buyer taxes, and New Zealand's foreign-buyer ban have all curbed cross-border residential investment.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -213,25 +230,31 @@ export const globalHousingBubbleData = {
             replicability: 8,
             directness: 7,
           },
-          source: "NAR International Transactions Report",
+          source:
+            "NAR, International Transactions in U.S. Residential Real Estate (2024)",
+          sourceUrl:
+            "https://www.nar.realtor/newsroom/annual-foreign-investment-in-u-s-existing-homes-sales-decreased-21-2-to-42-billion",
           reasoning:
-            "If foreign buying has already declined yet prices remain high, foreign capital may not be the primary driver.",
+            "If foreign buying has already fallen sharply yet prices remain high, foreign capital is unlikely to be the primary driver. NAR's figures are US-focused, so the global generalization is partly extrapolated.",
         },
         {
           id: "institutional-share-small",
           title: "Institutional Share of Total Market Remains Small",
           description:
-            "Institutional investors account for under 3% of all US housing transactions. Even at their 2021 peak, they represented less than 7% of single-family purchases nationally.",
+            "Per the Urban Institute, large institutional investors (owning 1,000+ homes) hold only about 3% of single-family rentals and under 0.5% of the total single-family stock; large-investor purchases were under 1% of single-family home sales in 2021. Broader 'all-investor' shares are larger, but true institutional ownership is small nationally.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
+            independence: 8,
             replicability: 8,
-            directness: 6,
+            directness: 7,
           },
-          source: "Federal Reserve, PwC Real Estate Reports",
+          source:
+            "Urban Institute, 'A Profile of Institutional Investor-Owned Single-Family Rental Properties' (2023)",
+          sourceUrl:
+            "https://www.urban.org/sites/default/files/2023-08/A%20Profile%20of%20Institutional%20Investor%E2%80%93Owned%20Single-Family%20Rental%20Properties.pdf",
           reasoning:
-            "National-level data suggests institutions are not large enough to drive a bubble, though local concentration may differ.",
+            "Urban Institute data show large institutions are too small a share nationally to drive a bubble. The prior 'Federal Reserve, PwC' attribution was unverified and has been corrected to the actual source; local concentration can still differ.",
         },
       ],
     },
@@ -262,57 +285,64 @@ export const globalHousingBubbleData = {
       evidence: [
         {
           id: "canada-renewal-wave",
-          title: "Canada Faces $900B Mortgage Renewal Wave",
+          title: "Canada Faces a Large Mortgage Renewal Wave",
           description:
-            "Approximately $900B CAD in Canadian mortgages will renew between 2024-2026 at rates 2-3 percentage points higher than the original rate, potentially adding $500-1000/month to household payments.",
+            "The Bank of Canada reports that about 60% of outstanding mortgages renew in 2025-2026, mostly five-year fixed loans originated at pandemic-era lows. BoC staff estimate five-year fixed holders renewing in 2025-26 face average payment increases of roughly 15-20% (about $5,100/year, ~$425/month) versus December 2024. (The widely cited '$900B' renewal figure traces to bank/CMHC estimates, not a single BoC statistic.)",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 9,
-            directness: 9,
+            replicability: 8,
+            directness: 8,
           },
-          source: "Bank of Canada Financial Stability Review",
+          source:
+            "Bank of Canada, Financial Stability Report 2025 & Staff Analytical Note 2025-21",
+          sourceUrl: "https://www.bankofcanada.ca/2025/07/staff-analytical-note-2025-21/",
           reasoning:
-            "Central bank data directly quantifying upcoming payment shocks in a variable-rate market.",
+            "Central-bank data directly quantify the renewal payment shock in a short-term-fixed market. The original round '$900B / $500-1000 a month' was imprecise; BoC's verified figures (60% renewing, ~15-20% / ~$425 a month for 5-yr fixed) are used instead.",
         },
         {
           id: "bis-debt-sensitivity",
-          title: "BIS Warns of Record Household Debt Sensitivity",
+          title: "BIS Data Show Elevated Household Debt Sensitivity to Rates",
           description:
-            "The Bank for International Settlements reports that the ratio of household debt to GDP in advanced economies is at historically elevated levels, making housing markets more vulnerable to rate increases than in previous tightening cycles.",
+            "BIS data and research show household debt-to-GDP and debt-service ratios remain historically elevated in several advanced economies (notably Australia, Canada, Norway, Sweden), so when rates rise the flow-through to debt-service costs is large, making these housing markets more sensitive to tightening than in prior cycles.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 9,
-            directness: 8,
+            replicability: 8,
+            directness: 7,
           },
-          source: "Bank for International Settlements Annual Report",
+          source:
+            "BIS, Debt Service Ratios statistics (and BIS Bulletin No. 70 on private debt and tightening)",
+          sourceUrl: "https://data.bis.org/topics/DSR",
           reasoning:
-            "BIS is an independent supranational institution with no political incentive to overstate risks.",
+            "BIS is an independent supranational institution with no political incentive to overstate risks. Sensitivity is concentrated in high-DSR economies rather than uniform, which slightly lowers directness.",
         },
         {
           id: "transaction-volume-collapse",
           title: "Housing Transaction Volumes Have Collapsed",
           description:
-            "US existing home sales fell to their lowest level since 1995 in 2023. UK transactions dropped 20%. Markets with falling volume but stable prices often precede price corrections as sellers resist lowering prices until forced.",
+            "US existing-home sales fell 19% in 2023 to 4.09 million, the lowest full-year level since 1995 (NAR). UK residential transactions fell about 19% in 2023 to ~1.02 million (HMRC). Falling volume alongside still-firm prices often precedes corrections as sellers resist cutting prices until forced. (Note: 2023 US median prices still hit a record, complicating the bearish read.)",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 9,
-            directness: 7,
+            directness: 6,
           },
-          source: "NAR, HMRC UK Property Transactions",
+          source:
+            "NAR Existing-Home Sales (2023); HMRC UK Property Transactions (2023)",
+          sourceUrl:
+            "https://www.nar.realtor/newsroom/in-the-news/2023-was-slowest-year-for-us-home-sales-in-nearly-30-years-as-high-mortgage-rates-frustrated-buyers",
           reasoning:
-            "Volume declines are an early warning signal; price adjustments typically lag volume contractions.",
+            "Volume declines are an early-warning signal and the 1995-low / ~19% UK drop figures are verified, but low volume coincided with record 2023 prices, so the link to an imminent correction is indirect.",
         },
         {
           id: "lock-in-effect-resilience",
           title: "Lock-In Effect Prevents Forced Selling",
           description:
-            "In the US, 85% of outstanding mortgages carry rates below 5%, and 60% below 4%. Homeowners have no financial incentive to sell and buy at higher rates, constraining supply and supporting prices even as affordability worsens.",
+            "In the US, roughly 86% of outstanding mortgages carry rates below 6%, about 76% below 5%, and about 57% below 4%. Homeowners locked at sub-market rates have little incentive to sell and re-buy at higher rates, constraining for-sale supply and supporting prices even as affordability worsens.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -320,9 +350,11 @@ export const globalHousingBubbleData = {
             replicability: 9,
             directness: 8,
           },
-          source: "Federal Housing Finance Agency",
+          source:
+            "Batzer & Coste, 'The Lock-In Effect of Rising Mortgage Rates', FHFA Working Paper 24-03 (2024)",
+          sourceUrl: "https://www.fhfa.gov/document/wp2403.pdf",
           reasoning:
-            "The lock-in effect is a genuine structural support, though it primarily applies to the US fixed-rate market and not to variable-rate countries.",
+            "The lock-in effect is a genuine structural support. The earlier '85% below 5% / 60% below 4%' figures were inaccurate and have been corrected to FHFA/industry data (~76% below 5%, ~57% below 4%). It applies mainly to the US 30-year-fixed market, not variable-rate countries.",
         },
       ],
     },

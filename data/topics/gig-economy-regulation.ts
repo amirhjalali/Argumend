@@ -41,15 +41,16 @@ export const gigEconomyRegulationData = {
             replicability: 7,
             directness: 8,
           },
-          source: "EU Directive 2024/2831; European Parliament",
+          source: "Directive (EU) 2024/2831, Official Journal of the EU (adopted 23 Oct 2024; in force 1 Dec 2024)",
+          sourceUrl: "https://eur-lex.europa.eu/eli/dir/2024/2831/oj",
           reasoning:
-            "Major regulatory action by the world's largest single market. The directive reflects extensive policy analysis and stakeholder consultation. However, implementation across 27 member states will vary, and it hasn't yet been tested in practice.",
+            "Major regulatory action by the world's largest single market. The directive reflects extensive policy analysis and stakeholder consultation. However, implementation across 27 member states will vary (transposition deadline 2 Dec 2026), and it hasn't yet been tested in practice.",
         },
         {
           id: "uk-tribunal-rulings",
           title: "UK Tribunals: 100,000+ Gig Drivers Classified as Workers",
           description:
-            "In November 2024, a UK Employment Tribunal ruled that over 100,000 Bolt drivers are workers entitled to minimum wage, holiday pay, and other employment protections, with potential backdated compensation exceeding 200 million pounds. In January 2025, all 700 Addison Lee drivers were similarly classified. These rulings follow the Supreme Court's landmark 2021 Uber ruling.",
+            "On 8 November 2024, a UK Employment Tribunal ruled that Bolt drivers are 'workers' (not employees) entitled to minimum wage, holiday pay, and other protections—a ruling potentially affecting over 100,000 drivers, with lawyers estimating compensation exceeding 200 million pounds. Around the same time, roughly 700 Addison Lee drivers were similarly ruled to be workers, with estimated compensation exceeding 20 million pounds. These rulings follow the Supreme Court's landmark 2021 Uber v Aslam ruling.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -57,7 +58,8 @@ export const gigEconomyRegulationData = {
             replicability: 8,
             directness: 9,
           },
-          source: "UK Employment Tribunal rulings (2024-2025)",
+          source: "UK Employment Tribunal rulings (Bolt, Nov 2024; Addison Lee, 2024) — Leigh Day",
+          sourceUrl: "https://www.leighday.co.uk/news/press-releases/2024-news/bolt-drivers-win-ruling-that-they-are-workers-in-legal-claim-believed-to-be-worth-more-than-200-million/",
           reasoning:
             "Judicial decisions based on detailed examination of actual working conditions. High directness because courts are specifically ruling on the classification question.",
         },
@@ -65,7 +67,7 @@ export const gigEconomyRegulationData = {
           id: "prop-22-worker-preference",
           title: "California Voters Upheld Gig Worker Independence 59-41%",
           description:
-            "California's Proposition 22 (November 2020) overturned AB5's forced reclassification of gig workers as employees, passing with 59% of the vote. Uber, Lyft, and DoorDash spent over $200 million campaigning for it. The California Supreme Court unanimously upheld Prop 22 as constitutional in July 2024. However, a 2024 CalMatters investigation found that no enforcement agency is ensuring companies actually provide the minimum benefits Prop 22 promised.",
+            "California's Proposition 22 (November 2020) exempted app-based drivers from AB5's reclassification of gig workers as employees, passing with 58.6% of the vote. Uber, Lyft, DoorDash and allies spent over $200 million backing it—the most expensive ballot measure in state history. The California Supreme Court unanimously upheld Prop 22 as constitutional in Castellanos v. State of California (25 July 2024). However, a September 2024 CalMatters investigation found that no state agency is enforcing the minimum benefits Prop 22 promised, as the Department of Industrial Relations says it lacks jurisdiction over non-employee earnings.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -73,7 +75,8 @@ export const gigEconomyRegulationData = {
             replicability: 6,
             directness: 7,
           },
-          source: "California Secretary of State; CalMatters investigation (2024)",
+          source: "Castellanos v. State of California (Cal. Supreme Court, 2024); CalMatters investigation (Sept 2024)",
+          sourceUrl: "https://calmatters.org/economy/2024/09/gig-work-california-prop-22-enforcement/",
           reasoning:
             "Democratic legitimacy of the vote is real but the $200M+ campaign spending and subsequent non-enforcement undermine the argument that the outcome reflects informed worker preference.",
         },
@@ -104,23 +107,24 @@ export const gigEconomyRegulationData = {
           id: "mckinsey-independent-workers",
           title: "McKinsey: 36% of Americans Are Independent Workers",
           description:
-            "McKinsey research found that 36% of employed Americans (approximately 70 million people) identified as independent workers in 2024, more than double the 2020 figure. The number working full-time as independents rose from 13.6 million (8.2% of the workforce) in 2020 to 27.7 million (16.7%) in 2024. Many report choosing independence for flexibility, autonomy, and higher earning potential.",
+            "McKinsey's 2022 American Opportunity Survey found that 36% of employed respondents—roughly 58 million Americans—identified as independent workers, up from an estimated 27% in 2016. The category spans gig platform workers, freelancers, and side-hustlers; many report choosing independence for flexibility and autonomy. Note: the survey's broad self-report includes high-earning freelance professionals, not only app-based gig drivers.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 6,
-            replicability: 7,
-            directness: 6,
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 6,
+            directness: 5,
           },
-          source: "McKinsey Global Institute (2024)",
+          source: "McKinsey, 'Freelance, side hustles, and gigs' (American Opportunity Survey, 2022)",
+          sourceUrl: "https://www.mckinsey.com/featured-insights/sustainable-inclusive-growth/future-of-america/freelance-side-hustles-and-gigs-many-more-americans-have-become-independent-workers",
           reasoning:
-            "Large-scale data from a reputable source. However, self-reported 'choice' may reflect lack of alternatives, and the broad definition includes freelance professionals very different from gig delivery drivers.",
+            "Large self-reported survey from a reputable firm, but it measures 'independent work' very broadly. Self-reported 'choice' may reflect lack of alternatives, and the broad definition lumps freelance professionals with gig delivery drivers—weakening its directness for the gig-classification debate.",
         },
         {
           id: "gig-worker-net-earnings",
           title: "After Expenses, Gig Workers Often Earn Below Minimum Wage",
           description:
-            "Multiple studies have found that after accounting for vehicle costs, fuel, insurance, self-employment taxes, and unpaid waiting time, many gig drivers earn below the effective minimum wage. A 2018 MIT study found Uber and Lyft drivers earned a median of $8.55/hour after expenses (later revised upward to $10-12/hour). Drivers bear 100% of vehicle depreciation, maintenance, and accident risk.",
+            "After accounting for vehicle costs, fuel, insurance, self-employment taxes, and unpaid waiting time, many gig drivers earn below the effective minimum wage. A 2018 MIT CEEPR working paper (Zoepf et al.) initially reported a median profit of $3.37/hour before taxes; after the authors revised the cost methodology in response to Uber's critique, the median was restated to roughly $8.55/hour (or about $10/hour under an alternative method). Drivers bear vehicle depreciation, maintenance, and accident risk.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -128,9 +132,10 @@ export const gigEconomyRegulationData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Zoepf et al., MIT Center for Energy and Environmental Policy Research (2018, revised)",
+          source: "Zoepf, Chen, Adu & Pozo, 'The Economics of Ride-Hailing,' MIT CEEPR Working Paper 2018-005 (Feb 2018, revised)",
+          sourceUrl: "https://www.semanticscholar.org/paper/The-economics-of-ride-hailing:-driver-revenue,-and-Zoepf-Chen/9511179f75d533e6d075f8ff079b5fe9b65110af",
           reasoning:
-            "The earnings calculation is directionally correct though the exact figure has been debated. The core point—that gross hourly pay significantly overstates actual worker compensation—is well-established.",
+            "The exact figure has been openly debated—the headline number was revised upward from $3.37 to ~$8.55/hour after methodological critique—so it should be cited with that caveat. The core point, that gross hourly pay significantly overstates actual net worker compensation, is well-established.",
         },
       ],
     },

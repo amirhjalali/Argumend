@@ -33,7 +33,7 @@ export const foreignAidEffectivenessData = {
           id: "givewell-bed-nets",
           title: "GiveWell: Bed Nets Among Most Cost-Effective Interventions in History",
           description:
-            "GiveWell's rigorous analysis of the Against Malaria Foundation estimates that long-lasting insecticide-treated bed nets save a child's life for approximately $3,000-5,000. Multiple RCTs confirm 40-60% reductions in malaria mortality. Over 300 million nets distributed with measurable impact.",
+            "GiveWell's analysis of the Against Malaria Foundation (December 2023) estimates it costs roughly $3,000-$8,000 to avert a death in the locations where it funds insecticide-treated net campaigns. AMF supported the distribution of approximately 85 million nets across eight countries between 2012 and 2021. The Cochrane review (Lengeler 2004, 22 trials) found insecticide-treated nets avert roughly 5.5 child deaths per 1,000 children protected per year.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -41,7 +41,8 @@ export const foreignAidEffectivenessData = {
             replicability: 8,
             directness: 8,
           },
-          source: "GiveWell, Cochrane Review, Against Malaria Foundation",
+          source: "GiveWell, Against Malaria Foundation review (Dec 2023)",
+          sourceUrl: "https://www.givewell.org/charities/amf",
           reasoning:
             "Exceptionally well-studied intervention with strong RCT evidence. GiveWell's analysis is transparently published. Represents the best case for aid effectiveness; may not generalize to other aid types.",
         },
@@ -49,15 +50,16 @@ export const foreignAidEffectivenessData = {
           id: "easterly-moyo-critique",
           title: "Easterly/Moyo: Aid Creates Dependency and Funds Corruption",
           description:
-            "William Easterly ('The White Man's Burden') and Dambisa Moyo ('Dead Aid') argue that general development aid creates government dependency, reduces accountability to citizens, funds corruption (an estimated 25% of World Bank loans are misused), and undermines domestic institutions. Countries receiving the most aid per capita have not grown faster.",
+            "William Easterly ('The White Man's Burden', 2006) and Dambisa Moyo ('Dead Aid', 2009) argue that general development aid fosters government dependency, reduces accountability to citizens, enables corruption, and undermines domestic institutions. Easterly distinguishes between failed top-down 'planning' and focused interventions; Moyo argues open-ended aid to Africa has been net-harmful. These are books of argument and synthesis rather than original causal estimates.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 4,
+            directness: 6,
           },
-          source: "William Easterly (NYU), Dambisa Moyo",
+          source: "William Easterly, 'The White Man's Burden' (2006); Dambisa Moyo, 'Dead Aid' (2009)",
+          sourceUrl: "https://www.goodreads.com/book/show/33513.The_White_Man_s_Burden",
           reasoning:
             "Influential critiques from credentialed economists. Arguments apply most strongly to general budget support and governance aid, less to targeted health interventions. Correlation between aid and low growth doesn't prove causation.",
         },
@@ -65,33 +67,35 @@ export const foreignAidEffectivenessData = {
           id: "pepfar-hiv-outcomes",
           title: "PEPFAR: 25 Million Lives Saved Through Targeted HIV/AIDS Aid",
           description:
-            "The President's Emergency Plan for AIDS Relief has provided antiretroviral treatment to over 20 million people and is estimated to have saved 25 million lives since 2003. HIV-related deaths in PEPFAR focus countries have declined by 68%. Widely considered the most successful US foreign aid program in history.",
+            "The President's Emergency Plan for AIDS Relief is reported to have supported antiretroviral treatment for 20.6 million people (as of FY2024) and is estimated to have saved roughly 25-26 million lives since 2003. It has also helped 5.5 million babies be born HIV-free to mothers living with HIV. Widely considered one of the most successful US foreign aid programs in history. The lives-saved figure is a program estimate, not an experimental measurement.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
+            independence: 6,
             replicability: 6,
             directness: 9,
           },
-          source: "PEPFAR, UNAIDS, Institute for Health Metrics and Evaluation",
+          source: "PEPFAR / U.S. State Department; KFF PEPFAR fact sheet",
+          sourceUrl: "https://www.kff.org/global-health-policy/fact-sheet/the-u-s-presidents-emergency-plan-for-aids-relief-pepfar/",
           reasoning:
             "Massive, well-documented program with clear outcome metrics. Government-reported numbers may be slightly inflated. Replicability for other diseases is uncertain. Directness is high — lives saved is the most important outcome.",
         },
         {
           id: "world-bank-aid-growth",
-          title: "World Bank Meta-Analysis: No Robust Aid-Growth Relationship",
+          title: "Rajan & Subramanian: No Robust Aid-Growth Relationship",
           description:
-            "Multiple econometric studies, including World Bank-commissioned research, have failed to find a robust positive relationship between aggregate aid flows and economic growth across countries. Burnside & Dollar initially found aid works in 'good policy environments,' but this finding did not replicate in subsequent analyses with expanded datasets.",
+            "Rajan & Subramanian (2008), in the Review of Economics and Statistics, examined cross-sectional and panel data after correcting for bias and found 'little robust evidence' of a positive or negative relationship between aid inflows and a country's economic growth, and no evidence that aid works better in better policy or geographic environments. This challenged the earlier Burnside & Dollar (2000) result that aid raises growth in 'good policy environments,' which proved fragile to expanded data.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
+            independence: 8,
+            replicability: 7,
             directness: 7,
           },
-          source: "World Bank Research, Rajan & Subramanian (2008)",
+          source: "Rajan & Subramanian, Review of Economics and Statistics 90(4):643-665 (2008)",
+          sourceUrl: "https://direct.mit.edu/rest/article/90/4/643/57874/Aid-and-Growth-What-Does-the-Cross-Country",
           reasoning:
-            "World Bank's own research undermining the aid-growth narrative is powerful for its independence. However, aggregate growth is a crude outcome measure that may miss sectoral improvements in health and education.",
+            "Peer-reviewed cross-country econometrics from credentialed economists (Rajan was later RBI Governor). Independent of aid agencies, which strengthens the finding. However, aggregate growth is a crude outcome measure that may miss sectoral improvements in health and education.",
         },
       ],
     },
@@ -118,9 +122,9 @@ export const foreignAidEffectivenessData = {
       evidence: [
         {
           id: "givedirectly-cash-transfers",
-          title: "GiveDirectly: Cash Transfers Deliver 90%+ to Recipients with Proven Impact",
+          title: "GiveDirectly: Cash Transfers Deliver ~90% to Recipients with RCT-Backed Impact",
           description:
-            "GiveDirectly's unconditional cash transfer model delivers over 90 cents of every dollar to extreme poor recipients. RCTs show recipients invest in housing, nutrition, education, and small businesses. A 12-year follow-up found sustained improvements in assets, consumption, and food security with no increase in alcohol or tobacco spending.",
+            "GiveDirectly delivers roughly 90% of donated funds to recipients. Haushofer & Shapiro (2016, QJE) found large RCT increases in assets, consumption, food security, and psychological well-being among rural Kenyan recipients, with no increase in alcohol or tobacco spending. Egger et al. (2022, Econometrica) found large positive local spillovers and a transfer multiplier of ~2.5 with minimal price inflation; longer-run GiveDirectly follow-ups find consumption/asset gains sustained 5+ years after a lump-sum transfer.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -128,39 +132,42 @@ export const foreignAidEffectivenessData = {
             replicability: 7,
             directness: 8,
           },
-          source: "GiveDirectly, Haushofer & Shapiro (2016), Egger et al. (2022)",
+          source: "Haushofer & Shapiro, QJE 131(4):1973-2042 (2016); Egger et al., Econometrica 90(6):2603-2643 (2022)",
+          sourceUrl: "https://academic.oup.com/qje/article-abstract/131/4/1973/2468874",
           reasoning:
-            "Strong RCT evidence from multiple countries. GiveDirectly is both the subject and funder of some research, lowering independence. Replicability is good for cash transfers specifically but doesn't validate other aid modalities.",
+            "Strong RCT evidence published in top economics journals (Egger et al. won the 2024 Frisch Medal). GiveDirectly is the implementer of the program being studied, modestly lowering independence. Replicability is good for cash transfers specifically but doesn't validate other aid modalities.",
         },
         {
           id: "transparency-intl-corruption",
-          title: "Transparency International: Corruption Diverts 25-30% of Aid in Weak Governance Countries",
+          title: "Corruption Diverts Public Funds in Weak-Governance Aid Recipients",
           description:
-            "Transparency International estimates that corruption siphons 20-30% of public funds in the most corrupt aid-receiving countries. High-profile scandals include $1 billion stolen from Mozambique's tuna bond scheme (partly donor-funded) and systematic diversion of food aid in Somalia. Even well-intentioned aid enables corruption by providing fungible resources.",
+            "Corruption diverts a significant share of public funds in the most corrupt aid-receiving countries, undermining aid effectiveness because aid is fungible. A high-profile case is Mozambique's 'tuna bond' scandal: about $2 billion in hidden, government-guaranteed loans (2013-2014), of which at least ~$200 million was diverted as bribes and kickbacks; its 2016 exposure led the IMF, World Bank and 14 partners to suspend roughly $265M/year in aid. Note: the tuna bonds were commercial loans, not donor aid, but illustrate how weak governance compromises the fiscal environment aid flows into.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 7,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 5,
+            directness: 6,
           },
-          source: "Transparency International, Global Corruption Report",
+          source: "Spotlight on Corruption / Transparency International (CIP Mozambique) on the tuna bond scandal",
+          sourceUrl: "https://www.spotlightcorruption.org/mozambique-and-the-tuna-bond-scandal/",
           reasoning:
-            "Well-regarded anti-corruption organization with global data. Estimates are necessarily imprecise — corruption is hidden by nature. Directness is good because diversion directly undermines aid effectiveness.",
+            "The specific Mozambique figures are documented by anti-corruption watchdogs and court proceedings. The earlier '20-30% of all aid is diverted' figure could not be tied to a specific verifiable source and has been dropped. Directness is moderate: the tuna bonds were not aid money, but illustrate the corruption environment in some recipients.",
         },
         {
           id: "oecd-tied-aid",
-          title: "OECD: Tied Aid Reduces Value by 15-30% and Serves Donor Interests",
+          title: "OECD: Tied Aid Raises Procurement Costs by 15-30%",
           description:
-            "The OECD estimates that tied aid (requiring purchases from donor country firms) reduces the value of aid by 15-30% through higher procurement costs. While formally tied aid has decreased to ~20% of bilateral aid, informal tying through consultancy contracts and technical assistance remains prevalent.",
+            "The OECD reports that tied aid (requiring recipients to procure goods, services, and works from the donor country) raises procurement costs by 15-30% on average, and by 40% or more for food aid, reducing the real value delivered to recipients. The OECD-DAC Recommendation on Untying ODA is the standing instrument pushing donors to untie aid.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 8,
+            replicability: 7,
             directness: 7,
           },
-          source: "OECD Development Assistance Committee",
+          source: "OECD, 'Untied aid' (OECD-DAC)",
+          sourceUrl: "https://www.oecd.org/en/topics/sub-issues/oda-standards/untied-aid.html",
           reasoning:
             "Highly authoritative inter-governmental source. Data is well-documented. Directly demonstrates inefficiency in the aid system, though the trend toward untying is positive.",
         },
@@ -176,7 +183,8 @@ export const foreignAidEffectivenessData = {
             replicability: 5,
             directness: 6,
           },
-          source: "Angus Deaton, 'The Great Escape' (2013)",
+          source: "Angus Deaton, 'The Great Escape: Health, Wealth, and the Origins of Inequality' (Princeton University Press, 2013)",
+          sourceUrl: "https://press.princeton.edu/books/hardcover/9780691153544/the-great-escape",
           reasoning:
             "Nobel Prize-winning economist with deep expertise. Theoretical argument is compelling but hard to test empirically (low replicability). Directness is moderate — the accountability argument applies most to budget support, less to targeted health programs.",
         },

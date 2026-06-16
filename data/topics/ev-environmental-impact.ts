@@ -31,9 +31,9 @@ export const evEnvironmentalImpactData = {
       evidence: [
         {
           id: "iea-lifecycle-2023",
-          title: "IEA: EVs Produce 50-70% Less Lifecycle Emissions Than ICE",
+          title: "IEA: A Medium EV Has About Half the Lifecycle Emissions of an Equivalent ICE Car",
           description:
-            "The International Energy Agency's 2023 Global EV Outlook reports that a medium-sized EV produces roughly 50% fewer lifecycle CO2 emissions than an equivalent ICE car on the average global grid mix, and up to 70% fewer on clean grids. The manufacturing gap is closed within 1.5-2 years of average driving.",
+            "The International Energy Agency's Global EV Outlook 2024 reports that, on the global average grid mix, a medium-size battery electric car has roughly half the lifecycle CO2-eq emissions of an equivalent oil-fueled ICE car (~15 t CO2-eq vs ~38 t over a ~200,000 km lifetime). The savings are larger on cleaner grids and smaller on coal-heavy grids.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -41,15 +41,17 @@ export const evEnvironmentalImpactData = {
             replicability: 7,
             directness: 9,
           },
-          source: "International Energy Agency, Global EV Outlook 2023",
+          source: "International Energy Agency, Global EV Outlook 2024 — Outlook for emissions reductions",
+          sourceUrl:
+            "https://www.iea.org/reports/global-ev-outlook-2024/outlook-for-emissions-reductions",
           reasoning:
-            "Premier international energy authority with transparent methodology. Results consistent across multiple independent analyses.",
+            "Premier international energy authority with transparent methodology. Results consistent across multiple independent analyses. Claim restated to the IEA's published ~50% global-average figure; the earlier '70% on clean grids' and '1.5-2 year breakeven' specifics were not in the IEA report and were removed.",
         },
         {
           id: "volvo-lifecycle-study",
-          title: "Volvo: EV Manufacturing 70% More Carbon-Intensive, Offset by Driving",
+          title: "Volvo: EV Manufacturing ~70% More Carbon-Intensive, Offset by Driving",
           description:
-            "Volvo's own transparent lifecycle study of the C40 Recharge vs. XC40 ICE found the EV requires 70% more energy to manufacture. However, the EV breaks even at 48,000 miles on the European grid mix and at 68,000 miles on a global average grid, well within the expected vehicle lifetime.",
+            "Volvo's own transparent carbon footprint report for the C40 Recharge vs. the XC40 ICE found the EV's production generates about 70% more greenhouse gas emissions. The EV then breaks even at roughly 48,000 miles charged on the EU28 grid mix and at about 68,300 miles on the global average grid — within the expected vehicle lifetime, and sooner on cleaner electricity.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -57,15 +59,17 @@ export const evEnvironmentalImpactData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Volvo Cars Lifecycle Assessment (2021)",
+          source: "Volvo Cars, C40 Recharge Carbon Footprint Report (2021)",
+          sourceUrl:
+            "https://www.volvocars.com/assets/volvocm/globalpages/live/6298CA92D97B4769AAA54A1D1FABF81C/volvo_carbonfootprintreport_ec40.pdf",
           reasoning:
-            "Manufacturer-commissioned but transparently published with full methodology. Lower independence score for industry source, but the honest reporting of higher manufacturing impact lends credibility.",
+            "Manufacturer-commissioned but transparently published with full methodology. Lower independence score for industry source, but the honest reporting of higher manufacturing impact lends credibility. Breakeven mileages restated to the report's exact figures (~48,000 mi EU mix, ~68,300 mi global mix).",
         },
         {
           id: "cobalt-mining-drc",
           title: "DRC Cobalt Mining: Child Labor, Toxic Waste, Ecological Destruction",
           description:
-            "70% of the world's cobalt comes from the Democratic Republic of Congo, where artisanal mining employs an estimated 40,000 children, contaminates water supplies, and causes significant ecological damage. While cobalt content in batteries is decreasing, the human and environmental toll of current extraction is severe.",
+            "Roughly 70% of the world's cobalt is mined in the Democratic Republic of Congo. Amnesty International's 2016 report documented hazardous artisanal mining, water contamination, and child labour (UNICEF estimated about 40,000 children working in southern DRC mines). While cobalt content per battery is falling, the human and environmental toll of current extraction is severe.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -73,25 +77,29 @@ export const evEnvironmentalImpactData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Amnesty International, UNICEF, Dorsen et al. (2016)",
+          source:
+            'Amnesty International & Afrewatch, "This Is What We Die For" (2016); UNICEF child-labour estimate',
+          sourceUrl: "https://www.amnesty.org/en/documents/afr62/3183/2016/en/",
           reasoning:
-            "Well-documented human rights and environmental concerns. Directness is moderate because cobalt-free battery chemistries (LFP) are rapidly gaining market share, potentially making this less relevant over time.",
+            "Well-documented human rights and environmental concerns. Directness is moderate because cobalt-free battery chemistries (LFP) are rapidly gaining market share, reducing relevance over time. Note this is a mining-harm concern, not evidence that EV lifecycle emissions exceed ICE.",
         },
         {
           id: "battery-recycling-advances",
-          title: "Battery Recycling Now Recovers 95%+ of Critical Minerals",
+          title: "Battery Recyclers Report Recovering 95%+ of Critical Minerals",
           description:
-            "Companies like Redwood Materials, Li-Cycle, and CATL's recycling division now achieve 95-98% recovery rates for lithium, nickel, cobalt, and manganese from spent EV batteries. The DOE projects that recycled materials could meet 15-20% of US battery material demand by 2030.",
+            "Redwood Materials states it recovers more than 95% of the critical elements (lithium, cobalt, nickel, copper) in the batteries it processes, and Li-Cycle has reported comparable recovery rates. These are company-reported figures at still-early commercial scale; US lithium-ion recycling overall remains a small share of supply today.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
+            sourceReliability: 5,
+            independence: 4,
             replicability: 6,
-            directness: 7,
+            directness: 6,
           },
-          source: "DOE, Redwood Materials, Li-Cycle corporate reports",
+          source: "Redwood Materials (company statement); Li-Cycle reported recovery rates",
+          sourceUrl:
+            "https://www.redwoodmaterials.com/resources/how-battery-recycling-works/",
           reasoning:
-            "Technology is real but at early scale. Industry sources may overstate commercial readiness. Recovery rates are lab-verified but commercial-scale economics are still developing.",
+            "Technology is real but at early commercial scale, and the recovery figures are self-reported by industry, so reliability and independence are lowered. An unverifiable 'DOE projects 15-20% of US demand by 2030' claim was removed; CATL was dropped as it was not the verified source.",
         },
       ],
     },
@@ -118,41 +126,45 @@ export const evEnvironmentalImpactData = {
       evidence: [
         {
           id: "ucs-grid-analysis",
-          title: "UCS: EVs Cleaner Than ICE in All 50 US States",
+          title: "UCS: The Average EV Now Equals a ~94 MPG Gasoline Car Nationally",
           description:
-            "The Union of Concerned Scientists' 2023 analysis found that driving an average EV produces fewer emissions than driving even the most efficient gasoline car in every single US state. In the cleanest grid regions, an EV is equivalent to a 191 MPG gasoline car.",
+            "The Union of Concerned Scientists' 2024 update finds the average US EV produces global-warming emissions equal to a hypothetical 94 MPG gasoline car, reaching about 219 MPG-equivalent in the cleanest regions (e.g., upstate New York). For 93% of the country the average EV beats the most efficient gasoline car (57 MPG), and everywhere in the US the most efficient EV beats any gasoline-only car available.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
-            independence: 6,
+            independence: 5,
             replicability: 8,
             directness: 9,
           },
-          source: "Union of Concerned Scientists",
+          source: "Union of Concerned Scientists (Reichmuth, 2024)",
+          sourceUrl:
+            "https://blog.ucs.org/dave-reichmuth/driving-on-electricity-is-now-much-cleaner-than-using-a-gasoline-car/",
           reasoning:
-            "Environmental advocacy organization, but methodology is transparent and peer-reviewed. Results independently replicated by DOE and EPA analyses. Independence score lowered for pro-EV institutional stance.",
+            "Advocacy organization but with transparent, replicable methodology using EPA/eGRID power-plant data. Independence lowered for pro-EV institutional stance. Claim corrected: the prior '191 MPG' and 'cleaner in all 50 states' figures were inaccurate — the average EV beats the most efficient gas car in 93% of the country, while the most efficient EV beats any gas car everywhere.",
         },
         {
           id: "mit-grid-stress",
-          title: "MIT: Mass EV Adoption Could Require $125B in Grid Upgrades",
+          title: "MIT: Unmanaged Charging Could Need ~20% More Generation — But Managed Charging Avoids It",
           description:
-            "MIT Energy Initiative research estimates that charging 50 million EVs would increase US electricity demand by 15-20%, requiring $75-125 billion in grid infrastructure upgrades. Without managed charging, peak demand spikes could exceed grid capacity in many regions.",
+            "MIT Energy Initiative research found that if EV charging is left unmanaged, evening peaks could require installing upwards of 20% more power-generation capacity. Crucially, the same study concludes that delayed home charging plus workplace charging can mitigate or eliminate that need, smoothing peaks and absorbing midday solar — so the grid strain is largely a management problem, not an inherent barrier.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 7,
-            directness: 6,
+            replicability: 6,
+            directness: 4,
           },
-          source: "MIT Energy Initiative",
+          source: "MIT Energy Initiative (Trancik group)",
+          sourceUrl:
+            "https://energy.mit.edu/news/minimizing-electric-vehicles-impact-on-the-grid/",
           reasoning:
-            "Highly credible source. Grid costs are real but represent infrastructure investment, not environmental harm. Directness is lower because the question is about environment, not cost.",
+            "Highly credible source. Claim corrected: the prior '$75-125B / 50 million EVs / 15-20% demand' specifics are not in MIT's research and were removed. The study's actual finding is that unmanaged charging could need ~20% more capacity but managed charging largely avoids it — so this is weak as an 'EVs are bad' point. Directness lowered: it concerns grid logistics, not per-vehicle environmental impact.",
         },
         {
           id: "norway-iceland-clean-grid",
-          title: "Norway/Iceland: EVs on Clean Grids Achieve Maximum Environmental Benefit",
+          title: "Clean Grids (Norway/Iceland) Push EV Lifecycle Savings Toward the Ceiling",
           description:
-            "Norway (98% hydro/renewable electricity, 80% EV market share) and Iceland (100% renewable electricity) demonstrate that EVs on clean grids produce over 85% fewer lifecycle emissions than ICE vehicles. Norway's transport emissions have fallen 10% since EV adoption accelerated.",
+            "Norway generates about 98% of its electricity from renewables (mostly hydro) with new-car sales now overwhelmingly electric, and Iceland's grid is nearly 100% renewable. ICCT lifecycle analysis finds EVs already cut lifecycle GHG emissions by roughly two-thirds versus gasoline on average European/US grids, with the reduction approaching ~80% or more where the grid is essentially carbon-free — illustrating the upper bound of the EV advantage.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -160,25 +172,30 @@ export const evEnvironmentalImpactData = {
             replicability: 5,
             directness: 8,
           },
-          source: "Norwegian Environment Agency, Statistics Iceland",
+          source:
+            "ICCT, A Global Comparison of the Life-Cycle GHG Emissions of Combustion Engine and Electric Passenger Cars (2021); IEA on Norway's grid mix",
+          sourceUrl:
+            "https://theicct.org/publication/a-global-comparison-of-the-life-cycle-greenhouse-gas-emissions-of-combustion-engine-and-electric-passenger-cars/",
           reasoning:
-            "Compelling real-world case studies. Replicability is limited because few countries have such clean grids, but it demonstrates the ceiling potential.",
+            "Compelling clean-grid illustration anchored to ICCT's peer-reviewed lifecycle analysis (66-69% EU / 60-68% US reductions, higher on near-zero-carbon grids). Replicability limited because few countries have such clean grids. Removed the unverified 'Norway transport emissions fell 10%' and the stale '80% EV market share' point (now far higher), and corrected the loosely sourced '85%' to ICCT's supported range.",
         },
         {
           id: "doe-charging-infrastructure",
-          title: "DOE: US Needs 1.2 Million Public Chargers by 2030, Currently at 186K",
+          title: "NREL/DOE: A National Network Could Need ~1.2 Million Public Charging Ports by 2030",
           description:
-            "The Department of Energy estimates the US needs 1.2 million public EV chargers by 2030 to support projected EV sales, but only 186,000 exist as of early 2024. Rural charging deserts and slow installation rates threaten adoption timelines and could strand consumers.",
+            "NREL's 2023 analysis for the DOE Joint Office estimates a national network could require about 1.2 million publicly accessible charging ports by 2030 (plus ~26.8 million private ports) to support 30-42 million light-duty EVs. The current public network is far smaller, so rural charging gaps and installation pace could slow adoption.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
             replicability: 8,
-            directness: 5,
+            directness: 3,
           },
-          source: "Department of Energy, National Renewable Energy Laboratory",
+          source:
+            "National Renewable Energy Laboratory, The 2030 National Charging Network (2023)",
+          sourceUrl: "https://docs.nrel.gov/docs/fy23osti/85654.pdf",
           reasoning:
-            "Authoritative government data on infrastructure gap. Directness is low for the environmental claim — infrastructure readiness affects adoption speed, not per-vehicle environmental impact.",
+            "Authoritative government modeling of the infrastructure build-out needed. Directness lowered further: charger availability affects adoption speed and convenience, not per-vehicle lifecycle emissions, so it is weak as evidence on the environmental question. The specific 'only 186,000 exist as of early 2024' count was removed as it was unsourced here.",
         },
       ],
     },

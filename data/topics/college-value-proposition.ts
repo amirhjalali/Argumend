@@ -33,25 +33,26 @@ export const collegeValuePropositionData = {
       evidence: [
         {
           id: "georgetown-lifetime-earnings",
-          title: "Georgetown: College Graduates Earn $1.2M More Over Lifetime",
+          title: "Georgetown: Bachelor's Degree Holders Earn $1.2M More in Lifetime Median Earnings",
           description:
-            "Georgetown University's Center on Education and the Workforce finds bachelor's degree holders earn $2.8M over a lifetime vs. $1.6M for high school graduates — a $1.2M premium that has grown over time.",
+            "Georgetown University's Center on Education and the Workforce ('The College Payoff,' 2021) finds median lifetime earnings of $2.8M for bachelor's degree holders vs. $1.6M for high school graduates working full-time, full-year — a ~$1.2M (75%) gap. The same report stresses that more education does not always mean more earnings: a large share of high school graduates out-earn the typical worker with more education.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
             replicability: 7,
-            directness: 7,
+            directness: 6,
           },
-          source: "Georgetown University CEW",
+          source: "Georgetown University CEW, 'The College Payoff' (2021)",
+          sourceUrl: "https://cew.georgetown.edu/cew-reports/collegepayoff2021/",
           reasoning:
-            "Well-regarded research center, though aggregated averages obscure wide variance by major and institution.",
+            "Well-regarded research center; figures are median lifetime earnings (full-time, full-year), and the same report cautions that aggregated averages obscure wide variance by major and institution.",
         },
         {
           id: "fed-wage-premium",
-          title: "Federal Reserve: College Wage Premium Stable at 84%",
+          title: "NY Fed: College Wage Premium Has Held Steady; ~12.5% Annual Return",
           description:
-            "The New York Federal Reserve tracks the college wage premium and finds it has remained between 73-84% since 2000. In 2024, median college graduate earns $60K vs. $36K for high school graduates.",
+            "The New York Fed ('Is College Still Worth It?', April 2025) finds the median worker with only a bachelor's degree earned about $80K vs. $47K for the median high school graduate — roughly a 68% earnings gap. The annualized financial return to a degree has held between 12-13% over the past three decades and was 12.5% in 2024. (Recent grads aged 22-27 earned a median of $60K vs. $36K for high school graduates.)",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -59,41 +60,44 @@ export const collegeValuePropositionData = {
             replicability: 8,
             directness: 6,
           },
-          source: "Federal Reserve Bank of New York",
+          source: "Federal Reserve Bank of New York, Liberty Street Economics (2025)",
+          sourceUrl: "https://libertystreeteconomics.newyorkfed.org/2025/04/is-college-still-worth-it/",
           reasoning:
-            "Highly credible data; directness somewhat limited by selection bias (those who attend college may differ from those who don't).",
+            "Highly credible data; the ~12.5% figure is an annualized rate of return (not a wage premium percentage), and directness is limited by selection bias (those who attend college may differ from those who don't).",
         },
         {
           id: "student-loan-defaults",
-          title: "Student Loan Default Rates Highest Among Non-Completers",
+          title: "Student Loan Default Rates Concentrated Among Non-Completers and For-Profit Attendees",
           description:
-            "Federal data shows 29% of borrowers who attended but didn't complete college default on loans within 12 years, vs. 8% of bachelor's degree completers. For-profit school attendees default at 44%. The debt problem is concentrated, not universal.",
+            "Brookings analysis of federal data finds about 28% of undergraduate borrowers default within 12 years of entry, but defaults are heavily concentrated: those who completed a bachelor's or graduate degree default at roughly 8%, while dropouts and for-profit attendees default at far higher rates (for-profit attendees ~47% in the cohort studied). The debt problem is concentrated, not universal.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 7,
+            replicability: 6,
             directness: 5,
           },
-          source: "Department of Education, Brookings",
+          source: "Brookings (Looney & Yannelis), using federal data",
+          sourceUrl: "https://www.brookings.edu/articles/what-accounts-for-gaps-in-student-loan-default-and-what-happens-after/",
           reasoning:
-            "Reframes the debt crisis as a completion crisis; indirectly supports college value for completers.",
+            "Reframes the debt crisis as a completion/institution-type crisis; indirectly supports college value for completers. Exact non-completer default rate varies by cohort and definition.",
         },
         {
           id: "trade-certification-earnings",
-          title: "Skilled Trades Offer Competitive Earnings Without Debt",
+          title: "Skilled Trades Offer Competitive Median Earnings Without Debt",
           description:
-            "Licensed electricians, plumbers, and HVAC technicians earn median salaries of $56K-$60K with minimal debt. Union apprenticeship programs pay during training. In high-demand markets, experienced tradespeople earn $80K+.",
+            "BLS (May 2024) reports median annual wages of $62,350 for electricians, $62,970 for plumbers/pipefitters/steamfitters, and $59,810 for HVAC mechanics — above the $49,500 median for all workers — typically with minimal debt. Apprenticeship programs pay during training, and top earners in high-demand markets exceed $80K (BLS shows 90th-percentile electrician pay above $100K).",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 8,
-            directness: 8,
+            directness: 7,
           },
-          source: "Bureau of Labor Statistics, National Electrical Contractors Association",
+          source: "Bureau of Labor Statistics, Occupational Outlook Handbook (May 2024)",
+          sourceUrl: "https://www.bls.gov/ooh/construction-and-extraction/electricians.htm",
           reasoning:
-            "Demonstrates that competitive earnings are achievable through non-degree pathways with far less financial risk.",
+            "Demonstrates that competitive median earnings are achievable through non-degree pathways with far less financial risk; trade medians still trail the median bachelor's-degree wage.",
         },
       ],
     },
@@ -122,57 +126,60 @@ export const collegeValuePropositionData = {
       evidence: [
         {
           id: "bootcamp-placement-rates",
-          title: "Bootcamp Placement Rates Are Often Inflated",
+          title: "Bootcamp Outcomes Vary Widely and Require Standardized Reporting",
           description:
-            "CIRR (Council on Integrity in Results Reporting) found that many bootcamps report placement rates of 80-95%, but independent audits show actual full-time employment in field rates of 50-65%. Many 'placements' are contract, part-time, or unrelated roles.",
+            "The Council on Integrity in Results Reporting (CIRR) was created to standardize and independently certify coding-bootcamp outcomes precisely because self-reported placement claims were unreliable. CIRR member schools report an average ~80% in-field placement within six months, but outcomes vary enormously by school, and definitions of 'placement' (including part-time or contract roles) differ across non-member providers.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 6,
-            replicability: 5,
-            directness: 7,
+            replicability: 4,
+            directness: 6,
           },
-          source: "CIRR, Course Report",
+          source: "Council on Integrity in Results Reporting (CIRR)",
+          sourceUrl: "https://www.cirr.org/",
           reasoning:
-            "Raises questions about alternatives, though bootcamp quality varies enormously.",
+            "Raises questions about alternatives; specific 'inflated to 50-65%' audit figures could not be verified, so the claim is stated conservatively. Bootcamp quality varies enormously.",
         },
         {
           id: "german-apprenticeship-model",
           title: "Germany's Apprenticeship System Produces Strong Outcomes",
           description:
-            "Germany's dual education system (apprenticeship + classroom) serves 50%+ of young adults. Youth unemployment is 5.8% (vs. 7.5% in the US). Apprenticeship graduates report high job satisfaction and stable careers in manufacturing, healthcare, and IT.",
+            "Germany's dual education system (workplace apprenticeship + vocational school) is the most popular post-school path, with about half of school-leavers entering company-based vocational training. Germany has among Europe's lowest youth unemployment rates (~5.7%), and the employment rate of 25-34 year-olds with intermediate (vocational) qualifications (~88%) exceeds the OECD average (~82%).",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 6,
-            directness: 8,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 7,
           },
-          source: "OECD, German Federal Institute for Vocational Education",
+          source: "OECD, 'Vocational Education and Training in Germany'",
+          sourceUrl: "https://www.oecd.org/en/publications/vocational-education-and-training-systems-in-nine-countries_1a86eb6c-en/full-report/vocational-education-and-training-in-germany_dae78944.html",
           reasoning:
-            "Compelling international model showing degree is not necessary; replicability in US uncertain but directionally important.",
+            "Compelling international model suggesting a degree is not necessary for strong outcomes; replicability in the US is uncertain and direct US-vs-Germany youth-unemployment comparisons depend on definitions, so stated conservatively.",
         },
         {
           id: "no-degree-hiring",
-          title: "Google, Apple, IBM Dropped Degree Requirements",
+          title: "Employers Are Dropping Degree Requirements — But Hiring Lags the Rhetoric",
           description:
-            "Major tech companies have formally removed bachelor's degree requirements for most positions, signaling that skills and experience can substitute for formal credentials. This trend is spreading to finance, consulting, and government roles.",
+            "The Burning Glass Institute / Harvard ('The Emerging Degree Reset') found employers removed degree requirements from ~46% of middle-skill and ~31% of high-skill roles (2017-2019), with most resets appearing structural. But the follow-up ('Skills-Based Hiring: The Long Road from Pronouncements to Practice') found actual hiring barely changed — only about a 3.5 percentage-point increase in hires without a BA after a requirement was dropped. The signal is real but implementation badly lags the announcements.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 7,
-            directness: 7,
+            replicability: 6,
+            directness: 5,
           },
-          source: "Harvard Business School, Burning Glass Institute",
+          source: "Burning Glass Institute & Harvard Business School (2022, 2024)",
+          sourceUrl: "https://www.burningglassinstitute.org/research/the-emerging-degree-reset",
           reasoning:
-            "Major employers formally devaluing the degree signals structural shift, even if implementation lags.",
+            "Major employers formally devaluing the degree signals a structural shift, but the same researchers show real hiring of non-degree candidates changed little — so this cuts both ways and the 'credential is irrelevant' framing is not supported.",
         },
         {
           id: "mid-career-earnings-by-education",
-          title: "Mid-Career Earnings Gap Widens with Age",
+          title: "College Wage Premium Widens with Age",
           description:
-            "Bureau of Labor Statistics data shows the earnings gap between college and non-college workers widens from ages 25-55. By age 45, bachelor's degree holders earn 2.3x more than high school graduates, up from 1.5x at age 25.",
+            "The New York Fed ('Is College Still Worth It?', 2025) shows the college wage premium grows over a career: college-educated workers earn about 27% more than high school graduates at age 25, widening to roughly 60% by age 55, because wages grow faster for degree holders. Across all ages, bachelor's holders' median weekly earnings are about 84% above high school graduates' (BLS, 2025).",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -180,9 +187,10 @@ export const collegeValuePropositionData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Bureau of Labor Statistics",
+          source: "Federal Reserve Bank of New York (2025); BLS",
+          sourceUrl: "https://libertystreeteconomics.newyorkfed.org/2025/04/is-college-still-worth-it/",
           reasoning:
-            "Authoritative longitudinal data; directness limited by selection effects and survivor bias.",
+            "Authoritative cross-sectional data; directness limited by selection effects and survivor bias, and the age-profile reflects cross-sectional snapshots rather than tracked cohorts.",
         },
       ],
     },

@@ -86,17 +86,20 @@ export const chinaTaiwanInvasionData = {
           id: "pla-navy-expansion",
           title: "PLA Navy Is Now the World's Largest Fleet",
           description:
-            "China's navy surpassed 370 battle force ships by 2024, exceeding the U.S. Navy, with a focus on amphibious assault ships and missile-equipped surface combatants.",
+            "The Pentagon's 2024 China Military Power Report assesses the PLA Navy as the world's largest by hull count, with a battle force of over 370 ships and submarines, projected to reach ~395 by 2025 and 435 by 2030.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
             replicability: 8,
-            directness: 7,
+            directness: 6,
           },
-          source: "US Office of Naval Intelligence",
+          source:
+            "US DoD, Military and Security Developments Involving the PRC 2024 (annual report to Congress)",
+          sourceUrl:
+            "https://media.defense.gov/2024/Dec/18/2003615520/-1/-1/0/MILITARY-AND-SECURITY-DEVELOPMENTS-INVOLVING-THE-PEOPLES-REPUBLIC-OF-CHINA-2024.PDF",
           reasoning:
-            "Hull count is verifiable via satellite imagery, though raw numbers don't account for tonnage or capability gaps with the U.S. fleet.",
+            "Hull count is verifiable via satellite imagery, but the official figure measures battle-force quantity, not tonnage or capability; the U.S. Navy retains advantages in tonnage, carriers, and blue-water reach. Directness lowered because fleet size alone does not establish amphibious-invasion intent.",
         },
         {
           id: "2027-centenary-directive",
@@ -110,40 +113,49 @@ export const chinaTaiwanInvasionData = {
             replicability: 3,
             directness: 6,
           },
-          source: "CIA Director William Burns, INDOPACOM Commander Aquilino",
+          source:
+            "CIA Director William Burns (2023 remarks) and INDOPACOM Commander Adm. John Aquilino (2024 congressional testimony)",
+          sourceUrl:
+            "https://www.cbsnews.com/news/cia-director-william-burns-china-taiwan-2027/",
           reasoning:
-            "Based on intelligence assessments, not public statements from China. 'Capability by' does not necessarily mean 'will invade by.' Independence score lowered because multiple U.S. officials may share the same underlying intelligence.",
+            "Based on U.S. intelligence assessments, not public statements from China. Burns himself stressed this is a directive on military capability, NOT a decision to invade; a March 2026 U.S. intelligence assessment likewise concluded China is not committed to a 2027 invasion. Replicability and independence kept low because multiple U.S. officials may draw on the same underlying intelligence and the date is contested.",
         },
         {
           id: "no-amphibious-experience",
           title: "PLA Has Zero Modern Amphibious Combat Experience",
           description:
-            "China has not conducted a contested amphibious operation since the failed assault on Kinmen (Quemoy) in 1949. The Taiwan Strait crossing would require the most complex amphibious operation in history, dwarfing D-Day.",
+            "China has not conducted a contested amphibious operation since the failed assault on Kinmen (Quemoy) in 1949. Analysts widely judge a Taiwan Strait crossing would be among the most complex amphibious operations ever attempted, larger and harder than the Normandy landings.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 9,
-            directness: 8,
+            replicability: 8,
+            directness: 7,
           },
+          source: "CSIS, 'The First Battle of the Next War' (Cancian et al., 2023)",
+          sourceUrl:
+            "https://www.csis.org/analysis/first-battle-next-war-wargaming-chinese-invasion-taiwan",
           reasoning:
-            "Historical fact. Military doctrine universally acknowledges that amphibious operations are the most difficult form of warfare. The PLA's lack of combat experience is a significant operational risk.",
+            "The 1949 Kinmen defeat is documented historical fact, and military doctrine treats opposed amphibious assault as the hardest form of warfare. The 'dwarfing D-Day' framing is softened to 'among the most complex / larger than Normandy' since direct size comparisons are analytic judgments, not settled fact; directness lowered accordingly.",
         },
         {
           id: "taiwan-fortification",
           title: "Taiwan's Geographic and Defensive Advantages",
           description:
-            "Taiwan has only 14 suitable landing beaches, a mountainous interior, and has been fortifying its defenses for 75 years. Prevailing weather limits crossing windows to April-October.",
+            "Taiwan has only about 14 beaches suitable for an amphibious landing, most bordered by mountains, cliffs, or dense urban terrain, and weather/sea-state limits major crossing windows to roughly April and October.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
             directness: 7,
           },
-          source: "CSIS Taiwan Strait wargame analysis",
+          source:
+            "Ian Easton, The Chinese Invasion Threat (Project 2049 Institute, 2017), as cited in widely reported analyses",
+          sourceUrl:
+            "https://thediplomat.com/2021/05/why-a-taiwan-invasion-would-look-nothing-like-d-day/",
           reasoning:
-            "Geographic constraints are immutable. Taiwan's defensive preparations are well-documented and continually improving with increased defense spending.",
+            "The '14 beaches' and 'April/October only' figures originate with Ian Easton's research, not the CSIS wargame, so attribution is corrected. Geographic constraints are durable, but the precise beach count and seasonal window are analyst estimates rather than official data, so reliability/replicability are set just below maximum.",
         },
       ],
     },
@@ -175,7 +187,7 @@ export const chinaTaiwanInvasionData = {
           id: "russia-ukraine-precedent",
           title: "Russia-Ukraine Precedent: Economic Ties Did Not Prevent War",
           description:
-            "Russia invaded Ukraine in 2022 despite deep economic integration with Europe, demonstrating that economic interdependence does not guarantee peace when a leader prioritizes territorial ambitions.",
+            "Russia invaded Ukraine in 2022 despite supplying ~45% of EU gas imports in 2021, undercutting the liberal 'commercial peace' thesis that deep economic interdependence reliably deters great-power aggression.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -183,56 +195,68 @@ export const chinaTaiwanInvasionData = {
             replicability: 7,
             directness: 6,
           },
+          source:
+            "European Parliament research on the economic impact of Russia's war on Ukraine; commercial-peace-theory analyses",
+          sourceUrl:
+            "https://www.europarl.europa.eu/RegData/etudes/BRIE/2024/757783/EPRS_BRI(2024)757783_EN.pdf",
           reasoning:
-            "Direct historical precedent, though China-Taiwan involves far greater economic stakes and military complexity than Russia-Ukraine.",
+            "Direct, well-documented historical precedent. Analogy is imperfect: China-Taiwan involves far greater economic stakes and a vastly harder amphibious-military problem than Russia-Ukraine, so directness is kept moderate.",
         },
         {
           id: "china-self-sufficiency-drive",
           title: "China's 'Dual Circulation' Self-Sufficiency Campaign",
           description:
-            "Since 2020, China has invested hundreds of billions in domestic semiconductor production, built strategic commodity stockpiles, and expanded overland energy pipelines to reduce maritime trade vulnerability.",
+            "China's 'dual circulation' strategy, enshrined in the 14th Five-Year Plan (2021-2025), prioritizes domestic supply chains and names semiconductors a strategic priority, targeting ~50% self-sufficiency in chipmaking. China has also expanded overland energy links and commodity stockpiling to reduce maritime exposure.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 7,
-            replicability: 8,
-            directness: 5,
+            replicability: 7,
+            directness: 4,
           },
-          source: "China's 14th Five-Year Plan, public investment data",
+          source:
+            "Congressional Research Service, 'China's 14th Five-Year Plan: A First Look' (IF11684)",
+          sourceUrl: "https://www.congress.gov/crs-product/IF11684",
           reasoning:
-            "Self-sufficiency efforts are real and verifiable, but could reflect general strategic hedging rather than invasion preparation specifically.",
+            "The dual-circulation and semiconductor self-reliance goals are official and verifiable. The stockpiling/pipeline elements are general strategic hedging not explicitly tied to the Plan, so the broader claim is de-inflated and directness kept very low: self-sufficiency efforts do not by themselves indicate invasion preparation.",
         },
         {
           id: "semiconductor-destruction-paradox",
           title: "TSMC Fabs Would Be Destroyed in a Conflict",
           description:
-            "TSMC's advanced fabrication facilities require years to build, ultra-pure inputs, and Western equipment maintenance. They would almost certainly be damaged or rendered inoperable during an invasion, destroying the semiconductor prize China seeks.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 8,
-          },
-          source: "Semiconductor industry analysts, TSMC leadership statements",
-          reasoning:
-            "Known as the 'silicon shield' argument. TSMC chairman has publicly stated the fabs cannot function in a war zone. This creates a paradox where invasion destroys the asset motivating it.",
-        },
-        {
-          id: "trade-dependency-scale",
-          title: "China's Trade Dependency Dwarfs Russia's Pre-Invasion Exposure",
-          description:
-            "China's $3.6 trillion annual trade and $3.2 trillion in foreign-held assets create an economic exposure orders of magnitude larger than Russia's pre-2022 position. Comprehensive sanctions would crash China's GDP by an estimated 10-25%.",
+            "TSMC's advanced fabs depend on continuous real-time links to Western, Japanese, and U.S. suppliers and ultra-pure inputs. Then-chairman Mark Liu said in 2022 that a military invasion would render the factories 'not operable,' undercutting the semiconductor prize an invader would seek.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 7,
+            replicability: 6,
             directness: 7,
           },
-          source: "IMF trade data, Rhodium Group analysis",
+          source:
+            "TSMC Chairman Mark Liu, CNN interview, 2022 ('silicon shield' argument)",
+          sourceUrl:
+            "https://www.datacenterdynamics.com/en/news/tsmc-chairman-on-chinese-invasion-of-taiwan-nobody-can-control-tsmc-by-force/",
           reasoning:
-            "Economic modeling involves significant uncertainty, but the scale of China's trade exposure is well-documented and far exceeds historical precedents.",
+            "Liu's 'not operable' statement is directly sourced. But it is an interested party's assertion and a contested strategic theory ('silicon shield'), not an independently verified engineering fact, so reliability/independence are lowered from the prior overstated levels.",
+        },
+        {
+          id: "trade-dependency-scale",
+          title: "China's Trade Exposure Far Exceeds Russia's Pre-Invasion Position",
+          description:
+            "A Taiwan-crisis sanctions regime could put at immediate risk on the order of $3 trillion in trade and financial flows, per an Atlantic Council/Rhodium Group study, with separate Rhodium work estimating over $2 trillion in global activity disrupted by a blockade. China's far larger trade integration than Russia's makes it more, not less, exposed to such measures.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 5,
+            directness: 6,
+          },
+          source:
+            "Atlantic Council GeoEconomics Center & Rhodium Group, 'Sanctioning China in a Taiwan Crisis' (2023); Rhodium, 'Global Economic Disruptions from a Taiwan Conflict'",
+          sourceUrl:
+            "https://www.atlanticcouncil.org/in-depth-research-reports/report/sanctioning-china-in-a-taiwan-crisis-scenarios-and-risks/",
+          reasoning:
+            "Corrected: the prior '10-25% GDP crash' figure and the specific '$3.6T trade / $3.2T assets' numbers were not supported by the cited sources and have been removed. The sourced figures describe trade/financial flows at risk (~$3T), not a precise GDP-loss percentage; such scenario modeling carries large uncertainty, so replicability and directness are de-inflated.",
         },
       ],
     },
@@ -264,64 +288,75 @@ export const chinaTaiwanInvasionData = {
           id: "biden-taiwan-statements",
           title: "Multiple Presidential Statements of Defense Commitment",
           description:
-            "President Biden stated on four separate occasions that the U.S. would defend Taiwan militarily, moving beyond traditional strategic ambiguity despite staff walkbacks.",
+            "President Biden stated on at least four separate occasions (2021-2022) that the U.S. would defend Taiwan militarily, appearing to move beyond strategic ambiguity, though each time the White House clarified that official policy was unchanged.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 6,
-            replicability: 8,
-            directness: 7,
+            replicability: 7,
+            directness: 6,
           },
-          source: "White House press conferences, 2021-2023",
+          source:
+            "Biden public remarks 2021-2022 (Stephanopoulos interview, Kishida presser, Sept. 2022, 60 Minutes), with subsequent White House clarifications",
+          sourceUrl:
+            "https://abcnews.go.com/Politics/biden-us-defend-taiwan-chinese-invasion/story?id=90184808",
           reasoning:
-            "Presidential statements carry weight but were repeatedly walked back by staff, creating ambiguity about whether they represent actual policy or gaffes. Scored 'against' invasion likelihood since strong deterrence signals reduce invasion probability.",
+            "The four statements and the repeated walkbacks are well-documented; Biden himself said the policy 'has not changed.' This ambiguity means the statements are a weaker deterrence signal than they first appear, so directness is lowered. Scored 'against' invasion likelihood since credible deterrence reduces invasion probability.",
         },
         {
           id: "pacific-force-buildup",
           title: "U.S. Pacific Military Buildup and Alliance Strengthening",
           description:
-            "The U.S. has expanded Marine rotational presence in Australia, signed AUKUS, secured new Philippine basing agreements, and increased freedom of navigation operations in the Taiwan Strait.",
+            "The U.S. has expanded its Marine Rotational Force in Darwin, signed AUKUS (including a future submarine rotational presence in Australia from 2027), secured four additional EDCA basing sites in the Philippines (2023), and conducts regular Taiwan Strait transits.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 9,
-            directness: 7,
+            directness: 6,
           },
-          source: "U.S. Department of Defense, allied government statements",
+          source:
+            "Congressional Research Service, 'U.S. Defense Infrastructure in the Indo-Pacific' (R47589)",
+          sourceUrl: "https://www.congress.gov/crs-product/R47589",
           reasoning:
-            "Concrete military actions are more credible signals than verbal commitments. The scope of Pacific realignment suggests genuine preparation for a Taiwan contingency.",
+            "These deployments and basing agreements are concrete, publicly documented signals, more credible than verbal commitments. Directness lowered because posture improvements are general Indo-Pacific positioning and do not, by themselves, prove a binding commitment to fight for Taiwan.",
         },
         {
           id: "wargame-heavy-losses",
           title: "U.S. Wargames Project Heavy Losses in Taiwan Scenarios",
           description:
-            "CSIS and Pentagon wargames consistently show the U.S. suffering significant losses in a Taiwan defense scenario, including 2 aircraft carriers, 10-20 major surface combatants, and hundreds of aircraft in the first weeks.",
+            "In CSIS's 2023 wargame, across the base scenarios the U.S. typically lost about 2 aircraft carriers, 10-20 major surface combatants, and 200-400 aircraft within roughly three weeks—while still, in most runs, repelling the invasion at high cost.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
             replicability: 6,
-            directness: 7,
+            directness: 6,
           },
-          source: "CSIS wargame report (2023), Congressional testimonies",
+          source:
+            "CSIS, 'The First Battle of the Next War' (Cancian, Cancian & Heginbotham, 2023)",
+          sourceUrl:
+            "https://www.csis.org/analysis/first-battle-next-war-wargaming-chinese-invasion-taiwan",
           reasoning:
-            "Projected heavy losses could undermine U.S. willingness to intervene. However, wargames also generally show the U.S. and allies successfully repelling the invasion despite losses.",
+            "Loss figures (2 carriers, 10-20 surface ships, 200-400 aircraft over ~3 weeks) match the CSIS report. Projected heavy losses could deter U.S. intervention, but the same wargame shows the U.S./Taiwan/Japan usually defeating the invasion—so the evidence cuts both ways, and directness toward higher invasion likelihood is moderate.",
         },
         {
           id: "afghanistan-credibility-gap",
           title: "Afghanistan Withdrawal Raised Allied Credibility Concerns",
           description:
-            "The chaotic U.S. withdrawal from Afghanistan in 2021 raised global questions about American commitment to allies and willingness to sustain costly military engagements.",
+            "The chaotic August 2021 U.S. withdrawal from Afghanistan prompted commentary—from allies, adversaries, and U.S. analysts alike—questioning American staying power, though officials argued it freed resources to focus on the Indo-Pacific.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 7,
-            directness: 4,
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 5,
+            directness: 3,
           },
+          source:
+            "Congressional Research Service, 'U.S. Military Withdrawal and Taliban Takeover in Afghanistan: Frequently Asked Questions' (R46879)",
+          sourceUrl: "https://www.congress.gov/crs-product/R46879",
           reasoning:
-            "The Afghanistan analogy is imperfect—Taiwan is far more strategically important and the alliance context is different. However, the credibility signal was noted by both allies and adversaries.",
+            "The withdrawal is documented fact, but its bearing on Taiwan is an inferential, contested narrative—Taiwan is a far higher strategic priority and the alliance context differs entirely. Weights de-inflated: this is interpretive credibility signaling, not direct evidence about invasion likelihood, hence very low directness.",
         },
       ],
     },

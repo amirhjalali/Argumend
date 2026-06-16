@@ -33,7 +33,7 @@ export const electoralCollegeReformData = {
           id: "pew-2024-survey",
           title: "Pew Research: 63% of Americans Favor Popular Vote",
           description:
-            "A September 2024 Pew Research Center survey found that more than 63% of Americans prefer the president to be elected by whoever wins the most votes nationally. Support is split by party: 80% of Democrats and Democratic-leaning independents favor replacing the Electoral College, while only 43% of Republicans agree.",
+            "A Pew Research Center survey of 9,720 U.S. adults conducted Aug. 26–Sept. 2, 2024 found that 63% of Americans prefer the president to be elected by whoever wins the most votes nationally, while 35% favor keeping the Electoral College. Support is split by party: 80% of Democrats and Democratic-leaning independents favor a popular vote, while among Republicans and Republican-leaners 46% favor a popular vote and 53% prefer the Electoral College.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -41,7 +41,10 @@ export const electoralCollegeReformData = {
             replicability: 9,
             directness: 7,
           },
-          source: "Pew Research Center (September 2024)",
+          source:
+            "Pew Research Center, \"Majority of Americans continue to favor moving away from Electoral College\" (Sept. 25, 2024)",
+          sourceUrl:
+            "https://www.pewresearch.org/short-reads/2024/09/25/majority-of-americans-continue-to-favor-moving-away-from-electoral-college/",
           reasoning:
             "Gold-standard polling from the most respected survey organization. However, public opinion does not determine constitutional correctness—many constitutional protections exist precisely to override majority preferences.",
         },
@@ -57,9 +60,12 @@ export const electoralCollegeReformData = {
             replicability: 10,
             directness: 9,
           },
-          source: "Federal Election Commission; certified election results",
+          source:
+            "Certified election results (compiled by Wikipedia, \"List of United States presidential elections in which the winner lost the popular vote\")",
+          sourceUrl:
+            "https://en.wikipedia.org/wiki/List_of_United_States_presidential_elections_in_which_the_winner_lost_the_popular_vote",
           reasoning:
-            "Indisputable factual record. Directness is high because this is exactly the scenario reform proponents want to prevent.",
+            "Indisputable factual record—Gore led Bush by 543,895 votes in 2000 and Clinton led Trump by 2,868,686 votes in 2016. Directness is high because this is exactly the scenario reform proponents want to prevent.",
         },
         {
           id: "federalism-protection",
@@ -68,14 +74,16 @@ export const electoralCollegeReformData = {
             "The Electoral College ensures every state has a minimum of 3 electoral votes regardless of population, giving smaller states proportionally greater influence. Without this, candidates would have no incentive to address issues specific to rural and low-population states. The system ensures the president must build a geographically diverse coalition rather than simply maximizing votes in a few mega-cities.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 7,
+            sourceReliability: 5,
+            independence: 5,
+            replicability: 6,
+            directness: 5,
           },
-          source: "American Bar Association; various constitutional law scholars",
+          source:
+            "National Archives, \"About the Electors\" (documents the minimum of 3 electoral votes per state); argument is a common pro–Electoral College interpretation rather than a sourced empirical finding",
+          sourceUrl: "https://www.archives.gov/electoral-college/about",
           reasoning:
-            "Theoretically sound but empirically questionable: under the current system, candidates already ignore 40+ states to focus on swing states. Small states like Wyoming and Vermont are not swing states and receive minimal attention.",
+            "The factual mechanism is confirmed by the National Archives: every state gets at least 3 electoral votes (one per senator plus one per representative), so low-population states are overrepresented relative to population. The downstream claim that this protects small-state influence is interpretive and empirically questionable—under the current system candidates already concentrate on a handful of swing states, and small states like Wyoming and Vermont are not swing states and receive minimal attention. (Note: the previously cited American Bar Association does not endorse this argument; the ABA has historically criticized the Electoral College as archaic.) Weights lowered accordingly.",
         },
       ],
     },
@@ -104,33 +112,37 @@ export const electoralCollegeReformData = {
           id: "npvic-progress",
           title: "NPVIC Has 209 of 270 Needed Electoral Votes",
           description:
-            "As of February 2025, the National Popular Vote Interstate Compact has been enacted by 17 states plus the District of Columbia, controlling 209 electoral votes. The compact will take effect when states controlling 270 electoral votes (a majority) have joined. All enacting states are Democratic-controlled.",
+            "As of 2026, the National Popular Vote Interstate Compact has been enacted by 18 states plus the District of Columbia, controlling 222 electoral votes (Virginia became the most recent to join, on April 13, 2026). The compact will take effect when states controlling 270 electoral votes (a majority of 538) have joined—an additional 48 are needed. Every state that has enacted it joined under a Democratic governor.",
           side: "for" as const,
           weight: {
-            sourceReliability: 10,
-            independence: 10,
-            replicability: 10,
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
             directness: 8,
           },
-          source: "National Popular Vote Inc.; state legislative records",
+          source:
+            "National Popular Vote Inc.; Ballotpedia, \"National Popular Vote Interstate Compact\"",
+          sourceUrl: "https://ballotpedia.org/National_Popular_Vote_Interstate_Compact",
           reasoning:
-            "Factual progress that demonstrates political momentum. However, the remaining 61 EVs require states that are politically unlikely to join, making completion uncertain.",
+            "Factual progress that demonstrates political momentum. However, the remaining 48 EVs require states that are politically unlikely to join, making completion uncertain. (Note: the 209-EV/17-state figure was accurate in early 2025 but is now superseded by Virginia's 2026 accession.)",
         },
         {
           id: "partisan-adoption-concern",
           title: "Only Democratic States Have Joined the NPVIC",
           description:
-            "Every state that has enacted the NPVIC is controlled by Democrats. No Republican-controlled legislature has passed the compact. This partisan pattern undermines the claim that the NPVIC is a nonpartisan reform and suggests it is motivated by Democrats' structural advantage in the national popular vote.",
+            "Of the states that have enacted the NPVIC, every one joined under a Democratic governor, and none did so under a Republican state-government trifecta (per Ballotpedia, 15 enacting states had a Democratic trifecta and the rest had divided government at the time of adoption). No state with a Republican trifecta has enacted it. (Republican-led chambers have passed the compact in one chamber in a few states such as New York, Oklahoma, and Arizona, but no Republican governor has signed it into law.) This partisan pattern complicates the claim that the NPVIC is a fully nonpartisan reform.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 7,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 6,
           },
-          source: "CBS News analysis; Brennan Center for Justice",
+          source:
+            "Ballotpedia, \"National Popular Vote Interstate Compact\" (partisan-control analysis of member states)",
+          sourceUrl: "https://ballotpedia.org/National_Popular_Vote_Interstate_Compact",
           reasoning:
-            "The partisan pattern is undeniable and undermines the reform's legitimacy. However, this may reflect rational self-interest rather than the policy's merits—Republicans benefited from the Electoral College in 2000 and 2016.",
+            "The partisan pattern in enactment is real, but the original claim that 'no Republican legislature has passed the compact' overstated it—Republican-controlled chambers have passed it in one chamber in several states. This may reflect rational self-interest rather than the policy's merits: Republicans benefited from the Electoral College in 2000 and 2016. Weights modestly lowered to reflect the softened claim.",
         },
       ],
     },

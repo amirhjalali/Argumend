@@ -35,7 +35,7 @@ export const bigTechAntitrustData = {
           id: "doj-google-monopoly",
           title: "DOJ v. Google: Court Finds Illegal Monopoly",
           description:
-            "In August 2024, a federal judge ruled that Google illegally maintained a monopoly in search and search advertising. The court found Google paid $26.3 billion in 2021 alone to be the default search engine, foreclosing competition. Google controls 89.2% of general search and 94.9% on mobile.",
+            "On August 5, 2024, Judge Amit Mehta (U.S. District Court, D.C.) ruled that Google is a monopolist that illegally maintained its monopoly in general search services and general search text advertising. The court found Google paid $26.3 billion in 2021 alone for default-search placement. The opinion notes Google holds roughly 89.2% of the general search market (and ~94.9% on mobile).",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -43,7 +43,10 @@ export const bigTechAntitrustData = {
             replicability: 8,
             directness: 10,
           },
-          source: "U.S. District Court, DOJ Antitrust Division",
+          source:
+            "U.S. v. Google LLC, No. 1:20-cv-03010-APM, Memorandum Opinion (D.D.C. Aug. 5, 2024), Judge Amit P. Mehta",
+          sourceUrl:
+            "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0_2.pdf",
           reasoning:
             "A federal court ruling after extensive trial is among the most authoritative forms of evidence. Directly establishes illegal monopoly maintenance.",
         },
@@ -51,49 +54,54 @@ export const bigTechAntitrustData = {
           id: "startup-formation-decline",
           title: "Tech Startup Formation Has Declined as Big Tech Grew",
           description:
-            "Research shows venture capital investment in startups competing with Big Tech's core businesses declined by 40% between 2010-2022. The 'kill zone' effect — where investors avoid funding companies that compete with platform giants — is well documented. Acquisition of nascent competitors (Instagram, WhatsApp, Waze) removes future competition.",
+            "The 'kill zone' hypothesis holds that VC investors avoid funding startups in segments adjacent to a Big Tech platform's products. Kamepalli, Rajan & Zingales (NBER w27146) model and find evidence that acquisitions by Google/Facebook reduced VC funding and entry in the target's space. The effect is genuinely contested: other panel studies (e.g. Prado & Bauer 2022) find small positive average effects of big-tech acquisitions on VC activity. Acquisitions of nascent rivals (Instagram, WhatsApp, Waze) are a documented pattern.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 7,
-            replicability: 6,
-            directness: 7,
+            replicability: 4,
+            directness: 5,
           },
-          source: "National Bureau of Economic Research, Stigler Center",
+          source:
+            "Kamepalli, Rajan & Zingales, 'Kill Zone,' NBER Working Paper 27146 (rev. 2020)",
+          sourceUrl: "https://www.nber.org/papers/w27146",
           reasoning:
-            "Multiple independent sources document the investment decline, though causation versus correlation is debated.",
+            "The 'kill zone' is a real research strand but findings are mixed — some studies find the opposite sign. Removed the unsourced '40% decline 2010-2022' figure and de-inflated replicability/directness to reflect genuine empirical contestation.",
         },
         {
           id: "eu-dma-early-results",
           title: "EU Digital Markets Act Shows Early Regulatory Impact",
           description:
-            "The EU's Digital Markets Act (2024) forced Apple to allow sideloading, Google to unbundle search from Android, and Amazon to separate marketplace and retail divisions in Europe. Early data shows modest increases in alternative app store usage and third-party payment adoption.",
+            "Under the EU's Digital Markets Act, designated gatekeepers had to change conduct from March 2024: Apple enabled third-party app marketplaces and sideloading (iOS 17.4) and alternative payment options, and Google adjusted Search/Android self-preferencing. The DMA is a behavioral/conduct regime — it did not order structural separation of Amazon's marketplace and retail. Early effects on alternative app-store and third-party-payment adoption appear modest, and several gatekeepers face ongoing non-compliance investigations.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 5,
-            directness: 6,
+            directness: 5,
           },
-          source: "European Commission, DMA compliance reports",
+          source: "European Commission — Digital Markets Act (official portal)",
+          sourceUrl: "https://digital-markets-act.ec.europa.eu/index_en",
           reasoning:
-            "Real-world regulatory experiment providing early evidence that structural intervention can open markets, though long-term effects are uncertain.",
+            "Real-world regulatory experiment with early, modest evidence. Corrected an inaccurate claim that the DMA forced Amazon to split marketplace and retail (it did not); the DMA is conduct regulation, not structural break-up. Directness lowered accordingly.",
         },
         {
           id: "consumer-surplus-integration",
           title: "Platform Integration Creates Substantial Consumer Value",
           description:
-            "Estimates suggest Google's free services (Search, Maps, Gmail, YouTube) generate $15,000-$20,000 in annual consumer surplus per user. Apple's integrated ecosystem (hardware, software, services) consistently scores highest in customer satisfaction. Breaking up these ecosystems would destroy the integration that consumers value.",
+            "Online choice-experiment estimates of willingness-to-accept losing free digital services are large: Brynjolfsson et al. (PNAS 2019) found the median U.S. user would need ~$17,500/year to give up search engines, ~$8,400 for email, and ~$3,500 for digital maps. These are per-service WTA figures (not a single combined Google-ecosystem surplus), and the method is debated. The broader point — integrated free services create substantial consumer value — supports caution about break-up.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
-            independence: 5,
+            independence: 6,
             replicability: 5,
-            directness: 7,
+            directness: 6,
           },
-          source: "Brynjolfsson et al., MIT; American Customer Satisfaction Index",
+          source:
+            "Brynjolfsson, Collis & Eggers, 'Using massive online choice experiments to measure changes in well-being,' PNAS 116(15), 7250-7255 (2019)",
+          sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.1815663116",
           reasoning:
-            "Consumer surplus estimates are methodologically contested, and partly funded by industry. But the directness of the consumer value argument is clear.",
+            "Corrected the figure: the cited ~$17.5K is willingness-to-accept for search engines alone, not a combined $15-20K Google-ecosystem surplus per user. WTA estimates are methodologically contested. Removed the unsourced ACSI/Apple claim from the headline number.",
         },
       ],
     },
@@ -132,9 +140,11 @@ export const bigTechAntitrustData = {
             replicability: 6,
             directness: 7,
           },
-          source: "Shoshana Zuboff, Harvard Business School",
+          source:
+            "Shoshana Zuboff, 'The Age of Surveillance Capitalism' (PublicAffairs, 2019); see also 'Big Other,' Journal of Information Technology 30(1), 75-89 (2015). Zuboff is Professor Emerita, Harvard Business School.",
+          sourceUrl: "https://doi.org/10.1057/jit.2015.5",
           reasoning:
-            "Influential academic framework from a credible institution. Somewhat theoretical but grounded in extensive documentation of industry practices.",
+            "Influential academic framework from a credible scholar (HBS Professor Emerita). The peer-reviewed 'Big Other' (2015) underpins the popular 2019 book. Theoretical/critical rather than empirical, so weights kept moderate.",
         },
         {
           id: "cambridge-analytica-investigation",
@@ -148,41 +158,48 @@ export const bigTechAntitrustData = {
             replicability: 7,
             directness: 9,
           },
-          source: "FTC, UK Information Commissioner's Office, Senate Intelligence Committee",
+          source:
+            "FTC press release, 'FTC Imposes $5 Billion Penalty and Sweeping New Privacy Restrictions on Facebook' (July 24, 2019); UK Information Commissioner's Office",
+          sourceUrl:
+            "https://www.ftc.gov/news-events/news/press-releases/2019/07/ftc-imposes-5-billion-penalty-sweeping-new-privacy-restrictions-facebook",
           reasoning:
-            "Well-documented, multi-jurisdictional investigation with regulatory findings. Directly demonstrates data misuse and democratic manipulation.",
+            "Well-documented, multi-jurisdictional investigation with regulatory findings. The $5B FTC penalty and the ~87 million-user figure are both confirmed in official sources.",
         },
         {
           id: "apple-privacy-pivot",
           title: "Apple's Privacy Pivot Shows Market Self-Correction",
           description:
-            "Apple's App Tracking Transparency (ATT) feature, launched in 2021, allowed users to opt out of cross-app tracking. 96% of US users opted out, costing Meta an estimated $10B in annual revenue. This demonstrates that market competition and consumer choice can protect privacy without government intervention.",
+            "Apple's App Tracking Transparency (ATT), enforced from April 2021 (iOS 14.5), required apps to ask before tracking users across other apps. Flurry Analytics measured that ~96% of U.S. users left tracking off (only ~4% opted in). Meta itself estimated Apple's iOS changes would reduce its 2022 sales by roughly $10 billion. This is cited as evidence that consumer choice can protect privacy without structural intervention.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 6,
+            sourceReliability: 7,
+            independence: 5,
             replicability: 6,
             directness: 7,
           },
-          source: "Apple, Lotame, Financial Times analysis",
+          source:
+            "Flurry Analytics (May 2021 ATT opt-in data); Meta Q4 2021 earnings guidance (~$10B 2022 estimate, reported by CNBC)",
+          sourceUrl: "https://www.flurry.com/blog/att-opt-in-rate-monthly-updates/",
           reasoning:
-            "Compelling example of market-driven privacy protection. Independence somewhat limited because Apple has its own competitive motives for restricting competitors' data access.",
+            "Corrected source attribution from 'Lotame' to Flurry Analytics (the actual source of the 96% figure). The $10B is Meta's own projection of the 2022 revenue hit, not a measured annual loss. Independence lowered: Apple has competitive motives, and Meta's estimate is self-reported.",
         },
         {
           id: "gdpr-compliance-cost-disparity",
           title: "GDPR Compliance Costs Disproportionately Burden Small Companies",
           description:
-            "Studies show GDPR compliance costs averaged $1.3M for large companies but $150K for small companies — a far larger burden as a percentage of revenue. Google and Facebook's EU market share actually increased post-GDPR as smaller competitors struggled with compliance overhead.",
+            "Peer-reviewed evidence finds GDPR increased market concentration: Johnson, Shriver & Goldberg (Management Science 2023) show websites' use of web-technology vendors fell ~15% after enforcement, while vendor-market concentration rose ~17%, with Google- and Facebook-owned vendors gaining relative share. Compliance costs are also high in absolute terms — a 2017 PwC survey found 88% of large firms spent over $1M and 40% over $10M — a burden that falls hardest on smaller firms as a share of revenue.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
+            sourceReliability: 8,
+            independence: 8,
             replicability: 7,
             directness: 7,
           },
-          source: "DataGrail, IAPP (International Association of Privacy Professionals)",
+          source:
+            "Johnson, Shriver & Goldberg, 'Privacy and Market Concentration: Intended and Unintended Consequences of the GDPR,' Management Science 69(10), 5695-5721 (2023); PwC GDPR Readiness Survey (2017)",
+          sourceUrl: "https://doi.org/10.1287/mnsc.2023.4709",
           reasoning:
-            "Credible data on the unintended consequences of regulation. Directly relevant to whether antitrust regulation could backfire.",
+            "Replaced unverified per-firm cost figures ($1.3M / $150K, attributed to DataGrail/IAPP, which I could not confirm) with a peer-reviewed Management Science study directly documenting GDPR-driven concentration toward Google/Facebook, plus the PwC large-firm cost survey. Reliability/independence raised because the core claim is now anchored to peer-reviewed work.",
         },
       ],
     },

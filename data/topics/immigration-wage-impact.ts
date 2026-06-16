@@ -41,7 +41,9 @@ export const immigrationWageImpactData = {
             replicability: 6,
             directness: 9,
           },
-          source: "David Card, Industrial and Labor Relations Review (1990)",
+          source:
+            "David Card, 'The Impact of the Mariel Boatlift on the Miami Labor Market,' Industrial and Labor Relations Review, Vol. 43, No. 2 (1990), pp. 245-257",
+          sourceUrl: "https://davidcard.berkeley.edu/papers/mariel-impact.pdf",
           reasoning:
             "Nobel Prize-winning economist, landmark study. Replicability debated due to Borjas's reanalysis reaching different conclusions with different sample definitions.",
         },
@@ -57,15 +59,17 @@ export const immigrationWageImpactData = {
             replicability: 5,
             directness: 9,
           },
-          source: "George Borjas, Industrial and Labor Relations Review (2017)",
+          source:
+            "George J. Borjas, 'The Wage Impact of the Marielitos: A Reappraisal,' ILR Review, Vol. 70, No. 5 (2017), pp. 1077-1110 (NBER WP 21588)",
+          sourceUrl: "https://www.nber.org/papers/w21588",
           reasoning:
-            "Harvard labor economist with deep expertise. Criticized for narrowing sample to a small subgroup (non-Hispanic male dropouts) that may introduce noise. The Card vs. Borjas debate remains unresolved.",
+            "Harvard labor economist with deep expertise. Criticized for narrowing sample to a small subgroup (non-Hispanic male dropouts) that may introduce noise. The implied wage-supply elasticity of -0.5 to -1.5 rests on small annual CPS samples. The Card vs. Borjas debate remains unresolved.",
         },
         {
           id: "nas-report-2017",
           title: "NAS: Immigration Has Small Negative Short-Term Effects on Prior Immigrants",
           description:
-            "The National Academies of Sciences 2017 comprehensive report found that immigration has little long-term effect on native wages overall, but does reduce wages for prior immigrants and native high school dropouts in the short run (1-2% decline). Long-run effects are near zero or slightly positive.",
+            "The National Academies of Sciences 2017 consensus report ('The Economic and Fiscal Consequences of Immigration') found that the long-term impact of immigration on the wages and employment of native-born workers overall is very small, and that when negative wage effects do occur they are most likely concentrated among prior immigrants and native-born workers without a high school degree.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -73,7 +77,10 @@ export const immigrationWageImpactData = {
             replicability: 7,
             directness: 7,
           },
-          source: "National Academies of Sciences, Engineering, and Medicine (2017)",
+          source:
+            "National Academies of Sciences, Engineering, and Medicine, 'The Economic and Fiscal Consequences of Immigration' (2017)",
+          sourceUrl:
+            "https://www.nationalacademies.org/news/new-report-assesses-the-economic-and-fiscal-consequences-of-immigration",
           reasoning:
             "Gold-standard consensus report synthesizing decades of research. Conclusion that effects are small and concentrated undercuts the 'significantly depresses' framing of the meta-claim.",
         },
@@ -81,7 +88,7 @@ export const immigrationWageImpactData = {
           id: "cbo-fiscal-impact",
           title: "CBO: Immigration Raises GDP and Has Mixed Fiscal Effects",
           description:
-            "The Congressional Budget Office estimates that immigration raises real GDP substantially (projected 3.3% increase by 2034 from recent immigration surge). Fiscal effects are positive at the federal level but often negative at state and local levels in the short term.",
+            "The Congressional Budget Office estimates that the 2021-2026 immigration surge raises GDP substantially — boosting nominal GDP by $8.9 trillion (2.4%) over 2024-2034 and by about 3.2% in 2034 alone. Net federal fiscal effects are positive (deficits lowered by roughly $0.9 trillion over the decade), but effects are often negative at state and local levels in the short term.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -89,7 +96,9 @@ export const immigrationWageImpactData = {
             replicability: 7,
             directness: 5,
           },
-          source: "Congressional Budget Office (2024)",
+          source:
+            "Congressional Budget Office, 'Effects of the Immigration Surge on the Federal Budget and the Economy' (2024)",
+          sourceUrl: "https://www.cbo.gov/publication/60165",
           reasoning:
             "Highly authoritative and nonpartisan. GDP effects don't directly address distributional wage impacts on low-skill natives, reducing directness.",
         },
@@ -120,23 +129,25 @@ export const immigrationWageImpactData = {
           id: "peri-sparber-complementarity",
           title: "Peri & Sparber: Immigrants Complement Rather Than Compete With Natives",
           description:
-            "Giovanni Peri and Chad Sparber find that low-skilled immigrants specialize in manual/physical tasks while native workers shift to communication-intensive jobs. This task specialization means immigration makes native workers more productive rather than displacing them, raising native wages by 0.6-1.7%.",
+            "Giovanni Peri and Chad Sparber find that less-educated immigrants specialize in manual/physical tasks while comparably-educated natives shift toward communication-language-intensive jobs. This task specialization reallocation substantially reduces the downward wage pressure immigration would otherwise place on less-educated native workers, helping explain why measured wage effects are modest.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
             replicability: 6,
-            directness: 7,
+            directness: 6,
           },
-          source: "Peri & Sparber, American Economic Journal (2009)",
+          source:
+            "Giovanni Peri & Chad Sparber, 'Task Specialization, Immigration, and Wages,' American Economic Journal: Applied Economics, Vol. 1, No. 3 (2009), pp. 135-169",
+          sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/app.1.3.135",
           reasoning:
-            "Influential research from a leading immigration economist. Task-based framework is theoretically compelling but hard to verify empirically at scale.",
+            "Influential research from a leading immigration economist. Task-based framework is theoretically compelling but hard to verify empirically at scale; the paper's contribution is the specialization mechanism rather than a single headline native wage-gain figure.",
         },
         {
           id: "fair-cost-estimates",
           title: "FAIR: Immigration Costs $150B+ Annually at State/Local Level",
           description:
-            "The Federation for American Immigration Reform estimates that state and local governments spend $150 billion annually on services for immigrants (education, healthcare, law enforcement), exceeding tax contributions by roughly $80 billion at the sub-federal level.",
+            "The Federation for American Immigration Reform's 2023 study estimates the net cost of illegal immigration at about $150.7 billion annually — roughly $182 billion in gross costs for services (K-12 education ~$78B, healthcare ~$43B, law enforcement) offset by only ~$31 billion in taxes paid by an estimated 15.5 million illegal aliens and their dependents. Most of these costs fall on state and local governments.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -144,15 +155,18 @@ export const immigrationWageImpactData = {
             replicability: 4,
             directness: 6,
           },
-          source: "Federation for American Immigration Reform (FAIR)",
+          source:
+            "Federation for American Immigration Reform (FAIR), 'The Fiscal Burden of Illegal Immigration on United States Taxpayers' (2023)",
+          sourceUrl:
+            "https://www.fairus.org/issue/publications-resources/fiscal-burden-illegal-immigration-united-states-taxpayers-2023",
           reasoning:
-            "Advocacy organization with restrictionist stance. Methodology criticized for including US citizen children of immigrants as costs, inflating estimates. Low independence and reliability due to clear agenda.",
+            "Advocacy organization with restrictionist stance; covers illegal immigration specifically, not all immigration. Methodology criticized (e.g., by the Cato Institute) for counting US-citizen children of immigrants as costs and undercounting tax revenue, inflating estimates. Low independence and reliability due to clear agenda.",
         },
         {
           id: "immigrant-entrepreneurship",
           title: "Immigrants Are 80% More Likely to Found Companies",
           description:
-            "Research from the National Bureau of Economic Research finds immigrants are 80% more likely to found a firm than native-born Americans. 55% of US billion-dollar startups have at least one immigrant founder. Immigrants hold patents at 2-3x the rate of native-born Americans.",
+            "An NBER study (Azoulay, Jones, Kim & Miranda) finds immigrants are about 80% more likely to found a firm than native-born Americans (0.83% vs 0.46% of the workforce launched a business in 2005-2010), and immigrant-founded firms were ~35% more likely to hold a patent than native-founded firms. A separate National Foundation for American Policy analysis found 55% (50 of 91) of US billion-dollar startups had at least one immigrant founder.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -160,15 +174,17 @@ export const immigrationWageImpactData = {
             replicability: 7,
             directness: 5,
           },
-          source: "NBER, National Foundation for American Policy",
+          source:
+            "Pierre Azoulay, Benjamin F. Jones, J. Daniel Kim & Javier Miranda, 'Immigration and Entrepreneurship in the United States,' NBER WP 27778 (2020); National Foundation for American Policy (2022)",
+          sourceUrl: "https://www.nber.org/papers/w27778",
           reasoning:
             "Strong data on immigrant entrepreneurship, but this primarily reflects high-skilled immigrants and doesn't directly address wage effects on low-skilled native workers.",
         },
         {
           id: "cbo-2024-immigration",
-          title: "CBO 2024: Recent Immigration Surge Projected to Add $7T to GDP",
+          title: "CBO 2024: Recent Immigration Surge Projected to Add ~$8.9T to GDP",
           description:
-            "The CBO projects that the recent immigration surge will add 3.3% to real GDP and 5.2 million workers by 2033, boost federal revenues by $1 trillion, and help sustain Social Security solvency. Per-capita GDP effects are more modest at +0.1-0.2%.",
+            "The CBO projects that the 2021-2026 immigration surge will increase nominal GDP by about $8.9 trillion (2.4%) over 2024-2034, add roughly 5.2 million people to the labor force by 2033, boost federal revenues by about $1.2 trillion, and lower deficits by roughly $0.9 trillion over the decade. Per-capita GDP effects are far more modest than the aggregate figures.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -176,7 +192,9 @@ export const immigrationWageImpactData = {
             replicability: 6,
             directness: 4,
           },
-          source: "Congressional Budget Office (2024)",
+          source:
+            "Congressional Budget Office, 'Effects of the Immigration Surge on the Federal Budget and the Economy' (2024)",
+          sourceUrl: "https://www.cbo.gov/publication/60165",
           reasoning:
             "Highly authoritative. Aggregate GDP gains don't address whether low-skill native workers share in them — directness is low for the specific meta-claim about wage depression.",
         },
