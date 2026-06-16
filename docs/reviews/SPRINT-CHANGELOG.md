@@ -154,3 +154,23 @@ Locked in the WS1/WS2 gains and exposed them to LLMs/crawlers:
     schema.org `citation` (CreativeWork) on the Article JSON-LD, so crawlers/LLMs can reach
     the primary sources directly, not just the confidence score.
 tsc clean, 207 tests pass. No data changed (no regen needed).
+
+## Iteration 9 (2026-06-16) — WS3: launch-cluster map upgrades
+Upgraded 5 AI-safety/consciousness cluster maps to bulletproof launch artifacts (verify every
+cite + add web-sourced evidence/cruxes + steelman both sides). Corpus grew 1136→1151 evidence
+items (15 new, all web-sourced); all 5 now at 100% coverage; overall held 98%.
+- **consciousness-ai-systems** (CANONICAL launch map): 7→12 evidence. Added Chalmers 2023
+  (arXiv:2303.07103), Seth 2025 biological-naturalism (BBS), Cogitate Consortium 2025 (Nature 642 —
+  IIT & GNWT both failed preregistered predictions), Comsa & Shanahan 2025 LLM-self-report-unreliable,
+  Sebo & Long precautionary moral-consideration argument; replaced a diffuse no-URL item with Suleyman
+  2025. Now the strongest-sourced map in the corpus.
+- **ai-replacing-doctors**: 12→15. Added automation-bias (Dratsch, Radiology 2023), the Epic Sepsis
+  Model deployment-gap collapse (Wong, JAMA IM 2021), LLM-USMLE (Kung, PLOS Digital Health 2023);
+  backfilled 3 missing URLs.
+- **animal-consciousness-rights**: 8→11. Added fish-nociception (Sneddon 2019), LSE/Birch decapod
+  sentience review, Birch "Edge of Sentience" 2024; fixed a dead Singer/Princeton 404.
+- **ai-regulation**: 9→12. Added SB 1047 + Newsom veto (compute-threshold/regulatory-capture steelman),
+  NIST AI RMF, Seoul frontier commitments; fixed 4 dead URLs (FDA Kelsey, China-AI-plan, AI Index, UNODA).
+- **open-weight-ai-models**: 16→17. Added RAND blinded bioweapon-uplift RCT (no significant uplift —
+  the marginal-risk anchor); corrected a misattributed safeguards demo + an unverifiable RAND number.
+All web-verified, no fabricated cites, both sides steelmanned. tsc clean, 207 tests, coverage 98%.

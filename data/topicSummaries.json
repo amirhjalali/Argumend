@@ -510,11 +510,11 @@
     "id": "ai-regulation",
     "title": "Should AI Be Regulated Like Drugs or Nuclear Energy?",
     "meta_claim": "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
-    "confidence_score": 57,
+    "confidence_score": 59,
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 12,
     "tags": [
       "technology"
     ]
@@ -588,11 +588,11 @@
     "id": "ai-replacing-doctors",
     "title": "Will AI Replace Doctors Within a Decade?",
     "meta_claim": "AI systems will be capable of diagnosing and treating most medical conditions better than human physicians within 10 years, fundamentally disrupting healthcare.",
-    "confidence_score": 48,
+    "confidence_score": 44,
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 15,
     "tags": [
       "technology"
     ]
@@ -1147,11 +1147,11 @@
     "id": "consciousness-ai-systems",
     "title": "Consciousness in AI Systems",
     "meta_claim": "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
-    "confidence_score": 40,
+    "confidence_score": 31,
     "status": "highly_speculative",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 12,
     "tags": [
       "philosophy"
     ]
@@ -1368,11 +1368,11 @@
     "id": "animal-consciousness-rights",
     "title": "Animal Consciousness & Moral Rights",
     "meta_claim": "Scientific evidence increasingly demonstrates that many animals possess rich subjective experiences and consciousness, which morally obligates humanity to extend rights protections far beyond current legal frameworks.",
-    "confidence_score": 74,
+    "confidence_score": 81,
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 11,
     "tags": [
       "philosophy"
     ]
@@ -1472,11 +1472,11 @@
     "id": "open-weight-ai-models",
     "title": "Releasing Open-Weight Frontier AI Models",
     "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
-    "confidence_score": 52,
+    "confidence_score": 49,
     "status": "contested",
     "category": "technology",
     "pillarCount": 4,
-    "evidenceCount": 16,
+    "evidenceCount": 17,
     "tags": [
       "technology"
     ]

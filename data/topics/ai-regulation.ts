@@ -63,7 +63,7 @@ export const aiRegulationData = {
             directness: 6,
           },
           source: "Epoch AI; Stanford HAI AI Index 2025; arXiv benchmark papers",
-          sourceUrl: "https://aiindex.stanford.edu/report/",
+          sourceUrl: "https://hai.stanford.edu/ai-index",
           reasoning:
             "Benchmark improvements are independently verifiable and represent real capability gains. However, directness is lower because benchmark performance does not necessarily translate to the autonomous goal-seeking, strategic deception, or self-improvement capabilities that underpin catastrophic risk scenarios. The gap between 'very capable tool' and 'existential threat' remains large and poorly defined.",
         },
@@ -94,7 +94,7 @@ export const aiRegulationData = {
       id: "innovation-stifling",
       title: "Innovation & Economic Impact",
       short_summary:
-        "Heavy AI regulation could stifle a technology projected to add $15.7 trillion to the global economy by 2030. But the pharmaceutical and nuclear industries demonstrate that safety regulation can coexist with innovation — the question is whether the analogy holds for software that evolves at digital speed.",
+        "Heavy AI regulation could stifle a technology projected to add $15.7 trillion to the global economy by 2030. But the pharmaceutical and nuclear industries demonstrate that safety regulation can coexist with innovation — the question is whether the analogy holds for software that evolves at digital speed. A live design question runs underneath: should rules trigger on a crude compute threshold (as California's vetoed SB 1047 and the EU AI Act's general-purpose tier propose), which risks entrenching incumbents, or on deployment-specific risk — and is binding law even necessary when voluntary frameworks like the NIST AI RMF already exist?",
       icon_name: "Zap" as const,
       skeptic_premise:
         "The pharmaceutical and nuclear regulatory analogies are fundamentally flawed. Drug approval takes 10-15 years and costs $2.6 billion per drug through the FDA pipeline. Nuclear licensing takes 5-10 years. AI models are developed and deployed in months. Imposing FDA-style pre-deployment testing would freeze AI development at current capabilities while China, which has no intention of handicapping its AI industry, races ahead. The EU AI Act has already caused major AI companies to delay or withhold products from European markets — Meta restricted its AI features in the EU, and Google delayed Bard's European launch. McKinsey estimates AI could add $13-15.7 trillion to global GDP by 2030; premature regulation would sacrifice this economic potential and cede leadership to authoritarian regimes with no safety commitments.",
@@ -147,6 +147,23 @@ export const aiRegulationData = {
             "Product delays and market withdrawals are verifiable facts that directly demonstrate the innovation-chilling effect of AI regulation. However, these may represent temporary adjustment costs rather than permanent harm, and the EU market remains large enough that companies will likely adapt. The long-term innovation impact is still unclear.",
         },
         {
+          id: "sb1047-veto-compute-threshold",
+          title: "California Vetoes SB 1047: The Compute-Threshold Approach and the Regulatory-Capture Worry (2024)",
+          description:
+            "California's SB 1047 ('Safe and Secure Innovation for Frontier Artificial Intelligence Models Act') would have imposed safety testing, shutdown ('kill switch') capability, and third-party audits on 'covered models' — defined by a compute threshold (training compute above 10^26 floating-point operations) combined with a >$100 million training cost. Governor Gavin Newsom vetoed it on September 29, 2024, arguing it regulated by model size rather than by deployment risk and could give 'a false sense of security' while leaving smaller high-risk systems untouched. The fight exposed the regulatory-capture fault line: Anthropic gave qualified support to the amended bill, while OpenAI and Meta opposed it, and many startups and open-source advocates argued that fixed compute thresholds and audit costs would entrench the largest incumbents who can most easily absorb compliance overhead.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "California Legislature (SB 1047 text); Governor Newsom veto message; Wikipedia",
+          sourceUrl: "https://en.wikipedia.org/wiki/Safe_and_Secure_Innovation_for_Frontier_Artificial_Intelligence_Models_Act",
+          reasoning:
+            "The bill text, the veto, and the dated public positions of Anthropic, OpenAI, and Meta are all verifiable matters of public record (high replicability). This is a strong steelman for the skeptic: a compute threshold is a crude proxy for danger, audit-and-licensing costs fall hardest on smaller entrants, and the largest labs' selective support illustrates the moat concern. Directness is moderate because a veto is the absence of regulation, not proof that the regulation would have harmed innovation — it shows the policy is genuinely contested, not that either side is settled.",
+        },
+        {
           id: "fda-prevented-thalidomide",
           title: "FDA Regulation Prevented the Thalidomide Disaster in the US (1961)",
           description:
@@ -159,9 +176,26 @@ export const aiRegulationData = {
             directness: 7,
           },
           source: "FDA; NIH; The Lancet",
-          sourceUrl: "https://www.fda.gov/about-fda/histories-product-regulation/frances-oldham-kelsey-medical-reviewer-famous-averting-drug-disaster",
+          sourceUrl: "https://www.fda.gov/about-fda/fda-history-exhibits/frances-oldham-kelsey-medical-reviewer-famous-averting-public-health-tragedy",
           reasoning:
             "The thalidomide case is a historically documented, independently verified instance where pre-market regulation prevented catastrophic harm while the industry continued to thrive. Directness is somewhat lower because the pharmaceutical analogy may not perfectly transfer to AI — drugs have bounded use cases while AI is a general-purpose technology. But it powerfully demonstrates that regulation and innovation can coexist.",
+        },
+        {
+          id: "nist-ai-rmf-voluntary-governance",
+          title: "NIST AI Risk Management Framework: A Non-Binding Middle Path (2023)",
+          description:
+            "NIST released the Artificial Intelligence Risk Management Framework (AI RMF 1.0) on January 26, 2023 — a voluntary, rights-preserving, sector-agnostic framework for identifying, measuring, and managing AI risk across the lifecycle (the 'Govern, Map, Measure, Manage' functions). It was developed through an open, consensus-driven process with public comment. Unlike the EU AI Act, it carries no penalties and mandates nothing, yet it has been widely adopted by US agencies and companies as a common vocabulary for AI risk. It demonstrates a 'third option' between heavy pre-deployment licensing and no governance at all: standards-based, voluntary risk management that scales without freezing deployment.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 6,
+          },
+          source: "National Institute of Standards and Technology (NIST)",
+          sourceUrl: "https://www.nist.gov/itl/ai-risk-management-framework",
+          reasoning:
+            "The AI RMF is an authoritative, independently published US government standard (high reliability and replicability). It cuts in a nuanced direction: for proponents it shows responsible governance need not require FDA-style approval cycles and can coexist with rapid innovation; for skeptics it shows that meaningful, lower-cost alternatives to binding regulation already exist. Directness is moderate because a voluntary framework, by design, lacks enforcement — its real-world effect depends entirely on adoption that it cannot compel.",
         },
       ],
     },
@@ -209,6 +243,23 @@ export const aiRegulationData = {
             "The Bletchley Declaration is a verified governmental document signed by 28 nations. However, directness is lower because non-binding declarations do not constitute enforceable regulation. China's signature may be diplomatic signaling rather than a genuine commitment to constrain its AI development. The gap between declaration and implementation is the critical uncertainty.",
         },
         {
+          id: "seoul-frontier-safety-commitments",
+          title: "16 Frontier Labs Sign the Frontier AI Safety Commitments at the Seoul Summit (2024)",
+          description:
+            "At the AI Seoul Summit on May 21, 2024, 16 leading AI companies — including Anthropic, OpenAI, Google DeepMind, Microsoft, Amazon, Meta, Mistral AI, and China's Zhipu.ai, alongside firms from the UAE and South Korea — signed the Frontier AI Safety Commitments. Signatories pledged to publish safety frameworks defining the risk thresholds they deem intolerable and to not develop or deploy models if risks cannot be kept below those thresholds. This was the first time frontier developers across the US, Europe, the Middle East, and China collectively committed in writing to articulate and respect capability red-lines.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 9,
+            directness: 6,
+          },
+          source: "UK Government; Republic of Korea; AI Seoul Summit 2024",
+          sourceUrl: "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024",
+          reasoning:
+            "The commitments are a verifiable government-published document with named corporate signatories spanning rival jurisdictions, which strengthens the case that cross-border coordination on frontier safety is achievable (high replicability). Directness is lower for the same reason it cuts against the skeptic only weakly: the commitments are voluntary and self-defined — each company sets its own thresholds and there is no external verification or enforcement, so they demonstrate willingness to coordinate rather than proof that coordination will bind anyone's behavior.",
+        },
+        {
           id: "china-ai-2030-strategy",
           title: "China's 'New Generation AI Development Plan' Targets Global AI Leadership by 2030",
           description:
@@ -220,8 +271,8 @@ export const aiRegulationData = {
             replicability: 8,
             directness: 8,
           },
-          source: "State Council of China; Center for Security and Emerging Technology, Georgetown",
-          sourceUrl: "https://cset.georgetown.edu/publication/full-translation-chinas-new-generation-artificial-intelligence-development-plan/",
+          source: "State Council of China; DigiChina (Stanford); Center for Security and Emerging Technology, Georgetown",
+          sourceUrl: "https://digichina.stanford.edu/work/full-translation-chinas-new-generation-artificial-intelligence-development-plan-2017/",
           reasoning:
             "China's AI strategy is a publicly available government document, and its investment levels are tracked by independent research institutions. The evidence directly supports the concern that unilateral Western regulation creates a competitive disadvantage. However, China has also implemented its own AI regulations domestically, complicating the narrative that it develops AI without any constraints.",
         },
@@ -238,7 +289,7 @@ export const aiRegulationData = {
             directness: 6,
           },
           source: "United Nations Office for Disarmament Affairs; IAEA; Bulletin of the Atomic Scientists",
-          sourceUrl: "https://disarmament.unoda.org/wmd/nuclear/npt/",
+          sourceUrl: "https://disarmament.unoda.org/en/our-work/weapons-mass-destruction/nuclear-weapons/treaty-non-proliferation-nuclear-weapons",
           reasoning:
             "The NPT is one of history's most successful arms control agreements, well-documented by independent international organizations. However, directness is lower because the analogy between nuclear weapons (physical, countable, trackable) and AI models (digital, copyable, rapidly evolving) is imperfect. AI regulation may require fundamentally different verification mechanisms than nuclear inspections.",
         },
@@ -263,8 +314,20 @@ export const aiRegulationData = {
       url: "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration",
     },
     {
-      title: "China's New Generation AI Development Plan — CSET Translation",
-      url: "https://cset.georgetown.edu/publication/full-translation-chinas-new-generation-artificial-intelligence-development-plan/",
+      title: "China's New Generation AI Development Plan — DigiChina (Stanford) Full Translation",
+      url: "https://digichina.stanford.edu/work/full-translation-chinas-new-generation-artificial-intelligence-development-plan-2017/",
+    },
+    {
+      title: "NIST AI Risk Management Framework (AI RMF 1.0, 2023)",
+      url: "https://www.nist.gov/itl/ai-risk-management-framework",
+    },
+    {
+      title: "Frontier AI Safety Commitments — AI Seoul Summit (2024)",
+      url: "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024",
+    },
+    {
+      title: "Safe and Secure Innovation for Frontier AI Models Act (California SB 1047, vetoed 2024)",
+      url: "https://en.wikipedia.org/wiki/Safe_and_Secure_Innovation_for_Frontier_Artificial_Intelligence_Models_Act",
     },
   ],
   questions: [

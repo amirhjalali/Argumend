@@ -52,7 +52,7 @@ export const animalConsciousnessRightsData = {
           id: "new-york-declaration-2024",
           title: "New York Declaration on Animal Consciousness (2024)",
           description:
-            "The 2024 New York Declaration on Animal Consciousness, signed by 39 leading researchers in neuroscience, philosophy, and animal behavior, goes further than the Cambridge Declaration by asserting 'strong scientific support' for consciousness in all mammals and birds, and a 'realistic possibility' of consciousness in all vertebrates (including fish and reptiles), cephalopods (octopuses, squid), and some arthropods (insects, crustaceans). The declaration calls for animal consciousness to be taken seriously in policy and ethical deliberation even where certainty is impossible.",
+            "The 2024 New York Declaration on Animal Consciousness — launched with 39 founding signatories and since signed by hundreds of researchers in neuroscience, philosophy, and animal behavior — goes further than the Cambridge Declaration by asserting 'strong scientific support' for consciousness in all mammals and birds, and 'at least a realistic possibility' of conscious experience in all vertebrates (including reptiles, amphibians, and fish) and many invertebrates (at minimum cephalopod molluscs, decapod crustaceans, and insects). Its central principle is that where consciousness is a realistic possibility, 'it is irresponsible to ignore that possibility in decisions affecting that animal.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -63,7 +63,41 @@ export const animalConsciousnessRightsData = {
           source: "New York Declaration on Animal Consciousness; NYU",
           sourceUrl: "https://sites.google.com/nyu.edu/nydeclaration/declaration",
           reasoning:
-            "Broader and more specific than the Cambridge Declaration, with more signatories and extending consciousness claims to fish and invertebrates. The declaration is a strong signal of evolving scientific consensus. However, 'realistic possibility' is a weaker claim than 'strong evidence,' and declarations are not peer-reviewed empirical findings. The extension to insects is particularly controversial.",
+            "Broader and more specific than the Cambridge Declaration, with hundreds of signatories and extending consciousness claims to fish and invertebrates. The declaration is a strong signal of evolving scientific consensus. However, 'realistic possibility' is a weaker claim than 'strong evidence,' and declarations are not peer-reviewed empirical findings. The extension to insects is particularly controversial.",
+        },
+        {
+          id: "fish-nociception-pain",
+          title: "Fish Have Nociceptors and Show Pain-Related Behavior, Not Mere Reflexes (Sneddon)",
+          description:
+            "Lynne Sneddon's neuroanatomical and behavioral work, synthesized in Philosophical Transactions of the Royal Society B (2019), established that rainbow trout possess nociceptors on the head and lips with A-delta and C-fiber properties identical to those in mammals. Crucially, the response is more than reflexive: fish injected with acid or bee venom stopped feeding for roughly three times longer than controls, rocked and rubbed the affected area, and — decisively — resumed normal behavior when given morphine, indicating central processing of an aversive state rather than a simple withdrawal reflex. This addresses the standard skeptic objection that fish lack a neocortex by showing functional pain processing in non-mammalian brain architecture.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Philosophical Transactions of the Royal Society B; Sneddon et al.",
+          sourceUrl: "https://doi.org/10.1098/rstb.2019.0290",
+          reasoning:
+            "Published in a high-impact Royal Society journal and built on two decades of replicated electrophysiology and behavioral pharmacology. The morphine-reversal result is the strongest single line of evidence because analgesia restoring normal behavior is difficult to explain without an aversive subjective state. Directness is high for pain (a core component of sentience) though pain capacity does not by itself settle the broader question of rich conscious experience. Some critics (e.g., Rose, Key) maintain that without a neocortex fish cannot 'feel' pain, so the interpretation remains contested.",
+        },
+        {
+          id: "lse-decapod-cephalopod-sentience",
+          title: "LSE/Birch Review Found Strong Evidence of Sentience in Octopuses, Crabs, and Lobsters (2021)",
+          description:
+            "A UK government–commissioned, peer-reviewed review led by Jonathan Birch at the London School of Economics assessed over 300 scientific studies against eight neural and behavioral markers of sentience (e.g., nociceptors, integrative brain regions, analgesia-seeking, motivational trade-offs, associative learning). It concluded there is strong evidence that cephalopod molluscs (octopuses, squid, cuttlefish) and decapod crustaceans (crabs, lobsters, prawns) are sentient. The review directly informed the UK's Animal Welfare (Sentience) Act 2022, which added these invertebrates to the law's scope — a rare case of a sentience assessment translating into binding legislation.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "LSE; Birch, Burn, Schnell, Browning & Crump; UK Government (DEFRA)",
+          sourceUrl: "https://www.wellbeingintlstudiesrepository.org/af_gen/2/",
+          reasoning:
+            "An independent, expert, peer-reviewed evidence review using an explicit pre-specified marker framework rather than ad hoc anthropomorphic inference, which is exactly the kind of non-anthropocentric method the consciousness-detection crux calls for. Its translation into UK law gives it real-world weight. It establishes sentience (capacity to feel) rather than reflective self-awareness, and a precautionary 'strong evidence' verdict is a probabilistic judgment under acknowledged uncertainty, not proof.",
         },
         {
           id: "rat-empathy-experiment",
@@ -139,8 +173,8 @@ export const animalConsciousnessRightsData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Animal Liberation, Peter Singer; Princeton University",
-          sourceUrl: "https://press.princeton.edu/books/paperback/9780061711305/animal-liberation",
+          source: "Animal Liberation, Peter Singer (HarperCollins/Ecco, 1975)",
+          sourceUrl: "https://en.wikipedia.org/wiki/Animal_Liberation_(book)",
           reasoning:
             "Singer is among the most cited living philosophers, and his argument has withstood 50 years of criticism while remaining influential. The utilitarian framework is logically coherent but rests on premises (that suffering is the primary moral currency, that interspecies comparisons of suffering are meaningful) that not all moral philosophers accept. Independence is moderate because Singer is an advocate, not a neutral analyst.",
         },
@@ -160,6 +194,23 @@ export const animalConsciousnessRightsData = {
           sourceUrl: "https://www.fao.org/animal-production/en/",
           reasoning:
             "The production scale data is from authoritative intergovernmental and government sources. The welfare conditions described are well-documented. Directness is somewhat lower because the evidence establishes the scale of potential suffering but does not independently resolve whether the animals are conscious or whether consciousness entails rights — those are the philosophical questions at issue.",
+        },
+        {
+          id: "birch-precautionary-framework",
+          title: "Birch's 'Edge of Sentience' Offers a Precautionary Framework for Decisions Under Uncertainty (2024)",
+          description:
+            "In 'The Edge of Sentience: Risk and Precaution in Humans, Other Animals, and AI' (Oxford University Press, open access, 2024), philosopher Jonathan Birch argues that the 'where do you draw the line' objection is not a reason for inaction. He proposes treating any animal that is a credible 'sentience candidate' as deserving precautionary protection, grounded in three principles: a duty to avoid gratuitous suffering, the moral relevance of sentience candidature, and democratic deliberation to decide proportionate precautions. The framework deliberately avoids requiring certainty — it asks decision-makers to act proportionately to the strength of evidence and the severity of the risk, the same logic societies already apply to medical ethics and disorders of consciousness in humans.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 8,
+          },
+          source: "The Edge of Sentience, Jonathan Birch; Oxford University Press",
+          sourceUrl: "https://en.wikipedia.org/wiki/The_Edge_of_Sentience",
+          reasoning:
+            "Directly addresses the strongest skeptic objection (irresolvable uncertainty and arbitrary line-drawing) by reframing the decision as one of risk management rather than metaphysical certainty, from the same author whose evidence review shaped UK law. It is a normative framework rather than an empirical finding, so it cannot be 'replicated'; critics can reasonably argue that 'proportionate precaution' still smuggles in contested value judgments about how much weight to give uncertain suffering, and that the principle could expand obligations without clear limit.",
         },
       ],
     },
@@ -240,8 +291,20 @@ export const animalConsciousnessRightsData = {
       url: "https://doi.org/10.1126/science.1210789",
     },
     {
-      title: "Animal Liberation — Peter Singer (Princeton University Press)",
-      url: "https://press.princeton.edu/books/paperback/9780061711305/animal-liberation",
+      title: "Evolution of Nociception and Pain: Evidence from Fish Models — Phil. Trans. R. Soc. B (Sneddon, 2019)",
+      url: "https://doi.org/10.1098/rstb.2019.0290",
+    },
+    {
+      title: "Review of the Evidence of Sentience in Cephalopod Molluscs and Decapod Crustaceans — LSE/Birch (2021)",
+      url: "https://www.wellbeingintlstudiesrepository.org/af_gen/2/",
+    },
+    {
+      title: "The Edge of Sentience — Jonathan Birch (Oxford University Press, 2024)",
+      url: "https://en.wikipedia.org/wiki/The_Edge_of_Sentience",
+    },
+    {
+      title: "Animal Liberation — Peter Singer (1975)",
+      url: "https://en.wikipedia.org/wiki/Animal_Liberation_(book)",
     },
     {
       title: "FDA Modernization Act 2.0 — Congress.gov",

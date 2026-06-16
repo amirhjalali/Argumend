@@ -35,9 +35,9 @@ export const openWeightAiModelsData = {
       evidence: [
         {
           id: "tamper-resistant-safeguards-fail",
-          title: "Open-Weight Safety Fine-Tuning Can Be Stripped for a Few Hundred Dollars",
+          title: "Release-Time Safety Fine-Tuning Has Proven Non-Durable Against Fine-Tuning Attacks",
           description:
-            "Research on tamper-resistant safeguards for open-weight LLMs found that current safety fine-tuning is durable only against weak attacks. The 'On Evaluating the Durability of Safeguards' study showed refusal training can be reversed with a few hundred dollars of fine-tuning on toxic examples, restoring harmful capabilities. This means any safety conditioning a lab applies before releasing weights cannot be relied upon downstream — a structural difference from closed models served behind an API.",
+            "The 'Tamper-Resistant Safeguards' paper (Tamirsa, Hendrycks, Mazeika et al.) proposed the TAR method to make refusal/unlearning safeguards survive adversarial fine-tuning, but the follow-up 'On Evaluating the Durability of Safeguards' (Qi, Henderson et al.) showed that even evaluating such durability is 'exceedingly difficult and can easily mislead,' and that purportedly robust safeguards including TAR are far weaker than claimed once tested properly. The practical upshot, consistent with the broader fine-tuning-attack literature, is that cheap downstream fine-tuning can restore harmful capabilities removed at release — so any safety conditioning a lab applies before releasing weights cannot be relied upon downstream, a structural difference from closed models served behind an API.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -62,16 +62,33 @@ export const openWeightAiModelsData = {
             replicability: 6,
             directness: 8,
           },
-          source: "Epoch AI Gradient Updates; RAND RRA3797-1 (Biological Knowledge Benchmarking of Frontier LLMs)",
+          source: "Epoch AI Gradient Updates: Do the Biorisk Evaluations of AI Labs Actually Measure the Risk of Developing Bioweapons?",
           sourceUrl: "https://epoch.ai/gradient-updates/do-the-biorisk-evaluations-of-ai-labs-actually-measure-the-risk-of-developing-bioweapons",
           reasoning:
             "Epoch AI is an independent research organization without a stake in either release policy. The finding directly addresses the marginal-uplift crux. Its weight is tempered because the author explicitly notes current evals are noisy and may underestimate future capability as models improve.",
         },
         {
+          id: "rand-red-team-no-uplift",
+          title: "RAND Red-Team RCT Found No Significant Bioweapon-Planning Uplift From LLMs",
+          description:
+            "RAND's controlled red-team study assigned matched teams role-playing malicious non-state actors to plan a biological attack; one arm had an LLM plus the internet, the other only the internet. Plans were scored by eight independent judges (half biologists, half security professionals) via a Delphi process. The study found no statistically significant difference in the operational viability of plans generated with versus without LLM assistance, concluding that biological-attack planning currently lies 'beyond the capability frontier of LLMs as assistive tools.' This is the closest existing approximation of the marginal-uplift trial the crux calls for.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 9,
+          },
+          source: "RAND RRA2977-2: The Operational Risks of AI in Large-Scale Biological Attacks — Results of a Red-Team Study",
+          sourceUrl: "https://www.rand.org/pubs/research_reports/RRA2977-2.html",
+          reasoning:
+            "A rigorous, independent, pre-registered-style controlled trial with blinded expert scoring — the single most directly relevant empirical test of catastrophic uplift available, which is why all four weight dimensions score high. Its principal limitation, which lead author Mouton explicitly flags, is that it tested the prior LLM generation; absence of uplift today does not preclude uplift from more capable future models.",
+        },
+        {
           id: "elicitation-attack",
           title: "Elicitation Attacks Use Closed Models to Uplift Open Models",
           description:
-            "Safety-research highlights from January 2026 describe 'elicitation attacks' in which an attacker uses a safeguarded frontier closed model to extract and refine knowledge that is then used to uplift an unrestricted open-weight model on dangerous tasks — without ever issuing a directly harmful prompt to the closed system. This collapses the common pro-open argument that 'the closed model already knows this,' because the closed model knows it but refuses to say it, whereas the open model can be fine-tuned to comply.",
+            "Safety-research highlights from January 2026 describe 'elicitation attacks' in which an attacker uses a safeguarded frontier closed model to extract and refine knowledge that is then used to uplift an unrestricted open-weight model on dangerous tasks — without ever issuing a directly harmful prompt to the closed system. In the underlying work ('Eliciting Harmful Capabilities by Fine-Tuning On Safeguarded Outputs'), fine-tuning Llama 3.3 70B on benign chemistry responses from Claude 3.5 Sonnet recovered roughly 39% of the chemical-weapons-task performance gap to a jailbroken version of the model. This collapses the common pro-open argument that 'the closed model already knows this,' because the closed model knows it but refuses to say it, whereas the open model can be fine-tuned to comply.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -229,24 +246,24 @@ export const openWeightAiModelsData = {
           id: "open-weight-safety-research-access",
           title: "Interpretability and Alignment Research Require White-Box Model Access",
           description:
-            "Core safety techniques — mechanistic interpretability, activation steering, circuit-level analysis, and red-team fine-tuning — require access to model internals (weights, activations, gradients) that closed APIs do not expose. Open-weight releases such as OpenAI's gpt-oss and Meta's Llama are heavily used by the external alignment research community precisely because they permit this white-box analysis, arguably improving the field's collective ability to understand and control frontier systems.",
+            "Core safety techniques — mechanistic interpretability, activation steering, circuit-level analysis, and red-team fine-tuning — require access to model internals (weights, activations, gradients) that closed APIs do not expose. Open-weight releases such as OpenAI's gpt-oss and Meta's Llama are heavily used by the external alignment research community precisely because they permit this white-box analysis. The gpt-oss worst-case-risk study operationalized this: by adversarially fine-tuning the model to maximize bio and cyber capability before release, OpenAI found the malicious-fine-tuned model underperformed its own closed o3 and 'does not significantly advance frontier capabilities,' arguing the release adds only a small amount of net-new biorisk. White-box access thus both enables interpretability work and lets releasers measure marginal risk directly rather than guess at it.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
-            independence: 7,
+            independence: 6,
             replicability: 7,
             directness: 7,
           },
           source: "Estimating Worst-Case Frontier Risks of Open-Weight LLMs (gpt-oss study, arXiv 2508.03153)",
-          sourceUrl: "https://arxiv.org/html/2508.03153",
+          sourceUrl: "https://arxiv.org/abs/2508.03153",
           reasoning:
-            "The gpt-oss release study itself documents how open weights enable worst-case risk estimation and interpretability work that closed models cannot support, directly substantiating the safety-research benefit. It is somewhat self-interested as a release-justification paper, but the underlying methodological point is widely accepted.",
+            "The gpt-oss release study documents both how open weights enable worst-case risk estimation and interpretability work closed models cannot support, and that this particular model's malicious-fine-tuned ceiling stayed below an existing closed model. It is somewhat self-interested as a release-justification paper (lowering independence), but the marginal-risk-measurement methodology it demonstrates is widely accepted and directly informs the release decision.",
         },
         {
           id: "regulatory-capture-concern",
           title: "Leading Researchers Warn of Safety-Rhetoric Regulatory Capture",
           description:
-            "Andrew Ng has argued explicitly that 'some actors, including large AI firms, may exploit safety rhetoric for regulatory capture,' and at the January 2026 World Economic Forum urged India to anchor its AI strategy in open-source models. Yann LeCun — now backing the $1B+ AMI Labs venture for open AI — frames open weights as the structural safeguard against any single entity holding unilateral power over a transformative technology. This camp treats concentration of AI control as itself a first-order risk.",
+            "Andrew Ng has long argued that large AI firms may exploit safety rhetoric to drive regulatory capture, and at the January 2026 World Economic Forum he urged India to anchor its AI strategy in open-source models, warning that 'if it's open, no one can mess with it' and that openness is the most efficient guarantee of access. Yann LeCun — now backing a $1B+ open-AI venture (AMI Labs) — frames open weights as the structural safeguard against any single entity holding unilateral power over a transformative technology. This camp treats concentration of AI control as itself a first-order risk.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -408,6 +425,14 @@ export const openWeightAiModelsData = {
     {
       title: "Do the Biorisk Evaluations of AI Labs Actually Measure the Risk of Developing Bioweapons? (Epoch AI)",
       url: "https://epoch.ai/gradient-updates/do-the-biorisk-evaluations-of-ai-labs-actually-measure-the-risk-of-developing-bioweapons",
+    },
+    {
+      title: "The Operational Risks of AI in Large-Scale Biological Attacks: Results of a Red-Team Study (RAND RRA2977-2)",
+      url: "https://www.rand.org/pubs/research_reports/RRA2977-2.html",
+    },
+    {
+      title: "Estimating Worst-Case Frontier Risks of Open-Weight LLMs — gpt-oss (arXiv 2508.03153)",
+      url: "https://arxiv.org/abs/2508.03153",
     },
     {
       title: "Beyond DeepSeek: China's Diverse Open-Weight AI Ecosystem (Stanford HAI)",

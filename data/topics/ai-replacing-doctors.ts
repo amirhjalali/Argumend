@@ -131,6 +131,24 @@ export const aiReplacingDoctorsData = {
             "Replicated across multiple labs (Esteva used 21 dermatologists; Haenssle compared a CNN against 58 dermatologists and the CNN outperformed the average), though these are curated test-set benchmarks and performance drops on darker skin tones due to training-data bias.",
         },
         {
+          id: "llm-clinical-reasoning",
+          title: "LLMs Now Pass Medical Licensing Exams",
+          description:
+            "ChatGPT reached the USMLE passing threshold across all three steps with no medical-specific training (Kung et al., 2023), and a 2024 systematic review found GPT-4 scoring 80-100% on USMLE-style questions — evidence that general-purpose AI is moving beyond narrow imaging into multi-step clinical reasoning.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Kung et al., PLOS Digital Health 2(2):e0000198 (2023), doi:10.1371/journal.pdig.0000198; systematic review: Springer, Discover Applied Sciences (2024), doi:10.1007/s42452-024-06194-5",
+          sourceUrl: "https://doi.org/10.1371/journal.pdig.0000198",
+          reasoning:
+            "Peer-reviewed evidence that LLMs now generalize across clinical knowledge domains, but multiple-choice exam performance is a weak proxy for real diagnostic work-up, and these models still hallucinate and lack grounding in physical exam, longitudinal context, and procedural skills.",
+        },
+        {
           id: "distribution-shift-failures",
           title: "AI Models Fail Under Distribution Shift",
           description:
@@ -165,6 +183,42 @@ export const aiReplacingDoctorsData = {
           sourceUrl: "https://doi.org/10.1038/s41431-019-0508-0",
           reasoning:
             "The 300M prevalence figure is from a peer-reviewed Orphanet analysis; the data-scarcity limitation for rare conditions is well-established, though the leap to 'AI cannot help' is partly inferential.",
+        },
+        {
+          id: "automation-bias",
+          title: "Clinicians Defer to AI Even When It Is Wrong",
+          description:
+            "In a controlled reader study, 27 radiologists at all experience levels were significantly swayed by AI BI-RADS suggestions: when a (simulated) AI gave an incorrect category, accuracy fell sharply, with inexperienced readers worst affected. Automation bias means deploying imperfect AI can degrade, not improve, human-plus-AI performance.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source:
+            "Dratsch et al. — Automation Bias in Mammography: The Impact of AI BI-RADS Suggestions on Reader Performance, Radiology 307(4):e222176 (2023), doi:10.1148/radiol.222176",
+          sourceUrl: "https://doi.org/10.1148/radiol.222176",
+          reasoning:
+            "A peer-reviewed prospective experiment in a top radiology journal directly demonstrates that the 'AI augments the doctor' framing can backfire when the model errs, undercutting both the replacement and the pure-augmentation narratives; it is a single-task simulated-AI study, so generalization to all of medicine is limited.",
+        },
+        {
+          id: "real-world-deployment-gap",
+          title: "Benchmark Accuracy Collapses in Real Deployment",
+          description:
+            "The Epic Sepsis Model, deployed across hundreds of US hospitals, was externally validated and found to have just 33% sensitivity and AUC 0.63 — far below its marketed performance — while generating frequent false alerts and missing two-thirds of sepsis cases. Benchmark numbers routinely fail to survive contact with live clinical workflows.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 9,
+          },
+          source:
+            "Wong et al. — External Validation of a Widely Implemented Proprietary Sepsis Prediction Model in Hospitalized Patients, JAMA Internal Medicine 181(8), 1065-1070 (2021), doi:10.1001/jamainternmed.2021.2626",
+          sourceUrl: "https://doi.org/10.1001/jamainternmed.2021.2626",
+          reasoning:
+            "Independent academic validation (Michigan Medicine, ~38,000 hospitalizations) of a commercially deployed model is among the strongest available evidence of the benchmark-to-deployment gap; it concerns a prediction model rather than full diagnosis, but the directness to the 'AI is ready to replace clinical judgment' claim is high.",
         },
       ],
     },
@@ -255,10 +309,14 @@ export const aiReplacingDoctorsData = {
             sourceReliability: 7,
             independence: 7,
             replicability: 6,
-            directness: 7,
+            directness: 6,
           },
+          source:
+            "Brormann et al. — Does cultural competence training for health professionals impact culturally and linguistically diverse patient outcomes? A systematic review, Nurse Education Today 117, 105500 (2022), doi:10.1016/j.nedt.2022.105500",
+          sourceUrl:
+            "https://doi.org/10.1016/j.nedt.2022.105500",
           reasoning:
-            "AI systems trained on Western medical data struggle with culturally specific presentations and health beliefs.",
+            "A systematic review finds cultural competence in clinicians is associated with better engagement, adherence, and satisfaction among culturally and linguistically diverse patients; AI systems trained largely on Western medical data struggle with culturally specific presentations and health beliefs, though whether multimodal AI can eventually encode this context is contested.",
         },
       ],
     },
@@ -308,16 +366,20 @@ export const aiReplacingDoctorsData = {
           id: "telemedicine-precedent",
           title: "Telemedicine Regulatory Barriers Fell Rapidly",
           description:
-            "COVID-19 demonstrated that decades of regulatory barriers to telemedicine could be dismantled in weeks when urgency demanded it, suggesting AI regulation could similarly accelerate.",
+            "Under 1135 waiver authority, CMS dismantled long-standing geographic and originating-site restrictions on Medicare telehealth within weeks of the March 2020 emergency declaration, showing decades of regulatory friction can collapse when urgency demands it.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
+            sourceReliability: 8,
+            independence: 8,
             replicability: 5,
             directness: 5,
           },
+          source:
+            "CMS — Medicare Telemedicine Health Care Provider Fact Sheet (March 17, 2020); 1135 waiver / Coronavirus Preparedness and Response Supplemental Appropriations Act",
+          sourceUrl:
+            "https://www.cms.gov/newsroom/fact-sheets/medicare-telemedicine-health-care-provider-fact-sheet",
           reasoning:
-            "Precedent exists for rapid regulatory change, but telemedicine still involves human physicians making decisions.",
+            "Primary CMS source documents the rapid waiver of telehealth restrictions, establishing precedent for fast regulatory change, but telemedicine still involves human physicians making decisions, so it does not directly show autonomous-AI approval can be fast-tracked.",
         },
         {
           id: "liability-gap",
@@ -341,16 +403,20 @@ export const aiReplacingDoctorsData = {
           id: "institutional-resistance",
           title: "Medical Institutions Resist Disruptive Change",
           description:
-            "Hospital systems, medical boards, insurance companies, and physician unions have strong incentives to maintain the physician-centric model. Electronic health record adoption took over 20 years despite clear benefits.",
+            "Hospital systems, medical boards, insurance companies, and physician unions have strong incentives to maintain the physician-centric model. Even with federal HITECH incentives, office-based physician EHR adoption climbed from 42% in 2008 to 88% (any EHR) by 2021 — a multi-decade diffusion despite clear benefits.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
+            sourceReliability: 8,
+            independence: 9,
             replicability: 8,
-            directness: 7,
+            directness: 6,
           },
+          source:
+            "ONC / CDC National Electronic Health Records Survey — Office-based Physician EHR Adoption (42% in 2008 to 88% any-EHR by 2021)",
+          sourceUrl:
+            "https://www.healthit.gov/data/quickstats/office-based-physician-electronic-health-record-adoption",
           reasoning:
-            "Historical precedent shows healthcare adoption cycles are far slower than technology development cycles.",
+            "Government survey data confirms healthcare technology diffusion spans well over a decade even with strong financial incentives; this is a precedent-based analogy to AI adoption, not a direct measure of resistance to autonomous AI specifically.",
         },
       ],
     },
