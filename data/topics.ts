@@ -126,6 +126,13 @@ import { rfkHealthPolicyData } from "./topics/rfk-health-policy";
 import { dogeFederalCutsData } from "./topics/doge-federal-cuts";
 import { openWeightAiModelsData } from "./topics/open-weight-ai-models";
 
+// Breadth Sprint — Tier 1 (June 2026): web-verified, firewall-passed maps
+import { carbonTaxEffectivenessData } from "./topics/carbon-tax-effectiveness";
+import { congestionPricingData } from "./topics/congestion-pricing";
+import { rightToRepairData } from "./topics/right-to-repair";
+import { assistedDyingEuthanasiaData } from "./topics/assisted-dying-euthanasia";
+import { secondAmendmentIndividualRightData } from "./topics/second-amendment-individual-right";
+
 // labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
 const labLeakTheoryData = covidOriginsData;
 
@@ -280,6 +287,13 @@ export const rfkHealthPolicy = buildTopic(rfkHealthPolicyData);
 export const dogeFederalCuts = buildTopic(dogeFederalCutsData);
 export const openWeightAiModels = buildTopic(openWeightAiModelsData);
 
+// Breadth Sprint — Tier 1 (June 2026)
+export const carbonTaxEffectiveness = buildTopic(carbonTaxEffectivenessData);
+export const congestionPricing = buildTopic(congestionPricingData);
+export const rightToRepair = buildTopic(rightToRepairData);
+export const assistedDyingEuthanasia = buildTopic(assistedDyingEuthanasiaData);
+export const secondAmendmentIndividualRight = buildTopic(secondAmendmentIndividualRightData);
+
 export const topics: Topic[] = [
   // --- Policy & Governance ---
   nuclearEnergySafety,
@@ -408,6 +422,13 @@ export const topics: Topic[] = [
   rfkHealthPolicy,
   dogeFederalCuts,
   openWeightAiModels,
+
+  // --- Breadth Sprint Tier 1 (June 2026) ---
+  carbonTaxEffectiveness,
+  congestionPricing,
+  rightToRepair,
+  assistedDyingEuthanasia,
+  secondAmendmentIndividualRight,
 ];
 
 // ============================================================================

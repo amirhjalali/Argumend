@@ -1480,5 +1480,93 @@
     "tags": [
       "technology"
     ]
+  },
+  {
+    "id": "carbon-tax-effectiveness",
+    "title": "Carbon Tax Effectiveness",
+    "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
+    "confidence_score": 63,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 8,
+    "tags": [
+      "economics",
+      "carbon-tax",
+      "climate",
+      "emissions",
+      "policy"
+    ]
+  },
+  {
+    "id": "congestion-pricing",
+    "title": "Congestion Pricing",
+    "meta_claim": "Congestion pricing is an effective policy for cutting urban traffic and funding transit.",
+    "confidence_score": 53,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2,
+    "evidenceCount": 6,
+    "tags": [
+      "policy",
+      "transport",
+      "cities",
+      "traffic",
+      "taxation",
+      "transit"
+    ]
+  },
+  {
+    "id": "right-to-repair",
+    "title": "Right to Repair",
+    "meta_claim": "Right-to-repair laws benefit consumers without significantly harming innovation or safety.",
+    "confidence_score": 76,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 7,
+    "tags": [
+      "policy",
+      "right-to-repair",
+      "consumer-protection",
+      "antitrust",
+      "e-waste",
+      "cybersecurity"
+    ]
+  },
+  {
+    "id": "assisted-dying-euthanasia",
+    "title": "The Right to Assisted Dying",
+    "meta_claim": "Terminally ill, mentally competent adults have a moral right to medically assisted dying.",
+    "confidence_score": 59,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 2,
+    "evidenceCount": 7,
+    "tags": [
+      "philosophy",
+      "bioethics",
+      "autonomy",
+      "end-of-life",
+      "medicine",
+      "rights"
+    ]
+  },
+  {
+    "id": "second-amendment-individual-right",
+    "title": "The Second Amendment: Individual Right?",
+    "meta_claim": "The Second Amendment protects an individual right to bear arms, not merely a collective/militia right.",
+    "confidence_score": 52,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 2,
+    "evidenceCount": 8,
+    "tags": [
+      "policy",
+      "second-amendment",
+      "constitutional-law",
+      "gun-rights",
+      "originalism"
+    ]
   }
 ]
