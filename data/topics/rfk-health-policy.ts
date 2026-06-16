@@ -289,8 +289,8 @@ export const rfkHealthPolicyData = {
             replicability: 5,
             directness: 6,
           },
-          source: "American Dental Association; CDC oral-health program",
-          sourceUrl: "https://www.cdc.gov/oral-health/prevention/about-community-water-fluoridation.html",
+          source: "CDC, About Community Water Fluoridation; American Dental Association",
+          sourceUrl: "https://www.cdc.gov/fluoridation/about/index.html",
           reasoning:
             "The equity argument is a real distributional consideration that population-average benefit estimates can obscure, supporting caution about ending the recommendation. It is partly an advocacy position from interested professional bodies, which tempers its independence.",
         },

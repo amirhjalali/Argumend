@@ -69,20 +69,20 @@ export const fourDayWorkWeekData = {
         },
         {
           id: "cipd-reversion-rate",
-          title: "31% of UK Firms Reverted to Five-Day Week Within 18 Months (2024)",
+          title: "CIPD: Employers Ambivalent About Reducing Hours, See a Four-Day Week as Unlikely (2022)",
           description:
-            "A 2024 survey by the Chartered Institute of Personnel and Development (CIPD), the UK's professional body for HR, found that among companies that had experimented with four-day weeks, 31% had returned to standard five-day schedules within 18 months. The most common reasons cited were: customer service coverage gaps (54%), difficulty coordinating with clients and partners on five-day schedules (47%), increased workload compression stress among employees (38%), and sector-specific constraints in hospitality, retail, and healthcare (33%). The CIPD noted that media coverage of four-day week experiments overwhelmingly featured successes, creating a survivorship bias in public perception.",
+            "A report by the Chartered Institute of Personnel and Development (CIPD), the UK's professional body for HR, surveyed employer perspectives on the four-day week. It found that employers appear ambivalent about reducing working hours and see a broad move to a four-day week as unlikely. A practical challenge for employers that had reduced hours was that the arrangement did not suit everybody in their organisation, and the report flagged the difficulty of managing atypical and non-salaried workers under a shorter week. The findings temper the largely positive media narrative around four-day-week trials, which has tended to feature successful adopters.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
-            directness: 8,
+            replicability: 6,
+            directness: 6,
           },
-          source: "Chartered Institute of Personnel and Development (2024)",
-          sourceUrl: "https://www.cipd.org/uk/knowledge/reports/flexible-working-practices/",
+          source: "Chartered Institute of Personnel and Development, \"The four-day week: Employer perspectives\" (2022)",
+          sourceUrl: "https://www.cipd.org/en/knowledge/reports/four-day-week/",
           reasoning:
-            "The CIPD is a well-respected, independent professional body. The 31% reversion rate provides an important corrective to the overwhelmingly positive media narrative around four-day weeks. The reasons for reversion — customer service, coordination, and sector constraints — are practical, not ideological, and suggest real limitations on universal applicability.",
+            "The CIPD is a well-respected, independent professional body. Its employer-perspectives report provides a useful corrective to the overwhelmingly positive media coverage of four-day-week pilots, which over-represents self-selected, successful adopters. The findings are qualitative rather than a single headline statistic, and reflect practical employer concerns — fit across roles, coverage, and atypical workers — rather than ideological opposition.",
         },
       ],
     },
@@ -99,7 +99,7 @@ export const fourDayWorkWeekData = {
       skeptic_premise:
         "Wellbeing improvements in four-day week trials may be driven by the novelty effect and Hawthorne effect (people behave differently when observed) rather than the schedule change itself. A 2024 study in Occupational Health Psychology found that among workers on compressed four-day schedules (4x10 hours rather than 4x8), 28% reported higher daily stress despite having an extra day off. Workers in client-facing roles reported feeling pressured to cram five days of responsiveness into four, leading to more intense workdays. Parents — especially mothers — often used the extra day for childcare and domestic labor rather than rest, suggesting the wellbeing benefit may be gendered. Long-term data beyond 2 years is virtually nonexistent.",
       proponent_rebuttal:
-        "The wellbeing evidence is remarkably consistent across multiple independent trials and cultural contexts. The UK trial found burnout scores decreased from 2.95 to 2.34 (on a 1-5 scale), anxiety decreased by 21%, and sleep quality improved in 40% of participants. The 100:80:100 model — 100% pay, 80% time, 100% productivity — explicitly rejects the compressed-hours approach (4x10) in favor of genuine reduction (4x8 or less). The gendered criticism actually supports the case: if mothers use the extra day for caregiving, the solution is better care infrastructure alongside shorter hours, not longer work weeks. A 2023 study in Social Science & Medicine found that reduced work hours was the single strongest predictor of self-reported life satisfaction across 30 European countries, even after controlling for income.",
+        "The wellbeing evidence is remarkably consistent across multiple independent trials and cultural contexts. The UK trial found burnout scores decreased from 2.95 to 2.34 (on a 1-5 scale), anxiety decreased by 21%, and sleep quality improved in 40% of participants. The 100:80:100 model — 100% pay, 80% time, 100% productivity — explicitly rejects the compressed-hours approach (4x10) in favor of genuine reduction (4x8 or less). The gendered criticism actually supports the case: if mothers use the extra day for caregiving, the solution is better care infrastructure alongside shorter hours, not longer work weeks. A 2022 study in Health Economics Review, using European Social Survey data, found that fewer working hours were significantly associated with higher life satisfaction across Europe, even after controlling for income.",
       crux: {
         id: "wellbeing-persistence",
         title: "The Long-Term Wellbeing Persistence Test",
@@ -148,20 +148,20 @@ export const fourDayWorkWeekData = {
         },
         {
           id: "european-life-satisfaction",
-          title: "Reduced Work Hours Is Strongest Predictor of Life Satisfaction Across 30 Countries (2023)",
+          title: "Fewer Working Hours Linked to Higher Life Satisfaction Across Europe (2022)",
           description:
-            "A 2023 study in Social Science & Medicine analyzed European Social Survey data from 30 countries (n=180,000) and found that working hours was the single strongest work-related predictor of life satisfaction, even after controlling for income, job security, autonomy, and occupation type. Workers averaging 30-35 hours per week reported significantly higher life satisfaction than those working 40+ hours, with the relationship holding across income quintiles. The authors estimated that reducing the work week from 40 to 32 hours produced a wellbeing gain equivalent to a 25% salary increase.",
+            "A 2022 study in Health Economics Review (Qinglong Shao) analyzed wave 10 of the European Social Survey (18,060 respondents across European countries) and found a significant negative relationship between working hours and life satisfaction: fewer working hours were associated with higher life satisfaction. Income was also an important driver of life satisfaction, and the analysis controlled for it. The study found that health plays an essential mediating role — part of the benefit of shorter hours appears to operate through improved health rather than as a purely direct effect.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 8,
-            replicability: 8,
-            directness: 7,
+            replicability: 7,
+            directness: 6,
           },
-          source: "Social Science & Medicine; European Social Survey (2023)",
-          sourceUrl: "https://doi.org/10.1016/j.socscimed.2023.115959",
+          source: "Qinglong Shao, \"Does less working time improve life satisfaction? Evidence from European Social Survey,\" Health Economics Review (2022)",
+          sourceUrl: "https://doi.org/10.1186/s13561-022-00396-6",
           reasoning:
-            "Large-scale cross-national data with robust controls provides strong associational evidence. The finding that the wellbeing benefit holds across income levels undermines the argument that only high-earners benefit. However, this is observational data comparing people who happen to work different hours, not an experiment — self-selection into shorter hours likely confounds the relationship.",
+            "Large-scale cross-national survey data with income controls provides credible associational evidence that shorter hours track higher life satisfaction. However, this is observational data comparing people who happen to work different hours, not an experiment — self-selection into shorter hours likely confounds the relationship, and the effect is partly mediated by health rather than direct. It supports, but does not prove, the wellbeing case for a shorter week.",
         },
       ],
     },

@@ -160,8 +160,8 @@ export const childrenSmartphoneAgeData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Journal of Adolescence; Haidt & Twenge collaborative research",
-          sourceUrl: "https://www.afterbabel.com/p/international-mental-health",
+          source: "Rausch & Haidt, \"The Teen Mental Health Crisis is International, Part 1: The Anglosphere,\" After Babel (March 29, 2023)",
+          sourceUrl: "https://www.afterbabel.com/p/international-mental-illness-part-one",
           reasoning:
             "The cross-national pattern is a genuinely strong argument for the smartphone hypothesis. However, independence is lower because Haidt and Twenge are prominent advocates for the smartphone-harm thesis and may have selected countries and metrics that support their conclusion. The publication venue (Substack) for some of this work is less rigorous than peer-reviewed journals.",
         },
@@ -222,8 +222,8 @@ export const childrenSmartphoneAgeData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Australian Parliament; The Guardian; ABC News Australia",
-          sourceUrl: "https://www.theguardian.com/australia-news/2024/nov/28/australia-social-media-ban-under-16s-passes-senate",
+          source: "Online Safety Amendment (Social Media Minimum Age) Act 2024 (Cth), Federal Register of Legislation (assented 10 December 2024)",
+          sourceUrl: "https://www.legislation.gov.au/C2024A00127/asmade/text",
           reasoning:
             "This provides a real legislative precedent from a major democracy. However, the law has not yet been fully implemented or evaluated, so its effectiveness remains untested. The enforcement mechanism (platform-level age verification) faces technical challenges that could limit its practical impact.",
         },

@@ -102,8 +102,9 @@ export const labDiamondsEthicsData = {
             replicability: 6,
             directness: 6,
           },
-          source: "BBC News (Surat diamond-polishing reporting)",
-          sourceUrl: "https://feeds.bbci.co.uk/news/articles/c1e866ypp1zo",
+          source:
+            "BBC News — 'Surat: The world's diamond polishing capital feels the Ukraine-Russia war impact'",
+          sourceUrl: "https://www.bbc.com/news/articles/c1e866ypp1zo",
           reasoning:
             "BBC reporting confirms the ~90% concentration in Surat, the ~800,000 workforce, and the poor working conditions (low piece-rate pay, silicosis risk). The original '$150-300/month' figure is not precisely pinned to a single primary source, so the description is softened to 'a few hundred US dollars' consistent with reporting. Directness is moderate: this is a shared industry problem affecting both mined and lab-grown stones, not a reason to prefer mined over lab-grown, and it does not offset the upstream mining abuses that lab-grown avoids.",
         },

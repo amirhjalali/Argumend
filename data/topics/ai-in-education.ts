@@ -35,20 +35,20 @@ export const aiInEducationData = {
       evidence: [
         {
           id: "its-meta-analysis-2024",
-          title: "Meta-Analysis of 146 RCTs Shows 0.66 SD Learning Gains from AI Tutoring (2024)",
+          title: "Meta-Analytic Review Shows Intelligent Tutoring Systems Raise Scores 0.66 SD (Kulik & Fletcher, 2016)",
           description:
-            "A comprehensive meta-analysis published in Educational Research Review synthesized 146 randomized controlled trials of intelligent tutoring systems (ITS) from 2010-2024, covering over 50,000 students across K-12 and higher education. The average effect size was 0.66 standard deviations compared to conventional instruction, equivalent to moving a student from the 50th to the 75th percentile. Effect sizes were largest for mathematics (0.73 SD) and science (0.61 SD), and moderately smaller for reading and writing (0.48 SD). Systems providing real-time adaptive feedback showed stronger effects than those offering only practice problems.",
+            "A meta-analytic review by James A. Kulik and J. D. Fletcher, published in Review of Educational Research, synthesized 50 controlled evaluations (RCTs and quasi-experiments) of intelligent tutoring systems (ITS). The median effect of intelligent tutoring across the 50 evaluations was to raise test scores 0.66 standard deviations over conventional instruction — equivalent to moving a student from the 50th to the 75th percentile. The authors found that measured gains depended heavily on whether outcomes used locally developed or standardized tests, with alignment between test and instructional objectives a critical determinant of results.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 8,
-            directness: 8,
+            replicability: 7,
+            directness: 7,
           },
-          source: "Educational Research Review; Kulik & Fletcher updated meta-analysis (2024)",
-          sourceUrl: "https://doi.org/10.1016/j.edurev.2024.100587",
+          source: "Kulik & Fletcher, Review of Educational Research 86(1), 42–78 (2016)",
+          sourceUrl: "https://doi.org/10.3102/0034654315581420",
           reasoning:
-            "Meta-analyses of RCTs represent the highest level of evidence for educational interventions. The large number of studies and consistent direction of effects across subjects and age groups strengthens confidence. However, the meta-analysis does not disaggregate by student socioeconomic status, and many studies were conducted in well-resourced settings with researcher support, limiting generalizability to typical classrooms.",
+            "A meta-analytic review represents a high level of evidence for educational interventions, and the consistent positive direction across 50 evaluations strengthens confidence. Weighted with care: the included studies predate the LLM era and concern earlier rule-based ITS, the headline 0.66 SD is a median that varied widely by test type (effects on standardized tests were substantially smaller than on locally developed tests), and the review does not disaggregate by student socioeconomic status. (An earlier version of this item cited a fabricated '146-RCT Educational Research Review 2024' meta-analysis whose DOI was dead; the 0.66 SD figure traces to this real Kulik & Fletcher review, which is now cited directly.)",
         },
         {
           id: "khanmigo-pilot-2024",
@@ -227,20 +227,20 @@ export const aiInEducationData = {
         },
         {
           id: "new-jersey-pilot",
-          title: "New Jersey AI Tutoring Pilot Saves Teachers 5-8 Hours/Week (2024-2025)",
+          title: "New Jersey Funds AI-in-Education Pilots Including Individualized Tutoring and Teacher Training (2025)",
           description:
-            "New Jersey's statewide AI-in-education pilot, launched in fall 2024 across 120 schools, deployed AI tutoring assistants alongside existing teachers. Preliminary results from the first semester showed that teachers using AI for formative assessment, lesson planning, and differentiated practice reported saving 5-8 hours per week on routine tasks. 78% of participating teachers reported that the time savings allowed more small-group and individual instruction. Student engagement metrics showed a 12% increase in on-task behavior during independent practice, attributed to real-time AI feedback. However, implementation quality varied significantly: schools with dedicated AI coaches showed 3x the usage rates of schools without.",
+            "In January 2025, the New Jersey Department of Education announced roughly $1.5 million in 'Artificial Intelligence Innovation in Education' grants. Ten school districts received awards (about $72,805–$75,000 each) to run pilot programs using generative AI tools for individualized tutoring, data analysis to improve instruction, and teacher training in AI integration, alongside AI-literacy curricula; two county vocational districts (Mercer and Middlesex) received larger awards to build AI/robotics career-pathway curricula. The grants run through January 31, 2026. The program funds early-stage experimentation rather than a controlled efficacy trial, and as of this writing no learning-outcome results or teacher time-savings figures from these pilots have been published.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 5,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 5,
+            independence: 4,
+            replicability: 4,
+            directness: 4,
           },
-          source: "New Jersey Department of Education; Brookings Institution preliminary analysis",
-          sourceUrl: "https://www.nj.gov/education/ai-initiative/",
+          source: "New Jersey Department of Education grant announcement (Jan 2025); Government Technology",
+          sourceUrl: "https://nj.gov/education/news/2025/NewJerseyDepartmentofEducationAnnouncesGrantAwardstoSupportArtificialIntelligenceInnovationinEducation.pdf",
           reasoning:
-            "An ongoing statewide pilot provides real-world implementation evidence. The teacher time-savings finding is promising. However, this is preliminary data from a self-selected pilot (enthusiastic early-adopter schools), without a randomized control group, and reported partly by the implementing agency. The variation by coaching support underscores that technology alone is insufficient.",
+            "A state agency funding AI-in-education pilots signals real institutional interest and provides a concrete example of how AI tutoring and teacher-support tools are being deployed. Weighted low: this is a grant announcement, not an evaluation — it demonstrates intent and investment, not measured learning gains or teacher time savings. (An earlier version of this item described a fictitious 'statewide 120-school pilot' with unverifiable 5–8 hours/week and engagement statistics and a dead nj.gov/ai-initiative URL; those fabricated figures have been removed and replaced with this verified grant program.)",
         },
         {
           id: "mooc-cautionary-tale",
@@ -264,8 +264,8 @@ export const aiInEducationData = {
   ],
   references: [
     {
-      title: "Intelligent Tutoring Systems Meta-Analysis — Educational Research Review (2024)",
-      url: "https://doi.org/10.1016/j.edurev.2024.100587",
+      title: "Effectiveness of Intelligent Tutoring Systems: A Meta-Analytic Review — Kulik & Fletcher, Review of Educational Research (2016)",
+      url: "https://doi.org/10.3102/0034654315581420",
     },
     {
       title: "UNESCO Global Education Monitoring Report: Technology in Education (2024)",

@@ -239,8 +239,8 @@ export const masculinityCrisisData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Google Trends; Hope Not Hate; The Guardian",
-          sourceUrl: "https://www.theguardian.com/technology/2022/aug/06/andrew-tate-violent-misogyny-social-media-tiktok",
+          source: "Anti-Defamation League (citing The Guardian and Hope Not Hate)",
+          sourceUrl: "https://www.adl.org/resources/article/andrew-tate-five-things-know",
           reasoning:
             "Tate's viral popularity is empirically verifiable and directly demonstrates the demand for male identity content. The analysis of his appeal pipeline (self-improvement gateway to misogyny) is documented by multiple independent researchers. However, the interpretation of what his popularity means for the broader 'crisis' framing is contested.",
         },

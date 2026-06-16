@@ -169,9 +169,8 @@ export const returnToOfficeProductivityData = {
             replicability: 8,
             directness: 3,
           },
-          source: "USPTO Patent Statistics (PTMT calendar-year reports)",
-          sourceUrl:
-            "https://www.uspto.gov/web/offices/ac/ido/oeip/taf/reports.htm",
+          source: "USPTO Patents Dashboard (patent statistics)",
+          sourceUrl: "https://www.uspto.gov/dashboard/patents/",
           reasoning:
             "Objective, publicly available data with high independence. Specific year-over-year figures were de-asserted because counting bases (applications vs. grants, fiscal vs. calendar year) differ across sources and could not be pinned to a single verified number. Patent counts are also a very blunt innovation proxy — filings in 2020-2022 largely reflect pre-pandemic R&D pipelines — so directness is low; the data cannot isolate the effect of remote work from other trends.",
         },

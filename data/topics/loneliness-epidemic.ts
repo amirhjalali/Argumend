@@ -256,9 +256,9 @@ export const lonelinessEpidemicData = {
             directness: 7,
           },
           source:
-            "Robert Putnam, 'Bowling Alone' (Simon & Schuster); Journal of Democracy",
+            "Robert D. Putnam, 'Bowling Alone: The Collapse and Revival of American Community' (Simon & Schuster, Revised and Updated edition)",
           sourceUrl:
-            "https://bowlingalone.com/",
+            "https://www.simonandschuster.com/books/Bowling-Alone-Revised-and-Updated/Robert-D-Putnam/9781982130848",
           reasoning:
             "Putnam's work is the foundational text on social capital decline and has been extensively peer-reviewed and debated. The structural factors he identified (sprawl, commuting, work pressures) are actionable through policy. However, his finding that 50% of the decline is attributable to generational value change undercuts the purely structural argument. The data is also now 25+ years old, and the social landscape has changed considerably since initial publication.",
         },
@@ -307,7 +307,7 @@ export const lonelinessEpidemicData = {
           title:
             "Loneliness Rates Vary Dramatically by Culture, Suggesting Individual and Cultural Drivers",
           description:
-            "Cross-national surveys reveal enormous variation in loneliness that does not track simply with urbanization or technology adoption. A 2021 meta-analysis in BMC Public Health found that loneliness prevalence ranged from 2% in Denmark to 34% in Brazil, with no consistent relationship to GDP, urbanization rate, or internet penetration. Collectivist cultures (East Asia, Southern Europe) do not consistently show lower loneliness than individualist cultures — in fact, Japan and South Korea have some of the highest loneliness rates despite dense, walkable urban environments and strong familial obligations. This suggests that loneliness is driven by the gap between expected and actual social connection — a psychological variable shaped by cultural norms — rather than by structural features of the built environment.",
+            "Cross-national surveys reveal substantial variation in loneliness that does not track simply with urbanization or technology adoption. A 2022 systematic review and meta-analysis in The BMJ (Surkalim et al.), covering 113 countries and territories, found wide geographical variation in problematic loneliness — for older adults, prevalence ranged from roughly 5% in northern European countries to over 21% in eastern European countries — with no consistent relationship to GDP, urbanization rate, or internet penetration, and major data gaps in low- and middle-income countries. Collectivist cultures (East Asia, Southern Europe) do not consistently show lower loneliness than individualist cultures. This suggests that loneliness is driven substantially by the gap between expected and actual social connection — a psychological variable shaped by cultural norms — rather than purely by structural features of the built environment.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -315,11 +315,12 @@ export const lonelinessEpidemicData = {
             replicability: 7,
             directness: 7,
           },
-          source: "BMC Public Health; Journal of Cross-Cultural Psychology",
+          source:
+            "Surkalim et al., 'The prevalence of loneliness across 113 countries: systematic review and meta-analysis', The BMJ (2022), doi:10.1136/bmj-2021-067068",
           sourceUrl:
-            "https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-021-11418-x",
+            "https://doi.org/10.1136/bmj-2021-067068",
           reasoning:
-            "Cross-national comparisons using validated loneliness measures provide important context that challenges simplistic structural explanations. The finding that dense, walkable Japan has high loneliness rates while car-dependent Denmark has low rates suggests cultural expectations and social norms matter more than urban design. However, cross-cultural loneliness comparisons are complicated by measurement issues — the UCLA Loneliness Scale may not capture the same construct across cultures, and response biases vary by cultural context.",
+            "Cross-national comparisons using validated loneliness measures provide important context that challenges simplistic structural explanations. The finding that loneliness varies several-fold across countries without tracking GDP, urbanization, or internet penetration suggests cultural expectations and social norms matter more than urban design alone. However, cross-cultural loneliness comparisons are complicated by measurement issues — validated scales may not capture the same construct across cultures, response biases vary by cultural context, and the BMJ review itself flags substantial data gaps in low- and middle-income countries.",
         },
       ],
     },

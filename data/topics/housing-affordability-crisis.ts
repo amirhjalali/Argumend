@@ -84,9 +84,9 @@ export const housingAffordabilityCrisisData = {
         },
         {
           id: "minneapolis-mixed-results",
-          title: "Minneapolis 2040 Zoning Reform Produced Modest Results (2020-2024)",
+          title: "Ending Single-Family Zoning Alone Had Modest Impact in Minneapolis (Pew, 2024)",
           description:
-            "Minneapolis became the first major US city to eliminate single-family-only zoning in its Minneapolis 2040 plan, effective January 2020. By 2024, the reform had produced fewer than 200 new duplex and triplex units — far below projections. Most new units were market-rate, priced at or above the median. While a University of Minnesota study found rents grew 3.5% slower than comparable Midwestern cities, housing advocates argued the reform was insufficient without subsidies for low-income construction. Minnesota's legislature preempted the reform with state-level restrictions in 2024.",
+            "Minneapolis became the first major US city to eliminate single-family-only zoning in its Minneapolis 2040 plan, effective January 2020. A 2024 Pew Charitable Trusts analysis found that legalizing duplexes and triplexes on former single-family lots accounted for only about 1% of new units — most new supply (roughly 87%) came from buildings with 20+ units, driven by allowing apartments along commercial and transit corridors and eliminating parking minimums. From 2017 to 2022, Minneapolis grew its housing stock 12% while rents rose just 1%, versus 14% rent growth in the rest of Minnesota. The evidence suggests ending single-family zoning is, on its own, necessary but far from sufficient.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -94,8 +94,8 @@ export const housingAffordabilityCrisisData = {
             replicability: 7,
             directness: 8,
           },
-          source: "University of Minnesota Humphrey School; Pew Research Center; Minnesota Public Radio",
-          sourceUrl: "https://www.pewtrusts.org/en/research-and-analysis/articles/2023/06/12/minneapolis-ended-single-family-zoning-2-years-ago-heres-what-happened",
+          source: "The Pew Charitable Trusts; City of Minneapolis permit data",
+          sourceUrl: "https://www.pew.org/en/research-and-analysis/articles/2024/01/04/minneapolis-land-use-reforms-offer-a-blueprint-for-housing-affordability",
           reasoning:
             "The Minneapolis experiment is the most directly relevant US case study. The modest results suggest that simply legalizing density may be necessary but not sufficient — financing, construction costs, and market conditions also constrain supply. This tempers the strongest claims about zoning reform as a silver bullet.",
         },
@@ -235,8 +235,8 @@ export const housingAffordabilityCrisisData = {
             replicability: 6,
             directness: 8,
           },
-          source: "City of Vienna Housing Department; Economist Intelligence Unit; European Urban Knowledge Network",
-          sourceUrl: "https://socialhousing.wien/the-vienna-model",
+          source: "Wiener Wohnen (City of Vienna municipal housing); Economist Intelligence Unit",
+          sourceUrl: "https://www.wienerwohnen.at/wiener-gemeindebau/municipal-housing-in-vienna.html",
           reasoning:
             "Vienna's model is well-documented and has operated for over a century. The quality and scale are independently verifiable. However, Vienna benefits from unique factors: a century of political commitment, a dedicated funding stream, extensive municipal land ownership, and Austria's strong social consensus. Replicability in the US political context is the key uncertainty.",
         },
@@ -308,8 +308,8 @@ export const housingAffordabilityCrisisData = {
       url: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
     },
     {
-      title: "The Vienna Model of Social Housing — City of Vienna",
-      url: "https://socialhousing.wien/the-vienna-model",
+      title: "Municipal Housing in Vienna (Gemeindebau) — Wiener Wohnen, City of Vienna",
+      url: "https://www.wienerwohnen.at/wiener-gemeindebau/municipal-housing-in-vienna.html",
     },
     {
       title: "OECD Affordable Housing Database",

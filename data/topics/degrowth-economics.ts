@@ -86,7 +86,7 @@ export const degrowthEconomicsData = {
           },
           source: "UNEP International Resource Panel, Global Resources Outlook (2019)",
           sourceUrl:
-            "https://www.resourcepanel.org/reports/global-resources-outlook",
+            "https://pure.iiasa.ac.at/id/eprint/15879/1/unep_252_global_resource_outlook_2019_web.pdf",
           reasoning:
             "The UNEP International Resource Panel is the most authoritative body on global material flows. The data is comprehensive and independently compiled. Directly undermines the green growth thesis by showing that growth remains tightly coupled to material extraction at the global level.",
         },
@@ -329,7 +329,7 @@ export const degrowthEconomicsData = {
     {
       title:
         "Global Resources Outlook 2019 — UNEP International Resource Panel",
-      url: "https://www.resourcepanel.org/reports/global-resources-outlook",
+      url: "https://pure.iiasa.ac.at/id/eprint/15879/1/unep_252_global_resource_outlook_2019_web.pdf",
     },
   ],
   questions: [

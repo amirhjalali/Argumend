@@ -35,9 +35,9 @@ export const eaccVsTechRegulationData = {
       evidence: [
         {
           id: "drug-development-cost-delay",
-          title: "FDA Regulation Drives $2.6B Average Cost and 10-15 Year Timeline Per Drug",
+          title: "FDA Regulation Drives ~$2.6B Average Cost and 10-15 Year Timeline Per Drug",
           description:
-            "The Tufts Center for the Study of Drug Development estimates that bringing a new drug to market costs an average of $2.6 billion and takes 10-15 years from discovery to approval. A 2022 study in the Journal of Health Economics found that each year of FDA review delay costs an average of 150,000 life-years for drugs treating serious conditions. Operation Warp Speed demonstrated that compressed timelines were possible — COVID-19 vaccines were developed in under a year — suggesting that normal regulatory timelines impose avoidable costs.",
+            "The peer-reviewed Tufts CSDD study by DiMasi, Grabowski & Hansen (Journal of Health Economics, 2016) estimates the average pre-approval cost of bringing a new drug to market at roughly $2.6 billion (with capitalized costs of $2.87 billion in 2013 dollars), based on 106 randomly selected drugs from 10 pharmaceutical firms, with development typically taking 10-15 years from discovery to approval. Operation Warp Speed demonstrated that compressed timelines were possible — COVID-19 vaccines were developed in under a year — suggesting that normal regulatory timelines impose avoidable costs.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -45,10 +45,10 @@ export const eaccVsTechRegulationData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Tufts Center for the Study of Drug Development; Journal of Health Economics",
-          sourceUrl: "https://csdd.tufts.edu/impact-reports",
+          source: "DiMasi, Grabowski & Hansen, Journal of Health Economics (2016), vol. 47, pp. 20-33 — Tufts Center for the Study of Drug Development",
+          sourceUrl: "https://doi.org/10.1016/j.jhealeco.2016.01.012",
           reasoning:
-            "Tufts CSDD is the standard source for drug development cost estimates, though some critics argue their methodology inflates costs by including opportunity cost of capital. The comparison to Operation Warp Speed is compelling but may not generalize — pandemic urgency created unique political conditions. Directness is moderate because pharmaceutical regulation is not identical to tech regulation.",
+            "The DiMasi et al. (2016) Tufts CSDD study is the standard peer-reviewed source for drug development cost estimates, though some critics argue its methodology inflates costs by including the opportunity cost of capital (the ~$2.6B out-of-pocket figure rises to ~$2.87B once capitalized). The comparison to Operation Warp Speed is compelling but may not generalize — pandemic urgency created unique political conditions. Directness is moderate because pharmaceutical regulation is not identical to tech regulation.",
         },
         {
           id: "nuclear-regulatory-capture",
@@ -289,8 +289,8 @@ export const eaccVsTechRegulationData = {
             replicability: 6,
             directness: 7,
           },
-          source: "National Academies of Sciences; Nature Reviews Genetics; WHO Expert Advisory Committee",
-          sourceUrl: "https://www.nationalacademies.org/our-work/human-gene-editing",
+          source: "National Academies of Sciences, Engineering, and Medicine — Human Genome Editing: Science, Ethics, and Governance (2017); Nature Reviews Genetics; WHO Expert Advisory Committee",
+          sourceUrl: "https://www.nationalacademies.org/publications/24623",
           reasoning:
             "The National Academies and Nature Reviews Genetics are authoritative sources. The CRISPR case provides evidence that scientific self-regulation can work for a powerful technology, though the He Jiankui incident also demonstrated its limits. Replicability is lower because each technology domain has unique governance dynamics.",
         },
@@ -341,8 +341,8 @@ export const eaccVsTechRegulationData = {
       url: "https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence",
     },
     {
-      title: "The Cost of Developing a New Drug — Tufts Center for the Study of Drug Development",
-      url: "https://csdd.tufts.edu/impact-reports",
+      title: "Innovation in the Pharmaceutical Industry: New Estimates of R&D Costs (DiMasi, Grabowski & Hansen) — Journal of Health Economics / Tufts Center for the Study of Drug Development",
+      url: "https://doi.org/10.1016/j.jhealeco.2016.01.012",
     },
     {
       title: "AI Index Report 2024 — Stanford HAI",
@@ -361,8 +361,8 @@ export const eaccVsTechRegulationData = {
       url: "https://www.pnas.org/doi/10.1073/pnas.2118631119",
     },
     {
-      title: "Human Genome Editing: Science, Ethics, and Governance — National Academies of Sciences",
-      url: "https://www.nationalacademies.org/our-work/human-gene-editing",
+      title: "Human Genome Editing: Science, Ethics, and Governance — National Academies of Sciences, Engineering, and Medicine",
+      url: "https://www.nationalacademies.org/publications/24623",
     },
     {
       title: "The Short-Run Effects of GDPR on Technology Venture Investment (Jia, Jin & Wagman) — National Bureau of Economic Research",

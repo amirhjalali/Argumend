@@ -192,9 +192,9 @@ export const pandemicPreparednessData = {
             directness: 8,
           },
           source:
-            "HHS Office of Inspector General; Congressional Research Service",
+            "HHS Office of Inspector General, 'The Strategic National Stockpile Was Not Positioned to Respond Effectively to the COVID-19 Pandemic' (OEI-04-20-00390, 2021)",
           sourceUrl:
-            "https://oig.hhs.gov/reports-and-publications/featured-topics/sns/",
+            "https://www.oversight.gov/sites/default/files/documents/reports/2023-11/42002028.pdf",
           reasoning:
             "The HHS OIG is the official internal watchdog, and the stockpile depletion is documented across multiple government reports. The bipartisan nature of the failure (three administrations) strongly supports the skeptical argument that preparedness investment degrades between crises regardless of which party is in power. However, proponents argue this demonstrates the need for institutional reforms (automatic replenishment mandates, independent oversight) rather than against investment itself.",
         },

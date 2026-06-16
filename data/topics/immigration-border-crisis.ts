@@ -255,7 +255,7 @@ export const immigrationBorderCrisisData = {
             directness: 7,
           },
           source: "DHS Office of Inspector General; ACLU; Human Rights Watch",
-          sourceUrl: "https://www.oig.dhs.gov/reports/2019/management-alert-dhs-needs-address-dangerous-overcrowding-and-prolonged-detention-children/oig-19-51",
+          sourceUrl: "https://www.oig.dhs.gov/reports/2019/management-alert-dhs-needs-address-dangerous-overcrowding-and-prolonged-detention-children-and-adults-rio-grande-valley/oig-19-51-jul19",
           reasoning:
             "DHS's own Inspector General findings carry high credibility because they are internal government oversight. The documented conditions raise serious humanitarian and legal concerns. Directness is somewhat lower because detention conditions are a consequence of enforcement policy, not a direct measure of its effectiveness in managing immigration.",
         },
