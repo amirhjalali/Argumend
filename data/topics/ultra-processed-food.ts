@@ -71,7 +71,7 @@ export const ultraProcessedFoodData = {
           id: "nova-classification-critique",
           title: "Nutrition Scientists Challenge NOVA Classification as Scientifically Incoherent",
           description:
-            "Multiple nutrition researchers have criticized the NOVA ultra-processed food classification system as overly broad and scientifically inconsistent. A 2024 analysis in the American Journal of Clinical Nutrition found that NOVA groups together nutritionally diverse products — packaged whole-grain bread, infant formula, plant-based meat alternatives, and candy — solely based on processing methods. The International Food Information Council found that 58% of Americans' daily calories come from NOVA-defined UPFs, but many of these are fortified foods that improve nutrient intake. Critics argue that reformulating products rather than eliminating entire categories would better serve public health.",
+            "Multiple nutrition researchers have criticized the NOVA ultra-processed food classification system as overly broad and scientifically inconsistent. A widely cited critical appraisal in the American Journal of Clinical Nutrition (Gibney et al.) argues that NOVA groups together nutritionally diverse products — packaged whole-grain bread, infant formula, plant-based meat alternatives, and candy — solely based on processing methods, and that the definition is too imprecise to support dietary guidelines. Roughly 55-58% of Americans' daily calories come from NOVA-defined UPFs, but many of these are fortified foods that improve nutrient intake. Critics argue that reformulating products rather than eliminating entire categories would better serve public health.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -79,8 +79,8 @@ export const ultraProcessedFoodData = {
             replicability: 7,
             directness: 7,
           },
-          source: "American Journal of Clinical Nutrition; International Food Information Council",
-          sourceUrl: "https://doi.org/10.1016/j.ajcnut.2024.01.005",
+          source: "American Journal of Clinical Nutrition, Gibney et al. 2017 (critical appraisal of NOVA)",
+          sourceUrl: "https://doi.org/10.3945/ajcn.117.160440",
           reasoning:
             "The critique of NOVA is methodologically sound — the classification does group nutritionally heterogeneous foods together. However, some critics have food industry funding, reducing independence scores. The reformulation argument has merit but does not address the Hall RCT findings that processing itself drives overconsumption independent of nutrient profile.",
         },
@@ -116,7 +116,7 @@ export const ultraProcessedFoodData = {
       skeptic_premise:
         "The chronic disease associations attributed to ultra-processed foods are likely mediated through well-understood nutritional pathways — excess sugar, sodium, saturated fat, and insufficient fiber — rather than processing itself. When studies control for diet quality using established measures like the Healthy Eating Index, much of the UPF-disease association is attenuated. Additives like emulsifiers, artificial sweeteners, and preservatives are individually approved by food safety agencies (FDA, EFSA) based on toxicological testing. The precautionary alarm about processing exceeds what the mechanistic evidence supports.",
       proponent_rebuttal:
-        "Emerging research identifies mechanisms of harm specific to processing that go beyond traditional nutrient accounting. Emulsifiers like carboxymethylcellulose and polysorbate-80 have been shown in animal and human studies to disrupt the gut mucosal barrier, promote inflammation, and alter the microbiome. Artificial sweeteners affect glucose tolerance through gut bacteria modification. The Maillard reaction products and acrylamide formed during industrial heat processing are classified as probable carcinogens by the IARC. A 2022 study in The Lancet found that for every 10% increase in UPF consumption, cancer incidence rose 2% and cancer mortality rose 6% — associations that persisted after adjusting for BMI, suggesting pathways independent of obesity.",
+        "Emerging research identifies mechanisms of harm specific to processing that go beyond traditional nutrient accounting. Emulsifiers like carboxymethylcellulose and polysorbate-80 have been shown in animal and human studies to disrupt the gut mucosal barrier, promote inflammation, and alter the microbiome. Artificial sweeteners affect glucose tolerance through gut bacteria modification. The Maillard reaction products and acrylamide formed during industrial heat processing are classified as probable carcinogens by the IARC. A 2023 study in eClinicalMedicine (a Lancet Discovery Science journal) found that for every 10% increase in UPF consumption, cancer incidence rose 2% and cancer mortality rose 6% — associations that persisted after adjusting for BMI, smoking, alcohol, and physical activity, suggesting pathways independent of obesity.",
       crux: {
         id: "upf-independent-mechanisms",
         title: "The Processing-Independent Harm Test",
@@ -131,9 +131,9 @@ export const ultraProcessedFoodData = {
       evidence: [
         {
           id: "lancet-cancer-upf",
-          title: "10% Increase in UPF Consumption Linked to 2% Rise in Cancer Incidence (2022)",
+          title: "10% Increase in UPF Consumption Linked to 2% Rise in Cancer Incidence (2023)",
           description:
-            "A study of 197,426 UK Biobank participants followed for a median of 10 years found that each 10% increase in UPF consumption was associated with a 2% increase in overall cancer incidence and a 6% increase in cancer mortality. Associations were strongest for ovarian cancer (19% increase) and brain tumors. Crucially, the associations persisted after adjustment for BMI, smoking, alcohol, physical activity, and dietary quality scores, suggesting pathways independent of obesity and general diet quality.",
+            "A study of 197,426 UK Biobank participants followed for a median of 10 years found that each 10% increase in UPF consumption was associated with a 2% increase in overall cancer incidence and a 6% increase in cancer mortality. Associations were strongest for ovarian cancer (19% increase) and brain tumors. Crucially, the associations persisted after adjustment for BMI, smoking, alcohol, physical activity, and total energy intake, suggesting pathways independent of obesity. The study did not adjust for an overall diet-quality score, so residual confounding by general dietary quality cannot be excluded.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -144,7 +144,7 @@ export const ultraProcessedFoodData = {
           source: "eClinicalMedicine (The Lancet), Chang et al. 2023",
           sourceUrl: "https://doi.org/10.1016/j.eclinm.2023.101840",
           reasoning:
-            "UK Biobank provides a large, well-characterized cohort. The persistence of associations after BMI adjustment supports processing-specific mechanisms. However, dietary assessment relied on 24-hour recalls which may not capture long-term habits, and residual confounding from unmeasured lifestyle factors cannot be excluded in observational data.",
+            "UK Biobank provides a large, well-characterized cohort. The persistence of associations after BMI adjustment supports processing-specific mechanisms. However, the models did not adjust for an overall diet-quality score, so confounding by general dietary quality (UPF eaters also eat less fiber, fruit, and vegetables) is not ruled out. Dietary assessment also relied on 24-hour recalls which may not capture long-term habits, and residual confounding from unmeasured lifestyle factors cannot be excluded in observational data.",
         },
         {
           id: "emulsifier-gut-study",
@@ -195,7 +195,7 @@ export const ultraProcessedFoodData = {
       skeptic_premise:
         "Regulating foods based on processing degree rather than nutritional content is unprecedented and scientifically premature. No country has successfully reduced obesity through UPF-specific regulation. Chile's front-of-pack warning labels (implemented 2016) reduced purchases of labeled products by 24% but had no measurable impact on national obesity rates after 7 years. Mexico's sugar tax reduced soda consumption by 6% but obesity continued rising. UPF-specific taxes would disproportionately burden low-income families who depend on affordable processed foods. Reformulation of existing products — reducing sugar, sodium, and adding fiber — is a more evidence-based and politically feasible approach than demonizing entire food categories.",
       proponent_rebuttal:
-        "The tobacco analogy is instructive: decades of industry-funded doubt preceded regulation that ultimately saved millions of lives. Internal documents from major food companies reveal deliberate engineering of 'bliss points' — optimal combinations of sugar, fat, and salt that maximize consumption. Brazil's dietary guidelines, which explicitly recommend avoiding UPFs, have been adopted by Uruguay, Ecuador, Peru, and Israel, and the WHO endorsed the NOVA framework in 2023 for monitoring food system health. Colombia's UPF tax (2023) and the UK's HFSS advertising restrictions (2024) represent a regulatory trend. The evidence for harm is at least as strong as the evidence was for tobacco regulation in the 1960s — waiting for perfect proof while the epidemic accelerates is itself a policy choice with consequences.",
+        "The tobacco analogy is instructive: decades of industry-funded doubt preceded regulation that ultimately saved millions of lives. Internal documents from major food companies reveal deliberate engineering of 'bliss points' — optimal combinations of sugar, fat, and salt that maximize consumption. Brazil's dietary guidelines, which explicitly recommend avoiding UPFs, have been adopted by Uruguay, Ecuador, Peru, and Israel, and the FAO published a technical report (Monteiro et al.) applying the NOVA framework to diet quality and food-system monitoring (though the report explicitly states it does not constitute FAO validation of NOVA). Colombia's UPF tax (2023) and the UK's HFSS advertising restrictions (2024) represent a regulatory trend. The evidence for harm is at least as strong as the evidence was for tobacco regulation in the 1960s — waiting for perfect proof while the epidemic accelerates is itself a policy choice with consequences.",
       crux: {
         id: "upf-regulation-effectiveness",
         title: "The Regulatory Impact Assessment",
@@ -227,9 +227,9 @@ export const ultraProcessedFoodData = {
         },
         {
           id: "brazil-dietary-guidelines",
-          title: "Brazil's NOVA-Based Dietary Guidelines Adopted by WHO and Multiple Countries (2014-2023)",
+          title: "Brazil's NOVA-Based Dietary Guidelines Adopted by Multiple Countries and Cited in FAO Report (2014-2023)",
           description:
-            "Brazil's 2014 Dietary Guidelines were the first national guidelines to explicitly recommend avoiding ultra-processed foods, organized around the NOVA classification system. The approach has since been adopted by Uruguay, Ecuador, Peru, Israel, Belgium, and France. In 2023, the WHO endorsed the NOVA framework for monitoring population diets and food system transformation. The guidelines shift focus from individual nutrients to food processing as the organizing principle of dietary advice, representing a paradigm change in nutrition policy.",
+            "Brazil's 2014 Dietary Guidelines were the first national guidelines to explicitly recommend avoiding ultra-processed foods, organized around the NOVA classification system. The approach has since been adopted by Uruguay, Ecuador, Peru, Israel, Belgium, and France. The FAO has published a technical report (Monteiro et al.) applying the NOVA framework to diet quality and food-system monitoring — though the report carries a disclaimer that it does not constitute FAO validation or endorsement of the NOVA classification. The guidelines shift focus from individual nutrients to food processing as the organizing principle of dietary advice, representing a paradigm change in nutrition policy.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -237,10 +237,10 @@ export const ultraProcessedFoodData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Brazilian Ministry of Health; WHO; Food and Agriculture Organization",
-          sourceUrl: "https://www.who.int/publications/i/item/9789240077041",
+          source: "Brazilian Ministry of Health; Food and Agriculture Organization (FAO) NOVA report (Monteiro et al.)",
+          sourceUrl: "https://openknowledge.fao.org/server/api/core/bitstreams/5277b379-0acb-4d97-a6a3-602774104629/content",
           reasoning:
-            "WHO endorsement represents significant institutional validation of the UPF-harm framework. However, adoption by governments and international bodies is a policy signal, not evidence of health outcomes. Brazil's own obesity rate has continued rising despite the guidelines, though implementation and public awareness remain limited.",
+            "Adoption by national governments and an FAO technical report represent institutional uptake of the UPF-harm framework — but this is a policy signal, not evidence of health outcomes, and the FAO report explicitly disclaims that it constitutes validation of NOVA. Brazil's own obesity rate has continued rising despite the guidelines, though implementation and public awareness remain limited.",
         },
         {
           id: "food-industry-bliss-point",
@@ -272,8 +272,8 @@ export const ultraProcessedFoodData = {
       url: "https://doi.org/10.1136/bmj-2023-077310",
     },
     {
-      title: "WHO: Ultra-Processed Foods, Diet Quality, and Health — Technical Report (2023)",
-      url: "https://www.who.int/publications/i/item/9789240077041",
+      title: "FAO: Ultra-Processed Foods, Diet Quality, and Health Using the NOVA Classification System — Technical Report (Monteiro et al.)",
+      url: "https://openknowledge.fao.org/server/api/core/bitstreams/5277b379-0acb-4d97-a6a3-602774104629/content",
     },
     {
       title: "NOVA Classification System — Monteiro et al., World Nutrition (2016)",

@@ -20,7 +20,7 @@ export const microplasticsHealthCrisisData = {
       skeptic_premise:
         "Detection does not equal causation. While microplastics have been found in virtually every human organ sampled, the human body routinely encounters foreign particles — from mineral dust to plant fibers to volcanic ash — without systemic harm. The 2024 NEJM study by Marfella et al. was observational, not interventional: patients with microplastics in their arterial plaque had worse cardiovascular outcomes, but these patients may have had greater environmental exposures correlated with poverty, smoking, or occupational hazards that independently drive cardiovascular disease. The study controlled for some confounders but could not establish that microplastics caused the inflammation rather than being passively deposited in already-diseased tissue. Furthermore, analytical methods for detecting nanoplastics in biological tissue are still maturing — pyrolysis-GC/MS and Raman spectroscopy yield variable results across laboratories, and contamination during sample preparation remains a persistent methodological concern. Until controlled, longitudinal human studies demonstrate a dose-response relationship, the presence of microplastics in tissue is a finding in search of a mechanism, not evidence of a health crisis.",
       proponent_rebuttal:
-        "The Marfella et al. study published in the New England Journal of Medicine — the world's highest-impact medical journal — followed 257 patients for 34 months and found that those with detectable polyethylene microplastics in carotid endarterectomy specimens had a 4.53-fold higher risk of myocardial infarction, stroke, or death from any cause compared to those without. This was not a simple detection study: it demonstrated a quantitative dose-response relationship, with higher microplastic concentrations correlating with worse outcomes, and found elevated inflammatory markers (IL-18, IL-1beta, TNF-alpha) in affected tissue. The confounding argument cuts both ways — if microplastic presence merely tracks poverty or occupational exposure, that itself constitutes an environmental justice crisis. Moreover, the bioaccumulation evidence is not limited to one study. Research published in Environment International detected microplastics in 77% of human blood samples. Studies have found them in placental tissue on both maternal and fetal sides, in lung tissue from surgical patients, in liver and kidney biopsies, and in testicular tissue where concentrations tripled between 2002 and 2016. The consistency of findings across independent research groups, tissues, and methodologies — while no single study is definitive — builds a cumulative case that mirrors the early epidemiology of lead, asbestos, and tobacco before causal mechanisms were fully elucidated.",
+        "The Marfella et al. study published in the New England Journal of Medicine — the world's highest-impact medical journal — followed 257 patients for 34 months and found that those with detectable polyethylene microplastics in carotid endarterectomy specimens had a 4.53-fold higher risk of myocardial infarction, stroke, or death from any cause compared to those without. This was not a simple detection study: it demonstrated a quantitative dose-response relationship, with higher microplastic concentrations correlating with worse outcomes, and found elevated inflammatory markers (IL-18, IL-1beta, TNF-alpha) in affected tissue. The confounding argument cuts both ways — if microplastic presence merely tracks poverty or occupational exposure, that itself constitutes an environmental justice crisis. Moreover, the bioaccumulation evidence is not limited to one study. Research published in Environment International detected microplastics in 77% of human blood samples. Studies have found them in placental tissue on both maternal and fetal sides, in lung tissue from surgical patients, in liver and kidney biopsies, and in testicular tissue (a 2024 study detected microplastics in 100% of human testes sampled). A separate longitudinal placenta study found particle counts roughly tripled across cohorts from 2006 to 2021. The consistency of findings across independent research groups, tissues, and methodologies — while no single study is definitive — builds a cumulative case that mirrors the early epidemiology of lead, asbestos, and tobacco before causal mechanisms were fully elucidated.",
       crux: {
         id: "microplastic-cardiovascular-causation",
         title: "The Cardiovascular Causation Test",
@@ -44,7 +44,7 @@ export const microplasticsHealthCrisisData = {
             sourceReliability: 10,
             independence: 9,
             replicability: 7,
-            directness: 9,
+            directness: 7,
           },
           source: "New England Journal of Medicine",
           sourceUrl:
@@ -63,7 +63,7 @@ export const microplasticsHealthCrisisData = {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 8,
+            directness: 5,
           },
           source: "Environment International (Elsevier)",
           sourceUrl:
@@ -95,13 +95,13 @@ export const microplasticsHealthCrisisData = {
           title:
             "Microplastics Found in Human Placentas on Both Maternal and Fetal Sides",
           description:
-            "A 2021 study in Environment International detected microplastic particles in 4 of 6 human placentas collected after normal births at a Rome hospital. Twelve microplastic fragments (ranging from 5 to 10 micrometers) were found on both the maternal and fetal sides of the placenta, as well as in the chorioamniotic membranes. Particles were identified as polypropylene (used in food packaging) and dyed synthetic polymers. Subsequent larger studies confirmed the finding, with a 2023 study detecting microplastics in 100% of 62 placentas sampled, at concentrations that appeared to increase over time.",
+            "A 2021 study in Environment International detected microplastic particles in 4 of 6 human placentas collected after normal births at a Rome hospital. Twelve microplastic fragments (ranging from 5 to 10 micrometers) were found on both the maternal and fetal sides of the placenta, as well as in the chorioamniotic membranes. Particles were identified as polypropylene (used in food packaging) and dyed synthetic polymers. Subsequent larger studies confirmed the finding, with a 2024 study (Campen et al., Toxicological Sciences) detecting microplastics in 100% of 62 placentas sampled, at concentrations ranging from 6.5 to 790 micrograms per gram of tissue.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 8,
-            directness: 8,
+            directness: 6,
           },
           source:
             "Environment International; Toxicological Sciences",

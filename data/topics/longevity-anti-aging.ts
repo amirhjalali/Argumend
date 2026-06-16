@@ -84,20 +84,20 @@ export const longevityAntiAgingData = {
         },
         {
           id: "senolytic-human-trial",
-          title: "Senolytic Drugs Show Benefit in Human Phase 2 Trial for Pulmonary Fibrosis (2023)",
+          title: "Senolytic Drugs Tested in Early Human Trials for Pulmonary Fibrosis (2019/2023)",
           description:
-            "A Phase 2 clinical trial of the senolytic combination dasatinib + quercetin in patients with idiopathic pulmonary fibrosis (IPF) showed improved physical function (6-minute walk distance) and reduced senescent cell markers compared to placebo. This was the first controlled human evidence that clearing senescent cells produces clinical benefit, though the study was small (n=21) and focused on a specific disease rather than general aging.",
+            "An open-label, single-arm pilot study (2019, n=14) of the senolytic combination dasatinib + quercetin in patients with idiopathic pulmonary fibrosis (IPF) reported improvements in physical function (6-minute walk distance, gait speed) — but it had no placebo control, so the result cannot be attributed to the drug. A subsequent randomized, placebo-controlled Phase I pilot (2023, n=12), powered for feasibility and tolerability, found the intervention feasible and well tolerated but found NO statistically significant changes in frailty, pulmonary, or physical function. Senolytic clinical evidence in aging therefore remains preliminary and, in the only controlled IPF trial to date, did not demonstrate functional benefit.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 6,
             independence: 7,
-            replicability: 6,
-            directness: 6,
+            replicability: 4,
+            directness: 5,
           },
-          source: "EBioMedicine; Mayo Clinic",
+          source: "EBioMedicine (2019 open-label pilot; 2023 Phase I placebo-controlled pilot)",
           sourceUrl: "https://doi.org/10.1016/j.ebiom.2023.104714",
           reasoning:
-            "First controlled human evidence for senolytics is significant, but the small sample size, disease-specific focus, and short duration limit the generalizability to aging broadly. The IPF population is not representative of healthy aging. Larger Phase 3 trials are needed to confirm the effect and assess long-term safety.",
+            "The encouraging 6-minute walk improvement comes from an uncontrolled single-arm pilot, which cannot establish causation; the one randomized placebo-controlled trial (2023) was designed only for feasibility/tolerability and found no significant functional effect. This is genuinely first-in-human work, but at best it is supportive of safety, not efficacy, for aging. Replicability is low because the controlled follow-up did not reproduce the functional gains, and the IPF population is not representative of healthy aging. Larger powered RCTs are needed before this counts as evidence of clinical benefit.",
         },
       ],
     },

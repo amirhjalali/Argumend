@@ -101,7 +101,7 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
       skeptic_premise:
         "Wuhan is a major city of 11 million people with extensive wildlife trade. Wet markets selling live animals are common throughout southern China, and coronaviruses circulate widely in horseshoe bat populations across Yunnan and Southeast Asia. The first SARS outbreak emerged in Guangdong, far from any BSL-4 lab. Spatial analysis of early COVID-19 cases centers them on the Huanan Seafood Market, not the WIV campus 30 km away. Raccoon dog and civet DNA was found co-located with SARS-CoV-2 RNA in market stalls. The geographic coincidence with the WIV is notable but not probative, since markets with susceptible wildlife existed precisely because Wuhan is a major transport and trade hub.",
       proponent_rebuttal:
-        "The WIV housed the world's largest collection of bat coronaviruses, including RaTG13 (96.1% similar to SARS-CoV-2), collected from the Mojiang mine in Yunnan over 1,500 km away. Researchers there conducted gain-of-function experiments creating chimeric coronaviruses. The WIV's viral sequence database was taken offline in September 2019, months before the outbreak. Three WIV researchers were reportedly hospitalized with COVID-like symptoms in November 2019. No direct progenitor of SARS-CoV-2 has been found in any market animal. The probability that a novel bat coronavirus would emerge naturally in the one city housing the world's top bat coronavirus lab, rather than in Yunnan where the closest known relatives are found, demands serious investigation.",
+        "The WIV housed the world's largest collection of bat coronaviruses, including RaTG13 (96.2% similar to SARS-CoV-2), collected from the Mojiang mine in Yunnan over 1,500 km away. Researchers there conducted gain-of-function experiments creating chimeric coronaviruses. The WIV's viral sequence database was taken offline in September 2019, months before the outbreak. Three WIV researchers were reportedly hospitalized with COVID-like symptoms in November 2019. No direct progenitor of SARS-CoV-2 has been found in any market animal. The probability that a novel bat coronavirus would emerge naturally in the one city housing the world's top bat coronavirus lab, rather than in Yunnan where the closest known relatives are found, demands serious investigation.",
       crux: {
         id: "wiv-database-audit",
         title: "The WIV Database Audit",
@@ -527,13 +527,13 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
             sourceReliability: 7,
             independence: 5,
             replicability: 4,
-            directness: 5,
+            directness: 4,
           },
-          source: "ODNI Declassified Reports (2025); NDAA FY2026",
+          source: "ODNI Declassified Reports (2023-2025); NDAA FY2026",
           sourceUrl:
             "https://www.dni.gov/files/ODNI/documents/assessments/Declassified-Assessment-on-COVID-19-Origins.pdf",
           reasoning:
-            "Declassified intelligence provides more transparency than previously available, though much remains redacted. The revelation that bat coronavirus research was conducted at BSL-2 is significant because it demonstrates that the biosafety conditions were inadequate for the risk level, making an accidental exposure more plausible. However, inadequate biosafety does not prove an exposure occurred. Independence is limited because the declassification process is controlled by the executive branch with political considerations.",
+            "Declassified intelligence provides more transparency than previously available, though much remains redacted. That some WIV bat coronavirus research was conducted at BSL-2 is significant because it suggests biosafety conditions may have been inadequate for the risk level, making an accidental exposure more plausible. This BSL-2 detail, however, was already publicly documented well before 2025, so it is less novel than 'newly declassified' framing implies. Critically, the 2023 ODNI declassified assessment found no indication that the WIV's pre-pandemic holdings included SARS-CoV-2 or a close progenitor, and no direct evidence of a specific research-related incident; inadequate biosafety does not prove an exposure occurred. Independence is limited because the declassification process is controlled by the executive branch with political considerations.",
         },
         {
           id: "public-opinion-shift-2024",

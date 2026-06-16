@@ -88,18 +88,18 @@ export const glp1WeightLossDrugsData = {
           id: "muscle-mass-loss",
           title: "Up to 40% of GLP-1 Weight Loss Is Lean Muscle Mass, Not Fat",
           description:
-            "Body composition analyses from GLP-1 trials using DXA scans reveal that 25-40% of total weight lost is lean body mass rather than fat. A 2023 JAMA study found that semaglutide users lost significantly more lean mass than those using lifestyle intervention alone. For a patient losing 35 pounds, this could mean losing 10-14 pounds of muscle. In older adults, this accelerates sarcopenia — age-related muscle wasting — increasing fall risk, frailty, and potentially long-term mortality. Resistance exercise can partially mitigate this, but many patients do not receive exercise counseling.",
+            "Body composition analyses from GLP-1 trials using DXA scans reveal that roughly 25-40% of total weight lost is lean body mass rather than fat. The DXA substudy of the STEP 1 semaglutide trial reported a ~10.4 kg fat-mass reduction and a ~6.9 kg lean-mass reduction — about 40% of total weight lost coming from lean tissue (though lean mass as a proportion of body weight still improved as fat loss predominated). For a patient losing 35 pounds, this could mean losing 10-14 pounds of lean tissue. In older adults, this can accelerate sarcopenia — age-related muscle wasting — increasing fall risk, frailty, and potentially long-term mortality. Resistance exercise can partially mitigate this, but many patients do not receive exercise counseling.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 8,
+            independence: 7,
             replicability: 8,
             directness: 8,
           },
-          source: "JAMA Internal Medicine; The Lancet Diabetes & Endocrinology",
-          sourceUrl: "https://jamanetwork.com/journals/jama/fullarticle/2812936",
+          source: "Journal of the Endocrine Society (STEP 1 DXA substudy); The Lancet Diabetes & Endocrinology",
+          sourceUrl: "https://academic.oup.com/jes/article/5/Supplement_1/A16/6240360",
           reasoning:
-            "Multiple peer-reviewed studies with DXA scan data confirm disproportionate lean mass loss. This is a genuine clinical concern, particularly for older patients. However, context matters: untreated severe obesity also causes functional impairment, and the net effect of 15-20% weight loss on mobility and metabolic health is overwhelmingly positive even accounting for some muscle loss.",
+            "DXA substudy data from STEP 1 confirms that a substantial share (~40%) of weight lost is lean mass. This is a genuine clinical concern, particularly for older patients at risk of sarcopenia. However, context cuts both ways: lean mass as a proportion of total body weight still improved, untreated severe obesity itself causes functional impairment, and the net effect of 15-20% weight loss on mobility and metabolic health is generally positive even accounting for some lean-mass loss. Independence is moderated because the substudy derives from the industry-funded STEP 1 trial.",
         },
       ],
     },

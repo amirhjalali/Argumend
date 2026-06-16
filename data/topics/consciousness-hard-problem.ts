@@ -42,7 +42,7 @@ export const consciousnessHardProblemData = {
           weight: {
             sourceReliability: 8,
             independence: 7,
-            replicability: 7,
+            replicability: 4,
             directness: 9,
           },
           source: "Chalmers, D. (1995). 'Facing Up to the Problem of Consciousness.' Journal of Consciousness Studies 2(3), 200-219",
@@ -93,7 +93,7 @@ export const consciousnessHardProblemData = {
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
+            replicability: 4,
             directness: 9,
           },
           source: "The Philosophical Review, Vol. 83, No. 4; Nagel, T. (1974)",
@@ -133,7 +133,7 @@ export const consciousnessHardProblemData = {
           id: "templeton-adversarial-2023",
           title: "Cogitate Adversarial Collaboration Fails to Decisively Support Either GWT or IIT (Nature, 2025)",
           description:
-            "The largest structured test of consciousness theories, funded by the Templeton World Charity Foundation and published in Nature in 2025 (the Cogitate Consortium collaboration, launched 2019), pitted Global Workspace Theory against Integrated Information Theory in a pre-registered adversarial collaboration. Six experiments tested predictions about neural activity during conscious perception. Results were mixed: GWT's prediction of prefrontal cortex involvement during conscious perception was only partially supported (sustained activity was found but not the predicted 'ignition' pattern). IIT's prediction of posterior cortex involvement was better supported, but its specific predictions about the role of integrated information were not confirmed. Neither theory was falsified, and neither was fully validated. The collaboration's principal investigator acknowledged the results 'humble us.'",
+            "The largest structured test of consciousness theories, funded by the Templeton World Charity Foundation and published in Nature in 2025 (the Cogitate Consortium collaboration, launched 2019), pitted Global Workspace Theory against Integrated Information Theory in a pre-registered adversarial collaboration. Six experiments tested predictions about neural activity during conscious perception. Results were mixed: GWT was challenged by a general lack of 'ignition' at stimulus offset and limited representation of some conscious dimensions in prefrontal cortex. IIT found support for content-specific information in posterior cortex, but was contradicted by a lack of the sustained posterior synchronization its connectivity predictions required. Neither theory was decisively falsified, and neither was fully validated. Lead investigator Lucia Melloni called the outcome 'a humbling reminder that even our most established ideas need to be rigorously tested.'",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -212,7 +212,7 @@ export const consciousnessHardProblemData = {
           id: "llm-consciousness-debate",
           title: "Leading Researchers Disagree on Whether Current AI Could Be Conscious (2023-2025)",
           description:
-            "A 2023 report by 19 leading consciousness researchers, commissioned by the Association for Mathematical Consciousness Science, evaluated current AI systems against major consciousness theories. The report concluded that no current AI system is 'likely' to be conscious but that some systems (particularly those with recurrent processing, global workspace-like architectures, and predictive processing elements) show 'indicators' of consciousness under some theories. Notably, the researchers could not agree on which indicators were definitive. IIT-aligned researchers argued that digital computers categorically lack consciousness; functionalist researchers argued that functional equivalence to conscious processes is sufficient. A 2024 survey found that 16% of AI researchers and 9% of neuroscientists assigned greater than 50% probability to current large language models having some form of consciousness.",
+            "A 2023 report by 19 leading consciousness researchers, commissioned by the Association for Mathematical Consciousness Science, evaluated current AI systems against major consciousness theories. The report concluded that no current AI system is 'likely' to be conscious but that some systems (particularly those with recurrent processing, global workspace-like architectures, and predictive processing elements) show 'indicators' of consciousness under some theories. Notably, the researchers could not agree on which indicators were definitive. IIT-aligned researchers argued that digital computers categorically lack consciousness; functionalist researchers argued that functional equivalence to conscious processes is sufficient. A 2024 survey of members of the Association for the Scientific Study of Consciousness found that only about 3% rejected the possibility of machine consciousness outright, while over two-thirds answered 'yes' or 'probably yes' that machines could be conscious now or in the future — underscoring that experts disagree sharply rather than converging.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -234,7 +234,7 @@ export const consciousnessHardProblemData = {
           weight: {
             sourceReliability: 7,
             independence: 7,
-            replicability: 6,
+            replicability: 3,
             directness: 8,
           },
           source: "Chalmers, D. (1996). The Conscious Mind: In Search of a Fundamental Theory. Oxford University Press",

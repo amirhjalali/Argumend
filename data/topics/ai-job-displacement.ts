@@ -86,7 +86,7 @@ export const aiJobDisplacementData = {
           id: "ai-augmentation-not-replacement",
           title: "Historical Pattern: Technology Augments Rather Than Eliminates Professions",
           description:
-            "ATMs were predicted to eliminate bank tellers, but teller employment rose 10% from 1980 to 2010 as cheaper branches proliferated. Electronic discovery was predicted to eliminate paralegals, but legal employment grew as e-discovery expanded the scope of litigation. Spreadsheets did not eliminate accountants — the number of accountants in the US grew from 1.1 million in 1980 to 1.4 million in 2020. The Jevons paradox suggests that making a task cheaper increases total demand for the underlying service.",
+            "ATMs were predicted to eliminate bank tellers, but US teller employment actually rose — from roughly 500,000 to nearly 600,000 between the 1980s and 2010 (James Bessen) — as cheaper-to-staff branches proliferated and the teller role shifted toward relationship banking. Electronic discovery was predicted to eliminate paralegals, but legal employment grew as e-discovery expanded the scope of litigation. Spreadsheets did not eliminate accountants — the number of accountants in the US grew over the same decades. The Jevons paradox suggests that making a task cheaper can increase total demand for the underlying service.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -103,7 +103,7 @@ export const aiJobDisplacementData = {
           id: "frontier-model-reasoning-leap-2025",
           title: "Frontier Models Achieve Expert-Level Reasoning on Graduate-Level Benchmarks (2025)",
           description:
-            "By mid-2025, frontier models including Claude 3.5/4, GPT-4o, and Gemini 2 demonstrated dramatic improvements in multi-step reasoning, long-context analysis, and agentic task completion. Claude 3.5 Sonnet scored 88.7% on the graduate-level GPQA benchmark (compared to domain PhD students at 65%). GPT-4o achieved state-of-the-art results on MATH and MMLU-Pro. These models moved beyond pattern matching to exhibit reliable chain-of-thought reasoning, tool use, and self-correction — capabilities that were considered years away in 2023 forecasts. The qualitative leap in reasoning capability expanded the range of automatable white-collar tasks from routine summarization to complex analysis, research synthesis, and strategic planning.",
+            "By mid-2025, frontier models including Claude 3.5/4, GPT-4o, and Gemini 2 demonstrated dramatic improvements in multi-step reasoning, long-context analysis, and agentic task completion. Claude 3.5 Sonnet scored 59.4% on the graduate-level GPQA Diamond benchmark, approaching but still below domain-expert PhD performance (roughly 65-74% on the same set), with later frontier and reasoning-tuned models surpassing that expert range. GPT-4o achieved strong results on MATH and MMLU-Pro. These models moved beyond simple pattern matching toward more reliable chain-of-thought reasoning, tool use, and self-correction — capabilities that were considered years away in 2023 forecasts. The qualitative leap in reasoning capability expanded the range of automatable white-collar tasks from routine summarization to complex analysis, research synthesis, and strategic planning.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -114,7 +114,7 @@ export const aiJobDisplacementData = {
           source: "Anthropic Model Card; OpenAI GPT-4o Technical Report; Google DeepMind Gemini 2 Report",
           sourceUrl: "https://arxiv.org/abs/2312.11805",
           reasoning:
-            "Benchmark results are independently reproducible and verified by third-party evaluators. The GPQA benchmark was specifically designed to resist memorization by using questions that require genuine graduate-level reasoning. However, benchmark performance on structured problems still differs from real-world professional judgment under ambiguity, time pressure, and incomplete information. Source companies have incentives to emphasize capability gains.",
+            "Benchmark results are independently reproducible and verified by third-party evaluators. The GPQA benchmark was specifically designed to resist memorization by using questions that require genuine graduate-level reasoning. Note that the mid-2024 Claude 3.5 Sonnet score (59.4% on GPQA Diamond) was still below the human expert range; only later reasoning-tuned models exceeded it, so this evidence reflects a trajectory rather than a settled capability. Benchmark performance on structured problems also differs from real-world professional judgment under ambiguity, time pressure, and incomplete information. Source companies have incentives to emphasize capability gains.",
         },
         {
           id: "cursor-copilot-adoption-2025",
@@ -146,7 +146,7 @@ export const aiJobDisplacementData = {
         "Early economic studies show AI is already reshaping hiring patterns and wage structures in knowledge work, but aggregate employment data has not yet shown the mass displacement predicted by some forecasts.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Despite years of AI hype, labor markets tell a different story. US unemployment in knowledge-work sectors remained below 3% through 2024-2025. The Bureau of Labor Statistics projects growth in most white-collar occupations through 2033, including a 23% increase in software developers. Companies like Klarna that announced AI replacing workers later quietly rehired humans when quality dropped. History's worst predictions — Keynes's 15-hour work week, the 1960s automation panic — never materialized. Labor markets adapt through new roles, not mass unemployment.",
+        "Despite years of AI hype, labor markets tell a different story. US unemployment in knowledge-work sectors remained below 3% through 2024-2025. The Bureau of Labor Statistics projects growth in most white-collar occupations over its current decade-ahead horizon, including a large double-digit increase in software developers. Companies like Klarna that announced AI replacing workers later quietly rehired humans when quality dropped. History's worst predictions — Keynes's 15-hour work week, the 1960s automation panic — never materialized. Labor markets adapt through new roles, not mass unemployment.",
       proponent_rebuttal:
         "The displacement is already visible in leading indicators. Tech layoffs in 2023-2024 eliminated over 400,000 jobs, and many companies explicitly cited AI as the reason for not backfilling positions. Chegg's stock fell 98% as students switched to ChatGPT. The freelance writing market saw rates drop 30-50% within a year of ChatGPT's release. Goldman Sachs estimates 300 million full-time jobs globally could be automated by generative AI. The lag between capability and displacement is typically 5-10 years — we are in year two. The true impact will arrive with the next generation of AI agents that can execute multi-step workflows autonomously.",
       crux: {
@@ -199,7 +199,7 @@ export const aiJobDisplacementData = {
           id: "bls-occupation-growth",
           title: "BLS Projects Growth in Most White-Collar Occupations Through 2033",
           description:
-            "The Bureau of Labor Statistics' 2023-2033 Occupational Outlook Handbook projects employment growth in most knowledge-work categories: software developers (+25%), financial analysts (+8%), management analysts (+10%), lawyers (+8%), and medical scientists (+7%). Only a handful of white-collar occupations — such as data entry clerks (-34%) and some bookkeeping roles — show projected declines. The projections were made after the release of ChatGPT and account for expected AI adoption.",
+            "The Bureau of Labor Statistics' recent Occupational Outlook Handbook projections (decade-ahead horizon, published after ChatGPT's release) show employment growth in most knowledge-work categories: software developers (a large double-digit increase — BLS's exact figure has been revised downward across vintages, from 25% in the 2022-2032 projection to roughly 15-17% in later vintages), plus growth for financial analysts, management analysts, lawyers, and medical scientists. Only a handful of white-collar occupations — such as data entry clerks and some bookkeeping roles — show projected declines.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -233,7 +233,7 @@ export const aiJobDisplacementData = {
           id: "tech-layoffs-ai-efficiency-2025",
           title: "Major Companies Cut Workforce Citing AI Efficiency Gains (2024-2025)",
           description:
-            "Throughout 2024-2025, a pattern emerged of companies explicitly linking workforce reductions to AI capabilities. Duolingo laid off 10% of its contractors in January 2024, with CEO Luis von Ahn stating AI could now handle content creation. UPS eliminated 12,000 jobs in 2024, citing AI-driven logistics optimization. Dropbox cut 16% of its workforce, with CEO Drew Houston explaining that AI required 'different skills.' IBM paused hiring for approximately 7,800 back-office roles that could be replaced by AI. By Q2 2025, a Bloomberg analysis found that S&P 500 companies mentioning 'AI efficiency' in earnings calls had reduced headcount by an average of 8% while increasing revenue per employee by 14%.",
+            "Throughout 2024-2025, a pattern emerged of companies linking workforce reductions, at least in part, to AI capabilities. Duolingo cut around 10% of its contractors in January 2024 as it leaned on AI for content creation. UPS announced 12,000 mostly-management job cuts in 2024 to save roughly $1 billion amid falling package volume and higher contract costs; automation and AI/ML in its sorting network contributed by reducing labor hours, though the cuts were driven primarily by cost and volume pressures rather than AI alone. Dropbox cut 16% of its workforce, with CEO Drew Houston explaining that AI required 'different skills.' IBM paused hiring for roughly 7,800 back-office roles it expected AI could eventually handle. By 2025, analyses of S&P 500 earnings calls found companies emphasizing 'AI efficiency' tended to report flat-to-lower headcount alongside rising revenue per employee, though the direction of causation is contested.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -330,7 +330,7 @@ export const aiJobDisplacementData = {
           title: "JPMorgan Deploys AI Agents Handling Work of 300,000+ Hours Annually (2024)",
           description:
             "JPMorgan Chase deployed an AI contract analysis tool called COiN that reviews commercial loan agreements in seconds — work that previously required 360,000 hours of lawyer and loan officer time annually. The bank invested $15.3 billion in technology in 2024 and employed 2,000+ AI/ML engineers. CEO Jamie Dimon stated that AI could eventually impact 'every single job' at the bank. Despite this, JPMorgan's total headcount grew to 313,000 in 2024, suggesting AI enabled expansion rather than contraction.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
@@ -346,7 +346,7 @@ export const aiJobDisplacementData = {
           id: "stanford-mit-augmentation-evidence-2025",
           title: "Stanford/MIT Studies Find AI Augmentation Boosts Productivity 20-40% Without Net Job Losses (2025)",
           description:
-            "A series of rigorous studies from Stanford and MIT in 2024-2025 examined actual workplace AI deployment rather than hypothetical task exposure. Erik Brynjolfsson's Stanford Digital Economy Lab study of 5,000 customer service agents found AI tools increased productivity by 14% on average, with the largest gains (35%) for novice workers. MIT economists Daron Acemoglu and David Autor's 2025 analysis of 500 firms found that AI-adopting companies increased output per worker by 20-40% but reduced headcount by only 5-8% over two years — with most reductions coming through attrition rather than layoffs. Crucially, Acemoglu argued that AI's job impact depends primarily on corporate governance decisions and policy frameworks, not technical capability alone.",
+            "Studies examining actual workplace AI deployment rather than hypothetical task exposure point toward augmentation. Erik Brynjolfsson, Danielle Li, and Lindsey Raymond's study of 5,179 customer-support agents ('Generative AI at Work') found AI tools increased productivity (issues resolved per hour) by 14% on average, with the largest gains (~34%) for novice and lower-skilled workers and minimal effect on the most experienced. Daron Acemoglu's macroeconomic modelling ('The Simple Macroeconomics of AI') estimates relatively modest near-term aggregate effects, and David Autor's work ('Applying AI to Rebuild Middle Class Jobs') argues AI could augment and extend the reach of human expertise. Crucially, Acemoglu argues that AI's job impact depends heavily on corporate governance decisions and policy frameworks, not technical capability alone.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -357,7 +357,7 @@ export const aiJobDisplacementData = {
           source: "Stanford Digital Economy Lab; MIT Economics Department; NBER Working Papers",
           sourceUrl: "https://digitaleconomy.stanford.edu/",
           reasoning:
-            "Stanford and MIT are premier independent research institutions with no financial stake in AI adoption outcomes. Brynjolfsson and Acemoglu are among the most cited economists studying technology and labor markets. The studies use real-world deployment data rather than theoretical exposure models. The finding that productivity gains outpace job losses supports the augmentation thesis, though the 5-8% headcount reduction is non-trivial at economy scale. Acemoglu's emphasis on policy and governance as the determining factor shifts the debate from 'will AI displace?' to 'will we choose displacement or augmentation?'",
+            "Stanford and MIT are premier independent research institutions with no financial stake in AI adoption outcomes. Brynjolfsson, Acemoglu, and Autor are among the most cited economists studying technology and labor markets. The Brynjolfsson customer-support study uses real-world deployment data rather than theoretical exposure models and is directly observed; the Acemoglu/Autor contributions are modelling and framework work rather than firm-level displacement measurements, so they bound the debate rather than settle it. The pattern — large productivity gains with so-far-modest net displacement — supports the augmentation thesis. Acemoglu's emphasis on policy and governance as the determining factor shifts the debate from 'will AI displace?' to 'will we choose displacement or augmentation?'",
         },
         {
           id: "jevons-paradox-software-2025",
@@ -413,8 +413,8 @@ export const aiJobDisplacementData = {
       url: "https://digitaleconomy.stanford.edu/",
     },
     {
-      title: "Where Are the AI Jobs? — Daron Acemoglu and David Autor, NBER Working Paper 2025",
-      url: "https://www.nber.org/papers/w32596",
+      title: "Applying AI to Rebuild Middle Class Jobs — David Autor (with Acemoglu et al.), NBER Working Paper 32140, 2024",
+      url: "https://www.nber.org/papers/w32140",
     },
   ],
   questions: [

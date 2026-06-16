@@ -88,7 +88,7 @@ export const aiWhiteCollarDisplacementData = {
           id: "hallucination-persistence",
           title: "AI Hallucination Rates Remain Problematic in High-Stakes Professional Contexts",
           description:
-            "Despite rapid improvement, frontier LLMs continue to hallucinate — fabricating citations, inventing case law, generating plausible but incorrect medical information. In 2023, lawyers using ChatGPT filed briefs citing nonexistent cases in Mata v. Avianca, resulting in sanctions. A 2025 Stanford study found that even the best models hallucinate in 3-5% of legal research queries, a rate that would be unacceptable in professional practice where a single fabricated citation can result in malpractice liability. The American Bar Association issued guidance in 2024 warning that lawyers remain professionally responsible for AI-generated content.",
+            "Despite rapid improvement, frontier LLMs continue to hallucinate — fabricating citations, inventing case law, generating plausible but incorrect medical information. In 2023, lawyers using ChatGPT filed briefs citing nonexistent cases in Mata v. Avianca, resulting in sanctions. A 2024 Stanford study found that even purpose-built legal AI research tools from LexisNexis and Thomson Reuters hallucinate in more than 1 out of 6 (over 17%) of benchmarking queries, while general-purpose models hallucinate on the majority of specific legal queries — rates that would be unacceptable in professional practice where a single fabricated citation can result in malpractice liability. The American Bar Association issued guidance in 2024 warning that lawyers remain professionally responsible for AI-generated content.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -105,18 +105,18 @@ export const aiWhiteCollarDisplacementData = {
           id: "agentic-ai-workflow-automation-2025",
           title: "Agentic AI Systems Autonomously Complete Multi-Step Professional Workflows (2025-2026)",
           description:
-            "By 2025-2026, AI moved beyond single-turn question answering to agentic systems capable of executing complex, multi-step professional workflows autonomously. Anthropic's Claude and OpenAI's GPT-4o could use computer interfaces, browse the web, write and execute code, and iterate on deliverables. Deloitte deployed AI agents that independently performed due diligence analyses, reducing a 3-week process to 3 days. Legal AI startups like Harvey and CoCounsel automated end-to-end litigation workflows — from case research to motion drafting to citation checking. Goldman Sachs reported that AI agents handled 70% of routine equity research tasks by Q1 2026. The shift from 'AI as chat assistant' to 'AI as autonomous agent' fundamentally expanded the scope of automatable white-collar work.",
+            "By 2025-2026, AI moved beyond single-turn question answering toward agentic systems capable of executing multi-step professional workflows with reduced human intervention. Anthropic's Claude and OpenAI's models gained the ability to use computer interfaces, browse the web, write and execute code, and iterate on deliverables (e.g., Anthropic's publicly released 'computer use' capability). Legal AI tools such as Harvey and Thomson Reuters' CoCounsel marketed end-to-end research-to-drafting-to-citation-checking workflows, and major consultancies and banks have reported piloting AI agents for due-diligence and equity-research support. Vendor and consultancy claims of large speed-ups (for example, multi-week analyses compressed to days) are common but are typically self-reported and not independently audited. The directional shift from 'AI as chat assistant' to 'AI as autonomous agent' nonetheless expanded the scope of potentially automatable white-collar work.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 9,
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 5,
+            directness: 8,
           },
-          source: "Anthropic Blog; OpenAI Developer Conference 2025; Deloitte AI Institute; Goldman Sachs Technology Report 2026",
-          sourceUrl: "https://www.anthropic.com/research",
+          source: "Anthropic (computer use / agent capabilities); OpenAI product announcements; vendor and consultancy case studies (Harvey, CoCounsel, Deloitte, Goldman Sachs)",
+          sourceUrl: "https://www.anthropic.com/news/3-5-models-and-computer-use",
           reasoning:
-            "The shift to agentic AI is well-documented across multiple companies and independently verifiable through product launches and enterprise case studies. Deloitte and Goldman Sachs deployment data adds credibility. However, sources are primarily companies with financial incentives to promote AI capability. Early agentic systems still require significant human supervision, and enterprise deployment conditions differ from controlled demos. The long-term reliability of autonomous agents in high-stakes professional contexts remains unproven.",
+            "The shift to agentic AI is real and partly verifiable through product launches (computer use, coding agents). However, the most striking productivity figures cited for agentic deployments are self-reported by firms with financial incentives to promote AI capability and have not been independently audited; some widely repeated specifics could not be verified against a primary source. Early agentic systems still require significant human supervision, and controlled-demo conditions differ from production. Reliability of autonomous agents in high-stakes professional contexts remains unproven — hence reduced independence and replicability scores.",
         },
       ],
     },
@@ -164,21 +164,21 @@ export const aiWhiteCollarDisplacementData = {
             "BLS data is the gold standard for employment statistics, and Bessen's research is widely cited in academic literature. The ATM-teller case is directly relevant as a historical analogy. However, its directness score is limited because ATMs automated a narrow physical task, whereas AI automates the full range of cognitive tasks that define knowledge work — the analogy may not hold at this scale.",
         },
         {
-          id: "ilo-300-million-estimate",
-          title: "ILO Estimates 300 Million Jobs Globally Exposed to Generative AI Automation",
+          id: "goldman-300-million-estimate",
+          title: "Goldman Sachs Estimates 300 Million Jobs Globally Exposed to Generative AI Automation",
           description:
-            "The International Labour Organization published a 2024 analysis estimating that generative AI could affect the equivalent of 300 million full-time jobs worldwide, with clerical work, legal services, financial analysis, and software development among the most exposed occupations. High-income countries face disproportionate exposure because their economies are more concentrated in knowledge work. The ILO noted that most affected jobs would be 'augmented' rather than fully automated, but acknowledged that the distinction between augmentation and displacement depends on employer decisions, not technological capability alone.",
+            "Goldman Sachs economists published a March 2023 analysis estimating that generative AI could expose the equivalent of 300 million full-time jobs worldwide to automation, with administrative, legal, and financial occupations among the most exposed — 44% of legal tasks and 46% of office and administrative tasks were assessed as automatable. The report estimated that roughly a quarter to half of exposed workloads could be replaced. By contrast, the International Labour Organization's 2023 working paper, using a task-level exposure index, concluded that generative AI is more likely to augment than destroy jobs — finding only clerical work highly exposed (24% of clerical tasks) and most other occupations only partially exposed — underscoring that whether exposure becomes displacement depends on employer decisions, not technological capability alone.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
+            sourceReliability: 8,
+            independence: 7,
             replicability: 7,
             directness: 7,
           },
-          source: "International Labour Organization; Goldman Sachs Economics Research",
-          sourceUrl: "https://www.ilo.org/publications/generative-ai-and-jobs-global-analysis-potential-effects-job-quantity-and",
+          source: "Goldman Sachs Global Economics Research (March 2023); International Labour Organization Working Paper 96 (2023)",
+          sourceUrl: "https://www.gspublishing.com/content/research/en/reports/2023/03/27/d64e052b-0f6e-45d7-967b-d7be35fabd16.html",
           reasoning:
-            "The ILO is a UN agency with no financial stake in AI outcomes, giving it high independence. The 300 million figure is an exposure estimate, not a prediction of actual displacement — many of these jobs may be augmented rather than eliminated. The methodology relies on task-level analysis that has been critiqued for overestimating automation potential. Still, the scale of exposure is unprecedented compared to prior automation waves.",
+            "The widely cited '300 million jobs' figure originates with Goldman Sachs, not the ILO. It is an exposure estimate, not a prediction of actual displacement — many of these jobs may be augmented rather than eliminated, and Goldman Sachs has some institutional interest in AI narratives. The ILO, a UN agency with no financial stake, reached a notably more augmentation-leaning conclusion using a similar task-level method, which has itself been critiqued for over- or under-estimating automation potential. Still, the scale of exposure is unprecedented compared to prior automation waves.",
         },
         {
           id: "us-employment-historical-growth",
@@ -261,20 +261,20 @@ export const aiWhiteCollarDisplacementData = {
         },
         {
           id: "klarna-700-agents",
-          title: "Klarna Replaced 700 Customer Service Agents with AI, Reports Equivalent Quality",
+          title: "Klarna Replaced 700 Agents with AI in 2024 — Then Partly Reversed Course in 2025",
           description:
-            "In February 2024, Klarna announced that its AI assistant, built on OpenAI's technology, was handling two-thirds of all customer service interactions — equivalent to the work of 700 full-time agents. Klarna reported that the AI resolved queries in 2 minutes versus 11 minutes for humans, with equivalent customer satisfaction scores and a 25% reduction in repeat inquiries. CEO Sebastian Siemiatkowski projected $40 million in annual savings. By 2025, Klarna had reduced its workforce from 5,000 to 3,800 employees, with AI handling an increasing share of operations.",
+            "In February 2024, Klarna announced that its AI assistant, built on OpenAI's technology, was handling two-thirds of all customer service interactions — equivalent to the work of 700 full-time agents — resolving queries in 2 minutes versus 11 for humans, with a 25% reduction in repeat inquiries and a projected $40 million in profit improvement. By 2025 Klarna had shrunk its overall workforce from roughly 5,000 to 3,800. However, by mid-2025 CEO Sebastian Siemiatkowski publicly conceded the AI-first push went too far: customer satisfaction fell and the company began rehiring human agents, with Siemiatkowski stating they had 'focused too much on efficiency and cost' at the expense of quality. The episode is therefore evidence of both aggressive AI substitution and its real-world limits in high-empathy, nuanced work.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 5,
             replicability: 6,
-            directness: 9,
+            directness: 7,
           },
-          source: "Klarna Press Release; Financial Times; Bloomberg",
+          source: "Klarna Press Release; Financial Times; Bloomberg; Klarna CEO statements (2025 reversal)",
           sourceUrl: "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/",
           reasoning:
-            "Klarna's data is a primary corporate source with inherent self-promotion bias, limiting independence. The company has financial incentives to showcase AI success. However, it represents one of the most concrete, publicly documented cases of AI replacing white-collar workers at scale, making it highly direct evidence. The reduction from 5,000 to 3,800 employees is corroborated by independent reporting from the Financial Times.",
+            "Klarna's 2024 data is a primary corporate source with self-promotion bias, limiting independence. It remains one of the most concrete publicly documented cases of AI substituting white-collar workers at scale. However, the 2024 'equivalent quality' framing was undercut by Klarna's own 2025 reversal, when it rehired human agents after satisfaction declined — so directness toward the permanent-displacement claim is reduced. The case now cuts in both directions: it demonstrates that economic pressure drives rapid substitution, but also that quality and customer-acceptance limits can force partial re-humanization.",
         },
         {
           id: "enterprise-ai-pilot-failure",

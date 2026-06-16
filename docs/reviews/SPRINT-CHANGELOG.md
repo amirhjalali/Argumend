@@ -329,3 +329,28 @@ vs US Midnight Hammer); immigration death-toll re-attributed (CBP not IOM) + bac
 nuclear-weapons Able Archer attribution (1990 PFIAB, declassified 2015) + TPNW counts; ukraine
 "Miami"→Mar-a-Lago. Side-coding verified CORRECT on the other 8. All web-verified, post-cutoff
 (2026) specifics kept attributed/dated not asserted. tsc clean, 207 tests.
+
+## Red-Team Pass — batch 3 (2026-06-16), 10 AI-cluster + health/science topics
+Reviewed: consciousness-hard-problem, ai-job-displacement, ai-white-collar-displacement,
+ai-in-education, covid-origins (lab-leak), longevity-science, longevity-anti-aging,
+microplastics-health-crisis, ultra-processed-food, glp1-weight-loss-drugs.
+SIDE-CODING INVERSION fixed: ai-job-displacement (`jpmorgan-ai-deployment` "for"→"against" — its
+own text says AI enabled headcount GROWTH, i.e. augmentation).
+New class of error caught — "RESOLVES-BUT-WRONG-PAPER" citations (pass dead-link checks but cite
+the wrong source): ultra-processed-food phantom WHO ISBN (resolved to an unrelated usability doc) +
+"WHO endorsed NOVA" false (it's an FAO report WITH a no-endorsement disclaimer) + an AJCN DOI pointing
+to a B-vitamins/stroke paper; glp1 muscle-mass JAMA URL pointed to SURMOUNT-4 (wrong drug); ai-job
+NBER w32596 was "Exchange Rate Disconnect" not the Autor paper (→ w32140).
+Fabricated/wrong stats fixed: ai-job GPQA "88.7% (humans 65%)" → real 59.4% (below human range, and
+the comparison was reversed); consciousness "16%/9% of researchers think LLMs conscious" survey doesn't
+exist + Cogitate quote misattributed; ai-in-education PROSE still cited the fabricated "146-RCT 0.66 SD"
+meta-analysis (→ real Kulik-Fletcher 2016) + a fabricated "statewide NJ pilot, 5-8 hrs saved";
+ai-white-collar "300M jobs" misattributed ILO→Goldman (ILO actually found augmentation-leaning) +
+hallucination rate 3-5%→>17% + Klarna 2025 reversal added; longevity-science TAME trial overstated as
+"launched/enrolled" (actually unfunded/not-enrolled) + 2011/2016 senescence attribution; longevity-anti-aging
+senolytic trial conflation (uncontrolled-positive presented as controlled-efficacy); microplastics
+testicular/placental "tripling" conflation + presence-vs-harm directness de-inflated; covid-origins
+declassified-intel item de-inflated (2023 ODNI "no progenitor" added) + RaTG13 96.1→96.2.
+Many animal-only / theoretical / presence-only items de-inflated on directness/replicability. Several
+agents flagged confidence scores that should drift a few points (consciousness 69, ai-job 57, longevity 65)
+— left to founder judgment. All web-verified. tsc clean, 207 tests.
