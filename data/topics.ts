@@ -132,6 +132,14 @@ import { congestionPricingData } from "./topics/congestion-pricing";
 import { rightToRepairData } from "./topics/right-to-repair";
 import { assistedDyingEuthanasiaData } from "./topics/assisted-dying-euthanasia";
 import { secondAmendmentIndividualRightData } from "./topics/second-amendment-individual-right";
+import { selfDrivingCarSafetyData } from "./topics/self-driving-car-safety";
+import { netNeutralityData } from "./topics/net-neutrality";
+import { generativeAiArtCopyrightData } from "./topics/generative-ai-art-copyright";
+import { facialRecognitionPolicingData } from "./topics/facial-recognition-policing";
+import { gmoCropsSafetyData } from "./topics/gmo-crops-safety";
+import { nuclearFusionTimelineData } from "./topics/nuclear-fusion-timeline";
+import { vaccineMandatesData } from "./topics/vaccine-mandates";
+import { ssriAntidepressantEfficacyData } from "./topics/ssri-antidepressant-efficacy";
 
 // labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
 const labLeakTheoryData = covidOriginsData;
@@ -293,6 +301,14 @@ export const congestionPricing = buildTopic(congestionPricingData);
 export const rightToRepair = buildTopic(rightToRepairData);
 export const assistedDyingEuthanasia = buildTopic(assistedDyingEuthanasiaData);
 export const secondAmendmentIndividualRight = buildTopic(secondAmendmentIndividualRightData);
+export const selfDrivingCarSafety = buildTopic(selfDrivingCarSafetyData);
+export const netNeutrality = buildTopic(netNeutralityData);
+export const generativeAiArtCopyright = buildTopic(generativeAiArtCopyrightData);
+export const facialRecognitionPolicing = buildTopic(facialRecognitionPolicingData);
+export const gmoCropsSafety = buildTopic(gmoCropsSafetyData);
+export const nuclearFusionTimeline = buildTopic(nuclearFusionTimelineData);
+export const vaccineMandates = buildTopic(vaccineMandatesData);
+export const ssriAntidepressantEfficacy = buildTopic(ssriAntidepressantEfficacyData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -429,6 +445,14 @@ export const topics: Topic[] = [
   rightToRepair,
   assistedDyingEuthanasia,
   secondAmendmentIndividualRight,
+  selfDrivingCarSafety,
+  netNeutrality,
+  generativeAiArtCopyright,
+  facialRecognitionPolicing,
+  gmoCropsSafety,
+  nuclearFusionTimeline,
+  vaccineMandates,
+  ssriAntidepressantEfficacy,
 ];
 
 // ============================================================================

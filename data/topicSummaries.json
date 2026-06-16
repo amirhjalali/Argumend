@@ -1568,5 +1568,149 @@
       "gun-rights",
       "originalism"
     ]
+  },
+  {
+    "id": "self-driving-car-safety",
+    "title": "Self-Driving Car Safety",
+    "meta_claim": "Autonomous vehicles are already safer than human drivers and should be deployed broadly.",
+    "confidence_score": 42,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 7,
+    "tags": [
+      "technology",
+      "autonomous-vehicles",
+      "robotaxi",
+      "safety",
+      "waymo",
+      "transportation"
+    ]
+  },
+  {
+    "id": "net-neutrality",
+    "title": "Net Neutrality",
+    "meta_claim": "Net-neutrality regulation is necessary to protect an open, competitive internet.",
+    "confidence_score": 57,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 7,
+    "tags": [
+      "technology",
+      "net-neutrality",
+      "broadband",
+      "fcc",
+      "internet",
+      "regulation"
+    ]
+  },
+  {
+    "id": "generative-ai-art-copyright",
+    "title": "AI Training & Copyright",
+    "meta_claim": "Training generative AI on copyrighted works without permission is unfair and should be unlawful.",
+    "confidence_score": 64,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 9,
+    "tags": [
+      "technology",
+      "copyright",
+      "generative-ai",
+      "fair-use",
+      "intellectual-property",
+      "law"
+    ]
+  },
+  {
+    "id": "facial-recognition-policing",
+    "title": "Facial Recognition in Policing",
+    "meta_claim": "Police use of facial-recognition technology does more harm than good and should be restricted.",
+    "confidence_score": 51,
+    "status": "contested",
+    "category": "technology",
+    "pillarCount": 3,
+    "evidenceCount": 8,
+    "tags": [
+      "technology",
+      "facial-recognition",
+      "policing",
+      "surveillance",
+      "civil-liberties",
+      "ai-bias"
+    ]
+  },
+  {
+    "id": "gmo-crops-safety",
+    "title": "GMO Crops: Safe and Beneficial?",
+    "meta_claim": "Genetically modified crops are safe to eat and beneficial for agriculture.",
+    "confidence_score": 47,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 9,
+    "tags": [
+      "science",
+      "gmo",
+      "agriculture",
+      "food-safety",
+      "glyphosate",
+      "biotechnology"
+    ]
+  },
+  {
+    "id": "nuclear-fusion-timeline",
+    "title": "Fusion Power Within Two Decades",
+    "meta_claim": "Commercial fusion power will be a meaningful part of the energy mix within the next two decades.",
+    "confidence_score": 47,
+    "status": "highly_speculative",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 9,
+    "tags": [
+      "science",
+      "fusion",
+      "energy",
+      "technology",
+      "iter",
+      "decarbonization"
+    ]
+  },
+  {
+    "id": "vaccine-mandates",
+    "title": "Government Vaccine Mandates",
+    "meta_claim": "Government vaccine mandates are a justified public-health measure.",
+    "confidence_score": 59,
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 9,
+    "tags": [
+      "policy",
+      "vaccines",
+      "public-health",
+      "covid-19",
+      "law",
+      "ethics"
+    ]
+  },
+  {
+    "id": "ssri-antidepressant-efficacy",
+    "title": "Do Antidepressants Beat Placebo?",
+    "meta_claim": "SSRI antidepressants provide clinically meaningful benefit beyond placebo for depression.",
+    "confidence_score": 58,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 7,
+    "tags": [
+      "science",
+      "psychiatry",
+      "depression",
+      "ssri",
+      "medicine",
+      "placebo"
+    ]
   }
 ]
