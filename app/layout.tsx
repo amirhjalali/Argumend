@@ -5,6 +5,7 @@ import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { GAPageView } from "@/components/GAPageView";
+import { TOPIC_COUNT_LABEL as L } from "@/data/topicIndex";
 import "./globals.css";
 
 const serif = EB_Garamond({
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     template: "%s | ARGUMEND",
   },
   description:
-    "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. 109+ topics analyzed.",
+    `Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. ${L} topics analyzed.`,
   keywords: [
     "argument mapping",
     "argument map tool",

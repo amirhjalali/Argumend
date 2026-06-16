@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { COMPARISON_PAIRS } from "./comparisonPairs";
 import CompareIndexView from "./CompareIndexView";
+import { TOPIC_COUNT_LABEL as L } from "@/data/topicIndex";
 
 // ---------------------------------------------------------------------------
 // Metadata
@@ -14,7 +15,7 @@ export const revalidate = 86400;
 export const metadata: Metadata = {
   title: "Compare Topics Side by Side — Argument Comparison",
   description:
-    "Compare controversial debates side by side. See confidence scores, evidence balance, and argument pillars for two topics at once. Pick any two of 109+ analyzed issues.",
+    `Compare controversial debates side by side. See confidence scores, evidence balance, and argument pillars for two topics at once. Pick any two of ${L} analyzed issues.`,
   keywords: [
     "compare arguments",
     "debate comparison",

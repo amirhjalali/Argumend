@@ -34,6 +34,15 @@ export interface TopicSummary {
 /** Pre-computed summaries — ~17KB vs ~500KB for the full topics array. */
 export const topicSummaries: TopicSummary[] = summaries as TopicSummary[];
 
+/** Exact topic count. */
+export const TOPIC_COUNT = topicSummaries.length;
+
+/**
+ * Rounded-down topic count for marketing copy, e.g. "130+".
+ * Auto-updates as topics are added, so titles/descriptions never go stale.
+ */
+export const TOPIC_COUNT_LABEL = `${Math.floor(TOPIC_COUNT / 10) * 10}+`;
+
 // ---------------------------------------------------------------------------
 // Category constants (inlined to avoid importing topics.ts)
 // ---------------------------------------------------------------------------
