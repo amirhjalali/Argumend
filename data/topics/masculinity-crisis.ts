@@ -120,6 +120,23 @@ export const masculinityCrisisData = {
           reasoning:
             "NIH data is highly reliable and directly complicates the 'masculinity crisis' framing by showing that women also face serious mental health challenges. However, the different manifestation (female anxiety/depression vs. male suicide, addiction, and violence) may itself be gendered, suggesting that both genders face crises that express differently.",
         },
+        {
+          id: "male-suicide-disparity-longstanding",
+          title: "Male Suicide Rates Have Been 3-4.5x Higher Than Female for Over a Century",
+          description:
+            "The male suicide disparity is not a new phenomenon that signals an emerging 'crisis' — it is one of the most stable findings in epidemiology. CDC/NCHS data show the male suicide rate was three to four and one-half times the female rate across the entire 2001-2021 period (males 18.2 vs. females 4.1 per 100,000 in 2001; 22.8 vs. 5.7 in 2021). Historical research extends this 'gender paradox' back over a century: studies of records from the 1800s onward find men consistently completing suicide at far higher rates than women, even as women attempt more often. Notably, the female suicide rate rose faster in percentage terms in recent decades (up 55% from 1999-2018 vs. 28% for men), meaning the gap has narrowed, not widened. A disparity that has persisted for 100+ years and is shrinking cannot be evidence of a distinctly modern male crisis.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 8,
+          },
+          source: "CDC/NCHS Data Brief No. 464 (Suicide Mortality in the United States, 2001-2021)",
+          sourceUrl: "https://www.cdc.gov/nchs/products/databriefs/db464.htm",
+          reasoning:
+            "This is the same authoritative CDC mortality data the proponent side relies on, read longitudinally. It directly undercuts the 'new crisis' framing: the male-female suicide gap is a century-old structural pattern (rooted in method lethality and help-seeking norms), and the gap has been closing rather than widening. The 4:1 ratio is real, but its stability and recent narrowing argue against treating it as a novel emergency unique to today's young men.",
+        },
       ],
     },
 
@@ -133,7 +150,7 @@ export const masculinityCrisisData = {
         "Is the male crisis primarily about lost manufacturing jobs, declining wages for non-college workers, and economic displacement — or about cultural narratives that leave men without positive identity models? The answer determines whether the solution is economic policy or cultural reconstruction.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The decline of male-dominated industries — manufacturing, mining, construction — has eliminated millions of jobs that provided identity, income, and community to working-class men. Since 1979, real wages for men without college degrees have declined by 14% while women's wages have risen. The prime-age (25-54) male labor force participation rate has fallen from about 96% in 1970 to roughly 89% in 2024, with millions of prime-age men entirely out of the labor force. This is not a cultural or identity crisis — it is an economic crisis. Men who have good jobs, stable relationships, and community connections do not experience a 'masculinity crisis.' The cultural framing obscures the material reality: provide economic opportunity and the identity crisis resolves itself.",
+        "The decline of male-dominated industries — manufacturing, mining, construction — has eliminated millions of jobs that provided identity, income, and community to working-class men. Since 1979, real wages for men without college degrees have declined by 14% while women's wages have risen. The prime-age (25-54) male labor force participation rate has fallen from about 96% in 1970 to roughly 89% in 2024, with millions of prime-age men entirely out of the labor force. This is not a cultural or identity crisis — it is an economic crisis. Men who have good jobs, stable relationships, and community connections do not experience a 'masculinity crisis.' The cultural framing obscures the material reality: provide economic opportunity and the identity crisis resolves itself. Crucially, the same forces are killing working-class women: 'deaths of despair' have risen in near-lockstep for both sexes among Americans without a four-year degree, and married, employed men of all classes show none of the distress attributed to 'masculinity.' That the crisis tracks class and connection rather than maleness per se suggests the gendered label misdiagnoses the disease.",
       proponent_rebuttal:
         "The economic explanation is necessary but insufficient. Suicide rates are elevated even in affluent professional occupations (physicians, dentists, veterinarians) where economic displacement is not a factor. Japan and South Korea — wealthy nations with low unemployment — have some of the highest male suicide rates globally. The loneliness epidemic disproportionately affects young men who grew up in the digital era with fewer in-person friendships, romantic relationships, and community ties than any previous generation. Richard Reeves documents that male educational decline begins in kindergarten — years before economic factors could operate. The cultural dimension is real: when traditional sources of male identity (provider, protector, father) are devalued without replacement, and when mainstream institutions frame masculinity itself as problematic, men lose access to the narrative resources needed to construct a meaningful life.",
       crux: {
@@ -182,6 +199,23 @@ export const masculinityCrisisData = {
           reasoning:
             "The survey data directly quantifies the male social isolation that the crisis narrative describes. AEI is a center-right think tank, which affects independence slightly, though the survey methodology appears rigorous. The friendship data is self-reported, which is the standard methodology for social connection research.",
         },
+        {
+          id: "deaths-of-despair-women-too",
+          title: "Case Herself: Deaths of Despair Strike Women Too — It's Class, Not Gender",
+          description:
+            "Anne Case — co-author of the foundational 'deaths of despair' research — argues directly against the gendered reading of her own work. Mortality from drugs, alcohol, and suicide has risen 'in parallel for both men and women' over 25 years among Americans without a bachelor's degree. All-cause mortality rose 15% for white non-Hispanic women and 35% for white women without a four-year degree since the late 1990s. Most strikingly: in 1992, non-college white women aged 45-54 were three times more likely to die of heart disease than a death of despair; now they are 30% MORE likely to die of drugs, alcohol, or suicide. The dividing line is the bachelor's degree, not the X or Y chromosome — which means the phenomenon is a working-class catastrophe that happens to be slightly more lethal for men, not a distinct 'masculinity crisis.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Anne Case, Princeton University Press (\"Deaths of despair strike women too\")",
+          sourceUrl: "https://press.princeton.edu/ideas/deaths-of-despair-strike-women-too",
+          reasoning:
+            "This is the strongest possible against-evidence for Pillar 2 because it comes from the very researcher whose work anchors the proponent's deaths-of-despair argument. Case explicitly attributes the trend to class and the loss of the bachelor's-degree wage premium, not gender, and documents that less-educated women are dying at comparable or faster-rising rates. It directly rebuts the inference that rising despair mortality is evidence of a uniquely male crisis, reframing it as the immiseration of the non-college working class of both sexes.",
+        },
       ],
     },
 
@@ -195,7 +229,7 @@ export const masculinityCrisisData = {
         "Both 'man up' traditionalism and 'deconstruct masculinity' progressivism fail to offer a compelling positive vision that most men find meaningful. This vacuum is filled by figures ranging from thoughtful (Richard Reeves) to inflammatory (Andrew Tate), suggesting that the missing element is a constructive framework, not more critique from either direction.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
-        "The progressive framework has failed young men not by being wrong about toxic behavior, but by offering critique without construction. 'Toxic masculinity' discourse, as it filters through social media and institutional communications, is often experienced by young men as a wholesale condemnation of male identity rather than a critique of specific harmful behaviors. The APA's 2019 guidelines describing 'traditional masculinity' as 'on the whole, harmful' drew backlash not because the underlying research was wrong, but because the framing felt like an institutional declaration that being male is pathological. When mainstream institutions offer only deconstruction, the reconstruction vacuum is filled by figures who validate male identity — sometimes productively (Jordan Peterson on responsibility), sometimes toxically (Andrew Tate on dominance). The problem is not that progressives are wrong about specific harms; it is that they have not articulated what positive masculinity looks like.",
+        "The progressive framework has failed young men not by being wrong about toxic behavior, but by offering critique without construction. 'Toxic masculinity' discourse, as it filters through social media and institutional communications, is often experienced by young men as a wholesale condemnation of male identity rather than a critique of specific harmful behaviors. The APA's 2019 guidelines describing 'traditional masculinity' as 'on the whole, harmful' drew backlash not because the underlying research was wrong, but because the framing felt like an institutional declaration that being male is pathological. When mainstream institutions offer only deconstruction, the reconstruction vacuum is filled by figures who validate male identity — sometimes productively (Jordan Peterson on responsibility), sometimes toxically (Andrew Tate on dominance). The problem is not that progressives are wrong about specific harms; it is that they have not articulated what positive masculinity looks like. And the very premise of a universal 'masculinity crisis' that fuels this market is overstated: affluent and elite men remain overwhelmingly dominant at the top of nearly every status hierarchy — CEO suites, Congress, board seats, and the top 1% of incomes are still held mostly by men. The struggling young men drawn to Tate and Peterson are disproportionately working-class and isolated, not 'men' as a category. Treating a concentrated class-and-connection problem as a generalized crisis of maleness both flatters elite men who are thriving and lets the actual structural drivers off the hook.",
       proponent_rebuttal:
         "The 'both sides fail' framing creates a false equivalence between fundamentally different problems. The conservative response to male struggle — 'man up,' reject feminism, embrace hierarchy — actively worsens outcomes by discouraging help-seeking behavior, reinforcing the emotional suppression that drives male suicide, and directing legitimate anger toward scapegoats (women, immigrants, minorities) rather than toward structural causes. The progressive response, while imperfect in its communication, correctly identifies the harmful norms (suppress emotions, avoid vulnerability, equate worth with earning) that contribute to male suffering. The solution is not to abandon the critique but to communicate it better and pair it with positive alternatives. Programs like ManKind Project, Evryman, and Next Gen Men show that progressive masculinity frameworks can resonate with men when they validate male experience while expanding the definition of strength.",
       crux: {
@@ -243,6 +277,23 @@ export const masculinityCrisisData = {
           sourceUrl: "https://www.adl.org/resources/article/andrew-tate-five-things-know",
           reasoning:
             "Tate's viral popularity is empirically verifiable and directly demonstrates the demand for male identity content. The analysis of his appeal pipeline (self-improvement gateway to misogyny) is documented by multiple independent researchers. However, the interpretation of what his popularity means for the broader 'crisis' framing is contested.",
+        },
+        {
+          id: "elite-men-dominate-top-outcomes",
+          title: "Men Still Dominate the Top: 92% of S&P 500 CEOs and 72% of Congress",
+          description:
+            "If there were a universal crisis of maleness, it would be visible at the top of status hierarchies — but men remain overwhelmingly dominant there. As of 2024, women hold just 7.9% of S&P 500 CEO roles, meaning men hold about 92% (The Conference Board). In the 119th Congress (2025), women are 28% of voting members — 29% of the House and only 25% of the Senate — so men hold roughly 72%. Men likewise remain heavily over-represented among the top 1% of earners and on corporate boards. The 'crisis' is therefore concentrated, not universal: it is acute among working-class, rural, and socially isolated men, while affluent and elite men continue to occupy the commanding heights of economic and political power. This pattern is consistent with a class-and-connection story and inconsistent with a blanket 'masculinity crisis' afflicting men as such.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "The Conference Board (S&P 500 CEO data); Pew Research Center (119th Congress composition)",
+          sourceUrl: "https://www.pewresearch.org/short-reads/2025/02/21/women-account-for-28-of-lawmakers-in-the-119th-congress-unchanged-from-the-last-congress/",
+          reasoning:
+            "These are highly reliable, independently verifiable institutional statistics. They do not deny that many men are struggling, but they directly rebut the 'crisis of men as a category' framing that animates the ideological-capture market: elite men are not in crisis at all. Directness is moderate because dominance at the top does not by itself disprove suffering at the bottom — but it strongly supports the skeptic's claim that the problem is concentrated by class rather than generalized to maleness, which is the precise mechanism inflating the topic's confidence score on one-sided evidence.",
         },
       ],
     },

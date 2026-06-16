@@ -1290,11 +1290,11 @@
     "id": "masculinity-crisis",
     "title": "The Modern Masculinity Crisis",
     "meta_claim": "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
-    "confidence_score": 85,
+    "confidence_score": 59,
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 10,
     "tags": [
       "philosophy"
     ]
@@ -1342,11 +1342,11 @@
     "id": "nuclear-proliferation-new-arms-race",
     "title": "The New Nuclear Arms Race",
     "meta_claim": "The collapse of Cold War-era arms control treaties and simultaneous nuclear modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
-    "confidence_score": 86,
+    "confidence_score": 60,
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 10,
     "tags": [
       "policy"
     ]

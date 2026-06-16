@@ -405,3 +405,15 @@ and dozens of stale-figure/mis-attribution/de-inflation corrections. STRUCTURAL 
 follow-up: masculinity-crisis (~85) and nuclear-proliferation (~86) have one-sided evidence (needs added
 opposing evidence, not reweighting). All confidence scores now far more defensible. The corpus has been
 adversarially stress-tested end to end.
+
+## Red-Team follow-up — structural false-balance fix (2026-06-16)
+Fixed the two false-balance maps the red-team flagged by ADDING genuine web-sourced opposing
+evidence (not reweighting):
+- **masculinity-crisis (85→59):** added 3 "against" items closing the zero-against gap in Pillars 2&3 —
+  male/female suicide gap is 100+ years old and NARROWING (CDC Data Brief 464); deaths-of-despair strike
+  women too / it's the bachelor's-degree line not gender (Anne Case, Princeton UP — the proponents' OWN
+  anchor source); elite men still dominate top outcomes (92% S&P 500 CEOs, 72% of Congress).
+- **nuclear-proliferation (86→60):** added 3 "against" items — global stockpile down ~83% from the ~70,300
+  (1986) peak to ~12,000 (FAS); US deployed warheads flat under New START (~1,398→1,419, ACA); the "nth
+  country" forecast of 15-25 nuclear states never materialized (only 9; SA/Ukraine/Kazakhstan/Libya gave up).
+Both scores now grounded in real two-sided primary evidence and consistent with "contested." tsc clean, 207 tests.

@@ -16,7 +16,7 @@ export const nuclearProliferationNewArmsRaceData = {
         "The architecture of nuclear arms control built over decades has largely disintegrated. The INF Treaty is dead, New START has expired, the JCPOA was abandoned, and the Comprehensive Test Ban Treaty was never ratified by the US. The question is whether this treaty collapse represents a temporary setback that can be rebuilt or a structural shift toward an ungoverned nuclear order.",
       icon_name: "FileText" as const,
       skeptic_premise:
-        "The collapse of Cold War-era arms control treaties does not automatically mean nuclear risk has increased. These treaties were products of a bipolar world that no longer exists. The INF Treaty was already being violated by Russia for years before the US withdrew. New START capped only strategic warheads while ignoring tactical nuclear weapons, new delivery systems, and China's arsenal entirely. The treaties created a false sense of security while failing to address 21st-century threats. What matters is not the existence of treaties but the underlying strategic calculus: nuclear-armed states still face mutual assured destruction, which has prevented nuclear war for 80 years regardless of treaty status. Deterrence works through capability and credibility, not paper agreements.",
+        "The collapse of Cold War-era arms control treaties does not automatically mean nuclear risk has increased. These treaties were products of a bipolar world that no longer exists. The INF Treaty was already being violated by Russia for years before the US withdrew. New START capped only strategic warheads while ignoring tactical nuclear weapons, new delivery systems, and China's arsenal entirely. The treaties created a false sense of security while failing to address 21st-century threats. What matters is not the existence of treaties but the underlying strategic calculus: nuclear-armed states still face mutual assured destruction, which has prevented nuclear war for 80 years regardless of treaty status. Deterrence works through capability and credibility, not paper agreements. The empirical record also cuts against the alarmist reading: the global warhead inventory has fallen roughly 83% from its 1986 peak of about 70,300 to around 12,000 today, and the wave of new nuclear states that Cold War planners feared — Kennedy warned of '15 to 25' by the 1970s — never came, with only nine nuclear-armed states today and several countries (South Africa, Ukraine, Kazakhstan, Libya) having given up weapons or programs entirely. Treaty collapse is a real concern, but it is unfolding against a decades-long backdrop of shrinking arsenals and slow, often reversible proliferation, not runaway escalation.",
       proponent_rebuttal:
         "Arms control treaties did far more than create symbolism — they established verification mechanisms, communication channels, data exchanges, and predictability that reduced the risk of miscalculation. The INF Treaty eliminated an entire class of destabilizing weapons. New START's inspection regime gave each side confidence in the other's force posture, reducing the incentive for worst-case planning. Without these frameworks, both sides must assume the worst about the other's capabilities and intentions, driving arms racing dynamics. Russia has suspended participation in New START (February 2023) and revoked its ratification of the Comprehensive Nuclear-Test-Ban Treaty (November 2023), though it remains a signatory and says it will maintain its testing moratorium unless the US tests first. The historical record shows that periods without arms control — the late 1950s, the early 1980s — were the most dangerous moments of the nuclear age. We are entering another such period, but now with nine nuclear states instead of two.",
       crux: {
@@ -82,6 +82,23 @@ export const nuclearProliferationNewArmsRaceData = {
           reasoning:
             "The 80-year record of deterrence is a strong empirical observation. However, survivorship bias is a significant concern — we cannot observe the counterfactual worlds where deterrence failed because they would have been catastrophic. Several near-misses (Petrov incident 1983, Norwegian rocket incident 1995) suggest luck has played a role alongside deterrence logic.",
         },
+        {
+          id: "nth-country-predictions-overshot",
+          title: "The Predicted Wave of Nuclear States Never Materialized",
+          description:
+            "In a March 1963 press conference, President Kennedy warned of a 1970s world in which '15 or 20 or 25 nations' might possess nuclear weapons — the 'Nth country problem' of the era. Six decades later only nine states have them. The gap is the result of a largely successful non-proliferation regime: South Africa voluntarily dismantled its six-weapon arsenal by 1991; Ukraine, Kazakhstan, and Belarus returned the Soviet warheads on their territory to Russia in the 1990s and joined the NPT as non-nuclear states; Libya abandoned its covert program in 2003; and South Korea, Taiwan, Sweden, and others abandoned earlier weapons ambitions. The historical record shows proliferation has been far slower than mid-century forecasts predicted, and that states have repeatedly reversed course — evidence against the claim that nuclear spread is now accelerating uncontrollably.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "Arms Control Association (Lessons Learned From Denuclearizing States; NPT Timeline); National Security Archive",
+          sourceUrl: "https://www.armscontrol.org/act/2019-05/features/lessons-learned-denuclearizing-states",
+          reasoning:
+            "Kennedy's '15-25 nations' forecast and the nine-state present-day reality are documented historical facts, and the denuclearization cases (South Africa, the post-Soviet states, Libya) are well attested. This rebuts the meta-claim's premise that proliferation is spreading uncontrollably: the long-run record is one of slow spread and repeated reversals. Directness is moderated because the proponent can argue that treaty collapse and great-power modernization are recent shifts that could break the historical pattern going forward — a forward-looking risk this backward-looking evidence does not fully address.",
+        },
       ],
     },
 
@@ -143,6 +160,40 @@ export const nuclearProliferationNewArmsRaceData = {
           sourceUrl: "https://media.defense.gov/2023/Oct/19/2003323409/-1/-1/1/2023-MILITARY-AND-SECURITY-DEVELOPMENTS-INVOLVING-THE-PEOPLES-REPUBLIC-OF-CHINA.PDF",
           reasoning:
             "The Pentagon report is based on intelligence assessments and satellite imagery. Independence is somewhat lower because US strategic interests may influence threat characterization. However, the satellite imagery of new silo fields has been independently verified by commercial satellite analysts (Federation of American Scientists, James Martin Center). The tripling of China's arsenal directly supports the arms race claim.",
+        },
+        {
+          id: "global-stockpile-down-from-cold-war-peak",
+          title: "Global Nuclear Stockpile Is Down ~83% From Its Cold War Peak",
+          description:
+            "The total global nuclear inventory has fallen from a peak of roughly 70,300 warheads in 1986 to approximately 12,000-12,200 today, according to the Federation of American Scientists' Status of World Nuclear Forces. The decline is the dominant decades-long trend: the US and Russia, which hold about 87% of all warheads, continue to dismantle previously retired weapons. Far from an uncontrolled buildup in warhead numbers, the long-run trajectory of the global arsenal has been a steep, sustained reduction. FAS notes that the pace of dismantlement is now slowing and the number of warheads in active military stockpiles has begun to tick up again, but the aggregate inventory remains a fraction of its Cold War maximum.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 8,
+          },
+          source: "Federation of American Scientists (Status of World Nuclear Forces); SIPRI",
+          sourceUrl: "https://fas.org/initiative/status-world-nuclear-forces/",
+          reasoning:
+            "FAS's Nuclear Notebook and Status of World Nuclear Forces are the most widely cited open-source warhead estimates and feed the SIPRI Yearbook. The ~70,300 (1986) peak and ~12,000 current figures are well established and independently corroborated. This directly undercuts the meta-claim's framing that proliferation of warhead numbers is accelerating uncontrollably — by the headline metric of total warheads, the trend is the opposite. Directness is high but not maximal because the proponent case rests on qualitative modernization and the recent uptick in deployed/active warheads, not on total-inventory counts.",
+        },
+        {
+          id: "us-deployed-warheads-flat-new-start",
+          title: "US Deployed Strategic Warheads Have Stayed Flat Below New START Limits",
+          description:
+            "The US deployed strategic warhead count has remained essentially flat and below the New START ceiling of 1,550 since the treaty's central limits were met in February 2018. The Arms Control Association's tracking of official State Department aggregate data shows roughly 1,398 deployed warheads in 2018 and about 1,419 as of the March 2023 data exchange — small fluctuations driven by counting rules (each bomber counts as one warhead) rather than expansion. The US has not increased its number of deployed strategic warheads; its modernization programs replace aging delivery platforms (Minuteman III, Ohio-class submarines) on a roughly one-for-one basis rather than adding warheads. The 2022 Nuclear Posture Review explicitly declined to grow the deployed force.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 8,
+          },
+          source: "Arms Control Association (U.S. Strategic Nuclear Forces Under New START); U.S. State Department aggregate data",
+          sourceUrl: "https://www.armscontrol.org/factsheets/us-strategic-nuclear-forces-under-new-start",
+          reasoning:
+            "The figures derive from official New START data exchanges published by the State Department and tracked by the Arms Control Association, a credible non-partisan source. A flat deployed count from 2018 to 2023 is a strong, verifiable rebuttal to the claim that the US is engaged in an offensive warhead buildup. Directness is moderated because the proponent case emphasizes qualitative new capabilities and the post-2026 lapse of New START, after which deployed numbers are no longer treaty-capped and could change.",
         },
       ],
     },
@@ -229,6 +280,18 @@ export const nuclearProliferationNewArmsRaceData = {
     {
       title: "Bulletin of the Atomic Scientists — Doomsday Clock",
       url: "https://thebulletin.org/doomsday-clock/",
+    },
+    {
+      title: "Federation of American Scientists — Status of World Nuclear Forces",
+      url: "https://fas.org/initiative/status-world-nuclear-forces/",
+    },
+    {
+      title: "Arms Control Association — U.S. Strategic Nuclear Forces Under New START",
+      url: "https://www.armscontrol.org/factsheets/us-strategic-nuclear-forces-under-new-start",
+    },
+    {
+      title: "Arms Control Association — Lessons Learned From Denuclearizing States",
+      url: "https://www.armscontrol.org/act/2019-05/features/lessons-learned-denuclearizing-states",
     },
   ],
   questions: [
