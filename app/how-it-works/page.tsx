@@ -146,7 +146,14 @@ export default function HowItWorksPage() {
                 className="p-5 rounded-xl bg-[#fefcf9] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)]"
                 style={{ borderLeftWidth: "4px", borderLeftColor: type.color }}
               >
-                <h3 className="font-serif text-lg font-semibold text-primary mb-1">{type.name}</h3>
+                <div className="flex items-center gap-2.5 mb-1">
+                  <span
+                    className="h-2.5 w-2.5 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: type.color }}
+                    aria-hidden="true"
+                  />
+                  <h3 className="font-serif text-lg font-semibold text-primary">{type.name}</h3>
+                </div>
                 <p className="text-sm text-secondary mb-2">{type.description}</p>
                 <p className="text-xs font-mono text-stone-400 italic bg-stone-50 dark:bg-[#302e2a] inline-block px-2 py-0.5 rounded">Example: {type.example}</p>
               </div>
