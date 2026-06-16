@@ -448,3 +448,26 @@ the failure modes the Citation Moat sprint was built to prevent, now caught at a
 **Verification:** tsc clean; 207 tests green; dead-link sweep **0 DEAD / 1247 URLs**; citation coverage 98.3%
 (1247/1268). Per-batch commit + push. Both sides steelmanned; no house position; computed confidence scores.
 Founder-gated topics (abortion, israel-palestine, existence-of-god) NOT built this round per the plan.
+
+## Breadth-as-Distribution Sprint — Tier 2 (2026-06-16)
+Corpus **128 → 142**. Same Workflow pipeline: author from primary sources → independent
+adversarial fabrication-firewall → fix→re-verify any flagged map. 14 new maps registered:
+estate-inheritance-tax, occupational-licensing-reform, encryption-backdoors, section-230-reform,
+autonomous-weapons-ban, ai-energy-water-footprint, adhd-overdiagnosis, vaping-harm-reduction,
+sex-work-decriminalization, congressional-term-limits, effective-altruism, alcohol-no-safe-level,
+modern-monetary-theory, dark-matter-vs-mond.
+
+**Firewall results:** 11 clean on first pass; 1 author agent died on a socket error (dark-matter,
+re-authored); 3 needed fixes, all corrected + re-verified clean. Defects caught BEFORE shipping:
+- FABRICATED/WRONG AUTHOR: MMT "Seven Replies" credited to "Wray et al." → actually single-authored
+  by Eric Tymoigne (2021, not 2024).
+- WRONG-PAPER PMID: alcohol "GBD 2016" cited PMID 30146328 (an editorial) → corrected to 30146330
+  (the primary GBD 2016 Alcohol Collaborators study).
+- WRONG-PAPER STATISTIC: dark-matter "0.057 dex scatter" attributed to McGaugh 2016 (which reports
+  0.13 dex) → that figure belongs to Li et al. 2018; restated to the 2016 paper's actual value.
+- CITATION MISMATCHES: MMT job-guarantee figures linked to the wrong Levy report (→ 2018 PSE report);
+  MMT covid-inflation M2/PCE figures not in the cited USAFacts page (→ re-sourced/rewritten).
+
+**Verification:** tsc clean; 207 tests green; citation coverage maintained ≥98%; dead-link sweep shows
+only transient anti-bot flapping on a pre-existing URL (0 genuine dead in new maps). Both sides
+steelmanned; computed confidence scores; per-batch commit + push. Founder-gated topics not built.

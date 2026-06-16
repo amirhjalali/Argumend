@@ -1927,5 +1927,60 @@
       "global-health",
       "longtermism"
     ]
+  },
+  {
+    "id": "alcohol-no-safe-level",
+    "title": "Alcohol's Safe Level",
+    "meta_claim": "There is no safe level of alcohol consumption for health.",
+    "confidence_score": 59,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 3,
+    "evidenceCount": 7,
+    "tags": [
+      "science",
+      "alcohol",
+      "public-health",
+      "cancer",
+      "cardiovascular",
+      "epidemiology"
+    ]
+  },
+  {
+    "id": "modern-monetary-theory",
+    "title": "Modern Monetary Theory",
+    "meta_claim": "Modern Monetary Theory provides a sound basis for government spending and deficit policy.",
+    "confidence_score": 47,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 8,
+    "tags": [
+      "economics",
+      "mmt",
+      "fiscal-policy",
+      "deficits",
+      "inflation",
+      "macroeconomics"
+    ]
+  },
+  {
+    "id": "dark-matter-vs-mond",
+    "title": "Dark Matter vs. MOND",
+    "meta_claim": "Dark matter, rather than modified gravity (MOND), is the correct explanation for galactic dynamics.",
+    "confidence_score": 46,
+    "status": "contested",
+    "category": "science",
+    "pillarCount": 2,
+    "evidenceCount": 7,
+    "tags": [
+      "science",
+      "cosmology",
+      "astrophysics",
+      "dark matter",
+      "MOND",
+      "modified gravity",
+      "galaxy rotation curves"
+    ]
   }
 ]

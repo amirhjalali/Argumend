@@ -154,6 +154,9 @@ import { vapingHarmReductionData } from "./topics/vaping-harm-reduction";
 import { sexWorkDecriminalizationData } from "./topics/sex-work-decriminalization";
 import { congressionalTermLimitsData } from "./topics/congressional-term-limits";
 import { effectiveAltruismData } from "./topics/effective-altruism";
+import { alcoholNoSafeLevelData } from "./topics/alcohol-no-safe-level";
+import { modernMonetaryTheoryData } from "./topics/modern-monetary-theory";
+import { darkMatterVsMondData } from "./topics/dark-matter-vs-mond";
 
 // labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
 const labLeakTheoryData = covidOriginsData;
@@ -337,6 +340,9 @@ export const vapingHarmReduction = buildTopic(vapingHarmReductionData);
 export const sexWorkDecriminalization = buildTopic(sexWorkDecriminalizationData);
 export const congressionalTermLimits = buildTopic(congressionalTermLimitsData);
 export const effectiveAltruism = buildTopic(effectiveAltruismData);
+export const alcoholNoSafeLevel = buildTopic(alcoholNoSafeLevelData);
+export const modernMonetaryTheory = buildTopic(modernMonetaryTheoryData);
+export const darkMatterVsMond = buildTopic(darkMatterVsMondData);
 
 export const topics: Topic[] = [
   // --- Policy & Governance ---
@@ -495,6 +501,9 @@ export const topics: Topic[] = [
   sexWorkDecriminalization,
   congressionalTermLimits,
   effectiveAltruism,
+  alcoholNoSafeLevel,
+  modernMonetaryTheory,
+  darkMatterVsMond,
 ];
 
 // ============================================================================
