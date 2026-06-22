@@ -101,6 +101,7 @@ const FLAGSHIP_TOPIC_IDS = [
   "universal-healthcare",
   "drug-decriminalization",
   "ev-environmental-impact",
+  "minimum-wage-effects",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
