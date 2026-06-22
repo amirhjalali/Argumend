@@ -373,4 +373,96 @@ export const isClaims: IsClaim[] = [
     claim:
       "Sugar taxes on sweetened beverages are an effective public-health intervention that meaningfully reduces sugar consumption and obesity rates.",
   },
+  // ── Breadth batch 4 (2026-06-22) ──────────────────────────────────────────
+  {
+    slug: "social-media-age-limit-16",
+    topicId: "social-media-age-limits",
+    question: "Should under-16s be banned from social media?",
+    claim:
+      "Children under 16 should be legally prohibited from using social media platforms.",
+  },
+  {
+    slug: "ai-content-labeling-required",
+    topicId: "ai-content-labeling",
+    question: "Should AI-generated content be labeled by law?",
+    claim:
+      "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
+  },
+  {
+    slug: "break-up-big-tech",
+    topicId: "big-tech-antitrust",
+    question: "Should Big Tech be broken up?",
+    claim:
+      "Major technology companies (Google, Apple, Amazon, Meta) should be broken up or heavily regulated to restore competition and protect consumers.",
+  },
+  {
+    slug: "cancel-culture-harmful",
+    topicId: "cancel-culture",
+    question: "Does cancel culture do more harm than good?",
+    claim:
+      "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
+  },
+  {
+    slug: "media-bias-threatens-democracy",
+    topicId: "media-bias-democracy",
+    question: "Is media bias a threat to democracy?",
+    claim:
+      "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
+  },
+  {
+    slug: "space-colonization-feasible",
+    topicId: "space-colonization-feasibility",
+    question: "Is colonizing Mars or the Moon feasible within 50 years?",
+    claim:
+      "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
+  },
+  {
+    slug: "lab-grown-meat-mainstream",
+    topicId: "lab-grown-meat-adoption",
+    question: "Will lab-grown meat go mainstream?",
+    claim:
+      "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
+  },
+  {
+    slug: "ai-improves-education",
+    topicId: "ai-in-education",
+    question: "Will AI improve education and close achievement gaps?",
+    claim:
+      "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing the risks.",
+  },
+  {
+    slug: "regulate-ai-like-nuclear",
+    topicId: "ai-regulation",
+    question: "Should AI be regulated like drugs or nuclear energy?",
+    claim:
+      "AI development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
+  },
+  {
+    slug: "unregulated-tech-net-positive",
+    topicId: "eacc-vs-tech-regulation",
+    question: "Does rapid, unregulated tech progress do more good than harm?",
+    claim:
+      "Rapid, unregulated technological advancement creates more benefit than harm.",
+  },
+  {
+    slug: "superintelligence-before-2035",
+    topicId: "ai-superintelligence-timeline",
+    question: "Will superintelligent AI arrive before 2035?",
+    claim:
+      "Scaling and efficiency trends make artificial superintelligence before 2035 a real possibility, though mainstream forecasts still place even human-level AI decades out.",
+  },
+  {
+    slug: "small-modular-reactors-viable",
+    topicId: "nuclear-renaissance-smr",
+    question: "Can small modular reactors scale this decade?",
+    claim:
+      "Small modular reactors are a viable path to carbon-free baseload power deployable at meaningful scale within the next decade.",
+  },
+  {
+    slug: "short-form-video-brain-rot",
+    topicId: "tiktok-brain-rot",
+    question: "Is short-form video rotting our attention spans?",
+    claim:
+      "Habitual consumption of short-form video (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep-thinking capacity.",
+  },
 ];
