@@ -465,4 +465,95 @@ export const isClaims: IsClaim[] = [
     claim:
       "Habitual consumption of short-form video (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep-thinking capacity.",
   },
+  // ── Breadth batch 5 (2026-06-22) ──────────────────────────────────────────
+  {
+    slug: "ai-replace-doctors",
+    topicId: "ai-replacing-doctors",
+    question: "Will AI replace doctors within a decade?",
+    claim:
+      "AI systems will be capable of diagnosing and treating most medical conditions better than human physicians within 10 years.",
+  },
+  {
+    slug: "digital-privacy-dead",
+    topicId: "privacy-vs-convenience",
+    question: "Is digital privacy already dead?",
+    claim:
+      "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
+  },
+  {
+    slug: "veganism-helps-environment",
+    topicId: "veganism-environmental-impact",
+    question: "Would going vegan significantly help the environment?",
+    claim:
+      "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint — greenhouse-gas emissions, land use, and water pollution.",
+  },
+  {
+    slug: "longevity-extend-lifespan",
+    topicId: "longevity-science",
+    question: "Will longevity science extend human lifespan soon?",
+    claim:
+      "Recent longevity research (senolytics, epigenetic reprogramming, caloric-restriction mimetics) will significantly extend healthy human lifespan within the next 20 years.",
+  },
+  {
+    slug: "microplastics-health-crisis",
+    topicId: "microplastics-health-crisis",
+    question: "Are microplastics a serious health crisis?",
+    claim:
+      "Microplastic and nanoplastic contamination of human blood, organs, and placentas represents a major emerging public-health crisis, not merely an environmental nuisance.",
+  },
+  {
+    slug: "glp1-drugs-safe-long-term",
+    topicId: "glp1-weight-loss-drugs",
+    question: "Are GLP-1 drugs like Ozempic a safe long-term obesity solution?",
+    claim:
+      "GLP-1 receptor agonists like Ozempic and Mounjaro are a safe, effective long-term solution to the obesity epidemic that should be widely accessible.",
+  },
+  {
+    slug: "obesity-personal-choice",
+    topicId: "obesity-personal-responsibility",
+    question: "Is obesity mainly a matter of personal responsibility?",
+    claim:
+      "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
+  },
+  {
+    slug: "loneliness-epidemic-real",
+    topicId: "loneliness-epidemic",
+    question: "Is there really a loneliness epidemic?",
+    claim:
+      "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
+  },
+  {
+    slug: "remote-work-here-to-stay",
+    topicId: "remote-work-permanence",
+    question: "Is remote work here to stay?",
+    claim:
+      "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
+  },
+  {
+    slug: "is-college-worth-it",
+    topicId: "college-value-proposition",
+    question: "Is a college degree still worth it?",
+    claim:
+      "For most students who complete it, a four-year degree still earns a strong financial return — though the payoff varies enormously by major, institution, and completion.",
+  },
+  {
+    slug: "foreign-aid-works",
+    topicId: "foreign-aid-effectiveness",
+    question: "Does foreign aid actually work?",
+    claim:
+      "International development aid significantly improves outcomes in recipient countries and is an effective use of donor resources.",
+  },
+  {
+    slug: "regulate-crypto-like-finance",
+    topicId: "cryptocurrency-regulation",
+    question: "Should cryptocurrency be regulated like traditional finance?",
+    claim: "Cryptocurrencies should be regulated like traditional financial instruments.",
+  },
+  {
+    slug: "gig-workers-employees",
+    topicId: "gig-economy-regulation",
+    question: "Should gig workers be classified as employees?",
+    claim:
+      "Gig-economy platforms (Uber, Lyft, DoorDash) should be required to classify their workers as employees rather than independent contractors.",
+  },
 ];

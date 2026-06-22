@@ -193,3 +193,12 @@ Priority order, all in-loop unless a workflow is opted into:
   tsc; 245 tests; clean build exit 0. Committed `e636038`. ~78 remaining.
 - **Next:** batch 5 (~15 more). Going forward, fold the per-iter log update into the
   data commit to halve commit noise.
+
+### Iter 14 — 2026-06-22 — Phase 14 (breadth /is/ batch 5)
+- +13 `/is/` pages (64 → 77): AI replacing doctors, digital privacy, veganism/env,
+  longevity, microplastics, GLP-1 drugs, obesity/responsibility, loneliness, remote work,
+  college worth-it, foreign aid, crypto regulation, gig workers. tsc; tests; clean build.
+- Skipped: organic-food-health (overstates vs consensus), lithium-mining-ev-impact
+  (near-dup of EV topic), **gender-affirming-care-minors** (too sensitive/fast-moving for
+  a blunt static /is/ verdict — full topic page keeps nuance; flagged for founder).
+- **~65 remaining.** Next: batch 6.
