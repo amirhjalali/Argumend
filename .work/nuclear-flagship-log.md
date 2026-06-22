@@ -52,3 +52,15 @@ Branch: `nuclear-flagship` (off `main`).
   content. Committed `2a34dd7`. 5h usage ~9%.
 - **Next:** Phase 4 — render Stage-1 keystone hero (`topic.keystone_fact`) above the
   claim + Stage-2 `simple_case`, gated on presence so other topics are unaffected.
+
+### Iter 3 — 2026-06-22 — Phase 4 (keystone hero + simple case)
+- `FlagshipIntro` component (Stage 1 keystone fact w/ confidence pill + Stage 2
+  simple case), wired into `ReadModeView` above the claim, gated on data.
+- tsc clean; 207 tests; eslint clean; **build passed**. Verified nuclear HTML shows
+  hero + simple case + "90% confidence"; rent-control HTML has NO keystone block
+  (gating correct, no regression). Committed `52fa6f9`. 5h ~9%.
+- **Full Stage 1–5 journey now live for nuclear.**
+- **Next:** Phase 6 — tests (confidenceTier unit test; nuclear data-integrity test
+  for keystone_fact/simple_case/falsification; component render+gating tests).
+  Then Phase 5 polish (copy, a11y, mobile, dark mode, reduced-motion, visual QA),
+  then Phase 7 roll-out to 2–3 more empirical topics.
