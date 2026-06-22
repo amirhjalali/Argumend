@@ -557,3 +557,23 @@ Priority order, all in-loop unless a workflow is opted into:
   Keeping the loop alive (health-check + await founder) at a longer interval. Founder actions
   unchanged: push the 56-commit branch; favicon + logo; flagged score/sensitive /is items; or
   a new goal.
+
+### Iter 40 — 2026-06-22 — Phase 40 (SEO/OG-image audit + blog social-card fix)
+- Audited og:image + canonical across page types. Canonicals correct everywhere; the
+  path-param OG route /api/og/[id] (200, image/png) and the query-param route /api/og?title=…
+  (200) both work; /, /topics, /is, /questions all emit correct og:image.
+- **Found + fixed a real social/SEO bug on blog posts (62 pages):** they had a
+  summary_large_image Twitter card but NO og:image/twitter:image (the post's generateMetadata
+  openGraph object replaced — not merged — the blog layout's inherited image), and the post
+  JSON-LD `image` used /api/og/blog/<slug> which 404s (route is topic-only /api/og/[id]).
+  Fixed by generating a per-post card via the working query-param route
+  /api/og?title=<title>&subtitle=<category> and wiring it into openGraph.images,
+  twitter.images, and the BlogPosting JSON-LD. Commit fd02d9c.
+- Verified: og:image+twitter:image now present; URL returns 200 image/png (18.7KB); no
+  /api/og/blog/ refs remain; tsc; 261 tests; clean build. (Dev server had crashed mid-iter;
+  restarted and re-verified.)
+- **Session bug tally (Iters 33-40): 7 real bugs fixed** — 3 hydration, 1 dup-key, 1 SEO bloat,
+  1 broken-internal-links set, 1 blog OG-image. Branch 58 commits ahead, tree clean, UNPUSHED.
+- **Posture:** SEO/OG surface now audited too. Genuinely converging again; will keep ~60min
+  ticks (health-check + occasional cheap audit) and await founder (push; favicon + the broken
+  /icon.png JSON-LD logo that's still site-wide; flagged score/sensitive items; or a new goal).
