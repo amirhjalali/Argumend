@@ -136,3 +136,16 @@ Priority order, all in-loop unless a workflow is opted into:
   or a multi-agent **workflow** (parallel; spends the abundant weekly budget; needs opt-in).
 - **Next:** Phase 9 — one more flagship topic (vaccine-mandates: high traffic, MAHA-
   relevant), then pivot to the breadth /is/ play.
+
+### Iter 9 — 2026-06-22 — Phase 9 (vaccine-mandates) + PIVOT to breadth
+- vaccine-mandates: keystone = "it depends on the disease" (measles vs COVID transmission);
+  falsification on all 3 cruxes. tsc clean; 241 tests; build passed; renders. `fcaf6e9`.
+- **Flagship pattern now covers 6 topics** (nuclear, rent-control, death-penalty, gmo,
+  climate-change, vaccine-mandates). Pausing rollout — sufficient showcase.
+- **PIVOT → breadth /is/ play.** 132 of 142 topics lack an "is X true?" AEO page. Plan:
+  author `data/is-claims.ts` entries in batches (~15–20/iter), faithful to each topic's
+  meta_claim orientation (question = natural interrogative; claim = de-hedged affirmative
+  of meta_claim; slug = descriptive kebab, no "is-" prefix). Page + QAPage/ClaimReview
+  schema + sitemap inclusion already built. Prioritize the 6 flagship topics first (so
+  "is X safe?" queries land on the wow experience), then high-search, then the long tail.
+- **Next:** Phase 10 — breadth batch 1 (flagship topics still lacking /is/ + first ~15).
