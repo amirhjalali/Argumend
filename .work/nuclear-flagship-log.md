@@ -184,3 +184,12 @@ Priority order, all in-loop unless a workflow is opted into:
   (idiosyncratic/fast-moving), epstein-files (conspiracy-magnet framing).
 - Full remaining list dumped to /tmp/nf_remaining.txt (was 105; now ~91).
 - **Next:** batch 4 (~15 more from the remaining list).
+
+### Iter 13 — 2026-06-22 — Phase 13 (breadth /is/ batch 4)
+- +13 `/is/` pages (51 → 64): social-media age limits, AI labeling, break-up big tech,
+  cancel culture, media bias, space colonization, lab-grown meat, AI in education, AI
+  regulation, e/acc, superintelligence timeline, SMRs, short-form-video brain rot.
+- Skipped ai-white-collar-displacement (near-dup of ai-replace-white-collar-jobs).
+  tsc; 245 tests; clean build exit 0. Committed `e636038`. ~78 remaining.
+- **Next:** batch 5 (~15 more). Going forward, fold the per-iter log update into the
+  data commit to halve commit noise.
