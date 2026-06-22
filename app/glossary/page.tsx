@@ -69,7 +69,7 @@ const terms: GlossaryTerm[] = [
     definition:
       "A major axis of disagreement within a debate, containing opposing arguments and a decisive crux. Each Argumend topic is structured around three pillars representing the most important lines of argument, with steel-manned positions, weighted evidence, and crux questions.",
     example: "See how pillars structure the COVID Origins analysis",
-    exampleHref: "/topics/covid-origins",
+    exampleHref: "/topics/lab-leak-theory",
     learnMoreHref: "/concepts/pillars",
     learnMoreText: "Understanding pillars",
     category: "core",

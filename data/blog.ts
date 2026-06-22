@@ -2870,7 +2870,7 @@ The productive path forward involves three things. First, better research: longi
 
 The teen mental health crisis is real. The question of how much social media contributes to it is important. But getting the answer right matters more than getting it fast — because interventions based on oversimplified narratives can waste resources, create false security, and distract from the interventions that would actually help.
 
-Explore the full argument map on our [Social Media and Teen Mental Health](/topics/social-media-mental-health) topic page, and see how it connects to debates about [AI in society](/topics/ai-white-collar-displacement), [TikTok regulation](/topics/ban-tiktok), and the broader question of [how technology reshapes human experience](/topics/ai-consciousness).`,
+Explore the full argument map on our [Social Media and Teen Mental Health](/topics/social-media-mental-health) topic page, and see how it connects to debates about [AI in society](/topics/ai-white-collar-displacement), [TikTok regulation](/topics/tiktok-ban), and the broader question of [how technology reshapes human experience](/topics/consciousness-ai-systems).`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────
