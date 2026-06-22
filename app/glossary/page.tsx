@@ -142,7 +142,7 @@ const terms: GlossaryTerm[] = [
   {
     term: "Burden of Proof",
     definition:
-      "The obligation to support a claim with evidence. It rests on whoever asserts the claim, not on those who doubt it — so 'you can't prove it's false' is not evidence that it is true.",
+      "The obligation to support a claim with evidence. It rests on whoever asserts the claim, not on those who doubt it — so 'you can't prove it's false' is not evidence that it is true. Extraordinary claims require extraordinary evidence, which is why unsupported assertions receive low scores across all evidence dimensions in Argumend's framework.",
     example: "See an unmet burden on the Death Penalty Deterrence topic",
     exampleHref: "/topics/death-penalty-deterrence",
     category: "reasoning",
@@ -170,14 +170,6 @@ const terms: GlossaryTerm[] = [
     example: "See base rates in context on the GLP-1 Weight Loss Drugs analysis",
     exampleHref: "/topics/glp1-weight-loss-drugs",
     category: "fallacies",
-  },
-  {
-    term: "Burden of Proof",
-    definition:
-      "The obligation on the party making a claim to provide evidence supporting it. Extraordinary claims require extraordinary evidence. In Argumend's framework, the burden is reflected in how evidence is weighted — unsupported assertions receive low scores across all dimensions.",
-    example: "See burden of proof applied on the Epstein Files topic",
-    exampleHref: "/topics/epstein-files",
-    category: "reasoning",
   },
   // Logical Fallacies
   {
