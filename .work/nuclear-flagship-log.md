@@ -428,3 +428,30 @@ Priority order, all in-loop unless a workflow is opted into:
   the highest-value remaining solo item (validates the whole deliverable + fixed a shell-wide
   bug). Back to ~30min value-only cadence; still prefer founder action next (review/push the
   now 45-commit branch; decide flagged score fixes + sensitive /is/ topics; or set a new goal).
+
+### Iter 34 — 2026-06-22 — Phase 34 (home-page E2E verification + 2nd hydration fix)
+- **Verified the home page (the entry-point "wow") in-browser for the first time.** Confirmed
+  the HeroMiniCanvas showpiece renders on desktop (live "Could AI systems be conscious?" mini-
+  map, 3 pillars), featured analysis, sidebar, etc.
+- **Found + fixed a SECOND hydration mismatch** (distinct from Iter 33's sidebar one), on the
+  home page: `useMediaQuery` read `window.matchMedia` in its `useState` initializer, so SSR
+  rendered `isMobile=true` (mini-canvas hidden) but the desktop client rendered `isMobile=false`
+  (mini-canvas shown) → mismatch in the hero. Fixed at root: render `false` on SSR + first
+  client render, sync after mount. Fixes both consumers (HomeClient `useIsMobile`, MapLegend
+  `isLargeScreen`). Also gated HomeClient's sidebar enter-transitions on `mounted`, matching
+  AppShell. Commit d1030a1.
+- Verified: tsc; 261 tests; browser console 0 errors (was 2); desktop hero canvas still renders;
+  sidebar open by default; no visual regression. Artifacts removed, not committed.
+- **FLAGGED for founder (not auto-done — visible brand asset):** the site has NO favicon at all
+  (no app/icon.*, no app/favicon.ico, no public/icon.png) → `/favicon.ico` 404 on every page,
+  AND the JSON-LD Organization `logo` (app/layout.tsx:167) points to a nonexistent
+  `https://argumend.org/icon.png` (broken structured-data logo). Ready-to-implement fix:
+  add `app/icon.tsx` via `next/og` `ImageResponse` (mirror app/opengraph-image.tsx), e.g. a
+  serif "A" monogram in cream (#f4f1eb) on deep-teal (#3a6965) — faithful to the approved
+  palette; then repoint the JSON-LD logo to a stable icon URL. Left for founder sign-off since
+  it's a visible brand mark.
+- **Posture:** two genuine, verified correctness bugs fixed this session (both hydration
+  mismatches affecting every page / the entry point) — clearly more than filler. Both headline
+  goals remain done + now verified rendering. ~30min value-only cadence continues; top founder
+  actions still: review/push the now-48-commit branch; green-light the favicon; decide the
+  flagged score fixes (gmo/organic/dark-matter) + sensitive /is/ topics; or set a new goal.
