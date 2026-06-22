@@ -212,3 +212,17 @@ Priority order, all in-loop unless a workflow is opted into:
   (fast-moving news, not evergreen). tsc; 245 tests; clean build. ~50 remaining.
 - **Next:** batch 7 (remaining ~50, incl. alternatives-to-democracy, geoengineering,
   gain-of-function, and the long tail).
+
+### Iter 16 — 2026-06-22 — Phase 16 (breadth /is/ batch 7)
+- +11 `/is/` pages (92 → 103): gain-of-function ban, alternatives to democracy,
+  geoengineering, CBDC surveillance, masculinity crisis, deepfakes/truth, birth-rate
+  collapse, new nuclear arms race, animal rights, open-weight AI, 2nd Amendment.
+- **SKIP/FLAG cluster (need founder judgment, not auto-published):** fast-moving partisan
+  current-politics (trump-tariffs, rfk-health-policy, doge-federal-cuts, ukraine-peace-terms)
+  and polarized/sensitive (transgender-athletes, affirmative-action, immigration-national-
+  identity, gender-affirming-care-minors); near-dups (longevity-anti-aging, psychedelic-
+  therapy-hype); plus earlier flags (us-iran, iran-war, epstein, immigration-border-crisis,
+  government-platform-bans, minneapolis-shooting, ai-white-collar-displacement, organic-food,
+  lithium-mining). tsc; 245 tests; clean build. Committed.
+- **~20 includable topics remain** (rest are intentional skips). Next: batch 8 (likely the
+  last bulk batch), then a SKIP-LIST summary for founder review.

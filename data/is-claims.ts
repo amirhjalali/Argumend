@@ -662,4 +662,82 @@ export const isClaims: IsClaim[] = [
     claim:
       "Ectogenesis (artificial wombs) and in-vitro gametogenesis will fundamentally alter human reproduction within 15 years.",
   },
+  // ── Breadth batch 7 (2026-06-22) ──────────────────────────────────────────
+  {
+    slug: "ban-gain-of-function",
+    topicId: "gain-of-function-research-ban",
+    question: "Should gain-of-function research be banned?",
+    claim:
+      "Gain-of-function research that enhances the transmissibility or pathogenicity of potential pandemic pathogens poses an existential biosecurity risk that outweighs its benefits and should be permanently banned worldwide.",
+  },
+  {
+    slug: "alternatives-to-democracy",
+    topicId: "alternatives-to-democracy",
+    question: "Are there better systems than liberal democracy?",
+    claim:
+      "Liberal democracy may be structurally incapable of addressing long-term challenges like climate change, AI governance, and pandemics, so alternative governance models deserve serious consideration.",
+  },
+  {
+    slug: "geoengineering-necessary",
+    topicId: "geoengineering-climate",
+    question: "Do we need geoengineering to fight climate change?",
+    claim:
+      "Geoengineering — particularly stratospheric aerosol injection and direct air capture — is now a necessary complement to emissions reduction, not a dangerous distraction.",
+  },
+  {
+    slug: "cbdc-surveillance-threat",
+    topicId: "central-bank-digital-currency",
+    question: "Are central bank digital currencies a surveillance threat?",
+    claim:
+      "Central Bank Digital Currencies represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
+  },
+  {
+    slug: "masculinity-crisis-real",
+    topicId: "masculinity-crisis",
+    question: "Is there a real crisis facing young men?",
+    claim:
+      "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles.",
+  },
+  {
+    slug: "deepfakes-end-of-truth",
+    topicId: "ai-deepfakes-truth-collapse",
+    question: "Have deepfakes made digital media impossible to trust?",
+    claim:
+      "AI-generated deepfakes have advanced to the point where no digital media can be trusted as authentic, fundamentally undermining journalism and democratic accountability.",
+  },
+  {
+    slug: "birth-rate-collapse-crisis",
+    topicId: "declining-birth-rates",
+    question: "Are falling birth rates an existential crisis?",
+    claim:
+      "The global decline in birth rates below replacement level is an existential demographic crisis that will cause economic and civilizational decline unless proactively addressed.",
+  },
+  {
+    slug: "new-nuclear-arms-race",
+    topicId: "nuclear-proliferation-new-arms-race",
+    question: "Are we in a new nuclear arms race?",
+    claim:
+      "The collapse of Cold War-era arms control plus simultaneous modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
+  },
+  {
+    slug: "animals-deserve-rights",
+    topicId: "animal-consciousness-rights",
+    question: "Do animals deserve far stronger legal rights?",
+    claim:
+      "Scientific evidence increasingly shows many animals possess rich subjective experiences, morally obligating humanity to extend rights protections far beyond current frameworks.",
+  },
+  {
+    slug: "open-weight-ai-safe",
+    topicId: "open-weight-ai-models",
+    question: "Should frontier AI models be released open-weight?",
+    claim:
+      "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access and accelerating safety research outweighs the uplift it gives malicious actors.",
+  },
+  {
+    slug: "second-amendment-individual-right",
+    topicId: "second-amendment-individual-right",
+    question: "Does the Second Amendment protect an individual right?",
+    claim:
+      "The Second Amendment protects an individual right to bear arms, not merely a collective or militia right.",
+  },
 ];
