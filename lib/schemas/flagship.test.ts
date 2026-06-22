@@ -98,6 +98,7 @@ const FLAGSHIP_TOPIC_IDS = [
   "ai-risk",
   "lab-leak-theory",
   "fluoride-water-supplies",
+  "universal-healthcare",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {

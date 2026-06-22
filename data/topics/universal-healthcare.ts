@@ -7,6 +7,22 @@ export const universalHealthcareData = {
     "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The U.S. spends about $14,570 per person per year on healthcare — roughly double the average of other wealthy nations — yet has lower life expectancy (~77 years) and higher infant mortality than nearly all of them.",
+    confidence: 95,
+    source:
+      "CMS National Health Expenditure (2023); OECD Health at a Glance (2023); Peterson-KFF Health System Tracker",
+    sourceUrl:
+      "https://www.healthsystemtracker.org/chart-collection/health-spending-u-s-compare-countries/",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The U.S. already runs the most expensive health system in the world — about double the per-person cost of peer countries — while leaving roughly 26 million people uninsured and ranking near the bottom of wealthy nations on life expectancy and infant mortality.",
+    "The serious debate is no longer whether the status quo is wasteful (it plainly is) but whether switching to a universal system would actually capture those savings without importing new problems like long waits or weaker drug innovation.",
+    "Most independent cost analyses (19 of 22 in one review) project net savings from cutting administrative overhead and negotiating drug prices — but those models assume a clean transition and political discipline the U.S. has never tested, so the real fight is about execution risk, not the diagnosis.",
+  ],
   pillars: [
     {
       id: "cost-efficiency",
@@ -29,6 +45,16 @@ export const universalHealthcareData = {
           "\\Delta\\text{Cost} = (\\text{Admin Savings} + \\text{Drug Savings}) - (\\text{Newly Covered} \\times \\text{Per Capita Cost})",
         verification_status: "verified" as const,
         cost_to_verify: "$300K (Health economics modeling)",
+        falsification: {
+          supporter_flip:
+            "Credible natural-experiment evidence that single-payer transitions reliably FAIL to capture their projected administrative savings — total national spending rising rather than falling once a real system absorbs higher utilization, political carve-outs, and provider pushback — or that monopsony drug pricing measurably collapses the innovation pipeline the U.S. disproportionately funds, would break the efficiency case for switching.",
+          skeptic_flip:
+            "A cost-focused skeptic should update toward 'a universal system can cover everyone for less' as independent models keep converging on net savings (19 of 22 in the PLOS review), and as traditional Medicare keeps posting far lower administrative overhead than private insurers at U.S. scale.",
+          common_ground:
+            "Both sides agree the U.S. already spends far more per capita than any peer nation and still leaves ~26 million uninsured — the current system is the most expensive in the world.",
+          live_disagreement:
+            "Whether the projected administrative and drug-price savings would actually materialize in a real U.S. transition, or get eaten by higher utilization, political compromises, and provider resistance — and what that does to pharmaceutical innovation.",
+        },
       },
       evidence: [
         {
@@ -143,6 +169,16 @@ export const universalHealthcareData = {
           "\\text{System Quality} = \\frac{\\sum \\text{Health Outcomes}_{\\text{adjusted}}}{\\text{Per Capita Spending}}",
         verification_status: "verified" as const,
         cost_to_verify: "$200K (International comparative analysis)",
+        falsification: {
+          supporter_flip:
+            "If risk-adjusted comparisons that strip out non-system factors — U.S. obesity, gun deaths, drug overdoses, which aren't failures of healthcare financing — erased most of the outcome gap, showing the U.S. system itself performs about as well as universal peers, the 'worse outcomes' argument for switching would lose most of its force.",
+          skeptic_flip:
+            "A skeptic impressed by U.S. cancer-survival leadership should weigh that those wins are concentrated among the insured, while the metrics where the U.S. ranks worst — avoidable mortality and access — track the ~26 million without coverage; broad population health, not best-case specialty care, is what universal coverage targets.",
+          common_ground:
+            "Both sides agree U.S. specialty and cancer care is genuinely world-class for those who can access it, and that the U.S. trails peer nations on population-level metrics like life expectancy and infant mortality.",
+          live_disagreement:
+            "How much of the U.S. outcome gap is caused by the financing system (insurance gaps, cost barriers to care) versus non-system factors (obesity, violence, overdoses, inequality) that universal coverage alone would not fix.",
+        },
       },
       evidence: [
         {
