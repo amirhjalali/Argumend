@@ -123,3 +123,16 @@ Priority order, all in-loop unless a workflow is opted into:
    parallel → ideal for a multi-agent **workflow** (needs founder opt-in; I'll surface it).
 3. Other menu items (blog fallacy explainers, glossary, internal linking) as filler.
 - **Next:** Phase 8 — roll flagship pattern to climate-change (highest-traffic showcase).
+
+### Iter 8 — 2026-06-22 — Phase 8 (climate-change)
+- climate-change: keystone = the triple chemical fingerprint (δ¹³C / O₂ / ocean pH),
+  confidence 97; simple_case = attribution settled, live fight is sensitivity + policy;
+  falsification on all 3 cruxes — a strong demo that even SETTLED science states what
+  would change its mind. tsc clean; 237 tests; build passed; renders. Committed `317a127`.
+- **Flagship pattern now covers 5 topics** across energy/economics/policy/science.
+  This is a sufficient, diverse showcase set.
+- **Decision point (surfaced to founder in summary):** the big remaining win is the
+  PARKED breadth /is/ play (132 topics lack an "is X true?" page). Options: grind in-loop,
+  or a multi-agent **workflow** (parallel; spends the abundant weekly budget; needs opt-in).
+- **Next:** Phase 9 — one more flagship topic (vaccine-mandates: high traffic, MAHA-
+  relevant), then pivot to the breadth /is/ play.
