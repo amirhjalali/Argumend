@@ -95,6 +95,7 @@ const FLAGSHIP_TOPIC_IDS = [
   "climate-change",
   "vaccine-mandates",
   "consciousness-ai-systems",
+  "ai-risk",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {

@@ -281,3 +281,10 @@ Priority order, all in-loop unless a workflow is opted into:
   (substrate-dependence flip; sentience-indicators flip). Added to FLAGSHIP_TOPIC_IDS.
 - tsc; **249 tests**; clean build; renders. 7 flagship topics now (incl. featuredTopicId).
 - **Next:** continue broader improvement (more flagship topics and/or content).
+
+### Iter 20 — 2026-06-22 — Phase 20 (flagship: ai-risk)
+- ai-risk (Existential Risk from AGI): keystone = "the scary parts aren't only theory"
+  (2024 alignment-faking + shutdown-resistance evals + 10%-by-2027 survey); falsification
+  on all 3 cruxes (instrumental convergence / deceptive alignment / scaling timeline).
+- tsc; **253 tests**; clean build; renders. **8 flagship topics** now.
+- **Next:** likely 1-2 more (lab-leak, fluoride) then shift off flagship to other work.
