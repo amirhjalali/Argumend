@@ -153,10 +153,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // ── Questions listing page (priority 0.8) ──────────────────────────────
+  // ── Questions + "is it true?" listing pages (priority 0.8) ──────────────
   const questionsListingPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/questions`,
+      lastModified: CONTENT_LAST_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/is`,
       lastModified: CONTENT_LAST_UPDATED,
       changeFrequency: "weekly",
       priority: 0.8,

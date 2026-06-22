@@ -6,6 +6,8 @@ const FOOTER_COLUMNS = [
     title: "Explore",
     links: [
       { label: "Topics", href: "/topics" },
+      { label: "Is It True?", href: "/is" },
+      { label: "Questions", href: "/questions" },
       { label: "Blog", href: "/blog" },
       { label: "Guides", href: "/guides" },
       { label: "Library", href: "/library" },

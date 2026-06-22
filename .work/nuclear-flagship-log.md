@@ -260,3 +260,16 @@ Priority order, all in-loop unless a workflow is opted into:
 
 - **Next:** breadth done → return to broader improvement. Options: (1) a few more flagship
   topics, (2) blog/glossary/internal-linking, (3) wrap with a session memory + summary.
+
+### Iter 18 — 2026-06-22 — Phase 18 (/is discoverability — fix orphan pages)
+- Found the 121 `/is/` pages were ORPHANS (no index, no internal links, only in sitemap).
+- Built `app/is/page.tsx` — an "Is it true?" hub: all 121 questions grouped by category,
+  each linking to its /is/ page with a confidence badge (tone via confidenceTier; no amber).
+  CollectionPage JSON-LD, metadata, breadcrumbs, OG image, CTA. Modeled on /questions.
+- Added `/is` to `app/sitemap.ts` (priority 0.8).
+- Added BOTH "Is It True?" (/is) and "Questions" (/questions) to the global Footer
+  Explore column — both hubs were previously unlinked. Now every page links to them.
+- tsc; 245 tests; clean build; /is index renders all 121 links. Committed.
+- Saved cross-session memory `nuclear-flagship-2026-06.md` (+ MEMORY.md pointer).
+- **Next:** more broader improvement — candidates: a couple more flagship topics, or
+  blog/glossary content. Both major goals (flagship journey + /is breadth) are DONE.
