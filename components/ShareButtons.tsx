@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Share2, Copy, Check, Lightbulb } from "lucide-react";
 import type { TopicStatus } from "@/lib/schemas/topic";
 
@@ -96,9 +96,14 @@ function buildCruxTweetText(topicTitle: string, cruxQuestion: string): string {
 export function ShareButtons({ title, url, description, topicMeta }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const [cruxCopied, setCruxCopied] = useState(false);
-  const [canShare] = useState(
-    () => typeof navigator !== "undefined" && !!navigator.share,
-  );
+  // Detect the native share API after mount, not during render: reading
+  // navigator during render makes the server (false) and client (true) diverge,
+  // causing a hydration mismatch. Starting false keeps the first client render
+  // matching the server; the button then appears on browsers that support it.
+  const [canShare, setCanShare] = useState(false);
+  useEffect(() => {
+    setCanShare(typeof navigator !== "undefined" && !!navigator.share);
+  }, []);
 
   // ---- handlers ----
 
