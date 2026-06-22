@@ -12,6 +12,78 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // 00. Fact or Value?
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "fact-or-value",
+    title: "Fact or Value? The Question That Untangles Most Arguments",
+    description:
+      "Most stuck arguments are really two different fights wearing one costume: a disagreement about facts tangled up with a disagreement about values. Telling them apart is the fastest way to make progress.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-22T11:00:00Z",
+    readingTime: "7 min read",
+    tags: [
+      "facts vs values",
+      "critical thinking",
+      "is-ought",
+      "moral reasoning",
+      "epistemology",
+    ],
+    category: "Critical Thinking",
+    content: `## Two people, two different arguments
+
+Watch two people argue about the death penalty long enough and you'll notice something strange: they never actually disagree about the same thing. One says, "It deters murder — it saves innocent lives." The other says, "The state has no right to kill, even the guilty." The first is making a claim about **facts** — about cause and effect in the world. The second is making a claim about **values** — about what we ought to do regardless of the facts.
+
+They can argue forever, because they are having two different fights at once and pretending it's one. The single most useful move in any heated disagreement is to stop and ask: *is this a question of fact, or a question of value?*
+
+## The distinction, made simple
+
+A **factual claim** describes how the world is. It is true or false, and evidence settles it — at least in principle. "The death penalty reduces the murder rate." "Nuclear power causes fewer deaths per unit of energy than coal." "Rent control reduces the housing supply." You might not know the answer, the answer might be genuinely uncertain, but there *is* an answer out there, and better data moves you closer to it.
+
+A **value claim** describes how the world should be, or what matters. It is not true or false in the same way, and no amount of data settles it by itself. "It is wrong for the state to take a life." "Individual liberty matters more than collective safety." "We owe more to people alive today than to those not yet born." Evidence is relevant — it tells you the consequences of acting on a value — but it cannot, on its own, tell you which value to hold.
+
+Philosophers call the confusion between these the **is–ought gap**: you cannot derive what *ought* to be purely from what *is*. Facts about the world never, by themselves, generate an obligation. You always need a value premise to get there.
+
+## Why mixing them keeps you stuck
+
+Almost every argument that goes in circles is one where the two kinds of claim have been quietly fused. Three failure modes show up again and again:
+
+**Disguising a value as a fact.** "Abortion is murder" sounds factual but smuggles in a moral definition. "Immigrants are a drain on the economy" sounds factual — and part of it is checkable — but the word "drain" carries a value judgment the data alone can't support. When a value wears a lab coat, you end up arguing about evidence that was never going to settle the real disagreement.
+
+**Disguising a fact as a value.** "I just believe vaccines are dangerous" treats an empirical question (are they?) as a personal value, immune to evidence. But "are vaccines safe at this dose" has an answer. Calling it a matter of personal belief is a way of opting out of the evidence.
+
+**Solving the wrong one.** Two people agree on every fact about climate change and still disagree about policy — because the remaining gap is about values (how much we owe the future, how to weigh growth against risk). Pouring more graphs onto a values disagreement is like adding fuel to a car with a flat tire.
+
+## The litmus test you already have
+
+Here's the shortcut: **ask what would change your mind.** If you can name a piece of evidence that would flip your position, you're in a factual disagreement — go find the evidence. If *no* fact would change you, you're holding a value — and that's fine, but you should say so honestly, because no study is going to resolve it. (This is the same move we wrote about in [What Would Change Your Mind?](/blog/what-would-change-your-mind) — it doubles as a fact-or-value detector.)
+
+## How it plays out in real debates
+
+The fact-or-value split is the hidden structure of most controversies:
+
+- **The death penalty.** The factual question — does it deter? — is, on the best evidence, [unresolved at best and probably "no"](/topics/death-penalty-deterrence). But notice that settling it wouldn't end the debate, because the live disagreement is really a value one: whether retribution justifies the state taking a life, and how much weight to give the risk of executing the innocent. Facts narrow the fight; they don't finish it.
+
+- **Nuclear energy.** Here the facts do most of the work: safety is [about as settled as these things get](/topics/nuclear-energy-safety). What remains is partly factual (can we build reactors cheaply and fast enough?) and partly a value question about how to weigh rare catastrophic risk against the steady, certain harm of the fossil fuels nuclear would replace.
+
+- **Assisted dying.** This one is almost pure value. The facts — that terminally ill patients suffer, that safeguards can be designed — are not really in dispute. The [disagreement is about autonomy versus the sanctity of life](/topics/assisted-dying-euthanasia), and no clinical trial will adjudicate that. Recognizing it as a values question is what keeps the debate honest.
+
+In each case, separating the two does not make the disagreement vanish. It does something better: it tells you *which tool to reach for* — evidence for the factual part, explicit moral argument for the value part — instead of swinging the wrong one and wondering why nothing moves.
+
+## How to use it this week
+
+1. **Tag each claim.** In any argument, sort the statements into "fact" and "value." You'll often find the two sides agree on more facts than they realized — and that the real gap is a value they never named.
+2. **Resolve facts with evidence, negotiate values out loud.** Don't argue values with data, and don't argue facts with feelings. Match the tool to the claim.
+3. **Watch for costumes.** When a claim sounds factual but no evidence would change the speaker's mind, a value is hiding inside it. Name it gently.
+4. **Accept that some gaps are values all the way down.** Not every disagreement is solvable, and pretending otherwise is its own kind of dishonesty. Knowing which fights are about values lets you disagree with less heat and more respect.
+
+## How Argumend is built around this
+
+Every topic we map keeps the two layers visible on purpose. The **weighted evidence** answers the factual questions — how strongly the data supports each claim — while the **crux** and the steel-manned positions surface the value disagreements that evidence alone can't settle. When you read a topic and see a high-confidence verdict next to a still-fierce debate, that gap is almost always the fact-or-value split doing its quiet work.
+
+Pick any contested claim on the [Is it true? directory](/is) and try sorting it yourself. Once you see which parts are facts and which are values, you can never quite un-see it — and most arguments get a lot less frustrating.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // 0. What Would Change Your Mind?
   // ──────────────────────────────────────────────────────────────────────────
   {

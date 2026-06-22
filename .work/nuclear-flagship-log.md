@@ -328,3 +328,12 @@ Priority order, all in-loop unless a workflow is opted into:
 - **Note:** the two glossary datasets are separate (tooltip vocab vs page) — a future
   cleanup could unify them; kept parallel for now (low risk).
 - **Next:** continue content/polish — diminishing-returns territory; staying value-first.
+
+### Iter 25 — 2026-06-22 — Phase 25 (blog post: "Fact or Value?")
+- New blog post `fact-or-value` (data/blog.ts, 58→59): ~1700 words on the fact/value
+  (is–ought) distinction as the untangler for stuck arguments; worked examples from
+  death-penalty / nuclear / assisted-dying; 16 internal links to topics + /is + the
+  "what would change your mind" post. Distinct from existing posts (verified vs title list).
+- tsc; blog test (29); clean build; post renders.
+- **State:** both major goals long done; blog now 59 posts. Genuinely incremental from here.
+  Everything verified + committed, unpushed (49+ commits on nuclear-flagship).
