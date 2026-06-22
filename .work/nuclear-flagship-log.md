@@ -149,3 +149,16 @@ Priority order, all in-loop unless a workflow is opted into:
   schema + sitemap inclusion already built. Prioritize the 6 flagship topics first (so
   "is X safe?" queries land on the wow experience), then high-search, then the long tail.
 - **Next:** Phase 10 — breadth batch 1 (flagship topics still lacking /is/ + first ~15).
+
+### Iter 10 — 2026-06-22 — Phase 10 (breadth /is/ batch 1)
+- +13 `/is/` pages (10 → 23): rent-control, vaccine-mandates, minimum-wage, drug-
+  decriminalization, seed-oils, ai-job-displacement, social-media/teens, student-debt,
+  4-day-week, EVs, covid-lab-leak, psychedelics, ultra-processed-food.
+- Editorial rule applied: claim oriented to topic's confidence so the verdict reads right.
+  **SKIPPED** gmo-crops-safety (blended 47 would mislabel the strong safety consensus) and
+  organic-food-health (would overstate vs consensus) — flagged for topic-score review.
+- Added `data/is-claims.test.ts` (unique slugs / kebab / valid topicIds / non-empty).
+  tsc clean; 245 tests; build passed; pages generate. Committed `661fd39`. 5h ~17%.
+- **~119 topics still lack /is/.** Next: batch 2 (~15 more high-search topics).
+- **Note:** flagged for review — gmo & organic topic confidence_scores; consider splitting
+  GMO's meta_claim (safe-to-eat vs beneficial-for-agriculture) so it can get an honest /is/.
