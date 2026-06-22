@@ -577,3 +577,23 @@ Priority order, all in-loop unless a workflow is opted into:
 - **Posture:** SEO/OG surface now audited too. Genuinely converging again; will keep ~60min
   ticks (health-check + occasional cheap audit) and await founder (push; favicon + the broken
   /icon.png JSON-LD logo that's still site-wide; flagged score/sensitive items; or a new goal).
+
+### Iter 41 — 2026-06-22 — Phase 41 (structured-data + metadata sweep — clean except flagged logo)
+- Swept JSON-LD validity, robots, meta-description length, and icon.png refs across 16 page
+  types. Results: **all JSON-LD parses valid on every page**; **robots = index,follow everywhere**
+  (no accidental noindex); meta descriptions present (some run 170-224 chars → soft SERP
+  truncation only, NOT a bug — bulk-tuning would be filler, skipped).
+- **No new bug.** The one real recurring defect is the already-flagged broken Organization/
+  publisher logo `https://argumend.org/icon.png` (404, asset missing). Now fully enumerated for
+  the founder — exactly 7 files reference it:
+  app/layout.tsx, app/is/[slug]/page.tsx, app/blog/page.tsx, app/blog/[slug]/page.tsx,
+  app/questions/[slug]/page.tsx, app/guides/[id]/page.tsx, app/analysis/[id]/page.tsx.
+  Founder fix options: (a) add a square `public/icon.png` logo (best; also create `app/icon.tsx`
+  for the favicon), or (b) repoint the 7 refs to the existing working `/opengraph-image`.
+  Held off (brand asset + repoint would likely be reworked once a real logo lands).
+- No code change (correct — not manufacturing filler). tsc/tests/build untouched & green.
+- **Posture — settling into steady await-founder mode.** Audited dimensions now: render, internal
+  links, data integrity, SEO/OG, structured-data/metadata — all healthy except the flagged logo.
+  7 real bugs fixed this session (Iters 33-40). Branch 58 commits ahead, tree clean, UNPUSHED.
+  Stretching cadence; each tick = light health-check, act only on something clearly valuable.
+  Founder actions: push; logo/favicon (7-file list above); flagged score/sensitive items; new goal.
