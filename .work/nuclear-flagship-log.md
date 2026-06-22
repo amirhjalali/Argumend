@@ -500,3 +500,26 @@ Priority order, all in-loop unless a workflow is opted into:
   a final sweep (analysis page, /questions, category/tag pages) then likely settle into
   await-founder mode. Founder actions unchanged: push; favicon+logo (404 across all pages); the
   flagged score/sensitive items; or a new goal.
+
+### Iter 37 — 2026-06-22 — Phase 37 (verification sweep complete — convergence)
+- Console-checked the LAST untested page TYPES: /questions/[slug], /blog/category/[slug],
+  /blog/tag/[slug], /questions index, /topics index. **All clean (0 console errors.)**
+- **No new bugs found — the verify-by-render bug hunt has converged.** Every page type has now
+  been rendered and checked: home, /topics/[id], /is + /is/[slug], /blog + /blog/[slug] +
+  category + tag, /fallacies/[slug], /guides/[id], /glossary, /questions + /questions/[slug].
+  (Skipped /analysis/[id] — DB-backed/dynamic, empty in offline dev.)
+- The only residual console line anywhere is the /favicon.ico 404 (already flagged; founder
+  territory — it's a brand asset + the broken JSON-LD logo).
+- No code change this iteration: the right outcome is recording that the surface is healthy and
+  the bug hunt is exhausted, not manufacturing a change. (Noted: page-title counts use "N+"
+  floors — "140+ topics", "248+ questions" — intentional, not stale.)
+- **Session result (Iters 33-37):** verify-by-render found + fixed 5 real bugs invisible to
+  tsc/vitest — 3 hydration mismatches (sidebar→every page; useMediaQuery→home hero;
+  ShareButtons→blog/analysis/topic), 1 duplicate React key (glossary), 1 SEO bloat (/is
+  related-links). Branch 54 commits ahead of main, tree clean, all verified, UNPUSHED.
+- **Posture: clearly-high-value autonomous solo work is now genuinely exhausted.** Both headline
+  goals done + verified rendering; bug hunt converged. Strongly prefer founder action next:
+  push the 54-commit branch; green-light favicon + fix the broken /icon.png logo (hits every
+  page's JSON-LD); decide the flagged score (gmo/organic/dark-matter) + sensitive /is/ items;
+  or set a new goal. Will keep ticking but mostly re-verify + wait unless something clearly
+  valuable appears.
