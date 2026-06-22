@@ -103,3 +103,23 @@ Branch: `nuclear-flagship` (off `main`).
   a nuclear-like wow). Then flagship goal complete; move to the PARKED breadth play
   (132 topics lacking `/is/` AEO pages) — propose a multi-agent workflow (parallel;
   needs founder opt-in).
+
+### Iter 7 — 2026-06-22 — Phase 7b (gmo) + FLAGSHIP GOAL COMPLETE
+- gmo-crops-safety: keystone = the 25-yr National Academies safety consensus; simple_case
+  concedes the agronomic (herbicide/superweed) and glyphosate hazard-vs-risk caveats;
+  falsification on all 3 cruxes. Added to FLAGSHIP_TOPIC_IDS.
+- tsc clean; 233 tests; build passed; gmo HTML renders keystone + falsification.
+  Committed `644f5d1`. 5h ~13%.
+- **✅ FLAGSHIP GOAL COMPLETE:** full Stage 1–5 journey built, tested (component +
+  schema + data-integrity), visually QA'd (desktop light/dark + mobile), and proven to
+  generalize across 4 topics. Schema is fully additive — other 138 topics unaffected.
+
+## Broader-improvement roadmap (the "continue" clause)
+Priority order, all in-loop unless a workflow is opted into:
+1. **Roll flagship to top empirical, high-search topics** (most on-mission: wow + simplicity
+   + falsification). Queue: climate-change, vaccine-mandates, fluoride-water-supplies,
+   lab-leak-theory, seed-oils-health, ai-risk. ~1–2 topics/iteration.
+2. **Breadth /is/ AEO play** (parked): 132 topics lack an "is X true?" page. Embarrassingly
+   parallel → ideal for a multi-agent **workflow** (needs founder opt-in; I'll surface it).
+3. Other menu items (blog fallacy explainers, glossary, internal linking) as filler.
+- **Next:** Phase 8 — roll flagship pattern to climate-change (highest-traffic showcase).
