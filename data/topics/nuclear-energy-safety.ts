@@ -7,6 +7,20 @@ export const nuclearEnergySafetyData = {
     "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Per unit of energy, nuclear power is one of the safest sources ever measured: about 0.03 deaths per terawatt-hour, versus 24.6 for coal — roughly 800× safer, and on par with wind and solar.",
+    confidence: 90,
+    source: "Our World in Data (Ritchie 2020/2022); Markandya & Wilkinson, Lancet 2007",
+    sourceUrl: "https://ourworldindata.org/safest-sources-of-energy",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Measured by deaths per unit of energy, nuclear power is among the safest and lowest-carbon ways to make electricity — it sits alongside wind and solar and far ahead of fossil fuels.",
+    "The serious debate is no longer really about safety; it is about whether new reactors can be built fast enough and cheaply enough to matter on the climate timeline.",
+    "France decarbonized most of its grid with nuclear in about 15 years, yet recent U.S. and U.K. projects ran years late and billions over budget — that cost-and-speed problem, not safety, is the real fight.",
+  ],
   pillars: [
     {
       id: "safety-record",
@@ -31,6 +45,16 @@ export const nuclearEnergySafetyData = {
           "\\text{Deaths/TWh} = \\frac{\\sum \\text{all attributed deaths}}{\\text{Total energy generated}}",
         verification_status: "verified" as const,
         cost_to_verify: "$200K (Meta-analysis of existing studies)",
+        falsification: {
+          supporter_flip:
+            "Credible, replicated evidence that chronic low-dose radiation around normally-operating plants and waste sites causes large, currently-undetected cancer tolls — overturning the dose-response consensus in the dangerous direction — would move nuclear out of the 'as safe as wind and solar' tier.",
+          skeptic_flip:
+            "A skeptic focused on catastrophe should update toward 'safe enough' as passive-safety designs accumulate decades of operating experience with no major release, and as the deaths-per-TWh gap over fossil fuels keeps holding up under independent re-analysis — which it consistently has.",
+          common_ground:
+            "Both sides agree routine nuclear operation kills far fewer people than coal or gas; the real worry is rare high-consequence accidents and long-lived waste, not day-to-day harm.",
+          live_disagreement:
+            "How much weight to place on low-probability, high-consequence tail risk plus a multi-thousand-year waste-stewardship burden, versus the large, certain, ongoing death toll from the fossil fuels nuclear would displace.",
+        },
       },
       evidence: [
         {
@@ -133,6 +157,16 @@ export const nuclearEnergySafetyData = {
           "\\frac{d(\\text{gCO}_2/\\text{kWh})}{dt} \\text{ for nuclear vs. renewable strategies}",
         verification_status: "verified" as const,
         cost_to_verify: "$50K (Data analysis)",
+        falsification: {
+          supporter_flip:
+            "If, even with supportive policy and standardized designs, Western new-build keeps landing above ~$140/MWh and 7+ year timelines while firmed solar-plus-storage keeps getting cheaper, then nuclear cannot decarbonize fast enough per dollar — and the climate case for it collapses on cost, not safety.",
+          skeptic_flip:
+            "A demonstrated, repeatable path to building reactors at roughly under $4/W and in under 5 years — as recent South Korean and Chinese builds claim — would neutralize the cost-and-speed objection that anchors most opposition.",
+          common_ground:
+            "Both sides agree nuclear delivers firm, low-carbon power at a high (~93%) capacity factor, and that recent Western first-of-a-kind projects were badly over budget and behind schedule.",
+          live_disagreement:
+            "Whether nuclear's cost and build-time problems are fixable with scale, standardization, and policy — or are structural, leaving renewables-plus-storage as the faster per-dollar route to a clean grid.",
+        },
       },
       evidence: [
         {

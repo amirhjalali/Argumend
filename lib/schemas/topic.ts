@@ -38,6 +38,17 @@ export const CruxSchema = z.object({
   equation: z.string().optional(), // LaTeX string if applicable
   verification_status: z.enum(["verified", "theoretical", "impossible"]),
   cost_to_verify: z.string(), // e.g. "$0 (Data Analysis)" or "$50M (New Probe)"
+  // Falsification framing (optional — existing cruxes validate unchanged).
+  // Reframes the crux from "what test settles this" to "what new information
+  // would convince each side they are wrong." See the flagship journey design.
+  falsification: z
+    .object({
+      supporter_flip: z.string(), // what would make a proponent abandon the claim
+      skeptic_flip: z.string(), // what would make a skeptic accept the claim
+      common_ground: z.string().optional(), // what both sides already agree on
+      live_disagreement: z.string().optional(), // where the real fight is
+    })
+    .optional(),
 });
 
 // ============================================================================
@@ -142,6 +153,19 @@ export const TopicSchema = z.object({
   tags: z.array(z.string()).optional(), // for tag pages (buildTopic guarantees >= 1)
   addedAt: z.string().optional(), // ISO date — for "recently added" sorting
   aliases: z.array(z.string()).optional(), // alternate names for search
+  // Flagship-experience fields (optional — existing topics validate unchanged).
+  // keystone_fact = the Stage-1 "wow" atomic fact shown above the claim.
+  keystone_fact: z
+    .object({
+      statement: z.string(), // the single counterintuitive, near-irrefutable fact
+      confidence: z.number().min(0).max(100), // how settled this specific fact is
+      source: z.string(),
+      sourceUrl: z.string().url().optional(),
+    })
+    .optional(),
+  // simple_case = the Stage-2 plain-language argument in ~3 sentences that
+  // concede the real weakness (persuasive because honest).
+  simple_case: z.array(z.string()).optional(),
 });
 
 // ============================================================================
