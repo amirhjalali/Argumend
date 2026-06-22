@@ -275,4 +275,102 @@ export const isClaims: IsClaim[] = [
     claim:
       "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
   },
+  // ── Breadth batch 3 (2026-06-22) ──────────────────────────────────────────
+  {
+    slug: "mandatory-voting-good",
+    topicId: "mandatory-voting",
+    question: "Should voting be mandatory?",
+    claim:
+      "Compulsory voting produces more representative democracy and should be adopted more widely.",
+  },
+  {
+    slug: "slavery-reparations-justified",
+    topicId: "reparations-slavery",
+    question: "Should the US pay reparations for slavery?",
+    claim:
+      "The US federal government should provide reparations to descendants of enslaved Black Americans to address the lasting effects of slavery and Jim Crow.",
+  },
+  {
+    slug: "immigration-depresses-wages",
+    topicId: "immigration-wage-impact",
+    question: "Does immigration lower wages for native-born workers?",
+    claim:
+      "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
+  },
+  {
+    slug: "open-borders-case",
+    topicId: "open-borders",
+    question: "Would open borders help the economy?",
+    claim:
+      "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
+  },
+  {
+    slug: "standardized-tests-valid",
+    topicId: "standardized-testing-debate",
+    question: "Are standardized tests like the SAT fair and useful?",
+    claim:
+      "Standardized tests like the SAT and ACT are valid, fair measures of academic ability that should remain central to college admissions.",
+  },
+  {
+    slug: "abolish-electoral-college",
+    topicId: "electoral-college-reform",
+    question: "Should the Electoral College be abolished?",
+    claim:
+      "The Electoral College should be replaced with a national popular vote for electing the President.",
+  },
+  {
+    slug: "surveillance-reduces-crime",
+    topicId: "surveillance-public-safety",
+    question: "Does government surveillance reduce crime?",
+    claim:
+      "Expanding government surveillance technology (facial recognition, CCTV, predictive policing) meaningfully reduces crime and improves public safety.",
+  },
+  {
+    slug: "china-invade-taiwan",
+    topicId: "china-taiwan-invasion",
+    question: "Will China invade Taiwan before 2030?",
+    claim:
+      "China will attempt military reunification with Taiwan within this decade.",
+  },
+  {
+    slug: "social-media-harms-elections",
+    topicId: "social-media-elections",
+    question: "Has social media undermined democratic elections?",
+    claim:
+      "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
+  },
+  {
+    slug: "nuclear-deterrence-works",
+    topicId: "nuclear-weapons-abolition",
+    question: "Does nuclear deterrence keep the world safer?",
+    claim:
+      "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe.",
+  },
+  {
+    slug: "school-phone-bans-work",
+    topicId: "school-phone-bans",
+    question: "Do school smartphone bans improve student outcomes?",
+    claim:
+      "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
+  },
+  {
+    slug: "pandemic-preparedness-worth-it",
+    topicId: "pandemic-preparedness",
+    question: "Should governments invest heavily in pandemic preparedness?",
+    claim: "Governments should invest heavily in pandemic-preparedness infrastructure.",
+  },
+  {
+    slug: "global-water-wars",
+    topicId: "global-water-crisis",
+    question: "Is the world heading for water wars?",
+    claim:
+      "Freshwater scarcity will become a defining geopolitical conflict of the 21st century, potentially triggering wars and mass migration.",
+  },
+  {
+    slug: "sugar-taxes-work",
+    topicId: "sugar-tax-effectiveness",
+    question: "Do sugar taxes reduce obesity?",
+    claim:
+      "Sugar taxes on sweetened beverages are an effective public-health intervention that meaningfully reduces sugar consumption and obesity rates.",
+  },
 ];
