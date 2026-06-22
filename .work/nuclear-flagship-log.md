@@ -309,3 +309,12 @@ Priority order, all in-loop unless a workflow is opted into:
   (a) glossary terms for the new concepts (falsification / keystone / steelman),
   (b) a blog post on "what would change your mind" as a reasoning tool,
   (c) tighter internal linking. Will pick highest-value next iteration.
+
+### Iter 23 — 2026-06-22 — Phase 23 (blog post: "What Would Change Your Mind?")
+- New blog post `what-would-change-your-mind` (data/blog.ts, 57→58): ~1900 words on
+  falsifiability + the crux + double-crux as the test for honest belief; worked examples
+  from flagship topics; 12 internal links to /topics/{nuclear,lab-leak,ai-risk,rent-control},
+  /is hub, and the steel-manning post. On-mission content that anchors the flagship concept.
+- tsc; blog test (29) passes; clean build; post route renders.
+- **Next:** more content/polish — candidates: glossary terms (falsification/crux/double-crux),
+  a fallacy explainer, or tighter cross-linking. Both major goals long done.

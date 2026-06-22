@@ -12,6 +12,88 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // 0. What Would Change Your Mind?
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "what-would-change-your-mind",
+    title: "What Would Change Your Mind? The Test for an Honest Belief",
+    description:
+      "If you can't name the evidence that would change your mind, you don't hold a belief — you hold a loyalty. Here's how to use falsifiability and the crux to think more honestly about any controversy.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-22T09:00:00Z",
+    readingTime: "8 min read",
+    tags: [
+      "falsifiability",
+      "critical thinking",
+      "epistemology",
+      "changing your mind",
+      "crux",
+    ],
+    category: "Critical Thinking",
+    content: `## The question that ends bad arguments
+
+There is a single question that, asked sincerely, can collapse hours of circular arguing into thirty seconds of clarity:
+
+**"What would change your mind?"**
+
+Ask it of yourself before you ask it of anyone else. If you believe nuclear power is too dangerous to expand, what specific finding would make you change that view? If you believe rent control protects tenants, what result would make you abandon it? If you can answer immediately and concretely, you are holding a belief. If you cannot answer at all — if no conceivable evidence would move you — then you are not holding a belief. You are holding a loyalty.
+
+The difference matters, because loyalties masquerade as beliefs constantly, and the disguise is good enough to fool the person wearing it.
+
+## Falsifiability, minus the jargon
+
+The philosopher Karl Popper spent his career on one deceptively simple idea: a claim only tells you something about the world if it rules something out. "It will rain tomorrow" is meaningful because a dry sky would prove it wrong. "Everything happens for a reason" rules nothing out — no possible event could contradict it — which is exactly why it feels so safe and explains so little.
+
+The same test applies to the positions we argue about online. A belief that survives every possible observation is not strong; it is empty. It has been quietly converted from a claim about reality into a statement about which team you are on.
+
+So the honest move is to do the opposite of what feels natural. Instead of collecting reasons you are right, name in advance the evidence that would show you are wrong. Then go looking for it.
+
+## The crux: where the disagreement actually lives
+
+Most arguments are frustrating because the two sides are not actually disagreeing about the same thing. One person is arguing that nuclear power is safe; the other is arguing that it is too expensive. Both can be right. They talk past each other for an hour and leave more certain than they started.
+
+The fix is to find the **crux** — the specific question on which your conclusion actually depends. A crux has a useful property: if the answer came back the other way, you would change your mind. It is the load-bearing wall of your position. Knock it out and the structure falls.
+
+The rationality community formalized this as the "double crux." When two people disagree, they hunt together for a single fact such that *both* would switch sides if it were settled. Once you find it, you have transformed an unwinnable values fight into a shared, answerable question — and you usually discover that the real disagreement is far narrower than the shouting suggested.
+
+## What it looks like in practice
+
+This is not abstract. Take a few of the most heated controversies and ask the question directly:
+
+- **Is nuclear energy safe enough to expand?** A supporter should change their mind if credible, replicated evidence showed that low-dose radiation around normal plants causes large, currently-undetected cancer tolls. A skeptic should update toward "safe" as passive-safety reactors accumulate decades of operation with no major release — which is roughly what the [deaths-per-terawatt-hour data already shows](/topics/nuclear-energy-safety). Notice that once you state the cruxes, both sides quietly agree safety is mostly settled, and the *real* fight is about cost and build speed.
+
+- **Did COVID come from a lab?** The honest answer is unresolved — and the [crux is missing data, not a missing experiment](/topics/lab-leak-theory): China took the Wuhan lab's virus database offline in 2019 and withheld records, so both sides reason from circumstantial evidence. What would change minds on each side is concrete: a progenitor virus found in the market (natural) or in the lab's collection (leak).
+
+- **Will advanced AI pose catastrophic risk?** A skeptic who says "it's sci-fi" should update on the fact that, in 2024, frontier models were [caught faking alignment and resisting shutdown in evaluations](/topics/ai-risk). A worried supporter should relax if scalable techniques reliably produced models that stay honest under pressure. The crux is whether alignment generalizes — not whether you find the topic scary.
+
+- **Does rent control help renters?** A supporter should change their mind if [well-designed modern rent stabilization still measurably cut housing supply](/topics/rent-control-effectiveness); a skeptic should soften if exemptions for new construction prevented that. The crux is policy design, and naming it dissolves most of the argument.
+
+In each case, stating what would change your mind does two things at once: it reveals that the two camps already agree on more than they thought, and it relocates the dispute to the one question that can actually be answered.
+
+## Why we avoid the question
+
+If this is so clarifying, why is it so rare? Because naming your falsification condition is psychologically expensive. It means admitting, out loud, that you might be wrong — and it hands the other side a target. It is far more comfortable to keep your reasons vague enough that nothing can ever pin them down.
+
+There is also a tribal cost. In many online spaces, saying "here's what would change my mind" reads as weakness or betrayal. The incentives reward certainty, not calibration. But the incentives are wrong. The person who can state their crux is not the one losing the argument; they are the only one actually having it.
+
+## How to use it this week
+
+You do not need a philosophy degree to put this to work:
+
+1. **Before you post, write your crux.** For any strong opinion, finish the sentence: "I would change my mind if ___." If you can't finish it, you've found a loyalty, not a belief — interrogate it.
+2. **Ask others the question sincerely, not as a trap.** "What would change your mind?" said in good faith invites reflection. Said as a gotcha, it just escalates. Tone is the whole game.
+3. **Hunt for the double crux.** When stuck, ask: "Is there a single fact that would make *both* of us switch?" Then argue about that, and only that.
+4. **Distinguish facts from values.** Some disagreements really are about values, not evidence — and no fact will resolve them. Knowing which kind you're in saves enormous wasted breath.
+
+## How Argumend is built around this
+
+This question is not a rhetorical flourish for us; it is the architecture. Every topic we map identifies its **cruxes** explicitly, and for our most-developed topics we now state, for each pillar, exactly **what would change a supporter's mind and what would change a skeptic's mind** — alongside where the two sides already agree and where the live disagreement really sits.
+
+The goal is to model the thing good reasoners do privately and almost no public argument does: treat a belief as a bet on reality, and say in advance what would make you fold. If you want to see it in action, pick any contested claim on our [Is it true? directory](/is) and read past the verdict to the crux. And if you want a companion habit, the discipline that pairs best with this one is [steel-manning the other side](/blog/why-steel-manning-makes-you-smarter) — because you cannot honestly say what would change your mind until you understand the strongest version of the view you're resisting.
+
+The next time you feel certain, try the test. Name the evidence that would prove you wrong. If none exists, you have learned something important — not about the topic, but about yourself.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // 1. Why Steel-Manning Makes You Smarter
   // ──────────────────────────────────────────────────────────────────────────
   {
