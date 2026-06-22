@@ -615,3 +615,20 @@ Priority order, all in-loop unless a workflow is opted into:
 - **Posture: firmly steady await-founder.** Will stop opening new audit dimensions; each tick =
   minimal health-check, act only on something clearly valuable or a founder redirect. Founder
   actions: push; logo/favicon (7-file list, Iter 41); flagged score/sensitive /is items; new goal.
+
+### Iter 43 — 2026-06-22 — Phase 43 (mobile + dark-mode visual verification — clean)
+- Visually verified the two render modes I'd never checked (and which my useMediaQuery hydration
+  fix touches): **mobile (390×844)** and **dark mode**, on home + the flagship topic page.
+- Mobile: sidebar correctly collapses to a hamburger; HeroMiniCanvas correctly hidden (`!isMobile`);
+  flagship keystone hero + simple-case + crux all lay out cleanly, no overflow. Confirms the
+  useMediaQuery fix produces CORRECT mobile behavior (isMobile=true → sidebar closed, canvas off).
+  Only console error is the known favicon 404; **no hydration errors on mobile**.
+- Dark mode: proper dark surfaces + readable text, brand colors (teal confidence pill, rust
+  accents) adapt correctly, sidebar/topic-list contrast fine, journey structure intact. No
+  contrast failures or broken elements.
+- No code change — both modes healthy. This completes visual verification across desktop + mobile
+  + dark for the core pages.
+- **All render modes + all audit dimensions now verified.** 7 real bugs fixed this session;
+  branch 62 commits ahead of main, tree clean, UNPUSHED. Firmly in await-founder mode; future
+  ticks = minimal health-check only. Founder actions: push; logo/favicon (7-file list, Iter 41);
+  flagged score/sensitive /is items; new goal.
