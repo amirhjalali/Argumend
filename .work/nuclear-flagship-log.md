@@ -476,3 +476,27 @@ Priority order, all in-loop unless a workflow is opted into:
   actually rendering pages. ~30min value-only cadence continues. Branch now ~50 commits ahead,
   unpushed. Top founder actions unchanged: push; green-light favicon + logo; decide flagged
   score/sensitive items; or set a new goal.
+
+### Iter 36 — 2026-06-22 — Phase 36 (route sweep + 2 more real bugs fixed)
+- **HTTP+size sweep of all key routes:** all return 200 (no broken pages); /explore 308-redirects
+  as expected. Sizes explainable; investigated /blog (dev 2.1MB → prod 833KB) and confirmed it's
+  NOT a leak — full post bodies do not appear in the prod index (0 occurrences); the dev bloat is
+  dev-only flight-payload data, tree-shaken in prod. Heavy-but-correct; pagination would be a
+  founder-level UX change, so not forced.
+- **Browser console pass on untested page TYPES → found 2 real bugs:**
+  1. **ShareButtons hydration mismatch** (every blog post + analysis + topic-detail page): read
+     `navigator.share` in a `useState` initializer → server omitted the native-share button,
+     client rendered it → mismatch. Fixed: default false, detect after mount. Commit 10ab6ce.
+  2. **Glossary duplicate React key** ("Burden of Proof" listed twice — I introduced the dup when
+     adding glossary terms): caused "two children with the same key" + risked a dropped card.
+     Merged the better phrasing into one entry, removed the dup. Commit 970707c.
+- Fallacy and guide pages verified clean (0 console errors).
+- Verified: tsc; 261 tests; clean build; in-browser console 0 errors on blog/glossary (was 2 each).
+- **Tally:** this session's render-verification has now found+fixed FOUR real bugs invisible to
+  tsc/vitest — 3 hydration mismatches (sidebar/every page, useMediaQuery/home hero,
+  ShareButtons/blog+topic) + 1 dup-key + 1 SEO bloat (/is). Strong evidence the verify-by-render
+  pass was worth doing. Branch ~55 commits ahead, unpushed.
+- **Posture:** ~30min value-only cadence. Remaining untested surfaces are few; next tick I'll do
+  a final sweep (analysis page, /questions, category/tag pages) then likely settle into
+  await-founder mode. Founder actions unchanged: push; favicon+logo (404 across all pages); the
+  flagged score/sensitive items; or a new goal.
