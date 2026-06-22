@@ -90,3 +90,16 @@ Branch: `nuclear-flagship` (off `main`).
 - **Next:** Phase 7 — roll the flagship pattern (keystone_fact, simple_case,
   falsification cruxes) to 2–3 more strong empirical topics:
   rent-control-effectiveness, death-penalty-deterrence, gmo-crops-safety.
+
+### Iter 6 — 2026-06-22 — Phase 7a (rent-control + death-penalty)
+- rent-control-effectiveness: keystone = IGM economist near-consensus; falsification on
+  all 3 cruxes. death-penalty-deterrence: keystone = NRC "not informative" finding;
+  falsification on both cruxes. Faithful to each topic's existing evidence.
+- Generalized `flagship.test.ts` to `describe.each(FLAGSHIP_TOPIC_IDS)` (18 tests) so
+  every flagship topic is guaranteed keystone + simple_case + falsification on all cruxes.
+- tsc clean; 221 tests; build passed; both topics' HTML render keystone + falsification.
+  Committed `31926a8`. 5h ~12%.
+- **Next:** Phase 7b — gmo-crops-safety (strong safety consensus vs loud opposition,
+  a nuclear-like wow). Then flagship goal complete; move to the PARKED breadth play
+  (132 topics lacking `/is/` AEO pages) — propose a multi-agent workflow (parallel;
+  needs founder opt-in).
