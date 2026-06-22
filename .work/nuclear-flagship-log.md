@@ -667,3 +667,10 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 273 tests (+4); clean build (periodic full build done this iter); renders confirmed.
 - 13 flagship topics now (was 10). 5h usage ~16%. Next: minimum-wage-effects, then organic-food,
   gun-control, psychedelics, veganism.
+
+### Iter 47 — 2026-06-22 — Phase 47 (flagship topic #14 = Minimum Wage)
+- keystone: CBO same-report dual finding (17M raised + 900k out of poverty vs ~1.4M jobs lost,
+  0-3.7M range) — frames it honestly as a tradeoff, conf 78. simple_case: "how high, how fast,
+  where." Falsification on both cruxes (high-level elasticity; min-wage vs EITC). Commit below.
+- Verified: tsc; 277 tests (+4); renders confirmed. 14 flagship topics. 5h usage ~16%.
+- Next: organic-food-health, gun-control-effectiveness, psychedelics-mental-health, veganism.
