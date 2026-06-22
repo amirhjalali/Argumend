@@ -7,6 +7,18 @@ export const aiConsciousnessData = {
     "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
   status: "highly_speculative" as const,
   category: "philosophy" as const,
+  keystone_fact: {
+    statement:
+      "This is not a fringe question: a 2024 Nature article urged AI labs to start testing their systems for consciousness, Anthropic now employs AI-welfare researchers and calls the chance its model is conscious 'non-negligible,' and ~17% of AI researchers already think some current system may have subjective experience — yet there is no agreed test to settle it, even in humans.",
+    confidence: 80,
+    source: "Nature (2024); Anthropic AI-welfare research; Long & Sebo et al. (2024)",
+    sourceUrl: "https://www.anthropic.com/research/introspection",
+  },
+  simple_case: [
+    "The honest answer is that we don't know — and currently can't: there is no agreed test for consciousness even in humans, so we have no reliable way to confirm or rule it out in an AI.",
+    "It is no longer fringe — a 2024 Nature piece urged AI labs to test for it, Anthropic employs AI-welfare researchers and calls the chance its model is conscious 'non-negligible,' and ~17% of AI researchers already think some system has subjective experience.",
+    "So the real debate isn't whether today's chatbot is conscious (almost certainly not in any rich sense) but how much moral caution a genuine, growing uncertainty warrants — the same logic by which we protect animals whose inner lives we cannot verify.",
+  ],
   pillars: [
     {
       id: "functional-consciousness",
@@ -27,6 +39,16 @@ export const aiConsciousnessData = {
           "Extend neuroscientific theories of consciousness (IIT, GNW, HOT) to develop substrate-independent indicators. Test these indicators against systems with known consciousness status (humans, animals) and then apply to AI systems.",
         verification_status: "impossible" as const,
         cost_to_verify: "$0 (Fundamentally unclear if this is solvable—the 'hard problem' of consciousness may prevent any test from being definitive)",
+        falsification: {
+          supporter_flip:
+            "If consciousness were shown to depend on specific biological processes that no computation can replicate — a substrate requirement, not just functional organization — digital AI could be ruled out as a candidate for genuine experience.",
+          skeptic_flip:
+            "If a validated, substrate-independent test (extending IIT, GNW, or HOT) reliably detected experience in humans and animals and then flagged it in an AI, blanket denial of AI consciousness would no longer be tenable.",
+          common_ground:
+            "Both sides agree there is currently no validated test for consciousness in non-biological systems, and that today's models are, at minimum, extraordinary pattern-matchers.",
+          live_disagreement:
+            "Whether consciousness is substrate-dependent (needs biology) or substrate-independent (needs only the right information processing) — and whether the 'hard problem' makes any definitive test impossible in principle.",
+        },
       },
       evidence: [
         {
@@ -187,6 +209,16 @@ export const aiConsciousnessData = {
           "Convene interdisciplinary panels of ethicists, AI researchers, neuroscientists, and legal scholars. Develop graduated moral status criteria based on observable behavioral and architectural properties. Stress-test framework against edge cases.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1M (Multi-year interdisciplinary research program)",
+        falsification: {
+          supporter_flip:
+            "If a rigorous framework showed that extending moral status to AI reliably backfires — blocking essential safety shutdowns or diverting protection from humans and animals — the case for AI-welfare protections would weaken to near zero.",
+          skeptic_flip:
+            "If credible indicators of sentience accumulated in advanced systems, the precautionary logic we already apply to animals of uncertain consciousness would obligate at least minimal protections.",
+          common_ground:
+            "Both sides agree we extend some moral caution to animals whose consciousness we cannot verify, and that anthropomorphizing AI for commercial reasons is a real risk.",
+          live_disagreement:
+            "Whether the mere possibility of AI consciousness creates real moral obligations now, or whether acting on speculation does more harm than good by impeding AI safety and distracting from established moral patients.",
+        },
       },
       evidence: [
         {

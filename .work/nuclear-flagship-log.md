@@ -273,3 +273,11 @@ Priority order, all in-loop unless a workflow is opted into:
 - Saved cross-session memory `nuclear-flagship-2026-06.md` (+ MEMORY.md pointer).
 - **Next:** more broader improvement — candidates: a couple more flagship topics, or
   blog/glossary content. Both major goals (flagship journey + /is breadth) are DONE.
+
+### Iter 19 — 2026-06-22 — Phase 19 (flagship: consciousness-ai-systems)
+- Gave the CANONICAL featured/launch topic the flagship treatment. For a speculative
+  topic the keystone = legible uncertainty ("no agreed test, yet serious labs take it
+  seriously — Nature/Anthropic/17% of researchers"); falsification framing shines
+  (substrate-dependence flip; sentience-indicators flip). Added to FLAGSHIP_TOPIC_IDS.
+- tsc; **249 tests**; clean build; renders. 7 flagship topics now (incl. featuredTopicId).
+- **Next:** continue broader improvement (more flagship topics and/or content).
