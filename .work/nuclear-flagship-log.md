@@ -455,3 +455,24 @@ Priority order, all in-loop unless a workflow is opted into:
   goals remain done + now verified rendering. ~30min value-only cadence continues; top founder
   actions still: review/push the now-48-commit branch; green-light the favicon; decide the
   flagged score fixes (gmo/organic/dark-matter) + sensitive /is/ topics; or set a new goal.
+
+### Iter 35 — 2026-06-22 — Phase 35 (/is AEO pages: verified + related-links SEO fix)
+- **Verified the /is AEO deliverable in-browser/curl for the first time** (121 pages I built
+  but never rendered). Confirmed: QAPage + Question + Answer + Article JSON-LD all present and
+  valid; verdict logic correct (nuclear-energy-safe → "Evidence leans toward, but contested" at
+  54, which is right for the claim "safe enough to scale as a climate solution" — not a
+  mislabel). Skipped-topic discipline (gmo/organic/dark-matter absent from is-claims) holding.
+- **Found + fixed a real SEO/UX bug:** every /is/<slug> rendered links to ALL ~120 other claims
+  under "More questions people ask" (complete-graph interlinking) → ~340KB pages, buried CTA,
+  diluted link equity. Fixed: same-category questions first, fill with others, cap at 8. Now
+  genuinely relevant (policy→policy, science→science, tech→tech) and pages drop to ~135KB.
+  JSON-LD unchanged. Commit 530f89e.
+- Verified: tsc; 261 tests; clean build (all /is/<slug> prerender as SSG); curl-confirmed 8
+  same-category links on nuclear/fluoride/ai pages.
+- **Note (reinforces the favicon flag):** the Article JSON-LD `publisher.logo.url` on every /is
+  page is the same nonexistent `https://argumend.org/icon.png` — a broken logo across 121 pages
+  that can disqualify Article rich results. Founder should fix alongside the favicon.
+- **Posture:** 3 genuine verified fixes this session (2 hydration + this SEO one), all found by
+  actually rendering pages. ~30min value-only cadence continues. Branch now ~50 commits ahead,
+  unpushed. Top founder actions unchanged: push; green-light favicon + logo; decide flagged
+  score/sensitive items; or set a new goal.
