@@ -226,3 +226,37 @@ Priority order, all in-loop unless a workflow is opted into:
   lithium-mining). tsc; 245 tests; clean build. Committed.
 - **~20 includable topics remain** (rest are intentional skips). Next: batch 8 (likely the
   last bulk batch), then a SKIP-LIST summary for founder review.
+
+### Iter 17 — 2026-06-22 — Phase 17 (breadth /is/ batch 8) — BREADTH PLAY COMPLETE
+- +18 `/is/` pages (103 → 121): net neutrality, AI-art copyright, facial recognition,
+  fusion timeline, SSRIs, retirement age, estate tax, occupational licensing, encryption
+  backdoors, Section 230, autonomous weapons, AI energy footprint, ADHD overdiagnosis,
+  vaping, term limits, effective altruism, alcohol, MMT. tsc; 245 tests; clean build.
+- **✅ BREADTH /is/ PLAY COMPLETE: 121 pages (was 10).** Every cleanly-includable topic
+  now has an "is X true?" AEO page. The 21 uncovered topics are ALL intentional skips:
+
+## SKIP-LIST — /is/ pages deliberately NOT created (founder review)
+**A. Score-mapping issues — fix the topic, then add /is/:**
+- `gmo-crops-safety` (47): blended "safe to eat + beneficial for ag" mislabels the strong
+  *safety* consensus as "Insufficient evidence". → Recommend splitting the meta_claim.
+- `organic-food-health` (61): "significantly healthier" overstates vs scientific consensus.
+- `dark-matter-vs-mond` (46): "Insufficient evidence" understates the dark-matter consensus.
+
+**B. Near-duplicates (avoid keyword cannibalization) — already covered by a sibling page:**
+- `ai-white-collar-displacement` ≈ ai-replace-white-collar-jobs
+- `lithium-mining-ev-impact` ≈ evs-better-than-gas-cars
+- `longevity-anti-aging` ≈ longevity-extend-lifespan
+- `psychedelic-therapy-hype` ≈ psychedelics-treat-depression
+- `government-platform-bans` ≈ tiktok-ban-justified
+
+**C. Polarized / sensitive — a blunt static verdict is risky; full topic page keeps nuance:**
+- `gender-affirming-care-minors`, `transgender-athletes-sports`, `affirmative-action-meritocracy`,
+  `immigration-national-identity`, `epstein-files` (conspiracy-magnet framing).
+
+**D. Fast-moving / current-politics — verdict would go stale or read as partisan:**
+- `trump-tariffs`, `rfk-health-policy`, `doge-federal-cuts`, `ukraine-peace-terms`,
+  `us-iran-conflict`, `iran-war-justification`, `immigration-border-crisis`,
+  `minneapolis-shooting` (specific 2026 news event).
+
+- **Next:** breadth done → return to broader improvement. Options: (1) a few more flagship
+  topics, (2) blog/glossary/internal-linking, (3) wrap with a session memory + summary.

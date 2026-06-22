@@ -740,4 +740,124 @@ export const isClaims: IsClaim[] = [
     claim:
       "The Second Amendment protects an individual right to bear arms, not merely a collective or militia right.",
   },
+  // ── Breadth batch 8 (2026-06-22) — completes clean evergreen coverage ──────
+  {
+    slug: "net-neutrality-necessary",
+    topicId: "net-neutrality",
+    question: "Is net neutrality necessary?",
+    claim:
+      "Net-neutrality regulation is necessary to protect an open, competitive internet.",
+  },
+  {
+    slug: "ai-training-copyright-theft",
+    topicId: "generative-ai-art-copyright",
+    question: "Is training AI on copyrighted work theft?",
+    claim:
+      "Training generative AI on copyrighted works without permission is unfair and should be unlawful.",
+  },
+  {
+    slug: "restrict-facial-recognition-policing",
+    topicId: "facial-recognition-policing",
+    question: "Should police facial recognition be restricted?",
+    claim:
+      "Police use of facial-recognition technology does more harm than good and should be restricted.",
+  },
+  {
+    slug: "fusion-power-soon",
+    topicId: "nuclear-fusion-timeline",
+    question: "Will fusion power arrive within 20 years?",
+    claim:
+      "Commercial fusion power will be a meaningful part of the energy mix within the next two decades.",
+  },
+  {
+    slug: "do-antidepressants-work",
+    topicId: "ssri-antidepressant-efficacy",
+    question: "Do antidepressants (SSRIs) actually work?",
+    claim:
+      "SSRI antidepressants provide clinically meaningful benefit beyond placebo for depression.",
+  },
+  {
+    slug: "raise-retirement-age",
+    topicId: "social-security-retirement-age",
+    question: "Should the retirement age be raised?",
+    claim:
+      "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
+  },
+  {
+    slug: "estate-tax-fair",
+    topicId: "estate-inheritance-tax",
+    question: "Is the estate tax fair?",
+    claim: "The estate (inheritance) tax is a fair and economically sound policy.",
+  },
+  {
+    slug: "occupational-licensing-harmful",
+    topicId: "occupational-licensing-reform",
+    question: "Does occupational licensing do more harm than good?",
+    claim:
+      "Occupational licensing does more economic harm than good and should be rolled back.",
+  },
+  {
+    slug: "encryption-backdoors",
+    topicId: "encryption-backdoors",
+    question: "Should governments have encryption backdoors?",
+    claim:
+      "Governments should be able to compel lawful-access (backdoor) capabilities in encrypted communications.",
+  },
+  {
+    slug: "reform-section-230",
+    topicId: "section-230-reform",
+    question: "Should Section 230 be reformed or repealed?",
+    claim: "Section 230 should be significantly reformed or repealed.",
+  },
+  {
+    slug: "ban-killer-robots",
+    topicId: "autonomous-weapons-ban",
+    question: "Should lethal autonomous weapons be banned?",
+    claim: "Lethal autonomous weapons should be banned by international treaty.",
+  },
+  {
+    slug: "ai-energy-footprint-problem",
+    topicId: "ai-energy-water-footprint",
+    question: "Is AI's energy and water use a serious problem?",
+    claim:
+      "AI's energy and water footprint is a serious environmental problem that warrants intervention.",
+  },
+  {
+    slug: "adhd-overdiagnosed",
+    topicId: "adhd-overdiagnosis",
+    question: "Is ADHD overdiagnosed?",
+    claim: "ADHD is substantially overdiagnosed.",
+  },
+  {
+    slug: "vaping-harm-reduction",
+    topicId: "vaping-harm-reduction",
+    question: "Is vaping a good way to quit smoking?",
+    claim:
+      "E-cigarettes are an effective and acceptable harm-reduction tool for smokers.",
+  },
+  {
+    slug: "congressional-term-limits",
+    topicId: "congressional-term-limits",
+    question: "Would term limits improve Congress?",
+    claim: "Congressional term limits would improve American governance.",
+  },
+  {
+    slug: "effective-altruism-sound",
+    topicId: "effective-altruism",
+    question: "Is effective altruism a sound way to do good?",
+    claim: "Effective altruism is a sound framework for doing good.",
+  },
+  {
+    slug: "no-safe-level-alcohol",
+    topicId: "alcohol-no-safe-level",
+    question: "Is any amount of alcohol safe to drink?",
+    claim: "There is no safe level of alcohol consumption for health.",
+  },
+  {
+    slug: "mmt-sound",
+    topicId: "modern-monetary-theory",
+    question: "Is Modern Monetary Theory sound?",
+    claim:
+      "Modern Monetary Theory provides a sound basis for government spending and deficit policy.",
+  },
 ];
