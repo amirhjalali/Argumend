@@ -681,3 +681,11 @@ Priority order, all in-loop unless a workflow is opted into:
   Falsification on both cruxes (long-term outcomes/confounding; chronic low-dose). 15 flagship topics.
 - Verified: tsc; 281 tests (+4); renders confirmed. 5h usage ~17%.
 - Next: gun-control-effectiveness, psychedelics-mental-health, veganism-environmental-impact.
+
+### Iter 49 — 2026-06-22 — Phase 49 (flagship topic #16 = Gun Control)
+- Polarized topic; anchored keystone on RAND "Science of Gun Policy" (most laws = limited/
+  inconclusive evidence; narrow strong findings: safe-storage, stand-your-ground), conf 85.
+  simple_case separates undisputed scale from contested policy efficacy. Falsification on both
+  cruxes, deliberately balanced + citing RAND's inconclusive ratings. 16 flagship topics.
+- Verified: tsc; 285 tests (+4); clean build (periodic); renders confirmed. 5h usage ~18%.
+- Next: psychedelics-mental-health, veganism-environmental-impact, then reassess candidate pool.
