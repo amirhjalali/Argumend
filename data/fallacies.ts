@@ -287,6 +287,57 @@ export const fallacies: readonly Fallacy[] = [
     relatedFallacies: ["hasty-generalization", "false-cause", "bandwagon"],
     relatedTopicIds: ["cryptocurrency-value", "college-value-proposition", "meritocracy-myth"],
   },
+  {
+    slug: "cherry-picking",
+    name: "Cherry-Picking",
+    aliases: ["Suppressed Evidence", "Selective Evidence", "Card Stacking", "Fallacy of Incomplete Evidence"],
+    shortDefinition:
+      "Citing only the evidence that supports your conclusion while ignoring the larger body of evidence that points the other way.",
+    longDescription:
+      "Cherry-picking is the selective use of evidence: you present the data points, studies, or anecdotes that favor your position and quietly omit the ones that don't. Unlike outright lying, every individual fact you cite may be true — the deception is in what you leave out. A claim can be perfectly sourced and still be radically misleading if it represents 5% of the evidence and contradicts the other 95%.\n\nIt is especially dangerous because it exploits a real intuition: evidence matters. When someone produces a study, a chart, or a striking example, it feels like they are arguing in good faith. But a single study is rarely the story — fields advance by the weight of many studies, and any large literature will contain outliers that, pulled out of context, can be made to support almost anything.\n\nThe antidote is to insist on the totality of the evidence. The question is never \"is there a study that shows X?\" — there almost always is — but \"what does the full body of evidence, weighted by quality, actually show?\" This is precisely why structured analysis weighs all the evidence on a question rather than collecting points for one side.",
+    example:
+      "\"It snowed heavily this winter, so global warming is clearly a hoax.\" (One cold local event is offered while the decades-long global temperature trend — the actual evidence — is ignored.)",
+    whyItMisleads:
+      "Because each cited fact is genuine, the audience extends good faith and assumes the sample is representative. They never see the contradicting evidence that was filtered out, so a fringe position can be dressed up to look like the mainstream one — or vice versa.",
+    howToCounter:
+      "Ask: \"Is that the whole picture, or the part that supports your case?\" Shift from individual studies to the weight of evidence: systematic reviews, meta-analyses, and the consensus of the literature. When someone leads with one striking data point, ask what the rest of the data says.",
+    relatedFallacies: ["hasty-generalization", "false-cause", "survivorship-bias"],
+    relatedTopicIds: ["climate-change", "seed-oils-health", "gmo-crops-safety"],
+  },
+  {
+    slug: "moving-the-goalposts",
+    name: "Moving the Goalposts",
+    aliases: ["Goalpost Shifting", "Raising the Bar", "Shifting the Standard"],
+    shortDefinition:
+      "Demanding ever more or different evidence each time your previous demand is met, so the standard of proof can never actually be satisfied.",
+    longDescription:
+      "Moving the goalposts is a fallacy of shifting standards. Someone asks for a certain kind of evidence; when it is provided, instead of accepting the point, they raise or change the requirement — and they keep doing it, so no possible evidence could ever count as enough. The metaphor is a football field where the goal is dragged backward every time the ball gets close.\n\nWhat makes it slippery is that asking for better evidence is usually legitimate. Standards of proof are real and important. The fallacy is not in having a high bar; it is in having a bar that moves — in treating each satisfied demand not as progress but as the cue to invent a new one. The underlying tell is that the person could not, if asked, name a fixed amount of evidence that would actually change their mind.\n\nThis is the mirror image of a healthy practice: stating in advance what would convince you. A good-faith skeptic can specify the crux — the finding that would settle it. Someone moving the goalposts cannot, because their conclusion is fixed and the demands are just a way to defend it.",
+    example:
+      "\"Show me one peer-reviewed study.\" (Shown one.) \"Well, one study means nothing — show me a meta-analysis.\" (Shown one.) \"That journal is biased. Show me one from a source I trust.\" — and so on, indefinitely.",
+    whyItMisleads:
+      "Each individual request sounds reasonable, so the person demanding evidence appears rigorous rather than evasive. The audience doesn't notice that the standard itself is sliding, and the arguer providing evidence is made to look as though they keep failing to meet a fair bar.",
+    howToCounter:
+      "Pin the standard down before producing evidence: \"What specific evidence would change your mind?\" Get the crux on the record. If the answer keeps changing after each demand is met, name it plainly — the goalpost has moved, and the disagreement is no longer about evidence.",
+    relatedFallacies: ["no-true-scotsman", "ad-hominem", "gish-gallop"],
+    relatedTopicIds: ["lab-leak-theory", "climate-change", "vaccine-mandates"],
+  },
+  {
+    slug: "appeal-to-nature",
+    name: "Appeal to Nature",
+    aliases: ["Natural Is Better", "Naturalistic Appeal"],
+    shortDefinition:
+      "Assuming that because something is \"natural\" it must be good, safe, or better — and that anything \"unnatural\" or synthetic is therefore bad.",
+    longDescription:
+      "An appeal to nature treats the label \"natural\" as if it settled a question of value or safety. The structure is: X is natural, therefore X is good (or: Y is artificial, therefore Y is harmful). But \"natural\" and \"good\" are simply different categories, and one does not follow from the other.\n\nThe natural world is full of things that will kill you — arsenic, hemlock, botulinum toxin, radiation, most snake venoms — while many of the safest, most beneficial things humans use (purified water, vaccines, refined medicines) are products of deliberate engineering. \"Natural\" also turns out to be a remarkably slippery word: almost all the food we eat has been radically reshaped by millennia of selective breeding, which is no more \"natural\" than a lab.\n\nThe fallacy is powerful in marketing and health debates precisely because \"natural\" carries warm, safe connotations. But the only thing that tells you whether something is safe or beneficial is evidence about that specific thing and that specific outcome — not which side of an arbitrary natural/artificial line it falls on.",
+    example:
+      "\"Organic produce must be healthier because it's natural, and GMOs must be risky because they're engineered in a lab.\" (Whether either is true depends on evidence about nutrition and safety, not on the word \"natural.\")",
+    whyItMisleads:
+      "It swaps an emotionally loaded label for an empirical question. \"Natural\" feels safe and \"synthetic\" feels suspect, so the audience accepts a conclusion about safety or value without anyone presenting evidence about the actual outcome in question.",
+    howToCounter:
+      "Drop the label and ask for the outcome: \"Safe or harmful compared to what, measured how?\" Point out that plenty of natural things are dangerous and plenty of engineered things are safe — then look at the specific evidence on the specific claim.",
+    relatedFallacies: ["bandwagon", "appeal-to-emotion", "false-dilemma"],
+    relatedTopicIds: ["gmo-crops-safety", "organic-food-health", "seed-oils-health"],
+  },
 ];
 
 export function getFallacyBySlug(slug: string): Fallacy | undefined {

@@ -337,3 +337,11 @@ Priority order, all in-loop unless a workflow is opted into:
 - tsc; blog test (29); clean build; post renders.
 - **State:** both major goals long done; blog now 59 posts. Genuinely incremental from here.
   Everything verified + committed, unpushed (49+ commits on nuclear-flagship).
+
+### Iter 26 — 2026-06-22 — Phase 26 (3 new fallacies)
+- Added cherry-picking, moving-the-goalposts, appeal-to-nature to data/fallacies.ts (17→20).
+  All genuine gaps; thematically coherent with the flagship work (moving-the-goalposts ties
+  to the crux/"what would change your mind" framing; appeal-to-nature links GMO/organic/
+  seed-oils; cherry-picking ties to "weigh all evidence"). relatedTopicIds + relatedFallacies
+  cross-link to existing content. tsc; 261 tests; clean build; all 3 /fallacies/ pages render.
+- **Next:** continue value-first incremental work (more content, or pause if nothing high-value).
