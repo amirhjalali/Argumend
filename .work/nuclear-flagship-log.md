@@ -345,3 +345,11 @@ Priority order, all in-loop unless a workflow is opted into:
   seed-oils; cherry-picking ties to "weigh all evidence"). relatedTopicIds + relatedFallacies
   cross-link to existing content. tsc; 261 tests; clean build; all 3 /fallacies/ pages render.
 - **Next:** continue value-first incremental work (more content, or pause if nothing high-value).
+
+### Iter 27 — 2026-06-22 — Phase 27 (blog: "Are Vaccine Mandates Justified?")
+- New post `are-vaccine-mandates-justified` (data/blog.ts, 59→60, category "Public Health"):
+  topic-explainer reusing the flagship "it depends on the disease" insight (measles vs COVID
+  transmission externality as the crux). Fills a gap — top-traffic flagship topic had no post.
+  9 internal links to /topics/vaccine-mandates, /is, and the "change your mind" post.
+- tsc; blog test (29); clean build; post renders. Cadence now ~20min (incremental phase).
+- **Next:** reassess for genuinely high-value work; otherwise space further / await direction.
