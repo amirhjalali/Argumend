@@ -6,6 +6,18 @@ export const climateChangeData = {
   meta_claim: "Climate change is primarily caused by human activity.",
   status: "settled" as const,
   category: "science" as const,
+  keystone_fact: {
+    statement:
+      "That the CO₂ rise comes from burning fossil fuels isn't a correlation — it's a chemical fingerprint: atmospheric carbon is getting isotopically lighter (δ¹³C), oxygen is dropping at the exact ratio combustion predicts, and the oceans are acidifying. Three independent signatures, one source.",
+    confidence: 97,
+    source: "NOAA Global Monitoring Laboratory; Scripps CO₂ Program (Keeling)",
+    sourceUrl: "https://gml.noaa.gov/ccgg/isotopes/c13tellsus.html",
+  },
+  simple_case: [
+    "The core question — is the warming human-caused — is settled about as firmly as anything in science: the IPCC attributes roughly 1.1°C of warming since the 1800s to human activity, with all natural factors together contributing close to zero.",
+    "We know the extra CO₂ is ours because it carries a chemical fingerprint (lighter carbon isotopes, falling oxygen, acidifying oceans), and the warming carries a greenhouse fingerprint (the upper atmosphere cools while the surface warms) that the sun cannot produce.",
+    "The live debates today are not about whether it is happening, but about how fast it will warm (climate sensitivity) and what to do about it — a policy and economics fight, not a physics one.",
+  ],
   imageUrl:
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -85,6 +97,16 @@ export const climateChangeData = {
           "\\delta^{13}C = \\left(\\frac{(^{13}C/^{12}C)_{sample}}{(^{13}C/^{12}C)_{standard}} - 1\\right) \\times 1000\\text{‰}",
         verification_status: "verified" as const,
         cost_to_verify: "$50K (ice core analysis + mass spectrometry)",
+        falsification: {
+          supporter_flip:
+            "If atmospheric δ¹³C stopped declining (or rose) while fossil emissions continued, or if the oxygen-decline and ocean-acidification signatures diverged from the combustion ratio, the 'fossil carbon' attribution would break.",
+          skeptic_flip:
+            "The 'natural outgassing' explanation should be abandoned: all three independent signatures — isotopes, oxygen, ocean pH — move exactly as fossil-fuel combustion predicts, and ocean outgassing would push pH the opposite way.",
+          common_ground:
+            "Both sides agree CO₂ has varied naturally over Earth's history and that the modern level is the highest in at least ~800,000 years.",
+          live_disagreement:
+            "Essentially none on source attribution — the isotopic fingerprint is not seriously contested in the literature; the real dispute is about consequences, not origin.",
+        },
       },
       evidence: [
         {
@@ -181,6 +203,16 @@ export const climateChangeData = {
           "y(t) = \\beta_1 X_{natural}(t) + \\beta_2 X_{anthropogenic}(t) + \\varepsilon(t)",
         verification_status: "verified" as const,
         cost_to_verify: "$500K (supercomputer time + multi-model ensemble)",
+        falsification: {
+          supporter_flip:
+            "If the predicted greenhouse fingerprints failed — the stratosphere warming instead of cooling, or nights no longer warming faster than days — the greenhouse attribution would be in serious trouble.",
+          skeptic_flip:
+            "If natural-forcing-only climate runs could reproduce the observed global, synchronous warming and its specific fingerprints, the anthropogenic case would weaken — but to date only runs that include human forcing match the record.",
+          common_ground:
+            "Both sides agree regional warm periods (Medieval, Roman) occurred and that early climate models had real uncertainties.",
+          live_disagreement:
+            "How much of short-term wiggles (e.g., the 1998–2014 'hiatus') reflects model error versus natural variability — a question about precision, not about whether humans are the main driver.",
+        },
       },
       evidence: [
         {
@@ -278,6 +310,16 @@ export const climateChangeData = {
         equation: "\\Delta Q = F - \\lambda \\Delta T",
         verification_status: "verified" as const,
         cost_to_verify: "$2M (satellite data + Argo network analysis)",
+        falsification: {
+          supporter_flip:
+            "If a measured natural forcing — a real upward trend in solar irradiance or a cosmic-ray-driven cloud change — could be shown to close the ~0.5–1 W/m² energy imbalance, the 'only greenhouse gases fit' conclusion would fail.",
+          skeptic_flip:
+            "The solar explanation should be set aside: solar irradiance has been flat-to-declining since 1980 while warming accelerated, and cosmic-ray flux shows no matching trend.",
+          common_ground:
+            "Both sides agree the sun is the ultimate driver of Earth's climate and that volcanic eruptions and orbital cycles measurably affect it.",
+          live_disagreement:
+            "Whether there is an under-measured natural forcing large enough to matter — the satellite/Argo energy budget leaves little room, but that bound is what's debated.",
+        },
       },
       evidence: [
         {
