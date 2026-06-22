@@ -632,3 +632,20 @@ Priority order, all in-loop unless a workflow is opted into:
   branch 62 commits ahead of main, tree clean, UNPUSHED. Firmly in await-founder mode; future
   ticks = minimal health-check only. Founder actions: push; logo/favicon (7-file list, Iter 41);
   flagged score/sensitive /is items; new goal.
+
+### Iter 44 — 2026-06-22 — Phase 44 (NEW DIRECTIVE: expand flagship overnight; topic #11 = Universal Healthcare)
+- **Founder redirect:** "ton of usage left, keep going overnight, reduce the time intervals." 5h
+  util only 9% → switching from idle health-checks back to full-tilt pacing (~short gaps) and
+  resuming the loop's literal goal: BUILD OUT the flagship journey to more topics.
+- Plan: extend the flagship treatment (keystone_fact + simple_case + per-crux falsification) to
+  the next tier of mainstream topics with well-established, citable keystone facts — one per
+  iteration, research-grade, verified each time, avoiding the sensitive skip-list.
+- **Topic #11: universal-healthcare** (the #2 sidebar topic). keystone_fact: US spends
+  ~$14,570/person (~2x peers) with worse life expectancy/infant mortality (CMS/OECD/Peterson-KFF,
+  conf 95); honest 3-sentence simple_case; falsification cruxes on both pillars drawn from the
+  topic's own evidence. Registered in FLAGSHIP_TOPIC_IDS. Commit bbd27b5.
+- Verified: tsc; 265 tests (+4); clean build; rendered HTML confirmed contains keystone hero +
+  simple case + both supporter/skeptic/common-ground/live-fight crux blocks.
+- **Cadence now: full-tilt overnight** (~short gaps) while 5h<70%; stretch at 70-80%; sleep at
+  >=80% until reset. Next candidates: drug-decriminalization, minimum-wage, ev-environmental,
+  organic-food, gun-control, psychedelics, veganism (all clear keystone facts). Branch +64.
