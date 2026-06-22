@@ -12,6 +12,70 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // 00000. Is Fluoride in Your Water Safe?
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "is-fluoride-in-water-safe",
+    title: "Is Fluoride in Your Water Safe? It's a Question of Margins",
+    description:
+      "The fluoride debate isn't really 'is it poison?' — it's whether the safety margin is big enough and whether the dental benefit still justifies it. Here's what the 2024 evidence actually shows.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-22T17:00:00Z",
+    readingTime: "8 min read",
+    tags: [
+      "fluoride",
+      "public health",
+      "water fluoridation",
+      "evidence",
+      "dental health",
+    ],
+    category: "Public Health",
+    content: `## Not "poison or not" — a question of dose
+
+Few public-health topics generate more heat and less light than fluoride in drinking water. One side treats it as obvious mass poisoning; the other treats any doubt as anti-science crankery. Both are skipping the actual question, which is not "is fluoride toxic?" (at high enough doses, like almost everything, it is) but **"is the dose used in tap water safe, and is the benefit still worth it?"**
+
+That reframing matters because the entire debate turns on two numbers and a margin between them. Our full [water fluoridation analysis](/topics/fluoride-water-supplies) lays out the evidence on all sides; here's the core of it.
+
+## The two numbers that define the debate
+
+US public water is fluoridated at a target of **0.7 mg/L**. In 2024, after years of internal controversy, the U.S. National Toxicology Program (NTP) published a systematic review concluding with **moderate confidence** that fluoride exposure **above ~1.5 mg/L** is associated with lower IQ in children.
+
+So the safety question becomes precise and answerable: is the roughly **2x margin** between the level in your tap water (0.7) and the level where harm has been documented (1.5) big enough? That's it. That's the real disagreement — not whether fluoride can ever be harmful, but whether the specific dose people actually drink carries risk.
+
+Reasonable people land in different places, and the honest answer is "genuinely contested at the margins":
+
+- **The reassuring case:** 0.7 is well below 1.5; the strongest IQ findings come from regions (parts of China, India) with naturally high fluoride of 2-10+ mg/L; and major bodies (WHO, ADA, AAP) judge 0.7 mg/L safe after decades of population data.
+- **The worried case:** a 2x margin is thin for a neurodevelopmental endpoint; people get fluoride from toothpaste, food, and tea on top of water; and infants and pregnant women may be more vulnerable. Studies like Bashash (2017) and Green (2019) found associations between prenatal fluoride and lower child IQ, though with real methodological limits.
+
+Notice what would settle it: a well-controlled US birth-cohort study measuring outcomes at 0.7 mg/L specifically, controlling for lead, iodine, and income. That [crux — what evidence would actually change minds](/blog/what-would-change-your-mind) — is the productive center of the debate.
+
+## The benefit side has quietly shrunk
+
+Here's the part both camps tend to miss: even if fluoride at 0.7 mg/L is perfectly safe, the *benefit* is no longer what it was in 1955.
+
+The 2024 Cochrane review — the gold standard of evidence synthesis — found that water fluoridation does still reduce tooth decay, but the effect has shrunk dramatically since fluoride toothpaste became universal in the 1970s, down to roughly a quarter of one decayed tooth surface in baby teeth, with low certainty. Cavity rates fell similarly in countries that fluoridate their water and ones that never did. The likely reason: fluoride's main benefit is **topical** (contact with teeth), which toothpaste already delivers, not **systemic** (swallowing it).
+
+That doesn't mean fluoridation is worthless — its strongest remaining case is **equity**, reaching low-income children who may lack consistent dental care or toothpaste access. But it does mean the cost-benefit calculus is genuinely closer than it was when the policy began, which is why thoughtful people can weigh it differently without either being anti-science.
+
+## The third question: consent
+
+Beyond facts about dose and benefit sits a values question that no study resolves: is it legitimate to add a medication to everyone's water without individual consent?
+
+Supporters note that public health routinely acts at the population level without opt-in — chlorination, iodized salt, folic acid in flour — when the benefit is broad and the risk minimal. Skeptics counter that unlike those, fluoride has effective alternatives (toothpaste, dental varnish, school rinses) that deliver the benefit without mass dosing, which weakens the "no other way" justification. Most of Western Europe, notably, does not fluoridate its water — and largely for these consent-based reasons, not because it rejected fluoride itself.
+
+This is the [fact-or-value](/blog/fact-or-value) split in action: the dose and benefit questions are factual and answerable with evidence; the consent question is a values judgment that evidence can inform but not decide.
+
+## The honest bottom line
+
+Stack the three layers and the fluoride debate stops being a culture-war shibboleth:
+
+- **Safe at 0.7 mg/L?** Probably, but it rests on a ~2x margin that thoughtful people can judge adequate or thin — and the cleanest US-specific study hasn't been done.
+- **Worth it for teeth?** Still a benefit, but a much smaller one than in the pre-toothpaste era; its best case is now equity for underserved kids.
+- **Ethical to add without consent?** A genuine values question where reasonable societies (most of Europe vs. the US) have landed differently.
+
+If you came looking for "fluoride is safe, full stop" or "fluoride is poison," the evidence offers neither. It offers something more useful: a clear map of which parts are settled, which are contested, and exactly what would resolve them. You can explore that map on the [full topic page](/topics/fluoride-water-supplies), or see the same evidence-first treatment of dozens of other claims in the [Is it true? directory](/is).`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // 0000. Are GMOs Safe to Eat?
   // ──────────────────────────────────────────────────────────────────────────
   {

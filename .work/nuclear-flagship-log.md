@@ -362,3 +362,12 @@ Priority order, all in-loop unless a workflow is opted into:
   post — content web is cohering. tsc; blog test (29); clean build; renders.
 - **Next:** likely 1-2 more topic-explainers for flagship topics lacking posts (rent-control,
   AI-consciousness, lab-leak, fluoride), then reassess / await direction. ~20min cadence.
+
+### Iter 29 — 2026-06-22 — Phase 29 (blog: "Is Fluoride in Your Water Safe?")
+- Skipped rent-control (already covered by housing-crisis-zoning-rent-control-data — avoided
+  cannibalization). Wrote fluoride explainer `is-fluoride-in-water-safe` (61→62, "Public
+  Health"): reuses "it's about margins" (0.7 vs 1.5 mg/L NTP-2024; Cochrane-2024 shrinking
+  benefit; consent values question). 20 internal links. tsc; blog test (29); clean build; renders.
+- Remaining flagship topics without posts: AI-consciousness, lab-leak/covid-origins,
+  superintelligence-timeline. Will do AI-consciousness next (strategic — launch topic).
+- **Next:** AI-consciousness explainer, then reassess whether to continue or slow further.
