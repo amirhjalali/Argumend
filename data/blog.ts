@@ -12,6 +12,75 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // 0000. Are GMOs Safe to Eat?
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "are-gmos-safe",
+    title: "Are GMOs Safe to Eat? What the Evidence Actually Says",
+    description:
+      "On the question people worry about most — is GM food safe to eat — the science is about as settled as it gets. The genuine debates are somewhere else entirely. Here's how to tell them apart.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-22T15:00:00Z",
+    readingTime: "8 min read",
+    tags: [
+      "GMO",
+      "food safety",
+      "science",
+      "agriculture",
+      "glyphosate",
+    ],
+    category: "Science & Health",
+    content: `## Three different questions wearing one label
+
+"Are GMOs bad?" is really three questions stacked on top of each other, and they have very different answers:
+
+1. Is genetically modified food **safe to eat**?
+2. Is GM agriculture **good for farming and the environment**?
+3. Is **glyphosate** — the herbicide tied to many GM crops — dangerous?
+
+Most arguments about GMOs blur these together, so a real concern about herbicide use gets answered with a point about food safety, and everyone leaves more confused. Pull them apart and the picture becomes clear: one of these is essentially settled, and the other two are where the honest debate actually lives. Our full [GMO analysis](/topics/gmo-crops-safety) maps all three.
+
+## Question 1: Is GM food safe to eat? (Yes — and this part is settled)
+
+This is the question that drives the fear, and it has the clearest answer. After more than 25 years of cultivation and billions of meals, every major scientific review has reached the same conclusion: there is **no substantiated difference in health risk** between eating today's genetically engineered crops and their conventional counterparts.
+
+The most authoritative single source is the U.S. National Academies of Sciences, whose 2016 report *Genetically Engineered Crops: Experiences and Prospects* reviewed over 900 studies and found no evidence of health harm from approved GE foods. Major bodies including the WHO, the American Medical Association, and the European Commission's research directorate have independently reached the same place.
+
+There's an irony worth sitting with: every approved GM trait goes through compositional, allergenicity, and toxicity testing before market — scrutiny that conventionally bred crops (including those created by blasting seeds with radiation to induce random mutations, a long-accepted technique) never face. By that standard, the safety bar GM food clears is *higher*, not lower, than the food it replaces.
+
+This is the clearest example of an [appeal to nature](/fallacies/appeal-to-nature) in everyday reasoning — the intuition that "engineered in a lab" means dangerous and "natural" means safe. But nature is full of toxins, and the lab/nature line tells you nothing about whether a specific food is safe. Only evidence does, and on safety the evidence isn't close.
+
+## Question 2: Is GM agriculture good for farming and the environment? (Genuinely mixed)
+
+Here the honest answer is "it depends on the trait," and this is where reasonable people actually disagree.
+
+The benefits are real and documented. A meta-analysis across 147 studies found that GE adoption raised crop yields about 22%, cut chemical pesticide use about 37%, and lifted farmer profits about 68%, with the largest gains for smallholders in developing countries. Insect-resistant Bt cotton slashed insecticide spraying — by roughly 69% in parts of China — and even produced "halo" suppression of pests that benefited neighboring non-GM farms.
+
+But the dominant trait — herbicide tolerance — created a genuine problem. Engineering crops to survive glyphosate led to blanket spraying, which selected for glyphosate-resistant "superweeds" and pushed total herbicide volume up, sometimes forcing a return to older, more toxic chemicals. The National Academies itself flagged resistant weeds as a "major agricultural problem."
+
+So the net agronomic ledger genuinely depends on which trait you're talking about: insect-resistance looks strongly positive, herbicide-tolerance is far more contested. Lumping them into a single verdict — for or against — is exactly the move that keeps this debate stuck.
+
+## Question 3: Is glyphosate dangerous? (A hazard-vs-risk dispute)
+
+The glyphosate fight is the most genuinely unresolved, and it turns on a distinction most headlines skip: **hazard versus risk**.
+
+The WHO's cancer agency (IARC) classified glyphosate as "probably carcinogenic" — a *hazard* assessment, meaning it could cause cancer at *some* dose under *some* conditions. But the agencies that assess real-world *risk* at actual exposure levels — the EPA, the European Food Safety Authority, Health Canada — concluded it is unlikely to cause cancer at the doses people actually encounter. Both can be technically correct, because they are answering different questions. (Coffee and sunlight have landed in similar hazard categories.)
+
+Two things are worth holding onto here. First, glyphosate is a herbicide — its toxicology is a separate question from whether the *edible GM plant tissue* is safe (it is). Second, the courtroom verdicts that made headlines reflect litigation dynamics, not a scientific consensus. The real, unsettled question is whether dietary and occupational exposures are high enough to matter — which large applicator-cohort studies are still working to pin down.
+
+## The takeaway: separate the questions
+
+Put it together and the GMO debate stops being a yes/no culture-war flag and becomes three tractable questions:
+
+- **Safe to eat?** Settled yes — about as firmly as nutrition science settles anything.
+- **Good for agriculture?** Trait-dependent — Bt traits look clearly beneficial, herbicide-tolerance brings real costs.
+- **Is glyphosate dangerous?** Genuinely unresolved, and largely a hazard-vs-risk dispute about real-world exposure.
+
+Notice that the first is a question of **fact** (evidence settles it) while "should we grow and eat GMOs" smuggles in **values** — about corporate control of seeds, precaution, and how to weigh farmer benefit against ecological cost. As we wrote in [Fact or Value?](/blog/fact-or-value), most GMO arguments go in circles precisely because a values disagreement is being fought with food-safety evidence that was never going to resolve it.
+
+If you want to see the weighted evidence and the cruxes behind each of these questions, the full [GMO breakdown](/topics/gmo-crops-safety) lays them out — and the [Is it true? directory](/is) does the same for dozens of other contested claims.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // 000. Are Vaccine Mandates Justified?
   // ──────────────────────────────────────────────────────────────────────────
   {

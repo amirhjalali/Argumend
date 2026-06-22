@@ -353,3 +353,12 @@ Priority order, all in-loop unless a workflow is opted into:
   9 internal links to /topics/vaccine-mandates, /is, and the "change your mind" post.
 - tsc; blog test (29); clean build; post renders. Cadence now ~20min (incremental phase).
 - **Next:** reassess for genuinely high-value work; otherwise space further / await direction.
+
+### Iter 28 — 2026-06-22 — Phase 28 (blog: "Are GMOs Safe to Eat?")
+- New post `are-gmos-safe` (data/blog.ts, 60→61, "Science & Health"): captures the high-search
+  "are GMOs safe" query that GMO's /is/ page couldn't (its blended score was skipped). Three
+  questions: safe-to-eat (settled yes, NAS 2016), agronomic (trait-dependent), glyphosate
+  (hazard-vs-risk). 11 internal links incl. the new appeal-to-nature fallacy + fact-or-value
+  post — content web is cohering. tsc; blog test (29); clean build; renders.
+- **Next:** likely 1-2 more topic-explainers for flagship topics lacking posts (rent-control,
+  AI-consciousness, lab-leak, fluoride), then reassess / await direction. ~20min cadence.
