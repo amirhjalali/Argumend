@@ -85,4 +85,95 @@ export const isClaims: IsClaim[] = [
     claim:
       "The death penalty effectively deters serious crime",
   },
+  // ── Breadth batch 1 (2026-06-22) ──────────────────────────────────────────
+  {
+    slug: "rent-control-hurts-affordability",
+    topicId: "rent-control-effectiveness",
+    question: "Does rent control hurt housing affordability?",
+    claim:
+      "Rent control reduces housing affordability in the long run by discouraging new construction and shrinking supply.",
+  },
+  {
+    slug: "vaccine-mandates-justified",
+    topicId: "vaccine-mandates",
+    question: "Are government vaccine mandates justified?",
+    claim: "Government vaccine mandates are a justified public-health measure.",
+  },
+  {
+    slug: "minimum-wage-helps-workers",
+    topicId: "minimum-wage-effects",
+    question: "Does raising the minimum wage help workers without causing job losses?",
+    claim:
+      "Raising the federal minimum wage to $15/hour or more would significantly benefit low-wage workers without causing substantial job losses.",
+  },
+  {
+    slug: "drug-decriminalization-works",
+    topicId: "drug-decriminalization",
+    question: "Does drug decriminalization work?",
+    claim:
+      "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization.",
+  },
+  {
+    slug: "seed-oils-harmful",
+    topicId: "seed-oils-health",
+    question: "Are seed oils harmful to your health?",
+    claim:
+      "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
+  },
+  {
+    slug: "ai-replace-white-collar-jobs",
+    topicId: "ai-job-displacement",
+    question: "Will AI replace most white-collar jobs?",
+    claim:
+      "AI and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
+  },
+  {
+    slug: "social-media-causes-teen-depression",
+    topicId: "social-media-mental-health",
+    question: "Is social media causing the teen mental health crisis?",
+    claim:
+      "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
+  },
+  {
+    slug: "student-debt-forgiveness-justified",
+    topicId: "student-debt-forgiveness",
+    question: "Is broad student debt forgiveness justified?",
+    claim:
+      "Broad student loan forgiveness is justified, economically beneficial, and a fair approach to the student debt crisis.",
+  },
+  {
+    slug: "four-day-work-week-works",
+    topicId: "four-day-work-week",
+    question: "Does a four-day work week actually work?",
+    claim:
+      "A four-day work week with no reduction in pay leads to equal or higher productivity and improved worker wellbeing.",
+  },
+  {
+    slug: "evs-better-than-gas-cars",
+    topicId: "ev-environmental-impact",
+    question: "Are electric vehicles better for the environment than gas cars?",
+    claim:
+      "Electric vehicles are significantly better for the environment than internal-combustion vehicles over their full lifecycle.",
+  },
+  {
+    slug: "covid-lab-leak",
+    topicId: "lab-leak-theory",
+    question: "Did COVID-19 come from a lab leak?",
+    claim:
+      "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
+  },
+  {
+    slug: "psychedelics-treat-depression",
+    topicId: "psychedelics-mental-health",
+    question: "Do psychedelics work for depression and PTSD?",
+    claim:
+      "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction.",
+  },
+  {
+    slug: "ultra-processed-foods-cause-obesity",
+    topicId: "ultra-processed-food",
+    question: "Are ultra-processed foods driving the obesity epidemic?",
+    claim:
+      "Ultra-processed foods are a primary driver of the global obesity and chronic-disease epidemic.",
+  },
 ];
