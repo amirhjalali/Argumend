@@ -658,3 +658,12 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 269 tests (+4); rendered keystone + simple_case + 2 crux blocks confirmed.
 - Note: doing full `bun run build` every ~3 topics (tsc + 269 tests + live dev render verify each
   one); dev server kept warm between topics. 5h usage ~15%.
+
+### Iter 46 — 2026-06-22 — Phase 46 (flagship topic #13 = EVs vs ICE Cars)
+- keystone_fact: EV manufacturing carbon debt repaid in ~30-70k mi, then ~half lifecycle CO2 vs
+  gas on global-avg grid (IEA/ICCT/Volvo, conf 88). simple_case: timing-right/magnitude-wrong;
+  real open issues are mining + recycling/charging. Falsification on both cruxes (break-even;
+  grid-carbon threshold).
+- Verified: tsc; 273 tests (+4); clean build (periodic full build done this iter); renders confirmed.
+- 13 flagship topics now (was 10). 5h usage ~16%. Next: minimum-wage-effects, then organic-food,
+  gun-control, psychedelics, veganism.
