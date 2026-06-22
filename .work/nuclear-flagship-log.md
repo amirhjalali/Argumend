@@ -689,3 +689,11 @@ Priority order, all in-loop unless a workflow is opted into:
   cruxes, deliberately balanced + citing RAND's inconclusive ratings. 16 flagship topics.
 - Verified: tsc; 285 tests (+4); clean build (periodic); renders confirmed. 5h usage ~18%.
 - Next: psychedelics-mental-health, veganism-environmental-impact, then reassess candidate pool.
+
+### Iter 50 — 2026-06-22 — Phase 50 (flagship topic #17 = Psychedelics for Mental Health)
+- keystone: striking effects (MDMA 71% no longer met PTSD criteria) vs 2024 FDA rejection — the
+  unblindable-trial / expectancy problem (conf 80). simple_case: not miracle/snake-oil; can't yet
+  separate drug from belief. Falsification on both cruxes (psilocybin Phase III; Oregon outcomes).
+- Verified: tsc; 289 tests (+4); renders confirmed. 17 flagship topics. 5h usage ~19%.
+- Next: veganism-environmental-impact; then candidate pool reassessment (factory-farming,
+  sugar-tax, ultra-processed-food, social-media-mental-health, school-phone-bans).
