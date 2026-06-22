@@ -15,6 +15,7 @@ import { CitationCard } from "@/components/CitationCard";
 import { SaveTopicButton } from "@/components/SaveTopicButton";
 import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { FalsificationCrux } from "@/components/FalsificationCrux";
+import { FlagshipIntro } from "@/components/FlagshipIntro";
 import { topics, getCrossCategoryRelated } from "@/data/topics";
 
 const statusMeta: Record<TopicStatus, { label: string; icon: typeof CheckCircle; chip: string }> = {
@@ -272,6 +273,9 @@ export function ReadModeView({ topic }: { topic: Topic }) {
               {topic.methodology_version ? <> · methodology {topic.methodology_version}</> : null}
             </p>
           </header>
+
+          {/* ─── Flagship intro: keystone fact + simple case (gated on data) ─── */}
+          <FlagshipIntro topic={topic} />
 
           {/* ─── The Claim ─── */}
           <section aria-label="The claim">
