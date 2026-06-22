@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia(query).matches;
-  });
+  // Start false on the server AND the first client render so the hydrated
+  // markup matches the server output (reading matchMedia during render caused
+  // a hydration mismatch). Sync to the real value in an effect after mount.
+  const [matches, setMatches] = useState(false);
 
   useEffect(() => {
     const mql = window.matchMedia(query);
+    setMatches(mql.matches);
 
     function onChange(e: MediaQueryListEvent) {
       setMatches(e.matches);
