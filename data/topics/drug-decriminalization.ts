@@ -7,6 +7,22 @@ export const drugDecriminalizationData = {
     "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The feared 'usage explosion' didn't happen in Portugal: two decades after it decriminalized all drugs (2001) and moved spending to treatment, its overdose death rate fell to about 6 per million — roughly a quarter of the EU average (23.7) — HIV infections among people who inject drugs collapsed, and overall use stayed near the European norm.",
+    confidence: 84,
+    source:
+      "EMCDDA/EUDA data via Transform Drug Policy Foundation (2021); Cato Institute (Greenwald 2009)",
+    sourceUrl:
+      "https://transformdrugs.org/blog/drug-decriminalisation-in-portugal-setting-the-record-straight",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The fear that decriminalizing drugs triggers a usage explosion is not what Portugal's two-decade experiment shows — after decriminalizing all drugs in 2001 and redirecting money to treatment, overdose deaths fell to about a quarter of the EU average and use stayed near the European norm.",
+    "But the lesson is not 'remove penalties and walk away': Portugal's gains came bundled with real treatment and harm-reduction capacity, and Oregon's 2021 experiment failed precisely because it decriminalized first and never stood up the treatment pathway.",
+    "So the honest debate is not decriminalization versus criminalization in the abstract — it is whether a given place can actually build the treatment infrastructure that makes decriminalization work; without it you get Oregon, not Portugal.",
+  ],
   pillars: [
     {
       id: "public-health-outcomes",
@@ -27,6 +43,16 @@ export const drugDecriminalizationData = {
           "Difference-in-differences analysis comparing drug use surveys, emergency room data, and mortality statistics across matched jurisdictions with and without decriminalization, over 10+ year windows.",
         verification_status: "verified" as const,
         cost_to_verify: "$500K (Multi-jurisdiction longitudinal analysis of existing data)",
+        falsification: {
+          supporter_flip:
+            "If well-matched comparisons showed decriminalization — even bundled with treatment investment — reliably RAISING problematic use or overdose deaths versus criminalization, i.e. Portugal's results turned out to be driven by something other than the policy package and replicated nowhere, the public-health case would collapse.",
+          skeptic_flip:
+            "A skeptic fearing a usage surge should weigh that two decades of Portuguese data show overdose deaths far below the EU average and use near the European norm, with no 'drug tourism' explosion — the predicted catastrophe simply did not occur where decrim was paired with treatment.",
+          common_ground:
+            "Both sides agree that decriminalization WITHOUT funded treatment and harm-reduction capacity — the Oregon path — does not deliver Portugal's results.",
+          live_disagreement:
+            "How much of Portugal's improvement came from decriminalization itself versus the simultaneous treatment investment — and therefore whether the model exports to places that can't or won't fund the treatment half.",
+        },
       },
       evidence: [
         {
@@ -123,6 +149,16 @@ export const drugDecriminalizationData = {
           "Randomized controlled trial assigning drug offenders to either traditional drug court (coerced treatment) or decriminalized referral system (voluntary treatment with outreach) and tracking sobriety, employment, and recidivism at 1, 3, and 5 years.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$10M (Multi-site 5-year RCT)",
+        falsification: {
+          supporter_flip:
+            "If a rigorous randomized trial showed coerced, criminal-justice-linked treatment (drug courts) produced durably better long-term sobriety and lower recidivism than voluntary, outreach-based referral, the case for removing the criminal entry point would weaken.",
+          skeptic_flip:
+            "A skeptic who favors criminal leverage should weigh that drug courts reach only a small share of drug-involved people and still require a criminal charge as the on-ramp — so even a per-participant advantage doesn't show criminalization beats a well-funded voluntary system at the population level.",
+          common_ground:
+            "Both sides agree that treatment access is what actually reduces addiction harm; the dispute is over the best on-ramp to treatment — a criminal charge versus voluntary outreach.",
+          live_disagreement:
+            "Whether the accountability of court-mandated treatment outperforms voluntary referral by enough to justify the costs and collateral harms of arrest — a question no large randomized trial has cleanly answered.",
+        },
       },
       evidence: [
         {
