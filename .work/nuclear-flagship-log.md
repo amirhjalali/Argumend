@@ -674,3 +674,10 @@ Priority order, all in-loop unless a workflow is opted into:
   where." Falsification on both cruxes (high-level elasticity; min-wage vs EITC). Commit below.
 - Verified: tsc; 277 tests (+4); renders confirmed. 14 flagship topics. 5h usage ~16%.
 - Next: organic-food-health, gun-control-effectiveness, psychedelics-mental-health, veganism.
+
+### Iter 48 — 2026-06-22 — Phase 48 (flagship topic #15 = Organic Food)
+- keystone: not more nutritious (Stanford 237 studies); real diffs are ~4x fewer residues + ~48%
+  lower cadmium, payoff unproven (conf 84). simple_case: worth-the-premium question, not nutrition.
+  Falsification on both cruxes (long-term outcomes/confounding; chronic low-dose). 15 flagship topics.
+- Verified: tsc; 281 tests (+4); renders confirmed. 5h usage ~17%.
+- Next: gun-control-effectiveness, psychedelics-mental-health, veganism-environmental-impact.
