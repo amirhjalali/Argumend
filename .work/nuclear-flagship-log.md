@@ -162,3 +162,15 @@ Priority order, all in-loop unless a workflow is opted into:
 - **~119 topics still lack /is/.** Next: batch 2 (~15 more high-search topics).
 - **Note:** flagged for review — gmo & organic topic confidence_scores; consider splitting
   GMO's meta_claim (safe-to-eat vs beneficial-for-agriculture) so it can get an honest /is/.
+
+### Iter 11 — 2026-06-22 — Phase 11 (breadth /is/ batch 2)
+- +14 `/is/` pages (23 → 37): tiktok-ban, police-reform, wealth-tax, billionaires,
+  self-driving safety, embryo gene-editing, space exploration, factory farming,
+  homeschooling, congestion pricing, right-to-repair, assisted dying, sex-work decrim,
+  carbon tax. Skipped immigration-border-crisis (awkward meta_claim mapping) — flagged.
+- tsc clean; is-claims integrity test passes; **clean** build exit 0. Committed `7fb62f3`.
+- **BUILD-FLAKE LESSON:** repeated incremental `bun run build` (reusing `.next`) can hit
+  an ENOENT copying a `@vercel/og` edge chunk into `.next/standalone`. It's a stale-artifact
+  flake — `rm -rf .next && bun run build` passes. Future iters: clean `.next` before the
+  build verification, or treat that exact ENOENT as benign.
+- **~105 topics still lack /is/.** Next: batch 3 (~15 more).
