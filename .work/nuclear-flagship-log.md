@@ -542,3 +542,18 @@ Priority order, all in-loop unless a workflow is opted into:
   of clearly-high-value solo work. Continue ~30min ticks but mostly health-check + await founder:
   push the branch; favicon + broken /icon.png JSON-LD logo (every page); flagged score/sensitive
   items; or a new goal.
+
+### Iter 39 — 2026-06-22 — Phase 39 (data-integrity audit — all clean; convergence)
+- Cheap data-integrity sweep, all CLEAN: no duplicate is-claim questions; no duplicate
+  fallacy slugs/names; no duplicate blog slugs; no duplicate topic IDs or titles (142 topics);
+  every is-claim question ends in "?"; /questions index + [slug] both derive from
+  `getAllQuestionVariations(topics)` so those links can't 404 by construction.
+- **First fully-clean iteration — no bug found.** Rendering (all page types), internal links
+  (all route types), and data integrity are now all verified healthy. The only known residual
+  is the founder-territory favicon + broken /icon.png JSON-LD logo.
+- No code change (correct outcome — not manufacturing filler).
+- **Decision: stretching the loop cadence to ~60min.** Clearly-high-value solo work is genuinely
+  exhausted and audits now return clean; 30-min ticks that find nothing are pure overhead.
+  Keeping the loop alive (health-check + await founder) at a longer interval. Founder actions
+  unchanged: push the 56-commit branch; favicon + logo; flagged score/sensitive /is items; or
+  a new goal.
