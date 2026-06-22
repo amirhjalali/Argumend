@@ -556,4 +556,110 @@ export const isClaims: IsClaim[] = [
     claim:
       "Gig-economy platforms (Uber, Lyft, DoorDash) should be required to classify their workers as employees rather than independent contractors.",
   },
+  // ── Breadth batch 6 (2026-06-22) ──────────────────────────────────────────
+  {
+    slug: "moon-landing-real",
+    topicId: "moon-landing",
+    question: "Did NASA really land astronauts on the Moon?",
+    claim:
+      "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
+  },
+  {
+    slug: "ai-conscious",
+    topicId: "consciousness-ai-systems",
+    question: "Can AI be conscious?",
+    claim:
+      "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
+  },
+  {
+    slug: "are-we-in-a-simulation",
+    topicId: "simulation-hypothesis",
+    question: "Are we living in a simulation?",
+    claim:
+      "Bostrom's simulation argument implies we are probably living in a computer simulation — though whether that conclusion holds, or is even testable, is contested.",
+  },
+  {
+    slug: "inflation-caused-by-spending",
+    topicId: "inflation-monetary-policy",
+    question: "Was post-pandemic inflation caused by government spending?",
+    claim:
+      "Post-pandemic inflation was primarily driven by excessive government spending and monetary expansion, not supply-chain disruptions.",
+  },
+  {
+    slug: "global-housing-bubble",
+    topicId: "global-housing-bubble",
+    question: "Is there a global housing bubble about to burst?",
+    claim:
+      "Major housing markets worldwide are in an unsustainable bubble driven by low interest rates, speculation, and foreign investment, and a correction is imminent.",
+  },
+  {
+    slug: "us-debt-crisis",
+    topicId: "us-national-debt-crisis",
+    question: "Is the US national debt a ticking time bomb?",
+    claim:
+      "The US national debt, exceeding $37 trillion, poses a serious threat to economic stability.",
+  },
+  {
+    slug: "rto-improves-productivity",
+    topicId: "return-to-office-productivity",
+    question: "Does return-to-office improve productivity?",
+    claim:
+      "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work.",
+  },
+  {
+    slug: "lab-diamonds-ethical",
+    topicId: "lab-diamonds-ethics",
+    question: "Are lab-grown diamonds more ethical than mined diamonds?",
+    claim:
+      "Lab-grown diamonds are the ethical choice — they avoid the human-rights abuses and environmental destruction of diamond mining.",
+  },
+  {
+    slug: "degrowth-necessary",
+    topicId: "degrowth-economics",
+    question: "Do we need degrowth to save the planet?",
+    claim:
+      "Endless GDP growth is incompatible with ecological survival, and rich nations must deliberately shrink their economies to stay within planetary boundaries.",
+  },
+  {
+    slug: "government-fix-housing",
+    topicId: "housing-affordability-crisis",
+    question: "Can only government fix the housing affordability crisis?",
+    claim:
+      "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, because the free market alone cannot provide adequate affordable housing.",
+  },
+  {
+    slug: "meaning-without-religion",
+    topicId: "meaning-without-religion",
+    question: "Can life be meaningful without religion?",
+    claim:
+      "A meaningful, fulfilling human life is fully achievable without religious belief, and secular frameworks provide adequate foundations for purpose, ethics, and meaning.",
+  },
+  {
+    slug: "meritocracy-myth",
+    topicId: "meritocracy-myth",
+    question: "Is meritocracy a myth?",
+    claim:
+      "The belief that success is primarily determined by individual talent and effort is a myth that legitimizes systemic inequality.",
+  },
+  {
+    slug: "hard-problem-consciousness",
+    topicId: "consciousness-hard-problem",
+    question: "Is consciousness more than physical brain activity?",
+    claim:
+      "Consciousness — subjective experience — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
+  },
+  {
+    slug: "kids-smartphone-ban",
+    topicId: "children-smartphone-age",
+    question: "Should kids under 14 be banned from smartphones?",
+    claim:
+      "Children under 14 should be prohibited from owning smartphones, because the developmental harms of constant connectivity outweigh the benefits.",
+  },
+  {
+    slug: "artificial-wombs-coming",
+    topicId: "artificial-reproduction-ethics",
+    question: "Will artificial wombs change human reproduction?",
+    claim:
+      "Ectogenesis (artificial wombs) and in-vitro gametogenesis will fundamentally alter human reproduction within 15 years.",
+  },
 ];

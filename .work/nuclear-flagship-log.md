@@ -202,3 +202,13 @@ Priority order, all in-loop unless a workflow is opted into:
   (near-dup of EV topic), **gender-affirming-care-minors** (too sensitive/fast-moving for
   a blunt static /is/ verdict — full topic page keeps nuance; flagged for founder).
 - **~65 remaining.** Next: batch 6.
+
+### Iter 15 — 2026-06-22 — Phase 15 (breadth /is/ batch 6)
+- +15 `/is/` pages (77 → 92): moon-landing (debunk), AI-consciousness (canonical topic),
+  simulation, inflation cause, housing bubble, US debt, RTO productivity, lab diamonds,
+  degrowth, gov-fix-housing, meaning w/o religion, meritocracy myth, hard problem of
+  consciousness, kids smartphone ban, artificial wombs.
+- Skipped government-platform-bans (dup of tiktok-ban) and minneapolis-shooting
+  (fast-moving news, not evergreen). tsc; 245 tests; clean build. ~50 remaining.
+- **Next:** batch 7 (remaining ~50, incl. alternatives-to-democracy, geoengineering,
+  gain-of-function, and the long tail).
