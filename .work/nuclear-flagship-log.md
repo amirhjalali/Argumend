@@ -9,10 +9,14 @@ Branch: `nuclear-flagship` (off `main`).
 
 ---
 
-## Pacing notes
-- 5-hour rolling usage window: work in chunks, space iterations to stay under cap;
-  lengthen sleeps as the window fills (~80%), resume after it rolls over.
-- Loop runs until usage reset (~2026-06-24 ~21:00 local from the 2026-06-22 start).
+## Pacing notes (data-driven — I CAN read real usage)
+- Real numbers live at `/tmp/claude/statusline-usage-cache.json` (monclaude refreshes
+  every ~180s via the OAuth `/api/oauth/usage` endpoint). Read `.five_hour.utilization`,
+  `.five_hour.resets_at`, `.seven_day.utilization`, `.seven_day.resets_at`.
+- TWO windows: **5h rolling = rate cap** (keep < 80%); **7d = budget envelope to spend**
+  (was 12% used at start, resets ~2026-06-24T02:00Z — the founder's "1d 19h" reset).
+- Policy: 5h < 70% → full speed, big chunks, ~60s sleeps. 70–80% → stretch sleeps.
+  ≥ 80% → sleep until `five_hour.resets_at`, then resume. Burn the weekly down meanwhile.
 - One meaningful, verified, committed chunk per iteration.
 
 ---
@@ -29,3 +33,13 @@ Branch: `nuclear-flagship` (off `main`).
 - Created branch, work log. Baseline verified.
 - **Next:** Phase 1 — additive schema (`CruxSchema.falsification`,
   `Topic.keystone_fact`, `Topic.simple_case`); confirm all 142 topics still validate.
+
+### Iter 1 — 2026-06-22 — Phases 1 + 2 (schema + nuclear content)
+- Discovered I can read real usage (monclaude cache) → switched to data-driven pacing.
+  5h was 7–8% throughout (huge headroom); old 20-min naps were far too slow.
+- Phase 1: added optional `CruxSchema.falsification`, `Topic.keystone_fact`,
+  `Topic.simple_case`. tsc clean; 207 tests pass (all topics still validate).
+- Phase 2: authored nuclear `keystone_fact`, `simple_case`, and falsification for both
+  pillars (safety; climate-effectiveness). tsc clean; 207 tests pass. Committed `1ebc7a3`.
+- **Next:** Phase 3 — `FalsificationCrux` component + atomic-fact confidence tiers,
+  wired into `ReadModeView` gated on data presence (no regression for other topics).
