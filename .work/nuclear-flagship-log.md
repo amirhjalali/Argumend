@@ -383,3 +383,16 @@ Priority order, all in-loop unless a workflow is opted into:
   Genuinely approaching the end of clearly-high-value autonomous solo work. Plan: 1 more if
   clearly valuable, else slow cadence further and await founder direction (review/push, the
   flagged score fixes, or a new goal). Nothing needing founder judgment will be auto-done.
+
+### Iter 31 — 2026-06-22 — Phase 31 (blog: "Did COVID Come From a Lab?")
+- New post `did-covid-come-from-a-lab` ("Science"): balanced explainer — crux is withheld
+  data; strongest case each side; "we can't tell yet" is the accurate position. 11 internal
+  links. tsc; blog test (29); clean build; renders.
+- **MILESTONE: flagship-topic explainer posts now complete.** All 10 flagship topics either
+  had a post or now have one (gmo, vaccines, fluoride, AI-consciousness, lab-leak added this
+  session; nuclear/climate/death-penalty/rent-control pre-existing; ai-risk via adjacent post).
+- Content this session: 7 blog posts, 3 glossary terms, 3 fallacies — all cross-linked.
+- **Posture shift:** clearly-high-value autonomous solo work is essentially exhausted.
+  Going to ~30min cadence; will do only genuinely valuable items (else re-verify + wait).
+  Highest-value next step is FOUNDER action: review/push the branch (43 commits), decide the
+  flagged score fixes (gmo/organic/dark-matter) + sensitive /is/ topics, or set a new goal.

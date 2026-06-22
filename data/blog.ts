@@ -12,6 +12,74 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // 0000000. Did COVID Come From a Lab?
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "did-covid-come-from-a-lab",
+    title: "Did COVID Come From a Lab? Why the Honest Answer Is 'We Can't Tell'",
+    description:
+      "Five years on, COVID's origin is still unresolved — and the reason isn't a missing experiment. It's missing data. Here's what each side's strongest evidence actually is, and what would settle it.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-22T21:00:00Z",
+    readingTime: "8 min read",
+    tags: [
+      "covid origins",
+      "lab leak",
+      "evidence",
+      "science",
+      "uncertainty",
+    ],
+    category: "Science",
+    content: `## The most politicized scientific question of the decade
+
+Few questions have been dragged through the culture war as thoroughly as where SARS-CoV-2 came from. Depending on which feed you read, the lab-leak hypothesis is either obvious common sense or debunked conspiracy. Both framings are wrong, and the reason they're wrong is the most important — and least satisfying — fact about the whole debate: **the honest answer is that we don't know, and we may never, because the decisive evidence has been withheld.**
+
+That's not a dodge. It's the actual epistemic situation, and understanding why is more useful than picking a team. Our full [COVID origins analysis](/topics/lab-leak-theory) maps the evidence on both sides; here's the structure.
+
+## The crux: this is a data problem, not a science problem
+
+The single most important fact in this debate is what's *missing*. China took the Wuhan Institute of Virology's database of bat-coronavirus sequences offline in September 2019 — months before the outbreak became public — and has never restored access. Beijing also declined to share early patient samples, withheld hundreds of early case sequences, and blocked independent access to the lab's biosafety records.
+
+This is why both the lab-leak and natural-origin cases rest on *circumstantial* evidence. The thing that would most directly resolve the question — a full audit of what the WIV had and was doing in 2019 — is exactly the thing that's unavailable. When the key evidence is being actively withheld, "absence of proof" cannot be read as proof of either side. That's the crux, and it's the part most takes skip.
+
+## The strongest case for natural origin
+
+The mainstream scientific position leans toward zoonotic spillover — a virus jumping from animals to humans, as SARS did in 2002 and as most novel coronaviruses do. The strongest points:
+
+- **Expert assessment leans this way.** A 2024 survey of 168 virologists and epidemiologists put zoonosis at roughly 77% likely versus about 21% for a lab leak. After a multi-year review, the WHO's SAGO panel concluded in 2025 that the weight of available evidence favors zoonosis.
+- **The early cases cluster on the market.** Spatial analyses of the earliest known COVID-19 cases center on the Huanan Seafood Market, where live wildlife was sold — not on the WIV campus 30 km away. Raccoon-dog and other susceptible-animal DNA was found co-located with viral RNA in market stalls.
+- **It fits the base rate.** Natural spillover is simply how most of these viruses have emerged historically.
+
+## The strongest case for a lab leak
+
+The lab-leak hypothesis is not a fringe position — it's taken seriously by several US intelligence agencies and many scientists. Its strongest points are circumstantial but real:
+
+- **The geographic coincidence.** The outbreak began in the one city housing the world's leading bat-coronavirus lab, which held the closest known relatives of SARS-CoV-2 and conducted gain-of-function research, rather than in the rural regions where those bat viruses are found.
+- **Specific anomalies.** The database going offline in 2019; reports of WIV researchers hospitalized with COVID-like symptoms in late 2019; and a 2018 EcoHealth/WIV grant proposal (DEFUSE) that explicitly proposed inserting furin cleavage sites into bat coronaviruses — the very feature that makes SARS-CoV-2 unusually infectious.
+- **The intelligence split.** The FBI and Department of Energy lean lab-leak (at "low confidence"); China's sustained obstruction is itself, proponents argue, telling.
+
+## What would actually change minds
+
+Notice that both sides can name concrete evidence that would move them — the hallmark of a [genuine factual disagreement rather than a tribal one](/blog/what-would-change-your-mind):
+
+- A **progenitor virus** found in market animals or the supply chain would strongly support natural origin.
+- A **closer progenitor in the WIV's collection**, or documentation of relevant gain-of-function work, would strongly support a leak.
+- Comprehensive **phylogenetic analysis** of whether the virus's unusual furin cleavage site arose naturally or looks engineered would shift the balance.
+
+All of these are answerable in principle. The obstacle is access, not method — which is why "we can't tell yet" is the scientifically honest position, not a cop-out.
+
+## Why "we don't know" is the right answer
+
+It is genuinely uncomfortable to sit with uncertainty on a question this charged. The pull toward a confident answer — in either direction — is enormous, because confidence signals which side you're on. But the evidence does not currently support confidence either way:
+
+- Asserting **"definitely a lab leak"** overreads circumstantial evidence and ignores that the early-case and expert-opinion data lean the other way.
+- Asserting **"definitely natural, case closed"** ignores the genuine anomalies and treats the absence of withheld evidence as if it were evidence of absence.
+
+The defensible position is calibrated: natural origin is somewhat more likely on current evidence, a lab leak is a real and unrefuted possibility, and a confident verdict awaits data that China controls. Holding that position isn't fence-sitting — it's accuracy.
+
+You can explore the full weighted evidence, the intelligence assessments, and the specific cruxes on the [topic page](/topics/lab-leak-theory), or see the same evidence-first, both-sides treatment of other contested claims in the [Is it true? directory](/is).`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // 000000. Could AI Be Conscious?
   // ──────────────────────────────────────────────────────────────────────────
   {
