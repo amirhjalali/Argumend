@@ -649,3 +649,12 @@ Priority order, all in-loop unless a workflow is opted into:
 - **Cadence now: full-tilt overnight** (~short gaps) while 5h<70%; stretch at 70-80%; sleep at
   >=80% until reset. Next candidates: drug-decriminalization, minimum-wage, ev-environmental,
   organic-food, gun-control, psychedelics, veganism (all clear keystone facts). Branch +64.
+
+### Iter 45 — 2026-06-22 — Phase 45 (flagship topic #12 = Drug Decriminalization)
+- keystone_fact: Portugal's 20-yr outcome (overdose deaths ~6/M vs EU 23.7; HIV among injectors
+  collapsed; use near EU norm; no usage explosion), conf 84. simple_case: decrim-vs-criminalization
+  is the wrong frame — it's whether you can build the treatment half (Portugal) or can't (Oregon).
+  Falsification on both cruxes (use-rates; coerced-vs-voluntary treatment). Commit pending below.
+- Verified: tsc; 269 tests (+4); rendered keystone + simple_case + 2 crux blocks confirmed.
+- Note: doing full `bun run build` every ~3 topics (tsc + 269 tests + live dev render verify each
+  one); dev server kept warm between topics. 5h usage ~15%.
