@@ -296,3 +296,16 @@ Priority order, all in-loop unless a workflow is opted into:
   precise verified URL; source cited as text). Falsification on all 3 cruxes.
 - tsc; **257 tests**; clean build; renders. **9 flagship topics** now.
 - **Next:** 1 more (fluoride) → 10, then shift to other improvement types (content, etc.).
+
+### Iter 22 — 2026-06-22 — Phase 22 (flagship: fluoride-water-supplies) — 10 TOPICS
+- fluoride: keystone = "it's about margins, not myths" (0.7 vs ~1.5 mg/L NTP-2024 IQ
+  threshold; Cochrane-2024 shrinking benefit); falsification on all 3 cruxes
+  (systemic-vs-topical / low-dose neuro risk / consent-alternatives). NTP sourceUrl verified.
+- tsc; **261 tests**; clean build; renders. **10 FLAGSHIP TOPICS** — comprehensive set:
+  nuclear, rent-control, death-penalty, gmo, climate, vaccines, AI-consciousness, AI-risk,
+  lab-leak, fluoride (covers energy/econ/policy/science/tech/philosophy + the 2 AI launch topics).
+- Note: 5h window reset to ~0% mid-iteration (pacing stayed well clear of cap all session).
+- **Flagship rollout now sufficient.** Next: shift to OTHER improvement types — candidates:
+  (a) glossary terms for the new concepts (falsification / keystone / steelman),
+  (b) a blog post on "what would change your mind" as a reasoning tool,
+  (c) tighter internal linking. Will pick highest-value next iteration.
