@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ExternalLink, BookOpen, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
 import type { Topic, TopicCategory, TopicStatus, Evidence } from "@/lib/schemas/topic";
-import { calculateEvidenceScore, getVerdictLabel } from "@/lib/schemas/topic";
+import { calculateEvidenceScore, getVerdictLabel, confidenceTier } from "@/lib/schemas/topic";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import { SynopticTable } from "@/components/SynopticTable";
@@ -14,6 +14,7 @@ import { VerdictVoting } from "@/components/VerdictVoting";
 import { CitationCard } from "@/components/CitationCard";
 import { SaveTopicButton } from "@/components/SaveTopicButton";
 import { GlossaryTerm } from "@/components/GlossaryTerm";
+import { FalsificationCrux } from "@/components/FalsificationCrux";
 import { topics, getCrossCategoryRelated } from "@/data/topics";
 
 const statusMeta: Record<TopicStatus, { label: string; icon: typeof CheckCircle; chip: string }> = {
@@ -90,6 +91,7 @@ function bottomLine(topic: Topic): string {
 function EvidenceItem({ ev }: { ev: Evidence }) {
   const score = calculateEvidenceScore(ev.weight); // 0–40
   const pct = Math.round((score / 40) * 100);
+  const tier = confidenceTier(pct);
   const accent =
     ev.side === "for"
       ? "border-l-rust-400 bg-rust-50/30 dark:bg-rust-900/10"
@@ -102,7 +104,13 @@ function EvidenceItem({ ev }: { ev: Evidence }) {
         <span className={`text-[10px] font-sans font-semibold uppercase tracking-[0.15em] ${labelColor}`}>
           {label}
         </span>
-        <span className="text-[10px] font-mono text-secondary">strength {pct}%</span>
+        <span
+          className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] text-deep"
+          title="Confidence tier from source reliability, independence, replicability, and directness"
+        >
+          {tier}
+        </span>
+        <span className="text-[10px] font-mono text-secondary">{pct}% confidence</span>
       </div>
       <p className="font-serif text-[16px] leading-snug text-primary mb-1">
         <span className="font-semibold">{ev.title}.</span>{" "}
@@ -358,34 +366,8 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                   </div>
                 )}
 
-                {/* Crux */}
-                <aside
-                  id={`crux-${pillar.crux.id}`}
-                  className="mt-6 rounded-lg border border-[color:var(--crux-crimson,#a23b3b)]/30 bg-[color:var(--crux-crimson,#a23b3b)]/5 px-5 py-4 scroll-mt-24"
-                >
-                  <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[color:var(--crux-crimson,#a23b3b)] mb-1">
-                    ◆ <GlossaryTerm term="crux">Crux</GlossaryTerm> — what would settle this
-                  </div>
-                  <h4 className="font-serif text-[19px] text-primary mb-1.5">
-                    {pillar.crux.title}
-                  </h4>
-                  <p className="font-serif text-[16px] leading-relaxed text-primary/90 mb-2">
-                    {pillar.crux.description}
-                  </p>
-                  <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-secondary font-sans">
-                    <span>
-                      <span className="font-semibold">Method:</span>{" "}
-                      {pillar.crux.methodology}
-                    </span>
-                  </div>
-                  <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-mono text-secondary">
-                    <span>cost: {pillar.crux.cost_to_verify}</span>
-                    <span>
-                      <GlossaryTerm term="verification status">status</GlossaryTerm>:{" "}
-                      {pillar.crux.verification_status}
-                    </span>
-                  </div>
-                </aside>
+                {/* Crux — falsification framing when available, else the settle-test */}
+                <FalsificationCrux crux={pillar.crux} />
               </section>
             );
           })}

@@ -255,6 +255,20 @@ export function getVerdictLabel(confidenceScore: number): string {
   return "Insufficient evidence";
 }
 
+/**
+ * Map a 0–100 confidence percentage to a qualitative tier. Used to present
+ * each piece of evidence as an "atomic fact" with a legible confidence level
+ * (the flagship Stage-3 experience), separating settled facts from arguable ones.
+ */
+export type ConfidenceTier = "Established" | "Strong" | "Contested" | "Thin";
+
+export function confidenceTier(pct: number): ConfidenceTier {
+  if (pct >= 90) return "Established";
+  if (pct >= 75) return "Strong";
+  if (pct >= 50) return "Contested";
+  return "Thin";
+}
+
 // ============================================================================
 // Validation Helpers
 // ============================================================================
