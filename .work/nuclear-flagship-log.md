@@ -288,3 +288,11 @@ Priority order, all in-loop unless a workflow is opted into:
   on all 3 cruxes (instrumental convergence / deceptive alignment / scaling timeline).
 - tsc; **253 tests**; clean build; renders. **8 flagship topics** now.
 - **Next:** likely 1-2 more (lab-leak, fluoride) then shift off flagship to other work.
+
+### Iter 21 — 2026-06-22 — Phase 21 (flagship: lab-leak-theory / covid-origins.ts)
+- covid-origins: keystone = the honest crux of why it's unresolved (China took the WIV
+  virus database offline in 2019 + withheld data; both sides circumstantial) — chosen so it
+  doesn't contradict the topic's lab-le-leaning verdict. Keystone sourceUrl omitted (no
+  precise verified URL; source cited as text). Falsification on all 3 cruxes.
+- tsc; **257 tests**; clean build; renders. **9 flagship topics** now.
+- **Next:** 1 more (fluoride) → 10, then shift to other improvement types (content, etc.).
