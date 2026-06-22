@@ -176,4 +176,103 @@ export const isClaims: IsClaim[] = [
     claim:
       "Ultra-processed foods are a primary driver of the global obesity and chronic-disease epidemic.",
   },
+  // ── Breadth batch 2 (2026-06-22) ──────────────────────────────────────────
+  {
+    slug: "tiktok-ban-justified",
+    topicId: "tiktok-ban",
+    question: "Should TikTok be banned?",
+    claim:
+      "TikTok poses a genuine national-security threat through Chinese-government data access and algorithmic influence, justifying a ban or forced sale.",
+  },
+  {
+    slug: "policing-needs-reform",
+    topicId: "police-reform",
+    question: "Does American policing need fundamental reform?",
+    claim:
+      "American policing requires fundamental structural reform, including reallocating some funding to social services, to improve public-safety outcomes.",
+  },
+  {
+    slug: "wealth-tax-works",
+    topicId: "wealth-tax",
+    question: "Would a wealth tax on billionaires work?",
+    claim:
+      "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
+  },
+  {
+    slug: "billionaires-harmful",
+    topicId: "billionaire-wealth",
+    question: "Should billionaires exist?",
+    claim:
+      "The concentration of extreme wealth in billionaires is harmful to society and should be curbed through taxation or structural reform.",
+  },
+  {
+    slug: "self-driving-cars-safer",
+    topicId: "self-driving-car-safety",
+    question: "Are self-driving cars safer than human drivers?",
+    claim:
+      "Autonomous vehicles are already safer than human drivers and should be deployed broadly.",
+  },
+  {
+    slug: "gene-editing-embryos-permit",
+    topicId: "gene-editing-embryos",
+    question: "Should we allow gene editing of human embryos?",
+    claim:
+      "Germline gene editing of human embryos should be permitted for preventing serious genetic diseases.",
+  },
+  {
+    slug: "space-exploration-worth-it",
+    topicId: "space-exploration-value",
+    question: "Is space exploration worth the cost?",
+    claim:
+      "Government-funded space exploration provides sufficient scientific, economic, and strategic returns to justify its cost.",
+  },
+  {
+    slug: "factory-farming-ban-justified",
+    topicId: "factory-farming-ban",
+    question: "Should factory farming be banned?",
+    claim:
+      "Industrial animal agriculture should be banned or drastically reformed due to its ethical, environmental, and public-health costs.",
+  },
+  {
+    slug: "homeschooling-better",
+    topicId: "homeschooling-effectiveness",
+    question: "Do homeschooled students do better academically?",
+    claim:
+      "Homeschooled students post higher average test scores than public-school students.",
+  },
+  {
+    slug: "congestion-pricing-works",
+    topicId: "congestion-pricing",
+    question: "Does congestion pricing work?",
+    claim:
+      "Congestion pricing is an effective policy for cutting urban traffic and funding transit.",
+  },
+  {
+    slug: "right-to-repair-good",
+    topicId: "right-to-repair",
+    question: "Is right to repair good for consumers?",
+    claim:
+      "Right-to-repair laws benefit consumers without significantly harming innovation or safety.",
+  },
+  {
+    slug: "right-to-assisted-dying",
+    topicId: "assisted-dying-euthanasia",
+    question: "Should terminally ill adults have the right to assisted dying?",
+    claim:
+      "Terminally ill, mentally competent adults have a moral right to medically assisted dying.",
+  },
+  {
+    slug: "decriminalizing-sex-work-helps",
+    topicId: "sex-work-decriminalization",
+    question: "Does decriminalizing sex work improve safety?",
+    claim:
+      "Full decriminalization of sex work improves health and safety outcomes.",
+  },
+  {
+    slug: "carbon-tax-works",
+    topicId: "carbon-tax-effectiveness",
+    question: "Does a carbon tax reduce emissions?",
+    claim:
+      "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
+  },
 ];
