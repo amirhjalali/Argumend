@@ -174,3 +174,13 @@ Priority order, all in-loop unless a workflow is opted into:
   flake — `rm -rf .next && bun run build` passes. Future iters: clean `.next` before the
   build verification, or treat that exact ENOENT as benign.
 - **~105 topics still lack /is/.** Next: batch 3 (~15 more).
+
+### Iter 12 — 2026-06-22 — Phase 12 (breadth /is/ batch 3)
+- +14 `/is/` pages (37 → 51): mandatory voting, reparations, immigration/wages, open
+  borders, standardized testing, electoral college, surveillance/crime, China-Taiwan,
+  social-media/elections, nuclear deterrence, school phone bans, pandemic prep, water
+  wars, sugar taxes. tsc; 245 tests; clean build exit 0. Committed `030215f`.
+- Skipped (flagged): us-iran-conflict, iran-war-justification, immigration-border-crisis
+  (idiosyncratic/fast-moving), epstein-files (conspiracy-magnet framing).
+- Full remaining list dumped to /tmp/nf_remaining.txt (was 105; now ~91).
+- **Next:** batch 4 (~15 more from the remaining list).
