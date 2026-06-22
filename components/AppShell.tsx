@@ -29,9 +29,9 @@ export function AppShell({ children }: AppShellProps) {
       <div className="flex min-h-0 flex-1 overflow-hidden">
         {/* Mobile overlay when sidebar is open */}
         <div
-          className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
-            sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+          className={`fixed inset-0 bg-black/30 z-30 md:hidden ${
+            sidebar.mounted ? "transition-opacity duration-300" : ""
+          } ${sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
           role="button"
           tabIndex={sidebar.isOpen ? 0 : -1}
           aria-label="Close sidebar"
@@ -44,16 +44,16 @@ export function AppShell({ children }: AppShellProps) {
           aria-label="Sidebar navigation"
           className={`
             fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
-            flex-shrink-0 transition-all duration-500
+            flex-shrink-0 ${sidebar.mounted ? "transition-all duration-500" : ""}
             ${sidebar.isOpen ? "w-[260px]" : "w-0 md:w-0"}
           `}
           style={{ transitionTimingFunction: ANIMATION.SPRING_EASING }}
         >
           {/* Sidebar - slides in from left with spring easing */}
           <div
-            className={`absolute top-0 bottom-0 left-0 w-[260px] transition-transform duration-500 ${
-              sidebar.isOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+            className={`absolute top-0 bottom-0 left-0 w-[260px] ${
+              sidebar.mounted ? "transition-transform duration-500" : ""
+            } ${sidebar.isOpen ? "translate-x-0" : "-translate-x-full"}`}
             style={{ transitionTimingFunction: ANIMATION.SPRING_EASING }}
           >
             <Sidebar
@@ -66,9 +66,9 @@ export function AppShell({ children }: AppShellProps) {
 
           {/* Shadow overlay when sidebar is open - adds depth (desktop only) */}
           <div
-            className={`hidden md:block absolute inset-y-0 right-0 w-4 pointer-events-none transition-opacity duration-300 ${
-              sidebar.isOpen ? "opacity-100" : "opacity-0"
-            }`}
+            className={`hidden md:block absolute inset-y-0 right-0 w-4 pointer-events-none ${
+              sidebar.mounted ? "transition-opacity duration-300" : ""
+            } ${sidebar.isOpen ? "opacity-100" : "opacity-0"}`}
             style={{
               background:
                 "linear-gradient(to right, rgba(0,0,0,0.04), transparent)",
