@@ -7,6 +7,21 @@ export const psychedelicsMentalHealthData = {
     "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The trials report striking results — in MDMA's Phase III, 71% of PTSD patients no longer met diagnostic criteria — yet in 2024 the FDA rejected MDMA-assisted therapy, because you can't blind a psychedelic trial: patients know whether they're tripping, so expectation and drug effect are tangled together.",
+    confidence: 80,
+    source:
+      "Mitchell et al., Nature Medicine (2023); FDA Complete Response Letter to Lykos (Aug 2024)",
+    sourceUrl: "https://www.nature.com/articles/s41591-023-02565-4",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Psychedelic trials report some of the largest effect sizes in psychiatry — in MDMA's confirmatory Phase III, 71% of PTSD patients no longer met diagnostic criteria — which is why the field has exploded with well over 100 registered psilocybin studies.",
+    "But there's a structural catch the hype skips: you can't run a real placebo trial when participants can obviously tell whether they're tripping, so expectation and pharmacology are tangled — which is exactly why an FDA advisory panel voted 2–9 against MDMA's efficacy and the agency demanded another trial in 2024.",
+    "So the honest position isn't 'miracle cure' or 'snake oil' — the signals are real and unusually durable, but until trials solve the blinding-and-expectancy problem we genuinely can't say how much is the drug versus the belief that you took it.",
+  ],
   pillars: [
     {
       id: "clinical-trial-evidence",
@@ -27,6 +42,16 @@ export const psychedelicsMentalHealthData = {
           "Monitor Compass Pathways and Usona Institute Phase III trials. Evaluate primary endpoints (MADRS depression scale scores at 6 and 12 weeks), adverse events, and long-term follow-up data. Assess FDA advisory committee response.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (Trials are underway; monitor results)",
+        falsification: {
+          supporter_flip:
+            "If the ongoing psilocybin Phase III programs (Compass, Usona) hit the same wall as MDMA — large raw effects that evaporate or fail FDA scrutiny once functional unblinding, expectancy, and data integrity are accounted for — the case that these are validated treatments rather than powerful placebos plus therapy would collapse.",
+          skeptic_flip:
+            "A skeptic who thinks it's all expectancy should weigh that the effects are unusually large and durable (antidepressant response persisting at 12 months) for conditions where standard drugs barely move the needle — if a design that genuinely controls for expectancy still shows benefit, the 'just placebo' explanation fails.",
+          common_ground:
+            "Both sides agree psychedelic trials can't be blinded the way a pill trial can — participants almost always know whether they received an active psychedelic.",
+          live_disagreement:
+            "How much of the striking improvement is the drug's pharmacology versus the expectancy and intensive therapy bundled with it — which un-blindable trials can't cleanly separate.",
+        },
       },
       evidence: [
         {
@@ -101,6 +126,16 @@ export const psychedelicsMentalHealthData = {
           "Track patient-reported outcomes, adverse events, and follow-up data from Oregon Psilocybin Services. Compare mental health outcomes for service center clients vs. matched controls receiving standard care.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1M (Prospective outcomes study of Oregon program)",
+        falsification: {
+          supporter_flip:
+            "If Oregon's and Colorado's real-world programs produced high rates of serious adverse events or no measurable mental-health benefit versus standard care, the case that supervised access is safer and better than the status quo would weaken.",
+          skeptic_flip:
+            "A skeptic who thinks policy outran the evidence should weigh that psilocybin has very low addiction potential and no established lethal dose, and that a facilitator-supervised model has more guardrails than the decriminalized free-for-all that is the realistic alternative.",
+          common_ground:
+            "Both sides agree state programs (Oregon, Colorado) have outpaced FDA approval and currently lack systematic published outcome data.",
+          live_disagreement:
+            "Whether supervised state-level access delivers real mental-health benefit at acceptable risk — which Oregon's program could answer but hasn't yet, since it produces no controlled outcome data.",
+        },
       },
       evidence: [
         {
