@@ -39,6 +39,13 @@ export async function generateMetadata(
   const article = getArticleBySlug(slug);
   if (!article) return { title: "Article Not Found" };
 
+  // Per-post social card via the query-param OG route (the path-param /api/og/[id]
+  // route is topic-only and 404s for blog slugs). Without this, posts had no
+  // og:image at all despite a summary_large_image Twitter card.
+  const ogImage = `https://argumend.org/api/og?title=${encodeURIComponent(
+    article.title,
+  )}&subtitle=${encodeURIComponent(article.category)}`;
+
   return {
     title: article.title,
     description: article.description,
@@ -53,11 +60,13 @@ export async function generateMetadata(
       tags: article.tags,
       siteName: "ARGUMEND",
       url: `https://argumend.org/blog/${article.slug}`,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: article.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
       description: article.description,
+      images: [ogImage],
     },
     alternates: {
       canonical: `https://argumend.org/blog/${article.slug}`,
@@ -162,7 +171,9 @@ export default async function BlogArticlePage({ params }: PageProps) {
     inLanguage: "en-US",
     image: {
       "@type": "ImageObject",
-      url: `https://argumend.org/api/og/blog/${article.slug}`,
+      url: `https://argumend.org/api/og?title=${encodeURIComponent(
+        article.title,
+      )}&subtitle=${encodeURIComponent(article.category)}`,
       width: 1200,
       height: 630,
     },
