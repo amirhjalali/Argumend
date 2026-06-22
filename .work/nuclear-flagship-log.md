@@ -523,3 +523,22 @@ Priority order, all in-loop unless a workflow is opted into:
   page's JSON-LD); decide the flagged score (gmo/organic/dark-matter) + sensitive /is/ items;
   or set a new goal. Will keep ticking but mostly re-verify + wait unless something clearly
   valuable appears.
+
+### Iter 38 — 2026-06-22 — Phase 38 (broken internal-link audit + fix)
+- Audited every hardcoded `/topics/<id>` reference in app/ + data/ + components/ against the 142
+  real topic IDs. Found **3 broken internal links (silent 404s)** and fixed them:
+  - glossary "Pillar" example: `/topics/covid-origins` → `/topics/lab-leak-theory`
+  - blog social-media post: `/topics/ban-tiktok` → `/topics/tiktok-ban`
+  - blog social-media post: `/topics/ai-consciousness` → `/topics/consciousness-ai-systems`
+- All other flagged paths were external source URLs (rand.org/topics/…, chainalysis.com/blog/…,
+  fcc.gov/…/guides/…) — false positives, not internal links. Also validated /guides, /blog,
+  /concepts internal links and every is-claim `topicId` — all resolve.
+- Verified: tsc; 261 tests; clean build; corrected targets return 200 and render in-page; grep
+  confirms NO page in .next still contains the broken links. Commit f14fe19.
+- **Session bug tally (Iters 33-38): 6 real bugs fixed** — 3 hydration mismatches, 1 dup React
+  key, 1 SEO bloat (/is), 1 set of broken internal links — all found by verification, none
+  catchable by tsc/vitest. Branch 56 commits ahead of main, tree clean, all verified, UNPUSHED.
+- **Posture:** verification surface now thoroughly swept (render + links). Genuinely at the end
+  of clearly-high-value solo work. Continue ~30min ticks but mostly health-check + await founder:
+  push the branch; favicon + broken /icon.png JSON-LD logo (every page); flagged score/sensitive
+  items; or a new goal.
