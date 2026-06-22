@@ -64,3 +64,13 @@ Branch: `nuclear-flagship` (off `main`).
   for keystone_fact/simple_case/falsification; component render+gating tests).
   Then Phase 5 polish (copy, a11y, mobile, dark mode, reduced-motion, visual QA),
   then Phase 7 roll-out to 2–3 more empirical topics.
+
+### Iter 4 — 2026-06-22 — Phase 6 (tests)
+- `lib/schemas/flagship.test.ts` (confidenceTier boundaries; falsification + keystone/
+  simple_case schema accept/reject; nuclear data-integrity).
+- `components/FlagshipIntro.test.tsx` + `components/FalsificationCrux.test.tsx`
+  (render-when-present + gating/fallback). First .test.tsx files in the repo.
+- 221 tests pass (+14); tsc + eslint clean. Committed `7ee0eae`. 5h ~10%.
+- **Next:** Phase 5 — verify the DEFAULT topic landing view shows the flagship intro
+  (not hidden behind the read/graph toggle), then visual QA via dev-server screenshot,
+  then polish (a11y, mobile, dark mode, reduced-motion). Then Phase 7 roll-out.
