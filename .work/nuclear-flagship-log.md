@@ -396,3 +396,11 @@ Priority order, all in-loop unless a workflow is opted into:
   Going to ~30min cadence; will do only genuinely valuable items (else re-verify + wait).
   Highest-value next step is FOUNDER action: review/push the branch (43 commits), decide the
   flagged score fixes (gmo/organic/dark-matter) + sensitive /is/ topics, or set a new goal.
+
+### Iter 32 — 2026-06-22 — Phase 32 (4 more fallacies)
+- Added equivocation, sunk-cost, appeal-to-ignorance, red-herring to data/fallacies.ts
+  (18→22 entries). All classic, high-search, distinct; cross-linked to topics + sibling
+  fallacies (appeal-to-ignorance ties to the burden-of-proof glossary term). tsc; 261 tests;
+  clean build; all 4 /fallacies/ pages render.
+- **Next:** ~30min cadence, value-only. Genuinely near the end of high-value solo work;
+  prefer awaiting founder direction (review/push the 44-commit branch).
