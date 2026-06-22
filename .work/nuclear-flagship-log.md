@@ -597,3 +597,21 @@ Priority order, all in-loop unless a workflow is opted into:
   7 real bugs fixed this session (Iters 33-40). Branch 58 commits ahead, tree clean, UNPUSHED.
   Stretching cadence; each tick = light health-check, act only on something clearly valuable.
   Founder actions: push; logo/favicon (7-file list above); flagged score/sensitive items; new goal.
+
+### Iter 42 — 2026-06-22 — Phase 42 (accessibility scan — clean)
+- Objective a11y scan (Python html.parser) across 7 representative page types: `<html lang>`
+  present everywhere; **0 images missing alt**; **0 icon-only controls without an accessible
+  name**; **0 inputs without a label** — strong result for a content-heavy site.
+- Only finding: home page has 2 `<h1>` in raw HTML, but one is inside `<noscript>` (the JS-off
+  fallback, where "ARGUMEND" as its heading is fine) — JS users see a single visible h1. Not a
+  bug. Deeper note for founder (design/SEO judgment, NOT auto-changed): the home page's one
+  *visible* h1 is the rotating featured topic (e.g. "Consciousness in AI Systems") rather than a
+  brand/value-prop heading; worth considering whether the home h1 should target the brand.
+- No code change. tsc/tests/build untouched & green.
+- **3 consecutive probes now clean-or-founder-territory** (data integrity, structured-data, a11y)
+  — the "each new dimension finds a bug" pattern has ended. Autonomous fixable surface is
+  genuinely exhausted. 7 real bugs fixed this session (Iters 33-40). Branch 58 commits ahead,
+  tree clean, UNPUSHED.
+- **Posture: firmly steady await-founder.** Will stop opening new audit dimensions; each tick =
+  minimal health-check, act only on something clearly valuable or a founder redirect. Founder
+  actions: push; logo/favicon (7-file list, Iter 41); flagged score/sensitive /is items; new goal.
