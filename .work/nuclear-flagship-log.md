@@ -74,3 +74,19 @@ Branch: `nuclear-flagship` (off `main`).
 - **Next:** Phase 5 — verify the DEFAULT topic landing view shows the flagship intro
   (not hidden behind the read/graph toggle), then visual QA via dev-server screenshot,
   then polish (a11y, mobile, dark mode, reduced-motion). Then Phase 7 roll-out.
+
+### Iter 5 — 2026-06-22 — Phase 5 (verify default view + visual QA)
+- Confirmed topic page DEFAULTS to read view (`?view=graph` opt-in), so FlagshipIntro
+  is the first thing a visitor sees. Positioning correct.
+- Dev server (`:3007`) + Playwright screenshots: desktop light, desktop dark, mobile
+  (390px) all render the keystone hero + "Established · 90% confidence" pill + simple
+  case cleanly and on-brand. Wow lands; dark + mobile good; a11y labels present; no
+  animations (reduced-motion N/A).
+- **No code changes** — implementation already polished (honest QA outcome).
+- **Pre-existing (NOT mine):** React hydration-mismatch warning on ALL topic pages
+  (verified on rent-control too) + GA-blocked-by-CSP + favicon 404 in local dev.
+  Out of scope for the flagship; flagged for a separate look.
+- Cleaned up dev artifacts. 5h ~11%.
+- **Next:** Phase 7 — roll the flagship pattern (keystone_fact, simple_case,
+  falsification cruxes) to 2–3 more strong empirical topics:
+  rent-control-effectiveness, death-penalty-deterrence, gmo-crops-safety.
