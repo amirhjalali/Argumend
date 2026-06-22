@@ -404,3 +404,27 @@ Priority order, all in-loop unless a workflow is opted into:
   clean build; all 4 /fallacies/ pages render.
 - **Next:** ~30min cadence, value-only. Genuinely near the end of high-value solo work;
   prefer awaiting founder direction (review/push the 44-commit branch).
+
+### Iter 33 — 2026-06-22 — Phase 33 (E2E browser verification + sidebar hydration fix)
+- **First-ever end-to-end browser verification of the flagship journey.** Started dev server,
+  loaded /topics/nuclear-energy-safety in Playwright (headless, 1280px). Confirmed every
+  journey stage renders correctly: Stage-1 keystone hero ("THE FACT MOST PEOPLE GET WRONG" +
+  800×-safer fact + "Established · 90% confidence" pill + source); Stage-2 "THE HONEST VERSION,
+  IN THREE SENTENCES"; meta-claim + BOTTOM LINE + controversy meter at Contested; proponent/
+  skeptic columns; CRUXES list; both pillars with the "CRUX — WHAT WOULD CHANGE YOUR MIND"
+  falsification block (supporter-flip / skeptic-flip / both-agree / live-fight); evidence with
+  confidence tiers; Community Verdict; related topics; footer. Deliverable is verified working.
+- **Found + fixed a real pre-existing bug:** every AppShell page threw a React hydration
+  mismatch (sidebar). `useSidebarState` read `window.innerWidth` in its `useState` initializer,
+  so SSR rendered the sidebar closed but the client's first render opened it on desktop →
+  tabIndex/className mismatch + a "1 Issue" Next.js dev error badge. Fix: render closed on SSR
+  and first client render (hydration matches), apply the responsive value in a client layout
+  effect before paint (no flash), expose `mounted`, gate AppShell enter-transitions on it.
+  Hook fix removes the mismatch globally (also benefits HomeClient + analyze page).
+- Verified: tsc clean; 261 tests; browser console 0 errors (was 2: hydration + favicon);
+  sidebar still open by default on desktop, no visual regression, no dev "1 Issue" badge.
+  Commit be71f06. Artifacts (screenshots, .playwright-mcp) removed, not committed.
+- **Posture:** the flagship is now not just built but *verified rendering correctly*. This was
+  the highest-value remaining solo item (validates the whole deliverable + fixed a shell-wide
+  bug). Back to ~30min value-only cadence; still prefer founder action next (review/push the
+  now 45-commit branch; decide flagged score fixes + sensitive /is/ topics; or set a new goal).
