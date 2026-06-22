@@ -120,6 +120,34 @@ const terms: GlossaryTerm[] = [
     category: "reasoning",
   },
   {
+    term: "Falsifiability",
+    definition:
+      "Whether a claim rules anything out. A belief only tells you something about the world if some possible observation could prove it wrong — if nothing could, it explains everything and predicts nothing. The honest move is to state, in advance, the evidence that would change your mind.",
+    example: "See what would change each side's mind on the Nuclear Energy topic",
+    exampleHref: "/topics/nuclear-energy-safety",
+    learnMoreHref: "/blog/what-would-change-your-mind",
+    learnMoreText: "Read: What Would Change Your Mind?",
+    category: "reasoning",
+  },
+  {
+    term: "Double Crux",
+    definition:
+      "A single fact that both sides agree would change their mind. Finding it turns an unwinnable values fight into one shared, answerable question — and usually reveals the real disagreement is far narrower than the argument suggested.",
+    example: "See the crux on the Rent Control topic",
+    exampleHref: "/topics/rent-control-effectiveness",
+    learnMoreHref: "/blog/what-would-change-your-mind",
+    learnMoreText: "Read: What Would Change Your Mind?",
+    category: "reasoning",
+  },
+  {
+    term: "Burden of Proof",
+    definition:
+      "The obligation to support a claim with evidence. It rests on whoever asserts the claim, not on those who doubt it — so 'you can't prove it's false' is not evidence that it is true.",
+    example: "See an unmet burden on the Death Penalty Deterrence topic",
+    exampleHref: "/topics/death-penalty-deterrence",
+    category: "reasoning",
+  },
+  {
     term: "Confirmation Bias",
     definition:
       "The tendency to search for, interpret, and remember information that confirms pre-existing beliefs while ignoring or downplaying contradictory evidence. The most pervasive cognitive bias in argumentation. Steel-manning is the most direct antidote.",

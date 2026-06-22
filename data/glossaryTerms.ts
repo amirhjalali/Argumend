@@ -68,6 +68,24 @@ const GLOSSARY: Array<GlossaryEntry & { aliases?: string[] }> = [
       "The side challenging the claim, pressing on its weakest points and demanding stronger evidence.",
     aliases: ["skeptics", "sceptic", "sceptics"],
   },
+  {
+    term: "Falsifiability",
+    definition:
+      "Whether a claim rules anything out — if no possible observation could prove it wrong, it tells you nothing about the world.",
+    aliases: ["falsifiable", "falsification", "falsify", "unfalsifiable"],
+  },
+  {
+    term: "Double crux",
+    definition:
+      "A single fact that both sides agree would change their mind — find it and an unwinnable argument becomes one answerable question.",
+    aliases: ["double-crux"],
+  },
+  {
+    term: "Burden of proof",
+    definition:
+      "The obligation to support a claim with evidence — it rests on whoever asserts the claim, not on those who doubt it.",
+    aliases: ["burden-of-proof"],
+  },
 ];
 
 /** Normalize a term for lookup: lowercase, collapse whitespace, trim. */

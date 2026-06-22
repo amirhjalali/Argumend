@@ -318,3 +318,13 @@ Priority order, all in-loop unless a workflow is opted into:
 - tsc; blog test (29) passes; clean build; post route renders.
 - **Next:** more content/polish — candidates: glossary terms (falsification/crux/double-crux),
   a fallacy explainer, or tighter cross-linking. Both major goals long done.
+
+### Iter 24 — 2026-06-22 — Phase 24 (glossary: reasoning vocabulary)
+- Added Falsifiability, Double crux, Burden of proof to BOTH glossary sources:
+  `data/glossaryTerms.ts` (inline GlossaryTerm tooltips) and `app/glossary/page.tsx`
+  (standalone /glossary page — separate dataset; richer, categorized). On the page they're
+  in the "reasoning" category with example links to flagship topics + a learn-more link to
+  the new blog post. tsc; 261 tests; clean build; /glossary renders all three.
+- **Note:** the two glossary datasets are separate (tooltip vocab vs page) — a future
+  cleanup could unify them; kept parallel for now (low risk).
+- **Next:** continue content/polish — diminishing-returns territory; staying value-first.
