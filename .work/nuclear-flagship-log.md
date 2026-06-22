@@ -43,3 +43,12 @@ Branch: `nuclear-flagship` (off `main`).
   pillars (safety; climate-effectiveness). tsc clean; 207 tests pass. Committed `1ebc7a3`.
 - **Next:** Phase 3 — `FalsificationCrux` component + atomic-fact confidence tiers,
   wired into `ReadModeView` gated on data presence (no regression for other topics).
+
+### Iter 2 — 2026-06-22 — Phase 3 (falsification crux + atomic-fact tiers)
+- `confidenceTier()` helper; `FalsificationCrux` component (gated on `crux.falsification`,
+  falls back to the old test view); `EvidenceItem` now shows tier + "% confidence".
+- Wired into `ReadModeView`. tsc clean; 207 tests; eslint clean; **full production
+  build passed** and nuclear HTML verified to contain the falsification + confidence
+  content. Committed `2a34dd7`. 5h usage ~9%.
+- **Next:** Phase 4 — render Stage-1 keystone hero (`topic.keystone_fact`) above the
+  claim + Stage-2 `simple_case`, gated on presence so other topics are unaffected.
