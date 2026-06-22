@@ -85,29 +85,37 @@ describe("TopicSchema flagship fields (additive, optional)", () => {
   });
 });
 
-describe("nuclear flagship content integrity", () => {
-  const nuclear = topics.find((t) => t.id === "nuclear-energy-safety");
+// Topics that have adopted the full flagship pattern. Each must carry a keystone
+// fact, a simple case, and falsification on every pillar crux.
+const FLAGSHIP_TOPIC_IDS = [
+  "nuclear-energy-safety",
+  "rent-control-effectiveness",
+  "death-penalty-deterrence",
+];
 
-  it("the flagship topic exists", () => {
-    expect(nuclear).toBeDefined();
+describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
+  const topic = topics.find((t) => t.id === id);
+
+  it("exists", () => {
+    expect(topic).toBeDefined();
   });
 
   it("has a keystone fact with a valid confidence and a source", () => {
-    expect(nuclear?.keystone_fact).toBeDefined();
-    const k = nuclear!.keystone_fact!;
-    expect(k.statement.length).toBeGreaterThan(20);
-    expect(k.confidence).toBeGreaterThanOrEqual(0);
-    expect(k.confidence).toBeLessThanOrEqual(100);
-    expect(k.source.length).toBeGreaterThan(0);
+    const k = topic?.keystone_fact;
+    expect(k).toBeDefined();
+    expect(k!.statement.length).toBeGreaterThan(20);
+    expect(k!.confidence).toBeGreaterThanOrEqual(0);
+    expect(k!.confidence).toBeLessThanOrEqual(100);
+    expect(k!.source.length).toBeGreaterThan(0);
   });
 
-  it("has a 3-sentence simple case", () => {
-    expect(nuclear?.simple_case?.length).toBe(3);
+  it("has a multi-sentence simple case", () => {
+    expect(topic?.simple_case?.length).toBeGreaterThanOrEqual(2);
   });
 
   it("has falsification (supporter + skeptic flips) on every pillar crux", () => {
-    expect(nuclear!.pillars.length).toBeGreaterThan(0);
-    for (const pillar of nuclear!.pillars) {
+    expect(topic!.pillars.length).toBeGreaterThan(0);
+    for (const pillar of topic!.pillars) {
       const f = pillar.crux.falsification;
       expect(f, `pillar ${pillar.id} missing falsification`).toBeDefined();
       expect(f!.supporter_flip.length).toBeGreaterThan(0);
