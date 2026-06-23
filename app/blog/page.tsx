@@ -77,7 +77,7 @@ export default function BlogPage() {
                 { label: "Blog" },
               ]}
             />
-            <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
               Insights &amp; Analysis
             </p>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
@@ -106,7 +106,7 @@ export default function BlogPage() {
         <div className="mx-auto max-w-4xl px-4 md:px-8 pt-8 md:pt-10">
           {/* Categories */}
           <div className="mb-6">
-            <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-3">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-3">
               Browse by Category
             </p>
             <div className="flex flex-wrap gap-2">
@@ -117,7 +117,7 @@ export default function BlogPage() {
                   className="inline-flex items-center rounded-full border border-stone-200/80 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#252420] px-3.5 py-1.5 text-xs font-medium text-secondary hover:border-deep/40 hover:text-deep hover:bg-deep/5 dark:hover:bg-deep/10 transition-all duration-150"
                 >
                   {cat}
-                  <span className="ml-1.5 text-[10px] text-stone-400">
+                  <span className="ml-1.5 text-[10px] text-muted dark:text-stone-400">
                     {articles.filter((a) => a.category === cat).length}
                   </span>
                 </Link>
@@ -127,7 +127,7 @@ export default function BlogPage() {
 
           {/* Popular Tags */}
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-3">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-3">
               Popular Tags
             </p>
             <div className="flex flex-wrap gap-1.5">
@@ -161,11 +161,11 @@ export default function BlogPage() {
                   <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
                     {articles[0].category}
                   </span>
-                  <span className="flex items-center gap-1 text-xs text-stone-400">
+                  <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                     <Calendar className="h-3 w-3" />
                     {formatDate(articles[0].publishedAt)}
                   </span>
-                  <span className="flex items-center gap-1 text-xs text-stone-400">
+                  <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                     <Clock className="h-3 w-3" />
                     {articles[0].readingTime}
                   </span>
@@ -219,11 +219,11 @@ export default function BlogPage() {
                       <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
                         {article.category}
                       </span>
-                      <span className="flex items-center gap-1 text-xs text-stone-400">
+                      <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                         <Calendar className="h-3 w-3" />
                         {formatDate(article.publishedAt)}
                       </span>
-                      <span className="flex items-center gap-1 text-xs text-stone-400">
+                      <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                         <Clock className="h-3 w-3" />
                         {article.readingTime}
                       </span>

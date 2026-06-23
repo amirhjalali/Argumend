@@ -110,7 +110,7 @@ function ScoreBar({
     <div className="space-y-1.5" role="group" aria-label={`${label}: For ${forScore.toFixed(1)}, Against ${againstScore.toFixed(1)}`}>
       <div className="flex justify-between text-xs">
         <span className="text-stone-600 font-medium">{label}</span>
-        <span className="text-stone-400">{Math.round(weight * 100)}% weight</span>
+        <span className="text-muted dark:text-stone-400">{Math.round(weight * 100)}% weight</span>
       </div>
       <div className="flex h-3 md:h-4 rounded-full overflow-hidden bg-stone-100" role="meter" aria-label={`${label} comparison`} aria-valuemin={0} aria-valuemax={maxScore}>
         {/* FOR side (left) */}
@@ -166,17 +166,17 @@ function VerdictConfidenceSummary({ result }: { result: JudgingResult }) {
     >
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
         <div className="space-y-1">
-          <p className="text-xs uppercase tracking-widest text-stone-400">Verdict Strength</p>
+          <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Verdict Strength</p>
           <p className="text-lg font-serif font-bold text-primary">{verdictStrength}</p>
           <p className="text-[10px] text-stone-500">{scoreDiff.toFixed(1)} point margin</p>
         </div>
         <div className="space-y-1">
-          <p className="text-xs uppercase tracking-widest text-stone-400">Judge Confidence</p>
+          <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Judge Confidence</p>
           <p className="text-lg font-serif font-bold text-primary">{Math.round(overallConf * 100)}%</p>
           <p className="text-[10px] text-stone-500">{confInfo.label}</p>
         </div>
         <div className="space-y-1">
-          <p className="text-xs uppercase tracking-widest text-stone-400">Agreement</p>
+          <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Agreement</p>
           <p className="text-lg font-serif font-bold text-primary">
             {result.hasConsensus ? "Unanimous" : `${result.verdicts.filter(v => v.winner === result.winner).length}/${result.verdicts.length}`}
           </p>
@@ -208,7 +208,7 @@ function DimensionBreakdown({
         <h3 className="font-serif font-semibold text-primary">Score Breakdown by Dimension</h3>
       </div>
 
-      <div className="flex justify-between text-xs md:text-sm uppercase tracking-widest text-stone-400 mb-4 px-1">
+      <div className="flex justify-between text-xs md:text-sm uppercase tracking-widest text-muted dark:text-stone-400 mb-4 px-1">
         <span className="truncate">FOR</span>
         <span className="truncate">AGAINST</span>
       </div>
@@ -294,13 +294,13 @@ function JudgeCard({
             </span>
             <div className="flex gap-2 md:gap-3 text-sm">
               <div className="text-center">
-                <div className="text-xs text-stone-400 truncate">FOR</div>
+                <div className="text-xs text-muted dark:text-stone-400 truncate">FOR</div>
                 <div className="font-mono font-semibold text-rust-600">
                   {verdict.forScore.totalScore.toFixed(1)}
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-xs text-stone-400 truncate">AGAINST</div>
+                <div className="text-xs text-muted dark:text-stone-400 truncate">AGAINST</div>
                 <div className="font-mono font-semibold text-stone-600">
                   {verdict.againstScore.totalScore.toFixed(1)}
                 </div>
@@ -442,7 +442,7 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC, topicTitle, to
           <h2 className="text-lg font-serif font-semibold text-primary">Judge Council Verdict</h2>
         </div>
         <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />
-        <span className="text-xs text-stone-400 flex-shrink-0">
+        <span className="text-xs text-muted dark:text-stone-400 flex-shrink-0">
           {result.verdicts.length} judges
         </span>
       </div>

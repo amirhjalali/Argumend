@@ -363,7 +363,7 @@ function FilterPanel({
 
       {/* Categories */}
       <div>
-        <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
+        <p className="text-[11px] font-medium text-muted dark:text-stone-400 mb-2 tracking-wide">
           Category
         </p>
         <div className="space-y-1">
@@ -392,7 +392,7 @@ function FilterPanel({
 
       {/* Status */}
       <div>
-        <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
+        <p className="text-[11px] font-medium text-muted dark:text-stone-400 mb-2 tracking-wide">
           Status
         </p>
         <div className="space-y-1">
@@ -424,7 +424,7 @@ function FilterPanel({
 
       {/* Confidence Range */}
       <div>
-        <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
+        <p className="text-[11px] font-medium text-muted dark:text-stone-400 mb-2 tracking-wide">
           Confidence Range
         </p>
         <div className="space-y-2">
@@ -750,7 +750,7 @@ function TopicExplorerInner({
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all capitalize ${
                     activeCategories.has(cat)
                       ? "bg-deep text-white"
-                      : "bg-white dark:bg-[var(--bg-card)] text-stone-400 border border-stone-200/60 dark:border-[var(--border-default)]"
+                      : "bg-white dark:bg-[var(--bg-card)] text-muted dark:text-stone-400 border border-stone-200/60 dark:border-[var(--border-default)]"
                   }`}
                 >
                   {categoryLabels[cat]}
@@ -884,7 +884,7 @@ function TopicExplorerInner({
 
             {/* Categories */}
             <div>
-              <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
+              <p className="text-[11px] font-medium text-muted dark:text-stone-400 mb-2 tracking-wide">
                 Category
               </p>
               <div className="space-y-1">
@@ -913,7 +913,7 @@ function TopicExplorerInner({
 
             {/* Status */}
             <div>
-              <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
+              <p className="text-[11px] font-medium text-muted dark:text-stone-400 mb-2 tracking-wide">
                 Status
               </p>
               <div className="space-y-1">
@@ -945,7 +945,7 @@ function TopicExplorerInner({
 
             {/* Confidence Range */}
             <div>
-              <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
+              <p className="text-[11px] font-medium text-muted dark:text-stone-400 mb-2 tracking-wide">
                 Confidence Range
               </p>
               <div className="space-y-2">
@@ -1057,7 +1057,7 @@ function TopicExplorerInner({
 
         {/* Legend */}
         <div className="absolute bottom-4 left-4 z-10 bg-white/90 dark:bg-[#252420]/90 backdrop-blur rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] p-3">
-          <p className="text-[10px] font-medium text-stone-400 mb-2 tracking-wide">
+          <p className="text-[10px] font-medium text-muted dark:text-stone-400 mb-2 tracking-wide">
             Categories
           </p>
           <div className="space-y-1.5">
@@ -1073,7 +1073,7 @@ function TopicExplorerInner({
               </div>
             ))}
           </div>
-          <p className="text-[9px] text-stone-400 mt-2 pt-2 border-t border-stone-100">
+          <p className="text-[9px] text-muted dark:text-stone-400 mt-2 pt-2 border-t border-stone-100">
             Double-click a topic to open it
           </p>
         </div>

@@ -149,7 +149,7 @@ export default function MethodologyPage() {
               { label: "Methodology" },
             ]}
           />
-          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
+          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
             Our Methodology
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary leading-[1.08]">
@@ -271,7 +271,7 @@ export default function MethodologyPage() {
                     <span className="font-serif text-sm font-bold text-deep">{judge.name[0]}</span>
                   </div>
                   <p className="text-sm font-semibold text-primary">{judge.name}</p>
-                  <p className="text-[11px] text-stone-400">{judge.label}</p>
+                  <p className="text-[11px] text-muted dark:text-stone-400">{judge.label}</p>
                 </div>
               ))}
             </div>
@@ -279,7 +279,7 @@ export default function MethodologyPage() {
             <div className="flex justify-center mb-6">
               <div className="flex flex-col items-center gap-1">
                 <div className="w-px h-6 bg-stone-300 dark:bg-[#3d3a36]" />
-                <div className="text-[11px] text-stone-400 font-medium tracking-wide">
+                <div className="text-[11px] text-muted dark:text-stone-400 font-medium tracking-wide">
                   INDEPENDENT SCORING
                 </div>
                 <div className="w-px h-6 bg-stone-300 dark:bg-[#3d3a36]" />

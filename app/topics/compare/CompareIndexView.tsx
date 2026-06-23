@@ -98,7 +98,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
         {/* Divider with "vs" */}
         <div className="relative flex items-center">
           <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center">
-            <span className="bg-stone-100 dark:bg-[#302e2a] text-stone-400 text-xs font-medium px-2 py-1 rounded-full border border-stone-200/50 dark:border-[#3d3a36]">
+            <span className="bg-stone-100 dark:bg-[#302e2a] text-muted dark:text-stone-400 text-xs font-medium px-2 py-1 rounded-full border border-stone-200/50 dark:border-[#3d3a36]">
               vs
             </span>
           </div>
@@ -218,7 +218,7 @@ function TopicPicker({
               </p>
             </div>
           ) : (
-            <p className="text-sm text-stone-400">Select first topic...</p>
+            <p className="text-sm text-muted dark:text-stone-400">Select first topic...</p>
           )}
           {selectedA && (
             <button
@@ -261,7 +261,7 @@ function TopicPicker({
               </p>
             </div>
           ) : (
-            <p className="text-sm text-stone-400">Select second topic...</p>
+            <p className="text-sm text-muted dark:text-stone-400">Select second topic...</p>
           )}
           {selectedB && (
             <button
@@ -332,7 +332,7 @@ function TopicPicker({
               <span className="font-serif text-sm text-primary flex-1 truncate">
                 {topic.title}
               </span>
-              <span className="font-mono text-xs tabular-nums text-stone-400 shrink-0">
+              <span className="font-mono text-xs tabular-nums text-muted dark:text-stone-400 shrink-0">
                 {topic.confidence_score}%
               </span>
               {isSelectedA && (
@@ -349,7 +349,7 @@ function TopicPicker({
           );
         })}
         {filtered.length === 0 && (
-          <div className="px-4 py-6 text-center text-sm text-stone-400">
+          <div className="px-4 py-6 text-center text-sm text-muted dark:text-stone-400">
             No topics match your search.
           </div>
         )}
@@ -364,7 +364,7 @@ function TopicPicker({
           className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium transition-all ${
             canCompare
               ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 shadow-sm btn-lift"
-              : "bg-stone-200 dark:bg-[#302e2a] text-stone-400 cursor-not-allowed"
+              : "bg-stone-200 dark:bg-[#302e2a] text-muted dark:text-stone-400 cursor-not-allowed"
           }`}
         >
           <ArrowLeftRight className="h-4 w-4" />
@@ -452,7 +452,7 @@ export default function CompareIndexView({
 
             {filteredPairs.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-sm text-stone-400">
+                <p className="text-sm text-muted dark:text-stone-400">
                   No comparisons match your search. Try a different term or use
                   the topic picker above.
                 </p>

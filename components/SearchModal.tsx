@@ -557,7 +557,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <div key={group.label} className="mb-1">
                 {/* Group header */}
                 <div className="px-5 py-2">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-stone-400">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-muted dark:text-stone-400">
                     {group.label}
                   </span>
                 </div>
@@ -622,7 +622,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                             </span>
                           )}
                         </div>
-                        <div className="text-xs text-stone-400 truncate mt-0.5">
+                        <div className="text-xs text-muted dark:text-stone-400 truncate mt-0.5">
                           {result.subtitle}
                         </div>
                       </div>
@@ -667,7 +667,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           {/* Footer */}
           <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 dark:border-[#3d3a36] bg-[#f4f1eb]/50 dark:bg-[#1a1917]/50">
-            <div className="flex items-center gap-4 text-[11px] text-stone-400">
+            <div className="flex items-center gap-4 text-[11px] text-muted dark:text-stone-400">
               <span className="flex items-center gap-1">
                 <kbd className="inline-flex h-4 items-center rounded border border-stone-200 dark:border-[#3d3a36] bg-white dark:bg-[#302e2a] px-1 font-mono text-[10px]">
                   &uarr;
@@ -688,7 +688,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 <span>Close</span>
               </span>
             </div>
-            <div className="text-[11px] text-stone-400">
+            <div className="text-[11px] text-muted dark:text-stone-400">
               {flatResults.length} result{flatResults.length !== 1 ? "s" : ""}
             </div>
           </div>

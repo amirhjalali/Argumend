@@ -148,7 +148,7 @@ export function Sidebar({
         <div className="pb-5">
           <button
             onClick={() => setLearnOpen(!learnOpen)}
-            className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-stone-400 tracking-wide hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
+            className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-muted dark:text-stone-400 tracking-wide hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
             aria-expanded={learnOpen}
             aria-controls="learn-explore-menu"
             aria-label="Learn & Explore"
@@ -200,7 +200,7 @@ export function Sidebar({
 
         {/* Featured Topics (limited to 8) */}
         <section className="pb-5" aria-labelledby="sidebar-topics-heading">
-          <h2 id="sidebar-topics-heading" className="text-[11px] font-medium text-stone-400 px-3 mb-3 tracking-wide">
+          <h2 id="sidebar-topics-heading" className="text-[11px] font-medium text-muted dark:text-stone-400 px-3 mb-3 tracking-wide">
             Topics
           </h2>
 
@@ -221,7 +221,7 @@ export function Sidebar({
                       {topic.title}
                     </span>
 
-                    <span className="flex-shrink-0 text-[11px] font-mono tabular-nums text-stone-400">
+                    <span className="flex-shrink-0 text-[11px] font-mono tabular-nums text-muted dark:text-stone-400">
                       {topic.confidence_score}%
                     </span>
                   </button>
@@ -250,7 +250,7 @@ export function Sidebar({
               <li key={label}>
                 <Link
                   href={href}
-                  className="text-[12px] text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
+                  className="text-[12px] text-muted dark:text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
                 >
                   {label}
                 </Link>

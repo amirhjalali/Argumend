@@ -83,7 +83,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
               <p className="text-[13px] font-medium text-stone-700 leading-snug">
                 {evidence.title}
               </p>
-              <span className="flex-shrink-0 text-[11px] font-mono text-stone-400">
+              <span className="flex-shrink-0 text-[11px] font-mono text-muted dark:text-stone-400">
                 {score}/40
               </span>
             </div>
@@ -105,7 +105,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
                     ] as const
                   ).map(([label, value]) => (
                     <div key={label} className="flex items-center gap-1.5">
-                      <span className="text-[11px] text-stone-400 w-[72px] truncate">
+                      <span className="text-[11px] text-muted dark:text-stone-400 w-[72px] truncate">
                         {label}
                       </span>
                       <div className="flex-1 h-1.5 bg-stone-200/60 rounded-full overflow-hidden">
@@ -116,7 +116,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
                           style={{ width: `${value * 10}%` }}
                         />
                       </div>
-                      <span className="text-[11px] text-stone-400 font-mono w-3 text-right">
+                      <span className="text-[11px] text-muted dark:text-stone-400 font-mono w-3 text-right">
                         {value}
                       </span>
                     </div>
@@ -124,7 +124,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
                 </div>
 
                 {evidence.source && (
-                  <p className="text-[11px] text-stone-400 italic">
+                  <p className="text-[11px] text-muted dark:text-stone-400 italic">
                     Source: {evidence.source}
                   </p>
                 )}
@@ -160,7 +160,7 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
           <p className="text-[14px] font-medium text-stone-800 leading-snug">
             {pillar.title}
           </p>
-          <p className="text-[13px] text-stone-400 mt-0.5 line-clamp-1">
+          <p className="text-[13px] text-muted dark:text-stone-400 mt-0.5 line-clamp-1">
             {pillar.short_summary}
           </p>
         </div>
@@ -205,7 +205,7 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
           {/* Evidence */}
           {evidence.length > 0 && (
             <div className="space-y-2">
-              <p className="text-[11px] font-medium text-stone-400 uppercase tracking-wide">
+              <p className="text-[11px] font-medium text-muted dark:text-stone-400 uppercase tracking-wide">
                 Evidence ({forEvidence.length} for, {againstEvidence.length}{" "}
                 against)
               </p>
@@ -241,7 +241,7 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
                   <VerificationBadge
                     status={pillar.crux.verification_status}
                   />
-                  <span className="text-[11px] text-stone-400">
+                  <span className="text-[11px] text-muted dark:text-stone-400">
                     Cost: {pillar.crux.cost_to_verify}
                   </span>
                 </div>
@@ -293,7 +293,7 @@ export function MobileArgumentList() {
             >
               {topic.status.replace("_", " ")}
             </span>
-            <span className="text-[13px] font-mono text-stone-400">
+            <span className="text-[13px] font-mono text-muted dark:text-stone-400">
               {topic.confidence_score}% confidence
             </span>
           </div>
@@ -346,7 +346,7 @@ export function MobileArgumentList() {
         {/* Pillar list (shown when in logic-map mode, which is the mobile default) */}
         {currentView === "logic-map" && (
           <div ref={pillarListRef} className="space-y-3 scroll-mt-4">
-            <p className="text-[11px] font-medium text-stone-400 uppercase tracking-wide">
+            <p className="text-[11px] font-medium text-muted dark:text-stone-400 uppercase tracking-wide">
               {topic.pillars.length} Key Arguments
             </p>
             {topic.pillars.map((pillar, i) => (

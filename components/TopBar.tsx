@@ -103,7 +103,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
           >
             <Search className="h-3.5 w-3.5" strokeWidth={1.8} />
             <span className="hidden sm:inline text-sm">Search</span>
-            <kbd className="hidden md:inline-flex h-5 items-center gap-0.5 rounded border border-stone-200 dark:border-[#3d3a36] bg-stone-50 dark:bg-[#252420] px-1.5 font-mono text-[10px] text-stone-400">
+            <kbd className="hidden md:inline-flex h-5 items-center gap-0.5 rounded border border-stone-200 dark:border-[#3d3a36] bg-stone-50 dark:bg-[#252420] px-1.5 font-mono text-[10px] text-muted dark:text-stone-400">
               <span className="text-xs">⌘</span>K
             </kbd>
           </button>

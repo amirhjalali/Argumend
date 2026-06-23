@@ -820,7 +820,7 @@ function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicT
               {forLlm?.name}
             </span>
           </div>
-          <span className="text-stone-400 font-serif italic text-sm">vs</span>
+          <span className="text-muted dark:text-stone-400 font-serif italic text-sm">vs</span>
           <div className="flex items-center gap-2">
             <span className="font-serif text-sm text-stone-600 font-medium">
               {againstLlm?.name}
