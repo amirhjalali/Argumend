@@ -794,3 +794,10 @@ Priority order, all in-loop unless a workflow is opted into:
 - Quality held: every keystone reuses the topic's own verified sources + corrects a misconception.
   Remaining clean-keystone candidates: universal-basic-income, ai-regulation, cancel-culture (values),
   electoral-college, mandatory-voting, surveillance-public-safety, china-taiwan, sugar/seed-oils.
+
+### Iter 64 — 2026-06-22 — Phase 64 (flagship topic #31 = Universal Basic Income; 3-pillar)
+- keystone: "free money = quit working" fear barely in the trials (~2pt employment dip); real
+  constraint = ~$3.1T/yr cost, conf 82. Falsification on all 3 cruxes (fiscal; labor supply;
+  UBI-vs-targeted). 31 flagship topics (10->31, +21 this overnight session). Branch +142.
+- Verified: tsc; 345 tests (+4); renders confirmed. 5h usage ~6%.
+- Next: ai-regulation, electoral-college-reform, mandatory-voting, surveillance-public-safety.
