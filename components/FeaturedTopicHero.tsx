@@ -96,6 +96,9 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
               confidence
             </span>
           </div>
+          <p className="text-xs text-muted text-center max-w-xs leading-snug">
+            How strongly the weighed evidence leans — not our opinion.
+          </p>
           <p className="text-sm text-stone-500 dark:text-stone-400 text-center max-w-md">
             {summary.meta_claim}
           </p>
@@ -137,11 +140,11 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
                       style={{ width: `${(forEvidence.score / 40) * 100}%` }}
                     />
                   </div>
-                  <span className="text-xs text-stone-400 tabular-nums">
+                  <span className="text-xs text-muted dark:text-stone-400 tabular-nums">
                     {forEvidence.score}/40
                   </span>
                 </div>
-                <p className="mt-1.5 text-xs text-stone-400">{forEvidence.source}</p>
+                <p className="mt-1.5 text-xs text-muted dark:text-stone-400">{forEvidence.source}</p>
               </div>
             )}
             {againstEvidence && (
@@ -161,11 +164,11 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
                       }}
                     />
                   </div>
-                  <span className="text-xs text-stone-400 tabular-nums">
+                  <span className="text-xs text-muted dark:text-stone-400 tabular-nums">
                     {againstEvidence.score}/40
                   </span>
                 </div>
-                <p className="mt-1.5 text-xs text-stone-400">
+                <p className="mt-1.5 text-xs text-muted dark:text-stone-400">
                   {againstEvidence.source}
                 </p>
               </div>
