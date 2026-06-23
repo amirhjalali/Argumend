@@ -7,6 +7,21 @@ export const spaceExplorationValueData = {
     "Government-funded space exploration provides sufficient scientific, economic, and strategic returns to justify its cost.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Americans routinely guess NASA eats a big slice of the federal budget — it's about 0.4% (~$24.9B). And the famous '$7–14 back per dollar' spin-off figure is a 1970s promotional estimate, not a measured return; the honest case rests on real technologies (GPS, water purification, medical imaging) and a ~$570B commercial space economy, not a magic multiplier.",
+    confidence: 85,
+    source:
+      "NASA FY2024 budget (~$24.9B, ~0.4% of federal spending); NASA Spinoff database; WEF/McKinsey space-economy forecast (2024)",
+    sourceUrl: "https://spinoff.nasa.gov/",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The case for space spending is usually argued with two shaky numbers — that NASA is a big budget line and that it returns '$7–14 per dollar' — and both are wrong: NASA is about 0.4% of federal spending, and the famous multiplier is a 1970s promotional estimate, not a measured return.",
+    "Strip away the hype and a real case remains: genuine spin-off technologies (GPS, water purification, medical imaging, satellite weather and climate data with no Earth-bound substitute), a ~$570B commercial space economy, and demonstrated planetary defense (NASA's DART actually moved an asteroid).",
+    "So the honest debate isn't 'is space a waste?' — it's a small, partly-justified line item — but where the marginal dollar should go: robotic missions win decisively on science-per-dollar, while crewed missions are sold on inspiration and STEM pipelines that are real but hard to price.",
+  ],
   pillars: [
     {
       id: "economic-returns-spinoffs",
@@ -29,6 +44,16 @@ export const spaceExplorationValueData = {
           "\\text{ROI} = \\frac{\\sum_{t} (\\text{Spin-off Revenue}_t + \\Delta\\text{GDP}_{\\text{space sector},t})}{\\sum_{t} \\text{Government Investment}_t}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (Comprehensive economic analysis)",
+        falsification: {
+          supporter_flip:
+            "If a rigorous accounting found government space spending returns less than it costs once you use measured spin-off revenue (not the promotional multiplier) and compare against the counterfactual of spending the money elsewhere, the economic case for public funding would weaken to 'nice-to-have, not self-justifying.'",
+          skeptic_flip:
+            "A skeptic who calls it a waste should weigh that NASA is only ~0.4% of the budget, that documented spin-offs and a ~$570B commercial sector are real (even without the inflated multiplier), and that launch-cost collapse seeded a private industry now dwarfing government spending.",
+          common_ground:
+            "Both sides agree the headline '$7–14 per dollar' ROI figure is a promotional estimate, not a measured return.",
+          live_disagreement:
+            "Whether government space spending's genuine but hard-to-measure returns (spin-offs, commercial catalysis, strategic infrastructure) exceed what the same money would yield spent on Earth-bound priorities.",
+        },
       },
       evidence: [
         {
@@ -122,6 +147,16 @@ export const spaceExplorationValueData = {
           "\\frac{\\text{Science Output}_{\\text{human}}}{\\text{Cost}_{\\text{human}}} \\overset{?}{>} \\frac{\\text{Science Output}_{\\text{robotic}}}{\\text{Cost}_{\\text{robotic}}}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$200K (Comparative meta-analysis)",
+        falsification: {
+          supporter_flip:
+            "If a systematic comparison showed robotic missions deliver essentially all the achievable science and strategic value per dollar — and the 'inspiration/STEM pipeline' benefit of crewed flight couldn't be measured or didn't materialize — the case for expensive human missions would collapse to robots-only.",
+          skeptic_flip:
+            "A skeptic who wants robots only should weigh that some value has no Earth substitute (continuous climate/disaster satellites, demonstrated asteroid deflection via DART) and that crewed missions drive public engagement and STEM interest in ways uncrewed probes haven't matched.",
+          common_ground:
+            "Both sides agree robotic missions win decisively on science-per-dollar and carry no risk to human life.",
+          live_disagreement:
+            "Whether the inspiration, STEM-pipeline, and long-run settlement value of crewed missions justify their order-of-magnitude higher cost, or whether that money simply buys more science as more robots.",
+        },
       },
       evidence: [
         {
