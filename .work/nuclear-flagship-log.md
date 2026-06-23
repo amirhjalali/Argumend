@@ -736,3 +736,10 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 309 tests (+4); clean build (periodic); renders confirmed. 5h usage RESET to ~0-1%
   (fresh window). Next: social-media-mental-health, standardized-testing-debate, lab-grown-meat,
   space-exploration-value, ai-job-displacement.
+
+### Iter 56 — 2026-06-22 — Phase 56 (flagship topic #23 = Social Media & Teen Mental Health)
+- Haidt-vs-Przybylski; keystone = real-but-contested (2012 inflection + Facebook-rollout NatExp vs
+  "tiny" average effect; concentrated in girls), conf 70. Falsification on both cruxes (dose-response;
+  algorithm experiment). Pairs with school-phone-bans #22. 23 flagship topics.
+- Verified: tsc; 313 tests (+4); renders confirmed. 5h usage ~1% (fresh window).
+- Next: standardized-testing-debate, lab-grown-meat-adoption, space-exploration-value, ai-job-displacement.
