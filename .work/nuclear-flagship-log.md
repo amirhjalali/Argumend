@@ -801,3 +801,10 @@ Priority order, all in-loop unless a workflow is opted into:
   UBI-vs-targeted). 31 flagship topics (10->31, +21 this overnight session). Branch +142.
 - Verified: tsc; 345 tests (+4); renders confirmed. 5h usage ~6%.
 - Next: ai-regulation, electoral-college-reform, mandatory-voting, surveillance-public-safety.
+
+### Iter 65 — 2026-06-22 — Phase 65 (flagship topic #32 = AI Regulation; 3-pillar)
+- keystone: AI's architects signed extinction-risk statement, but drug/reactor-vs-software analogy
+  unsettled & decides the debate, conf 78. Distinct from ai-risk topic. Falsification on all 3 cruxes
+  (capability trajectory; regulation-innovation; geopolitical coordination). 32 flagship (10->32, +22).
+- Verified: tsc; 349 tests (+4); renders confirmed. 5h usage ~8%. Build due next topic.
+- Next: electoral-college-reform, mandatory-voting, surveillance-public-safety, then reassess pool.
