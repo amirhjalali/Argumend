@@ -727,3 +727,12 @@ Priority order, all in-loop unless a workflow is opted into:
   gains + regressivity are the open questions. Falsification on all 3 cruxes. 21 flagship topics.
 - Verified: tsc; 305 tests (+4); renders confirmed. 5h usage ~22%. Build due next topic.
 - Next: school-phone-bans, social-media-mental-health, standardized-testing-debate, lab-grown-meat.
+
+### Iter 55 — 2026-06-22 — Phase 55 (flagship topic #22 = School Phone Bans; 3-pillar)
+- Genuinely contested topic; honest keystone = the unevenness (English: only below-avg students;
+  Norway: girls not boys; mental-health causation disputed), conf 72. Falsification on all 3 cruxes
+  (academic; mental-health; equitable enforcement). NOTE: this file lacks `import type {Topic}` —
+  fine (object literal, runtime-validated); tsc clean. 22 flagship topics.
+- Verified: tsc; 309 tests (+4); clean build (periodic); renders confirmed. 5h usage RESET to ~0-1%
+  (fresh window). Next: social-media-mental-health, standardized-testing-debate, lab-grown-meat,
+  space-exploration-value, ai-job-displacement.
