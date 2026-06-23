@@ -894,3 +894,11 @@ Priority order, all in-loop unless a workflow is opted into:
   TAME). 43 flagship topics (10->43, +33 this overnight session). Branch +190.
 - Verified: tsc; 393 tests (+4); renders confirmed (keystone grep apostrophe-escaping noted). 5h usage ~11%.
 - Next: ai-in-education, space-colonization-feasibility, ai-superintelligence-timeline, privacy-vs-convenience.
+
+### Iter 77 — 2026-06-22 — Phase 77 (flagship topic #44 = AI in Education; 3-pillar)
+- keystone: Bloom's 2-sigma (1-on-1 tutoring ~2SD better); AI promises it for all but can close OR
+  widen the gap, conf 80. Falsification on all 3 cruxes (achievement-gap RCT; cognitive outsourcing;
+  teacher augment-vs-replace). 44 flagship topics (10->44, +34 this overnight session). Branch +194.
+- Verified: tsc; 397 tests (+4); clean build (periodic); renders confirmed. 5h usage ~12%.
+- Candidate pool now thin: space-colonization-feasibility, ai-superintelligence-timeline,
+  privacy-vs-convenience, ai-content-labeling, media-bias. Will do the clearly-distinct ones then taper.
