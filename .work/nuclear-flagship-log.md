@@ -978,3 +978,14 @@ Priority order, all in-loop unless a workflow is opted into:
 - USAGE COST: 6-topic batch = ~7-8% of 5h window (~1.3%/topic); 562k subagent tokens. ~44 clean left
   ~= ~52% more -> finishable under 80% across batches w/ monitoring. 5h now ~10%, 7d ~27%. Branch +149.
 - Next: batch 2 (10 topics), monitor usage, stop ~70% to keep margin.
+
+### Iter 86 — 2026-06-23 — batch 2 committed (10 topics) + QC retry (after API 529 outage)
+- API 529 overload hit mid-batch-2 (killed 9 QC runs + the Bash safety classifier); backed off ~20min.
+  On recovery: verified batch 2 (tsc, 473 tests, clean build) and committed all 10 (53->63 flagship).
+  Re-ran independent QC on the 9 self-QC'd topics: 6 OK, 3 FIXED (adhd source Caye->Frisira; deepfake
+  "genuine tape" example -> confirmed Gabon/Bongo; college underemployment "half"->">40%"). Committed.
+- Lesson: author agents apply edits BEFORE the structured return, so 529s don't lose authoring; only QC
+  needs retry. Going forward: one workflow at a time, ~8-topic batches, qc-only retry script for stragglers.
+- 63 flagship topics. Branch +152. 5h usage ~28%, 7d ~30%.
+- Next: batch 3 [consciousness-hard-problem, cryptocurrency-regulation, cryptocurrency-value,
+  dark-matter-vs-mond, declining-birth-rates, degrowth-economics, effective-altruism, encryption-backdoors].
