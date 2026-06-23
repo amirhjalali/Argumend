@@ -36,6 +36,8 @@ facts with confidence → crux reframed as "what would change your mind") and ro
 - New flagship pages verified via curl render-grep; originals browser-verified end-to-end
 - **All 47 keystone facts independently web-fact-checked** (4 parallel research agents): 41 verified
   accurate, 6 corrected (see commit "fix(flagship): correct 6 keystone-fact accuracy issues")
+- **All 47 keystones + simple-cases independently neutrality-audited** (2 agents): 45 balanced, 0
+  biased, 2 minor emphasis fixes (see commit "polish(flagship): balance two simple-case framings")
 
 ## Decisions waiting on you
 
