@@ -195,6 +195,10 @@ const FLAGSHIP_TOPIC_IDS = [
   "section-230-reform",
   "global-housing-bubble",
   "us-national-debt-crisis",
+  // ── net-new topics (2026-06-23) ──
+  "sports-betting-legalization",
+  "pfas-forever-chemicals",
+  "intermittent-fasting-efficacy",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
