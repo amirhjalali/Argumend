@@ -1101,3 +1101,12 @@ Priority order, all in-loop unless a workflow is opted into:
 - REORDER remaining: do the concentrated criticals/high-value next — (1) value-prop H1, (4) view-naming,
   (11) hero ViewToggle+gloss, (13) confidence bridge, (14) polish micro-fixes — THEN the spread-thin
   contrast grind (#6) per-file using the safe pattern above.
+
+### Iter 97 — 2026-06-23 — UX batch 4: polish micro-fixes (QW#14a)
+- SearchModal no-results -> real /topics action + AA hint; "Library" subtitle de-mislabeled; /topics
+  input text-base sm:text-sm (iOS zoom); .btn focus ring -> teal; removed fake "0" subscribe count.
+  Verified: tsc; 661 tests; clean build. Branch +175.
+- DEFERRED to founder (IA/auth judgment): sidebar /is+/questions addition (belongs with Bet E nav
+  rationalization, not piecemeal); full removal of disabled subscribe control (auth roadmap).
+- Next: (11) hide hero ViewToggle + confidence gloss; (4) one name for the second view; (13) confidence
+  bridge; (1) landing value-prop H1 (flag as founder-review); THEN (6) contrast grind per-file.
