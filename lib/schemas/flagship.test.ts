@@ -126,6 +126,7 @@ const FLAGSHIP_TOPIC_IDS = [
   "glp1-weight-loss-drugs",
   "microplastics-health-crisis",
   "gene-editing-embryos",
+  "nuclear-renaissance-smr",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
