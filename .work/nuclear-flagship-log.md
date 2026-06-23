@@ -771,3 +771,10 @@ Priority order, all in-loop unless a workflow is opted into:
   (capability; displacement timeline; regulatory adoption). 27 flagship topics (10->27, +17 session).
 - Verified: tsc; 329 tests (+4); renders confirmed. 5h usage ~4%. Build due next topic.
 - Next: big-tech-antitrust, cancel-culture, immigration-wage-impact, wealth-tax, ubi.
+
+### Iter 61 — 2026-06-22 — Phase 61 (flagship topic #28 = Big Tech Antitrust)
+- keystone: 2024 ruling Google = illegal monopolist (~90% search, $26B/yr default) but free
+  products break price-based antitrust, conf 85. Falsification on both cruxes (zero-price harm;
+  data-economy consent). 28 flagship topics (10->28, +18 this overnight session).
+- Verified: tsc; 333 tests (+4); clean build (periodic); renders confirmed. 5h usage ~5%.
+- Next: cancel-culture, immigration-wage-impact, wealth-tax, universal-basic-income, ai-regulation.
