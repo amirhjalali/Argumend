@@ -713,3 +713,10 @@ Priority order, all in-loop unless a workflow is opted into:
   there's a problem. Verified all 3 crux falsifications render (grep apostrophe-escaping noted).
 - Verified: tsc; 297 tests (+4); clean build (periodic); renders confirmed. 19 flagship topics.
   5h usage ~21%. Next: factory-farming-ban, sugar-tax-effectiveness, school-phone-bans.
+
+### Iter 53 — 2026-06-22 — Phase 53 (flagship topic #20 = Factory Farming)
+- keystone: ~99% of US farmed animals on factory farms + ~80B/yr globally (conf 85). simple_case:
+  ethics + externalities; ban-vs-reform-vs-status-quo, partly values. Falsification on both cruxes
+  (sentience/moral status; externality accounting). 20 flagship topics (10->20, DOUBLED this session).
+- Verified: tsc; 301 tests (+4); renders confirmed. 5h usage ~22%.
+- Next: sugar-tax-effectiveness, school-phone-bans, social-media-mental-health, standardized-testing.
