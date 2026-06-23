@@ -9,14 +9,14 @@ export const aiConsciousnessData = {
   category: "philosophy" as const,
   keystone_fact: {
     statement:
-      "This is not a fringe question: a 2024 Nature article urged AI labs to start testing their systems for consciousness, Anthropic now employs AI-welfare researchers and calls the chance its model is conscious 'non-negligible,' and ~17% of AI researchers already think some current system may have subjective experience — yet there is no agreed test to settle it, even in humans.",
+      "This is not a fringe question: a 2023 Nature article urged AI labs to start testing their systems for consciousness, Anthropic now employs AI-welfare researchers and calls the chance its model is conscious 'non-negligible,' and ~17% of AI researchers already think some current system may have subjective experience — yet there is no agreed test to settle it, even in humans.",
     confidence: 80,
-    source: "Nature (2024); Anthropic AI-welfare research; Long & Sebo et al. (2024)",
+    source: "Nature commentary (2023); Anthropic AI-welfare research; Dreksler et al. (2025) for the ~17% researcher figure",
     sourceUrl: "https://www.anthropic.com/research/introspection",
   },
   simple_case: [
     "The honest answer is that we don't know — and currently can't: there is no agreed test for consciousness even in humans, so we have no reliable way to confirm or rule it out in an AI.",
-    "It is no longer fringe — a 2024 Nature piece urged AI labs to test for it, Anthropic employs AI-welfare researchers and calls the chance its model is conscious 'non-negligible,' and ~17% of AI researchers already think some system has subjective experience.",
+    "It is no longer fringe — a 2023 Nature piece urged AI labs to test for it, Anthropic employs AI-welfare researchers and calls the chance its model is conscious 'non-negligible,' and ~17% of AI researchers already think some system has subjective experience.",
     "So the real debate isn't whether today's chatbot is conscious (almost certainly not in any rich sense) but how much moral caution a genuine, growing uncertainty warrants — the same logic by which we protect animals whose inner lives we cannot verify.",
   ],
   pillars: [
@@ -29,7 +29,7 @@ export const aiConsciousnessData = {
       skeptic_premise:
         "Consciousness may require specific biological processes—particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world. Current AI systems are sophisticated pattern-matching engines with no internal experience. A 2025 paper by Porębski and Figura in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature) is titled 'There is no such thing as conscious artificial intelligence,' arguing consciousness is a biological phenomenon that no computational process can replicate. Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
       proponent_rebuttal:
-        "Functionalist theories of mind (held by many cognitive scientists) argue that consciousness depends on computational organization, not substrate. If an AI system replicates the functional structure of consciousness, it would be conscious regardless of running on silicon rather than carbon. Anthropic hired dedicated AI welfare researchers in 2024 and acknowledged a 'non-negligible' probability that their model Claude might possess consciousness. A 2024 Nature article urged technology companies to begin testing their systems for indicators of consciousness.",
+        "Functionalist theories of mind (held by many cognitive scientists) argue that consciousness depends on computational organization, not substrate. If an AI system replicates the functional structure of consciousness, it would be conscious regardless of running on silicon rather than carbon. Anthropic hired dedicated AI welfare researchers in 2024 and acknowledged a 'non-negligible' probability that their model Claude might possess consciousness. A 2023 Nature article urged technology companies to begin testing their systems for indicators of consciousness.",
       crux: {
         id: "consciousness-detection-test",
         title: "Reliable Consciousness Detection in Non-Biological Systems",

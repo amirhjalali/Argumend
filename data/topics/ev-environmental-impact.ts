@@ -10,7 +10,7 @@ export const evEnvironmentalImpactData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "An electric car starts with a larger manufacturing carbon debt — but pays it back in roughly 30,000–70,000 miles of driving (a few years), and over its full lifetime emits about half the CO2 of a comparable gas car on the global-average grid, and far less on a clean one.",
+      "An electric car starts with a larger manufacturing carbon debt — but pays it back within a few years of driving (typically under ~25,000 miles on average grids, more for heavy EVs or coal-heavy grids), and over its full lifetime emits about half the CO2 of a comparable gas car on the global-average grid, and far less on a clean one.",
     confidence: 88,
     source:
       "IEA Global EV Outlook 2024; ICCT life-cycle GHG comparison (2021); Volvo C40 Carbon Footprint Report (2021)",

@@ -10,10 +10,10 @@ export const labGrownMeatData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The first lab-grown burger cost $330,000 in 2013; a 2024 peer-reviewed model projects cultivated chicken at about $6.20/lb at a scaled plant — a staggering drop. But that's a projection for a facility that doesn't yet exist, no one has hit conventional beef's ~$3/lb at retail, and 2024–25 funding fell as investors doubted it scales.",
+      "The first lab-grown burger cost $330,000 in 2013; a 2024 peer-reviewed model projects cultivated chicken at about $6.20/lb at a scaled plant — a staggering drop. But that's a projection for a facility that doesn't yet exist, no one is selling cultivated meat anywhere near conventional chicken's ~$2–4/lb at retail, and 2024–25 funding fell as investors doubted it scales.",
     confidence: 80,
     source:
-      "Mosa Meat (2013 burger); Nahmias et al., Nature Food (2024); GFI State of the Industry",
+      "Mark Post / Maastricht University (2013 burger); Nahmias et al., Nature Food (2024); GFI State of the Industry",
     sourceUrl: "https://www.nature.com/articles/s43016-024-01022-w",
   },
   // ── Stage 2: the honest 3-sentence case ──
@@ -27,7 +27,7 @@ export const labGrownMeatData = {
       id: "cost-scalability",
       title: "Cost & Scalability",
       short_summary:
-        "In 2013, the first lab-grown burger cost $330,000. By 2024, a peer-reviewed model projected ~$6.20/lb chicken at a hypothetical scaled plant — but that is a projection, not an achieved cost, and the gap to $3/lb ground beef remains stubborn.",
+        "In 2013, the first lab-grown burger cost $330,000. By 2024, a peer-reviewed model projected ~$6.20/lb chicken at a hypothetical scaled plant — but that is a projection, not an achieved cost, and the gap to conventional chicken at a few dollars a pound remains stubborn.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "The first lab-grown burger in 2013 cost $330,000 to produce. Despite years of investment and promises, cultivated meat remains far too expensive for mass markets, and the headline low-cost figures are techno-economic projections for facilities that do not yet exist — not prices anyone has actually achieved at retail scale. Scaling cell culture from laboratory flasks to the 50,000-litre-class industrial bioreactors those models assume faces fundamental challenges: maintaining sterility at volume, preventing cell death and shear damage, sourcing affordable food-grade growth medium, and producing structured cuts (not just mince). A widely cited engineering critique argues that several of these costs may have hard floors set by chemistry and contamination risk. Funding fell sharply in 2024-2025 as investors reassessed feasibility, and some producers have shut down or pivoted.",

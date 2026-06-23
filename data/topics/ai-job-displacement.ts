@@ -8,7 +8,7 @@ export const aiJobDisplacementData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "AI can already do striking pieces of white-collar work — GPT-4 passed the bar in the 90th percentile, Copilot writes ~46% of its users' code, and Goldman estimates 300 million jobs are exposed. Yet two years in, white-collar unemployment is still low and the predicted mass displacement hasn't shown up in the aggregate data — the fight is over whether that's a lag or a ceiling.",
+      "AI can already do striking pieces of white-collar work — GPT-4 can pass the bar exam, Copilot writes ~46% of its users' code, and Goldman estimates 300 million jobs are exposed. Yet two years in, white-collar unemployment is still low and the predicted mass displacement hasn't shown up in the aggregate data — the fight is over whether that's a lag or a ceiling.",
     confidence: 75,
     source:
       "Eloundou et al., 'GPTs are GPTs' (OpenAI, 2023); Goldman Sachs (300M jobs, 2023); US Bureau of Labor Statistics",
@@ -16,7 +16,7 @@ export const aiJobDisplacementData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The capability is real and moving fast: GPT-4 passed the bar exam in the 90th percentile, GitHub Copilot writes nearly half its users' code, and Goldman Sachs estimates generative AI exposes about 300 million jobs worldwide to automation.",
+    "The capability is real and moving fast: GPT-4 can pass the bar exam, GitHub Copilot writes nearly half its users' code, and Goldman Sachs estimates generative AI exposes about 300 million jobs worldwide to automation.",
     "But two years after ChatGPT, the predicted wave of white-collar unemployment hasn't shown up in the aggregate data — knowledge-work joblessness stayed low and BLS still projects growth in most white-collar roles — even as leading indicators (freelance-writing rates, entry-level hiring, 'AI did it' layoff justifications) flicker.",
     "So the honest debate isn't whether AI can do parts of these jobs (it can) but whether the gap between capability and mass displacement is a 5–10 year lag that's about to break — or a durable ceiling set by AI's reliability limits, institutional/liability barriers, and the way past automation reshaped jobs instead of eliminating them.",
   ],
@@ -71,7 +71,7 @@ export const aiJobDisplacementData = {
           source: "OpenAI Technical Report; ABA Journal",
           sourceUrl: "https://arxiv.org/abs/2303.08774",
           reasoning:
-            "The bar exam results are independently verifiable and widely replicated by researchers. However, passing a standardized exam is different from practicing law — real legal work involves client relationships, courtroom judgment, and novel argumentation. The source is OpenAI itself, which has incentive to emphasize capability.",
+            "GPT-4 does clear the bar's passing threshold, but the headline '90th percentile' claim is disputed: a peer-reviewed re-analysis (Martínez, Artificial Intelligence and Law, 2024) found it was benchmarked against repeat/failed test-takers and that the true percentile is far lower (~48th on essays, below ~69th overall). And passing a standardized exam is different from practicing law — real legal work involves client relationships, courtroom judgment, and novel argumentation. The source is OpenAI itself, which has incentive to emphasize capability.",
         },
         {
           id: "copilot-code-generation",

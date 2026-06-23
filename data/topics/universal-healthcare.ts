@@ -10,7 +10,7 @@ export const universalHealthcareData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The U.S. spends about $14,570 per person per year on healthcare — roughly double the average of other wealthy nations — yet has lower life expectancy (~77 years) and higher infant mortality than nearly all of them.",
+      "The U.S. spends about $14,570 per person per year on healthcare — roughly double the average of other wealthy nations — yet has lower life expectancy (~78 years) and higher infant mortality than nearly all of them.",
     confidence: 95,
     source:
       "CMS National Health Expenditure (2023); OECD Health at a Glance (2023); Peterson-KFF Health System Tracker",
@@ -157,7 +157,7 @@ export const universalHealthcareData = {
       skeptic_premise:
         "The US leads on many cancer survival metrics — CONCORD-3 put US 5-year breast-cancer survival at 90.2%, among the highest worldwide, and US prostate-cancer survival far exceeds the UK's. American medical innovation — from mRNA vaccines to robotic surgery — leads the world. Wait times in universal systems are significant: the Fraser Institute measured a record median of 27.7 weeks from GP referral to treatment in Canada in 2023. People cross borders TO the US for specialized care. Equalizing access can mean equalizing down.",
       proponent_rebuttal:
-        "Roughly 26 million Americans are uninsured and many more skip needed care because of cost. The US ranks dead last overall among the 10 high-income nations in the Commonwealth Fund's 2024 Mirror, Mirror scorecard, despite spending the most. US infant mortality (about 5.4-5.6 per 1,000) is among the highest of peer nations, and US life expectancy (about 77 years) sits roughly 3 years below the OECD average. Medical problems contribute to about 66.5% of US bankruptcies — an estimated 530,000 families per year — a phenomenon essentially unique to the US among wealthy nations.",
+        "Roughly 26 million Americans are uninsured and many more skip needed care because of cost. The US ranks dead last overall among the 10 high-income nations in the Commonwealth Fund's 2024 Mirror, Mirror scorecard, despite spending the most. US infant mortality (about 5.4-5.6 per 1,000) is among the highest of peer nations, and US life expectancy (about 78 years) sits roughly 2 years below the OECD average. Medical problems contribute to about 66.5% of US bankruptcies — an estimated 530,000 families per year — a phenomenon essentially unique to the US among wealthy nations.",
       crux: {
         id: "outcomes-comparison",
         title: "Risk-Adjusted Health Outcomes Comparison",
@@ -203,7 +203,7 @@ export const universalHealthcareData = {
           id: "oecd-health-outcomes",
           title: "OECD: US Lags Peers on Life Expectancy and Infant Mortality",
           description:
-            "OECD Health at a Glance data shows US life expectancy around 77 years, roughly 3 years below the OECD average of about 80, ranking near the bottom of member countries. US infant mortality is 5.4 per 1,000 live births, among the highest in the OECD. The US also has one of the highest rates of avoidable (treatable plus preventable) mortality among wealthy nations.",
+            "OECD Health at a Glance data shows US life expectancy around 78 years, roughly 2 years below the OECD average of about 80, ranking near the bottom of member countries. US infant mortality is 5.4 per 1,000 live births, among the highest in the OECD. The US also has one of the highest rates of avoidable (treatable plus preventable) mortality among wealthy nations.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,

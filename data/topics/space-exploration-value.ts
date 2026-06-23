@@ -10,7 +10,7 @@ export const spaceExplorationValueData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Americans routinely guess NASA eats a big slice of the federal budget — it's about 0.4% (~$24.9B). And the famous '$7–14 back per dollar' spin-off figure is a 1970s promotional estimate, not a measured return; the honest case rests on real technologies (GPS, water purification, medical imaging) and a ~$570B commercial space economy, not a magic multiplier.",
+      "Americans routinely guess NASA eats a big slice of the federal budget — it's about 0.4% (~$24.9B). And the famous '$7–14 back per dollar' spin-off figure is a 1970s promotional estimate, not a measured return; the honest case rests on real technologies (GPS, water purification, medical imaging) and a ~$570B global space economy, not a magic multiplier.",
     confidence: 85,
     source:
       "NASA FY2024 budget (~$24.9B, ~0.4% of federal spending); NASA Spinoff database; WEF/McKinsey space-economy forecast (2024)",
@@ -19,7 +19,7 @@ export const spaceExplorationValueData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "The case for space spending is usually argued with two shaky numbers — that NASA is a big budget line and that it returns '$7–14 per dollar' — and both are wrong: NASA is about 0.4% of federal spending, and the famous multiplier is a 1970s promotional estimate, not a measured return.",
-    "Strip away the hype and a real case remains: genuine spin-off technologies (GPS, water purification, medical imaging, satellite weather and climate data with no Earth-bound substitute), a ~$570B commercial space economy, and demonstrated planetary defense (NASA's DART actually moved an asteroid).",
+    "Strip away the hype and a real case remains: genuine spin-off technologies (GPS, water purification, medical imaging, satellite weather and climate data with no Earth-bound substitute), a ~$570B global space economy, and demonstrated planetary defense (NASA's DART actually moved an asteroid).",
     "So the honest debate isn't 'is space a waste?' — it's a small, partly-justified line item — but where the marginal dollar should go: robotic missions win decisively on science-per-dollar, while crewed missions are sold on inspiration and STEM pipelines that are real but hard to price.",
   ],
   pillars: [
@@ -48,7 +48,7 @@ export const spaceExplorationValueData = {
           supporter_flip:
             "If a rigorous accounting found government space spending returns less than it costs once you use measured spin-off revenue (not the promotional multiplier) and compare against the counterfactual of spending the money elsewhere, the economic case for public funding would weaken to 'nice-to-have, not self-justifying.'",
           skeptic_flip:
-            "A skeptic who calls it a waste should weigh that NASA is only ~0.4% of the budget, that documented spin-offs and a ~$570B commercial sector are real (even without the inflated multiplier), and that launch-cost collapse seeded a private industry now dwarfing government spending.",
+            "A skeptic who calls it a waste should weigh that NASA is only ~0.4% of the budget, that documented spin-offs and a ~$570B global space sector are real (even without the inflated multiplier), and that launch-cost collapse seeded a private industry now dwarfing government spending.",
           common_ground:
             "Both sides agree the headline '$7–14 per dollar' ROI figure is a promotional estimate, not a measured return.",
           live_disagreement:

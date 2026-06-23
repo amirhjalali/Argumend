@@ -10,7 +10,7 @@ export const factoryFarmingBanData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "About 99% of US farmed animals live on factory farms — the 'humane,' cage-free, free-range options most shoppers picture are a tiny sliver of production. Worldwide, roughly 80 billion land animals are raised this way and slaughtered each year.",
+      "About 99% of US farmed animals live on factory farms — the 'humane,' cage-free, free-range options most shoppers picture are a tiny sliver of production. Worldwide, roughly 80 billion land animals are slaughtered each year, the majority of them raised in intensive confinement.",
     confidence: 85,
     source:
       "Sentience Institute (from USDA Census of Agriculture + EPA CAFO definitions); FAO global slaughter data",
@@ -18,7 +18,7 @@ export const factoryFarmingBanData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "When people picture where their meat comes from, they imagine the small 'humane' or cage-free farm — but about 99% of US farmed animals live on factory farms, and roughly 80 billion land animals are raised in intensive confinement worldwide each year.",
+    "When people picture where their meat comes from, they imagine the small 'humane' or cage-free farm — but about 99% of US farmed animals live on factory farms, and of the roughly 80 billion land animals slaughtered worldwide each year, most are raised in intensive confinement.",
     "The case against isn't only ethical: industrial animal agriculture produces ~14.5% of global greenhouse emissions, consumes most of the medically important antibiotics sold (~two-thirds in the US), and concentrates animals in ways that drive antibiotic resistance and pandemic risk.",
     "The honest disagreement is partly a values question — how much moral weight a chicken's suffering carries — and partly practical: pasture systems use far more land and would raise food prices on the poorest, so the live debate is 'ban vs. reform vs. status quo,' not whether the conditions are grim.",
   ],
