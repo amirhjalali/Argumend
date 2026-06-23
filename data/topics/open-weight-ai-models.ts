@@ -7,6 +7,21 @@ export const openWeightAiModelsData = {
     "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The headline fear is that open-weight AI hands amateurs a bioweapon recipe — but the most rigorous test to date found the opposite. In RAND's controlled red-team trial, teams role-playing malicious actors planned a biological attack with or without an LLM, and independent expert judges found no statistically significant difference in plan viability; the bottleneck is tacit lab skill and physical materials, not text. The honest catch: that study tested a prior model generation, and open models are now closing the gap to the closed frontier fast.",
+    confidence: 80,
+    source:
+      "RAND, The Operational Risks of AI in Large-Scale Biological Attacks — Results of a Red-Team Study (RRA2977-2, 2024); Epoch AI biorisk-evaluation review",
+    sourceUrl: "https://www.rand.org/pubs/research_reports/RRA2977-2.html",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Open weights democratize a transformative technology, give independent safety researchers the white-box access (weights, activations, gradients) that closed APIs withhold, and the strongest controlled evidence so far — RAND's red-team RCT and Epoch AI's review of lab biorisk evals — shows current open models give amateurs no measurable bioweapon uplift over Google and existing literature.",
+    "The honest limitation is irreversibility and trajectory: released weights can be downloaded, copied, and have their safety fine-tuning cheaply stripped forever (the LLaMA leak settled that controlled release can't be walked back), and open models like DeepSeek are closing the gap to the closed frontier, so a 'no uplift today' finding does not guarantee 'no uplift tomorrow.'",
+    "So the honest debate isn't 'do open weights leak dangerous knowledge that's already public' but 'how fast is the dangerous-capability delta growing, and is gating the model the right lever — versus regulating malicious use — when foreign labs already ship frontier-approaching open weights the U.S. cannot recall or regulate.'",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Catastrophic Misuse & Marginal Uplift
@@ -31,6 +46,16 @@ export const openWeightAiModelsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-5M (Controlled human-subject uplift trials with biosecurity and cyber experts, repeated across model generations)",
+        falsification: {
+          supporter_flip:
+            "A supporter of release should change their mind if a rigorous controlled uplift trial showed a safety-stripped open model giving novices a statistically significant, end-to-end uplift on operationalized bio/cyber tasks over an internet-and-literature control arm — i.e., the RAND red-team result reversing on a current-generation open model.",
+          skeptic_flip:
+            "A skeptic should weigh that the strongest existing trial (RAND RRA2977-2) and Epoch AI's review of lab biorisk evals found no demonstrated amateur uplift over search and existing literature, and that the bioweapon bottleneck is tacit lab skill and physical materials — so 'open weights obviously uplift bioterrorists' is not yet empirically established.",
+          common_ground:
+            "Both sides agree that release-time safety fine-tuning can be cheaply stripped from open weights, and that current biorisk evals are noisy signals that may underestimate the capability of future models.",
+          live_disagreement:
+            "Whether a current-generation safety-stripped open model provides statistically significant marginal uplift on end-to-end dangerous tasks over a search-and-literature baseline — resolvable only by repeated controlled human-subject uplift trials charting the uplift curve across model generations.",
+        },
       },
       evidence: [
         {
@@ -144,6 +169,16 @@ export const openWeightAiModelsData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$0 (Established by the NTIA report, the documented LLaMA leak, and the structural fact that copied files cannot be un-copied)",
+        falsification: {
+          supporter_flip:
+            "A supporter of the irreversibility claim should reconsider if some mechanism — robust license revocation, hosting takedowns, or model-'unlearning' patches — were shown to actually remove capability from an actor who already downloaded the weights and runs them offline; no such mechanism has been demonstrated.",
+          skeptic_flip:
+            "Someone arguing irreversibility is overstated should weigh the documented LLaMA leak (a gated March 2023 release that spread uncontrollably across torrents within about a week) and the NTIA report's own acknowledgment that openly released weights cannot be recalled.",
+          common_ground:
+            "Both sides agree that once weights are released and mirrored they cannot be technically recalled, and that downstream fine-tuning can restore removed capabilities; the dispute is the policy implication, not the technical fact.",
+          live_disagreement:
+            "Whether irreversibility justifies a uniquely high precautionary burden at the release decision or instead implies a pivot to use-based regulation (liability, law enforcement) where intent and harm are observable — a normative dispute that the empirical recall fact does not by itself settle.",
+        },
       },
       evidence: [
         {
@@ -240,6 +275,16 @@ export const openWeightAiModelsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-2M (Comparative ecosystem and bibliometric study across open, structured-access, and closed model regimes)",
+        falsification: {
+          supporter_flip:
+            "A supporter of fully open release should change their mind if a comparative ecosystem-and-bibliometric study showed that structured/researcher access and capability-gated tiers capture most of the democratization, competition, and interpretability benefit at materially lower tail risk — making full open weights largely redundant.",
+          skeptic_flip:
+            "A skeptic who favors gating should weigh that core safety techniques (mechanistic interpretability, activation steering, adversarial fine-tuning) require white-box access closed APIs withhold, and that the gpt-oss worst-case study used exactly that access to measure marginal risk directly rather than guess at it.",
+          common_ground:
+            "Both sides agree open weights deliver real democratization and white-box research benefits, and that catastrophic tail risks are concentrated in a small number of malicious actors rather than the broad user base.",
+          live_disagreement:
+            "How much of the claimed benefit specifically requires unrestricted downloadable weights versus structured/gated access — resolvable by decomposing downstream startups, papers, interpretability findings, and market-concentration metrics across open, structured-access, and closed regimes.",
+        },
       },
       evidence: [
         {
@@ -336,6 +381,16 @@ export const openWeightAiModelsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-1M (Comparative dangerous-capability benchmarking plus geostrategic diffusion modeling per release)",
+        falsification: {
+          supporter_flip:
+            "A supporter of matching foreign releases should change their mind if benchmarking showed a proposed U.S. model is materially more capable than the best already-public foreign open model on misuse-relevant tasks specifically — meaning restraint would actually lower the global risk floor rather than merely cede ground.",
+          skeptic_flip:
+            "A skeptic who treats foreign availability as decisive should weigh Bengio's argument that adding further frontier open releases raises the global risk equilibrium regardless of who ships them, and that 'they'll do it anyway' is a race-to-the-bottom rationale rather than a safety argument.",
+          common_ground:
+            "Both sides agree frontier-approaching open weights already ship from outside U.S. jurisdiction (DeepSeek, Qwen, Mistral) and that the realistic policy menu spans staged, structured-access, and capability-gated options, not a binary ban-or-release choice.",
+          live_disagreement:
+            "Whether a given U.S. open release adds meaningful marginal global access to dangerous capability beyond comparable foreign open models — resolvable by benchmarking each release against the best public foreign model on misuse-relevant proxies plus diffusion modeling of how fast the foreign frontier closes the gap.",
+        },
       },
       evidence: [
         {

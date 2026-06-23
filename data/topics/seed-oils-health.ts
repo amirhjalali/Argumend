@@ -7,6 +7,21 @@ export const seedOilsHealthData = {
     "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The most popular anti-seed-oil claim — that the linoleic acid in seed oils floods your body with inflammatory arachidonic acid — is the part the evidence does NOT support: a systematic review of controlled human trials found that increasing dietary linoleic acid up to six-fold, or cutting it by up to 90%, did not significantly change tissue arachidonic acid. The honest concern that survives isn't the molecule itself; it's the oxidation byproducts of repeated high-heat frying and the fact that seed oils are the signature ingredient of ultra-processed food.",
+    confidence: 84,
+    source:
+      "Rett & Whelan, Nutrition & Metabolism (2011) on LA-to-AA homeostasis; Blasbalg et al., AJCN (2011) on the intake shift; Harris et al., AHA Science Advisory, Circulation (2009)",
+    sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3132704/",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Seed oil consumption exploded in the modern diet — US soybean oil intake rose more than 1,000-fold between 1909 and 1999, pushing linoleic acid from roughly 2.8% to 7.2% of calories — and that surge tracks the rise of obesity, diabetes, and heart disease, while the high-heat frying that seed oils enable demonstrably generates cytotoxic aldehydes like 4-HNE in fast-food fries.",
+    "But the headline mechanism doesn't hold up: controlled human trials show dietary linoleic acid does not measurably raise tissue arachidonic acid, large meta-analyses (Farvid 2014) find higher linoleic acid intake associated with lower heart-disease risk, and the population correlation is hopelessly tangled with sugar, total calories, sedentary life, and ultra-processed foods — so seed oils can't be cleanly fingered as the cause.",
+    "So the honest debate isn't 'are seed oils a metabolic poison' (the inflammation-via-arachidonic-acid story largely fails) but 'do the oxidation products of repeated high-heat frying, and the ultra-processed foods seed oils ride inside, cause harm at real-world doses' — a dose-response question the existing trials never cleanly answered.",
+  ],
   references: [
     {
       title:
@@ -78,6 +93,16 @@ export const seedOilsHealthData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (12-week controlled feeding study with comprehensive lipidomics and inflammatory biomarker panels)",
+        falsification: {
+          supporter_flip:
+            "If a controlled feeding trial showed that high dietary linoleic acid leaves tissue arachidonic acid flat and does not raise inflammatory eicosanoids (CRP, IL-6, PGE2, urinary metabolites) — confirming the Rett & Whelan homeostasis finding — the omega-6:3 ratio mechanism would lose its proposed pathway and collapse into a metabolically inert framing.",
+          skeptic_flip:
+            "A skeptic who treats the ratio as harmless should weigh that the intake shift is real and large (LA rose from ~2.8% to ~7.2% of calories), that LA and omega-3 genuinely compete for shared desaturase and eicosanoid enzymes, and that 'tissue AA stays stable' does not rule out other LA-related signaling-lipid effects the trials never measured.",
+          common_ground:
+            "Both sides agree dietary linoleic acid rose dramatically in the 20th century and that the body cannot synthesize either omega-6 or omega-3, so diet sets the balance.",
+          live_disagreement:
+            "Whether sustained high-LA intake measurably shifts downstream inflammatory signaling in humans — not just tissue AA, but the broader oxylipin profile — which only a controlled feeding study with full lipidomics and inflammatory-marker panels can settle.",
+        },
       },
       evidence: [
         {
@@ -179,6 +204,16 @@ export const seedOilsHealthData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Controlled cooking experiments with comprehensive analytical chemistry and human biomonitoring study)",
+        falsification: {
+          supporter_flip:
+            "If controlled cooking experiments plus human biomonitoring showed that aldehyde exposure from realistic home and restaurant seed-oil use stays far below toxicological no-observed-adverse-effect levels — with urinary aldehyde metabolites unchanged on high vs low seed-oil diets — the oxidation argument would reduce to a concern only for prolonged commercial deep-frying, not everyday eating.",
+          skeptic_flip:
+            "A skeptic who says oxidation is overblown should weigh that 4-HNE was measured at 7.83-32.15 ug per 100 g of fast-food fries, that PUFA-rich oils form aldehydes even below their smoke point, and that repeated domestic deep-frying (per groups like Grootveld) can reach levels they characterize as toxicologically significant — so the safety margin is not actually established.",
+          common_ground:
+            "Both sides agree that heating polyunsaturated oils generates aldehydes, that aldehyde formation scales with frying intensity and repetition, and that single brief home cooking produces far less than prolonged restaurant deep-frying.",
+          live_disagreement:
+            "The actual dose-response: whether cumulative real-world dietary aldehyde intake reaches concentrations that cause measurable biological harm in humans — resolvable only by quantifying aldehydes under realistic cooking and matching them to validated NOAELs and in-body biomonitoring.",
+        },
       },
       evidence: [
         {
@@ -281,6 +316,16 @@ export const seedOilsHealthData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$30-80M (5-year dietary intervention RCT with 5,000 participants and hard cardiovascular endpoints)",
+        falsification: {
+          supporter_flip:
+            "If a large RCT swapping seed oils for olive oil/butter at matched calories and total fat produced equivalent or better cardiovascular, metabolic, and inflammatory outcomes for the seed-oil group — consistent with the Farvid meta-analysis and the 2020 Cochrane review favoring PUFA replacement — the population-level harm narrative would be falsified as confounding rather than causation.",
+          skeptic_flip:
+            "A skeptic leaning on the meta-analyses should weigh that the recovered Sydney Diet Heart and Minnesota Coronary data showed higher mortality on linoleic-acid-rich diets, and that the supportive meta-analyses rest on observational cohorts plus old RCTs that used trans-fat-containing margarine — neither of which cleanly tests modern liquid seed oils in isolation.",
+          common_ground:
+            "Both sides agree the ecological correlation is real but heavily confounded by simultaneous changes in calories, sugar, ultra-processed foods, and activity, and that no existing RCT has tested modern liquid seed oils against alternatives with calories and total fat held constant.",
+          live_disagreement:
+            "Whether replacing seed oils specifically — not saturated fat generally, and not via trans-fat-laden margarine — changes hard cardiovascular and metabolic endpoints, which only a long, large, isocaloric, biomarker-verified replacement RCT could resolve.",
+        },
       },
       evidence: [
         {

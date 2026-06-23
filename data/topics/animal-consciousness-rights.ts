@@ -5,6 +5,21 @@ export const animalConsciousnessRightsData = {
     "Scientific evidence increasingly demonstrates that many animals possess rich subjective experiences and consciousness, which morally obligates humanity to extend rights protections far beyond current legal frameworks.",
   status: "contested" as const,
   category: "philosophy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Fish almost certainly feel pain, not just reflexively flinch. Rainbow trout have the same A-delta and C-fiber nociceptors as mammals, and when injected with acid or bee venom they stop feeding for hours and rub the sore spot — yet resume normal behavior once given morphine. That last detail (a painkiller restoring normal behavior) is hard to explain without an actual felt, aversive state, even though fish have no neocortex.",
+    confidence: 84,
+    source:
+      "Sneddon, Philosophical Transactions of the Royal Society B (2019); UK LSE/Birch sentience review (2021) underpinning the Animal Welfare (Sentience) Act 2022",
+    sourceUrl: "https://doi.org/10.1098/rstb.2019.0290",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The evidence keeps widening the circle: the 2024 New York Declaration, signed by dozens of leading neuroscientists and philosophers, holds there is strong scientific support for consciousness in all mammals and birds and a realistic possibility of it in fish, octopuses, and even some insects — and a UK government review of 300+ studies found enough evidence of sentience in octopuses and crabs that they were written into law.",
+    "But evidence of sentience is not the same as proof of rich, human-like inner experience, and it does not automatically tell us what we owe each species — we still cannot directly access another being's mind, and 'realistic possibility' is a probabilistic judgment under acknowledged uncertainty, not a measurement.",
+    "So the honest debate isn't whether animals feel anything (the evidence says many do) but where to draw the line and what follows from it — which creatures count, how much weight their suffering gets against human needs, and whether modern civilization can actually function with those obligations honored.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Neuroscience of Animal Consciousness
@@ -29,6 +44,16 @@ export const animalConsciousnessRightsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$10-30M (Multi-lab, multi-species neuroscience research program over 5-10 years)",
+        falsification: {
+          supporter_flip:
+            "If validated, non-anthropocentric consciousness measures (e.g., perturbational complexity index or IIT phi) reliably scored a wide range of animals as non-conscious — or if the markers fired in systems everyone agrees are not conscious (a thermostat, a simple feedback circuit) — the inference from homologous neural substrate and complex behavior to widespread consciousness would collapse into anthropomorphic over-reading.",
+          skeptic_flip:
+            "A skeptic invoking Morgan's Canon should weigh that the morphine-reversal result in fish, the LSE/Birch marker-based review that became UK law, and convergent neural-plus-behavioral evidence in mammals and birds already use explicit, pre-specified criteria rather than ad hoc human projection — so 'it's all anthropomorphism' is not the most parsimonious read for the clearest cases.",
+          common_ground:
+            "Both sides agree subjective experience cannot be measured directly in any species (including other humans), that behavioral complexity alone does not prove consciousness, and that some animals (at minimum mammals and birds) show neural and behavioral indicators worth taking seriously.",
+          live_disagreement:
+            "Whether a consciousness detector can be built that distinguishes conscious from non-conscious systems without assuming a human template, and how broadly it would test positive across taxa — which only validating two or more independent paradigms against pre-registered predictions across mammals, birds, fish, cephalopods, and insects can settle.",
+        },
       },
       evidence: [
         {
@@ -159,6 +184,16 @@ export const animalConsciousnessRightsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K (Structured philosophical adversarial collaboration and publication)",
+        falsification: {
+          supporter_flip:
+            "If every framework that grants rights to conscious animals, when applied consistently, forced clearly absurd conclusions — for instance an obligation to police predation across the wild, or to extend rights to bacteria and insects without limit — then the move from 'this animal suffers' to 'therefore it has rights' would be exposed as incoherent rather than merely demanding.",
+          skeptic_flip:
+            "A skeptic relying on the social-contract criterion should weigh that the same test would strip moral status from human infants, the severely cognitively disabled, and future generations, none of whom can reciprocate obligations — and that Birch's precautionary 'edge of sentience' framework already shows how to act proportionately under uncertainty without requiring metaphysical certainty.",
+          common_ground:
+            "Both sides agree that the capacity to suffer is at least morally relevant, that gratuitously torturing an animal is wrong, and that some line-drawing is unavoidable because borderline cases exist for every moral theory.",
+          live_disagreement:
+            "Whether any single framework can handle the full range of clear, borderline, and reductio cases coherently — which an adversarial collaboration between leading animal-rights philosophers and their critics, working from pre-registered test cases, is designed to expose.",
+        },
       },
       evidence: [
         {
@@ -238,6 +273,16 @@ export const animalConsciousnessRightsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-2M (Techno-economic analysis of alternative protein and non-animal research trajectories)",
+        falsification: {
+          supporter_flip:
+            "If, after two more decades, plant-based and cultivated proteins still cost far more than conventional meat at scale, non-animal research methods kept underperforming animal models in drug-development success rates, and animal-free diets remained nutritionally inadequate for large populations, then 'the alternatives will make exploitation obsolete' would fail and the practical case for continued (better-welfare) animal use would stand.",
+          skeptic_flip:
+            "A skeptic forecasting civilizational collapse should weigh that the FDA Modernization Act 2.0 (2022) already ended the mandate for animal testing before human trials, that plant-based and cultivated-meat sectors have grown rapidly, and that comparable 'collapse' predictions accompanied the abolition of slavery and child labor — so 'it can't be done' is contradicted by transitions already underway, even if their pace is uncertain.",
+          common_ground:
+            "Both sides agree that today's economy still depends heavily on animal use, that roughly a billion people rely on livestock for their livelihoods, and that any transition must be judged on real cost, nutrition, and medical-outcome parity rather than aspiration.",
+          live_disagreement:
+            "Whether alternatives can match animal-dependent systems on nutrition, medical progress, and affordability at global scale within about 20 years — which only tracking price-parity, production-cost, nutritional-completeness, and non-animal-vs-animal testing success trajectories over time can resolve.",
+        },
       },
       evidence: [
         {

@@ -7,6 +7,21 @@ export const simulationHypothesisData = {
     "Bostrom's simulation argument shows that at least one of three propositions holds: near-universal extinction before a post-human stage, near-universal disinterest in running ancestor-simulations, or our almost certainly living in one. Whether the third disjunct in particular is true, and whether the claim is even testable, remains contested.",
   status: "contested" as const,
   category: "philosophy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Bostrom's simulation argument does not conclude that we live in a simulation. It is a trilemma: at least one of three things must be true — almost all civilizations go extinct before reaching a posthuman stage, almost none of those that survive run ancestor-simulations, or we are almost certainly simulated. The famous headline is only one of the three branches, and the argument by itself gives you no way to know which.",
+    confidence: 88,
+    source:
+      "Nick Bostrom, 'Are You Living in a Computer Simulation?', Philosophical Quarterly 53(211):243-255 (2003)",
+    sourceUrl: "https://www.simulation-argument.com/simulation.html",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The argument is genuinely clever: if conscious minds can run on computers and far-future civilizations run even a few high-fidelity ancestor-simulations each, then simulated observers would vastly outnumber the handful of biological originals — so a randomly chosen observer (you) would more likely be simulated than not.",
+    "But the conclusion is conditional, not forced: it only follows if you grant that consciousness is substrate-independent and that posthuman civilizations both arise and choose to run such simulations — and physicists who proposed a real test (looking for a cubic spacetime lattice in the highest-energy cosmic rays) have found no such signature, setting a lower bound on any lattice spacing of about 10^11 GeV.",
+    "So the honest debate isn't 'are we in a simulation, yes or no' but which branch of Bostrom's trilemma is most likely true — and whether the whole claim is even falsifiable, since the strongest version predicts no observation a simulator couldn't also fake.",
+  ],
   imageUrl:
     "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -73,6 +88,16 @@ export const simulationHypothesisData = {
           "H(B_{sim}) \\approx H(B_{bio}) \\implies \\text{Substrate Independence}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$5M (OpenWorm project ongoing at openworm.org)",
+        falsification: {
+          supporter_flip:
+            "If a connectome-derived digital C. elegans (its 302 neurons plus body physics) reproduced the worm's full behavioral repertoire — chemotaxis, noxious-stimulus avoidance, mating, and learning — across dozens of assays, yet a biological-physics theory of consciousness (e.g. Penrose-Hameroff Orch-OR) made a confirmed prediction that no digital model could match, a supporter of substrate independence would have to concede that capturing input-output structure is not sufficient.",
+          skeptic_flip:
+            "A skeptic who insists biology is special should weigh that neurons are physical information processors with no known non-computable step, that OpenWorm already reproduces basic forward/backward locomotion from the connectome, and that the Penrose-Lucas appeal to Gödel is rejected by most logicians — so 'neurons can't be simulated in principle' is an assertion, not an established result.",
+          common_ground:
+            "Both sides agree the 302-neuron connectome is fully mapped, that basic locomotion has been simulated, and that full behavioral replication (chemotaxis, learning) has not yet been demonstrated.",
+          live_disagreement:
+            "Whether full behavioral equivalence can be achieved from the connectome alone — and, even if it can, whether behavioral equivalence settles anything about subjective experience (the hard problem). A completed OpenWorm behavioral match would resolve the first question but not automatically the second.",
+        },
       },
       evidence: [
         {
@@ -172,6 +197,16 @@ export const simulationHypothesisData = {
           "f_{sim} = \\frac{N \\cdot M}{N \\cdot M + B} \\to 1 \\text{ as } N \\to \\infty",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (Philosophical analysis)",
+        falsification: {
+          supporter_flip:
+            "A supporter of the high-f_sim branch should change their mind if a published flaw were found in the indifference (bland-principle) reasoning Bostrom uses to move from 'most observers are simulated' to 'you are probably simulated' — the line of attack Weatherson presses — or if substrate independence were shown false, since the fraction calculation only bites once both premises hold.",
+          skeptic_flip:
+            "A skeptic should weigh that, conditional on the first two disjuncts failing, the arithmetic is hard to escape: if even a tiny fraction of surviving civilizations run many ancestor-simulations, simulated observers swamp the biological originals, so dismissing the conclusion requires committing to one of the other two branches (near-universal extinction or near-universal disinterest), not to none of them.",
+          common_ground:
+            "Both sides accept that the trilemma's disjunction is logically valid and that at least one of the three propositions must hold; the dispute is over which one, not over the validity of the argument.",
+          live_disagreement:
+            "Whether Bostrom's indifference principle legitimately licenses self-locating ('you are probably a sim') belief from the population fact — a question of formal epistemology and anthropic reasoning that a decisive critique or defense, rather than any empirical measurement, would resolve.",
+        },
       },
       evidence: [
         {
@@ -271,6 +306,16 @@ export const simulationHypothesisData = {
           "E_{GZK} \\approx 5 \\times 10^{19} \\text{ eV}; \\quad \\Delta\\theta < 0.1° \\text{ precision}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (Pierre Auger Observatory data is public)",
+        falsification: {
+          supporter_flip:
+            "A supporter who reads physics as 'computational' should treat the proposal as testable and update on its result: if high-energy cosmic-ray arrival directions showed rotational-symmetry breaking specifically aligned with cubic-lattice axes — the exact Beane-Davoudi-Savage signature, not a generic dipole — it would be positive evidence for a lattice simulation; the continued absence of that pattern, against the bound b^-1 >~ 10^11 GeV they derive, is evidence the other way.",
+          skeptic_flip:
+            "A skeptic should weigh that the cited 'computational' features each already follow from independently motivated physics — the Planck scale from quantum gravity, the light-speed limit from relativity, and the quantization that is real is selective (bound-state energies and spin, not position, momentum, or time) — so by parsimony none of them require a simulator, and the one anisotropy Auger does see (the >8 EeV dipole) is attributed to an extragalactic astrophysical origin, not a lattice.",
+          common_ground:
+            "Both sides agree the relevant physics (quantization, the holographic bound, the GZK cutoff) is well-established and that no lattice-orientation signature in cosmic rays has actually been observed.",
+          live_disagreement:
+            "Whether a cubic-lattice simulation of the specific Beane-Davoudi-Savage form is ruled out at finer lattice spacings — which higher-statistics, higher-angular-resolution cosmic-ray data near the GZK cutoff could push further, while leaving non-cubic or adaptive 'simulation' architectures untouched.",
+        },
       },
       evidence: [
         {

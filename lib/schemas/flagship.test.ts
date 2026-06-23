@@ -180,6 +180,15 @@ const FLAGSHIP_TOPIC_IDS = [
   "loneliness-epidemic",
   "modern-monetary-theory",
   "net-neutrality",
+  // ── batch 6 (flagship-completion workflow) ──
+  "occupational-licensing-reform",
+  "open-weight-ai-models",
+  "right-to-repair",
+  "seed-oils-health",
+  "simulation-hypothesis",
+  "social-security-retirement-age",
+  "vaping-harm-reduction",
+  "animal-consciousness-rights",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
