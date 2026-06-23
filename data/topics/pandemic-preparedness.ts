@@ -7,6 +7,21 @@ export const pandemicPreparednessData = {
     "Governments should invest heavily in pandemic preparedness infrastructure",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "COVID cost the US an estimated $16 trillion — more than the price of every war since 9/11 combined — yet the world spends a tiny fraction of that on preventing the next pandemic. On paper, prevention is one of the highest-return public investments there is; the catch is that after every scare (SARS, H1N1), the funding and attention reliably evaporate.",
+    confidence: 82,
+    source:
+      "Cutler & Summers, JAMA (2020, ~$16T US COVID cost); post-SARS/H1N1 preparedness-funding history; CEPI/WHO pandemic-fund estimates",
+    sourceUrl: "https://jamanetwork.com/journals/jama/fullarticle/2771764",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The scale is hard to overstate: economists Cutler and Summers put the total US cost of COVID-19 at roughly $16 trillion — more than every American war since 9/11 combined — while the world spends only a tiny fraction of that trying to prevent or blunt the next one.",
+    "On a pure cost-benefit basis, prevention (disease surveillance, vaccine platforms, stockpiles) is one of the highest-return investments a government can make — a few billion a year against trillions in avoided losses, the way fire insurance beats rebuilding.",
+    "So the honest debate isn't whether prevention pays off in expectation (it overwhelmingly does) but whether governments can actually sustain it — because after SARS in 2003 and H1N1 in 2009, the money and the political will faded within a few years, every time.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Cost-Benefit of Prevention
@@ -31,6 +46,16 @@ export const pandemicPreparednessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1M (Epidemiological modeling requiring historical outbreak databases and economic impact analysis)",
+        falsification: {
+          supporter_flip:
+            "If a rigorous historical-frequency analysis showed pandemic-scale events are genuinely rare and most outbreaks are containable with existing capacity — so the probability-weighted expected cost doesn't justify large upfront spending — the 'highest-return investment' case would weaken to 'nice but not cost-effective.'",
+          skeptic_flip:
+            "A skeptic who says it's too speculative should weigh that COVID alone cost ~$16T, that zoonotic spillover risk is rising (deforestation, factory farming, global travel), and that even a low annual pandemic probability times a multi-trillion-dollar loss dwarfs a few-billion-dollar preparedness budget.",
+          common_ground:
+            "Both sides agree a severe pandemic is enormously costly and that most routine outbreaks are contained with existing capacity.",
+          live_disagreement:
+            "How frequent truly catastrophic pandemics are under modern conditions — which sets the break-even probability, and which only a rigorous historical-frequency-plus-trend analysis can pin down.",
+        },
       },
       evidence: [
         {
@@ -156,6 +181,16 @@ export const pandemicPreparednessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Comparative institutional analysis requiring government data across multiple countries)",
+        falsification: {
+          supporter_flip:
+            "If comparative analysis showed post-COVID reforms predictably erode within 5-10 years — surveillance defunded, stockpiles depleted, response units cut, as happened after H1N1 — then heavy upfront investment would mostly be wasted on institutions that revert to complacency.",
+          skeptic_flip:
+            "A skeptic who says bureaucracies always backslide should weigh that some systems (South Korea's KDCA after MERS) built durable, independent agencies that detected and responded faster in the next outbreak — so 'preparedness always decays' is contradicted by the designs that didn't.",
+          common_ground:
+            "Both sides agree preparedness funding and attention have historically faded after each scare, and that institutional design affects whether reforms stick.",
+          live_disagreement:
+            "Whether reforms can be made durable (independent agencies, protected funding) or whether bureaucratic incentives inevitably let preparedness lapse — which only tracking reform durability across countries over a decade can show.",
+        },
       },
       evidence: [
         {
@@ -264,6 +299,16 @@ export const pandemicPreparednessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Comprehensive risk assessment requiring classified lab incident data and expert elicitation)",
+        falsification: {
+          supporter_flip:
+            "If risk assessment showed gain-of-function and dual-use research produces irreplaceable vaccine/therapeutic insights that couldn't be gotten safer ways — and lab-accident risk is genuinely low — then restricting it would increase, not decrease, net pandemic vulnerability.",
+          skeptic_flip:
+            "A skeptic who wants the research unrestricted should weigh the documented history of lab accidents with enhanced pathogens and the live debate over COVID's origin — so 'the research is obviously worth the risk' isn't established; the net-risk calculation is genuinely open.",
+          common_ground:
+            "Both sides agree gain-of-function research carries some lab-accident risk and some potential scientific benefit; the dispute is the balance.",
+          live_disagreement:
+            "Whether the lab-pandemic risk from enhanced-pathogen research outweighs its irreplaceable contributions to defense — which only an independent assessment weighing accident frequency against counterfactual scientific value could resolve.",
+        },
       },
       evidence: [
         {
