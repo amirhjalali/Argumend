@@ -135,6 +135,13 @@ const FLAGSHIP_TOPIC_IDS = [
   "space-colonization-feasibility",
   "ai-superintelligence-timeline",
   "privacy-vs-convenience",
+  // ── batch 1 (flagship-completion workflow) ──
+  "four-day-work-week",
+  "carbon-tax-effectiveness",
+  "ssri-antidepressant-efficacy",
+  "moon-landing",
+  "self-driving-car-safety",
+  "nuclear-fusion-timeline",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
