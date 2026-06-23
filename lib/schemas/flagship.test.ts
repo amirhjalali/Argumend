@@ -128,6 +128,7 @@ const FLAGSHIP_TOPIC_IDS = [
   "gene-editing-embryos",
   "nuclear-renaissance-smr",
   "ai-replacing-doctors",
+  "social-media-age-limits",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
