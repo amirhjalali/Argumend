@@ -118,6 +118,7 @@ const FLAGSHIP_TOPIC_IDS = [
   "big-tech-antitrust",
   "immigration-wage-impact",
   "wealth-tax",
+  "universal-basic-income",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
