@@ -778,3 +778,10 @@ Priority order, all in-loop unless a workflow is opted into:
   data-economy consent). 28 flagship topics (10->28, +18 this overnight session).
 - Verified: tsc; 333 tests (+4); clean build (periodic); renders confirmed. 5h usage ~5%.
 - Next: cancel-culture, immigration-wage-impact, wealth-tax, universal-basic-income, ai-regulation.
+
+### Iter 62 — 2026-06-22 — Phase 62 (flagship topic #29 = Immigration & Wages)
+- keystone: Card(~0 avg) vs Borjas(3-4% for competing groups); consensus = small avg, losses
+  concentrated on lowest-skilled + prior immigrants (Nat'l Academies), conf 80. Falsification on
+  both cruxes (wage elasticity; distribution). 29 flagship topics (10->29, +19 this session).
+- Verified: tsc; 337 tests (+4); renders confirmed. 5h usage ~5%. Build due next topic.
+- Next: wealth-tax, universal-basic-income, ai-regulation, then reassess remaining clean-keystone pool.
