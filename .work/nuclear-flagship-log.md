@@ -1059,3 +1059,11 @@ Priority order, all in-loop unless a workflow is opted into:
 - Next: scale net-new in ~3-4 batches: daylight-saving-time-abolition, tipping-culture, ai-therapy-chatbots,
   carbon-capture-viability, hydrogen-economy-viability, antibiotic-resistance-crisis, vertical-farming-
   viability + brainstorm more trending non-sensitive two-sided topics.
+
+### Iter 93 — 2026-06-23 — NET-NEW topics batch 2 (4 topics)
+- daylight-saving-time-abolition, tipping-culture, ai-therapy-chatbots, carbon-capture-viability. All
+  author->QC, structurally clean, registered centrally (data/topics.ts 3-part + flagship.test.ts).
+  145->149 catalog; flagship 103->107. Verified: tsc; 649 tests; clean build. 5h usage ~21% (batch ~8%
+  for 4 net-new). Branch +166.
+- Next: batch 3 [hydrogen-economy-viability, antibiotic-resistance-crisis, vertical-farming-viability,
+  de-extinction-species] + further trending non-sensitive candidates.
