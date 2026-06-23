@@ -7,6 +7,21 @@ export const estateInheritanceTaxData = {
     "The estate (inheritance) tax is a fair and economically sound policy.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The estate tax almost never touches you: of the ~2.8 million Americans who die each year, only about 0.2% (roughly 4,000 estates) owe any estate tax at all, because the exemption shields the first ~$12.92M per person (~$25.84M per couple in 2023). The honest catch is that much of what it taxes is unrealized capital gains that were never taxed during life — so the popular \"double taxation\" complaint is, for large estates, often empirically false.",
+    confidence: 92,
+    source:
+      "Tax Policy Center Briefing Book, 'Who pays the estate tax?' (2023 figures, drawing on IRS SOI); Joint Committee on Taxation on stepped-up basis (~$72.5B forgone in 2026, ~a quarter of all capital-gains revenue)",
+    sourceUrl: "https://taxpolicycenter.org/briefing-book/who-pays-estate-tax",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The estate tax is one of the most progressive levers in the US code: only about 0.2% of deaths produce a taxable estate, the top 0.1% of earners pay roughly 29% of it, and a large share of what it reaches is appreciated wealth that stepped-up basis would otherwise let escape income tax forever — so it functions as a backstop on fortunes that were never fully taxed.",
+    "The honest counterpoint is that it raises modest revenue (~$24B/yr), imposes real compliance and avoidance costs (Kopczuk's estate-tax data shows reported estates shrink 15–20% after a terminal-illness diagnosis), and the sophisticated rich route assets through dynasty trusts and valuation discounts — so the burden can fall hardest on the moderately wealthy who planned least, not the true dynasties it targets.",
+    "So the honest debate isn't \"is it double taxation?\" (for large estates it usually isn't) but \"is a tax that touches almost no one, raises little net revenue, and is heavily gamed by the very wealthy still worth keeping as a check on dynastic wealth — or would reforming stepped-up basis do the same job better?\"",
+  ],
   last_updated: "2026-06-16",
   tags: ["estate-tax", "inheritance", "wealth-inequality", "taxation", "fiscal-policy"],
   pillars: [
@@ -29,6 +44,16 @@ export const estateInheritanceTaxData = {
           "Decompose large gross estates (IRS SOI Form 706 microdata) into (a) basis already subject to income/payroll tax and (b) unrealized appreciation that would otherwise receive stepped-up basis and never be taxed. Compare the unrealized share to estate tax collected.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (analysis of published IRS SOI and JCT data)",
+        falsification: {
+          supporter_flip:
+            "If a decomposition of large gross estates (IRS SOI Form 706 microdata) showed that the great majority of taxable-estate wealth was basis already subject to income or payroll tax — with little unrealized appreciation riding on stepped-up basis — then the 'backstop for untaxed gains' defense would collapse and the 'double taxation' objection would be largely correct.",
+          skeptic_flip:
+            "A skeptic invoking 'double taxation' should weigh that stepped-up basis forgoes an estimated ~$72.5B in 2026 (about a quarter of all capital-gains revenue) and that a large fraction of the biggest estates is appreciated assets never sold during life — so for the fortunes the tax actually reaches, the income was frequently never taxed at all.",
+          common_ground:
+            "Both sides agree the estate tax hits only a tiny share of estates (~0.2% of deaths) and that stepped-up basis lets some unrealized gains escape income tax at death; the dispute is how large that never-taxed share is within taxable estates.",
+          live_disagreement:
+            "The precise fraction of taxable-estate wealth that is unrealized appreciation versus already-taxed basis — resolvable by decomposing Form 706 microdata against the assets' original cost basis, which is not routinely published.",
+        },
       },
       evidence: [
         {
@@ -126,6 +151,16 @@ export const estateInheritanceTaxData = {
           "Build a revenue model netting gross estate tax receipts against (a) estimated income-tax revenue lost to estate-tax-induced avoidance and (b) revenue gained from reduced lock-in / realized gains. Vary saving-elasticity and avoidance assumptions; report the sign and confidence interval of the net effect.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (microsimulation modeling with contested elasticity assumptions)",
+        falsification: {
+          supporter_flip:
+            "If a transparent microsimulation — netting gross receipts against estate-tax-induced income-tax erosion and lost saving, and crediting reduced lock-in — produced a robustly negative or near-zero net fiscal effect under mainstream elasticities, the 'economically sound, raises real revenue' case would weaken toward the JEC 'raises little net revenue' view.",
+          skeptic_flip:
+            "A skeptic citing the 1998 JEC's ~$497B capital-stock loss and 'near-zero net revenue' should weigh that those figures come from a partisan congressional study with contested modeling assumptions, that the tax collects ~$24B/yr from ultra-wealthy estates, and that taxing transfers reduces the stepped-up-basis 'lock-in' distortion — an efficiency gain the JEC model omits.",
+          common_ground:
+            "Both sides agree the estate tax induces real behavioral responses (avoidance, planning, deathbed transfers) that carry deadweight cost, and that its gross revenue is modest relative to the federal budget.",
+          live_disagreement:
+            "The sign and magnitude of the net fiscal-and-efficiency effect once avoidance, saving response, and lock-in reduction are all counted — which only a microsimulation with disclosed, defensible elasticity assumptions can pin down.",
+        },
       },
       evidence: [
         {

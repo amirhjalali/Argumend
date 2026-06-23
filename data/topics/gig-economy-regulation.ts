@@ -7,6 +7,21 @@ export const gigEconomyRegulationData = {
     "Gig economy platforms (Uber, Lyft, DoorDash, etc.) should be required to classify their workers as employees rather than independent contractors, providing full labor protections.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "When California gig drivers got to vote on their own status, they sided with the platforms: Proposition 22 — which keeps app-based drivers as independent contractors rather than employees — passed with 58.6% of the vote in 2020 and was upheld by the California Supreme Court in 2024. The honest catch is that the minimum-earnings and health-stipend benefits Prop 22 promised are barely enforced: California's labor agency now says it lacks jurisdiction over non-employee claims, leaving most worker complaints unresolved.",
+    confidence: 88,
+    source:
+      "Castellanos v. State of California (Cal. Supreme Court, 25 July 2024; Prop 22 passed 58.6% in Nov 2020); CalMatters investigation, 'California companies wrote their own gig worker law. Now no one is enforcing it' (4 Sept 2024)",
+    sourceUrl: "https://calmatters.org/economy/2024/09/gig-work-california-prop-22-enforcement/",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The strongest case for reclassification is that the 'independent contractor' label is a legal fiction: platform algorithms set the fare, assign the trip, score acceptance and cancellation rates, and can deactivate a driver without appeal — control that looks far more like employment than genuine self-employment, and courts examining the day-to-day reality (UK's Uber v Aslam, the 2024 Bolt tribunal, the EU's 2024 Platform Work Directive) have repeatedly sided with workers.",
+    "The honest counterpoint is that gig workers themselves prize the flexibility — logging on and off at will, working competing apps at once, answering to no manager — and when California's AB5 tried to force reclassification, drivers backed Prop 22's carve-out 59-41; reclassification could push platforms toward set shifts and fewer onboarded drivers, pricing some workers out.",
+    "So the honest debate isn't 'protections versus freedom' as a binary, but whether basic floors (minimum-wage guarantees, injury coverage, paid leave) can be attached to genuinely flexible work — and whether, once attached, anyone actually enforces them, given that even Prop 22's modest promised benefits have gone largely unenforced.",
+  ],
   pillars: [
     {
       id: "worker-classification",
@@ -27,6 +42,16 @@ export const gigEconomyRegulationData = {
           "Audit platform algorithms for: pricing control, route assignment, acceptance rate thresholds, deactivation criteria, and performance monitoring. Compare worker autonomy metrics to traditional employment and genuine independent contracting (e.g., freelance consultants).",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (Platform algorithm audit study—requires legal discovery or regulatory access)",
+        falsification: {
+          supporter_flip:
+            "If an algorithm audit showed drivers genuinely operate like independent businesses — setting their own prices, choosing clients, facing no acceptance-rate scoring or unilateral deactivation, and bearing no more control than a freelance consultant — then the 'misclassification' case would collapse and the contractor label would be factually accurate.",
+          skeptic_flip:
+            "A skeptic who treats flexibility as proof of independence should weigh that platforms set the fare, assign the trip, score acceptance and cancellation, and can deactivate without appeal — the precise levers of control courts in Uber v Aslam and the 2024 Bolt tribunal found decisive — so 'they choose their hours' doesn't settle whether the relationship is employment.",
+          common_ground:
+            "Both sides agree gig work offers schedule flexibility that traditional employment rarely does, and that the legal test should turn on the actual day-to-day working relationship rather than the contract's label.",
+          live_disagreement:
+            "How much functional control platform algorithms actually exert relative to traditional employment and genuine independent contracting — which only a transparent audit of pricing, dispatch, monitoring, and deactivation criteria (requiring legal discovery or regulatory access) could quantify.",
+        },
       },
       evidence: [
         {
@@ -101,6 +126,16 @@ export const gigEconomyRegulationData = {
           "Compare gig economy outcomes in jurisdictions with employee classification (post-EU directive) vs. independent contractor classification (US). Measure worker income (including benefits), hours worked, platform utilization, and consumer prices.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1M (Cross-jurisdictional comparative study after EU directive implementation)",
+        falsification: {
+          supporter_flip:
+            "If post-directive data from the EU showed reclassification sharply shrank the market — platforms cutting onboarded drivers, capping hours, and raising consumer prices enough that total worker earnings and available work fell — then mandating employee status would be a net loss for the very workers it aims to protect.",
+          skeptic_flip:
+            "A skeptic who assumes protections must kill flexibility should weigh that several European economies with stronger labor rules still sustain active platform sectors, and that headline gross pay overstates take-home once fuel, insurance, depreciation, and unpaid waiting time are netted out — so 'reclassification destroys the model' is an empirical claim, not a given.",
+          common_ground:
+            "Both sides agree reclassification raises platform labor costs and that some of that cost flows through to prices, hours, or the number of available shifts; the dispute is the magnitude and who ultimately bears it.",
+          live_disagreement:
+            "The net effect of employee status on total worker compensation (wages plus benefits), hours worked, market size, and consumer prices — which only a cross-jurisdictional comparison of EU-directive outcomes against US contractor markets, after implementation, can resolve.",
+        },
       },
       evidence: [
         {

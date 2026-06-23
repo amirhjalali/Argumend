@@ -7,6 +7,21 @@ export const foreignAidEffectivenessData = {
     "International development aid significantly improves outcomes in recipient countries and is an effective use of donor resources.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The popular verdict — \"$4.6 trillion in aid since 1960 and many countries are still poor, so aid doesn't work\" — collapses two very different things. Narrowly targeted health aid is among the most cost-effective lifesaving spending ever measured: PEPFAR is credited with saving roughly 25 million lives since 2003, and GiveWell estimates an insecticide-treated bed net campaign averts a death for about $3,000-$8,000. What the aggregate critique actually indicts is general budget support and governance aid, where cross-country studies find no robust effect on growth.",
+    confidence: 86,
+    source:
+      "GiveWell, Against Malaria Foundation review (Dec 2023, ~$3,000-$8,000 per death averted); PEPFAR / U.S. State Department (~25 million lives saved since 2003); Rajan & Subramanian, Review of Economics and Statistics 90(4) (2008, no robust aid-growth relationship)",
+    sourceUrl: "https://www.givewell.org/charities/amf",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The best-targeted aid works spectacularly: bed nets avert a child death for a few thousand dollars (GiveWell), PEPFAR is credited with ~25 million lives saved since 2003, and global under-5 mortality has fallen ~60% since 1990 partly on the back of aid-funded immunization and malaria control.",
+    "But the aggregate picture is genuinely murky: after $4.6 trillion in transfers, peer-reviewed cross-country studies (Rajan & Subramanian 2008) find no robust link between aid inflows and economic growth, and Nobel laureate Angus Deaton argues open-ended aid can weaken the accountability between governments and their own citizens.",
+    "So the honest debate isn't \"does aid work?\" but \"which kinds of aid, delivered how?\" — proven health interventions and direct cash transfers look excellent, while general budget support and tied aid look weak, so the real question is what share of the portfolio is the good kind.",
+  ],
   pillars: [
     {
       id: "development-outcomes",
@@ -27,6 +42,16 @@ export const foreignAidEffectivenessData = {
           "Systematic comparison of RCT-backed targeted interventions against general budget support and governance aid, measuring cost-per-outcome and sustainability at 5 and 10-year horizons across multiple country contexts.",
         verification_status: "verified" as const,
         cost_to_verify: "$1M (Meta-analysis of existing RCTs and program evaluations)",
+        falsification: {
+          supporter_flip:
+            "If a portfolio audit showed that RCT-backed, high-impact programs (bed nets, vaccines, ART, deworming, cash transfers) make up only a small slice of total aid flows — with most dollars going to categories that lack credible impact evidence — then \"aid works\" would shrink to \"a minority of aid works,\" weakening the case for aid as currently allocated.",
+          skeptic_flip:
+            "A skeptic citing the $4.6 trillion-and-still-poor critique should weigh that the proven interventions have direct RCT and program evidence (GiveWell's ~$3,000-$8,000 per death averted for bed nets; PEPFAR's ~25 million lives saved) — so even if most aid is ineffective, the effective fraction can be enormously valuable in absolute lives saved.",
+          common_ground:
+            "Both sides agree that some targeted health interventions (bed nets, vaccines, ART) have strong causal evidence and that general budget support has much weaker evidence; they also agree aggregate aid-and-growth correlations are not, by themselves, causal.",
+          live_disagreement:
+            "What fraction of the actual aid portfolio is the proven, cost-effective kind versus the unevidenced kind — which only a systematic, dollar-weighted audit of programs against their evaluation quality could resolve.",
+        },
       },
       evidence: [
         {
@@ -118,6 +143,16 @@ export const foreignAidEffectivenessData = {
           "Track $1 of aid from donor commitment through to measurable outcome (health, education, income) across different delivery mechanisms in the same country contexts. Include all overhead, administrative costs, and leakage at each stage.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$5M (Multi-country tracer study with outcome measurement)",
+        falsification: {
+          supporter_flip:
+            "If a head-to-head tracer study found that direct cash transfers and lean NGO channels deliver no better cost-per-outcome than traditional project aid or budget support — once you account for spillovers, sustainability, and what cash can't buy (infrastructure, institutions) — the \"just give cash / cut the overhead\" case for efficiency would lose much of its force.",
+          skeptic_flip:
+            "A skeptic emphasizing leakage and overhead should weigh that GiveDirectly delivers ~90% of funds to recipients with RCT-backed consumption and asset gains (Haushofer & Shapiro 2016; Egger et al. 2022), that documented diversion concentrates in specific weak-governance settings rather than describing all aid, and that IATI transparency reporting has improved since the 2000s.",
+          common_ground:
+            "Both sides agree that delivery channel matters enormously, that tied aid raises costs (OECD: 15-30%), and that leakage is real in weak-governance contexts; they also agree direct cash transfers have unusually low overhead.",
+          live_disagreement:
+            "Whether the lower-overhead channels actually win on cost-per-durable-outcome across the same country contexts — including spillovers and sustainability — which only a multi-mechanism tracer study following $1 from donor to measured outcome could settle.",
+        },
       },
       evidence: [
         {

@@ -7,6 +7,21 @@ export const freeWillData = {
     "Human beings possess genuine free will—the ability to have done otherwise in any given situation.",
   status: "contested" as const,
   category: "philosophy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Most experts don't think free will is an illusion. In the 2020 PhilPapers survey of professional philosophers, 62% accepted or leaned toward compatibilism — the view that free will is real and compatible with determinism — versus only 13% for libertarian free will and 10% for no free will at all. The honest catch: that majority is reached largely by *redefining* 'free,' so the popular question \"could you really have done otherwise?\" stays genuinely unsettled.",
+    confidence: 88,
+    source:
+      "Bourget & Chalmers, 'Philosophers on Philosophy: The 2020 PhilPapers Survey' (Philosophers' Imprint, 2023); compatibilism rose from 59% (2009) to 62% (2020)",
+    sourceUrl: "https://survey2020.philpeople.org/survey/results/4838",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The popular 'science has disproven free will' story is overstated: the Libet readiness-potential result it leans on has a leading reinterpretation (Schurger et al., 2012) as spontaneous neural noise accumulating to a threshold, not the brain secretly deciding before 'you' do — and the famous fMRI follow-up (Soon et al., 2008) predicted a binary choice only ~60% of the time, barely above the 50% coin-flip.",
+    "But the honest counterpoint cuts deep: genes account for roughly half the variance in behavioral traits (Polderman et al., 2015, ~49% average heritability), brain injuries like Phineas Gage's can rewrite a person's character, and physics gives no clear mechanism for a self that stands outside the causal chain — quantum randomness, even if real in the brain, buys you noise, not control.",
+    "So the honest debate isn't 'do neurons cause our choices' (everyone agrees they do) but 'does that make us unfree' — and that turns on what 'free' has to mean: compatibilists say acting from your own reasons is enough, libertarians demand the ability to have done otherwise, and which definition is right is a question no brain scan can settle.",
+  ],
   imageUrl:
     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -79,6 +94,16 @@ export const freeWillData = {
           "P(\\text{veto} | RP_{detected}) > 0 \\implies \\text{Free Won't Exists}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$200K (fMRI study with sufficient statistical power)",
+        falsification: {
+          supporter_flip:
+            "A free-will supporter leaning on the 'free won't' should change their mind if high-resolution timing showed the neural signal for a successful veto *also* precedes its conscious report — i.e. the veto is itself just another determined event, with no late window in which conscious will adds anything not already fixed by prior brain states.",
+          skeptic_flip:
+            "A skeptic citing Libet should weigh that the readiness potential may be an artifact of averaging spontaneous fluctuations (Schurger et al., 2012, PNAS) rather than a decision unfolding, and that Soon et al.'s ~60% prediction accuracy is a weak bias signal, not proof the outcome was sealed — neither result cleanly shows the brain decides before the person does.",
+          common_ground:
+            "Both sides agree that measurable brain activity reliably precedes the conscious report of a decision; the dispute is over what that activity *is*.",
+          live_disagreement:
+            "Whether the pre-conscious signal is a determined commitment to act or merely stochastic preparation that consciousness can still modulate — resolvable by replicating Libet with single-trial (non-averaged) neural decoding and precise veto timing rather than the original averaged readiness potential.",
+        },
       },
       evidence: [
         {
@@ -178,6 +203,16 @@ export const freeWillData = {
           "\\tau_{decoherence} > \\tau_{neural} \\implies \\text{Quantum Effects Possible}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$5M (Quantum biology lab experiments)",
+        falsification: {
+          supporter_flip:
+            "A libertarian hoping quantum indeterminacy rescues free will should reconsider if experiments confirmed that neural decoherence times are far shorter than neural firing intervals (the standard Tegmark objection to Penrose-Hameroff) — and, more fundamentally, should grant that even if quantum effects were functional, randomness delivers unpredictability, not agent *control*: a coin-flip in the synapse is not a free choice.",
+          skeptic_flip:
+            "A determinist should weigh that standard interpretations of quantum mechanics make fundamental physics genuinely indeterministic (SEP, 'Causal Determinism'), so strict Laplacian 'every neuron was fixed by the Big Bang' framing is false as physics — the universe is not, in fact, a clockwork, even if that gap doesn't by itself yield free will.",
+          common_ground:
+            "Both sides agree quantum mechanics breaks classical determinism at the fundamental level and that mere randomness does not, on its own, amount to free will.",
+          live_disagreement:
+            "Whether quantum effects play any *functional* role in neural decision-making (vs. washing out as thermal noise) — resolvable by measuring coherence/decoherence times in neural microtubules at biological temperature and testing whether they exceed neural firing timescales.",
+        },
       },
       evidence: [
         {
@@ -279,6 +314,16 @@ export const freeWillData = {
           "R(\\text{manipulated}) \\neq R(\\text{natural}) \\implies \\text{Source Matters}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$50K (Cross-cultural experimental philosophy studies)",
+        falsification: {
+          supporter_flip:
+            "Someone who thinks the *source* of a determined action matters (manipulation by a scientist is worse than ordinary upbringing) should reconsider if robust cross-cultural studies showed people's intuitions track only whether the agent acted from their own desires — with no stable distinction between covert manipulation and ordinary causal history once outcomes are held fixed.",
+          skeptic_flip:
+            "A hard incompatibilist who says manipulation and natural causation are morally identical should weigh that holding-responsible appears as a human universal (Brown, 1991) and has clear forward-looking pragmatic value in shaping behavior — so the practice may be justified on grounds that survive even if libertarian 'could have done otherwise' is false.",
+          common_ground:
+            "Both sides agree that physical factors outside our control — genes (~49% average heritability, Polderman et al., 2015) and brain damage (Gage and modern lesion cases) — shape moral behavior, and that some response to wrongdoing is socially necessary.",
+          live_disagreement:
+            "Whether ordinary people's responsibility judgments genuinely distinguish manipulation from natural determinism (Source Matters) or collapse the two — resolvable by pre-registered cross-cultural experimental-philosophy studies probing intuitions about manipulated vs. naturally-determined-but-internally-motivated agents.",
+        },
       },
       evidence: [
         {

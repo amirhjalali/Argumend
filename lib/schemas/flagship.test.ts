@@ -162,6 +162,15 @@ const FLAGSHIP_TOPIC_IDS = [
   "degrowth-economics",
   "effective-altruism",
   "encryption-backdoors",
+  // ── batch 4 (flagship-completion workflow) ──
+  "estate-inheritance-tax",
+  "foreign-aid-effectiveness",
+  "free-will",
+  "gain-of-function-research-ban",
+  "generative-ai-art-copyright",
+  "geoengineering-climate",
+  "gig-economy-regulation",
+  "global-water-crisis",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
