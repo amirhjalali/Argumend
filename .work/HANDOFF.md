@@ -1,7 +1,15 @@
 # Nuclear Flagship — Founder Handoff
 
-_Autonomous `/loop` run, 2026-06-22 → 06-23. Branch `nuclear-flagship` (off `main`), **NOT pushed**._
-_Full play-by-play: `.work/nuclear-flagship-log.md` (Iters 1–91). Design: `docs/plans/2026-06-22-nuclear-flagship-journey-design.md`._
+_Autonomous `/loop` run, 2026-06-22 → 06-23. Branch `nuclear-flagship` (off `main`), **NOT pushed** (~186 commits)._
+_Full play-by-play: `.work/nuclear-flagship-log.md` (Iters 1–101). Design: `docs/plans/2026-06-22-nuclear-flagship-journey-design.md`._
+
+> **Current status (supersedes the flagship-only TL;DR below).** Three phases ran, in order:
+> 1. **Flagship journey** — built + rolled out to the clean catalog (now **110** flagship topics).
+> 2. **Net-new topics** — authored **10 brand-new** topics (author→QC), catalog **142 → 152**.
+> 3. **UX/UI + user-journey deep-dive** — 11-lens audit + all actionable quick-wins shipped (both
+>    CRITICALs). See the "UX/UI" section at the bottom.
+> So the "stopped at 47 / 100 topics" framing below is historical (the flagship phase); read it as
+> background, then the Net-new + UX sections for what followed. Everything verified; nothing pushed.
 
 ## TL;DR
 
