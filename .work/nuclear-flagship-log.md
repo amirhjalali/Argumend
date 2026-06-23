@@ -948,3 +948,10 @@ Priority order, all in-loop unless a workflow is opted into:
   review burden unchanged.
 - Verified: tsc; 409 tests; 7 corrected keystones render. Branch +141. 5h usage ~14%.
 - Keystone factual base now independently audited. Back to await-founder heartbeat.
+
+### Iter 83 — 2026-06-23 — neutrality/balance audit (2 parallel agents)
+- Audited all 47 keystones+simple_cases for even-handedness (the platform's core promise). Result:
+  45 BALANCED, 0 BIASED, 2 MINOR emphasis fixes applied (electoral-college defenders' case given equal
+  concreteness; factory-farming 14.5%->~11-17% emissions range). Confirms the keystones report where
+  evidence lands without editorializing. Accuracy + neutrality now both independently audited.
+- Verified: tsc; 409 tests; both render. Branch +144. 5h usage ~1% (window reset), 7d ~26%.
