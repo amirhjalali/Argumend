@@ -7,6 +7,21 @@ export const factoryFarmingBanData = {
     "Industrial animal agriculture (factory farming) should be banned or drastically reformed due to its ethical, environmental, and public health costs.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "About 99% of US farmed animals live on factory farms — the 'humane,' cage-free, free-range options most shoppers picture are a tiny sliver of production. Worldwide, roughly 80 billion land animals are raised this way and slaughtered each year.",
+    confidence: 85,
+    source:
+      "Sentience Institute (from USDA Census of Agriculture + EPA CAFO definitions); FAO global slaughter data",
+    sourceUrl: "https://www.sentienceinstitute.org/us-factory-farming-estimates",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "When people picture where their meat comes from, they imagine the small 'humane' or cage-free farm — but about 99% of US farmed animals live on factory farms, and roughly 80 billion land animals are raised in intensive confinement worldwide each year.",
+    "The case against isn't only ethical: industrial animal agriculture produces ~14.5% of global greenhouse emissions, consumes most of the medically important antibiotics sold (~two-thirds in the US), and concentrates animals in ways that drive antibiotic resistance and pandemic risk.",
+    "The honest disagreement is partly a values question — how much moral weight a chicken's suffering carries — and partly practical: pasture systems use far more land and would raise food prices on the poorest, so the live debate is 'ban vs. reform vs. status quo,' not whether the conditions are grim.",
+  ],
   pillars: [
     {
       id: "animal-welfare-ethics",
@@ -29,6 +44,16 @@ export const factoryFarmingBanData = {
           "\\text{Moral Weight} = f(\\text{Sentience Level}, \\text{Suffering Intensity}, \\text{Number of Animals})",
         verification_status: "theoretical" as const,
         cost_to_verify: "$300K (Neuroscience and ethics review)",
+        falsification: {
+          supporter_flip:
+            "If the science converged on farmed animals (especially birds and fish) lacking the neural basis for morally relevant suffering — or if welfare reforms demonstrably eliminated the worst confinement harms at scale — the strongest ethical case for a ban would soften into a case for reform.",
+          skeptic_flip:
+            "A skeptic who doubts animal moral status should weigh that the Cambridge Declaration and a growing body of pain research credit all mammals and birds with the neural substrates of conscious experience — so dismissing farmed-animal suffering requires drawing a moral line the biology doesn't obviously support.",
+          common_ground:
+            "Both sides agree the vast majority of farmed animals live in intensive confinement, and that whether — and how much — that matters morally is a genuinely contested values question, not a pure empirical one.",
+          live_disagreement:
+            "How much moral weight farmed-animal suffering carries relative to the economic costs of changing the system — a values judgment no measurement of neural activity can settle by itself.",
+        },
       },
       evidence: [
         {
@@ -126,6 +151,16 @@ export const factoryFarmingBanData = {
           "\\text{True Cost} = \\text{Market Price} + \\sum (\\text{GHG Damage} + \\text{Health Costs} + \\text{Pollution Costs} + \\text{Pandemic Risk})",
         verification_status: "theoretical" as const,
         cost_to_verify: "$2M (Multi-disciplinary externality study)",
+        falsification: {
+          supporter_flip:
+            "If full externality accounting showed factory farming's environmental and health costs are modest next to its cheap-calorie benefits — or that intensive systems are actually lower-impact per unit of protein than the pasture alternatives that would replace them — the public-health case for banning (vs. taxing externalities) would weaken.",
+          skeptic_flip:
+            "A skeptic who defends the status quo should weigh that livestock is ~14.5% of global emissions, that most medically important antibiotics go to food animals, and that confined operations are recognized antibiotic-resistance and pandemic-risk reservoirs — externalities the market price doesn't capture.",
+          common_ground:
+            "Both sides agree industrial animal agriculture imposes real, unpriced environmental and health externalities, and that intensive systems are also more land-efficient per unit of output than pasture.",
+          live_disagreement:
+            "Whether those externalities are large enough to justify banning the system rather than taxing or reforming it — and whether pasture-based alternatives would be better or worse on land use, emissions, and food prices.",
+        },
       },
       evidence: [
         {
