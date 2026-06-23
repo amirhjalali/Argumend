@@ -720,3 +720,10 @@ Priority order, all in-loop unless a workflow is opted into:
   (sentience/moral status; externality accounting). 20 flagship topics (10->20, DOUBLED this session).
 - Verified: tsc; 301 tests (+4); renders confirmed. 5h usage ~22%.
 - Next: sugar-tax-effectiveness, school-phone-bans, social-media-mental-health, standardized-testing.
+
+### Iter 54 — 2026-06-22 — Phase 54 (flagship topic #21 = Sugar Taxes; 3-pillar)
+- keystone: taxes cut purchases + drove reformulation, but no proven obesity drop from tax alone
+  (strongest: 8% rel. obesity fall UK yr-6 girls), conf 82. simple_case: behavior changes; health
+  gains + regressivity are the open questions. Falsification on all 3 cruxes. 21 flagship topics.
+- Verified: tsc; 305 tests (+4); renders confirmed. 5h usage ~22%. Build due next topic.
+- Next: school-phone-bans, social-media-mental-health, standardized-testing-debate, lab-grown-meat.
