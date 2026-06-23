@@ -1110,3 +1110,15 @@ Priority order, all in-loop unless a workflow is opted into:
   rationalization, not piecemeal); full removal of disabled subscribe control (auth roadmap).
 - Next: (11) hide hero ViewToggle + confidence gloss; (4) one name for the second view; (13) confidence
   bridge; (1) landing value-prop H1 (flag as founder-review); THEN (6) contrast grind per-file.
+
+### Iter 98 — 2026-06-23 — UX batch 5: confidence gloss (QW#11 pt2) + FeaturedTopicHero contrast (QW#6)
+- Hero: added "how strongly the weighed evidence leans — not our opinion" gloss under the confidence %.
+  Fixed FeaturedTopicHero's 4 failing bare text-stone-400 (evidence score/source) -> text-muted
+  dark:text-stone-400; left 4 correct dark-only variants. Verified: tsc; 661 tests; clean build; gloss
+  renders. Branch +177.
+- DEFERRED: QW#11 pt1 (hide dead hero ViewToggle) -> needs a store heroVisible flag; bundle with Bet A
+  (topic-routing unification, founder-owned). Noted.
+- Next: (4) one name for second view "Map" (ReadGraphToggle/ReadModeView/ViewToggle/FeaturedTopicHero);
+  (13) confidence bridge; (1) value-prop H1 (flag founder); (6) contrast grind remaining 57 files
+  per the per-usage pattern (many "stone-X dark:stone-400" are already correct — fix only bare
+  light-mode text-stone-400).
