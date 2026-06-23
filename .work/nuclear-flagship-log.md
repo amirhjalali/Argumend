@@ -1067,3 +1067,13 @@ Priority order, all in-loop unless a workflow is opted into:
   for 4 net-new). Branch +166.
 - Next: batch 3 [hydrogen-economy-viability, antibiotic-resistance-crisis, vertical-farming-viability,
   de-extinction-species] + further trending non-sensitive candidates.
+
+### Iter 94 — 2026-06-23 — NET-NEW batch 3 (3 of 4) + initiative wrap; PIVOT to UX
+- Batch 3: hydrogen-economy-viability, vertical-farming-viability, de-extinction-species committed
+  (antibiotic-resistance-crisis author hit a connection drop, no file — DEFERRED). 149->152 catalog;
+  flagship 107->110. Verified: tsc; 661 tests; clean build. 5h usage ~27%. Branch +168.
+- NET-NEW initiative summary: 10 new topics across 3 batches (sports-betting, pfas, intermittent-fasting,
+  daylight-saving, tipping-culture, ai-therapy-chatbots, carbon-capture, hydrogen-economy, vertical-farming,
+  de-extinction). Founder redirected: STOP net-new, now do UX/UI + user-journey DEEP-DIVE (ultrathink+ultracode).
+- NEXT: launch comprehensive UX/UI + user-journey audit (ultracode workflow, ~11 lenses -> synthesis roadmap
+  at .work/ux-audit-2026-06-23.md), then ground top findings w/ browser screenshots + implement quick-wins.
