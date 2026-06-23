@@ -162,6 +162,10 @@ import { darkMatterVsMondData } from "./topics/dark-matter-vs-mond";
 import { sportsBettingLegalizationData } from "./topics/sports-betting-legalization";
 import { pfasForeverChemicalsData } from "./topics/pfas-forever-chemicals";
 import { intermittentFastingEfficacyData } from "./topics/intermittent-fasting-efficacy";
+import { daylightSavingTimeAbolitionData } from "./topics/daylight-saving-time-abolition";
+import { tippingCultureData } from "./topics/tipping-culture";
+import { aiTherapyChatbotsData } from "./topics/ai-therapy-chatbots";
+import { carbonCaptureViabilityData } from "./topics/carbon-capture-viability";
 
 // labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
 const labLeakTheoryData = covidOriginsData;
@@ -353,12 +357,20 @@ export const darkMatterVsMond = buildTopic(darkMatterVsMondData);
 export const sportsBettingLegalization = buildTopic(sportsBettingLegalizationData);
 export const pfasForeverChemicals = buildTopic(pfasForeverChemicalsData);
 export const intermittentFastingEfficacy = buildTopic(intermittentFastingEfficacyData);
+export const daylightSavingTimeAbolition = buildTopic(daylightSavingTimeAbolitionData);
+export const tippingCulture = buildTopic(tippingCultureData);
+export const aiTherapyChatbots = buildTopic(aiTherapyChatbotsData);
+export const carbonCaptureViability = buildTopic(carbonCaptureViabilityData);
 
 export const topics: Topic[] = [
   // --- New (2026-06-23, net-new initiative) ---
   sportsBettingLegalization,
   pfasForeverChemicals,
   intermittentFastingEfficacy,
+  daylightSavingTimeAbolition,
+  tippingCulture,
+  aiTherapyChatbots,
+  carbonCaptureViability,
   // --- Policy & Governance ---
   nuclearEnergySafety,
   universalHealthcare,

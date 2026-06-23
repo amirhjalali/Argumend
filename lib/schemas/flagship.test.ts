@@ -199,6 +199,10 @@ const FLAGSHIP_TOPIC_IDS = [
   "sports-betting-legalization",
   "pfas-forever-chemicals",
   "intermittent-fasting-efficacy",
+  "daylight-saving-time-abolition",
+  "tipping-culture",
+  "ai-therapy-chatbots",
+  "carbon-capture-viability",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
