@@ -7,6 +7,21 @@ export const aiDeepfakesTruthCollapseData = {
     "AI-generated deepfake audio, video, and images have advanced to the point where no digital media can be trusted as authentic, fundamentally undermining evidence-based discourse, journalism, and democratic accountability.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The most documented harm from deepfakes so far isn't fake videos fooling people — it's the inverse: the mere existence of the technology lets guilty parties dismiss real, authenticated footage as 'AI fakery.' Researchers call this the 'liar's dividend,' and it has already been invoked in real elections — a candidate in Turkey's 2023 race waved away a genuine tape this way. Meanwhile the best automated detectors hit only about 78% on real 2024 deepfakes, well below the ~90% of expert human analysts.",
+    confidence: 84,
+    source:
+      "Chesney & Citron, 'Deep Fakes' (California Law Review, 2019, coined 'liar's dividend'); Chandra et al., Deepfake-Eval-2024 (arXiv:2503.02857)",
+    sourceUrl: "https://arxiv.org/abs/2503.02857",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Generation is racing ahead of detection: voice clones now need only ~3 seconds of sample audio, and on a 2024 in-the-wild benchmark the best automated video detector reached only ~78% accuracy (AUC ≈0.79) — a ~45-50% drop from its score on clean academic datasets — while a deepfaked video call already cost the engineering firm Arup $25 million.",
+    "But the apocalypse framing oversells it: expert human analysts still hit ~90%, detection can lean on metadata, provenance, and context rather than pixels alone, and cryptographic provenance (the C2PA standard, now shipping in Leica, Nikon, and Canon cameras) gives trusted sources a verifiable chain of custody — society also navigated doctored photographs for a century before AI.",
+    "So the honest debate isn't whether any fake can fool any viewer (it can) but whether verification infrastructure and the 'liar's dividend' move faster than each other — whether trusted-source provenance reaches consequential media before reflexive 'it's a deepfake' distrust becomes the default and erodes accountability irreversibly.",
+  ],
   imageUrl:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -67,6 +82,16 @@ export const aiDeepfakesTruthCollapseData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$150K-400K (Systematic case study analysis with forensic verification)",
+        falsification: {
+          supporter_flip:
+            "If a systematic database of 'it's a deepfake' claims showed the defense almost never succeeds — that forensic analysis, contextual evidence, and public judgment reliably re-establish authenticity, and that accountability outcomes are no different from the pre-deepfake era — then the liar's dividend would be a rhetorical nuisance, not a structural threat to accountability.",
+          skeptic_flip:
+            "A skeptic who calls the liar's dividend overblown should weigh that it has already been deployed in live elections (Turkey 2023, Gabon 2018-19) and that its power doesn't require any fake to be made — the mere availability of the technology supplies a universal alibi for anyone caught on camera, which is hard to forensically rebut to a non-expert public.",
+          common_ground:
+            "Both sides agree the 'it's a deepfake' defense is now being invoked against genuine recordings, and that forensic authentication of specific clips is often technically possible.",
+          live_disagreement:
+            "Whether the defense measurably deflects accountability for powerful actors at scale — which only a comprehensive, forensically verified case database tracking whether the 'deepfake defense' actually changed outcomes (and whether it's succeeding more often over time) can resolve.",
+        },
       },
       evidence: [
         {
@@ -146,6 +171,16 @@ export const aiDeepfakesTruthCollapseData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Multi-year red team/blue team detection reliability exercise)",
+        falsification: {
+          supporter_flip:
+            "If a multi-year red-team/blue-team exercise showed that, on the highest-stakes deepfakes, detection combined with metadata, provenance, and witness corroboration reliably stays above ~90% and the gap is not widening, the 'detection structurally loses the arms race' claim would collapse into 'detection needs ongoing investment, not replacement.'",
+          skeptic_flip:
+            "A skeptic who trusts detection should weigh that generators are literally trained to defeat detectors, that the best automated systems already fell to ~78% on 2024 in-the-wild deepfakes (from >95% on clean datasets), and that detectors must generalize to every new generation method while a generator only has to fool the average observer once.",
+          common_ground:
+            "Both sides agree pixel-level detection alone is insufficient and that contextual signals (metadata, provenance, source verification, witness accounts) materially raise real-world reliability above naked detector benchmarks.",
+          live_disagreement:
+            "Whether detection-plus-context can hold a high reliability threshold for consequential media as generators improve, or whether the generator's structural advantage forces a shift to provenance-first trust — which only a sustained, adversarial red-team/blue-team trajectory can settle.",
+        },
       },
       evidence: [
         {
@@ -208,6 +243,16 @@ export const aiDeepfakesTruthCollapseData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Industry adoption tracking with public trust survey component)",
+        falsification: {
+          supporter_flip:
+            "If adoption tracking showed C2PA stalling among trusted sources — cameras, wire services, platforms, and governments not converging, or attackers routinely stripping provenance metadata so verified media stays a rare exception while public trust keeps falling — then provenance would arrive too late to be the answer, and the 'build it before trust collapses' bet would have already failed.",
+          skeptic_flip:
+            "A skeptic who thinks the transition is hopeless should weigh that provenance doesn't need universal adoption to work — only adoption by trusted tiers (BBC, Reuters, AP, official communications), and that professional cameras from Leica, Nikon, and Canon plus the HTTPS-style 'critical sites first' rollout pattern show a credible path for consequential media.",
+          common_ground:
+            "Both sides agree retrofitting 6+ billion existing devices is impossible, that the installed-base transition takes years, and that provenance only needs to cover consequential media — not every smartphone photo — to be useful.",
+          live_disagreement:
+            "Whether trusted-source provenance coverage of consequential media outpaces deepfake-driven distrust before that distrust becomes the irreversible default — an empirical race only joint tracking of C2PA adoption curves against public-trust surveys can call.",
+        },
       },
       evidence: [
         {

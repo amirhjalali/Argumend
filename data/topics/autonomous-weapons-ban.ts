@@ -7,6 +7,22 @@ export const autonomousWeaponsBanData = {
     "Lethal autonomous weapons should be banned by international treaty.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "A ban on \"killer robots\" is far from a fringe idea: in December 2024, 166 states voted for UN action on lethal autonomous weapons (only Belarus, North Korea, and Russia voted no), and the UN Secretary-General and the Red Cross have jointly called for a binding treaty by 2026. The catch is that nearly every major power actually building these weapons — the US, Russia, China, India, Israel — either opposes a ban or abstains, so the overwhelming \"support\" is real but the states that matter most for compliance are not on board.",
+    confidence: 88,
+    source:
+      "UN General Assembly Resolution 79/62 (2 Dec 2024, 166-3-15); UN Secretary-General & ICRC joint call for a treaty by 2026 (Oct 2023, reiterated 2025)",
+    sourceUrl:
+      "https://www.hrw.org/news/2024/12/05/killer-robots-un-vote-should-spur-treaty-negotiations",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The case for a ban is strong and mainstream: 120+ states want to negotiate prohibitions, 166 voted for UN action in 2024, and the guardians of the laws of war (the ICRC) plus the UN Secretary-General argue that delegating life-and-death decisions to software with no accountable human creates a \"responsibility gap\" no current law can close.",
+    "The honest counterpoint is that the states most likely to build and abuse these weapons — Russia, China, the US, India, Israel — are exactly the ones opposing or abstaining, and autonomy is a property of software with no physical signature, so a treaty may bind only the cautious while being nearly impossible to verify against the determined.",
+    "So the honest debate isn't whether autonomous weapons raise serious moral and legal problems (almost everyone agrees they do) but whether a treaty would actually change the behavior of the great powers racing ahead, or merely create a paper norm the holdouts ignore.",
+  ],
   last_updated: "2026-06-16",
   tags: ["autonomous-weapons", "ai", "arms-control", "international-law", "warfare"],
   pillars: [
@@ -29,6 +45,16 @@ export const autonomousWeaponsBanData = {
           "Construct adversarial scenarios (autonomous strike on a protected target) and test each against (1) Rome Statute command responsibility, (2) Article 36 weapons-review obligations, and (3) DoD Directive 3000.09's human-judgment standard. Identify whether any scenario leaves no chargeable human actor.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (legal analysis of existing doctrine)",
+        falsification: {
+          supporter_flip:
+            "If a careful doctrinal mapping showed that every realistic autonomous-strike atrocity can be traced to a chargeable human under Rome Statute command responsibility plus Article 36 weapons-review duties — so no genuine accountability vacuum exists — the 'responsibility gap' rationale for a ban would collapse into 'enforce the law we already have.'",
+          skeptic_flip:
+            "A skeptic who says existing IHL is sufficient should weigh that command responsibility requires a commander to have known or foreseen the unlawful act; an adaptive system acting in a situation no human specifically anticipated may leave prosecutors unable to prove the mens rea that war-crimes liability demands.",
+          common_ground:
+            "Both sides agree that a human must remain legally responsible for any lethal act and that a weapon whose behavior a commander cannot adequately predict or control should not be deployed.",
+          live_disagreement:
+            "Whether at least one realistic atrocity scenario leaves no chargeable human under current doctrine — resolvable by running adversarial scenarios past command-responsibility, weapons-review, and DoD Directive 3000.09 standards to see if any produces an unaccountable war crime.",
+        },
       },
       evidence: [
         {
@@ -110,6 +136,16 @@ export const autonomousWeaponsBanData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0-low (policy analysis); a real inspection regime would cost far more",
+        falsification: {
+          supporter_flip:
+            "If a credible verification design emerged — intrusive inspection, enforceable limits on observable physical/behavioral characteristics, or compute/hardware controls — that great powers were actually willing to accept, the 'autonomy is software, so a ban is unverifiable' objection would lose its force.",
+          skeptic_flip:
+            "A skeptic who says a ban is unverifiable should weigh that the prohibitions on blinding lasers (CCW Protocol IV) and anti-personnel landmines work largely through stigma, criminalization, and changed procurement rather than perfect detection — so 'no inspection regime' has not historically meant 'no effective ban.'",
+          common_ground:
+            "Both sides agree that a 'smart' and a 'dumb' munition can be externally indistinguishable, and that great-power buy-in (or its absence) is decisive for whether any treaty actually constrains behavior.",
+          live_disagreement:
+            "Whether a norm-and-procurement treaty changes great-power conduct without verification, or whether the holdouts simply race ahead — resolvable by tracking whether states that sign measurably alter development and fielding versus those that don't.",
+        },
       },
       evidence: [
         {
