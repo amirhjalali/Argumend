@@ -841,3 +841,10 @@ Priority order, all in-loop unless a workflow is opted into:
   lifestyle-vs-drug; off-label creep). 36 flagship topics (10->36, +26 this overnight session). Branch +162.
 - Verified: tsc; 365 tests (+4); clean build (periodic); renders confirmed. 5h usage ~9%.
 - Next: microplastics-health-crisis, gene-editing-embryos, nuclear-renaissance-smr, ai-replacing-doctors.
+
+### Iter 70 — 2026-06-22 — Phase 70 (flagship topic #37 = Microplastics; 3-pillar)
+- keystone: microplastics in ~every organ (77% blood, 100% testes) + NEJM 4.5x cardiac risk, but
+  observational/cause-vs-bystander unsettled, conf 80. Falsification on all 3 cruxes (CV causation;
+  EDC mixtures; polymer inertness). 37 flagship topics (10->37, +27 this overnight session). Branch +166.
+- Verified: tsc; 369 tests (+4); renders confirmed (crux3 grep apostrophe-escaping noted). 5h usage ~9%.
+- Next: gene-editing-embryos, nuclear-renaissance-smr, ai-replacing-doctors, social-media-age-limits.
