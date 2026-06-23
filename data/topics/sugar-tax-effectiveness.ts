@@ -7,6 +7,21 @@ export const sugarTaxEffectivenessData = {
     "Sugar taxes on sweetened beverages are an effective public health intervention that meaningfully reduces sugar consumption and obesity rates.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Sugar taxes reliably cut sugary-drink purchases (Mexico ~7.6%) and pushed UK manufacturers to slash drink sugar by ~30%+ — but a decade in, no country has yet shown a population-wide obesity drop caused by the tax alone; the strongest health signal is an 8% relative obesity fall in UK 10–11-year-old girls.",
+    confidence: 82,
+    source:
+      "Colchero et al., Health Affairs (2017, Mexico); Scarborough et al., PLoS Medicine (2020, UK reformulation); Rogers et al., PLoS Medicine (2023, UK girls)",
+    sourceUrl: "https://www.who.int/publications/i/item/9789241511247",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Sugar taxes do the thing they most directly target: Mexico's tax cut sugary-drink purchases ~7.6% (most among the poorest), and the UK's tiered levy pushed manufacturers to cut soft-drink sugar by ~30%+ — a change that reaches everyone, not just price-sensitive shoppers.",
+    "But the ultimate goal is murkier: after a decade of sugar taxes worldwide, no jurisdiction has yet proven a population-wide obesity drop from the tax alone — the strongest health signal so far is an 8% relative obesity reduction in UK 10–11-year-old girls (but not boys or younger kids).",
+    "So the honest debate isn't whether sugar taxes change behavior (they clearly do) but whether that translates into measurable health gains given a 5–10 year lag — and whether a regressive tax is the right tool, or reformulation mandates and structural changes would do more.",
+  ],
   imageUrl:
     "https://images.unsplash.com/photo-1527960471264-932f39eb5846?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -77,6 +92,16 @@ export const sugarTaxEffectivenessData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$200K (retail scanner data licensing + econometric analysis)",
+        falsification: {
+          supporter_flip:
+            "If careful accounting showed the cut in taxed-beverage purchases is fully offset by substitution to other sugary/calorie-dense products or cross-border shopping — so total sugar intake barely moves — the consumption case for the tax would collapse.",
+          skeptic_flip:
+            "A skeptic who says people just substitute should weigh that Mexico's reduction was sustained over two years and concentrated among the poorest, that soft drinks are among the most price-responsive food categories, and that the UK levy cut sugar at the source via reformulation — which substitution can't undo.",
+          common_ground:
+            "Both sides agree sugar taxes measurably reduce purchases of the taxed beverages; the dispute is net sugar intake after substitution and leakage.",
+          live_disagreement:
+            "How much of the purchase reduction is genuine net sugar reduction versus substitution to untaxed sugary products and cross-border shopping — especially in small jurisdictions like Philadelphia.",
+        },
       },
       evidence: [
         {
@@ -177,6 +202,16 @@ export const sugarTaxEffectivenessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K (longitudinal health survey data + epidemiological modeling)",
+        falsification: {
+          supporter_flip:
+            "If, after the 5–10 year lag, sugar-tax jurisdictions still showed no obesity or diabetes improvement versus matched controls — i.e. the UK year-6-girls signal didn't generalize or replicate — the rationale would weaken from 'works' to 'changes behavior without measurable health payoff.'",
+          skeptic_flip:
+            "A skeptic who says it won't dent obesity should weigh that liquid calories uniquely bypass satiety (so cutting them isn't easily compensated), that sugary drinks are the largest single source of added sugar, and that early signals (UK girls' obesity, children's tooth extractions) point the right way — the health data may simply lag.",
+          common_ground:
+            "Both sides agree no study has yet shown a causally attributable population-wide obesity reduction from a sugar tax alone, and that any such effect would take years to appear.",
+          live_disagreement:
+            "Whether the documented drop in sugar consumption will translate into measurable obesity/diabetes reductions once enough years pass, or whether soda is too small a slice of total calories to move the needle.",
+        },
       },
       evidence: [
         {
@@ -277,6 +312,16 @@ export const sugarTaxEffectivenessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K (health economics modeling + household expenditure surveys)",
+        falsification: {
+          supporter_flip:
+            "If net-incidence analysis showed the financial burden on low-income households outweighs their health gains — and revenue isn't actually redirected to them — the 'pro-equity' framing would fail, leaving a regressive tax.",
+          skeptic_flip:
+            "A skeptic who calls it regressive should weigh that the poorest bear the highest obesity-disease burden and showed the largest consumption cuts (Mexico), so the health benefit concentrates where the disease is — and that earmarking revenue (Berkeley nutrition, Philadelphia pre-K) can flip net incidence.",
+          common_ground:
+            "Both sides agree the tax is financially regressive on the spending side — it takes a larger share of income from the poor.",
+          live_disagreement:
+            "Whether the larger health benefits to low-income groups (and earmarked revenue) outweigh that regressive financial burden, making the policy net-progressive — which depends on contested QALY valuations and whether revenue is actually targeted.",
+        },
       },
       evidence: [
         {
