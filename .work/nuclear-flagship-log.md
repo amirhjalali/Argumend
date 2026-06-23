@@ -1045,3 +1045,17 @@ Priority order, all in-loop unless a workflow is opted into:
   author->QC fact+neutrality checked; QC caught ~10 real fixes. Updated HANDOFF.md + memory. Branch +163,
   STILL UNPUSHED -> founder review.
 - Returning to ~30min await-founder heartbeat. Sensitive topics NOT to be touched without founder direction.
+
+### Iter 92 — 2026-06-23 — NET-NEW topics initiative, batch 1 (3 topics) — after API outage recovery
+- Founder said "keep going"; flagship-completion done -> pivoted to net-new topics (broader-improvement
+  mandate). API was down ~30min (model-tier unavailable); prepped schema+registration during outage,
+  launched on recovery.
+- Batch 1 (full author->QC, brand-new files): sports-betting-legalization (NBER $1->$0.99 investment drop;
+  QC zero issues), pfas-forever-chemicals (NHANES >99% but levels falling post-phase-out), intermittent-
+  fasting-efficacy (TREAT trial calorie-matched null). Each: full pillars+weighted evidence+cruxes+
+  questions+keystone+simple_case+falsification. Registered centrally in data/topics.ts (3-part) +
+  flagship.test.ts. 142->145 catalog; flagship 100->103. Verified: tsc; 633 tests; clean build; all render.
+- Net-new pipeline VALIDATED. 5h usage ~13%. Branch +164.
+- Next: scale net-new in ~3-4 batches: daylight-saving-time-abolition, tipping-culture, ai-therapy-chatbots,
+  carbon-capture-viability, hydrogen-economy-viability, antibiotic-resistance-crisis, vertical-farming-
+  viability + brainstorm more trending non-sensitive two-sided topics.
