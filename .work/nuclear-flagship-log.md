@@ -1129,3 +1129,10 @@ Priority order, all in-loop unless a workflow is opted into:
   no stray Detailed/Logic Map. Branch +179.
 - Next: (13) confidence bridge (FlagshipIntro/ReadModeView); (1) value-prop H1 (FLAG founder); (6)
   contrast grind remaining files (ONLY bare light-mode text-stone-400 -> text-muted dark:text-stone-400).
+
+### Iter 100 — 2026-06-23 — UX batch 7: confidence-scope label (QW#13)
+- FlagshipIntro keystone pill "Established · 90% confidence" -> "This fact: Established · 90%" (scopes
+  fact-confidence vs claim-verdict; avoids a topic-inaccurate hardcoded bridge). Updated FlagshipIntro
+  test. Verified: 661 tests; clean build; renders. Branch +181.
+- Next: (1) value-prop H1 in FeaturedTopicHero — do by hand + FLAG founder-review (hero copy); (6)
+  contrast grind via parallel ultracode workflow (bare light-mode text-stone-400 only).
