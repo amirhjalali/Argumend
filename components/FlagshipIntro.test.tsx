@@ -31,7 +31,7 @@ describe("FlagshipIntro", () => {
     render(<FlagshipIntro topic={topic} />);
 
     expect(screen.getByText(/800x safer than coal/)).toBeTruthy();
-    expect(screen.getByText(/90% confidence/)).toBeTruthy();
+    expect(screen.getByText(/This fact:.*90%/)).toBeTruthy();
     expect(screen.getByText(/The honest version/)).toBeTruthy();
     expect(screen.getByText("Second sentence.")).toBeTruthy();
   });

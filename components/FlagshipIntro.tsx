@@ -32,7 +32,7 @@ export function FlagshipIntro({ topic }: { topic: Topic }) {
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-deep px-2.5 py-1 font-sans font-semibold text-[11px] text-white">
-              {confidenceTier(k.confidence)} · {k.confidence}% confidence
+              This fact: {confidenceTier(k.confidence)} · {k.confidence}%
             </span>
             {k.sourceUrl ? (
               <a
