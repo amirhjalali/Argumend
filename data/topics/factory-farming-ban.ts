@@ -19,7 +19,7 @@ export const factoryFarmingBanData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "When people picture where their meat comes from, they imagine the small 'humane' or cage-free farm — but about 99% of US farmed animals live on factory farms, and of the roughly 80 billion land animals slaughtered worldwide each year, most are raised in intensive confinement.",
-    "The case against isn't only ethical: industrial animal agriculture produces ~14.5% of global greenhouse emissions, consumes most of the medically important antibiotics sold (~two-thirds in the US), and concentrates animals in ways that drive antibiotic resistance and pandemic risk.",
+    "The case against isn't only ethical: industrial animal agriculture is a major greenhouse emitter (livestock are an estimated ~11–17% of global emissions), consumes most of the medically important antibiotics sold (~two-thirds in the US), and concentrates animals in ways that drive antibiotic resistance and pandemic risk.",
     "The honest disagreement is partly a values question — how much moral weight a chicken's suffering carries — and partly practical: pasture systems use far more land and would raise food prices on the poorest, so the live debate is 'ban vs. reform vs. status quo,' not whether the conditions are grim.",
   ],
   pillars: [

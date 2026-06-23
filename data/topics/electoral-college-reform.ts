@@ -19,7 +19,7 @@ export const electoralCollegeReformData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "The case against the Electoral College is concrete, not abstract: twice in the last six elections (2000 and 2016) the popular-vote winner lost, a Wyoming voter's ballot carries roughly 3.6× the electoral weight of a Californian's, and candidates already ignore 40+ states to camp in 5–7 swing states.",
-    "Defenders answer that this is a feature, not a bug — it protects small states and federalism and forces geographically broad coalitions rather than campaigns that just run up margins in big cities.",
+    "Defenders answer that this is a feature, not a bug: it forces candidates to build geographically broad coalitions instead of running up margins in a few dense metros, and it gives less-populous states the bargaining weight the founders deliberately built into the federal system to get the union ratified.",
     "So the honest debate isn't really whether the system is unequal (it plainly is) but whether that's the right kind of unequal — and, practically, it may be moot: a constitutional amendment is politically dead, and the workaround (the NPVIC) is 48 electoral votes short, stalled in the Republican-leaning states it needs, and faces a likely Supreme Court challenge.",
   ],
   pillars: [
