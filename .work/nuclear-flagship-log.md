@@ -955,3 +955,15 @@ Priority order, all in-loop unless a workflow is opted into:
   concreteness; factory-farming 14.5%->~11-17% emissions range). Confirms the keystones report where
   evidence lands without editorializing. Accuracy + neutrality now both independently audited.
 - Verified: tsc; 409 tests; both render. Branch +144. 5h usage ~1% (window reset), 7d ~26%.
+
+### Iter 84 — 2026-06-23 — browser visual verification of a NEW flagship page
+- Closed the last verification gap: I'd only ever browser-verified the ORIGINAL flagship pages, never
+  the 37 new ones (curl-grep only). Loaded Chrome, rendered /topics/pandemic-preparedness (a 3-pillar
+  topic) end-to-end. Confirmed visually: keystone hero ("THE FACT MOST PEOPLE GET WRONG" + $16T fact +
+  "Strong · 82% confidence" tier pill correctly teal), simple-case 3 sentences, pillar layout
+  (proponent/skeptic, controversy meter, evidence cards w/ confidence bars), and the FalsificationCrux
+  component rendering ALL four fields (supporter flip / skeptic flip / BOTH AGREE / LIVE FIGHT) plus the
+  methodology expander, across multiple pillars. No layout breakage, no overflow, tiers colored right.
+- New flagship pages now verified on all 5 dimensions: data integrity (tests), text render (curl),
+  factual accuracy (audit), neutrality (audit), and visual layout (browser). Verification complete.
+- No code changes (verification only). Branch +146. 5h usage ~3%, 7d ~26%.
