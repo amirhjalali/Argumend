@@ -808,3 +808,10 @@ Priority order, all in-loop unless a workflow is opted into:
   (capability trajectory; regulation-innovation; geopolitical coordination). 32 flagship (10->32, +22).
 - Verified: tsc; 349 tests (+4); renders confirmed. 5h usage ~8%. Build due next topic.
 - Next: electoral-college-reform, mandatory-voting, surveillance-public-safety, then reassess pool.
+
+### Iter 66 — 2026-06-22 — Phase 66 (flagship topic #33 = Electoral College Reform)
+- keystone: pop-vote loser won twice/6 elections + Wyoming ~3.6x weight, but abolition near-
+  impossible & NPVIC 48 EVs short + SCOTUS risk, conf 85. Falsification on both cruxes (NPVIC->270;
+  SCOTUS constitutionality). 33 flagship topics (10->33, +23 this overnight session). Branch +150.
+- Verified: tsc; 353 tests (+4); clean build (periodic); renders confirmed. 5h usage ~8%.
+- Next: mandatory-voting, surveillance-public-safety, then reassess thinning clean-keystone pool.
