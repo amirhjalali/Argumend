@@ -902,3 +902,11 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 397 tests (+4); clean build (periodic); renders confirmed. 5h usage ~12%.
 - Candidate pool now thin: space-colonization-feasibility, ai-superintelligence-timeline,
   privacy-vs-convenience, ai-content-labeling, media-bias. Will do the clearly-distinct ones then taper.
+
+### Iter 78 — 2026-06-22 — Phase 78 (flagship topic #45 = Space Colonization)
+- keystone: worst-Earth still beats Mars (no air/radiation/38%g/-60C/perchlorates); no cargo landed
+  as of 2025, self-sufficiency decades off = outpost not backup, conf 84. Falsification on both cruxes
+  (transport; ISRU). 45 flagship topics (10->45, +35 this overnight session). Branch +198.
+- Verified: tsc; 401 tests (+4); renders confirmed (crux1 grep apostrophe noted). 5h usage ~12%.
+- Pool nearly exhausted of clean keystones. Remaining: ai-superintelligence-timeline (distinct from
+  ai-risk), privacy-vs-convenience. After those, TAPER to await founder (branch is +198 unpushed).
