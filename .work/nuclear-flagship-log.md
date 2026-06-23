@@ -919,3 +919,14 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 405 tests (+4); renders confirmed. 5h usage ~12%.
 - Next: privacy-vs-convenience (last clearly-distinct clean-keystone topic), then TAPER to slower
   await-founder cadence — pool exhausted, branch +202 unpushed warrants founder review.
+
+### Iter 80 — 2026-06-22 — Phase 80 (flagship topic #47 = Digital Privacy) — END OF EXPANSION SPRINT
+- keystone: privacy paradox (say-care/click-agree) + data brokers hold thousands of points; live Q is
+  opt-outs-vs-regulation, conf 80. Falsification on all 3 cruxes. 47 flagship topics (10->47, +37 this
+  overnight session). Branch +206.
+- Verified: tsc; 409 tests (+4); clean build (periodic); renders confirmed. 5h usage ~13%.
+- **TAPERING NOW.** Clean-keystone candidate pool is exhausted; remaining topics are values-laden,
+  sensitive (skip-list), redundant, or fast-moving geopolitical — NOT good autonomous flagship
+  candidates without founder judgment. Overnight result: flagship journey 10 -> 47 topics (4.7x), all
+  verified, all with keystone_fact + simple_case + per-crux falsification, every keystone reusing the
+  topic's own sources. Branch +206 unpushed -> founder review. Switching to longer await-founder cadence.
