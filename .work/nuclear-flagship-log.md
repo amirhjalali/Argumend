@@ -999,3 +999,12 @@ Priority order, all in-loop unless a workflow is opted into:
 - 5h usage ~35% (batch ~7%); 7d ~31%. Branch +154. ~26 clean topics remain (3-4 more batches).
 - Next: batch 4 [estate-inheritance-tax, foreign-aid-effectiveness, free-will, gain-of-function-research-ban,
   generative-ai-art-copyright, geoengineering-climate, gig-economy-regulation, global-water-crisis].
+
+### Iter 88 — 2026-06-23 — flagship-completion batch 4 (8 topics, clean run)
+- Batch 4 [estate-inheritance-tax, foreign-aid-effectiveness, free-will, gain-of-function-research-ban,
+  generative-ai-art-copyright, geoengineering-climate, gig-economy-regulation, global-water-crisis].
+  No 529s; author+QC ran; all structurally clean (keystone=1, falsif==crux, no pollution). 71->79 flagship.
+  Verified: tsc; 537 tests; clean build. 5h usage ~41% (batch ~6%); 7d ~31%. Branch +156.
+- ~18 clean topics remain (~2-3 batches).
+- Next: batch 5 [homeschooling-effectiveness, housing-affordability-crisis, inflation-monetary-policy,
+  lab-diamonds-ethics, lithium-mining-ev-impact, loneliness-epidemic, modern-monetary-theory, net-neutrality].
