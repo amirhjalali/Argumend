@@ -930,3 +930,11 @@ Priority order, all in-loop unless a workflow is opted into:
   candidates without founder judgment. Overnight result: flagship journey 10 -> 47 topics (4.7x), all
   verified, all with keystone_fact + simple_case + per-crux falsification, every keystone reusing the
   topic's own sources. Branch 137 commits ahead, unpushed -> founder review. Switching to longer await-founder cadence.
+
+### Iter 81 — 2026-06-22 — await-founder taper (no new flagship topics)
+- Expansion remains complete at 47. Did two consolidation tasks instead of forcing low-value topics:
+  (1) updated stale project memory (nuclear-flagship-2026-06.md) from pre-sprint 10-topic/58-commit
+  state to current 47/138/409; (2) wrote `.work/HANDOFF.md` — a single founder-facing summary of the
+  branch + the 4 open decisions (push?, sensitive topics, brand-asset 404, featuredTopicId).
+- Health: tree clean, branch +139, tsc/409 tests green (unchanged since #47). 5h usage ~14%, 7d ~25%.
+- Holding ~30min await-founder cadence. Nothing high-value left to do autonomously without direction.
