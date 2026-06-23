@@ -706,3 +706,10 @@ Priority order, all in-loop unless a workflow is opted into:
 - 8 topics added this overnight session (10->18). Next: reassess pool — candidates with clear
   keystones: factory-farming-ban, sugar-tax-effectiveness, ultra-processed-food, school-phone-bans,
   social-media-mental-health, standardized-testing-debate.
+
+### Iter 52 — 2026-06-22 — Phase 52 (flagship topic #19 = Ultra-Processed Foods; first 3-pillar)
+- First 3-pillar flagship: falsification on ALL 3 cruxes. keystone: Hall NIH RCT (+508 cal/day on
+  matched UPF diet), conf 82. simple_case: mechanism + policy are the open questions, not whether
+  there's a problem. Verified all 3 crux falsifications render (grep apostrophe-escaping noted).
+- Verified: tsc; 297 tests (+4); clean build (periodic); renders confirmed. 19 flagship topics.
+  5h usage ~21%. Next: factory-farming-ban, sugar-tax-effectiveness, school-phone-bans.
