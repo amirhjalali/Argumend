@@ -203,6 +203,9 @@ const FLAGSHIP_TOPIC_IDS = [
   "tipping-culture",
   "ai-therapy-chatbots",
   "carbon-capture-viability",
+  "hydrogen-economy-viability",
+  "vertical-farming-viability",
+  "de-extinction-species",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {

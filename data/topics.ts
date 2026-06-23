@@ -166,6 +166,9 @@ import { daylightSavingTimeAbolitionData } from "./topics/daylight-saving-time-a
 import { tippingCultureData } from "./topics/tipping-culture";
 import { aiTherapyChatbotsData } from "./topics/ai-therapy-chatbots";
 import { carbonCaptureViabilityData } from "./topics/carbon-capture-viability";
+import { hydrogenEconomyViabilityData } from "./topics/hydrogen-economy-viability";
+import { verticalFarmingViabilityData } from "./topics/vertical-farming-viability";
+import { deExtinctionSpeciesData } from "./topics/de-extinction-species";
 
 // labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
 const labLeakTheoryData = covidOriginsData;
@@ -361,6 +364,9 @@ export const daylightSavingTimeAbolition = buildTopic(daylightSavingTimeAbolitio
 export const tippingCulture = buildTopic(tippingCultureData);
 export const aiTherapyChatbots = buildTopic(aiTherapyChatbotsData);
 export const carbonCaptureViability = buildTopic(carbonCaptureViabilityData);
+export const hydrogenEconomyViability = buildTopic(hydrogenEconomyViabilityData);
+export const verticalFarmingViability = buildTopic(verticalFarmingViabilityData);
+export const deExtinctionSpecies = buildTopic(deExtinctionSpeciesData);
 
 export const topics: Topic[] = [
   // --- New (2026-06-23, net-new initiative) ---
@@ -371,6 +377,9 @@ export const topics: Topic[] = [
   tippingCulture,
   aiTherapyChatbots,
   carbonCaptureViability,
+  hydrogenEconomyViability,
+  verticalFarmingViability,
+  deExtinctionSpecies,
   // --- Policy & Governance ---
   nuclearEnergySafety,
   universalHealthcare,
