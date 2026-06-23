@@ -189,6 +189,12 @@ const FLAGSHIP_TOPIC_IDS = [
   "social-security-retirement-age",
   "vaping-harm-reduction",
   "animal-consciousness-rights",
+  // ── batch 7 (flagship-completion workflow) ──
+  "facial-recognition-policing",
+  "return-to-office-productivity",
+  "section-230-reform",
+  "global-housing-bubble",
+  "us-national-debt-crisis",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
