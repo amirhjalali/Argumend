@@ -938,3 +938,13 @@ Priority order, all in-loop unless a workflow is opted into:
   branch + the 4 open decisions (push?, sensitive topics, brand-asset 404, featuredTopicId).
 - Health: tree clean, branch +139, tsc/409 tests green (unchanged since #47). 5h usage ~14%, 7d ~25%.
 - Holding ~30min await-founder cadence. Nothing high-value left to do autonomously without direction.
+
+### Iter 82 — 2026-06-23 — keystone fact-check audit (4 parallel web-research agents)
+- Used idle capacity for genuine diligence: web-fact-checked all 47 public-facing keystone_facts.
+  41 verified fully accurate; found + fixed 6 real issues (factory-farming global/US conflation [was
+  WRONG]; EV payback range overstated; GPT-4 90th-pct bar disputed; consciousness Nature 2024->2023 +
+  17% re-sourced to Dreksler 2025; lab-grown Mosa-Meat anachronism + stale $3 beef; healthcare ~77->78
+  life expectancy; space "$570B commercial"->"global"). Zero NEW features — accuracy fixes only, so
+  review burden unchanged.
+- Verified: tsc; 409 tests; 7 corrected keystones render. Branch +141. 5h usage ~14%.
+- Keystone factual base now independently audited. Back to await-founder heartbeat.
