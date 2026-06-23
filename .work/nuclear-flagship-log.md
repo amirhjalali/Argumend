@@ -863,3 +863,12 @@ Priority order, all in-loop unless a workflow is opted into:
   the flagship.test.ts guard works. Falsification on all 3 cruxes. 39 flagship topics (10->39, +29).
 - Verified: tsc; 377 tests; renders confirmed. Branch +174. 5h usage ~10%.
 - Next: ai-replacing-doctors, social-media-age-limits, pandemic-preparedness, longevity-science.
+
+### Iter 73 — 2026-06-22 — Phase 73 (flagship topic #40 = AI Replacing Doctors) — MILESTONE: 40 topics (4x)
+- keystone: AI matches/beats docs on narrow tasks but all 950+ FDA medical AIs assist, not replace;
+  job > benchmark, conf 80. Falsification on all 3 cruxes (generalization; patient outcomes;
+  regulatory/liability). **MILESTONE: 40 flagship topics = 4x the original 10 (+30 this overnight
+  session). Branch +178.**
+- Verified: tsc; 381 tests; clean build (milestone); renders confirmed. 5h usage ~10%.
+- Next: social-media-age-limits, pandemic-preparedness, longevity-science, space-colonization,
+  ai-superintelligence-timeline, ai-in-education.
