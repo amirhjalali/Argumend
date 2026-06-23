@@ -872,3 +872,11 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 381 tests; clean build (milestone); renders confirmed. 5h usage ~10%.
 - Next: social-media-age-limits, pandemic-preparedness, longevity-science, space-colonization,
   ai-superintelligence-timeline, ai-in-education.
+
+### Iter 74 — 2026-06-22 — Phase 74 (flagship topic #41 = Social Media Age Limits)
+- keystone: Australia 2024 first under-16 social media ban, acting before science settled (causation
+  contested + enforcement needs ID-checking all), conf 80. Distinct policy angle from #22/#23.
+  Falsification on both cruxes (abstinence trial; enforcement). 41 flagship topics (10->41, +31). Branch +182.
+- Verified: tsc; 385 tests (+4); renders confirmed. 5h usage ~11%.
+- Next: pandemic-preparedness, longevity-science, ai-in-education, space-colonization-feasibility,
+  ai-superintelligence-timeline. (Skipping ai-white-collar-displacement as redundant w/ #27.)
