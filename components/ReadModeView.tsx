@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, BookOpen, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
+import { ArrowRight, ExternalLink, Network, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
 import type { Topic, TopicCategory, TopicStatus, Evidence } from "@/lib/schemas/topic";
 import { calculateEvidenceScore, getVerdictSentence, confidenceTier } from "@/lib/schemas/topic";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
@@ -527,7 +527,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
           scroll={false}
           className="inline-flex items-center gap-2 rounded-full bg-deep text-white px-4 py-2.5 text-sm font-sans font-medium shadow-lg hover:bg-deep/90 transition-colors"
         >
-          <BookOpen className="h-4 w-4" aria-hidden />
+          <Network className="h-4 w-4" aria-hidden />
           <span className="hidden sm:inline">Open the map</span>
           <span className="sm:hidden">Map</span>
           <ArrowRight className="h-4 w-4" aria-hidden />

@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useCallback, useEffect } from "react";
-import { BookOpen, AlignLeft } from "lucide-react";
+import { BookOpen, Network } from "lucide-react";
 
 export type ReadGraphView = "read" | "graph";
 
@@ -68,8 +68,8 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
             : "text-secondary hover:text-primary"
         }`}
       >
-        <AlignLeft className="h-3.5 w-3.5" aria-hidden />
-        Detailed
+        <Network className="h-3.5 w-3.5" aria-hidden />
+        Map
       </button>
     </div>
   );

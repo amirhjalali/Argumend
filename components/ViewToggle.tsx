@@ -8,7 +8,7 @@ import type { ArgumentView } from "@/types/logic";
 import { trackEvent } from "@/lib/analytics";
 
 const views: { id: ArgumentView; label: string; icon: typeof Map }[] = [
-  { id: "logic-map", label: "Logic Map", icon: Map },
+  { id: "logic-map", label: "Map", icon: Map },
   { id: "scales", label: "Scales", icon: Scale },
   { id: "debate", label: "Debate", icon: Swords },
 ];
