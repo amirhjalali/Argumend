@@ -7,6 +7,22 @@ export const modernMonetaryTheoryData = {
     "Modern Monetary Theory provides a sound basis for government spending and deficit policy.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "A government that issues its own free-floating currency can never be forced into involuntary default on debt in that currency — it can always create the money to pay. This MMT starting point is literally true and not even controversial; Japan has carried gross government debt around 250% of GDP, the highest in the developed world, for years without defaulting. The honest catch is that 'can't run out of money' is not 'no limit' — the real ceiling is inflation and real resources, and that is what the whole fight is actually about.",
+    confidence: 88,
+    source:
+      "IMF Fiscal Monitor / WEO (Japan general-government gross debt ~250% of GDP, 2023-2024); standard fiat-currency accounting reflected even in the IGM/Clark Center expert panel framing",
+    sourceUrl:
+      "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO/JPN",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "MMT's load-bearing insight is correct and routinely denied by deficit hawks: a country that borrows in its own floating currency can always make the nominal payments, so it cannot be forced into the kind of 'national bankruptcy' politicians warn about — Japan, at ~250% debt-to-GDP, has never defaulted, kept interest costs low, and for years fought too little inflation rather than too much.",
+    "But 'no involuntary default' is not the same as 'no constraint': printing past what the economy can produce shows up as inflation (a kind of default by erosion), and MMT's proposed fix — using discretionary taxes and a job guarantee to cool the economy — is slow, politically captured, and has never been tested as a national price anchor, which is why nearly every mainstream economist rejects the headline claims.",
+    "So the honest debate isn't whether a currency-issuer can 'go broke' (it can't) but whether fiscal tools can manage inflation as reliably as an independent central bank — and whether the expert consensus is rejecting MMT's actual claims or a 'print all you want, deficits never matter' caricature its scholars say they never made.",
+  ],
   last_updated: "2026-06-16",
   tags: ["mmt", "fiscal-policy", "deficits", "inflation", "macroeconomics"],
   pillars: [
@@ -29,6 +45,16 @@ export const modernMonetaryTheoryData = {
           "Compare currency-issuing sovereigns across a wide range of debt-to-GDP ratios (Japan, US, UK) and identify whether involuntary nominal default ever occurred, then test whether high-debt currency-issuers experienced inflation/currency crises independent of nominal solvency. Distinguish episodes of spare capacity from episodes at/above full employment.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (public IMF / national-accounts data)",
+        falsification: {
+          supporter_flip:
+            "If a genuine currency-issuer with debt in its own floating currency were ever forced into involuntary nominal default by markets — not choosing not to pay, but unable to create the money to pay — the descriptive core of MMT would be refuted, and 'no involuntary default' would stop being a useful operating principle.",
+          skeptic_flip:
+            "A skeptic should weigh that decades of data fail to show any floating-rate currency-issuer forced to default in its own currency, that Japan sustained ~250% debt-to-GDP without crisis, and that post-2008 balance-sheet expansion did not produce the predicted runaway inflation — so the 'high debt forces default' warning is not borne out.",
+          common_ground:
+            "Both sides agree a currency-issuer cannot literally run out of its own currency, and that the real binding constraint is inflation and the economy's productive capacity rather than an arbitrary debt-to-GDP ratio.",
+          live_disagreement:
+            "Whether 'cannot be forced to default' is action-guiding for spending policy or a trivial truth that obscures the inflation constraint — resolvable by testing whether high-debt currency-issuers hit inflation/currency crises independent of nominal solvency, and at what level of slack versus full employment.",
+        },
       },
       evidence: [
         {
@@ -90,6 +116,16 @@ export const modernMonetaryTheoryData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 for historical analysis; a full Job-Guarantee price-anchor test would require a national pilot (untested at US scale)",
+        falsification: {
+          supporter_flip:
+            "If a national-scale job-guarantee buffer stock were tried and failed to anchor wages or prices — or if discretionary tax changes proved too slow and politically captured to cool an overheating economy in time — then the MMT claim that fiscal tools can substitute for central-bank inflation control would be undercut.",
+          skeptic_flip:
+            "A skeptic citing Latin American hyperinflations should weigh that those cases involved fixed/managed exchange rates and foreign-currency debt — conditions MMT itself says remove monetary sovereignty — and that smaller buffer-stock employment schemes (India's MGNREGA, Argentina's Jefes) functioned countercyclically, so they are not clean tests of MMT's mechanism.",
+          common_ground:
+            "Both sides agree inflation, not solvency, is the binding constraint, that the 2020-2022 episode showed deficits can drive inflation when supply is constrained, and that any inflation-control tool must act quickly enough to matter.",
+          live_disagreement:
+            "Whether discretionary taxation plus a job-guarantee buffer stock can anchor inflation as promptly and credibly as independent interest-rate policy — resolvable only by a national job-guarantee pilot measuring its price-anchoring effect and by comparing legislative response lags to central-bank lags.",
+        },
       },
       evidence: [
         {
@@ -169,6 +205,16 @@ export const modernMonetaryTheoryData = {
           "Place the exact survey wording side-by-side with MMT primary texts (Kelton, Wray, Mitchell, Tcherneva) and the published MMT rebuttals; identify which specific claims are shared, which are caricatures, and which represent genuine substantive disagreement on inflation control and central-bank independence.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (textual comparison of survey wording vs. MMT primary sources)",
+        falsification: {
+          supporter_flip:
+            "If a careful textual comparison showed that leading MMT primary sources (Kelton, Wray, Mitchell, Tcherneva) actually do assert the surveyed propositions — that deficits need not be a concern or that unlimited real spending can be money-financed — then the 'strawman' defense collapses and the expert rejection lands on MMT's real claims.",
+          skeptic_flip:
+            "A skeptic leaning on the unanimous expert panel should weigh that the survey statements ('needn't worry about deficits,' 'finance as much real spending as they want') are stronger than what MMT texts assert, and that MMT scholars published point-by-point replies — so the consensus may target a caricature rather than the inflation-constrained, job-guarantee-anchored theory.",
+          common_ground:
+            "Both sides agree the IGM/Clark Center panel registered essentially zero agreement with the surveyed statements, and that the substantive open questions are inflation control and the wisdom of re-politicizing monetary policy.",
+          live_disagreement:
+            "Whether the surveyed statements faithfully represent MMT or caricature it — resolvable by placing the exact survey wording beside MMT primary texts and the published rebuttals to mark which claims are shared, which are caricatures, and which are genuine disagreement.",
+        },
       },
       evidence: [
         {

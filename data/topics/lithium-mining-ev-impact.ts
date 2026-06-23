@@ -7,6 +7,22 @@ export const lithiumMiningEvImpactData = {
     "Electric vehicles are significantly better for the environment than gas cars when mining impacts are included",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "An EV does start life with a bigger carbon debt — building the battery adds roughly 30-40% to manufacturing emissions — but that debt is repaid astonishingly fast. On the average US grid a Tesla Model 3 overtakes a 33-mpg Toyota Corolla after only about 13,500 miles (a year or two of driving), after which it stays cleaner for the rest of its life. The genuinely hard problems are the water, land, and human-rights costs of mining, not the CO2 math.",
+    confidence: 88,
+    source:
+      "Argonne National Laboratory GREET model; ICCT global life-cycle analysis (2021); Reuters/Argonne Tesla Model 3 vs Corolla breakeven (~13,500 miles)",
+    sourceUrl:
+      "https://theicct.org/publication/a-global-comparison-of-the-life-cycle-greenhouse-gas-emissions-of-combustion-engine-and-electric-passenger-cars/",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Even after counting battery manufacturing, multiple independent life-cycle analyses (Argonne's GREET model, the ICCT's four-market study) find EVs produce 50-70% fewer greenhouse-gas emissions than comparable gas cars on average grids, because an electric drivetrain is 3-4x more efficient and the upfront 'carbon debt' is repaid within roughly 1-2 years of driving.",
+    "But greenhouse gases are not the whole story: lithium brine extraction can consume on the order of 21 million liters of water a day in the Atacama Desert, DRC cobalt mining involves documented child labor, and Indonesian nickel mining has cleared more than 75,000 hectares of rainforest — harms that a CO2 number simply doesn't capture.",
+    "So the honest debate isn't whether EVs win on tailpipe carbon (they clearly do on most grids) but whether their mining footprint — water, habitat, human rights — can be cleaned up faster than demand scales, and whether that footprint is genuinely smaller than the oil extraction it replaces.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Lifecycle Emissions Comparison
@@ -31,6 +47,16 @@ export const lithiumMiningEvImpactData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$50K-150K (Modeling expertise plus license fees; underlying data is publicly available)",
+        falsification: {
+          supporter_flip:
+            "If parallel GREET and JEC modeling showed the breakeven mileage routinely exceeds typical ownership (150,000-200,000 miles) across major markets — for example if real-world battery manufacturing emissions cluster near the high end (~200 kg CO2/kWh) and grids decarbonize slower than projected — then the lifecycle climate advantage would shrink to a coin-flip rather than the claimed 50-70%.",
+          skeptic_flip:
+            "A skeptic citing the manufacturing carbon debt should weigh that an electric drivetrain is 3-4x more efficient than combustion, that even the ICCT's coal-heavy India case still came out 19-34% cleaner, and that a battery's emissions are a one-time cost while tailpipe emissions accumulate every mile for 15-20 years on a grid that keeps getting cleaner.",
+          common_ground:
+            "Both sides agree EV manufacturing emits more upfront (the battery adds roughly 30-40% to production-phase emissions) and that the climate verdict depends on grid carbon intensity, vehicle size, and lifetime mileage.",
+          live_disagreement:
+            "The exact breakeven mileage in each market under current and projected grids — which running GREET and the JEC Well-to-Wheels study in parallel with 2024 grid data and battery-size and recycling sensitivities would pin down.",
+        },
       },
       evidence: [
         {
@@ -127,6 +153,16 @@ export const lithiumMiningEvImpactData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1M (Multi-country field research, supply chain auditing, and satellite imagery analysis)",
+        falsification: {
+          supporter_flip:
+            "If a comparative externality assessment showed mining harms staying flat or worsening through 2035 — water use per GWh not falling as direct lithium extraction stalls, cobalt child labor persisting despite EU and US due-diligence rules, nickel deforestation accelerating — then EVs would look like relocating environmental damage rather than reducing it, and the 'cleaner overall' case would fail on everything but tailpipe CO2.",
+          skeptic_flip:
+            "A skeptic focused on mining harms should weigh that LFP chemistry (already ~40% of the market) eliminates cobalt and nickel entirely, that sodium-ion eliminates lithium, that batteries are recyclable while oil is burned once, and that the alternative being displaced — oil extraction with 7,000+ Niger Delta spills and Deepwater Horizon — is larger in scale and harder to mitigate.",
+          common_ground:
+            "Both sides agree current mining causes real and serious harms (Atacama water depletion, DRC cobalt child labor, Indonesian rainforest loss) and that cleaner chemistries and extraction methods exist but are not yet universally deployed.",
+          live_disagreement:
+            "Whether these externalities fall fast enough through technology, alternative chemistries, and enforceable regulation to be acceptable within a decade — measurable by tracking water per GWh, hectares disturbed per GWh, documented labor abuses, and LFP/sodium-ion adoption against oil-and-gas externality trends over 2024-2035.",
+        },
       },
       evidence: [
         {
@@ -240,6 +276,16 @@ export const lithiumMiningEvImpactData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Comprehensive mineral market modeling requiring proprietary mine-level data from Benchmark Minerals, S&P Global, and USGS)",
+        falsification: {
+          supporter_flip:
+            "If mine-level supply mapping against IEA, BloombergNEF, and McKinsey demand curves showed announced projects falling persistently short — lithium refining unable to triple by 2030, alternative chemistries stuck below mass-market viability, and Western supply chains failing to dent China's 60-77% dominance — then the transition would face structural bottlenecks and a new mineral dependency, undermining the case that EVs can actually replace ICE at scale.",
+          skeptic_flip:
+            "A skeptic warning of resource limits should weigh that USGS identified lithium resources grew roughly eightfold (to ~105 Mt) since 2010, that announced mines could meet 75-80% of 2030 demand, that sodium-ion (no lithium/cobalt/nickel) is already shipping in sub-$10,000 cars, and that recyclers report 95%+ recovery as first-generation packs retire — so 'peak lithium' fears have repeatedly been overstated.",
+          common_ground:
+            "Both sides agree meeting 2030 targets requires roughly tripling lithium output, that new mines take 7-10 years to come online, and that China currently dominates refining and cell manufacturing.",
+          live_disagreement:
+            "Whether mining/refining capacity, alternative chemistries, and non-Chinese supply chains can all scale fast enough — resolvable by mapping every announced project's timeline and chemistry-mix trajectory against demand scenarios to find the earliest year supply-demand balance is reached.",
+        },
       },
       evidence: [
         {

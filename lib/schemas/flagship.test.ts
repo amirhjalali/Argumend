@@ -171,6 +171,15 @@ const FLAGSHIP_TOPIC_IDS = [
   "geoengineering-climate",
   "gig-economy-regulation",
   "global-water-crisis",
+  // ── batch 5 (flagship-completion workflow) ──
+  "homeschooling-effectiveness",
+  "housing-affordability-crisis",
+  "inflation-monetary-policy",
+  "lab-diamonds-ethics",
+  "lithium-mining-ev-impact",
+  "loneliness-epidemic",
+  "modern-monetary-theory",
+  "net-neutrality",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {
