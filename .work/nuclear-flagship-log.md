@@ -1122,3 +1122,10 @@ Priority order, all in-loop unless a workflow is opted into:
   (13) confidence bridge; (1) value-prop H1 (flag founder); (6) contrast grind remaining 57 files
   per the per-usage pattern (many "stone-X dark:stone-400" are already correct — fix only bare
   light-mode text-stone-400).
+
+### Iter 99 — 2026-06-23 — UX batch 6: unify second-view naming to "Map" (QW#4)
+- ReadGraphToggle "Detailed"->"Map" (AlignLeft->Network); ViewToggle "Logic Map"->"Map"; ReadModeView
+  sticky CTA icon BookOpen->Network (BookOpen reserved for Read). Verified: tsc; 661 tests; clean build;
+  no stray Detailed/Logic Map. Branch +179.
+- Next: (13) confidence bridge (FlagshipIntro/ReadModeView); (1) value-prop H1 (FLAG founder); (6)
+  contrast grind remaining files (ONLY bare light-mode text-stone-400 -> text-muted dark:text-stone-400).
