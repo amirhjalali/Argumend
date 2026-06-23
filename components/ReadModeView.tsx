@@ -13,6 +13,7 @@ import { ConfidenceBar } from "@/components/ConfidenceBar";
 import { VerdictVoting } from "@/components/VerdictVoting";
 import { CitationCard } from "@/components/CitationCard";
 import { SaveTopicButton } from "@/components/SaveTopicButton";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { FalsificationCrux } from "@/components/FalsificationCrux";
 import { FlagshipIntro } from "@/components/FlagshipIntro";
@@ -262,7 +263,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             <p className="font-sans text-sm text-secondary italic">{verdict}.</p>
 
             {/* ─── Provenance strip ─── */}
-            <p className="mt-3 font-sans text-[11px] text-stone-400 dark:text-[#8a8279]">
+            <p className="mt-3 font-sans text-[11px] text-muted dark:text-[#8a8279]">
               {topic.last_updated ? (
                 <>Analyzed {formatDate(topic.last_updated)}</>
               ) : (
@@ -433,6 +434,11 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             <p className="font-sans text-xs text-secondary">
               Save this topic to get pinged if its confidence score shifts.
             </p>
+          </section>
+
+          {/* ─── Newsletter: capture at peak intent (reader finished the topic) ─── */}
+          <section aria-label="Stay updated" className="mt-10">
+            <NewsletterSignup variant="compact" source="topic-read" />
           </section>
         </article>
 
