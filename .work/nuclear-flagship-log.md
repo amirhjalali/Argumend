@@ -1008,3 +1008,13 @@ Priority order, all in-loop unless a workflow is opted into:
 - ~18 clean topics remain (~2-3 batches).
 - Next: batch 5 [homeschooling-effectiveness, housing-affordability-crisis, inflation-monetary-policy,
   lab-diamonds-ethics, lithium-mining-ev-impact, loneliness-epidemic, modern-monetary-theory, net-neutrality].
+
+### Iter 89 — 2026-06-23 — flagship-completion batch 5 (8 topics, clean run)
+- Batch 5 [homeschooling-effectiveness, housing-affordability-crisis, inflation-monetary-policy,
+  lab-diamonds-ethics, lithium-mining-ev-impact, loneliness-epidemic, modern-monetary-theory,
+  net-neutrality]. No 529s; all clean. 79->87 flagship. Verified: tsc; 569 tests; clean build.
+  5h usage ~48% (batch ~7%); 7d ~32%. Branch +159. ~13 clean topics remain (~2 batches).
+- Next: batch 6 [occupational-licensing-reform, open-weight-ai-models, right-to-repair, seed-oils-health,
+  simulation-hypothesis, social-security-retirement-age, vaping-harm-reduction, animal-consciousness-rights];
+  final batch 7 [facial-recognition-policing, return-to-office-productivity, section-230-reform,
+  global-housing-bubble, us-national-debt-crisis].
