@@ -855,3 +855,11 @@ Priority order, all in-loop unless a workflow is opted into:
   therapy-enhancement boundary). 38 flagship topics (10->38, +28 this overnight session). Branch +170.
 - Verified: tsc; 373 tests (+4); clean build (periodic); renders confirmed. 5h usage ~10%.
 - Next: nuclear-renaissance-smr, ai-replacing-doctors, social-media-age-limits, pandemic-preparedness.
+
+### Iter 72 — 2026-06-22 — Phase 72 (flagship topic #39 = Small Modular Reactors; 3-pillar)
+- keystone: SMRs pitched as nuclear's cost fix but NuScale UAMPS cancelled 2023 ($5.3B->$9.3B);
+  savings still a projection, conf 85. Pairs w/ nuclear flagship. **Integrity test CAUGHT a missed
+  3rd pillar (smr-deployment-timeline) — added its falsification; all 377 tests pass.** Good proof
+  the flagship.test.ts guard works. Falsification on all 3 cruxes. 39 flagship topics (10->39, +29).
+- Verified: tsc; 377 tests; renders confirmed. Branch +174. 5h usage ~10%.
+- Next: ai-replacing-doctors, social-media-age-limits, pandemic-preparedness, longevity-science.
