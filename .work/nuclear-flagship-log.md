@@ -823,3 +823,14 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 357 tests (+4); renders confirmed (crux1 grep apostrophe-escaping noted). 5h usage ~8%.
 - Next: surveillance-public-safety, then reassess — clean-keystone pool thinning; remaining skew
   values-laden/sensitive (cancel-culture, reparations, open-borders, china-taiwan, epstein, iran).
+
+### Iter 68 — 2026-06-22 — Phase 68 (flagship topic #35 = Surveillance & Public Safety)
+- keystone: 700k London CCTV but modest/parking-lot crime drop + NIST face-rec false matches
+  highest for Black women / wrongful arrests nearly all Black, conf 84. Falsification on both cruxes
+  (RCT/displacement; oversight). 35 flagship topics (10->35, +25 this overnight session). Branch +158.
+- Verified: tsc; 361 tests (+4); renders confirmed. 5h usage ~8%.
+- REASSESS: clean-keystone pool NOT exhausted — strong tech/science candidates remain
+  (glp1-weight-loss-drugs, microplastics, gene-editing-embryos, nuclear-renaissance-smr,
+  ai-replacing-doctors, social-media-age-limits, pandemic-preparedness, longevity). Continue these;
+  keep steering around sensitive/values/geopolitical (cancel-culture, reparations, china-taiwan, iran,
+  epstein, affirmative-action/gender skip-list). Next: glp1-weight-loss-drugs.
