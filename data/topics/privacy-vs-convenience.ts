@@ -7,6 +7,22 @@ export const privacyVsConvenienceData = {
     "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Most people say they care deeply about privacy — then click 'agree' on terms nobody reads and trade their data for free apps. That 'privacy paradox' is the real puzzle, compounded by scale: data brokers already hold thousands of data points on nearly every adult, so the live question is whether individual opt-outs do anything, or whether only regulation can.",
+    confidence: 80,
+    source:
+      "FTC, 'Data Brokers' report (2014); privacy-paradox research (Acquisti; Norberg et al.); Pew privacy surveys",
+    sourceUrl:
+      "https://www.ftc.gov/reports/data-brokers-call-transparency-accountability-report-federal-trade-commission-may-2014",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The starting puzzle is the 'privacy paradox': in surveys people say they care intensely about privacy, but in practice they click 'I agree' on terms of service nobody reads and trade their data for convenient free apps — so revealed behavior and stated values point in opposite directions.",
+    "The deeper problem is scale: data brokers already compile thousands of data points on nearly every adult, tracking follows you across sites and devices, and the claim under debate is that the surveillance infrastructure is now too embedded for an ordinary person to meaningfully escape.",
+    "So the honest debate isn't 'do people care about privacy?' (they say they do) but whether individual action can do anything against that infrastructure — or whether, like pollution, it's a collective problem that only regulation, not personal opt-outs, can actually address.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Corporate Data Collection
@@ -31,6 +47,16 @@ export const privacyVsConvenienceData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Participant recruitment, DSAR processing, and comparative data analysis)",
+        falsification: {
+          supporter_flip:
+            "If a controlled study showed that diligent users following best-practice privacy guidance achieve dramatically smaller, less accurate corporate profiles than default users, 'privacy is unachievable for ordinary people' would be wrong — individual agency would meaningfully work.",
+          skeptic_flip:
+            "A skeptic who says 'just use privacy tools' should weigh that cross-site tracking, device fingerprinting, and data-broker aggregation can rebuild much of a profile even for careful users — so personal opt-out may be closer to theater than to real protection.",
+          common_ground:
+            "Both sides agree privacy tools (Signal, blockers, VPNs) reduce some tracking and that data brokers aggregate information across many sources.",
+          live_disagreement:
+            "Whether best-practice individual privacy behavior meaningfully shrinks corporate profiling or whether aggregation reconstructs equivalent profiles regardless — which only a controlled data-subject-access study can measure.",
+        },
       },
       evidence: [
         {
@@ -134,6 +160,16 @@ export const privacyVsConvenienceData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1.5M (FOIA litigation, comparative legal analysis, and expert interviews across multiple jurisdictions)",
+        falsification: {
+          supporter_flip:
+            "If declassified records showed post-Snowden reforms and encryption genuinely cut government access to private communications, the 'surveillance is inescapable' thesis would weaken on the state side — reform would have substance, not just optics.",
+          skeptic_flip:
+            "A skeptic who says nothing changed should weigh that agencies can buy the same data from brokers without a warrant and have adapted via alternative legal authorities — so 'the law was reformed' doesn't establish that real surveillance capability actually fell.",
+          common_ground:
+            "Both sides agree post-Snowden reforms changed the legal framework and that encryption has spread, while law enforcement increasingly buys broker data to sidestep warrants.",
+          live_disagreement:
+            "Whether reforms and encryption actually reduced government access or whether agencies maintained equivalent capability through workarounds — which only declassified-record and FOIA analysis over time can show.",
+        },
       },
       evidence: [
         {
@@ -239,6 +275,16 @@ export const privacyVsConvenienceData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Cross-jurisdictional DSAR analysis, corporate interviews, and comparative data measurement)",
+        falsification: {
+          supporter_flip:
+            "If cross-jurisdiction data showed platforms hold equally large, granular profiles on users in heavily regulated (GDPR) and unregulated markets — regulation adding paperwork without shrinking data collection — the case that 'only regulation can fix this' would weaken to 'even regulation doesn't.'",
+          skeptic_flip:
+            "A skeptic who says regulation is just bureaucracy should weigh that GDPR/CCPA could be measurably shrinking data footprints, or merely shifting the legal basis from 'consent' to 'legitimate interest' — an empirical question cross-jurisdiction profile comparisons can answer, not assume.",
+          common_ground:
+            "Both sides agree privacy regulation has imposed real compliance costs and consent prompts, and that whether it reduced actual data collection is not yet clearly measured.",
+          live_disagreement:
+            "Whether regulation meaningfully shrinks per-user data collection or merely re-labels its legal basis — which only comparing real profiles across regulated and unregulated jurisdictions can determine.",
+        },
       },
       evidence: [
         {
