@@ -38,6 +38,9 @@ facts with confidence → crux reframed as "what would change your mind") and ro
   accurate, 6 corrected (see commit "fix(flagship): correct 6 keystone-fact accuracy issues")
 - **All 47 keystones + simple-cases independently neutrality-audited** (2 agents): 45 balanced, 0
   biased, 2 minor emphasis fixes (see commit "polish(flagship): balance two simple-case framings")
+- **A new 3-pillar flagship page browser-verified end-to-end** (keystone hero, simple case, pillars,
+  and the falsification crux's four fields all render correctly) — so the +37 pages are confirmed on
+  data integrity, text render, factual accuracy, neutrality, AND visual layout
 
 ## Decisions waiting on you
 
