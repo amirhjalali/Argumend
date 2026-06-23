@@ -764,3 +764,10 @@ Priority order, all in-loop unless a workflow is opted into:
   cruxes (ROI; human-vs-robotic). 26 flagship topics (10->26, +16 this session).
 - Verified: tsc; 325 tests (+4); renders confirmed. 5h usage ~3%.
 - Next: ai-job-displacement, big-tech-antitrust, cancel-culture, immigration-wage-impact, wealth-tax.
+
+### Iter 60 — 2026-06-22 — Phase 60 (flagship topic #27 = AI Job Displacement; 3-pillar)
+- keystone: AI does striking white-collar slices (bar 90th pct, Copilot ~46% code, Goldman 300M)
+  but mass displacement not yet in data — lag or ceiling? conf 75. Falsification on all 3 cruxes
+  (capability; displacement timeline; regulatory adoption). 27 flagship topics (10->27, +17 session).
+- Verified: tsc; 329 tests (+4); renders confirmed. 5h usage ~4%. Build due next topic.
+- Next: big-tech-antitrust, cancel-culture, immigration-wage-impact, wealth-tax, ubi.
