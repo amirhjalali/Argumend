@@ -1086,3 +1086,18 @@ Priority order, all in-loop unless a workflow is opted into:
 - Prior UX commits: audit+roadmap; batch 1 (verdict sentence, reduced-motion, internal links, active-nav,
   casing, v1.0 stamp); blog-link security hardening.
 - Next: QW#6 contrast pass (text-stone-400 282 uses -> AA token, safe sub-batches by area).
+
+### Iter 96 — 2026-06-23 — UX batch 3: newsletter capture (QW#2 critical) + contrast pattern (QW#6)
+- Added NewsletterSignup to ReadModeView (after save/track) — closes the "funnel has no bottom" critical;
+  rendered form verified on topic page. Swapped ReadModeView provenance text-stone-400 -> text-muted (AA),
+  preserving dark: variant. Verified: tsc; 661 tests; clean build. Branch +173.
+- CONTRAST THEMING FINDING (for the remaining QW#6 grind): Tailwind tokens muted/secondary/primary are
+  HARDCODED light hex (tailwind.config), NOT theme-aware; dark mode is via explicit per-element dark:
+  variants (e.g. `text-stone-400 dark:text-[#8a8279]`). So the SAFE fix = swap the LIGHT color
+  text-stone-400 -> text-muted, and ensure a dark: variant exists (add `dark:text-stone-400` or
+  `dark:text-[#8a8279]` where missing). NEVER blind-sed (would break dark mode + hit decorative icons).
+  283 uses / 59 files; biggest: app/analyze 26, AnalysisView 24, CompareIndex 16, TopicExplorer 12,
+  ScalesOfEvidence 12, MobileArgumentList 11, Sidebar 9, JudgingResults 9, TopicDetailView 9.
+- REORDER remaining: do the concentrated criticals/high-value next — (1) value-prop H1, (4) view-naming,
+  (11) hero ViewToggle+gloss, (13) confidence bridge, (14) polish micro-fixes — THEN the spread-thin
+  contrast grind (#6) per-file using the safe pattern above.
