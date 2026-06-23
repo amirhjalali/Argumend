@@ -12,7 +12,7 @@ export const adhdOverdiagnosisData = {
       "The single strongest piece of evidence that ADHD is over-labeled isn't the rising diagnosis count — it's a calendar quirk: the youngest kids in a school year are about 38% more likely to be diagnosed with ADHD than the oldest, simply for being up to a year less mature than classmates. The honest catch is that this relative-age effect is a real but bounded measurement error at the margin; ADHD itself is among the most heritable psychiatric conditions (~74%), so a valid disorder can still be overdiagnosed at its fuzzy threshold.",
     confidence: 88,
     source:
-      "Caye et al., relative-age meta-analysis (RR 1.38), European Child & Adolescent Psychiatry (2024); Faraone & Larsson, ~74% heritability, Molecular Psychiatry (2019)",
+      "Frisira et al., relative-age meta-analysis (RR 1.38), European Child & Adolescent Psychiatry (2024); Faraone & Larsson, ~74% heritability, Molecular Psychiatry (2019)",
     sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11868292/",
   },
   // ── Stage 2: the honest 3-sentence case ──

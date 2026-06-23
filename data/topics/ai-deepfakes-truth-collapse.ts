@@ -10,7 +10,7 @@ export const aiDeepfakesTruthCollapseData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The most documented harm from deepfakes so far isn't fake videos fooling people — it's the inverse: the mere existence of the technology lets guilty parties dismiss real, authenticated footage as 'AI fakery.' Researchers call this the 'liar's dividend,' and it has already been invoked in real elections — a candidate in Turkey's 2023 race waved away a genuine tape this way. Meanwhile the best automated detectors hit only about 78% on real 2024 deepfakes, well below the ~90% of expert human analysts.",
+      "The most documented harm from deepfakes so far isn't fake videos fooling people — it's the inverse: the mere existence of the technology lets people dismiss real footage as 'AI fakery.' Researchers call this the 'liar's dividend,' and it has already surfaced in real politics — in Gabon, opponents branded a New Year's video of the ailing President Bongo a 'deepfake' (forensic analysis later found it genuine), and the doubt helped trigger an attempted coup. Meanwhile the best automated detectors hit only about 78% on real 2024 deepfakes, well below the ~90% of expert human analysts.",
     confidence: 84,
     source:
       "Chesney & Citron, 'Deep Fakes' (California Law Review, 2019, coined 'liar's dividend'); Chandra et al., Deepfake-Eval-2024 (arXiv:2503.02857)",

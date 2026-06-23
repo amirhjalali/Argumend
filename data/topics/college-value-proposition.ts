@@ -10,7 +10,7 @@ export const collegeValuePropositionData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The median bachelor's holder earns about $1.2 million more over a lifetime than a high-school graduate (Georgetown), and the degree's annualized return has held near 12.5% for three decades (NY Fed) — yet the \"average\" hides enormous variance: roughly 31% of workers with only a high-school diploma out-earn the typical associate-degree holder, and about half of new graduates start out underemployed (in jobs that never required a degree). The degree still pays for most who finish, but it is a bet whose odds swing on major, institution, and completion.",
+      "The median bachelor's holder earns about $1.2 million more over a lifetime than a high-school graduate (Georgetown), and the degree's annualized return has held near 12.5% for three decades (NY Fed) — yet the \"average\" hides enormous variance: roughly 31% of workers with only a high-school diploma out-earn the typical associate-degree holder, and more than 40% of recent graduates start out underemployed (in jobs that never required a degree). The degree still pays for most who finish, but it is a bet whose odds swing on major, institution, and completion.",
     confidence: 86,
     source:
       "Georgetown CEW, 'The College Payoff' (2021); Federal Reserve Bank of New York, 'Is College Still Worth It?' (2025) & 'The Labor Market for Recent College Graduates'",
@@ -19,7 +19,7 @@ export const collegeValuePropositionData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "For students who finish, the four-year degree is still one of the best financial bets available: Georgetown puts median lifetime earnings at $2.8M for bachelor's holders versus $1.6M for high-school graduates (a ~75% gap), and the NY Fed estimates an annualized return of about 12.5% that has held between 12-13% for thirty years — with the wage premium widening as workers age.",
-    "But the average tells an individual almost nothing about their own bet: roughly 31% of high-school-only workers out-earn the typical associate-degree holder, about half of new graduates begin underemployed, and the heaviest student-debt distress is concentrated among non-completers and for-profit attendees — so for the wrong major at the wrong price, or for someone who doesn't graduate, the math can turn sharply negative.",
+    "But the average tells an individual almost nothing about their own bet: roughly 31% of high-school-only workers out-earn the typical associate-degree holder, more than 40% of recent graduates begin underemployed, and the heaviest student-debt distress is concentrated among non-completers and for-profit attendees — so for the wrong major at the wrong price, or for someone who doesn't graduate, the math can turn sharply negative.",
     "So the honest debate isn't whether college pays off on average (for completers it clearly does) but whether it pays off for this student, in this major, at this price — a question the aggregate figures can't answer and that turns on disaggregated, major-and-institution-level ROI.",
   ],
   pillars: [
