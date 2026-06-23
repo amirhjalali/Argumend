@@ -989,3 +989,13 @@ Priority order, all in-loop unless a workflow is opted into:
 - 63 flagship topics. Branch +152. 5h usage ~28%, 7d ~30%.
 - Next: batch 3 [consciousness-hard-problem, cryptocurrency-regulation, cryptocurrency-value,
   dark-matter-vs-mond, declining-birth-rates, degrowth-economics, effective-altruism, encryption-backdoors].
+
+### Iter 87 — 2026-06-23 — flagship-completion batch 3 (8 topics, clean run)
+- Batch 3 [consciousness-hard-problem, cryptocurrency-regulation, cryptocurrency-value, dark-matter-vs-mond,
+  declining-birth-rates, degrowth-economics, effective-altruism, encryption-backdoors]. No 529s; author+QC
+  both ran. QC caught a fabricated CRS citation in crypto-regulation (->real IN12047). Note: one agent's
+  RETURN summary leaked a stray </keystoneStatement> tag, but grep confirmed the FILE was clean (edits apply
+  cleanly regardless of return serialization). 63->71 flagship topics. Verified: tsc; 505 tests; clean build.
+- 5h usage ~35% (batch ~7%); 7d ~31%. Branch +154. ~26 clean topics remain (3-4 more batches).
+- Next: batch 4 [estate-inheritance-tax, foreign-aid-effectiveness, free-will, gain-of-function-research-ban,
+  generative-ai-art-copyright, geoengineering-climate, gig-economy-regulation, global-water-crisis].
