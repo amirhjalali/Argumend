@@ -5,6 +5,21 @@ export const aiJobDisplacementData = {
     "Artificial intelligence and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "AI can already do striking pieces of white-collar work — GPT-4 passed the bar in the 90th percentile, Copilot writes ~46% of its users' code, and Goldman estimates 300 million jobs are exposed. Yet two years in, white-collar unemployment is still low and the predicted mass displacement hasn't shown up in the aggregate data — the fight is over whether that's a lag or a ceiling.",
+    confidence: 75,
+    source:
+      "Eloundou et al., 'GPTs are GPTs' (OpenAI, 2023); Goldman Sachs (300M jobs, 2023); US Bureau of Labor Statistics",
+    sourceUrl: "https://arxiv.org/abs/2303.10130",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The capability is real and moving fast: GPT-4 passed the bar exam in the 90th percentile, GitHub Copilot writes nearly half its users' code, and Goldman Sachs estimates generative AI exposes about 300 million jobs worldwide to automation.",
+    "But two years after ChatGPT, the predicted wave of white-collar unemployment hasn't shown up in the aggregate data — knowledge-work joblessness stayed low and BLS still projects growth in most white-collar roles — even as leading indicators (freelance-writing rates, entry-level hiring, 'AI did it' layoff justifications) flicker.",
+    "So the honest debate isn't whether AI can do parts of these jobs (it can) but whether the gap between capability and mass displacement is a 5–10 year lag that's about to break — or a durable ceiling set by AI's reliability limits, institutional/liability barriers, and the way past automation reshaped jobs instead of eliminating them.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Technical Capability & Task Automation
@@ -29,6 +44,16 @@ export const aiJobDisplacementData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Requires creating novel benchmarks, recruiting professional evaluators, and preventing data contamination)",
+        falsification: {
+          supporter_flip:
+            "If careful benchmarks of genuinely novel professional tasks (verifiably outside training data) showed AI performance collapsing on out-of-distribution problems while humans held up, the case that AI can replace (not just assist) professionals would weaken — it would stay a tool.",
+          skeptic_flip:
+            "A skeptic who says it's just pattern-matching should weigh that AI already matches experts on a widening range of tasks (bar exam, radiology reads, production code) and improves far faster than human skill — so 'it can't reason' keeps retreating to ever-narrower tasks.",
+          common_ground:
+            "Both sides agree current AI still hallucinates and degrades on truly novel, out-of-distribution problems, and that demos overstate production reliability.",
+          live_disagreement:
+            "Whether AI's failures on novel tasks are a fundamental ceiling or a shrinking gap the next model generation closes — which contamination-free novel-task benchmarks could measure but mostly haven't.",
+        },
       },
       evidence: [
         {
@@ -159,6 +184,16 @@ export const aiJobDisplacementData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Longitudinal labor market analysis using BLS, LinkedIn, and Indeed data)",
+        falsification: {
+          supporter_flip:
+            "If the most AI-exposed occupations (legal research, coding, copywriting, translation) showed stable or growing employment and wages over 3–5 years versus low-exposure controls, the displacement thesis would be falsified — capability without labor-market effect.",
+          skeptic_flip:
+            "A skeptic citing low unemployment should weigh that the capability-to-displacement lag is historically 5–10 years and we're in year two, and that leading indicators (collapsing freelance-writing rates, frozen entry-level hiring) already point the predicted direction.",
+          common_ground:
+            "Both sides agree aggregate white-collar employment has NOT yet shown the mass displacement some forecasts predicted.",
+          live_disagreement:
+            "Whether the absence of displacement so far is a temporary lag before agentic AI hits, or evidence that labor markets will absorb AI through new roles as they did past automation.",
+        },
       },
       evidence: [
         {
@@ -289,6 +324,16 @@ export const aiJobDisplacementData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Multi-year regulatory tracking study across five jurisdictions and five professions)",
+        falsification: {
+          supporter_flip:
+            "If regulated professions adopted AI-autonomous decision-making no faster than slow historical analogues (electronic health records took ~30 years to reach 80%), the 'within a decade' timeline would be wrong regardless of raw capability.",
+          skeptic_flip:
+            "A skeptic who says barriers will hold should weigh that regulation flips fast under competitive and crisis pressure (telemedicine legalized almost overnight in COVID; algorithms now run ~70% of equity trades), so institutional lag may be shorter than it looks.",
+          common_ground:
+            "Both sides agree licensed professions currently require human accountability, and that enterprise AI adoption is still well below what raw capability would allow.",
+          live_disagreement:
+            "Whether regulatory and organizational barriers adapt in ~5 years under competitive pressure or impose a multi-decade lag like EHR adoption — which the next decade of regulatory tracking would settle.",
+        },
       },
       evidence: [
         {
