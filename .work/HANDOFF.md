@@ -1,13 +1,20 @@
 # Nuclear Flagship — Founder Handoff
 
-_Autonomous `/loop` run, 2026-06-22. Branch `nuclear-flagship` (off `main`), **NOT pushed**._
-_Full play-by-play: `.work/nuclear-flagship-log.md` (Iters 1–80). Design: `docs/plans/2026-06-22-nuclear-flagship-journey-design.md`._
+_Autonomous `/loop` run, 2026-06-22 → 06-23. Branch `nuclear-flagship` (off `main`), **NOT pushed**._
+_Full play-by-play: `.work/nuclear-flagship-log.md` (Iters 1–91). Design: `docs/plans/2026-06-22-nuclear-flagship-journey-design.md`._
 
 ## TL;DR
 
 The branch builds the **flagship user-journey** (immediate wow → simple case → drill-down to atomic
 facts with confidence → crux reframed as "what would change your mind") and rolls it out across
-**47 topics**. Everything is verified and committed; nothing is pushed — that's your call.
+**100 topics** — every clean topic in the 142-topic catalog. The ~40 sensitive/values-laden/
+geopolitical topics are deliberately left untouched for your editorial judgment. Everything is verified
+and committed; nothing is pushed — that's your call.
+
+The expansion from 47 → 100 was done with a **batched parallel workflow** (7 batches): each topic ran
+author → web fact-check + neutrality QC. The QC stage caught and fixed real factual/balance issues in
+~10 topics that author self-checks missed (fabricated citations, wrong dates, overstated stats,
+misattributions). All keystones are author→QC fact-checked AND neutrality-checked.
 
 ## What's in the branch
 
@@ -17,7 +24,7 @@ facts with confidence → crux reframed as "what would change your mind") and ro
    `FlagshipIntro.tsx` + `FalsificationCrux.tsx`, wired into `ReadModeView` (the DEFAULT topic view),
    gated on data presence so non-flagship topics are untouched.
 
-2. **47 flagship topics** — the authoritative list is `FLAGSHIP_TOPIC_IDS` in
+2. **100 flagship topics** — the authoritative list is `FLAGSHIP_TOPIC_IDS` in
    `lib/schemas/flagship.test.ts`. Each carries a keystone fact that corrects a real misconception
    (reusing the topic's own already-cited sources), an honest 3-sentence case, and falsification
    cruxes on every pillar. Spans policy / science / technology / economics / philosophy.

@@ -1026,3 +1026,22 @@ Priority order, all in-loop unless a workflow is opted into:
   tests; clean build. 5h usage ~53% (batch ~5%); 7d ~33%. Branch +161.
 - FINAL batch 7 next [facial-recognition-policing, return-to-office-productivity, section-230-reform,
   global-housing-bubble, us-national-debt-crisis] -> then ~100 flagship topics, all clean topics done.
+
+### Iter 91 — 2026-06-23 — flagship-completion COMPLETE (batch 7 + wrap-up)
+- FINAL batch 7 [facial-recognition-policing, return-to-office-productivity, section-230-reform,
+  global-housing-bubble, us-national-debt-crisis]. QC fixed real issues (facial-rec "nearly all"->"most"
+  Black + date; section-230 vote date 1996->Aug 1995). 95->100 flagship. Verified: tsc; 621 tests; clean build.
+- **MILESTONE: 100 flagship topics — every CLEAN topic in the 142-topic catalog now has keystone_fact +
+  simple_case + per-crux falsification.** The ~40 sensitive/values/geopolitical topics deliberately skipped
+  (await founder judgment): immigration*, gender-affirming-care-minors, affirmative-action, china-taiwan,
+  epstein-files, trump-tariffs, reparations, police-reform, sex-work, transgender-athletes, ukraine/iran,
+  open-borders, second-amendment, masculinity-crisis, media-bias, meritocracy-myth, minneapolis-shooting,
+  rfk-health-policy, nuclear-weapons-abolition/proliferation, social-media-elections, student-debt,
+  tiktok-ban/brain-rot, obesity-personal-responsibility, government-platform-bans, meaning-without-religion,
+  + a few redundant (ai-white-collar-displacement, longevity-anti-aging, psychedelic-therapy-hype,
+  children-smartphone-age, remote-work-permanence).
+- SCALED RUN SUMMARY (47->100, +53 topics): 7 batches via flagship-completion workflow (author->QC), 1
+  qc-only retry after an API 529 outage. Tests 245->621. Usage stayed under cap (peaked ~57% of 5h). All
+  author->QC fact+neutrality checked; QC caught ~10 real fixes. Updated HANDOFF.md + memory. Branch +163,
+  STILL UNPUSHED -> founder review.
+- Returning to ~30min await-founder heartbeat. Sensitive topics NOT to be touched without founder direction.
