@@ -848,3 +848,10 @@ Priority order, all in-loop unless a workflow is opted into:
   EDC mixtures; polymer inertness). 37 flagship topics (10->37, +27 this overnight session). Branch +166.
 - Verified: tsc; 369 tests (+4); renders confirmed (crux3 grep apostrophe-escaping noted). 5h usage ~9%.
 - Next: gene-editing-embryos, nuclear-renaissance-smr, ai-replacing-doctors, social-media-age-limits.
+
+### Iter 71 — 2026-06-22 — Phase 71 (flagship topic #38 = Gene Editing Embryos)
+- keystone: CRISPR approved medicine (FDA 2023) but He Jiankui 2018 embryo edits botched + jailed;
+  germline heritable/irreversible, conf 85. Falsification on both cruxes (precision threshold;
+  therapy-enhancement boundary). 38 flagship topics (10->38, +28 this overnight session). Branch +170.
+- Verified: tsc; 373 tests (+4); clean build (periodic); renders confirmed. 5h usage ~10%.
+- Next: nuclear-renaissance-smr, ai-replacing-doctors, social-media-age-limits, pandemic-preparedness.
