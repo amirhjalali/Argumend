@@ -1077,3 +1077,12 @@ Priority order, all in-loop unless a workflow is opted into:
   de-extinction). Founder redirected: STOP net-new, now do UX/UI + user-journey DEEP-DIVE (ultrathink+ultracode).
 - NEXT: launch comprehensive UX/UI + user-journey audit (ultracode workflow, ~11 lenses -> synthesis roadmap
   at .work/ux-audit-2026-06-23.md), then ground top findings w/ browser screenshots + implement quick-wins.
+
+### Iter 95 — 2026-06-23 — UX quick-wins batch 2: markdown bugs (QW#8)
+- Extracted shared lib/markdown.ts (renderInlineMarkdown + renderMarkdown w/ list support; consolidates
+  blog-link security hardening). Guides: section/subsection content now inline-parsed (literal **bold**
+  fixed). Blog: lists render as <ul>/<ol> (was dash run-ons). Verified: tsc; 661 tests; clean build;
+  rendered guide (0 literal **, 6 <strong>) + blog (8 <ul>, 0 dash-paragraphs). Branch +172.
+- Prior UX commits: audit+roadmap; batch 1 (verdict sentence, reduced-motion, internal links, active-nav,
+  casing, v1.0 stamp); blog-link security hardening.
+- Next: QW#6 contrast pass (text-stone-400 282 uses -> AA token, safe sub-batches by area).
