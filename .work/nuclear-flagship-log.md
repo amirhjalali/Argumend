@@ -887,3 +887,10 @@ Priority order, all in-loop unless a workflow is opted into:
   net risk). 42 flagship topics (10->42, +32 this overnight session). Branch +186.
 - Verified: tsc; 389 tests (+4); clean build (periodic); renders confirmed. 5h usage ~11%.
 - Next: longevity-science, ai-in-education, space-colonization-feasibility, ai-superintelligence-timeline.
+
+### Iter 76 — 2026-06-22 — Phase 76 (flagship topic #43 = Longevity Science; 3-pillar)
+- keystone: life expectancy doubled from stopping early death not slowing aging (max ~120 unchanged);
+  mouse-not-human + TAME unfunded, conf 82. Falsification on all 3 cruxes (senolytics; reprogramming;
+  TAME). 43 flagship topics (10->43, +33 this overnight session). Branch +190.
+- Verified: tsc; 393 tests (+4); renders confirmed (keystone grep apostrophe-escaping noted). 5h usage ~11%.
+- Next: ai-in-education, space-colonization-feasibility, ai-superintelligence-timeline, privacy-vs-convenience.
