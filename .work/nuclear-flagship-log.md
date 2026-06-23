@@ -834,3 +834,10 @@ Priority order, all in-loop unless a workflow is opted into:
   ai-replacing-doctors, social-media-age-limits, pandemic-preparedness, longevity). Continue these;
   keep steering around sensitive/values/geopolitical (cancel-culture, reparations, china-taiwan, iran,
   epstein, affirmative-action/gender skip-list). Next: glp1-weight-loss-drugs.
+
+### Iter 69 — 2026-06-22 — Phase 69 (flagship topic #36 = GLP-1 Drugs; first 4-PILLAR)
+- keystone: 15-22% weight loss (once needed surgery) + 20% fewer cardiac events, but ~2/3 regained
+  on stopping; ~$1k+/mo lifelong, conf 88. Falsification on all 4 cruxes (safety; cost-effectiveness;
+  lifestyle-vs-drug; off-label creep). 36 flagship topics (10->36, +26 this overnight session). Branch +162.
+- Verified: tsc; 365 tests (+4); clean build (periodic); renders confirmed. 5h usage ~9%.
+- Next: microplastics-health-crisis, gene-editing-embryos, nuclear-renaissance-smr, ai-replacing-doctors.
