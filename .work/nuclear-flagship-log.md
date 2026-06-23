@@ -815,3 +815,11 @@ Priority order, all in-loop unless a workflow is opted into:
   SCOTUS constitutionality). 33 flagship topics (10->33, +23 this overnight session). Branch +150.
 - Verified: tsc; 353 tests (+4); clean build (periodic); renders confirmed. 5h usage ~8%.
 - Next: mandatory-voting, surveillance-public-safety, then reassess thinning clean-keystone pool.
+
+### Iter 67 — 2026-06-22 — Phase 67 (flagship topic #34 = Mandatory Voting)
+- keystone: Australia compulsory voting 59%->91% in 3yrs, >90% for a century vs ~60% US; rep-vs-noise
+  is the fight, conf 85. Falsification on both cruxes (turnout-representation; enforcement cost).
+  34 flagship topics (10->34, +24 this overnight session). Branch +154.
+- Verified: tsc; 357 tests (+4); renders confirmed (crux1 grep apostrophe-escaping noted). 5h usage ~8%.
+- Next: surveillance-public-safety, then reassess — clean-keystone pool thinning; remaining skew
+  values-laden/sensitive (cancel-culture, reparations, open-borders, china-taiwan, epstein, iran).
