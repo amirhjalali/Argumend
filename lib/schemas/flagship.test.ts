@@ -153,6 +153,15 @@ const FLAGSHIP_TOPIC_IDS = [
   "college-value-proposition",
   "congestion-pricing",
   "congressional-term-limits",
+  // ── batch 3 (flagship-completion workflow) ──
+  "consciousness-hard-problem",
+  "cryptocurrency-regulation",
+  "cryptocurrency-value",
+  "dark-matter-vs-mond",
+  "declining-birth-rates",
+  "degrowth-economics",
+  "effective-altruism",
+  "encryption-backdoors",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {

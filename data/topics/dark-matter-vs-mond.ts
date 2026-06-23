@@ -7,6 +7,21 @@ export const darkMatterVsMondData = {
     "Dark matter, rather than modified gravity (MOND), is the correct explanation for galactic dynamics.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Inside individual galaxies, the gravity we actually observe is fixed almost entirely by the visible (baryonic) matter alone: across 153 galaxies of wildly different sizes and gas fractions, the relation has only ~0.13 dex (~30%) of observed scatter, most of it measurement error, with a single acceleration scale a0 ≈ 1.2 × 10⁻¹⁰ m/s² — exactly what MOND predicted in advance. The catch: on the largest scales (colliding clusters, the CMB) the same data point hard at extra non-baryonic mass, and MOND there falls short by roughly a factor of two.",
+    confidence: 88,
+    source:
+      "McGaugh, Lelli & Schombert, Phys. Rev. Lett. 117, 201101 (2016) (radial acceleration relation, SPARC); Planck Collaboration, A&A 641, A6 (2020) (Ωc h² ≈ 0.120 vs Ωb h² ≈ 0.0224)",
+    sourceUrl: "https://arxiv.org/abs/1609.05917",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "On galaxy scales the data are astonishingly MOND-like: in 153 SPARC galaxies the observed acceleration at every radius is set by the visible matter alone to within ~0.13 dex (intrinsic scatter consistent with zero), with one universal acceleration scale a0 ≈ 1.2 × 10⁻¹⁰ m/s² that Milgrom predicted a priori — for dark matter, the invisible halo must finely track the visible disk in every galaxy, a coincidence the standard model doesn't naturally explain.",
+    "But on the largest scales dark matter wins decisively: the cosmic microwave background's third acoustic peak requires about five times more non-baryonic than baryonic matter, the Bullet Cluster shows the gravitating mass cleanly offset from the gas at 8-sigma, and MOND itself still needs roughly twice the observed mass inside clusters — yet no dark-matter particle has ever been directly detected.",
+    "So the honest debate isn't 'dark matter or MOND' as winner-take-all, but why one tight empirical law governs galaxies while a different, mass-heavy story governs clusters and cosmology — i.e. whether the galaxy-scale regularity is a fundamental modified force or just an emergent product of how halos and disks form together.",
+  ],
   last_updated: "2026-06-16",
   tags: [
     "cosmology",
@@ -38,6 +53,16 @@ export const darkMatterVsMondData = {
           "g_{obs} = \\frac{g_{bar}}{1 - e^{-\\sqrt{g_{bar}/g_\\dagger}}}, \\quad g_\\dagger \\approx 1.2\\times10^{-10}\\,\\mathrm{m\\,s^{-2}}",
         verification_status: "verified" as const,
         cost_to_verify: "$2M (Deep multi-wavelength galaxy survey + reanalysis)",
+        falsification: {
+          supporter_flip:
+            "A MOND supporter should change their mind if a large, homogeneous galaxy survey resolved a statistically significant intrinsic scatter in the radial acceleration relation — or showed the residuals correlate with a galaxy property (formation time, environment, halo mass) — since a genuinely modified force should produce an exact law with no halo-to-halo variation.",
+          skeptic_flip:
+            "A dark-matter skeptic of MOND should weigh that the observed scatter is already only ~0.13 dex (and ~0.057 dex galaxy-by-galaxy), with intrinsic scatter consistent with zero and a single universal a0 ≈ 1.2 × 10⁻¹⁰ m/s², which Milgrom predicted before the data existed — a tightness that requires CDM halos to finely track the visible disk in every galaxy.",
+          common_ground:
+            "Both sides agree the radial acceleration relation is real, tight, and has a characteristic acceleration scale; the dispute is whether that regularity is a fundamental law or an emergent outcome of galaxy formation.",
+          live_disagreement:
+            "Whether the relation has exactly zero intrinsic scatter with no residual correlations (favoring a modified force) or a small but nonzero halo-to-halo variation (favoring dark matter) — resolvable by separating observational error from intrinsic scatter in a deep, homogeneous sample with precise distances, inclinations, and baryonic mass models.",
+        },
       },
       evidence: [
         {
@@ -117,6 +142,16 @@ export const darkMatterVsMondData = {
           "\\Omega_c h^2 \\approx 0.120, \\quad \\Omega_b h^2 \\approx 0.0224 \\;\\;(\\text{Planck 2018})",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (Reanalysis of existing Planck/ACT/SPT data)",
+        falsification: {
+          supporter_flip:
+            "A dark-matter supporter should change their mind if a fully relativistic modified-gravity theory (without any non-baryonic component) reproduced the entire CMB power spectrum — third-peak height, polarization, lensing — and the Bullet-Cluster lensing offset, with no more free parameters than Lambda-CDM, removing the need for an unseen mass species.",
+          skeptic_flip:
+            "A skeptic of dark matter should weigh that the third acoustic peak sits nearly as high as the second (implying Ωc h² ≈ 0.120 vs Ωb h² ≈ 0.0224, about five times more non-baryonic than baryonic matter), that the Bullet Cluster's mass is offset from the gas at 8-sigma, and that plain MOND still under-predicts cluster mass by ~2× — three independent large-scale failures of pure modified gravity.",
+          common_ground:
+            "Both sides agree the CMB peak structure and the Bullet Cluster require some collisionless, non-luminous gravitating component on large scales, and that plain MOND alone does not account for cluster dynamics.",
+          live_disagreement:
+            "Whether that large-scale missing mass is a new cold-dark-matter particle or instead ordinary undetected baryons / massive neutrinos within a relativistic-MOND framework — resolvable by either a direct laboratory detection of a dark-matter particle or a covariant modified-gravity theory that fits CMB, lensing, and clusters without one.",
+        },
       },
       evidence: [
         {

@@ -7,6 +7,22 @@ export const encryptionBackdoorsData = {
     'Governments should be able to compel lawful-access ("backdoor") capabilities in encrypted communications.',
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The headline 'going dark' statistic was wrong by about 6×. The FBI told Congress and the National Academies under oath that encryption locked it out of 7,775 devices in 2017 — but in 2018 it admitted a software counting error and put the true number near 1,200. The honest nuance: encryption can still genuinely block some lawful investigations; the dispute is how many cases are actually unsolvable without a built-in backdoor.",
+    confidence: 90,
+    source:
+      "FBI's own 2018 correction, reported by The Washington Post (May 2018); EFF and New America / Open Technology Institute analyses",
+    sourceUrl:
+      "https://www.eff.org/deeplinks/2018/05/fbi-admits-it-inflated-number-supposedly-unhackable-devices",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Encryption that no warrant can pierce does sometimes leave investigators holding a valid court order they cannot execute, and after Meta switched Messenger to default end-to-end encryption, NCMEC's CyberTipline reports fell by roughly 7 million year-over-year — a real, measurable cost to detecting child abuse.",
+    "But the leading technical analyses — the peer-reviewed 'Keys Under Doormats' report by senior cryptographers including RSA's Ron Rivest and Whitfield Diffie — conclude that any mandated access path forces abandonment of forward secrecy, adds complexity that 'is the enemy of security,' and creates concentrated master-key stores that become the highest-value targets on Earth, weakening security for everyone who relies on the same encryption.",
+    "So the honest debate isn't 'privacy vs. catching criminals' but whether a third-party access mechanism can be built whose systemic security cost is smaller than the marginal number of serious crimes it actually solves beyond targeted hacking, metadata, and device forensics — a quantity no one has yet been able to demonstrate.",
+  ],
   last_updated: "2026-06-16",
   tags: ["encryption", "privacy", "surveillance", "security", "law-enforcement"],
   pillars: [
@@ -29,6 +45,16 @@ export const encryptionBackdoorsData = {
           "Adversarial red-team evaluation of any proposed access architecture: (1) model the threat (nation-state attacker, insider, key-store breach), (2) assess loss of forward secrecy and added complexity, (3) penetration-test reference implementations, (4) compare residual risk against the public-safety benefit. Publish for independent cryptographic review.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$2M (red-team study + reference implementation)",
+        falsification: {
+          supporter_flip:
+            "A skeptic of secure backdoors would have to reconsider if an exceptional-access design survived years of open adversarial red-teaming — preserving forward secrecy, with key custody split and audited — without a demonstrated way to abuse it at scale, the way modern HSM and key-management schemes have held up.",
+          skeptic_flip:
+            "A proponent should weigh that no proposed design has yet survived independent cryptographic review, that the 1990s Clipper Chip key-escrow scheme was found to contain exploitable flaws, and that lawful-intercept systems themselves get breached (the 2024 Salt Typhoon intrusions hit CALEA wiretap infrastructure) — so 'we can just build it securely' is an unproven engineering claim.",
+          common_ground:
+            "Both sides agree any exceptional-access mechanism adds an attack surface and that the relevant question is the size of the residual risk, not whether risk is literally zero.",
+          live_disagreement:
+            "Whether a deployable design exists whose added systemic risk is acceptably bounded — resolvable only by publishing a concrete reference implementation and subjecting it to sustained independent red-team review, which has not yet happened.",
+        },
       },
       evidence: [
         {
@@ -106,6 +132,16 @@ export const encryptionBackdoorsData = {
           "Audit a representative sample of investigations stalled by encryption. For each, determine whether available alternatives (targeted exploit, cloud backups, metadata, lawful compulsion of a passcode) could have succeeded. Estimate the residual set genuinely unsolvable without a built-in backdoor, then weigh against modeled systemic security loss.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1M (multi-jurisdiction case audit)",
+        falsification: {
+          supporter_flip:
+            "A skeptic of mandated access should change their mind if a rigorous case audit found a substantial, recurring set of serious investigations that genuinely could not be advanced by lawful hacking, cloud backups, metadata, or compelled credentials — i.e. a large marginal value that only a built-in backdoor could deliver.",
+          skeptic_flip:
+            "A proponent should weigh that the FBI's central 'going dark' statistic was overstated by roughly 6× (7,775 vs. ~1,200 devices), and that the record EncroChat bust (Operation Venetic: 746 UK arrests) came from a targeted exploit of a criminal-only network, not a universal backdoor — so much of the demonstrated payoff comes from lawful hacking rather than mandated access.",
+          common_ground:
+            "Both sides agree encryption sometimes blocks lawful investigations and that the NCMEC report drop after Meta's E2E rollout reflects a real loss of automated abuse detection.",
+          live_disagreement:
+            "The size of the residual set of serious crimes solvable ONLY via a mandated backdoor, net of existing tools — pinnable only by auditing a representative sample of encryption-stalled investigations for available alternatives.",
+        },
       },
       evidence: [
         {
@@ -184,6 +220,16 @@ export const encryptionBackdoorsData = {
           "Comparative legal-institutional analysis: examine how existing surveillance powers (CALEA, lawful intercept, mutual legal assistance) have been contained or abused across regimes; model whether a backdoor mandate creates pressure other states can exploit; assess transparency and audit mechanisms' track record.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (policy and legal analysis)",
+        falsification: {
+          supporter_flip:
+            "A skeptic of containability should reconsider if comparable surveillance powers (CALEA lawful intercept, financial-records access) showed a long track record of staying confined to court-authorized use under transparency reporting and judicial review, without authoritarian copycat mandates or large-scale theft of the capability.",
+          skeptic_flip:
+            "A proponent should weigh that democracies already manage abuse-prone tools — wiretaps, search warrants, financial surveillance — through warrants and oversight rather than abolition, and that 'authoritarian regimes want it too' argues for strong democratic governance of access, not for leaving warrant-authorized investigations powerless.",
+          common_ground:
+            "Both sides agree a lawful-access capability is valuable to authoritarian governments and attackers, and that judicial oversight and transparency reporting are necessary (if not necessarily sufficient) safeguards.",
+          live_disagreement:
+            "Whether a mandated capability can be reliably confined to legitimate use or inevitably proliferates to other regimes and thieves — informed by how powers like CALEA and mutual legal assistance, and cases like the UK's secret order to Apple, have actually been contained or abused across regimes.",
+        },
       },
       evidence: [
         {
