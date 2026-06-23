@@ -1018,3 +1018,11 @@ Priority order, all in-loop unless a workflow is opted into:
   simulation-hypothesis, social-security-retirement-age, vaping-harm-reduction, animal-consciousness-rights];
   final batch 7 [facial-recognition-policing, return-to-office-productivity, section-230-reform,
   global-housing-bubble, us-national-debt-crisis].
+
+### Iter 90 — 2026-06-23 — flagship-completion batch 6 (8 topics, clean run)
+- Batch 6 [occupational-licensing-reform, open-weight-ai-models, right-to-repair, seed-oils-health,
+  simulation-hypothesis, social-security-retirement-age, vaping-harm-reduction, animal-consciousness-rights].
+  No 529s; all clean (open-weight-ai-models has 4 cruxes/4 falsif). 87->95 flagship. Verified: tsc; 601
+  tests; clean build. 5h usage ~53% (batch ~5%); 7d ~33%. Branch +161.
+- FINAL batch 7 next [facial-recognition-policing, return-to-office-productivity, section-230-reform,
+  global-housing-bubble, us-national-debt-crisis] -> then ~100 flagship topics, all clean topics done.
