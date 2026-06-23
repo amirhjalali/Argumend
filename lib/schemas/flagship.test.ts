@@ -123,6 +123,7 @@ const FLAGSHIP_TOPIC_IDS = [
   "electoral-college-reform",
   "mandatory-voting",
   "surveillance-public-safety",
+  "glp1-weight-loss-drugs",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {

@@ -7,6 +7,21 @@ export const glp1WeightLossDrugsData = {
     "GLP-1 receptor agonists like Ozempic and Mounjaro represent a safe, effective long-term solution to the obesity epidemic that should be widely accessible, not a dangerous shortcut that medicalizes a lifestyle problem.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "GLP-1 drugs like Ozempic and Mounjaro produce 15–22% body-weight loss in trials — results that used to require bariatric surgery — and semaglutide cut major cardiac events 20%. But the catch is in the same data: stop the drug and people regain about two-thirds of the loss within a year, so it's a lifelong treatment, not a cure — at ~$1,000+ a month.",
+    confidence: 88,
+    source:
+      "STEP 1 trial, NEJM (2021); SURMOUNT-1; SELECT cardiovascular trial, NEJM (2023); KFF on GLP-1 costs",
+    sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The breakthrough is real: in large trials GLP-1 drugs (Ozempic/Wegovy, Mounjaro/Zepbound) produce 15–22% body-weight loss — a range that previously required bariatric surgery — and one, semaglutide, became the first obesity drug ever shown to cut heart attacks and strokes (by 20%).",
+    "But the same trials carry the catch: when people stop, they regain about two-thirds of the lost weight within a year, so these are chronic-disease treatments meant for life, not cures — which, at roughly $1,000+ a month, turns the debate into one about cost, access, and decades-long safety rather than whether they work.",
+    "So the honest disagreement isn't 'do they work?' (they clearly do, short-term) but whether lifelong use is safe and affordable at population scale — and whether treating obesity as a chronic disease to be medicated is the right frame, or sidesteps the food environment that drives it.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Clinical Efficacy & Long-Term Safety
@@ -31,6 +46,16 @@ export const glp1WeightLossDrugsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$50-100M (Large prospective cohort study with 10-year follow-up and imaging)",
+        falsification: {
+          supporter_flip:
+            "If 10+-year data revealed cumulative harms (thyroid or pancreatic cancer, irreversible gastroparesis, dangerous muscle/bone loss) that rival the morbidity of untreated obesity, the 'benefits far outweigh risks' case would flip — short-term efficacy wouldn't justify lifelong use.",
+          skeptic_flip:
+            "A skeptic worried it's an uncontrolled experiment should weigh that GLP-1s have ~two decades of real-world diabetes safety data, that the cardiovascular outcomes trial showed net benefit, and that obesity itself kills millions yearly — so 'unknown long-term risk' must be weighed against the known, large harm of staying obese.",
+          common_ground:
+            "Both sides agree the longest randomized trials run only ~2-4 years, and that most lost weight returns within a year of stopping the drug.",
+          live_disagreement:
+            "Whether 10+ years of continuous use proves net-beneficial or surfaces cumulative risks that change the calculus — which only long-horizon cohort data can answer.",
+        },
       },
       evidence: [
         {
@@ -127,6 +152,16 @@ export const glp1WeightLossDrugsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-10M (Large-scale health economics study with multi-year claims data analysis)",
+        falsification: {
+          supporter_flip:
+            "If population claims data showed broad GLP-1 coverage raises total healthcare spending over a decade without proportional health gains — the drug cost swamping savings from prevented comorbidities — the economic case for universal coverage would fail.",
+          skeptic_flip:
+            "A skeptic who says they're too expensive should weigh that obesity drives enormous downstream costs (diabetes, heart disease, joint disease), so if even part of that is prevented, ~$1,000/month could pay for itself — making 'too expensive' an empirical claim about net cost, not a given.",
+          common_ground:
+            "Both sides agree the per-patient price (~$1,000+/month) is high and that, applied to tens of millions, the gross drug bill is enormous.",
+          live_disagreement:
+            "Whether the prevented hospitalizations and comorbidities offset the drug cost over a 10-year horizon — which only long-run claims analysis at realistic uptake could determine.",
+        },
       },
       evidence: [
         {
@@ -223,6 +258,16 @@ export const glp1WeightLossDrugsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$30-50M (Multi-center 5-year pragmatic RCT with four arms and diverse enrollment)",
+        falsification: {
+          supporter_flip:
+            "If the best lifestyle interventions (intensive behavioral therapy, supervised diet and exercise) could match GLP-1 weight loss and health outcomes sustainably over 5+ years in real-world conditions, the case that obesity needs medication rather than effort would weaken to 'medication is one option, not a necessity.'",
+          skeptic_flip:
+            "A skeptic who says it's just willpower medicalized should weigh that lifestyle interventions consistently fail to sustain 15-20% weight loss at the population level, and that the drugs work by acting on appetite neurobiology — evidence obesity has a biological driver willpower alone rarely overcomes.",
+          common_ground:
+            "Both sides agree lifestyle change is valuable and that combining it with the drug (resistance training, diet) improves outcomes versus the drug alone.",
+          live_disagreement:
+            "Whether intensive lifestyle intervention can match drug-level weight loss durably at scale — which only a long, head-to-head pragmatic trial in real-world conditions could settle.",
+        },
       },
       evidence: [
         {
@@ -319,6 +364,16 @@ export const glp1WeightLossDrugsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0-500K (Claims database analysis using existing prescription data)",
+        falsification: {
+          supporter_flip:
+            "If claims data showed a large share (>25%) of GLP-1 prescriptions go to people who don't meet clinical obesity criteria — driven by cosmetic thinness rather than medical need — the 'this is responsible medicine' framing would weaken, exposing indication creep that strains supply and inflates cost.",
+          skeptic_flip:
+            "A skeptic who fears 'Hollywood Ozempic' should weigh that if prescribing actually tracks BMI and comorbidity criteria, the cosmetic-misuse fear is overblown — an empirical question the prescription data can answer, not an assumption.",
+          common_ground:
+            "Both sides agree demand has surged, supply has been strained, and high-profile cosmetic use exists; the dispute is how common off-label cosmetic prescribing actually is.",
+          live_disagreement:
+            "What share of real prescriptions are clinically appropriate versus cosmetic indication creep — measurable directly from BMI and indication data in prescription claims.",
+        },
       },
       evidence: [
         {
