@@ -15,7 +15,9 @@ export function SubscribeButton({ topicId: _topicId }: SubscribeButtonProps) {
       disabled
     >
       <Bell className="h-4 w-4" strokeWidth={1.8} />
-      <span className="text-xs font-mono tabular-nums">0</span>
+      {/* Fake "0" subscriber count removed (it implied nobody cares about the
+          topic). Whether to remove this disabled control entirely is a founder
+          call tied to the auth roadmap — flagged in the UX roadmap, not done here. */}
     </button>
   );
 }

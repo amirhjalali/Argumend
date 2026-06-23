@@ -237,7 +237,7 @@ html {
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-colors;
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-main/30 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas;
   }
 
   .btn-sm {

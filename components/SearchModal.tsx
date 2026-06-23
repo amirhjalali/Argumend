@@ -90,7 +90,7 @@ const STATIC_PAGES: SearchResult[] = [
   {
     id: "page-library",
     title: "Library",
-    subtitle: "Browse all topics and arguments",
+    subtitle: "Curated books, papers, and tools",
     type: "page",
     href: "/library",
   },
@@ -537,8 +537,18 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     &ldquo;{query}&rdquo;
                   </span>
                 </div>
-                <div className="mt-2 text-stone-400 text-xs">
-                  Try different words, or just browse the topics
+                <div className="mt-2 text-muted text-xs">
+                  Try different words, or{" "}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      router.push("/topics");
+                      onClose();
+                    }}
+                    className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"
+                  >
+                    browse all topics
+                  </button>
                 </div>
               </div>
             )}

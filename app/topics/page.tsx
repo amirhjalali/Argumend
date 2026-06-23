@@ -208,7 +208,7 @@ export default function TopicsPage() {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search topics..."
                 aria-label="Search topics"
-                className="w-full pl-9 pr-9 py-2.5 min-h-[44px] text-sm bg-white dark:bg-[var(--bg-input)] border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg text-stone-700 dark:text-[var(--text-primary)] placeholder-stone-400 dark:placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
+                className="w-full pl-9 pr-9 py-2.5 min-h-[44px] text-base sm:text-sm bg-white dark:bg-[var(--bg-input)] border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg text-stone-700 dark:text-[var(--text-primary)] placeholder-stone-400 dark:placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               />
               {search && (
                 <button
