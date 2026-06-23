@@ -880,3 +880,10 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 385 tests (+4); renders confirmed. 5h usage ~11%.
 - Next: pandemic-preparedness, longevity-science, ai-in-education, space-colonization-feasibility,
   ai-superintelligence-timeline. (Skipping ai-white-collar-displacement as redundant w/ #27.)
+
+### Iter 75 — 2026-06-22 — Phase 75 (flagship topic #42 = Pandemic Preparedness; 3-pillar)
+- keystone: COVID ~$16T but prevention barely funded + backslides after every scare, conf 82.
+  Falsification on all 3 cruxes (prob-weighted cost; institutional durability; gain-of-function
+  net risk). 42 flagship topics (10->42, +32 this overnight session). Branch +186.
+- Verified: tsc; 389 tests (+4); clean build (periodic); renders confirmed. 5h usage ~11%.
+- Next: longevity-science, ai-in-education, space-colonization-feasibility, ai-superintelligence-timeline.
