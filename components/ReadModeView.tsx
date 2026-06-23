@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ExternalLink, BookOpen, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
 import type { Topic, TopicCategory, TopicStatus, Evidence } from "@/lib/schemas/topic";
-import { calculateEvidenceScore, getVerdictLabel, confidenceTier } from "@/lib/schemas/topic";
+import { calculateEvidenceScore, getVerdictSentence, confidenceTier } from "@/lib/schemas/topic";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import { SynopticTable } from "@/components/SynopticTable";
@@ -84,7 +84,7 @@ function bottomLine(topic: Topic): string {
         ? "Evidence leans toward this claim, but it remains genuinely contested"
         : "The evidence is too thin to settle this claim";
   const anchor = topFor?.title
-    ? `, anchored most strongly by ${topFor.title.replace(/\.$/, "").toLowerCase()}`
+    ? `, anchored most strongly by ${topFor.title.replace(/\.$/, "")}`
     : "";
   return `${lean} at ${score}% confidence${anchor}.`;
 }
@@ -194,7 +194,7 @@ function useActiveSection(ids: string[]): string | null {
 
 export function ReadModeView({ topic }: { topic: Topic }) {
   const StatusIcon = statusMeta[topic.status].icon;
-  const verdict = getVerdictLabel(topic.confidence_score);
+  const verdict = getVerdictSentence(topic.confidence_score);
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
   const sourceCount = useMemo(() => countSources(topic), [topic]);

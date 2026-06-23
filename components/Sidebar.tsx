@@ -89,7 +89,9 @@ export function Sidebar({
 
   const isActiveRoute = (href: string) => {
     if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+    // Exact match or a true sub-path — so /analyses doesn't light up
+    // /analyze, and /topics/compare doesn't light up /topics.
+    return pathname === href || pathname.startsWith(href + "/");
   };
 
   return (
@@ -256,11 +258,6 @@ export function Sidebar({
             ))}
           </ul>
           <ThemeToggle />
-        </div>
-        <div className="text-center">
-          <span className="text-[10px] font-mono text-stone-500">
-            v1.0
-          </span>
         </div>
       </div>
     </nav>

@@ -256,6 +256,21 @@ export function getVerdictLabel(confidenceScore: number): string {
 }
 
 /**
+ * Full-sentence verdict for prose contexts (e.g. the topic-page subhead), so it
+ * reads as a complete clause instead of a dangling fragment. getVerdictLabel
+ * stays compact for badges, cards, and OG images.
+ */
+export function getVerdictSentence(confidenceScore: number): string {
+  if (confidenceScore >= 95)
+    return "The evidence establishes this claim beyond reasonable doubt";
+  if (confidenceScore >= 75)
+    return "The weight of evidence supports this claim";
+  if (confidenceScore >= 50)
+    return "The evidence leans toward this claim, but it stays genuinely contested";
+  return "There's too little evidence to settle this claim";
+}
+
+/**
  * Map a 0–100 confidence percentage to a qualitative tier. Used to present
  * each piece of evidence as an "atomic fact" with a legible confidence level
  * (the flagship Stage-3 experience), separating settled facts from arguable ones.

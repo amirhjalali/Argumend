@@ -88,11 +88,13 @@ function markdownToHtml(md: string): string {
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     // Italic (including book titles wrapped in single asterisks)
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    // Links
-    .replace(
-      /\[([^\]]+)\]\(([^)]+)\)/g,
-      '<a href="$2" class="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors" target="_blank" rel="noopener noreferrer">$1</a>',
-    );
+    // Links — internal paths route same-tab (preserve back button + client
+    // routing); only external http(s) links open in a new tab.
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, href) => {
+      const external = /^https?:\/\//i.test(href);
+      const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+      return `<a href="${href}" class="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"${attrs}>${text}</a>`;
+    });
 
   // Paragraphs: split by double newlines
   const blocks = html.split(/\n\n+/);
