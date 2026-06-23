@@ -34,6 +34,8 @@ facts with confidence → crux reframed as "what would change your mind") and ro
   mid-run and blocked the commit until fixed)
 - Clean `bun run build` (run `rm -rf .next` first — incremental builds hit a benign `@vercel/og` ENOENT)
 - New flagship pages verified via curl render-grep; originals browser-verified end-to-end
+- **All 47 keystone facts independently web-fact-checked** (4 parallel research agents): 41 verified
+  accurate, 6 corrected (see commit "fix(flagship): correct 6 keystone-fact accuracy issues")
 
 ## Decisions waiting on you
 
