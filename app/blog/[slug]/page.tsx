@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { renderMarkdown } from "@/lib/markdown";
 import {
   Calendar,
   Clock,
@@ -77,61 +78,8 @@ export async function generateMetadata(
 // ---------------------------------------------------------------------------
 // Markdown → HTML (simple, no external deps)
 // ---------------------------------------------------------------------------
-// Escape a string for safe use inside a double-quoted HTML attribute.
-function escapeAttr(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/"/g, "&quot;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
-
-function markdownToHtml(md: string): string {
-  let html = md
-    // Headings
-    .replace(/^### (.+)$/gm, '<h3 class="font-serif text-lg text-primary mt-10 mb-2">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 class="font-serif text-2xl sm:text-3xl text-primary mt-12 mb-4">$1</h2>')
-    // Bold + italic
-    .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
-    // Bold
-    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    // Italic (including book titles wrapped in single asterisks)
-    .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    // Links — internal paths route same-tab (preserve back button + client
-    // routing); only external http(s) links open in a new tab. Enforce a
-    // scheme allowlist (neutralize javascript:/data:/etc.) and escape the href
-    // for attribute context. Link text is left as-is so earlier inline passes
-    // (bold/italic) survive; blog content is trusted, static, repo-authored.
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, rawHref) => {
-      const href = String(rawHref).trim();
-      const allowed = /^(https?:\/\/|\/|#|mailto:)/i.test(href);
-      const safeHref = allowed ? href : "#";
-      const external = /^https?:\/\//i.test(safeHref);
-      const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
-      return `<a href="${escapeAttr(safeHref)}" class="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"${attrs}>${text}</a>`;
-    });
-
-  // Paragraphs: split by double newlines
-  const blocks = html.split(/\n\n+/);
-  html = blocks
-    .map((block) => {
-      const trimmed = block.trim();
-      if (!trimmed) return "";
-      // Already wrapped in a tag
-      if (
-        trimmed.startsWith("<h2") ||
-        trimmed.startsWith("<h3") ||
-        trimmed.startsWith("<ul") ||
-        trimmed.startsWith("<ol")
-      ) {
-        return trimmed;
-      }
-      return `<p class="mb-6 leading-[1.8] text-primary">${trimmed.replace(/\n/g, "<br/>")}</p>`;
-    })
-    .join("\n");
-
-  return html;
-}
+// Markdown rendering moved to lib/markdown.ts (shared with guides; adds list
+// support + consolidates the link-href hardening so it can't drift).
 
 // ---------------------------------------------------------------------------
 // Page
@@ -142,7 +90,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
   if (!article) notFound();
 
   const related = getRelatedArticles(slug, 3);
-  const contentHtml = markdownToHtml(article.content);
+  const contentHtml = renderMarkdown(article.content);
 
   const formatDate = (iso: string) =>
     new Date(iso).toLocaleDateString("en-US", {

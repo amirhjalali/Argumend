@@ -5,6 +5,7 @@ import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { guides, getGuideById } from "@/data/guides";
+import { renderInlineMarkdown } from "@/lib/markdown";
 import { notFound } from "next/navigation";
 
 // ---------------------------------------------------------------------------
@@ -162,10 +163,13 @@ export default async function GuidePage({ params }: PageProps) {
                   {section.title}
                 </h2>
 
-                {/* Main section content */}
-                <div className="text-primary leading-[1.8] whitespace-pre-line text-[15px] md:text-base mb-6">
-                  {section.content}
-                </div>
+                {/* Main section content (inline markdown: bold/italic/links) */}
+                <div
+                  className="text-primary leading-[1.8] whitespace-pre-line text-[15px] md:text-base mb-6"
+                  dangerouslySetInnerHTML={{
+                    __html: renderInlineMarkdown(section.content),
+                  }}
+                />
 
                 {/* Subsections */}
                 {section.subsections && (
@@ -178,9 +182,12 @@ export default async function GuidePage({ params }: PageProps) {
                         <h3 className="font-serif text-lg text-primary mb-2">
                           {subsection.title}
                         </h3>
-                        <div className="text-primary leading-[1.75] whitespace-pre-line text-[15px]">
-                          {subsection.content}
-                        </div>
+                        <div
+                          className="text-primary leading-[1.75] whitespace-pre-line text-[15px]"
+                          dangerouslySetInnerHTML={{
+                            __html: renderInlineMarkdown(subsection.content),
+                          }}
+                        />
                       </div>
                     ))}
                   </div>
