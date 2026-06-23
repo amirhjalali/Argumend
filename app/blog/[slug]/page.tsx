@@ -77,6 +77,15 @@ export async function generateMetadata(
 // ---------------------------------------------------------------------------
 // Markdown → HTML (simple, no external deps)
 // ---------------------------------------------------------------------------
+// Escape a string for safe use inside a double-quoted HTML attribute.
+function escapeAttr(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 function markdownToHtml(md: string): string {
   let html = md
     // Headings
@@ -89,11 +98,17 @@ function markdownToHtml(md: string): string {
     // Italic (including book titles wrapped in single asterisks)
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
     // Links — internal paths route same-tab (preserve back button + client
-    // routing); only external http(s) links open in a new tab.
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, href) => {
-      const external = /^https?:\/\//i.test(href);
+    // routing); only external http(s) links open in a new tab. Enforce a
+    // scheme allowlist (neutralize javascript:/data:/etc.) and escape the href
+    // for attribute context. Link text is left as-is so earlier inline passes
+    // (bold/italic) survive; blog content is trusted, static, repo-authored.
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, rawHref) => {
+      const href = String(rawHref).trim();
+      const allowed = /^(https?:\/\/|\/|#|mailto:)/i.test(href);
+      const safeHref = allowed ? href : "#";
+      const external = /^https?:\/\//i.test(safeHref);
       const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
-      return `<a href="${href}" class="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"${attrs}>${text}</a>`;
+      return `<a href="${escapeAttr(safeHref)}" class="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"${attrs}>${text}</a>`;
     });
 
   // Paragraphs: split by double newlines
