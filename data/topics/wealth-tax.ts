@@ -7,6 +7,22 @@ export const wealthTaxData = {
     "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Europe largely ran this experiment and walked away: about a dozen OECD countries had wealth taxes around 1990, but only a few remain — most repealed them over capital flight, valuation headaches, and disappointing revenue (France's raised just ~0.2% of GDP). Whether the US, which taxes citizens globally, would repeat that failure is the real question.",
+    confidence: 84,
+    source:
+      "OECD, 'The Role and Design of Net Wealth Taxes in the OECD' (2018); French wealth-tax revenue data",
+    sourceUrl:
+      "https://www.oecd.org/en/publications/the-role-and-design-of-net-wealth-taxes-in-the-oecd_9789264290303-en.html",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The strongest evidence against a wealth tax isn't theory — it's that Europe tried it and mostly quit: about a dozen OECD countries had one around 1990, but only a handful remain, repealed over capital flight, the difficulty of valuing private assets, and revenue that disappointed (France's raised ~0.2% of GDP).",
+    "But proponents have a real rebuttal that the US is different: it taxes its citizens' worldwide income, has an exit tax that makes fleeing costly, and could design a tax with stronger enforcement and fewer loopholes than the leaky European versions — so the European failures may be about design, not the idea.",
+    "So the honest debate isn't 'would a wealth tax raise money in principle?' (a 2% levy on US billionaires scores in the hundreds of billions on paper) but whether the US could actually collect it — valuing illiquid fortunes annually and beating avoidance — without the capital flight that hollowed out Europe's versions.",
+  ],
   pillars: [
     {
       id: "revenue-potential",
@@ -31,6 +47,16 @@ export const wealthTaxData = {
           "R_{actual} = R_{theoretical} \\times (1 - \\text{avoidance rate}) - \\text{admin costs}",
         verification_status: "verified" as const,
         cost_to_verify: "$100K (Comparative policy analysis)",
+        falsification: {
+          supporter_flip:
+            "If close analysis showed the European repeals were driven by features the US can't escape — annual valuation of private wealth being inherently gameable, avoidance scaling with enforcement no matter how well-funded — rather than fixable design flaws, the 'US can do it better' case would weaken.",
+          skeptic_flip:
+            "A skeptic citing the European failures should weigh that the survivors (Switzerland, Norway) collect meaningful revenue with good asset registries, and that the US's citizenship-based taxation and exit tax remove the easy emigration that doomed France's version — so European repeals aren't automatically America's fate.",
+          common_ground:
+            "Both sides agree most European wealth taxes were repealed and that valuation and avoidance are the central practical problems.",
+          live_disagreement:
+            "Whether the European failures reflect fixable design choices (loopholes, weak enforcement, easy exit) the US could avoid, or inherent features of taxing hard-to-value wealth annually.",
+        },
       },
       evidence: [
         {
@@ -130,6 +156,16 @@ export const wealthTaxData = {
           "\\frac{dI}{dW_{tax}} \\text{ (investment elasticity to wealth tax)}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (Longitudinal economic study)",
+        falsification: {
+          supporter_flip:
+            "If rigorous studies found a billionaire wealth tax meaningfully cut productive investment and business formation — because forcing annual liquidation of company equity damages the firms behind the fortunes — the '2% is below returns, so investment survives' argument would weaken.",
+          skeptic_flip:
+            "A skeptic who says it kills investment should weigh that a 2% annual levy sits well below typical long-run equity returns, that most billionaire wealth would have stayed in assets rather than been consumed, and that cross-country IMF work finds little growth penalty from redistribution except in extreme cases.",
+          common_ground:
+            "Both sides agree most billionaire wealth is productive company equity, not idle cash, so how the tax is paid (selling shares vs. borrowing against them) matters.",
+          live_disagreement:
+            "Whether a modest annual wealth tax meaningfully reduces investment and entrepreneurship, or merely shifts dollars that would have stayed in assets toward public spending without much real-economy cost.",
+        },
       },
       evidence: [
         {
