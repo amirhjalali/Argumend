@@ -131,6 +131,7 @@ const FLAGSHIP_TOPIC_IDS = [
   "social-media-age-limits",
   "pandemic-preparedness",
   "longevity-science",
+  "ai-in-education",
 ];
 
 describe.each(FLAGSHIP_TOPIC_IDS)("flagship content integrity: %s", (id) => {

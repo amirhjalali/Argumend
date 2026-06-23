@@ -7,6 +7,21 @@ export const aiInEducationData = {
     "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The dream behind AI tutoring is Benjamin Bloom's '2 sigma problem': students tutored one-on-one score about two standard deviations higher than classroom students — the average tutored kid beats 98% of a normal class. AI promises that personal tutor for everyone. The catch: early results are mixed, and the same tool can either close the gap or become a cheating shortcut that widens it.",
+    confidence: 80,
+    source:
+      "Bloom, 'The 2 Sigma Problem' (Educational Researcher, 1984); recent AI-tutoring RCTs",
+    sourceUrl: "https://journals.sagepub.com/doi/10.3102/0013189X013006004",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The whole promise of AI in education rests on one of education research's most famous findings — Benjamin Bloom's '2 sigma problem': students who get one-on-one tutoring score about two standard deviations higher than those in a normal classroom, so the average tutored student outperforms 98% of conventionally taught peers.",
+    "One-on-one human tutoring has always been too expensive to give every child; AI's pitch is that it can finally deliver a personalized tutor at near-zero marginal cost, which is why advocates call it a once-in-a-century chance to close achievement gaps.",
+    "But the same tool cuts both ways: early trials are mixed, and AI can just as easily become a homework-doing shortcut that lets students skip the thinking — so the honest debate is whether AI tutoring actually delivers Bloom's gains to the kids who need them most, or widens gaps by helping the motivated and replacing effort for everyone else.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Learning Outcomes & Achievement Gaps
@@ -31,6 +46,16 @@ export const aiInEducationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$15-30M (Multi-year, multi-site cluster-randomized trial with technology provision and longitudinal tracking)",
+        falsification: {
+          supporter_flip:
+            "If a large multi-site RCT showed AI-tutoring gains are uniform or skewed toward already-advantaged students — not disproportionately helping low-performing, disadvantaged kids — then AI would be an amplifier of inequality, not the equalizer the case requires.",
+          skeptic_flip:
+            "A skeptic who says it widens gaps should weigh that the 2-sigma tutoring effect is real and that AI can deliver personalized tutoring at near-zero cost to students who could never afford a human tutor — so 'it'll only help the rich' is a hypothesis a stratified trial could refute.",
+          common_ground:
+            "Both sides agree one-on-one tutoring produces large learning gains (the 2-sigma effect) and that technology access and usage vary by student background.",
+          live_disagreement:
+            "Whether AI tutoring disproportionately helps disadvantaged students (closing gaps) or the already-advantaged (widening them) — which only a large, stratified, multi-year RCT can settle.",
+        },
       },
       evidence: [
         {
@@ -127,6 +152,16 @@ export const aiInEducationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Multi-institution longitudinal randomized trial with validated assessment instruments)",
+        falsification: {
+          supporter_flip:
+            "If students who learned with AI performed worse than non-AI students on closed-book transfer tests — showing they outsourced thinking rather than building it — the 'AI improves learning' claim would invert: better assisted performance masking weaker independent ability.",
+          skeptic_flip:
+            "A skeptic who says AI makes students lazy should weigh that AI with metacognitive scaffolding (explain, critique, revise the AI's output) can deepen rather than replace thinking — so 'AI inevitably makes students dependent' depends on how it's used, which is testable.",
+          common_ground:
+            "Both sides agree AI can be used either to do the work for students or to coach them through it, and that the two produce very different learning.",
+          live_disagreement:
+            "Whether students who learn with AI end up better or worse on assessments where AI isn't available — which only longitudinal trials with closed-book transfer tests can measure.",
+        },
       },
       evidence: [
         {
@@ -206,6 +241,16 @@ export const aiInEducationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-15M (Multi-year comparative implementation study across diverse school districts)",
+        falsification: {
+          supporter_flip:
+            "If schools deploying AI mainly to cut costs (bigger classes, fewer teachers) produced worse outcomes than AI-with-maintained-staffing, it would show the technology's benefit depends entirely on an augmentation model that budget pressure tends to undermine.",
+          skeptic_flip:
+            "A skeptic who fears teacher replacement should weigh that AI that handles grading and drilling can free teachers for higher-value mentoring — so 'AI just means fewer teachers and worse schools' is an implementation choice, not a property of the technology.",
+          common_ground:
+            "Both sides agree the implementation model (augment vs. replace) matters more than the raw capability, and that budget pressure pushes toward cost-cutting deployments.",
+          live_disagreement:
+            "Whether AI in schools is deployed to augment teachers (improving outcomes and retention) or to replace them (degrading both) — which only comparative multi-year implementation studies can reveal.",
+        },
       },
       evidence: [
         {
