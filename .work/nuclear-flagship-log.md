@@ -743,3 +743,10 @@ Priority order, all in-loop unless a workflow is opted into:
   algorithm experiment). Pairs with school-phone-bans #22. 23 flagship topics.
 - Verified: tsc; 313 tests (+4); renders confirmed. 5h usage ~1% (fresh window).
 - Next: standardized-testing-debate, lab-grown-meat-adoption, space-exploration-value, ai-job-displacement.
+
+### Iter 57 — 2026-06-22 — Phase 57 (flagship topic #24 = Standardized Testing)
+- keystone: SAT tracks wealth but predicts within every income/race group (Dartmouth 2x+ GPA
+  variance vs HS-GPA); gap = unequal opportunity not biased test, conf 76. Falsification on both
+  cruxes (test-optional outcomes; assessment-method comparison). 24 flagship topics.
+- Verified: tsc; 317 tests (+4); renders confirmed. 5h usage ~2%.
+- Next: lab-grown-meat-adoption, space-exploration-value, ai-job-displacement, big-tech-antitrust.
