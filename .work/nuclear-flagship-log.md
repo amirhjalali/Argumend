@@ -910,3 +910,12 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 401 tests (+4); renders confirmed (crux1 grep apostrophe noted). 5h usage ~12%.
 - Pool nearly exhausted of clean keystones. Remaining: ai-superintelligence-timeline (distinct from
   ai-risk), privacy-vs-convenience. After those, TAPER to await founder (branch is +198 unpushed).
+
+### Iter 79 — 2026-06-22 — Phase 79 (flagship topic #46 = AI Superintelligence Timeline; 3-pillar)
+- keystone: experts can't agree within decades (Grace 2,778 survey median ~2047, jumped ~13yr in 1yr;
+  range few-years-to-never); timeline = bet not measurement, conf 82. Distinct from ai-risk.
+  Falsification on all 3 cruxes (scaling ceiling; novel reasoning; deceptive alignment). 46 flagship
+  topics (10->46, +36 this overnight session). Branch +202.
+- Verified: tsc; 405 tests (+4); renders confirmed. 5h usage ~12%.
+- Next: privacy-vs-convenience (last clearly-distinct clean-keystone topic), then TAPER to slower
+  await-founder cadence — pool exhausted, branch +202 unpushed warrants founder review.
