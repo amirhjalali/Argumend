@@ -7,6 +7,22 @@ export const surveillancePublicSafetyData = {
     "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety—a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "London has ~700,000 CCTV cameras, but the leading 40-year meta-analysis finds the crime drop is modest and concentrated in parking lots (~37% there) with near-zero effect on violent crime. And facial-recognition errors aren't random — a federal NIST study found the highest false-match rates for Black women, and the wrongful arrests documented so far have nearly all been of Black people.",
+    confidence: 84,
+    source:
+      "Piza, Welsh, Farrington & Thomas, CCTV meta-analysis (2019); NIST Face Recognition Vendor Test — demographic effects (2019)",
+    sourceUrl:
+      "https://www.nist.gov/news-events/news/2019/12/nist-study-evaluates-effects-race-age-sex-face-recognition-software",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The intuition 'more cameras = safer streets' is only partly true: the leading 40-year meta-analysis finds CCTV produces a modest crime drop concentrated in places like parking lots (~37% there) and driven by property, not violent, crime — and even that works best only when cameras are actively monitored and paired with other measures.",
+    "The costs, by contrast, fall unevenly: a federal NIST evaluation found face-recognition false matches are highest for Black women, and the wrongful arrests documented so far have nearly all been of Black people — so the harm isn't randomly distributed even if the average error rate looks low.",
+    "So the honest debate isn't 'does surveillance ever help?' (it does, narrowly, and aids investigations) but whether the modest, conditional safety gains can be captured with guardrails — human review, retention limits, bans on real-time mass face-scanning — without the chilling effects and biased errors that the technology, deployed loosely, reliably produces.",
+  ],
   pillars: [
     {
       id: "crime-reduction-effectiveness",
@@ -27,6 +43,16 @@ export const surveillancePublicSafetyData = {
           "Randomly assign surveillance technology deployment (CCTV, facial recognition, license plate readers) across matched neighborhoods. Measure crime rates in treated and control areas, including adjacent areas (to detect displacement). Track false positive rates, arrests based on surveillance, and community surveys on trust.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$5M (Multi-city randomized evaluation)",
+        falsification: {
+          supporter_flip:
+            "If a rigorous multi-city RCT found surveillance deployment produces little net crime reduction once you account for displacement to adjacent areas — the car-park gains just moving crime rather than preventing it, and facial recognition adding no measurable safety — the effectiveness case would shrink to investigative value only.",
+          skeptic_flip:
+            "A skeptic who says cameras do nothing should weigh that the same meta-analysis they cite confirms CCTV genuinely cuts crime where deployed well, and that a 268-city study associated police facial recognition with lower felony violence — so 'surveillance does nothing' overstates it; the honest reading is 'modest and conditional,' not 'zero.'",
+          common_ground:
+            "Both sides agree surveillance's crime-reduction effect is real but modest, concentrated in property crime and specific settings, and strongest when cameras are actively monitored.",
+          live_disagreement:
+            "How much of the measured crime reduction is genuine prevention versus displacement to nearby areas — which only a randomized, displacement-tracking trial could cleanly separate.",
+        },
       },
       evidence: [
         {
@@ -105,6 +131,16 @@ export const surveillancePublicSafetyData = {
           "Compare surveillance oversight frameworks across democracies (US, UK, EU, Japan). Measure abuse rates, false positive rates, scope creep, and public trust under different regulatory regimes.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1M (Comparative policy study)",
+        falsification: {
+          supporter_flip:
+            "If cross-country comparison showed even the best oversight frameworks fail to prevent scope creep, biased false matches, and data repurposing — that surveillance infrastructure inevitably erodes civil liberties once built — the 'capture benefits with guardrails' position would collapse toward not building it.",
+          skeptic_flip:
+            "A skeptic who wants surveillance banned should weigh that many documented harms (wrongful arrests from un-corroborated face matches, repurposing for immigration) are governance failures the technology doesn't require — addressable with human review, retention caps, and use bans — rather than inherent properties of the tools.",
+          common_ground:
+            "Both sides agree facial-recognition errors fall disproportionately on Black people and that surveillance data is, in practice, frequently repurposed beyond its original purpose.",
+          live_disagreement:
+            "Whether oversight (human-in-the-loop review, retention limits, bans on real-time mass scanning, anti-repurposing rules) can reliably bound the harms, or whether the infrastructure inevitably drifts toward abuse once it exists.",
+        },
       },
       evidence: [
         {
