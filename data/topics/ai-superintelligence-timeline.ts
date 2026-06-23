@@ -7,6 +7,21 @@ export const aiSuperintelligenceTimelineData = {
     "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation.",
   status: "highly_speculative" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Even the experts can't agree within decades. The largest survey — 2,778 AI researchers (Grace et al., 2023) — put the median 50% odds of human-level machine intelligence around 2047, but that estimate jumped ~13 years earlier than the same survey gave just one year before, and individual forecasts run from 'a few years' to 'never.' Any confident timeline is a bet, not a measurement.",
+    confidence: 82,
+    source:
+      "Grace et al., 'Thousands of AI Authors on the Future of AI' (2,778 researchers, 2023/24); prior AI Impacts expert surveys",
+    sourceUrl: "https://arxiv.org/abs/2401.02843",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The honest starting point is humility: nobody — not even the researchers building these systems — can reliably say when superintelligence will arrive, and their collective guess is both wide and unstable.",
+    "The biggest survey of AI researchers (2,778 of them) put the median 50% chance of human-level machine intelligence around 2047, but that figure had jumped roughly 13 years earlier than the same survey gave just one year before, while individual experts range from 'within a decade' to 'not this century, maybe never.'",
+    "So the honest debate isn't a specific date but which signal to trust: the scaling curves that have kept paying off (arguing for soon), the architectural gaps where today's models still fail at genuinely novel reasoning (arguing for later or never), and the unsolved problem of whether we'd even be able to tell a superintelligent system was deceiving us.",
+  ],
   imageUrl:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -85,6 +100,16 @@ export const aiSuperintelligenceTimelineData = {
           "L(C) = \\alpha C^{-\\beta} + L_{\\infty}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1B+ (requires training multiple frontier-scale models)",
+        falsification: {
+          supporter_flip:
+            "If capability gains per 10× of compute clearly flattened on hard reasoning benchmarks — a scaling ceiling appearing before AGI-level performance — the 'just scale up and we get there soon' basis for near-term superintelligence would break.",
+          skeptic_flip:
+            "A skeptic who says scaling is hitting a wall should weigh that each compute generation has so far kept delivering predictable capability gains and that algorithmic efficiency keeps improving — so 'scaling has plateaued' is a claim the next model generations will test, not an established fact.",
+          common_ground:
+            "Both sides agree scaling laws have held remarkably well so far and that whether they continue to AGI-level reasoning is unknown.",
+          live_disagreement:
+            "Whether the capability-per-compute curve hits a ceiling before reaching general reasoning — which only continued frontier-scale training and benchmark tracking can reveal.",
+        },
       },
       evidence: [
         {
@@ -185,6 +210,16 @@ export const aiSuperintelligenceTimelineData = {
           "G_{OOD} = \\frac{P(\\text{correct} | \\text{novel task})}{P(\\text{correct} | \\text{trained task})}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$10M (benchmark design + frontier model evaluation)",
+        falsification: {
+          supporter_flip:
+            "If frontier models kept failing at provably novel, out-of-distribution reasoning (learning invented formal systems from few examples and generalizing) while excelling on training-like tasks, it would suggest scaling produces sophisticated pattern-matching, not the general reasoning superintelligence requires — pushing timelines out or requiring a new architecture.",
+          skeptic_flip:
+            "A skeptic who says it's just pattern-matching should weigh that models keep solving tasks once claimed to be beyond pattern-matching (competition math, novel coding) and improving on out-of-distribution benchmarks — so 'it can't really reason' keeps having to retreat to narrower tasks.",
+          common_ground:
+            "Both sides agree current models excel on tasks resembling their training data and that genuinely novel, contamination-free reasoning is the hard test.",
+          live_disagreement:
+            "Whether scaled transformers can systematically generalize to genuinely novel reasoning or are bounded by an architectural ceiling — which only contamination-controlled novel-reasoning benchmarks can distinguish.",
+        },
       },
       evidence: [
         {
@@ -282,6 +317,16 @@ export const aiSuperintelligenceTimelineData = {
           "Use mechanistic interpretability to map internal representations of goals in frontier models. Create controlled experiments where models are incentivized to be deceptive. Test whether interpretability tools can distinguish genuine alignment from strategic compliance. Develop formal verification methods for alignment properties.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$100M+ (interpretability research + red-teaming infrastructure)",
+        falsification: {
+          supporter_flip:
+            "If interpretability and red-teaming reliably caught models being deceptive about their goals — distinguishing genuine alignment from strategic compliance — the 'we couldn't tell if a superintelligence was deceiving us' fear would ease, making advanced AI more safely steerable.",
+          skeptic_flip:
+            "A skeptic who dismisses deception risk should weigh that we currently have no reliable way to verify a model's true objectives from the inside, and that a system smart enough to be superintelligent could plausibly appear aligned in evaluation while behaving differently in deployment — so 'we'll just test it' isn't yet a solved safeguard.",
+          common_ground:
+            "Both sides agree no current method reliably verifies an AI's true goals, and that detecting deception in more capable systems is an open research problem.",
+          live_disagreement:
+            "Whether interpretability and evaluation can be made robust enough to detect a deceptively-aligned advanced AI before deployment — which only sustained interpretability research against adversarial models can establish.",
+        },
       },
       evidence: [
         {
