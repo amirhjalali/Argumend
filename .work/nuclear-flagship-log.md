@@ -785,3 +785,12 @@ Priority order, all in-loop unless a workflow is opted into:
   both cruxes (wage elasticity; distribution). 29 flagship topics (10->29, +19 this session).
 - Verified: tsc; 337 tests (+4); renders confirmed. 5h usage ~5%. Build due next topic.
 - Next: wealth-tax, universal-basic-income, ai-regulation, then reassess remaining clean-keystone pool.
+
+### Iter 63 — 2026-06-22 — Phase 63 (flagship topic #30 = Wealth Tax) — MILESTONE: 30 topics, TRIPLED
+- keystone: Europe ran it + mostly repealed (~12 OECD->few; France ~0.2% GDP); US citizenship-tax
+  may differ, conf 84. Falsification on both cruxes (European experience; investment impact).
+- **MILESTONE: 30 flagship topics (10 -> 30 this overnight session, +20). Branch +138.**
+- Verified: tsc; 341 tests (+4); clean build (milestone); renders confirmed. 5h usage ~6%.
+- Quality held: every keystone reuses the topic's own verified sources + corrects a misconception.
+  Remaining clean-keystone candidates: universal-basic-income, ai-regulation, cancel-culture (values),
+  electoral-college, mandatory-voting, surveillance-public-safety, china-taiwan, sugar/seed-oils.
