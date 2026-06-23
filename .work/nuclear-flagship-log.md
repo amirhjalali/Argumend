@@ -967,3 +967,14 @@ Priority order, all in-loop unless a workflow is opted into:
 - New flagship pages now verified on all 5 dimensions: data integrity (tests), text render (curl),
   factual accuracy (audit), neutrality (audit), and visual layout (browser). Verification complete.
 - No code changes (verification only). Branch +146. 5h usage ~3%, 7d ~26%.
+
+### Iter 85 — 2026-06-23 — flagship-completion SCALED workflow, batch 1 (6 topics)
+- Founder picked "finish flagship on clean topics, skip sensitive"; capped 5h usage <80%. Corrected my
+  earlier wrong "pool exhausted" claim: 142 topics, only 47 had flagship -> ~50 CLEAN remain (~40
+  sensitive skipped). Built a 2-stage parallel workflow (author -> web-factcheck+neutrality QC).
+- Batch 1 (validation): four-day-work-week, carbon-tax-effectiveness, ssri-antidepressant-efficacy,
+  moon-landing, self-driving-car-safety, nuclear-fusion-timeline. Quality at/above manual bar; QC
+  caught+fixed 1 real error (Iceland). 47->53 flagship. Verified: tsc; 433 tests; clean build; renders.
+- USAGE COST: 6-topic batch = ~7-8% of 5h window (~1.3%/topic); 562k subagent tokens. ~44 clean left
+  ~= ~52% more -> finishable under 80% across batches w/ monitoring. 5h now ~10%, 7d ~27%. Branch +149.
+- Next: batch 2 (10 topics), monitor usage, stop ~70% to keep margin.
