@@ -1136,3 +1136,14 @@ Priority order, all in-loop unless a workflow is opted into:
   test. Verified: 661 tests; clean build; renders. Branch +181.
 - Next: (1) value-prop H1 in FeaturedTopicHero — do by hand + FLAG founder-review (hero copy); (6)
   contrast grind via parallel ultracode workflow (bare light-mode text-stone-400 only).
+
+### Iter 101 — 2026-06-23 — UX quick-wins COMPLETE (contrast pass QW#6)
+- Contrast grind via 14-agent parallel workflow: 68 bare light-mode text-stone-400/300 -> text-muted
+  across 13 files (per-usage; skipped decorative icons / correct dark-variants / non-text tokens; 0
+  malformed classes). Verified: tsc; 661 tests; clean build; key pages render. Branch +185.
+- UX QUICK-WIN IMPLEMENTATION COMPLETE: audit + 9 batches (both CRITICALs: newsletter capture +
+  value-prop H1; plus verdict sentence, reduced-motion, markdown, blog-link security, polish x2,
+  confidence gloss/scope, view-naming, contrast). Only strategic bets A-G remain (founder-owned).
+  HANDOFF.md updated with full UX section.
+- Returning to ~30min await-founder heartbeat. High-value work across ALL initiatives (flagship 100,
+  net-new +10, UX) is done. Branch large + unpushed -> founder review.

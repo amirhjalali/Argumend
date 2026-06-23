@@ -67,3 +67,33 @@ The clean-keystone candidate pool is exhausted. Remaining topics are values-lade
 skip-list, redundant with existing flagship topics, or fast-moving geopolitical — none are good
 *autonomous* candidates without your judgment. Forcing them would lower quality, so the loop tapered
 to a slow await-founder cadence instead.
+
+---
+
+## UX/UI + user-journey deep-dive (2026-06-23)
+
+Ran an 11-lens ultracode audit (`.work/ux-audit-2026-06-23.md`, 82 findings) then
+implemented every actionable quick-win. **Both CRITICAL findings shipped.** All
+verified (tsc + 661 tests + clean build + render) and committed; nothing pushed.
+
+Shipped:
+- **Newsletter capture on the topic Read view** (CRITICAL — the funnel had no bottom)
+- **Landing value-proposition H1** (CRITICAL — "product never said what it is"); topic title -> H2
+- Broken verdict subhead -> full sentence (getVerdictSentence)
+- App-wide prefers-reduced-motion (MotionConfig)
+- Markdown bugs fixed (guides bold, blog lists) via shared lib/markdown.ts
+- Blog-link XSS hardening (scheme allowlist + attr-escape)
+- Active-nav highlighting; proper-noun casing; removed dev "v1.0" stamp
+- Search no-results -> real action; "Library" subtitle; iOS-zoom input; focus-ring -> teal; removed fake "0" bell
+- Confidence gloss on hero; keystone confidence scoped "This fact:"
+- Second view unified to one name+icon ("Map"; BookOpen reserved for Read)
+- WCAG-AA contrast pass: 68 bare light-mode text-stone-400/300 -> text-muted across 13 files
+
+DEFERRED — founder-owned (in the roadmap, not done):
+- Strategic bets A-G (topic-route unification, legend SOT, category-color consolidation, route the
+  orphaned TopicExplorer, IA rationalization, long-form TOCs, newsletter/saved-topics resilience)
+- Hero copy is a first draft (flagged in its commit) — tune to taste
+- Hide-hero-ViewToggle (needs a store flag; bundle with Bet A); sidebar /is nav (Bet E); auth-control
+  removal — all need your judgment
+
+Off-brand category palette (indigo/sky/violet in SearchModal etc.) is part of Bet C — left for you.
