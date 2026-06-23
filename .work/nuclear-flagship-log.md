@@ -923,10 +923,10 @@ Priority order, all in-loop unless a workflow is opted into:
 ### Iter 80 — 2026-06-22 — Phase 80 (flagship topic #47 = Digital Privacy) — END OF EXPANSION SPRINT
 - keystone: privacy paradox (say-care/click-agree) + data brokers hold thousands of points; live Q is
   opt-outs-vs-regulation, conf 80. Falsification on all 3 cruxes. 47 flagship topics (10->47, +37 this
-  overnight session). Branch +206.
+  overnight session). Branch is 137 commits ahead of main (earlier "+N" notes were drifted estimates).
 - Verified: tsc; 409 tests (+4); clean build (periodic); renders confirmed. 5h usage ~13%.
 - **TAPERING NOW.** Clean-keystone candidate pool is exhausted; remaining topics are values-laden,
   sensitive (skip-list), redundant, or fast-moving geopolitical — NOT good autonomous flagship
   candidates without founder judgment. Overnight result: flagship journey 10 -> 47 topics (4.7x), all
   verified, all with keystone_fact + simple_case + per-crux falsification, every keystone reusing the
-  topic's own sources. Branch +206 unpushed -> founder review. Switching to longer await-founder cadence.
+  topic's own sources. Branch 137 commits ahead, unpushed -> founder review. Switching to longer await-founder cadence.
