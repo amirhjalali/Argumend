@@ -697,3 +697,12 @@ Priority order, all in-loop unless a workflow is opted into:
 - Verified: tsc; 289 tests (+4); renders confirmed. 17 flagship topics. 5h usage ~19%.
 - Next: veganism-environmental-impact; then candidate pool reassessment (factory-farming,
   sugar-tax, ultra-processed-food, social-media-mental-health, school-phone-bans).
+
+### Iter 51 — 2026-06-22 — Phase 51 (flagship topic #18 = Veganism & Environment)
+- keystone: ~75% less GHG/land (Oxford 2023) + global farmland freed (Poore&Nemecek), conf 90.
+  simple_case: biggest individual lever but win concentrates among affluent, not subsistence
+  farmers. Falsification on both cruxes (global modeling; vegan nutrition outcomes). 18 flagship.
+- Verified: tsc; 293 tests (+4); renders confirmed. 5h usage ~20%.
+- 8 topics added this overnight session (10->18). Next: reassess pool — candidates with clear
+  keystones: factory-farming-ban, sugar-tax-effectiveness, ultra-processed-food, school-phone-bans,
+  social-media-mental-health, standardized-testing-debate.
