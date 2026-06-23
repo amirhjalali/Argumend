@@ -7,6 +7,21 @@ export const labGrownMeatData = {
     "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The first lab-grown burger cost $330,000 in 2013; a 2024 peer-reviewed model projects cultivated chicken at about $6.20/lb at a scaled plant — a staggering drop. But that's a projection for a facility that doesn't yet exist, no one has hit conventional beef's ~$3/lb at retail, and 2024–25 funding fell as investors doubted it scales.",
+    confidence: 80,
+    source:
+      "Mosa Meat (2013 burger); Nahmias et al., Nature Food (2024); GFI State of the Industry",
+    sourceUrl: "https://www.nature.com/articles/s43016-024-01022-w",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Cultivated meat's progress is real and dramatic — the price of a lab-grown burger fell from $330,000 in 2013 to a 2024 peer-reviewed projection of about $6.20/lb for chicken, and regulators in Singapore (2020) and the US (2023) have approved sales.",
+    "But the headline cost is a model for a 50,000-litre facility nobody has built — no producer has actually hit conventional prices at retail, the engineering hurdles (sterile scale-up, cheap growth medium, structured cuts) may have hard floors, and 2024–25 funding dropped as investors reassessed.",
+    "So the honest question isn't whether cultivated meat is technically possible (it is, and it's been eaten) but whether it can scale to real cost parity and win over consumers — the 'yuck factor' softens after tasting, but survey enthusiasm has consistently outrun actual purchases.",
+  ],
   pillars: [
     {
       id: "cost-scalability",
@@ -29,6 +44,16 @@ export const labGrownMeatData = {
           "t_{\\text{parity}} = t_0 + \\frac{\\ln(C_{\\text{current}}/C_{\\text{target}})}{r_{\\text{cost reduction}}}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (Techno-economic analysis with industry data)",
+        falsification: {
+          supporter_flip:
+            "If built, at-scale facilities consistently failed to hit the costs their techno-economic models predicted — the projected ~$6/lb staying a model while real production stuck far above conventional prices, with the gap proving to have hard chemistry/contamination floors — the 'parity within 15 years' claim would collapse.",
+          skeptic_flip:
+            "A skeptic who says it'll never be cheap should weigh that costs have already fallen by orders of magnitude since 2013, that a peer-reviewed model puts scaled chicken near organic prices, and that the specific levers (cheaper media, perfusion bioreactors, cell-line optimization) are identified and improving — so a hard cost floor isn't yet demonstrated.",
+          common_ground:
+            "Both sides agree the low-cost figures are projections for facilities that don't yet exist, not prices achieved at retail scale.",
+          live_disagreement:
+            "Whether the remaining cost gap to conventional meat is a normal engineering scale-up problem that falls with volume, or a hard floor set by sterility, growth-medium chemistry, and contamination risk.",
+        },
       },
       evidence: [
         {
@@ -103,6 +128,16 @@ export const labGrownMeatData = {
           "Conduct large-scale (n>1,000) double-blind taste tests comparing cultivated and conventional meat across multiple products (burger, chicken breast, steak). Measure preference, willingness to pay, and repeat purchase intent.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$200K (Consumer taste trial study)",
+        falsification: {
+          supporter_flip:
+            "If large double-blind tests at equal price showed consumers consistently prefer conventional meat or won't repeat-purchase cultivated even when they can't taste the difference, the 'acceptance improves after tasting' case would weaken — the yuck factor would be a durable barrier, not a marketing problem.",
+          skeptic_flip:
+            "A skeptic who cites the yuck factor should weigh that acceptance rises sharply after tasting, that younger consumers already report 65–70% willingness, and that plant-based meat overcame similar early skepticism to reach mainstream shelves.",
+          common_ground:
+            "Both sides agree survey-stated willingness to try has consistently outrun actual purchasing, and that structured cuts (steak) remain harder to make than mince.",
+          live_disagreement:
+            "Whether the 'yuck factor' is a durable barrier or a soft framing-and-familiarity effect that fades once cultivated meat is price-competitive and on shelves — which no large blind test at price parity has yet measured.",
+        },
       },
       evidence: [
         {
