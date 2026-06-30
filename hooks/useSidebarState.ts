@@ -43,6 +43,7 @@ export function useSidebarState(): SidebarState {
   // Enable transitions only after the first paint so the initial open state
   // (set above, before paint) appears instantly instead of sliding in.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: flip the mount flag after first paint so the pre-set open state appears instantly instead of animating in.
     setMounted(true);
   }, []);
 
