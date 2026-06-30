@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ChevronDown, ChevronRight } from "lucide-react";
@@ -8,6 +8,23 @@ import { learnNav, metaNav, primaryNav } from "@/lib/nav";
 import { topicSummaries } from "@/data/topicIndex";
 import { TrendingTopics } from "@/components/TrendingTopics";
 import { ThemeToggle } from "@/components/ThemeToggle";
+
+const DESKTOP_QUERY = "(min-width: 768px)";
+
+function subscribeDesktopChange(onStoreChange: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const mediaQuery = window.matchMedia(DESKTOP_QUERY);
+  mediaQuery.addEventListener("change", onStoreChange);
+  return () => mediaQuery.removeEventListener("change", onStoreChange);
+}
+
+function getDesktopSnapshot() {
+  return typeof window !== "undefined" && window.matchMedia(DESKTOP_QUERY).matches;
+}
+
+function getServerDesktopSnapshot() {
+  return false;
+}
 
 interface SidebarProps {
   isOpen: boolean;
@@ -24,16 +41,15 @@ export function Sidebar({
 }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
-  // Default the "Learn & Explore" section open on desktop so first paint shows
-  // the full site map; it stays collapsible. Initialized closed to match SSR,
-  // then opened after mount on desktop widths to avoid a hydration mismatch.
-  const [learnOpen, setLearnOpen] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      setLearnOpen(true);
-    }
-  }, []);
+  // Default the "Learn & Explore" section open on desktop; user toggles override
+  // the responsive default.
+  const isDesktop = useSyncExternalStore(
+    subscribeDesktopChange,
+    getDesktopSnapshot,
+    getServerDesktopSnapshot,
+  );
+  const [learnOpenOverride, setLearnOpenOverride] = useState<boolean | null>(null);
+  const learnOpen = learnOpenOverride ?? isDesktop;
 
   const handleTopicClick = (id: string) => {
     onTopicSelect(id);
@@ -106,7 +122,7 @@ export function Sidebar({
         {/* Learn & Explore collapsible section */}
         <div className="pb-5">
           <button
-            onClick={() => setLearnOpen(!learnOpen)}
+            onClick={() => setLearnOpenOverride(!learnOpen)}
             className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-muted dark:text-stone-400 tracking-wide hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
             aria-expanded={learnOpen}
             aria-controls="learn-explore-menu"
