@@ -389,8 +389,9 @@ export default function AnalyzePage() {
                 Analyze Any Argument
               </h1>
               <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
-                Paste a debate, article, or anything with an argument in it.
-                We&apos;ll pull out the positions, find the crux, and tell you how strong the reasoning is.
+                Paste a debate, an article, or anything with an argument in it. In seconds,
+                we&apos;ll surface every position, pinpoint the crux that divides them, and rate
+                how strong the reasoning really is.
               </p>
               {!liveAnalyzeEnabled && (
                 <p className="text-sm text-emerald-700/80 dark:text-emerald-400/80 max-w-2xl mx-auto">
@@ -538,6 +539,15 @@ export default function AnalyzePage() {
                   </motion.div>
                 )}
 
+                {/* Empty-state nudge — only before anything has been typed */}
+                {!content.trim() && !error && (
+                  <p className="text-center text-sm text-muted">
+                    Not sure what to paste? Hit{" "}
+                    <span className="font-medium text-deep">Try an Example</span> above and
+                    watch a real debate get mapped.
+                  </p>
+                )}
+
                 {/* Analyze Button */}
                 <div className="flex justify-center">
                   <motion.button
@@ -556,7 +566,7 @@ export default function AnalyzePage() {
                     {isAnalyzing ? (
                       <>
                         <Loader2 className="h-5 w-5 animate-spin" />
-                        <span>{liveAnalyzeEnabled ? "Analyzing..." : "Analyzing locally..."}</span>
+                        <span>Mapping the arguments&hellip;</span>
                       </>
                     ) : (
                       <>
@@ -566,6 +576,19 @@ export default function AnalyzePage() {
                     )}
                   </motion.button>
                 </div>
+
+                {/* Loading status — keeps the wait from feeling silent */}
+                {isAnalyzing && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-center text-sm text-muted"
+                    aria-live="polite"
+                  >
+                    Reading the text, separating the sides, and hunting for the crux. This
+                    usually takes a few seconds.
+                  </motion.p>
+                )}
               </motion.div>
             )}
 
