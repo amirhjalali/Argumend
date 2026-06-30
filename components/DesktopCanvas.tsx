@@ -3,6 +3,7 @@
 import "@xyflow/react/dist/style.css";
 
 import { useCallback, useEffect, useMemo } from "react";
+import { useTheme } from "next-themes";
 import {
   Background,
   BackgroundVariant,
@@ -40,6 +41,16 @@ function CanvasInner() {
     (state) => state.consumeFocusTargets,
   );
   const reactFlow = useReactFlow();
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  // Theme-aware canvas chrome. The dot grid and minimap mask are otherwise
+  // hardcoded to parchment, leaving dark-mode users with bright artifacts on a
+  // near-black canvas. `useTheme` re-renders on toggle so these update live.
+  const backgroundDotColor = isDark ? "#45413b" : "#cdc6bb";
+  const miniMapMaskColor = isDark
+    ? "rgba(26, 25, 23, 0.78)"
+    : "rgba(244, 241, 235, 0.75)";
 
   const nodeTypes = useMemo(
     () => ({
@@ -96,7 +107,7 @@ function CanvasInner() {
         fitView
       >
         <Background
-          color="#cdc6bb"
+          color={backgroundDotColor}
           gap={GRAPH.GRID_GAP}
           size={GRAPH.DOT_SIZE}
           variant={BackgroundVariant.Dots}
@@ -114,7 +125,7 @@ function CanvasInner() {
           }}
           nodeColor={getNodeColor}
           nodeStrokeColor={() => "transparent"}
-          maskColor="rgba(244, 241, 235, 0.75)"
+          maskColor={miniMapMaskColor}
         />
         <ZoomIndicator />
         <MapLegend />

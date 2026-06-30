@@ -19,11 +19,11 @@ import { getVariantStyle } from "@/lib/variantStyles";
 function getStatusStyle(status: string): string {
   switch (status) {
     case "verified":
-      return "bg-deep/20 text-deep-dark";
+      return "bg-deep/20 text-deep-dark dark:text-[#7fb5b0]";
     case "theoretical":
-      return "bg-rust-500/20 text-rust-700";
+      return "bg-rust-500/20 text-rust-700 dark:text-rust-300";
     default:
-      return "bg-stone-200 text-stone-600";
+      return "bg-stone-200 text-stone-600 dark:bg-[#302e2a] dark:text-stone-300";
   }
 }
 
@@ -45,7 +45,7 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
 
   return (
     <div
-      className={`relative w-[300px] md:w-[340px] rounded-xl border border-stone-200/80 border-l-[3px] ${style.borderClass} bg-[#fefcf9] shadow-[0_1px_3px_rgba(120,100,80,0.08)] transition-shadow duration-200 hover:shadow-[0_4px_16px_rgba(120,100,80,0.12)] node-enter`}
+      className={`relative w-[300px] md:w-[340px] rounded-xl border border-stone-200/80 dark:border-[var(--border-default)] border-l-[3px] ${style.borderClass} bg-[#fefcf9] dark:bg-[var(--bg-card)] shadow-[0_1px_3px_rgba(120,100,80,0.08)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.35)] transition-shadow duration-200 hover:shadow-[0_4px_16px_rgba(120,100,80,0.12)] dark:hover:shadow-[0_4px_16px_rgba(0,0,0,0.45)] node-enter`}
       style={{ animationDelay: `${((data.birthOrder as number) ?? 0) * 80}ms` }}
       tabIndex={0}
       role="group"
@@ -59,7 +59,7 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
 
       {/* Optional Image */}
       {data.imageUrl && (
-        <div className="relative h-36 w-full overflow-hidden rounded-t-xl border-b border-stone-100">
+        <div className="relative h-36 w-full overflow-hidden rounded-t-xl border-b border-stone-100 dark:border-[#302e2a]">
           <Image
             src={data.imageUrl}
             alt={data.title || "Node illustration"}
@@ -72,23 +72,23 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
 
       <div className="p-5">
         {/* Header with Icon */}
-        <div className="-mx-5 -mt-5 mb-4 px-5 py-2.5 rounded-t-xl border-b border-stone-100">
+        <div className="-mx-5 -mt-5 mb-4 px-5 py-2.5 rounded-t-xl border-b border-stone-100 dark:border-[#302e2a]">
           <div className="flex items-center gap-2">
             <style.Icon className="h-3.5 w-3.5" style={{ color: style.accentColor }} strokeWidth={1.8} />
-            <span className="text-[11px] font-sans font-medium text-stone-500">
+            <span className="text-[11px] font-sans font-medium text-stone-500 dark:text-[var(--text-muted)]">
               {style.label}
             </span>
           </div>
         </div>
 
         {/* Title - Serif, lighter weight */}
-        <h3 className="mb-3 font-serif text-[17px] font-normal leading-snug text-primary tracking-tight">
+        <h3 className="mb-3 font-serif text-[17px] font-normal leading-snug text-primary dark:text-[var(--text-primary)] tracking-tight">
           {data.title}
         </h3>
 
         {/* Content */}
         {data.content && (
-          <div className="mb-4 text-sm font-sans leading-relaxed text-secondary">
+          <div className="mb-4 text-sm font-sans leading-relaxed text-secondary dark:text-[var(--text-secondary)]">
             <InteractiveContent
               content={data.content}
               concepts={data.concepts}
@@ -99,14 +99,14 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
 
         {/* Special Crux Callout - "What would change your mind?" */}
         {isCrux && data.detail && (
-          <div className="mb-4 p-3 rounded-xl bg-gradient-to-br from-[#a23b3b]/10 to-[#a23b3b]/5 border border-[#a23b3b]/20">
+          <div className="mb-4 p-3 rounded-xl bg-gradient-to-br from-[#a23b3b]/10 to-[#a23b3b]/5 dark:from-[#a23b3b]/20 dark:to-[#a23b3b]/10 border border-[#a23b3b]/20 dark:border-[#a23b3b]/35">
             <div className="flex items-start gap-2 mb-2">
-              <Lightbulb className="h-4 w-4 text-crux mt-0.5 flex-shrink-0" strokeWidth={2} />
-              <p className="text-xs font-semibold text-crux uppercase tracking-wide">
+              <Lightbulb className="h-4 w-4 text-crux dark:text-crux-light mt-0.5 flex-shrink-0" strokeWidth={2} />
+              <p className="text-xs font-semibold text-crux dark:text-crux-light uppercase tracking-wide">
                 The Key Question
               </p>
             </div>
-            <p className="text-sm font-serif italic text-[#7a2929] leading-relaxed">
+            <p className="text-sm font-serif italic text-[#7a2929] dark:text-[#e0a3a3] leading-relaxed">
               &ldquo;{data.detail.description}&rdquo;
             </p>
             {data.detail.status && (
@@ -114,7 +114,7 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
                 <span className={`text-[11px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full ${getStatusStyle(data.detail.status)}`}>
                   {data.detail.status}
                 </span>
-                <span className="text-[11px] text-stone-500">
+                <span className="text-[11px] text-stone-500 dark:text-[var(--text-muted)]">
                   Cost: {data.detail.cost}
                 </span>
               </div>
@@ -124,10 +124,10 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
 
         {/* Evidence Sources */}
         {hasReferences && (
-          <div className="mt-3 -mx-5 -mb-5 px-5 py-3 border-t border-stone-100 rounded-b-xl bg-stone-50/50">
+          <div className="mt-3 -mx-5 -mb-5 px-5 py-3 border-t border-stone-100 dark:border-[#302e2a] rounded-b-xl bg-stone-50/50 dark:bg-[#201f1c]">
             <div className="mb-2 flex items-center gap-1.5">
-              <FileText className="h-3 w-3 text-stone-400" strokeWidth={1.8} />
-              <span className="text-[11px] font-medium text-stone-500">
+              <FileText className="h-3 w-3 text-stone-400 dark:text-[var(--text-muted)]" strokeWidth={1.8} />
+              <span className="text-[11px] font-medium text-stone-500 dark:text-[var(--text-muted)]">
                 Sources ({data.references!.length})
               </span>
             </div>
@@ -142,11 +142,11 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
         )}
 
         {/* Actions */}
-        <div className="mt-3 flex flex-col gap-2 border-t border-stone-100 pt-3">
+        <div className="mt-3 flex flex-col gap-2 border-t border-stone-100 dark:border-[#302e2a] pt-3">
           <div className="flex items-center gap-2">
             {hasChildren ? (
               <button
-                className="flex flex-1 items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors"
+                className="flex flex-1 items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium text-stone-700 dark:text-[var(--text-secondary)] bg-stone-100 dark:bg-[var(--bg-muted)] hover:bg-stone-200 dark:hover:bg-[#3d3a36] transition-colors"
                 onClick={() => (expanded ? collapseNode(id) : expandNode(id))}
                 aria-expanded={expanded}
               >
@@ -154,7 +154,7 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
                 <ChevronDown className={`h-3 w-3 transition-transform ${expanded ? "rotate-180" : ""}`} />
               </button>
             ) : (
-              <div className="flex flex-1 items-center justify-center px-3 py-2 text-[11px] text-stone-300">
+              <div className="flex flex-1 items-center justify-center px-3 py-2 text-[11px] text-stone-300 dark:text-stone-600">
                 Leaf node
               </div>
             )}
@@ -175,8 +175,8 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
             <button
               className={`flex items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
                 evidenceLoaded
-                  ? "text-rust-500 bg-rust-50/50 border border-rust-200/50"
-                  : "text-rust-700 bg-rust-100/80 hover:bg-rust-200/80 border border-rust-200/50"
+                  ? "text-rust-500 dark:text-rust-300 bg-rust-50/50 dark:bg-rust-500/10 border border-rust-200/50 dark:border-rust-500/20"
+                  : "text-rust-700 dark:text-rust-300 bg-rust-100/80 dark:bg-rust-500/15 hover:bg-rust-200/80 dark:hover:bg-rust-500/25 border border-rust-200/50 dark:border-rust-500/25"
               }`}
               onClick={() => loadEvidence(id)}
               disabled={evidenceLoaded}
