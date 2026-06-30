@@ -305,3 +305,25 @@ done). Full list: `.work/remaining-work-2026-06-30.md`.
 editorial media system"` (hero images + `data/generatedMedia.ts` + page/OG wiring) AND pushed
 `origin/nuclear-flagship` up to it. The campaign's cycle-8 fix commits are committed locally but **NOT
 pushed** (3 ahead of origin) — push them to sync, or leave for review.
+
+---
+
+## Autonomous cycle 9 + WIND-DOWN — 2026-06-30
+
+Cycle 9 (final autonomous cycle): **#7** finished the WCAG-AA contrast pass (17 `text-stone-400`→`text-muted`
+swaps on content templates + components) and **#6 Bet A slice** — the canvas URL now preserves
+`?topic=&view=` (bookmarkable/shareable/refresh-safe) and graph share links carry `?view=graph`. Verified:
+`tsc` clean, **753 tests**, clean build.
+
+**The autonomous-safe backlog from both audits is now exhausted.** Across 9 cycles the campaign shipped the
+entire original UX audit (all Strategic Bets that don't need editorial judgment) + the fresh re-audit's
+fixes. Winding down heavy cycles to a low-frequency await-founder posture (also: a concurrent media session
+is actively committing to the same files — `882727d` media + `095d952` sidebar — so parallel cycles now risk
+collisions).
+
+REMAINING = **founder-owned** (see `.work/remaining-work-2026-06-30.md`): #3 auth dead-ends (verify
+AUTH_GOOGLE_ID/SECRET in prod; remove/repoint disabled Sign in / Subscribe / Dashboard), Bet A
+route-unification core (what "Map" means; collapse the 3 topic renderings), Bet E Learn card-sort.
+Plus two decisions: (1) **push** the campaign's unpushed fix commits to `origin/nuclear-flagship`? (2) a
+**visual QA pass** (light/dark/mobile) is recommended once the concurrent media session settles — the 9
+cycles were verified by tsc/tests/build/curl but not yet eyeballed end-to-end.
