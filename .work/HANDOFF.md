@@ -250,3 +250,24 @@ data integrity validated (blogIndex sync 0/0; 0 broken links — caught + fixed 
 - **Content.** +10 FAQs (63 → 73), +5 glossary terms (33 → 38), +2 guides (13 → 15).
 - **Tests.** +20 (API route handlers: filters/pagination/CORS/400/404; blogIndex sync). The public
   API was also **runtime-smoke-tested** last cycle.
+
+---
+
+## Autonomous cycle 6 — 2026-06-30 — security hardening, mobile UX, related reading, content
+
+4 agents + a read-only security review. Verified: `tsc` clean, **735 vitest tests pass**, clean build,
+0 broken links, blogIndex sync held (content agent correctly added matching index entries). Committed;
+not pushed.
+
+- **Security review (read-only) + fixes.** No critical/high. Fixed: (1) MED — newsletter fallback now
+  strips CR/LF from `source`/`reason` before logging (log-injection; the fallback is the normal path
+  offline); (2) LOW — `JsonLd` escapes `<` to prevent a `</script>` breakout (defense-in-depth; callers
+  pass static data). Public API, embed, `lib/markdown`, and localStorage surfaces reviewed **clean**.
+  FOUNDER NOTE: the newsletter fallback logs the subscriber email in cleartext (intentional, for
+  recovery) — a log-retention/GDPR consideration; and the site-wide CSP still uses
+  `script-src 'unsafe-inline'` (pre-existing, out of scope).
+- **Mobile UX.** Mobile TOC pill + Map CTA no longer permanently overlap (auto-hide on scroll +
+  safe-area inset); `MobileArgumentList` view tabs get distinct icons.
+- **Related reading.** Blog posts now end with a unified cross-type "Related reading" (posts + topics +
+  guides) ranked by tag/category/title overlap, sourced from the light indexes.
+- **Content.** +3 blog posts (79 → 82, with matching blogIndex entries).
