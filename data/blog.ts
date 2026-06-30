@@ -6838,6 +6838,254 @@ Five questions, one minute, and you are already reading more carefully than the 
 
 None of this is an argument for distrusting science. It's the opposite. The goal isn't to dismiss studies — it's to know how much weight each one can carry, so that a strong, replicated, well-designed finding moves you a lot and a shaky, lone, conflicted one moves you a little. That graded response is exactly what good thinking looks like: not "I believe it" or "I don't," but "this is worth *this much*." Read enough studies this way and the apparent flip-flopping of science fades, because you stop reacting to each headline and start watching where the weight of the evidence actually settles.`,
   },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Cherry-Picking fallacy explainer
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "cherry-picking-fallacy-explained",
+    title: "The Cherry-Picking Fallacy, Explained: When Every Fact Is True but the Picture Is False",
+    description:
+      "Cherry-picking builds a misleading case out of true facts by hiding the ones that don't fit. Learn to spot selective evidence and ask for the full picture.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T23:50:00Z",
+    readingTime: "9 min read",
+    tags: ["cherry picking", "logical fallacies", "selective evidence", "confirmation bias", "critical thinking"],
+    category: "Logic & Reasoning",
+    content: `## Every fact in it can be true
+
+Cherry-picking is the most respectable-looking fallacy there is. It does not rely on fabricated data, invented statistics, or broken logic. Every individual fact a cherry-picker presents can be completely true, fully sourced, and independently verifiable. The deception lives entirely in what gets left out. By presenting only the evidence that supports a conclusion and quietly omitting the evidence that undercuts it, a careful selector can build a wildly misleading case without ever telling a single lie.
+
+That is what makes it dangerous. A claim full of false statements can be debunked statement by statement. A claim built from true-but-selected statements survives fact-checking, because each piece passes the check — and the audience never learns about the pieces that were never shown. Cherry-picking is also called the fallacy of incomplete evidence, or suppressed evidence, and the [cherry-picking entry](/fallacies/cherry-picking) in our fallacy catalog gives the formal definition. The short version: the error is not in the facts presented but in the facts withheld.
+
+## Why selection beats fabrication
+
+Suppose you want to argue that a particular drug is dangerous. You could invent a frightening statistic — but that is brittle, and someone will check it. Or you could comb through the hundreds of real studies on the drug, find the three with alarming results, and present only those. Every number you cite is genuine. You have lied about nothing. And yet, if the other ninety-seven studies found the drug safe, your "evidence-based" case is a fiction assembled entirely from facts.
+
+This is why cherry-picking is the workhorse of motivated reasoning, marketing, and propaganda. It scales effortlessly. There is so much information about almost any contested question that a determined selector can find genuine support for nearly any position simply by filtering. The filter does all the work, and the filter is invisible to the audience.
+
+## The shapes it takes
+
+Cherry-picking wears several costumes. Learning to recognize them is most of the battle.
+
+- **The lone study.** Citing the single paper that supports your view while ignoring the larger body of research that contradicts it. A new, surprising result that contradicts a large meta-analysis is not a tie — but quoted alone, it sounds decisive. This is why knowing how to weigh research matters, a skill we walk through in [how to read a scientific study](/blog/how-to-read-a-scientific-study).
+- **The favorable timeframe.** Choosing start and end dates that flatter your case. "Crime has fallen since 2020" and "crime has risen since 2014" can both be true of the same city, depending on where you start the clock. Picking the baseline that produces the trend you want is cherry-picking with a calendar.
+- **The unrepresentative example.** A single cold day offered as evidence against a warming climate; one company's collapse offered as proof an entire industry is doomed. The example is real; it simply is not typical.
+- **The quote out of context.** Pulling a sentence from a report or a person while omitting the surrounding sentences that change its meaning. The quote is verbatim and still misleading.
+- **The selective metric.** When a country, company, or policy looks bad on ten measures and good on one, leading with the one. Nothing in the number is false; the choice of which number to show is the manipulation.
+
+## How it differs from related fallacies
+
+Cherry-picking is often confused with its neighbors, and the distinctions sharpen your eye.
+
+A [hasty generalization](/fallacies/hasty-generalization) draws a sweeping conclusion from a sample that is too small — usually by accident, because the arguer genuinely did not gather more. Cherry-picking is closer to the opposite: the full evidence is available, and the arguer has *chosen* the unrepresentative slice. One is undersampling; the other is biased sampling. They overlap, but cherry-picking adds the element of deliberate selection from a known larger set.
+
+It also differs from outright lying. The liar asserts something false. The cherry-picker asserts only true things — and counts on you to mistake "everything he said is accurate" for "he gave me the whole picture." That gap is exactly where the fallacy hides, and why audiences feel so betrayed when they discover the omission: the speaker was, technically, never wrong.
+
+## The honest mirror: confirmation bias
+
+It would be comforting to file cherry-picking under "things dishonest people do to us." But the uncomfortable truth is that all of us cherry-pick constantly, and mostly without noticing. The cognitive engine behind it is confirmation bias — the well-documented tendency to seek, notice, and remember evidence that fits what we already believe, while overlooking or forgetting evidence that does not.
+
+When you already hold a view, the supporting facts feel salient and the contradicting facts feel like noise, exceptions, or errors. You are not consciously suppressing anything; your attention is doing the filtering for you. By the time you go to make your case, the sample in your head has already been cherry-picked by your own memory. This is why cherry-picking is not only a debating trick used *against* you — it is a default mode of the mind that operates *within* you, and the more strongly you feel about a topic, the harder it works.
+
+## Where you will meet it
+
+Cherry-picking is everywhere once you start looking, but a few habitats are especially rich.
+
+Politics and policy run on it. Both sides of almost any contested issue can assemble a true-sounding case by selecting the favorable statistics — the quarter where their policy looked good, the metric that moved their way, the district that confirms their story. The numbers check out; the selection is the spin. When two camps cite completely different "facts" about the same policy and both turn out to be accurate, you are usually watching dueling cherry-picks.
+
+Marketing and health claims lean on it heavily. "Clinically proven" can mean one small favorable trial among several. A supplement that "boosts" some blood marker may do nothing for any outcome you actually care about, while the studies showing no benefit go unmentioned. Miracle cures and food panics alike often begin with a selected handful of results presented as if it were the whole literature.
+
+Anecdote-driven arguments are cherry-picking in narrative form. For any general claim, vivid individual stories exist on both sides — the person a policy helped, the person it hurt. Choosing only the stories that fit, and presenting them as the pattern, lets a feed or a pundit manufacture whatever impression they like out of entirely real lives. The common thread is abundance: when there is a vast pool of true information, selection alone is enough to mislead.
+
+## How to catch it
+
+Because the tell is an absence, catching cherry-picking means learning to notice what is *not* there. A few habits do most of the work.
+
+- **Ask for the denominator.** When someone cites a striking number, ask what it is a fraction of. "Three studies found harm" — out of how many? "Hundreds of cases" — out of how many millions? The selected facts often look impressive precisely until you see the pool they were drawn from. Several relatives of this trick are catalogued in [how to spot a bad statistic](/blog/how-to-spot-a-bad-statistic).
+- **Look for the missing context.** For any compelling data point, ask what the full dataset would show. What happened just before the chosen start date, or just after the chosen end date? Is this example typical, or was it chosen *because* it is extreme?
+- **Notice the one-sidedness.** A genuinely strong case acknowledges the evidence against it and explains why it is outweighed. A cherry-picked case is suspiciously tidy — every fact points the same way, with no tensions, caveats, or inconvenient findings. Reality is rarely that cooperative, so uniform evidence is a red flag, not a green one.
+- **Consult the aggregate.** Wherever possible, go to the systematic review, the full time series, the complete record — the thing designed to include everything, not the curated highlight reel. This is the heart of [evidence weighting](/concepts/evidence-weighting): a finding matters in proportion to how representative it is of all the evidence, not how well it fits the argument it is serving.
+
+## The most powerful test
+
+There is one question that cuts through cherry-picking better than any other, and it works on yourself as well as on others: *what would change your mind?* Ask it of a claim, and ask what contrary evidence the arguer considered and rejected before reaching their conclusion. Someone who has honestly weighed the opposing evidence can tell you what it was and why it did not move them. Someone who cherry-picked usually cannot — because they never looked. This is the same discipline we explore in [what would change your mind](/blog/what-would-change-your-mind): a belief that has engaged with its strongest counter-evidence is far more trustworthy than one that has only ever met its supporters.
+
+## How to respond without accusing
+
+Calling someone a "cherry-picker" tends to end conversations rather than improve them. A better move is to widen the frame collaboratively:
+
+"Those data points are real, and I'm not disputing them. But I want to make sure we're looking at the whole picture. What does the rest of the evidence show — the studies or years or cases that aren't in front of us right now? If the full record points the same way, that's a strong case. If it doesn't, we should know that before we conclude."
+
+This refuses to dismiss the true facts on the table while insisting on the facts that are not. It reframes the disagreement from "your facts versus mine" to "the selected sample versus the whole" — which is the level the argument actually lives on.
+
+## The bottom line
+
+Cherry-picking is the fallacy that survives fact-checking, because its raw materials are facts. It works by exploiting the gap between *true* and *representative* — between "everything I told you is accurate" and "I told you everything relevant." The cure is not blanket skepticism toward every individual claim, which is exhausting and unwarranted, but a steady habit of asking what is missing: the denominator, the context, the contrary studies, the inconvenient years. Demand the full dataset rather than the highlight reel, watch for the unnatural tidiness of one-sided evidence, and remember that the most habitual cherry-picker you will ever meet is your own confirmation bias. Get in the habit of seeing the absence, and the picture starts telling the truth again.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Both Sides Case Study: Assisted Dying
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "assisted-dying-both-sides",
+    title: "Assisted Dying: A Both-Sides Case Study in Autonomy vs. Protecting the Vulnerable",
+    description:
+      "We steel-man both sides of the assisted dying debate — autonomy versus protecting the vulnerable — and locate the moral crux that evidence alone can't settle.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T23:55:00Z",
+    readingTime: "10 min read",
+    tags: ["assisted dying", "euthanasia", "both sides", "medical ethics", "steel-manning"],
+    category: "Both Sides",
+    content: `## A debate where the moral stakes are total
+
+Few questions force two cherished values into as sharp a collision as assisted dying. On one side stands personal autonomy — the idea that a competent adult facing the end of their own life should have the final say over how it goes. On the other stands protection of the vulnerable — the worry that legalizing assisted death will, over time, put quiet pressure on the sick, the disabled, the poor, and the depressed to die. Almost everyone feels the pull of both. That is exactly why the debate deserves a disciplined, both-sides treatment rather than a slogan.
+
+The terminology matters and is often muddled, so a quick map. *Assisted dying* and *assisted suicide* usually refer to a doctor providing the means — typically medication — that a patient then takes themselves. *Euthanasia* refers to a doctor directly administering it. Some laws permit only the former, and only for the terminally ill; others permit both, for a wider range of suffering. Many disagreements are really about *which* policy is on the table. We are going to [steel-man](/blog/why-steel-manning-makes-you-smarter) both positions — stating each in its strongest form before judging either — and then locate the [crux](/blog/what-is-a-crux-and-why-it-matters) where the disagreement actually lives.
+
+## Steel-manning the case for assisted dying
+
+The strongest case for legalization rests on autonomy, the relief of unbearable suffering, and the honesty of regulating what already happens.
+
+### My life, my death
+
+The core argument is about self-ownership. If a competent adult's life is anyone's to direct, it is theirs. A person facing a terminal diagnosis, fully informed and free from coercion, is the world's foremost authority on whether their remaining life is worth its suffering to them. To override that judgment — to insist they endure to a "natural" end they do not want — is, proponents argue, a profound violation of the most personal decision a person can make. The state forbidding it is the state asserting ownership of your final days.
+
+### Some suffering cannot be relieved any other way
+
+Palliative care is extraordinary and improving, and proponents readily grant that it relieves most suffering. But not all. For a minority of patients, pain is intractable, or the suffering is less about pain than about the loss of every capacity that made life feel like theirs — unable to move, swallow, or maintain dignity, watching a disease dismantle them. For these patients, the choice is not between dying and living well; it is between dying now, on their own terms, and dying soon, after weeks or months of an end they experience as torment. A compassionate society, proponents argue, should not force that.
+
+### Prohibition does not prevent it — it makes it worse
+
+Assisted death already happens. It happens covertly, through doctors who quietly increase morphine, through patients who stockpile pills, through families who help in secret, and through lonely, premature suicides by people who fear losing the capacity to act later. Prohibition does not stop these deaths; it strips them of safeguards, oversight, and witnesses. Legalization, proponents argue, replaces a dangerous grey market in dying with a regulated process — eligibility criteria, waiting periods, second opinions, documentation — that can actually protect people rather than abandoning them to improvise.
+
+## Steel-manning the case against assisted dying
+
+Now the strongest opposing case, stated so well that a supporter would concede each point is real.
+
+### The vulnerable will feel pressure to choose death
+
+This is the heart of the opposition, and it is not a slogan. Once death is a medical option, it becomes a *choice* that people can be steered toward — by overstretched families, by the cost of care, by a healthcare system under budget pressure, and above all by patients' own fear of being a burden. The danger is not only overt coercion but the soft, ambient kind: an elderly or disabled person who senses that their continued life is an expense and an imposition may "choose" death out of a sense of duty. A right to die, opponents warn, can curdle into a *duty* to die for those society values least.
+
+### The slippery slope here is empirical, not hypothetical
+
+Opponents argue that safeguards erode over time. Jurisdictions that legalize assisted dying for the terminally ill often, across the following years, expand eligibility — to chronic illness, to disability, to mental suffering, and in some places to people who are not dying at all. Whether this represents principled extension or dangerous drift is genuinely contested, but the pattern of widening criteria is a matter of record, which makes the [slippery slope concern](/fallacies/slippery-slope) here something to evaluate on the evidence rather than wave away as a mere fallacy. The worry is that "competent, terminally ill, freely choosing" turns out to be a starting line, not a stable boundary.
+
+### It changes medicine and the value we place on life
+
+Opponents argue that casting doctors in the role of ending life corrodes the trust at the center of medicine and the principle that every life has equal worth regardless of its condition. A society that offers death as a treatment, they warn, may invest less in the alternatives — in palliative care, in disability support, in suicide prevention. If assisted death is available and cheap while good end-of-life care is scarce and expensive, the "choice" is quietly shaped by what the system makes easy. And the message sent to the disabled and the dying — that some lives may not be worth living — is itself a harm.
+
+## Where the empirical questions actually sit
+
+Steel-manning both sides reveals that several of the disagreements are factual, and evidence can move them — even if it cannot settle the whole question.
+
+- **Do safeguards hold?** Whether waiting periods, second opinions, and eligibility limits actually prevent coercion and catch ambivalence is an empirical question, studied in the jurisdictions that have legalized. The evidence is genuinely mixed and contested, which is itself informative.
+- **Does eligibility expand?** The trajectory of the laws over time is a matter of record, not speculation. Both sides should be looking hard at what actually happened where these laws have been in place longest.
+- **Is the demand about pain or about control?** Data on *why* patients request assisted death — uncontrolled pain versus loss of autonomy and dignity — bears directly on whether better palliative care would shrink the demand, as opponents hope, or leave a real residue, as proponents claim.
+
+These are knowable, and they should narrow the argument. But notice what they cannot do.
+
+## Where the real crux lives
+
+Strip away the resolvable empirical questions and the debate does not vanish — it relocates to a clash of values that no study can adjudicate.
+
+**The crux: when autonomy and protection of the vulnerable conflict, which takes priority — and how much risk to the vulnerable is acceptable in order to honor the autonomy of the suffering?**
+
+Someone who holds individual self-determination as close to absolute will favor legalization even granting that some vulnerable people may be wrongly steered toward death — treating that as a tragic cost to be minimized by safeguards, not a reason to deny everyone else the right. Someone who holds that a society is judged by how it protects its weakest, and that even a small number of coerced deaths is an intolerable wrong the state must never enable, will oppose legalization even granting that this denies a real and compassionate choice to the genuinely suffering.
+
+That is the genuine disagreement: not a dispute about facts, but a weighting of two goods that cannot both be fully honored at once. It is the same structure as many of our hardest moral debates — for instance the irreversible-error worry at the center of [the death penalty](/topics/death-penalty-deterrence), where empirical claims and moral axioms tangle in much the same way. Recognizing that the crux is a value conflict is itself progress: it tells you to stop trading dueling statistics and start arguing about the priority of autonomy versus protection, which is the thing actually dividing the room.
+
+## The fallacies that crowd this debate
+
+Because the stakes are so emotional, assisted dying attracts a few predictable reasoning errors worth naming, so you can set them aside. The appeal to emotion runs hard in both directions — a single harrowing account of a patient who died in agony for one side, a single account of a vulnerable person pressured into dying for the other. Both stories are real and morally relevant, but a vivid case is not the same as a representative pattern, and neither anecdote settles what the policy does at scale. The [false dilemma](/fallacies/false-dilemma) is everywhere too: "either we legalize assisted dying or we condemn the suffering to agony" erases the enormous middle ground of palliative and hospice care, just as "either we ban it or the vulnerable get killed" erases the possibility of carefully bounded safeguards. And as noted above, the [slippery slope](/fallacies/slippery-slope) here is not automatically a fallacy — the widening of eligibility over time is documented — but it becomes one the moment it is asserted as inevitable rather than evidenced. Spotting these moves does not tell you who is right; it clears away the noise so the genuine value disagreement can be seen.
+
+## What this means for holding a view
+
+None of this requires you to be neutral. You can land firmly on either side. But a [well-calibrated](/concepts/confidence-calibration) position on assisted dying has a particular shape: it states which value you weight more heavily and why, it concedes the real force of the opposing value, and it stays honest about the empirical questions that remain genuinely contested. The position to distrust — on either side — is the one that pretends the trade-off does not exist: that autonomy carries no risk to the vulnerable, or that protecting the vulnerable costs the suffering nothing.
+
+You can explore the full argument — proponent and skeptic positions, the safeguard and slippery-slope evidence, and the moral crux above — as an interactive map you can examine claim by claim in our analysis of [assisted dying and euthanasia](/topics/assisted-dying-euthanasia). The goal of a both-sides treatment is not to make you waver. It is to make sure that when you do take a side, you are disagreeing about the value question that actually matters — not fighting over evidence that, here, was never going to decide it.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // How-to: Telling if a source is trustworthy
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "how-to-tell-if-a-source-is-trustworthy",
+    title: "How to Tell If a Source Is Trustworthy: A Field Guide for the Internet",
+    description:
+      "Anyone can publish anything online. Here's a practical checklist for vetting a source — primary vs secondary, expertise, incentives, and corroboration.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T23:59:00Z",
+    readingTime: "10 min read",
+    tags: ["source credibility", "media literacy", "how to evaluate sources", "misinformation", "critical thinking"],
+    category: "Critical Thinking",
+    content: `## The problem: the gatekeepers are gone
+
+For most of history, getting information in front of a large audience required passing through a gatekeeper — an editor, a publisher, a librarian, a peer reviewer. The filter was imperfect and often biased, but it existed. The internet removed it. Today anyone can publish anything to a potentially enormous audience, instantly and for free, with no credential, no fact-check, and no accountability. That is a genuine democratic gain. It is also why media literacy has shifted from a nice-to-have to a survival skill: the job the gatekeepers used to do now falls to you, on every link you open.
+
+The good news is that vetting a source is a learnable skill, not a talent, and it does not require expertise in the subject. It requires a short set of questions, applied as a habit. Here is the field guide. Our [guide to evaluating source credibility](/guides/evaluating-source-credibility) goes deeper on each step; this is the working version you can run in your head.
+
+## First, find the original
+
+The single most powerful move in source evaluation is also the simplest: trace the claim back to where it started. Most of what you encounter is not a source at all — it is a *report about* a source. A post about an article about a press release about a study. Each hop is a chance for the claim to mutate, lose its caveats, or get flipped into its opposite.
+
+So before you judge a claim, ask: what is the *primary source*, and have I actually seen it? A primary source is the original — the study itself, the full speech, the official dataset, the raw document. A secondary source describes or interprets it. Secondary sources are useful, but they are where most distortion enters. When a headline says "study finds X," the load-bearing question is whether the study actually found X — and the only way to know is to find the study. This habit alone, sometimes called reading upstream, catches a remarkable share of misinformation, and it pairs naturally with knowing [how to read a scientific study](/blog/how-to-read-a-scientific-study) once you arrive at one.
+
+## Ask who is talking, and what they know
+
+Once you have the original, ask who produced it and whether they are actually in a position to know.
+
+- **Relevant expertise.** Is the author or institution qualified on *this specific* question? A brilliant physicist is not thereby an authority on nutrition; a celebrity doctor may be far outside their lane. Credentials matter, but only the relevant ones — assuming otherwise is the [appeal to authority fallacy](/fallacies/appeal-to-authority), which trades on the glow of expertise detached from the subject at hand.
+- **Track record.** Does this source have a history of getting things right and issuing corrections when wrong, or a history of viral claims that quietly fell apart? Outlets and individuals accumulate reputations for a reason.
+- **Transparency.** Good sources show their work — they name authors, cite their evidence, link to data, and explain how they know what they claim. Anonymous, sourceless, "trust me" assertions sit at the bottom of the credibility ladder no matter how confident they sound.
+
+## Follow the incentives
+
+A source can be expert and still be motivated to mislead. So ask: what does this source gain if you believe it? Incentives do not automatically invalidate a claim — plenty of true things are said by people with skin in the game — but they tell you where to apply extra scrutiny.
+
+- **Financial.** Who funded the study, the article, the report? Industry funding does not make a finding false, but it shapes which questions get asked and how results are framed, and it is disclosed for a reason.
+- **Ideological.** A source that exists to advance a cause will tend to present the evidence that helps the cause and omit the evidence that hurts it — the [selective-evidence](/blog/how-to-spot-a-bad-statistic) problem. This is true right across the political spectrum.
+- **Attention.** Much of the modern information economy is paid in clicks, and outrage and fear are what travel. A claim engineered to make you furious or terrified is a claim whose author profits from your reaction, which is reason to slow down rather than share.
+
+A particularly important case is *manufactured doubt* — campaigns, pioneered by the tobacco industry and reused many times since, that fund and amplify contrarian voices specifically to make a settled question look unsettled. Recognizing the pattern is its own skill, which we cover in [spotting manufactured doubt](/guides/spotting-manufactured-doubt).
+
+## Corroborate across independent sources
+
+No single source, however good, should carry a surprising or important claim by itself. The decisive test is *independent corroboration*: do multiple sources, who are not simply copying each other, arrive at the same finding?
+
+The qualifier "independent" is doing the heavy lifting. Ten websites repeating the same wire story are not ten sources; they are one source, echoed ten times. A claim that traces back to a single origin — no matter how many places you have seen it — has been corroborated zero times. Real corroboration means separate investigators, separate datasets, separate methods, converging on the same answer. When you see that convergence, your confidence should rise sharply. When everything traces back to one anonymous post or one unreplicated study, it should not, however loud the echo.
+
+This is also the antidote to a common trap: mistaking *familiarity* for *verification*. Seeing a claim many times makes it feel true — psychologists call this the illusory truth effect — but repetition is not evidence. Counting independent sources, rather than total mentions, is how you keep from being persuaded by an echo chamber.
+
+## Don't be fooled by surface credibility
+
+Some of the strongest-feeling trust signals are the easiest to fake, and a manipulative source knows it. A polished, professional-looking website costs almost nothing to produce and says nothing about whether its claims are true. A confident, authoritative tone is a writing style, not a guarantee — and overconfidence is often a warning sign rather than a reassurance, since genuine experts tend to hedge precisely where the evidence is genuinely uncertain. A long list of citations looks rigorous, but citations are only as good as what they actually support; padded reference lists, sources that do not say what they are cited as saying, and links to other unreliable pages are common tricks. Even a real quotation from a real expert can be lifted out of context to imply the opposite of what they meant. The lesson is to judge the substance, not the costume: a credible source is one whose specific claims you can trace, check, and corroborate — not one that merely looks the part. Appearances are the cheapest thing on the internet, which is exactly why a bad-faith source invests in them first.
+
+## Watch how it makes you feel
+
+This step is about you, not the source. The content most likely to slip past your judgment is the content that confirms what you already believe or inflames what you already fear. We scrutinize claims we dislike and wave through claims we like — which means our own [confirmation bias](/concepts/evidence-weighting) is the security hole that bad sources exploit.
+
+So treat a strong emotional reaction as a trigger for *more* scrutiny, not less — especially when the feeling is "yes, exactly, I knew it." The claims that flatter your existing view are precisely the ones you are least equipped to evaluate fairly, and the ones a manipulative source most wants you to pass along. A useful discipline: before sharing something because it feels true, spend the sixty seconds it takes to check whether it *is* — a quick routine we lay out in [how to spot misinformation in 60 seconds](/blog/spot-misinformation-60-seconds).
+
+## Check the date and the context
+
+A source can be entirely accurate and still mislead because it is stale or stripped of its context. Facts have expiration dates: a statistic that was true five years ago, a study since overturned, a price or a policy long changed. Before trusting a claim, check when it was written and whether anything decisive has happened since. A related and very common trick is recirculation — a real photo, headline, or event from years ago, shorn of its original date and re-shared as if it just happened. The image is genuine; the implied timing is the lie. When something arrives with no date, or with urgent "happening right now" framing, treat the timestamp as a missing piece of evidence rather than a trivial detail — doing so catches a surprising amount of misinformation that every other test would wave through.
+
+## The credibility checklist
+
+When you do not have time for the full treatment, run this:
+
+1. **Original?** Have I traced the claim to its primary source, or am I reacting to a report about a report?
+2. **Who, and do they know?** Is the author actually qualified on this specific question, and do they show their work?
+3. **Why?** What does the source gain if I believe this — financially, ideologically, or in attention?
+4. **Corroborated?** Do independent sources confirm it, or does everything trace back to one origin?
+5. **How do I feel?** Am I inclined to believe this because it is well-supported, or because it confirms what I already think?
+
+Five questions, a minute or two, applied before you believe or share. That is most of media literacy.
+
+## Trust is a dial, not a switch
+
+A final reframing, because the goal here is not cynicism. The aim of source evaluation is not to trust nothing — that is just gullibility wearing a trench coat, and it leaves you as manipulable as the person who believes everything, only in the opposite direction. The aim is *calibration*: to trust sources in proportion to how much they have earned it, and to hold claims with a confidence that matches the strength of the evidence behind them. A well-sourced finding from a transparent expert, corroborated by independent investigators, deserves real confidence. An anonymous, motivated, uncorroborated claim that happens to confirm your priors deserves very little — even if it later turns out to be true.
+
+That graded response is what good thinking looks like, and it is the same principle as [evidence weighting](/concepts/evidence-weighting) applied to people and publications rather than to studies. Run the checklist often enough and it becomes automatic — a quiet background process that lets the trustworthy through and slows the rest down, which, in an age without gatekeepers, is the most valuable filter you have.`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {

@@ -1243,4 +1243,34 @@ export const articleSummaries: ArticleSummary[] = [
     publishedAt: "2026-06-29T23:45:00Z",
     readingTime: "10 min read",
   },
+  {
+    slug: "cherry-picking-fallacy-explained",
+    title: "The Cherry-Picking Fallacy, Explained: When Every Fact Is True but the Picture Is False",
+    description:
+      "Cherry-picking builds a misleading case out of true facts by hiding the ones that don't fit. Learn to spot selective evidence and ask for the full picture.",
+    tags: ["cherry picking", "logical fallacies", "selective evidence", "confirmation bias", "critical thinking"],
+    category: "Logic & Reasoning",
+    publishedAt: "2026-06-29T23:50:00Z",
+    readingTime: "9 min read",
+  },
+  {
+    slug: "assisted-dying-both-sides",
+    title: "Assisted Dying: A Both-Sides Case Study in Autonomy vs. Protecting the Vulnerable",
+    description:
+      "We steel-man both sides of the assisted dying debate — autonomy versus protecting the vulnerable — and locate the moral crux that evidence alone can't settle.",
+    tags: ["assisted dying", "euthanasia", "both sides", "medical ethics", "steel-manning"],
+    category: "Both Sides",
+    publishedAt: "2026-06-29T23:55:00Z",
+    readingTime: "10 min read",
+  },
+  {
+    slug: "how-to-tell-if-a-source-is-trustworthy",
+    title: "How to Tell If a Source Is Trustworthy: A Field Guide for the Internet",
+    description:
+      "Anyone can publish anything online. Here's a practical checklist for vetting a source — primary vs secondary, expertise, incentives, and corroboration.",
+    tags: ["source credibility", "media literacy", "how to evaluate sources", "misinformation", "critical thinking"],
+    category: "Critical Thinking",
+    publishedAt: "2026-06-29T23:59:00Z",
+    readingTime: "10 min read",
+  },
 ];
