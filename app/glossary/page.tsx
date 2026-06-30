@@ -268,6 +268,56 @@ const terms: GlossaryTerm[] = [
     learnMoreText: "See the Gish Gallop fallacy",
     category: "fallacies",
   },
+  {
+    term: "Calibration",
+    definition:
+      "The degree to which stated confidence matches actual accuracy. A perfectly calibrated person is right about 70% of the time when they say they are 70% confident — and wrong half the time when they say 50%. Calibration is distinct from being right more often: it is about your confidence meaning exactly what it claims, which is why being occasionally wrong at high confidence is a feature, not a failure.",
+    example: "Read confidence as probability on the AI Risk topic",
+    exampleHref: "/topics/ai-risk",
+    learnMoreHref: "/guides/reading-confidence-like-a-forecaster",
+    learnMoreText: "Read: Reading Confidence Like a Forecaster",
+    category: "reasoning",
+  },
+  {
+    term: "Correlation vs. Causation",
+    definition:
+      "The principle that two things moving together does not establish that one causes the other. The association may run the opposite way, be driven by a hidden third factor, or be pure coincidence. Establishing causation requires more — a randomized trial, a natural experiment, or converging evidence backed by a plausible mechanism — which is why a strong correlation alone earns only modest weight.",
+    example: "See cause untangled from correlation on the Social Media & Mental Health topic",
+    exampleHref: "/topics/social-media-mental-health",
+    learnMoreHref: "/fallacies/false-cause",
+    learnMoreText: "See the false-cause fallacy",
+    category: "reasoning",
+  },
+  {
+    term: "Cherry-Picking",
+    definition:
+      "Presenting only the evidence that supports a conclusion while ignoring the evidence that undercuts it, making a genuinely contested question look settled. The antidote is to ask what the rest of the literature says: a systematic review that includes the inconvenient findings is worth more than any curated stack of supportive studies.",
+    example: "See the full evidence base, not a curated slice, on the Climate Change topic",
+    exampleHref: "/topics/climate-change",
+    learnMoreHref: "/fallacies/cherry-picking",
+    learnMoreText: "See the cherry-picking fallacy",
+    category: "fallacies",
+  },
+  {
+    term: "Survivorship Bias",
+    definition:
+      "Drawing conclusions from the visible successes while ignoring the failures that were silently filtered out. Because winners get studied and losers disappear, success rates calculated only from survivors are systematically inflated. The corrective question is always: what happened to everyone who tried the same thing and did not make it into the sample?",
+    example: "See why failures must be counted on the Longevity Science topic",
+    exampleHref: "/topics/longevity-science",
+    learnMoreHref: "/fallacies/survivorship-bias",
+    learnMoreText: "See the survivorship-bias fallacy",
+    category: "fallacies",
+  },
+  {
+    term: "Motte-and-Bailey",
+    definition:
+      "A tactic of defending a bold, contestable claim (the bailey) by retreating, when challenged, to a modest claim almost no one disputes (the motte) — then advancing to the bold claim again once the pressure lifts. Naming it forces the arguer to pick one position and defend that, rather than equivocating between the two.",
+    example: "Watch definitions shift on the Free Will topic",
+    exampleHref: "/topics/free-will",
+    learnMoreHref: "/fallacies/motte-and-bailey",
+    learnMoreText: "See the motte-and-bailey fallacy",
+    category: "fallacies",
+  },
 ];
 
 const categoryLabels: Record<GlossaryTerm["category"], string> = {

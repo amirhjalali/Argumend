@@ -1,4 +1,4 @@
-import { Triangle, Brain, Layers, Map, Play, ShieldCheck, Target, type LucideIcon } from "lucide-react";
+import { Triangle, Brain, Layers, Map, Play, ShieldCheck, Target, Scale, Gauge, type LucideIcon } from "lucide-react";
 
 export interface GuideSection {
   readonly title: string;
@@ -1553,6 +1553,226 @@ The environmental debate on Argumend reveals this tension between individual act
       { title: "Thinking, Fast and Slow", author: "Daniel Kahneman" },
       { title: "You Are Not So Smart", author: "David McRaney", url: "https://youarenotsosmart.com/" },
       { title: "The Art of Thinking Clearly", author: "Rolf Dobelli" },
+    ],
+  },
+  {
+    id: "weighing-conflicting-evidence",
+    title: "Weighing Conflicting Evidence",
+    subtitle: "What to Do When Good Evidence Points Both Ways",
+    description: "Real debates rarely hinge on one side having all the evidence. Learn to reconcile credible studies that disagree — diagnosing the conflict, weighting by quality, and arriving at an honest net judgment.",
+    icon: Scale,
+    color: "#3a6965",
+    readTime: "13 min read",
+    sections: [
+      {
+        title: "When the Evidence Disagrees With Itself",
+        content: `On most controversial questions, you won't find one side armed with rigorous studies and the other side with nothing. You'll find rigorous studies on both sides — and they disagree. One large analysis finds a minimum-wage increase costs jobs; another, equally large, finds it doesn't. One cohort study links a food additive to harm; another finds no effect. This is the normal condition of real-world evidence, and it's where most reasoning quietly breaks down.
+
+The instinct is to pick the study that agrees with you and dismiss the rest. The slightly more sophisticated instinct — "the truth is somewhere in the middle" — is also usually wrong, because it treats strong and weak evidence as if they deserve equal pull. Splitting the difference between a meta-analysis and a press release isn't balance; it's a different kind of error.
+
+Weighing conflicting evidence is a distinct skill from judging a single source. Our [Evaluating Source Credibility guide](/guides/evaluating-source-credibility) covers how to score one piece of evidence on reliability, independence, replicability, and directness. The [Hierarchy of Evidence guide](/guides/evidence-hierarchy) covers which study designs are stronger. This guide picks up where those leave off: you've assessed the individual pieces, they point in opposite directions, and now you have to form one coherent judgment. That synthesis is where genuine understanding lives — and where Argumend's [weighted evidence framework](/concepts/evidence-weighting) earns its keep.`,
+      },
+      {
+        title: "First, Diagnose the Conflict",
+        content: `Before you try to resolve a conflict, find out whether it's even real. A surprising share of "contradictory" evidence isn't contradictory at all — the studies are answering subtly different questions, measuring different things, or describing different populations. Diagnosing this first saves you from forcing a resolution the evidence never required.`,
+        subsections: [
+          {
+            title: "Apparent Conflicts",
+            content: `Two findings can look opposed while being perfectly compatible. "Moderate drinking is associated with lower heart-disease risk" and "alcohol consumption raises cancer risk" sound contradictory, but both can be true at once — alcohol affects different organ systems differently. The apparent conflict dissolves once you notice the outcomes being measured aren't the same. Before pitting two studies against each other, confirm they're actually making incompatible claims about the same outcome, not compatible claims about different ones.`,
+          },
+          {
+            title: "Different Questions in Disguise",
+            content: `Often the studies measure genuinely different quantities. A trial finding that a drug "works" might measure a surrogate marker like cholesterol levels, while one finding it "doesn't work" measures the outcome that actually matters, like heart attacks. One study of a policy might capture short-run effects, another long-run effects. When findings clash, ask precisely what each one measured. The conflict frequently lives in the gap between the proxy and the thing you actually care about — the [directness](/concepts/evidence-weighting) dimension of evidence quality made concrete.`,
+          },
+          {
+            title: "Different Populations and Contexts",
+            content: `A finding that holds in one population can reverse in another. A teaching method that works for graduate students may fail for struggling ten-year-olds; a rent-control policy that stabilizes one city's housing market may distort another's. Effects that depend on context aren't contradictory — they're conditional. The right move isn't "which study is right?" but "under what conditions does each finding hold?" The [Rent Control topic](/topics/rent-control-effectiveness) is a clear case: much of the apparent disagreement turns on differences in housing supply and the specific design of each policy, not on one study being wrong.`,
+          },
+        ],
+      },
+      {
+        title: "Weigh by Quality, Not by Count",
+        content: `Once you've confirmed the conflict is real, the most common mistake is to resolve it by tallying — three studies say yes, two say no, so yes wins. This is vote-counting, and it ignores almost everything you know about evidence quality.`,
+        subsections: [
+          {
+            title: "The Vote-Counting Trap",
+            content: `Counting studies treats a 200,000-person randomized trial and a 40-person observational study as one vote each. But they don't deserve equal weight — and a field can be flooded with low-quality studies that all point the same direction for the same flawed reason: shared methodology, shared funding, or shared publication incentives. As the [Triangulation guide](/guides/triangulation) stresses, ten weak studies with a common bias are not ten independent data points. Weigh the evidence; don't count it.`,
+          },
+          {
+            title: "Let the Strongest Evidence Anchor",
+            content: `A practical rule: identify the single highest-quality piece of evidence on each side and let those anchor your judgment before you consider the rest. If one side's best evidence is a pre-registered, replicated randomized trial and the other side's best is an unreplicated observational study, the conflict is far less balanced than a raw count suggests. The weaker body of evidence doesn't vanish — but it has to clear a much higher bar to overturn the stronger.`,
+          },
+          {
+            title: "Watch for Cherry-Picking",
+            content: `When someone presents a stack of studies all supporting one conclusion, ask what the rest of the literature says. Selectively showcasing the supportive studies while ignoring the contradictory ones is [cherry-picking](/fallacies/cherry-picking), and it can make a genuinely contested question look settled. A systematic review that includes all the evidence — including the inconvenient parts — is worth more than any curated list. This is exactly why Argumend maps display opposing evidence side by side rather than letting one side stack the deck.`,
+          },
+        ],
+      },
+      {
+        title: "Decompose the Disagreement",
+        content: `A large, messy conflict is often several smaller, cleaner questions wearing a trench coat. Breaking it down turns an unwinnable "who's right?" into a set of answerable sub-questions — and usually reveals that the two sides agree on more than they realized.
+
+Take the debate over whether [social media harms teen mental health](/topics/social-media-mental-health). Stated that broadly, the evidence looks hopelessly conflicted. But decompose it. Is there a correlation between heavy use and depression? (Fairly consistent yes.) Is the correlation large or small? (Contested — effect sizes vary widely.) Does heavy use cause the depression, or do already-depressed teens use more social media? (Genuinely uncertain — the [causal direction](/fallacies/false-cause) is the real crux.) Does the effect differ by platform, age, or sex? (Almost certainly yes.)
+
+Suddenly the "conflict" resolves into a map. Both sides may agree on the correlation and disagree only about causation — a far narrower, more tractable disagreement. This is the same move described in the [Crux Test guide](/guides/crux-test): find the specific sub-question that's actually load-bearing, and you've found where weighing the evidence really matters. Most of the apparent conflict was never about that question at all.`,
+      },
+      {
+        title: "Use Mechanism and Convergence as Tiebreakers",
+        content: `When two bodies of evidence are genuinely close in quality, two further considerations can break the tie honestly — and one temptation can corrupt the whole exercise.`,
+        subsections: [
+          {
+            title: "Is There a Plausible Mechanism?",
+            content: `Evidence is more credible when there's a known reason it should be true. A correlation backed by a well-understood causal mechanism — smoking causes cancer because carcinogens damage DNA — deserves more weight than an equally strong correlation with no plausible mechanism. But handle this carefully: a compelling-sounding mechanism is not proof, and a clever story can be told for almost any claim. Mechanism is a tiebreaker between findings of similar empirical strength, never a substitute for the empirical evidence itself. The danger is letting a satisfying narrative override data that contradicts it.`,
+          },
+          {
+            title: "Does Independent Evidence Converge?",
+            content: `The strongest resolution to a conflict comes from a different kind of evidence breaking the tie. If observational studies disagree but a randomized trial, a natural experiment, and a mechanistic study all point the same way, that convergence across methods is powerful — precisely because the methods have different weaknesses, as the [Triangulation guide](/guides/triangulation) explains. When you're stuck between two conflicting study types, look for a third, independent line of evidence rather than re-litigating the first two.`,
+          },
+          {
+            title: "Beware Asymmetric Skepticism",
+            content: `The cardinal sin of weighing conflicting evidence is applying tough standards to the side you dislike and gentle standards to the side you favor. If you find yourself scrutinizing the methodology of studies that contradict your view while waving through studies that confirm it, you're not weighing evidence — you're rationalizing. The honest test, drawn from the [Understanding Bias guide](/guides/understanding-bias): would I accept this study's methods if it had reached the opposite conclusion?`,
+          },
+        ],
+      },
+      {
+        title: "Arriving at an Honest Net Judgment",
+        content: `After diagnosing, weighting, decomposing, and applying tiebreakers, you have to commit to a judgment — and the honest one is often not a clean "yes" or "no" but a calibrated confidence.
+
+Here's the workflow in brief:
+
+1. **Confirm the conflict is real** — not two answers to different questions.
+2. **Anchor on the strongest evidence each side offers**, not the raw count.
+3. **Decompose** the question and locate the sub-question that's actually contested.
+4. **Look for convergent, independent evidence** to break genuine ties.
+5. **Set a confidence level that reflects the residual uncertainty** — and say so out loud.
+
+The result should usually be a number, not a verdict. On Argumend, this is exactly what a [confidence score](/concepts/confidence-calibration) encodes: a claim where strong evidence genuinely conflicts might land at 55 or 60 — not because the analysis was sloppy, but because the evidence itself is unsettled. A score near 50 isn't a cop-out; it's the honest output of weighing real conflict, and it tells you precisely where more research would change minds.
+
+That intellectual honesty has a payoff. When you can say "the best evidence leans this way, but here's the strongest finding against me, and here's what would change my mind," you've done something most participants in a debate never do. You've weighed the evidence instead of choosing a side — and you've left yourself a clear path to update when better evidence arrives. Explore the weighted evidence on any [Argumend topic](/topics) and you'll see this discipline applied: every pillar shows both its supporting and its opposing evidence, scored, so the conflict is visible rather than hidden. The full method is laid out in our [methodology](/methodology), and the recurring terms are defined in the [glossary](/glossary).`,
+      },
+    ],
+    keyTakeaways: [
+      "Before resolving a conflict, diagnose it — many 'contradictory' findings measure different outcomes, timeframes, or populations and aren't actually in conflict",
+      "Weigh evidence by quality, not by count: ten weak studies sharing a common bias don't outweigh one strong, independent, replicated one",
+      "Decompose a broad disagreement into sub-questions; the conflict usually lives in one specific, load-bearing question while the sides agree on the rest",
+      "When evidence is genuinely close in quality, use plausible mechanism and convergence across independent methods as tiebreakers — but never let a good story override data",
+      "Apply the same standards to evidence you like and evidence you don't: if you'd reject a study had it reached the opposite conclusion, you're rationalizing, not weighing",
+      "The honest output of weighing real conflict is often a calibrated confidence near the middle, not a clean verdict — and that pinpoints where more research would matter",
+    ],
+    furtherReading: [
+      { title: "Noise: A Flaw in Human Judgment", author: "Daniel Kahneman, Olivier Sibony & Cass Sunstein" },
+      { title: "The Scout Mindset", author: "Julia Galef", url: "https://www.juliagalef.com/book/" },
+      { title: "Science Fictions", author: "Stuart Ritchie" },
+      { title: "Calling Bullshit: The Art of Skepticism in a Data-Driven World", author: "Carl Bergstrom & Jevin West", url: "https://callingbullshit.org/" },
+    ],
+  },
+  {
+    id: "reading-confidence-like-a-forecaster",
+    title: "Reading Confidence Like a Forecaster",
+    subtitle: "Calibration, Probability, and the Discipline of Honest Uncertainty",
+    description: "Confidence isn't a feeling — it's a probability you can be right or wrong about. Learn how professional forecasters calibrate their uncertainty, and how to read confidence scores the same way.",
+    icon: Gauge,
+    color: "#4a6b8a",
+    readTime: "13 min read",
+    sections: [
+      {
+        title: "Confidence Is a Number, Not a Feeling",
+        content: `Most people treat confidence as a mood. They feel sure, so they say they're sure; they feel doubtful, so they hedge. But the people who are best in the world at judging uncertain questions — professional forecasters, expert poker players, intelligence analysts — treat confidence as something else entirely: a number that can be checked against reality.
+
+When a weather forecaster says "70% chance of rain," they're making a testable claim. Collect every day they said "70%," and if it rained on roughly 70% of them, the forecaster is *calibrated* — their stated confidence matches how often they're actually right. If it rained on only 40% of those days, they're overconfident. This is a radically different way of thinking about belief: not "am I sure?" but "if I made a hundred claims at this confidence level, how many should turn out true?"
+
+This guide is about adopting that mindset — and using it to read the [confidence scores](/concepts/confidence-calibration) on Argumend the way a forecaster would. It builds directly on the [Bayesian Thinking guide](/guides/bayesian-thinking), which covers how to *update* beliefs as evidence arrives. Calibration is the complementary skill: making sure the confidence you end up with actually means what it says.`,
+      },
+      {
+        title: "Calibration: The Core Skill",
+        content: `Calibration is the match between your stated confidence and your actual accuracy. It's the single most trainable component of good judgment, and most people have never practiced it deliberately.`,
+        subsections: [
+          {
+            title: "What Calibration Means",
+            content: `A perfectly calibrated person is right about 90% of the time when they say they're 90% confident, 60% of the time when they say 60%, and — crucially — wrong half the time when they say 50%. Note what this implies: being wrong sometimes is not a failure of calibration. A forecaster who is never wrong when they say "70%" is actually *under*confident; they should have said "95%." Calibration isn't about being right more often. It's about your confidence meaning exactly what it claims.`,
+          },
+          {
+            title: "Almost Everyone Is Overconfident",
+            content: `The robust finding across decades of research is that most people, most of the time, are overconfident. When people say they're "99% sure," they tend to be wrong far more than 1% of the time. Experts are not immune — and within their own domain they're sometimes worse, because expertise can breed certainty faster than it breeds accuracy. This is why the [Dunning-Kruger effect](/guides/understanding-bias) and its inverse both matter: the cure is not "be more confident" or "be less confident" across the board, but to pull your confidence toward what your track record actually justifies.`,
+          },
+          {
+            title: "Calibration vs. Resolution",
+            content: `These are two different virtues. *Calibration* is whether your probabilities are honest. *Resolution* — sometimes called discrimination — is whether you actually distinguish likely from unlikely, whether you're willing to say 95% and 5% when warranted rather than hedging everything toward 50%. A forecaster who says "50%" about everything is perfectly calibrated and completely useless. Good judgment requires both: honest probabilities *and* the nerve to make them decisive when the evidence allows.`,
+          },
+        ],
+      },
+      {
+        title: "What a Confidence Score Actually Says",
+        content: `With calibration in mind, you can read Argumend's confidence scores correctly — and avoid the two most common misreadings.
+
+A [confidence score](/concepts/confidence-calibration) of 85 does not mean "this is 85% likely to be true" in some cosmic sense, and it does not mean "85% of people agree." It means that, weighing the available evidence on its quality, roughly 85% of the well-weighted support points in this direction. It's a statement about the *current state of evidence*, not a permanent fact — and like a forecaster's number, it's meant to move when new evidence arrives.
+
+This has two practical consequences. First, a high score is an invitation to act, not to stop thinking: 85 is strong, but a calibrated reasoner still expects claims at that level to be overturned occasionally. Second, a middling score is genuinely informative. A claim at 50 isn't "we know nothing" — it's "the evidence is real but genuinely balanced," precisely the condition our [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) addresses. The most interesting questions on any topic tend to cluster in the contested middle, which is why scanning for mid-range scores is the fastest way to find where a debate is actually live. The [How to Read an Argument Map guide](/guides/how-to-read-an-argument-map) walks through using scores as exactly this kind of triage tool.`,
+      },
+      {
+        title: "Habits of Calibrated Forecasters",
+        content: `The research on what separates accurate forecasters from inaccurate ones — most prominently Philip Tetlock's work on "superforecasters" — points to a handful of learnable habits. None of them require special talent.`,
+        subsections: [
+          {
+            title: "Think in Ranges, Not Points",
+            content: `Skilled forecasters rarely commit to a single number when a range is more honest. Instead of "GDP will grow 2.5%," they think "most likely 1.5% to 3.5%, centered near 2.5%." The width of the range *is* the message — it encodes how much you actually know. When you read a confident point-claim with no acknowledged range, treat the missing uncertainty as a warning sign rather than a show of strength.`,
+          },
+          {
+            title: "Start From the Base Rate",
+            content: `Before considering the specifics of a case, good forecasters ask how often things like this happen in general — the base rate. As the [Argument Audit guide](/guides/argument-audit) describes, this anchors your estimate in reality before the vivid details of the specific case pull you off course. A startup's pitch may be brilliant, but the base rate of startups succeeding is low, and that base rate should dominate your initial estimate until specific evidence justifies moving away from it.`,
+          },
+          {
+            title: "Update in Small Steps",
+            content: `Calibrated forecasters move their confidence frequently but in small increments, rather than swinging from certain-yes to certain-no on a single new data point. Each piece of evidence nudges the number in proportion to how diagnostic it is — the [Bayesian updating](/guides/bayesian-thinking) discipline in action. Beware the temptation to overhaul your whole view because of one dramatic study; it is rarely as decisive as it feels in the moment.`,
+          },
+          {
+            title: "Keep Score",
+            content: `This is the habit that makes all the others possible: write down your predictions with dates and confidence levels, then check them later. Nothing reveals overconfidence faster than a record of your own past forecasts. Over time, scorekeeping — formally, via a Brier score — tells you which domains you're well-calibrated in and which you systematically get wrong. That feedback is something no amount of introspection alone can provide.`,
+          },
+        ],
+      },
+      {
+        title: "Reading Other People's Confidence",
+        content: `Forecasting isn't only about your own beliefs — most of the time you're evaluating *other people's* confidence, in news, debates, and expert claims. The same lens applies.`,
+        subsections: [
+          {
+            title: "Confidence Is Not Competence",
+            content: `The loudest, most certain voice in a debate is often the least calibrated, not the most informed. Genuine experts on hard questions tend to express measured uncertainty and specify exactly where they're unsure; the overconfident offer sweeping certainty with vague reasoning. When judging a source, weight precision and acknowledged uncertainty over the sheer force of conviction. A claim that names its own weak points is usually more trustworthy than one that admits none.`,
+          },
+          {
+            title: "Verbal Probabilities Are Slippery",
+            content: `Phrases like "likely," "a real possibility," or "cannot be ruled out" hide enormous variation — studies find people interpret "likely" as anywhere from 55% to 90%. When someone makes an important claim in words, try to pin it to a number: "When you say 'probably,' do you mean closer to 60% or 90%?" The question itself often reveals whether they've actually thought about the odds or are just gesturing at confidence.`,
+          },
+          {
+            title: "Track Record Beats Credentials",
+            content: `A forecaster's most valuable asset is a documented history of accurate calls. Credentials tell you someone has knowledge; a track record tells you whether their confidence is calibrated. Where you can, judge predictors by their hit rate — and be especially wary of anyone who never revisits their failed predictions, because quietly forgetting your misses is the surest sign of an uncalibrated forecaster.`,
+          },
+        ],
+      },
+      {
+        title: "Calibration in Practice on Argumend",
+        content: `Putting it together, here's how to read any topic the way a forecaster would.
+
+When you open a topic like [AI Risk](/topics/ai-risk), [Climate Change](/topics/climate-change), or [Longevity Science](/topics/longevity-science), resist the pull to look for a verdict. Instead, read the confidence scores as probabilities you could bet on. Ask of each high-confidence claim: would I be genuinely surprised if this were overturned? Ask of each contested claim: what specific evidence would move this number, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
+
+Then turn the lens on yourself. Pick a claim on the topic, write down your own confidence as a number, and note what would change it. Come back when you've read more — or when the world has supplied new evidence — and see whether you should update. This simple practice, repeated, is how calibration is built. It's also the entire spirit of Argumend: not to hand you conclusions, but to give you a structured, honestly-scored map of the [evidence](/concepts/evidence-weighting) so you can hold your own beliefs to a forecaster's standard.
+
+The reward is a kind of intellectual freedom. Once confidence is a number you can be accountable for, you stop needing to be certain to have an opinion, and you stop being threatened by evidence against you — it's just information that adjusts a probability. You can hold a view at 70%, take the other side's best argument seriously, and change your mind by degrees rather than all at once. That is what it means to read confidence like a forecaster.`,
+      },
+    ],
+    keyTakeaways: [
+      "Confidence is a testable probability, not a feeling: if you're right about 70% of the things you call '70% likely,' you're calibrated — and being wrong sometimes is required, not a failure",
+      "Most people, including experts, are systematically overconfident; the fix is to pull your stated confidence toward what your track record actually justifies",
+      "Good judgment needs both calibration (honest probabilities) and resolution (the willingness to say 95% or 5% when warranted) — hedging everything to 50% is useless",
+      "An Argumend confidence score reflects the current weight of evidence, not cosmic truth or popularity — high scores invite action, mid-range scores flag where a debate is genuinely live",
+      "Borrow the forecaster's habits: think in ranges, start from base rates, update in small steps, and keep score of your predictions to reveal where you're miscalibrated",
+      "When reading others, weight precision and acknowledged uncertainty over loud conviction — confidence is not competence, and track record beats credentials",
+    ],
+    furtherReading: [
+      { title: "Superforecasting: The Art and Science of Prediction", author: "Philip Tetlock & Dan Gardner" },
+      { title: "Thinking in Bets", author: "Annie Duke" },
+      { title: "The Signal and the Noise", author: "Nate Silver" },
+      { title: "Expert Political Judgment", author: "Philip Tetlock" },
     ],
   },
 ];
