@@ -8,6 +8,7 @@
     "start": "node .next/standalone/server.js",
     "lint": "eslint .",
     "test": "vitest",
+    "test:ci": "vitest run",
     "test:coverage": "vitest --coverage",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",

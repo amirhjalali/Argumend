@@ -18,6 +18,9 @@ jobs:
       - name: Lint
         run: bun run lint
       - name: Test
-        run: bun test
+        # `bun test` invokes Bun's native runner, which ignores vitest.config
+        # (happy-dom) — so component tests fail with "document is not defined".
+        # The suite is vitest; run it in single-run mode via the project script.
+        run: bun run test:ci
       - name: Build
         run: bun run build
