@@ -917,4 +917,82 @@ export const isClaims: IsClaim[] = [
     claim:
       "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms on national-security grounds.",
   },
+  // ── Net-new coverage batch (2026-06-29, cont.) — uncovered contested topics ──
+  {
+    slug: "us-iran-pressure-works",
+    topicId: "us-iran-conflict",
+    question: "Has US pressure policy toward Iran made the Middle East safer?",
+    claim:
+      "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
+  },
+  {
+    slug: "border-enforcement-effective",
+    topicId: "immigration-border-crisis",
+    question: "Is stricter border enforcement the most effective way to manage US immigration?",
+    claim:
+      "Combining border enforcement, asylum restrictions, and deportation is the most effective way to manage US immigration and protect national interests.",
+  },
+  {
+    slug: "ai-net-job-loss",
+    topicId: "ai-white-collar-displacement",
+    question: "Will AI destroy more white-collar jobs than it creates?",
+    claim:
+      "Large language models and AI agents will permanently eliminate more white-collar professional jobs than they create within the next decade.",
+  },
+  {
+    slug: "gender-affirming-care-minors-helps",
+    topicId: "gender-affirming-care-minors",
+    question: "Does gender-affirming care improve mental health for transgender minors?",
+    claim:
+      "Gender-affirming medical care for transgender adolescents, including puberty blockers and hormone therapy, improves mental-health outcomes and should be accessible.",
+  },
+  {
+    slug: "trans-women-womens-sports",
+    topicId: "transgender-athletes-sports",
+    question: "Should transgender women compete in women's sports?",
+    claim:
+      "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, because hormonal transition sufficiently reduces the physiological advantages of male puberty.",
+  },
+  {
+    slug: "immigration-threatens-national-identity",
+    topicId: "immigration-national-identity",
+    question: "Does mass immigration threaten national identity and social cohesion?",
+    claim:
+      "High levels of immigration transform the cultural identity and social cohesion of receiving nations in ways that democratic majorities have not consented to and that integration policies cannot fully address.",
+  },
+  {
+    slug: "affirmative-action-necessary",
+    topicId: "affirmative-action-meritocracy",
+    question: "Is affirmative action necessary for equal opportunity?",
+    claim:
+      "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
+  },
+  {
+    slug: "ukraine-negotiated-settlement",
+    topicId: "ukraine-peace-terms",
+    question: "Should the Russia-Ukraine war end in a negotiated settlement along current lines?",
+    claim:
+      "A negotiated settlement freezing the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms rather than rewarding aggression.",
+  },
+  {
+    slug: "maha-improves-health",
+    topicId: "rfk-health-policy",
+    question: "Will RFK Jr's Make America Healthy Again agenda improve US health?",
+    claim:
+      "RFK Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
+  },
+  {
+    slug: "doge-cut-waste",
+    topicId: "doge-federal-cuts",
+    question: "Did DOGE actually cut government waste and make Washington leaner?",
+    claim:
+      "The Department of Government Efficiency's workforce cuts, contract terminations, and spending freezes eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
+  },
+  {
+    slug: "epstein-files-institutional-failure",
+    topicId: "epstein-files",
+    question: "Do the Epstein files reveal a systemic institutional failure?",
+    claim:
+      "The Jeffrey Epstein case reveals systemic institutional failure — law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for years — and full accountability has still not been achieved.",
+  },
 ];

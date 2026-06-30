@@ -232,4 +232,52 @@ export const faqs: FAQ[] = [
     linkText: "Read our methodology",
     linkHref: "/methodology",
   },
+  {
+    question: "What is the appeal to authority fallacy?",
+    answer: "An appeal to authority fallacy treats a claim as true simply because an authority figure asserts it, without engaging the underlying evidence. 'A famous expert said so, therefore it's true' is the classic form. The reasoning fails because expertise makes a source more credible, not infallible -- and experts are often wrong outside their field or when a question is genuinely contested. The legitimate version is different: citing relevant expert consensus as one input is reasonable, as long as the conclusion ultimately rests on evidence you could examine. The fallacy is substituting the authority for the evidence rather than consulting it.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is whataboutism?",
+    answer: "Whataboutism deflects a criticism by pointing to someone else's alleged wrongdoing instead of answering the original charge -- 'but what about what they did?' It's a form of the tu quoque ('you too') fallacy. The move feels like a rebuttal but quietly changes the subject: even if the counter-accusation is true, it does nothing to establish whether the first claim was right or wrong. To counter it, separate the two questions and insist on resolving the original one first. Argument maps help by keeping each claim on its own track, so a disagreement can't be silently swapped for a different one.",
+  },
+  {
+    question: "What is a slippery slope fallacy?",
+    answer: "A slippery slope argument claims that one small step will inevitably lead to an extreme outcome, without showing why each link in the chain must follow. 'If we allow this minor exception, total chaos follows' is a slippery slope when no mechanism connects the first step to the last. It isn't always a fallacy -- sometimes a chain of consequences is genuinely well-evidenced -- but it fails when the inevitability is asserted rather than demonstrated. The test: is each step actually likely given the one before it, or is the scary conclusion smuggled in? Argumend evaluates whether the causal chain in such arguments holds up.",
+    linkText: "Try the argument analyzer",
+    linkHref: "/analyze",
+  },
+  {
+    question: "What is the difference between a valid and a sound argument?",
+    answer: "Validity is about structure; soundness is about structure plus truth. An argument is valid if its conclusion follows logically from its premises -- even when those premises are false. 'All cats are robots; my pet is a cat; therefore my pet is a robot' is perfectly valid but not sound, because a premise is untrue. An argument is sound only when it is both valid and built on true premises, which is what makes its conclusion trustworthy. This is why checking that an argument 'flows' isn't enough: you also have to verify that the premises are actually true, not just that the logic connects them.",
+  },
+  {
+    question: "What is the burden of proof in an argument?",
+    answer: "The burden of proof is the obligation to support a claim with evidence, and it falls on whoever makes the positive assertion -- not on everyone else to disprove it. If you claim something is true, it's your job to show why; 'you can't prove me wrong' is not evidence in your favor (that's the appeal-to-ignorance fallacy). The further a claim departs from established understanding, the heavier the burden -- the idea behind 'extraordinary claims require extraordinary evidence.' Argumend reflects this by weighting how directly and reliably the evidence supports each position, rather than treating an unrefuted claim as already proven.",
+    linkText: "Learn about our evidence methodology",
+    linkHref: "/methodology",
+  },
+  {
+    question: "What is the difference between a logical fallacy and a cognitive bias?",
+    answer: "A logical fallacy is a flaw in the structure of an argument; a cognitive bias is a flaw in how a mind processes information. A fallacy lives in the argument itself -- a straw man or false dichotomy is there on the page whether or not anyone is fooled. A bias lives in the thinker -- confirmation bias or anchoring shapes which evidence you notice and believe, often with no explicit argument at all. The two interact: biases lead people to produce and accept fallacies. Spotting fallacies improves the arguments you make; recognizing biases improves the judgments you reach. Careful reasoning means guarding against both.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is the difference between deductive and inductive reasoning?",
+    answer: "Deductive reasoning moves from general premises to a conclusion that must be true if those premises are -- it guarantees the conclusion but adds no information beyond what the premises already contain. Inductive reasoning moves from specific observations to a broader generalization that is probably, but not certainly, true -- it extends knowledge but can always be overturned by new evidence. Most real-world reasoning, including science, is inductive: we infer general patterns from limited data, which is why conclusions come with confidence levels rather than certainty. Argumend's confidence scores reflect this -- they express how strongly the accumulated evidence supports a claim, not a deductive proof.",
+  },
+  {
+    question: "How do I read an argument map on Argumend?",
+    answer: "Each topic opens as an interactive graph. At the center sits the core claim. Around it are the pillars -- the foundational considerations the whole debate rests on -- and branching from those are the supporting and opposing arguments, the evidence behind each, and the crux that would resolve the disagreement. Color signals which side an argument is on and how strongly it's supported, and you can click any node to expand its evidence and reasoning. Read it from the center outward: start with the claim, scan the pillars to see the shape of the debate, then drill into the crux to find where the disagreement actually turns.",
+    linkText: "Browse argument maps",
+    linkHref: "/topics",
+  },
+  {
+    question: "Are Argumend's topics written by AI or by humans?",
+    answer: "Both, with a human in the loop. Curated topics are researched and structured with AI assistance, then reviewed and edited by people before publishing -- the pillars, evidence weighting, and confidence scores are checked against sources rather than generated and left unverified. When you submit your own text, the analysis runs through a multi-model AI judge council automatically. In every case the methodology is transparent and each confidence score traces back to the underlying evidence, so you can evaluate the reasoning yourself rather than taking the output on faith.",
+    linkText: "Read our methodology",
+    linkHref: "/methodology",
+  },
 ];
