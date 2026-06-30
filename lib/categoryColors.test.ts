@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { categoryColors, statusColors } from "./categoryColors";
 import { TopicCategorySchema, TopicStatusSchema } from "./schemas/topic";
@@ -93,4 +93,69 @@ describe("category/status color SOT consolidation (repo guard)", () => {
       ).toBe(false);
     },
   );
+});
+
+/**
+ * Repo-wide guard against off-palette Tailwind color tokens.
+ *
+ * The Argumend palette is stone/parchment + deep-teal, rust, crux-crimson and
+ * brown. amber / yellow / tangerine / indigo / sky / violet are HARD-banned
+ * (the founder purged amber/tangerine entirely; the others never belonged).
+ *
+ * This walks the app/ and components/ source trees and asserts ZERO uses of any
+ * banned `<color>-<number>` utility (e.g. `bg-yellow-50`, `text-indigo-600`).
+ * Comments and `.test.` files are excluded so a guard or a doc-comment may name
+ * a banned token without tripping the assertion.
+ */
+describe("off-palette color guard (app + components source trees)", () => {
+  const BANNED = /(amber|yellow|tangerine|indigo|sky|violet)-[0-9]/;
+  const SCAN_ROOTS = ["app", "components"];
+  const SOURCE_EXT = /\.(tsx?|jsx?|m[jt]s|c[jt]s)$/;
+
+  /** Strip block + line comments so banned tokens inside comments are ignored. */
+  const stripComments = (src: string): string =>
+    src
+      // block comments, incl. JSX `{/* … */}` and `/** … */`
+      .replace(/\/\*[\s\S]*?\*\//g, "")
+      // trailing line comments, but preserve the `//` in URLs like `https://`
+      .replace(/([^:])\/\/.*$/gm, "$1")
+      // whole-line comments
+      .replace(/^\s*\/\/.*$/gm, "");
+
+  /** Recursively collect source files under a directory. */
+  const collectSourceFiles = (dir: string): string[] => {
+    const out: string[] = [];
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name === "node_modules" || entry.name.startsWith(".")) continue;
+        out.push(...collectSourceFiles(full));
+      } else if (
+        SOURCE_EXT.test(entry.name) &&
+        !entry.name.includes(".test.") &&
+        !entry.name.includes(".spec.")
+      ) {
+        out.push(full);
+      }
+    }
+    return out;
+  };
+
+  const files = SCAN_ROOTS.flatMap((root) =>
+    collectSourceFiles(join(process.cwd(), root)),
+  );
+
+  it("finds source files to scan (sanity check)", () => {
+    expect(files.length).toBeGreaterThan(0);
+  });
+
+  it("uses no banned off-palette color tokens in app/ or components/", () => {
+    const offenders = files.filter((file) =>
+      BANNED.test(stripComments(readFileSync(file, "utf8"))),
+    );
+    expect(
+      offenders,
+      `off-palette (amber/yellow/tangerine/indigo/sky/violet) tokens found in:\n${offenders.join("\n")}`,
+    ).toEqual([]);
+  });
 });

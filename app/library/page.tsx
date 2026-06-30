@@ -184,7 +184,7 @@ export default function LibraryPage() {
 
           {/* Footer note */}
           <div className="pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-            <p className="text-sm text-muted italic">
+            <p className="text-sm text-muted dark:text-stone-400 italic">
               These shaped how we think. Read them and decide for yourself.
             </p>
           </div>

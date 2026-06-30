@@ -165,7 +165,7 @@ export default async function TopicTagPage({ params }: PageProps) {
                 { label },
               ]}
             />
-            <p className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-muted mb-3">
+            <p className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-3">
               <Tag className="h-3 w-3" />
               Tag
             </p>
@@ -248,7 +248,7 @@ export default async function TopicTagPage({ params }: PageProps) {
           {/* Related tags */}
           {relatedTags.length > 0 && (
             <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-              <p className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
+              <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
                 Related tags
               </p>
               <div className="flex flex-wrap gap-2">

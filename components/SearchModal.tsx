@@ -538,7 +538,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     &ldquo;{query}&rdquo;
                   </span>
                 </div>
-                <div className="mt-2 text-muted text-xs">
+                <div className="mt-2 text-muted dark:text-stone-400 text-xs">
                   Try different words, or{" "}
                   <button
                     type="button"

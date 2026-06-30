@@ -95,7 +95,7 @@ export default function ConceptsPage() {
                         <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                       {concept.topicExamples.length > 0 && (
-                        <span className="text-[11px] text-stone-400 dark:text-stone-500 bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 rounded-full">
+                        <span className="text-[11px] text-muted dark:text-stone-500 bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 rounded-full">
                           Used in {concept.topicExamples.length} topics
                         </span>
                       )}

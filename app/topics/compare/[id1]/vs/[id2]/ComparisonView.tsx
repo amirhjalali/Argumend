@@ -176,7 +176,7 @@ function EvidenceBalanceBar({
         <div className="h-full flex-1 bg-stone-300/40" />
       </div>
       <div className="text-center mt-1">
-        <span className="text-[11px] font-mono text-stone-400 tabular-nums">
+        <span className="text-[11px] font-mono text-muted dark:text-stone-400 tabular-nums">
           {forPct}% for / {100 - forPct}% against
         </span>
       </div>
@@ -215,7 +215,7 @@ function CruxList({ cruxes }: { cruxes: Crux[] }) {
               >
                 {verification.label}
               </span>
-              <span className="text-[10px] text-stone-400">
+              <span className="text-[10px] text-muted dark:text-stone-400">
                 {crux.cost_to_verify}
               </span>
             </div>
@@ -265,7 +265,7 @@ function TopicColumnHeader({
           {statusLabels[topic.status]}
         </span>
       </div>
-      <p className="text-xs text-stone-400 italic">
+      <p className="text-xs text-muted dark:text-stone-400 italic">
         {getVerdictLabel(topic.confidence_score)}
       </p>
     </div>
@@ -294,7 +294,7 @@ export default function ComparisonView({
             </div>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-4 leading-[1.08]">
               <span className="text-rust-700">{topic1.title}</span>
-              <span className="text-stone-400 mx-2 sm:mx-3 font-sans text-2xl sm:text-3xl lg:text-4xl italic">
+              <span className="text-muted dark:text-stone-400 mx-2 sm:mx-3 font-sans text-2xl sm:text-3xl lg:text-4xl italic">
                 vs
               </span>
               <span className="text-deep">{topic2.title}</span>

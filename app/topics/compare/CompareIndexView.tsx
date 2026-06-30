@@ -124,7 +124,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
         <span className="text-xs font-medium text-stone-500 group-hover:text-deep transition-colors">
           Compare side by side
         </span>
-        <ArrowRight className="h-3 w-3 text-stone-400 group-hover:text-deep group-hover:translate-x-0.5 transition-all" />
+        <ArrowRight className="h-3 w-3 text-muted dark:text-stone-400 group-hover:text-deep group-hover:translate-x-0.5 transition-all" />
       </div>
     </Link>
   );
@@ -226,7 +226,7 @@ function TopicPicker({
               className="flex-shrink-0 p-1 rounded hover:bg-stone-200/50 transition-colors"
               aria-label="Clear selection"
             >
-              <X className="h-3.5 w-3.5 text-stone-400" />
+              <X className="h-3.5 w-3.5 text-muted dark:text-stone-400" />
             </button>
           )}
         </button>
@@ -269,7 +269,7 @@ function TopicPicker({
               className="flex-shrink-0 p-1 rounded hover:bg-stone-200/50 transition-colors"
               aria-label="Clear selection"
             >
-              <X className="h-3.5 w-3.5 text-stone-400" />
+              <X className="h-3.5 w-3.5 text-muted dark:text-stone-400" />
             </button>
           )}
         </button>
@@ -277,7 +277,7 @@ function TopicPicker({
 
       {/* Search bar */}
       <div className="relative mb-4">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted dark:text-stone-400" />
         <input
           type="text"
           value={search}
@@ -292,7 +292,7 @@ function TopicPicker({
             className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-stone-100 transition-colors"
             aria-label="Clear search"
           >
-            <X className="h-3.5 w-3.5 text-stone-400" />
+            <X className="h-3.5 w-3.5 text-muted dark:text-stone-400" />
           </button>
         )}
       </div>
@@ -428,7 +428,7 @@ export default function CompareIndexView({
                 Featured Comparisons
               </h2>
               <div className="relative w-full sm:w-64">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted dark:text-stone-400" />
                 <input
                   type="text"
                   value={searchPairs}

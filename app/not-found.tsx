@@ -19,7 +19,7 @@ export default function NotFound() {
       </div>
 
       {/* 404 Label */}
-      <p className="text-sm font-sans font-medium tracking-[0.2em] uppercase text-muted mb-4">
+      <p className="text-sm font-sans font-medium tracking-[0.2em] uppercase text-muted dark:text-stone-400 mb-4">
         404
       </p>
 
@@ -67,7 +67,7 @@ export default function NotFound() {
 
       {/* Helpful note */}
       <div className="pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)] max-w-sm w-full">
-        <p className="font-sans text-sm text-muted">
+        <p className="font-sans text-sm text-muted dark:text-stone-400">
           If you had something specific in mind, our{" "}
           <Link href="/topics" className="text-deep hover:underline">
             topics
@@ -83,10 +83,10 @@ export default function NotFound() {
       {/* Branding footer */}
       <div className="mt-16">
         <Link href="/" className="group flex flex-col items-center gap-1">
-          <span className="font-serif text-base font-medium tracking-[0.08em] text-muted group-hover:text-primary transition-colors">
+          <span className="font-serif text-base font-medium tracking-[0.08em] text-muted dark:text-stone-400 group-hover:text-primary transition-colors">
             ARGUMEND
           </span>
-          <span className="text-[10px] font-sans text-stone-400 dark:text-stone-500">
+          <span className="text-[10px] font-sans text-muted dark:text-stone-500">
             Disagree better.
           </span>
         </Link>

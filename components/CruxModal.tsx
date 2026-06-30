@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 // katex CSS is loaded globally in globals.css
 const InlineMath = dynamic(
   () => import("react-katex").then((m) => m.InlineMath),
-  { ssr: false, loading: () => <span className="animate-pulse text-stone-400">...</span> }
+  { ssr: false, loading: () => <span className="animate-pulse text-muted dark:text-stone-400">...</span> }
 );
 
 export function CruxModal() {

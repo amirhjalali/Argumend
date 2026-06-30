@@ -714,7 +714,7 @@ function DebateMessageBubble({ message }: { message: DebateMessage }) {
           >
             <Quote
               className={`w-4 h-4 mb-1.5 opacity-40 ${
-                isFor ? "text-rust-400" : "text-stone-400"
+                isFor ? "text-rust-400" : "text-muted dark:text-stone-400"
               }`}
             />
             <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed whitespace-pre-wrap">
@@ -1624,7 +1624,7 @@ export default function TopicDetailView({
                     className="group rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916] overflow-hidden transition-colors hover:border-deep/20"
                   >
                     <summary className="flex items-center gap-3 cursor-pointer px-5 py-4 text-sm font-medium text-primary select-none list-none [&::-webkit-details-marker]:hidden">
-                      <ChevronRight className="h-4 w-4 text-stone-400 group-open:rotate-90 transition-transform duration-200 flex-shrink-0" />
+                      <ChevronRight className="h-4 w-4 text-muted dark:text-stone-400 group-open:rotate-90 transition-transform duration-200 flex-shrink-0" />
                       <span className="font-serif text-base leading-snug">{q.title}</span>
                     </summary>
                     <div className="px-5 pb-5 pl-12">

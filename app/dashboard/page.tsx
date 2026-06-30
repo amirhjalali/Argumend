@@ -95,7 +95,7 @@ export default async function DashboardPage() {
               <h2 className="font-serif text-2xl text-primary">
                 Saved Topics
               </h2>
-              <span className="ml-auto text-sm text-stone-400 dark:text-[var(--text-muted)] font-mono tabular-nums">
+              <span className="ml-auto text-sm text-muted dark:text-[var(--text-muted)] font-mono tabular-nums">
                 {savedTopicsList.length}
               </span>
             </div>
@@ -190,7 +190,7 @@ export default async function DashboardPage() {
               <h2 className="font-serif text-2xl text-primary">
                 Recent Debates
               </h2>
-              <span className="ml-auto text-sm text-stone-400 dark:text-[var(--text-muted)] font-mono tabular-nums">
+              <span className="ml-auto text-sm text-muted dark:text-[var(--text-muted)] font-mono tabular-nums">
                 {recentDebates.length}
               </span>
             </div>
@@ -225,10 +225,10 @@ export default async function DashboardPage() {
                         {debate.topicTitle}
                       </h3>
                       <div className="flex items-center gap-3 mt-1">
-                        <span className="text-xs text-stone-400 dark:text-[var(--text-muted)] font-mono">
+                        <span className="text-xs text-muted dark:text-[var(--text-muted)] font-mono">
                           {debate.forModel} vs {debate.againstModel}
                         </span>
-                        <span className="text-xs text-stone-400 dark:text-[var(--text-muted)] flex items-center gap-1">
+                        <span className="text-xs text-muted dark:text-[var(--text-muted)] flex items-center gap-1">
                           <Clock className="h-3 w-3" />
                           {formatDate(debate.createdAt)}
                         </span>

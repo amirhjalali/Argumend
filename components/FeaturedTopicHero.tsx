@@ -109,7 +109,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
               confidence
             </span>
           </div>
-          <p className="text-xs text-muted text-center max-w-xs leading-snug">
+          <p className="text-xs text-muted dark:text-stone-400 text-center max-w-xs leading-snug">
             How strongly the weighed evidence leans — not our opinion.
           </p>
           <p className="text-sm text-stone-500 dark:text-stone-400 text-center max-w-md">
