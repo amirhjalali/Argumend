@@ -8,6 +8,11 @@ export type ReadGraphView = "read" | "graph";
 
 const PREF_KEY = "argumend.preferredView";
 
+function topicIdFromPathname(pathname: string): string | null {
+  const match = pathname.match(/^\/topics\/([^/?#]+)/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
 export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -25,6 +30,11 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
   const switchTo = useCallback(
     (next: ReadGraphView) => {
       if (next === current) return;
+      const topicId = topicIdFromPathname(pathname);
+      if (next === "graph" && topicId) {
+        router.push(`/?topic=${encodeURIComponent(topicId)}&view=logic-map`);
+        return;
+      }
       const params = new URLSearchParams(searchParams.toString());
       if (next === "graph") {
         params.set("view", "graph");

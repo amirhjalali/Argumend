@@ -109,7 +109,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
               id="is-search"
               type="search"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onInput={(e) => setQuery(e.currentTarget.value)}
               placeholder="Search questions…"
               className={`${inputClass} w-full pl-9 pr-9 placeholder:text-muted`}
             />

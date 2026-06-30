@@ -1,5 +1,6 @@
+import "@/test/setup-dom";
 import { describe, it, expect, afterEach } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import { FlagshipIntro } from "./FlagshipIntro";
 import type { Topic } from "@/lib/schemas/topic";
 
@@ -28,12 +29,12 @@ describe("FlagshipIntro", () => {
       simple_case: ["First sentence.", "Second sentence.", "Third sentence."],
     } as Topic;
 
-    render(<FlagshipIntro topic={topic} />);
+    const view = render(<FlagshipIntro topic={topic} />);
 
-    expect(screen.getByText(/800x safer than coal/)).toBeTruthy();
-    expect(screen.getByText(/This fact:.*90%/)).toBeTruthy();
-    expect(screen.getByText(/The honest version/)).toBeTruthy();
-    expect(screen.getByText("Second sentence.")).toBeTruthy();
+    expect(view.getByText(/800x safer than coal/)).toBeTruthy();
+    expect(view.getByText(/This fact:.*90%/)).toBeTruthy();
+    expect(view.getByText(/The honest version/)).toBeTruthy();
+    expect(view.getByText("Second sentence.")).toBeTruthy();
   });
 
   it("renders nothing when neither keystone_fact nor simple_case is present", () => {

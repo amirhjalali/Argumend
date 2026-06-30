@@ -1,5 +1,6 @@
+import "@/test/setup-dom";
 import { describe, it, expect, afterEach } from "vitest";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { render, fireEvent, cleanup, waitFor } from "@testing-library/react";
 import { IsHubClient, type IsCategoryGroup } from "./IsHubClient";
 
 afterEach(cleanup);
@@ -27,58 +28,66 @@ const totalCount = 3;
 
 describe("IsHubClient", () => {
   it("renders every question (SSR-equivalent) in the default unfiltered state", () => {
-    render(<IsHubClient groups={groups} totalCount={totalCount} />);
+    const view = render(<IsHubClient groups={groups} totalCount={totalCount} />);
 
-    expect(screen.getByText("Is nuclear power safe?")).toBeTruthy();
-    expect(screen.getByText("Does rent control work?")).toBeTruthy();
-    expect(screen.getByText("Did humans land on the moon?")).toBeTruthy();
+    expect(view.getByText("Is nuclear power safe?")).toBeTruthy();
+    expect(view.getByText("Does rent control work?")).toBeTruthy();
+    expect(view.getByText("Did humans land on the moon?")).toBeTruthy();
     // Unfiltered count line shows the bare total, not "Showing X of Y".
-    expect(screen.getByText("3 questions")).toBeTruthy();
+    expect(view.getByText("3 questions")).toBeTruthy();
   });
 
   it("shows both category section headings and a jump-nav when nothing is filtered", () => {
-    render(<IsHubClient groups={groups} totalCount={totalCount} />);
+    const view = render(<IsHubClient groups={groups} totalCount={totalCount} />);
 
-    expect(screen.getByRole("heading", { name: "Policy" })).toBeTruthy();
-    expect(screen.getByRole("heading", { name: "Science" })).toBeTruthy();
-    expect(screen.getByRole("navigation", { name: "Jump to category" })).toBeTruthy();
+    expect(view.getByRole("heading", { name: "Policy" })).toBeTruthy();
+    expect(view.getByRole("heading", { name: "Science" })).toBeTruthy();
+    expect(view.getByRole("navigation", { name: "Jump to category" })).toBeTruthy();
   });
 
-  it("filters questions as you type in the search box", () => {
-    render(<IsHubClient groups={groups} totalCount={totalCount} />);
+  it("filters questions as you type in the search box", async () => {
+    const view = render(<IsHubClient groups={groups} totalCount={totalCount} />);
+    const input = view.getByLabelText("Search questions") as HTMLInputElement;
 
-    fireEvent.change(screen.getByLabelText("Search questions"), {
-      target: { value: "nuclear" },
+    input.value = "nuclear";
+    fireEvent.input(input);
+
+    await waitFor(() => {
+      expect(view.getByText("Showing 1 of 3 questions")).toBeTruthy();
     });
-
-    expect(screen.getByText("Is nuclear power safe?")).toBeTruthy();
-    expect(screen.queryByText("Does rent control work?")).toBeNull();
-    expect(screen.queryByText("Did humans land on the moon?")).toBeNull();
-    expect(screen.getByText("Showing 1 of 3 questions")).toBeTruthy();
+    expect(view.getByText("Is nuclear power safe?")).toBeTruthy();
+    expect(view.queryByText("Does rent control work?") === null).toBe(true);
+    expect(view.queryByText("Did humans land on the moon?") === null).toBe(true);
   });
 
-  it("narrows to a single category via the category select", () => {
-    render(<IsHubClient groups={groups} totalCount={totalCount} />);
+  it("narrows to a single category via the category select", async () => {
+    const view = render(<IsHubClient groups={groups} totalCount={totalCount} />);
 
-    fireEvent.change(screen.getByLabelText("Filter by category"), {
+    fireEvent.change(view.getByLabelText("Filter by category"), {
       target: { value: "science" },
     });
 
-    expect(screen.getByText("Did humans land on the moon?")).toBeTruthy();
-    expect(screen.queryByText("Is nuclear power safe?")).toBeNull();
+    await waitFor(() => {
+      expect(view.getByText("Showing 1 of 3 questions")).toBeTruthy();
+    });
+    expect(view.getByText("Did humans land on the moon?")).toBeTruthy();
+    expect(view.queryByText("Is nuclear power safe?") === null).toBe(true);
     // The Policy section heading should be gone once we narrow to Science.
-    expect(screen.queryByRole("heading", { name: "Policy" })).toBeNull();
+    expect(view.queryByRole("heading", { name: "Policy" }) === null).toBe(true);
   });
 
-  it("shows the empty state with a clear-filters action for a no-match query", () => {
-    render(<IsHubClient groups={groups} totalCount={totalCount} />);
+  it("shows the empty state with a clear-filters action for a no-match query", async () => {
+    const view = render(<IsHubClient groups={groups} totalCount={totalCount} />);
+    const input = view.getByLabelText("Search questions") as HTMLInputElement;
 
-    fireEvent.change(screen.getByLabelText("Search questions"), {
-      target: { value: "zzzznomatch" },
+    input.value = "zzzznomatch";
+    fireEvent.input(input);
+
+    await waitFor(() => {
+      expect(view.getByText(/No questions match/)).toBeTruthy();
     });
-
-    expect(screen.getByText(/No questions match/)).toBeTruthy();
-    expect(screen.getByRole("button", { name: "Clear filters" })).toBeTruthy();
-    expect(screen.queryByText("Is nuclear power safe?")).toBeNull();
+    expect(view.getByText(/No questions match/)).toBeTruthy();
+    expect(view.getByRole("button", { name: "Clear filters" })).toBeTruthy();
+    expect(view.queryByText("Is nuclear power safe?") === null).toBe(true);
   });
 });

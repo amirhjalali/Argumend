@@ -1,5 +1,6 @@
+import "@/test/setup-dom";
 import { describe, it, expect, afterEach } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import { FalsificationCrux } from "./FalsificationCrux";
 import type { Crux } from "@/lib/schemas/topic";
 
@@ -26,21 +27,21 @@ describe("FalsificationCrux", () => {
       },
     };
 
-    render(<FalsificationCrux crux={crux} />);
+    const view = render(<FalsificationCrux crux={crux} />);
 
-    expect(screen.getByText(/what would change your mind/)).toBeTruthy();
-    expect(screen.getByText(/hidden radiation deaths emerge/)).toBeTruthy();
-    expect(screen.getByText(/reactors get cheap and fast/)).toBeTruthy();
-    expect(screen.getByText(/routine operation is low-harm/)).toBeTruthy();
+    expect(view.getByText(/what would change your mind/)).toBeTruthy();
+    expect(view.getByText(/hidden radiation deaths emerge/)).toBeTruthy();
+    expect(view.getByText(/reactors get cheap and fast/)).toBeTruthy();
+    expect(view.getByText(/routine operation is low-harm/)).toBeTruthy();
     // empirical test is still available (collapsed)
-    expect(screen.getByText(/How it could be settled empirically/)).toBeTruthy();
+    expect(view.getByText(/How it could be settled empirically/)).toBeTruthy();
   });
 
   it("falls back to the settle-test view when no falsification is present", () => {
-    render(<FalsificationCrux crux={baseCrux} />);
+    const view = render(<FalsificationCrux crux={baseCrux} />);
 
-    expect(screen.getByText(/what would settle this/)).toBeTruthy();
-    expect(screen.getByText("The Deaths-Per-TWh Test")).toBeTruthy();
-    expect(screen.queryByText(/what would change your mind/)).toBeNull();
+    expect(view.getByText(/what would settle this/)).toBeTruthy();
+    expect(view.getByText("The Deaths-Per-TWh Test")).toBeTruthy();
+    expect(view.queryByText(/what would change your mind/)).toBeNull();
   });
 });

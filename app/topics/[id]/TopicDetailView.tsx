@@ -1043,7 +1043,7 @@ export default function TopicDetailView({
               <div className="flex items-center gap-1">
                 <ShareButtons
                   title={`${topic.title} — Argument Analysis`}
-                  url={`https://argumend.org/topics/${topic.id}?view=graph`}
+                  url={`https://argumend.org/?topic=${topic.id}&view=logic-map`}
                   description={`${topic.meta_claim} — ${getVerdictLabel(topic.confidence_score)}`}
                   topicMeta={{
                     metaClaim: topic.meta_claim,
@@ -1053,7 +1053,7 @@ export default function TopicDetailView({
                     topicTitle: topic.title,
                   }}
                 />
-                <CopyLinkButton url={`https://argumend.org/topics/${topic.id}?view=graph`} />
+                <CopyLinkButton url={`https://argumend.org/?topic=${topic.id}&view=logic-map`} />
                 <EmbedButton topicId={topic.id} />
                 <SaveTopicButton topicId={topic.id} />
                 <SubscribeButton topicId={topic.id} />
@@ -1757,7 +1757,7 @@ export default function TopicDetailView({
             <div className="flex items-center justify-center gap-3">
               <ShareButtons
                 title={`${topic.title} — Argument Analysis | Argumend`}
-                url={`https://argumend.org/topics/${topic.id}?view=graph`}
+                url={`https://argumend.org/?topic=${topic.id}&view=logic-map`}
                 description={topic.meta_claim}
                 topicMeta={{
                   metaClaim: topic.meta_claim,
@@ -1767,7 +1767,7 @@ export default function TopicDetailView({
                   topicTitle: topic.title,
                 }}
               />
-              <CopyLinkButton url={`https://argumend.org/topics/${topic.id}?view=graph`} />
+              <CopyLinkButton url={`https://argumend.org/?topic=${topic.id}&view=logic-map`} />
             </div>
           </div>
 

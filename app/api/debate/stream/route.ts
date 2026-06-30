@@ -1,6 +1,5 @@
 import { NextRequest } from "next/server";
 import { z } from "zod";
-import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
 import { chunkForSse, generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
 import {
@@ -35,6 +34,21 @@ const StreamRequestSchema = z.object({
 });
 
 type StreamRequest = z.infer<typeof StreamRequestSchema>;
+
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : "Unknown error";
+}
+
+async function hasAuthenticatedUser(): Promise<boolean> {
+  try {
+    const { auth } = await import("@/lib/auth");
+    const session = await auth();
+    return Boolean(session?.user);
+  } catch (error) {
+    console.warn("Auth unavailable; using programmatic debate stream fallback:", getErrorMessage(error));
+    return false;
+  }
+}
 
 /**
  * SSE helper: encode a data event
@@ -202,15 +216,6 @@ function buildProgrammaticTokens(body: StreamRequest): string[] {
  * Streams a debate argument token-by-token via SSE.
  */
 export async function POST(request: NextRequest) {
-  // Require authentication for debate streaming (calls LLM APIs)
-  const session = await auth();
-  if (!session?.user) {
-    return new Response(
-      JSON.stringify({ error: "Unauthorized" }),
-      { status: 401 }
-    );
-  }
-
   const ip = request.headers.get("x-forwarded-for") || "unknown";
   const limit = rateLimit(`debate:${ip}`, {
     maxRequests: 20,
@@ -244,14 +249,23 @@ export async function POST(request: NextRequest) {
   const { topic, side, model, round, previousMessages, pillars } = body;
 
   try {
-    if (!isLiveDebateEnabled()) {
+    const liveDebateEnabled = isLiveDebateEnabled();
+    const authenticated = liveDebateEnabled ? await hasAuthenticatedUser() : false;
+    if (!liveDebateEnabled || !authenticated) {
       const programmaticTokens = buildProgrammaticTokens(body);
       const stream = new ReadableStream({
         start(controller) {
           for (const token of programmaticTokens) {
             controller.enqueue(sseEvent({ token }));
           }
-          controller.enqueue(sseEvent({ done: true, model, fallback: true }));
+          controller.enqueue(sseEvent({
+            done: true,
+            model,
+            fallback: true,
+            error: liveDebateEnabled
+              ? "Authentication is required for live debate streaming; used programmatic fallback."
+              : undefined,
+          }));
           controller.close();
         },
       });
@@ -278,7 +292,7 @@ export async function POST(request: NextRequest) {
           }
           controller.enqueue(sseEvent({ done: true, model }));
         } catch (error) {
-          const message = error instanceof Error ? error.message : "Unknown error";
+          const message = getErrorMessage(error);
           console.warn("Live debate stream failed, falling back to programmatic mode:", message);
           try {
             const programmaticTokens = buildProgrammaticTokens(body);
@@ -308,7 +322,7 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Debate stream setup error:", error);
-    const message = error instanceof Error ? error.message : "Unknown error";
+    const message = getErrorMessage(error);
     return new Response(
       JSON.stringify({ error: "Failed to set up debate stream", details: message }),
       { status: 500, headers: { "Content-Type": "application/json" } }

@@ -4,6 +4,7 @@
  * System prompts for AI judges evaluating debates.
  */
 
+import { z } from "zod";
 import { DEFAULT_RUBRIC, type RubricDimension } from "./rubric";
 
 /**
@@ -161,33 +162,30 @@ Please:
 If the content doesn't clearly present two opposing sides, do your best to identify the main argument and any counter-arguments or potential objections that could be raised.`;
 }
 
+const ParsedDimensionScoreSchema = z.object({
+  dimensionId: z.string().min(1),
+  score: z.coerce.number().finite().min(1).max(10),
+  reasoning: z.string().optional().default(""),
+  examples: z.array(z.string()).optional(),
+});
+
+const ParsedSideScoreSchema = z.object({
+  dimensions: z.array(ParsedDimensionScoreSchema),
+  summary: z.string().optional().default(""),
+  confidence: z.coerce.number().finite().min(0).max(1).default(0.5),
+});
+
+export const ParsedJudgeResponseSchema = z.object({
+  forScore: ParsedSideScoreSchema,
+  againstScore: ParsedSideScoreSchema,
+  winner: z.enum(["for", "against", "draw"]),
+  overallReasoning: z.string().optional().default(""),
+});
+
 /**
  * Parse judge response from JSON
  */
-export interface ParsedJudgeResponse {
-  forScore: {
-    dimensions: {
-      dimensionId: string;
-      score: number;
-      reasoning: string;
-      examples?: string[];
-    }[];
-    summary: string;
-    confidence: number;
-  };
-  againstScore: {
-    dimensions: {
-      dimensionId: string;
-      score: number;
-      reasoning: string;
-      examples?: string[];
-    }[];
-    summary: string;
-    confidence: number;
-  };
-  winner: "for" | "against" | "draw";
-  overallReasoning: string;
-}
+export type ParsedJudgeResponse = z.infer<typeof ParsedJudgeResponseSchema>;
 
 /**
  * Attempt to parse judge response, handling various formats
@@ -226,14 +224,13 @@ export function parseJudgeResponse(response: string): ParsedJudgeResponse | null
       jsonStr = jsonStr.substring(0, endIndex + 1);
     }
 
-    const parsed = JSON.parse(jsonStr);
-
-    // Validate required fields
-    if (!parsed.forScore || !parsed.againstScore || !parsed.winner) {
+    const parsed = ParsedJudgeResponseSchema.safeParse(JSON.parse(jsonStr));
+    if (!parsed.success) {
+      console.warn("Invalid judge response:", parsed.error.flatten());
       return null;
     }
 
-    return parsed as ParsedJudgeResponse;
+    return parsed.data;
   } catch {
     return null;
   }

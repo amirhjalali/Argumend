@@ -49,6 +49,8 @@ No API keys or database are required for the default offline mode.
 
 Argumend defaults to offline/programmatic generation and judging so the product can be developed and demoed without live model calls.
 
+In offline mode, `/api/analyze`, `/api/judge`, `/api/debate`, and `/api/debate/stream` return deterministic/programmatic results without requiring auth, model API keys, or `DATABASE_URL`. If database persistence is unavailable, those endpoints still return the computed result and skip saving.
+
 Enable live model-backed flows with environment flags:
 
 ```bash
@@ -61,6 +63,14 @@ NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true
 ENABLE_LIVE_DEBATE_API=true
 NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true
 ```
+
+Canonical interactive map links use the root canvas route:
+
+```text
+/?topic=<topic-id>&view=logic-map
+```
+
+Legacy topic graph links such as `/topics/<topic-id>?view=graph` redirect to that canvas URL.
 
 ## Commands
 

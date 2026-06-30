@@ -556,9 +556,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
         style={floatBottom}
       >
         <Link
-          href="?view=graph"
-          replace
-          scroll={false}
+          href={`/?topic=${encodeURIComponent(topic.id)}&view=logic-map`}
           className="inline-flex items-center gap-2 rounded-full bg-deep text-white px-4 py-2.5 text-sm font-sans font-medium shadow-lg hover:bg-deep/90 transition-colors"
         >
           <Network className="h-4 w-4" aria-hidden />

@@ -140,13 +140,19 @@ function CanvasExperience() {
         setView("debate");
       } else if (viewParam === "scales") {
         setView("scales");
+      } else if (viewParam === "graph" || viewParam === "logic-map") {
+        setView("logic-map");
       }
       // Preserve the topic (and view) in the URL — instead of blanking it to
       // "/" — so refresh / bookmark / share retains the canvas state. Guarded
       // by didHandleParams above, so this runs once and never re-triggers the
       // ingest effect (replaceState does not cause a navigation or re-render).
       const preserved = new URLSearchParams({ topic: topicParam });
-      if (viewParam) preserved.set("view", viewParam);
+      if (viewParam === "graph" || viewParam === "logic-map") {
+        preserved.set("view", "logic-map");
+      } else if (viewParam) {
+        preserved.set("view", viewParam);
+      }
       window.history.replaceState({}, "", `/?${preserved.toString()}`);
     }
   }, [setTopic, setView]);

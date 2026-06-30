@@ -22,13 +22,11 @@ describe("GET /api/v1/topics", () => {
     expect(res.status).toBe(200);
 
     const body = await res.json();
-    expect(body).toMatchObject({
-      count: expect.any(Number),
-      total: expect.any(Number),
-      limit: expect.any(Number),
-      offset: expect.any(Number),
-      topics: expect.any(Array),
-    });
+    expect(typeof body.count).toBe("number");
+    expect(typeof body.total).toBe("number");
+    expect(typeof body.limit).toBe("number");
+    expect(typeof body.offset).toBe("number");
+    expect(Array.isArray(body.topics)).toBe(true);
 
     // Default page is capped at the 50-item default limit.
     expect(body.offset).toBe(0);
@@ -38,13 +36,11 @@ describe("GET /api/v1/topics", () => {
     expect(body.total).toBe(topicSummaries.length);
 
     const topic = body.topics[0];
-    expect(topic).toMatchObject({
-      id: expect.any(String),
-      title: expect.any(String),
-      category: expect.any(String),
-      status: expect.any(String),
-      confidence_score: expect.any(Number),
-    });
+    expect(typeof topic.id).toBe("string");
+    expect(typeof topic.title).toBe("string");
+    expect(typeof topic.category).toBe("string");
+    expect(typeof topic.status).toBe("string");
+    expect(typeof topic.confidence_score).toBe("number");
     // url is absolute and points back to the canonical topic page.
     expect(topic.url).toBe(`${SITE_URL}/topics/${topic.id}`);
     expect(topic.url.startsWith("https://")).toBe(true);

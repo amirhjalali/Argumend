@@ -5,6 +5,7 @@
  * like transcripts, articles, and debates.
  */
 
+import { z } from "zod";
 import { executeAgent } from "@/lib/agents/executor";
 import type { AgentConfig } from "@/lib/agents/types";
 import type { DebateMessageInput } from "@/types/debate";
@@ -138,6 +139,63 @@ export interface ExtractedArguments {
   /** Overall strength of the AGAINST position (1-10) */
   againstStrength?: number;
 }
+
+const optionalStringSchema = z.preprocess(
+  (value) => value === null ? undefined : value,
+  z.string().optional()
+);
+
+const optionalScoreSchema = z.preprocess(
+  (value) => value === null ? undefined : value,
+  z.coerce.number().finite().min(1).max(10).optional()
+);
+
+const ExtractedArgumentSchema = z.object({
+  claim: z.string().min(1),
+  evidence: z.array(z.string()).optional().default([]),
+  source: optionalStringSchema,
+  strengthScore: optionalScoreSchema,
+  strengthRationale: optionalStringSchema,
+});
+
+const ExtractedPositionSchema = z.object({
+  side: z.enum(["for", "against"]),
+  speaker: optionalStringSchema,
+  arguments: z.array(ExtractedArgumentSchema).default([]),
+});
+
+const IdentifiedCruxSchema = z.object({
+  description: z.string().min(1),
+  significance: z.string().optional().default(""),
+});
+
+const PotentialFallacySchema = z.object({
+  type: z.string().min(1),
+  explanation: z.string().min(1),
+  quote: optionalStringSchema,
+  attributedTo: optionalStringSchema,
+  severity: z.enum(["confirmed", "likely", "possible"]).optional(),
+  impact: optionalScoreSchema,
+});
+
+const DetectedBiasSchema = z.object({
+  type: z.string().min(1),
+  explanation: z.string().min(1),
+  affectedSide: z.enum(["for", "against", "both"]).optional(),
+  impact: z.coerce.number().finite().min(1).max(10).default(1),
+});
+
+export const ExtractedArgumentsSchema: z.ZodType<ExtractedArguments> = z.object({
+  topic: z.string().min(1),
+  positions: z.array(ExtractedPositionSchema),
+  identifiedCruxes: z.array(IdentifiedCruxSchema).optional().default([]),
+  potentialFallacies: z.array(PotentialFallacySchema).optional().default([]),
+  detectedBiases: z.array(DetectedBiasSchema).optional().default([]),
+  summary: z.string().optional().default(""),
+  confidence: z.coerce.number().finite().min(0).max(1).default(0.5),
+  forStrength: optionalScoreSchema,
+  againstStrength: optionalScoreSchema,
+});
 
 /**
  * Build the system prompt for argument extraction
@@ -312,25 +370,13 @@ function parseExtractionResponse(response: string): ExtractedArguments | null {
       jsonStr = jsonStr.substring(0, endIndex + 1);
     }
 
-    const parsed = JSON.parse(jsonStr);
-
-    // Validate required fields
-    if (!parsed.topic || !parsed.positions) {
+    const parsed = ExtractedArgumentsSchema.safeParse(JSON.parse(jsonStr));
+    if (!parsed.success) {
+      console.warn("Invalid extraction response:", parsed.error.flatten());
       return null;
     }
 
-    // Ensure arrays exist
-    return {
-      topic: parsed.topic,
-      positions: parsed.positions || [],
-      identifiedCruxes: parsed.identifiedCruxes || [],
-      potentialFallacies: parsed.potentialFallacies || [],
-      detectedBiases: parsed.detectedBiases || [],
-      summary: parsed.summary || "",
-      confidence: parsed.confidence ?? 0.5,
-      forStrength: parsed.forStrength ?? undefined,
-      againstStrength: parsed.againstStrength ?? undefined,
-    };
+    return parsed.data;
   } catch {
     return null;
   }

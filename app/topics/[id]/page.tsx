@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { topics, getCrossCategoryRelated, CATEGORY_LABELS } from "@/data/topics";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { getVerdictLabel } from "@/lib/schemas/topic";
@@ -17,7 +18,10 @@ export function generateStaticParams() {
 // Dynamic Metadata
 // ---------------------------------------------------------------------------
 
-type PageProps = { params: Promise<{ id: string }> };
+type PageProps = {
+  params: Promise<{ id: string }>;
+  searchParams?: Promise<{ view?: string | string[] }>;
+};
 
 export async function generateMetadata({
   params,
@@ -80,12 +84,18 @@ export async function generateMetadata({
 // Page Component — thin server wrapper, rendering done client-side
 // ---------------------------------------------------------------------------
 
-export default async function TopicPage({ params }: PageProps) {
+export default async function TopicPage({ params, searchParams }: PageProps) {
   const { id } = await params;
   const topic = topics.find((t) => t.id === id);
 
   if (!topic) {
     return <TopicPageClient topic={null} relatedTopics={[]} crossCategoryTopics={[]} />;
+  }
+
+  const view = (await searchParams)?.view;
+  const requestedView = Array.isArray(view) ? view[0] : view;
+  if (requestedView === "graph" || requestedView === "logic-map") {
+    redirect(`/?topic=${encodeURIComponent(topic.id)}&view=logic-map`);
   }
 
   const categoryLabel = CATEGORY_LABELS[topic.category];
