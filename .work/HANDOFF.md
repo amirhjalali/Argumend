@@ -203,3 +203,30 @@ links incl. guide links; 0 dup slugs). Committed; not pushed.
 Campaign tally so far (3 cycles, all committed, none pushed): ~25 logical commits. Audit Strategic Bets
 B/C/D/F/G done; A & E remain founder-owned. Content: blog 62→74, is-claims 121→140, FAQs 38→54,
 guides 11→13. Tests 409→691. Brand-asset 404 fixed.
+
+---
+
+## Autonomous cycle 4 — 2026-06-30 — public API, AEO schema, content, onboarding, tests
+
+6-agent cycle. Verified: `tsc` clean, **715 vitest tests pass** (23 files), clean `bun run build`,
+data integrity validated, and the new public API **runtime-smoke-tested** (live server: valid JSON,
+correct CORS + cache headers, 200/404/400 paths). Committed; not pushed.
+
+- **Public developer API.** `GET /api/v1/topics` (filter by category/status, paginate) and
+  `/api/v1/topics/[id]` serve from the static topic index — no DB, offline-safe, permissive CORS +
+  `s-maxage` caching, zod-validated params (400 on bad input). Plus a JSON index at `/api/v1`. Lets
+  news sites / developers consume Argumend's analysis (distribution lever).
+- **AEO structured data.** Enriched JSON-LD: guides gain LearningResource `about`/`isPartOf`; glossary
+  DefinedTerms get addressable `@id`/`url` anchors; `/is` QAPage gains `about` + `inLanguage`.
+  **Deliberately did NOT add ClaimReview** — Argumend's confidence-spectrum verdicts aren't binary
+  fact-checks and the brand isn't a registered fact-checker (Google misuse risk). Agent found
+  LearningResource/DefinedTerm largely already present and enriched rather than duplicated.
+- **Onboarding.** How It Works now ends with a "try it on a real topic" CTA into a live map;
+  Analyze gains empty-state value copy + an on-brand "Mapping the arguments…" loading message.
+- **Content.** +5 blog posts (74 → 79), +9 FAQs (54 → 63).
+- **Tests.** +24 (IsHubClient filtering, markdown blocks, topic validation).
+
+FOUNDER FLAG: the AEO agent found only 2 topics still lacking an "is X true?" page —
+`iran-war-justification` and `minneapolis-shooting` (both values-laden/geopolitical). I **removed**
+those 2 auto-generated is-claims rather than ship sensitive AEO verdict pages autonomously; add them
+deliberately if you want them. Every other (empirical) topic now has an is-claim.
