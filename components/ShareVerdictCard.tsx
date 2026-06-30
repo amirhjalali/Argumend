@@ -93,7 +93,9 @@ function getConsensusLabel(result: JudgingResult): string {
 function getShareUrl(topicId: string): string {
   const base =
     typeof window !== "undefined" ? window.location.origin : "https://argumend.org";
-  return `${base}/topics/${topicId}#verdict`;
+  // Shared from the interactive judging/graph experience — carry ?view=graph
+  // so recipients land on the same view the sharer saw, not the static read.
+  return `${base}/topics/${topicId}?view=graph#verdict`;
 }
 
 function getShareText(

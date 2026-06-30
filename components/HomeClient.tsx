@@ -141,8 +141,13 @@ function CanvasExperience() {
       } else if (viewParam === "scales") {
         setView("scales");
       }
-      // Clean up URL without reload
-      window.history.replaceState({}, "", "/");
+      // Preserve the topic (and view) in the URL — instead of blanking it to
+      // "/" — so refresh / bookmark / share retains the canvas state. Guarded
+      // by didHandleParams above, so this runs once and never re-triggers the
+      // ingest effect (replaceState does not cause a navigation or re-render).
+      const preserved = new URLSearchParams({ topic: topicParam });
+      if (viewParam) preserved.set("view", viewParam);
+      window.history.replaceState({}, "", `/?${preserved.toString()}`);
     }
   }, [setTopic, setView]);
 
