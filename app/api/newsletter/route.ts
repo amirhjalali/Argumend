@@ -68,8 +68,11 @@ export async function POST(request: NextRequest) {
       .onConflictDoNothing({ target: newsletters.email });
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
+    // Strip CR/LF so a crafted `source` (validated only as a <=100-char string)
+    // or `reason` can't forge or split log lines / poison a log aggregator.
+    const oneLine = (s: string) => s.replace(/[\r\n]+/g, " ");
     console.warn(
-      `[newsletter-fallback] ${email} ${new Date().toISOString()} source=${source || "website"} reason=${reason}`
+      `[newsletter-fallback] ${email} ${new Date().toISOString()} source=${oneLine(source || "website")} reason=${oneLine(reason)}`
     );
   }
 
