@@ -105,3 +105,45 @@ DEFERRED — founder-owned (in the roadmap, not done):
   removal — all need your judgment
 
 Off-brand category palette (indigo/sky/violet in SearchModal etc.) is part of Bet C — left for you.
+_(Update 2026-06-29: Bet C shipped — the rainbow is gone. See the cycle below.)_
+
+---
+
+## Autonomous cycle 2026-06-29 — Strategic bets C + G, canvas dark mode, brand asset, content
+
+5-agent parallel cycle (disjoint file territories → one integration + gate). All verified:
+`npx tsc --noEmit` clean · **665 vitest tests pass** · clean `bun run build` (exit 0) · every new
+internal link validated against the real route data (142 topics / 22 fallacies / 6 concepts / 121 is-claims).
+Nothing pushed.
+
+Shipped:
+- **Brand-asset 404 fixed (was site-wide).** New on-brand `public/icon.png` (serif "A" + rust accent
+  bar on parchment, matching the OG wordmark; rendered deterministically via `sharp`, no AI artifacts)
+  + `metadata.icons` in `app/layout.tsx`. Resolves the 9 JSON-LD `logo: /icon.png` 404s **and** the
+  favicon 404. Swap `public/icon.png` if you want a different mark — nothing else depends on its design.
+- **Bet C — category/status colors consolidated.** New `lib/categoryColors.ts` is the single source of
+  truth (light + dark in one place); imported into `SearchModal`, `/topics`, `ReadModeView`,
+  `TopicDetailView`. **The off-brand indigo/sky/violet search rainbow is gone.** "Settled" status is
+  decoupled from "Science" category (settled = deep teal, science = brown) so green no longer reads as a
+  "this is true" verdict. Guard test `lib/categoryColors.test.ts` fails on any banned color in the module.
+- **QW#7 — canvas dark mode.** `RichNode`/`EvidenceNode`/`MetaNode` + `DesktopCanvas` `<Background>` dots
+  and minimap mask now adapt to dark (CSS-var driven); light mode byte-for-byte unchanged. _Best confirmed
+  visually by you._
+- **Bet G — funnel resilience.** `/api/newsletter` no longer 500s or silently loses a signup when the DB
+  is unreachable (the documented offline default) — it emits a greppable `[newsletter-fallback] <email> …`
+  marker and still returns success; validation/dedupe unchanged. New **`/saved`** page (noindex) reads the
+  localStorage saved-topics hook via a new `useSavedTopicIds()` — logged-out saves are finally reachable.
+- **/is hub upgraded.** Still fully server-rendered (all 121 questions stay crawlable) + client search /
+  category filter / sort-by-confidence / sticky jump-nav. `/is` ("Is It True?") and `/saved` wired into
+  the Sidebar and Footer.
+- **Content.** 3 new logical-fallacy explainers: motte-and-bailey, Gish gallop, no true Scotsman
+  (`data/blog.ts`, 62 → 65 posts). All internal links validated.
+- **Sitemap.** `conceptSlugs` now derived from `data/concepts` (were 2 stale 404 slugs —
+  `confidence-scores`, `verification-status` — and missing 3 real ones incl. `/concepts/fallacies`);
+  corpus freshness date bumped 2026-06-15 → 2026-06-29.
+
+Still deferred (founder-owned): Bet A (topic-route unification), Bet B (legend single-source-of-truth),
+Bet D (Topic Explorer fate + lift filters), Bet E (IA card-sort), Bet F (long-form TOC/anchors).
+Minor follow-ups: the `/is` confidence-tier badge still uses `emerald` for the "Strong" tier (pre-existing
+carry-over, out of this cycle's color scope); the color guard only covers `categoryColors.ts` (a
+repo-wide grep would catch regressions everywhere).
