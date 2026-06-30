@@ -309,7 +309,7 @@ export function MobileArgumentList() {
         </div>
 
         {/* View switcher (mobile-optimized) */}
-        <div className="flex gap-1 p-1 rounded-lg bg-stone-100/80 dark:bg-stone-800/80" role="tablist" aria-label="View mode">
+        <div className="flex gap-1 p-1 rounded-lg bg-stone-100/80 dark:bg-stone-800/80" role="group" aria-label="View mode">
           {(
             [
               { id: "logic-map" as const, label: "Arguments", icon: Network },
@@ -320,8 +320,7 @@ export function MobileArgumentList() {
             <button
               key={id}
               onClick={() => setView(id)}
-              role="tab"
-              aria-selected={currentView === id}
+              aria-pressed={currentView === id}
               className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-md text-[13px] font-medium transition-colors ${
                 currentView === id
                   ? "bg-white dark:bg-[var(--bg-card)] text-stone-800 dark:text-[var(--text-primary)] shadow-sm"

@@ -454,9 +454,6 @@ export function ReadModeView({ topic }: { topic: Topic }) {
           {/* ─── Save / track ─── */}
           <section aria-label="Save this topic" className="mt-10 flex flex-col items-start gap-2">
             <SaveTopicButton topicId={topic.id} />
-            <p className="font-sans text-xs text-secondary">
-              Save this topic to get pinged if its confidence score shifts.
-            </p>
           </section>
 
           {/* ─── Newsletter: capture at peak intent (reader finished the topic) ─── */}

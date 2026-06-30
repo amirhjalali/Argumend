@@ -33,9 +33,12 @@ export function useModalAccessibility<T extends HTMLElement>({
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, onClose]);
 
-  // Focus trap
+  // Focus trap + focus restore
   useEffect(() => {
     if (!isOpen || !modalRef.current) return;
+
+    // Remember what was focused before the modal opened, so we can restore it on close.
+    const previouslyFocused = document.activeElement as HTMLElement | null;
 
     const focusableElements = Array.from(
       modalRef.current.querySelectorAll<HTMLElement>(
@@ -60,7 +63,11 @@ export function useModalAccessibility<T extends HTMLElement>({
     document.addEventListener("keydown", handleTab);
     firstElement?.focus();
 
-    return () => document.removeEventListener("keydown", handleTab);
+    return () => {
+      document.removeEventListener("keydown", handleTab);
+      // Restore focus to the trigger element rather than dropping it to <body>.
+      previouslyFocused?.focus();
+    };
   }, [isOpen]);
 
   // Body scroll lock
