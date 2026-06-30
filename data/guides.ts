@@ -134,7 +134,7 @@ True independence means each source would arrive at its conclusion regardless of
 
 3. **Check for correlated errors.** Ask what could cause multiple sources to be wrong in the same direction. Shared assumptions? Common funding? Social pressures?
 
-4. **Weight by reliability.** Not all sources are equal. Primary sources beat secondary sources. Documented evidence beats testimony. Reluctant admissions (statements against interest) are more credible than self-serving ones.
+4. **[Weight by reliability](/concepts/evidence-weighting).** Not all sources are equal. Primary sources beat secondary sources. Documented evidence beats testimony. Reluctant admissions (statements against interest) are more credible than self-serving ones.
 
 5. **Note divergences.** When sources disagree, don't ignore the outliers. Investigate why. Sometimes the minority view has identified something the majority missed.
 
@@ -294,7 +294,7 @@ Additionally, stories that generate engagement (often outrage) get amplified ove
           },
           {
             title: "Steel-Manning",
-            content: `Instead of attacking the weakest version of an opposing argument (straw-manning), construct the strongest possible version of it (steel-manning). If you can't articulate why a reasonable person might hold the opposing view, you don't understand it well enough to reject it. This is the foundation of Argumend's approach to controversial topics.`,
+            content: `Instead of attacking the weakest version of an opposing argument ([straw-manning](/fallacies/straw-man)), construct the strongest possible version of it ([steel-manning](/concepts/steel-manning)). If you can't articulate why a reasonable person might hold the opposing view, you don't understand it well enough to reject it. This is the foundation of Argumend's approach to controversial topics.`,
           },
           {
             title: "Seek Disconfirming Evidence",
@@ -494,7 +494,7 @@ Social phenomena are also more context-dependent than medical treatments. What w
 - Corroboration: Do independent sources agree?
 - Authenticity: Is this document genuine?
 
-Multiple independent contemporary sources agreeing on an event is the historical equivalent of triangulation.`,
+Multiple independent contemporary sources agreeing on an event is the historical equivalent of [triangulation](/guides/triangulation).`,
           },
           {
             title: "When Anecdotes Matter",
@@ -592,7 +592,7 @@ Think of the map as a table of contents for a debate, except every entry is conn
       },
       {
         title: "Understanding Pillars",
-        content: `Pillars are the backbone of every argument map. Each pillar represents a distinct line of reasoning — an independent argument that either supports or opposes the central claim.
+        content: `[Pillars](/concepts/pillars) are the backbone of every argument map. Each pillar represents a distinct line of reasoning — an independent argument that either supports or opposes the central claim.
 
 A topic like "Should cities invest in public transit?" might have pillars such as "Economic benefits of reduced car dependency," "Environmental impact of transit systems," "Equity and access for low-income residents," and "Fiscal sustainability of transit agencies." Each pillar can stand on its own: even if one pillar collapses, the others remain.
 
@@ -624,7 +624,7 @@ Each evidence node has several properties you should pay attention to:`,
       },
       {
         title: "Finding the Crux",
-        content: `The crux is the most important concept on any argument map. A crux is the single point of disagreement that, if resolved, would change the most minds. It is the fulcrum of the debate.
+        content: `The crux is the most important concept on any argument map. A [crux](/concepts/cruxes) is the single point of disagreement that, if resolved, would change the most minds. It is the fulcrum of the debate.
 
 On Argumend's maps, cruxes are highlighted with a distinctive marker — typically a diamond icon or a bright accent border — so they stand out from ordinary nodes. You can also find them by looking for the node with the most connection lines: cruxes tend to sit at the intersection of multiple pillars because they affect several lines of reasoning simultaneously.
 
@@ -636,7 +636,7 @@ To find the crux on any map, look for the node labeled "crux" or "key disagreeme
       },
       {
         title: "Using Confidence Scores",
-        content: `Every major node on an Argumend map displays a confidence score — a number from 0 to 100 that represents how well-supported that particular claim or argument is, given the available evidence.
+        content: `Every major node on an Argumend map displays a [confidence score](/concepts/confidence-calibration) — a number from 0 to 100 that represents how well-supported that particular claim or argument is, given the available evidence.
 
 A confidence score of 85 does not mean "85% chance this is true." It means that 85% of the relevant, weighted evidence points in this direction. The distinction matters: a high confidence score reflects the current state of evidence, not an absolute truth claim. New evidence can shift scores.
 
@@ -697,7 +697,7 @@ You can also compare confidence scores across pillars to get a quick read on the
       },
       {
         title: "How to Paste and Submit",
-        content: `Navigate to the **/analyze** page on Argumend. You'll see a large text area with a prompt to paste or type your text.
+        content: `Navigate to the **[/analyze](/analyze)** page on Argumend. You'll see a large text area with a prompt to paste or type your text.
 
 **Step 1: Paste your text.** Copy the article, essay, or transcript you want to analyze and paste it into the text area. The tool accepts plain text — formatting like bold and italic will be stripped, but that's fine. The analysis works on the words and ideas, not the formatting.
 
@@ -747,7 +747,7 @@ A word of caution: fallacy detection is the most subjective part of the analysis
         title: "The AI Judge Council",
         content: `Behind the scenes, Argumend doesn't rely on a single AI model to produce its analysis. Instead, it uses a **judge council** — multiple independent AI evaluators that each assess the text separately before their judgments are synthesized.
 
-This design mirrors the principle of triangulation (covered in our guide on that topic). A single AI model might have systematic blind spots or tendencies — perhaps it consistently underweights certain types of evidence, or has a subtle bias toward particular framings. By running multiple models independently and then comparing their assessments, Argumend reduces the impact of any single model's weaknesses.
+This design mirrors the principle of triangulation (covered in our [Triangulation guide](/guides/triangulation)). A single AI model might have systematic blind spots or tendencies — perhaps it consistently underweights certain types of evidence, or has a subtle bias toward particular framings. By running multiple models independently and then comparing their assessments, Argumend reduces the impact of any single model's weaknesses.
 
 Here's how it works in practice:
 
@@ -799,7 +799,7 @@ The judge council is why Argumend's confidence scores are more calibrated than a
         title: "The Four Dimensions of Evidence Weight",
         content: `Not all evidence carries the same weight. A peer-reviewed meta-analysis and a single anonymous blog post might both claim the same thing, but they shouldn't move your confidence by the same amount. The question is: how do you systematically decide how much weight to give a piece of evidence?
 
-Argumend's framework evaluates evidence along four independent dimensions: **reliability**, **independence**, **replicability**, and **directness**. Each dimension captures a different aspect of evidence quality, and together they provide a comprehensive picture of how much you should trust a given source.
+Argumend's framework evaluates evidence along [four independent dimensions](/concepts/evidence-weighting): **reliability**, **independence**, **replicability**, and **directness**. Each dimension captures a different aspect of evidence quality, and together they provide a comprehensive picture of how much you should trust a given source.
 
 Think of these four dimensions as separate filters. A piece of evidence might score high on one dimension and low on another. A government statistical report, for instance, is highly reliable and direct, but if every other analysis uses the same dataset, independence is low. A collection of independent anecdotes might score well on independence but poorly on reliability and replicability.
 
@@ -871,7 +871,7 @@ Independence is especially important in the social media age, where a single cla
             title: "Replicability",
             content: `Replicability asks: if someone repeated this study or investigation, would they get the same result? Evidence is replicable when the finding holds up across multiple attempts under similar conditions.
 
-The replication crisis in psychology and other fields (discussed in our Hierarchy of Evidence guide) showed that many published findings fail to replicate. This makes replication status a crucial quality indicator. Evidence that has been successfully replicated — especially by independent teams — deserves substantially more weight than evidence from a single unreplicated study.
+The replication crisis in psychology and other fields (discussed in our [Hierarchy of Evidence guide](/guides/evidence-hierarchy)) showed that many published findings fail to replicate. This makes replication status a crucial quality indicator. Evidence that has been successfully replicated — especially by independent teams — deserves substantially more weight than evidence from a single unreplicated study.
 
 On Argumend, evidence nodes that reference replicated findings carry a replicability indicator. When evaluating evidence yourself, check: has this finding been replicated? By whom? Were the replications close to the original conditions, or did they test the finding in new contexts (which is even better)?
 
@@ -945,9 +945,9 @@ A useful mental model: imagine you're a juror. You wouldn't convict based solely
 
 Most disagreements have dozens of surface-level points of contention, but only one or two genuine cruxes. Everything else is either downstream of the crux (it only matters because the crux holds) or peripheral (it feels relevant but wouldn't actually change anyone's conclusion).
 
-Consider the Moon Landing debate on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
+Consider the [Moon Landing debate](/topics/moon-landing) on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
 
-Or take Nuclear Energy. Proponents and opponents often argue about carbon emissions, cost per kilowatt, and accident probabilities. But for many opponents, the genuine crux is long-term waste storage: if someone demonstrated a proven, safe method for storing nuclear waste for ten thousand years, their opposition would soften dramatically. For many proponents, the crux is whether renewables plus storage can reliably power an entire grid — if that were proven at scale, nuclear would become less necessary.
+Or take [Nuclear Energy](/topics/nuclear-energy-safety). Proponents and opponents often argue about carbon emissions, cost per kilowatt, and accident probabilities. But for many opponents, the genuine crux is long-term waste storage: if someone demonstrated a proven, safe method for storing nuclear waste for ten thousand years, their opposition would soften dramatically. For many proponents, the crux is whether renewables plus storage can reliably power an entire grid — if that were proven at scale, nuclear would become less necessary.
 
 The crux is where the real action is. Everything else is noise.`,
       },
@@ -1101,7 +1101,7 @@ This is why "base rates" matter. The base rate is how often a type of claim turn
 
 Bad reasoning ignores priors entirely, treating every new claim as if it starts from a blank slate. Good reasoning honestly assesses what you believed before, then updates proportionally.
 
-On Argumend, confidence scores implicitly reflect priors. A claim that "vaccines cause autism" starts with an extremely low prior because decades of large-scale studies have found no connection. A single new study claiming a link barely moves the needle — and that's the rational response, not stubbornness.`,
+On Argumend, [confidence scores](/concepts/confidence-calibration) implicitly reflect priors. A claim that "vaccines cause autism" starts with an extremely low prior because decades of large-scale studies have found no connection. A single new study claiming a link barely moves the needle — and that's the rational response, not stubbornness.`,
       },
       {
         title: "Likelihood: How Surprising Is This Evidence?",
@@ -1210,13 +1210,13 @@ On Argumend, you can check the source reliability indicators on evidence nodes �
 
 **What are their incentives?** Everyone has interests that could bias their claims. A pharmaceutical company reporting positive drug trial results has a financial incentive to find those results. A politician citing economic data that supports their policy has a political incentive to cherry-pick. An academic who built their career on a theory has a reputational incentive to defend it.
 
-This doesn't mean every interested party is lying. It means you should weight their claims less heavily than you'd weight the same claim from a disinterested source. And remember the principle from the Evaluating Source Credibility guide: statements against interest are especially credible. When a source makes a claim that hurts their own position, pay attention — they're probably not making it up.
+This doesn't mean every interested party is lying. It means you should weight their claims less heavily than you'd weight the same claim from a disinterested source. And remember the principle from the [Evaluating Source Credibility guide](/guides/evaluating-source-credibility): statements against interest are especially credible. When a source makes a claim that hurts their own position, pay attention — they're probably not making it up.
 
 **Is this first-hand or second-hand?** Did the source observe or produce the evidence directly, or are they reporting someone else's work? Each layer of removal introduces potential distortion. The original researcher's finding, the press release summarizing it, the journalist interpreting the press release, and the social media post quoting the journalist can all say different things — even without anyone deliberately misleading.`,
       },
       {
         title: "Step 3: Triangulate",
-        content: `You've identified the claim type and checked the source. Now apply the core principle from the Triangulation guide: seek independent corroboration.
+        content: `You've identified the claim type and checked the source. Now apply the core principle from the [Triangulation guide](/guides/triangulation): seek independent corroboration.
 
 **Find three independent sources.** Independent means they didn't get their information from each other. Three news outlets all citing the same wire service report are not three independent sources — they're one source amplified. Three research groups using different methodologies to study the same question and reaching the same conclusion? That's genuine triangulation.
 
@@ -1232,7 +1232,7 @@ The entire triangulation step should take about three minutes. Search for the cl
         title: "Step 4: Check the Base Rate",
         content: `Most people skip this step, and it's arguably the most important one. Before evaluating whether this specific claim is true, ask: how often are claims like this true in general?
 
-This is the Bayesian "prior" from the Bayesian Thinking guide, applied practically.
+This is the Bayesian "prior" from the [Bayesian Thinking guide](/guides/bayesian-thinking), applied practically.
 
 **For scientific claims:** About 50% of published psychology findings fail to replicate. About 85% of Phase II clinical trials fail. About 90% of "breakthrough" findings reported in press releases are either overblown or don't hold up. These base rates should make you appropriately skeptical of any single study claiming dramatic results.
 
@@ -1301,7 +1301,7 @@ The entire audit — all five steps — should take about ten minutes for a typi
 
 **The asymmetry of effort.** Straw-manning is easy. Find the dumbest person on the other side, quote them, and declare victory. It takes thirty seconds and generates dopamine. Steel-manning takes sustained intellectual effort with no guaranteed social reward. The incentive structure of most online discourse strongly favors straw-manning.
 
-Despite all this, steel-manning is the single most important skill in critical thinking. Every Argumend topic map is built on it — each side's arguments are presented in their strongest form. Learning to do this yourself will transform how you engage with disagreement.`,
+Despite all this, [steel-manning](/concepts/steel-manning) is the single most important skill in critical thinking. Every Argumend topic map is built on it — each side's arguments are presented in their strongest form. Learning to do this yourself will transform how you engage with disagreement.`,
       },
       {
         title: "The Empathy Step",
@@ -1323,7 +1323,7 @@ The empathy step doesn't require you to change your mind. It requires you to hon
         title: "The Evidence Step",
         content: `Now that you understand why people hold the opposing view, find the three strongest pieces of evidence supporting it. Not the weakest, not the most convenient to rebut — the strongest.
 
-This means seeking out the best sources from the other side, not the worst. If you're steelmanning the case for nuclear energy, don't look at a random Reddit comment — read the peer-reviewed literature on lifecycle emissions, grid reliability studies from countries with high nuclear penetration, and engineering analyses of modern reactor designs. If you're steelmanning the case against it, read the detailed economic analyses showing cost overruns, the geological assessments of waste storage challenges, and the renewable energy projections from credible agencies.
+This means seeking out the best sources from the other side, not the worst. If you're steelmanning the case for [nuclear energy](/topics/nuclear-energy-safety), don't look at a random Reddit comment — read the peer-reviewed literature on lifecycle emissions, grid reliability studies from countries with high nuclear penetration, and engineering analyses of modern reactor designs. If you're steelmanning the case against it, read the detailed economic analyses showing cost overruns, the geological assessments of waste storage challenges, and the renewable energy projections from credible agencies.
 
 **Here's a practical approach:**
 
@@ -1365,7 +1365,7 @@ There are four possible outcomes, and all of them are good:
 
 **3. Your position shifts significantly.** The steelman was so strong that you've updated your belief substantially. This is rare but valuable — it means you've discovered that you were wrong about something, and you've corrected it. In Bayesian terms, the evidence was strong enough to move your posterior past the tipping point.
 
-**4. You discover the crux.** Building the steelman revealed that the disagreement hinges on a specific empirical question or value judgment that you hadn't previously identified. Now you know exactly where to focus your research or reflection. This connects directly to the Crux Test guide — steelmanning is one of the most reliable ways to find the crux of a disagreement.
+**4. You discover the crux.** Building the steelman revealed that the disagreement hinges on a specific empirical question or value judgment that you hadn't previously identified. Now you know exactly where to focus your research or reflection. This connects directly to the [Crux Test guide](/guides/crux-test) — steelmanning is one of the most reliable ways to find the crux of a disagreement.
 
 **What steelmanning teaches you over time:** The more you practice, the less binary your thinking becomes. You start seeing positions as having varying degrees of support rather than being simply "right" or "wrong." You become harder to manipulate because you've already considered the best arguments on all sides. And you become more persuasive because people can tell when you genuinely understand their position versus when you're just performing open-mindedness.
 
@@ -1402,7 +1402,7 @@ The practice integrates with everything else on Argumend. Every topic is built o
 
 Both sides are looking at the same reality but sampling it selectively. The climate data is vast and complex; confirmation bias acts as a filter that lets through only the evidence you were already looking for.
 
-On Argumend's Climate Change topic, you can see this pattern broken. The argument map presents supporting and opposing evidence for each pillar without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
+On Argumend's [Climate Change topic](/topics/climate-change), you can see this pattern broken. The argument map presents supporting and opposing evidence for each pillar without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
 
 **Spot it in the wild:** When someone shares only evidence that supports their conclusion without acknowledging any counterevidence, they're likely in the grip of confirmation bias. Ask them: "What's the strongest evidence against your position?" If they can't name any, they haven't looked.`,
       },
@@ -1424,7 +1424,7 @@ Neither anchor is "wrong," but whichever one you encounter first disproportionat
 
 The actual statistics tell a different story. Per unit of energy produced, nuclear power has caused fewer deaths than coal, oil, natural gas, and even some renewables (when accounting for manufacturing and installation accidents). The WHO estimates that air pollution from fossil fuels kills roughly 4.2 million people annually. Nuclear energy's total death toll from all accidents in its entire history is measured in thousands.
 
-But statistics aren't vivid. They don't come to mind the way a mushroom cloud does. The availability heuristic makes nuclear energy feel uniquely dangerous because its failures are uniquely memorable — even though its actual safety record is among the best of any energy source.
+But statistics aren't vivid. They don't come to mind the way a mushroom cloud does. The availability heuristic makes [nuclear energy](/topics/nuclear-energy-safety) feel uniquely dangerous because its failures are uniquely memorable — even though its actual safety record is among the best of any energy source.
 
 **Spot it in the wild:** When someone argues a risk is high based on memorable examples rather than statistics, the availability heuristic is likely at work. "Plane crashes make the news" is the classic example — flying is orders of magnitude safer than driving, but nobody remembers an uneventful car trip. Ask: "Is this actually common, or is it just easy to remember?"`,
       },
@@ -1450,7 +1450,7 @@ But that money is gone. The rational question isn't "have we spent a lot on this
 
 The sunk cost fallacy makes it psychologically painful to abandon programs with large prior investments, even when the forward-looking case has weakened. It explains why governments continue funding programs that independent reviews recommend canceling — and why critics who focus only on sunk costs rather than future value miss the point.
 
-**Spot it in the wild:** When someone justifies continuing an activity primarily by referencing past investment ("We've already spent $10 billion on this"), they're likely committing the sunk cost fallacy. The correct question is always: "Knowing what we know now, is the next dollar well spent?" Past expenditure is informative about feasibility but not about future value.`,
+**Spot it in the wild:** When someone justifies continuing an activity primarily by referencing past investment ("We've already spent $10 billion on this"), they're likely committing the [sunk cost fallacy](/fallacies/sunk-cost). The correct question is always: "Knowing what we know now, is the next dollar well spent?" Past expenditure is informative about feasibility but not about future value.`,
       },
       {
         title: "In-Group Bias",
@@ -1474,7 +1474,7 @@ The evidence, however, doesn't support this clean dichotomy. Meta-analyses of nu
 
 This doesn't mean organic food has no benefits — there are legitimate environmental arguments about soil health and biodiversity. But when the conversation centers on "natural is better because it's natural," the reasoning is circular. Arsenic, hemlock, and botulinum toxin are all natural. Insulin, water purification, and antibiotics are all artificial. "Natural" is not a synonym for "safe."
 
-**Spot it in the wild:** When someone justifies a preference solely by the natural/artificial distinction — "I prefer X because it's natural" — without explaining what specific property of the natural version makes it better, the appeal to nature is at work. Ask: "What specifically about it being natural makes it superior?" A good answer points to specific mechanisms. A bad answer just restates that it's natural.`,
+**Spot it in the wild:** When someone justifies a preference solely by the natural/artificial distinction — "I prefer X because it's natural" — without explaining what specific property of the natural version makes it better, the [appeal to nature](/fallacies/appeal-to-nature) is at work. Ask: "What specifically about it being natural makes it superior?" A good answer points to specific mechanisms. A bad answer just restates that it's natural.`,
       },
       {
         title: "Survivorship Bias",
@@ -1486,9 +1486,9 @@ What you don't hear are the stories of people who bought hundreds of altcoins th
 
 The result: the visible evidence makes crypto investing look like a path to wealth, when the full data set (including the invisible failures) tells a much more nuanced story. For every crypto millionaire, there are likely hundreds of people who lost money — you just don't see them because they have no platform and no incentive to share their experience.
 
-This is the same pattern Abraham Wald identified in WWII bomber analysis (discussed in the Understanding Bias guide). You see the survivors and assume they represent the full picture. They don't. The full picture includes everything that didn't survive — and that's where the critical information often lies.
+This is the same pattern Abraham Wald identified in WWII bomber analysis (discussed in the [Understanding Bias guide](/guides/understanding-bias)). You see the survivors and assume they represent the full picture. They don't. The full picture includes everything that didn't survive — and that's where the critical information often lies.
 
-**Spot it in the wild:** When success stories are used as evidence that a strategy works, ask: "What about the people who tried the same strategy and failed?" If those failures are invisible or uncounted, survivorship bias is distorting the picture. Success rates calculated only from successes are meaningless.`,
+**Spot it in the wild:** When success stories are used as evidence that a strategy works, ask: "What about the people who tried the same strategy and failed?" If those failures are invisible or uncounted, [survivorship bias](/fallacies/survivorship-bias) is distorting the picture. Success rates calculated only from successes are meaningless.`,
       },
       {
         title: "Halo Effect",

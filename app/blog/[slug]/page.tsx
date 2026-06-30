@@ -19,7 +19,53 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { ShareButtons } from "@/components/ShareButtons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import {
+  TableOfContents,
+  slugifyHeading,
+  type TocHeading,
+} from "@/components/TableOfContents";
 import { BlogArticleClient } from "./client";
+
+// ---------------------------------------------------------------------------
+// Heading anchors + TOC collection
+// ---------------------------------------------------------------------------
+// Post-process the rendered markdown HTML (rather than touching lib/markdown.ts,
+// which is shared): stamp a slugified `id` + `scroll-mt-24` onto every H2/H3 so
+// they're deep-linkable and clear the sticky topbar, and collect them for the
+// table of contents. Heading inner HTML (bold/links) is preserved; the slug/label
+// use the tag-stripped text.
+function withHeadingAnchors(markdownHtml: string): {
+  html: string;
+  headings: TocHeading[];
+} {
+  const headings: TocHeading[] = [];
+  const used = new Set<string>();
+
+  const html = markdownHtml.replace(
+    /<(h2|h3)([^>]*)>([\s\S]*?)<\/\1>/g,
+    (_match, tag: string, attrs: string, inner: string) => {
+      const text = inner
+        .replace(/<[^>]+>/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+      let id = slugifyHeading(text) || tag;
+      if (used.has(id)) {
+        let n = 2;
+        while (used.has(`${id}-${n}`)) n += 1;
+        id = `${id}-${n}`;
+      }
+      used.add(id);
+      headings.push({ id, text, level: tag === "h2" ? 2 : 3 });
+
+      const attrsWithScrollMargin = /class="/.test(attrs)
+        ? attrs.replace(/class="([^"]*)"/, 'class="$1 scroll-mt-24"')
+        : `${attrs} class="scroll-mt-24"`;
+      return `<${tag}${attrsWithScrollMargin} id="${id}">${inner}</${tag}>`;
+    },
+  );
+
+  return { html, headings };
+}
 
 // ---------------------------------------------------------------------------
 // Static params
@@ -90,7 +136,9 @@ export default async function BlogArticlePage({ params }: PageProps) {
   if (!article) notFound();
 
   const related = getRelatedArticles(slug, 3);
-  const contentHtml = renderMarkdown(article.content);
+  const { html: contentHtml, headings } = withHeadingAnchors(
+    renderMarkdown(article.content),
+  );
 
   const formatDate = (iso: string) =>
     new Date(iso).toLocaleDateString("en-US", {
@@ -220,7 +268,9 @@ export default async function BlogArticlePage({ params }: PageProps) {
         </div>
 
         {/* Article body */}
-        <div className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
+        <div className="relative mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
+          <TableOfContents headings={headings} />
+
           <article
             className="prose-custom"
             dangerouslySetInnerHTML={{ __html: contentHtml }}

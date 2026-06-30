@@ -212,6 +212,62 @@ const terms: GlossaryTerm[] = [
     exampleHref: "/topics/microplastics-health-crisis",
     category: "fallacies",
   },
+  {
+    term: "Motivated Reasoning",
+    definition:
+      "Reasoning toward a predetermined conclusion rather than from the evidence — becoming a lawyer for the verdict you want instead of a scientist weighing what's true. Unlike confirmation bias (a passive filter), motivated reasoning is the active construction of arguments for a desired outcome, holding disliked evidence to a higher standard than evidence you welcome.",
+    example: "See motivated reasoning confronted on the Gun Control topic",
+    exampleHref: "/topics/gun-control-effectiveness",
+    learnMoreHref: "/guides/understanding-bias",
+    learnMoreText: "Read: Understanding Bias",
+    category: "reasoning",
+  },
+  {
+    term: "Occam's Razor",
+    definition:
+      "The principle that, among competing explanations that fit the evidence equally well, the one requiring the fewest assumptions is usually the best starting point. It is a heuristic for allocating prior probability, not a proof: simplicity breaks ties and flags explanations that smuggle in unsupported entities, but a simpler theory still loses to a more complex one that better fits the data.",
+    example: "Compare competing explanations on the Moon Landing analysis",
+    exampleHref: "/topics/moon-landing",
+    category: "reasoning",
+  },
+  {
+    term: "Inference to the Best Explanation",
+    definition:
+      "Also called abduction: reasoning from a body of observations to the hypothesis that, if true, would best account for them. The strength of the inference depends on how decisively the leading explanation beats its rivals on scope, simplicity, and fit — which is why ruling out alternatives matters as much as supporting your favored account.",
+    example: "See abductive reasoning at work on the COVID Origins analysis",
+    exampleHref: "/topics/lab-leak-theory",
+    category: "reasoning",
+  },
+  {
+    term: "Anchoring",
+    definition:
+      "The tendency to rely too heavily on the first piece of information encountered — an opening figure or framing — when making subsequent judgments, even when that anchor is arbitrary. In debates, whoever sets the initial number or reference point disproportionately shapes the whole discussion that follows.",
+    example: "See anchoring shape the Rent Control debate",
+    exampleHref: "/topics/rent-control-effectiveness",
+    learnMoreHref: "/guides/cognitive-bias-field-guide",
+    learnMoreText: "Field guide: 12 biases that distort debate",
+    category: "fallacies",
+  },
+  {
+    term: "Availability Heuristic",
+    definition:
+      "Judging how likely or common something is by how easily examples come to mind, rather than by actual frequency. Vivid, recent, or emotionally charged events feel more probable than they are — which is why memorable disasters can make a statistically safe option feel dangerous.",
+    example: "See why nuclear accidents feel more common than they are",
+    exampleHref: "/topics/nuclear-energy-safety",
+    learnMoreHref: "/guides/cognitive-bias-field-guide",
+    learnMoreText: "Field guide: 12 biases that distort debate",
+    category: "fallacies",
+  },
+  {
+    term: "Gish Gallop",
+    definition:
+      "A rhetorical tactic of overwhelming an opponent with a rapid flood of claims, so many that none can be answered in the time available — and the sheer volume is mistaken for strength. The cure is to ignore the count and isolate the load-bearing claim, since a hundred weak assertions don't add up to one strong one.",
+    example: "See signal separated from volume on the Climate Change topic",
+    exampleHref: "/topics/climate-change",
+    learnMoreHref: "/fallacies/gish-gallop",
+    learnMoreText: "See the Gish Gallop fallacy",
+    category: "fallacies",
+  },
 ];
 
 const categoryLabels: Record<GlossaryTerm["category"], string> = {
@@ -243,6 +299,11 @@ export default function GlossaryPage() {
     description: t.definition,
     inDefinedTermSet: "https://argumend.org/glossary",
   }));
+
+  // Tracks which letters already have a jump-link target, so each `#letter-X`
+  // anchor is emitted exactly once (on the first term of that letter in DOM
+  // order) rather than duplicated across every term sharing the letter.
+  const renderedLetters = new Set<string>();
 
   return (
     <AppShell>
@@ -319,13 +380,15 @@ export default function GlossaryPage() {
         {categoryOrder.map((cat) => {
           const catTerms = terms.filter((t) => t.category === cat);
           return (
-            <section key={cat} id={cat} className="mb-12">
+            <section key={cat} id={cat} className="mb-12 scroll-mt-24">
               <h2 className="font-serif text-2xl text-primary mb-6 pb-2 border-b border-stone-200/60 dark:border-[#3d3a36]">
                 {categoryLabels[cat]}
               </h2>
               <dl className="space-y-6">
                 {catTerms.map((t) => {
-                  const letterId = `letter-${t.term[0].toUpperCase()}`;
+                  const letter = t.term[0].toUpperCase();
+                  const isFirstOfLetter = !renderedLetters.has(letter);
+                  if (isFirstOfLetter) renderedLetters.add(letter);
                   const termId = t.term
                     .toLowerCase()
                     .replace(/\s+/g, "-")
@@ -336,8 +399,16 @@ export default function GlossaryPage() {
                       id={termId}
                       className="group scroll-mt-24"
                     >
-                      {/* Hidden anchor for alphabetical jump links */}
-                      <span id={letterId} className="invisible absolute" />
+                      {/* Alphabetical jump-link target — emitted once per letter,
+                          in-flow with scroll-margin so it clears the sticky
+                          topbar instead of landing beneath it. */}
+                      {isFirstOfLetter && (
+                        <span
+                          id={`letter-${letter}`}
+                          aria-hidden="true"
+                          className="block scroll-mt-24"
+                        />
+                      )}
                       <dt className="font-serif text-lg text-primary font-medium mb-1">
                         {t.term}
                       </dt>
@@ -371,7 +442,7 @@ export default function GlossaryPage() {
         })}
 
         {/* All Terms A-Z */}
-        <section id="all-terms" className="mb-12">
+        <section id="all-terms" className="mb-12 scroll-mt-24">
           <h2 className="font-serif text-2xl text-primary mb-6 pb-2 border-b border-stone-200/60 dark:border-[#3d3a36]">
             All Terms A&ndash;Z
           </h2>

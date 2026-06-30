@@ -6,6 +6,11 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { guides, getGuideById } from "@/data/guides";
 import { renderInlineMarkdown } from "@/lib/markdown";
+import {
+  TableOfContents,
+  slugifyHeading,
+  type TocHeading,
+} from "@/components/TableOfContents";
 import { notFound } from "next/navigation";
 
 // ---------------------------------------------------------------------------
@@ -61,6 +66,36 @@ export default async function GuidePage({ params }: PageProps) {
 
   const Icon = guide.icon;
 
+  // Stamp stable, deduped anchor ids onto every section (H2) and subsection
+  // (H3) so the table of contents links and the rendered headings stay in sync.
+  const usedIds = new Set<string>();
+  const assignId = (title: string): string => {
+    let id = slugifyHeading(title) || "section";
+    if (usedIds.has(id)) {
+      let n = 2;
+      while (usedIds.has(`${id}-${n}`)) n += 1;
+      id = `${id}-${n}`;
+    }
+    usedIds.add(id);
+    return id;
+  };
+  const sections = guide.sections.map((section) => ({
+    ...section,
+    anchorId: assignId(section.title),
+    subsections: section.subsections?.map((sub) => ({
+      ...sub,
+      anchorId: assignId(sub.title),
+    })),
+  }));
+  const tocHeadings: TocHeading[] = sections.flatMap((section) => [
+    { id: section.anchorId, text: section.title, level: 2 as const },
+    ...(section.subsections?.map((sub) => ({
+      id: sub.anchorId,
+      text: sub.title,
+      level: 3 as const,
+    })) ?? []),
+  ]);
+
   // JSON-LD structured data — LearningResource is the correct type for an educational guide.
   const jsonLd = {
     "@context": "https://schema.org",
@@ -113,7 +148,7 @@ export default async function GuidePage({ params }: PageProps) {
       <JsonLd data={jsonLd} />
 
       <div className="min-h-full">
-        <article className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
+        <article className="relative mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
           {/* Breadcrumb with BreadcrumbList JSON-LD */}
           <Breadcrumbs
             items={[
@@ -155,11 +190,17 @@ export default async function GuidePage({ params }: PageProps) {
             </p>
           </header>
 
+          {/* In-article wayfinding (sticky rail on wide desktop, disclosure otherwise) */}
+          <TableOfContents headings={tocHeadings} />
+
           {/* Main Content */}
           <div className="prose-custom">
-            {guide.sections.map((section, sectionIdx) => (
+            {sections.map((section, sectionIdx) => (
               <section key={sectionIdx} className="mb-16 md:mb-24">
-                <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+                <h2
+                  id={section.anchorId}
+                  className="font-serif text-2xl sm:text-3xl text-primary mb-4 scroll-mt-24"
+                >
                   {section.title}
                 </h2>
 
@@ -179,7 +220,10 @@ export default async function GuidePage({ params }: PageProps) {
                         key={subIdx}
                         className="pl-5 border-l-2 border-deep/20"
                       >
-                        <h3 className="font-serif text-lg text-primary mb-2">
+                        <h3
+                          id={subsection.anchorId}
+                          className="font-serif text-lg text-primary mb-2 scroll-mt-24"
+                        >
                           {subsection.title}
                         </h3>
                         <div
