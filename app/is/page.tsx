@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { topics, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topics";
 import { isClaims } from "@/data/is-claims";
-import { confidenceTier } from "@/lib/schemas/topic";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { IsHubClient, type IsCategoryGroup } from "./IsHubClient";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -51,46 +51,34 @@ export const metadata: Metadata = {
 };
 
 // ---------------------------------------------------------------------------
-// Grouped data
+// Grouped data — built server-side and passed to the client interactivity
+// layer. Every category/question is rendered in the initial HTML (SSR), so the
+// client's search/filter/sort only narrows an already-crawlable list.
 // ---------------------------------------------------------------------------
 
-interface IsEntry {
-  slug: string;
-  question: string;
-  topicId: string;
-  topicTitle: string;
-  confidence: number;
-}
-
-function getGrouped(): Record<string, IsEntry[]> {
-  const grouped: Record<string, IsEntry[]> = {};
-  for (const cat of CATEGORY_ORDER) grouped[cat] = [];
+function getGroups(): IsCategoryGroup[] {
+  const byCategory: Record<string, IsCategoryGroup["entries"]> = {};
+  for (const cat of CATEGORY_ORDER) byCategory[cat] = [];
 
   for (const claim of isClaims) {
     const topic = topics.find((t) => t.id === claim.topicId);
     if (!topic) continue;
-    (grouped[topic.category] ??= []).push({
+    (byCategory[topic.category] ??= []).push({
       slug: claim.slug,
       question: claim.question,
-      topicId: topic.id,
-      topicTitle: topic.title,
       confidence: topic.confidence_score,
     });
   }
-  return grouped;
-}
 
-/** Tier → tone classes (teal = settled, stone = thin). No amber per design system. */
-function tierTone(pct: number): string {
-  const tier = confidenceTier(pct);
-  if (tier === "Established") return "bg-deep/10 text-deep border-deep/20";
-  if (tier === "Strong") return "bg-emerald-50 text-emerald-700 border-emerald-200/60";
-  if (tier === "Contested") return "bg-rust-50 text-rust-700 border-rust-200/60";
-  return "bg-stone-100 text-stone-600 border-stone-200/60";
+  return CATEGORY_ORDER.filter((cat) => byCategory[cat]?.length).map((cat) => ({
+    id: cat,
+    label: CATEGORY_LABELS[cat],
+    entries: byCategory[cat] ?? [],
+  }));
 }
 
 export default function IsIndexPage() {
-  const grouped = getGrouped();
+  const groups = getGroups();
 
   const collectionJsonLd = {
     "@context": "https://schema.org",
@@ -119,7 +107,7 @@ export default function IsIndexPage() {
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Is it true?" }]} />
 
-          <div className="mb-10">
+          <div className="mb-8">
             <h1 className="font-serif text-4xl font-bold leading-tight text-primary sm:text-5xl">
               Is it true?
             </h1>
@@ -130,43 +118,7 @@ export default function IsIndexPage() {
             </p>
           </div>
 
-          {CATEGORY_ORDER.map((cat) => {
-            const entries = grouped[cat];
-            if (!entries || entries.length === 0) return null;
-            return (
-              <section key={cat} className="mt-12" id={cat}>
-                <div className="mb-5 flex items-baseline justify-between border-b border-stone-200 pb-3">
-                  <h2 className="font-serif text-2xl font-bold text-primary">
-                    {CATEGORY_LABELS[cat]}
-                  </h2>
-                  <span className="font-sans text-sm text-muted">
-                    {entries.length} {entries.length === 1 ? "question" : "questions"}
-                  </span>
-                </div>
-
-                <ul className="space-y-2 list-none p-0">
-                  {entries.map((e) => (
-                    <li key={e.slug}>
-                      <Link
-                        href={`/is/${e.slug}`}
-                        className="surface-card card-hover flex items-center justify-between gap-4 rounded-lg border border-stone-200/70 dark:border-[#3d3a36] px-4 py-3 transition-colors"
-                      >
-                        <span className="font-serif text-[17px] leading-snug text-primary">
-                          {e.question}
-                        </span>
-                        <span
-                          className={`flex-shrink-0 rounded-full border px-2 py-0.5 font-mono text-[11px] ${tierTone(e.confidence)}`}
-                          title={`Confidence ${e.confidence}/100 — ${confidenceTier(e.confidence)}`}
-                        >
-                          {e.confidence}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            );
-          })}
+          <IsHubClient groups={groups} totalCount={totalCount} />
 
           <div className="mt-16 rounded-xl border border-rust-200 bg-rust-50 p-8 text-center">
             <h2 className="font-serif text-2xl font-bold text-primary">

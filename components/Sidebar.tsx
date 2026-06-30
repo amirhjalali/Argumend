@@ -5,7 +5,9 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   ArrowLeftRight,
+  BadgeCheck,
   BookOpen,
+  Bookmark,
   Brain,
   ChevronDown,
   ChevronRight,
@@ -34,8 +36,10 @@ const PRIMARY_NAV = [
   { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard", noPrefetch: true },
   { label: "Analyze Text", icon: Brain, href: "/analyze", highlight: true },
   { label: "Recent Analyses", icon: History, href: "/analyses", noPrefetch: true },
+  { label: "Saved", icon: Bookmark, href: "/saved", noPrefetch: true },
   { label: "Explore Topics", icon: ListChecks, href: "/topics" },
   { label: "Compare Topics", icon: ArrowLeftRight, href: "/topics/compare" },
+  { label: "Is It True?", icon: BadgeCheck, href: "/is" },
   { label: "How It Works", icon: Map, href: "/how-it-works" },
   { label: "About", icon: HelpCircle, href: "/about" },
 ];
