@@ -318,6 +318,56 @@ const terms: GlossaryTerm[] = [
     learnMoreText: "See the motte-and-bailey fallacy",
     category: "fallacies",
   },
+  {
+    term: "Red Herring",
+    definition:
+      "An irrelevant point introduced to divert attention from the actual question. Instead of answering the argument on the table, the speaker raises a different, often emotionally charged issue, and the original point quietly gets dropped. The distraction can even be true and still be a red herring, because its truth does nothing to settle the matter being debated. The cure is to name the switch and return to the original claim.",
+    example: "See the real issue kept in focus on the Immigration debate",
+    exampleHref: "/topics/immigration-border-crisis",
+    learnMoreHref: "/fallacies/red-herring",
+    learnMoreText: "See the red herring fallacy",
+    category: "fallacies",
+  },
+  {
+    term: "Slippery Slope",
+    definition:
+      "The claim that one small step will inevitably lead to an extreme outcome, without showing why each link in the chain must follow. It is not always a fallacy — sometimes a chain of consequences is genuinely well-evidenced — but it fails when the inevitability is asserted rather than demonstrated. The test is whether each step is actually likely given the one before it, or whether the alarming conclusion is simply smuggled in at the end.",
+    example: "See chains of consequence weighed on the Gun Control topic",
+    exampleHref: "/topics/gun-control-effectiveness",
+    learnMoreHref: "/fallacies/slippery-slope",
+    learnMoreText: "See the slippery slope fallacy",
+    category: "fallacies",
+  },
+  {
+    term: "Equivocation",
+    definition:
+      "Using a single word in two different senses within the same argument, so a conclusion that looks valid actually trades on the shift in meaning. Terms like 'free' or 'natural' can quietly change definition between premise and conclusion, making an unsound argument feel airtight. The fix is to pin each key term to one meaning and check that it holds steady throughout the argument.",
+    example: "Watch the meaning of 'free' shift on the Free Will topic",
+    exampleHref: "/topics/free-will",
+    learnMoreHref: "/fallacies/equivocation",
+    learnMoreText: "See the equivocation fallacy",
+    category: "fallacies",
+  },
+  {
+    term: "Principle of Charity",
+    definition:
+      "The habit of interpreting an argument in its most reasonable form before responding — assuming the other person is rational, resolving ambiguity in their favor, and not attributing an obviously foolish view when a sensible one fits. It is the mindset behind steel-manning, and it is about accuracy rather than politeness: if you defeat only a weak misreading, you have learned nothing about whether the real argument holds.",
+    example: "See charitable readings of every side on the Climate Change topic",
+    exampleHref: "/topics/climate-change",
+    learnMoreHref: "/concepts/steel-manning",
+    learnMoreText: "Understanding steel-manning",
+    category: "reasoning",
+  },
+  {
+    term: "Epistemic Humility",
+    definition:
+      "Holding beliefs in proportion to the evidence — confident where it is strong, uncertain where it is weak, and willing to update when it shifts. It is not relativism; some questions really are settled. It simply means separating how sure you feel from how sure the evidence warrants, which is exactly what a calibrated confidence score expresses: '60% confident, and here is why' is more honest than manufactured certainty.",
+    example: "See uncertainty stated honestly on the Consciousness topic",
+    exampleHref: "/topics/consciousness-hard-problem",
+    learnMoreHref: "/concepts/confidence-calibration",
+    learnMoreText: "How confidence scores work",
+    category: "reasoning",
+  },
 ];
 
 const categoryLabels: Record<GlossaryTerm["category"], string> = {
