@@ -230,7 +230,7 @@ export function VerdictVoting({ topicId, topicTitle, confidenceScore }: VerdictV
                 </button>
               ))}
             </div>
-            <p className="text-xs text-stone-400 text-center">
+            <p className="text-xs text-muted text-center">
               Your vote is stored locally and never leaves your browser.
             </p>
           </motion.div>

@@ -52,7 +52,7 @@ function formatAuthors(authors: string[]): string {
 function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) {
   return (
     <li id={`ref-${citation.id}`} className="flex gap-3 text-sm leading-relaxed scroll-mt-24">
-      <span className="text-stone-400 font-mono text-xs mt-0.5 flex-shrink-0 w-6 text-right">
+      <span className="text-muted font-mono text-xs mt-0.5 flex-shrink-0 w-6 text-right">
         [{num}]
       </span>
       <div className="text-secondary">
@@ -75,7 +75,7 @@ function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) 
           </>
         )}
         {citation.accessDate && (
-          <span className="text-stone-400 text-xs ml-1">
+          <span className="text-muted text-xs ml-1">
             (accessed {citation.accessDate})
           </span>
         )}
@@ -133,7 +133,7 @@ export default function ResearchPage() {
               { label: "Research" },
             ]}
           />
-          <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
+          <p className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
             Research
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
@@ -192,7 +192,7 @@ export default function ResearchPage() {
                   href={`#${section.id}`}
                   className="text-sm text-stone-500 hover:text-deep transition-colors flex items-start gap-2"
                 >
-                  <span className="text-stone-400 font-mono text-xs mt-0.5">
+                  <span className="text-muted font-mono text-xs mt-0.5">
                     {i + 1}.
                   </span>
                   {section.title}

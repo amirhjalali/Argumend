@@ -124,7 +124,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
 
           {/* Hero */}
           <header className="mb-16 md:mb-24">
-            <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
               Key Concept
             </p>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">

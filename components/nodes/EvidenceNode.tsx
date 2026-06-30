@@ -139,7 +139,7 @@ export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<
                 <ExternalLink className="h-3 w-3" />
               </a>
             ) : (
-              <span className="text-[11px] text-stone-400 dark:text-stone-500">{data.source}</span>
+              <span className="text-[11px] text-stone-500 dark:text-stone-400">{data.source}</span>
             )}
           </div>
         )}
