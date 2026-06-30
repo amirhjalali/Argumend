@@ -271,3 +271,37 @@ not pushed.
 - **Related reading.** Blog posts now end with a unified cross-type "Related reading" (posts + topics +
   guides) ranked by tag/category/title overlap, sourced from the light indexes.
 - **Content.** +3 blog posts (79 → 82, with matching blogIndex entries).
+
+---
+
+## Autonomous cycles 7–8 — 2026-06-30 — fresh re-audit + the fixes it surfaced
+
+Cycle 7 ran a fresh read-only re-audit (saved to `.work/remaining-work-2026-06-30.md`) that re-grounded
+the campaign: **content is now diminishing-returns; the real value is concrete fixes + half-landed
+regressions.** Cycles 7–8 executed the autonomous-safe items. Verified each cycle: `tsc` clean,
+**753 vitest tests pass**, clean build.
+
+- **Perf (#1).** `ReadModeView` + `TopicPageClient` were `"use client"` and imported the full ~150-topic
+  `data/topics` (~500KB) — shipping the whole corpus as client JS on the topic pages. Now: read view uses
+  `topicSummaries` + a new `getCrossCategoryRelatedSummaries`; the detail page resolves topic/related
+  SERVER-SIDE and passes props. ~94% client-payload cut on the SEO money pages.
+- **Color SOT regression (#2).** 5 more pages (dashboard, /saved, topics tag/category, the comparison
+  views) still rendered `science`/`settled` as emerald green (the "green=true" signal Bet C killed) with
+  no dark variants — migrated to `lib/categoryColors`; guard test now greps the repo.
+- **SEO (#4).** Removed `ClaimReview` JSON-LD from ~150 topic pages (Argumend isn't a registered
+  fact-checker; consistent with cycle-4). **Honesty (#5):** removed the undeliverable "get pinged when
+  confidence shifts" promise. **a11y (#9):** MobileArgumentList → `aria-pressed`. **SEO (#10):** deleted
+  conflicting `public/robots.txt`. **Cleanup (#11):** deleted dead `TopicExplorer` (1106 lines), ISO-8601
+  `timeRequired`, real OG topic count, `/analysis` noindex, modal focus-restore.
+- **IA (#8, Bet E slice).** One `lib/nav.ts` now drives Sidebar + Footer (fixes the `/questions` orphan +
+  label drift; Learn opens on desktop). The 12-item Learn card-sort stays founder-owned.
+
+STILL OPEN (founder-owned or deferred): **#3 auth dead-ends** (verify AUTH_GOOGLE_ID/SECRET in prod;
+Sign in/Subscribe/Dashboard are dead/disabled), **#6 Bet A** topic-route/URL-state unification core,
+**#7** finish the WCAG `text-stone-400` contrast pass on ~9 content-page templates (autonomous, not yet
+done). Full list: `.work/remaining-work-2026-06-30.md`.
+
+⚠️ **Branch is now PUSHED:** a concurrent "generated-media" session committed `882727d "Add generated
+editorial media system"` (hero images + `data/generatedMedia.ts` + page/OG wiring) AND pushed
+`origin/nuclear-flagship` up to it. The campaign's cycle-8 fix commits are committed locally but **NOT
+pushed** (3 ahead of origin) — push them to sync, or leave for review.
