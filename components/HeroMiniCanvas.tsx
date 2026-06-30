@@ -58,7 +58,7 @@ const FALLBACK_TITLE = "Could AI systems be conscious?";
 
 const RootNode = memo(function RootNode({ data }: NodeProps<HeroNode>) {
   return (
-    <div className="hero-mini-node w-[260px] rounded-xl border border-stone-200/80 border-t-2 border-t-deep bg-[#fefcf9] px-4 py-3 shadow-[0_2px_6px_rgba(120,100,80,0.12)]">
+    <div className="hero-mini-node w-[260px] rounded-xl border border-stone-200/80 dark:border-[var(--border-default)] border-t-2 border-t-deep dark:border-t-deep-light bg-[#fefcf9] dark:bg-[var(--bg-card)] px-4 py-3 shadow-[0_2px_6px_rgba(120,100,80,0.12)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.4)]">
       <Handle
         type="source"
         position={Position.Bottom}
@@ -67,12 +67,12 @@ const RootNode = memo(function RootNode({ data }: NodeProps<HeroNode>) {
         isConnectable={false}
       />
       <div className="mb-1 flex items-center gap-1.5">
-        <Crown className="h-3 w-3 text-deep" strokeWidth={1.8} />
-        <span className="text-[10px] font-sans font-medium uppercase tracking-wide text-stone-500">
+        <Crown className="h-3 w-3 text-deep dark:text-deep-light" strokeWidth={1.8} />
+        <span className="text-[10px] font-sans font-medium uppercase tracking-wide text-stone-500 dark:text-[var(--text-muted)]">
           Meta Claim
         </span>
       </div>
-      <p className="font-serif text-[15px] font-normal leading-snug text-primary">
+      <p className="font-serif text-[15px] font-normal leading-snug text-primary dark:text-[var(--text-primary)]">
         {data.label}
       </p>
     </div>
@@ -81,7 +81,7 @@ const RootNode = memo(function RootNode({ data }: NodeProps<HeroNode>) {
 
 const PillarNode = memo(function PillarNode({ data }: NodeProps<HeroNode>) {
   return (
-    <div className="hero-mini-node w-[210px] rounded-xl border border-stone-200/80 border-l-[3px] border-l-stone-400 bg-[#fefcf9] px-3.5 py-2.5 shadow-[0_1px_3px_rgba(120,100,80,0.1)]">
+    <div className="hero-mini-node w-[210px] rounded-xl border border-stone-200/80 dark:border-[var(--border-default)] border-l-[3px] border-l-stone-400 dark:border-l-stone-500 bg-[#fefcf9] dark:bg-[var(--bg-card)] px-3.5 py-2.5 shadow-[0_1px_3px_rgba(120,100,80,0.1)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.35)]">
       <Handle
         type="target"
         position={Position.Top}
@@ -90,12 +90,12 @@ const PillarNode = memo(function PillarNode({ data }: NodeProps<HeroNode>) {
         isConnectable={false}
       />
       <div className="mb-1 flex items-center gap-1.5">
-        <Landmark className="h-3 w-3 text-stone-500" strokeWidth={1.8} />
-        <span className="text-[10px] font-sans font-medium uppercase tracking-wide text-stone-500">
+        <Landmark className="h-3 w-3 text-stone-500 dark:text-stone-400" strokeWidth={1.8} />
+        <span className="text-[10px] font-sans font-medium uppercase tracking-wide text-stone-500 dark:text-[var(--text-muted)]">
           Pillar
         </span>
       </div>
-      <p className="font-serif text-[13px] font-normal leading-snug text-primary line-clamp-3">
+      <p className="font-serif text-[13px] font-normal leading-snug text-primary dark:text-[var(--text-primary)] line-clamp-3">
         {data.label}
       </p>
     </div>
@@ -340,14 +340,14 @@ export default function HeroMiniCanvas({ onClick, title }: HeroMiniCanvasProps) 
           SSR-safe output). Keeps the hero from flashing empty. */}
       {!mounted && (
         <div className="flex h-full w-full items-center justify-center">
-          <div className="w-[240px] rounded-xl border border-stone-200/80 border-t-2 border-t-deep bg-[#fefcf9] px-4 py-3 shadow-sm">
+          <div className="w-[240px] rounded-xl border border-stone-200/80 dark:border-[var(--border-default)] border-t-2 border-t-deep dark:border-t-deep-light bg-[#fefcf9] dark:bg-[var(--bg-card)] px-4 py-3 shadow-sm">
             <div className="mb-1 flex items-center gap-1.5">
-              <Crown className="h-3 w-3 text-deep" strokeWidth={1.8} />
-              <span className="text-[10px] font-sans font-medium uppercase tracking-wide text-stone-500">
+              <Crown className="h-3 w-3 text-deep dark:text-deep-light" strokeWidth={1.8} />
+              <span className="text-[10px] font-sans font-medium uppercase tracking-wide text-stone-500 dark:text-[var(--text-muted)]">
                 Meta Claim
               </span>
             </div>
-            <p className="font-serif text-[15px] leading-snug text-primary">
+            <p className="font-serif text-[15px] leading-snug text-primary dark:text-[var(--text-primary)]">
               {rootTitle}
             </p>
           </div>
