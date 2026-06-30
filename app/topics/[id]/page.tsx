@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { topics, CATEGORY_LABELS } from "@/data/topics";
+import { topics, getCrossCategoryRelated, CATEGORY_LABELS } from "@/data/topics";
 import { getVerdictLabel } from "@/lib/schemas/topic";
 import { JsonLd } from "@/components/JsonLd";
 import TopicPageClient from "./TopicPageClient";
@@ -80,10 +80,18 @@ export default async function TopicPage({ params }: PageProps) {
   const topic = topics.find((t) => t.id === id);
 
   if (!topic) {
-    return <TopicPageClient />;
+    return <TopicPageClient topic={null} relatedTopics={[]} crossCategoryTopics={[]} />;
   }
 
   const categoryLabel = CATEGORY_LABELS[topic.category];
+
+  // Resolve related topics SERVER-SIDE and pass as props, so the client bundle
+  // doesn't import the full ~150-topic `data/topics` module (TopicDetailView
+  // only needs these few objects). Mirrors the read view's summary approach.
+  const relatedTopics = topics
+    .filter((t) => t.category === topic.category && t.id !== topic.id)
+    .slice(0, 4);
+  const crossCategoryTopics = getCrossCategoryRelated(topic.id, topic.category, 4);
 
   // Honest dates: published constant, modified from topic.last_updated if present.
   const datePublished = "2025-01-01";
@@ -111,29 +119,10 @@ export default async function TopicPage({ params }: PageProps) {
 
   return (
     <>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "ClaimReview",
-          url: `https://argumend.org/topics/${topic.id}`,
-          claimReviewed: topic.meta_claim,
-          datePublished,
-          dateModified,
-          author: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
-          reviewRating: {
-            "@type": "Rating",
-            ratingValue: topic.confidence_score,
-            bestRating: 100,
-            worstRating: 0,
-            alternateName: getVerdictLabel(topic.confidence_score),
-          },
-          itemReviewed: {
-            "@type": "Claim",
-            name: topic.title,
-            description: topic.meta_claim,
-          },
-        }}
-      />
+      {/* No ClaimReview: Argumend's confidence-spectrum verdicts aren't binary
+          fact-checks and the brand isn't a registered fact-checker (Google
+          restricts ClaimReview rich results). Article + FAQPage cover the page;
+          /is pages use QAPage. Consistent with the cycle-4 schema decision. */}
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -164,7 +153,11 @@ export default async function TopicPage({ params }: PageProps) {
           } as unknown as Record<string, unknown>}
         />
       ) : null}
-      <TopicPageClient />
+      <TopicPageClient
+        topic={topic}
+        relatedTopics={relatedTopics}
+        crossCategoryTopics={crossCategoryTopics}
+      />
     </>
   );
 }

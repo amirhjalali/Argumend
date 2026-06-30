@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ExternalLink, Network, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
 import type { Topic, TopicCategory, TopicStatus, Evidence } from "@/lib/schemas/topic";
 import { calculateEvidenceScore, getVerdictSentence, confidenceTier } from "@/lib/schemas/topic";
-import { CATEGORY_LABELS } from "@/data/topicIndex";
+import { CATEGORY_LABELS, topicSummaries, getCrossCategoryRelatedSummaries } from "@/data/topicIndex";
 import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import { SynopticTable } from "@/components/SynopticTable";
 import { ControversyMeter } from "@/components/ControversyMeter";
@@ -17,7 +17,6 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { FalsificationCrux } from "@/components/FalsificationCrux";
 import { FlagshipIntro } from "@/components/FlagshipIntro";
-import { topics, getCrossCategoryRelated } from "@/data/topics";
 import { categoryColors, statusColors } from "@/lib/categoryColors";
 
 // Labels + icons are local; chip colors come from the canonical, dark-mode-aware
@@ -199,12 +198,14 @@ export function ReadModeView({ topic }: { topic: Topic }) {
     [topic.pillars]
   );
 
+  // Related-topic cards only need id/title/category, so they read from the
+  // lightweight `topicSummaries` index instead of the ~500KB full topics module.
   const relatedTopics = useMemo(() => {
-    const sameCategory = topics
+    const sameCategory = topicSummaries
       .filter((t) => t.category === topic.category && t.id !== topic.id)
       .slice(0, 3);
     if (sameCategory.length >= 3) return sameCategory;
-    const cross = getCrossCategoryRelated(topic.id, topic.category, 3 - sameCategory.length);
+    const cross = getCrossCategoryRelatedSummaries(topic.id, topic.category, 3 - sameCategory.length);
     return [...sameCategory, ...cross];
   }, [topic.id, topic.category]);
 
