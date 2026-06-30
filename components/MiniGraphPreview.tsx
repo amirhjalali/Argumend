@@ -134,7 +134,7 @@ export function MiniGraphPreview({
       ) : (
         content
       )}
-      <p className="text-center text-[11px] text-stone-400 mt-0.5">
+      <p className="text-center text-[11px] text-muted dark:text-stone-400 mt-0.5">
         Tap below to explore the argument map
       </p>
     </div>

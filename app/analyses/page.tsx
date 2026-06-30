@@ -102,7 +102,7 @@ export default async function AnalysesPage() {
           {analyses.length === 0 ? (
             <div className="bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-10 md:p-14 text-center">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-stone-100 dark:bg-[var(--bg-overlay)] mb-5">
-                <FileSearch className="h-7 w-7 text-muted" strokeWidth={1.5} />
+                <FileSearch className="h-7 w-7 text-muted dark:text-stone-400" strokeWidth={1.5} />
               </div>
               <h3 className="font-serif text-lg text-primary mb-2">
                 Nothing here yet
@@ -158,7 +158,7 @@ export default async function AnalysesPage() {
                           </span>
                         </div>
 
-                        <div className="mt-3 flex items-center gap-3 text-xs text-muted">
+                        <div className="mt-3 flex items-center gap-3 text-xs text-muted dark:text-stone-400">
                           <span className="flex items-center gap-1">
                             <Clock className="h-3 w-3" />
                             {date}

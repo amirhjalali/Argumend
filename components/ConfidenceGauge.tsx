@@ -115,7 +115,7 @@ export const ConfidenceGauge = memo(function ConfidenceGauge({ score, size = 120
           {score}%
         </motion.span>
         <span
-          className="font-sans uppercase tracking-[0.15em] text-muted font-medium"
+          className="font-sans uppercase tracking-[0.15em] text-muted dark:text-stone-400 font-medium"
           style={{ fontSize: size * 0.075, marginTop: size * 0.02 }}
         >
           Confidence

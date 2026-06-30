@@ -300,7 +300,7 @@ export default function TopicsPage() {
           {/* Search + Sort Bar */}
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted dark:text-stone-400" />
               <input
                 type="text"
                 value={search}
@@ -312,7 +312,7 @@ export default function TopicsPage() {
               {search && (
                 <button
                   onClick={() => setSearch("")}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center h-9 w-9 text-stone-400 hover:text-stone-600"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center h-9 w-9 text-muted dark:text-stone-400 hover:text-stone-600"
                   aria-label="Clear search"
                 >
                   <X className="h-4 w-4" />

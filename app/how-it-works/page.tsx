@@ -111,7 +111,7 @@ export default function HowItWorksPage() {
                 key={step.number}
                 className="flex gap-4 p-5 md:p-6 rounded-xl bg-[#fefcf9] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)]"
               >
-                <span className="font-mono text-sm font-bold text-stone-400 mt-0.5 flex-shrink-0">{step.number}</span>
+                <span className="font-mono text-sm font-bold text-muted dark:text-stone-400 mt-0.5 flex-shrink-0">{step.number}</span>
                 <div className="flex-1">
                   <h3 className="font-serif text-lg font-semibold text-primary mb-1">{step.title}</h3>
                   <p className="text-sm text-secondary leading-relaxed">{step.description}</p>
@@ -156,7 +156,7 @@ export default function HowItWorksPage() {
                   <h3 className="font-serif text-lg font-semibold text-primary">{type.name}</h3>
                 </div>
                 <p className="text-sm text-secondary mb-2">{type.description}</p>
-                <p className="text-xs font-mono text-stone-400 italic bg-stone-50 dark:bg-[#302e2a] inline-block px-2 py-0.5 rounded">Example: {type.example}</p>
+                <p className="text-xs font-mono text-muted dark:text-stone-400 italic bg-stone-50 dark:bg-[#302e2a] inline-block px-2 py-0.5 rounded">Example: {type.example}</p>
               </div>
             ))}
           </div>
@@ -220,7 +220,7 @@ export default function HowItWorksPage() {
             Explore: Should we build more nuclear power?
             <span aria-hidden="true">&rarr;</span>
           </Link>
-          <p className="mt-5 text-sm text-muted">
+          <p className="mt-5 text-sm text-muted dark:text-stone-400">
             Or{" "}
             <Link href="/topics" className="text-deep link-underline font-medium">
               browse all topics

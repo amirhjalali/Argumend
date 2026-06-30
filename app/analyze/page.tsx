@@ -98,7 +98,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            <ChevronDown className="h-5 w-5 text-stone-400 dark:text-stone-500" />
+            <ChevronDown className="h-5 w-5 text-muted dark:text-stone-500" />
           </motion.div>
         </div>
       </button>
@@ -541,7 +541,7 @@ export default function AnalyzePage() {
 
                 {/* Empty-state nudge — only before anything has been typed */}
                 {!content.trim() && !error && (
-                  <p className="text-center text-sm text-muted">
+                  <p className="text-center text-sm text-muted dark:text-stone-400">
                     Not sure what to paste? Hit{" "}
                     <span className="font-medium text-deep">Try an Example</span> above and
                     watch a real debate get mapped.
@@ -582,7 +582,7 @@ export default function AnalyzePage() {
                   <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="text-center text-sm text-muted"
+                    className="text-center text-sm text-muted dark:text-stone-400"
                     aria-live="polite"
                   >
                     Reading the text, separating the sides, and hunting for the crux. This

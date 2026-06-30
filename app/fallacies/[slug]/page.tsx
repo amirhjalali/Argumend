@@ -108,7 +108,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
 
           {/* Hero */}
           <header className="mb-12 md:mb-16">
-            <p className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
               Logical Fallacy
             </p>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
@@ -263,7 +263,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
 
           {/* Footer */}
           <div className="pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)] mt-4">
-            <p className="text-sm text-muted italic text-center">
+            <p className="text-sm text-muted dark:text-stone-400 italic text-center">
               A fallacious argument can still reach a true conclusion — the issue
               is always the reasoning path.
             </p>

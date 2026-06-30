@@ -301,7 +301,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            <ChevronDown className={`h-5 w-5 ${isFor ? "text-rust-400" : "text-stone-400"}`} />
+            <ChevronDown className={`h-5 w-5 ${isFor ? "text-rust-400" : "text-muted dark:text-stone-400"}`} />
           </motion.div>
         </div>
 
@@ -409,7 +409,7 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
   };
 
   const SeverityIcon = severity === "confirmed" ? AlertTriangle : severity === "likely" ? AlertTriangle : Info;
-  const iconColor = severity === "confirmed" ? "text-red-600" : severity === "likely" ? "text-rust-600" : "text-stone-400";
+  const iconColor = severity === "confirmed" ? "text-red-600" : severity === "likely" ? "text-rust-600" : "text-muted dark:text-stone-400";
   const iconBg = severity === "confirmed" ? "bg-red-100" : severity === "likely" ? "bg-rust-100/80" : "bg-stone-100";
 
   return (
@@ -549,7 +549,7 @@ export function AnalysisView({
             >
               Analyses
             </Link>
-            <ChevronRight className="h-3.5 w-3.5 text-stone-400 dark:text-[var(--text-muted)]" />
+            <ChevronRight className="h-3.5 w-3.5 text-muted dark:text-[var(--text-muted)]" />
             <span className="text-primary font-medium truncate max-w-[280px] sm:max-w-none">
               {extracted.topic}
             </span>
