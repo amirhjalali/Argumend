@@ -280,4 +280,54 @@ export const faqs: FAQ[] = [
     linkText: "Read our methodology",
     linkHref: "/methodology",
   },
+  {
+    question: "What is a red herring fallacy?",
+    answer: "A red herring is an irrelevant point introduced to divert attention from the real issue. Instead of answering the argument on the table, the speaker raises a different, often emotionally charged topic so the original question quietly gets dropped -- 'Why worry about the budget when crime is so high?' The distraction can be true and still be a fallacy, because its truth does nothing to settle the question actually being debated. To counter a red herring, name the switch and return to the original claim. Argument maps help by keeping each question on its own track, so a debate can't be silently steered onto a side issue.",
+    linkText: "Try the argument analyzer",
+    linkHref: "/analyze",
+  },
+  {
+    question: "What is circular reasoning (begging the question)?",
+    answer: "Circular reasoning -- also called begging the question -- happens when an argument assumes the very thing it is trying to prove, so the conclusion is smuggled into the premises. 'The policy is the right choice because it's the correct thing to do' sounds like an argument but never supplies independent support; it just restates the claim in different words. The tell is that you'd have to already accept the conclusion to accept the premise. A non-circular argument rests on evidence that someone who disagrees could, in principle, check for themselves. Argumend looks for whether each position is backed by independent evidence rather than a restatement of itself.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is cherry-picking and how does it distort an argument?",
+    answer: "Cherry-picking is selecting only the evidence that supports your conclusion while ignoring the data that cuts against it. A single supportive study, one favorable statistic, or a handful of anecdotes can make almost any claim look airtight if you hide everything else. It's deceptive precisely because each cited fact may be true -- the distortion lives in what's left out. The antidote is to weigh the full body of evidence, including the strongest findings against your view, and to ask whether a claim survives once the whole picture is in. Argumend's confidence scores are built on the balance of supporting and opposing evidence for exactly this reason.",
+    linkText: "Learn about our evidence methodology",
+    linkHref: "/methodology",
+  },
+  {
+    question: "What is the principle of charity?",
+    answer: "The principle of charity is the habit of interpreting someone's argument in its most reasonable form before you respond -- assuming they're rational, resolving ambiguity in their favor, and not attributing an obviously foolish view if a sensible one fits. It's the mindset behind steel-manning: you engage the best version of a position rather than the easiest to attack. Charity isn't about being nice; it's about being accurate. If you defeat only a weak misreading, you've learned nothing about whether the real argument holds. Argumend applies this by steel-manning every side of a topic, including unpopular ones, so disagreements are tested at their strongest.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "Why is anecdotal evidence considered weak?",
+    answer: "Anecdotal evidence -- a personal story or single striking case -- feels persuasive but is statistically weak because it isn't representative. One person who thrived after a treatment tells you nothing about how it performs across thousands, and vivid stories stick in memory far more than the dry averages that actually settle a question. Anecdotes are also prone to selection: we hear the dramatic cases, not the silent typical ones. They can be useful for generating hypotheses or illustrating a point, but they can't establish a general claim on their own. Argumend weights evidence partly on replicability and directness, which is why systematic data outranks a memorable story.",
+    linkText: "Learn about our evidence methodology",
+    linkHref: "/methodology",
+  },
+  {
+    question: "What is motivated reasoning?",
+    answer: "Motivated reasoning is when your desire for a particular conclusion shapes how you evaluate evidence -- you scrutinize inconvenient findings far harder than convenient ones and reach the answer you wanted while feeling perfectly objective. It overlaps with confirmation bias but is broader: confirmation bias is about what information you notice, while motivated reasoning is about the goal driving the whole process, whether that's protecting an identity, a group loyalty, or a prior commitment. The check is to ask honestly, 'Would I accept this same quality of evidence if it pointed the other way?' Argument maps help by laying out the strongest case on every side, so the evidence you'd rather skip is put in front of you.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is a false equivalence?",
+    answer: "A false equivalence treats two things as comparable when the relevant differences between them are large -- equating a minor lapse with a major one, or 'both sides' of an issue where the evidence is lopsided. It often hides behind a surface symmetry ('they both made mistakes') while ignoring scale, intent, or how well each side is actually supported. The fallacy matters because it can manufacture a fake balance, making a well-evidenced position look no stronger than a weak one. To spot it, ask whether the two cases really are alike on the dimension that counts. Argumend resists false balance by tracking the actual weight of evidence rather than giving every side equal footing by default.",
+  },
+  {
+    question: "What is Occam's razor and when does it apply?",
+    answer: "Occam's razor is the principle that, among competing explanations that fit the evidence equally well, you should prefer the one making the fewest assumptions. It's a guide, not a law: the simplest explanation isn't automatically true, and sometimes reality is genuinely complicated. The razor only does work when explanations actually account for the same facts -- it favors the leaner one as a starting point, while remaining open to a more complex account if the evidence demands it. Misused, it becomes an excuse to dismiss inconvenient detail. Used well, it keeps you from multiplying unsupported entities -- conspiracies, hidden causes, extra mechanisms -- when a plainer account already explains what we observe.",
+  },
+  {
+    question: "What is the difference between an argument map and a mind map?",
+    answer: "A mind map organizes information -- it branches a central topic into related ideas, notes, and associations to help you brainstorm or remember. An argument map does something stricter: it shows the logical structure of a case, distinguishing claims from the evidence and reasons that support or oppose them, so you can see whether a conclusion actually holds. A mind map answers 'what's related to this topic?'; an argument map answers 'does this claim stand up, and where exactly does the disagreement turn?' Argumend builds argument maps -- core claim, pillars, evidence, and crux -- because the goal is to evaluate reasoning, not just to catalog ideas.",
+    linkText: "Browse argument maps",
+    linkHref: "/topics",
+  },
 ];
