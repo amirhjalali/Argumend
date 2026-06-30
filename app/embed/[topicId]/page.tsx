@@ -43,20 +43,20 @@ function ConfidenceBar({ score }: { score: number }) {
   return (
     <div className="w-full">
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-xs font-medium text-stone-500 uppercase tracking-wide">
+        <span className="text-xs font-medium uppercase tracking-wide text-muted dark:text-stone-400">
           Confidence
         </span>
-        <span className="text-sm font-mono font-semibold text-primary tabular-nums">
+        <span className="text-sm font-mono font-semibold tabular-nums text-primary dark:text-stone-100">
           {score}%
         </span>
       </div>
-      <div className="h-2 bg-stone-200 rounded-full overflow-hidden">
+      <div className="h-2 rounded-full overflow-hidden bg-stone-200 dark:bg-stone-700/60">
         <div
           className={`h-full rounded-full ${color} transition-all`}
           style={{ width: `${score}%` }}
         />
       </div>
-      <p className="text-[11px] text-stone-400 mt-1">
+      <p className="text-[11px] mt-1 text-muted dark:text-stone-400">
         {getVerdictLabel(score)}
       </p>
     </div>
@@ -80,22 +80,29 @@ function ArgumentCard({
     <div
       className={`rounded-lg border p-3 ${
         isFor
-          ? "border-rust-200 bg-rust-50/60"
-          : "border-stone-200 bg-stone-50/60"
+          ? "border-rust-200 bg-rust-50/60 dark:border-rust-800/40 dark:bg-rust-950/30"
+          : "border-stone-200 bg-stone-50/60 dark:border-stone-700/50 dark:bg-stone-800/30"
       }`}
     >
       <h3
         className={`text-xs font-semibold uppercase tracking-wide mb-2 ${
-          isFor ? "text-rust-600" : "text-stone-500"
+          isFor
+            ? "text-rust-600 dark:text-rust-400"
+            : "text-stone-500 dark:text-stone-400"
         }`}
       >
         {isFor ? "For" : "Against"}
       </h3>
       <ul className="space-y-1.5">
         {args.map((arg, i) => (
-          <li key={i} className="text-[13px] leading-[1.5] text-primary">
+          <li
+            key={i}
+            className="text-[13px] leading-[1.5] break-words text-primary dark:text-stone-200"
+          >
             <span className="font-medium">{arg.title}:</span>{" "}
-            <span className="text-stone-600">{arg.summary}</span>
+            <span className="text-stone-600 dark:text-stone-400">
+              {arg.summary}
+            </span>
           </li>
         ))}
       </ul>
@@ -125,16 +132,20 @@ function VerdictBanner({
         : "Draw";
 
   return (
-    <div className="flex items-center justify-between rounded-lg border border-deep/20 bg-deep/5 px-3 py-2">
+    <div className="flex items-center justify-between rounded-lg border px-3 py-2 border-deep/20 bg-deep/5 dark:border-deep-light/30 dark:bg-deep-light/10">
       <div>
-        <span className="text-xs font-medium text-deep uppercase tracking-wide">
+        <span className="text-xs font-medium uppercase tracking-wide text-deep dark:text-deep-light">
           Verdict
         </span>
-        <p className="text-sm font-semibold text-primary">{label}</p>
+        <p className="text-sm font-semibold text-primary dark:text-stone-100">
+          {label}
+        </p>
       </div>
       <div className="text-right">
-        <span className="text-[11px] text-stone-400">Margin</span>
-        <p className="text-sm font-mono font-semibold text-primary tabular-nums">
+        <span className="text-[11px] text-muted dark:text-stone-400">
+          Margin
+        </span>
+        <p className="text-sm font-mono font-semibold tabular-nums text-primary dark:text-stone-100">
           {margin}
         </p>
       </div>
@@ -154,34 +165,36 @@ export default async function EmbedPage({ params }: PageProps) {
     notFound();
   }
 
-  // Extract top for/against arguments from pillars
+  // Extract top for/against arguments from pillars. Keep summaries short so the
+  // widget stays compact and never overflows at typical embed widths.
+  const truncate = (text: string) =>
+    text.length > 120 ? text.slice(0, 117) + "…" : text;
+
   const forArgs = topic.pillars.slice(0, 3).map((p) => ({
     title: p.title,
-    summary: p.proponent_rebuttal.length > 120
-      ? p.proponent_rebuttal.slice(0, 117) + "..."
-      : p.proponent_rebuttal,
+    summary: truncate(p.proponent_rebuttal),
   }));
 
   const againstArgs = topic.pillars.slice(0, 3).map((p) => ({
     title: p.title,
-    summary: p.skeptic_premise.length > 120
-      ? p.skeptic_premise.slice(0, 117) + "..."
-      : p.skeptic_premise,
+    summary: truncate(p.skeptic_premise),
   }));
 
   // Load verdict if available
   const verdict = getMockVerdict(topicId);
 
+  // Back-link to the canonical topic page so the embed drives traffic to
+  // argumend.org. Opens in a new tab because the widget lives in an iframe.
   const topicUrl = `https://argumend.org/topics/${topicId}`;
 
   return (
-    <main className="max-w-[600px] mx-auto px-4 py-5 font-sans">
+    <main className="w-full max-w-[600px] mx-auto px-4 py-5 font-sans">
       {/* Header */}
       <div className="mb-4">
-        <h1 className="font-serif text-xl sm:text-2xl tracking-tight text-primary leading-tight mb-2">
+        <h1 className="font-serif text-xl sm:text-2xl tracking-tight leading-tight mb-2 break-words text-primary dark:text-stone-100">
           {topic.title}
         </h1>
-        <p className="text-sm text-stone-500 leading-relaxed">
+        <p className="text-sm leading-relaxed text-secondary dark:text-stone-300">
           {topic.meta_claim}
         </p>
       </div>
@@ -208,25 +221,17 @@ export default async function EmbedPage({ params }: PageProps) {
         </div>
       )}
 
-      {/* Footer */}
-      <div className="pt-3 border-t border-stone-200/60 flex items-center justify-between">
+      {/* Attribution / CTA — drives traffic back to the full analysis. */}
+      <div className="pt-3 border-t border-stone-200/70 dark:border-stone-700/50">
         <a
           href={topicUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs text-deep hover:text-deep-dark font-medium transition-colors"
-        >
-          Explore full analysis &rarr;
-        </a>
-        <a
-          href="https://argumend.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-[11px] text-stone-400 hover:text-stone-500 transition-colors"
+          className="group inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors border-rust-200 bg-rust-50 text-rust-700 hover:bg-rust-100 dark:border-rust-500/30 dark:bg-rust-500/10 dark:text-rust-300 dark:hover:bg-rust-500/20"
         >
           <svg
-            width="14"
-            height="14"
+            width="13"
+            height="13"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -237,7 +242,13 @@ export default async function EmbedPage({ params }: PageProps) {
           >
             <path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3Z" />
           </svg>
-          Powered by ARGUMEND
+          Analyzed by Argumend
+          <span
+            aria-hidden="true"
+            className="transition-transform group-hover:translate-x-0.5"
+          >
+            &rarr;
+          </span>
         </a>
       </div>
     </main>
