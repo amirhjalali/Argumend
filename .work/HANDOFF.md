@@ -178,3 +178,28 @@ points at a real topic; 0 broken internal links; 0 dup slugs). Committed; not pu
 Audit Strategic Bets now done: **B, C, D(filters), F, G**. Still founder-owned: **A** (topic-route
 unification), **E** (IA card-sort). Pacing the 24h campaign against `~/.claude/argumend-usage-check.sh`
 (stay < 80% of the rolling 5h / weekly windows).
+
+---
+
+## Autonomous cycle 3 — 2026-06-30 — map declutter, read polish, content surge, tests
+
+6-agent cycle. Verified: `tsc` clean, **691 vitest tests pass** (20 files; +26 net-new), clean
+`bun run build`, data integrity validated (all new is-claims point at real topics; 0 broken internal
+links incl. guide links; 0 dup slugs). Committed; not pushed.
+
+- **Map declutter + crux discoverability.** Legend now default-collapsed to a toggle pill (was a tall
+  card occluding nodes); `TopicIntroPanel` auto-dismisses after 7s / first canvas interaction / close
+  (sessionStorage-persisted); both reduced-motion aware. New conditional "Find the crux" affordance
+  focuses the crux (or expands a pillar to reveal it) — no longer buried an expansion deep.
+- **Read-experience polish.** Keystone label "fact most people get wrong" → "the fact that reframes
+  this debate"; SynopticTable repeats per-row side labels on mobile (color-blind safe); ControversyMeter
+  gains a numeric readout + reduced-motion pulse gate. FlagshipIntro test still green.
+- **Content surge.** +5 blog posts (69 → 74), +11 "is X true?" claims (129 → 140), +9 FAQs (45 → 54),
+  +2 guides (11 → 13: weighing-conflicting-evidence, reading-confidence-like-a-forecaster), +5 glossary
+  terms.
+- **Test safety net.** +26 net-new tests (variantStyles derivation incl. the meta-color fix; markdown
+  bold/list/internal-link behavior; verdict-sentence shapes; FAQ integrity) — no source modified.
+
+Campaign tally so far (3 cycles, all committed, none pushed): ~25 logical commits. Audit Strategic Bets
+B/C/D/F/G done; A & E remain founder-owned. Content: blog 62→74, is-claims 121→140, FAQs 38→54,
+guides 11→13. Tests 409→691. Brand-asset 404 fixed.
