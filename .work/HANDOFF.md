@@ -147,3 +147,34 @@ Bet D (Topic Explorer fate + lift filters), Bet E (IA card-sort), Bet F (long-fo
 Minor follow-ups: the `/is` confidence-tier badge still uses `emerald` for the "Strong" tier (pre-existing
 carry-over, out of this cycle's color scope); the color guard only covers `categoryColors.ts` (a
 repo-wide grep would catch regressions everywhere).
+
+---
+
+## Autonomous cycle 2 — 2026-06-30 — Strategic Bets B + D + F, a11y, content (part of the 24h campaign)
+
+6-agent parallel cycle, same disjoint-territory + gate discipline. Verified: `tsc` clean,
+**665 vitest tests pass**, clean `bun run build`, data integrity validated (every new is-claim
+points at a real topic; 0 broken internal links; 0 dup slugs). Committed; not pushed.
+
+- **Bet B — legend = single source of truth.** `lib/variantStyles.ts` (VARIANT_STYLES) is now
+  canonical; `MapLegend`, edge colors, and minimap all DERIVE from it. Fixed the `meta` variant
+  (was blue `#2563eb` in three conflicting places → deep teal + Crown icon, matching `MetaNode`);
+  retuned the off-brand violet "question" → stone. The legend can no longer drift from the nodes.
+- **Bet D (filter-lift) — discovery on `/topics`.** Status multi-select + confidence-range filters
+  (lifted from the orphaned `TopicExplorer`), composed with category + search + sort, all
+  URL-addressable (`?category/status/min/max/sort`) via `history.replaceState` so the SSR list stays
+  crawlable. (Routing the full force-graph explorer is still a deferred follow-up.)
+- **Bet F — long-form wayfinding.** New `TableOfContents` (sticky desktop + collapsible mobile) on
+  blog & guides with slugified, offset-anchored headings. Glossary letter/category anchors fixed
+  (`scroll-mt-24`); +6 glossary terms. Guides gained 16 inline links into topics/concepts/fallacies
+  (were ~0) — a real content→map funnel.
+- **Accessibility batch.** Toggles use the complete `aria-pressed` pattern (dropped the incomplete
+  WAI-ARIA tablist); node containers lose redundant no-op `tabIndex` stops; modal focus traps exclude
+  disabled/hidden elements; the search listbox no longer doubles as an `aria-live` region (sr-only
+  status announces result count instead).
+- **Content.** +4 blog posts (more fallacy explainers / critical-thinking how-to; 65 → 69).
+- **AEO.** +8 "is X true?" claims for previously-uncovered topics (121 → 129) and +7 site FAQs (38 → 45).
+
+Audit Strategic Bets now done: **B, C, D(filters), F, G**. Still founder-owned: **A** (topic-route
+unification), **E** (IA card-sort). Pacing the 24h campaign against `~/.claude/argumend-usage-check.sh`
+(stay < 80% of the rolling 5h / weekly windows).
