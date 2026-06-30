@@ -17,7 +17,7 @@ import MiniSearch from "minisearch";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
 import { categoryColors } from "@/lib/categoryColors";
-import { articles } from "@/data/blog";
+import { articleSummaries } from "@/data/blogIndex";
 import { concepts } from "@/data/concepts";
 
 // ---------------------------------------------------------------------------
@@ -217,7 +217,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       };
     });
 
-    const blogResults: SearchResult[] = articles.map((a) => ({
+    const blogResults: SearchResult[] = articleSummaries.map((a) => ({
       id: `blog-${a.slug}`,
       title: a.title,
       subtitle: a.description,
