@@ -860,4 +860,61 @@ export const isClaims: IsClaim[] = [
     claim:
       "Modern Monetary Theory provides a sound basis for government spending and deficit policy.",
   },
+  // ── Net-new coverage batch (2026-06-29) — uncovered evergreen topics ───────
+  {
+    slug: "organic-food-healthier",
+    topicId: "organic-food-health",
+    question: "Is organic food healthier than conventional food?",
+    claim:
+      "Organic food is significantly healthier and more nutritious than conventionally grown food.",
+  },
+  {
+    slug: "gmo-crops-safe",
+    topicId: "gmo-crops-safety",
+    question: "Are GMO crops safe to eat?",
+    claim:
+      "Genetically modified crops are safe to eat and beneficial for agriculture.",
+  },
+  {
+    slug: "evs-better-despite-lithium-mining",
+    topicId: "lithium-mining-ev-impact",
+    question: "Are electric vehicles still better for the environment once lithium mining is counted?",
+    claim:
+      "Electric vehicles are significantly better for the environment than gas cars even after accounting for lithium mining and battery production.",
+  },
+  {
+    slug: "dark-matter-exists",
+    topicId: "dark-matter-vs-mond",
+    question: "Does dark matter actually exist?",
+    claim:
+      "Dark matter, rather than modified gravity (MOND), is the correct explanation for galactic dynamics.",
+  },
+  {
+    slug: "radical-life-extension-possible",
+    topicId: "longevity-anti-aging",
+    question: "Can human lifespan be radically extended beyond 120 years?",
+    claim:
+      "Recent advances in longevity science make meaningful human lifespan extension beyond 120 years achievable within our lifetimes.",
+  },
+  {
+    slug: "psychedelic-therapy-real-breakthrough",
+    topicId: "psychedelic-therapy-hype",
+    question: "Is psychedelic therapy a genuine breakthrough or overhype?",
+    claim:
+      "Psychedelic therapy represents a genuine paradigm shift in mental-health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",
+  },
+  {
+    slug: "tariffs-help-economy",
+    topicId: "trump-tariffs",
+    question: "Do tariffs strengthen the economy?",
+    claim:
+      "Broad protectionist tariffs revive domestic manufacturing and strengthen the national economy more than they raise costs for consumers.",
+  },
+  {
+    slug: "governments-ban-social-platforms",
+    topicId: "government-platform-bans",
+    question: "Should governments be able to ban social media platforms?",
+    claim:
+      "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms on national-security grounds.",
+  },
 ];

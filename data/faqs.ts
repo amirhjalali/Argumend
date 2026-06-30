@@ -182,4 +182,54 @@ export const faqs: FAQ[] = [
     linkText: "Lesson plans & educator resources",
     linkHref: "/for-educators",
   },
+  {
+    question: "What is a logical fallacy?",
+    answer: "A logical fallacy is a flaw in reasoning that makes an argument invalid or misleading, even when it sounds persuasive. Fallacies fall into two broad families: formal fallacies, where the structure itself is broken so the conclusion doesn't follow from the premises, and informal fallacies, where the content misleads -- appealing to emotion, attacking the person, or distracting from the real question. Common examples include ad hominem, straw man, false dichotomy, and appeal to authority. Spotting a fallacy doesn't automatically make a conclusion false; it just means that particular argument fails to support it. Argumend's analyzer flags common fallacies in debate text so you can see exactly where the reasoning breaks down.",
+    linkText: "Try the argument analyzer",
+    linkHref: "/analyze",
+  },
+  {
+    question: "What is an ad hominem fallacy?",
+    answer: "An ad hominem fallacy attacks the person making an argument instead of the argument itself. 'You can't trust her research -- she's funded by activists' is ad hominem: it sidesteps the evidence and targets the messenger. The reasoning fails because a claim's truth doesn't depend on who says it. There's a limit, though: questioning a source's reliability or conflicts of interest is legitimate when credibility is genuinely part of the argument. It only becomes a fallacy when the personal attack replaces engagement with the actual claim. The fix is to steel-man the argument and respond to its strongest form.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is a straw man argument?",
+    answer: "A straw man argument misrepresents someone's position -- usually by exaggerating or oversimplifying it -- so it's easier to knock down. Instead of engaging the real claim, you attack a distorted version of it, like answering 'we should regulate emissions' with 'so you want to shut down the entire economy?' To avoid building a straw man, do the opposite: steel-man the other side by stating their view in its strongest, most charitable form before you respond. If your opponent wouldn't recognize their own position in your summary, you're arguing with a straw man, not with them.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is a false dichotomy (false dilemma)?",
+    answer: "A false dichotomy -- also called a false dilemma -- presents only two options when more actually exist, forcing a choice between extremes. 'Either we ban it completely or we do nothing' ignores the range of middle-ground policies in between. The fallacy works by hiding the real spectrum of possibilities to make one side look inevitable. To counter it, ask whether the two options are genuinely the only ones, or whether the framing is quietly excluding alternatives. Argument maps help by laying out the full range of positions rather than collapsing a debate into two opposing camps.",
+  },
+  {
+    question: "What is the difference between correlation and causation?",
+    answer: "Correlation means two things tend to occur together; causation means one actually produces the other. Confusing the two is one of the most common reasoning errors: ice-cream sales and drowning deaths rise together, but neither causes the other -- hot weather drives both. Before claiming causation, check for (1) a plausible mechanism, (2) the right time order (cause before effect), and (3) ruled-out confounders -- hidden third factors influencing both. Randomized controlled trials are the gold standard precisely because they isolate cause from coincidence. Argumend weights evidence partly on how directly it establishes causation rather than mere association.",
+    linkText: "Learn about our evidence methodology",
+    linkHref: "/methodology",
+  },
+  {
+    question: "What is confirmation bias and how can I overcome it?",
+    answer: "Confirmation bias is the tendency to seek out, favor, and remember information that confirms what you already believe, while discounting evidence that challenges it. It's why two people can read the same study and both feel vindicated. You can't eliminate it, but you can counter it: (1) actively look for the strongest evidence against your view; (2) steel-man the opposing position; and (3) decide in advance what evidence would change your mind -- if nothing could, you're rationalizing, not reasoning. Argumend's argument maps are built to surface the best case on every side, so you encounter the evidence you'd naturally skip past.",
+    linkText: "Explore our reasoning guides",
+    linkHref: "/guides",
+  },
+  {
+    question: "What is the difference between a fact and an opinion?",
+    answer: "A fact is a claim that can be checked against evidence and is either true or false regardless of who believes it; an opinion is a judgment, preference, or value that reflects a point of view. 'The Earth's average temperature has risen since 1900' is a factual claim -- measurable and verifiable. 'We should prioritize the economy over emissions' is a value judgment. Many real disagreements blur the two: people argue as if a contested empirical question were already settled, or treat a value choice as an objective fact. Argumend separates the empirical cruxes (which evidence can resolve) from the value questions (which it can't), so you can see which part of a disagreement is actually about facts.",
+  },
+  {
+    question: "How is Argumend different from a fact-checker?",
+    answer: "Fact-checkers rate individual statements as true, false, or misleading. Argumend does something different: instead of judging one claim at a time, it maps the whole structure of a disagreement -- the core question, the strongest arguments on each side, the evidence behind them, and the crux that would actually resolve it. A fact-check tells you whether a specific quote is accurate; an argument map shows you why thoughtful people still disagree even when they accept the same facts. The two are complementary -- we focus on the reasoning and the weight of evidence, not just verifying isolated assertions.",
+    linkText: "Browse all topics",
+    linkHref: "/topics",
+  },
+  {
+    question: "Can I trust Argumend's conclusions?",
+    answer: "Trust the process more than any single verdict -- and check it yourself. Every confidence score is traceable to the underlying evidence, each piece weighted on source reliability, independence, replicability, and directness, with the full methodology public. We steel-man every side, including unpopular ones, and route submitted arguments through a multi-model judge council to reduce any single model's bias. We're also explicit about uncertainty: a topic at 55% confidence is us saying the question is genuinely contested, not hiding the ball. The goal isn't to be an authority you defer to -- it's to show you the evidence and reasoning so you can judge for yourself.",
+    linkText: "Read our methodology",
+    linkHref: "/methodology",
+  },
 ];
