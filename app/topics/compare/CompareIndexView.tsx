@@ -13,7 +13,8 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import type { TopicStatus } from "@/lib/schemas/topic";
+import type { TopicCategory } from "@/lib/schemas/topic";
+import { categoryColors } from "@/lib/categoryColors";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -57,14 +58,6 @@ const statusIcons: Record<string, typeof CheckCircle> = {
   highly_speculative: HelpCircle,
 };
 
-const categoryBgColors: Record<string, string> = {
-  policy: "bg-deep/10 text-deep",
-  technology: "bg-stone-100 text-stone-600",
-  science: "bg-emerald-50 text-emerald-600",
-  economics: "bg-rust-50 text-rust-700",
-  philosophy: "bg-stone-100 text-stone-600",
-};
-
 // ---------------------------------------------------------------------------
 // Comparison pair card
 // ---------------------------------------------------------------------------
@@ -80,8 +73,9 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
         <div className="flex-1 p-4 sm:p-5 border-r border-stone-200/40 dark:border-[#3d3a36]/60">
           <div className="flex items-center gap-1.5 mb-2">
             <span
-              className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${
-                categoryBgColors[pair.category1] ?? "bg-stone-100 text-stone-600"
+              className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full border ${
+                categoryColors[pair.category1 as TopicCategory] ??
+                categoryColors.technology
               }`}
             >
               {pair.categoryLabel1}
@@ -108,8 +102,9 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
         <div className="flex-1 p-4 sm:p-5">
           <div className="flex items-center gap-1.5 mb-2">
             <span
-              className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${
-                categoryBgColors[pair.category2] ?? "bg-stone-100 text-stone-600"
+              className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full border ${
+                categoryColors[pair.category2 as TopicCategory] ??
+                categoryColors.technology
               }`}
             >
               {pair.categoryLabel2}
@@ -322,9 +317,9 @@ function TopicPicker({
               }`}
             >
               <span
-                className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full shrink-0 ${
-                  categoryBgColors[topic.category] ??
-                  "bg-stone-100 text-stone-600"
+                className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full border shrink-0 ${
+                  categoryColors[topic.category as TopicCategory] ??
+                  categoryColors.technology
                 }`}
               >
                 {topic.categoryLabel}

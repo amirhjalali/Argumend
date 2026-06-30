@@ -17,11 +17,11 @@ import { ConfidenceGauge } from "@/components/ConfidenceGauge";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import type {
   Topic,
-  TopicCategory,
   TopicStatus,
   Crux,
 } from "@/lib/schemas/topic";
 import { getVerdictLabel } from "@/lib/schemas/topic";
+import { categoryColors, statusColors } from "@/lib/categoryColors";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -33,24 +33,10 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
   highly_speculative: HelpCircle,
 };
 
-const statusColors: Record<TopicStatus, string> = {
-  settled: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  contested: "bg-rust-50 text-rust-700 border-rust-200/60",
-  highly_speculative: "bg-stone-100 text-stone-600 border-stone-200/60",
-};
-
 const statusLabels: Record<TopicStatus, string> = {
   settled: "Settled",
   contested: "Contested",
   highly_speculative: "Highly Speculative",
-};
-
-const categoryColors: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep border-deep/20",
-  technology: "bg-stone-100 text-stone-600 border-stone-200/60",
-  science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
-  economics: "bg-rust-50 text-rust-700 border-rust-200/60",
-  philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
 };
 
 const verificationColors: Record<
@@ -58,8 +44,8 @@ const verificationColors: Record<
   { bg: string; text: string; label: string }
 > = {
   verified: {
-    bg: "bg-emerald-50",
-    text: "text-emerald-700",
+    bg: "bg-skeptic/10",
+    text: "text-skeptic-dark",
     label: "Verified",
   },
   theoretical: {
@@ -99,8 +85,8 @@ interface ComparisonViewProps {
 // ---------------------------------------------------------------------------
 
 function confidenceColor(score: number): string {
-  if (score >= 85) return "text-emerald-700";
-  if (score >= 60) return "text-deep";
+  if (score >= 85) return "text-deep";
+  if (score >= 60) return "text-deep-light";
   if (score >= 40) return "text-rust-700";
   return "text-stone-600";
 }
@@ -170,7 +156,7 @@ function EvidenceBalanceBar({
     <div>
       <div className="flex items-center justify-between mb-1.5">
         <span className="text-xs font-medium text-stone-500 flex items-center gap-1">
-          <ThumbsUp className="h-3 w-3 text-emerald-500" />
+          <ThumbsUp className="h-3 w-3 text-deep" />
           {forCount} for
         </span>
         <span className="text-xs font-medium text-stone-500 flex items-center gap-1">

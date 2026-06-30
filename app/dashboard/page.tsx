@@ -13,8 +13,13 @@ import {
 import { auth } from "@/lib/auth";
 import { getSavedTopicIds, listUserDebates } from "@/lib/db/queries";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
-import type { TopicCategory, TopicStatus } from "@/data/topicIndex";
+import type { TopicStatus } from "@/data/topicIndex";
 import { AppShell } from "@/components/AppShell";
+import {
+  categoryColors,
+  statusColors,
+  categoryTopBorder,
+} from "@/lib/categoryColors";
 
 export const metadata: Metadata = {
   title: "Dashboard | ARGUMEND",
@@ -28,32 +33,10 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
   highly_speculative: HelpCircle,
 };
 
-const statusColors: Record<TopicStatus, string> = {
-  settled: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  contested: "bg-rust-50 text-rust-700 border-rust-200/60",
-  highly_speculative: "bg-stone-100 text-stone-600 border-stone-200/60",
-};
-
 const statusLabels: Record<TopicStatus, string> = {
   settled: "Settled",
   contested: "Contested",
   highly_speculative: "Speculative",
-};
-
-const categoryColors: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep border-deep/20",
-  technology: "bg-stone-100 text-stone-600 border-stone-200/60",
-  science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
-  economics: "bg-rust-50 text-rust-700 border-rust-200/60",
-  philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
-};
-
-const categoryTopBorder: Record<TopicCategory, string> = {
-  policy: "border-t-deep",
-  technology: "border-t-stone-400",
-  science: "border-t-emerald-400",
-  economics: "border-t-rust-400",
-  philosophy: "border-t-stone-400",
 };
 
 function formatDate(date: Date): string {
@@ -254,10 +237,10 @@ export default async function DashboardPage() {
                       <span
                         className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
                           debate.status === "completed"
-                            ? "bg-emerald-50 text-emerald-700 border-emerald-200/60"
+                            ? "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40"
                             : debate.status === "in_progress"
-                              ? "bg-deep/10 text-deep border-deep/20"
-                              : "bg-stone-100 text-stone-600 border-stone-200/60"
+                              ? "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40"
+                              : "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-300 border-stone-200/60 dark:border-stone-700/40"
                         }`}
                       >
                         {debate.status === "completed"
