@@ -354,9 +354,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const handleFocusTrap = (e: KeyboardEvent) => {
       if (e.key !== "Tab" || !modalRef.current) return;
 
-      const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
+      const focusableElements = Array.from(
+        modalRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.offsetParent !== null);
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
 
@@ -511,13 +513,19 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             </button>
           </div>
 
+          {/* Screen-reader-only live region announcing result count */}
+          <div className="sr-only" role="status" aria-live="polite">
+            {query.trim()
+              ? `${flatResults.length} result${flatResults.length !== 1 ? "s" : ""}`
+              : ""}
+          </div>
+
           {/* Results */}
           <div
             ref={listRef}
             id="search-results"
             className="max-h-[60vh] overflow-y-auto overscroll-contain py-2"
             role="listbox"
-            aria-live="polite"
           >
             {groups.length === 0 && query.trim() !== "" && (
               <div className="px-5 py-12 text-center">

@@ -39,14 +39,13 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
 
   return (
     <div
-      role="tablist"
+      role="group"
       aria-label="View mode"
       className="inline-flex items-center gap-1 rounded-full border border-stone-200/70 dark:border-[#3d3a36] bg-white/80 dark:bg-[#252420] p-1 shadow-sm backdrop-blur"
     >
       <button
-        role="tab"
         type="button"
-        aria-selected={current === "read"}
+        aria-pressed={current === "read"}
         onClick={() => switchTo("read")}
         className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
           current === "read"
@@ -58,9 +57,8 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
         Read
       </button>
       <button
-        role="tab"
         type="button"
-        aria-selected={current === "graph"}
+        aria-pressed={current === "graph"}
         onClick={() => switchTo("graph")}
         className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
           current === "graph"
