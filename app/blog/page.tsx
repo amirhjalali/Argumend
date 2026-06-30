@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Rss, Tag } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
@@ -11,6 +12,7 @@ import {
   categoryToSlug,
   tagToSlug,
 } from "@/data/blog";
+import { getGeneratedMedia } from "@/data/generatedMedia";
 
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -34,6 +36,10 @@ export default function BlogPage() {
   const popularTags = allTags
     .sort((a, b) => (tagCounts.get(b) ?? 0) - (tagCounts.get(a) ?? 0))
     .slice(0, 15);
+  const featuredArticle = articles[0];
+  const featuredMedia = featuredArticle
+    ? getGeneratedMedia("blog", featuredArticle.slug)
+    : undefined;
 
   const blogJsonLd = {
     "@context": "https://schema.org",
@@ -148,42 +154,56 @@ export default function BlogPage() {
         {/* Article Grid */}
         <div className="mx-auto max-w-4xl px-4 md:px-8 py-8 md:py-12">
           {/* Featured Article (first) */}
-          {articles.length > 0 && (
+          {featuredArticle && (
             <Link
-              key={articles[0].slug}
-              href={`/blog/${articles[0].slug}`}
+              key={featuredArticle.slug}
+              href={`/blog/${featuredArticle.slug}`}
               className="group block mb-6 md:mb-8 animate-card-fade-in"
               style={{ animationDelay: "0ms" }}
             >
-              <article className="relative bg-[#faf8f5] dark:bg-[#252420] rounded-xl p-6 md:p-10 border border-stone-200/60 dark:border-[#3d3a36] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
+              <article className="relative overflow-hidden bg-[#faf8f5] dark:bg-[#252420] rounded-xl p-6 md:p-10 border border-stone-200/60 dark:border-[#3d3a36] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
+                {featuredMedia?.hero && (
+                  <div className="-mx-6 -mt-6 mb-6 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 md:-mx-10 md:-mt-10">
+                    <Image
+                      src={featuredMedia.hero.src}
+                      alt={featuredMedia.hero.alt}
+                      width={featuredMedia.hero.width}
+                      height={featuredMedia.hero.height}
+                      priority
+                      sizes="(min-width: 768px) 896px, 100vw"
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                )}
+
                 {/* Category Badge */}
                 <div className="flex items-center gap-3 mb-4">
                   <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
-                    {articles[0].category}
+                    {featuredArticle.category}
                   </span>
                   <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                     <Calendar className="h-3 w-3" />
-                    {formatDate(articles[0].publishedAt)}
+                    {formatDate(featuredArticle.publishedAt)}
                   </span>
                   <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                     <Clock className="h-3 w-3" />
-                    {articles[0].readingTime}
+                    {featuredArticle.readingTime}
                   </span>
                 </div>
 
                 {/* Title */}
                 <h2 className="font-serif text-2xl md:text-3xl tracking-tight text-primary group-hover:text-deep transition-colors mb-3 leading-tight">
-                  {articles[0].title}
+                  {featuredArticle.title}
                 </h2>
 
                 {/* Description */}
                 <p className="text-secondary leading-relaxed mb-5 max-w-2xl">
-                  {articles[0].description}
+                  {featuredArticle.description}
                 </p>
 
                 {/* Tags */}
                 <div className="flex flex-wrap items-center gap-2 mb-5">
-                  {articles[0].tags.slice(0, 3).map((tag) => (
+                  {featuredArticle.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
                       className="inline-flex items-center gap-1 rounded-md bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 text-[11px] text-stone-500"
@@ -206,60 +226,77 @@ export default function BlogPage() {
           {/* Remaining Articles in 2-column grid */}
           {articles.length > 1 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {articles.slice(1).map((article, index) => (
-                <Link
-                  key={article.slug}
-                  href={`/blog/${article.slug}`}
-                  className="group block animate-card-fade-in"
-                  style={{ animationDelay: `${(index + 1) * 60}ms` }}
-                >
-                  <article className="relative h-full bg-[#faf8f5] dark:bg-[#252420] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[#3d3a36] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
-                    {/* Category Badge */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
-                        {article.category}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
-                        <Calendar className="h-3 w-3" />
-                        {formatDate(article.publishedAt)}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
-                        <Clock className="h-3 w-3" />
-                        {article.readingTime}
-                      </span>
-                    </div>
+              {articles.slice(1).map((article, index) => {
+                const media = getGeneratedMedia("blog", article.slug);
 
-                    {/* Title */}
-                    <h2 className="font-serif text-xl md:text-2xl tracking-tight text-primary group-hover:text-deep transition-colors mb-3 leading-tight">
-                      {article.title}
-                    </h2>
+                return (
+                  <Link
+                    key={article.slug}
+                    href={`/blog/${article.slug}`}
+                    className="group block animate-card-fade-in"
+                    style={{ animationDelay: `${(index + 1) * 60}ms` }}
+                  >
+                    <article className="relative h-full overflow-hidden bg-[#faf8f5] dark:bg-[#252420] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[#3d3a36] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
+                      {media?.hero && (
+                        <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 md:-mx-8 md:-mt-8">
+                          <Image
+                            src={media.hero.src}
+                            alt={media.hero.alt}
+                            width={media.hero.width}
+                            height={media.hero.height}
+                            sizes="(min-width: 768px) 50vw, 100vw"
+                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                          />
+                        </div>
+                      )}
 
-                    {/* Description */}
-                    <p className="text-secondary leading-relaxed mb-5 max-w-2xl">
-                      {article.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap items-center gap-2 mb-5">
-                      {article.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center gap-1 rounded-md bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 text-[11px] text-stone-500"
-                        >
-                          <Tag className="h-2.5 w-2.5" />
-                          {tag}
+                      {/* Category Badge */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
+                          {article.category}
                         </span>
-                      ))}
-                    </div>
+                        <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
+                          <Calendar className="h-3 w-3" />
+                          {formatDate(article.publishedAt)}
+                        </span>
+                        <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
+                          <Clock className="h-3 w-3" />
+                          {article.readingTime}
+                        </span>
+                      </div>
 
-                    {/* Read More */}
-                    <div className="flex items-center gap-2 text-sm font-medium text-deep group-hover:text-deep-dark transition-colors">
-                      <span>Read article</span>
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </article>
-                </Link>
-              ))}
+                      {/* Title */}
+                      <h2 className="font-serif text-xl md:text-2xl tracking-tight text-primary group-hover:text-deep transition-colors mb-3 leading-tight">
+                        {article.title}
+                      </h2>
+
+                      {/* Description */}
+                      <p className="text-secondary leading-relaxed mb-5 max-w-2xl">
+                        {article.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap items-center gap-2 mb-5">
+                        {article.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center gap-1 rounded-md bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 text-[11px] text-stone-500"
+                          >
+                            <Tag className="h-2.5 w-2.5" />
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Read More */}
+                      <div className="flex items-center gap-2 text-sm font-medium text-deep group-hover:text-deep-dark transition-colors">
+                        <span>Read article</span>
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </article>
+                  </Link>
+                );
+              })}
             </div>
           )}
 

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { renderMarkdown } from "@/lib/markdown";
@@ -15,6 +16,7 @@ import {
   tagToSlug,
 } from "@/data/blog";
 import { articleSummaries, type ArticleSummary } from "@/data/blogIndex";
+import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import { guides } from "@/data/guides";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
@@ -202,9 +204,13 @@ export async function generateMetadata(
   // Per-post social card via the query-param OG route (the path-param /api/og/[id]
   // route is topic-only and 404s for blog slugs). Without this, posts had no
   // og:image at all despite a summary_large_image Twitter card.
-  const ogImage = `https://argumend.org/api/og?title=${encodeURIComponent(
-    article.title,
-  )}&subtitle=${encodeURIComponent(article.category)}`;
+  const media = getGeneratedMedia("blog", article.slug);
+  const ogImage =
+    media?.hero
+      ? absoluteMediaUrl(media.hero.src)
+      : `https://argumend.org/api/og?title=${encodeURIComponent(
+          article.title,
+        )}&subtitle=${encodeURIComponent(article.category)}`;
 
   return {
     title: article.title,
@@ -220,7 +226,14 @@ export async function generateMetadata(
       tags: article.tags,
       siteName: "ARGUMEND",
       url: `https://argumend.org/blog/${article.slug}`,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: article.title }],
+      images: [
+        {
+          url: ogImage,
+          width: media?.hero.width ?? 1200,
+          height: media?.hero.height ?? 630,
+          alt: media?.hero.alt ?? article.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -248,6 +261,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
   const article = getArticleBySlug(slug);
   if (!article) notFound();
 
+  const media = getGeneratedMedia("blog", article.slug);
   const relatedReading = getRelatedReading(article);
   const { html: contentHtml, headings } = withHeadingAnchors(
     renderMarkdown(article.content),
@@ -297,11 +311,13 @@ export default async function BlogArticlePage({ params }: PageProps) {
     inLanguage: "en-US",
     image: {
       "@type": "ImageObject",
-      url: `https://argumend.org/api/og?title=${encodeURIComponent(
-        article.title,
-      )}&subtitle=${encodeURIComponent(article.category)}`,
-      width: 1200,
-      height: 630,
+      url: media?.hero
+        ? absoluteMediaUrl(media.hero.src)
+        : `https://argumend.org/api/og?title=${encodeURIComponent(
+            article.title,
+          )}&subtitle=${encodeURIComponent(article.category)}`,
+      width: media?.hero.width ?? 1200,
+      height: media?.hero.height ?? 630,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -377,6 +393,19 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 description={article.description}
               />
             </div>
+
+            {media?.hero && (
+              <div className="relative mt-8 aspect-[1672/941] overflow-hidden rounded-xl border border-stone-200/70 bg-stone-100 shadow-sm">
+                <Image
+                  src={media.hero.src}
+                  alt={media.hero.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 768px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </div>
         </div>
 

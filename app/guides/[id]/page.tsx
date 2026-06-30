@@ -1,10 +1,12 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Clock, BookOpen, CheckCircle2, ExternalLink, ArrowRight } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { guides, getGuideById } from "@/data/guides";
+import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { renderInlineMarkdown } from "@/lib/markdown";
 import {
   TableOfContents,
@@ -31,6 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { id } = await params;
   const guide = getGuideById(id);
   if (!guide) return { title: "Guide Not Found" };
+  const media = getGeneratedMedia("guide", guide.id);
 
   return {
     title: `${guide.title} -- Guide | Argumend`,
@@ -44,11 +47,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://argumend.org/guides/${guide.id}`,
       type: "article",
       siteName: "Argumend",
+      images: media?.hero
+        ? [
+            {
+              url: absoluteMediaUrl(media.hero.src),
+              width: media.hero.width,
+              height: media.hero.height,
+              alt: media.hero.alt,
+            },
+          ]
+        : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: `${guide.title} -- Guide | Argumend`,
       description: guide.description.slice(0, 160),
+      images: media?.hero ? [absoluteMediaUrl(media.hero.src)] : undefined,
     },
   };
 }
@@ -65,6 +79,7 @@ export default async function GuidePage({ params }: PageProps) {
   }
 
   const Icon = guide.icon;
+  const media = getGeneratedMedia("guide", guide.id);
 
   // Stamp stable, deduped anchor ids onto every section (H2) and subsection
   // (H3) so the table of contents links and the rendered headings stay in sync.
@@ -107,7 +122,8 @@ export default async function GuidePage({ params }: PageProps) {
     learningResourceType: "Guide",
     educationalLevel: "Beginner",
     teaches: guide.keyTakeaways,
-    timeRequired: guide.readTime,
+    // ISO-8601 duration (e.g. "12 min read" → "PT12M") so Rich Results validates.
+    timeRequired: `PT${parseInt(guide.readTime, 10) || 10}M`,
     author: {
       "@type": "Organization",
       name: "ARGUMEND",
@@ -142,9 +158,11 @@ export default async function GuidePage({ params }: PageProps) {
     },
     image: {
       "@type": "ImageObject",
-      url: `https://argumend.org/api/og/guides/${guide.id}`,
-      width: 1200,
-      height: 630,
+      url: media?.hero
+        ? absoluteMediaUrl(media.hero.src)
+        : `https://argumend.org/api/og/guides/${guide.id}`,
+      width: media?.hero.width ?? 1200,
+      height: media?.hero.height ?? 630,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -198,6 +216,19 @@ export default async function GuidePage({ params }: PageProps) {
             <p className="text-lg text-secondary leading-relaxed max-w-2xl">
               {guide.subtitle}
             </p>
+
+            {media?.hero && (
+              <div className="relative mt-8 aspect-[1672/941] overflow-hidden rounded-xl border border-stone-200/70 bg-stone-100 shadow-sm">
+                <Image
+                  src={media.hero.src}
+                  alt={media.hero.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 768px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </header>
 
           {/* In-article wayfinding (sticky rail on wide desktop, disclosure otherwise) */}

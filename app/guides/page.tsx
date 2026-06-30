@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -11,6 +12,7 @@ import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { guides } from "@/data/guides";
+import { getGeneratedMedia } from "@/data/generatedMedia";
 
 /* ────────────────────────────────────────────────────────────────────────────
    Recommended reading order
@@ -112,6 +114,7 @@ export default function GuidesPage() {
           {guides.map((guide, index) => {
             const Icon = guide.icon;
             const sectionCount = guide.sections.length;
+            const media = getGeneratedMedia("guide", guide.id);
 
             return (
               <Link
@@ -120,7 +123,20 @@ export default function GuidesPage() {
                 className="group block animate-card-fade-in"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
-                <div className="relative h-full bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-1 transition-all duration-200 hover:border-deep-light/40 flex flex-col">
+                <div className="relative h-full overflow-hidden bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-1 transition-all duration-200 hover:border-deep-light/40 flex flex-col">
+                  {media?.hero && (
+                    <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100">
+                      <Image
+                        src={media.hero.src}
+                        alt={media.hero.alt}
+                        width={media.hero.width}
+                        height={media.hero.height}
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                      />
+                    </div>
+                  )}
+
                   {/* Icon + badges row */}
                   <div className="flex items-start justify-between mb-4">
                     <div

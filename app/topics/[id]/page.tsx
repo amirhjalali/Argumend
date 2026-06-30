@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { topics, getCrossCategoryRelated, CATEGORY_LABELS } from "@/data/topics";
+import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { getVerdictLabel } from "@/lib/schemas/topic";
 import { JsonLd } from "@/components/JsonLd";
 import TopicPageClient from "./TopicPageClient";
@@ -31,6 +32,10 @@ export async function generateMetadata({
   const verdict = getVerdictLabel(topic.confidence_score);
   const description = `${topic.meta_claim} — ${verdict}. Explore ${topic.pillars.length} argument pillars with steel-manned positions, weighted evidence, and crux questions.`;
   const categoryLabel = CATEGORY_LABELS[topic.category];
+  const media = getGeneratedMedia("topic", topic.id);
+  const socialImage = media?.hero
+    ? absoluteMediaUrl(media.hero.src)
+    : `https://argumend.org/api/og/${topic.id}`;
 
   return {
     title: `${topic.title} — Argument Analysis`,
@@ -55,10 +60,10 @@ export async function generateMetadata({
       siteName: "ARGUMEND",
       images: [
         {
-          url: `https://argumend.org/api/og/${topic.id}`,
-          width: 1200,
-          height: 630,
-          alt: topic.title,
+          url: socialImage,
+          width: media?.hero.width ?? 1200,
+          height: media?.hero.height ?? 630,
+          alt: media?.hero.alt ?? topic.title,
         },
       ],
     },
@@ -66,7 +71,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${topic.title} — Argument Analysis`,
       description,
-      images: [`https://argumend.org/api/og/${topic.id}`],
+      images: [socialImage],
     },
   };
 }
@@ -84,6 +89,10 @@ export default async function TopicPage({ params }: PageProps) {
   }
 
   const categoryLabel = CATEGORY_LABELS[topic.category];
+  const media = getGeneratedMedia("topic", topic.id);
+  const socialImage = media?.hero
+    ? absoluteMediaUrl(media.hero.src)
+    : `https://argumend.org/api/og/${topic.id}`;
 
   // Resolve related topics SERVER-SIDE and pass as props, so the client bundle
   // doesn't import the full ~150-topic `data/topics` module (TopicDetailView
@@ -130,7 +139,7 @@ export default async function TopicPage({ params }: PageProps) {
           headline: topic.title,
           description: topic.meta_claim,
           url: `https://argumend.org/topics/${topic.id}`,
-          image: `https://argumend.org/api/og/${topic.id}`,
+          image: socialImage,
           articleSection: categoryLabel,
           inLanguage: "en-US",
           datePublished,
