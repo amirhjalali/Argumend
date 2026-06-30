@@ -16,7 +16,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import MiniSearch from "minisearch";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
-import { articles } from "@/data/blog";
+import { categoryColors } from "@/lib/categoryColors";
+import { articleSummaries } from "@/data/blogIndex";
 import { concepts } from "@/data/concepts";
 
 // ---------------------------------------------------------------------------
@@ -90,7 +91,7 @@ const STATIC_PAGES: SearchResult[] = [
   {
     id: "page-library",
     title: "Library",
-    subtitle: "Browse all topics and arguments",
+    subtitle: "Curated books, papers, and tools",
     type: "page",
     href: "/library",
   },
@@ -145,14 +146,6 @@ function getVerdictInfo(score: number): { label: string; color: string } {
   if (score <= 35) return { label: "Against", color: "text-deep" };
   return { label: "Draw", color: "text-stone-500" };
 }
-
-const CATEGORY_BADGE_CLASSES: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep",
-  technology: "bg-indigo-50 text-indigo-600",
-  science: "bg-emerald-50 text-emerald-600",
-  economics: "bg-sky-50 text-sky-600",
-  philosophy: "bg-violet-50 text-violet-600",
-};
 
 const TYPE_CONFIG: Record<
   ResultType,
@@ -224,7 +217,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       };
     });
 
-    const blogResults: SearchResult[] = articles.map((a) => ({
+    const blogResults: SearchResult[] = articleSummaries.map((a) => ({
       id: `blog-${a.slug}`,
       title: a.title,
       subtitle: a.description,
@@ -361,9 +354,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const handleFocusTrap = (e: KeyboardEvent) => {
       if (e.key !== "Tab" || !modalRef.current) return;
 
-      const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
+      const focusableElements = Array.from(
+        modalRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.offsetParent !== null);
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
 
@@ -518,13 +513,19 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             </button>
           </div>
 
+          {/* Screen-reader-only live region announcing result count */}
+          <div className="sr-only" role="status" aria-live="polite">
+            {query.trim()
+              ? `${flatResults.length} result${flatResults.length !== 1 ? "s" : ""}`
+              : ""}
+          </div>
+
           {/* Results */}
           <div
             ref={listRef}
             id="search-results"
             className="max-h-[60vh] overflow-y-auto overscroll-contain py-2"
             role="listbox"
-            aria-live="polite"
           >
             {groups.length === 0 && query.trim() !== "" && (
               <div className="px-5 py-12 text-center">
@@ -537,8 +538,18 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     &ldquo;{query}&rdquo;
                   </span>
                 </div>
-                <div className="mt-2 text-stone-400 text-xs">
-                  Try different words, or just browse the topics
+                <div className="mt-2 text-muted text-xs">
+                  Try different words, or{" "}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      router.push("/topics");
+                      onClose();
+                    }}
+                    className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"
+                  >
+                    browse all topics
+                  </button>
                 </div>
               </div>
             )}
@@ -547,7 +558,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <div key={group.label} className="mb-1">
                 {/* Group header */}
                 <div className="px-5 py-2">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-stone-400">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-muted dark:text-stone-400">
                     {group.label}
                   </span>
                 </div>
@@ -604,15 +615,15 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           {isTopic && result.category && (
                             <span
                               className={`
-                                flex-shrink-0 text-[10px] font-medium px-1.5 py-0.5 rounded-full
-                                ${CATEGORY_BADGE_CLASSES[result.category]}
+                                flex-shrink-0 text-[10px] font-medium px-1.5 py-0.5 rounded-full border
+                                ${categoryColors[result.category]}
                               `}
                             >
                               {CATEGORY_LABELS[result.category]}
                             </span>
                           )}
                         </div>
-                        <div className="text-xs text-stone-400 truncate mt-0.5">
+                        <div className="text-xs text-muted dark:text-stone-400 truncate mt-0.5">
                           {result.subtitle}
                         </div>
                       </div>
@@ -657,7 +668,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           {/* Footer */}
           <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 dark:border-[#3d3a36] bg-[#f4f1eb]/50 dark:bg-[#1a1917]/50">
-            <div className="flex items-center gap-4 text-[11px] text-stone-400">
+            <div className="flex items-center gap-4 text-[11px] text-muted dark:text-stone-400">
               <span className="flex items-center gap-1">
                 <kbd className="inline-flex h-4 items-center rounded border border-stone-200 dark:border-[#3d3a36] bg-white dark:bg-[#302e2a] px-1 font-mono text-[10px]">
                   &uarr;
@@ -678,7 +689,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 <span>Close</span>
               </span>
             </div>
-            <div className="text-[11px] text-stone-400">
+            <div className="text-[11px] text-muted dark:text-stone-400">
               {flatResults.length} result{flatResults.length !== 1 ? "s" : ""}
             </div>
           </div>

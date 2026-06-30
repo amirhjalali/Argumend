@@ -7,6 +7,21 @@ export const geoengineeringClimateData = {
     "Geoengineering interventions — particularly stratospheric aerosol injection and direct air carbon capture — are now a necessary complement to emissions reduction, not a dangerous distraction from it.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Carbon removal isn't an alternative to cutting emissions — the IPCC found that essentially every modeled pathway to 1.5°C requires it anyway, because the remaining carbon budget is only ~500 gigatons of CO2 (roughly a decade of emissions). The catch: today's leading direct-air-capture plants cost near $1,000 per ton and capture only tens of thousands of tons a year, against the ~40 billion tons humanity emits annually.",
+    confidence: 88,
+    source:
+      "IPCC AR6 (2021-2023, remaining 1.5°C budget ~500 GtCO2 and CDR required in all 1.5°C pathways); IEA Direct Air Capture (2022); Climeworks operational data",
+    sourceUrl: "https://www.ipcc.ch/report/ar6/syr/",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The physics is unforgiving: even if the world hit net-zero emissions tomorrow, the ~1.5 trillion tons of CO2 already in the air keep warming the planet for centuries, and the IPCC finds that every assessed pathway to 1.5°C requires carbon removal at scale — making it a necessary complement to emission cuts, not a substitute.",
+    "But the leading technologies are nowhere near ready to matter: direct air capture runs near $1,000 per ton today (with $400-600 only a 2030 target) and the largest plants remove tens of thousands of tons a year against ~40 billion tons emitted, while solar geoengineering could cool the planet cheaply yet risks disrupting monsoons that feed billions and triggering 'termination shock' if ever stopped abruptly.",
+    "So the honest debate isn't 'geoengineering vs. a stable climate' — that climate is already gone — but whether scaling removal and researching solar dimming buys real time, or whether the promise of an engineered fix lets emitters delay the one thing that definitely works: cutting fossil fuels.",
+  ],
   imageUrl:
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -67,6 +82,16 @@ export const geoengineeringClimateData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Carbon budget modeling with multiple independent research groups)",
+        falsification: {
+          supporter_flip:
+            "If independent budget modeling showed that immediate, aggressive emission cuts plus natural sinks (reforestation, soil, ocean uptake) could stay within the ~500 GtCO2 budget for 1.5-2°C without technological removal, the 'necessity' framing would collapse to 'optional and overpriced,' and DAC at ~$1,000/ton would lose its justification next to ~$50-100/ton prevention.",
+          skeptic_flip:
+            "A skeptic who calls necessity 'self-serving' should weigh that the IPCC found essentially all assessed 1.5°C pathways require carbon removal, that the remaining budget is only ~12 years of current emissions, and that already-emitted CO2 keeps warming for centuries — so even perfect future emission cuts leave a removal gap that subsidies-and-renewables alone cannot close.",
+          common_ground:
+            "Both sides agree emission cuts are cheaper and lower-risk than removal, that fossil fuel subsidies should be eliminated, and that current CO2 levels are already dangerously high.",
+          live_disagreement:
+            "Whether natural sinks plus feasible emission cuts can stay within the carbon budget, or whether the arithmetic forces technological removal regardless — resolvable only by independent budget modeling across immediate-net-zero, linear-to-2050, and current-trajectory scenarios.",
+        },
       },
       evidence: [
         {
@@ -146,6 +171,16 @@ export const geoengineeringClimateData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-15M (Multi-model ensemble regional climate impact analysis)",
+        falsification: {
+          supporter_flip:
+            "If a multi-model ensemble showed that SRM sufficient to limit warming to 1.5-2°C leaves at least one major populated region (e.g. the South Asian or West African monsoon belt) significantly worse off than even a 3-4°C no-intervention world, the 'side effects are smaller than unmitigated warming' rebuttal would fail and the governance problem of harming non-consenting nations would dominate.",
+          skeptic_flip:
+            "A skeptic focused on monsoon disruption and termination shock should weigh that unmitigated 3-4°C warming also devastates those same monsoon regions, that Mount Pinatubo (1991) confirmed the cooling mechanism works, and that termination shock is a governance failure mode rather than a physical law — meaning the relevant comparison is SRM vs. catastrophic warming, not SRM vs. a stable climate.",
+          common_ground:
+            "Both sides agree SRM would alter regional precipitation, that termination shock would be catastrophic if injection stopped abruptly, and that no adequate international governance framework currently exists.",
+          live_disagreement:
+            "Whether SRM produces net regional benefits across all major population centers relative to a no-intervention baseline, or leaves identifiable net losers — resolvable only by high-resolution, multi-country climate model ensembles comparing unmitigated warming, SRM, and aggressive-cuts scenarios.",
+        },
       },
       evidence: [
         {
@@ -208,6 +243,16 @@ export const geoengineeringClimateData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Multi-country survey experiment with natural experiment analysis)",
+        falsification: {
+          supporter_flip:
+            "If well-powered, long-horizon survey and natural experiments showed that exposure to geoengineering feasibility reliably lowers willingness to pay for carbon taxes or support emission regulations — especially when concrete costs are at stake — the 'genuine complement' framing would yield to the 'dangerous distraction' charge, and research promotion itself would carry a real political cost.",
+          skeptic_flip:
+            "A skeptic pointing to fossil-fuel funding of carbon capture should weigh that rejecting CDR because oil companies also back it is a genetic fallacy, that 30 years of climate negotiations failed to bend emissions before any geoengineering hype, and that the best available survey experiments (UK, US, Singapore) found no average drop in support for emission cuts after learning about SRM.",
+          common_ground:
+            "Both sides agree fossil fuel companies fund carbon capture while expanding production, that political will for deep emission cuts has been chronically inadequate, and that moral hazard is at least a plausible risk worth measuring.",
+          live_disagreement:
+            "Whether exposure to geoengineering options measurably erodes support for emission reduction over the long run, or leaves it intact — resolvable only by randomized multi-country survey experiments plus natural experiments tracking CCS-heavy jurisdictions' emission-policy trajectories.",
+        },
       },
       evidence: [
         {

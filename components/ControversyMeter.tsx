@@ -120,14 +120,22 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
               ?
             </button>
           </div>
-          <span className="text-sm font-medium text-primary">{displayLabel}</span>
+          <div className="flex items-baseline gap-2">
+            <span className="text-sm font-medium text-primary">{displayLabel}</span>
+            {/* Numeric readout: the bar fills by controversy (inverse of the
+                page's confidence score), so show the confidence number to keep
+                the meter interpretable against the rest of the page. */}
+            <span className="text-xs font-medium tabular-nums text-stone-500 dark:text-[#8a8279]">
+              {confidenceScore}% confidence
+            </span>
+          </div>
         </div>
 
         {/* Bar */}
         <div className="relative h-3 sm:h-4 rounded-full bg-stone-200/80 dark:bg-[#302e2a] overflow-visible">
           {/* Gradient fill */}
           <div
-            className={`absolute inset-0 rounded-full bg-gradient-to-r ${config.barClass} ${config.animationClass} ${config.glowClass}`}
+            className={`absolute inset-0 rounded-full bg-gradient-to-r ${config.barClass} ${config.animationClass} motion-reduce:animate-none ${config.glowClass}`}
             style={{ width: `${Math.max(controversyPct, 4)}%` }}
             role="meter"
             aria-valuenow={confidenceScore}
@@ -149,10 +157,10 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
 
         {/* Scale labels */}
         <div className="flex justify-between mt-2">
-          <span className="text-[10px] sm:text-xs text-stone-400 dark:text-[#8a8279] font-medium">
+          <span className="text-[10px] sm:text-xs text-stone-500 dark:text-[#8a8279] font-medium">
             Settled
           </span>
-          <span className="text-[10px] sm:text-xs text-stone-400 dark:text-[#8a8279] font-medium">
+          <span className="text-[10px] sm:text-xs text-stone-500 dark:text-[#8a8279] font-medium">
             Speculative
           </span>
         </div>
@@ -162,7 +170,7 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
           <div className="absolute z-20 top-full left-1/2 -translate-x-1/2 mt-2 w-72 sm:w-80 p-4 rounded-lg bg-white dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-default)] shadow-lw text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
             <p className="font-medium text-primary mb-1">{displayLabel}</p>
             <p>{config.description}</p>
-            <p className="mt-2 text-xs text-stone-400">
+            <p className="mt-2 text-xs text-muted">
               Based on a {confidenceScore}% confidence score computed from
               evidence quality, expert agreement, and verification status.
             </p>

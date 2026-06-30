@@ -292,7 +292,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
                 {position.speaker}
               </span>
             )}
-            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${isFor ? "bg-rust-50 text-rust-500" : "bg-stone-50 text-stone-400"}`}>
+            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${isFor ? "bg-rust-50 text-rust-500" : "bg-stone-50 text-muted dark:text-stone-400"}`}>
               {position.arguments.length} argument
               {position.arguments.length !== 1 ? "s" : ""}
             </span>
@@ -339,7 +339,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
                       )}
                       {arg.evidence && arg.evidence.length > 0 && (
                         <div className="mt-3 space-y-1.5">
-                          <span className="text-[10px] text-stone-400 dark:text-[var(--text-muted)] uppercase tracking-wider font-semibold">
+                          <span className="text-[10px] text-muted dark:text-[var(--text-muted)] uppercase tracking-wider font-semibold">
                             Evidence
                           </span>
                           <ul className="space-y-1.5">
@@ -571,7 +571,7 @@ export function AnalysisView({
                   <Brain className="h-3 w-3" />
                   Analysis Report
                 </div>
-                <span className="flex items-center gap-1.5 text-xs text-stone-400 dark:text-[var(--text-muted)]">
+                <span className="flex items-center gap-1.5 text-xs text-muted dark:text-[var(--text-muted)]">
                   <Clock className="h-3 w-3" />
                   Generated {formattedDate} at {formattedTime}
                 </span>

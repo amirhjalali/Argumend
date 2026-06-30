@@ -2,7 +2,8 @@
 
 import "@xyflow/react/dist/style.css";
 
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 import {
   Background,
   BackgroundVariant,
@@ -40,6 +41,60 @@ function CanvasInner() {
     (state) => state.consumeFocusTargets,
   );
   const reactFlow = useReactFlow();
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  // A crux is reachable whenever the graph holds a crux node (already revealed)
+  // or a pillar (whose expansion reveals one). Drives the persistent "Find the
+  // crux" affordance so the crux is never buried an expansion deep.
+  const hasCruxPath = useLogicGraph((state) =>
+    state.nodes.some(
+      (n) => n.data.variant === "crux" || n.data.variant === "pillar",
+    ),
+  );
+
+  // First-interaction tracking for auto-dismissing the topic intro panel.
+  // `interactionReady` gates viewport moves so the initial/auto-expand fitView
+  // animations (which fire onMoveStart programmatically) don't count as a user
+  // interaction; node clicks and drags are always user-driven so count at once.
+  const [userInteracted, setUserInteracted] = useState(false);
+  const interactionReady = useRef(false);
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      interactionReady.current = true;
+    }, 1200);
+    return () => window.clearTimeout(t);
+  }, []);
+  const handleUserInteract = useCallback(() => setUserInteracted(true), []);
+  const handleViewportInteract = useCallback(() => {
+    if (interactionReady.current) setUserInteracted(true);
+  }, []);
+
+  // Surface the crux in one click: focus it if already on the canvas, otherwise
+  // expand the first pillar to reveal its crux, then focus that. Uses only the
+  // store's public actions (the focus effect below animates the camera).
+  const handleFindCrux = useCallback(() => {
+    const store = useLogicGraph.getState();
+    const existingCrux = store.nodes.find((n) => n.data.variant === "crux");
+    if (existingCrux) {
+      store.setFocusTargets([existingCrux.id]);
+      return;
+    }
+    const pillar = store.nodes.find((n) => n.data.variant === "pillar");
+    if (!pillar) return;
+    store.expandNode(pillar.id);
+    const next = useLogicGraph.getState();
+    const revealed = next.nodes.find((n) => n.data.variant === "crux");
+    if (revealed) next.setFocusTargets([revealed.id]);
+  }, []);
+
+  // Theme-aware canvas chrome. The dot grid and minimap mask are otherwise
+  // hardcoded to parchment, leaving dark-mode users with bright artifacts on a
+  // near-black canvas. `useTheme` re-renders on toggle so these update live.
+  const backgroundDotColor = isDark ? "#45413b" : "#cdc6bb";
+  const miniMapMaskColor = isDark
+    ? "rgba(26, 25, 23, 0.78)"
+    : "rgba(244, 241, 235, 0.75)";
 
   const nodeTypes = useMemo(
     () => ({
@@ -93,10 +148,13 @@ function CanvasInner() {
         panOnDrag
         zoomOnDoubleClick={false}
         onNodesChange={onNodesChange}
+        onMoveStart={handleViewportInteract}
+        onNodeClick={handleUserInteract}
+        onNodeDragStart={handleUserInteract}
         fitView
       >
         <Background
-          color="#cdc6bb"
+          color={backgroundDotColor}
           gap={GRAPH.GRID_GAP}
           size={GRAPH.DOT_SIZE}
           variant={BackgroundVariant.Dots}
@@ -114,12 +172,12 @@ function CanvasInner() {
           }}
           nodeColor={getNodeColor}
           nodeStrokeColor={() => "transparent"}
-          maskColor="rgba(244, 241, 235, 0.75)"
+          maskColor={miniMapMaskColor}
         />
         <ZoomIndicator />
-        <MapLegend />
+        <MapLegend onFindCrux={hasCruxPath ? handleFindCrux : undefined} />
         <NavigationPath />
-        <TopicIntroPanel />
+        <TopicIntroPanel userInteracted={userInteracted} />
       </ReactFlow>
 
       <CruxModal />

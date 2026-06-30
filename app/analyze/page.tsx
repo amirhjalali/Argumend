@@ -89,7 +89,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             {position.speaker && (
               <span className="text-sm text-stone-600 dark:text-stone-400">{position.speaker}</span>
             )}
-            <span className="text-sm text-stone-400 dark:text-stone-500">
+            <span className="text-sm text-muted dark:text-stone-500">
               {position.arguments.length} argument
               {position.arguments.length !== 1 ? "s" : ""}
             </span>
@@ -389,8 +389,9 @@ export default function AnalyzePage() {
                 Analyze Any Argument
               </h1>
               <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
-                Paste a debate, article, or anything with an argument in it.
-                We&apos;ll pull out the positions, find the crux, and tell you how strong the reasoning is.
+                Paste a debate, an article, or anything with an argument in it. In seconds,
+                we&apos;ll surface every position, pinpoint the crux that divides them, and rate
+                how strong the reasoning really is.
               </p>
               {!liveAnalyzeEnabled && (
                 <p className="text-sm text-emerald-700/80 dark:text-emerald-400/80 max-w-2xl mx-auto">
@@ -501,12 +502,12 @@ export default function AnalyzePage() {
 
                   {/* Bottom bar: keyboard hint + judging toggle */}
                   <div className="flex items-center justify-between mt-3 pt-3 border-t border-stone-100 dark:border-[var(--border-subtle)]">
-                    <span className="text-xs text-stone-400 dark:text-[var(--text-muted)]">
+                    <span className="text-xs text-muted dark:text-[var(--text-muted)]">
                       {content.length > 0
                         ? `${content.length.toLocaleString()} characters`
                         : ""}
                       {content.trim() && (
-                        <span className="ml-2 text-stone-300 dark:text-stone-600">{"\u2318"}Enter to analyze</span>
+                        <span className="ml-2 text-muted dark:text-stone-600">{"\u2318"}Enter to analyze</span>
                       )}
                     </span>
                     <label className="flex items-center gap-2 cursor-pointer group">
@@ -538,6 +539,15 @@ export default function AnalyzePage() {
                   </motion.div>
                 )}
 
+                {/* Empty-state nudge — only before anything has been typed */}
+                {!content.trim() && !error && (
+                  <p className="text-center text-sm text-muted">
+                    Not sure what to paste? Hit{" "}
+                    <span className="font-medium text-deep">Try an Example</span> above and
+                    watch a real debate get mapped.
+                  </p>
+                )}
+
                 {/* Analyze Button */}
                 <div className="flex justify-center">
                   <motion.button
@@ -556,7 +566,7 @@ export default function AnalyzePage() {
                     {isAnalyzing ? (
                       <>
                         <Loader2 className="h-5 w-5 animate-spin" />
-                        <span>{liveAnalyzeEnabled ? "Analyzing..." : "Analyzing locally..."}</span>
+                        <span>Mapping the arguments&hellip;</span>
                       </>
                     ) : (
                       <>
@@ -566,6 +576,19 @@ export default function AnalyzePage() {
                     )}
                   </motion.button>
                 </div>
+
+                {/* Loading status — keeps the wait from feeling silent */}
+                {isAnalyzing && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-center text-sm text-muted"
+                    aria-live="polite"
+                  >
+                    Reading the text, separating the sides, and hunting for the crux. This
+                    usually takes a few seconds.
+                  </motion.p>
+                )}
               </motion.div>
             )}
 
@@ -582,7 +605,7 @@ export default function AnalyzePage() {
                 {/* Section divider */}
                 <div className="flex items-center gap-3">
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 dark:via-stone-600/60 to-transparent" />
-                  <span className="text-xs font-medium text-stone-400 dark:text-[var(--text-muted)] tracking-wide uppercase">
+                  <span className="text-xs font-medium text-muted dark:text-[var(--text-muted)] tracking-wide uppercase">
                     Results
                   </span>
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 dark:via-stone-600/60 to-transparent" />
@@ -616,7 +639,7 @@ export default function AnalyzePage() {
                   <p className="mt-2 text-stone-500 dark:text-stone-400 text-sm max-w-xl mx-auto leading-relaxed">
                     {result.extracted.summary}
                   </p>
-                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 dark:bg-[var(--bg-surface)] rounded-full text-xs text-stone-400 dark:text-[var(--text-muted)] font-mono tabular-nums">
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 dark:bg-[var(--bg-surface)] rounded-full text-xs text-muted dark:text-[var(--text-muted)] font-mono tabular-nums">
                     Confidence: {Math.round(result.extracted.confidence * 100)}%
                   </div>
                 </motion.div>
@@ -656,7 +679,7 @@ export default function AnalyzePage() {
                     <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
                       <Target className="h-4 w-4 text-deep" />
                       Key Cruxes
-                      <span className="text-sm font-sans font-normal text-stone-400 dark:text-[var(--text-muted)]">
+                      <span className="text-sm font-sans font-normal text-muted dark:text-[var(--text-muted)]">
                         Points of Disagreement
                       </span>
                     </h3>
@@ -679,7 +702,7 @@ export default function AnalyzePage() {
                     <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
                       <AlertTriangle className="h-4 w-4 text-rust-500" />
                       Potential Fallacies
-                      <span className="text-sm font-sans font-normal text-stone-400 dark:text-[var(--text-muted)]">
+                      <span className="text-sm font-sans font-normal text-muted dark:text-[var(--text-muted)]">
                         {result.extracted.potentialFallacies.length} detected
                       </span>
                     </h3>
@@ -700,7 +723,7 @@ export default function AnalyzePage() {
                   >
                     <div className="flex items-center gap-3 mb-6">
                       <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 dark:via-stone-600/60 to-transparent" />
-                      <span className="text-xs font-medium text-stone-400 dark:text-[var(--text-muted)] tracking-wide uppercase">
+                      <span className="text-xs font-medium text-muted dark:text-[var(--text-muted)] tracking-wide uppercase">
                         AI Judgment
                       </span>
                       <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/60 dark:via-stone-600/60 to-transparent" />

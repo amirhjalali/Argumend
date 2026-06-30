@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   CheckCircle,
@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { topicSummaries, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topicIndex";
 import type { TopicCategory, TopicStatus } from "@/data/topicIndex";
+import { categoryColors, statusColors, categoryTopBorder } from "@/lib/categoryColors";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -29,28 +30,6 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
   highly_speculative: HelpCircle,
 };
 
-const statusColors: Record<TopicStatus, string> = {
-  settled: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border-emerald-200/60 dark:border-emerald-800/40",
-  contested: "bg-rust-50 dark:bg-rust-950/40 text-rust-700 dark:text-rust-400 border-rust-200/60 dark:border-rust-800/40",
-  highly_speculative: "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-200/60 dark:border-stone-700/40",
-};
-
-const categoryColors: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep dark:text-deep-light border-deep/20",
-  technology: "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-200/60 dark:border-stone-700/40",
-  science: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200/60 dark:border-emerald-800/40",
-  economics: "bg-rust-50 dark:bg-rust-950/40 text-rust-700 dark:text-rust-400 border-rust-200/60 dark:border-rust-800/40",
-  philosophy: "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-200/60 dark:border-stone-700/40",
-};
-
-const categoryTopBorder: Record<TopicCategory, string> = {
-  policy: "border-t-deep",
-  technology: "border-t-stone-400",
-  science: "border-t-emerald-400",
-  economics: "border-t-rust-400",
-  philosophy: "border-t-stone-400",
-};
-
 type SortOption = "category" | "confidence-desc" | "confidence-asc" | "title-asc";
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
@@ -60,12 +39,28 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
   { value: "title-asc", label: "Alphabetical" },
 ];
 
+const ALL_STATUSES: TopicStatus[] = ["settled", "contested", "highly_speculative"];
+
+const STATUS_LABELS: Record<TopicStatus, string> = {
+  settled: "Settled",
+  contested: "Contested",
+  highly_speculative: "Speculative",
+};
+
+// Default confidence bounds — values outside [DEFAULT_MIN, DEFAULT_MAX] count as
+// an active filter and get reflected in the URL.
+const DEFAULT_MIN = 0;
+const DEFAULT_MAX = 100;
+
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
 
 export default function TopicsPage() {
   const [activeCategory, setActiveCategory] = useState<TopicCategory | "all">("all");
+  const [activeStatuses, setActiveStatuses] = useState<Set<TopicStatus>>(new Set());
+  const [minConfidence, setMinConfidence] = useState(DEFAULT_MIN);
+  const [maxConfidence, setMaxConfidence] = useState(DEFAULT_MAX);
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("category");
 
@@ -75,6 +70,20 @@ export default function TopicsPage() {
     // Category filter
     if (activeCategory !== "all") {
       filtered = filtered.filter((t) => t.category === activeCategory);
+    }
+
+    // Status filter (multi-select; empty set means "any status")
+    if (activeStatuses.size > 0) {
+      filtered = filtered.filter((t) => activeStatuses.has(t.status));
+    }
+
+    // Confidence-range filter
+    if (minConfidence > DEFAULT_MIN || maxConfidence < DEFAULT_MAX) {
+      filtered = filtered.filter(
+        (t) =>
+          t.confidence_score >= minConfidence &&
+          t.confidence_score <= maxConfidence
+      );
     }
 
     // Search filter
@@ -108,7 +117,7 @@ export default function TopicsPage() {
     });
 
     return filtered;
-  }, [activeCategory, search, sortBy]);
+  }, [activeCategory, activeStatuses, minConfidence, maxConfidence, search, sortBy]);
 
   // Count per category
   const categoryCounts = useMemo(() => {
@@ -119,12 +128,102 @@ export default function TopicsPage() {
     return counts;
   }, []);
 
+  const toggleStatus = (status: TopicStatus) => {
+    setActiveStatuses((prev) => {
+      const next = new Set(prev);
+      if (next.has(status)) next.delete(status);
+      else next.add(status);
+      return next;
+    });
+  };
+
   const clearFilters = () => {
     setActiveCategory("all");
+    setActiveStatuses(new Set());
+    setMinConfidence(DEFAULT_MIN);
+    setMaxConfidence(DEFAULT_MAX);
     setSearch("");
   };
 
-  const hasFilters = activeCategory !== "all" || search.trim().length > 0;
+  const hasFilters =
+    activeCategory !== "all" ||
+    activeStatuses.size > 0 ||
+    minConfidence > DEFAULT_MIN ||
+    maxConfidence < DEFAULT_MAX ||
+    search.trim().length > 0;
+
+  // ---------------------------------------------------------------------------
+  // URL-addressable discovery state.
+  //
+  // We deliberately read params via window.location (in an effect) rather than
+  // next/navigation's useSearchParams: the latter forces a client-side bailout
+  // during static generation, which would strip the full topic list from the
+  // initial HTML and hurt SEO. Reading on mount keeps the server-rendered list
+  // (default state = all topics) crawlable, then layers the shared filter view
+  // on top after hydration. Writes use history.replaceState so filter changes
+  // update the address bar shallowly — no navigation, no extra history entries.
+  // ---------------------------------------------------------------------------
+  const didInit = useRef(false);
+
+  useEffect(() => {
+    if (!didInit.current) {
+      // First pass: hydrate filter state from the URL, don't write back.
+      const params = new URLSearchParams(window.location.search);
+
+      const cat = params.get("category");
+      if (cat && CATEGORY_ORDER.includes(cat as TopicCategory)) {
+        setActiveCategory(cat as TopicCategory);
+      }
+
+      const statusParam = params.get("status");
+      if (statusParam) {
+        const parsed = statusParam
+          .split(",")
+          .filter((s): s is TopicStatus => ALL_STATUSES.includes(s as TopicStatus));
+        if (parsed.length > 0) setActiveStatuses(new Set(parsed));
+      }
+
+      const rawMin = Number(params.get("min"));
+      const rawMax = Number(params.get("max"));
+      let nextMin = Number.isFinite(rawMin) ? Math.min(Math.max(rawMin, 0), 100) : DEFAULT_MIN;
+      let nextMax = Number.isFinite(rawMax) ? Math.min(Math.max(rawMax, 0), 100) : DEFAULT_MAX;
+      if (params.get("min") === null) nextMin = DEFAULT_MIN;
+      if (params.get("max") === null) nextMax = DEFAULT_MAX;
+      if (nextMin > nextMax) nextMin = nextMax; // keep the range coherent
+      if (nextMin !== DEFAULT_MIN) setMinConfidence(nextMin);
+      if (nextMax !== DEFAULT_MAX) setMaxConfidence(nextMax);
+
+      const sortParam = params.get("sort");
+      if (sortParam && SORT_OPTIONS.some((o) => o.value === sortParam)) {
+        setSortBy(sortParam as SortOption);
+      }
+
+      const qParam = params.get("q");
+      if (qParam) setSearch(qParam);
+
+      didInit.current = true;
+      return;
+    }
+
+    // Subsequent passes: reflect the current filter state in the URL.
+    const params = new URLSearchParams();
+    if (activeCategory !== "all") params.set("category", activeCategory);
+    if (activeStatuses.size > 0) {
+      params.set("status", ALL_STATUSES.filter((s) => activeStatuses.has(s)).join(","));
+    }
+    if (minConfidence > DEFAULT_MIN) params.set("min", String(minConfidence));
+    if (maxConfidence < DEFAULT_MAX) params.set("max", String(maxConfidence));
+    if (sortBy !== "category") params.set("sort", sortBy);
+    if (search.trim()) params.set("q", search.trim());
+
+    const qs = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      qs ? `${window.location.pathname}?${qs}` : window.location.pathname
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeCategory, activeStatuses, minConfidence, maxConfidence, sortBy, search]);
 
   const topicsJsonLd = useMemo(
     () => ({
@@ -208,7 +307,7 @@ export default function TopicsPage() {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search topics..."
                 aria-label="Search topics"
-                className="w-full pl-9 pr-9 py-2.5 min-h-[44px] text-sm bg-white dark:bg-[var(--bg-input)] border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg text-stone-700 dark:text-[var(--text-primary)] placeholder-stone-400 dark:placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
+                className="w-full pl-9 pr-9 py-2.5 min-h-[44px] text-base sm:text-sm bg-white dark:bg-[var(--bg-input)] border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg text-stone-700 dark:text-[var(--text-primary)] placeholder-stone-400 dark:placeholder-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
               />
               {search && (
                 <button
@@ -234,6 +333,73 @@ export default function TopicsPage() {
                   </option>
                 ))}
               </select>
+            </div>
+          </div>
+
+          {/* Status + Confidence filter row */}
+          <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6 mb-6">
+            {/* Status chips (multi-select; none selected = any status) */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-xs font-medium text-stone-500 whitespace-nowrap">
+                Status:
+              </span>
+              {ALL_STATUSES.map((status) => {
+                const StatusIcon = statusIcons[status];
+                const active = activeStatuses.has(status);
+                return (
+                  <button
+                    key={status}
+                    onClick={() => toggleStatus(status)}
+                    aria-pressed={active}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[36px] rounded-full text-xs font-medium border transition-all ${
+                      active
+                        ? statusColors[status]
+                        : "bg-white dark:bg-[var(--bg-card)] text-stone-500 dark:text-stone-400 border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 dark:hover:border-deep/50 hover:text-stone-700 dark:hover:text-stone-300"
+                    }`}
+                  >
+                    <StatusIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                    {STATUS_LABELS[status]}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Confidence range (dual slider) */}
+            <div className="flex flex-col gap-1.5 w-full max-w-[260px] lg:ml-auto">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium text-stone-500">Confidence</span>
+                <span className="font-mono text-xs tabular-nums text-stone-700 dark:text-stone-300">
+                  {minConfidence}&ndash;{maxConfidence}%
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] text-stone-500 w-7 flex-shrink-0">Min</span>
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  value={minConfidence}
+                  onChange={(e) =>
+                    setMinConfidence(Math.min(Number(e.target.value), maxConfidence))
+                  }
+                  aria-label="Minimum confidence"
+                  className="flex-1 h-1 appearance-none bg-stone-200 dark:bg-stone-700 rounded-full accent-deep cursor-pointer"
+                />
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] text-stone-500 w-7 flex-shrink-0">Max</span>
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  value={maxConfidence}
+                  onChange={(e) =>
+                    setMaxConfidence(Math.max(Number(e.target.value), minConfidence))
+                  }
+                  aria-label="Maximum confidence"
+                  className="flex-1 h-1 appearance-none bg-stone-200 dark:bg-stone-700 rounded-full accent-deep cursor-pointer"
+                />
+              </div>
             </div>
           </div>
 
@@ -263,7 +429,9 @@ export default function TopicsPage() {
               <SearchX className="h-10 w-10 text-stone-300 mx-auto mb-4" />
               <p className="text-stone-600 font-medium mb-1">No topics found</p>
               <p className="text-sm text-stone-500 mb-5 max-w-xs mx-auto">
-                Try adjusting your search terms or clearing the filters to browse all {topicSummaries.length} topics.
+                No topics match your current filters. Try widening the confidence
+                range, picking a different status, or clearing all filters to browse
+                all {topicSummaries.length} topics.
               </p>
               <button
                 onClick={clearFilters}

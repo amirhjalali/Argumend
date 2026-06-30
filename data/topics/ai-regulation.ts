@@ -7,6 +7,21 @@ export const aiRegulationData = {
     "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "In 2023, hundreds of the field's own leaders — Hinton, Bengio, Hassabis, Altman, Amodei — signed a one-sentence statement putting AI extinction risk alongside pandemics and nuclear war. Yet there's no agreement on the most basic question: is frontier AI more like a drug or reactor (slow pre-market approval because failure is catastrophic) or like software (ship fast, fix later)? That analogy choice decides the whole debate.",
+    confidence: 78,
+    source:
+      "Center for AI Safety, Statement on AI Risk (2023); EU AI Act (2024); California SB 1047 (vetoed 2024)",
+    sourceUrl: "https://www.safe.ai/work/statement-on-ai-risk",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "This isn't a fringe worry: in 2023 hundreds of the people who built modern AI — Hinton, Bengio, Hassabis, plus the CEOs of OpenAI and Anthropic — signed a statement putting AI extinction risk in the same sentence as pandemics and nuclear war.",
+    "But the regulatory fight hinges on an unsettled analogy: if frontier AI is like a drug or a reactor, you test before release because failure is catastrophic and irreversible; if it's like software, that pre-approval freezes a fast-moving field at today's capabilities while less-cautious rivals (notably China) race ahead.",
+    "So the honest debate isn't really 'is AI risky?' but which model fits — and the hard sub-questions are whether rules should trigger on a crude compute threshold (which can entrench incumbents) or on real-world risk, and whether unilateral Western rules even work without China at the table.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Existential & Catastrophic Risk
@@ -31,6 +46,16 @@ export const aiRegulationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-2M (Longitudinal benchmark evaluation requiring compute access to frontier models)",
+        falsification: {
+          supporter_flip:
+            "If frontier-AI capabilities plateaued — scaling hitting diminishing returns with no genuinely novel abilities (long-horizon planning, deception, self-preservation) emerging — the case for urgent, drug/nuclear-style preemptive regulation would weaken toward addressing present harms instead.",
+          skeptic_flip:
+            "A skeptic who calls existential risk speculative should weigh that capabilities have kept climbing fast (bar exam, autonomous agents that write code and operate computers) and that the field's own leading researchers, not just executives, signed the extinction-risk statement — so 'purely hypothetical' is getting harder to maintain.",
+          common_ground:
+            "Both sides agree no current AI system shows autonomous goal-seeking or resistance to shutdown, and that AI already causes concrete present harms (bias, surveillance, fraud).",
+          live_disagreement:
+            "Whether capabilities keep scaling toward catastrophe-relevant thresholds on the current trajectory or plateau — which determines how urgent preemptive regulation is, and only sustained benchmark tracking can settle.",
+        },
       },
       evidence: [
         {
@@ -110,6 +135,16 @@ export const aiRegulationData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$0 (FDA approval data, NRC records, and AI product launches are publicly available)",
+        falsification: {
+          supporter_flip:
+            "If the historical record showed drug- and nuclear-style regulation sharply cut innovation per dollar (fewer drugs, frozen plant construction) and the EU AI Act measurably slowed European AI relative to the US, the 'safety and innovation coexist' claim would weaken — regulation would carry a real growth cost.",
+          skeptic_flip:
+            "A skeptic who says regulation kills innovation should weigh that the heavily-regulated pharma industry still generates ~$1.5T/year, and that the 'regulation freezes AI' prediction has to be measured, not assumed — including whether deployment-risk rules (vs. compute thresholds) avoid entrenching incumbents.",
+          common_ground:
+            "Both sides agree AI moves far faster than the 10–15 year drug-approval cycle, so any AI regime can't simply copy the FDA timeline.",
+          live_disagreement:
+            "Whether safety regulation meaningfully slows AI innovation or channels it without much loss — which comparing EU/US/China deployment rates and historical regulated-industry innovation could measure.",
+        },
       },
       evidence: [
         {
@@ -223,6 +258,16 @@ export const aiRegulationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-5M (Open-source intelligence analysis of Chinese AI development combining satellite imagery, patent data, and compute procurement analysis)",
+        falsification: {
+          supporter_flip:
+            "If China's participation in AI-safety summits proved purely performative — its domestic frontier development racing ahead unconstrained while it signs non-binding declarations — unilateral Western regulation would be a competitive handicap, weakening the case for it absent enforceable global rules.",
+          skeptic_flip:
+            "A skeptic who says coordination is hopeless should weigh that the nuclear nonproliferation regime held the nuclear-armed club to nine and the Montreal Protocol coordinated 197 nations — so 'global coordination on a dangerous technology is impossible' is contradicted by precedent, and US frontier leadership gives it standard-setting leverage.",
+          common_ground:
+            "Both sides agree AI safety is ultimately a global coordination problem and that China is investing heavily and will not simply adopt Western constraints.",
+          live_disagreement:
+            "Whether China and other non-aligned states will join binding (not just symbolic) AI governance — which tracking China's actual domestic enforcement against its international commitments could reveal.",
+        },
       },
       evidence: [
         {

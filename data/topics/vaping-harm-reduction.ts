@@ -7,6 +7,22 @@ export const vapingHarmReductionData = {
     "E-cigarettes are an effective and acceptable harm-reduction tool for smokers.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Most people assume vaping is just a new way to get hooked, but the highest tier of medical evidence says the opposite for smokers: the 2024 Cochrane review rates nicotine e-cigarettes as MORE effective than nicotine patches/gum at quitting — about 4 extra quitters per 100 — and UK health bodies estimate vaping is at least ~95% less harmful than smoking. The honest catch: most users don't fully switch, becoming long-term 'dual users' who keep smoking and capture little of that benefit, and millions of never-smoking teens took up nicotine along the way.",
+    confidence: 84,
+    source:
+      "Lindson et al., Cochrane Database of Systematic Reviews (2024, RR 1.59, high certainty); Royal College of Physicians 'Nicotine without Smoke' (2016) and Public Health England (2015/2018, ~95% less harmful)",
+    sourceUrl:
+      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD010216.pub8/full",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The strongest case is that for a current smoker, switching to vaping is a large, evidence-backed harm cut: the gold-standard Cochrane review (high certainty, RR 1.59) finds nicotine e-cigarettes beat nicotine-replacement therapy at producing 6-month-plus quitting, and biomarker trials show exclusive switchers drop a key lung carcinogen (NNAL) ~90% — because the combustion toxicants that drive smoking disease are largely absent from vapour.",
+    "The honest limitation is that the ideal 'clean switch' is not the typical outcome: dual users — who keep smoking some cigarettes — are the most common pattern and show cardiovascular risk profiles no better than smoking alone, long-term disease effects of chronic vaping are still unknown because the products are too new, and mass-marketed flavoured devices recruited millions of never-smoking adolescents to nicotine.",
+    "So the honest debate isn't 'is vaping safe?' (it isn't safe, just far less harmful than smoking) but 'does it produce more complete switching than new nicotine dependence at the population level?' — an empirical question about real-world use patterns, not about whether the device can help a motivated smoker quit.",
+  ],
   last_updated: "2026-06-16",
   tags: ["vaping", "smoking", "harm-reduction", "public-health", "nicotine"],
   pillars: [
@@ -29,6 +45,16 @@ export const vapingHarmReductionData = {
           "Pool randomised controlled trials that allocate smokers to nicotine e-cigarettes vs. NRT (or other active comparators) and measure carbon-monoxide-verified continuous abstinence at >= 6 months. Compute relative risk and absolute risk difference; grade certainty via GRADE.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (existing meta-analysis)",
+        falsification: {
+          supporter_flip:
+            "If newer, larger head-to-head trials (or a Cochrane downgrade) showed nicotine e-cigarettes do NOT beat nicotine-replacement therapy on biochemically verified 6-month-plus abstinence — or that the trial edge vanishes once real-world dual use and relapse are counted — the 'more effective than standard care' claim would collapse to 'no better than the patch.'",
+          skeptic_flip:
+            "A skeptic who calls the effect modest should weigh that the 2024 Cochrane review rates the e-cigarette advantage over NRT as HIGH certainty (RR 1.59), the single strongest tier of evidence — a 4-per-100 edge is large for cessation, where almost everything fails, and it compounds across hundreds of millions of smokers.",
+          common_ground:
+            "Both sides agree that randomised trials show nicotine e-cigarettes produce at least as many quitters as NRT, and that long-term continuous-abstinence base rates for any method are low.",
+          live_disagreement:
+            "Whether the controlled-trial quit-rate advantage survives translation to the real-world market (flavoured disposables, minimal support, indefinite vaping) — which only large pragmatic trials and biochemically verified long-term cohort follow-up can settle.",
+        },
       },
       evidence: [
         {
@@ -109,6 +135,16 @@ export const vapingHarmReductionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5M+ (multi-year prospective cohort with biomarkers and disease follow-up)",
+        falsification: {
+          supporter_flip:
+            "If long-term cohorts showed most e-cigarette users settle into persistent dual use (keeping smoking-level cardiovascular risk) rather than switching completely, and that flavoured products keep pulling never-smoking youth into durable nicotine dependence, the population-level 'acceptable harm-reduction tool' claim would fail even if the device helps individual quitters.",
+          skeptic_flip:
+            "A skeptic citing dual use, EVALI, and youth uptake should weigh that the realistic counterfactual is continued smoking (which kills ~half of long-term users), that EVALI was traced overwhelmingly to vitamin E acetate in illicit THC vapes rather than regulated nicotine e-liquids, and that US youth vaping has fallen ~two-thirds from its 2019 peak under tighter rules — so the youth harm looks regulable, not inherent.",
+          common_ground:
+            "Both sides agree that exclusive switching sharply reduces toxicant exposure, that dual use captures little of that benefit, and that youth nicotine initiation is a genuine cost that needs to be controlled.",
+          live_disagreement:
+            "The net population balance — how much smoking-attributable harm switchers actually avert versus the harm from long-term dual users plus new never-smoker nicotine initiation — which only multi-year prospective cohorts with biomarkers, disease endpoints, and separate youth-initiation tracking can resolve.",
+        },
       },
       evidence: [
         {

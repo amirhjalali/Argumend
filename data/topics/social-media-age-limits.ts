@@ -7,6 +7,22 @@ export const socialMediaAgeLimitsData = {
     "Children under 16 should be legally prohibited from using social media platforms.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "In 2024 Australia became the first country to legally ban under-16s from social media — acting before the science is settled. Two hard questions sit underneath: whether social media actually causes the post-2012 teen mental-health decline (rigorous studies find mostly small or mixed effects), and whether an age ban can even be enforced without ID-checking every adult too.",
+    confidence: 80,
+    source:
+      "Australia Online Safety (Social Media Minimum Age) Act 2024; Haidt vs. Odgers (Nature); Australian age-assurance trial (2024)",
+    sourceUrl:
+      "https://www.esafety.gov.au/about-us/social-media-age-restrictions",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "This stopped being hypothetical in 2024: Australia passed the world's first law banning under-16s from social media — deciding to act even though the science underneath is genuinely unsettled.",
+    "The first unsettled question is whether social media actually causes the teen mental-health decline that began around 2012: the alarming raw trends are real, but the most rigorous reviews find mostly small or mixed effects, so this is the same 'real but contested' causation fight as the broader social-media debate.",
+    "The second is enforcement: keeping under-16s out means either trusting self-reported birthdays (about a fifth of teens already lie) or verifying ages for everyone via ID or face scans — which creates privacy and accuracy problems for adults too — so the honest debate is whether a blunt, hard-to-enforce ban does more good than harm.",
+  ],
   pillars: [
     {
       id: "mental-health-impact",
@@ -29,6 +45,16 @@ export const socialMediaAgeLimitsData = {
           "\\Delta MH_{abstain} - \\Delta MH_{control} = \\tau_{causal}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$15M (Large-scale RCT with enforcement technology)",
+        falsification: {
+          supporter_flip:
+            "If a properly controlled abstinence trial (clinical instruments, not self-report) found that taking teens off social media for 6+ months didn't improve depression, anxiety, or sleep, the core justification for an under-16 ban would collapse — you'd be restricting kids for a harm you couldn't demonstrate.",
+          skeptic_flip:
+            "A skeptic who says the harm is unproven should weigh that the post-2012 inflection is sharp, synchronized across countries, and concentrated in girls, plus leaked internal research showing Instagram worsened body image for some teens — patterns the precautionary case argues shouldn't be ignored while waiting for a perfect RCT.",
+          common_ground:
+            "Both sides agree teen mental health worsened after ~2012 and that most existing studies rely on unreliable self-reported screen time.",
+          live_disagreement:
+            "Whether removing social media actually improves teen mental health (causation) or whether the correlation reflects confounders — which only a randomized abstinence trial with clinical measures can resolve.",
+        },
       },
       evidence: [
         {
@@ -128,6 +154,16 @@ export const socialMediaAgeLimitsData = {
           "E_{compliance} = 1 - \\frac{N_{underage\\_active}}{N_{underage\\_total}}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$2M (Multi-platform audit study)",
+        falsification: {
+          supporter_flip:
+            "If audits showed age-verification regimes barely keep under-16s off platforms — teens routing around them via VPNs, false birthdays, and borrowed accounts — while forcing privacy-eroding ID checks on every adult, the ban would impose real costs for little benefit.",
+          skeptic_flip:
+            "A skeptic who says it's unenforceable should weigh that society already age-gates alcohol, gambling, and driving imperfectly yet still reduces underage use, and that Australia's trial concluded age assurance 'can be done' with relatively privacy-preserving methods — so 'unenforceable, therefore pointless' overstates the case.",
+          common_ground:
+            "Both sides agree no age-verification method is airtight, that roughly a fifth of teens already falsify their birthdays, and that robust verification has privacy implications for adults.",
+          live_disagreement:
+            "Whether age-assurance can keep enough under-16s off platforms to shift behavior without unacceptable privacy and accuracy costs for everyone else — which only real-world compliance audits can measure.",
+        },
       },
       evidence: [
         {

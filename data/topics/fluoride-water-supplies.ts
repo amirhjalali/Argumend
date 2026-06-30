@@ -7,6 +7,18 @@ export const fluorideWaterSuppliesData = {
     "Community water fluoridation is a safe and effective public health measure",
   status: "contested" as const,
   category: "science" as const,
+  keystone_fact: {
+    statement:
+      "The real fight isn't 'is fluoride poison' — it's about margins. Tap water is fluoridated at 0.7 mg/L; the 2024 US National Toxicology Program review linked lower child IQ to fluoride above ~1.5 mg/L. So the live questions are whether that ~2x safety margin is enough, and whether the dental benefit — which the 2024 Cochrane review found has shrunk since fluoride toothpaste went universal — still justifies it.",
+    confidence: 80,
+    source: "US National Toxicology Program review (2024); Cochrane review (2024)",
+    sourceUrl: "https://ntp.niehs.nih.gov/research/assessments/noncancer/completed/fluoride",
+  },
+  simple_case: [
+    "Fluoride at the level used in tap water (0.7 mg/L) is not the poison some claim — but the debate is genuinely about margins and incremental benefit, not myths.",
+    "On benefits: the 2024 Cochrane review found water fluoridation still helps teeth, but far less than before fluoride toothpaste became universal — about a quarter of one tooth surface in baby teeth, with low certainty.",
+    "On safety: the 2024 National Toxicology Program review linked higher fluoride (above ~1.5 mg/L) to lower child IQ; whether the ~2x margin down to 0.7 mg/L is enough — especially for pregnant women and infants with other fluoride sources — is the unresolved question.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Dental Health Benefits vs. Alternatives
@@ -31,6 +43,16 @@ export const fluorideWaterSuppliesData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-15M (Multi-year longitudinal dental health study across multiple communities with different fluoridation statuses)",
+        falsification: {
+          supporter_flip:
+            "If a rigorous trial showed fluoridated water adds little or no dental benefit beyond fluoride toothpaste alone (i.e., the benefit is essentially topical), the core dental rationale for adding it to drinking water would collapse.",
+          skeptic_flip:
+            "If the same trial showed ingested fluoride still meaningfully cuts cavities on top of toothpaste — especially for low-income kids — the 'toothpaste made it obsolete' argument would fail.",
+          common_ground:
+            "Both sides agree cavity rates fell across fluoridated AND non-fluoridated countries after fluoride toothpaste spread, and that fluoride's benefit is at least partly topical.",
+          live_disagreement:
+            "Whether ingested fluoride still provides meaningful incremental benefit beyond topical toothpaste — and whether that benefit justifies community-wide dosing.",
+        },
       },
       evidence: [
         {
@@ -127,6 +149,16 @@ export const fluorideWaterSuppliesData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$20-50M (Multi-site longitudinal birth cohort study over 6-8 years)",
+        falsification: {
+          supporter_flip:
+            "If a well-controlled US birth-cohort study found measurable neurodevelopmental harm at 0.7 mg/L — not just at the >1.5 mg/L levels seen abroad — the 'safe at recommended levels' position would have to change.",
+          skeptic_flip:
+            "If such a study found no IQ effect at 0.7 mg/L after controlling for lead, iodine, and income, the strongest safety objection would lose its empirical basis.",
+          common_ground:
+            "Both sides agree high fluoride (>1.5 mg/L, as in parts of China and India) is associated with lower IQ, and that the recommended level is 0.7 mg/L.",
+          live_disagreement:
+            "Whether the ~2x margin between 0.7 and 1.5 mg/L is adequate once other fluoride sources (toothpaste, food, tea) and vulnerable groups (infants, pregnancy) are accounted for.",
+        },
       },
       evidence: [
         {
@@ -223,6 +255,16 @@ export const fluorideWaterSuppliesData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Comparative cross-community dental health study across policy environments)",
+        falsification: {
+          supporter_flip:
+            "If alternative delivery (toothpaste, school rinses, sealants, salt fluoridation) were shown to reach low-income children as well as fluoridated water does, the case for bypassing individual consent would weaken sharply.",
+          skeptic_flip:
+            "If alternatives consistently failed to reach the most vulnerable and dental disparities widened without water fluoridation, the equity argument for the population-level approach would hold.",
+          common_ground:
+            "Both sides agree public health already uses non-consensual population measures (chlorination, food fortification), and that most of Western Europe delivers fluoride by other means than the tap.",
+          live_disagreement:
+            "Whether opt-out-free water fluoridation is justified given that alternative delivery methods exist — and whether those alternatives actually reach the people who benefit most.",
+        },
       },
       evidence: [
         {

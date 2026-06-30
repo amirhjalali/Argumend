@@ -38,6 +38,17 @@ export const CruxSchema = z.object({
   equation: z.string().optional(), // LaTeX string if applicable
   verification_status: z.enum(["verified", "theoretical", "impossible"]),
   cost_to_verify: z.string(), // e.g. "$0 (Data Analysis)" or "$50M (New Probe)"
+  // Falsification framing (optional — existing cruxes validate unchanged).
+  // Reframes the crux from "what test settles this" to "what new information
+  // would convince each side they are wrong." See the flagship journey design.
+  falsification: z
+    .object({
+      supporter_flip: z.string(), // what would make a proponent abandon the claim
+      skeptic_flip: z.string(), // what would make a skeptic accept the claim
+      common_ground: z.string().optional(), // what both sides already agree on
+      live_disagreement: z.string().optional(), // where the real fight is
+    })
+    .optional(),
 });
 
 // ============================================================================
@@ -142,6 +153,19 @@ export const TopicSchema = z.object({
   tags: z.array(z.string()).optional(), // for tag pages (buildTopic guarantees >= 1)
   addedAt: z.string().optional(), // ISO date — for "recently added" sorting
   aliases: z.array(z.string()).optional(), // alternate names for search
+  // Flagship-experience fields (optional — existing topics validate unchanged).
+  // keystone_fact = the Stage-1 "wow" atomic fact shown above the claim.
+  keystone_fact: z
+    .object({
+      statement: z.string(), // the single counterintuitive, near-irrefutable fact
+      confidence: z.number().min(0).max(100), // how settled this specific fact is
+      source: z.string(),
+      sourceUrl: z.string().url().optional(),
+    })
+    .optional(),
+  // simple_case = the Stage-2 plain-language argument in ~3 sentences that
+  // concede the real weakness (persuasive because honest).
+  simple_case: z.array(z.string()).optional(),
 });
 
 // ============================================================================
@@ -229,6 +253,35 @@ export function getVerdictLabel(confidenceScore: number): string {
   if (confidenceScore >= 75) return "Preponderance of evidence supports";
   if (confidenceScore >= 50) return "Evidence leans toward, but contested";
   return "Insufficient evidence";
+}
+
+/**
+ * Full-sentence verdict for prose contexts (e.g. the topic-page subhead), so it
+ * reads as a complete clause instead of a dangling fragment. getVerdictLabel
+ * stays compact for badges, cards, and OG images.
+ */
+export function getVerdictSentence(confidenceScore: number): string {
+  if (confidenceScore >= 95)
+    return "The evidence establishes this claim beyond reasonable doubt";
+  if (confidenceScore >= 75)
+    return "The weight of evidence supports this claim";
+  if (confidenceScore >= 50)
+    return "The evidence leans toward this claim, but it stays genuinely contested";
+  return "There's too little evidence to settle this claim";
+}
+
+/**
+ * Map a 0–100 confidence percentage to a qualitative tier. Used to present
+ * each piece of evidence as an "atomic fact" with a legible confidence level
+ * (the flagship Stage-3 experience), separating settled facts from arguable ones.
+ */
+export type ConfidenceTier = "Established" | "Strong" | "Contested" | "Thin";
+
+export function confidenceTier(pct: number): ConfidenceTier {
+  if (pct >= 90) return "Established";
+  if (pct >= 75) return "Strong";
+  if (pct >= 50) return "Contested";
+  return "Thin";
 }
 
 // ============================================================================

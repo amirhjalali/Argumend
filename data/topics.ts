@@ -158,6 +158,18 @@ import { alcoholNoSafeLevelData } from "./topics/alcohol-no-safe-level";
 import { modernMonetaryTheoryData } from "./topics/modern-monetary-theory";
 import { darkMatterVsMondData } from "./topics/dark-matter-vs-mond";
 
+// New topics (2026-06-23, net-new initiative)
+import { sportsBettingLegalizationData } from "./topics/sports-betting-legalization";
+import { pfasForeverChemicalsData } from "./topics/pfas-forever-chemicals";
+import { intermittentFastingEfficacyData } from "./topics/intermittent-fasting-efficacy";
+import { daylightSavingTimeAbolitionData } from "./topics/daylight-saving-time-abolition";
+import { tippingCultureData } from "./topics/tipping-culture";
+import { aiTherapyChatbotsData } from "./topics/ai-therapy-chatbots";
+import { carbonCaptureViabilityData } from "./topics/carbon-capture-viability";
+import { hydrogenEconomyViabilityData } from "./topics/hydrogen-economy-viability";
+import { verticalFarmingViabilityData } from "./topics/vertical-farming-viability";
+import { deExtinctionSpeciesData } from "./topics/de-extinction-species";
+
 // labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
 const labLeakTheoryData = covidOriginsData;
 
@@ -344,7 +356,30 @@ export const alcoholNoSafeLevel = buildTopic(alcoholNoSafeLevelData);
 export const modernMonetaryTheory = buildTopic(modernMonetaryTheoryData);
 export const darkMatterVsMond = buildTopic(darkMatterVsMondData);
 
+// New topics (2026-06-23, net-new initiative)
+export const sportsBettingLegalization = buildTopic(sportsBettingLegalizationData);
+export const pfasForeverChemicals = buildTopic(pfasForeverChemicalsData);
+export const intermittentFastingEfficacy = buildTopic(intermittentFastingEfficacyData);
+export const daylightSavingTimeAbolition = buildTopic(daylightSavingTimeAbolitionData);
+export const tippingCulture = buildTopic(tippingCultureData);
+export const aiTherapyChatbots = buildTopic(aiTherapyChatbotsData);
+export const carbonCaptureViability = buildTopic(carbonCaptureViabilityData);
+export const hydrogenEconomyViability = buildTopic(hydrogenEconomyViabilityData);
+export const verticalFarmingViability = buildTopic(verticalFarmingViabilityData);
+export const deExtinctionSpecies = buildTopic(deExtinctionSpeciesData);
+
 export const topics: Topic[] = [
+  // --- New (2026-06-23, net-new initiative) ---
+  sportsBettingLegalization,
+  pfasForeverChemicals,
+  intermittentFastingEfficacy,
+  daylightSavingTimeAbolition,
+  tippingCulture,
+  aiTherapyChatbots,
+  carbonCaptureViability,
+  hydrogenEconomyViability,
+  verticalFarmingViability,
+  deExtinctionSpecies,
   // --- Policy & Governance ---
   nuclearEnergySafety,
   universalHealthcare,

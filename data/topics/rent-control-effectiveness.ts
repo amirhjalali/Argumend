@@ -7,6 +7,18 @@ export const rentControlEffectivenessData = {
     "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
   status: "contested" as const,
   category: "economics" as const,
+  keystone_fact: {
+    statement:
+      "Rent control is one of the rare questions where economists left and right almost agree: asked whether it improved the supply and quality of affordable housing, a University of Chicago panel of top economists came down ~82% against — with exactly one of roughly 40 agreeing.",
+    confidence: 85,
+    source: "University of Chicago IGM Economic Experts Panel (2012)",
+    sourceUrl: "https://www.igmchicago.org/surveys/rent-control/",
+  },
+  simple_case: [
+    "Rent control reliably helps the specific tenants who already hold a controlled lease — it lowers their costs and protects them from displacement.",
+    "But the strongest study (a San Francisco natural experiment) finds it shrinks rental supply and pushes up market rents for everyone else, which is why economists broadly judge it a poor tool for affordability overall.",
+    "How much it hurts depends heavily on design — modern 'rent stabilization' with vacancy decontrol and new-construction exemptions is far milder than old-style ceilings — and almost everyone agrees it is no substitute for building more housing.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Supply Effects
@@ -33,6 +45,16 @@ export const rentControlEffectivenessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Econometric analysis of housing permit and construction data across multiple jurisdictions)",
+        falsification: {
+          supporter_flip:
+            "If well-designed rent stabilization with new-construction exemptions shows no measurable drop in housing starts versus matched unregulated markets (Oregon, California, and St. Paul are the live natural experiments), the supply-harm argument largely collapses for modern policy.",
+          skeptic_flip:
+            "If those same Oregon/California/St. Paul experiments show construction falling even where new buildings are exempt, the 'modern designs are different' defense fails and the supply critique holds.",
+          common_ground:
+            "Both sides accept that old-style strict ceilings — no vacancy decontrol, no new-build exemption — reduced rental supply; the San Francisco study is not really disputed.",
+          live_disagreement:
+            "Whether modern rent stabilization, which exempts new construction and resets rents at vacancy, avoids the supply harm that strict 1970s-style controls caused.",
+        },
       },
       evidence: [
         {
@@ -136,6 +158,16 @@ export const rentControlEffectivenessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Multi-year longitudinal study across multiple housing markets)",
+        falsification: {
+          supporter_flip:
+            "If rigorous longitudinal welfare accounting shows displacement-prevention benefits to incumbents (health, schooling, stability) exceed the mobility and market-distortion costs imposed on newcomers, the 'protects insiders at outsiders' expense' objection loses its force.",
+          skeptic_flip:
+            "If the same accounting shows newcomer harms plus lock-in and misallocation costs dominate, then even sympathetic observers should prefer targeted anti-displacement tools over broad rent control.",
+          common_ground:
+            "Both sides agree rent control transfers wealth to incumbent tenants and reduces their mobility; the SF study documents both the benefit and the lock-in.",
+          live_disagreement:
+            "Whether preventing incumbent displacement is worth the higher rents, longer searches, and unit misallocation borne by future renters.",
+        },
       },
       evidence: [
         {
@@ -239,6 +271,16 @@ export const rentControlEffectivenessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Multi-market comparative analysis of housing policy outcomes over 5-10 year timeframe)",
+        falsification: {
+          supporter_flip:
+            "If supply-side reforms (upzoning, faster permitting) can be shown to deliver measurable rent relief for bottom-quartile tenants within ~2-3 years, the case for rent control as a stopgap largely disappears.",
+          skeptic_flip:
+            "If the evidence shows supply reforms take 10-20 years to reach low-income renters, then rent stabilization has a real role as a bridge while supply catches up.",
+          common_ground:
+            "Both sides agree the root cause is insufficient supply and that building more housing is the durable fix.",
+          live_disagreement:
+            "Whether rent stabilization is a necessary short-term bridge to prevent displacement now, or a counterproductive distraction that delays the supply reforms that actually work.",
+        },
       },
       evidence: [
         {

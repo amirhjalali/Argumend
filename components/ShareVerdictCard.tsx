@@ -93,7 +93,9 @@ function getConsensusLabel(result: JudgingResult): string {
 function getShareUrl(topicId: string): string {
   const base =
     typeof window !== "undefined" ? window.location.origin : "https://argumend.org";
-  return `${base}/topics/${topicId}#verdict`;
+  // Shared from the interactive judging/map experience — carry the root canvas
+  // state so recipients land on the same map view, not the static read page.
+  return `${base}/?topic=${encodeURIComponent(topicId)}&view=logic-map#verdict`;
 }
 
 function getShareText(

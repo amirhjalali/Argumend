@@ -7,6 +7,22 @@ export const standardizedTestingDebateData = {
     "Standardized tests like the SAT and ACT are valid, fair measures of academic ability that should remain a core component of college admissions and educational assessment.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "SAT scores correlate steeply with family wealth — yet within every income and race group they still predict college grades and graduation at least as well as for everyone else, and Dartmouth found the SAT explained more than twice the variance in first-year GPA that high-school GPA did. The score gap mostly reflects unequal opportunity, not a biased test.",
+    confidence: 76,
+    source:
+      "Dartmouth admissions analysis (2024); University of California Standardized Testing Task Force (2020); Opportunity Insights (Chetty et al.)",
+    sourceUrl:
+      "https://home.dartmouth.edu/news/2024/02/sat/score",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The popular case against the SAT — that it just measures family wealth — is half right: scores do correlate steeply with income (kids of the top 1% are ~13x likelier to score 1300+), and that's a real problem.",
+    "But the half it misses is that the test still predicts college grades and graduation within every income and race group — Dartmouth found the SAT explained more than twice the variance in first-year GPA that high-school GPA did, and UC's own task force found scores predicted outcomes at least as well for underrepresented students, which is why several elite schools reinstated testing after going test-optional.",
+    "So the honest debate isn't 'valid vs. biased' but what a single common yardstick is worth against its alternatives — drop the SAT and admissions leans harder on essays, extracurriculars, and recommendations, channels that may favor wealthy families even more.",
+  ],
   pillars: [
     {
       id: "predictive-validity-evidence",
@@ -29,6 +45,16 @@ export const standardizedTestingDebateData = {
           "\\Delta_{\\text{equity}} = f(\\text{test policy}, \\text{aid}, \\text{outreach}, \\text{applicant pool})",
         verification_status: "verified" as const,
         cost_to_verify: "$300K (Analysis of existing institutional data)",
+        falsification: {
+          supporter_flip:
+            "If the test-optional natural experiment showed schools that dropped the SAT got more socioeconomic/racial diversity with no loss in their ability to identify talent or in graduation rates — i.e. scores added no predictive signal beyond GPA and other data — the case for keeping tests would weaken.",
+          skeptic_flip:
+            "A skeptic who wants tests dropped should weigh that elite schools (Dartmouth, MIT, Yale) reinstated testing after concluding test-optional was quietly screening out high-achieving low-income applicants, and that scores predict outcomes within every income group — so 'drop the test for equity' may backfire on the students it's meant to help.",
+          common_ground:
+            "Both sides agree SAT scores correlate strongly with family income, and that test-optional swept 1,800+ colleges with genuinely mixed evidence on whether diversity improved.",
+          live_disagreement:
+            "Whether test-optional policies actually raised diversity without losing predictive signal — which the still-running natural experiment hasn't cleanly resolved, since aid, recruiting, and applicant pools changed at the same time.",
+        },
       },
       evidence: [
         {
@@ -109,6 +135,16 @@ export const standardizedTestingDebateData = {
           "Randomly assign students to admissions tracks using different assessment methods. Compare demographic diversity, academic outcomes, and graduation rates across methods. Account for Goodhart's Law effects (gaming of each metric).",
         verification_status: "theoretical" as const,
         cost_to_verify: "$2M (Multi-institution experimental study)",
+        falsification: {
+          supporter_flip:
+            "If head-to-head studies showed portfolios, mastery assessment, or holistic review predict college success as well as the SAT while being more equitable and just as resistant to gaming, the 'we need a common yardstick' defense would collapse.",
+          skeptic_flip:
+            "A skeptic who prefers holistic methods should weigh that the alternatives — essays, extracurriculars, recommendations — are even more sensitive to family resources and coaching than a scored exam, and that paid test-prep gains are tens of points, not hundreds.",
+          common_ground:
+            "Both sides agree no admissions metric is bias-free, and that whatever is measured gets gamed by families who can afford to (Goodhart's Law).",
+          live_disagreement:
+            "Whether holistic and portfolio methods are more equitable and predictive than a standardized test, or merely move the advantage to wealthy families through harder-to-standardize channels — a comparison no rigorous head-to-head trial has run.",
+        },
       },
       evidence: [
         {

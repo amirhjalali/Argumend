@@ -7,6 +7,22 @@ export const evEnvironmentalImpactData = {
     "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "An electric car starts with a larger manufacturing carbon debt — but pays it back within a few years of driving (typically under ~25,000 miles on average grids, more for heavy EVs or coal-heavy grids), and over its full lifetime emits about half the CO2 of a comparable gas car on the global-average grid, and far less on a clean one.",
+    confidence: 88,
+    source:
+      "IEA Global EV Outlook 2024; ICCT life-cycle GHG comparison (2021); Volvo C40 Carbon Footprint Report (2021)",
+    sourceUrl:
+      "https://www.iea.org/reports/global-ev-outlook-2024/outlook-for-emissions-reductions",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The 'EVs are secretly dirtier because of battery mining' claim gets the timing right but the magnitude wrong — an EV does leave the factory with a bigger carbon debt, but it repays that within the first few years of driving and then pulls steadily ahead.",
+    "Over a full lifecycle on the global-average grid a typical EV emits about half the CO2 of an equivalent gas car, and roughly 60–80% less where the grid is clean, because tailpipe emissions are replaced by an electricity supply that keeps getting cleaner every year.",
+    "The real unresolved problems aren't lifecycle carbon — they're the local harms of cobalt and lithium mining and the need to scale battery recycling and charging infrastructure, which is where the honest debate actually sits.",
+  ],
   pillars: [
     {
       id: "manufacturing-battery-impact",
@@ -27,6 +43,16 @@ export const evEnvironmentalImpactData = {
           "Cradle-to-grave lifecycle assessment comparing matched EV and ICE vehicles, including mining, manufacturing, fuel/electricity production, driving, maintenance, and end-of-life recycling, parameterized by regional grid carbon intensity.",
         verification_status: "verified" as const,
         cost_to_verify: "$200K (Comprehensive LCA with sensitivity analysis)",
+        falsification: {
+          supporter_flip:
+            "If rigorous cradle-to-grave assessments showed the manufacturing carbon debt was large enough that, at real-world mileages and grid mixes, most EVs never broke even within their service life — or that battery-production impacts had been systematically undercounted — the lifecycle case would break.",
+          skeptic_flip:
+            "A skeptic focused on the battery's footprint should weigh that every independent lifecycle assessment (IEA, ICCT, and Volvo's own) finds the up-front debt repaid within tens of thousands of miles, after which the EV emits far less — the manufacturing penalty is real but bounded and one-time.",
+          common_ground:
+            "Both sides agree an EV is more carbon-intensive to BUILD than a comparable gas car, mainly because of the battery.",
+          live_disagreement:
+            "How fast break-even arrives for a given driver — which depends on annual mileage and how clean the local grid is — and how much weight to give the non-carbon harms of battery mining.",
+        },
       },
       evidence: [
         {
@@ -122,6 +148,16 @@ export const evEnvironmentalImpactData = {
           "Parametric lifecycle model varying grid intensity from 0 to 1000 gCO2/kWh, comparing EVs to both average ICE and best-in-class hybrids. Include grid trajectory projections to determine when currently-dirty grids will cross the threshold.",
         verification_status: "verified" as const,
         cost_to_verify: "$100K (Modeling with published grid data)",
+        falsification: {
+          supporter_flip:
+            "If grids stopped decarbonizing — or EV adoption concentrated in coal-heavy regions whose grids stayed dirty — so that real-world charging carbon stayed above the threshold where EVs beat efficient hybrids, the 'cleaner almost everywhere' claim would fail in those places.",
+          skeptic_flip:
+            "A skeptic who calls EVs 'coal cars' should weigh that even on today's average US grid an EV already matches a ~94 MPG car (UCS), the most efficient EV beats any gas car in all 50 states, and US coal generation fell from ~48% to ~16% in 15 years — the dirty-grid case shrinks every year.",
+          common_ground:
+            "Both sides agree the EV emissions advantage depends on grid carbon intensity — smallest on coal-heavy grids, largest on clean ones.",
+          live_disagreement:
+            "Whether the grids where EVs are actually driven will decarbonize fast enough that the dirty-grid exception keeps shrinking, versus locking in coal-powered charging in specific regions.",
+        },
       },
       evidence: [
         {

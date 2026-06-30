@@ -1,7 +1,7 @@
 "use client";
 
-import { useParams, useSearchParams } from "next/navigation";
-import { topics, getCrossCategoryRelated } from "@/data/topics";
+import { useSearchParams } from "next/navigation";
+import type { Topic } from "@/lib/schemas/topic";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ReadModeView } from "@/components/ReadModeView";
@@ -9,11 +9,23 @@ import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import TopicDetailView from "./TopicDetailView";
 import Link from "next/link";
 
-export default function TopicPageClient() {
-  const params = useParams<{ id: string }>();
+// Topic + related topics are resolved SERVER-SIDE (app/topics/[id]/page.tsx) and
+// passed as props, so this client component never imports the ~500KB `data/topics`
+// module — the corpus stays out of the topic-page client bundle. Only the read/
+// graph toggle (a URL query param) needs client reactivity.
+interface TopicPageClientProps {
+  topic: Topic | null;
+  relatedTopics: Topic[];
+  crossCategoryTopics: Topic[];
+}
+
+export default function TopicPageClient({
+  topic,
+  relatedTopics,
+  crossCategoryTopics,
+}: TopicPageClientProps) {
   const searchParams = useSearchParams();
   const view = searchParams.get("view") === "graph" ? "graph" : "read";
-  const topic = topics.find((t) => t.id === params.id);
 
   if (!topic) {
     return (
@@ -45,12 +57,6 @@ export default function TopicPageClient() {
       </AppShell>
     );
   }
-
-  const relatedTopics = topics
-    .filter((t) => t.category === topic.category && t.id !== topic.id)
-    .slice(0, 4);
-
-  const crossCategoryTopics = getCrossCategoryRelated(topic.id, topic.category, 4);
 
   return (
     <>

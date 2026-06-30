@@ -13,6 +13,7 @@ import {
   MessageCircleQuestion,
   Swords,
   Shield,
+  Crown,
 } from "lucide-react";
 
 export interface VariantStyle {
@@ -30,11 +31,14 @@ export interface VariantStyle {
  */
 export const VARIANT_STYLES: Record<NodeVariant, VariantStyle> = {
   meta: {
+    // Canonical meta styling MUST match MetaNode.tsx, which renders the meta
+    // node with a Crown icon and text-deep / border-t-deep (deep teal #3a6965).
     label: "Meta Claim",
-    accentColor: "#2563eb",
-    borderClass: "border-l-[#2563eb]",
-    bgClass: "bg-[#2563eb]/5",
-    Icon: Landmark,
+    accentColor: "#3a6965",
+    borderClass: "border-l-[#3a6965]",
+    bgClass: "bg-[#3a6965]/5",
+    Icon: Crown,
+    tagline: "The question being examined",
   },
   pillar: {
     label: "Pillar",
@@ -77,41 +81,36 @@ export const VARIANT_STYLES: Record<NodeVariant, VariantStyle> = {
     tagline: "The data",
   },
   question: {
+    // Retuned off the old violet (#6b5b95) to an on-brand deep stone so it
+    // reads as a neutral, unresolved thread (distinct from pillar's lighter
+    // stone + Landmark icon).
     label: "Open Question",
-    accentColor: "#6b5b95",
-    borderClass: "border-l-[#6b5b95]",
-    bgClass: "bg-[#6b5b95]/5",
+    accentColor: "#57534e",
+    borderClass: "border-l-[#57534e]",
+    bgClass: "bg-[#57534e]/5",
     Icon: MessageCircleQuestion,
     tagline: "Worth investigating",
   },
 };
 
 /**
+ * Per-variant accent color, derived from VARIANT_STYLES so there is exactly one
+ * place a variant's color is defined. Edge and minimap palettes reuse this.
+ */
+const ACCENT_BY_VARIANT = Object.fromEntries(
+  (Object.keys(VARIANT_STYLES) as NodeVariant[]).map((v) => [v, VARIANT_STYLES[v].accentColor]),
+) as Record<NodeVariant, string>;
+
+/**
  * Edge colors for graph visualization.
  * Maps variant to hex color for consistent edge styling.
  */
-export const VARIANT_EDGE_COLORS: Record<NodeVariant | string, string> = {
-  meta: "#2563eb",
-  skeptic: "#8B5A3C",
-  proponent: "#C4613C",
-  crux: "#a23b3b",
-  evidence: "#4f7b77",
-  question: "#6b5b95",
-  pillar: "#78716c",
-};
+export const VARIANT_EDGE_COLORS: Record<NodeVariant | string, string> = ACCENT_BY_VARIANT;
 
 /**
  * MiniMap node colors for quick identification.
  */
-export const MINIMAP_COLORS: Record<NodeVariant, string> = {
-  meta: "#2563eb",
-  skeptic: "#8B5A3C",
-  crux: "#a23b3b",
-  proponent: "#C4613C",
-  evidence: "#4f7b77",
-  pillar: "#a8a095",
-  question: "#6b5b95",
-};
+export const MINIMAP_COLORS: Record<NodeVariant, string> = ACCENT_BY_VARIANT;
 
 /**
  * Default color for unknown variants.

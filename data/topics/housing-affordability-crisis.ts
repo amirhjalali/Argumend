@@ -5,6 +5,21 @@ export const housingAffordabilityCrisisData = {
     "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, as the free market alone cannot provide adequate affordable housing.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The most counterintuitive finding in housing economics is that building more market-rate housing — even pricey 'luxury' units — reliably lowers rents, including for lower-income renters, through moving chains: new high-end units free up cheaper older ones. When Auckland upzoned three-quarters of its residential land in 2016, construction surged (~4% of the city's housing stock in five years) and rents fell well below trend. The catch is that filtering takes years to reach the bottom of the market, so supply alone doesn't help a family facing eviction today.",
+    confidence: 84,
+    source:
+      "Greenaway-McGrevy & Phillips, Journal of Urban Economics (2023, Auckland upzoning); Mast, JUE (2021, moving chains); Bratu et al., JUE (2023, Helsinki); Glaeser & Gyourko, JEP (2018, regulatory cost)",
+    sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/jep.32.1.3",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The economics are unusually settled: restrictive zoning is the single biggest driver of high housing costs — Glaeser and Gyourko estimate it adds over $400,000 to a home's price in the most constrained cities — and the fix is to let more housing get built, since added supply (even at the top of the market) filters down and lowers rents broadly, as Auckland, Tokyo, and U.S. moving-chain studies show.",
+    "The honest limitation is timing and reach: filtering can take years to relieve the bottom of the market, new construction can't be built below roughly $300,000–$500,000 per unit in most U.S. cities, and Minneapolis showed that ending single-family zoning alone produced only modest new supply — so the lowest-income renters, 11 million of whom already spend over half their income on rent, may still need subsidies or public supply.",
+    "So the honest debate isn't 'does building more housing lower rents' (it does) but 'is supply alone fast enough and deep enough to reach the poorest renters, or are rent stabilization, vouchers, and government-built housing also required to close the gap that the market floor leaves open.'",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Zoning & Supply Constraints
@@ -29,6 +44,16 @@ export const housingAffordabilityCrisisData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1M (Multi-city longitudinal housing market analysis requiring proprietary rental data)",
+        falsification: {
+          supporter_flip:
+            "If well-controlled studies of upzoned cities showed rents falling only at the luxury tier while the median and 25th-percentile stayed flat or rose for a decade-plus — with filtering never reaching the bottom — then the claim that supply-side reform is sufficient would collapse to 'necessary but not sufficient without subsidies or public supply.'",
+          skeptic_flip:
+            "A skeptic who says upzoning just builds luxury units should weigh the Auckland natural experiment (construction up ~4% of stock in five years, rents below trend), Tokyo's two decades of flat rents under permissive national zoning, and U.S. moving-chain studies showing new high-end units free up cheaper ones within a few moves — so 'new supply doesn't help the non-rich' is contradicted by the strongest evidence.",
+          common_ground:
+            "Both sides agree restrictive zoning raises prices and that, eventually, more housing reduces market-wide pressure; the dispute is how fast and how far down the income ladder the benefit reaches.",
+          live_disagreement:
+            "Whether the filtering/moving-chain mechanism lowers rents at the median and below within a 5–10 year policy-relevant window, or operates too slowly to help low-income renters — which only difference-in-differences tracking of rents by income percentile across matched upzoned and control cities can settle.",
+        },
       },
       evidence: [
         {
@@ -125,6 +150,16 @@ export const housingAffordabilityCrisisData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-600K (Multi-state housing market and tenant stability analysis)",
+        falsification: {
+          supporter_flip:
+            "If long-run data showed that even soft, inflation-indexed caps with new-construction exemptions (the Oregon design) still reduced construction starts, shrank the rental stock, or pushed up rents for non-covered tenants once COVID-era distortions are netted out, then 'modern rent stabilization avoids the old harms' would fail and the policy would look counterproductive.",
+          skeptic_flip:
+            "A skeptic citing the near-unanimous economist consensus against rent control should weigh that the 2012 IGM survey predates modern soft-cap designs, that Oregon's permits rose ~12% after its 2019 cap, and that the Stanford SF study found rent control did reduce displacement of incumbent tenants — so the blanket verdict may apply to hard ceilings, not to inflation-indexed caps with exemptions.",
+          common_ground:
+            "Both sides agree traditional hard rent ceilings reduce supply over time and that displacement imposes real, immediate harm on tenants; the dispute is whether newer designs escape the supply trap.",
+          live_disagreement:
+            "Whether Oregon-style soft caps prevent displacement without reducing construction once the pandemic boom, low rates, and in-migration are controlled for — which only a multi-state difference-in-differences analysis of permits, vacancy, and eviction rates over 2015–2028 can resolve.",
+        },
       },
       evidence: [
         {
@@ -221,6 +256,16 @@ export const housingAffordabilityCrisisData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$400K-800K (Multi-country comparative housing policy study with resident surveys)",
+        falsification: {
+          supporter_flip:
+            "If a careful comparative study found that Vienna's and Singapore's results depend on conditions that cannot transfer — a century of dedicated payroll-tax funding, vast pre-existing municipal land ownership, or high state capacity and social cohesion — and that comparably funded U.S. attempts still produced concentrated poverty and deterioration, then public housing would not be a generalizable answer to American affordability.",
+          skeptic_flip:
+            "A skeptic pointing to Pruitt-Igoe and the $70 billion U.S. maintenance backlog should weigh that the backlog tracks deliberate underfunding (Congress appropriated ~$3.2B when ~$6B was needed) rather than inherent impossibility, that well-funded U.S. developments keep satisfaction high, and that Vienna houses 62% of residents in award-winning units — so 'government can't build housing' is a verdict on the U.S. funding model, not on public provision as such.",
+          common_ground:
+            "Both sides agree U.S. public housing has been chronically underfunded and that some international systems deliver high-quality housing at scale; the dispute is whether those successes are replicable in the U.S. political and fiscal context.",
+          live_disagreement:
+            "Whether the gap between successful (Vienna, Singapore) and failed (U.S.) public housing is driven by transferable design-and-funding choices or by non-transferable cultural/political conditions — which only a structured comparison isolating funding level, land ownership, income-mixing rules, and resident satisfaction across systems can determine.",
+        },
       },
       evidence: [
         {

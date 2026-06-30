@@ -6,7 +6,12 @@ import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { topicSummaries } from "@/data/topicIndex";
-import type { TopicCategory, TopicStatus, TopicSummary } from "@/data/topicIndex";
+import type { TopicStatus, TopicSummary } from "@/data/topicIndex";
+import {
+  categoryColors,
+  statusColors,
+  categoryTopBorder,
+} from "@/lib/categoryColors";
 
 // ---------------------------------------------------------------------------
 // Tag helpers
@@ -49,35 +54,6 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
   settled: CheckCircle,
   contested: AlertCircle,
   highly_speculative: HelpCircle,
-};
-
-const statusColors: Record<TopicStatus, string> = {
-  settled:
-    "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border-emerald-200/60 dark:border-emerald-800/40",
-  contested:
-    "bg-rust-50 dark:bg-rust-950/40 text-rust-700 dark:text-rust-400 border-rust-200/60 dark:border-rust-800/40",
-  highly_speculative:
-    "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-200/60 dark:border-stone-700/40",
-};
-
-const categoryColors: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep dark:text-deep-light border-deep/20",
-  technology:
-    "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-200/60 dark:border-stone-700/40",
-  science:
-    "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200/60 dark:border-emerald-800/40",
-  economics:
-    "bg-rust-50 dark:bg-rust-950/40 text-rust-700 dark:text-rust-400 border-rust-200/60 dark:border-rust-800/40",
-  philosophy:
-    "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-200/60 dark:border-stone-700/40",
-};
-
-const categoryTopBorder: Record<TopicCategory, string> = {
-  policy: "border-t-deep",
-  technology: "border-t-stone-400",
-  science: "border-t-emerald-400",
-  economics: "border-t-rust-400",
-  philosophy: "border-t-stone-400",
 };
 
 // ---------------------------------------------------------------------------
@@ -189,7 +165,7 @@ export default async function TopicTagPage({ params }: PageProps) {
                 { label },
               ]}
             />
-            <p className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-stone-400 mb-3">
+            <p className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-muted mb-3">
               <Tag className="h-3 w-3" />
               Tag
             </p>
@@ -272,7 +248,7 @@ export default async function TopicTagPage({ params }: PageProps) {
           {/* Related tags */}
           {relatedTags.length > 0 && (
             <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-              <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
+              <p className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
                 Related tags
               </p>
               <div className="flex flex-wrap gap-2">

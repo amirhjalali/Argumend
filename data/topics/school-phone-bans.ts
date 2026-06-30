@@ -5,6 +5,22 @@ export const schoolPhoneBansData = {
     "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Phone bans help — but unevenly and modestly: the landmark English study found test-score gains only for below-average students, and a Norwegian study found benefits for girls but not boys. And the bigger claim that phones caused the teen mental-health crisis rests on a striking 2012 correlation whose causal size researchers still dispute.",
+    confidence: 72,
+    source:
+      "Beland & Murphy, Labour Economics (2016); Abrahamsson (2024, Norway); Orben & Przybylski, Nature Human Behaviour (2019)",
+    sourceUrl:
+      "https://www.sciencedirect.com/science/article/pii/S0927537116300136",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "School phone bans are intuitively appealing and do produce real gains — but smaller and more uneven than headlines suggest: the big English study found test-score improvements only for below-average students, and a Norwegian study found benefits (grades, well-being, less bullying) for girls but not boys.",
+    "The louder claim — that smartphones caused the teen mental-health crisis — rests on a striking correlation (teen depression, self-harm, and suicide all turned upward right as phones crossed 50% around 2012), but rigorous analyses like Orben & Przybylski's find the average screen-time effect 'tiny,' so the causal size is genuinely disputed.",
+    "So the honest debate isn't 'do phones distract?' (they clearly do) but how much a 6–7 hour school-day ban actually moves academics and mental health when kids return to the same phones after 3pm — and whether enforcement can be equitable for students who depend on phones for medical, safety, or translation needs.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Academic Performance & Attention
@@ -29,6 +45,16 @@ export const schoolPhoneBansData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$3-8M (Multi-school randomized trial with assessment infrastructure, requiring school district cooperation)",
+        falsification: {
+          supporter_flip:
+            "If a large randomized trial (not the quasi-experiments we have) showed phone bans produce no real academic gain once you control for the other reforms ban-adopting schools tend to make — or that the English/Norwegian effects don't replicate — the academic case would collapse to 'feels right but doesn't measurably help.'",
+          skeptic_flip:
+            "A skeptic who doubts bans help grades should weigh that the effect, while modest and uneven, shows up in independent quasi-experiments across countries and concentrates in the lowest-performing students, and that lab work shows even a powered-off phone's mere presence drains working memory.",
+          common_ground:
+            "Both sides agree any academic benefit is modest and concentrated among lower-performing students rather than uniform across the class.",
+          live_disagreement:
+            "Whether the quasi-experimental gains reflect the ban itself or confounds (ban-adopting schools differ), and how large the effect really is in the modern, social-media-era smartphone.",
+        },
       },
       evidence: [
         {
@@ -125,6 +151,16 @@ export const schoolPhoneBansData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-12M (Multi-school cluster-randomized trial with validated mental health assessment and 2-year follow-up)",
+        falsification: {
+          supporter_flip:
+            "If a cluster-randomized trial measuring validated depression/anxiety scores found school phone bans produce no mental-health improvement — consistent with bans touching only 6–7 of 16 waking hours — the mental-health rationale would fall away, leaving bans justified on academics alone.",
+          skeptic_flip:
+            "A skeptic citing the 'tiny' average screen-time effect should weigh that the sharp, synchronized 2012 inflection in teen depression, self-harm, and suicide — strongest for girls — is hard to explain otherwise, and that the average masks larger harms concentrated in heavy social-media users.",
+          common_ground:
+            "Both sides agree teen mental health deteriorated sharply after ~2012 and that a school-hours ban leaves evening and weekend phone use untouched.",
+          live_disagreement:
+            "How much of the teen mental-health decline smartphones actually caused (versus academic pressure, isolation, and other 2010s shifts) — and therefore whether a partial, school-only ban can move mental-health outcomes at all.",
+        },
       },
       evidence: [
         {
@@ -221,6 +257,16 @@ export const schoolPhoneBansData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1.5M (Multi-district disciplinary data analysis with student interviews and equity assessment)",
+        falsification: {
+          supporter_flip:
+            "If disciplinary data from ban-enforcing schools showed phone confiscation replicating the ~3x racial suspension gap, or that medical/safety/translation accommodations routinely failed, the equity objection would outweigh the academic gains for disadvantaged students.",
+          skeptic_flip:
+            "A skeptic who opposes bans on equity grounds should weigh that automated pouch systems (Yondr) remove teacher discretion from enforcement, that medical and emergency needs are already accommodated like EpiPens and insulin, and that the largest academic gains accrue to low-income students.",
+          common_ground:
+            "Both sides agree some students depend on phones for medical, safety, or translation needs, and that school discipline has historically fallen harder on Black and Latino students.",
+          live_disagreement:
+            "Whether bans can be enforced without creating new racial disparities and while accommodating dependent students — which depends on enforcement design (automated pouches vs. teacher discretion) and hasn't been directly measured.",
+        },
       },
       evidence: [
         {

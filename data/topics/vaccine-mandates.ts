@@ -9,6 +9,18 @@ export const vaccineMandatesData = {
   category: "policy" as const,
   last_updated: "2026-06-16",
   tags: ["vaccines", "public-health", "policy", "covid-19", "law", "ethics"],
+  keystone_fact: {
+    statement:
+      "Whether a vaccine mandate is justified depends less on politics than on one number — how much the vaccine cuts transmission to others. For measles (which needs ~95% coverage), school-entry mandates underpinned US elimination in 2000; for COVID the transmission benefit was modest and waned within weeks.",
+    confidence: 85,
+    source: "CDC measles data; peer-reviewed transmission studies (NEJM)",
+    sourceUrl: "https://www.cdc.gov/measles/data-research/index.html",
+  },
+  simple_case: [
+    "The honest answer is 'it depends on the disease': mandates are easiest to justify when a vaccine strongly and durably blocks transmission and the disease needs very high coverage — measles is the textbook case.",
+    "School-entry measles mandates pushed US coverage above ~95% and underpinned elimination in 2000; when coverage slipped, 2025 brought the most US measles cases since 1992 — so for measles, mandates demonstrably work.",
+    "For COVID the case is weaker — the vaccines cut onward transmission only modestly and briefly — so the strongest objections (does it really protect others? does coercion erode trust?) bite hardest there, not for long-standing childhood mandates.",
+  ],
   pillars: [
     {
       id: "do-mandates-work",
@@ -29,6 +41,16 @@ export const vaccineMandatesData = {
           "Use quasi-experimental designs — difference-in-differences across jurisdictions with staggered mandate timing, interrupted time series with matched controls, or synthetic-control modelling — to isolate the mandate's marginal effect on first-dose rates, separating it from the underlying uptake trend.",
         verification_status: "verified" as const,
         cost_to_verify: "$50K (econometric analysis of public dose data)",
+        falsification: {
+          supporter_flip:
+            "If quasi-experimental designs consistently showed mandates produce little marginal uptake beyond the underlying trend (as one Austria time-series found), the 'mandates work' premise weakens — leaving justification to rest on coverage that would have happened anyway.",
+          skeptic_flip:
+            "If well-controlled studies keep showing mandate announcements drive large, rapid first-dose jumps (the ~60%+ weekly increases seen across Canadian provinces, Italy, France), the 'coercion can't move refusers' objection fails for the marginal population.",
+          common_ground:
+            "Both sides agree committed refusers are hard to move and that school-entry mandates have historically achieved very high childhood coverage.",
+          live_disagreement:
+            "How much of the post-mandate uptake is truly caused by the mandate versus uptake that would have occurred as the rollout matured.",
+        },
       },
       evidence: [
         {
@@ -107,6 +129,16 @@ export const vaccineMandatesData = {
           "Estimate the secondary-attack-rate reduction from vaccinated index cases versus unvaccinated (contact-tracing and household-transmission studies), track its waning over time, and compare it against the herd-immunity threshold for the specific pathogen.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (analysis of existing contact-tracing data)",
+        falsification: {
+          supporter_flip:
+            "If a vaccine is shown to barely reduce onward transmission (or only briefly), the harm-principle justification for compelling it collapses and the case reduces to paternalism — as critics argue for COVID.",
+          skeptic_flip:
+            "If the vaccine demonstrably and durably cuts transmission enough to protect others — as for measles at the ~95% threshold — the 'it only protects the recipient' objection fails and coercion clears the harm-principle bar.",
+          common_ground:
+            "Both sides agree the harm principle is the right test, and that measles vaccination produces a large transmission externality while COVID's was smaller and waned.",
+          live_disagreement:
+            "For any given vaccine, whether the measured, durable reduction in infecting others is large enough to justify compulsion.",
+        },
       },
       evidence: [
         {
@@ -184,6 +216,16 @@ export const vaccineMandatesData = {
           "Combine legal analysis of whether the mandating body acted within its authority with longitudinal measurement of trust in public-health institutions and downstream vaccine hesitancy (panel surveys before/after mandates), netting health benefits against trust costs.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (multi-year longitudinal trust panel)",
+        falsification: {
+          supporter_flip:
+            "If longitudinal panels showed mandates durably erode trust in public health and harden hesitancy enough to lower future vaccination, the net-legitimacy case could go negative even when short-term uptake rises.",
+          skeptic_flip:
+            "If trust measures recover with no lasting hesitancy increase (and pro-mandate governments are re-elected, as some were), the 'mandates backfire by destroying trust' thesis fails.",
+          common_ground:
+            "Both sides agree courts have upheld properly-scoped mandates (Jacobson 1905; the healthcare-worker rule) while striking overbroad ones (the OSHA stay) — the limit is about which body acts.",
+          live_disagreement:
+            "Whether coercion's downstream erosion of institutional trust and cooperation outweighs the lives saved — and whether that trust-erosion effect is real or overstated.",
+        },
       },
       evidence: [
         {

@@ -6,6 +6,21 @@ export const effectiveAltruismData = {
   meta_claim: "Effective altruism is a sound framework for doing good.",
   status: "contested" as const,
   category: "philosophy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Most people picture effective altruism as abstract longtermism and AI-doom philosophizing, but its measurable track record is concrete: GiveWell alone has directed roughly $2.6 billion to a handful of cheap, evidence-backed interventions — chiefly anti-malaria bednets at about $3,000-$8,000 per life saved — and estimates this has averted on the order of 340,000 deaths. The honest catch is that EA's own early 'best buy,' mass deworming, rests on evidence that is still genuinely disputed, and the largest figures (deaths averted) are GiveWell's own model estimates, not directly counted bodies.",
+    confidence: 84,
+    source:
+      "GiveWell, 'Our Impact' / 'How Much Does It Cost to Save a Life?' (2024); Pryce et al., Cochrane (2018) on bednets; Taylor-Robinson et al., Cochrane (2019) vs. Croke et al., PNAS (2024) on deworming",
+    sourceUrl: "https://www.givewell.org/how-much-does-it-cost-to-save-a-life",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "At its best, effective altruism is simply taking seriously the question of how to do the most good with a given dollar, and then following the evidence — which has channeled roughly $2.6 billion through GiveWell into interventions with strong randomized-trial backing, like insecticide-treated bednets that the gold-standard Cochrane review rates 'high certainty' for cutting child mortality ~17%, at an estimated $3,000-$8,000 per life saved.",
+    "The honest limitation is that ranking 'good' by what is cheap to measure can mislead: one of EA's earliest flagship 'best buys,' mass deworming, was later found by Cochrane to have little or no average effect, the headline deaths-averted numbers are GiveWell's own model estimates rather than counted lives, and the same maximizing logic ('earning to give') was the rationale Sam Bankman-Fried invoked before his $8 billion fraud conviction.",
+    "So the honest debate isn't whether using evidence to help others is good (it obviously can be) but whether EA's measure-and-maximize method reliably points at the highest-impact things — or whether it systematically under-weights hard-to-quantify systemic change and over-trusts whichever effect sizes happen to be measurable.",
+  ],
   last_updated: "2026-06-16",
   tags: ["philosophy", "ethics", "philanthropy", "global-health", "longtermism"],
   pillars: [
@@ -28,6 +43,16 @@ export const effectiveAltruismData = {
           "Compare RCT effect estimates against (1) large-N replications and multi-site trials, (2) general-equilibrium / at-scale studies that capture spillovers and market effects, and (3) long-run follow-ups. Track whether updated meta-analyses converge or diverge from original headline figures.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (analysis of published trials and meta-analyses)",
+        falsification: {
+          supporter_flip:
+            "If large at-scale or general-equilibrium studies and long-run follow-ups showed the headline RCT effects shrink sharply when interventions are rolled out to millions over years — bednet mortality gains eroding through resistance and misuse, cash-transfer benefits washed out by inflation or spillovers — then 'exceptional good per dollar' would collapse toward 'ordinary,' and the cost-effectiveness rankings EA leans on would lose their edge.",
+          skeptic_flip:
+            "A skeptic who dismisses RCT-driven giving should weigh that EA's flagship bednet recommendation rests on a Cochrane review rated 'high certainty' (~17% lower child mortality), that the deworming null was at least partly a statistical-power artifact (the 2024 PNAS re-pool found significant nutritional gains), and that the framework demonstrably updates its picks as evidence moves rather than defending a fixed list.",
+          common_ground:
+            "Both sides agree bednets and unconditional cash transfers have real, RCT-measured benefits, and that what is easiest to randomize is not automatically what matters most.",
+          live_disagreement:
+            "Whether trial-measured effect sizes persist at national scale and over years, and whether the most measurable interventions are also the highest-impact ones — resolvable only by at-scale/general-equilibrium evaluations and long-run follow-ups, not by the original small-N RCTs.",
+        },
       },
       evidence: [
         {
@@ -125,6 +150,16 @@ export const effectiveAltruismData = {
           "Trace each documented harm to a premise: does it follow deductively from 'use evidence/reason to maximize impartial good,' or only from contingent choices (which metrics, which people, which time horizon)? Test whether competing do-gooding frameworks avoid the same failure mode in practice.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (philosophical and case analysis)",
+        falsification: {
+          supporter_flip:
+            "If each documented harm could be traced deductively to the core principle itself — if 'use evidence and reason to maximize impartial good' genuinely entailed measurement tunnel vision or ends-justify-means fraud, and no plausible internal correction blocked it — then the failures would be the method, not the execution, and defending EA as 'good principle, bad people' would no longer hold.",
+          skeptic_flip:
+            "A skeptic citing SBF and the systemic-change critique should weigh that the maximizing principle does not logically require fraud (Berkey 2018 shows it can already accommodate funding institutional reform when that does the most good), and that EA's evidence-updating, self-criticizing character is what surfaced and repudiated those errors rather than entrenching them.",
+          common_ground:
+            "Both sides agree real harms occurred — the FTX fraud and a measurable bias toward quantifiable interventions — and that movements should be judged partly by whether their core method can diagnose and correct such failures.",
+          live_disagreement:
+            "Whether EA's harms follow necessarily from its maximizing, impartial-good principle or only from contingent choices of metrics, people, and time horizons — testable by tracing each harm to its premises and checking whether rival do-gooding frameworks avoid the same failure mode in practice.",
+        },
       },
       evidence: [
         {

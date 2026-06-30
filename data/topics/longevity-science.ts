@@ -5,6 +5,21 @@ export const longevityScienceData = {
     "Recent breakthroughs in longevity research — including senolytics, epigenetic reprogramming, and caloric restriction mimetics — will significantly extend healthy human lifespan within the next 20 years.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Human life expectancy nearly doubled since 1900 — but almost all of that came from stopping early death (infections, childhood mortality), not from slowing aging: the maximum human lifespan (~120 years) hasn't budged. Every promising 'anti-aging' intervention — senolytics, cellular reprogramming, metformin — works in mice but is still unproven in people, and the field's flagship human trial (TAME) isn't even fully funded.",
+    confidence: 82,
+    source:
+      "Human mortality / life-expectancy data (OWID); Olshansky et al. on maximum lifespan; AFAR TAME trial status (2026)",
+    sourceUrl: "https://www.afar.org/tame-trial",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The longevity revolution that already happened wasn't about slowing aging at all: human life expectancy nearly doubled since 1900 almost entirely by stopping people from dying young — vaccines, antibiotics, sanitation — while the maximum human lifespan (~120 years) has barely moved.",
+    "The new wave of research (clearing worn-out 'senescent' cells, partially reprogramming cells to a younger state, repurposing metformin) genuinely targets aging itself — and works impressively in mice — but the mouse-to-human translation gap for aging drugs is notorious, and not one of these has yet shown it extends healthy human lifespan.",
+    "So the honest debate isn't whether aging biology is advancing (it is, fast) but whether any of it will actually add healthy years to human lives within decades — a question that hinges on human trials, the biggest of which (TAME) still isn't fully funded as of 2026.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Senolytics & Cellular Senescence
@@ -29,6 +44,16 @@ export const longevityScienceData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$50-200M (Large-scale Phase 2/3 clinical trials with long follow-up periods)",
+        falsification: {
+          supporter_flip:
+            "If multiple senolytic Phase 2/3 trials failed to improve human healthspan biomarkers (frailty, inflammation, epigenetic age) despite striking mouse results, it would suggest the mouse-to-human translation gap for aging interventions may be insurmountable — deflating the '20 years to longer healthspan' timeline.",
+          skeptic_flip:
+            "A skeptic who says it's mouse hype should weigh that 30+ senolytic human trials are now registered and that the mechanism (clearing senescent cells reduces inflammation) is well-characterized — so 'it only works in mice' is a hypothesis being actively tested, not a settled verdict.",
+          common_ground:
+            "Both sides agree senolytics produce striking results in mice and that no senolytic has yet demonstrated extended healthy lifespan in humans.",
+          live_disagreement:
+            "Whether senolytics deliver measurable human healthspan gains in large RCTs, or whether the mouse-to-human gap defeats them — which only Phase 2/3 trials with biological-age endpoints can resolve.",
+        },
       },
       evidence: [
         {
@@ -125,6 +150,16 @@ export const longevityScienceData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$30-100M (5-year primate study with AAV delivery, longitudinal epigenetic and functional assessment, oncological monitoring)",
+        falsification: {
+          supporter_flip:
+            "If partial epigenetic reprogramming kept causing cancer or teratomas in higher animals — or the rejuvenation effect vanished once treatment stopped — the dream of 'resetting' biological age in living humans would stall, confining the approach to lab-dish cell therapy.",
+          skeptic_flip:
+            "A skeptic citing cancer risk should weigh that pulsed, partial reprogramming has reversed cell-age markers without full dedifferentiation in animal studies — so 'it inevitably causes tumors' is an engineering challenge being worked on, not a proven dead end.",
+          common_ground:
+            "Both sides agree partial reprogramming can reduce biological-age markers in cells and animals, and that uncontrolled reprogramming risks cancer.",
+          live_disagreement:
+            "Whether reprogramming can be delivered safely and durably in living primates (and then humans) without raising cancer risk — which only multi-year primate studies with oncological monitoring can establish.",
+        },
       },
       evidence: [
         {
@@ -221,6 +256,16 @@ export const longevityScienceData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$45-70M (Estimated TAME trial budget per AFAR; partially funded by the American Federation for Aging Research and NIA, with a substantial funding gap remaining as of 2026)",
+        falsification: {
+          supporter_flip:
+            "If the TAME trial launched and metformin failed to delay the composite of age-related diseases versus placebo, the strongest near-term case that a drug can slow aging — and the FDA pathway for anti-aging drugs — would suffer a major setback.",
+          skeptic_flip:
+            "A skeptic who says aging isn't a treatable target should weigh that TAME is explicitly designed to test 'aging as a treatable condition' with a hard composite endpoint (heart attack, cancer, dementia, death) — so the claim is falsifiable and being put to a real test, not just asserted.",
+          common_ground:
+            "Both sides agree TAME is the most important near-term test of pharmacological life extension, and that as of 2026 it remains only partially funded and hasn't enrolled.",
+          live_disagreement:
+            "Whether metformin (or any drug) measurably delays multiple age-related diseases at once — which the TAME trial is built to answer but can't until it secures funding and runs.",
+        },
       },
       evidence: [
         {

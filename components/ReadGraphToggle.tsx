@@ -2,11 +2,16 @@
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useCallback, useEffect } from "react";
-import { BookOpen, AlignLeft } from "lucide-react";
+import { BookOpen, Network } from "lucide-react";
 
 export type ReadGraphView = "read" | "graph";
 
 const PREF_KEY = "argumend.preferredView";
+
+function topicIdFromPathname(pathname: string): string | null {
+  const match = pathname.match(/^\/topics\/([^/?#]+)/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
 
 export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
   const router = useRouter();
@@ -25,6 +30,11 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
   const switchTo = useCallback(
     (next: ReadGraphView) => {
       if (next === current) return;
+      const topicId = topicIdFromPathname(pathname);
+      if (next === "graph" && topicId) {
+        router.push(`/?topic=${encodeURIComponent(topicId)}&view=logic-map`);
+        return;
+      }
       const params = new URLSearchParams(searchParams.toString());
       if (next === "graph") {
         params.set("view", "graph");
@@ -39,14 +49,13 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
 
   return (
     <div
-      role="tablist"
+      role="group"
       aria-label="View mode"
       className="inline-flex items-center gap-1 rounded-full border border-stone-200/70 dark:border-[#3d3a36] bg-white/80 dark:bg-[#252420] p-1 shadow-sm backdrop-blur"
     >
       <button
-        role="tab"
         type="button"
-        aria-selected={current === "read"}
+        aria-pressed={current === "read"}
         onClick={() => switchTo("read")}
         className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
           current === "read"
@@ -58,9 +67,8 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
         Read
       </button>
       <button
-        role="tab"
         type="button"
-        aria-selected={current === "graph"}
+        aria-pressed={current === "graph"}
         onClick={() => switchTo("graph")}
         className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
           current === "graph"
@@ -68,8 +76,8 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
             : "text-secondary hover:text-primary"
         }`}
       >
-        <AlignLeft className="h-3.5 w-3.5" aria-hidden />
-        Detailed
+        <Network className="h-3.5 w-3.5" aria-hidden />
+        Map
       </button>
     </div>
   );

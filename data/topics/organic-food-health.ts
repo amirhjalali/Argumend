@@ -7,6 +7,22 @@ export const organicFoodHealthData = {
     "Organic food is significantly healthier and more nutritious than conventionally grown food.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Organic food isn't meaningfully more nutritious in the way most buyers assume — a Stanford review of 237 studies found no consistent vitamin or mineral advantage over conventional. The real, measurable differences are about 4x fewer pesticide-residue detections and ~48% lower cadmium; the health payoff of either is still unproven.",
+    confidence: 84,
+    source:
+      "Smith-Spangler et al., Annals of Internal Medicine (Stanford, 2012); Barański et al., British Journal of Nutrition (2014)",
+    sourceUrl:
+      "https://www.acpjournals.org/doi/10.7326/0003-4819-157-5-201209040-00007",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Most people buy organic believing it is more nutritious, but the largest reviews don't support that — Stanford's analysis of 237 studies found no consistent vitamin or mineral advantage, and the antioxidant differences a later review did find haven't been shown to improve health at normal dietary doses.",
+    "Where organic genuinely differs is exposure, not nutrition: conventional produce carries detectable pesticide residues about four times as often and ~48% more cadmium, and switching to organic measurably lowers pesticide metabolites in your urine within days.",
+    "So the honest question isn't 'is organic more nutritious?' (mostly no) but 'is lowering already-low-dose pesticide and cadmium exposure worth a 20–100% price premium?' — a real, unresolved health-and-values question, not a settled nutrition fact.",
+  ],
   pillars: [
     {
       id: "nutritional-content",
@@ -27,6 +43,16 @@ export const organicFoodHealthData = {
           "Large-scale prospective cohort study (50,000+ participants) comparing health outcomes over 10+ years between verified organic consumers and matched conventional food consumers, controlling for income, overall diet quality, exercise, and other confounders.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$50M (10-year prospective cohort study)",
+        falsification: {
+          supporter_flip:
+            "If a large cohort or trial that rigorously controlled for the confounders — organic buyers are wealthier, leaner, exercise more, eat more produce — erased the NutriNet-Santé ~25% cancer gap, showing organic eating itself confers no benefit once lifestyle is accounted for, the health case for organic would mostly collapse.",
+          skeptic_flip:
+            "A skeptic should weigh that organic eaters show measurably lower pesticide and cadmium exposure (not just self-reported behavior) — so if those exposures carry real chronic risk, the observed outcome gap would have a plausible mechanism rather than being pure selection.",
+          common_ground:
+            "Both sides agree organic and conventional produce are nutritionally similar on vitamins and minerals, and that organic buyers differ systematically in income and lifestyle.",
+          live_disagreement:
+            "Whether the lower cancer incidence among heavy organic consumers reflects the food itself or the healthier, wealthier lifestyle of the people who buy it — a question no randomized trial has settled.",
+        },
       },
       evidence: [
         {
@@ -122,6 +148,16 @@ export const organicFoodHealthData = {
           "Long-term (20+ year) prospective study tracking biomarkers of pesticide exposure, health outcomes (cancer incidence, neurological function, reproductive health), and organic vs. conventional dietary patterns in a large cohort, with dose-response modeling.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$100M (Multi-decade prospective epidemiological study)",
+        falsification: {
+          supporter_flip:
+            "If long-term studies showed that the cumulative, mixture, and developmental exposures EPA tolerances don't fully model still produced no detectable harm at real dietary-residue levels, the case for paying to avoid them would weaken.",
+          skeptic_flip:
+            "A skeptic who trusts EPA tolerances should weigh that those limits are largely built from single-chemical adult exposure, while studies like CHAMACOS show developing brains are vulnerable to these compounds — so 'each residue is below tolerance' doesn't settle cumulative or early-life risk.",
+          common_ground:
+            "Both sides agree individual conventional residues sit below EPA tolerances, and that organic farming uses its own pesticides too.",
+          live_disagreement:
+            "Whether decades of low-dose exposure to many residues at once — especially for fetuses and children — carries real risk, which single-chemical tolerance testing was never designed to answer.",
+        },
       },
       evidence: [
         {

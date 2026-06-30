@@ -2,10 +2,10 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, BookOpen, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
+import { ArrowRight, ExternalLink, Network, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
 import type { Topic, TopicCategory, TopicStatus, Evidence } from "@/lib/schemas/topic";
-import { calculateEvidenceScore, getVerdictLabel } from "@/lib/schemas/topic";
-import { CATEGORY_LABELS } from "@/data/topicIndex";
+import { calculateEvidenceScore, getVerdictSentence, confidenceTier } from "@/lib/schemas/topic";
+import { CATEGORY_LABELS, topicSummaries, getCrossCategoryRelatedSummaries } from "@/data/topicIndex";
 import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import { SynopticTable } from "@/components/SynopticTable";
 import { ControversyMeter } from "@/components/ControversyMeter";
@@ -13,34 +13,25 @@ import { ConfidenceBar } from "@/components/ConfidenceBar";
 import { VerdictVoting } from "@/components/VerdictVoting";
 import { CitationCard } from "@/components/CitationCard";
 import { SaveTopicButton } from "@/components/SaveTopicButton";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { GlossaryTerm } from "@/components/GlossaryTerm";
-import { topics, getCrossCategoryRelated } from "@/data/topics";
+import { FalsificationCrux } from "@/components/FalsificationCrux";
+import { FlagshipIntro } from "@/components/FlagshipIntro";
+import { categoryColors, statusColors } from "@/lib/categoryColors";
 
+// Labels + icons are local; chip colors come from the canonical, dark-mode-aware
+// maps in lib/categoryColors so a category/status reads the same color everywhere.
 const statusMeta: Record<TopicStatus, { label: string; icon: typeof CheckCircle; chip: string }> = {
-  settled: {
-    label: "Settled",
-    icon: CheckCircle,
-    chip: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  },
-  contested: {
-    label: "Contested",
-    icon: AlertCircle,
-    chip: "bg-rust-50 text-rust-700 border-rust-200/60",
-  },
+  settled: { label: "Settled", icon: CheckCircle, chip: statusColors.settled },
+  contested: { label: "Contested", icon: AlertCircle, chip: statusColors.contested },
   highly_speculative: {
     label: "Highly Speculative",
     icon: HelpCircle,
-    chip: "bg-stone-100 text-stone-700 border-stone-200/60",
+    chip: statusColors.highly_speculative,
   },
 };
 
-const categoryChip: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep border-deep/20",
-  technology: "bg-stone-100 text-stone-700 border-stone-200/60",
-  science: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  economics: "bg-rust-50 text-rust-700 border-rust-200/60",
-  philosophy: "bg-stone-100 text-stone-700 border-stone-200/60",
-};
+const categoryChip: Record<TopicCategory, string> = categoryColors;
 
 function strongest(evidence: Evidence[] | undefined, side: "for" | "against"): Evidence | null {
   if (!evidence?.length) return null;
@@ -82,7 +73,7 @@ function bottomLine(topic: Topic): string {
         ? "Evidence leans toward this claim, but it remains genuinely contested"
         : "The evidence is too thin to settle this claim";
   const anchor = topFor?.title
-    ? `, anchored most strongly by ${topFor.title.replace(/\.$/, "").toLowerCase()}`
+    ? `, anchored most strongly by ${topFor.title.replace(/\.$/, "")}`
     : "";
   return `${lean} at ${score}% confidence${anchor}.`;
 }
@@ -90,6 +81,7 @@ function bottomLine(topic: Topic): string {
 function EvidenceItem({ ev }: { ev: Evidence }) {
   const score = calculateEvidenceScore(ev.weight); // 0–40
   const pct = Math.round((score / 40) * 100);
+  const tier = confidenceTier(pct);
   const accent =
     ev.side === "for"
       ? "border-l-rust-400 bg-rust-50/30 dark:bg-rust-900/10"
@@ -102,7 +94,13 @@ function EvidenceItem({ ev }: { ev: Evidence }) {
         <span className={`text-[10px] font-sans font-semibold uppercase tracking-[0.15em] ${labelColor}`}>
           {label}
         </span>
-        <span className="text-[10px] font-mono text-secondary">strength {pct}%</span>
+        <span
+          className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] text-deep"
+          title="Confidence tier from source reliability, independence, replicability, and directness"
+        >
+          {tier}
+        </span>
+        <span className="text-[10px] font-mono text-secondary">{pct}% confidence</span>
       </div>
       <p className="font-serif text-[16px] leading-snug text-primary mb-1">
         <span className="font-semibold">{ev.title}.</span>{" "}
@@ -185,7 +183,7 @@ function useActiveSection(ids: string[]): string | null {
 
 export function ReadModeView({ topic }: { topic: Topic }) {
   const StatusIcon = statusMeta[topic.status].icon;
-  const verdict = getVerdictLabel(topic.confidence_score);
+  const verdict = getVerdictSentence(topic.confidence_score);
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
   const sourceCount = useMemo(() => countSources(topic), [topic]);
@@ -200,12 +198,14 @@ export function ReadModeView({ topic }: { topic: Topic }) {
     [topic.pillars]
   );
 
+  // Related-topic cards only need id/title/category, so they read from the
+  // lightweight `topicSummaries` index instead of the ~500KB full topics module.
   const relatedTopics = useMemo(() => {
-    const sameCategory = topics
+    const sameCategory = topicSummaries
       .filter((t) => t.category === topic.category && t.id !== topic.id)
       .slice(0, 3);
     if (sameCategory.length >= 3) return sameCategory;
-    const cross = getCrossCategoryRelated(topic.id, topic.category, 3 - sameCategory.length);
+    const cross = getCrossCategoryRelatedSummaries(topic.id, topic.category, 3 - sameCategory.length);
     return [...sameCategory, ...cross];
   }, [topic.id, topic.category]);
 
@@ -213,6 +213,39 @@ export function ReadModeView({ topic }: { topic: Topic }) {
   const activeId = useActiveSection(tocItems.map((t) => t.id));
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const tocRef = useRef<HTMLElement>(null);
+
+  // Mobile-only: auto-hide the floating controls while reading down the page and
+  // reveal them on scroll-up or near the top, so they stop permanently occluding
+  // the body text. Desktop is unaffected — the floats below keep static positions
+  // via `lg:` resets. The transition is neutralized by the global
+  // prefers-reduced-motion block in globals.css, so reduced-motion users get an
+  // instant (un-animated) toggle.
+  const [controlsHidden, setControlsHidden] = useState(false);
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < 140 || y < lastY) setControlsHidden(false);
+        else if (y > lastY + 4) setControlsHidden(true);
+        lastY = y;
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Keep the TOC reachable while its sheet is open; hide the map CTA then so the
+  // open sheet and the CTA can't overlap on narrow screens.
+  const tocHidden = controlsHidden && !mobileTocOpen;
+  const mapHidden = controlsHidden || mobileTocOpen;
+  const floatMotion = "transition-transform transition-opacity duration-300 ease-out";
+  // Lift the floats above the iOS home indicator (safe-area inset → 0 on desktop).
+  const floatBottom = { bottom: "calc(env(safe-area-inset-bottom) + 1.25rem)" };
 
   return (
     <>
@@ -253,7 +286,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             <p className="font-sans text-sm text-secondary italic">{verdict}.</p>
 
             {/* ─── Provenance strip ─── */}
-            <p className="mt-3 font-sans text-[11px] text-stone-400 dark:text-[#8a8279]">
+            <p className="mt-3 font-sans text-[11px] text-muted dark:text-[#8a8279]">
               {topic.last_updated ? (
                 <>Analyzed {formatDate(topic.last_updated)}</>
               ) : (
@@ -264,6 +297,9 @@ export function ReadModeView({ topic }: { topic: Topic }) {
               {topic.methodology_version ? <> · methodology {topic.methodology_version}</> : null}
             </p>
           </header>
+
+          {/* ─── Flagship intro: keystone fact + simple case (gated on data) ─── */}
+          <FlagshipIntro topic={topic} />
 
           {/* ─── The Claim ─── */}
           <section aria-label="The claim">
@@ -358,34 +394,8 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                   </div>
                 )}
 
-                {/* Crux */}
-                <aside
-                  id={`crux-${pillar.crux.id}`}
-                  className="mt-6 rounded-lg border border-[color:var(--crux-crimson,#a23b3b)]/30 bg-[color:var(--crux-crimson,#a23b3b)]/5 px-5 py-4 scroll-mt-24"
-                >
-                  <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[color:var(--crux-crimson,#a23b3b)] mb-1">
-                    ◆ <GlossaryTerm term="crux">Crux</GlossaryTerm> — what would settle this
-                  </div>
-                  <h4 className="font-serif text-[19px] text-primary mb-1.5">
-                    {pillar.crux.title}
-                  </h4>
-                  <p className="font-serif text-[16px] leading-relaxed text-primary/90 mb-2">
-                    {pillar.crux.description}
-                  </p>
-                  <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-secondary font-sans">
-                    <span>
-                      <span className="font-semibold">Method:</span>{" "}
-                      {pillar.crux.methodology}
-                    </span>
-                  </div>
-                  <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-mono text-secondary">
-                    <span>cost: {pillar.crux.cost_to_verify}</span>
-                    <span>
-                      <GlossaryTerm term="verification status">status</GlossaryTerm>:{" "}
-                      {pillar.crux.verification_status}
-                    </span>
-                  </div>
-                </aside>
+                {/* Crux — falsification framing when available, else the settle-test */}
+                <FalsificationCrux crux={pillar.crux} />
               </section>
             );
           })}
@@ -444,9 +454,11 @@ export function ReadModeView({ topic }: { topic: Topic }) {
           {/* ─── Save / track ─── */}
           <section aria-label="Save this topic" className="mt-10 flex flex-col items-start gap-2">
             <SaveTopicButton topicId={topic.id} />
-            <p className="font-sans text-xs text-secondary">
-              Save this topic to get pinged if its confidence score shifts.
-            </p>
+          </section>
+
+          {/* ─── Newsletter: capture at peak intent (reader finished the topic) ─── */}
+          <section aria-label="Stay updated" className="mt-10">
+            <NewsletterSignup variant="compact" source="topic-read" />
           </section>
         </article>
 
@@ -486,7 +498,14 @@ export function ReadModeView({ topic }: { topic: Topic }) {
 
       {/* ─── Mobile TOC (collapsible) ─── */}
       {tocItems.length > 0 && (
-        <div className="lg:hidden fixed bottom-5 left-5 z-30">
+        <div
+          className={`lg:hidden fixed left-5 z-30 ${floatMotion} ${
+            tocHidden
+              ? "translate-y-[150%] opacity-0 pointer-events-none"
+              : "translate-y-0 opacity-100"
+          }`}
+          style={floatBottom}
+        >
           <button
             type="button"
             onClick={() => setMobileTocOpen((v) => !v)}
@@ -528,14 +547,19 @@ export function ReadModeView({ topic }: { topic: Topic }) {
       )}
 
       {/* ─── Sticky open-the-map CTA ─── */}
-      <div className="fixed bottom-5 right-5 z-30">
+      <div
+        className={`fixed right-5 z-30 ${floatMotion} lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto ${
+          mapHidden
+            ? "translate-y-[150%] opacity-0 pointer-events-none"
+            : "translate-y-0 opacity-100"
+        }`}
+        style={floatBottom}
+      >
         <Link
-          href="?view=graph"
-          replace
-          scroll={false}
+          href={`/?topic=${encodeURIComponent(topic.id)}&view=logic-map`}
           className="inline-flex items-center gap-2 rounded-full bg-deep text-white px-4 py-2.5 text-sm font-sans font-medium shadow-lg hover:bg-deep/90 transition-colors"
         >
-          <BookOpen className="h-4 w-4" aria-hidden />
+          <Network className="h-4 w-4" aria-hidden />
           <span className="hidden sm:inline">Open the map</span>
           <span className="sm:hidden">Map</span>
           <ArrowRight className="h-4 w-4" aria-hidden />

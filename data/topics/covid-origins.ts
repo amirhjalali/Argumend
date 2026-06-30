@@ -7,6 +7,17 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
     "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
   status: "contested" as const,
   category: "science" as const,
+  keystone_fact: {
+    statement:
+      "The single biggest reason COVID's origin can't be settled isn't a missing experiment — it's missing data: China took the Wuhan Institute of Virology's virus database offline in September 2019 and has withheld lab records, early samples, and patient sequences ever since. Both the lab-leak and natural-spillover cases rest on circumstantial evidence.",
+    confidence: 80,
+    source: "WHO SAGO report (2025); US intelligence assessments; widely documented",
+  },
+  simple_case: [
+    "The honest status is 'genuinely unresolved, and may stay that way': two plausible origins — a natural spillover like past coronaviruses, and a research-related leak from the Wuhan lab — both fit the available evidence.",
+    "The strongest points for a leak are circumstantial but real: the outbreak began in the one city with the world's top bat-coronavirus lab, that lab's virus database went offline in 2019, and China has blocked independent investigation ever since.",
+    "The strongest points for natural origin are that most experts and the WHO still favor it, early cases cluster around the Huanan market, and no lab progenitor virus has surfaced — so the live question is whether the withheld evidence would settle it, not whether either side already has proof.",
+  ],
   references: [
     {
       title:
@@ -112,6 +123,16 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
         verification_status: "impossible" as const,
         cost_to_verify:
           "Requires Chinese government cooperation (currently withheld)",
+        falsification: {
+          supporter_flip:
+            "If an independent audit of the WIV's offline database and records showed no closer progenitor than RaTG13 and no relevant unpublished work, the 'lab next door' coincidence would lose much of its force.",
+          skeptic_flip:
+            "If that audit revealed a SARS-CoV-2 progenitor in the WIV's collection or documentation of relevant gain-of-function work, the natural-origin default would be hard to sustain.",
+          common_ground:
+            "Both sides agree Wuhan has extensive wildlife trade AND houses the world's leading bat-coronavirus lab, and that the WIV database was taken offline in September 2019.",
+          live_disagreement:
+            "Whether the outbreak's coincidence with the WIV is just sampling bias (Wuhan is a huge trade hub) or a meaningful signal — answerable only by data China withholds.",
+        },
       },
       evidence: [
         {
@@ -275,6 +296,16 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
           "P(\\text{FCS}_{\\text{natural}}) = P(\\text{insertion}) \\times P(\\text{PRRA sequence}) \\times P(\\text{CGG-CGG codons} | \\text{context})",
         verification_status: "theoretical" as const,
         cost_to_verify: "$100K (Bioinformatics and evolutionary analysis)",
+        falsification: {
+          supporter_flip:
+            "If comprehensive phylogenetics showed the PRRA furin-cleavage insertion and its rare CGG-CGG codons arise readily through natural recombination — or a natural sarbecovirus with a furin cleavage site turned up — the 'unnatural insertion' argument would collapse.",
+          skeptic_flip:
+            "If analysis showed the specific insertion and codon usage are extremely improbable naturally and match lab codon-optimization patterns (and DEFUSE-style proposals), the natural-recombination explanation would weaken sharply.",
+          common_ground:
+            "Both sides agree the furin cleavage site is biologically real and important for human infection, and that bat-virus sampling is incomplete.",
+          live_disagreement:
+            "Whether the unique PRRA insertion (and its rare codons) falls within the range of natural coronavirus evolution or is a fingerprint of engineering.",
+        },
       },
       evidence: [
         {
@@ -418,6 +449,16 @@ const covidOriginsData: Omit<Topic, "confidence_score"> = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 (Mandated by law; completion depends on executive branch compliance)",
+        falsification: {
+          supporter_flip:
+            "If the NDAA-mandated declassification review showed the low-confidence lab-leak assessments rested on thin or politically-driven evidence, the intelligence case would weaken.",
+          skeptic_flip:
+            "If declassified intelligence corroborated WIV researcher illnesses in late 2019 or relevant biosafety incidents, the 'just circumstantial' dismissal of the leak hypothesis would no longer hold.",
+          common_ground:
+            "Both sides agree US agencies are split and mostly at 'low confidence,' and that China's lack of transparency has impeded any definitive finding.",
+          live_disagreement:
+            "Whether the classified intelligence, once released, contains anything decisive — or merely reflects the same fragmentary, ambiguous evidence already public.",
+        },
       },
       evidence: [
         {

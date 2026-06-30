@@ -7,6 +7,21 @@ export const moonLandingData = {
     "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
   status: "settled" as const,
   category: "philosophy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The strongest proof of the Moon landings isn't a grainy 1969 photo — it's that you can still bounce a laser off the equipment Apollo crews left behind. More than half a century later, observatories in France (Grasse), Italy (Matera), and the US (Apache Point) routinely fire lasers at the retroreflector arrays from Apollo 11, 14, and 15 and clock the round trip, measuring the Earth–Moon distance to within centimeters. No Earth telescope can resolve the landers themselves — that's a hard limit of optics, not a cover-up — which is exactly why the hoax claim that 'we can't see them' misfires.",
+    confidence: 97,
+    source:
+      "International Laser Ranging Service (ILRS) Lunar Laser Ranging; NASA/JPL; Murphy et al., APOLLO collaboration (Apache Point); Observatoire de la Côte d'Azur (Grasse)",
+    sourceUrl: "https://ilrs.gsfc.nasa.gov/science/scienceContributions/lunar.html",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The evidence is active and independent, not just historical: lasers fired from observatories on three continents still bounce off the Apollo retroreflectors today, six missions returned 382 kg (842 lbs) of lunar samples — about 2,200 specimens — studied in labs worldwide, and the USSR, with every Cold War incentive to expose a fake, tracked Apollo 11 itself and never disputed it.",
+    "The honest limitation is that the most direct close-up confirmation (photos of the descent stages and footpath trails) comes from NASA's own Lunar Reconnaissance Orbiter, and no independent Earth telescope can resolve the hardware on the surface — so a determined skeptic can always insist the non-NASA checks (laser ranging, sample geochemistry) are 'indirect.'",
+    "So the honest debate isn't whether humans reached the Moon — the converging physical evidence settles that — but why a sustained crewed return took more than 50 years, which is a story about budgets and political will, not about whether 1969 was real.",
+  ],
   imageUrl:
     "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -75,6 +90,16 @@ export const moonLandingData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$0 (Amateur astronomers can verify with ~$5K equipment)",
+        falsification: {
+          supporter_flip:
+            "If the laser returns from the Apollo coordinates turned out to be explainable without manufactured corner-cube prisms — e.g., natural lunar regolith or a non-Apollo source produced the same precise, time-resolved retroreflection from those exact surveyed spots — the 'physical trace' proof would collapse.",
+          skeptic_flip:
+            "A skeptic insisting it's all NASA's word should weigh that the ranging is done by non-NASA institutions on multiple continents (Grasse in France, Matera in Italy), that the signal comes back only from precise pre-surveyed coordinates, and that a corner-cube prism's sharp return is hard to fake remotely from Earth.",
+          common_ground:
+            "Both sides agree no Earth-based telescope, including Hubble, can directly resolve the landers — that limit is set by diffraction, not by what's actually on the surface.",
+          live_disagreement:
+            "Whether the laser returns require human-placed retroreflectors or could arise from some natural lunar feature — resolvable by ranging to off-target coordinates (which return nothing) versus the Apollo arrays (which return a sharp signal).",
+        },
       },
       evidence: [
         {
@@ -170,6 +195,16 @@ export const moonLandingData = {
         equation: "D_{total} = \\int_{t_{start}}^{t_{end}} I(r(t)) \\, dt",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (Data analysis of public records)",
+        falsification: {
+          supporter_flip:
+            "If independent reconstruction of the Apollo trajectories and belt-intensity data showed the crews must have absorbed hundreds of rads — incompatible with the recorded ~0.16–1.14 rad mission doses — then either the dosimetry was falsified or the transits couldn't have been survived as described, and the radiation rebuttal would fail.",
+          skeptic_flip:
+            "A skeptic citing 'lethal belts' should weigh that dose equals intensity × time, that the high-speed transit through the thinner belt edge lasted only minutes, and that the independently published Explorer/probe belt measurements are consistent with the low recorded Apollo doses.",
+          common_ground:
+            "Both sides agree the Van Allen belts contain genuinely dangerous trapped radiation and that a slow or poorly routed transit would deliver a far higher, potentially harmful dose.",
+          live_disagreement:
+            "Whether the actual Apollo flight paths and crossing speeds kept total exposure in the low-single-digit-rad range — resolvable by recomputing dose from published trajectories and independent belt-intensity data and comparing it to the recorded dosimeter readings.",
+        },
       },
       evidence: [
         {

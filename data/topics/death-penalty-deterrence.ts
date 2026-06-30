@@ -7,6 +7,19 @@ export const deathPenaltyDeterrenceData = {
     "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
   status: "contested" as const,
   category: "policy" as const,
+  keystone_fact: {
+    statement:
+      "After decades of research, the U.S. National Research Council concluded the studies on whether the death penalty deters murder are 'not informative' — they cannot show it raises, lowers, or has no effect on homicide. And death-penalty states do not have lower murder rates.",
+    confidence: 88,
+    source: "U.S. National Research Council, Deterrence and the Death Penalty (2012)",
+    sourceUrl:
+      "https://nap.nationalacademies.org/catalog/13363/deterrence-and-the-death-penalty",
+  },
+  simple_case: [
+    "The honest headline: after decades of study we cannot show the death penalty deters murder — the National Research Council called the evidence 'not informative,' and states that use it do not have lower homicide rates.",
+    "At the same time the system makes irreversible mistakes: 200+ death-row inmates have been exonerated since 1973, and a careful estimate puts the share of likely-innocent death sentences at 4.1% or higher.",
+    "So the real question is not 'does it deter' (no clear evidence it does) but whether retribution for the worst crimes can justify a costly, error-prone, and irreversible punishment.",
+  ],
   pillars: [
     {
       id: "deterrence-effect",
@@ -27,6 +40,16 @@ export const deathPenaltyDeterrenceData = {
           "Natural experiment analysis using states that adopted or abolished the death penalty, with synthetic control methods and instrumental variables to isolate the causal effect.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1M (Multi-state longitudinal study with econometric controls)",
+        falsification: {
+          supporter_flip:
+            "If well-identified natural experiments (states adopting or abolishing the penalty, with synthetic controls) keep showing no causal deterrent effect, the deterrence rationale should be dropped — leaving only retribution to carry the argument.",
+          skeptic_flip:
+            "If credible causal designs robustly showed each execution prevents a meaningful number of murders (replicating the disputed Dezhbakhsh-type result under better identification), the 'no deterrent benefit' objection would fall.",
+          common_ground:
+            "Both sides accept the raw correlation — death-penalty states do not have lower murder rates — and that the 2012 National Research Council found the existing studies uninformative either way.",
+          live_disagreement:
+            "Whether the absence of demonstrated deterrence means the burden is unmet, or whether an undemonstrated-but-possible small deterrent plus retribution can still justify the sanction.",
+        },
       },
       evidence: [
         {
@@ -123,6 +146,16 @@ export const deathPenaltyDeterrenceData = {
           "Statistical modeling of exoneration rates, time-to-exoneration, and estimated undetected wrongful convictions using DNA-era data.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$2M (Retrospective forensic review of historical cases)",
+        falsification: {
+          supporter_flip:
+            "If modern DNA-era forensics and appellate review can be shown to drive the rate of wrongful convictions among the executed near zero, the strongest objection — executing the innocent — largely dissolves.",
+          skeptic_flip:
+            "If rigorous modeling confirms that a non-trivial share of executed defendants were actually innocent (consistent with the 4.1% likely-false-conviction estimate among the death-sentenced), the irreversibility objection becomes decisive.",
+          common_ground:
+            "Both sides agree the system has convicted innocent people — 200+ exonerations since 1973 — and that execution is irreversible.",
+          live_disagreement:
+            "Whether modern safeguards reduce wrongful executions to an acceptable level, or whether any irreversible error rate is too high for a state-administered punishment.",
+        },
       },
       evidence: [
         {

@@ -7,6 +7,21 @@ export const socialMediaMentalHealthData = {
     "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Teen depression, self-harm, and suicide all turned sharply upward around 2012, and a natural experiment from Facebook's staggered college rollout found it worsened student mental health — yet the largest screen-time studies find the average effect 'tiny.' The harm looks real but concentrated (heavy-using girls), not universal, and its size is genuinely contested.",
+    confidence: 70,
+    source:
+      "Twenge / CDC YRBS; Braghieri, Levy & Makarin, American Economic Review (2022); Orben & Przybylski, Nature Human Behaviour (2019)",
+    sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20211218",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Something happened to teen mental health around 2012: depression, self-harm, and suicide all turned sharply upward, right as smartphones and social media became near-universal — and the pattern shows up across multiple countries and concentrates in girls.",
+    "The single best piece of causal evidence is a natural experiment — Facebook's staggered rollout across US colleges worsened students' mental health where it arrived — but the largest screen-time studies (Orben & Przybylski, 355,000 teens) find the average association 'tiny,' smaller than the effect of wearing glasses.",
+    "So the honest reading isn't 'social media is fine' or 'social media is the cause' — the harm looks real but concentrated among heavy-using teen girls, and the live fight is over how big it is and whether the engagement algorithms specifically are to blame, not whether anything is going on.",
+  ],
   pillars: [
     {
       id: "temporal-correlation",
@@ -31,6 +46,16 @@ export const socialMediaMentalHealthData = {
           "MH_{score} = \\beta_0 + \\beta_1 \\cdot \\text{hours} + \\beta_2 \\cdot \\text{hours}^2 + \\epsilon",
         verification_status: "theoretical" as const,
         cost_to_verify: "$5M (Longitudinal study with passive measurement)",
+        falsification: {
+          supporter_flip:
+            "If high-quality longitudinal studies using passive (not self-reported) usage measurement found no dose-response — heavy users no worse off than light users once confounders are controlled — and Facebook-rollout-style natural experiments failed to replicate, the 'primary cause' claim would collapse.",
+          skeptic_flip:
+            "A skeptic who calls it a moral panic should weigh that the 2012 inflection is sharp, synchronized across countries, and concentrated in girls, and that at least one credible natural experiment (Facebook's rollout) shows a causal worsening — patterns a pure 'attitudes-to-disclosure changed' story struggles to explain.",
+          common_ground:
+            "Both sides agree teen mental health deteriorated markedly after ~2012, and that the alarming raw trends and the 'tiny' average-effect studies are hard to reconcile.",
+          live_disagreement:
+            "Whether the harm is a small average effect that's been over-dramatized, or a large effect concentrated in heavy-using girls that population averages dilute — which depends on measuring usage and outcomes far better than self-report allows.",
+        },
       },
       evidence: [
         {
@@ -127,6 +152,16 @@ export const socialMediaMentalHealthData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$10M (Requires platform cooperation or technical workaround)",
+        falsification: {
+          supporter_flip:
+            "If randomized trials swapping engagement-optimized feeds for chronological/curated ones showed no mental-health difference, the specific 'the algorithm is the harm' mechanism would fail — leaving social media's effect (if any) attributable to something other than algorithmic amplification.",
+          skeptic_flip:
+            "A skeptic who calls it a moral panic should weigh that, unlike TV or video games, these platforms use variable-reward engagement loops and social-comparison metrics that internal documents show the companies knew harmed some teen girls — features without a clear historical analog.",
+          common_ground:
+            "Both sides agree social media also delivers real benefits (community, information, expression), and that every new medium has drawn moral panic.",
+          live_disagreement:
+            "Whether the harm comes specifically from engagement-optimized algorithms (testable by swapping feeds) or from social media use generally — a question no large randomized feed experiment has yet settled.",
+        },
       },
       evidence: [
         {

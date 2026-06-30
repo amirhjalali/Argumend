@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { DiamondDiagram } from "@/components/DiamondDiagram";
@@ -203,8 +204,30 @@ export default function HowItWorksPage() {
           </p>
         </section>
 
-        {/* No CTA — instructional page ends with the content */}
-        <div className="h-14" />
+        {/* Closing CTA — reader now knows the structure; send them into a live map */}
+        <section className="mb-16 md:mb-24 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">
+            Now see it on a real debate
+          </h2>
+          <p className="text-lg text-secondary leading-relaxed mb-8 max-w-md mx-auto">
+            You know how the map works. Watch it untangle the question this page kept
+            using as its example.
+          </p>
+          <Link
+            href="/topics/nuclear-energy-safety"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-serif text-base font-semibold text-white bg-gradient-to-r from-rust-500 to-rust-600 shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 transition-all duration-200"
+          >
+            Explore: Should we build more nuclear power?
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
+          <p className="mt-5 text-sm text-muted">
+            Or{" "}
+            <Link href="/topics" className="text-deep link-underline font-medium">
+              browse all topics
+            </Link>
+            .
+          </p>
+        </section>
       </div>
     </AppShell>
   );

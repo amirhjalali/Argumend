@@ -7,6 +7,22 @@ export const socialSecurityRetirementAgeData = {
     "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Raising the retirement age — the fix politicians reach for first — doesn't actually fix Social Security. The nonpartisan CBO found that lifting the full retirement age from 67 to 69 closes only about a quarter (24%) of the 75-year shortfall and doesn't even move the year the trust funds run dry (still the mid-2030s). It works mainly as an across-the-board benefit cut, roughly 13% for the cohorts it hits.",
+    confidence: 90,
+    source:
+      "Congressional Budget Office, 'Raising the Full Retirement Age for Social Security' (Sept. 2024); Social Security Board of Trustees, 2024 Annual Report",
+    sourceUrl:
+      "https://www.cbo.gov/system/files/2024-09/60516-Full-Retirement-Age.pdf",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The demographic case is real: when Social Security started, a retirement age of 65 roughly matched life expectancy, but Americans now live far longer and collect for many more years while fewer workers support each retiree — so indexing the retirement age to longevity restores the program's original design and, per CBO, durably closes about a quarter of the long-term gap on its own.",
+    "But raising the age is mechanically a benefit cut for everyone (about 7% in lifetime benefits per year of increase), and it lands unequally: life expectancy has soared for high earners and barely moved for low earners — the male top-vs-bottom-quintile gap at age 50 grew from ~5 years to a projected ~13 — so 'people live longer, so work longer' applies far more to the affluent than to manual laborers who can't.",
+    "So the honest debate isn't whether raising the age helps solvency (it does, modestly) but whether it's the fair way to do it — versus revenue options like lifting the payroll-tax cap (income above ~$168,600 in 2024 is untaxed), which can close the gap without cutting benefits.",
+  ],
   last_updated: "2026-06-16",
   tags: ["social-security", "retirement", "fiscal-policy", "aging", "inequality"],
   pillars: [
@@ -29,6 +45,16 @@ export const socialSecurityRetirementAgeData = {
           "Use the SSA Office of the Chief Actuary's stochastic model and CBO's long-term Social Security model to score each policy in isolation: FRA-to-69 (the version CBO scored in 2024), eliminate the taxable-maximum cap, and raise the payroll tax rate. Compare the percent of the 75-year open-group actuarial deficit each closes.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (existing SSA/CBO actuarial scoring)",
+        falsification: {
+          supporter_flip:
+            "If SSA/CBO scoring showed that an FRA increase phased in to a realistic age (say 69) closes the large majority of the 75-year actuarial deficit and meaningfully pushes back the trust-fund depletion date, the claim that an age increase is 'necessary' to keep the program solvent would be much stronger.",
+          skeptic_flip:
+            "A skeptic should weigh that CBO scores raising the FRA to 69 at closing 24% of the imbalance — a real, durable, self-indexing contribution that grows as longevity rises — and that revenue-only fixes require politically difficult tax increases that may also fall short or be eroded, so 'just lift the cap' is not automatically sufficient or sustainable either.",
+          common_ground:
+            "Both sides agree there is a real, dated financing shortfall (combined reserves projected to deplete around 2035, after which only ~83% of scheduled benefits are payable) and that an FRA increase does close some, but not all, of the gap.",
+          live_disagreement:
+            "The precise share of the 75-year actuarial deficit that an FRA increase closes versus revenue alternatives (cap removal, rate increases) when each is scored in isolation — resolvable by re-running the SSA Chief Actuary and CBO long-term models on each policy, which already place FRA-to-69 at ~24% while leaving the depletion year unchanged.",
+        },
       },
       evidence: [
         {
@@ -108,6 +134,16 @@ export const socialSecurityRetirementAgeData = {
           "Run a microsimulation (e.g., SSA's MINT model or the Urban Institute's DYNASIM) that combines mortality-by-lifetime-earnings with claiming behavior to compute the change in expected lifetime benefits by earnings quintile under an FRA increase, with and without a DI carve-out and minimum-benefit offset.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (existing microsimulation models)",
+        falsification: {
+          supporter_flip:
+            "If a microsimulation using mortality-by-lifetime-earnings (e.g., SSA's MINT or Urban's DYNASIM) showed that, in expected lifetime-benefit terms, an FRA increase falls sharply harder on low earners even after the Disability Insurance carve-out and any minimum-benefit offset, the 'fair' half of the claim would fail and the cut would have to be called regressive.",
+          skeptic_flip:
+            "A skeptic worried about regressivity should weigh that Disability Insurance — which skews toward lower-income and physically demanding jobs — is exempt from the FRA, and that SSA distributional estimates suggest a normal-retirement-age increase cuts annual benefits roughly equally (even slightly progressively) across quintiles, so the regressive result depends specifically on the lifetime-mortality channel, not on the policy mechanically targeting the poor.",
+          common_ground:
+            "Both sides agree an FRA increase is an across-the-board benefit cut (roughly 7% of lifetime benefits per year of increase) and that the life-expectancy gap by income is large and has widened (male top-vs-bottom-quintile gap at 50 rising from ~5.1 to a projected ~12.7 years).",
+          live_disagreement:
+            "Whether, on a lifetime basis incorporating differential mortality, an FRA increase is roughly distribution-neutral or sharply regressive — resolvable by running MINT/DYNASIM with and without the DI carve-out and a minimum-benefit offset, since the annual-vs-lifetime framing is what drives the opposite conclusions.",
+        },
       },
       evidence: [
         {

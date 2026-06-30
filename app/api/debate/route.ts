@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
 import { generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
 import {
@@ -40,6 +39,21 @@ interface GenerationResult {
   actualModel: string;
   fallback?: boolean;
   error?: string;
+}
+
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : "Unknown error";
+}
+
+async function hasAuthenticatedUser(): Promise<boolean> {
+  try {
+    const { auth } = await import("@/lib/auth");
+    const session = await auth();
+    return Boolean(session?.user);
+  } catch (error) {
+    console.warn("Auth unavailable; using programmatic debate fallback:", getErrorMessage(error));
+    return false;
+  }
 }
 
 async function generateWithClaude(
@@ -160,12 +174,6 @@ async function generateWithGrok(
 }
 
 export async function POST(request: NextRequest) {
-  // Require authentication for debate generation (calls LLM APIs)
-  const session = await auth();
-  if (!session?.user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   // Rate limit: 20 requests per hour per IP (higher limit since each debate round is a separate call)
   const ip = request.headers.get("x-forwarded-for") || "unknown";
   const limit = rateLimit(`debate:${ip}`, { maxRequests: 20, windowMs: 60 * 60 * 1000 });
@@ -189,7 +197,9 @@ export async function POST(request: NextRequest) {
     const { topic, side, model, round, previousMessages, pillars } = body;
 
     let result: GenerationResult;
-    if (!isLiveDebateEnabled()) {
+    const liveDebateEnabled = isLiveDebateEnabled();
+    const authenticated = liveDebateEnabled ? await hasAuthenticatedUser() : false;
+    if (!liveDebateEnabled || !authenticated) {
       result = {
         argument: generateProgrammaticDebateTurn({
           topic,
@@ -200,6 +210,9 @@ export async function POST(request: NextRequest) {
         }),
         actualModel: model,
         fallback: true,
+        error: liveDebateEnabled
+          ? "Authentication is required for live debate generation; used programmatic fallback."
+          : undefined,
       };
     } else {
       const systemPrompt = buildSystemPrompt(side, topic, pillars);
@@ -248,7 +261,7 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Debate API error:", error);
-    const message = error instanceof Error ? error.message : "Unknown error";
+    const message = getErrorMessage(error);
     return NextResponse.json(
       { error: "Failed to generate debate argument", details: message },
       { status: 500 }

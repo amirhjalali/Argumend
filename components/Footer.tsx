@@ -1,37 +1,6 @@
 import Link from "next/link";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-
-const FOOTER_COLUMNS = [
-  {
-    title: "Explore",
-    links: [
-      { label: "Topics", href: "/topics" },
-      { label: "Blog", href: "/blog" },
-      { label: "Guides", href: "/guides" },
-      { label: "Library", href: "/library" },
-    ],
-  },
-  {
-    title: "Learn",
-    links: [
-      { label: "Research", href: "/research" },
-      { label: "Concepts", href: "/concepts" },
-      { label: "How It Works", href: "/how-it-works" },
-      { label: "Methodology", href: "/methodology" },
-      { label: "For Educators", href: "/for-educators" },
-      { label: "Glossary", href: "/glossary" },
-    ],
-  },
-  {
-    title: "About",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Community", href: "/community" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Perspectives", href: "/perspectives" },
-    ],
-  },
-];
+import { footerColumns } from "@/lib/nav";
 
 export function Footer() {
   return (
@@ -59,7 +28,7 @@ export function Footer() {
 
         {/* Link columns */}
         <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-          {FOOTER_COLUMNS.map((column) => (
+          {footerColumns.map((column) => (
             <div key={column.title}>
               <h3 className="text-xs font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400">
                 {column.title}

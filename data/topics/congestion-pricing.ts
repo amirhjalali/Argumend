@@ -7,6 +7,21 @@ export const congestionPricingData = {
     "Congestion pricing is an effective policy for cutting urban traffic and funding transit.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Congestion pricing isn't the political third rail people assume: in Stockholm, public support flipped from roughly 36% before the 2006 trial to about 66-70% after residents lived with it, and the ~20% cut in cars crossing the cordon has held for nearly two decades. The honest catch is that fewer cars doesn't automatically mean lasting time savings — London's headline congestion benefit decayed from about 30% to roughly 7% within a few years as freed road space got reallocated and exempt ride-hail trips surged.",
+    confidence: 84,
+    source:
+      "Eliasson, J. (2014), 'The Stockholm congestion charges: an overview', CTS Working Paper 2014:7 (KTH); Transport for London monitoring reports",
+    sourceUrl: "https://swopec.hhs.se/ctswps/abs/ctswps2014_007.htm",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "Every major scheme — London, Stockholm, Singapore, and now New York — has produced a real, measured drop in vehicles entering the charged zone (typically 10-25%), the one variable a price directly controls, and Stockholm's cut has held for ~20 years while public support roughly doubled once people experienced it.",
+    "But cutting car counts is not the same as durably cutting congestion: London's reported journey-time benefit fell from ~30% to ~7% within a few years, and net revenue earmarked for transit can be halved, paused, or sued over — New York's relaunched 2025 program targets ~$500M, about half the original ~$1B/year plan.",
+    "So the honest debate isn't whether pricing reduces the number of cars (it reliably does) but whether the time savings and the transit funding are large and durable enough — once road space is reallocated, exemptions multiply, and politics intervenes — to justify the charge.",
+  ],
   last_updated: "2026-06-16",
   tags: ["transport", "cities", "traffic", "taxation", "transit"],
   pillars: [
@@ -29,6 +44,16 @@ export const congestionPricingData = {
           "Use automated cordon counts and journey-time/speed telemetry before and after pricing, then track them for 5-15 years. Control for fuel prices, ride-hail growth, road-space reallocation, and economic cycles. Compare priced cordons against untolled control corridors.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (published government count data)",
+        falsification: {
+          supporter_flip:
+            "If long-run cordon counts and speed telemetry showed the traffic cut consistently rebounding to baseline within a few years once drivers re-adapt — the way London's journey-time benefit decayed from ~30% to ~7% — across multiple cities rather than just one, the 'durable cut' case would weaken to 'a transient shock that fades.'",
+          skeptic_flip:
+            "A skeptic who expects rebound should weigh that Stockholm's ~20% cordon reduction has held — even grown slightly — for nearly two decades after the charge was made permanent, and that London's later speed decline tracks deliberate road-space reallocation and exempt private-hire growth, not the price losing its grip.",
+          common_ground:
+            "Both sides agree pricing produces an immediate, measurable drop in vehicles entering the cordon; the dispute is about what happens to congestion (journey times) over the following years.",
+          live_disagreement:
+            "Whether the durable variable is the car-count reduction or the time-savings benefit — which only multi-city cordon counts and journey-time telemetry tracked for 5-15 years, controlling for road reallocation, ride-hail growth, and exemptions, can settle.",
+        },
       },
       evidence: [
         {
@@ -107,6 +132,16 @@ export const congestionPricingData = {
           "Audit gross receipts minus collection, enforcement, and administration costs over multiple years; compare net revenue to the transit capital/operating gap it is meant to close; assess legal and political durability (litigation, exemptions, rate freezes).",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (published agency financial filings)",
+        falsification: {
+          supporter_flip:
+            "If audited multi-year filings showed net (post-collection-cost) revenue is chronically small relative to the transit gap it is meant to close, or repeatedly slashed by toll cuts, exemptions, litigation, or rate freezes — as New York's drop from a ~$1B/year plan to a ~$500M target hints — then 'a large, durable funding source' would collapse to 'a modest, fragile one.'",
+          skeptic_flip:
+            "A skeptic who calls the revenue fragile should weigh that New York hit and exceeded its ~$500M net target in year one (~$548M) and is bonding against it, and that even a 'halved' take is a large, recurring, dedicated stream no fare hike or general tax was willing to provide.",
+          common_ground:
+            "Both sides agree the schemes do raise real, ring-fenced money for transit; the dispute is whether the net amount is materially large and politically/legally durable enough to bond against for decades.",
+          live_disagreement:
+            "Whether net revenue stays both sizeable relative to transit needs and stable across litigation, exemptions, and rate changes — which only multi-year audited gross-minus-cost filings compared against the funding gap can resolve.",
+        },
       },
       evidence: [
         {

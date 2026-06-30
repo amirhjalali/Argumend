@@ -1,4 +1,4 @@
-import { Triangle, Brain, Layers, Map, Play, ShieldCheck, Target, type LucideIcon } from "lucide-react";
+import { Triangle, Brain, Layers, Map, Play, ShieldCheck, Target, Scale, Gauge, Waypoints, CloudFog, type LucideIcon } from "lucide-react";
 
 export interface GuideSection {
   readonly title: string;
@@ -134,7 +134,7 @@ True independence means each source would arrive at its conclusion regardless of
 
 3. **Check for correlated errors.** Ask what could cause multiple sources to be wrong in the same direction. Shared assumptions? Common funding? Social pressures?
 
-4. **Weight by reliability.** Not all sources are equal. Primary sources beat secondary sources. Documented evidence beats testimony. Reluctant admissions (statements against interest) are more credible than self-serving ones.
+4. **[Weight by reliability](/concepts/evidence-weighting).** Not all sources are equal. Primary sources beat secondary sources. Documented evidence beats testimony. Reluctant admissions (statements against interest) are more credible than self-serving ones.
 
 5. **Note divergences.** When sources disagree, don't ignore the outliers. Investigate why. Sometimes the minority view has identified something the majority missed.
 
@@ -294,7 +294,7 @@ Additionally, stories that generate engagement (often outrage) get amplified ove
           },
           {
             title: "Steel-Manning",
-            content: `Instead of attacking the weakest version of an opposing argument (straw-manning), construct the strongest possible version of it (steel-manning). If you can't articulate why a reasonable person might hold the opposing view, you don't understand it well enough to reject it. This is the foundation of Argumend's approach to controversial topics.`,
+            content: `Instead of attacking the weakest version of an opposing argument ([straw-manning](/fallacies/straw-man)), construct the strongest possible version of it ([steel-manning](/concepts/steel-manning)). If you can't articulate why a reasonable person might hold the opposing view, you don't understand it well enough to reject it. This is the foundation of Argumend's approach to controversial topics.`,
           },
           {
             title: "Seek Disconfirming Evidence",
@@ -494,7 +494,7 @@ Social phenomena are also more context-dependent than medical treatments. What w
 - Corroboration: Do independent sources agree?
 - Authenticity: Is this document genuine?
 
-Multiple independent contemporary sources agreeing on an event is the historical equivalent of triangulation.`,
+Multiple independent contemporary sources agreeing on an event is the historical equivalent of [triangulation](/guides/triangulation).`,
           },
           {
             title: "When Anecdotes Matter",
@@ -592,7 +592,7 @@ Think of the map as a table of contents for a debate, except every entry is conn
       },
       {
         title: "Understanding Pillars",
-        content: `Pillars are the backbone of every argument map. Each pillar represents a distinct line of reasoning — an independent argument that either supports or opposes the central claim.
+        content: `[Pillars](/concepts/pillars) are the backbone of every argument map. Each pillar represents a distinct line of reasoning — an independent argument that either supports or opposes the central claim.
 
 A topic like "Should cities invest in public transit?" might have pillars such as "Economic benefits of reduced car dependency," "Environmental impact of transit systems," "Equity and access for low-income residents," and "Fiscal sustainability of transit agencies." Each pillar can stand on its own: even if one pillar collapses, the others remain.
 
@@ -624,7 +624,7 @@ Each evidence node has several properties you should pay attention to:`,
       },
       {
         title: "Finding the Crux",
-        content: `The crux is the most important concept on any argument map. A crux is the single point of disagreement that, if resolved, would change the most minds. It is the fulcrum of the debate.
+        content: `The crux is the most important concept on any argument map. A [crux](/concepts/cruxes) is the single point of disagreement that, if resolved, would change the most minds. It is the fulcrum of the debate.
 
 On Argumend's maps, cruxes are highlighted with a distinctive marker — typically a diamond icon or a bright accent border — so they stand out from ordinary nodes. You can also find them by looking for the node with the most connection lines: cruxes tend to sit at the intersection of multiple pillars because they affect several lines of reasoning simultaneously.
 
@@ -636,7 +636,7 @@ To find the crux on any map, look for the node labeled "crux" or "key disagreeme
       },
       {
         title: "Using Confidence Scores",
-        content: `Every major node on an Argumend map displays a confidence score — a number from 0 to 100 that represents how well-supported that particular claim or argument is, given the available evidence.
+        content: `Every major node on an Argumend map displays a [confidence score](/concepts/confidence-calibration) — a number from 0 to 100 that represents how well-supported that particular claim or argument is, given the available evidence.
 
 A confidence score of 85 does not mean "85% chance this is true." It means that 85% of the relevant, weighted evidence points in this direction. The distinction matters: a high confidence score reflects the current state of evidence, not an absolute truth claim. New evidence can shift scores.
 
@@ -697,7 +697,7 @@ You can also compare confidence scores across pillars to get a quick read on the
       },
       {
         title: "How to Paste and Submit",
-        content: `Navigate to the **/analyze** page on Argumend. You'll see a large text area with a prompt to paste or type your text.
+        content: `Navigate to the **[/analyze](/analyze)** page on Argumend. You'll see a large text area with a prompt to paste or type your text.
 
 **Step 1: Paste your text.** Copy the article, essay, or transcript you want to analyze and paste it into the text area. The tool accepts plain text — formatting like bold and italic will be stripped, but that's fine. The analysis works on the words and ideas, not the formatting.
 
@@ -747,7 +747,7 @@ A word of caution: fallacy detection is the most subjective part of the analysis
         title: "The AI Judge Council",
         content: `Behind the scenes, Argumend doesn't rely on a single AI model to produce its analysis. Instead, it uses a **judge council** — multiple independent AI evaluators that each assess the text separately before their judgments are synthesized.
 
-This design mirrors the principle of triangulation (covered in our guide on that topic). A single AI model might have systematic blind spots or tendencies — perhaps it consistently underweights certain types of evidence, or has a subtle bias toward particular framings. By running multiple models independently and then comparing their assessments, Argumend reduces the impact of any single model's weaknesses.
+This design mirrors the principle of triangulation (covered in our [Triangulation guide](/guides/triangulation)). A single AI model might have systematic blind spots or tendencies — perhaps it consistently underweights certain types of evidence, or has a subtle bias toward particular framings. By running multiple models independently and then comparing their assessments, Argumend reduces the impact of any single model's weaknesses.
 
 Here's how it works in practice:
 
@@ -799,7 +799,7 @@ The judge council is why Argumend's confidence scores are more calibrated than a
         title: "The Four Dimensions of Evidence Weight",
         content: `Not all evidence carries the same weight. A peer-reviewed meta-analysis and a single anonymous blog post might both claim the same thing, but they shouldn't move your confidence by the same amount. The question is: how do you systematically decide how much weight to give a piece of evidence?
 
-Argumend's framework evaluates evidence along four independent dimensions: **reliability**, **independence**, **replicability**, and **directness**. Each dimension captures a different aspect of evidence quality, and together they provide a comprehensive picture of how much you should trust a given source.
+Argumend's framework evaluates evidence along [four independent dimensions](/concepts/evidence-weighting): **reliability**, **independence**, **replicability**, and **directness**. Each dimension captures a different aspect of evidence quality, and together they provide a comprehensive picture of how much you should trust a given source.
 
 Think of these four dimensions as separate filters. A piece of evidence might score high on one dimension and low on another. A government statistical report, for instance, is highly reliable and direct, but if every other analysis uses the same dataset, independence is low. A collection of independent anecdotes might score well on independence but poorly on reliability and replicability.
 
@@ -871,7 +871,7 @@ Independence is especially important in the social media age, where a single cla
             title: "Replicability",
             content: `Replicability asks: if someone repeated this study or investigation, would they get the same result? Evidence is replicable when the finding holds up across multiple attempts under similar conditions.
 
-The replication crisis in psychology and other fields (discussed in our Hierarchy of Evidence guide) showed that many published findings fail to replicate. This makes replication status a crucial quality indicator. Evidence that has been successfully replicated — especially by independent teams — deserves substantially more weight than evidence from a single unreplicated study.
+The replication crisis in psychology and other fields (discussed in our [Hierarchy of Evidence guide](/guides/evidence-hierarchy)) showed that many published findings fail to replicate. This makes replication status a crucial quality indicator. Evidence that has been successfully replicated — especially by independent teams — deserves substantially more weight than evidence from a single unreplicated study.
 
 On Argumend, evidence nodes that reference replicated findings carry a replicability indicator. When evaluating evidence yourself, check: has this finding been replicated? By whom? Were the replications close to the original conditions, or did they test the finding in new contexts (which is even better)?
 
@@ -945,9 +945,9 @@ A useful mental model: imagine you're a juror. You wouldn't convict based solely
 
 Most disagreements have dozens of surface-level points of contention, but only one or two genuine cruxes. Everything else is either downstream of the crux (it only matters because the crux holds) or peripheral (it feels relevant but wouldn't actually change anyone's conclusion).
 
-Consider the Moon Landing debate on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
+Consider the [Moon Landing debate](/topics/moon-landing) on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
 
-Or take Nuclear Energy. Proponents and opponents often argue about carbon emissions, cost per kilowatt, and accident probabilities. But for many opponents, the genuine crux is long-term waste storage: if someone demonstrated a proven, safe method for storing nuclear waste for ten thousand years, their opposition would soften dramatically. For many proponents, the crux is whether renewables plus storage can reliably power an entire grid — if that were proven at scale, nuclear would become less necessary.
+Or take [Nuclear Energy](/topics/nuclear-energy-safety). Proponents and opponents often argue about carbon emissions, cost per kilowatt, and accident probabilities. But for many opponents, the genuine crux is long-term waste storage: if someone demonstrated a proven, safe method for storing nuclear waste for ten thousand years, their opposition would soften dramatically. For many proponents, the crux is whether renewables plus storage can reliably power an entire grid — if that were proven at scale, nuclear would become less necessary.
 
 The crux is where the real action is. Everything else is noise.`,
       },
@@ -1101,7 +1101,7 @@ This is why "base rates" matter. The base rate is how often a type of claim turn
 
 Bad reasoning ignores priors entirely, treating every new claim as if it starts from a blank slate. Good reasoning honestly assesses what you believed before, then updates proportionally.
 
-On Argumend, confidence scores implicitly reflect priors. A claim that "vaccines cause autism" starts with an extremely low prior because decades of large-scale studies have found no connection. A single new study claiming a link barely moves the needle — and that's the rational response, not stubbornness.`,
+On Argumend, [confidence scores](/concepts/confidence-calibration) implicitly reflect priors. A claim that "vaccines cause autism" starts with an extremely low prior because decades of large-scale studies have found no connection. A single new study claiming a link barely moves the needle — and that's the rational response, not stubbornness.`,
       },
       {
         title: "Likelihood: How Surprising Is This Evidence?",
@@ -1210,13 +1210,13 @@ On Argumend, you can check the source reliability indicators on evidence nodes �
 
 **What are their incentives?** Everyone has interests that could bias their claims. A pharmaceutical company reporting positive drug trial results has a financial incentive to find those results. A politician citing economic data that supports their policy has a political incentive to cherry-pick. An academic who built their career on a theory has a reputational incentive to defend it.
 
-This doesn't mean every interested party is lying. It means you should weight their claims less heavily than you'd weight the same claim from a disinterested source. And remember the principle from the Evaluating Source Credibility guide: statements against interest are especially credible. When a source makes a claim that hurts their own position, pay attention — they're probably not making it up.
+This doesn't mean every interested party is lying. It means you should weight their claims less heavily than you'd weight the same claim from a disinterested source. And remember the principle from the [Evaluating Source Credibility guide](/guides/evaluating-source-credibility): statements against interest are especially credible. When a source makes a claim that hurts their own position, pay attention — they're probably not making it up.
 
 **Is this first-hand or second-hand?** Did the source observe or produce the evidence directly, or are they reporting someone else's work? Each layer of removal introduces potential distortion. The original researcher's finding, the press release summarizing it, the journalist interpreting the press release, and the social media post quoting the journalist can all say different things — even without anyone deliberately misleading.`,
       },
       {
         title: "Step 3: Triangulate",
-        content: `You've identified the claim type and checked the source. Now apply the core principle from the Triangulation guide: seek independent corroboration.
+        content: `You've identified the claim type and checked the source. Now apply the core principle from the [Triangulation guide](/guides/triangulation): seek independent corroboration.
 
 **Find three independent sources.** Independent means they didn't get their information from each other. Three news outlets all citing the same wire service report are not three independent sources — they're one source amplified. Three research groups using different methodologies to study the same question and reaching the same conclusion? That's genuine triangulation.
 
@@ -1232,7 +1232,7 @@ The entire triangulation step should take about three minutes. Search for the cl
         title: "Step 4: Check the Base Rate",
         content: `Most people skip this step, and it's arguably the most important one. Before evaluating whether this specific claim is true, ask: how often are claims like this true in general?
 
-This is the Bayesian "prior" from the Bayesian Thinking guide, applied practically.
+This is the Bayesian "prior" from the [Bayesian Thinking guide](/guides/bayesian-thinking), applied practically.
 
 **For scientific claims:** About 50% of published psychology findings fail to replicate. About 85% of Phase II clinical trials fail. About 90% of "breakthrough" findings reported in press releases are either overblown or don't hold up. These base rates should make you appropriately skeptical of any single study claiming dramatic results.
 
@@ -1301,7 +1301,7 @@ The entire audit — all five steps — should take about ten minutes for a typi
 
 **The asymmetry of effort.** Straw-manning is easy. Find the dumbest person on the other side, quote them, and declare victory. It takes thirty seconds and generates dopamine. Steel-manning takes sustained intellectual effort with no guaranteed social reward. The incentive structure of most online discourse strongly favors straw-manning.
 
-Despite all this, steel-manning is the single most important skill in critical thinking. Every Argumend topic map is built on it — each side's arguments are presented in their strongest form. Learning to do this yourself will transform how you engage with disagreement.`,
+Despite all this, [steel-manning](/concepts/steel-manning) is the single most important skill in critical thinking. Every Argumend topic map is built on it — each side's arguments are presented in their strongest form. Learning to do this yourself will transform how you engage with disagreement.`,
       },
       {
         title: "The Empathy Step",
@@ -1323,7 +1323,7 @@ The empathy step doesn't require you to change your mind. It requires you to hon
         title: "The Evidence Step",
         content: `Now that you understand why people hold the opposing view, find the three strongest pieces of evidence supporting it. Not the weakest, not the most convenient to rebut — the strongest.
 
-This means seeking out the best sources from the other side, not the worst. If you're steelmanning the case for nuclear energy, don't look at a random Reddit comment — read the peer-reviewed literature on lifecycle emissions, grid reliability studies from countries with high nuclear penetration, and engineering analyses of modern reactor designs. If you're steelmanning the case against it, read the detailed economic analyses showing cost overruns, the geological assessments of waste storage challenges, and the renewable energy projections from credible agencies.
+This means seeking out the best sources from the other side, not the worst. If you're steelmanning the case for [nuclear energy](/topics/nuclear-energy-safety), don't look at a random Reddit comment — read the peer-reviewed literature on lifecycle emissions, grid reliability studies from countries with high nuclear penetration, and engineering analyses of modern reactor designs. If you're steelmanning the case against it, read the detailed economic analyses showing cost overruns, the geological assessments of waste storage challenges, and the renewable energy projections from credible agencies.
 
 **Here's a practical approach:**
 
@@ -1365,7 +1365,7 @@ There are four possible outcomes, and all of them are good:
 
 **3. Your position shifts significantly.** The steelman was so strong that you've updated your belief substantially. This is rare but valuable — it means you've discovered that you were wrong about something, and you've corrected it. In Bayesian terms, the evidence was strong enough to move your posterior past the tipping point.
 
-**4. You discover the crux.** Building the steelman revealed that the disagreement hinges on a specific empirical question or value judgment that you hadn't previously identified. Now you know exactly where to focus your research or reflection. This connects directly to the Crux Test guide — steelmanning is one of the most reliable ways to find the crux of a disagreement.
+**4. You discover the crux.** Building the steelman revealed that the disagreement hinges on a specific empirical question or value judgment that you hadn't previously identified. Now you know exactly where to focus your research or reflection. This connects directly to the [Crux Test guide](/guides/crux-test) — steelmanning is one of the most reliable ways to find the crux of a disagreement.
 
 **What steelmanning teaches you over time:** The more you practice, the less binary your thinking becomes. You start seeing positions as having varying degrees of support rather than being simply "right" or "wrong." You become harder to manipulate because you've already considered the best arguments on all sides. And you become more persuasive because people can tell when you genuinely understand their position versus when you're just performing open-mindedness.
 
@@ -1402,7 +1402,7 @@ The practice integrates with everything else on Argumend. Every topic is built o
 
 Both sides are looking at the same reality but sampling it selectively. The climate data is vast and complex; confirmation bias acts as a filter that lets through only the evidence you were already looking for.
 
-On Argumend's Climate Change topic, you can see this pattern broken. The argument map presents supporting and opposing evidence for each pillar without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
+On Argumend's [Climate Change topic](/topics/climate-change), you can see this pattern broken. The argument map presents supporting and opposing evidence for each pillar without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
 
 **Spot it in the wild:** When someone shares only evidence that supports their conclusion without acknowledging any counterevidence, they're likely in the grip of confirmation bias. Ask them: "What's the strongest evidence against your position?" If they can't name any, they haven't looked.`,
       },
@@ -1424,7 +1424,7 @@ Neither anchor is "wrong," but whichever one you encounter first disproportionat
 
 The actual statistics tell a different story. Per unit of energy produced, nuclear power has caused fewer deaths than coal, oil, natural gas, and even some renewables (when accounting for manufacturing and installation accidents). The WHO estimates that air pollution from fossil fuels kills roughly 4.2 million people annually. Nuclear energy's total death toll from all accidents in its entire history is measured in thousands.
 
-But statistics aren't vivid. They don't come to mind the way a mushroom cloud does. The availability heuristic makes nuclear energy feel uniquely dangerous because its failures are uniquely memorable — even though its actual safety record is among the best of any energy source.
+But statistics aren't vivid. They don't come to mind the way a mushroom cloud does. The availability heuristic makes [nuclear energy](/topics/nuclear-energy-safety) feel uniquely dangerous because its failures are uniquely memorable — even though its actual safety record is among the best of any energy source.
 
 **Spot it in the wild:** When someone argues a risk is high based on memorable examples rather than statistics, the availability heuristic is likely at work. "Plane crashes make the news" is the classic example — flying is orders of magnitude safer than driving, but nobody remembers an uneventful car trip. Ask: "Is this actually common, or is it just easy to remember?"`,
       },
@@ -1450,7 +1450,7 @@ But that money is gone. The rational question isn't "have we spent a lot on this
 
 The sunk cost fallacy makes it psychologically painful to abandon programs with large prior investments, even when the forward-looking case has weakened. It explains why governments continue funding programs that independent reviews recommend canceling — and why critics who focus only on sunk costs rather than future value miss the point.
 
-**Spot it in the wild:** When someone justifies continuing an activity primarily by referencing past investment ("We've already spent $10 billion on this"), they're likely committing the sunk cost fallacy. The correct question is always: "Knowing what we know now, is the next dollar well spent?" Past expenditure is informative about feasibility but not about future value.`,
+**Spot it in the wild:** When someone justifies continuing an activity primarily by referencing past investment ("We've already spent $10 billion on this"), they're likely committing the [sunk cost fallacy](/fallacies/sunk-cost). The correct question is always: "Knowing what we know now, is the next dollar well spent?" Past expenditure is informative about feasibility but not about future value.`,
       },
       {
         title: "In-Group Bias",
@@ -1474,7 +1474,7 @@ The evidence, however, doesn't support this clean dichotomy. Meta-analyses of nu
 
 This doesn't mean organic food has no benefits — there are legitimate environmental arguments about soil health and biodiversity. But when the conversation centers on "natural is better because it's natural," the reasoning is circular. Arsenic, hemlock, and botulinum toxin are all natural. Insulin, water purification, and antibiotics are all artificial. "Natural" is not a synonym for "safe."
 
-**Spot it in the wild:** When someone justifies a preference solely by the natural/artificial distinction — "I prefer X because it's natural" — without explaining what specific property of the natural version makes it better, the appeal to nature is at work. Ask: "What specifically about it being natural makes it superior?" A good answer points to specific mechanisms. A bad answer just restates that it's natural.`,
+**Spot it in the wild:** When someone justifies a preference solely by the natural/artificial distinction — "I prefer X because it's natural" — without explaining what specific property of the natural version makes it better, the [appeal to nature](/fallacies/appeal-to-nature) is at work. Ask: "What specifically about it being natural makes it superior?" A good answer points to specific mechanisms. A bad answer just restates that it's natural.`,
       },
       {
         title: "Survivorship Bias",
@@ -1486,9 +1486,9 @@ What you don't hear are the stories of people who bought hundreds of altcoins th
 
 The result: the visible evidence makes crypto investing look like a path to wealth, when the full data set (including the invisible failures) tells a much more nuanced story. For every crypto millionaire, there are likely hundreds of people who lost money — you just don't see them because they have no platform and no incentive to share their experience.
 
-This is the same pattern Abraham Wald identified in WWII bomber analysis (discussed in the Understanding Bias guide). You see the survivors and assume they represent the full picture. They don't. The full picture includes everything that didn't survive — and that's where the critical information often lies.
+This is the same pattern Abraham Wald identified in WWII bomber analysis (discussed in the [Understanding Bias guide](/guides/understanding-bias)). You see the survivors and assume they represent the full picture. They don't. The full picture includes everything that didn't survive — and that's where the critical information often lies.
 
-**Spot it in the wild:** When success stories are used as evidence that a strategy works, ask: "What about the people who tried the same strategy and failed?" If those failures are invisible or uncounted, survivorship bias is distorting the picture. Success rates calculated only from successes are meaningless.`,
+**Spot it in the wild:** When success stories are used as evidence that a strategy works, ask: "What about the people who tried the same strategy and failed?" If those failures are invisible or uncounted, [survivorship bias](/fallacies/survivorship-bias) is distorting the picture. Success rates calculated only from successes are meaningless.`,
       },
       {
         title: "Halo Effect",
@@ -1553,6 +1553,432 @@ The environmental debate on Argumend reveals this tension between individual act
       { title: "Thinking, Fast and Slow", author: "Daniel Kahneman" },
       { title: "You Are Not So Smart", author: "David McRaney", url: "https://youarenotsosmart.com/" },
       { title: "The Art of Thinking Clearly", author: "Rolf Dobelli" },
+    ],
+  },
+  {
+    id: "weighing-conflicting-evidence",
+    title: "Weighing Conflicting Evidence",
+    subtitle: "What to Do When Good Evidence Points Both Ways",
+    description: "Real debates rarely hinge on one side having all the evidence. Learn to reconcile credible studies that disagree — diagnosing the conflict, weighting by quality, and arriving at an honest net judgment.",
+    icon: Scale,
+    color: "#3a6965",
+    readTime: "13 min read",
+    sections: [
+      {
+        title: "When the Evidence Disagrees With Itself",
+        content: `On most controversial questions, you won't find one side armed with rigorous studies and the other side with nothing. You'll find rigorous studies on both sides — and they disagree. One large analysis finds a minimum-wage increase costs jobs; another, equally large, finds it doesn't. One cohort study links a food additive to harm; another finds no effect. This is the normal condition of real-world evidence, and it's where most reasoning quietly breaks down.
+
+The instinct is to pick the study that agrees with you and dismiss the rest. The slightly more sophisticated instinct — "the truth is somewhere in the middle" — is also usually wrong, because it treats strong and weak evidence as if they deserve equal pull. Splitting the difference between a meta-analysis and a press release isn't balance; it's a different kind of error.
+
+Weighing conflicting evidence is a distinct skill from judging a single source. Our [Evaluating Source Credibility guide](/guides/evaluating-source-credibility) covers how to score one piece of evidence on reliability, independence, replicability, and directness. The [Hierarchy of Evidence guide](/guides/evidence-hierarchy) covers which study designs are stronger. This guide picks up where those leave off: you've assessed the individual pieces, they point in opposite directions, and now you have to form one coherent judgment. That synthesis is where genuine understanding lives — and where Argumend's [weighted evidence framework](/concepts/evidence-weighting) earns its keep.`,
+      },
+      {
+        title: "First, Diagnose the Conflict",
+        content: `Before you try to resolve a conflict, find out whether it's even real. A surprising share of "contradictory" evidence isn't contradictory at all — the studies are answering subtly different questions, measuring different things, or describing different populations. Diagnosing this first saves you from forcing a resolution the evidence never required.`,
+        subsections: [
+          {
+            title: "Apparent Conflicts",
+            content: `Two findings can look opposed while being perfectly compatible. "Moderate drinking is associated with lower heart-disease risk" and "alcohol consumption raises cancer risk" sound contradictory, but both can be true at once — alcohol affects different organ systems differently. The apparent conflict dissolves once you notice the outcomes being measured aren't the same. Before pitting two studies against each other, confirm they're actually making incompatible claims about the same outcome, not compatible claims about different ones.`,
+          },
+          {
+            title: "Different Questions in Disguise",
+            content: `Often the studies measure genuinely different quantities. A trial finding that a drug "works" might measure a surrogate marker like cholesterol levels, while one finding it "doesn't work" measures the outcome that actually matters, like heart attacks. One study of a policy might capture short-run effects, another long-run effects. When findings clash, ask precisely what each one measured. The conflict frequently lives in the gap between the proxy and the thing you actually care about — the [directness](/concepts/evidence-weighting) dimension of evidence quality made concrete.`,
+          },
+          {
+            title: "Different Populations and Contexts",
+            content: `A finding that holds in one population can reverse in another. A teaching method that works for graduate students may fail for struggling ten-year-olds; a rent-control policy that stabilizes one city's housing market may distort another's. Effects that depend on context aren't contradictory — they're conditional. The right move isn't "which study is right?" but "under what conditions does each finding hold?" The [Rent Control topic](/topics/rent-control-effectiveness) is a clear case: much of the apparent disagreement turns on differences in housing supply and the specific design of each policy, not on one study being wrong.`,
+          },
+        ],
+      },
+      {
+        title: "Weigh by Quality, Not by Count",
+        content: `Once you've confirmed the conflict is real, the most common mistake is to resolve it by tallying — three studies say yes, two say no, so yes wins. This is vote-counting, and it ignores almost everything you know about evidence quality.`,
+        subsections: [
+          {
+            title: "The Vote-Counting Trap",
+            content: `Counting studies treats a 200,000-person randomized trial and a 40-person observational study as one vote each. But they don't deserve equal weight — and a field can be flooded with low-quality studies that all point the same direction for the same flawed reason: shared methodology, shared funding, or shared publication incentives. As the [Triangulation guide](/guides/triangulation) stresses, ten weak studies with a common bias are not ten independent data points. Weigh the evidence; don't count it.`,
+          },
+          {
+            title: "Let the Strongest Evidence Anchor",
+            content: `A practical rule: identify the single highest-quality piece of evidence on each side and let those anchor your judgment before you consider the rest. If one side's best evidence is a pre-registered, replicated randomized trial and the other side's best is an unreplicated observational study, the conflict is far less balanced than a raw count suggests. The weaker body of evidence doesn't vanish — but it has to clear a much higher bar to overturn the stronger.`,
+          },
+          {
+            title: "Watch for Cherry-Picking",
+            content: `When someone presents a stack of studies all supporting one conclusion, ask what the rest of the literature says. Selectively showcasing the supportive studies while ignoring the contradictory ones is [cherry-picking](/fallacies/cherry-picking), and it can make a genuinely contested question look settled. A systematic review that includes all the evidence — including the inconvenient parts — is worth more than any curated list. This is exactly why Argumend maps display opposing evidence side by side rather than letting one side stack the deck.`,
+          },
+        ],
+      },
+      {
+        title: "Decompose the Disagreement",
+        content: `A large, messy conflict is often several smaller, cleaner questions wearing a trench coat. Breaking it down turns an unwinnable "who's right?" into a set of answerable sub-questions — and usually reveals that the two sides agree on more than they realized.
+
+Take the debate over whether [social media harms teen mental health](/topics/social-media-mental-health). Stated that broadly, the evidence looks hopelessly conflicted. But decompose it. Is there a correlation between heavy use and depression? (Fairly consistent yes.) Is the correlation large or small? (Contested — effect sizes vary widely.) Does heavy use cause the depression, or do already-depressed teens use more social media? (Genuinely uncertain — the [causal direction](/fallacies/false-cause) is the real crux.) Does the effect differ by platform, age, or sex? (Almost certainly yes.)
+
+Suddenly the "conflict" resolves into a map. Both sides may agree on the correlation and disagree only about causation — a far narrower, more tractable disagreement. This is the same move described in the [Crux Test guide](/guides/crux-test): find the specific sub-question that's actually load-bearing, and you've found where weighing the evidence really matters. Most of the apparent conflict was never about that question at all.`,
+      },
+      {
+        title: "Use Mechanism and Convergence as Tiebreakers",
+        content: `When two bodies of evidence are genuinely close in quality, two further considerations can break the tie honestly — and one temptation can corrupt the whole exercise.`,
+        subsections: [
+          {
+            title: "Is There a Plausible Mechanism?",
+            content: `Evidence is more credible when there's a known reason it should be true. A correlation backed by a well-understood causal mechanism — smoking causes cancer because carcinogens damage DNA — deserves more weight than an equally strong correlation with no plausible mechanism. But handle this carefully: a compelling-sounding mechanism is not proof, and a clever story can be told for almost any claim. Mechanism is a tiebreaker between findings of similar empirical strength, never a substitute for the empirical evidence itself. The danger is letting a satisfying narrative override data that contradicts it.`,
+          },
+          {
+            title: "Does Independent Evidence Converge?",
+            content: `The strongest resolution to a conflict comes from a different kind of evidence breaking the tie. If observational studies disagree but a randomized trial, a natural experiment, and a mechanistic study all point the same way, that convergence across methods is powerful — precisely because the methods have different weaknesses, as the [Triangulation guide](/guides/triangulation) explains. When you're stuck between two conflicting study types, look for a third, independent line of evidence rather than re-litigating the first two.`,
+          },
+          {
+            title: "Beware Asymmetric Skepticism",
+            content: `The cardinal sin of weighing conflicting evidence is applying tough standards to the side you dislike and gentle standards to the side you favor. If you find yourself scrutinizing the methodology of studies that contradict your view while waving through studies that confirm it, you're not weighing evidence — you're rationalizing. The honest test, drawn from the [Understanding Bias guide](/guides/understanding-bias): would I accept this study's methods if it had reached the opposite conclusion?`,
+          },
+        ],
+      },
+      {
+        title: "Arriving at an Honest Net Judgment",
+        content: `After diagnosing, weighting, decomposing, and applying tiebreakers, you have to commit to a judgment — and the honest one is often not a clean "yes" or "no" but a calibrated confidence.
+
+Here's the workflow in brief:
+
+1. **Confirm the conflict is real** — not two answers to different questions.
+2. **Anchor on the strongest evidence each side offers**, not the raw count.
+3. **Decompose** the question and locate the sub-question that's actually contested.
+4. **Look for convergent, independent evidence** to break genuine ties.
+5. **Set a confidence level that reflects the residual uncertainty** — and say so out loud.
+
+The result should usually be a number, not a verdict. On Argumend, this is exactly what a [confidence score](/concepts/confidence-calibration) encodes: a claim where strong evidence genuinely conflicts might land at 55 or 60 — not because the analysis was sloppy, but because the evidence itself is unsettled. A score near 50 isn't a cop-out; it's the honest output of weighing real conflict, and it tells you precisely where more research would change minds.
+
+That intellectual honesty has a payoff. When you can say "the best evidence leans this way, but here's the strongest finding against me, and here's what would change my mind," you've done something most participants in a debate never do. You've weighed the evidence instead of choosing a side — and you've left yourself a clear path to update when better evidence arrives. Explore the weighted evidence on any [Argumend topic](/topics) and you'll see this discipline applied: every pillar shows both its supporting and its opposing evidence, scored, so the conflict is visible rather than hidden. The full method is laid out in our [methodology](/methodology), and the recurring terms are defined in the [glossary](/glossary).`,
+      },
+    ],
+    keyTakeaways: [
+      "Before resolving a conflict, diagnose it — many 'contradictory' findings measure different outcomes, timeframes, or populations and aren't actually in conflict",
+      "Weigh evidence by quality, not by count: ten weak studies sharing a common bias don't outweigh one strong, independent, replicated one",
+      "Decompose a broad disagreement into sub-questions; the conflict usually lives in one specific, load-bearing question while the sides agree on the rest",
+      "When evidence is genuinely close in quality, use plausible mechanism and convergence across independent methods as tiebreakers — but never let a good story override data",
+      "Apply the same standards to evidence you like and evidence you don't: if you'd reject a study had it reached the opposite conclusion, you're rationalizing, not weighing",
+      "The honest output of weighing real conflict is often a calibrated confidence near the middle, not a clean verdict — and that pinpoints where more research would matter",
+    ],
+    furtherReading: [
+      { title: "Noise: A Flaw in Human Judgment", author: "Daniel Kahneman, Olivier Sibony & Cass Sunstein" },
+      { title: "The Scout Mindset", author: "Julia Galef", url: "https://www.juliagalef.com/book/" },
+      { title: "Science Fictions", author: "Stuart Ritchie" },
+      { title: "Calling Bullshit: The Art of Skepticism in a Data-Driven World", author: "Carl Bergstrom & Jevin West", url: "https://callingbullshit.org/" },
+    ],
+  },
+  {
+    id: "reading-confidence-like-a-forecaster",
+    title: "Reading Confidence Like a Forecaster",
+    subtitle: "Calibration, Probability, and the Discipline of Honest Uncertainty",
+    description: "Confidence isn't a feeling — it's a probability you can be right or wrong about. Learn how professional forecasters calibrate their uncertainty, and how to read confidence scores the same way.",
+    icon: Gauge,
+    color: "#4a6b8a",
+    readTime: "13 min read",
+    sections: [
+      {
+        title: "Confidence Is a Number, Not a Feeling",
+        content: `Most people treat confidence as a mood. They feel sure, so they say they're sure; they feel doubtful, so they hedge. But the people who are best in the world at judging uncertain questions — professional forecasters, expert poker players, intelligence analysts — treat confidence as something else entirely: a number that can be checked against reality.
+
+When a weather forecaster says "70% chance of rain," they're making a testable claim. Collect every day they said "70%," and if it rained on roughly 70% of them, the forecaster is *calibrated* — their stated confidence matches how often they're actually right. If it rained on only 40% of those days, they're overconfident. This is a radically different way of thinking about belief: not "am I sure?" but "if I made a hundred claims at this confidence level, how many should turn out true?"
+
+This guide is about adopting that mindset — and using it to read the [confidence scores](/concepts/confidence-calibration) on Argumend the way a forecaster would. It builds directly on the [Bayesian Thinking guide](/guides/bayesian-thinking), which covers how to *update* beliefs as evidence arrives. Calibration is the complementary skill: making sure the confidence you end up with actually means what it says.`,
+      },
+      {
+        title: "Calibration: The Core Skill",
+        content: `Calibration is the match between your stated confidence and your actual accuracy. It's the single most trainable component of good judgment, and most people have never practiced it deliberately.`,
+        subsections: [
+          {
+            title: "What Calibration Means",
+            content: `A perfectly calibrated person is right about 90% of the time when they say they're 90% confident, 60% of the time when they say 60%, and — crucially — wrong half the time when they say 50%. Note what this implies: being wrong sometimes is not a failure of calibration. A forecaster who is never wrong when they say "70%" is actually *under*confident; they should have said "95%." Calibration isn't about being right more often. It's about your confidence meaning exactly what it claims.`,
+          },
+          {
+            title: "Almost Everyone Is Overconfident",
+            content: `The robust finding across decades of research is that most people, most of the time, are overconfident. When people say they're "99% sure," they tend to be wrong far more than 1% of the time. Experts are not immune — and within their own domain they're sometimes worse, because expertise can breed certainty faster than it breeds accuracy. This is why the [Dunning-Kruger effect](/guides/understanding-bias) and its inverse both matter: the cure is not "be more confident" or "be less confident" across the board, but to pull your confidence toward what your track record actually justifies.`,
+          },
+          {
+            title: "Calibration vs. Resolution",
+            content: `These are two different virtues. *Calibration* is whether your probabilities are honest. *Resolution* — sometimes called discrimination — is whether you actually distinguish likely from unlikely, whether you're willing to say 95% and 5% when warranted rather than hedging everything toward 50%. A forecaster who says "50%" about everything is perfectly calibrated and completely useless. Good judgment requires both: honest probabilities *and* the nerve to make them decisive when the evidence allows.`,
+          },
+        ],
+      },
+      {
+        title: "What a Confidence Score Actually Says",
+        content: `With calibration in mind, you can read Argumend's confidence scores correctly — and avoid the two most common misreadings.
+
+A [confidence score](/concepts/confidence-calibration) of 85 does not mean "this is 85% likely to be true" in some cosmic sense, and it does not mean "85% of people agree." It means that, weighing the available evidence on its quality, roughly 85% of the well-weighted support points in this direction. It's a statement about the *current state of evidence*, not a permanent fact — and like a forecaster's number, it's meant to move when new evidence arrives.
+
+This has two practical consequences. First, a high score is an invitation to act, not to stop thinking: 85 is strong, but a calibrated reasoner still expects claims at that level to be overturned occasionally. Second, a middling score is genuinely informative. A claim at 50 isn't "we know nothing" — it's "the evidence is real but genuinely balanced," precisely the condition our [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) addresses. The most interesting questions on any topic tend to cluster in the contested middle, which is why scanning for mid-range scores is the fastest way to find where a debate is actually live. The [How to Read an Argument Map guide](/guides/how-to-read-an-argument-map) walks through using scores as exactly this kind of triage tool.`,
+      },
+      {
+        title: "Habits of Calibrated Forecasters",
+        content: `The research on what separates accurate forecasters from inaccurate ones — most prominently Philip Tetlock's work on "superforecasters" — points to a handful of learnable habits. None of them require special talent.`,
+        subsections: [
+          {
+            title: "Think in Ranges, Not Points",
+            content: `Skilled forecasters rarely commit to a single number when a range is more honest. Instead of "GDP will grow 2.5%," they think "most likely 1.5% to 3.5%, centered near 2.5%." The width of the range *is* the message — it encodes how much you actually know. When you read a confident point-claim with no acknowledged range, treat the missing uncertainty as a warning sign rather than a show of strength.`,
+          },
+          {
+            title: "Start From the Base Rate",
+            content: `Before considering the specifics of a case, good forecasters ask how often things like this happen in general — the base rate. As the [Argument Audit guide](/guides/argument-audit) describes, this anchors your estimate in reality before the vivid details of the specific case pull you off course. A startup's pitch may be brilliant, but the base rate of startups succeeding is low, and that base rate should dominate your initial estimate until specific evidence justifies moving away from it.`,
+          },
+          {
+            title: "Update in Small Steps",
+            content: `Calibrated forecasters move their confidence frequently but in small increments, rather than swinging from certain-yes to certain-no on a single new data point. Each piece of evidence nudges the number in proportion to how diagnostic it is — the [Bayesian updating](/guides/bayesian-thinking) discipline in action. Beware the temptation to overhaul your whole view because of one dramatic study; it is rarely as decisive as it feels in the moment.`,
+          },
+          {
+            title: "Keep Score",
+            content: `This is the habit that makes all the others possible: write down your predictions with dates and confidence levels, then check them later. Nothing reveals overconfidence faster than a record of your own past forecasts. Over time, scorekeeping — formally, via a Brier score — tells you which domains you're well-calibrated in and which you systematically get wrong. That feedback is something no amount of introspection alone can provide.`,
+          },
+        ],
+      },
+      {
+        title: "Reading Other People's Confidence",
+        content: `Forecasting isn't only about your own beliefs — most of the time you're evaluating *other people's* confidence, in news, debates, and expert claims. The same lens applies.`,
+        subsections: [
+          {
+            title: "Confidence Is Not Competence",
+            content: `The loudest, most certain voice in a debate is often the least calibrated, not the most informed. Genuine experts on hard questions tend to express measured uncertainty and specify exactly where they're unsure; the overconfident offer sweeping certainty with vague reasoning. When judging a source, weight precision and acknowledged uncertainty over the sheer force of conviction. A claim that names its own weak points is usually more trustworthy than one that admits none.`,
+          },
+          {
+            title: "Verbal Probabilities Are Slippery",
+            content: `Phrases like "likely," "a real possibility," or "cannot be ruled out" hide enormous variation — studies find people interpret "likely" as anywhere from 55% to 90%. When someone makes an important claim in words, try to pin it to a number: "When you say 'probably,' do you mean closer to 60% or 90%?" The question itself often reveals whether they've actually thought about the odds or are just gesturing at confidence.`,
+          },
+          {
+            title: "Track Record Beats Credentials",
+            content: `A forecaster's most valuable asset is a documented history of accurate calls. Credentials tell you someone has knowledge; a track record tells you whether their confidence is calibrated. Where you can, judge predictors by their hit rate — and be especially wary of anyone who never revisits their failed predictions, because quietly forgetting your misses is the surest sign of an uncalibrated forecaster.`,
+          },
+        ],
+      },
+      {
+        title: "Calibration in Practice on Argumend",
+        content: `Putting it together, here's how to read any topic the way a forecaster would.
+
+When you open a topic like [AI Risk](/topics/ai-risk), [Climate Change](/topics/climate-change), or [Longevity Science](/topics/longevity-science), resist the pull to look for a verdict. Instead, read the confidence scores as probabilities you could bet on. Ask of each high-confidence claim: would I be genuinely surprised if this were overturned? Ask of each contested claim: what specific evidence would move this number, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
+
+Then turn the lens on yourself. Pick a claim on the topic, write down your own confidence as a number, and note what would change it. Come back when you've read more — or when the world has supplied new evidence — and see whether you should update. This simple practice, repeated, is how calibration is built. It's also the entire spirit of Argumend: not to hand you conclusions, but to give you a structured, honestly-scored map of the [evidence](/concepts/evidence-weighting) so you can hold your own beliefs to a forecaster's standard.
+
+The reward is a kind of intellectual freedom. Once confidence is a number you can be accountable for, you stop needing to be certain to have an opinion, and you stop being threatened by evidence against you — it's just information that adjusts a probability. You can hold a view at 70%, take the other side's best argument seriously, and change your mind by degrees rather than all at once. That is what it means to read confidence like a forecaster.`,
+      },
+    ],
+    keyTakeaways: [
+      "Confidence is a testable probability, not a feeling: if you're right about 70% of the things you call '70% likely,' you're calibrated — and being wrong sometimes is required, not a failure",
+      "Most people, including experts, are systematically overconfident; the fix is to pull your stated confidence toward what your track record actually justifies",
+      "Good judgment needs both calibration (honest probabilities) and resolution (the willingness to say 95% or 5% when warranted) — hedging everything to 50% is useless",
+      "An Argumend confidence score reflects the current weight of evidence, not cosmic truth or popularity — high scores invite action, mid-range scores flag where a debate is genuinely live",
+      "Borrow the forecaster's habits: think in ranges, start from base rates, update in small steps, and keep score of your predictions to reveal where you're miscalibrated",
+      "When reading others, weight precision and acknowledged uncertainty over loud conviction — confidence is not competence, and track record beats credentials",
+    ],
+    furtherReading: [
+      { title: "Superforecasting: The Art and Science of Prediction", author: "Philip Tetlock & Dan Gardner" },
+      { title: "Thinking in Bets", author: "Annie Duke" },
+      { title: "The Signal and the Noise", author: "Nate Silver" },
+      { title: "Expert Political Judgment", author: "Philip Tetlock" },
+    ],
+  },
+  {
+    id: "correlation-and-causation",
+    title: "Telling Correlation From Causation",
+    subtitle: "The Single Most Useful Distinction in Reasoning",
+    description: "Two things moving together is not one causing the other. Learn the rival explanations behind every correlation, the questions that separate them, and what actually establishes cause and effect.",
+    icon: Waypoints,
+    color: "#5b6abf",
+    readTime: "13 min read",
+    sections: [
+      {
+        title: "Why This Distinction Decides So Many Debates",
+        content: `Almost every contested question about the world is, underneath, a question about causation. Does social media cause teen depression, or do depressed teens use more of it? Does raising the minimum wage cost jobs, or do the two just happen to move together? Does a supplement extend life, or do the people who take it simply live healthier lives in a dozen other ways? In each case the data show a correlation — two things rising and falling together — and the entire dispute is about whether one is *causing* the other.
+
+This is why "correlation is not causation" is the most quoted slogan in all of reasoning, and also the most misused. People recite it to wave away findings they dislike, as if naming the distinction settled the matter. It doesn't. The slogan is the beginning of the analysis, not the end. The real skill is knowing *which* alternative explanation a given correlation might have, how to test for it, and what kind of evidence would actually pin causation down. This guide is about that skill.
+
+It pairs naturally with the [Hierarchy of Evidence guide](/guides/evidence-hierarchy), which ranks study designs by how well they isolate cause and effect, and with the [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence), since most causal disputes are really fights over how to interpret correlations that point in different directions.`,
+      },
+      {
+        title: "Why Correlation Happens Without Causation",
+        content: `When two things, A and B, reliably move together, there are at least four explanations — and only one of them is "A causes B." Ruling out the other three is the whole game.`,
+        subsections: [
+          {
+            title: "A Causes B — But Maybe Backwards",
+            content: `The obvious reading of "A and B go together" is that A causes B. But the same data are equally consistent with B causing A — *reverse causation*. The classic case: studies find people who use more social media report more depression. The intuitive story is that social media causes the depression. But it's just as plausible that depressed people, seeking distraction or connection, reach for their phones more. The arrow may run the other way, or both ways at once. Whenever you meet a correlation, deliberately try reversing the arrow and ask whether that story fits just as well. The [social media and teen mental health debate](/topics/social-media-mental-health) hinges almost entirely on which direction the arrow points.`,
+          },
+          {
+            title: "A Lurking Third Cause",
+            content: `Often neither A nor B causes the other — a hidden third factor, a *confounder*, causes both. Ice-cream sales correlate with drowning deaths, but ice cream doesn't drown anyone; hot weather drives both. This sounds easy to spot in toy examples and is fiendishly hard in real ones, because the confounder is usually something like wealth, education, or general health-consciousness that quietly shapes dozens of behaviors at once. A study finding that people who take a vitamin live longer may have discovered nothing about the vitamin — only that the kind of person who takes vitamins also exercises, sleeps, and sees doctors more. Confounding is the single most common reason a real correlation tells you nothing about causation.`,
+          },
+          {
+            title: "Pure Coincidence",
+            content: `With enough variables, some will line up by sheer chance. The more comparisons you run, the more spurious correlations you'll find — which is why a single striking correlation, dredged from a large dataset with no prior reason to expect it, deserves deep suspicion. This shades into [cherry-picking](/fallacies/cherry-picking) when someone searches a haystack of variables and reports only the needle that supports their case. A correlation predicted *in advance* by a theory is worth far more than one discovered after the fact by rummaging through data.`,
+          },
+        ],
+      },
+      {
+        title: "The Questions That Tell Them Apart",
+        content: `You rarely get a randomized experiment handed to you. Most of the time you're staring at an observational correlation and have to reason about whether causation is plausible. A handful of questions, inspired by the criteria epidemiologist Austin Bradford Hill proposed for the smoking–cancer link, do most of the work:
+
+1. **Which way could the arrow run?** Force yourself to state the reverse-causation story explicitly. If it's plausible, the correlation alone can't settle direction.
+
+2. **What could be the third cause?** Name a specific confounder. "People who do X also tend to be wealthier / healthier / younger" is the template. If you can name one, the study needs to have controlled for it.
+
+3. **Is there a dose-response relationship?** Causes often show gradients: more exposure, more effect. Heavier smoking, higher cancer risk. A clean dose-response curve is suggestive — though a confounder can sometimes mimic it.
+
+4. **Is there a plausible mechanism?** Is there a known reason A *should* cause B? As the [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) cautions, a mechanism is a tiebreaker, not proof — a clever story can be told for almost any correlation — but its total absence is a warning sign.
+
+5. **Does the timing work?** The cause must precede the effect. Surprisingly often, the supposed effect was already present before the supposed cause appeared.
+
+None of these alone proves causation. Together they tell you how seriously to take the causal reading — and exactly where the [crux](/concepts/cruxes) of the disagreement lies.`,
+      },
+      {
+        title: "What Actually Establishes Cause and Effect",
+        content: `If observational correlation can't prove causation, what can? The tools all share one logic: find a situation where the suspected cause varies for reasons *unrelated* to the confounders, then see whether the effect follows.`,
+        subsections: [
+          {
+            title: "The Randomized Experiment",
+            content: `The gold standard. Randomly assigning who gets the treatment breaks the link between the treatment and every confounder at once — that's the entire point of randomization. If the treated group differs in outcome, and assignment was truly random, the treatment is the most likely cause. This is why randomized controlled trials sit at the top of the [evidence hierarchy](/guides/evidence-hierarchy). Their limits are practical and ethical: you can't randomly assign people to smoke, to be poor, or to use social media for a decade.`,
+          },
+          {
+            title: "Natural Experiments",
+            content: `When you can't randomize, sometimes the world does it for you. A policy that takes effect at a state border, a lottery that allocates a benefit, a sudden rule change — each creates groups that differ in the suspected cause but are otherwise similar. Much of the strongest evidence in the [minimum-wage debate](/topics/minimum-wage-effects) comes from comparing adjacent counties on either side of a state line when one state raised its wage and the other didn't. It isn't as clean as randomization, but it's a world away from a raw correlation.`,
+          },
+          {
+            title: "Controlling and Converging",
+            content: `Observational studies can *statistically control* for known confounders — but only the ones the researchers thought to measure, which is their permanent weakness. The most convincing causal case rarely rests on one study; it comes from *convergence*, in the sense of the [Triangulation guide](/guides/triangulation): when randomized trials, natural experiments, dose-response gradients, and a known biological mechanism all point the same way, the alternative explanations run out of room. That convergence — not any single study — is what eventually settled that smoking causes cancer.`,
+          },
+        ],
+      },
+      {
+        title: "Two Worked Examples",
+        content: `Watch the framework operate on live questions.
+
+**Does social media cause teen depression?** The correlation is fairly robust: heavy users report worse mental health. But run the questions. Reverse causation is wide open — depression may drive use. Confounders abound — kids who are already struggling, isolated, or sleep-deprived may both use more and feel worse. Some natural experiments (staggered platform rollouts) push toward a causal effect; others find tiny effect sizes. The honest verdict isn't "proven" or "debunked" but a contested middle, which is exactly why the [topic map](/topics/social-media-mental-health) scores the causal claim well below the correlational one.
+
+**Does a glass of wine a day protect your heart?** For years, observational studies found moderate drinkers outlived both heavy drinkers and abstainers. The causal story — wine is protective — launched a thousand headlines. Then the confounders surfaced: the "abstainer" group included former drinkers who had quit because they were *already sick*, and moderate drinkers tended to be wealthier and healthier overall. Better-designed studies, like those behind the [no-safe-level debate](/topics/alcohol-no-safe-level), largely dissolved the protective effect. A textbook case of a confounded correlation mistaken for a cause.`,
+      },
+      {
+        title: "Reading Causal Claims on Argumend",
+        content: `Once you see this distinction clearly, you'll notice that a huge share of bad arguments are really one error wearing different costumes: treating a correlation as if it were a cause. Formally, it's the [false cause fallacy](/fallacies/false-cause), and spotting it is one of the highest-leverage moves in the [argument audit](/guides/argument-audit) toolkit.
+
+On Argumend, this is why a topic rarely collapses into a single verdict. A claim like "the data show X and Y move together" might earn a high [confidence score](/concepts/confidence-calibration) — the correlation is real and well-measured — while the causal claim built on top of it, "therefore X causes Y," sits much lower, because the rival explanations haven't been ruled out. Keeping those two scores separate is the discipline. When you read any topic, ask of every causal arrow: is this a measured correlation, or has someone established the direction, controlled the confounders, and found a mechanism? The gap between those is where most of the real uncertainty — and most of the [evidence weighting](/concepts/evidence-weighting) — lives. The recurring terms are defined in the [glossary](/glossary), and the full scoring approach in our [methodology](/methodology).`,
+      },
+    ],
+    keyTakeaways: [
+      "\"Correlation is not causation\" is the start of the analysis, not the end — the skill is identifying which alternative explanation applies and how to test it",
+      "Every correlation has at least four readings: A causes B, B causes A (reverse causation), a hidden third factor causes both (confounding), or pure chance",
+      "Confounding is the most common trap: the kind of person who does X often differs in a dozen other ways, and one of those — not X — may drive the outcome",
+      "Diagnostic questions — which way the arrow runs, what the confounder could be, dose-response, mechanism, and timing — tell you how seriously to take a causal reading",
+      "Causation is established by breaking the link between cause and confounders: randomized trials, natural experiments, and convergence across independent methods",
+      "On a well-built argument map the correlation and the causal claim get separate confidence scores — the gap between them is where the real uncertainty lives",
+    ],
+    furtherReading: [
+      { title: "The Book of Why", author: "Judea Pearl & Dana Mackenzie" },
+      { title: "Causal Inference: The Mixtape", author: "Scott Cunningham", url: "https://mixtape.scunning.com/" },
+      { title: "Spurious Correlations", author: "Tyler Vigen", url: "https://www.tylervigen.com/spurious-correlations" },
+      { title: "Thinking, Fast and Slow", author: "Daniel Kahneman" },
+    ],
+  },
+  {
+    id: "spotting-manufactured-doubt",
+    title: "Spotting Manufactured Doubt",
+    subtitle: "How Genuine Uncertainty Gets Faked — and How to Tell the Difference",
+    description: "Not all doubt is honest. For decades, organized campaigns have manufactured the appearance of scientific controversy to delay action. Learn the playbook, why it works, and how to distinguish manufactured doubt from the real thing.",
+    icon: CloudFog,
+    color: "#8b3f27",
+    readTime: "13 min read",
+    sections: [
+      {
+        title: "Doubt as a Product",
+        content: `In 1969, an executive at a tobacco company wrote a sentence that became the unofficial motto of an entire industry: "Doubt is our product." The strategy was not to prove cigarettes were safe — that was impossible — but to keep the public convinced the science was *unsettled*. As long as people believed experts were still arguing, regulation stalled and sales continued. It worked for decades.
+
+That playbook has since been reused, often by the same consultants, to delay action on acid rain, the ozone hole, leaded gasoline, and climate change. Historians Naomi Oreskes and Erik Conway documented the pattern in *Merchants of Doubt*: a small number of actors learned that you don't need to win a scientific debate to win a public one. You just need to manufacture the *appearance* of debate.
+
+This matters for anyone trying to reason honestly, because manufactured doubt deliberately mimics the real thing. Genuine scientific uncertainty looks superficially identical to engineered controversy — both feature dissenting experts, competing studies, and calls for "more research." The skill this guide builds is telling them apart, so that legitimate skepticism (which is essential) doesn't become a vector for manipulation (which is corrosive).`,
+      },
+      {
+        title: "The Doubt-Manufacturing Playbook",
+        content: `Manufactured doubt follows a recognizable script. None of its moves are new — each is a [logical fallacy](/concepts/fallacies) with a long history — but deployed together and funded at scale, they're remarkably effective.`,
+        subsections: [
+          {
+            title: "Demand Impossible Certainty",
+            content: `The foundational move is to set the bar for action at *absolute proof* — a standard science never offers. Because no empirical finding is ever 100% certain, you can always point to residual uncertainty and declare "the science isn't settled." This weaponizes the [appeal to ignorance](/fallacies/appeal-to-ignorance): treating "not proven beyond all doubt" as if it meant "unknown" or "probably false." The tell is a shifting standard — evidence that would be accepted anywhere else is deemed insufficient here, and only here.`,
+          },
+          {
+            title: "Amplify Fringe Dissent",
+            content: `Find the handful of credentialed contrarians who disagree with the consensus, and amplify them until they appear to represent half the debate. This manufactures *false balance*: a 97-to-3 split among experts gets presented as a 50-50 controversy, a kind of [false dilemma](/fallacies/false-dilemma) about the state of knowledge itself. The media's instinct to "show both sides" is exploited directly — a settled question gets covered as a live one because that's what looks fair.`,
+          },
+          {
+            title: "Flood the Zone",
+            content: `Rather than make one strong counterargument, produce an overwhelming volume of objections, studies, and questions — far more than anyone can answer in real time. This is the [Gish gallop](/fallacies/gish-gallop), and it exploits an asymmetry: it takes ten seconds to raise a doubt and ten hours to properly refute it. The flood is often built by [cherry-picking](/fallacies/cherry-picking) — showcasing the rare studies that break the right way while ignoring the body of evidence around them.`,
+          },
+          {
+            title: "Attack the Messenger",
+            content: `When the evidence can't be beaten, discredit the people producing it. Researchers are smeared as biased, corrupt, or politically motivated — a systematic [ad hominem](/fallacies/ad-hominem) campaign designed to make the public distrust the source rather than evaluate the science. "Follow the money" gets aimed at independent scientists while the campaign's own funding stays carefully out of view.`,
+          },
+        ],
+      },
+      {
+        title: "Why It Works on Careful People",
+        content: `Manufactured doubt isn't aimed at the gullible — it's aimed at the thoughtful, and that's what makes it dangerous.
+
+The trap is that the intellectual virtues are turned against you. Open-mindedness, willingness to hear both sides, skepticism toward authority, demanding evidence before acting — these are exactly the habits this guide and Argumend otherwise encourage. Manufactured doubt hijacks them. The careful person hears "some scientists disagree" and "we should wait for more evidence" and recognizes those as reasonable-sounding, because in many contexts they genuinely *are* reasonable. The manipulation lies in applying them selectively, to one inconvenient conclusion, far past the point where the evidence warrants.
+
+The deepest version is what the [Understanding Bias guide](/guides/understanding-bias) calls asymmetric skepticism: manufactured doubt invites you to apply crushing scrutiny to the consensus while waving through the objections. It feels like rigor. It's actually rigor pointed in only one direction — and the direction has been chosen for you.`,
+      },
+      {
+        title: "Telling Manufactured Doubt From the Real Thing",
+        content: `Real scientific uncertainty and manufactured doubt look alike from the outside. A few questions reliably separate them.`,
+        subsections: [
+          {
+            title: "Is the Doubt Proportional to the Evidence?",
+            content: `Honest uncertainty tracks the evidence: where data are thin, confidence is low; where evidence is overwhelming, doubt shrinks accordingly. Manufactured doubt stays *fixed* regardless of how much evidence accumulates — the same objections recur for decades, undeterred by new findings. If the level of doubt never moves no matter what comes in, it isn't responding to evidence. Reading confidence as a number, as the [forecaster's guide](/guides/reading-confidence-like-a-forecaster) describes, makes this mismatch visible.`,
+          },
+          {
+            title: "Does the Goalpost Ever Stay Put?",
+            content: `Genuine skeptics can tell you what evidence would change their minds. Manufactured doubt can't — when a demanded piece of evidence arrives, the standard quietly moves. This is [moving the goalposts](/fallacies/moving-the-goalposts), and it's one of the clearest signatures of bad-faith doubt. Ask directly: "What specific finding would resolve this for you?" A real skeptic has an answer; a doubt-manufacturer changes the subject, often with a [whataboutism](/fallacies/whataboutism).`,
+          },
+          {
+            title: "Who Benefits, and Who's Independent?",
+            content: `Trace the doubt to its source, exactly as the [Triangulation](/guides/triangulation) and [Source Credibility](/guides/evaluating-source-credibility) guides prescribe. Does the dissent come from independent researchers with no stake, or from organizations funded by parties with an obvious interest in delay? Independence doesn't make someone right, and funding doesn't make them wrong — but a chorus of "independent" voices that all trace back to one funded source is circular, not corroborating.`,
+          },
+          {
+            title: "Steel-Man the Consensus",
+            content: `Manufactured-doubt campaigns almost never represent the mainstream view fairly — they attack a caricature. Apply the test from the [steel-manning](/concepts/steel-manning) discipline: can the doubt-raiser state the consensus position in its strongest form? Those genuinely engaged with the evidence can. Those manufacturing doubt usually can't, because their case depends on you never hearing the strong version.`,
+          },
+        ],
+      },
+      {
+        title: "The Pattern Across Topics",
+        content: `Once you know the script, you start to see it recur — and you also learn not to cry "manufactured doubt" too quickly, because genuine controversy exists too.
+
+Climate change is the textbook case: a robust scientific consensus, met for decades by a well-funded campaign to portray it as unsettled, using every move above. The [climate change topic](/topics/climate-change) maps where the science is genuinely strong against where doubt has been manufactured around it. By contrast, [COVID-19's origins](/topics/lab-leak-theory) is a case where real uncertainty persists — the evidence is genuinely incomplete, and honest experts disagree. Telling these apart is the entire point: not every dissent is a conspiracy, and not every consensus is bulletproof. The questions in the previous section are what let you distinguish a [fluoride debate](/topics/fluoride-water-supplies) with legitimate open questions about dose from a campaign recycling fixed talking points.
+
+The stakes are rising. As the [truth-collapse debate](/topics/ai-deepfakes-truth-collapse) explores, it's now trivially cheap to flood any topic with synthetic studies, fake experts, and manufactured consensus *or* manufactured dissent. The defense isn't more cynicism — blanket distrust is exactly what doubt-manufacturers want, since a public that believes nothing can be steered by anyone. The defense is structure.`,
+      },
+      {
+        title: "Inoculating Yourself",
+        content: `You can't out-skeptic a professional doubt campaign by feeling more suspicious. Suspicion is the raw material they sell. The defense is a disciplined process that doubt can't easily corrupt:
+
+1. **Weigh evidence by quality, not volume.** A flood of objections is a [Gish gallop](/fallacies/gish-gallop), not a refutation. As the [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) stresses, ten funded studies sharing one bias aren't ten independent data points.
+
+2. **Trace independence before counting agreement.** Three voices that trace to one source are one voice. [Triangulate](/guides/triangulation).
+
+3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. Read the [confidence scores](/concepts/confidence-calibration) as probabilities, not verdicts.
+
+4. **Demand a stated falsification condition.** If the doubt can't name what would change its mind, it isn't skepticism.
+
+This is exactly what an Argumend map is built to provide: instead of a shouting match where the loudest doubt wins, it lays out each claim with its [weighted evidence](/concepts/evidence-weighting) and an honest [confidence score](/concepts/confidence-calibration), so manufactured doubt has nowhere to hide. The strongest objections get their due; the manufactured ones get scored for what they're worth. Engaging seriously with real uncertainty while refusing to be paralyzed by fake uncertainty — that is the balance the whole [methodology](/methodology) is built to strike, and the recurring terms are defined in the [glossary](/glossary).`,
+      },
+    ],
+    keyTakeaways: [
+      "Manufactured doubt aims not to win a scientific debate but to fake the *appearance* of one — \"doubt is our product\" was a deliberate tobacco-industry strategy, since reused on many issues",
+      "The playbook is recognizable: demand impossible certainty (appeal to ignorance), amplify fringe dissent into false balance, flood the zone (Gish gallop and cherry-picking), and attack the messenger (ad hominem)",
+      "It targets thoughtful people by hijacking the intellectual virtues — open-mindedness and skepticism applied selectively to one inconvenient conclusion",
+      "The clearest tells: doubt that stays fixed no matter what evidence arrives, goalposts that move when demands are met, and a chorus of 'independent' voices tracing back to one funded source",
+      "Distinguish it from genuine uncertainty by asking whether the doubt is proportional, whether there's a stated falsification condition, and whether the doubter can steel-man the consensus",
+      "The defense isn't more suspicion — that's what they sell — but structure: weigh evidence by quality, trace independence, and hold confidence proportional to evidence in both directions",
+    ],
+    furtherReading: [
+      { title: "Merchants of Doubt", author: "Naomi Oreskes & Erik M. Conway" },
+      { title: "The Triumph of Doubt", author: "David Michaels" },
+      { title: "Calling Bullshit: The Art of Skepticism in a Data-Driven World", author: "Carl Bergstrom & Jevin West", url: "https://callingbullshit.org/" },
+      { title: "How to Read Numbers", author: "Tom Chivers & David Chivers" },
     ],
   },
 ];

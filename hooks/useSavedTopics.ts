@@ -69,3 +69,42 @@ export function useSavedTopics(topicId: string): {
 
   return { saved, toggle };
 }
+
+/**
+ * Reactive list of ALL saved topic IDs, in the order they were saved.
+ *
+ * `hydrated` is `false` until the first post-mount read resolves, so callers can
+ * avoid rendering localStorage-derived content during SSR/hydration (the server
+ * has no access to localStorage). Stays in sync via the same custom + native
+ * `storage` events used by `useSavedTopics`.
+ */
+export function useSavedTopicIds(): {
+  ids: string[];
+  hydrated: boolean;
+  remove: (topicId: string) => void;
+} {
+  const [ids, setIds] = useState<string[]>([]);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    const sync = () => {
+      setIds(readSaved());
+      setHydrated(true);
+    };
+    sync();
+    window.addEventListener(SYNC_EVENT, sync);
+    window.addEventListener("storage", sync);
+    return () => {
+      window.removeEventListener(SYNC_EVENT, sync);
+      window.removeEventListener("storage", sync);
+    };
+  }, []);
+
+  const remove = useCallback((topicId: string) => {
+    const next = readSaved().filter((id) => id !== topicId);
+    writeSaved(next);
+    setIds(next);
+  }, []);
+
+  return { ids, hydrated, remove };
+}

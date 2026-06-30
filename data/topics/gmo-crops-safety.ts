@@ -9,6 +9,20 @@ export const gmoCropsSafetyData = {
   category: "science" as const,
   last_updated: "2026-06-16",
   tags: ["gmo", "agriculture", "food-safety", "glyphosate", "biotechnology"],
+  keystone_fact: {
+    statement:
+      "After 25+ years and billions of meals, every major scientific review — including the U.S. National Academies — finds no substantiated difference in health risk between eating genetically modified and conventional crops. The safety bar GE crops clear is higher than for the conventionally-bred food they replace.",
+    confidence: 90,
+    source:
+      "U.S. National Academies of Sciences, Engineering, and Medicine, Genetically Engineered Crops (2016)",
+    sourceUrl:
+      "https://www.nationalacademies.org/news/genetically-engineered-crops-experiences-and-prospects-new-report",
+  },
+  simple_case: [
+    "On the question people worry about most — is GM food safe to eat — the science is about as settled as it gets: 25+ years, billions of meals, and every major review finds no substantiated health difference from conventional food.",
+    "The genuinely unsettled problems are agronomic, not dietary: herbicide-tolerant crops drove up herbicide use and bred glyphosate-resistant 'superweeds,' even as insect-resistant Bt traits cut insecticide spraying and raised yields and farmer profits.",
+    "And the glyphosate-cancer fight is really a hazard-vs-risk dispute — WHO's IARC calls it 'probably carcinogenic' as a hazard, while risk-based regulators like the EPA and EFSA judge it unlikely to cause cancer at real-world exposures.",
+  ],
   pillars: [
     {
       id: "human-health",
@@ -29,6 +43,16 @@ export const gmoCropsSafetyData = {
           "Compare time-series of relevant health endpoints (cancers, allergies, GI disease, BMI) between high-GE-consumption and low-GE-consumption populations from 1996 onward; adjust for diet, demographics, and surveillance differences. Triangulate with animal multi-generational feeding studies and allergenicity assays.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (data analysis of existing public health datasets)",
+        falsification: {
+          supporter_flip:
+            "If large, well-powered long-term studies or population health datasets detected a consistent, replicated health difference attributable to eating approved GE crops, the 'safe to eat' conclusion would have to be revised.",
+          skeptic_flip:
+            "If long-term population data keep showing no health divergence between GE-consuming and non-GE-consuming populations — as they have for 25+ years — the 'we just can't rule out hidden harm' objection loses its force.",
+          common_ground:
+            "Both sides agree there is no demonstrated health harm from current commercial GE foods, and that each new trait is its own product needing its own assessment.",
+          live_disagreement:
+            "Whether the absence of detected harm reflects genuine safety or the difficulty of detecting subtle, long-term, or trait-specific effects without long-term human trials.",
+        },
       },
       evidence: [
         {
@@ -90,6 +114,16 @@ export const gmoCropsSafetyData = {
           "Disaggregate meta-analytic impact estimates by trait (Bt vs HT) and region; net herbicide-volume increases and resistance-management costs against yield, profit, and insecticide-reduction gains using USDA/ERS and peer-reviewed field data.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (data analysis of USDA and published meta-analyses)",
+        falsification: {
+          supporter_flip:
+            "If a trait-disaggregated ledger showed herbicide-tolerant crops' rising herbicide use and resistant-weed costs outweigh the yield, profit, and insecticide-reduction gains, the 'net beneficial' claim fails — at least for HT traits.",
+          skeptic_flip:
+            "If the ledger confirms large net gains (the ~+22% yield, −37% pesticide, +68% profit pattern) survive once resistance costs are netted in — especially for Bt traits — the 'benefits are illusory' critique fails.",
+          common_ground:
+            "Both sides agree insect-resistant Bt traits cut insecticide use and that herbicide-tolerant traits drove rising herbicide volumes and glyphosate-resistant weeds.",
+          live_disagreement:
+            "Whether, summed across yield, inputs, profit, and resistance costs, GE adoption is net-positive — and how sharply that net differs between Bt and herbicide-tolerant traits.",
+        },
       },
       evidence: [
         {
@@ -189,6 +223,16 @@ export const gmoCropsSafetyData = {
           "Compare large prospective cohorts of applicators (e.g. the Agricultural Health Study) and pooled NHL case-control data against measured dietary/occupational glyphosate exposure levels; reconcile hazard-based (IARC) and risk-based (EPA/EFSA) frameworks on the same evidence.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (synthesis of existing cohort and regulatory data)",
+        falsification: {
+          supporter_flip:
+            "If large applicator cohorts and pooled case-control data showed a dose-dependent cancer increase at real-world glyphosate exposures, the risk-based 'safe at label rates' verdict — and the safety story built on it — would have to change.",
+          skeptic_flip:
+            "If the best prospective cohorts (e.g., the Agricultural Health Study) keep showing no clear exposure-dependent cancer increase at actual application levels, IARC's 'probably carcinogenic' hazard call does not translate into real-world dietary risk.",
+          common_ground:
+            "Both sides agree IARC classifies glyphosate as a hazard (Group 2A) while risk-based regulators judge it unlikely to cause cancer at label-rate exposures — and that glyphosate toxicology is distinct from whether the edible GE plant tissue is safe.",
+          live_disagreement:
+            "Whether actual dietary and occupational glyphosate exposures are high enough to raise cancer risk — the hazard-vs-risk crux between IARC and EPA/EFSA.",
+        },
       },
       evidence: [
         {

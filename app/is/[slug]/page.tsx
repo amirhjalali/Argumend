@@ -153,6 +153,11 @@ export default async function IsClaimPage({ params }: PageProps) {
   const qaPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "QAPage",
+    inLanguage: "en-US",
+    about: {
+      "@type": "Thing",
+      name: topic.title,
+    },
     mainEntity: {
       "@type": "Question",
       name: claim.question,
@@ -210,8 +215,21 @@ export default async function IsClaimPage({ params }: PageProps) {
         ? "bg-deep/70"
         : "bg-stone-400";
 
-  // Related "is" claims (exclude current)
-  const relatedClaims = isClaims.filter((c) => c.slug !== claim.slug);
+  // Related "is" claims: same-category questions first, then fill with others,
+  // capped. Avoids a 120-link "complete graph" on every page, which bloated the
+  // DOM and diluted internal-link equity; a focused, relevant set is better for
+  // both readers and search engines.
+  const RELATED_LIMIT = 8;
+  const topicCategoryById = new Map(topics.map((t) => [t.id, t.category]));
+  const otherClaims = isClaims.filter((c) => c.slug !== claim.slug);
+  const relatedClaims = [
+    ...otherClaims.filter(
+      (c) => topicCategoryById.get(c.topicId) === topic.category,
+    ),
+    ...otherClaims.filter(
+      (c) => topicCategoryById.get(c.topicId) !== topic.category,
+    ),
+  ].slice(0, RELATED_LIMIT);
 
   return (
     <>

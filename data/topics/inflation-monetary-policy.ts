@@ -7,6 +7,21 @@ export const inflationMonetaryPolicyData = {
     "Post-pandemic inflation was primarily driven by excessive government spending and monetary expansion, not supply chain disruptions.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The popular story — \"the government printed money, so prices went up\" — gets the trigger wrong. The most authoritative decomposition, by former Fed chair Ben Bernanke and former IMF chief economist Olivier Blanchard (2023), finds that most of the 2021-2022 inflation surge came not from an overheated labor market or money supply but from one-off shocks that directly raised prices: global commodity spikes and pandemic supply-chain bottlenecks plus a demand shift from services to goods. The honest nuance: those shocks lit the fire, but the unprecedented ~40% M2 expansion and tight labor market are why disinflation took two years instead of washing out on its own.",
+    confidence: 84,
+    source:
+      "Bernanke & Blanchard, \"What Caused the U.S. Pandemic-Era Inflation?\", NBER WP 31417 / Brookings (2023); FRED M2 (M2SL); BLS CPI",
+    sourceUrl: "https://www.nber.org/papers/w31417",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The money-printing story has a real core: M2 money supply jumped about 40% in two years — the fastest expansion since WWII — and unlike post-2008 QE, much of it went straight to households via stimulus checks and PPP, meeting a reopening economy with cash to spend.",
+    "But the honest counterpoint is that the same monetarist link broke down after 2008 (huge QE, no inflation), money velocity collapsed during lockdowns, and the leading empirical study (Bernanke-Blanchard 2023) attributes the initial surge mainly to commodity and supply-chain shocks — and inflation later fell from 9.1% to ~3% without the recession a pure demand story would require.",
+    "So the honest debate isn't \"did money printing cause inflation, yes or no\" but how to split the blame: supply shocks almost certainly lit the fire, while excess demand and a tight labor market are why it burned for two years — and exactly that mix is what economists are still arguing over.",
+  ],
   imageUrl:
     "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=60",
   references: [
@@ -80,6 +95,16 @@ export const inflationMonetaryPolicyData = {
           "\\text{CPI}_{t} = \\alpha + \\beta_1 \\Delta M2_{t-18} + \\beta_2 \\text{SupplyShock}_{t} + \\varepsilon_{t}",
         verification_status: "verified" as const,
         cost_to_verify: "$10K (econometric analysis of publicly available FRED data)",
+        falsification: {
+          supporter_flip:
+            "A monetarist should reconsider if a Granger-causality test on the 2020-2023 episode showed M2 growth had no predictive power for CPI once commodity-price and shipping-cost shocks are controlled for — or if the cross-country data showed economies with far smaller monetary expansions experienced similar inflation, implying money was incidental rather than causal.",
+          skeptic_flip:
+            "A skeptic should weigh that the 2020-2021 expansion was qualitatively unlike post-2008 QE — stimulus checks and PPP put money directly into consumers' hands rather than into bank reserves — and that M2 velocity, while it collapsed at the lockdown trough, recovered as the economy reopened, so the swollen money stock met returning demand rather than staying inert.",
+          common_ground:
+            "Both sides agree M2 grew about 40% in two years (a genuinely unprecedented post-WWII expansion) and that money growth alone is not mechanically sufficient for inflation — the post-2008 QE episode shows the transmission mechanism matters.",
+          live_disagreement:
+            "How much of the 2021-2022 price level rise the monetary/fiscal overhang actually caused versus merely accommodated — which a Granger-causality and decomposition analysis controlling for supply shocks could quantify, but the loose, lagged M2-to-CPI link makes the magnitude hard to pin down.",
+        },
       },
       evidence: [
         {
@@ -176,6 +201,16 @@ export const inflationMonetaryPolicyData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$25K (econometric modeling with BLS microdata)",
+        falsification: {
+          supporter_flip:
+            "A demand-side proponent should reconsider if a sectoral decomposition showed core services ex-housing (\"supercore\") inflation tracked one-for-one with energy and shipping costs rather than running hot independently — or if the disinflation from 9.1% to ~3% turned out to coincide with a hidden labor-market loosening, implying demand had to be wrung out after all.",
+          skeptic_flip:
+            "A supply-side skeptic should weigh that supercore inflation peaked near a 6.8% three-month annualized rate in categories largely insulated from factory and shipping bottlenecks, that nominal consumption overshot its pre-pandemic trend, and that even Bernanke-Blanchard project labor-market tightness as the more persistent driver once one-off shocks fade.",
+          common_ground:
+            "Both sides accept the Bernanke-Blanchard finding that the initial 2021 surge was driven mainly by commodity-price and sectoral supply/demand-composition shocks rather than an overheated labor market, and that shipping and commodity costs had largely normalized by 2022 while inflation persisted.",
+          live_disagreement:
+            "What share of variance to attribute to supply versus demand versus expectations — which a Shapley or Bernanke-Blanchard decomposition over CPI components can estimate, though classifying borderline categories (used cars, shelter) and dating when supply effects ended versus demand effects began remains contested.",
+        },
       },
       evidence: [
         {
@@ -273,6 +308,16 @@ export const inflationMonetaryPolicyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$100K (DSGE modeling with full macroeconomic dataset)",
+        falsification: {
+          supporter_flip:
+            "Someone who blames the Fed's delay should reconsider if DSGE counterfactuals robustly showed that Q3 2021 tightening would have produced a recession with little inflation benefit — because much of the 2021-2022 surge came from supply shocks that monetary policy cannot directly offset — making the late start defensible rather than costly.",
+          skeptic_flip:
+            "A defender of the \"transitory\" framing should weigh that the Fed held rates at zero and kept buying $120B/month in assets into early 2022 even as CPI ran above 7%, that Summers warned of overheating in February 2021, and that standard Taylor Rule benchmarks implied liftoff should have begun in 2021 rather than March 2022.",
+          common_ground:
+            "Both sides agree the Fed ultimately ran the fastest tightening cycle in 40 years (0-0.25% to 5.25-5.50%), that long-term inflation expectations stayed broadly anchored, and that a soft landing was achieved with unemployment near 4%.",
+          live_disagreement:
+            "Whether earlier tightening would have meaningfully lowered peak inflation without triggering a recession — a genuinely unknowable counterfactual that only DSGE simulation under realistic supply-shock assumptions can approximate, since the actual soft landing neither proves the delay was costless nor that it was harmless.",
+        },
       },
       evidence: [
         {

@@ -7,6 +7,21 @@ export const lonelinessEpidemicData = {
     "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The famous claim that loneliness is as deadly as smoking 15 cigarettes a day traces back to observational meta-analyses (Holt-Lunstad's 148-study review found ~50% better survival odds for the well-connected). But a 2024 Nature Human Behaviour study using genetics on 476,100 people concluded that for most diseases loneliness \"may serve as a potential surrogate marker rather than a causal risk factor\" — meaning much of the headline risk likely reflects who becomes isolated (the already-sick, poor, and disabled) rather than loneliness itself killing you.",
+    confidence: 80,
+    source:
+      "Holt-Lunstad et al., PLOS Medicine (2010) & Perspectives on Psychological Science (2015); Liang et al., Nature Human Behaviour (2024); US Surgeon General Advisory (2023)",
+    sourceUrl: "https://www.nature.com/articles/s41562-024-01970-0",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The correlation is genuinely large and consistent: across 70 studies and 3.4 million people, social isolation tracked with a 29% higher mortality risk and loneliness with 26% — effect sizes in the same ballpark as obesity or physical inactivity, which is why the Surgeon General declared it an epidemic.",
+    "But correlation is not the same as cause: people who end up isolated are disproportionately already sick, poor, disabled, or depressed, and when researchers used genetic instruments to strip out that confounding, the causal link vanished for 20 of 26 diseases — so the \"15 cigarettes\" line overstates how settled the harm actually is.",
+    "So the honest debate isn't whether lonely people die sooner (they do) but how much of that is loneliness doing the damage versus loneliness being a symptom of harder-to-fix problems — which decides whether befriending programs and social prescribing can actually move the needle on health.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Health Impact Evidence
@@ -31,6 +46,16 @@ export const lonelinessEpidemicData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$20-40M (5-year RCT with biomarker panel plus parallel Mendelian randomization analyses using existing biobank data)",
+        falsification: {
+          supporter_flip:
+            "If a large RCT of social-integration interventions and converging Mendelian randomization studies showed that reducing isolation produced no drop in mortality, cardiovascular events, or inflammatory biomarkers — and that the observational link was driven by reverse causation and confounding — the 'loneliness kills like smoking' claim would collapse to a correlation, not a causal target.",
+          skeptic_flip:
+            "A skeptic leaning on the 2024 genetic null should weigh that Mendelian randomization for a behavioral trait like loneliness has known weaknesses (weak instruments, horizontal pleiotropy), that it tested disease incidence rather than all-cause mortality, and that mechanistic work (Cole's CTRA inflammatory gene expression, Kiecolt-Glaser's IL-6 findings) gives loneliness a plausible biological pathway the genetics may miss.",
+          common_ground:
+            "Both sides agree that socially isolated people die earlier on average, and that this population is disproportionately already sick, poor, disabled, or depressed.",
+          live_disagreement:
+            "How much of the excess mortality is loneliness causally driving versus loneliness being a marker of pre-existing disadvantage — resolvable only by a randomized social-integration trial measuring hard mortality and biomarker endpoints alongside genetic-instrument analyses.",
+        },
       },
       evidence: [
         {
@@ -76,7 +101,7 @@ export const lonelinessEpidemicData = {
           title:
             "Genetic Evidence Disagrees With Observational Data on Loneliness Causing Disease",
           description:
-            "A 2024 analysis published in Nature Human Behaviour by Liang et al. examined the loneliness-disease association using UK Biobank data from 476,100 participants over a median 12.2-year follow-up. Observationally, loneliness was associated with greater risk in 13 of 14 disease categories and 30 of 56 individual diseases. However, when the authors applied Mendelian randomization — using genetic variants associated with loneliness to estimate causal effects independent of confounding and reverse causation — genetic liability to loneliness showed a non-causal association for 20 of 26 specific diseases tested, with only six (including depression, sleep apnea, and substance abuse) showing potentially causal links. The authors concluded that loneliness is 'more a potential surrogate marker than a direct cause' for most diseases, implying that observational associations are substantially inflated by confounding (pre-existing illness, disability, socioeconomic disadvantage) and reverse causation.",
+            "A 2024 analysis published in Nature Human Behaviour by Liang et al. examined the loneliness-disease association using UK Biobank data from 476,100 participants over a median 12.2-year follow-up. Observationally, loneliness was associated with greater risk in 13 of 14 disease categories and 30 of 56 individual diseases. However, when the authors applied Mendelian randomization — using genetic variants associated with loneliness to estimate causal effects independent of confounding and reverse causation — genetic liability to loneliness showed a non-causal association for 20 of 26 specific diseases tested, with only six (including depression, sleep apnea, and substance abuse) showing potentially causal links. The authors concluded that loneliness 'may serve as a potential surrogate marker rather than a causal risk factor' for most diseases, implying that observational associations are substantially inflated by confounding (pre-existing illness, disability, socioeconomic disadvantage) and reverse causation.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -137,6 +162,16 @@ export const lonelinessEpidemicData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-10M (12-month longitudinal study with passive tracking plus embedded randomized experiment)",
+        falsification: {
+          supporter_flip:
+            "If passive-tracking longitudinal data and a randomized social-media-reduction experiment showed that within-person increases in screen time did NOT reduce face-to-face contact or raise loneliness — and that cutting usage left loneliness unchanged — the 'technology drives loneliness' case would have to retreat to, at most, harm concentrated in a small heavy-use subgroup.",
+          skeptic_flip:
+            "A skeptic citing the Oxford '0.4% of variance' finding should weigh that it was cross-sectional (blind to within-person change over time) and averaged across all usage levels, masking heavy users; that American Time Use data shows in-person socializing fell ~40% as smartphones spread; and that displacement could be real even if average effects look tiny.",
+          common_ground:
+            "Both sides agree digital tools are a genuine lifeline for geographically isolated, disabled, and homebound people, and that in-person socializing has measurably declined since the early 2000s.",
+          live_disagreement:
+            "Whether heavy technology use causally displaces face-to-face interaction and deepens loneliness, or mainly supplements existing relationships — answerable only by passive-usage tracking with momentary in-person-contact sampling plus a randomized usage-reduction trial.",
+        },
       },
       evidence: [
         {
@@ -241,6 +276,16 @@ export const lonelinessEpidemicData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$3-8M (Natural experiment analysis plus cluster-randomized neighborhood intervention study over 2 years)",
+        falsification: {
+          supporter_flip:
+            "If a cluster-randomized trial of social-infrastructure investments (walkability, third places, shorter work weeks) and difference-in-differences analysis of cities that adopted them showed no measurable drop in population-level loneliness — echoing the UK Ministry for Loneliness's flat results after five years — the structural-fix thesis would give way to a cultural/individual explanation policy can't reach.",
+          skeptic_flip:
+            "A skeptic pointing to the UK null should weigh that the strategy was modestly funded, leaned on small-scale social prescribing rather than the built-environment changes proponents advocate, and was hit by COVID; and that walkability research finds 2-3x more incidental contact in pedestrian-friendly neighborhoods — so the comprehensive structural intervention was never actually tested at scale.",
+          common_ground:
+            "Both sides agree the UK's national loneliness strategy produced no detectable population-level decline so far, and that built environment shapes how often people incidentally encounter one another.",
+          live_disagreement:
+            "Whether genuine, well-funded structural changes (walkable density, public space, shorter work weeks) can lower population-level loneliness, or whether it is driven by cultural expectations and individual choices beyond policy's reach — testable only by a cluster-randomized neighborhood trial and natural experiments with validated loneliness measures.",
+        },
       },
       evidence: [
         {

@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { TOPIC_COUNT_LABEL } from "@/data/topicIndex";
 
 export const runtime = "edge";
 export const alt = "ARGUMEND — Map Arguments, Not Win Them";
@@ -66,7 +67,7 @@ export default async function Image() {
               fontFamily: "sans-serif",
             }}
           >
-            <span>50 Topics</span>
+            <span>{TOPIC_COUNT_LABEL} Topics</span>
             <span>·</span>
             <span>AI-Powered Analysis</span>
             <span>·</span>

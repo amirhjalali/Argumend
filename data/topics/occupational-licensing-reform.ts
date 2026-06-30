@@ -7,6 +7,21 @@ export const occupationalLicensingReformData = {
     "Occupational licensing does more economic harm than good and should be rolled back.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Roughly one in four US workers now needs a government license to do their job — a five-fold rise since the 1950s. The best peer-reviewed estimate finds licensing reliably raises wages and prices but produces an average welfare loss of about 12% of occupational surplus; the surprise is that careful studies find little evidence it improves service quality in low-stakes trades — though in a few health-critical fields the quality and safety benefits are real.",
+    confidence: 86,
+    source:
+      "Kleiner & Soltas, Review of Economic Studies (2023) / NBER WP 26383; U.S. Treasury, CEA & Dept. of Labor, 'Occupational Licensing: A Framework for Policymakers' (2015)",
+    sourceUrl: "https://www.nber.org/papers/w26383",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The strongest case for rollback: licensing has spread from about 5% of workers in the 1950s to roughly a quarter today, and the leading welfare model (Kleiner & Soltas, 2023) finds it causes an average welfare loss of ~12% of occupational surplus — raising wages and prices while reducing employment — and border-comparison studies of trades like barbering and interior design find no quality gain from stricter rules.",
+    "The honest counterpoint: the same welfare model finds higher consumer willingness-to-pay offsets ~80% of the price increase (so consumers are largely getting quality they value), and causal evidence in health-critical occupations is real — exposure to historical midwifery licensing laws is linked to a 2.5% reduction in cumulative adult mortality — so blanket 'abolish it' would discard genuine safeguards in medicine and skilled trades.",
+    "So the honest debate isn't whether licensing is all-cartel or all-protection, but where the line falls: which occupations are over-licensed cosmetic trades that should be deregulated, and which carry real safety stakes — and whether portability reforms (reciprocity) can capture the mobility gains without abolishing the licenses themselves.",
+  ],
   last_updated: "2026-06-16",
   tags: ["labor", "regulation", "deregulation", "wages", "competition"],
   pillars: [
@@ -29,6 +44,16 @@ export const occupationalLicensingReformData = {
           "Exploit natural experiments: (1) compare outcomes/ratings for the same occupation across state borders with sharply different requirements; (2) use difference-in-differences on staggered adoption or repeal of licensing laws, tracking quality, prices, and health outcomes. Separate low-stakes from high-stakes occupations.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (analysis of existing border-discontinuity and DiD studies)",
+        falsification: {
+          supporter_flip:
+            "If well-identified studies (border discontinuities, difference-in-differences on adoption/repeal) showed licensed occupations deliver measurably better quality and safety outcomes that justify the higher prices — even in low-stakes trades — the 'mostly a cartel' rollback case would collapse into 'consumers are paying for quality they get.'",
+          skeptic_flip:
+            "A skeptic confident licensing is pure rent-seeking should weigh that the same Kleiner-Soltas model finds higher willingness-to-pay offsets ~80% of the price increase, and that causal work on midwifery licensing links it to a 2.5% drop in cumulative adult mortality — so at least in some fields the quality benefit is real, not illusory.",
+          common_ground:
+            "Both sides agree licensing raises prices and practitioner wages, and that the quality justification is far weaker for cosmetic trades (barbers, interior designers, manicurists) than for health-critical occupations.",
+          live_disagreement:
+            "Whether stricter licensing causally raises service quality enough to justify its price, occupation by occupation — resolvable by clean border-discontinuity and staggered-adoption designs that separate low-stakes from high-stakes fields and measure outcomes, not just ratings.",
+        },
       },
       evidence: [
         {
@@ -125,6 +150,16 @@ export const occupationalLicensingReformData = {
           "Difference-in-differences on states adopting universal-recognition / reciprocity laws: measure changes in inflow of licensed workers and employment, and compare against the mobility gains that full deregulation would predict. Hold quality/safety outcomes fixed.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (policy-variation analysis of state recognition laws)",
+        falsification: {
+          supporter_flip:
+            "A supporter of wholesale rollback should change course if difference-in-differences on universal-recognition / reciprocity laws showed those reforms recover most of the migration and employment gains that full deregulation would predict — because then the documented mobility harms argue for portability, not abolition.",
+          skeptic_flip:
+            "A skeptic who insists portability is enough should weigh evidence that recognition laws leave incumbent-controlled boards intact (the NC dental board used licensing to block competitors until the Supreme Court intervened) and that licensing explains only a small share of the overall mobility decline — so reciprocity may fix less of the problem than hoped.",
+          common_ground:
+            "Both sides agree that state-specific licenses suppress interstate migration and burden mobile workers (immigrants, military spouses, lower-income entrants), and that this friction is a genuine, fixable cost.",
+          live_disagreement:
+            "Whether reciprocity and universal-recognition laws capture most of the mobility and access gains while preserving consumer protections, or whether only deeper rollback delivers them — resolvable by tracking inflows of licensed workers and employment in states that adopted recognition laws against the full-deregulation counterfactual.",
+        },
       },
       evidence: [
         {

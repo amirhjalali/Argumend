@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { Share2, Copy, Check, Lightbulb } from "lucide-react";
 import type { TopicStatus } from "@/lib/schemas/topic";
 
@@ -13,6 +13,18 @@ const STATUS_LABELS: Record<TopicStatus, string> = {
   contested: "Contested",
   highly_speculative: "Highly Speculative",
 };
+
+function subscribeCanShare(_onStoreChange: () => void) {
+  return () => {};
+}
+
+function getCanShareSnapshot() {
+  return typeof navigator !== "undefined" && typeof navigator.share === "function";
+}
+
+function getServerCanShareSnapshot() {
+  return false;
+}
 
 // ---------------------------------------------------------------------------
 // Props
@@ -96,8 +108,10 @@ function buildCruxTweetText(topicTitle: string, cruxQuestion: string): string {
 export function ShareButtons({ title, url, description, topicMeta }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const [cruxCopied, setCruxCopied] = useState(false);
-  const [canShare] = useState(
-    () => typeof navigator !== "undefined" && !!navigator.share,
+  const canShare = useSyncExternalStore(
+    subscribeCanShare,
+    getCanShareSnapshot,
+    getServerCanShareSnapshot,
   );
 
   // ---- handlers ----

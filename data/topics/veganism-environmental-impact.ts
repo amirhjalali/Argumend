@@ -7,6 +7,21 @@ export const veganismEnvironmentalData = {
     "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint, including greenhouse gas emissions, land use, and water pollution.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "A vegan diet produces about 75% less greenhouse-gas emissions and uses about 75% less land than a high-meat diet — and a global shift to plant-based eating could free up farmland on the scale of the US, China, Australia, and the EU combined.",
+    confidence: 90,
+    source:
+      "Scarborough et al., Nature Food (Oxford, 2023, n=55,504); Poore & Nemecek, Science (2018)",
+    sourceUrl: "https://www.nature.com/articles/s43016-023-00795-w",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The single biggest thing an individual can do for the climate often isn't ditching the car — it's the plate: Oxford's study of 55,000 people found vegan diets produce about 75% less greenhouse gas and use about 75% less land than high-meat diets.",
+    "At a global scale the lever is even bigger — the largest food-system analysis (Poore & Nemecek) estimates a shift to plant-based diets could cut food's land use by ~76%, freeing farmland on the scale of the US, China, Australia, and the EU combined.",
+    "The honest caveats are about where and who, not whether: much grazing land can't grow crops, and animal foods are nutritionally critical for subsistence populations — so the real win concentrates among affluent, high-meat eaters whose choices are unconstrained, not the world's poorest farmers.",
+  ],
   pillars: [
     {
       id: "emissions-land-use",
@@ -29,6 +44,16 @@ export const veganismEnvironmentalData = {
           "\\Delta E = \\sum_{i} (E_{\\text{current},i} - E_{\\text{vegan},i}) \\times P(\\text{adoption}_i)",
         verification_status: "verified" as const,
         cost_to_verify: "$500K (Meta-analysis and modeling of existing datasets)",
+        falsification: {
+          supporter_flip:
+            "If integrated food-system models showed large dietary shifts deliver far smaller real-world savings than the per-capita studies imply — because freed grazing land doesn't actually draw down carbon, rebound effects redirect it to other emissions, or non-arable land can't substitute crops at scale — the 'single biggest lever' claim would shrink.",
+          skeptic_flip:
+            "A skeptic who notes food is only ~26% of emissions should weigh that within food, animal products drive the majority of land use and emissions, and that no other single consumer choice approaches a ~75% footprint cut — so the lever is real even if it isn't the whole problem.",
+          common_ground:
+            "Both sides agree animal agriculture is the most land- and emissions-intensive part of the food system, and that much grazing land cannot be converted to crops.",
+          live_disagreement:
+            "How much of the per-person ~75% reduction would actually materialize at a global scale once land convertibility, rebound effects, and what replaces freed land are modeled in.",
+        },
       },
       evidence: [
         {
@@ -103,6 +128,16 @@ export const veganismEnvironmentalData = {
           "Longitudinal cohort study following 100,000+ vegans and matched omnivore controls over 20+ years. Measure all-cause mortality, cardiovascular events, cancer rates, bone density, and micronutrient status.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$10M (Long-term epidemiological cohort study)",
+        falsification: {
+          supporter_flip:
+            "If large long-term cohorts showed appropriately-planned vegan diets producing higher mortality or chronic-disease rates than matched omnivores even in affluent populations with supplement access, the 'nutritionally adequate for all life stages' claim would weaken.",
+          skeptic_flip:
+            "A skeptic worried about deficiencies should weigh that the largest nutrition bodies judge well-planned vegan diets adequate for all life stages, and that the environmental case only asks affluent, supplement-served populations to shift — not food-insecure regions that depend on animal-source micronutrients.",
+          common_ground:
+            "Both sides agree vegan diets require deliberate planning and B12 supplementation, and that animal-source foods are nutritionally critical where supplement supply chains are weak.",
+          live_disagreement:
+            "Whether a population-scale shift to vegan diets in wealthy countries carries any net health penalty once deficiencies are supplement-corrected — which no very-long-term controlled cohort has settled.",
+        },
       },
       evidence: [
         {

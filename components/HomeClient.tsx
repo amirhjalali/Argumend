@@ -64,9 +64,9 @@ function SidebarLayout({
     <div className="flex min-h-0 flex-1 overflow-hidden">
       {/* Mobile overlay when sidebar is open */}
       <div
-        className={`fixed inset-0 bg-black/30 z-30 md:hidden transition-opacity duration-300 ${
-          sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 bg-black/30 z-30 md:hidden ${
+          sidebar.mounted ? "transition-opacity duration-300" : ""
+        } ${sidebar.isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         role="button"
         tabIndex={sidebar.isOpen ? 0 : -1}
         aria-label="Close sidebar"
@@ -79,14 +79,14 @@ function SidebarLayout({
         aria-label="Sidebar navigation"
         className={`
           fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
-          flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+          flex-shrink-0 ${sidebar.mounted ? "transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]" : ""}
           ${sidebar.isOpen ? "w-[260px]" : "w-0 md:w-0"}
         `}
       >
         <div
-          className={`absolute top-0 bottom-0 left-0 w-[260px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-            sidebar.isOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`absolute top-0 bottom-0 left-0 w-[260px] ${
+            sidebar.mounted ? "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]" : ""
+          } ${sidebar.isOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
           <Sidebar
             isOpen={sidebar.isOpen}
@@ -140,9 +140,20 @@ function CanvasExperience() {
         setView("debate");
       } else if (viewParam === "scales") {
         setView("scales");
+      } else if (viewParam === "graph" || viewParam === "logic-map") {
+        setView("logic-map");
       }
-      // Clean up URL without reload
-      window.history.replaceState({}, "", "/");
+      // Preserve the topic (and view) in the URL — instead of blanking it to
+      // "/" — so refresh / bookmark / share retains the canvas state. Guarded
+      // by didHandleParams above, so this runs once and never re-triggers the
+      // ingest effect (replaceState does not cause a navigation or re-render).
+      const preserved = new URLSearchParams({ topic: topicParam });
+      if (viewParam === "graph" || viewParam === "logic-map") {
+        preserved.set("view", "logic-map");
+      } else if (viewParam) {
+        preserved.set("view", viewParam);
+      }
+      window.history.replaceState({}, "", `/?${preserved.toString()}`);
     }
   }, [setTopic, setView]);
 

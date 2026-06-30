@@ -8,7 +8,7 @@ import type { ArgumentView } from "@/types/logic";
 import { trackEvent } from "@/lib/analytics";
 
 const views: { id: ArgumentView; label: string; icon: typeof Map }[] = [
-  { id: "logic-map", label: "Logic Map", icon: Map },
+  { id: "logic-map", label: "Map", icon: Map },
   { id: "scales", label: "Scales", icon: Scale },
   { id: "debate", label: "Debate", icon: Swords },
 ];
@@ -30,7 +30,7 @@ export function ViewToggle() {
   };
 
   return (
-    <div className="flex items-center gap-1 p-1 bg-stone-100 dark:bg-[#252420] rounded-lg" role="tablist" aria-label="Argument view">
+    <div className="flex items-center gap-1 p-1 bg-stone-100 dark:bg-[#252420] rounded-lg" role="group" aria-label="Argument view">
       {views.map((view) => {
         const Icon = view.icon;
         const isActive = currentView === view.id;
@@ -39,8 +39,7 @@ export function ViewToggle() {
           <button
             key={view.id}
             onClick={() => handleViewChange(view.id)}
-            role="tab"
-            aria-selected={isActive}
+            aria-pressed={isActive}
             aria-label={view.label}
             className={`
               relative flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-md text-sm font-medium

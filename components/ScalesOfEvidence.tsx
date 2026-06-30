@@ -154,24 +154,24 @@ function BalanceMeter({ forWeight, againstWeight }: {
   return (
     <div className="surface-card p-4 md:p-6">
       <div className="flex items-center justify-between gap-4 mb-4">
-        <div className="flex items-center gap-2 text-xs uppercase tracking-[0.35em] text-stone-400">
+        <div className="flex items-center gap-2 text-xs uppercase tracking-[0.35em] text-muted dark:text-stone-400">
           <Scale className="h-3.5 w-3.5 text-deep" />
           <span>Balance</span>
         </div>
-        <div className="text-[11px] uppercase tracking-[0.25em] text-stone-400">
+        <div className="text-[11px] uppercase tracking-[0.25em] text-muted dark:text-stone-400">
           Scales of Evidence
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-6">
         <div className="flex items-baseline gap-3">
-          <span className="text-[11px] uppercase tracking-[0.25em] text-stone-400">For</span>
+          <span className="text-[11px] uppercase tracking-[0.25em] text-muted dark:text-stone-400">For</span>
           <span className="font-mono text-xl md:text-3xl font-bold text-deep">{forWeight}</span>
-          <span className="text-xs text-stone-400">pts</span>
+          <span className="text-xs text-muted dark:text-stone-400">pts</span>
         </div>
 
         <div className="flex flex-col items-center gap-1">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-stone-400">Balance</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-muted dark:text-stone-400">Balance</span>
           <div className="w-[140px] md:w-[180px]">
           <svg width="100%" height="80" viewBox="0 0 180 80" role="img" aria-label={`Balance scale: ${forPercent}% for, ${againstPercent}% against`}>
             {/* Stationary pedestal */}
@@ -209,9 +209,9 @@ function BalanceMeter({ forWeight, againstWeight }: {
         </div>
 
         <div className="flex items-baseline justify-end gap-3">
-          <span className="text-xs text-stone-400">pts</span>
+          <span className="text-xs text-muted dark:text-stone-400">pts</span>
           <span className="font-mono text-xl md:text-3xl font-bold text-stone-600">{againstWeight}</span>
-          <span className="text-[11px] uppercase tracking-[0.25em] text-stone-400">Against</span>
+          <span className="text-[11px] uppercase tracking-[0.25em] text-muted dark:text-stone-400">Against</span>
         </div>
       </div>
 
@@ -241,7 +241,7 @@ function BalanceMeter({ forWeight, againstWeight }: {
           />
         </div>
 
-        <div className="mt-1 flex items-center justify-between text-xs text-stone-400 max-w-3xl mx-auto">
+        <div className="mt-1 flex items-center justify-between text-xs text-muted dark:text-stone-400 max-w-3xl mx-auto">
           <span className="font-medium">FOR {forPercent}%</span>
           <span className="font-medium">AGAINST {againstPercent}%</span>
         </div>
@@ -461,7 +461,7 @@ export function ScalesOfEvidence() {
                 <EvidenceCard key={evidence.id} evidence={evidence} index={index} />
               ))}
               {forEvidence.length === 0 && (
-                <div className="text-center py-12 text-stone-400">
+                <div className="text-center py-12 text-muted dark:text-stone-400">
                   <Scale className="h-10 w-10 mx-auto mb-3 opacity-40" />
                   <p className="font-serif italic">No evidence presented for this position</p>
                 </div>
@@ -492,7 +492,7 @@ export function ScalesOfEvidence() {
                 <EvidenceCard key={evidence.id} evidence={evidence} index={index} />
               ))}
               {againstEvidence.length === 0 && (
-                <div className="text-center py-12 text-stone-400">
+                <div className="text-center py-12 text-muted dark:text-stone-400">
                   <Scale className="h-10 w-10 mx-auto mb-3 opacity-40" />
                   <p className="font-serif italic">No evidence presented against this position</p>
                 </div>
@@ -509,7 +509,7 @@ export function ScalesOfEvidence() {
         />
 
         {/* Footer note */}
-        <p className="text-center text-xs text-stone-400 pb-8">
+        <p className="text-center text-xs text-muted dark:text-stone-400 pb-8">
           Evidence scores are calculated from Source Reliability, Independence, Replicability, and Directness (each 0-10).
         </p>
       </div>

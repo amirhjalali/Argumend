@@ -4,6 +4,8 @@ import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { useReactFlow } from "@xyflow/react";
 import { ChevronRight, Home, Target } from "lucide-react";
 import { useMemo } from "react";
+import { getVariantStyle } from "@/lib/variantStyles";
+import type { NodeVariant } from "@/types/graph";
 
 export function NavigationPath() {
   const nodes = useLogicGraph((state) => state.nodes);
@@ -69,21 +71,10 @@ export function NavigationPath() {
 
   if (path.length <= 1) return null;
 
-  const getVariantColor = (variant: string) => {
-    switch (variant) {
-      case "meta":
-      case "proponent":
-        return "var(--color-rust-500, #C4613C)";
-      case "skeptic":
-        return "var(--color-skeptic, #8B5A3C)";
-      case "evidence":
-        return "var(--color-rust-600, #b05434)";
-      case "crux":
-        return "var(--color-crux, #a23b3b)";
-      default:
-        return "#78716c";
-    }
-  };
+  // Single source of truth: the breadcrumb dot/label color is the same canonical
+  // accent the matching node header renders (see lib/variantStyles.ts).
+  const getVariantColor = (variant: string) =>
+    getVariantStyle(variant as NodeVariant).accentColor;
 
   return (
     <nav aria-label="Argument path" className="absolute top-4 left-1/2 -translate-x-1/2 z-50 max-w-[600px]">

@@ -7,6 +7,22 @@ export const degrowthEconomicsData = {
     "Endless GDP growth is incompatible with ecological survival. Rich nations must deliberately shrink their economies to stay within planetary boundaries.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Most people blame today's climate crisis on China and India, but cumulatively the picture flips: the Global North (the US, EU, and other wealthy nations) is responsible for roughly 92% of the CO2 emitted beyond the safe planetary boundary, while the Global South — 85% of humanity — accounts for about 8%. The honest nuance is that this depends on a chosen 'fair share' framing, and current annual emissions are now dominated by China.",
+    confidence: 80,
+    source:
+      "Hickel, The Lancet Planetary Health (2020), equality-based attribution to 2015; underlying data from the Global Carbon Project",
+    sourceUrl:
+      "https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(20)30196-0/fulltext",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The strongest case for degrowth is biophysical: across the empirical literature — including a systematic review by Haberl et al. (2020) that screened over 11,500 papers and analyzed 835 studies — no economy has ever achieved absolute decoupling of GDP from carbon and material use fast enough to hit Paris targets once offshored emissions are counted, and global material extraction has tripled since 1970 with no peak in sight.",
+    "The honest counterpoint is that 'no country has done it yet' is not the same as 'it is physically impossible,' and degrowth has no precedent for being chosen democratically: every modern economic contraction (the Great Depression, post-Soviet collapse, Greek austerity) was involuntary and brutal, and even modest green taxes triggered the Yellow Vest revolt.",
+    "So the honest debate isn't whether infinite GDP growth on a finite planet is literally sustainable forever (it isn't), but whether green growth can decarbonize fast enough in practice — and, if it can't, whether deliberate, democratic contraction is any more achievable than the technological miracle it's meant to replace.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: The Decoupling Debate
@@ -31,6 +47,16 @@ export const degrowthEconomicsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Consumption-based emissions modeling with trade-adjusted material flow analysis across OECD nations)",
+        falsification: {
+          supporter_flip:
+            "If even one major economy demonstrably achieved absolute decoupling of GDP from both consumption-based CO2 and total material footprint at 7-10% per year — sustained, not a one-off recession dip, and not an artifact of offshoring — the core degrowth claim that growth is physically incompatible with Paris targets would collapse.",
+          skeptic_flip:
+            "A green-growth advocate should weigh that the best-performing countries' observed decoupling rates (1-3% per year) are still far below the 7-10% the IPCC 1.5°C pathways require, that consumption-based accounting erases much of the apparent UK/Sweden progress, and that no country has decoupled GDP from aggregate material throughput at all.",
+          common_ground:
+            "Both sides agree that relative decoupling is real and common (emissions per dollar of GDP are falling) and that renewable energy costs have collapsed dramatically — the dispute is whether that is fast and complete enough.",
+          live_disagreement:
+            "Whether the maximum achievable economy-wide decoupling rate can be pushed to 7-10% per year without offshoring — which only consumption-based emissions plus trade-adjusted material-flow data across the OECD, compared against IPCC SR15 pathways, can resolve.",
+        },
       },
       evidence: [
         {
@@ -135,6 +161,16 @@ export const degrowthEconomicsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$150K-300K (Comparative political analysis with polling data across WeGo nations and OECD countries)",
+        falsification: {
+          supporter_flip:
+            "If the Wellbeing Economy Governments actually reduced material throughput and GDP and their governing parties were promptly voted out — or if degrowth-compatible policies (work-week cuts, throughput caps) consistently lost elections once they bit into living standards — the claim that degrowth can be made politically viable would be falsified.",
+          skeptic_flip:
+            "A skeptic who says 'no electorate ever votes to shrink' should weigh that four-day-week trials enjoy 60-70% support and that 'post-growth' and 'wellbeing economy' framings poll far better than 'degrowth,' suggesting the political ceiling may be on the word, not the policies.",
+          common_ground:
+            "Both sides agree no modern democracy has yet voluntarily chosen sustained economic contraction, and that policies raising costs on ordinary people (the Yellow Vest fuel tax) provoke fierce backlash.",
+          live_disagreement:
+            "Whether voters will sustain support for a government that genuinely caps throughput and GDP while expanding wellbeing services — which only tracking WeGo nations' actual throughput reductions against their electoral fortunes over multiple cycles can settle.",
+        },
       },
       evidence: [
         {
@@ -234,6 +270,16 @@ export const degrowthEconomicsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1M (Global trade modeling with CGE models and development impact assessment)",
+        falsification: {
+          supporter_flip:
+            "If rigorous CGE modeling showed that even 'managed' Northern degrowth — paired with debt cancellation and technology transfer — still drives net declines in Human Development Index indicators across low-income countries through collapsing export demand and investment, the justice case for degrowth would fail on its own terms.",
+          skeptic_flip:
+            "A skeptic who fears degrowth would devastate the South should weigh that the current growth model is already projected to push 68-132 million people into extreme poverty by 2030 via climate impacts the South did least to cause, and that the Global North has consumed ~92% of the excess carbon budget.",
+          common_ground:
+            "Both sides agree that the Global South is highly exposed — to climate damages it did not cause and to a fall in Northern import demand — and that climate finance and technology transfer to poorer nations are inadequate today.",
+          live_disagreement:
+            "Whether a managed Northern contraction (luxury/extractive sectors cut, development finance and debt relief expanded) leaves the South net better or worse off than continued green growth — which only comparative CGE modeling of both scenarios against HDI outcomes can resolve.",
+        },
       },
       evidence: [
         {

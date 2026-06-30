@@ -7,6 +7,21 @@ export const spaceColonizationFeasibilityData = {
     "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "Even after the worst plausible catastrophe — nuclear war, an asteroid strike, runaway warming — Earth would still be vastly more habitable than Mars, which has no breathable air, lethal radiation, ~38% gravity, average −60°C, and toxic perchlorate soil. A Mars base is real engineering, but as of 2025 no rocket has even landed cargo there, and 'self-sufficient' is decades away — so it's an outpost, not a backup planet.",
+    confidence: 84,
+    source:
+      "NASA Mars facts (radiation, gravity, atmosphere, perchlorates); SpaceX Starship status (2025); NASA MOXIE/ISRU results",
+    sourceUrl: "https://science.nasa.gov/mars/facts/",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The 'Mars as humanity's backup' pitch undersells how brutal Mars is: it has no breathable air, no magnetic field to block lethal radiation, about 38% of Earth's gravity, an average temperature around −60°C, and soil laced with toxic perchlorates — meaning even a post-nuclear, post-asteroid Earth would still be far easier to live on.",
+    "The engineering is advancing for real — reusable rockets cut launch costs ~10× in 15 years, and NASA's MOXIE proved you can make oxygen from Martian air — but as of 2025 no vehicle has landed cargo on Mars, orbital refueling hasn't been demonstrated, and every closed life-support system tried on Earth (Biosphere 2) needed constant resupply or failed.",
+    "So the honest debate isn't whether humans can ever reach Mars (probably) but whether a self-sustaining colony — one that survives if Earth resupply stops — is feasible within 50 years, or whether what's actually achievable is an expensive, Earth-dependent outpost.",
+  ],
   pillars: [
     {
       id: "transport-technology",
@@ -29,6 +44,16 @@ export const spaceColonizationFeasibilityData = {
           "P(\\text{colony}) = P(\\text{transport}) \\times P(\\text{habitat}) \\times P(\\text{ISRU}) \\times P(\\text{funding})",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (Monitor SpaceX mission outcomes)",
+        falsification: {
+          supporter_flip:
+            "If Starship-class vehicles kept failing to demonstrate orbital refueling and an uncrewed Mars cargo landing within the next decade — the transport link never closing despite years of attempts — the 'feasible within 50 years' timeline would slip badly, since nothing downstream works without reliable transport.",
+          skeptic_flip:
+            "A skeptic who says it's a fantasy should weigh that reusable rockets already cut launch costs ~10× and made booster reuse routine, and that the radiation/transit math closes under Starship-class performance — so 'we can't even get there' understates a concrete, fast-moving engineering trajectory.",
+          common_ground:
+            "Both sides agree that as of 2025 no rocket has landed cargo on Mars and orbital propellant transfer hasn't been demonstrated, while launch costs have fallen sharply.",
+          live_disagreement:
+            "Whether Starship-class transport (orbital refueling + Mars cargo landing) will actually be demonstrated this decade, or stall — which only SpaceX's mission record will settle.",
+        },
       },
       evidence: [
         {
@@ -106,6 +131,16 @@ export const spaceColonizationFeasibilityData = {
           "Deploy ISRU demonstration payloads on Mars. Measure water extraction rates from regolith/ice, oxygen production from CO₂, and structural integrity of regolith-based construction materials over 2+ year periods.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500M (Robotic ISRU demonstration mission)",
+        falsification: {
+          supporter_flip:
+            "If ISRU and closed-loop life support repeatedly failed to scale on Mars — oxygen, water, food, and construction never reaching the volumes a crew needs without constant Earth resupply — then 'self-sustaining colony' would prove infeasible, leaving only a permanently dependent outpost.",
+          skeptic_flip:
+            "A skeptic citing Biosphere 2's failures should weigh that MOXIE already made oxygen from Martian CO₂ end-to-end and that ISRU scales with power and reactor size rather than new physics — so the barrier is engineering scale-up, not impossibility in principle.",
+          common_ground:
+            "Both sides agree no closed life-support system has yet been sustained without resupply, and that MOXIE proved the core oxygen-from-CO₂ chemistry at tiny scale on Mars.",
+          live_disagreement:
+            "Whether ISRU and life support can be scaled and integrated to true self-sufficiency (surviving a cut-off from Earth), or whether a Mars settlement remains a resupply-dependent outpost — which only large-scale ISRU and closed-loop demonstrations can resolve.",
+        },
       },
       evidence: [
         {

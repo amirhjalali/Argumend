@@ -330,7 +330,7 @@ function DebateHeader({
           </span>
         </div>
 
-        <span className="text-stone-400 font-serif italic">vs</span>
+        <span className="text-muted font-serif italic">vs</span>
 
         <div className="flex items-center gap-2">
           <span className="font-serif text-stone-600 font-medium">
@@ -355,7 +355,7 @@ function DebateHeader({
           <span className="font-serif font-bold text-primary">
             {state.currentRound}
           </span>
-          <span className="text-xs text-stone-400">of {state.maxRounds}</span>
+          <span className="text-xs text-muted">of {state.maxRounds}</span>
         </div>
 
         {isDebating && (

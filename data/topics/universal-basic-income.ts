@@ -7,6 +7,21 @@ export const universalBasicIncomeData = {
     "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "The big fear about UBI — that free money makes people quit working — barely shows up in the trials: from Finland to Kenya to the largest US experiment ($1,000/month for 3 years), employment fell only slightly (~2 points), with recipients shifting toward education, caregiving, and pickier job search. The real binding constraint isn't work incentives — it's the ~$3.1 trillion-a-year price of paying everyone.",
+    confidence: 82,
+    source:
+      "Vivalt et al., OpenResearch income study (NBER, 2024); Finland Basic Income Experiment (2019); GiveDirectly Kenya (Egger et al. 2022)",
+    sourceUrl: "https://www.nber.org/papers/w32719",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The loudest objection to UBI — that unconditional cash makes people stop working — is mostly not what the experiments show: pilots in Finland, Stockton, and Kenya found small or no employment drops, and the largest US trial (OpenResearch, $1,000/month for three years) found employment fell only ~2 points, with recipients shifting toward education, caregiving, and choosier job searches.",
+    "The genuinely hard problem is arithmetic: a universal $1,000/month for every US adult costs about $3.1 trillion a year gross — comparable to the entire discretionary budget — and every realistic funding mix (VAT, program consolidation, new taxes) is itself contested on whether it adds up without large deficits or growth costs.",
+    "So the honest debate isn't 'will people freeload?' (mostly no) but whether a permanent, nationwide program behaves like the temporary pilots — and whether universality (sending Jeff Bezos the same check as a homeless veteran) beats spending the same money on targeted programs.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Economic Impact & Fiscal Feasibility
@@ -31,6 +46,16 @@ export const universalBasicIncomeData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Comprehensive dynamic fiscal modeling requiring CBO-grade economic analysis)",
+        falsification: {
+          supporter_flip:
+            "If comprehensive dynamic-scoring studies found that every realistic funding mix (VAT, program consolidation, new taxes, growth feedback) still blows past sustainable debt levels or requires growth-killing tax rates, the fiscal feasibility case would fail — leaving UBI affordable only by gutting other priorities.",
+          skeptic_flip:
+            "A skeptic citing the $3.1T gross cost should weigh that the net cost is far lower once you consolidate 80+ means-tested programs and their overhead, and that existing universal cash (Alaska's dividend since 1982) has run for decades without fiscal harm — so 'we can't afford it' depends heavily on design.",
+          common_ground:
+            "Both sides agree a meaningful national UBI is enormously expensive on a gross basis and must be paid for by some mix of new taxes, program cuts, or borrowing.",
+          live_disagreement:
+            "Whether any realistic funding design covers UBI without pushing debt or tax rates to growth-damaging levels — which only CBO-grade dynamic modeling of competing funding mixes could settle.",
+        },
       },
       evidence: [
         {
@@ -127,6 +152,16 @@ export const universalBasicIncomeData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$50-150M (Large-scale, multi-year RCT with saturation sites and long-term follow-up)",
+        falsification: {
+          supporter_flip:
+            "If a large, long, guaranteed-permanent trial (removing the 'it'll end' bias of pilots) showed aggregate labor-force participation falling more than 3–5%, the work-disincentive objection would be vindicated and the case for UBI would weaken.",
+          skeptic_flip:
+            "A skeptic citing the 1970s NIT experiments should weigh that modern pilots (Finland, Stockton, Kenya, OpenResearch) found only small reductions concentrated in caregiving, education, and job search — not mass exit — and that the famous NIT divorce finding was a debunked statistical artifact.",
+          common_ground:
+            "Both sides agree short-term pilots can't fully capture how a permanent program would change behavior, since participants know the pilot ends.",
+          live_disagreement:
+            "Whether a permanent national UBI would replicate the pilots' small labor-supply effects or produce larger withdrawal once the income is known to be lifelong — which only a long, guaranteed-permanent trial could test.",
+        },
       },
       evidence: [
         {
@@ -257,6 +292,16 @@ export const universalBasicIncomeData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$80-200M (Multi-arm RCT with comprehensive outcome tracking over 3-5 years)",
+        falsification: {
+          supporter_flip:
+            "If head-to-head trials showed optimized targeted programs (SNAP + Medicaid + vouchers) deliver equal or better poverty, health, and education outcomes per dollar than unconditional cash, the case for universality over targeting would collapse to an efficiency loss.",
+          skeptic_flip:
+            "A skeptic worried cash gets wasted should weigh that a 44-study World Bank review found cash transfers don't increase alcohol/tobacco spending, that means-tested programs reach only a fraction of the eligible (21 of 100 poor families got TANF cash by 2020), and that pilots consistently improved mental health.",
+          common_ground:
+            "Both sides agree the goal is improving the lives of the poor, and that unconditional cash is not, in the evidence, spent mainly on temptation goods.",
+          live_disagreement:
+            "Whether unconditional universal cash beats optimized targeted programs per dollar on poverty, health, and education — which only a multi-arm RCT directly comparing them could settle.",
+        },
       },
       evidence: [
         {

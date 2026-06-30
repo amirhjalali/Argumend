@@ -7,6 +7,22 @@ export const mandatoryVotingData = {
     "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "When Australia made voting compulsory, turnout jumped from 59% to 91% in three years (1922→1925) and has stayed above 90% ever since — versus roughly 60% in the US. The fight isn't over whether it raises turnout (it dramatically does) but whether dragging the least-engaged to the booth improves representation or just adds noise.",
+    confidence: 85,
+    source:
+      "Australian Electoral Commission (compulsory voting history); Fowler (2013) staggered-rollout study; Selb & Lachat",
+    sourceUrl:
+      "https://www.aec.gov.au/elections/australian_electoral_history/compulsory_voting.htm",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The factual core is striking: when Australia made voting compulsory, turnout leapt from 59% to 91% within three years and has held above 90% for a century — roughly 30 points higher than the United States' ~60%.",
+    "Proponents argue this changes who politics serves: when campaigns can't win by suppressing the other side's turnout, they have to court the whole electorate, and a quasi-experimental study of Australia's rollout found exactly such a redistributive shift (more spending aimed at lower-income voters), not bland centrism.",
+    "So the honest debate isn't whether compulsion raises turnout (it obviously does) but whether the extra, least-engaged voters improve representation or just add noise — plus a real liberty objection that the freedom to vote should include the freedom to abstain.",
+  ],
   pillars: [
     {
       id: "democratic-representation",
@@ -27,6 +43,16 @@ export const mandatoryVotingData = {
           "Compare policy responsiveness to median voter preferences in compulsory vs. voluntary voting countries, controlling for institutional differences.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (Cross-national comparative study)",
+        falsification: {
+          supporter_flip:
+            "If careful comparisons showed compulsory-voting countries are no more responsive to median-voter or lower-income preferences than voluntary ones — the extra voters too uninformed to shift policy and 'donkey votes' adding only noise — the representation case for compulsion would collapse.",
+          skeptic_flip:
+            "A skeptic who says forced votes are noise should weigh that Australia's quasi-experimental rollout produced a measurable policy shift toward lower-income voters (more pension spending, higher Labor vote), which is hard to explain if compelled votes were pure noise.",
+          common_ground:
+            "Both sides agree compulsory voting dramatically raises raw turnout, and that compelled voters are on average less politically engaged than habitual ones.",
+          live_disagreement:
+            "Whether those additional, lower-engagement voters actually make policy more representative of the whole electorate, or merely inflate turnout figures while adding 'donkey votes' and noise.",
+        },
       },
       evidence: [
         {
@@ -122,6 +148,16 @@ export const mandatoryVotingData = {
           "Compare per-voter election administration costs, enforcement costs, and democratic outcome metrics between compulsory and voluntary systems.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$200K (Comparative administrative study)",
+        falsification: {
+          supporter_flip:
+            "If the administrative and liberty costs of compelling turnout clearly outweighed the democratic gains — regressive fines biting the poor, little improvement in polarization or responsiveness — the practical case for adopting it would weaken even if it raises turnout.",
+          skeptic_flip:
+            "A skeptic who says it's not worth it should weigh that Australia enforces with a modest ~$20 first fine and near-universal compliance, and that the voluntary-voting US saw the largest rise in affective polarization among twelve democracies — at least suggestive that universal turnout dampens the incentive to win by polarizing.",
+          common_ground:
+            "Both sides agree a flat fine is somewhat regressive and that disengagement has deeper causes (uncompetitive seats, weak candidates) that compulsion alone doesn't fix.",
+          live_disagreement:
+            "Whether the modest enforcement cost and liberty trade-off are justified by the democratic benefits — which depends on contested estimates of how much compulsion actually improves representation and reduces polarization.",
+        },
       },
       evidence: [
         {

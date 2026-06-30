@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { auth } from "@/lib/auth";
 import { createJudgeCouncil } from "@/lib/judge/council";
 import type { DebateMessageInput as DebateMessage } from "@/types/debate";
 import { judgeContentOffline, judgeDebateOffline } from "@/lib/judge/offline";
@@ -32,18 +31,27 @@ function isLiveJudgingEnabled(): boolean {
   );
 }
 
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : "Unknown error";
+}
+
+async function hasAuthenticatedUser(): Promise<boolean> {
+  try {
+    const { auth } = await import("@/lib/auth");
+    const session = await auth();
+    return Boolean(session?.user);
+  } catch (error) {
+    console.warn("Auth unavailable; continuing with offline-safe behavior:", getErrorMessage(error));
+    return false;
+  }
+}
+
 /**
  * POST /api/judge
  *
  * Judge a debate or content using multiple AI models.
  */
 export async function POST(request: NextRequest) {
-  // Require authentication for judging (calls LLM APIs and persists data)
-  const session = await auth();
-  if (!session?.user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   // Rate limit: 10 requests per hour per IP
   const ip = request.headers.get("x-forwarded-for") || "unknown";
   const limit = rateLimit(`judge:${ip}`, { maxRequests: 10, windowMs: 60 * 60 * 1000 });
@@ -85,9 +93,10 @@ export async function POST(request: NextRequest) {
     const defaultModels: LLMModel[] = ["claude", "gpt-4", "gemini"];
     const models = judgeModels && judgeModels.length > 0 ? judgeModels : defaultModels;
     const judges = modelsToAgents(models);
+    const authenticated = isLiveJudgingEnabled() ? await hasAuthenticatedUser() : false;
 
     let result: JudgingResult;
-    if (isLiveJudgingEnabled()) {
+    if (isLiveJudgingEnabled() && authenticated) {
       try {
         const council = createJudgeCouncil({ judges });
         if (type === "debate") {
@@ -109,15 +118,21 @@ export async function POST(request: NextRequest) {
       result = judgeContentOffline(content!, contentType || "freeform", models);
     }
 
-    // Persist judgment
-    const saved = await saveJudgment(result, {
-      debateId: body.debateId,
-    });
+    // Persist when a database is configured. Offline mode still returns the
+    // computed judgment when persistence is unavailable.
+    let saved: Awaited<ReturnType<typeof saveJudgment>> | null = null;
+    try {
+      saved = await saveJudgment(result, {
+        debateId: body.debateId,
+      });
+    } catch (error) {
+      console.warn("Judgment persistence skipped:", getErrorMessage(error));
+    }
 
-    return NextResponse.json({ ...result, id: saved.id });
+    return NextResponse.json({ ...result, id: saved?.id });
   } catch (error) {
     console.error("Judge API error:", error);
-    const message = error instanceof Error ? error.message : "Unknown error";
+    const message = getErrorMessage(error);
     return NextResponse.json(
       { error: "Failed to judge content", details: message },
       { status: 500 }
@@ -154,9 +169,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ judgments: results });
   } catch (error) {
     console.error("Failed to list judgments:", error);
-    return NextResponse.json(
-      { error: "Failed to list judgments" },
-      { status: 500 }
-    );
+    return NextResponse.json({ judgments: [], persistence: "unavailable" });
   }
 }

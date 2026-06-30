@@ -7,6 +7,20 @@ export const ultraProcessedFoodData = {
     "Ultra-processed foods are the primary driver of the global obesity and chronic disease epidemic, and their regulation would significantly improve public health outcomes.",
   status: "contested" as const,
   category: "science" as const,
+  // ── Stage 1: the wow fact shown above everything ──
+  keystone_fact: {
+    statement:
+      "In a tightly controlled NIH trial, people given an ultra-processed diet ate about 508 more calories a day and gained weight — versus the same people on an unprocessed diet matched for calories, sugar, fat, and fiber, where they lost weight. Processing itself, not just nutrients, drove overeating.",
+    confidence: 82,
+    source: "Hall et al., Cell Metabolism (NIH/NIDDK, 2019)",
+    sourceUrl: "https://doi.org/10.1016/j.cmet.2019.05.008",
+  },
+  // ── Stage 2: the honest 3-sentence case ──
+  simple_case: [
+    "The most important nutrition experiment of the last decade locked 20 people in a metabolic ward and fed them ultra-processed or unprocessed meals matched for calories, sugar, fat, and fiber — and on the ultra-processed diet they spontaneously ate ~508 more calories a day and gained weight.",
+    "That's causal evidence that processing itself, not just 'too much sugar and fat,' drives overeating — and observational data on ~10 million people links ultra-processed food to obesity, diabetes, heart disease, and earlier death.",
+    "The honest open questions are mechanism and policy, not whether there's a problem: is the culprit processing per se or just hyper-palatable, fast-to-eat, energy-dense engineering — and does regulating a fuzzy 'ultra-processed' category (≈55% of US calories) actually improve health, given Chile's labels cut purchases but haven't yet dented obesity?",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Causal Link Between UPFs and Obesity
@@ -31,6 +45,16 @@ export const ultraProcessedFoodData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-10M (Large-scale metabolic ward study with strict dietary control and biomarker monitoring)",
+        falsification: {
+          supporter_flip:
+            "If strictly isocaloric trials (not ad libitum) showed ultra-processed and whole-food diets produce identical body-composition and metabolic outcomes — meaning the only thing UPFs do is make you eat more, fully explained by energy density and eating rate that whole foods could match — then NOVA's 'processing' category would add nothing beyond palatability engineering.",
+          skeptic_flip:
+            "A skeptic who says 'it's just calories' should weigh that Hall's RCT already matched the diets for calories, sugar, fat, and fiber and STILL produced 508 extra calories a day — so nutrients-held-constant can't fully explain a controlled result where nutrients were held constant.",
+          common_ground:
+            "Both sides agree ultra-processed diets lead people to consume more calories; the dispute is the mechanism.",
+          live_disagreement:
+            "Whether the overconsumption comes from 'processing' as such or from energy density, hyper-palatability, and eating speed — properties that, in principle, minimally-processed foods could also have.",
+        },
       },
       evidence: [
         {
@@ -127,6 +151,16 @@ export const ultraProcessedFoodData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$3-8M (Multi-center controlled feeding study with comprehensive biomarker panel)",
+        falsification: {
+          supporter_flip:
+            "If matched-nutrient feeding studies showed UPFs produce no worse inflammation, gut-barrier disruption, or metabolic markers than nutritionally identical whole foods, the case that processing causes chronic disease beyond its nutrient profile would collapse — the problem would be nutrients, not processing.",
+          skeptic_flip:
+            "A skeptic who trusts additive approvals should weigh that a double-blind feeding trial found a single common emulsifier (CMC) measurably perturbing the human gut microbiome, and that additives are approved one at a time — never tested as the dozens-at-once mixture real UPF diets deliver.",
+          common_ground:
+            "Both sides agree the chronic-disease evidence is mostly observational and entangled with poor overall diet quality and socioeconomic disadvantage.",
+          live_disagreement:
+            "Whether specific processing features (emulsifiers, sweeteners, industrial heat products) cause disease independently of obesity and nutrient profile — which matched-nutrient trials haven't yet resolved.",
+        },
       },
       evidence: [
         {
@@ -206,6 +240,16 @@ export const ultraProcessedFoodData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Multi-country longitudinal epidemiological comparison using existing health surveillance data)",
+        falsification: {
+          supporter_flip:
+            "If countries with UPF regulations (Chile, Mexico, Colombia, UK) consistently showed no better obesity or chronic-disease trajectories than matched controls after a decade — as Chile's still-rising obesity through 2022 hints — the public-health case for category-level regulation (versus reformulation) would weaken.",
+          skeptic_flip:
+            "A skeptic of regulation should weigh that Chile's labels cut purchases of flagged products ~24% and triggered mass reformulation — real behavioral and supply changes whose health payoff may simply lag the 7-year window, as it did for tobacco.",
+          common_ground:
+            "Both sides agree Chile's warning labels measurably cut purchases of labeled products, but national obesity has kept rising so far.",
+          live_disagreement:
+            "Whether UPF-targeted policies (labels, taxes, ad limits) actually improve population health within a decade, or whether reformulation and other interventions would do more — which the natural experiments haven't yet settled.",
+        },
       },
       evidence: [
         {

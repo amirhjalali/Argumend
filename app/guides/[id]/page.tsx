@@ -1,10 +1,18 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Clock, BookOpen, CheckCircle2, ExternalLink, ArrowRight } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { guides, getGuideById } from "@/data/guides";
+import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
+import { renderInlineMarkdown } from "@/lib/markdown";
+import {
+  TableOfContents,
+  slugifyHeading,
+  type TocHeading,
+} from "@/components/TableOfContents";
 import { notFound } from "next/navigation";
 
 // ---------------------------------------------------------------------------
@@ -25,6 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { id } = await params;
   const guide = getGuideById(id);
   if (!guide) return { title: "Guide Not Found" };
+  const media = getGeneratedMedia("guide", guide.id);
 
   return {
     title: `${guide.title} -- Guide | Argumend`,
@@ -38,11 +47,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://argumend.org/guides/${guide.id}`,
       type: "article",
       siteName: "Argumend",
+      images: media?.hero
+        ? [
+            {
+              url: absoluteMediaUrl(media.hero.src),
+              width: media.hero.width,
+              height: media.hero.height,
+              alt: media.hero.alt,
+            },
+          ]
+        : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: `${guide.title} -- Guide | Argumend`,
       description: guide.description.slice(0, 160),
+      images: media?.hero ? [absoluteMediaUrl(media.hero.src)] : undefined,
     },
   };
 }
@@ -59,6 +79,37 @@ export default async function GuidePage({ params }: PageProps) {
   }
 
   const Icon = guide.icon;
+  const media = getGeneratedMedia("guide", guide.id);
+
+  // Stamp stable, deduped anchor ids onto every section (H2) and subsection
+  // (H3) so the table of contents links and the rendered headings stay in sync.
+  const usedIds = new Set<string>();
+  const assignId = (title: string): string => {
+    let id = slugifyHeading(title) || "section";
+    if (usedIds.has(id)) {
+      let n = 2;
+      while (usedIds.has(`${id}-${n}`)) n += 1;
+      id = `${id}-${n}`;
+    }
+    usedIds.add(id);
+    return id;
+  };
+  const sections = guide.sections.map((section) => ({
+    ...section,
+    anchorId: assignId(section.title),
+    subsections: section.subsections?.map((sub) => ({
+      ...sub,
+      anchorId: assignId(sub.title),
+    })),
+  }));
+  const tocHeadings: TocHeading[] = sections.flatMap((section) => [
+    { id: section.anchorId, text: section.title, level: 2 as const },
+    ...(section.subsections?.map((sub) => ({
+      id: sub.anchorId,
+      text: sub.title,
+      level: 3 as const,
+    })) ?? []),
+  ]);
 
   // JSON-LD structured data — LearningResource is the correct type for an educational guide.
   const jsonLd = {
@@ -71,7 +122,8 @@ export default async function GuidePage({ params }: PageProps) {
     learningResourceType: "Guide",
     educationalLevel: "Beginner",
     teaches: guide.keyTakeaways,
-    timeRequired: guide.readTime,
+    // ISO-8601 duration (e.g. "12 min read" → "PT12M") so Rich Results validates.
+    timeRequired: `PT${parseInt(guide.readTime, 10) || 10}M`,
     author: {
       "@type": "Organization",
       name: "ARGUMEND",
@@ -94,11 +146,23 @@ export default async function GuidePage({ params }: PageProps) {
     dateModified: "2025-12-05",
     articleSection: "Foundational Guides",
     inLanguage: "en-US",
+    about: {
+      "@type": "Thing",
+      name: guide.title,
+      description: guide.subtitle,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Argumend",
+      url: "https://argumend.org",
+    },
     image: {
       "@type": "ImageObject",
-      url: `https://argumend.org/api/og/guides/${guide.id}`,
-      width: 1200,
-      height: 630,
+      url: media?.hero
+        ? absoluteMediaUrl(media.hero.src)
+        : `https://argumend.org/api/og/guides/${guide.id}`,
+      width: media?.hero.width ?? 1200,
+      height: media?.hero.height ?? 630,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -112,7 +176,7 @@ export default async function GuidePage({ params }: PageProps) {
       <JsonLd data={jsonLd} />
 
       <div className="min-h-full">
-        <article className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
+        <article className="relative mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
           {/* Breadcrumb with BreadcrumbList JSON-LD */}
           <Breadcrumbs
             items={[
@@ -152,20 +216,42 @@ export default async function GuidePage({ params }: PageProps) {
             <p className="text-lg text-secondary leading-relaxed max-w-2xl">
               {guide.subtitle}
             </p>
+
+            {media?.hero && (
+              <div className="relative mt-8 aspect-[1672/941] overflow-hidden rounded-xl border border-stone-200/70 bg-stone-100 shadow-sm">
+                <Image
+                  src={media.hero.src}
+                  alt={media.hero.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 768px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </header>
+
+          {/* In-article wayfinding (sticky rail on wide desktop, disclosure otherwise) */}
+          <TableOfContents headings={tocHeadings} />
 
           {/* Main Content */}
           <div className="prose-custom">
-            {guide.sections.map((section, sectionIdx) => (
+            {sections.map((section, sectionIdx) => (
               <section key={sectionIdx} className="mb-16 md:mb-24">
-                <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+                <h2
+                  id={section.anchorId}
+                  className="font-serif text-2xl sm:text-3xl text-primary mb-4 scroll-mt-24"
+                >
                   {section.title}
                 </h2>
 
-                {/* Main section content */}
-                <div className="text-primary leading-[1.8] whitespace-pre-line text-[15px] md:text-base mb-6">
-                  {section.content}
-                </div>
+                {/* Main section content (inline markdown: bold/italic/links) */}
+                <div
+                  className="text-primary leading-[1.8] whitespace-pre-line text-[15px] md:text-base mb-6"
+                  dangerouslySetInnerHTML={{
+                    __html: renderInlineMarkdown(section.content),
+                  }}
+                />
 
                 {/* Subsections */}
                 {section.subsections && (
@@ -175,12 +261,18 @@ export default async function GuidePage({ params }: PageProps) {
                         key={subIdx}
                         className="pl-5 border-l-2 border-deep/20"
                       >
-                        <h3 className="font-serif text-lg text-primary mb-2">
+                        <h3
+                          id={subsection.anchorId}
+                          className="font-serif text-lg text-primary mb-2 scroll-mt-24"
+                        >
                           {subsection.title}
                         </h3>
-                        <div className="text-primary leading-[1.75] whitespace-pre-line text-[15px]">
-                          {subsection.content}
-                        </div>
+                        <div
+                          className="text-primary leading-[1.75] whitespace-pre-line text-[15px]"
+                          dangerouslySetInnerHTML={{
+                            __html: renderInlineMarkdown(subsection.content),
+                          }}
+                        />
                       </div>
                     ))}
                   </div>

@@ -6,6 +6,7 @@ import {
   topicSummaries,
   featuredTopicId,
   featuredReason,
+  TOPIC_COUNT_LABEL,
 } from "@/data/topicIndex";
 import type { Topic } from "@/lib/schemas/topic";
 
@@ -65,14 +66,26 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
   return (
     <div className="flex flex-col items-center px-4 md:px-8 pt-8 pb-8 bg-gradient-to-b from-[#f4f1eb] to-stone-50 dark:from-[#1a1917] dark:to-[#201f1c]">
       <div className="w-full max-w-2xl space-y-6">
-        {/* Title */}
+        {/* Product value proposition — the 5-second "what is this".
+            NOTE: hero copy — flagged for founder review. */}
+        <div className="text-center space-y-2">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary leading-[1.08]">
+            See both sides of any controversial topic, mapped
+          </h1>
+          <p className="font-sans text-base md:text-lg text-secondary max-w-xl mx-auto leading-relaxed">
+            Steel-manned arguments, weighted evidence, and the crux that would
+            change your mind — across {TOPIC_COUNT_LABEL} topics.
+          </p>
+        </div>
+
+        {/* Featured topic */}
         <div className="text-center space-y-3">
           <p className="text-xs font-medium text-deep/70 tracking-widest uppercase">
             Featured Analysis
           </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary leading-[1.08]">
+          <h2 className="font-serif text-2xl sm:text-3xl tracking-tight text-primary leading-[1.12]">
             {summary.title}
-          </h1>
+          </h2>
           {featuredReason && (
             <p className="font-serif text-base md:text-lg text-stone-500 dark:text-stone-400 max-w-lg mx-auto leading-relaxed">
               {featuredReason}
@@ -96,6 +109,9 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
               confidence
             </span>
           </div>
+          <p className="text-xs text-muted text-center max-w-xs leading-snug">
+            How strongly the weighed evidence leans — not our opinion.
+          </p>
           <p className="text-sm text-stone-500 dark:text-stone-400 text-center max-w-md">
             {summary.meta_claim}
           </p>
@@ -137,11 +153,11 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
                       style={{ width: `${(forEvidence.score / 40) * 100}%` }}
                     />
                   </div>
-                  <span className="text-xs text-stone-400 tabular-nums">
+                  <span className="text-xs text-muted dark:text-stone-400 tabular-nums">
                     {forEvidence.score}/40
                   </span>
                 </div>
-                <p className="mt-1.5 text-xs text-stone-400">{forEvidence.source}</p>
+                <p className="mt-1.5 text-xs text-muted dark:text-stone-400">{forEvidence.source}</p>
               </div>
             )}
             {againstEvidence && (
@@ -161,11 +177,11 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
                       }}
                     />
                   </div>
-                  <span className="text-xs text-stone-400 tabular-nums">
+                  <span className="text-xs text-muted dark:text-stone-400 tabular-nums">
                     {againstEvidence.score}/40
                   </span>
                 </div>
-                <p className="mt-1.5 text-xs text-stone-400">
+                <p className="mt-1.5 text-xs text-muted dark:text-stone-400">
                   {againstEvidence.source}
                 </p>
               </div>

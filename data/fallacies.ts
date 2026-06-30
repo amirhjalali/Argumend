@@ -287,6 +287,125 @@ export const fallacies: readonly Fallacy[] = [
     relatedFallacies: ["hasty-generalization", "false-cause", "bandwagon"],
     relatedTopicIds: ["cryptocurrency-value", "college-value-proposition", "meritocracy-myth"],
   },
+  {
+    slug: "cherry-picking",
+    name: "Cherry-Picking",
+    aliases: ["Suppressed Evidence", "Selective Evidence", "Card Stacking", "Fallacy of Incomplete Evidence"],
+    shortDefinition:
+      "Citing only the evidence that supports your conclusion while ignoring the larger body of evidence that points the other way.",
+    longDescription:
+      "Cherry-picking is the selective use of evidence: you present the data points, studies, or anecdotes that favor your position and quietly omit the ones that don't. Unlike outright lying, every individual fact you cite may be true — the deception is in what you leave out. A claim can be perfectly sourced and still be radically misleading if it represents 5% of the evidence and contradicts the other 95%.\n\nIt is especially dangerous because it exploits a real intuition: evidence matters. When someone produces a study, a chart, or a striking example, it feels like they are arguing in good faith. But a single study is rarely the story — fields advance by the weight of many studies, and any large literature will contain outliers that, pulled out of context, can be made to support almost anything.\n\nThe antidote is to insist on the totality of the evidence. The question is never \"is there a study that shows X?\" — there almost always is — but \"what does the full body of evidence, weighted by quality, actually show?\" This is precisely why structured analysis weighs all the evidence on a question rather than collecting points for one side.",
+    example:
+      "\"It snowed heavily this winter, so global warming is clearly a hoax.\" (One cold local event is offered while the decades-long global temperature trend — the actual evidence — is ignored.)",
+    whyItMisleads:
+      "Because each cited fact is genuine, the audience extends good faith and assumes the sample is representative. They never see the contradicting evidence that was filtered out, so a fringe position can be dressed up to look like the mainstream one — or vice versa.",
+    howToCounter:
+      "Ask: \"Is that the whole picture, or the part that supports your case?\" Shift from individual studies to the weight of evidence: systematic reviews, meta-analyses, and the consensus of the literature. When someone leads with one striking data point, ask what the rest of the data says.",
+    relatedFallacies: ["hasty-generalization", "false-cause", "survivorship-bias"],
+    relatedTopicIds: ["climate-change", "seed-oils-health", "gmo-crops-safety"],
+  },
+  {
+    slug: "moving-the-goalposts",
+    name: "Moving the Goalposts",
+    aliases: ["Goalpost Shifting", "Raising the Bar", "Shifting the Standard"],
+    shortDefinition:
+      "Demanding ever more or different evidence each time your previous demand is met, so the standard of proof can never actually be satisfied.",
+    longDescription:
+      "Moving the goalposts is a fallacy of shifting standards. Someone asks for a certain kind of evidence; when it is provided, instead of accepting the point, they raise or change the requirement — and they keep doing it, so no possible evidence could ever count as enough. The metaphor is a football field where the goal is dragged backward every time the ball gets close.\n\nWhat makes it slippery is that asking for better evidence is usually legitimate. Standards of proof are real and important. The fallacy is not in having a high bar; it is in having a bar that moves — in treating each satisfied demand not as progress but as the cue to invent a new one. The underlying tell is that the person could not, if asked, name a fixed amount of evidence that would actually change their mind.\n\nThis is the mirror image of a healthy practice: stating in advance what would convince you. A good-faith skeptic can specify the crux — the finding that would settle it. Someone moving the goalposts cannot, because their conclusion is fixed and the demands are just a way to defend it.",
+    example:
+      "\"Show me one peer-reviewed study.\" (Shown one.) \"Well, one study means nothing — show me a meta-analysis.\" (Shown one.) \"That journal is biased. Show me one from a source I trust.\" — and so on, indefinitely.",
+    whyItMisleads:
+      "Each individual request sounds reasonable, so the person demanding evidence appears rigorous rather than evasive. The audience doesn't notice that the standard itself is sliding, and the arguer providing evidence is made to look as though they keep failing to meet a fair bar.",
+    howToCounter:
+      "Pin the standard down before producing evidence: \"What specific evidence would change your mind?\" Get the crux on the record. If the answer keeps changing after each demand is met, name it plainly — the goalpost has moved, and the disagreement is no longer about evidence.",
+    relatedFallacies: ["no-true-scotsman", "ad-hominem", "gish-gallop"],
+    relatedTopicIds: ["lab-leak-theory", "climate-change", "vaccine-mandates"],
+  },
+  {
+    slug: "appeal-to-nature",
+    name: "Appeal to Nature",
+    aliases: ["Natural Is Better", "Naturalistic Appeal"],
+    shortDefinition:
+      "Assuming that because something is \"natural\" it must be good, safe, or better — and that anything \"unnatural\" or synthetic is therefore bad.",
+    longDescription:
+      "An appeal to nature treats the label \"natural\" as if it settled a question of value or safety. The structure is: X is natural, therefore X is good (or: Y is artificial, therefore Y is harmful). But \"natural\" and \"good\" are simply different categories, and one does not follow from the other.\n\nThe natural world is full of things that will kill you — arsenic, hemlock, botulinum toxin, radiation, most snake venoms — while many of the safest, most beneficial things humans use (purified water, vaccines, refined medicines) are products of deliberate engineering. \"Natural\" also turns out to be a remarkably slippery word: almost all the food we eat has been radically reshaped by millennia of selective breeding, which is no more \"natural\" than a lab.\n\nThe fallacy is powerful in marketing and health debates precisely because \"natural\" carries warm, safe connotations. But the only thing that tells you whether something is safe or beneficial is evidence about that specific thing and that specific outcome — not which side of an arbitrary natural/artificial line it falls on.",
+    example:
+      "\"Organic produce must be healthier because it's natural, and GMOs must be risky because they're engineered in a lab.\" (Whether either is true depends on evidence about nutrition and safety, not on the word \"natural.\")",
+    whyItMisleads:
+      "It swaps an emotionally loaded label for an empirical question. \"Natural\" feels safe and \"synthetic\" feels suspect, so the audience accepts a conclusion about safety or value without anyone presenting evidence about the actual outcome in question.",
+    howToCounter:
+      "Drop the label and ask for the outcome: \"Safe or harmful compared to what, measured how?\" Point out that plenty of natural things are dangerous and plenty of engineered things are safe — then look at the specific evidence on the specific claim.",
+    relatedFallacies: ["bandwagon", "appeal-to-emotion", "false-dilemma"],
+    relatedTopicIds: ["gmo-crops-safety", "organic-food-health", "seed-oils-health"],
+  },
+  {
+    slug: "equivocation",
+    name: "Equivocation",
+    aliases: ["Ambiguity Fallacy", "Doublespeak", "Semantic Shift"],
+    shortDefinition:
+      "Using a single word or phrase in two different senses within an argument, so a conclusion that seems to follow actually trades on the switch.",
+    longDescription:
+      "Equivocation exploits the fact that words carry multiple meanings. The argument uses a term in one sense in the first premise and a different sense in the second, then draws a conclusion as though the meaning had stayed fixed. Because the word is literally the same, the move is hard to spot — the sentence reads smoothly while the logic quietly breaks.\n\nThe classic schoolbook example: \"Nothing is better than eternal happiness; a ham sandwich is better than nothing; therefore a ham sandwich is better than eternal happiness.\" Here \"nothing\" shifts from \"no thing whatsoever\" to \"the absence of anything,\" and the conclusion is nonsense. Real-world equivocation is subtler, usually turning on a loaded word like \"natural,\" \"theory,\" \"freedom,\" or \"fair\" that has both a technical and a colloquial meaning.\n\nThe defense is to define terms before reasoning with them. The moment a key word seems to be doing a lot of work, ask: does it mean the same thing every time it appears in this argument? If not, the conclusion doesn't follow.",
+    example:
+      "\"Evolution is just a theory, and a theory is just a guess, so evolution is just a guess.\" (\"Theory\" shifts from its scientific sense — a well-substantiated explanation — to the colloquial sense of \"hunch.\")",
+    whyItMisleads:
+      "The repeated word creates an illusion of continuity, so the audience accepts that the conclusion follows from the premises. The error is invisible until you notice the term has quietly changed meaning between steps.",
+    howToCounter:
+      "Pin down definitions first: \"Which sense of that word do you mean?\" Substitute the explicit definition for the word in each premise and see whether the argument still holds. Usually the conclusion collapses once the term is held to a single meaning.",
+    relatedFallacies: ["motte-and-bailey", "straw-man"],
+    relatedTopicIds: ["free-will", "second-amendment-individual-right", "meritocracy-myth"],
+  },
+  {
+    slug: "sunk-cost",
+    name: "Sunk Cost Fallacy",
+    aliases: ["Sunk Cost", "Throwing Good Money After Bad", "Concorde Fallacy"],
+    shortDefinition:
+      "Continuing a losing course of action because of what you've already invested, rather than judging it on its future costs and benefits.",
+    longDescription:
+      "A sunk cost is a resource — money, time, effort — that has already been spent and cannot be recovered. The fallacy is letting those unrecoverable past investments drive a present decision: \"I've already put so much in, I can't quit now.\" But rational choice depends only on future costs and benefits; what's spent is gone either way, and it should not tip a decision that is really about what happens next.\n\nIt is one of the most human of errors, rooted in loss aversion and the discomfort of admitting waste. It shows up everywhere: finishing a bad film because you paid for the ticket, staying in a failing project or relationship because of years invested, or a government continuing a doomed program because cancelling would \"waste\" the money already spent (the Concorde supersonic-jet program is the namesake case).\n\nThe corrective question is forward-looking: \"Knowing what I know now, and ignoring what I've already spent, would I start this today?\" If the answer is no, the past investment is not a reason to continue — it's just the price of having learned.",
+    example:
+      "\"We've already spent four years and billions on this project; we can't abandon it now\" — even though every forward-looking estimate says finishing it will cost more than it will ever return.",
+    whyItMisleads:
+      "It reframes a forward-looking decision as a question of honoring the past, so quitting feels like \"wasting\" the investment. But the investment is already lost regardless; the only thing the decision can change is future cost and benefit.",
+    howToCounter:
+      "Ask the fresh-start question: \"Ignoring what's already spent, would we choose this path starting today?\" Separate the emotional weight of past investment from the actual decision, which is only ever about what happens from here forward.",
+    relatedFallacies: ["appeal-to-emotion", "false-cause"],
+    relatedTopicIds: ["ukraine-peace-terms", "college-value-proposition", "nuclear-fusion-timeline"],
+  },
+  {
+    slug: "appeal-to-ignorance",
+    name: "Appeal to Ignorance",
+    aliases: ["Argument from Ignorance", "Argumentum ad Ignorantiam", "Absence of Evidence"],
+    shortDefinition:
+      "Claiming something is true because it hasn't been proven false (or false because it hasn't been proven true).",
+    longDescription:
+      "An appeal to ignorance treats the absence of evidence as if it were evidence. It takes two forms: \"no one has proven X is false, so X is true,\" and its mirror, \"no one has proven X is true, so X is false.\" In both, a gap in our knowledge is converted into a positive conclusion that the gap cannot actually support.\n\nThe fallacy ignores where the burden of proof lies: the obligation to provide evidence rests on whoever makes a claim, not on those who decline to accept it. \"You can't prove it isn't true\" is not a reason to believe something — most false claims also can't be conclusively disproven, which is exactly why we don't believe things until there is evidence for them.\n\nThere is one important nuance. In contexts where evidence would be expected if a claim were true, its absence can be weak evidence against the claim (\"a thorough search of the house found no intruder\"). The fallacy is specifically treating mere lack of disproof as positive proof — or demanding that doubters disprove a claim the asserter never supported.",
+    example:
+      "\"No study has definitively proven that this supplement doesn't work, so it must be effective.\" (The absence of disproof is treated as proof, and the burden of evidence is reversed onto the skeptic.)",
+    whyItMisleads:
+      "It exploits the discomfort of an open question by offering a false resolution: since we can't rule the claim out, we're nudged to accept it. But unanswered is not the same as answered, and shifting the burden onto doubters disguises that no evidence was ever provided.",
+    howToCounter:
+      "Restore the burden of proof: \"The absence of disproof isn't evidence — what positive evidence supports the claim?\" Point out that almost nothing can be conclusively disproven, so \"you can't prove it's false\" would justify believing anything. Treat genuinely open questions as open, not settled.",
+    relatedFallacies: ["moving-the-goalposts", "false-dilemma"],
+    relatedTopicIds: ["lab-leak-theory", "consciousness-ai-systems", "simulation-hypothesis"],
+  },
+  {
+    slug: "red-herring",
+    name: "Red Herring",
+    aliases: ["Distraction", "Diversion", "Smokescreen", "Ignoratio Elenchi"],
+    shortDefinition:
+      "Introducing an irrelevant but attention-grabbing point to divert the discussion away from the actual issue.",
+    longDescription:
+      "A red herring is a diversion: instead of addressing the argument on the table, you raise a different, often emotionally engaging topic that pulls attention away. The new topic may be interesting or even true, but it is irrelevant to the question at hand, and engaging with it lets the original point quietly slip away unanswered.\n\nThe name comes from the idea of dragging a strong-smelling smoked fish across a trail to throw hunting dogs off a scent. In argument, the \"scent\" is the actual claim under dispute; the red herring is anything that smells more urgent and leads the conversation elsewhere. Several other fallacies are specific breeds of red herring — whataboutism (\"but what about their side?\"), ad hominem (attacking the person), and straw-manning all work by redirecting attention away from the real argument.\n\nThe defense is simply to notice the topic change and refuse it. A genuine response engages the actual claim; a red herring changes the subject. Naming the move — \"that's a separate issue; can we finish this one first?\" — usually defuses it.",
+    example:
+      "Reporter: \"Did the department misspend the funds?\" Official: \"What we should really be talking about is how hard our employees work every single day to serve this community.\" (The praise may be true, but it dodges the question of misspending.)",
+    whyItMisleads:
+      "The diversion is usually more vivid or emotionally charged than the original question, so attention naturally follows it. By the time the tangent is exhausted, the original issue has been abandoned and feels resolved when it was simply never addressed.",
+    howToCounter:
+      "Name the redirection and return to the point: \"That may be worth discussing separately, but it doesn't answer the original question — let's finish that first.\" Keep the actual claim explicitly on the table so a change of subject is obvious.",
+    relatedFallacies: ["whataboutism", "straw-man", "ad-hominem"],
+    relatedTopicIds: ["media-bias-democracy", "social-media-elections"],
+  },
 ];
 
 export function getFallacyBySlug(slug: string): Fallacy | undefined {
