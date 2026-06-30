@@ -1,4 +1,4 @@
-import { Triangle, Brain, Layers, Map, Play, ShieldCheck, Target, Scale, Gauge, type LucideIcon } from "lucide-react";
+import { Triangle, Brain, Layers, Map, Play, ShieldCheck, Target, Scale, Gauge, Waypoints, CloudFog, type LucideIcon } from "lucide-react";
 
 export interface GuideSection {
   readonly title: string;
@@ -1773,6 +1773,212 @@ The reward is a kind of intellectual freedom. Once confidence is a number you ca
       { title: "Thinking in Bets", author: "Annie Duke" },
       { title: "The Signal and the Noise", author: "Nate Silver" },
       { title: "Expert Political Judgment", author: "Philip Tetlock" },
+    ],
+  },
+  {
+    id: "correlation-and-causation",
+    title: "Telling Correlation From Causation",
+    subtitle: "The Single Most Useful Distinction in Reasoning",
+    description: "Two things moving together is not one causing the other. Learn the rival explanations behind every correlation, the questions that separate them, and what actually establishes cause and effect.",
+    icon: Waypoints,
+    color: "#5b6abf",
+    readTime: "13 min read",
+    sections: [
+      {
+        title: "Why This Distinction Decides So Many Debates",
+        content: `Almost every contested question about the world is, underneath, a question about causation. Does social media cause teen depression, or do depressed teens use more of it? Does raising the minimum wage cost jobs, or do the two just happen to move together? Does a supplement extend life, or do the people who take it simply live healthier lives in a dozen other ways? In each case the data show a correlation — two things rising and falling together — and the entire dispute is about whether one is *causing* the other.
+
+This is why "correlation is not causation" is the most quoted slogan in all of reasoning, and also the most misused. People recite it to wave away findings they dislike, as if naming the distinction settled the matter. It doesn't. The slogan is the beginning of the analysis, not the end. The real skill is knowing *which* alternative explanation a given correlation might have, how to test for it, and what kind of evidence would actually pin causation down. This guide is about that skill.
+
+It pairs naturally with the [Hierarchy of Evidence guide](/guides/evidence-hierarchy), which ranks study designs by how well they isolate cause and effect, and with the [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence), since most causal disputes are really fights over how to interpret correlations that point in different directions.`,
+      },
+      {
+        title: "Why Correlation Happens Without Causation",
+        content: `When two things, A and B, reliably move together, there are at least four explanations — and only one of them is "A causes B." Ruling out the other three is the whole game.`,
+        subsections: [
+          {
+            title: "A Causes B — But Maybe Backwards",
+            content: `The obvious reading of "A and B go together" is that A causes B. But the same data are equally consistent with B causing A — *reverse causation*. The classic case: studies find people who use more social media report more depression. The intuitive story is that social media causes the depression. But it's just as plausible that depressed people, seeking distraction or connection, reach for their phones more. The arrow may run the other way, or both ways at once. Whenever you meet a correlation, deliberately try reversing the arrow and ask whether that story fits just as well. The [social media and teen mental health debate](/topics/social-media-mental-health) hinges almost entirely on which direction the arrow points.`,
+          },
+          {
+            title: "A Lurking Third Cause",
+            content: `Often neither A nor B causes the other — a hidden third factor, a *confounder*, causes both. Ice-cream sales correlate with drowning deaths, but ice cream doesn't drown anyone; hot weather drives both. This sounds easy to spot in toy examples and is fiendishly hard in real ones, because the confounder is usually something like wealth, education, or general health-consciousness that quietly shapes dozens of behaviors at once. A study finding that people who take a vitamin live longer may have discovered nothing about the vitamin — only that the kind of person who takes vitamins also exercises, sleeps, and sees doctors more. Confounding is the single most common reason a real correlation tells you nothing about causation.`,
+          },
+          {
+            title: "Pure Coincidence",
+            content: `With enough variables, some will line up by sheer chance. The more comparisons you run, the more spurious correlations you'll find — which is why a single striking correlation, dredged from a large dataset with no prior reason to expect it, deserves deep suspicion. This shades into [cherry-picking](/fallacies/cherry-picking) when someone searches a haystack of variables and reports only the needle that supports their case. A correlation predicted *in advance* by a theory is worth far more than one discovered after the fact by rummaging through data.`,
+          },
+        ],
+      },
+      {
+        title: "The Questions That Tell Them Apart",
+        content: `You rarely get a randomized experiment handed to you. Most of the time you're staring at an observational correlation and have to reason about whether causation is plausible. A handful of questions, inspired by the criteria epidemiologist Austin Bradford Hill proposed for the smoking–cancer link, do most of the work:
+
+1. **Which way could the arrow run?** Force yourself to state the reverse-causation story explicitly. If it's plausible, the correlation alone can't settle direction.
+
+2. **What could be the third cause?** Name a specific confounder. "People who do X also tend to be wealthier / healthier / younger" is the template. If you can name one, the study needs to have controlled for it.
+
+3. **Is there a dose-response relationship?** Causes often show gradients: more exposure, more effect. Heavier smoking, higher cancer risk. A clean dose-response curve is suggestive — though a confounder can sometimes mimic it.
+
+4. **Is there a plausible mechanism?** Is there a known reason A *should* cause B? As the [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) cautions, a mechanism is a tiebreaker, not proof — a clever story can be told for almost any correlation — but its total absence is a warning sign.
+
+5. **Does the timing work?** The cause must precede the effect. Surprisingly often, the supposed effect was already present before the supposed cause appeared.
+
+None of these alone proves causation. Together they tell you how seriously to take the causal reading — and exactly where the [crux](/concepts/cruxes) of the disagreement lies.`,
+      },
+      {
+        title: "What Actually Establishes Cause and Effect",
+        content: `If observational correlation can't prove causation, what can? The tools all share one logic: find a situation where the suspected cause varies for reasons *unrelated* to the confounders, then see whether the effect follows.`,
+        subsections: [
+          {
+            title: "The Randomized Experiment",
+            content: `The gold standard. Randomly assigning who gets the treatment breaks the link between the treatment and every confounder at once — that's the entire point of randomization. If the treated group differs in outcome, and assignment was truly random, the treatment is the most likely cause. This is why randomized controlled trials sit at the top of the [evidence hierarchy](/guides/evidence-hierarchy). Their limits are practical and ethical: you can't randomly assign people to smoke, to be poor, or to use social media for a decade.`,
+          },
+          {
+            title: "Natural Experiments",
+            content: `When you can't randomize, sometimes the world does it for you. A policy that takes effect at a state border, a lottery that allocates a benefit, a sudden rule change — each creates groups that differ in the suspected cause but are otherwise similar. Much of the strongest evidence in the [minimum-wage debate](/topics/minimum-wage-effects) comes from comparing adjacent counties on either side of a state line when one state raised its wage and the other didn't. It isn't as clean as randomization, but it's a world away from a raw correlation.`,
+          },
+          {
+            title: "Controlling and Converging",
+            content: `Observational studies can *statistically control* for known confounders — but only the ones the researchers thought to measure, which is their permanent weakness. The most convincing causal case rarely rests on one study; it comes from *convergence*, in the sense of the [Triangulation guide](/guides/triangulation): when randomized trials, natural experiments, dose-response gradients, and a known biological mechanism all point the same way, the alternative explanations run out of room. That convergence — not any single study — is what eventually settled that smoking causes cancer.`,
+          },
+        ],
+      },
+      {
+        title: "Two Worked Examples",
+        content: `Watch the framework operate on live questions.
+
+**Does social media cause teen depression?** The correlation is fairly robust: heavy users report worse mental health. But run the questions. Reverse causation is wide open — depression may drive use. Confounders abound — kids who are already struggling, isolated, or sleep-deprived may both use more and feel worse. Some natural experiments (staggered platform rollouts) push toward a causal effect; others find tiny effect sizes. The honest verdict isn't "proven" or "debunked" but a contested middle, which is exactly why the [topic map](/topics/social-media-mental-health) scores the causal claim well below the correlational one.
+
+**Does a glass of wine a day protect your heart?** For years, observational studies found moderate drinkers outlived both heavy drinkers and abstainers. The causal story — wine is protective — launched a thousand headlines. Then the confounders surfaced: the "abstainer" group included former drinkers who had quit because they were *already sick*, and moderate drinkers tended to be wealthier and healthier overall. Better-designed studies, like those behind the [no-safe-level debate](/topics/alcohol-no-safe-level), largely dissolved the protective effect. A textbook case of a confounded correlation mistaken for a cause.`,
+      },
+      {
+        title: "Reading Causal Claims on Argumend",
+        content: `Once you see this distinction clearly, you'll notice that a huge share of bad arguments are really one error wearing different costumes: treating a correlation as if it were a cause. Formally, it's the [false cause fallacy](/fallacies/false-cause), and spotting it is one of the highest-leverage moves in the [argument audit](/guides/argument-audit) toolkit.
+
+On Argumend, this is why a topic rarely collapses into a single verdict. A claim like "the data show X and Y move together" might earn a high [confidence score](/concepts/confidence-calibration) — the correlation is real and well-measured — while the causal claim built on top of it, "therefore X causes Y," sits much lower, because the rival explanations haven't been ruled out. Keeping those two scores separate is the discipline. When you read any topic, ask of every causal arrow: is this a measured correlation, or has someone established the direction, controlled the confounders, and found a mechanism? The gap between those is where most of the real uncertainty — and most of the [evidence weighting](/concepts/evidence-weighting) — lives. The recurring terms are defined in the [glossary](/glossary), and the full scoring approach in our [methodology](/methodology).`,
+      },
+    ],
+    keyTakeaways: [
+      "\"Correlation is not causation\" is the start of the analysis, not the end — the skill is identifying which alternative explanation applies and how to test it",
+      "Every correlation has at least four readings: A causes B, B causes A (reverse causation), a hidden third factor causes both (confounding), or pure chance",
+      "Confounding is the most common trap: the kind of person who does X often differs in a dozen other ways, and one of those — not X — may drive the outcome",
+      "Diagnostic questions — which way the arrow runs, what the confounder could be, dose-response, mechanism, and timing — tell you how seriously to take a causal reading",
+      "Causation is established by breaking the link between cause and confounders: randomized trials, natural experiments, and convergence across independent methods",
+      "On a well-built argument map the correlation and the causal claim get separate confidence scores — the gap between them is where the real uncertainty lives",
+    ],
+    furtherReading: [
+      { title: "The Book of Why", author: "Judea Pearl & Dana Mackenzie" },
+      { title: "Causal Inference: The Mixtape", author: "Scott Cunningham", url: "https://mixtape.scunning.com/" },
+      { title: "Spurious Correlations", author: "Tyler Vigen", url: "https://www.tylervigen.com/spurious-correlations" },
+      { title: "Thinking, Fast and Slow", author: "Daniel Kahneman" },
+    ],
+  },
+  {
+    id: "spotting-manufactured-doubt",
+    title: "Spotting Manufactured Doubt",
+    subtitle: "How Genuine Uncertainty Gets Faked — and How to Tell the Difference",
+    description: "Not all doubt is honest. For decades, organized campaigns have manufactured the appearance of scientific controversy to delay action. Learn the playbook, why it works, and how to distinguish manufactured doubt from the real thing.",
+    icon: CloudFog,
+    color: "#8b3f27",
+    readTime: "13 min read",
+    sections: [
+      {
+        title: "Doubt as a Product",
+        content: `In 1969, an executive at a tobacco company wrote a sentence that became the unofficial motto of an entire industry: "Doubt is our product." The strategy was not to prove cigarettes were safe — that was impossible — but to keep the public convinced the science was *unsettled*. As long as people believed experts were still arguing, regulation stalled and sales continued. It worked for decades.
+
+That playbook has since been reused, often by the same consultants, to delay action on acid rain, the ozone hole, leaded gasoline, and climate change. Historians Naomi Oreskes and Erik Conway documented the pattern in *Merchants of Doubt*: a small number of actors learned that you don't need to win a scientific debate to win a public one. You just need to manufacture the *appearance* of debate.
+
+This matters for anyone trying to reason honestly, because manufactured doubt deliberately mimics the real thing. Genuine scientific uncertainty looks superficially identical to engineered controversy — both feature dissenting experts, competing studies, and calls for "more research." The skill this guide builds is telling them apart, so that legitimate skepticism (which is essential) doesn't become a vector for manipulation (which is corrosive).`,
+      },
+      {
+        title: "The Doubt-Manufacturing Playbook",
+        content: `Manufactured doubt follows a recognizable script. None of its moves are new — each is a [logical fallacy](/concepts/fallacies) with a long history — but deployed together and funded at scale, they're remarkably effective.`,
+        subsections: [
+          {
+            title: "Demand Impossible Certainty",
+            content: `The foundational move is to set the bar for action at *absolute proof* — a standard science never offers. Because no empirical finding is ever 100% certain, you can always point to residual uncertainty and declare "the science isn't settled." This weaponizes the [appeal to ignorance](/fallacies/appeal-to-ignorance): treating "not proven beyond all doubt" as if it meant "unknown" or "probably false." The tell is a shifting standard — evidence that would be accepted anywhere else is deemed insufficient here, and only here.`,
+          },
+          {
+            title: "Amplify Fringe Dissent",
+            content: `Find the handful of credentialed contrarians who disagree with the consensus, and amplify them until they appear to represent half the debate. This manufactures *false balance*: a 97-to-3 split among experts gets presented as a 50-50 controversy, a kind of [false dilemma](/fallacies/false-dilemma) about the state of knowledge itself. The media's instinct to "show both sides" is exploited directly — a settled question gets covered as a live one because that's what looks fair.`,
+          },
+          {
+            title: "Flood the Zone",
+            content: `Rather than make one strong counterargument, produce an overwhelming volume of objections, studies, and questions — far more than anyone can answer in real time. This is the [Gish gallop](/fallacies/gish-gallop), and it exploits an asymmetry: it takes ten seconds to raise a doubt and ten hours to properly refute it. The flood is often built by [cherry-picking](/fallacies/cherry-picking) — showcasing the rare studies that break the right way while ignoring the body of evidence around them.`,
+          },
+          {
+            title: "Attack the Messenger",
+            content: `When the evidence can't be beaten, discredit the people producing it. Researchers are smeared as biased, corrupt, or politically motivated — a systematic [ad hominem](/fallacies/ad-hominem) campaign designed to make the public distrust the source rather than evaluate the science. "Follow the money" gets aimed at independent scientists while the campaign's own funding stays carefully out of view.`,
+          },
+        ],
+      },
+      {
+        title: "Why It Works on Careful People",
+        content: `Manufactured doubt isn't aimed at the gullible — it's aimed at the thoughtful, and that's what makes it dangerous.
+
+The trap is that the intellectual virtues are turned against you. Open-mindedness, willingness to hear both sides, skepticism toward authority, demanding evidence before acting — these are exactly the habits this guide and Argumend otherwise encourage. Manufactured doubt hijacks them. The careful person hears "some scientists disagree" and "we should wait for more evidence" and recognizes those as reasonable-sounding, because in many contexts they genuinely *are* reasonable. The manipulation lies in applying them selectively, to one inconvenient conclusion, far past the point where the evidence warrants.
+
+The deepest version is what the [Understanding Bias guide](/guides/understanding-bias) calls asymmetric skepticism: manufactured doubt invites you to apply crushing scrutiny to the consensus while waving through the objections. It feels like rigor. It's actually rigor pointed in only one direction — and the direction has been chosen for you.`,
+      },
+      {
+        title: "Telling Manufactured Doubt From the Real Thing",
+        content: `Real scientific uncertainty and manufactured doubt look alike from the outside. A few questions reliably separate them.`,
+        subsections: [
+          {
+            title: "Is the Doubt Proportional to the Evidence?",
+            content: `Honest uncertainty tracks the evidence: where data are thin, confidence is low; where evidence is overwhelming, doubt shrinks accordingly. Manufactured doubt stays *fixed* regardless of how much evidence accumulates — the same objections recur for decades, undeterred by new findings. If the level of doubt never moves no matter what comes in, it isn't responding to evidence. Reading confidence as a number, as the [forecaster's guide](/guides/reading-confidence-like-a-forecaster) describes, makes this mismatch visible.`,
+          },
+          {
+            title: "Does the Goalpost Ever Stay Put?",
+            content: `Genuine skeptics can tell you what evidence would change their minds. Manufactured doubt can't — when a demanded piece of evidence arrives, the standard quietly moves. This is [moving the goalposts](/fallacies/moving-the-goalposts), and it's one of the clearest signatures of bad-faith doubt. Ask directly: "What specific finding would resolve this for you?" A real skeptic has an answer; a doubt-manufacturer changes the subject, often with a [whataboutism](/fallacies/whataboutism).`,
+          },
+          {
+            title: "Who Benefits, and Who's Independent?",
+            content: `Trace the doubt to its source, exactly as the [Triangulation](/guides/triangulation) and [Source Credibility](/guides/evaluating-source-credibility) guides prescribe. Does the dissent come from independent researchers with no stake, or from organizations funded by parties with an obvious interest in delay? Independence doesn't make someone right, and funding doesn't make them wrong — but a chorus of "independent" voices that all trace back to one funded source is circular, not corroborating.`,
+          },
+          {
+            title: "Steel-Man the Consensus",
+            content: `Manufactured-doubt campaigns almost never represent the mainstream view fairly — they attack a caricature. Apply the test from the [steel-manning](/concepts/steel-manning) discipline: can the doubt-raiser state the consensus position in its strongest form? Those genuinely engaged with the evidence can. Those manufacturing doubt usually can't, because their case depends on you never hearing the strong version.`,
+          },
+        ],
+      },
+      {
+        title: "The Pattern Across Topics",
+        content: `Once you know the script, you start to see it recur — and you also learn not to cry "manufactured doubt" too quickly, because genuine controversy exists too.
+
+Climate change is the textbook case: a robust scientific consensus, met for decades by a well-funded campaign to portray it as unsettled, using every move above. The [climate change topic](/topics/climate-change) maps where the science is genuinely strong against where doubt has been manufactured around it. By contrast, [COVID-19's origins](/topics/lab-leak-theory) is a case where real uncertainty persists — the evidence is genuinely incomplete, and honest experts disagree. Telling these apart is the entire point: not every dissent is a conspiracy, and not every consensus is bulletproof. The questions in the previous section are what let you distinguish a [fluoride debate](/topics/fluoride-water-supplies) with legitimate open questions about dose from a campaign recycling fixed talking points.
+
+The stakes are rising. As the [truth-collapse debate](/topics/ai-deepfakes-truth-collapse) explores, it's now trivially cheap to flood any topic with synthetic studies, fake experts, and manufactured consensus *or* manufactured dissent. The defense isn't more cynicism — blanket distrust is exactly what doubt-manufacturers want, since a public that believes nothing can be steered by anyone. The defense is structure.`,
+      },
+      {
+        title: "Inoculating Yourself",
+        content: `You can't out-skeptic a professional doubt campaign by feeling more suspicious. Suspicion is the raw material they sell. The defense is a disciplined process that doubt can't easily corrupt:
+
+1. **Weigh evidence by quality, not volume.** A flood of objections is a [Gish gallop](/fallacies/gish-gallop), not a refutation. As the [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) stresses, ten funded studies sharing one bias aren't ten independent data points.
+
+2. **Trace independence before counting agreement.** Three voices that trace to one source are one voice. [Triangulate](/guides/triangulation).
+
+3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. Read the [confidence scores](/concepts/confidence-calibration) as probabilities, not verdicts.
+
+4. **Demand a stated falsification condition.** If the doubt can't name what would change its mind, it isn't skepticism.
+
+This is exactly what an Argumend map is built to provide: instead of a shouting match where the loudest doubt wins, it lays out each claim with its [weighted evidence](/concepts/evidence-weighting) and an honest [confidence score](/concepts/confidence-calibration), so manufactured doubt has nowhere to hide. The strongest objections get their due; the manufactured ones get scored for what they're worth. Engaging seriously with real uncertainty while refusing to be paralyzed by fake uncertainty — that is the balance the whole [methodology](/methodology) is built to strike, and the recurring terms are defined in the [glossary](/glossary).`,
+      },
+    ],
+    keyTakeaways: [
+      "Manufactured doubt aims not to win a scientific debate but to fake the *appearance* of one — \"doubt is our product\" was a deliberate tobacco-industry strategy, since reused on many issues",
+      "The playbook is recognizable: demand impossible certainty (appeal to ignorance), amplify fringe dissent into false balance, flood the zone (Gish gallop and cherry-picking), and attack the messenger (ad hominem)",
+      "It targets thoughtful people by hijacking the intellectual virtues — open-mindedness and skepticism applied selectively to one inconvenient conclusion",
+      "The clearest tells: doubt that stays fixed no matter what evidence arrives, goalposts that move when demands are met, and a chorus of 'independent' voices tracing back to one funded source",
+      "Distinguish it from genuine uncertainty by asking whether the doubt is proportional, whether there's a stated falsification condition, and whether the doubter can steel-man the consensus",
+      "The defense isn't more suspicion — that's what they sell — but structure: weigh evidence by quality, trace independence, and hold confidence proportional to evidence in both directions",
+    ],
+    furtherReading: [
+      { title: "Merchants of Doubt", author: "Naomi Oreskes & Erik M. Conway" },
+      { title: "The Triumph of Doubt", author: "David Michaels" },
+      { title: "Calling Bullshit: The Art of Skepticism in a Data-Driven World", author: "Carl Bergstrom & Jevin West", url: "https://callingbullshit.org/" },
+      { title: "How to Read Numbers", author: "Tom Chivers & David Chivers" },
     ],
   },
 ];
