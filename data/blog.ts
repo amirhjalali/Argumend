@@ -6184,6 +6184,402 @@ Notice that none of these are about values. Someone who supports a higher minimu
 
 The defensible position on the minimum wage is calibrated, not slogan-shaped. Moderate increases scaled to local wages appear, on the best current evidence, to help low-income workers more than they hurt, with small employment effects; very large national increases carry real disemployment risk with wide uncertainty around the cost. Both confident extremes — "it always destroys jobs" and "it never costs anything" — claim more than the evidence supports. The value of the debate is as a model: a real disagreement, narrowed to a measurable crux, where steel-manning each side is the only path to an honest answer. You can explore the full weighted evidence and the specific cruxes on the [topic page](/topics/minimum-wage-effects), or see the same logic applied to a related labor-market question in our analysis of [whether immigration lowers wages](/topics/immigration-wage-impact).`,
   },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Fallacy explainer: red herring
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "red-herring-fallacy-explained",
+    title: "The Red Herring Fallacy: When Irrelevance Wins the Argument",
+    description:
+      "A red herring wins arguments by changing the subject, not answering it. Learn to spot the diversion, tell it from a straw man, and steer back.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T21:00:00Z",
+    readingTime: "9 min read",
+    tags: ["red herring", "logical fallacies", "critical thinking", "rhetoric", "distraction"],
+    category: "Logic & Reasoning",
+    content: `## What a Red Herring Actually Is
+
+A red herring is a diversion: an argumentative move that drags in something irrelevant to pull attention away from the question actually being asked. It does not answer the point on the table or show it to be wrong — it quietly substitutes a different, usually easier or more emotionally charged point, and hopes the audience follows the new scent without noticing the switch. The defining feature is irrelevance. The diversion may be perfectly true, genuinely interesting, even important in its own right; what makes it a fallacy is that it has no bearing on whether the original claim holds. Our [red herring entry](/fallacies/red-herring) in the fallacy catalog gives the formal definition and its common variants.
+
+The name itself is a small lesson in how a good story outruns the facts. The figurative sense traces to the early-nineteenth-century writer William Cobbett, who described dragging a strong-smelling smoked herring — cured until it turned reddish — across a trail to throw hounds off a scent, as a metaphor for how the press could be diverted by a sensational false report. Whether anyone ever truly trained dogs this way is doubtful, and etymologists treat the hunting origin as more legend than documented practice. But the image is too useful to lose: a pungent distraction laid deliberately across the path so the pursuers chase the wrong thing. That is precisely what the fallacy does to an argument.
+
+## Why the Diversion Works
+
+A red herring succeeds for the same reason a magician's misdirection does — attention is a single beam, and whoever controls where it points controls what gets examined. When a difficult question is asked, answering it honestly is often costly: it might require conceding a point, admitting uncertainty, or defending something weak. Swapping in a nearby question that is easier to win, or more emotionally satisfying, lets the speaker look responsive while never engaging the thing that mattered.
+
+The move is especially effective because the substitute topic usually *feels* connected. A red herring is rarely a wild non-sequitur; it lives in the same neighborhood as the real question, sharing a keyword or a theme, so the leap seems natural. In a debate about whether a policy works, "but think of the people it would hurt" sounds relevant — yet whether a policy is effective and whether it has costs are two separate questions, and answering the second does nothing to settle the first. The relevance is associative, not logical, and that gap is where the trick lives.
+
+## The Family of Diversions
+
+Red herring is best understood as a parent category — many named fallacies are simply specific, recurring flavors of irrelevance:
+
+- **Whataboutism.** Deflecting a criticism by pointing at someone else's wrongdoing: "How can you object to this when the other side did worse?" The other side's conduct may be real, but it does not make the original act acceptable. This is close kin to the [tu quoque / whataboutism](/fallacies/whataboutism) move.
+- **The personal attack as escape hatch.** When an argument is hard to answer, shifting to the arguer's character, motives, or hypocrisy changes the subject from the claim to the person. That is the [ad hominem](/fallacies/ad-hominem) fallacy operating as a red herring.
+- **The emotional swerve.** Replacing the question with a vivid, feeling-laden image — a sympathetic story, an outrage, a fear — so the audience's reaction substitutes for an evaluation of the actual point.
+- **The counter-question.** Answering a pointed question with a different pointed question, so the burden quietly transfers and the original is never addressed.
+
+In every case the test is the same: does the new material actually speak to the truth of the original claim, or has the topic simply moved?
+
+## Red Herring vs. Straw Man
+
+Red herrings are often confused with their close cousin the straw man, and keeping them apart sharpens both. A [straw man](/fallacies/straw-man) *misrepresents* your argument — it builds a distorted, weaker version of what you said and attacks that instead of the real thing. A red herring does not bother to distort your argument at all; it simply *walks away* from it toward a different subject. The straw man stays on the topic but fights a phantom; the red herring abandons the topic entirely.
+
+The two often travel together. A skilled deflector might first caricature your position (straw man), then use the indignation that caricature provokes to launch into an unrelated grievance (red herring), so by the time the dust settles the original question has vanished twice over. Naming which move is happening — "that is not what I argued" versus "that is a different question" — lets you respond to the specific maneuver rather than flailing at the general sense that the conversation has gone sideways.
+
+## Real-World Examples
+
+Red herrings flourish wherever a question is uncomfortable to answer directly. In contested policy debates they are the default escape route. Asked whether a particular intervention is supported by evidence, a defender may pivot to the bad motives of its critics, or to a different intervention that is easier to defend, or to a moving anecdote — anything but the evidence for the intervention itself. The structure of disagreements like [whether rent control works](/topics/rent-control-effectiveness) or [whether the minimum wage costs jobs](/topics/minimum-wage-effects) is full of these swerves, which is exactly why mapping a debate to its actual [crux](/concepts/cruxes) is so clarifying: once you have named the single question the disagreement turns on, any contribution that does not bear on it stands exposed as a diversion.
+
+The fallacy is not always cynical. People reach for red herrings in good faith all the time, simply because the substitute question is the one they actually care about or know how to discuss. That makes the move no less fallacious, but it changes the right response — often the most productive thing is to acknowledge the new point as worth its own conversation while gently noting that it does not answer the question on the table.
+
+## How to Spot It
+
+The reliable diagnostic is to hold the original question fixed and ask, of each new contribution, whether it actually moves that question forward. State the claim under dispute in one sentence, then check every response against it: *if this point is completely true, does it make the original claim more or less likely?* If the honest answer is "neither — it is about something else," you are looking at a red herring no matter how compelling the something-else may be.
+
+A second tell is a sudden change in emotional temperature. Diversions frequently run hotter than the question they replace, because heat is what carries attention away from the cooler, harder point. When a calm factual question is met with a surge of indignation aimed somewhere new, the surge itself is often the misdirection. Learning to notice the swerve in real time is much of what it means to [find the crux of a debate](/blog/finding-the-crux-of-debates) instead of chasing whichever scent is freshest.
+
+## How to Respond
+
+The goal is not to win a point about logic; it is to get the conversation back on the trail. The cleanest move is to name the shift without accusation and re-anchor the question:
+
+"That is a real issue, and I am happy to talk about it. But it is a different question from the one I asked, which was whether this claim is actually true. Can we settle that first, and then come back to this?"
+
+This does two things at once. It grants the diverting point whatever genuine merit it has — which disarms the sense of attack and keeps the exchange civil — and it firmly restores the original question, making clear that the topic has not actually been addressed. If the diversion keeps recurring, that pattern is itself informative: a position that can only be defended by repeatedly changing the subject is telling you something about how well it answers the question it keeps avoiding.
+
+## When a Topic Change Is Legitimate
+
+Not every shift in subject is a fallacy, and treating it that way turns you into a pedant who cannot tolerate a wide-ranging conversation. Topics legitimately branch all the time: a new question can be genuinely more fundamental than the original, a premise really may need settling before the main claim can be evaluated, and people are allowed to say "before we go further, I think we are using this word differently." The line between a red herring and a fair reframing is not whether the subject changed but *why*, and *whether it is acknowledged*. A legitimate move says, in effect, "I think the real question is actually this one, and here is why" — it argues for the relevance of the new ground. A red herring simply slides to easier terrain and pretends nothing happened.
+
+Two tests help you tell them apart in the moment. First, *transparency*: a fair reframe is offered openly as a reframe and can be challenged on its merits, whereas a red herring disguises itself as a direct answer to the original question. Second, *reversibility*: ask whether the person would be willing to return to the original question after addressing the new one. Someone reframing in good faith will happily come back; someone laying a herring resists ever returning, because the whole point was to leave. This is exactly why the request to "settle this and then come back to my question" is diagnostic — it costs a good-faith reframer nothing and exposes a deflector immediately.
+
+A concrete case makes the boundary visible. Suppose someone claims a program reduced crime, and you respond that the program also tripled in cost. If you present the cost as a reason the *crime* claim is false, that is a red herring — cost has nothing to do with whether crime actually fell. But if you say, plainly, "I accept that crime may have fallen; I want to widen the question to whether it was worth the price," you have not committed a fallacy at all. You have proposed a more complete question and said so out loud. Same fact, same pivot — the difference is entirely in whether you are smuggling or signposting. This is worth holding yourself to, because the accusation "that's a red herring" is itself sometimes used as a red herring: a way to dodge a genuinely relevant point by labeling it irrelevant. The charge of fallacy is not a trump card; it has to be earned by showing *why* the new material does not bear on the question.
+
+## The Bottom Line
+
+A red herring never has to refute your argument, because it never engages it. It simply offers a more attractive trail — something truer-feeling, more urgent, or more flattering to chase — and counts on the fact that attention, once diverted, rarely finds its way back. The defense is unglamorous and reliable: keep the original question written down in plain language, and measure every response against it. Anything that does not make that specific claim more or less likely, however interesting, is a herring dragged across the path. Notice the smell, name it, and step back onto the trail.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Both-sides case study: universal healthcare (tied to existing flagship topic)
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "universal-healthcare-both-sides",
+    title: "Universal Healthcare: The Strongest Case on Each Side",
+    description:
+      "Should the government guarantee healthcare for everyone? Here is the strongest steel-manned case for and against — and the crux that actually divides them.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T21:30:00Z",
+    readingTime: "11 min read",
+    tags: ["universal healthcare", "single-payer", "healthcare policy", "both sides", "steel-manning"],
+    category: "Both Sides",
+    content: `## A Debate Tangled by a Hidden Assumption
+
+Few policy questions generate more heat and less clarity than universal healthcare. One side hears "everyone covered, nobody bankrupted by illness" and treats opposition as cruelty; the other hears "government takeover, rationing, endless waits" and treats support as naivety. Part of why the debate stays stuck is that the two sides are often arguing about different things while using the same words — and part is a hidden assumption that quietly distorts the whole exchange. Untangling it is the most useful thing you can do before picking a position. Our full [universal healthcare analysis](/topics/universal-healthcare) maps the weighted evidence; here is the structure, with each side [steel-manned](/concepts/steel-manning) rather than caricatured.
+
+## The Crux: Coverage, Cost, and What You Trade for Them
+
+Strip the debate down and most of the disagreement turns on a bundle of linked questions: can a government-guaranteed system cover everyone *and* control total spending *without* unacceptable losses in access speed, patient choice, and medical innovation? That is the [crux](/concepts/cruxes) — and notice that it is partly empirical (what actually happens to cost, outcomes, and wait times) and partly a values question (how much choice or innovation you would trade for universality and security).
+
+There is also a buried assumption worth dragging into the light, because it warps the whole argument: that "universal healthcare" means "single-payer," a single government insurer like Canada's system or the UK's NHS. It does not. Many countries achieve genuinely universal coverage through *regulated multipayer* systems — Germany, Switzerland, and the Netherlands all guarantee coverage for everyone while relying on private, competing insurers under tight rules. Once you see that the real menu is not "American status quo versus the NHS" but a spectrum of designs, the debate gets both harder and more honest, because the strongest objection to one model often does not apply to another.
+
+## The Strongest Case For Universal Healthcare
+
+The case for is not merely "healthcare is a right," though that moral claim is part of it. Steel-manned, it rests on concrete evidence and structure.
+
+- **Every peer country has solved coverage; the US has not.** Every other wealthy democracy guarantees coverage to essentially all citizens. The US, despite spending far more, still leaves tens of millions uninsured or underinsured, and medical debt is a leading contributor to personal bankruptcy here in a way that is largely absent elsewhere.
+- **It is the prices, and a single payer can bargain them down.** The US does not consume dramatically more healthcare than peer nations; it pays dramatically higher prices for the same drugs, procedures, and administration. A unified payer has the bargaining leverage to push prices toward what other rich countries pay, which is the main reason their systems cost so much less per person.
+- **Lower administrative overhead.** A fragmented system of thousands of plans, networks, and billing rules generates enormous administrative cost — money spent on coding, claims, and denials rather than care. Consolidating financing strips out a large slice of that overhead.
+- **Decoupling health from employment.** Tying insurance to a job creates "job lock," discouraging people from changing jobs, starting businesses, or retiring early for fear of losing coverage. Universal coverage frees that decision from health risk.
+- **Security and prevention.** Guaranteed coverage means people seek care earlier rather than waiting until a crisis, which can improve outcomes and, for some conditions, lower long-run costs.
+
+The strongest version is not "free healthcare with no tradeoffs." It is that universal coverage is achievable — every comparable country has done it — and that the US already spends more than enough to do it, but routes the money through a fragmented system that pays the highest prices in the world while still leaving people exposed.
+
+## The Strongest Case Against (or For Caution)
+
+The case against a government-guaranteed system, steel-manned, is not indifference to the uninsured. It is a set of real risks and tradeoffs that the strongest version of the "for" case tends to understate.
+
+- **Rationing and waits are a real tradeoff.** Systems that guarantee coverage while controlling cost generally do so partly by limiting supply, which can show up as longer waits for elective procedures and specialist access. The tradeoff is not imaginary; it is how some single-payer systems balance their books.
+- **Innovation may depend on high prices.** The US funds a disproportionate share of global pharmaceutical and device development, and those high American prices are part of what finances risky research. Aggressive price controls could lower costs today at the expense of fewer new treatments tomorrow — an effect that is genuinely hard to measure and easy to dismiss.
+- **Transition is enormous and disruptive.** Over 150 million Americans get coverage through employers, and many are satisfied with it. A wholesale shift to single-payer would mean large tax increases (offsetting, but still politically and economically real), the unwinding of an entire industry, and disruption for people who currently like their plans.
+- **Government as sole payer concentrates risk.** A single payer that sets prices and budgets centrally can become a single point of failure — vulnerable to political budget pressure, less responsive to individual preferences, and slow to adapt.
+- **Universality does not require single-payer.** The strongest objection grants the goal and disputes the mechanism: regulated multipayer systems abroad show you can cover everyone without nationalizing the insurer, which undercuts the case that single-payer is the only path.
+
+The strongest version is not "the status quo is fine." It is that the goal of universal coverage is defensible, but the specific mechanism matters enormously, the tradeoffs in speed and innovation are real, and the largest, most disruptive version (single-payer) is not the only — or necessarily the best — way to get there.
+
+## What the Best Evidence Actually Shows
+
+Held side by side, the international evidence supports parts of both cases and refutes the confident extremes. Peer nations do achieve universal coverage at substantially lower cost per person than the US, largely because they pay lower prices and carry less administrative overhead — that much is not seriously contested and weighs for the "for" side. At the same time, some (though not all) of those systems exhibit longer waits for non-urgent care, and the US does lead on certain measures, such as survival rates for some cancers and the pace of medical innovation — which weighs for the cautionary case.
+
+The crucial finding for honest [evidence weighting](/concepts/evidence-weighting) is that outcomes vary enormously *by design*, not by the mere presence of universality. Multipayer universal systems tend to have shorter waits than the most centralized single-payer ones, while still covering everyone; heavily centralized systems trade some responsiveness for tighter cost control. So the evidence does not crown a single winner — it tells you that "universal coverage" is compatible with a wide range of performance, and that the interesting argument is about *which* universal design, not whether universality is possible.
+
+## What Would Change Informed Minds
+
+Because much of the disagreement is empirical, both sides can name evidence that would move them — the mark of a genuine factual dispute rather than a tribal one:
+
+- Rigorous, US-specific estimates of how a given reform would affect total spending, taxes, and wait times — rather than figures borrowed from countries with very different starting points.
+- Better measurement of how sensitive medical innovation actually is to drug and device prices, which would tell us how large the innovation tradeoff really is.
+- Evidence on whether regulated-multipayer designs can be implemented in the US without recreating the fragmentation and high prices that drive current costs.
+
+Notice that none of these settle the underlying values question — how much choice or innovation is worth trading for universal security — but they would sharply narrow the empirical part of the dispute, which is most of it.
+
+## The Option the Binary Hides
+
+The most clarifying move in this whole debate is to take the regulated-multipayer systems seriously, because they break the false choice between "American market" and "British single-payer" that so much of the argument assumes. Germany covers everyone through competing nonprofit "sickness funds" that people choose among, financed by payroll contributions and tightly regulated on what they must cover. Switzerland mandates that every resident buy insurance from private companies, with subsidies for those who cannot afford it — universal coverage delivered almost entirely through a regulated private market. The Netherlands runs a similar managed-competition model. All three achieve essentially universal coverage, spend far less per person than the US, and preserve patient choice among insurers — the very feature single-payer critics say a government system would destroy.
+
+This matters because it reassigns the burden of the strongest objections. The "rationing and waits" critique bites hardest against the most centralized systems and much less against managed-competition ones. The "innovation" worry is really about prices, which multipayer systems also constrain, but through negotiation rather than a single state monopsony. And the "disruption" objection — unwinding employer coverage for 150 million people — applies to a full single-payer transition far more than to a public-option hybrid that adds a government plan alongside private ones and lets people choose.
+
+The practical upshot is that the honest American debate is rarely "single-payer, yes or no." It is a menu: a public option competing with private plans, a managed-competition mandate on the Swiss or Dutch model, an expansion of existing public programs, or full single-payer — each with a different mix of coverage, cost control, choice, and disruption. Collapsing that menu into a binary is itself a kind of rhetorical move, because it lets each side fight the weakest version of the other's position. Even once the mechanism is settled, a real disagreement remains underneath, and it is about values rather than design: how much the healthy should subsidize the sick, how much speed or choice at the high end is worth trading for a floor no one falls through. Those questions have no empirical answer, and the most honest debaters separate the two layers out loud — here is what the evidence says a design would do, and here is the value judgment about whether that tradeoff is one we should accept.
+
+## The Bottom Line
+
+The defensible position on universal healthcare is calibrated and design-specific, not slogan-shaped. Universal coverage is demonstrably achievable — every peer country manages it, and the US already spends more than enough — but the mechanism carries real tradeoffs in access speed and possibly innovation, and "single-payer" is only one of several routes to "everyone covered." Both confident extremes — "guaranteed coverage with no downsides" and "any government role means rationing and ruin" — claim more than the evidence supports. The honest debate is not for-or-against universality; it is about which design best balances coverage, cost, choice, and innovation. You can explore the full weighted evidence and the specific cruxes on the [topic page](/topics/universal-healthcare), or see the same both-sides treatment of other contested questions in the [Is it true? directory](/is).`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Both-sides case study: student debt forgiveness (tied to existing flagship topic)
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "student-debt-forgiveness-both-sides",
+    title: "Should Student Debt Be Forgiven? The Strongest Case For and Against",
+    description:
+      "Student loan forgiveness is argued as either obvious justice or obvious unfairness. Here is the strongest steel-manned case on each side, and the real crux.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T22:00:00Z",
+    readingTime: "10 min read",
+    tags: ["student debt", "loan forgiveness", "education policy", "both sides", "economics"],
+    category: "Both Sides",
+    content: `## A Fight Over Fairness and Cause
+
+Student loan forgiveness is one of those debates where each side finds its own position so obvious that the other looks like bad faith. To supporters it is plain justice: a generation was sold college as a sure path to the middle class, took on debt to buy it, and now drowns under balances that suppress homeownership and family formation. To opponents it is plain unfairness: a transfer of money to relatively advantaged degree-holders, paid for by everyone — including those who never went to college or who sacrificed to repay their own loans. Both reactions are sincere, and both contain real truth. The way to make progress is to separate the empirical questions from the value questions and to name the crux. Our full [student debt analysis](/topics/student-debt-forgiveness) maps the evidence; here is the structure, with each side [steel-manned](/concepts/steel-manning).
+
+## The Crux: Is the Problem the Debt, or the Price?
+
+Most of the disagreement reduces to two linked questions. First, an empirical one: *who actually benefits* from forgiveness, and what does it do to the economy and to future tuition? Second, a values one: *is the existing stock of debt the right thing to target at all*, or is it a symptom of a deeper problem — the relentlessly rising price of college — that forgiveness leaves untouched? That second question is the [crux](/concepts/cruxes). If the core problem is the price of college, then forgiving today's debt without changing what drives the price is like bailing water without plugging the leak; if the core problem is the crushing burden on people who already borrowed under a broken system, then relief is the point and the price reform is a separate fight.
+
+A second buried distinction matters as much as in the healthcare debate: "forgiveness" is not one policy. *Broad, uncapped* forgiveness (cancel a flat amount for nearly everyone) has very different effects from *targeted* forgiveness (focused on low-income borrowers, those defrauded by for-profit colleges, those who never graduated, or public-service workers). Many objections that are devastating against the broad version barely touch the targeted one, so arguing about "forgiveness" in the abstract guarantees people talk past each other.
+
+## The Strongest Case For Forgiveness
+
+Steel-manned, the case for is not "free money for the comfortable." It rests on the structure of how the debt was incurred and who is actually struggling under it.
+
+- **The terms changed after people signed.** A generation was told, by parents, schools, and policymakers, that college was a near-guaranteed investment. Many borrowed on that promise, then graduated into weaker labor markets or rising costs, or were actively misled by predatory for-profit institutions. Relief, on this view, corrects a bargain that did not deliver what was sold.
+- **The worst burdens are concentrated, not spread.** While degree-holders out-earn non-graduates on average, the borrowers in genuine distress are disproportionately those who *did not* finish, attended low-value programs, or hold small balances they cannot service. Targeted forgiveness reaches exactly these people.
+- **Debt suppresses the things we want people to do.** Large balances delay homeownership, marriage, children, retirement saving, and entrepreneurship. Lifting them can unlock economic activity and mobility, with benefits beyond the individual borrower.
+- **The burden is racially uneven.** Black borrowers tend to carry more debt and have a harder time paying it down, so debt relief functions partly as a lever on a persistent wealth gap.
+
+The strongest version is not "everyone deserves a windfall." It is that a large group borrowed in good faith under a system that overpromised and sometimes defrauded them, that the genuinely distressed borrowers are identifiable, and that well-targeted relief addresses real harm while unlocking economic activity.
+
+## The Strongest Case Against Forgiveness
+
+Steel-manned, the case against is not indifference to struggling borrowers. It is a set of fairness and incentive objections that bite hardest against the broad version.
+
+- **Broad forgiveness is regressive on average.** Because college graduates out-earn non-graduates over a lifetime, sending money to degree-holders generally — especially uncapped — directs benefits up the income distribution relative to the working people who never attended and would help pay for it.
+- **It does nothing about the cause.** Forgiving the current stock of debt without changing what drives tuition leaves the underlying machine running. Worse, an expectation of future forgiveness can create moral hazard — encouraging both borrowers to take on more and schools to keep raising prices.
+- **The fairness problem is real.** People who worked through school to avoid debt, who repaid their loans by sacrificing elsewhere, or who chose a cheaper path specifically to stay out of debt are, in effect, penalized relative to those who borrowed heavily. That perceived unfairness is not mere resentment; it tracks a genuine inconsistency.
+- **It is expensive and possibly inflationary.** Large-scale cancellation carries a substantial fiscal cost and adds spending power, which critics argue is poorly timed when inflation is a concern.
+- **Better-targeted tools exist.** Fixing income-driven repayment so payments scale to earnings, holding low-value colleges accountable for outcomes, and lowering the price of attendance address the problem closer to its root than a one-time cancellation does.
+
+The strongest version is not "borrowers should just suffer." It is that broad forgiveness is poorly targeted, leaves the cause untouched, raises real fairness concerns against those who did not borrow or already repaid, and that the same money could do more good aimed at the price of college and at the borrowers actually in distress.
+
+## What the Best Evidence Actually Shows
+
+The evidence does not crown a winner so much as it rewards precision about design — which is itself the lesson. The distributional picture depends almost entirely on *how* forgiveness is structured: broad, uncapped cancellation does skew its benefits toward higher earners relative to the general population, validating the regressivity critique; income-capped or targeted forgiveness shifts the benefit markedly toward lower-income and distressed borrowers, blunting it. So the empirical disagreement is often really a disagreement about which policy is on the table.
+
+On the deeper question, the evidence broadly supports the "address the cause" instinct: tuition has risen far faster than inflation for decades, driven by a mix of declining public subsidy, administrative growth, and the ready availability of loans, and a one-time cancellation does nothing to slow that. This is where disciplined [evidence weighting](/concepts/evidence-weighting) matters — the question is not "does forgiveness help borrowers?" (targeted versions clearly help some) but "what is the full effect, on whom, and does it touch the mechanism that keeps producing new debt?" That mechanism is the upstream debate over [whether college is still worth the price](/topics/college-value-proposition), and the two questions cannot really be separated.
+
+## What Would Change Informed Minds
+
+Because much of this is empirical, both sides can name evidence that would move them:
+
+- Better measurement of how a *specific* forgiveness design distributes its benefits across the income spectrum — which would resolve much of the regressivity dispute.
+- Credible evidence on whether forgiveness (and the expectation of future forgiveness) actually pushes tuition higher or borrowing larger — the moral-hazard claim.
+- Comparative evidence on whether reforming repayment and pricing delivers more relief per dollar than cancellation does.
+
+What these will not settle is the value question underneath: whether it is fair to relieve debts that some chose to avoid, and what the government owes people who borrowed under misleading promises. That is a question about fairness, not about facts — and honest debaters should be clear about where the empirical argument ends and the moral one begins.
+
+## The Spectrum of Real Proposals
+
+As with healthcare, the loudest version of this debate hides a menu of very different policies behind a single word. Sorting them is most of the work, because the strongest objection to one is often irrelevant to another:
+
+- **Broad, one-time cancellation.** Forgive a flat amount for nearly all borrowers. Maximum immediate relief, but maximally exposed to the regressivity and "ignores the cause" critiques, and a one-off that does nothing for next year's freshmen.
+- **Income-targeted cancellation.** Forgive more for low-income borrowers and phase it out above a threshold. This blunts the regressivity objection sharply, at the cost of more administrative complexity.
+- **Reforming income-driven repayment.** Rather than cancel balances, cap monthly payments at a small share of discretionary income and forgive whatever remains after a set period. This addresses distress on an ongoing basis and is far better targeted, though it can quietly subsidize very large balances over time.
+- **Category-based relief.** Forgive debt for those defrauded by collapsed for-profit colleges, or for public-service workers, where the fairness case is strongest and least contested.
+- **Lowering the price going forward.** Free or reduced community college, accountability rules that cut federal aid to programs whose graduates cannot repay, or direct tuition subsidies. This is the only branch that touches the *cause*, but it does nothing for people already in debt.
+
+Seen this way, "forgiveness versus no forgiveness" is a poor description of the actual choices. A coherent position usually combines branches — say, fix repayment, police predatory colleges, and offer targeted relief to the defrauded — rather than picking the single most dramatic option and defending or attacking it in isolation. The political appeal of broad cancellation is precisely its simplicity and visibility; the policy case more often favors the less photogenic, better-targeted combinations.
+
+It is also worth remembering that the debt did not appear from nowhere, and neither did the price. Decades of declining state support for public universities, the steady growth of administrative spending, and a lending system that made large loans easy to obtain all pushed tuition upward together. A debate that treats the resulting balances as the whole problem will keep producing the same fight every decade, as a new cohort borrows under the same conditions and arrives, in turn, asking for relief. Whatever one concludes about cancelling today's debt, the recurring nature of the problem is the strongest argument that the price, not just the debt, has to be on the table.
+
+## The Bottom Line
+
+The defensible position on student debt is design-specific and honest about the split between facts and values. Broad, uncapped forgiveness is genuinely vulnerable to the regressivity and "ignores the cause" critiques; well-targeted relief for distressed and defrauded borrowers answers most of those objections while reaching the people in real trouble. And almost everyone, across the divide, has reason to care more about the price of college than the headlines suggest, because that is the leak that keeps refilling the bucket. Both confident extremes — "cancel it all, it is obvious justice" and "forgive nothing, it is pure unfairness" — flatten a debate whose honest answer depends on the design and on a value judgment you should make out loud. Explore the full weighted evidence on the [topic page](/topics/student-debt-forgiveness), or see the same both-sides treatment of other contested questions in the [Is it true? directory](/is).`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Evergreen how-to: spotting bad statistics
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "how-to-spot-a-bad-statistic",
+    title: "How to Spot a Bad Statistic: A Field Guide to Numbers That Lie",
+    description:
+      "Most misleading statistics are technically true. Here is a practical field guide to the eight ways numbers deceive — and the questions that expose each one.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T22:30:00Z",
+    readingTime: "10 min read",
+    tags: ["statistics", "data literacy", "critical thinking", "evidence", "misinformation"],
+    category: "Critical Thinking",
+    content: `## Most Bad Statistics Are Technically True
+
+The dangerous statistics are rarely the fabricated ones. Outright invented numbers get caught; the ones that slip past you are technically accurate and still profoundly misleading, because the deception lives not in the figure itself but in what surrounds it — the comparison it invites, the context it omits, the question it quietly answers instead of the one you asked. A number can be correct to the decimal point and still steer you to a false conclusion. Learning to read statistics critically is therefore less about math than about a small set of habitual questions you learn to ask before you let a number into your head.
+
+This is a practical field guide to the most common ways numbers deceive, each paired with the question that exposes it. None of it requires statistical training — just the discipline to pause on a striking figure long enough to interrogate it. Treat it as a companion to disciplined [evidence weighting](/concepts/evidence-weighting): the skill of judging not whether *a* number exists but what the full, properly contextualized picture actually shows.
+
+## 1. The Missing Denominator
+
+A raw count with no base to compare it against is the most common trick of all. "Ten thousand people were harmed" sounds alarming until you ask: out of how many? Ten thousand out of fifty thousand is a catastrophe; ten thousand out of three hundred million is close to noise. A number without its denominator is not really a statistic — it is a feeling dressed as one.
+
+**The question:** *Out of how many? Compared to what?* Always demand the rate, not just the count, and the baseline rate to compare it against.
+
+## 2. Relative vs. Absolute Risk
+
+"This doubles your risk" is the single most abused phrase in health reporting, because doubling a tiny risk leaves you with a still-tiny risk. If a condition affects 2 people in 10,000 and some exposure "doubles the risk," the new rate is 4 in 10,000 — a 100% *relative* increase but only a 0.02-percentage-point *absolute* increase. Relative figures are technically true and emotionally enormous; absolute figures tell you whether to actually care.
+
+**The question:** *Doubling from what to what?* Insist on the absolute numbers before reacting to a relative change.
+
+## 3. Correlation Dressed as Causation
+
+Two things that move together are constantly presented as one causing the other, when they may share a hidden common cause, run in the reverse direction, or coincide by chance. Ice cream sales and drowning deaths rise together — both driven by summer heat, not by each other. The slide from "associated with" to "causes" is so routine that it has its own fallacy: the [false cause](/fallacies/false-cause) error, whose best-known form assumes that because B followed A, A must have caused B.
+
+**The question:** *Could something else explain both? Could the arrow point the other way?* A correlation earns the word "cause" only after rival explanations are ruled out.
+
+## 4. Cherry-Picked Endpoints and Timeframes
+
+Pick the right start and end dates and you can make almost any trend appear to rise, fall, or vanish. Start a chart at an unusual peak and everything after looks like decline; start at a trough and the same data looks like a boom. Selecting the one favorable comparison, study, or window while ignoring the rest is [cherry-picking](/fallacies/cherry-picking) — and because each individual figure is real, it can be the hardest deception to catch.
+
+**The question:** *Why this start date, this group, this study?* Ask what the full series looks like, and what was left out of frame.
+
+## 5. Unrepresentative Samples
+
+A statistic is only as good as the group it was measured on. A poll of website visitors, a survey people opted into, or a study of a few dozen unusual cases cannot be generalized to everyone — yet the resulting numbers are routinely reported as if they could. Drawing a sweeping conclusion from a small or skewed sample is the [hasty generalization](/fallacies/hasty-generalization) fallacy in numeric clothing.
+
+**The question:** *Who was measured, how were they chosen, and how many?* A precise-looking percentage from a tiny or self-selected sample deserves deep suspicion.
+
+## 6. Survivorship Bias
+
+Some of the most misleading statistics come from looking only at the things that made it through, while the failures are invisible because they dropped out of the dataset. Studying only successful companies to find the "secret to success" misses all the companies that did the same things and failed. The classic illustration comes from World War II, when analysts wanted to add armor to the parts of returning bombers that showed the most bullet holes — until the statistician Abraham Wald pointed out that those holes marked the places a plane could be hit and still come home. The armor belonged where the survivors had *no* holes, because planes hit there never returned to be counted. The data you can see is not the data that matters; the missing cases would change the whole picture. This is [survivorship bias](/fallacies/survivorship-bias), and once you start looking for the absent failures you see it everywhere.
+
+**The question:** *What is missing from this dataset because it didn't survive to be counted?*
+
+## 7. Average vs. Median (and the Hidden Distribution)
+
+"The average is X" hides as much as it reveals when the underlying spread is lopsided. A single billionaire walking into a room sends the *average* wealth soaring while the *median* — the person in the middle — does not budge. Whenever a few extreme values can dominate, the mean misleads and the median tells the truer story. Reporting one without the other, or hiding the distribution entirely, is a quiet way to shape an impression.
+
+**The question:** *Is this the mean or the median, and how spread out is the data?* For anything with extreme values — income, prices, durations — ask for the median.
+
+## 8. The Unexamined Source and Its Incentives
+
+Finally, every statistic comes from somewhere, and the somewhere has interests. A figure produced by a party that profits from the conclusion is not automatically wrong, but it earns extra scrutiny — especially when the methodology is hidden, the study is unpublished, or the number is suspiciously round and convenient. This is not the [appeal-to-authority](/fallacies/appeal-to-authority) error in reverse; you are not dismissing a number because of its source, but asking whether the source gives you any way to *check* it.
+
+**The question:** *Who produced this, what did they want it to show, and can I trace it to a method I could examine?*
+
+## 9. Percentage Points vs. Percent
+
+A small but pervasive confusion: a change *from* 5% *to* 6% can be described two ways, and both are "true." It is a rise of one *percentage point*, or a rise of twenty *percent* — since one point is a fifth of five. Advocates reach for whichever sounds bigger or smaller depending on the impression they want: "support surged 20%" and "support rose one point" describe the identical change. The same sleight inflates or shrinks fees, interest rates, tax changes, and poll movements.
+
+**The question:** *Is this a change in percentage points or a percent change, and which makes the case look stronger?* Convert it to the other form and see whether the story survives.
+
+## 10. The Garden of Forking Paths
+
+Run enough comparisons and some will look meaningful by pure chance. If a study tests one hypothesis, a striking result carries weight; if it quietly tested fifty and reported the one that "worked," the result may be noise dressed as discovery. This is why a single surprising finding — a food "linked to" some disease, a quirky correlation that made headlines — so often fails to replicate: it was the one lucky draw out of many silent attempts. Researchers call the broader problem the "garden of forking paths," where countless small, individually defensible analysis choices add up to a result that was nearly guaranteed to find *something*.
+
+**The question:** *How many things were tested, and is this the only result being reported?* A lone dramatic finding with no replication is a lead, not a conclusion.
+
+## 11. The Misleading Picture
+
+A chart can deceive even when every number in it is correct. A truncated vertical axis that starts at 90 instead of 0 turns a trivial difference into a cliff; a stretched or compressed timeline manufactures or erases a trend; a dual axis chosen so two unrelated lines appear to move together implies a connection that is not in the data. Because visuals bypass the part of you that would interrogate a sentence, a bad chart is often more persuasive than the bad statistic behind it.
+
+**The question:** *Where does the axis start, what exactly is being compared, and would the picture look different drawn honestly?* Read the axis labels before you read the shape.
+
+## Putting It Together
+
+You do not have to run through all eleven checks for every number you encounter; with practice they collapse into a single reflex. When a striking statistic lands, pause and ask the one umbrella question that contains the rest: *what would I need to know to be sure this means what it appears to mean?* That usually surfaces the missing denominator, the hidden timeframe, or the absent comparison on its own.
+
+It also helps to notice which checks a given claim is most exposed to. Health and risk claims live or die on absolute-versus-relative framing and on base rates; economic and social claims usually turn on the denominator, the cherry-picked window, or the mean-versus-median sleight; viral "studies" most often fail on sample size and replication. You are not auditing every number to the same depth — you are pattern-matching a claim to the one or two ways its particular kind of statistic tends to mislead, and checking those first.
+
+This habit pairs naturally with knowing where numbers sit in the broader hierarchy of evidence — a single study is weaker than a body of replicated work, an observational correlation weaker than a controlled trial. Our guide to the [evidence hierarchy](/guides/evidence-hierarchy) lays out that ranking, and the same skepticism powers fast real-world filtering, as in our walkthrough of how to [spot misinformation in sixty seconds](/blog/spot-misinformation-60-seconds). The goal is not cynicism about all numbers — good statistics are among the best tools we have for understanding the world. The goal is to tell the good ones from the merely impressive.
+
+## The Bottom Line
+
+A bad statistic rarely lies in the conventional sense; it tells a narrow truth in a way that produces a false impression. The defense is a handful of reflexive questions — out of how many, from what to what, compared to what, chosen how, missing what, mean or median, and from whom — applied before the number gets to do its emotional work. Numbers feel objective, and that feeling is exactly what makes a misleading one so persuasive. Slow down on the figures that move you most; those are the ones most worth checking.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Evergreen explainer: Bayesian thinking
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "bayesian-thinking-for-normal-people",
+    title: "Bayesian Thinking for Normal People: Updating Beliefs Without the Math",
+    description:
+      "Bayesian thinking sounds technical but rests on one habit: start with the base rate, then update by how strong the evidence is. No math required.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T23:00:00Z",
+    readingTime: "9 min read",
+    tags: ["bayesian thinking", "probability", "critical thinking", "confidence calibration", "reasoning"],
+    category: "Critical Thinking",
+    content: `## The Idea Behind the Intimidating Name
+
+"Bayesian" sounds like something that requires a whiteboard and a degree, but the core idea is almost embarrassingly simple, and you already use it without naming it. It is this: a belief should start from how common something is in general, and then move — up or down — by exactly how much the new evidence is worth. Not to certainty, not from zero, but a graded shift from wherever you started. That is the whole engine. The math behind it can get involved, but the thinking habit does not require any, and adopting it changes how you handle everything from a medical test result to a news headline to a heated argument. Our [Bayesian thinking guide](/guides/bayesian-thinking) walks through the formal version; this piece is the intuition, in plain language.
+
+The reason it matters is that the most common reasoning error is not faulty logic — it is ignoring where you started. People treat each new piece of evidence as if it arrived in a vacuum, updating all the way to a confident conclusion on the strength of one striking fact, while forgetting how unlikely (or likely) the conclusion was to begin with. Bayesian thinking is the discipline of never letting go of that starting point.
+
+## Three Words: Prior, Evidence, Posterior
+
+The whole framework is three plain ideas wearing technical names.
+
+- **The prior** is what you believed before the new evidence — and crucially, it should reflect the *base rate*, how common the thing is in general. Before you know anything specific about a person, the odds they have a rare disease are simply how rare the disease is.
+- **The evidence** is the new information, and what matters is its *strength*: how much more likely this evidence would be if the claim were true than if it were false. A test that is right 99% of the time is strong evidence; a vague hunch is weak evidence.
+- **The posterior** is your updated belief after combining the two. It is never just the evidence and never just the prior — it is the prior moved by the strength of the evidence.
+
+Strong evidence moves you a lot; weak evidence moves you a little; but you always move *from* the prior, never from scratch. That single sentence is most of Bayesian reasoning.
+
+## The Classic Example: A Scary Test Result
+
+Here is the example that makes the idea click, because the intuitive answer is wildly wrong. Suppose a disease affects 1 in 100 people. There is a test that is quite good: if you have the disease, it correctly flags you 90% of the time, and if you do not, it only falsely flags you about 9% of the time. You take the test. It comes back positive. What are the odds you actually have the disease?
+
+Most people say something like 90%. The real answer is closer to 9%. Here is why, with no formula — just counting people. Imagine 1,000 people like you. About 10 have the disease (that is the 1-in-100 base rate), and the test catches roughly 9 of them. But 990 people do *not* have the disease, and 9% of them — about 89 people — get a false positive anyway. So among everyone who tests positive, you have about 9 true positives and 89 false ones. Your positive result puts you in a group of about 98 people, only 9 of whom are actually sick. That is roughly 9%.
+
+The test did not lie, and it is a good test. What trips everyone up is *ignoring the prior*: the disease was rare to begin with, and a rare condition stays fairly unlikely even after a positive result from a good test, because the sheer number of healthy people generates more false alarms than there are true cases. A positive result should *raise* your estimate sharply — from 1% to about 9% is a ninefold jump — but not all the way to near-certainty. That is the Bayesian move: a big update that still respects where you started.
+
+## Base-Rate Neglect: The Master Mistake
+
+The disease example is a specific case of the most important error Bayesian thinking guards against — *base-rate neglect*, the habit of reasoning from the vivid specific evidence while forgetting how common the thing was in the first place. It shows up everywhere. We overestimate dramatic, rare dangers because the evidence (a frightening news story) is vivid, while the base rate (these events are extraordinarily uncommon) is invisible. We read a confident, detailed personality sketch and judge someone "probably an engineer" based on the description, ignoring how few engineers there are in the relevant population.
+
+The corrective is a single reflexive question, asked *before* you weigh the new evidence: *how common is this in general?* Anchor on that number first, then let the evidence move you. A claim that something rare has happened needs much stronger evidence than a claim that something common has happened — "extraordinary claims require extraordinary evidence" is just base-rate reasoning stated as a slogan.
+
+## Strength of Evidence: How Far Should You Move?
+
+The other half of the discipline is calibrating *how much* a given piece of evidence should move you. The Bayesian test for evidence strength is a useful question in its own right: *how much more likely is this observation if the claim is true than if it is false?* Evidence that is almost as likely under the false hypothesis as the true one is weak and should barely budge you, no matter how dramatic it feels. Evidence that would be very surprising unless the claim were true is strong and should move you a lot.
+
+This is exactly why "I can't think of another explanation" is such poor evidence — the absence of an alternative in *your* head is barely more likely when a claim is true than when it is false, which is why arguing from it is the [appeal to ignorance](/fallacies/appeal-to-ignorance) fallacy. It is also why a single anecdote moves a careful thinker so little: a striking story is roughly as easy to find whether or not the general claim holds, so it carries little weight against a good base rate. Sorting evidence by this kind of strength is the heart of disciplined [evidence weighting](/concepts/evidence-weighting).
+
+## Why This Makes You Better in Arguments
+
+Bayesian thinking quietly reshapes how you hold and discuss beliefs, in three ways. First, it makes your confidence *graded* rather than binary — you stop flipping between "certainly true" and "certainly false" and start holding positions at 70% or 30%, which is simply more accurate and is the whole practice of [confidence calibration](/concepts/confidence-calibration). Second, it tells you precisely what a disagreement is about: two people with the same prior who reach different conclusions must be weighting the evidence differently, while two people who weight the evidence the same but disagree must have started from different priors. Naming which it is turns a shouting match into a solvable problem.
+
+Third, and most powerfully, it gives a concrete meaning to changing your mind. To be a good Bayesian is to be able to say, in advance, *what evidence would move me and by how much* — which is exactly the discipline behind asking [what would change your mind](/blog/what-would-change-your-mind). A belief you would not adjust for any possible observation is not a strong belief; it is one held with no prior and no update rule, immune to evidence by construction. You can watch this play out on genuinely unresolved questions like [COVID's origins](/topics/lab-leak-theory), where the honest position is an explicit probability that shifts as withheld evidence becomes available — not a flag planted on one side.
+
+## The Mistakes Even Careful People Make
+
+Knowing the framework does not make you immune to the errors it is meant to prevent; the pulls are strong enough that even people who can recite the rules fall for them. A handful recur often enough to watch for by name.
+
+- **Under-updating.** The mirror image of base-rate neglect: clinging so tightly to a prior that genuinely strong evidence barely moves you. Good Bayesians anchor on the base rate, but they also let decisive evidence do its work — refusing to budge in the face of strong data is not caution, it is the same error pointed the other way.
+- **Double-counting correlated evidence.** Three news outlets repeating one wire report feel like three pieces of evidence but are nearly one; five studies that share the same flawed dataset are not five independent confirmations. Evidence only updates you to the extent it is *independent*, and piling up correlated sources manufactures false confidence.
+- **The conjunction trap.** A detailed, specific story can feel *more* probable than a vague one, even though adding details can only make a claim less likely, never more. "A bank teller who is active in the feminist movement" cannot be more probable than "a bank teller," yet the richer description often feels truer — because plausibility is masquerading as probability.
+- **Treating absence of evidence as proof of absence.** This one cuts both ways and rewards precision. If evidence *would* very likely show up were a claim true, then not finding it is genuine, if partial, evidence against it. But if the evidence would be hard to obtain even when the claim is true — as with a well-hidden fact — its absence tells you almost nothing. Confusing the two is how people manage to both over- and under-react to "no proof has been found."
+
+The common thread is that each mistake comes from skipping one of the two questions — how common is this in general, and how strong and independent is this evidence — and letting vividness, repetition, or detail stand in for an honest weighing. None of the fixes require a calculation. They require the same pause the framework always asks for: before you let a piece of evidence move you, name your starting point, then ask how *diagnostic* this particular evidence is — not how dramatic, how repeated, or how detailed — and shift from there by that much. Most of the failures above dissolve the moment you ask that question out loud.
+
+## The Bottom Line
+
+You do not need the formula to think like a Bayesian; you need two habits. Before weighing any new evidence, ask how common the thing is in general, and anchor there. Then ask how strong the evidence really is — how much more likely it would be if the claim were true than if it were false — and move from your anchor by that much, no further. Strong evidence, big move; weak evidence, small move; but always *from* the base rate, never from zero or from certainty. Do this consistently and your beliefs become graded, your updates become honest, and your disagreements become diagnosable. That is the entire payoff of a frighteningly named idea that turns out to be common sense, applied with discipline.`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {
