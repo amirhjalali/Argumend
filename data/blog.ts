@@ -5795,6 +5795,395 @@ This is why every analysis at Argumend asks what the evidence supports going for
 
 The sunk cost fallacy keeps people, companies, and countries marching deeper into losing situations because turning back would mean admitting that what they already spent is gone. But it is gone regardless — that is what "sunk" means — and no amount of future suffering can recover it. Sound decisions look only forward: from where you stand right now, do the remaining benefits beat the remaining costs? Ask that question honestly, and the money, time, and effort already spent fall out of the equation entirely, where they belong. The hardest and most valuable skill is learning to walk away from a loss instead of paying more to avoid feeling it.`,
   },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Post Hoc / False Cause fallacy explainer
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "post-hoc-fallacy-explained",
+    title: "The Post Hoc Fallacy, Explained: Why Correlation Isn't Causation",
+    description:
+      "Post hoc reasoning treats 'B happened after A' as proof that A caused B. Learn why correlation isn't causation, and how to actually test a causal claim.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T16:00:00Z",
+    readingTime: "9 min read",
+    tags: ["post hoc fallacy", "correlation causation", "false cause", "logical fallacies", "critical thinking"],
+    category: "Logic & Reasoning",
+    content: `## What the Post Hoc Fallacy Actually Is
+
+The post hoc fallacy — short for *post hoc ergo propter hoc*, Latin for "after this, therefore because of this" — is the error of concluding that because one event followed another, the first must have caused the second. It belongs to a broader family usually called the false cause fallacy, which also contains the slogan everyone has heard repeated: *correlation is not causation*. The reasoning is disarmingly simple. B happened after A, so A must have caused B. Sometimes that turns out to be true. Very often it is not — and the fallacy is not the conclusion itself but the leap: treating mere sequence or co-occurrence as if it had already done the hard work of establishing a causal link.
+
+A folk version makes the error obvious. The rooster crows every morning just before the sun rises, but no one seriously believes the crowing causes the sunrise. The two events are reliably correlated and perfectly ordered in time, yet the causal story runs the other way — the coming dawn wakes the rooster. Real arguments are rarely this transparent, which is exactly why the fallacy is so common. When the sequence is plausible and we already expect a connection, "it happened right after, so it must be because of" slips past us unexamined. Our [false cause entry](/fallacies/false-cause) in the fallacy catalog gives the formal definition and its variants.
+
+## Why Correlation Isn't Causation
+
+The reason "they occur together" or "one came after the other" fails to prove causation is that several very different situations produce the same pattern. When you see A and B moving together, at least four explanations compete before you ever reach "A causes B":
+
+- **Coincidence.** With enough variables in the world, some will line up by pure chance. Spurious correlations — divorce rates tracking margarine consumption, for instance — turn up constantly precisely because randomness throws off matches all the time.
+- **Reverse causation.** B might cause A rather than the other way around. People who exercise are healthier, but much of that link runs backward: being healthier in the first place makes people more able and willing to exercise.
+- **A common cause (confounding).** Some third factor C drives both A and B, creating a correlation between them even though neither causes the other. Ice cream sales and drowning deaths rise together — both are caused by hot summer weather, not by each other.
+- **Selection effects.** The way the data was gathered can manufacture a correlation that does not exist in the wider world, by quietly filtering which cases you ever get to see.
+
+Until these alternatives have been considered and ruled out, a correlation tells you only that two things are related somehow — not which way the arrow points, or whether there is a direct arrow at all.
+
+## A Few Cousins Worth Knowing
+
+Post hoc is one member of a family of cause-confusing errors, and recognizing its relatives sharpens the eye. Its sibling *cum hoc ergo propter hoc* ("with this, therefore because of this") makes the same mistake without even the excuse of temporal order — it reads a bare correlation, with no before-and-after, as cause. The two are usually grouped together under false cause.
+
+More insidious is **regression to the mean**, which manufactures convincing post hoc stories all on its own. Many things measured at an extreme — an unusually bad day, a spike in crime, a dreadful quarter — tend, by simple statistics, to drift back toward average afterward, regardless of any intervention. So whatever you happened to do at the low point — take a remedy, install a policy, change coaches — gets undeserved credit for an improvement that was coming anyway. "I felt awful, tried the supplement, and recovered" is the textbook trap: you sought the remedy *because* you were at an extreme, and extremes regress. Any honest causal claim has to ask whether the effect would have appeared on its own.
+
+## Why It's So Persuasive
+
+The post hoc fallacy exploits one of the mind's most basic and useful habits: the search for causes. Noticing "this happened, then that happened, so this caused that" was a survival skill long before it was a logical error, and it usually serves us well in daily life. A vivid before-and-after story feels like an explanation, and explanations are satisfying — they make a confusing world feel orderly and controllable. The fallacy borrows that satisfaction and attaches it to a conclusion the evidence has not earned.
+
+It is reinforced by the timing itself. Temporal sequence is genuinely *one* of the ingredients of causation — causes do precede their effects — so an event that comes right before an outcome carries an intuitive whiff of responsibility. The trouble is that "came before" is necessary but nowhere near sufficient. Every effect has countless things that preceded it; only a few of them are causes. The fallacy quietly promotes "happened just before" into "must have caused," skipping the work of distinguishing the one relevant antecedent from the thousands of irrelevant ones.
+
+## Real-World Examples
+
+The most damaging instances cluster in health, where personal anecdotes are powerful and controlled comparisons are hard. "I started taking this supplement and my cold cleared up in a few days, so it works" ignores that most colds clear up in a few days regardless. The discredited claim that childhood vaccines cause autism rode largely on post hoc reasoning: developmental symptoms often become apparent around the same age children receive certain vaccines, so the sequence felt causal to frightened parents even though large, careful studies have found no causal link. The pattern is always the same — a real correlation in time, mistaken for proof of cause.
+
+Public-health and lifestyle debates are riddled with it. Much of the alarm over particular foods rests on observational correlations that cannot, by themselves, separate the food from the lifestyle of the people who tend to eat it — a problem we examine in our analysis of [whether seed oils are harmful](/topics/seed-oils-health). The same caution applies to one of the most consequential correlation-versus-causation arguments of the decade: whether smartphones and social media are *causing* the rise in teen mental-health problems, or merely coincide with it. The timing lines up strikingly, but timing is exactly what the fallacy warns us not to over-read; our [social media and mental health](/topics/social-media-mental-health) analysis lays out how researchers try to move from correlation toward genuine causation.
+
+Economics offers a particularly instructive case, because almost everything is correlated with everything else and clean experiments are rare. When a policy is enacted and the economy later improves (or worsens), partisans rush to credit (or blame) the policy — classic post hoc — while ignoring the dozens of other forces moving at the same time. Sorting a policy's real effect from the background noise is the central difficulty in debates like our [minimum wage](/topics/minimum-wage-effects) analysis, where the entire disagreement turns on isolating cause from coincidence.
+
+## How to Test a Causal Claim
+
+The antidote to post hoc reasoning is not to reject causal claims but to hold them to a higher standard than "it happened after." More than a century of work in statistics and epidemiology has produced a practical checklist for moving from correlation toward causation:
+
+- **Mechanism.** Is there a plausible, specified pathway by which A could produce B? A causal story with no mechanism is just a sequence dressed up as an explanation.
+- **Temporal order.** Does the supposed cause reliably precede the effect — and can reverse causation be ruled out?
+- **Dose-response.** Does more of A produce more of B? A consistent dose-response relationship is much harder to explain away as coincidence.
+- **Controlled comparison.** Best of all is a randomized experiment, where the only systematic difference between groups is the supposed cause. When experiments are impossible, natural experiments and statistical controls try to approximate one.
+- **Ruling out confounders.** Have the obvious common causes been measured and accounted for, or simply ignored?
+
+This is just careful [evidence weighting](/concepts/evidence-weighting) applied to causal questions. The strength of a causal claim is the degree to which the alternatives — coincidence, reverse causation, confounding — have actually been excluded, not the vividness of the before-and-after story.
+
+## When "After This" Is Evidence
+
+Intellectual honesty requires the flip side. "Correlation is not causation" is true, but it is sometimes wielded as a thought-terminating cliché to wave away evidence that someone simply dislikes. Correlation *is* evidence. It is one of the ingredients of causation, and a strong, repeatedly observed correlation that survives serious attempts to explain it away as confounding or chance is a genuine reason to take a causal hypothesis seriously. Most of what we know about the harms of smoking rests on observational data, not on a randomized trial in which people were assigned to smoke.
+
+The honest position sits between two errors: treating every correlation as proof of cause (the post hoc fallacy) and treating no correlation as ever amounting to anything (a lazy dismissal that is its own kind of evasion). The skilled move is to ask how much of the work of ruling out alternatives has actually been done, and to update your confidence accordingly. That is also the [crux](/concepts/cruxes) of many real disagreements: people who look at the same correlation often differ not on the data but on how likely they think a hidden confounder is to explain it.
+
+## How to Respond
+
+When someone leans on a post hoc inference, the goal is not to dismiss their observation but to test it:
+
+"You're right that B happened after A, and that's worth noticing. But before we conclude A caused it — could anything else explain the link? Could it be coincidence, could B actually be driving A, or could some third thing be causing both? What would we expect to see if A really were the cause, and do we see it?"
+
+This response takes the correlation seriously while refusing to let it masquerade as a finished causal argument. It moves the conversation from "these two things go together" to the only question that matters for any decision: what is actually causing what, and how do we know?
+
+## The Bottom Line
+
+The post hoc fallacy turns the order of events into a verdict about cause, and our pattern-hungry minds rarely object. But sequence and correlation are starting points for investigation, not conclusions. Coincidence, reverse causation, and hidden common causes can all produce the same tidy before-and-after picture, and only the work of ruling them out — through mechanism, controlled comparison, and honest accounting for confounders — can tell you whether one thing truly caused another. The next time an argument rests on "it happened right after," resist the pull of the story long enough to ask the harder question: after this, yes — but *because* of this? You can see the same evidence-first, both-sides treatment of contested causal claims throughout the [Is it true? directory](/is).`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Hasty Generalization fallacy explainer
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "hasty-generalization-fallacy-explained",
+    title: "The Hasty Generalization Fallacy, Explained: When One Example Isn't Enough",
+    description:
+      "A hasty generalization draws a sweeping conclusion from a sample too small or biased to support it. Learn to spot it, and how to demand representative evidence.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T17:00:00Z",
+    readingTime: "9 min read",
+    tags: ["hasty generalization", "logical fallacies", "sample size", "anecdotal evidence", "critical thinking"],
+    category: "Logic & Reasoning",
+    content: `## What the Hasty Generalization Fallacy Actually Is
+
+A hasty generalization is the error of drawing a broad conclusion about a whole group or pattern from a sample that is too small, too biased, or too unrepresentative to support it. The structure is "some of the cases I happened to see are like this, therefore most or all of them are" — applied before the evidence has earned that leap. "I met two rude people from that city, so people there are rude" is the textbook form. Generalizing from instances is, in itself, a perfectly valid and indispensable way to reason; it is the engine of all empirical knowledge. The fallacy is doing it *hastily* — on a sample that simply cannot bear the weight of the conclusion built on it.
+
+The closely related anecdotal fallacy is the most vivid version: treating a single striking story as if it outweighed systematic data. "My grandfather smoked a pack a day and lived to ninety-five, so the warnings about smoking are overblown" pits one memorable life against the aggregated mortality of millions. The single case is real, but it is one data point in a distribution, and a distribution is exactly what a single point cannot reveal. Our [hasty generalization entry](/fallacies/hasty-generalization) in the fallacy catalog lays out the formal definition.
+
+## What Makes a Generalization "Hasty"
+
+The fallacy is not about any fixed number of examples; it is about the mismatch between the sample and the conclusion. Two questions decide whether a generalization is warranted or hasty:
+
+- **Is the sample large enough?** The more variable the thing you are measuring, the more cases you need before a pattern means anything. A handful of observations of something highly variable tells you almost nothing about the whole.
+- **Is the sample representative?** A small but genuinely random sample can support a modest conclusion, while a large but skewed one can mislead badly. *How* the cases were selected matters as much as how many there are.
+
+The second question is the one people miss most often. A poll of ten thousand people is worthless for predicting an election if all ten thousand were drawn from one neighborhood or one website. Size without representativeness is just confident error. This is why selection problems like [survivorship bias](/fallacies/survivorship-bias) — generalizing only from the cases that "survived" some filter, while the failures are invisible — are really specialized forms of hasty generalization: the sample looks complete but has been silently rigged by what got left out.
+
+## The Law of Small Numbers
+
+Psychologists Amos Tversky and Daniel Kahneman gave the fallacy's cognitive root a memorable name: the *law of small numbers*. It is a play on the statistical "law of large numbers," which says that large samples reliably come to reflect the population they are drawn from. The joke is that people behave as though a *small* sample were just as trustworthy — expecting a handful of cases to be as representative as thousands. They are not, and the gap between how representative we assume small samples are and how representative they actually are is precisely where hasty generalizations breed.
+
+This intuition error compounds with **base-rate neglect**: the tendency to fixate on a vivid specific case while ignoring how common the thing actually is in the population. Told that someone is quiet and bookish, people guess "librarian" over "salesperson," forgetting that there are vastly more salespeople than librarians — the base rate swamps the stereotype. A single case rarely carries any information about base rates, yet we generalize from it as if it did. Sound reasoning runs the other way: start from the base rate, then let strong, representative evidence adjust it.
+
+Add to this how modern information reaches us. News and social feeds select for the rare, the shocking, and the unrepresentative, because those are what win attention — "man bites dog," never "dog bites man." A steady diet of selected-for-extremity examples makes rare events feel common and primes us to generalize from cases that were chosen precisely *because* they are not typical. The practical upshot is a habit, not a formula: before extending a few cases to a whole, ask not only "how many?" but "how did these particular cases reach me, and what would I never have seen?" The examples that are loudest, nearest, or most repeated are rarely a fair cross-section of reality.
+
+## Why It's So Persuasive
+
+Hasty generalization is rooted in how human cognition actually works. We are pattern-detectors by design, built to extract general rules from limited experience quickly, because in our evolutionary past a fast rule of thumb beat a slow, statistically rigorous one. Waiting for a representative sample before forming a belief about "that kind of mushroom" or "that kind of stranger" was not a luxury our ancestors could afford. So generalizing from a few cases is not a quirk; it is the default mode of the mind.
+
+It is amplified by the vividness of concrete cases. A single dramatic story — a person, a face, a narrative — is far more memorable and emotionally gripping than a dry statistic about a population. Psychologists call this the availability heuristic: we judge how common something is by how easily examples come to mind, and a striking anecdote comes to mind much more easily than an abstract base rate. The result is that one unforgettable case can quietly outweigh mountains of aggregate evidence in our intuitive sense of "what's true."
+
+There is also a confirmation effect. Once we hold a belief, the few cases that fit it are noticed and remembered, while the many that don't are overlooked. The generalization then feels well-supported from the inside — "I've seen it again and again" — even though the sample was assembled by the belief it is supposed to justify.
+
+## Real-World Examples
+
+Politically charged debates are a natural home for the fallacy, because a single shocking incident can be generalized into a sweeping claim about an entire group or policy. One widely shared anecdote about a crime, a benefit recipient, or an immigrant can become, in the retelling, evidence about millions of people — even when the aggregate data points the other way. Our analysis of [whether immigration lowers wages](/topics/immigration-wage-impact) is a case in point: individual stories of displaced workers are powerful and often genuine, but the economy-wide effect is an empirical question that anecdotes cannot settle, and the studies frequently complicate the intuitive story.
+
+Health and nutrition are saturated with anecdotal generalization. "This diet worked for me, so it works" ignores the enormous individual variation in how bodies respond, and the absence of any control group — what would have happened to the same person otherwise. The recurring panics over particular foods often begin with a cluster of compelling personal testimonies rather than population-level evidence, as we discuss in our look at [whether seed oils are harmful](/topics/seed-oils-health). The testimonies are real; the leap from "some people report X" to "X is generally true" is the hasty part.
+
+The fallacy also drives lazy stereotyping of every kind. A bad experience with one member of a profession, nationality, generation, or political tribe gets inflated into a confident verdict about all of them. The mechanism is identical whether the stereotype is hostile or flattering: a tiny, non-random sample stands in for a vast and varied population.
+
+## How to Spot It
+
+The verbal tells are familiar: "everyone knows," "people always," "they're all like that," and the anecdotal opener "I know someone who..." Each signals that a sweeping claim may be resting on a narrow base. The deeper tell is a conclusion about a large or diverse group offered with high confidence but backed only by personal experience or a few salient examples.
+
+The reliable test is to ask two questions out loud. First: *How many cases is this based on, and how were they chosen?* Second: *Is that sample likely to look like the whole group I'm drawing a conclusion about?* If the honest answer is "a few cases I happened to encounter," the generalization has outrun its evidence. Distinguishing a single anecdote from genuine data — and asking for the aggregate — is one of the fastest ways to [spot weak reasoning in real time](/blog/spot-misinformation-60-seconds).
+
+## When Generalizing Is Actually Sound
+
+Intellectual honesty requires the caveat, because "that's just anecdotal" can be misused to dismiss any evidence one dislikes, and not every generalization is hasty. Generalizing is the basis of all science and all practical knowledge; the question is never whether to generalize but whether the sample justifies it. A large, well-designed, representative study generalizes legitimately. A single case can even be decisive in the right context — one genuine counterexample is enough to refute a claim of the form "this *never* happens" or "*all* X are Y," because universal claims fall to a single exception.
+
+The discipline is to match the strength of the conclusion to the strength of the sample. A small or skewed sample can still support a tentative hypothesis worth investigating; it just cannot support a confident, sweeping verdict. This is ordinary [evidence weighting](/concepts/evidence-weighting): a striking anecdote raises a question, a representative body of data answers it, and the two should never be confused for one another.
+
+## How to Respond
+
+When someone generalizes from too little, the move is to honor the example while questioning the leap:
+
+"That's a real and striking case, and I'm not dismissing it. But before we conclude it's true of the whole group, how many cases are we actually working from, and how were they chosen? Is there broader data — a large, representative sample — that tells us whether this example is typical or exceptional? One vivid case can point us toward a question, but it can't answer it by itself."
+
+This keeps the conversation honest in both directions. It refuses to wave away a real observation, but it also refuses to let one observation impersonate a body of evidence. The goal is to move from "I've seen a case" to "here is what the full population actually shows."
+
+## The Bottom Line
+
+The hasty generalization fallacy is the gap between how confidently we generalize and how little we often have to generalize from. Our minds are built to leap from a few vivid cases to a sweeping rule, and a single memorable story will always feel more convincing than an abstract statistic — which is precisely why the leap so often misfires. The cure is not to stop generalizing but to slow down and check the sample: large enough, and representative enough, to carry the conclusion? Ask that, distinguish the anecdote from the aggregate, and most hasty generalizations reveal themselves as confident guesses dressed up as knowledge. For more on building beliefs that match the weight of the evidence, explore our [concepts and reasoning hub](/concepts/evidence-weighting).`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Circular Reasoning / Begging the Question fallacy explainer
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "circular-reasoning-fallacy-explained",
+    title: "Circular Reasoning and Begging the Question, Explained",
+    description:
+      "Circular reasoning hides its conclusion inside its own premises, so the argument only works if you already agree. Learn to spot the loop, and how to break it.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T18:00:00Z",
+    readingTime: "9 min read",
+    tags: ["circular reasoning", "begging the question", "logical fallacies", "critical thinking", "epistemology"],
+    category: "Logic & Reasoning",
+    content: `## What Circular Reasoning Actually Is
+
+Circular reasoning occurs when an argument's premises already assume the very conclusion they are supposed to prove. The support and the thing being supported are the same claim wearing different clothes, so the argument only "works" for someone who already accepts the conclusion — which means it does no work at all. The tightest form is naked: "It's true because it's true." But the dangerous versions are larger loops, where the conclusion is restated in different words several sentences later and quietly used as a premise, so the circle is big enough that you don't notice you've gone all the way around.
+
+The classical name for this is *begging the question*, from the Latin *petitio principii* — literally "assuming the starting point." It is worth pausing on, because the phrase is now almost universally misused. In everyday speech, "that begs the question" has come to mean "that raises the question" or "that prompts me to ask." In its precise logical sense it means something quite different: to *beg* the question is to assume the answer to the very question at issue, smuggling the conclusion into the premises. Our [circular reasoning entry](/fallacies/circular-reasoning) in the fallacy catalog gives the formal definition and its variants.
+
+## Why It's So Hard to Spot
+
+If circular reasoning were always as obvious as "X is true because X is true," no one would be fooled by it. The reason it persists is that real instances spread the loop across enough plausible-sounding statements that the restatement of the conclusion passes for independent support. A classic example: "We know the witness is reliable because his testimony has always proven accurate — and we know his testimony is accurate because he's such a reliable witness." Each sentence sounds like it is offering a reason, but the two reasons lean entirely on each other, and the whole structure floats free of anything outside itself.
+
+The fallacy is especially seductive because internally consistent arguments *feel* sound. Every step follows from the last, nothing contradicts anything, and the conclusion arrives with an air of inevitability. But internal consistency is not the same as actually establishing something. A circle is perfectly consistent — it just never connects to any independent ground. The longer and more eloquent the chain, the easier it is to mistake fluency for proof. This is one reason a careful [crux](/concepts/cruxes)-focused approach is so useful: it forces an argument to identify the independent fact that would actually settle the matter, which a circular argument can never produce.
+
+## Common Disguises
+
+Circular reasoning rarely announces itself. It usually arrives in one of a few familiar costumes:
+
+- **Synonym swaps.** The conclusion is restated in different vocabulary and offered as a premise. "Murder is morally wrong because killing people is unethical" looks like an argument but only renames the claim.
+- **Appeals to a self-certifying authority.** "This source is trustworthy because it says so, and we should believe what it says because it's trustworthy." The authority's reliability is established only by the authority itself.
+- **Question-begging definitions.** A term is defined so that the conclusion follows automatically. "No genuine expert disagrees with this, and anyone who disagrees clearly isn't a genuine expert" closes the loop by definition — which is also how circular reasoning shades into the [no true Scotsman](/fallacies/no-true-scotsman) fallacy.
+- **Smuggled assumptions.** A premise quietly presupposes the conclusion. An argument that "the policy is just because a fair society would adopt it" assumes we already agree the policy is what fairness requires.
+
+In each disguise the test is the same: strip the rhetoric and ask whether any premise would be accepted by a person who did not already believe the conclusion.
+
+## Real-World Examples
+
+Some of philosophy's deepest debates are vulnerable to circularity precisely because they reach down to foundations where independent ground is scarce. Arguments about [free will](/topics/free-will), for instance, can quietly assume the very thing in dispute — defining "freedom" in a way that already presupposes whether we have it — so that the conclusion is baked into the opening move. Recognizing the circle does not resolve the debate, but it clears away arguments that only appear to make progress.
+
+The fallacy is rampant in contested social claims, where a worldview can become self-sealing. Consider arguments about [whether meritocracy is a myth](/topics/meritocracy-myth): a strong version on either side can be framed so that every possible outcome confirms it. If success proves merit and failure proves its absence, then "the successful are the most meritorious" is true by construction and no evidence could ever count against it. An argument that explains every conceivable observation equally well has usually stopped explaining anything — it has become a circle.
+
+Circularity also underwrites many conspiracy-style arguments, where the absence of evidence is treated as confirmation: "The lack of proof shows how well it's been covered up, and the cover-up explains why there's no proof." Each half is propped up only by the other, so the position can never be dislodged — which is a symptom of circular structure, not of strength.
+
+## Self-Sealing Worldviews
+
+The most consequential circular reasoning is rarely a single sentence — it is an entire belief system arranged so that nothing could ever count against it. Philosophers and psychologists call these *self-sealing* arguments: every possible piece of evidence, including evidence that looks like a refutation, gets reinterpreted as further confirmation. The structure is circular because the conclusion has been built into the very rules for reading the evidence, so the "evidence" can only ever point one way.
+
+A few signatures recur across wildly different domains. Disconfirming facts are reframed as part of the phenomenon: doubt becomes proof of how deep the problem runs, opposition becomes proof of the threat, silence becomes proof of suppression. Failed predictions are absorbed rather than counted against the theory — an astrological reading that fits "confirms" the system, while one that misses means the chart was simply read wrong. And the believer can rarely answer the simplest diagnostic question — *what would it take to change your mind?* — because the system was constructed precisely so that the answer is "nothing."
+
+This is why circularity matters far beyond logic-textbook puzzles. A self-sealing worldview can feel overwhelmingly well-supported from the inside, because the believer genuinely has encountered case after case that "confirms" it. What they have not encountered is any case allowed to *dis*confirm it. The apparent richness of the supporting evidence is an illusion produced by a rule that converts everything into support — which is the very definition of a large, slow circle.
+
+The corrective is the same one that defuses a one-sentence circle, scaled up: insist on independent grounding and on falsifiability. Ask what specific, possible observation the believer would accept as evidence *against* their view. A healthy belief can name one; a circular one cannot, because it has quietly arranged for every observation to confirm it. Pinning down that single point is exactly the discipline of asking [what would change your mind](/blog/what-would-change-your-mind) — and it is the cleanest test of whether you are looking at an argument or a closed loop.
+
+## How to Spot It
+
+The reliable diagnostic is a single question: *Would someone who doubts the conclusion accept this premise on its own?* Trace each supporting claim back and ask whether it can stand without already assuming what the argument is trying to prove. If the only reason to grant a premise is that you already grant the conclusion, the argument is circular and has established nothing.
+
+A second tell is unfalsifiability. If you cannot imagine any observation or counterargument that the position would count as evidence against it — if every possible outcome somehow confirms it — the claim is very likely sealed inside a circle. Genuine arguments stick their necks out: they depend on premises that could, in principle, turn out to be false, and they can name what would change their conclusion.
+
+## A Note on What Is Not Circular
+
+Intellectual honesty requires a boundary, because the charge of "circular reasoning" is sometimes thrown at arguments that are merely *valid*. In any deductive argument, the conclusion is in some sense contained in the premises — that is what makes the inference reliable. "All men are mortal; Socrates is a man; therefore Socrates is mortal" is not viciously circular, even though the conclusion follows from the premises, because the premises are independently knowable without first establishing that Socrates in particular is mortal. The fault is *vicious* circularity: when a premise cannot be known or accepted without already accepting the specific conclusion. Distinguishing the two is a matter of asking whether the premises have any support from outside the conclusion they serve.
+
+It is also worth separating circular reasoning from its cousin the [motte-and-bailey](/fallacies/motte-and-bailey), where an arguer defends a strong claim by retreating to a weaker one. Both can make a position feel unassailable, but the mechanisms differ: circularity assumes the conclusion, while motte-and-bailey swaps the conclusion for an easier one when pressed. You will find both, and how they interact, in our [concepts and fallacies hub](/concepts/fallacies).
+
+## How to Respond
+
+When you suspect a circle, make the loop visible rather than just asserting it:
+
+"Let me make sure I follow the reasoning. Your conclusion is X, and the support for X is Y. But would Y be true for someone who didn't already accept X? It sounds like Y is really just X said another way. If so, we need a reason to believe X that doesn't itself depend on X — some independent evidence. What would that be?"
+
+This is firm but not hostile. It does not accuse; it asks the arguer to supply the one thing a circular argument lacks — a premise grounded in something other than the conclusion. Often the most useful outcome is simply clarity: naming the missing independent support shows everyone what the disagreement is really about.
+
+## The Bottom Line
+
+Circular reasoning is among the quietest fallacies because, unlike a personal attack or an emotional appeal, it can sound completely rigorous. Every step connects, nothing jars, and the conclusion seems to follow — yet the whole structure leans on itself and touches no independent ground. The defense is a single disciplined habit: for every premise, ask whether someone who doubted the conclusion would still accept it. If not, the argument has assumed what it set out to prove, and you are owed a reason from outside the circle. Demanding that one independent foothold is what turns a closed loop back into an argument that can actually teach you something.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // How-to: strong vs. persuasive argument
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "strong-argument-vs-persuasive",
+    title: "How to Tell a Strong Argument From a Merely Persuasive One",
+    description:
+      "Persuasive and strong are not the same thing. A practical guide to separating how an argument feels from whether it actually holds up — and judging the difference.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T19:00:00Z",
+    readingTime: "10 min read",
+    tags: ["critical thinking", "argument evaluation", "rhetoric", "logical fallacies", "persuasion"],
+    category: "Critical Thinking",
+    content: `## Strong and Persuasive Are Not the Same Thing
+
+A strong argument and a persuasive one are easy to confuse, because in a perfect world they would coincide. But they measure different things. *Strength* is a property of the argument itself: how well its conclusion actually follows from premises that are true and relevant. *Persuasiveness* is a property of its effect on an audience: how readily people are moved to agree. The two often come apart. A rigorous, true argument can fall flat when delivered without confidence or charm, and a deeply flawed one can sweep a room when it is delivered with conviction, told as a story, and aimed at what listeners already want to believe.
+
+This gap is not a minor curiosity — it is the central vulnerability in how we reason. Most of us, most of the time, judge arguments by how persuasive they feel, and persuasiveness is heavily influenced by factors that have nothing to do with truth: the speaker's confidence, fluency, attractiveness, and status; the emotional charge of the framing; whether the conclusion flatters our existing views. Learning to ask "is this *strong*?" as a separate question from "do I find this *convincing*?" is one of the highest-leverage skills in critical thinking. This guide is a practical procedure for keeping them apart.
+
+## Why Persuasive Often Beats Strong
+
+Persuasion techniques work by routing around evaluation rather than satisfying it. The most common are worth naming, because once you can see them you can stop confusing them with evidence:
+
+- **Confidence and fluency.** We instinctively read certainty as competence. A claim delivered smoothly and without hedging feels more true than the same claim delivered with appropriate caveats — even though honest reasoning usually *requires* the caveats.
+- **Emotion.** Fear, outrage, pity, and pride narrow attention and create urgency, making calm evaluation feel cold or disloyal. This is the engine of the [appeal to emotion](/fallacies/appeal-to-emotion) fallacy: the feeling does the work that evidence should be doing.
+- **Story and vividness.** A single concrete narrative is more memorable and moving than a representative statistic, even though the statistic is far better evidence about what is generally true.
+- **Tribal alignment.** An argument that confirms what your group already believes feels obviously correct, while an equally strong argument that cuts against it feels suspect. Persuasiveness rises with agreement, not with validity.
+- **Volume and momentum.** Repeated or widely held claims feel truer through sheer familiarity — the mechanism behind the [bandwagon](/fallacies/bandwagon) appeal and the [Gish gallop](/fallacies/gish-gallop), where a flood of weak points impersonates a strong case.
+
+None of these touch whether the conclusion actually follows from true premises. They are levers on the audience, not on the truth.
+
+## A Four-Question Test for Strength
+
+To judge strength rather than effect, run an argument through four questions in order. They strip away the delivery and expose the logical skeleton underneath.
+
+**1. What exactly is the claim?** Before anything else, state the conclusion precisely. Persuasive rhetoric thrives on vagueness, because a fuzzy claim feels agreeable while committing to nothing. Pin it down: what specifically is being asserted, and how strongly? "This is harmful" and "this is the single greatest threat we face" are very different claims requiring very different evidence.
+
+**2. Are the premises true?** An argument can be perfectly logical and still worthless if it rests on false claims. Separate the factual premises from the conclusion and ask whether each one is actually so. This is where you check the [evidence weighting](/concepts/evidence-weighting): not "is there a study?" but "what does the full body of evidence, weighted by quality, show?" A single cherry-picked fact can prop up a confident argument while contradicting everything else known about the question.
+
+**3. Do the premises actually support the conclusion?** Even with true premises, the conclusion may not follow. This is where most logical fallacies live: the premises are real, but the inference is broken. Does the argument confuse correlation with causation, generalize from too few cases, or attack the person instead of the point? A useful drill is to ask whether the same premises could support a very different conclusion — if they could, they don't establish this one.
+
+**4. What's been left out?** The most persuasive arguments are often the most one-sided, precisely because acknowledging counter-evidence makes a case feel less airtight. Ask what the strongest objection is, and whether the argument even mentions it. An argument that never engages its best counterargument may be rhetorically clean but evidentially incomplete.
+
+## Validity, Soundness, and Why Both Matter
+
+Logicians split the strength of an argument into two distinct properties, and the distinction is worth borrowing because it maps exactly onto questions two and three above. An argument is *valid* when its conclusion genuinely follows from its premises — if the premises were true, the conclusion would have to be true as well. An argument is *sound* when it is valid *and* its premises are in fact true. Soundness is the gold standard; validity alone is not enough.
+
+This matters because the two failure modes look completely different and call for different responses. A valid argument with a false premise can be impeccably logical and still wrong: "All birds can fly; a penguin is a bird; therefore a penguin can fly" reasons flawlessly from a false starting point, and the fix is to challenge the premise, not the logic. Conversely, an argument with true premises can still be invalid if the conclusion simply doesn't follow — true facts assembled into a non-sequitur, where the premises are fine and the inference is the problem.
+
+Persuasive rhetoric blurs the two on purpose, because an audience nodding along to true premises tends to wave the conclusion through without checking whether it actually follows. Keeping validity and soundness separate is what lets you say precisely where an argument breaks: "Your facts are right, but they don't get you to that conclusion," or "Your logic is fine, but this premise isn't true." Vague dissatisfaction — "I'm just not convinced" — becomes a specific, answerable objection.
+
+## A Word on Trusting Sources
+
+Often you cannot evaluate an argument's premises directly — you lack the expertise to judge a climate model or a clinical trial yourself — and must lean on sources. That is not a failure of reasoning; it is unavoidable, and deferring to genuine expertise is usually rational. The skill is in *whose* word you take and why. Legitimate deference asks whether the source is speaking within its actual field, whether it reflects a broad expert consensus or a lone outlier, and whether it can point you to the underlying evidence. The [appeal to authority](/fallacies/appeal-to-authority) fallacy is the misuse of this move — citing prestige outside its domain, or treating any confident expert as the final word. A strong argument from authority is really a shortcut to evidence you could in principle check; a weak one substitutes the name for the evidence and hopes you won't ask.
+
+## Steel-Manning: The Strength Test in Action
+
+The single most reliable way to judge whether you are responding to strength or to packaging is to [steel-man](/concepts/steel-manning) the argument — to restate it in its strongest, most charitable form before evaluating it. Steel-manning forces you to strip away the delivery: the confident tone, the emotional framing, the tribal cues all fall away when you have to express the argument in plain, neutral language and then ask whether *that* version holds up.
+
+The test cuts both ways, which is what makes it honest. A weak argument that persuaded you through charisma or flattery often collapses the moment you state it plainly: "Restated neutrally, this is just an assertion with no support." But a strong argument you were inclined to dismiss — because you disliked the speaker or the conclusion — frequently survives steel-manning intact, which is the signal that your resistance was about persuasion, not strength. You have not really evaluated an argument until you have judged its best version rather than its most annoying one.
+
+## Spotting the Difference in Real Debates
+
+Contested public issues are the natural testing ground, because they are where persuasive technique is deployed most heavily and where the stakes of confusing it with strength are highest. The most useful habit is to read a debate looking for the structure beneath the rhetoric: what is each side's actual claim, what evidence supports it, and where exactly do they diverge? That is the logic behind argument mapping — laying out positions, evidence, and the [cruxes](/concepts/cruxes) that separate them — so that a flashy delivery cannot disguise a thin case, and a poorly delivered point cannot hide a strong one.
+
+Take a deliberately balanced example. In a debate over a contested policy, one side may marshal a moving personal story and a tone of moral urgency, while the other offers a dry but representative dataset. Judged by persuasiveness, the story usually wins. Judged by strength, you have to ask which actually bears on the claim: a single narrative speaks to what *can* happen, while representative data speaks to what *generally* happens — and most policy claims are about the general case. The skill is noticing that the more moving argument and the stronger argument are not automatically the same one. Working through real, mapped disagreements — as in our growing library of [logical fallacies in online debates](/blog/5-logical-fallacies-in-online-debates) — trains the eye to separate the two quickly.
+
+## Turning the Test on Yourself
+
+The hardest and most valuable application is internal. The arguments you find *most* persuasive are usually the ones that confirm what you already believe, which means your own sense of conviction is the least trustworthy guide to strength exactly when it feels strongest. Calibrated thinkers treat a surge of "yes, obviously" as a cue to slow down, not speed up — because that feeling tracks agreement, not validity.
+
+A practical discipline is to notice *why* an argument moved you. Was it the evidence and the logic, or was it the confidence, the story, the fact that it took your side? If you can't point to true premises and a valid inference, you have been persuaded without being given a strong reason — and you should hold the conclusion more loosely than the feeling suggests. This is the everyday practice of [confidence calibration](/concepts/confidence-calibration): matching how sure you are to how strong the case actually is, rather than to how good it felt to hear.
+
+## The Bottom Line
+
+Persuasiveness measures an argument's effect on you; strength measures whether it actually earns its conclusion. They line up often enough that we forget they are different — and that forgetting is exactly what skilled persuaders, advertisers, and demagogues rely on. The defense is a deliberate two-step: feel free to notice that an argument is compelling, but then ask the separate question of whether it is strong. State the claim precisely, check that the premises are true, check that they really support the conclusion, and ask what was left out. Steel-man it, and see whether the best version survives. Do this consistently and you become much harder to move by anything other than a good reason — which is the whole point.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Both-sides case study: minimum wage (tied to existing flagship topic)
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "minimum-wage-both-sides",
+    title: "Does Raising the Minimum Wage Kill Jobs? The Strongest Case on Each Side",
+    description:
+      "Economists genuinely disagree about the minimum wage. Here's the strongest steel-manned case for and against — and the empirical crux that actually divides them.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T20:00:00Z",
+    readingTime: "10 min read",
+    tags: ["minimum wage", "economics", "both sides", "steel-manning", "policy"],
+    category: "Both Sides",
+    content: `## A Debate Where the Experts Genuinely Disagree
+
+Few economic questions are argued with more confidence and less humility than the minimum wage. One side treats it as obvious that forcing employers to pay more must price the least-skilled workers out of jobs; the other treats it as equally obvious that a raise simply moves money from profits to workers who badly need it, at little cost. What makes the minimum wage such a valuable case study is that, unlike many partisan fights, the disagreement among *economists* is real, unusually narrow, and genuinely empirical — and both sides can point to serious evidence. This is a debate where [steel-manning](/concepts/steel-manning) the opposing view is not just good manners but a necessity, because the honest answer hinges on a quantity that is genuinely hard to measure. Our full [minimum wage analysis](/topics/minimum-wage-effects) maps the weighted evidence; here is the structure.
+
+## The Crux: How Sensitive Is Low-Wage Hiring to Its Price?
+
+Strip the debate to its core and almost the entire disagreement reduces to a single empirical question: when the wage floor rises, how much does employment of low-wage workers actually fall — a lot, a little, or not at all? Everything else follows from where you land on that. This is the [crux](/concepts/cruxes), and naming it clarifies why two honest economists can read the same world differently.
+
+Two models of the low-wage labor market pull in opposite directions:
+
+- **The competitive model** treats wages as set by supply and demand. A minimum wage is a price floor; set it above the market-clearing wage and, like any price floor, it produces a surplus — in this case, unemployed workers who would have been hired at the lower wage. On this view, disemployment is close to a matter of definition.
+- **The monopsony model** notes that many low-wage employers have real wage-setting power (workers can't costlessly switch jobs, employers are few relative to workers in a local market). Where that power exists, a modestly higher mandated wage can actually *increase* employment, up to a point, because it offsets the employer's ability to suppress wages and hours below the competitive level.
+
+Which model better describes the real world — and over what range of wage increases — is the thing the evidence is trying to settle. The argument is not really about values; it is about an elasticity.
+
+## The Strongest Case Against Raising It
+
+The case against is not a caricature about greedy employers, and steel-manning it means taking its best version seriously.
+
+- **Basic price theory.** If you raise the price of anything, people buy less of it; labor is not obviously exempt. A wage floor set above what some workers produce makes hiring them a money-loser, and the predictable response is fewer hires, reduced hours, or accelerated automation.
+- **The burden falls on the intended beneficiaries.** The disemployment risk is concentrated among exactly the people the policy aims to help: teenagers, workers with the least experience or education, and those in low-margin regions where the mandated wage bites hardest relative to local productivity.
+- **Large, careful studies find real effects.** A substantial body of research, associated with economists such as David Neumark and William Wascher, finds measurable negative employment effects from minimum-wage increases, particularly for younger and less-skilled workers, and argues that studies finding no effect often miss longer-run adjustments.
+- **The official scorekeeper sees a real cost.** The Congressional Budget Office's 2019 analysis of a $15 federal minimum estimated it would raise earnings for roughly 17 million workers and lift around 1.3 million out of poverty — while its central estimate projected about 1.3 million jobs lost, within a wide range running from near zero to several million. The cost is uncertain, but the central estimate is not zero.
+- **Better-targeted tools exist.** Critics argue that policies like the Earned Income Tax Credit channel money to low-income households more precisely, without putting the cost on the marginal hiring decision or risking the jobs of the least employable.
+
+The strongest version of this case is not "any raise is catastrophic." It is that the cost is real, falls on the vulnerable, grows with the size of the increase, and is often ignored by advocates who count only the workers who get a raise and not the ones who don't get hired.
+
+## The Strongest Case for Raising It
+
+The case for is likewise more than a slogan, and its best version rests on evidence that genuinely surprised the profession.
+
+- **The landmark natural experiment.** In 1994, economists David Card and Alan Krueger compared fast-food employment in New Jersey, which raised its minimum wage, with neighboring Pennsylvania, which did not. Contrary to the textbook prediction, they found no employment loss — and possibly a small gain. The study reshaped the field and was part of the work for which Card shared the 2021 Nobel Prize.
+- **Monopsony is real.** A growing literature finds that employer wage-setting power is widespread in low-wage labor markets, which is exactly the condition under which a higher floor need not cost jobs and can even raise employment. The competitive model is not the only game in town, and may not be the right one for the markets in question.
+- **Modern methods find small effects.** A 2019 study by Cengiz, Dube, Lindner, and Zipperer examined many U.S. state minimum-wage increases using a "bunching" method that tracks jobs just above and below the new floor, and found that the number of low-wage jobs lost was small — wages rose substantially without a corresponding drop in employment.
+- **Offsetting benefits.** Higher pay can reduce costly worker turnover, raise productivity through "efficiency wage" effects, increase the spending power of low-income households, and lower reliance on public assistance — benefits that a narrow head-count of jobs misses.
+- **The floor has eroded.** The U.S. federal minimum has held at $7.25 since 2009, losing substantial real value to inflation, so part of the case is simply restoring purchasing power that time has quietly stripped away.
+
+The strongest version of this case is not "a raise is always free." It is that the disemployment effect of moderate increases has repeatedly turned out to be small or undetectable, that the offsetting benefits are real, and that the competitive model's confident prediction of job losses is not what the best natural experiments actually show.
+
+## What the Best Evidence Actually Shows
+
+Held side by side, the literatures converge more than the public debate suggests, and the convergence points back to the crux. The emerging center of gravity among labor economists is roughly this: *moderate* minimum-wage increases — those that stay within a reasonable ratio of the local median wage — tend to have small employment effects while delivering real income gains, whereas *very large* increases pushed well above local norms carry genuine and harder-to-predict disemployment risk. In other words, the answer depends heavily on the size of the increase relative to local wages, which is why a finding from a high-wage coastal city may not transfer to a low-wage rural one.
+
+Seattle's move toward a $15 minimum illustrates the unresolved frontier: one prominent study from the University of Washington found reduced hours for low-wage workers, while other analyses found gains, and reconciling them turns on technical choices about who counts and how. The honest reading is that the effects of the largest increases are still being measured. This is a textbook case of disciplined [evidence weighting](/concepts/evidence-weighting): the question is not "is there a study that shows job losses?" (there is) or "is there a study that shows none?" (there is) but what the full body of evidence, weighted by quality and matched to the size of the policy, indicates.
+
+## What the International Evidence Adds
+
+The United States is not the only natural laboratory. When the United Kingdom introduced a national minimum wage in 1999, many economists predicted job losses; the independent Low Pay Commission that monitors and adjusts it has generally found little adverse effect on employment across more than two decades of gradual increases, which is part of why the policy now enjoys broad cross-party support there. Germany's introduction of a national statutory minimum wage in 2015 was likewise widely expected to cost jobs and largely did not, though it did reshape some marginal, low-hour forms of employment. These cases reinforce the emerging picture: carefully phased increases, watched and adjusted by an evidence-gathering body, have repeatedly produced smaller employment effects than the simple competitive model predicts. The caveat cuts the other way too — these were minimums kept moderate relative to local wages, so they speak less to the very large increases that remain the genuinely open question.
+
+There is also a distributional wrinkle that both sides invoke. Not every minimum-wage earner lives in a poor household — some are teenagers or second earners in comfortable families — so a portion of any raise flows to people who are not the intended targets, which critics cite as inefficiency. Supporters counter that the bulk of the gains still reach low-income working households, and that the policy reaches them without the stigma, paperwork, or take-up gaps of means-tested programs. Both observations can be true at once, and which one weighs more is partly a question of values rather than economics — a useful reminder that even a sharply empirical debate has a value layer underneath.
+
+## What Would Change Informed Minds
+
+Because this is an empirical disagreement, both sides can name evidence that would move them — the hallmark of a genuine factual dispute rather than a tribal one:
+
+- High-quality evidence on the effects of *very large* increases (toward and beyond $15 in low-wage areas) would sharpen the part of the question that remains genuinely open.
+- Better measurement of the non-employment margins — hours, scheduling, automation, benefits, and prices — would reveal costs or their absence that simple job counts miss.
+- Firmer estimates of how widespread monopsony power actually is, and in which markets, would tell us which model applies where.
+
+Notice that none of these are about values. Someone who supports a higher minimum and someone who opposes one can agree completely on what fact would settle their dispute — they simply expect that fact to come out differently.
+
+## The Bottom Line
+
+The defensible position on the minimum wage is calibrated, not slogan-shaped. Moderate increases scaled to local wages appear, on the best current evidence, to help low-income workers more than they hurt, with small employment effects; very large national increases carry real disemployment risk with wide uncertainty around the cost. Both confident extremes — "it always destroys jobs" and "it never costs anything" — claim more than the evidence supports. The value of the debate is as a model: a real disagreement, narrowed to a measurable crux, where steel-manning each side is the only path to an honest answer. You can explore the full weighted evidence and the specific cruxes on the [topic page](/topics/minimum-wage-effects), or see the same logic applied to a related labor-market question in our analysis of [whether immigration lowers wages](/topics/immigration-wage-impact).`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {
