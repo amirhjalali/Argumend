@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence, type MotionProps } from "framer-motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Info, X } from "lucide-react";
 import { VARIANT_STYLES } from "@/lib/variantStyles";
@@ -21,27 +21,85 @@ const LEGEND_ORDER: { variant: NodeVariant; description: string }[] = [
   { variant: "question", description: "Questions still worth asking" },
 ];
 
-export function MapLegend() {
-  // Open on desktop (lg and up); start collapsed below 1024px so it doesn't
-  // cover the canvas on tablet portrait and mobile.
-  const isLargeScreen = useMediaQuery("(min-width: 1024px)");
-  const [isOpen, setIsOpen] = useState(isLargeScreen);
+interface MapLegendProps {
+  /**
+   * When provided, a persistent "Find the crux" affordance is shown alongside
+   * the legend toggle so the crux (otherwise buried an expansion deep) is one
+   * click away. Passed only when a crux is reachable in the current graph.
+   */
+  onFindCrux?: () => void;
+}
 
-  // React to crossing the lg breakpoint (e.g. tablet rotation / resize).
-  useEffect(() => {
-    setIsOpen(isLargeScreen);
-  }, [isLargeScreen]);
+export function MapLegend({ onFindCrux }: MapLegendProps) {
+  // Default-collapsed on every screen: on first paint the canvas should show a
+  // small toggle pill, not a tall card occluding the 300–340px nodes. Expands
+  // on click; all content is preserved when open.
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Honour prefers-reduced-motion — swap the spring/scale entrances for a quick
+  // opacity fade so motion-sensitive users don't get the pop-in.
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+
+  const cardMotion: MotionProps = reducedMotion
+    ? {
+        initial: false,
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.12 },
+      }
+    : {
+        initial: { opacity: 0, y: 10, scale: 0.95 },
+        animate: { opacity: 1, y: 0, scale: 1 },
+        exit: { opacity: 0, y: 10, scale: 0.95 },
+        transition: { duration: 0.2, ease: "easeOut" },
+      };
+
+  const pillMotion: MotionProps = reducedMotion
+    ? {
+        initial: false,
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.12 },
+      }
+    : {
+        initial: { opacity: 0, scale: 0.95 },
+        animate: { opacity: 1, scale: 1 },
+        exit: { opacity: 0, scale: 0.95 },
+        transition: { duration: 0.2 },
+      };
+
+  const crux = VARIANT_STYLES.crux;
+  const CruxIcon = crux.Icon;
 
   return (
-    <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 z-50" aria-label="Map legend" role="region">
+    <div
+      className="absolute bottom-3 left-3 md:bottom-6 md:left-6 z-50 flex flex-col items-start gap-2"
+      aria-label="Map controls"
+      role="region"
+    >
+      {/* Persistent crux affordance — surfaces the crux without the user having
+          to dig through expansions. Sits above the legend toggle. */}
+      {onFindCrux && (
+        <motion.button
+          {...pillMotion}
+          onClick={onFindCrux}
+          aria-label="Find the crux — jump to what would settle the debate"
+          className="flex items-center gap-1.5 rounded-xl border bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm px-3 py-2 text-xs shadow-lg transition-all hover:shadow-xl focus:outline-none focus-visible:ring-2"
+          style={{
+            color: crux.accentColor,
+            borderColor: `${crux.accentColor}40`,
+          }}
+        >
+          <CruxIcon className="h-3.5 w-3.5" style={{ color: crux.accentColor }} strokeWidth={2} />
+          <span className="font-semibold">Find the crux</span>
+        </motion.button>
+      )}
+
       <AnimatePresence mode="wait">
         {isOpen ? (
           <motion.div
             key="legend"
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            {...cardMotion}
             className="w-48 md:w-56 lg:w-64 rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm p-4 md:p-5 shadow-2xl max-h-[45vh] md:max-h-none overflow-y-auto"
           >
             {/* Header */}
@@ -100,9 +158,7 @@ export function MapLegend() {
         ) : (
           <motion.button
             key="button"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+            {...pillMotion}
             onClick={() => setIsOpen(true)}
             aria-label="Show map legend"
             className="flex items-center gap-1.5 rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm px-3 py-2 text-xs text-stone-500 dark:text-[#8a8279] shadow-lg hover:border-stone-300 dark:hover:border-[#4a4640] hover:shadow-xl transition-all"
