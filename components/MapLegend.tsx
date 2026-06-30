@@ -3,55 +3,22 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import {
-  Landmark,
-  Swords,
-  Shield,
-  Scale,
-  ScrollText,
-  MessageCircleQuestion,
-  Info,
-  X,
-  Crown,
-} from "lucide-react";
+import { Info, X } from "lucide-react";
+import { VARIANT_STYLES } from "@/lib/variantStyles";
+import type { NodeVariant } from "@/types/graph";
 
-const LEGEND_ITEMS = [
-  {
-    label: "Meta Claim",
-    description: "The big question being examined",
-    color: "#4f7b77",
-    Icon: Crown,
-  },
-  {
-    label: "Proponent",
-    description: "The best case for the claim",
-    color: "#C4613C",
-    Icon: Shield,
-  },
-  {
-    label: "Skeptic",
-    description: "The strongest objection",
-    color: "#8B5A3C",
-    Icon: Swords,
-  },
-  {
-    label: "Evidence",
-    description: "Data, studies, and sources",
-    color: "#4f7b77",
-    Icon: ScrollText,
-  },
-  {
-    label: "Crux",
-    description: "What would settle this",
-    color: "#a23b3b",
-    Icon: Scale,
-  },
-  {
-    label: "Inquiry",
-    description: "Questions still worth asking",
-    color: "#78716c",
-    Icon: MessageCircleQuestion,
-  },
+// The legend is DERIVED from VARIANT_STYLES (the single source of truth for
+// each variant's label, color, and icon) so it can never drift from what the
+// node headers actually render. Only the human-friendly description and the
+// reading order live here — neither appears on a node, so neither can drift.
+const LEGEND_ORDER: { variant: NodeVariant; description: string }[] = [
+  { variant: "meta", description: "The big question being examined" },
+  { variant: "pillar", description: "A core supporting argument" },
+  { variant: "proponent", description: "The best case for the claim" },
+  { variant: "skeptic", description: "The strongest objection" },
+  { variant: "crux", description: "What would settle the debate" },
+  { variant: "evidence", description: "Data, studies, and sources" },
+  { variant: "question", description: "Questions still worth asking" },
 ];
 
 export function MapLegend() {
@@ -91,33 +58,36 @@ export function MapLegend() {
               </button>
             </div>
 
-            {/* Legend items */}
+            {/* Legend items — label/color/icon come straight from VARIANT_STYLES */}
             <div className="space-y-2.5 md:space-y-3">
-              {LEGEND_ITEMS.map((item) => (
-                <div key={item.label} className="flex items-start gap-2.5 md:gap-3">
-                  <div
-                    className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg flex-shrink-0"
-                    style={{ backgroundColor: `${item.color}12` }}
-                  >
-                    <item.Icon
-                      className="h-3.5 w-3.5"
-                      style={{ color: item.color }}
-                      strokeWidth={2}
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p
-                      className="text-xs font-semibold leading-tight"
-                      style={{ color: item.color }}
+              {LEGEND_ORDER.map(({ variant, description }) => {
+                const { label, accentColor, Icon } = VARIANT_STYLES[variant];
+                return (
+                  <div key={variant} className="flex items-start gap-2.5 md:gap-3">
+                    <div
+                      className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg flex-shrink-0"
+                      style={{ backgroundColor: `${accentColor}12` }}
                     >
-                      {item.label}
-                    </p>
-                    <p className="text-[10px] md:text-[11px] leading-snug text-stone-500 dark:text-[#8a8279] mt-0.5">
-                      {item.description}
-                    </p>
+                      <Icon
+                        className="h-3.5 w-3.5"
+                        style={{ color: accentColor }}
+                        strokeWidth={2}
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p
+                        className="text-xs font-semibold leading-tight"
+                        style={{ color: accentColor }}
+                      >
+                        {label}
+                      </p>
+                      <p className="text-[10px] md:text-[11px] leading-snug text-stone-500 dark:text-[#8a8279] mt-0.5">
+                        {description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Tip */}
