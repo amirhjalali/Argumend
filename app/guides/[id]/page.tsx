@@ -130,6 +130,16 @@ export default async function GuidePage({ params }: PageProps) {
     dateModified: "2025-12-05",
     articleSection: "Foundational Guides",
     inLanguage: "en-US",
+    about: {
+      "@type": "Thing",
+      name: guide.title,
+      description: guide.subtitle,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Argumend",
+      url: "https://argumend.org",
+    },
     image: {
       "@type": "ImageObject",
       url: `https://argumend.org/api/og/guides/${guide.id}`,

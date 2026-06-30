@@ -343,12 +343,22 @@ export default function GlossaryPage() {
     new Set(sortedTerms.map((t) => t.term[0].toUpperCase()))
   ).sort();
 
-  const definedTerms = terms.map((t) => ({
-    "@type": "DefinedTerm",
-    name: t.term,
-    description: t.definition,
-    inDefinedTermSet: "https://argumend.org/glossary",
-  }));
+  const definedTerms = terms.map((t) => {
+    // Match the on-page anchor slug so each term's JSON-LD url resolves to a
+    // real in-page target (same transform used when rendering the <dl> below).
+    const termId = t.term
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[()]/g, "");
+    return {
+      "@type": "DefinedTerm",
+      "@id": `https://argumend.org/glossary#${termId}`,
+      name: t.term,
+      description: t.definition,
+      url: `https://argumend.org/glossary#${termId}`,
+      inDefinedTermSet: "https://argumend.org/glossary",
+    };
+  });
 
   // Tracks which letters already have a jump-link target, so each `#letter-X`
   // anchor is emitted exactly once (on the first term of that letter in DOM

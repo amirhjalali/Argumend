@@ -153,6 +153,11 @@ export default async function IsClaimPage({ params }: PageProps) {
   const qaPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "QAPage",
+    inLanguage: "en-US",
+    about: {
+      "@type": "Thing",
+      name: topic.title,
+    },
     mainEntity: {
       "@type": "Question",
       name: claim.question,
