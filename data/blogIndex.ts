@@ -1195,4 +1195,52 @@ export const articleSummaries: ArticleSummary[] = [
     publishedAt: "2026-06-29T23:00:00Z",
     readingTime: "9 min read",
   },
+  {
+    slug: "survivorship-bias-explained",
+    title: "Survivorship Bias, Explained: Why You Only Ever Hear From the Winners",
+    description:
+      "Survivorship bias makes you learn only from the survivors and ignore the silent failures. Here's how this filter distorts advice, investing, and history.",
+    tags: [
+      "survivorship bias",
+      "logical fallacies",
+      "selection bias",
+      "critical thinking",
+      "decision making",
+    ],
+    category: "Logic & Reasoning",
+    publishedAt: "2026-06-29T23:15:00Z",
+    readingTime: "9 min read",
+  },
+  {
+    slug: "immigration-economy-both-sides",
+    title: "Does Immigration Help or Hurt the Economy? The Strongest Case on Each Side",
+    description:
+      "Does immigration help or hurt the economy? Here's the strongest steel-manned case for and against — and the empirical crux that actually divides economists.",
+    tags: [
+      "immigration",
+      "economics",
+      "both sides",
+      "wages",
+      "steel-manning",
+    ],
+    category: "Both Sides",
+    publishedAt: "2026-06-29T23:30:00Z",
+    readingTime: "11 min read",
+  },
+  {
+    slug: "how-to-read-a-scientific-study",
+    title: "How to Read a Scientific Study Like a Skeptic (Without a PhD)",
+    description:
+      "Most people read the headline, not the study. Here's a no-PhD checklist for reading research: study type, sample size, causation, and conflicts of interest.",
+    tags: [
+      "how to read a scientific study",
+      "research literacy",
+      "evidence",
+      "critical thinking",
+      "science",
+    ],
+    category: "Critical Thinking",
+    publishedAt: "2026-06-29T23:45:00Z",
+    readingTime: "10 min read",
+  },
 ];

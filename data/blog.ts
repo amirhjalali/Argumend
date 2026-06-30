@@ -6580,6 +6580,264 @@ The common thread is that each mistake comes from skipping one of the two questi
 
 You do not need the formula to think like a Bayesian; you need two habits. Before weighing any new evidence, ask how common the thing is in general, and anchor there. Then ask how strong the evidence really is — how much more likely it would be if the claim were true than if it were false — and move from your anchor by that much, no further. Strong evidence, big move; weak evidence, small move; but always *from* the base rate, never from zero or from certainty. Do this consistently and your beliefs become graded, your updates become honest, and your disagreements become diagnosable. That is the entire payoff of a frighteningly named idea that turns out to be common sense, applied with discipline.`,
   },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Survivorship Bias, Explained
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "survivorship-bias-explained",
+    title: "Survivorship Bias, Explained: Why You Only Ever Hear From the Winners",
+    description:
+      "Survivorship bias makes you learn only from the survivors and ignore the silent failures. Here's how this filter distorts advice, investing, and history.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T23:15:00Z",
+    readingTime: "9 min read",
+    tags: [
+      "survivorship bias",
+      "logical fallacies",
+      "selection bias",
+      "critical thinking",
+      "decision making",
+    ],
+    category: "Logic & Reasoning",
+    content: `## The bullet holes that weren't there
+
+During World War II, the U.S. military studied the bombers returning from missions over Europe, mapping where they were riddled with bullet holes. The damage clustered on the wings, the tail, and the fuselage, so the obvious move was to add armor there. The mathematician Abraham Wald stopped them. The planes they were studying, he pointed out, were the ones that *came back*. The places that showed no holes — the engines, the cockpit — were precisely the places where a hit was fatal. The bombers shot there never returned to be examined. The armor belonged where the data showed no damage at all.
+
+That insight has a name: **survivorship bias** — the error of drawing conclusions from the cases that made it through some selection process while ignoring the cases that didn't, because the failures are invisible. It is one of the most common and least obvious reasoning mistakes there is, precisely because the evidence it leans on looks complete. You are studying real data. You simply cannot see the data that's missing.
+
+## What survivorship bias actually is
+
+Survivorship bias is a species of **selection bias**: your sample has been filtered before it reaches you, and the filter systematically removes one category of cases. The survivors sit in front of you, vivid and countable. The non-survivors are gone, silent, and easy to forget.
+
+The structure is always the same:
+
+- A process selects some cases to "survive" and discards the rest.
+- You only ever see the survivors.
+- You then conclude something about *all* cases — or about *what causes survival* — from a sample that is, by construction, not representative.
+
+The trap is not that the survivors are fake. They are perfectly real. The trap is that they are the wrong sample for the question you're asking, and the right sample has been deleted before you arrived.
+
+## Where you meet it every day
+
+Once you have the pattern, you start seeing it everywhere:
+
+- **Business advice.** Bookshelves groan with "the habits of billionaires" and "how this founder dropped out and built an empire." But for every dropout founder who succeeded, thousands dropped out and failed — and nobody publishes their memoir. If you study only winners, you will mistake the traits they happen to share for the *causes* of their success, when those same traits might be just as common among the people who lost. The honest question is the one no bestseller answers: how many people did exactly this and failed?
+- **Investing.** Fund advertisements show you the funds with a glittering ten-year record. The funds that performed badly were quietly closed or merged into others, so they drop out of the average. The survivors make the whole category look stronger than it was — a real, measurable distortion that finance researchers literally call the survivorship bias in reported returns.
+- **"They don't build them like they used to."** Old buildings, old furniture, and old tools often seem more beautifully made than today's. Some of that is genuine. But much of it is survivorship bias: the flimsy buildings and shoddy furniture of 1890 fell apart and were thrown out generations ago. Only the best-built examples survived to charm you. You are comparing the *average* new thing against the *top survivors* of the old.
+- **Health anecdotes.** "My grandfather smoked a pack a day and lived to 95." He is a survivor; the smokers who died at 60 are not around to be quoted. Stories of people who thrived despite a risky habit are survivorship bias in its most personal form.
+- **"College is a waste — look at all these dropouts who got rich."** Same trap, different costume: a handful of visible winners standing in for an invisible ocean of losers.
+
+## Why it is so persuasive
+
+Survivorship bias is hard to resist because it does not *feel* like a gap in the evidence. Most reasoning errors involve weak or sketchy data. This one involves data that is solid, specific, and often abundant. The funds really did return 12%. The founders really did drop out. Wald's bombers really were covered in holes. Nothing you can see is wrong.
+
+The failure is entirely in what you *cannot* see, and human attention is built to work with what's present, not to mourn what's absent. Vivid survivors — a billionaire on a magazine cover, a 95-year-old smoker at a birthday party — are concrete and memorable. The silent failures are abstract: a number you would have to go looking for, a population you have to reconstruct in your head. Given a contest between a vivid example and an invisible statistic, the example wins almost every time. That is exactly the asymmetry that good [evidence weighting](/concepts/evidence-weighting) is meant to correct.
+
+## Survivorship bias and its close cousins
+
+It sits near several other reasoning errors, and telling them apart sharpens all of them.
+
+- **It is not quite [cherry-picking](/fallacies/cherry-picking).** Cherry-picking is something *you* do: you scan all the available data and present only the bits that help your case. Survivorship bias is usually something the *world* did to your data before you ever saw it — the filtering happened upstream, and you may be entirely sincere in reasoning from what's left. The remedy differs too: against cherry-picking you ask "what did they leave out?"; against survivorship bias you ask "what got deleted before anyone could leave it in?"
+- **It overlaps with the [hasty generalization](/blog/hasty-generalization-fallacy-explained).** Both end in a conclusion drawn from an unrepresentative sample. The difference is *why* the sample is bad: a hasty generalization uses a sample that's simply too small or too casual, while survivorship bias uses a sample that's been systematically pruned of its failures.
+- **At root, it is a base-rate problem.** The survivors tell you the numerator — the wins — but not the denominator — everyone who tried. Without the denominator you cannot compute a rate, and a rate is what almost every interesting question actually wants. This is the same discipline behind [Bayesian thinking](/blog/bayesian-thinking-for-normal-people): start from how common an outcome is across the whole population, not from the dramatic cases that happen to be in view.
+
+## How to defend against it
+
+You don't need statistics to catch survivorship bias. You need a few stubborn questions.
+
+1. **Ask "Where are the failures?"** Whenever you're shown a set of successes, immediately ask what happened to everyone who tried and isn't in the picture. If you can't find them, that's not reassurance — it's the warning sign.
+2. **Reconstruct the denominator.** A success rate of "five famous winners" means nothing until you ask: five out of how many? Five out of fifty is a great bet; five out of five million is a lottery ticket. The number that matters is almost always the one nobody quotes.
+3. **Find the selection filter.** Ask what process decided which cases you get to see. Funds that close, planes that don't return, buildings that were demolished, people who didn't live to be interviewed — name the filter, and the missing data comes into focus.
+4. **Compare like with like.** If you're tempted to conclude old things were better made, compare the average old thing to the average new thing, not the surviving old thing to a random new one.
+5. **Be most skeptical of advice *from* survivors.** The people best positioned to tell you "here's what worked" are, by definition, the ones it worked for. Their advice may be sincere and still useless, because the same playbook may have sunk a hundred others who never got a podcast.
+
+## The bottom line
+
+Survivorship bias is not exotic, and it is not a trick that only fools other people. It is the default way the mind reads a filtered world: pay attention to what's in front of you, and quietly forget that something decided what gets to be in front of you. Wald's contribution was not a formula. It was a question — *which planes am I not seeing?* — and that question is the whole defense. Before you let a row of winners convince you of anything, find the losers. If you can't find them, assume they're there, count how many there must be, and ask whether the pattern survives once they're back in the room. Usually the lesson changes. Sometimes it reverses. That is the difference between learning from data and being selected by it.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Does Immigration Help or Hurt the Economy? (Both Sides)
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "immigration-economy-both-sides",
+    title: "Does Immigration Help or Hurt the Economy? The Strongest Case on Each Side",
+    description:
+      "Does immigration help or hurt the economy? Here's the strongest steel-manned case for and against — and the empirical crux that actually divides economists.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T23:30:00Z",
+    readingTime: "11 min read",
+    tags: [
+      "immigration",
+      "economics",
+      "both sides",
+      "wages",
+      "steel-manning",
+    ],
+    category: "Both Sides",
+    content: `## The debate that generates more heat than light
+
+Few topics produce more confident assertions and less careful reasoning than immigration's effect on the economy. One side treats it as obvious that newcomers grow the pie and enrich everyone; the other treats it as obvious that they undercut wages and strain public budgets. Both sides can point to real evidence, and both can find an economist who agrees with them — which is usually a sign that the question has been asked too crudely.
+
+So before taking a side, it helps to do what [steel-manning](/concepts/steel-manning) asks: state each position in its strongest form, find what's actually true, and then locate the narrow place where reasonable people genuinely diverge. When you do that here, the shouting match resolves into a much smaller and more interesting disagreement.
+
+## First, split the question
+
+"Is immigration good for the economy?" is really several questions wearing one coat, and they have different answers:
+
+- **Aggregate vs. distributional.** Does immigration grow total output (GDP), and *separately*, how are the gains and losses distributed across natives, prior immigrants, and newcomers?
+- **Short run vs. long run.** Effects on wages, housing, and public services in the first few years can differ sharply from effects over a generation.
+- **Skill mix.** A software engineer on an H-1B and a low-wage agricultural worker have very different fiscal and labor-market footprints. "Immigrants" is not one input.
+- **Fiscal vs. labor-market.** Whether immigrants pay more in taxes than they consume in services is a distinct question from whether they raise or lower native wages.
+
+Most unproductive immigration arguments are two people answering different versions of this question and assuming the other is lying. Keep the four splits in mind; they're where the real action is. Our full breakdowns of the [wage-impact question](/topics/immigration-wage-impact) and the broader [border and policy debate](/topics/immigration-border-crisis) map the evidence in more detail.
+
+## The strongest case that immigration helps the economy
+
+The pro-immigration economic case is not a slogan about diversity. It rests on mainstream economics:
+
+- **It grows the pie.** More workers and consumers mean more output. Economies are not fixed-size pies with a fixed number of jobs — that "lump of labor" assumption is one economists almost universally reject. Immigrants spend, rent, start businesses, and create demand that supports other jobs.
+- **Complementarity, not just competition.** Immigrants often fill roles that complement native workers rather than substitute for them. Lower-skilled immigrant labor in childcare, construction, and food service can raise the productivity (and wages) of higher-skilled natives by freeing their time and lowering input costs. Highly skilled immigrants fill shortages in medicine, engineering, and research.
+- **Entrepreneurship and innovation.** Immigrants found new businesses and file patents at rates above their share of the population in the United States, and a striking fraction of high-value startups have at least one immigrant founder. Innovation is a major driver of long-run growth.
+- **Demographics and the fiscal long run.** Aging societies with falling birth rates face shrinking workforces supporting growing retiree populations. Working-age immigrants can ease that imbalance, paying into pension and health systems during their most productive years.
+- **The wage evidence is milder than feared.** The famous study of the 1980 Mariel boatlift, when Miami's labor force jumped roughly 7% almost overnight, found little measurable effect on the wages of existing low-skilled workers. The U.S. National Academies' comprehensive 2016 review concluded that the long-run impact of immigration on the *average* wages of native-born workers is very small.
+
+Steel-manned, the pro side says: immigration reliably expands the economy, its average effect on native wages is close to zero, its fiscal effect over the long run is positive — especially for skilled immigrants and their children — and the dynamic gains from entrepreneurship and demographics are large and underrated.
+
+## The strongest case that immigration hurts (some people, some of the time)
+
+The skeptical economic case is also not just xenophobia dressed up. Its strongest version is careful and largely distributional:
+
+- **Specific workers can lose even if the average doesn't.** "No effect on the average native" is consistent with real losses for the workers who compete most directly with new arrivals. George Borjas's reanalysis of the same Mariel episode argued that wages of the *least-educated* workers — high-school dropouts — did fall noticeably. The people most exposed are often prior immigrants and native workers without a high-school diploma. An average that nets winners against losers can hide a genuinely harmed group.
+- **Short-run fiscal strain is real and local.** The same National Academies report found that first-generation immigrants, taken alone, can be a net fiscal cost in a given year — largely because of the cost of educating their children — even though those children typically become strong net contributors as adults. Costs and benefits land on different governments (local schools pay now; federal coffers collect later) and in different decades, which fuels real local resentment.
+- **It depends heavily on the welfare state and the skill mix.** In a generous welfare state, lower-skilled immigration can strain public budgets more than in a lean one; the fiscal math is very sensitive to whether arrivals are high- or low-skilled. "Immigration pays for itself" is true for some compositions and false for others.
+- **Absorption has limits and lags.** Housing supply, school capacity, and infrastructure adjust slowly. A large, rapid inflow concentrated in a few cities can outpace the housing stock and push up rents before construction catches up — a cost borne disproportionately by lower-income residents, including earlier immigrants.
+
+Steel-manned, the skeptic side says: aggregate gains are real but unevenly shared; the costs fall on identifiable, often already-vulnerable groups and on local budgets in the short run; and the fiscal verdict swings hard on skill composition and welfare generosity, so "immigration is good for the economy" is too coarse to be a useful claim.
+
+## Where the evidence is actually fairly settled
+
+Strip away the rhetoric and a surprising amount is not really in dispute among economists:
+
+- **Immigration raises total GDP.** More people producing and consuming means a bigger economy. This is close to consensus.
+- **The average effect on native wages is small.** Across the credible literature, the impact on the typical native worker's wage is modest in either direction. The fights are about specific subgroups, not the average.
+- **High-skilled immigration is a clear long-run fiscal and innovation win.** Disagreement here is minimal.
+- **Second generations tend to be strong contributors.** The children of immigrants typically pay in more than they cost over a lifetime, which is why short-run and long-run fiscal estimates can point in opposite directions.
+
+If a claim contradicts one of these, it is probably overstated. Notice, too, that framing the whole thing as "open borders versus zero immigration" is a [false dilemma](/fallacies/false-dilemma): essentially the entire serious debate is about *how much*, *which skills*, and *how fast* — not a binary.
+
+## The crux: distribution and time horizon
+
+So where do reasonable, informed people actually split? Not on whether immigration grows the economy — it does — but on a narrower [crux](/concepts/cruxes):
+
+**How much weight should we put on concentrated short-run losses to specific groups, versus diffuse long-run gains spread across everyone?**
+
+The same body of evidence supports both "immigration is an economic positive" (if you focus on aggregate output, long-run fiscal effects, and average wages) and "immigration harms vulnerable workers" (if you focus on low-skill wage competition, short-run local fiscal strain, and the distribution of costs). The disagreement is partly empirical — *how large* is the loss to low-skill natives, the very point on which Card and Borjas read the Mariel data differently — and partly a value judgment about whose losses count for how much.
+
+That structure is identical to the [minimum wage debate](/blog/minimum-wage-both-sides), where a similar fight comes down to how large the disemployment effect is and how to weigh a few lost jobs against many raised wages. In both cases, "who bears the cost and who reaps the gain" does more work than any headline number.
+
+## Where it stops being about economics
+
+Push the crux one more step and you reach questions that data alone cannot settle. How much should a nation prioritize the welfare of its current low-wage citizens over that of would-be immigrants who would gain enormously by arriving? How much weight does the rule of law, or national cohesion, or a sense of fairness about "waiting your turn" deserve alongside GDP? These are genuine value questions, and pretending an economics paper resolves them is its own kind of error.
+
+That's not a counsel of despair. It's clarity. Once you can say "we agree immigration grows the economy and has a small average wage effect; we disagree about how much to weigh concentrated losses, and we hold different values about national priorities," you are having a real conversation instead of trading slogans.
+
+## How to argue about it better
+
+Next time the topic comes up, try three moves. First, ask *which* question the other person is answering — aggregate, distributional, fiscal, or labor-market — because you may both be right about different things. Second, separate the empirical disagreement (how big is the effect on low-skill wages?) from the value disagreement (how much should that group's losses count?), since only the first can be settled with evidence. Third, resist the binary: almost nobody serious wants either zero immigration or unlimited immigration, so the honest debate is always about composition, scale, and speed. Do that, and immigration stops being a culture-war litmus test and becomes what it actually is — a hard policy trade-off with real winners, real losers, and a crux worth naming.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // How to Read a Scientific Study Like a Skeptic
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "how-to-read-a-scientific-study",
+    title: "How to Read a Scientific Study Like a Skeptic (Without a PhD)",
+    description:
+      "Most people read the headline, not the study. Here's a no-PhD checklist for reading research: study type, sample size, causation, and conflicts of interest.",
+    author: "Argumend Team",
+    publishedAt: "2026-06-29T23:45:00Z",
+    readingTime: "10 min read",
+    tags: [
+      "how to read a scientific study",
+      "research literacy",
+      "evidence",
+      "critical thinking",
+      "science",
+    ],
+    category: "Critical Thinking",
+    content: `## The headline is not the study
+
+"Chocolate linked to weight loss." "Coffee causes cancer." "Coffee prevents cancer." Most of what reaches you about science has passed through a press release and a headline writer before it gets to your feed, and both are optimized for clicks, not accuracy. The result is a stream of confident, contradictory claims that leaves a lot of people concluding that science just flip-flops.
+
+It mostly doesn't. The flip-flopping happens in the *translation*, and you can learn to skip the translator. You do not need a PhD or any statistics to read a study more carefully than the person who wrote the headline. You need a short checklist of questions, applied in order. Here it is.
+
+## Step 1: What kind of study is it?
+
+This is the single most useful question, and it takes ten seconds. Not all evidence is equal, and the type of study tells you how much weight a finding can bear before you've read a word of the results. Roughly, from weakest to strongest:
+
+- **Anecdote / case report.** One person, one story. Useful for raising a hypothesis, useless for establishing one.
+- **Observational study** (cohort, case-control, cross-sectional). Researchers observe people without intervening — comparing coffee drinkers to non-drinkers, say. These can show *associations* but struggle to prove *cause* (more on that below).
+- **Randomized controlled trial (RCT).** Participants are randomly assigned to an intervention or a control. Randomization is what lets you actually attribute an effect to the cause, which is why RCTs sit near the top.
+- **Systematic review / meta-analysis.** A structured synthesis of *all* the credible studies on a question. A good one is usually the strongest single thing you can read.
+
+This ladder is the heart of [evidence weighting](/concepts/evidence-weighting), and our [evidence-hierarchy guide](/guides/evidence-hierarchy) walks through it in depth. The practical move: when you see "a new study shows," find out *which rung* it's on. A single observational study contradicting a large meta-analysis is not a tie.
+
+## Step 2: Read the methods, not the abstract
+
+The abstract is the authors' summary of what they want you to take away. The methods section is where you find out whether they earned it. You don't have to understand every term — just check three things:
+
+- **Sample size.** How many participants? A dramatic result from 18 people is a hint, not a finding. Tiny samples produce big, unstable, often irreproducible effects.
+- **Who was studied?** A drug tested only on 25-year-old men may not work the same in 70-year-old women. A finding in mice is not a finding in humans — a huge fraction of results that look spectacular in rodents never replicate in people. "Studied in" is a load-bearing phrase.
+- **How was the outcome measured?** Did they measure the thing you actually care about (people living longer) or a *surrogate* (a blood marker that's supposed to track with living longer)? Surrogate endpoints are convenient and frequently misleading.
+
+## Step 3: Correlation is not causation
+
+This is the error that powers most bad science headlines, and it has its own name — the [post hoc fallacy](/blog/post-hoc-fallacy-explained). An observational study can tell you that two things move together. It usually cannot tell you that one *caused* the other, because of two stubborn problems:
+
+- **Confounding.** Some third factor may drive both. People who drink red wine may live longer not because of the wine but because they tend to be wealthier, with better healthcare and diets. The wine and the longevity are both effects of a hidden cause.
+- **Reverse causation.** Maybe the arrow points the other way. Does poor sleep cause depression, or does depression cause poor sleep? An observational snapshot often can't say.
+
+When a study is observational, mentally translate "X causes Y" into "X is associated with Y," and then ask what else might explain the link. Good researchers list the confounders they tried to adjust for; the honest ones admit they can't rule them all out.
+
+## Step 4: Effect size beats statistical significance
+
+Two phrases get confused constantly, and the confusion is where a lot of hype lives.
+
+- **Statistical significance** (often "p < 0.05") tells you, roughly, that the result is unlikely to be pure chance. It does *not* tell you the effect is large or important. With a big enough sample, a trivially small effect can be "statistically significant."
+- **Effect size** tells you how *big* the effect is — and that's usually what you actually want to know.
+
+Watch especially for the **relative-versus-absolute** trick. "Doubles your risk" sounds terrifying. But if the risk went from 1 in 10,000 to 2 in 10,000, the *relative* risk doubled while the *absolute* risk rose by a hundredth of a percent. Both numbers are true; only one is honestly informative. This sleight of hand and several of its relatives are catalogued in [how to spot a bad statistic](/blog/how-to-spot-a-bad-statistic).
+
+## Step 5: Could it just be a fluke?
+
+A single study, however clean, is one data point. Before you update much, ask whether it would survive being done again.
+
+- **Has it replicated?** Findings that other labs have reproduced are far more trustworthy than a lone, surprising result. Whole fields have discovered that a disturbing share of celebrated findings vanish on replication.
+- **Was it preregistered?** When researchers declare their hypothesis and analysis plan *before* collecting data, they can't quietly fish through the numbers for whatever looks significant — a practice nicknamed p-hacking.
+- **How many things did they test?** If a study measures fifty outcomes and trumpets the one that came out significant, that's expected by chance alone. Selectively reporting the hits while burying the misses is a form of [cherry-picking](/fallacies/cherry-picking), whether or not anyone meant to deceive.
+
+## Step 6: Who paid for it, and what would change the conclusion?
+
+Two final questions, both about honesty rather than method.
+
+- **Follow the funding.** A study isn't wrong because industry funded it, but funding shapes which questions get asked and how results get framed. Check the "conflicts of interest" and "funding" disclosures, usually near the end. They're disclosed for a reason.
+- **Ask what would falsify it.** A trustworthy researcher can tell you what result *would* have undermined their hypothesis. If a claim is built so that no possible finding could ever count against it, it has left science behind — which is the same test of an honest belief we explore in [what would change your mind](/blog/what-would-change-your-mind).
+
+## The 60-second version
+
+When you don't have time for all of it, run this:
+
+1. **What kind of study is it** — anecdote, observational, RCT, or review?
+2. **How many people**, and were they like the people the claim is about?
+3. **Correlation or causation** — did they intervene, or just observe?
+4. **How big is the effect**, in absolute terms, not just "significant"?
+5. **Has it replicated**, and **who funded it**?
+
+Five questions, one minute, and you are already reading more carefully than the headline that sent you there.
+
+## The point isn't cynicism
+
+None of this is an argument for distrusting science. It's the opposite. The goal isn't to dismiss studies — it's to know how much weight each one can carry, so that a strong, replicated, well-designed finding moves you a lot and a shaky, lone, conflicted one moves you a little. That graded response is exactly what good thinking looks like: not "I believe it" or "I don't," but "this is worth *this much*." Read enough studies this way and the apparent flip-flopping of science fades, because you stop reacting to each headline and start watching where the weight of the evidence actually settles.`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {
