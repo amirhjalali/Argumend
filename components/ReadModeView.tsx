@@ -18,32 +18,21 @@ import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { FalsificationCrux } from "@/components/FalsificationCrux";
 import { FlagshipIntro } from "@/components/FlagshipIntro";
 import { topics, getCrossCategoryRelated } from "@/data/topics";
+import { categoryColors, statusColors } from "@/lib/categoryColors";
 
+// Labels + icons are local; chip colors come from the canonical, dark-mode-aware
+// maps in lib/categoryColors so a category/status reads the same color everywhere.
 const statusMeta: Record<TopicStatus, { label: string; icon: typeof CheckCircle; chip: string }> = {
-  settled: {
-    label: "Settled",
-    icon: CheckCircle,
-    chip: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  },
-  contested: {
-    label: "Contested",
-    icon: AlertCircle,
-    chip: "bg-rust-50 text-rust-700 border-rust-200/60",
-  },
+  settled: { label: "Settled", icon: CheckCircle, chip: statusColors.settled },
+  contested: { label: "Contested", icon: AlertCircle, chip: statusColors.contested },
   highly_speculative: {
     label: "Highly Speculative",
     icon: HelpCircle,
-    chip: "bg-stone-100 text-stone-700 border-stone-200/60",
+    chip: statusColors.highly_speculative,
   },
 };
 
-const categoryChip: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep border-deep/20",
-  technology: "bg-stone-100 text-stone-700 border-stone-200/60",
-  science: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  economics: "bg-rust-50 text-rust-700 border-rust-200/60",
-  philosophy: "bg-stone-100 text-stone-700 border-stone-200/60",
-};
+const categoryChip: Record<TopicCategory, string> = categoryColors;
 
 function strongest(evidence: Evidence[] | undefined, side: "for" | "against"): Evidence | null {
   if (!evidence?.length) return null;

@@ -51,13 +51,13 @@ import { SaveTopicButton } from "@/components/SaveTopicButton";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import type {
   Topic,
-  TopicCategory,
   TopicStatus,
   Pillar,
   Evidence,
   Crux,
 } from "@/lib/schemas/topic";
 import { calculateEvidenceScore, getVerdictLabel } from "@/lib/schemas/topic";
+import { categoryColors, statusColors, categoryTopBorder } from "@/lib/categoryColors";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import { hasMockDebate, getMockDebate } from "@/data/mockDebates";
 import { getMockVerdict } from "@/data/mockVerdicts";
@@ -87,32 +87,10 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
   highly_speculative: HelpCircle,
 };
 
-const statusColors: Record<TopicStatus, string> = {
-  settled: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
-  contested: "bg-rust-50 text-rust-700 border-rust-200/60",
-  highly_speculative: "bg-stone-100 text-stone-600 border-stone-200/60",
-};
-
 const statusLabels: Record<TopicStatus, string> = {
   settled: "Settled",
   contested: "Contested",
   highly_speculative: "Highly Speculative",
-};
-
-const categoryColors: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep border-deep/20",
-  technology: "bg-stone-100 text-stone-600 border-stone-200/60",
-  science: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
-  economics: "bg-rust-50 text-rust-700 border-rust-200/60",
-  philosophy: "bg-stone-100 text-stone-600 border-stone-200/60",
-};
-
-const categoryTopBorder: Record<TopicCategory, string> = {
-  policy: "border-t-deep",
-  technology: "border-t-stone-400",
-  science: "border-t-emerald-400",
-  economics: "border-t-rust-400",
-  philosophy: "border-t-stone-400",
 };
 
 const verificationColors: Record<string, { bg: string; text: string; label: string }> = {

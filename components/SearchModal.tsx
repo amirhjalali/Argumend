@@ -16,6 +16,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import MiniSearch from "minisearch";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
+import { categoryColors } from "@/lib/categoryColors";
 import { articles } from "@/data/blog";
 import { concepts } from "@/data/concepts";
 
@@ -145,14 +146,6 @@ function getVerdictInfo(score: number): { label: string; color: string } {
   if (score <= 35) return { label: "Against", color: "text-deep" };
   return { label: "Draw", color: "text-stone-500" };
 }
-
-const CATEGORY_BADGE_CLASSES: Record<TopicCategory, string> = {
-  policy: "bg-deep/10 text-deep",
-  technology: "bg-indigo-50 text-indigo-600",
-  science: "bg-emerald-50 text-emerald-600",
-  economics: "bg-sky-50 text-sky-600",
-  philosophy: "bg-violet-50 text-violet-600",
-};
 
 const TYPE_CONFIG: Record<
   ResultType,
@@ -614,8 +607,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           {isTopic && result.category && (
                             <span
                               className={`
-                                flex-shrink-0 text-[10px] font-medium px-1.5 py-0.5 rounded-full
-                                ${CATEGORY_BADGE_CLASSES[result.category]}
+                                flex-shrink-0 text-[10px] font-medium px-1.5 py-0.5 rounded-full border
+                                ${categoryColors[result.category]}
                               `}
                             >
                               {CATEGORY_LABELS[result.category]}
