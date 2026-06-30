@@ -1,67 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  ArrowLeftRight,
-  BadgeCheck,
-  BookOpen,
-  Bookmark,
-  Brain,
-  ChevronDown,
-  ChevronRight,
-  Compass,
-  Eye,
-  FileText,
-  GraduationCap,
-  HelpCircle,
-  History,
-  LayoutDashboard,
-  Layers,
-  ListChecks,
-  Map,
-  Network,
-  Newspaper,
-  Scale,
-  Shell,
-  Users,
-} from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { learnNav, metaNav, primaryNav } from "@/lib/nav";
 import { topicSummaries } from "@/data/topicIndex";
 import { TrendingTopics } from "@/components/TrendingTopics";
 import { ThemeToggle } from "@/components/ThemeToggle";
-
-const PRIMARY_NAV = [
-  { label: "Home", icon: Compass, href: "/" },
-  { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard", noPrefetch: true },
-  { label: "Analyze Text", icon: Brain, href: "/analyze", highlight: true },
-  { label: "Recent Analyses", icon: History, href: "/analyses", noPrefetch: true },
-  { label: "Saved", icon: Bookmark, href: "/saved", noPrefetch: true },
-  { label: "Explore Topics", icon: ListChecks, href: "/topics" },
-  { label: "Compare Topics", icon: ArrowLeftRight, href: "/topics/compare" },
-  { label: "Is It True?", icon: BadgeCheck, href: "/is" },
-  { label: "How It Works", icon: Map, href: "/how-it-works" },
-  { label: "About", icon: HelpCircle, href: "/about" },
-];
-
-const LEARN_NAV = [
-  { label: "Blog", icon: Newspaper, href: "/blog" },
-  { label: "Research", icon: FileText, href: "/research" },
-  { label: "Guides", icon: GraduationCap, href: "/guides" },
-  { label: "Fallacies", icon: Network, href: "/fallacies" },
-  { label: "Concepts", icon: Layers, href: "/concepts" },
-  { label: "Perspectives", icon: Eye, href: "/perspectives" },
-  { label: "Library", icon: BookOpen, href: "/library" },
-  { label: "Lessons From the Deep", icon: Shell, href: "/lessons-from-the-deep" },
-  { label: "Community", icon: Users, href: "/community" },
-  { label: "For Educators", icon: GraduationCap, href: "/for-educators" },
-  { label: "Methodology", icon: Scale, href: "/methodology" },
-  { label: "Glossary", icon: BookOpen, href: "/glossary" },
-];
-
-const FOOTER_LINKS = [
-  { label: "FAQ", href: "/faq" },
-];
 
 interface SidebarProps {
   isOpen: boolean;
@@ -78,7 +24,16 @@ export function Sidebar({
 }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
+  // Default the "Learn & Explore" section open on desktop so first paint shows
+  // the full site map; it stays collapsible. Initialized closed to match SSR,
+  // then opened after mount on desktop widths to avoid a hydration mismatch.
   const [learnOpen, setLearnOpen] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      setLearnOpen(true);
+    }
+  }, []);
 
   const handleTopicClick = (id: string) => {
     onTopicSelect(id);
@@ -117,7 +72,7 @@ export function Sidebar({
       <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5">
         {/* Primary Navigation */}
         <div className="space-y-0.5 pb-5" role="list" aria-label="Primary navigation">
-          {PRIMARY_NAV.map(({ label, icon: Icon, href, highlight, noPrefetch }) => {
+          {primaryNav.map(({ label, icon: Icon, href, highlight, noPrefetch }) => {
             const isActive = isActiveRoute(href);
             return (
               <Link
@@ -171,7 +126,7 @@ export function Sidebar({
             }`}
           >
             <div id="learn-explore-menu" className="mt-0.5 space-y-0.5 pl-3 overflow-hidden" role="list" aria-label="Learn & Explore">
-              {LEARN_NAV.map(({ label, icon: Icon, href }) => {
+              {learnNav.map(({ label, icon: Icon, href }) => {
                 const isActive = isActiveRoute(href);
                 return (
                   <Link
@@ -250,7 +205,7 @@ export function Sidebar({
       <div className="px-4 py-3 border-t border-stone-200/50 dark:border-[#3d3a36]/50 space-y-2">
         <div className="flex items-center justify-between">
           <ul className="flex items-center gap-3">
-            {FOOTER_LINKS.map(({ label, href }) => (
+            {metaNav.map(({ label, href }) => (
               <li key={label}>
                 <Link
                   href={href}
