@@ -12,6 +12,7 @@ import { getAllQuestionVariations } from "@/lib/questions";
 import { COMPARISON_PAIRS } from "@/app/topics/compare/comparisonPairs";
 import { isClaims } from "@/data/is-claims";
 import { getAllFallacySlugs } from "@/data/fallacies";
+import { concepts } from "@/data/concepts";
 import { topicSummaries, CATEGORY_ORDER } from "@/data/topicIndex";
 
 /** Mirror of the tag-page slug scheme (lowercase, spaces → hyphens). */
@@ -26,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // model, so we can't fabricate a real per-page freshness signal. Instead we
   // expose ONE honest "content corpus last revised" date. Bump this whenever
   // the topic/guide/concept corpus is meaningfully updated.
-  const CONTENT_LAST_UPDATED = new Date("2026-06-15");
+  const CONTENT_LAST_UPDATED = new Date("2026-06-29");
 
   // ── Homepage (priority 1.0) ───────────────────────────────────────────
   const homepage: MetadataRoute.Sitemap = [
@@ -139,13 +140,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // ── Concept detail pages (priority 0.7) ───────────────────────────────
-  const conceptSlugs = [
-    "pillars",
-    "cruxes",
-    "confidence-scores",
-    "verification-status",
-    "steel-manning",
-  ];
+  // Derived from the concepts data so the sitemap can't drift from the real
+  // /concepts/[slug] routes (previously hardcoded with two 404 slugs).
+  const conceptSlugs = concepts.map((c) => c.id);
   const conceptPages: MetadataRoute.Sitemap = conceptSlugs.map((slug) => ({
     url: `${baseUrl}/concepts/${slug}`,
     lastModified: CONTENT_LAST_UPDATED,
