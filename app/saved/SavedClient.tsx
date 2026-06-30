@@ -58,7 +58,7 @@ export function SavedClient() {
         {/* Header */}
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2.5 rounded-xl bg-rust-50 dark:bg-rust-950/40 text-rust-500">
+            <div className="p-2.5 rounded-xl bg-rust-50 dark:bg-rust-900/40 text-rust-500">
               <Bookmark className="h-6 w-6" strokeWidth={1.8} />
             </div>
             <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary leading-[1.08]">
@@ -125,7 +125,7 @@ export function SavedClient() {
                       type="button"
                       onClick={() => remove(topic.id)}
                       aria-label={`Remove "${topic.title}" from saved`}
-                      className="absolute top-2.5 right-2.5 z-20 flex items-center justify-center h-8 w-8 rounded-lg text-stone-400 hover:text-rust-600 hover:bg-rust-50 dark:hover:bg-rust-950/40 transition-colors"
+                      className="absolute top-2.5 right-2.5 z-20 flex items-center justify-center h-8 w-8 rounded-lg text-stone-400 hover:text-rust-600 hover:bg-rust-50 dark:hover:bg-rust-900/40 transition-colors"
                     >
                       <X className="h-4 w-4" />
                     </button>

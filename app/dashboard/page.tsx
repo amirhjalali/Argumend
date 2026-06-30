@@ -22,7 +22,9 @@ import {
 } from "@/lib/categoryColors";
 
 export const metadata: Metadata = {
-  title: "Dashboard | ARGUMEND",
+  // Plain string — the root title template ("%s | ARGUMEND") adds the suffix;
+  // baking it in here produced a doubled "Dashboard | ARGUMEND | ARGUMEND".
+  title: "Dashboard",
   description: "Your saved topics and recent debate history.",
   robots: { index: false, follow: false },
 };

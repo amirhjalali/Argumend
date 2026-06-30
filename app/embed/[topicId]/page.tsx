@@ -80,7 +80,7 @@ function ArgumentCard({
     <div
       className={`rounded-lg border p-3 ${
         isFor
-          ? "border-rust-200 bg-rust-50/60 dark:border-rust-800/40 dark:bg-rust-950/30"
+          ? "border-rust-200 bg-rust-50/60 dark:border-rust-800/40 dark:bg-rust-900/30"
           : "border-stone-200 bg-stone-50/60 dark:border-stone-700/50 dark:bg-stone-800/30"
       }`}
     >
