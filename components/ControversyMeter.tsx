@@ -120,14 +120,22 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
               ?
             </button>
           </div>
-          <span className="text-sm font-medium text-primary">{displayLabel}</span>
+          <div className="flex items-baseline gap-2">
+            <span className="text-sm font-medium text-primary">{displayLabel}</span>
+            {/* Numeric readout: the bar fills by controversy (inverse of the
+                page's confidence score), so show the confidence number to keep
+                the meter interpretable against the rest of the page. */}
+            <span className="text-xs font-medium tabular-nums text-stone-500 dark:text-[#8a8279]">
+              {confidenceScore}% confidence
+            </span>
+          </div>
         </div>
 
         {/* Bar */}
         <div className="relative h-3 sm:h-4 rounded-full bg-stone-200/80 dark:bg-[#302e2a] overflow-visible">
           {/* Gradient fill */}
           <div
-            className={`absolute inset-0 rounded-full bg-gradient-to-r ${config.barClass} ${config.animationClass} ${config.glowClass}`}
+            className={`absolute inset-0 rounded-full bg-gradient-to-r ${config.barClass} ${config.animationClass} motion-reduce:animate-none ${config.glowClass}`}
             style={{ width: `${Math.max(controversyPct, 4)}%` }}
             role="meter"
             aria-valuenow={confidenceScore}

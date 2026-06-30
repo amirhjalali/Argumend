@@ -25,7 +25,7 @@ export function FlagshipIntro({ topic }: { topic: Topic }) {
           className="rounded-xl border border-deep/25 bg-deep/[0.06] dark:bg-deep/[0.12] px-6 py-5"
         >
           <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-deep mb-2">
-            The fact most people get wrong
+            The fact that reframes this debate
           </div>
           <p className="font-serif text-[24px] sm:text-[26px] leading-[1.3] text-primary">
             {k.statement}
