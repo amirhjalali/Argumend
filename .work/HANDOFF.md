@@ -230,3 +230,23 @@ FOUNDER FLAG: the AEO agent found only 2 topics still lacking an "is X true?" pa
 `iran-war-justification` and `minneapolis-shooting` (both values-laden/geopolitical). I **removed**
 those 2 auto-generated is-claims rather than ship sensitive AEO verdict pages autonomously; add them
 deliberately if you want them. Every other (empirical) topic now has an is-claim.
+
+---
+
+## Autonomous cycle 5 — 2026-06-30 — bundle fix, embed polish, content, API tests
+
+5-agent cycle. Verified: `tsc` clean, **735 vitest tests pass** (27 files), clean `bun run build`,
+data integrity validated (blogIndex sync 0/0; 0 broken links — caught + fixed one bad guide link
+`/topics/covid-origins` → `/topics/lab-leak-theory`). Committed; not pushed.
+
+- **Client-bundle fix.** `SearchModal` (client, loaded app-wide) imported the full 6.6k-line
+  `data/blog` (all post bodies) but used only title/description/slug/tags. New standalone
+  `data/blogIndex.ts` (mirrors `data/topicIndex`) carries just summaries; SearchModal imports that;
+  a sync-guard test (`data/blogIndex.test.ts`) fails CI if it drifts from `data/blog`. **All blog prose
+  removed from the client bundle.** ⚠️ MAINTENANCE: new blog posts must also add a `blogIndex` entry
+  (the sync test enforces it).
+- **Embed widget.** Iframe-safe pre-paint dark mode (CSP-safe), a rust "Analyzed by Argumend →"
+  attribution CTA to the canonical topic page, single-column layout that doesn't overflow at 320–600px.
+- **Content.** +10 FAQs (63 → 73), +5 glossary terms (33 → 38), +2 guides (13 → 15).
+- **Tests.** +20 (API route handlers: filters/pagination/CORS/400/404; blogIndex sync). The public
+  API was also **runtime-smoke-tested** last cycle.
