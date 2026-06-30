@@ -11,10 +11,12 @@ import {
 import {
   articles,
   getArticleBySlug,
-  getRelatedArticles,
   categoryToSlug,
   tagToSlug,
 } from "@/data/blog";
+import { articleSummaries, type ArticleSummary } from "@/data/blogIndex";
+import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
+import { guides } from "@/data/guides";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { ShareButtons } from "@/components/ShareButtons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -65,6 +67,117 @@ function withHeadingAnchors(markdownHtml: string): {
   );
 
   return { html, headings };
+}
+
+// ---------------------------------------------------------------------------
+// Related reading (cross-type internal linking)
+// ---------------------------------------------------------------------------
+// Surface a small, on-brand set of related content sourced ONLY from the
+// lightweight indexes (`articleSummaries` / `topicSummaries` / `guides`) — never
+// the heavy `data/blog` bodies — ranked by keyword overlap with the current
+// post's tags + category + title. Server-rendered for SEO + internal linking.
+type RelatedItem = {
+  kind: "Article" | "Topic" | "Guide";
+  href: string;
+  title: string;
+  label: string;
+};
+
+// Generic connectors + the blog's boilerplate phrasing. Stripping these keeps
+// overlap scoring on meaningful domain terms (we keep short but meaningful tokens
+// like "ai" by stopping noise words rather than filtering purely on length).
+const RELATED_STOP_WORDS = new Set([
+  "of", "to", "in", "on", "is", "it", "or", "as", "at", "by", "an", "be", "we",
+  "do", "no", "so", "us", "if", "up", "my", "the", "and", "for", "are", "you",
+  "your", "what", "why", "how", "does", "did", "can", "will", "with", "from",
+  "that", "this", "its", "not", "but", "who", "our", "was", "has", "have",
+  "about", "actually", "says", "say", "both", "sides", "real", "vs", "into",
+  "when", "where", "which", "more", "than", "like", "get", "gets", "explained",
+  "guide", "case", "study", "studies", "they", "them", "their", "were", "been",
+  "all", "any", "one", "two", "out", "off", "per", "via", "yet", "still",
+  "might", "could", "should", "would", "most", "some", "much", "very",
+]);
+
+function relatedKeywords(...parts: string[]): Set<string> {
+  const tokens = new Set<string>();
+  for (const part of parts) {
+    if (!part) continue;
+    for (const raw of part.toLowerCase().split(/[^a-z0-9]+/)) {
+      if (raw.length >= 2 && !RELATED_STOP_WORDS.has(raw)) tokens.add(raw);
+    }
+  }
+  return tokens;
+}
+
+function relatedOverlap(a: Set<string>, b: Set<string>): number {
+  let n = 0;
+  for (const token of a) if (b.has(token)) n += 1;
+  return n;
+}
+
+function getRelatedReading(current: ArticleSummary): RelatedItem[] {
+  const want = relatedKeywords(current.title, current.category, ...current.tags);
+
+  // Related posts — tag/title overlap + a same-category bonus; recency tiebreak.
+  const relatedPosts: RelatedItem[] = articleSummaries
+    .filter((p) => p.slug !== current.slug)
+    .map((p) => ({
+      p,
+      score:
+        relatedOverlap(want, relatedKeywords(...p.tags, p.title)) +
+        (p.category.toLowerCase() === current.category.toLowerCase() ? 2 : 0),
+    }))
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        +new Date(b.p.publishedAt) - +new Date(a.p.publishedAt),
+    )
+    .slice(0, 3)
+    .map(({ p }) => ({
+      kind: "Article",
+      href: `/blog/${p.slug}`,
+      title: p.title,
+      label: p.category,
+    }));
+
+  // Related guide — guides carry no tags, so match on title/subtitle/description.
+  // Optional: only surfaced when there's genuine overlap.
+  const bestGuide = guides
+    .map((g) => ({
+      g,
+      score: relatedOverlap(
+        want,
+        relatedKeywords(g.title, g.subtitle, g.description),
+      ),
+    }))
+    .sort((a, b) => b.score - a.score)[0];
+  const guideItem: RelatedItem | null =
+    bestGuide && bestGuide.score > 0
+      ? {
+          kind: "Guide",
+          href: `/guides/${bestGuide.g.id}`,
+          title: bestGuide.g.title,
+          label: bestGuide.g.subtitle,
+        }
+      : null;
+
+  // Related topics — tag/title overlap; evidence-rich topics as stable fallback.
+  // Keep the whole section to ~5 items: 1 topic when a guide is shown, else 2.
+  const topicItems: RelatedItem[] = topicSummaries
+    .map((t) => ({
+      t,
+      score: relatedOverlap(want, relatedKeywords(...t.tags, t.title)),
+    }))
+    .sort((a, b) => b.score - a.score || b.t.evidenceCount - a.t.evidenceCount)
+    .slice(0, guideItem ? 1 : 2)
+    .map(({ t }) => ({
+      kind: "Topic",
+      href: `/topics/${t.id}`,
+      title: t.title,
+      label: CATEGORY_LABELS[t.category] ?? "Topic",
+    }));
+
+  return [...relatedPosts, ...topicItems, ...(guideItem ? [guideItem] : [])];
 }
 
 // ---------------------------------------------------------------------------
@@ -135,7 +248,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
   const article = getArticleBySlug(slug);
   if (!article) notFound();
 
-  const related = getRelatedArticles(slug, 3);
+  const relatedReading = getRelatedReading(article);
   const { html: contentHtml, headings } = withHeadingAnchors(
     renderMarkdown(article.content),
   );
@@ -300,29 +413,29 @@ export default async function BlogArticlePage({ params }: PageProps) {
             <NewsletterSignup variant="compact" />
           </div>
 
-          {/* Related Articles */}
-          {related.length > 0 && (
+          {/* Related reading — cross-type internal linking (posts + topics + guide) */}
+          {relatedReading.length > 0 && (
             <div className="mt-14">
-              <h3 className="font-serif text-lg text-primary mb-2">
-                Related Articles
+              <h3 className="font-serif text-lg text-primary mb-3">
+                Related reading
               </h3>
-              <div className="grid gap-4 md:grid-cols-3">
-                {related.map((rel, idx) => (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {relatedReading.map((item, idx) => (
                   <Link
-                    key={rel.slug}
-                    href={`/blog/${rel.slug}`}
+                    key={item.href}
+                    href={item.href}
                     className="group block animate-card-fade-in"
                     style={{ animationDelay: `${idx * 80}ms` }}
                   >
                     <div className="bg-[#faf8f5] rounded-xl p-5 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 h-full">
                       <span className="text-[10px] font-medium text-deep uppercase tracking-wide">
-                        {rel.category}
+                        {item.kind}
                       </span>
                       <h4 className="font-serif text-sm text-primary mt-2 mb-2 leading-snug group-hover:text-deep transition-colors">
-                        {rel.title}
+                        {item.title}
                       </h4>
                       <p className="text-xs text-muted">
-                        {rel.readingTime}
+                        {item.label}
                       </p>
                     </div>
                   </Link>
