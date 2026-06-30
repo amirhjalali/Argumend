@@ -11,6 +11,7 @@ import {
   Shield,
   AlertTriangle,
   FlaskConical,
+  Network,
   Scale,
   Swords,
   CheckCircle2,
@@ -311,7 +312,7 @@ export function MobileArgumentList() {
         <div className="flex gap-1 p-1 rounded-lg bg-stone-100/80 dark:bg-stone-800/80" role="tablist" aria-label="View mode">
           {(
             [
-              { id: "logic-map" as const, label: "Arguments", icon: Scale },
+              { id: "logic-map" as const, label: "Arguments", icon: Network },
               { id: "scales" as const, label: "Evidence", icon: Scale },
               { id: "debate" as const, label: "Debate", icon: Swords },
             ] as const

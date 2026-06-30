@@ -213,6 +213,39 @@ export function ReadModeView({ topic }: { topic: Topic }) {
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const tocRef = useRef<HTMLElement>(null);
 
+  // Mobile-only: auto-hide the floating controls while reading down the page and
+  // reveal them on scroll-up or near the top, so they stop permanently occluding
+  // the body text. Desktop is unaffected — the floats below keep static positions
+  // via `lg:` resets. The transition is neutralized by the global
+  // prefers-reduced-motion block in globals.css, so reduced-motion users get an
+  // instant (un-animated) toggle.
+  const [controlsHidden, setControlsHidden] = useState(false);
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < 140 || y < lastY) setControlsHidden(false);
+        else if (y > lastY + 4) setControlsHidden(true);
+        lastY = y;
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Keep the TOC reachable while its sheet is open; hide the map CTA then so the
+  // open sheet and the CTA can't overlap on narrow screens.
+  const tocHidden = controlsHidden && !mobileTocOpen;
+  const mapHidden = controlsHidden || mobileTocOpen;
+  const floatMotion = "transition-transform transition-opacity duration-300 ease-out";
+  // Lift the floats above the iOS home indicator (safe-area inset → 0 on desktop).
+  const floatBottom = { bottom: "calc(env(safe-area-inset-bottom) + 1.25rem)" };
+
   return (
     <>
       {/* ─── Scroll-progress bar ─── */}
@@ -467,7 +500,14 @@ export function ReadModeView({ topic }: { topic: Topic }) {
 
       {/* ─── Mobile TOC (collapsible) ─── */}
       {tocItems.length > 0 && (
-        <div className="lg:hidden fixed bottom-5 left-5 z-30">
+        <div
+          className={`lg:hidden fixed left-5 z-30 ${floatMotion} ${
+            tocHidden
+              ? "translate-y-[150%] opacity-0 pointer-events-none"
+              : "translate-y-0 opacity-100"
+          }`}
+          style={floatBottom}
+        >
           <button
             type="button"
             onClick={() => setMobileTocOpen((v) => !v)}
@@ -509,7 +549,14 @@ export function ReadModeView({ topic }: { topic: Topic }) {
       )}
 
       {/* ─── Sticky open-the-map CTA ─── */}
-      <div className="fixed bottom-5 right-5 z-30">
+      <div
+        className={`fixed right-5 z-30 ${floatMotion} lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto ${
+          mapHidden
+            ? "translate-y-[150%] opacity-0 pointer-events-none"
+            : "translate-y-0 opacity-100"
+        }`}
+        style={floatBottom}
+      >
         <Link
           href="?view=graph"
           replace
