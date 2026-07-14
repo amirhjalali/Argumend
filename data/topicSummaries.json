@@ -10,6 +10,36 @@
     "evidenceCount": 16
   },
   {
+    "id": "moloch",
+    "title": "Meditations on Moloch",
+    "meta_claim": "Competition and coordination failure — Scott Alexander's 'Moloch' — systematically push civilization toward equilibria that sacrifice human values for competitive advantage, and durably escaping those multipolar traps requires a coordination mechanism strong enough to override the incentives that create them.",
+    "confidence_score": 46,
+    "status": "contested",
+    "category": "philosophy",
+    "pillarCount": 5,
+    "evidenceCount": 18
+  },
+  {
+    "id": "ai-2027",
+    "title": "AI 2027: The Recursive-Automation Timeline",
+    "meta_claim": "The AI 2027 scenario forecasts that once AI systems can meaningfully automate AI research itself, a feedback loop compresses the path to superintelligence into the late 2020s — making this a decisive and dangerous period. The claim rests less on 'AI will be powerful' than on two contested quantitative bets: that the automation of R&D triggers an intelligence explosion, and that the resulting takeoff is fast (months, not decades) rather than a gradual ramp.",
+    "confidence_score": 53,
+    "status": "highly_speculative",
+    "category": "technology",
+    "pillarCount": 5,
+    "evidenceCount": 21
+  },
+  {
+    "id": "jones-act",
+    "title": "Repealing the Jones Act",
+    "meta_claim": "The Jones Act's requirement that cargo moving between U.S. ports travel on ships that are U.S.-built, U.S.-flagged, and U.S.-crewed imposes large and measurable economic costs — inflated domestic shipping prices, a shrunken merchant fleet, freight pushed onto trucks and rail, and disproportionate harm to Puerto Rico, Hawaii, Alaska, and Guam — that outweigh its claimed national-security and maritime-industry benefits, so it should be repealed or substantially reformed.",
+    "confidence_score": 73,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 5,
+    "evidenceCount": 18
+  },
+  {
     "id": "nuclear-energy-safety",
     "title": "Nuclear Energy for Climate",
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",

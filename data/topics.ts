@@ -59,6 +59,9 @@ import { usNationalDebtCrisisData } from "./topics/us-national-debt-crisis";
 import { tiktokBrainRotData } from "./topics/tiktok-brain-rot";
 import { obesityPersonalResponsibilityData } from "./topics/obesity-personal-responsibility";
 import { scottCostDiseaseData } from "./topics/scott-cost-disease";
+import { molochData } from "./topics/moloch";
+import { ai2027Data } from "./topics/ai-2027";
+import { jonesActData } from "./topics/jones-act";
 import { chinaTaiwanInvasionData } from "./topics/china-taiwan-invasion";
 import { returnToOfficeProductivityData } from "./topics/return-to-office-productivity";
 import { nuclearRenaissanceSmrData } from "./topics/nuclear-renaissance-smr";
@@ -264,9 +267,15 @@ export const privacyVsConvenience = buildTopic(privacyVsConvenienceData);
 export const meritocracyMyth = buildTopic(meritocracyMythData);
 export const degrowthEconomics = buildTopic(degrowthEconomicsData);
 export const scottCostDisease = buildTopic(scottCostDiseaseData);
+export const moloch = buildTopic(molochData);
+export const ai2027 = buildTopic(ai2027Data);
+export const jonesAct = buildTopic(jonesActData);
 
 export const topics: Topic[] = [
   scottCostDisease,
+  moloch,
+  ai2027,
+  jonesAct,
   // --- Policy & Governance ---
   nuclearEnergySafety,
   universalHealthcare,
