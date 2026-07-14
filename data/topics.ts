@@ -58,6 +58,7 @@ import { seedOilsHealthData } from "./topics/seed-oils-health";
 import { usNationalDebtCrisisData } from "./topics/us-national-debt-crisis";
 import { tiktokBrainRotData } from "./topics/tiktok-brain-rot";
 import { obesityPersonalResponsibilityData } from "./topics/obesity-personal-responsibility";
+import { scottCostDiseaseData } from "./topics/scott-cost-disease";
 import { chinaTaiwanInvasionData } from "./topics/china-taiwan-invasion";
 import { returnToOfficeProductivityData } from "./topics/return-to-office-productivity";
 import { nuclearRenaissanceSmrData } from "./topics/nuclear-renaissance-smr";
@@ -262,8 +263,10 @@ export const rentControlEffectiveness = buildTopic(rentControlEffectivenessData)
 export const privacyVsConvenience = buildTopic(privacyVsConvenienceData);
 export const meritocracyMyth = buildTopic(meritocracyMythData);
 export const degrowthEconomics = buildTopic(degrowthEconomicsData);
+export const scottCostDisease = buildTopic(scottCostDiseaseData);
 
 export const topics: Topic[] = [
+  scottCostDisease,
   // --- Policy & Governance ---
   nuclearEnergySafety,
   universalHealthcare,

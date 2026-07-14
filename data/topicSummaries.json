@@ -1,5 +1,15 @@
 [
   {
+    "id": "scott-cost-disease",
+    "title": "The Cost Disease",
+    "meta_claim": "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
+    "confidence_score": 66,
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 5,
+    "evidenceCount": 16
+  },
+  {
     "id": "nuclear-energy-safety",
     "title": "Nuclear Energy for Climate",
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
