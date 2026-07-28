@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Scale, ChevronRight, Map } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { topicSummaries } from "@/data/topicIndex";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 // Once dismissed (timer, X, "Explore", or first canvas interaction) the intro
 // stays gone for the rest of the session so it never re-occludes the canvas
@@ -157,28 +158,17 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
                 transition={{ duration: reducedMotion ? 0.12 : 0.2 }}
               >
                 <div className="p-4">
-                  {/* Topic Title + Confidence inline */}
+                  {/* Topic Title + Verdict inline */}
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <h2 className="font-serif text-base font-bold text-primary truncate">
                       {topic.title}
                     </h2>
-                    <span
-                      className="text-xs font-bold font-mono tabular-nums flex-shrink-0 px-2 py-0.5 rounded-full"
-                      style={{
-                        color: topic.confidence_score >= 80
-                          ? "#4f7b77"
-                          : topic.confidence_score >= 50
-                          ? "#C4613C"
-                          : "#8B5A3C",
-                        backgroundColor: topic.confidence_score >= 80
-                          ? "#4f7b7712"
-                          : topic.confidence_score >= 50
-                          ? "#C4613C12"
-                          : "#8B5A3C12",
-                      }}
-                    >
-                      {topic.confidence_score}%
-                    </span>
+                    <BalanceWeightChip
+                      balance={topic.balance}
+                      weight={topic.weight}
+                      verdict={topic.verdict}
+                      className="flex-shrink-0"
+                    />
                   </div>
 
                   {/* Brief description */}

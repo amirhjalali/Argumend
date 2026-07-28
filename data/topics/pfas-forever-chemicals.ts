@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const pfasForeverChemicalsData = {
   id: "pfas-forever-chemicals",
@@ -429,6 +429,4 @@ export const pfasForeverChemicalsData = {
         "The EPA set enforceable 4-parts-per-trillion limits for PFOA and PFOS and pegged compliance near $1.5 billion a year, while water utilities say the real cost is two to three times higher and falls hardest on small systems. Polluters have already committed over $11 billion in settlements, and when PFOA was banned, industry switched to GenX — which the EPA later judged more toxic. Is the answer a broad class-wide regime that closes the regrettable-substitution loophole, or a narrower, prioritized approach focused on the best-studied, highest-risk compounds?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

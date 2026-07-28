@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const pandemicPreparednessData = {
   id: "pandemic-preparedness",
@@ -484,6 +484,4 @@ export const pandemicPreparednessData = {
         "Gain-of-function research that enhances pathogen transmissibility could help predict natural pandemic threats — or could cause a lab-origin pandemic. Over 100 lab incidents with dangerous pathogens were documented in US labs between 2006 and 2015. Yet the mRNA vaccine platform that saved millions of lives emerged from decades of unrestricted basic research, and the 100 Days Mission for future vaccines may require pathogen characterization work that biosecurity advocates want to restrict. Where is the optimal balance between biosecurity and scientific freedom?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

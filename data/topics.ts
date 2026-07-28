@@ -1,4 +1,5 @@
-import { Topic, TopicCategory, TopicSchema, computeConfidenceScore } from "@/lib/schemas/topic";
+import { Topic, TopicCategory, TopicInput, TopicSchema, computeBalance, computeWeight, getVerdict } from "@/lib/schemas/topic";
+import { WEIGHT } from "@/lib/constants";
 
 // ============================================================================
 // Topic Data Imports
@@ -58,6 +59,10 @@ import { seedOilsHealthData } from "./topics/seed-oils-health";
 import { usNationalDebtCrisisData } from "./topics/us-national-debt-crisis";
 import { tiktokBrainRotData } from "./topics/tiktok-brain-rot";
 import { obesityPersonalResponsibilityData } from "./topics/obesity-personal-responsibility";
+import { scottCostDiseaseData } from "./topics/scott-cost-disease";
+import { molochData } from "./topics/moloch";
+import { ai2027Data } from "./topics/ai-2027";
+import { jonesActData } from "./topics/jones-act";
 import { chinaTaiwanInvasionData } from "./topics/china-taiwan-invasion";
 import { returnToOfficeProductivityData } from "./topics/return-to-office-productivity";
 import { nuclearRenaissanceSmrData } from "./topics/nuclear-renaissance-smr";
@@ -177,15 +182,20 @@ const labLeakTheoryData = covidOriginsData;
 // Build Topics with Computed Confidence Scores
 // ============================================================================
 
-function buildTopic(data: Omit<Topic, "confidence_score"> & { confidence_score?: number }): Topic {
-  // Compute confidence from evidence if not explicitly set to a high/settled value
-  const computedScore = computeConfidenceScore(data.pillars);
+function buildTopic(data: TopicInput): Topic {
+  const computedBalance = computeBalance(data.pillars);
+  const computedWeight = computeWeight(data.pillars);
 
-  // For "settled" topics, use the higher of computed vs original (trust the data)
-  // For contested topics, prefer computed score
-  const finalScore = data.status === "settled"
-    ? Math.max(computedScore, data.confidence_score ?? 0)
-    : computedScore;
+  // Settled topics: trust the authored score as a floor on the tilt, and
+  // guarantee a weight floor — "settled" is an editorial assertion of both.
+  const balance =
+    data.status === "settled"
+      ? Math.max(computedBalance, data.confidence_score ?? 0)
+      : computedBalance;
+  const weight =
+    data.status === "settled"
+      ? Math.max(computedWeight, WEIGHT.SETTLED_FLOOR)
+      : computedWeight;
 
   // Guarantee every topic has at least one tag so tag pages always have content.
   // Always include the category, then any explicit tags (deduped).
@@ -193,8 +203,11 @@ function buildTopic(data: Omit<Topic, "confidence_score"> & { confidence_score?:
 
   return TopicSchema.parse({
     ...data,
-    confidence_score: finalScore,
     tags,
+    balance,
+    weight,
+    verdict: getVerdict(balance, weight),
+    confidence_score: balance, // @deprecated mirror — JSON-LD + unmigrated surfaces only
   });
 }
 
@@ -368,6 +381,12 @@ export const hydrogenEconomyViability = buildTopic(hydrogenEconomyViabilityData)
 export const verticalFarmingViability = buildTopic(verticalFarmingViabilityData);
 export const deExtinctionSpecies = buildTopic(deExtinctionSpeciesData);
 
+// Gift maps (2026-07)
+export const scottCostDisease = buildTopic(scottCostDiseaseData);
+export const moloch = buildTopic(molochData);
+export const ai2027 = buildTopic(ai2027Data);
+export const jonesAct = buildTopic(jonesActData);
+
 export const topics: Topic[] = [
   // --- New (2026-06-23, net-new initiative) ---
   sportsBettingLegalization,
@@ -380,6 +399,13 @@ export const topics: Topic[] = [
   hydrogenEconomyViability,
   verticalFarmingViability,
   deExtinctionSpecies,
+
+  // --- Gift maps (2026-07) ---
+  scottCostDisease,
+  moloch,
+  ai2027,
+  jonesAct,
+
   // --- Policy & Governance ---
   nuclearEnergySafety,
   universalHealthcare,

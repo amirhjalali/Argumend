@@ -2,12 +2,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { topics, CATEGORY_LABELS } from "@/data/topics";
-import { getVerdictLabel } from "@/lib/schemas/topic";
 import { isClaims } from "@/data/is-claims";
 import { getTopicMentions, buildTopicLinkTargets } from "@/lib/topic-links";
 import { LinkedText } from "@/components/LinkedText";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -52,8 +52,7 @@ export async function generateMetadata({
   }
 
   const { claim, topic } = result;
-  const verdict = getVerdictLabel(topic.confidence_score);
-  const description = `${claim.claim}. Evidence assessment: ${verdict} (${topic.confidence_score}/100). Explore ${topic.pillars.length} argument pillars with weighted evidence.`;
+  const description = `${claim.claim}. Evidence assessment: ${topic.verdict.label} (balance ${topic.balance}/100, weight ${topic.weight}/100). Explore ${topic.pillars.length} argument pillars with weighted evidence.`;
 
   return {
     title: `${claim.question} | Evidence-Based Answer`,
@@ -107,7 +106,7 @@ export default async function IsClaimPage({ params }: PageProps) {
   }
 
   const { claim, topic } = result;
-  const verdict = getVerdictLabel(topic.confidence_score);
+  const verdict = topic.verdict.label;
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
   // Topic link targets for cross-linking
@@ -137,7 +136,7 @@ export default async function IsClaimPage({ params }: PageProps) {
   // Synthesized answer for JSON-LD
   const synthesizedAnswer = [
     `${claim.claim}.`,
-    `Based on ${totalEvidence} pieces of evidence across ${topic.pillars.length} argument pillars, the evidence assessment is: ${verdict} (Confidence: ${topic.confidence_score}/100).`,
+    `Based on ${totalEvidence} pieces of evidence across ${topic.pillars.length} argument pillars, the assessment is: ${verdict} (balance of evidence ${topic.balance}/100 where 50 is an even split; weight of evidence ${topic.weight}/100).`,
     `Key arguments in favor: ${forArguments.map((a) => a.summary).join(" ")}`,
     `Key arguments against: ${againstArguments.map((a) => a.summary).join(" ")}`,
   ].join(" ");
@@ -207,14 +206,6 @@ export default async function IsClaimPage({ params }: PageProps) {
     },
   };
 
-  // Confidence bar color based on score
-  const confidenceColor =
-    topic.confidence_score >= 75
-      ? "bg-deep"
-      : topic.confidence_score >= 50
-        ? "bg-deep/70"
-        : "bg-stone-400";
-
   // Related "is" claims: same-category questions first, then fill with others,
   // capped. Avoids a 120-link "complete graph" on every page, which bloated the
   // DOM and diluted internal-link equity; a focused, relevant set is better for
@@ -276,22 +267,15 @@ export default async function IsClaimPage({ params }: PageProps) {
               , the evidence assessment is:
             </p>
 
-            {/* Verdict + confidence score */}
+            {/* Verdict + balance/weight */}
             <div className="mt-4">
-              <p className="font-serif text-2xl font-bold text-primary">
-                {verdict}
-              </p>
-              <div className="mt-3 flex items-center gap-3">
-                <div className="h-3 flex-1 overflow-hidden rounded-full bg-stone-200">
-                  <div
-                    className={`h-full rounded-full ${confidenceColor} transition-all`}
-                    style={{ width: `${topic.confidence_score}%` }}
-                  />
-                </div>
-                <span className="font-sans text-sm font-semibold text-primary tabular-nums">
-                  {topic.confidence_score}/100
-                </span>
-              </div>
+              <p className="font-serif text-2xl font-bold text-primary">{verdict}</p>
+              <BalanceWeightReadout
+                balance={topic.balance}
+                weight={topic.weight}
+                verdict={topic.verdict}
+                className="mt-3"
+              />
             </div>
           </div>
 

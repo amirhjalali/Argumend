@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { topics } from "@/data/topics";
-import { getVerdictLabel } from "@/lib/schemas/topic";
 import { getMockVerdict } from "@/data/mockVerdicts";
+import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 import type { Metadata } from "next";
 
 // ---------------------------------------------------------------------------
@@ -30,37 +30,6 @@ export async function generateMetadata({
     description: topic.meta_claim,
     robots: { index: false, follow: false },
   };
-}
-
-// ---------------------------------------------------------------------------
-// Confidence Bar
-// ---------------------------------------------------------------------------
-
-function ConfidenceBar({ score }: { score: number }) {
-  const color =
-    score >= 75 ? "bg-deep" : score >= 50 ? "bg-rust-500" : "bg-stone-400";
-
-  return (
-    <div className="w-full">
-      <div className="flex items-center justify-between mb-1.5">
-        <span className="text-xs font-medium uppercase tracking-wide text-muted dark:text-stone-400">
-          Confidence
-        </span>
-        <span className="text-sm font-mono font-semibold tabular-nums text-primary dark:text-stone-100">
-          {score}%
-        </span>
-      </div>
-      <div className="h-2 rounded-full overflow-hidden bg-stone-200 dark:bg-stone-700/60">
-        <div
-          className={`h-full rounded-full ${color} transition-all`}
-          style={{ width: `${score}%` }}
-        />
-      </div>
-      <p className="text-[11px] mt-1 text-muted dark:text-stone-400">
-        {getVerdictLabel(score)}
-      </p>
-    </div>
-  );
 }
 
 // ---------------------------------------------------------------------------
@@ -199,9 +168,13 @@ export default async function EmbedPage({ params }: PageProps) {
         </p>
       </div>
 
-      {/* Confidence */}
+      {/* Evidence assessment */}
       <div className="mb-4">
-        <ConfidenceBar score={topic.confidence_score} />
+        <BalanceWeightReadout
+          balance={topic.balance}
+          weight={topic.weight}
+          verdict={topic.verdict}
+        />
       </div>
 
       {/* Arguments */}

@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const deExtinctionSpeciesData = {
   id: "de-extinction-species",
@@ -427,6 +427,4 @@ export const deExtinctionSpeciesData = {
         "The moral-hazard worry is that promising de-extinction tells the public and policymakers that extinction is a recoverable loss, weakening the urgency to protect habitat now. The first controlled experiment (Lean et al., 2025) found no average causal effect — promising de-extinction did not make people more willing to accept extinction. Yet the same study found that people who believe de-extinction truly restores species are more accepting of losing them. Does de-extinction publicity instill that dangerous 'reversibility' belief widely enough to matter — and does the belief change real conservation behavior, or only survey answers?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

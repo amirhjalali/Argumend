@@ -139,7 +139,9 @@ export async function GET(request: NextRequest) {
       data: topics.map(t => ({
         id: t.id,
         title: t.title,
-        confidence_score: t.confidence_score,
+        balance: t.balance,
+        weight: t.weight,
+        verdict: t.verdict.label,
         status: t.status,
       })),
     });

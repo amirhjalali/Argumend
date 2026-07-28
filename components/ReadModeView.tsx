@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ExternalLink, Network, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
 import type { Topic, TopicCategory, TopicStatus, Evidence } from "@/lib/schemas/topic";
-import { calculateEvidenceScore, getVerdictSentence, confidenceTier } from "@/lib/schemas/topic";
+import { calculateEvidenceScore, confidenceTier } from "@/lib/schemas/topic";
 import { CATEGORY_LABELS, topicSummaries, getCrossCategoryRelatedSummaries } from "@/data/topicIndex";
 import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import { SynopticTable } from "@/components/SynopticTable";
@@ -18,6 +18,7 @@ import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { FalsificationCrux } from "@/components/FalsificationCrux";
 import { FlagshipIntro } from "@/components/FlagshipIntro";
 import { categoryColors, statusColors } from "@/lib/categoryColors";
+import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 
 // Labels + icons are local; chip colors come from the canonical, dark-mode-aware
 // maps in lib/categoryColors so a category/status reads the same color everywhere.
@@ -61,21 +62,14 @@ function countSources(topic: Topic): number {
   return seen.size;
 }
 
-/** A short verdict-synthesis sentence derived from the score + strongest evidence. */
+/** A short verdict-synthesis sentence derived from the two-axis verdict + strongest evidence. */
 function bottomLine(topic: Topic): string {
-  const score = topic.confidence_score;
   const allEvidence = topic.pillars.flatMap((p) => p.evidence ?? []);
   const topFor = strongest(allEvidence, "for");
-  const lean =
-    score >= 75
-      ? "The weight of evidence supports this claim"
-      : score >= 50
-        ? "Evidence leans toward this claim, but it remains genuinely contested"
-        : "The evidence is too thin to settle this claim";
   const anchor = topFor?.title
     ? `, anchored most strongly by ${topFor.title.replace(/\.$/, "")}`
     : "";
-  return `${lean} at ${score}% confidence${anchor}.`;
+  return `${topic.verdict.label}${anchor}.`;
 }
 
 function EvidenceItem({ ev }: { ev: Evidence }) {
@@ -100,7 +94,7 @@ function EvidenceItem({ ev }: { ev: Evidence }) {
         >
           {tier}
         </span>
-        <span className="text-[10px] font-mono text-secondary">{pct}% confidence</span>
+        <span className="text-[10px] font-mono text-secondary">{pct}%</span>
       </div>
       <p className="font-serif text-[16px] leading-snug text-primary mb-1">
         <span className="font-semibold">{ev.title}.</span>{" "}
@@ -183,7 +177,6 @@ function useActiveSection(ids: string[]): string | null {
 
 export function ReadModeView({ topic }: { topic: Topic }) {
   const StatusIcon = statusMeta[topic.status].icon;
-  const verdict = getVerdictSentence(topic.confidence_score);
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
   const sourceCount = useMemo(() => countSources(topic), [topic]);
@@ -274,16 +267,18 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                 >
                   {categoryLabel}
                 </span>
-                <span className="inline-flex items-center rounded-full border border-stone-200/70 dark:border-[#3d3a36] px-2.5 py-1 text-[10px] font-mono text-secondary">
-                  {topic.confidence_score}/100
-                </span>
               </div>
               <ReadGraphToggle current="read" />
             </div>
             <h1 className="font-serif text-4xl sm:text-5xl leading-[1.1] tracking-tight text-primary mb-3">
               {topic.title}
             </h1>
-            <p className="font-sans text-sm text-secondary italic">{verdict}.</p>
+            <BalanceWeightReadout
+              balance={topic.balance}
+              weight={topic.weight}
+              verdict={topic.verdict}
+              className="mt-4"
+            />
 
             {/* ─── Provenance strip ─── */}
             <p className="mt-3 font-sans text-[11px] text-muted dark:text-[#8a8279]">
@@ -318,7 +313,12 @@ export function ReadModeView({ topic }: { topic: Topic }) {
 
           {/* ─── Controversy meter ─── */}
           <div className="mt-7">
-            <ControversyMeter confidenceScore={topic.confidence_score} status={topic.status} />
+            <ControversyMeter
+              balance={topic.balance}
+              weight={topic.weight}
+              verdict={topic.verdict}
+              status={topic.status}
+            />
           </div>
 
           {/* ─── Synoptic table ─── */}
@@ -421,7 +421,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             <VerdictVoting
               topicId={topic.id}
               topicTitle={topic.title}
-              confidenceScore={topic.confidence_score}
+              balance={topic.balance}
             />
           </div>
 

@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const sportsBettingLegalizationData = {
   id: "sports-betting-legalization",
@@ -435,6 +435,4 @@ export const sportsBettingLegalizationData = {
         "Legal-market integrity monitoring exposed real match-fixing — flagged line moves led to NCAA bans that offshore books would have hidden — and mandated helpline advertising routes at-risk people to treatment that did not exist underground. Yet the same legal liquidity and granular prop bets created the manipulation incentive, problem-gambling helpline calls surged over 100% in states like Massachusetts after launch, and FBI crime data shows legalization amplified intimate-partner violence after NFL upset losses. The crux is whether legalization's oversight catches and treats more harm than its expanded volume creates.",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

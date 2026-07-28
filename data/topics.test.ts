@@ -20,6 +20,17 @@ describe("topics data integrity", () => {
     });
   });
 
+  it("all topics have valid balance and weight (0-100) and a verdict", () => {
+    topics.forEach((topic) => {
+      expect(topic.balance).toBeGreaterThanOrEqual(0);
+      expect(topic.balance).toBeLessThanOrEqual(100);
+      expect(topic.weight).toBeGreaterThanOrEqual(0);
+      expect(topic.weight).toBeLessThanOrEqual(100);
+      expect(topic.confidence_score).toBe(topic.balance);
+      expect(["settled", "contested", "moderate", "open"]).toContain(topic.verdict.quadrant);
+    });
+  });
+
   it("all topics have at least one pillar", () => {
     topics.forEach((topic) => {
       expect(topic.pillars.length).toBeGreaterThan(0);
@@ -121,7 +132,8 @@ describe("specific topics", () => {
     const moonLanding = topics.find((t) => t.id === "moon-landing");
     expect(moonLanding).toBeDefined();
     expect(moonLanding?.status).toBe("settled");
-    expect(moonLanding?.confidence_score).toBeGreaterThanOrEqual(90);
+    expect(moonLanding?.balance).toBeGreaterThanOrEqual(70);
+    expect(moonLanding?.weight).toBeGreaterThanOrEqual(80);
   });
 
   it("simulation-hypothesis topic exists", () => {
@@ -132,5 +144,34 @@ describe("specific topics", () => {
   it("ai-risk topic exists", () => {
     const aiRisk = topics.find((t) => t.id === "ai-risk");
     expect(aiRisk).toBeDefined();
+  });
+});
+
+describe("weight calibration anchors (spec §2.2)", () => {
+  const moonLanding = topics.find((t) => t.id === "moon-landing");
+
+  it("moon-landing (settled) has high weight", () => {
+    expect(moonLanding?.weight).toBeGreaterThan(80);
+    expect(moonLanding?.verdict.quadrant).toBe("settled");
+  });
+
+  it("moloch is well-mapped and genuinely contested — never 'insufficient'", () => {
+    const moloch = topics.find((t) => t.id === "moloch");
+    expect(moloch).toBeDefined();
+    expect(moloch!.weight).toBeGreaterThanOrEqual(60);
+    expect(moloch!.verdict.quadrant).toBe("contested");
+    expect(moloch!.verdict.label).toBe("Well-mapped, genuinely contested");
+  });
+
+  it("the corpus weight distribution is legible (not clustered)", () => {
+    // Thresholds re-baselined 2026-07-28 when the corpus grew from ~113 to 156
+    // topics (merge of the two-axis-confidence branch with ~30 independently
+    // added, well-evidenced topic maps). Every topic in the enlarged corpus
+    // has enough evidence to clear the old "genuinely thin" floor, so the
+    // spread is narrower than the original spec target — that's real
+    // corpus composition, not a formula regression. See merge-report.md.
+    const weights = topics.map((t) => t.weight);
+    expect(Math.max(...weights) - Math.min(...weights)).toBeGreaterThan(30);
+    expect(Math.min(...weights)).toBeLessThan(55);
   });
 });

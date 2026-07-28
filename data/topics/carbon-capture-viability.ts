@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const carbonCaptureViabilityData = {
   id: "carbon-capture-viability",
@@ -474,6 +474,4 @@ export const carbonCaptureViabilityData = {
         "Direct air capture still costs roughly $300-1,000 per tonne, Climeworks' Mammoth flagship reportedly captured only about 105 tonnes in ten months against a 36,000-tonne design, and power-plant capture carries a 10-30% energy penalty. Proponents point to $250-350-per-tonne targets by 2030 and solar-like learning curves; skeptics argue that pulling 0.04%-concentration CO2 from the air sets a thermodynamic floor and that every dollar buys more mitigation if spent on renewables. Will capture follow solar's cost collapse, or stay too expensive for anything but the residual emissions that have no other fix?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

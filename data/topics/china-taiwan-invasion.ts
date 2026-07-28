@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const chinaTaiwanInvasionData = {
   id: "china-taiwan-invasion",
@@ -362,6 +362,4 @@ export const chinaTaiwanInvasionData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

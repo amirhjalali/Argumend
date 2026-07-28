@@ -9,6 +9,7 @@ import {
   TOPIC_COUNT_LABEL,
 } from "@/data/topicIndex";
 import type { Topic } from "@/lib/schemas/topic";
+import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 
 interface FeaturedTopicHeroProps {
   onTopicSelect: (id: string) => void;
@@ -58,7 +59,6 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
 
   if (!summary) return null;
 
-  const score = summary.confidence_score;
   const crux = topic?.pillars?.[0]?.crux;
   const forEvidence = topic ? getBestEvidence(topic, "for") : null;
   const againstEvidence = topic ? getBestEvidence(topic, "against") : null;
@@ -93,25 +93,14 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
           )}
         </div>
 
-        {/* Confidence Score */}
+        {/* Balance + Weight */}
         <div className="flex flex-col items-center gap-2">
-          <div className="w-full max-w-xs bg-stone-200 dark:bg-[#302e2a] rounded-full h-3 overflow-hidden">
-            <div
-              className="h-full rounded-full bg-deep transition-all duration-700"
-              style={{ width: `${score}%` }}
-            />
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="font-serif text-3xl font-bold text-deep tabular-nums">
-              {score}%
-            </span>
-            <span className="text-sm text-stone-500 dark:text-stone-400">
-              confidence
-            </span>
-          </div>
-          <p className="text-xs text-muted text-center max-w-xs leading-snug">
-            How strongly the weighed evidence leans — not our opinion.
-          </p>
+          <BalanceWeightReadout
+            balance={summary.balance}
+            weight={summary.weight}
+            verdict={summary.verdict}
+            className="w-full max-w-md"
+          />
           <p className="text-sm text-stone-500 dark:text-stone-400 text-center max-w-md">
             {summary.meta_claim}
           </p>

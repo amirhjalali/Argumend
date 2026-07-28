@@ -1,8 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { getVerdictSentence, getVerdictLabel } from "./topic";
+import { getVerdictSentence } from "./topic";
 
-// getVerdictLabel (compact, for badges) is covered elsewhere; this exercises the
-// full-sentence sibling used in prose contexts at each confidence boundary.
+// getVerdict (2-D balance+weight, compact label for badges) is covered elsewhere;
+// this exercises the full-sentence sibling used in prose contexts at each
+// confidence boundary.
 describe("getVerdictSentence", () => {
   it("returns the 'beyond reasonable doubt' sentence for score >= 95", () => {
     expect(getVerdictSentence(95)).toBe(
@@ -40,11 +41,10 @@ describe("getVerdictSentence", () => {
     );
   });
 
-  it("reads as a complete clause distinct from the compact label", () => {
+  it("reads as a complete, capitalized clause", () => {
     for (const score of [10, 60, 80, 99]) {
       const sentence = getVerdictSentence(score);
-      // Prose form is longer than the badge label and starts with a capital.
-      expect(sentence.length).toBeGreaterThan(getVerdictLabel(score).length);
+      expect(sentence.length).toBeGreaterThan(20);
       expect(sentence[0]).toBe(sentence[0].toUpperCase());
     }
   });

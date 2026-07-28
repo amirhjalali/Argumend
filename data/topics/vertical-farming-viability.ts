@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const verticalFarmingViabilityData = {
   id: "vertical-farming-viability",
@@ -421,6 +421,4 @@ export const verticalFarmingViabilityData = {
         "Vertical farming is sometimes sold as a fix for global food security, but the crops it can grow economically — leafy greens, herbs, microgreens, some berries — supply almost no calories, while staples like wheat and rice are physically and economically a poor fit (lighting alone would cost roughly 100x the price of wheat). Proponents counter that no serious advocate claims it will grow grain; the real claim is that it can take over a meaningful share of water-intensive, climate-fragile fresh produce locally and year-round, freeing water and land for staples. Is it transformative for a valuable produce category, or a bounded luxury niche?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

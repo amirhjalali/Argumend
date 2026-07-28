@@ -1,6 +1,6 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
-const covidOriginsData: Omit<Topic, "confidence_score"> = {
+const covidOriginsData: TopicInput = {
   id: "lab-leak-theory",
   title: "COVID-19 Lab Leak Origin",
   meta_claim:

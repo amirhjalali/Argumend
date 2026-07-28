@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const hydrogenEconomyViabilityData = {
   id: "hydrogen-economy-viability",
@@ -431,6 +431,4 @@ export const hydrogenEconomyViabilityData = {
         "Green hydrogen costs roughly $4-8/kg versus ~$1-2/kg for grey, and the IEA reports only about 7% of announced low-emissions hydrogen capacity has reached a final investment decision, with a Nature Energy study finding only ~7% of announced capacity realized on schedule. Proponents point to the DOE's $1/kg-by-2031 target, IRA and EU Hydrogen Bank subsidies, and the ~90% cost declines of solar and batteries as precedent. Is green hydrogen riding a solar-like experience curve to genuine competitiveness, or is it a subsidy-dependent promise that has failed to arrive since the 1970s?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

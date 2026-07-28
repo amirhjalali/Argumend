@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const lonelinessEpidemicData = {
   id: "loneliness-epidemic",
@@ -411,6 +411,4 @@ export const lonelinessEpidemicData = {
         "The UK created the world's first Ministry for Loneliness in 2018, but five years later, population-level loneliness measures have not improved. Social prescribing programs show modest individual benefits but no systemic impact. Yet urban planning research shows walkable neighborhoods produce 2-3x more social interaction, and countries with shorter work weeks report lower loneliness. The question is whether loneliness is a structural problem amenable to infrastructure and policy solutions — better public spaces, shorter work hours, mixed-use neighborhoods — or a cultural and psychological phenomenon driven by values around autonomy, mobility, and personal choice that no policy can override.",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

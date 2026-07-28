@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const tippingCultureData = {
   id: "tipping-culture",
@@ -420,6 +420,4 @@ export const tippingCultureData = {
         "Danny Meyer's flagship no-tipping experiment collapsed by 2020 after roughly 40% of his front-of-house staff left, and Washington, D.C. partly reversed its tip-credit phase-out in 2025 amid restaurant closures and service-fee backlash. Yet seven states have paid tipped workers the full minimum wage for decades with healthy restaurant industries, and EPI found D.C. full-service employment actually grew ~7.9% after Initiative 82. Are the failures fixable coordination problems — one restaurant can't unilaterally drop tips — or proof that U.S. workers and diners durably reject service-included pricing?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

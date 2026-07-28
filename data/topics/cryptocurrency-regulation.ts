@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const cryptocurrencyRegulationData = {
   id: "cryptocurrency-regulation",
@@ -448,4 +448,4 @@ export const cryptocurrencyRegulationData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

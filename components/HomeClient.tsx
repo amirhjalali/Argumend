@@ -10,6 +10,7 @@ import { TopBar } from "@/components/TopBar";
 import { HeroAnalyze } from "@/components/HeroAnalyze";
 import { FeaturedTopicHero } from "@/components/FeaturedTopicHero";
 import { Footer } from "@/components/Footer";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { topicSummaries, CATEGORY_ORDER, featuredTopicId } from "@/data/topicIndex";
@@ -212,17 +213,13 @@ function CanvasExperience() {
                       <h3 className="font-serif text-sm font-medium text-primary group-hover:text-deep transition-colors leading-snug line-clamp-2">
                         {topic.title}
                       </h3>
-                      <span
-                        className={`mt-2 inline-block text-xs font-mono px-1.5 py-0.5 rounded-md ${
-                          topic.confidence_score >= 80
-                            ? "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400"
-                            : topic.confidence_score >= 50
-                            ? "bg-rust-50 dark:bg-rust-900/30 text-rust-600 dark:text-rust-400"
-                            : "bg-stone-50 dark:bg-[#302e2a] text-stone-500"
-                        }`}
-                      >
-                        {topic.confidence_score}%
-                      </span>
+                      <BalanceWeightChip
+                        balance={topic.balance}
+                        weight={topic.weight}
+                        verdict={topic.verdict}
+                        showLabel
+                        className="mt-2"
+                      />
                     </button>
                   ))}
                 </div>

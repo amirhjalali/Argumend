@@ -56,8 +56,9 @@ import type {
   Evidence,
   Crux,
 } from "@/lib/schemas/topic";
-import { calculateEvidenceScore, getVerdictLabel } from "@/lib/schemas/topic";
+import { calculateEvidenceScore } from "@/lib/schemas/topic";
 import { categoryColors, statusColors, categoryTopBorder } from "@/lib/categoryColors";
+import { BalanceWeightChip, QUADRANT_STYLE } from "@/components/BalanceWeightChip";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import { hasMockDebate, getMockDebate } from "@/data/mockDebates";
 import { getMockVerdict } from "@/data/mockVerdicts";
@@ -113,17 +114,6 @@ const ICON_MAP: Record<string, typeof Shield> = {
   Users,
   AlertTriangle,
 };
-
-// ---------------------------------------------------------------------------
-// Confidence badge color
-// ---------------------------------------------------------------------------
-
-function confidenceColor(score: number): string {
-  if (score >= 85) return "text-emerald-700 bg-emerald-50 border-emerald-200/60";
-  if (score >= 60) return "text-deep bg-deep/10 border-deep/20";
-  if (score >= 40) return "text-rust-700 bg-rust-50 border-rust-200/60";
-  return "text-stone-600 bg-stone-100 border-stone-200/60";
-}
 
 // ---------------------------------------------------------------------------
 // Evidence weight bar
@@ -395,7 +385,6 @@ function PillarSection({
 
 function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopicId?: string }) {
   const StatusIcon = statusIcons[topic.status];
-  const confPct = Math.min(topic.confidence_score, 100);
 
   return (
     <div
@@ -410,30 +399,11 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
         {topic.meta_claim}
       </p>
 
-      {/* Confidence bar */}
-      <div className="mb-3">
-        <div className="flex items-center justify-between mb-1">
-          <span className="text-[11px] font-medium text-stone-500 uppercase tracking-widest">
-            Confidence
-          </span>
-          <span className="font-mono text-xs tabular-nums text-stone-600 font-semibold">
-            {topic.confidence_score}%
-          </span>
-        </div>
-        <div
-          className="h-1.5 rounded-full bg-stone-200/80 dark:bg-[#3d3a36] overflow-hidden"
-          role="meter"
-          aria-valuenow={topic.confidence_score}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-label={`Confidence: ${topic.confidence_score}%`}
-        >
-          <div
-            className="h-full rounded-full bg-deep-light transition-all duration-300 animate-bar-fill"
-            style={{ width: `${confPct}%` }}
-            aria-hidden="true"
-          />
-        </div>
+      <div className="mb-3 flex items-center justify-between">
+        <span className="text-[11px] font-medium text-stone-500 uppercase tracking-widest">
+          Verdict
+        </span>
+        <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
       </div>
 
       <div className="flex items-center justify-between gap-2 mb-3">
@@ -934,7 +904,15 @@ export default function TopicDetailView({
     (sum, p) => sum + (p.evidence ?? []).filter((e) => e.side === "against").length,
     0
   );
-  const forPct = totalEvidence > 0 ? Math.round((totalFor / totalEvidence) * 100) : 50;
+  const allEvidence = topic.pillars.flatMap((p) => p.evidence ?? []);
+  const forWeightSum = allEvidence
+    .filter((e) => e.side === "for")
+    .reduce((sum, e) => sum + calculateEvidenceScore(e.weight), 0);
+  const againstWeightSum = allEvidence
+    .filter((e) => e.side === "against")
+    .reduce((sum, e) => sum + calculateEvidenceScore(e.weight), 0);
+  const totalWeightSum = forWeightSum + againstWeightSum;
+  const forPct = totalWeightSum > 0 ? Math.round((forWeightSum / totalWeightSum) * 100) : 50;
 
   const [stance, setStance] = useState<"agree" | "unsure" | "disagree" | null>(null);
   const [depth, setDepth] = useState<ReadingDepth>("30s");
@@ -1022,12 +1000,8 @@ export default function TopicDetailView({
                 {statusLabels[topic.status]}
               </span>
 
-              {/* Confidence badge */}
-              <span
-                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold border tabular-nums ${confidenceColor(topic.confidence_score)}`}
-              >
-                {topic.confidence_score}% confidence
-              </span>
+              {/* Verdict badge */}
+              <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
             </div>
 
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
@@ -1043,11 +1017,13 @@ export default function TopicDetailView({
               <div className="flex items-center gap-1">
                 <ShareButtons
                   title={`${topic.title} — Argument Analysis`}
-                  url={`https://argumend.org/?topic=${topic.id}&view=logic-map`}
-                  description={`${topic.meta_claim} — ${getVerdictLabel(topic.confidence_score)}`}
+                  url={`https://argumend.org/topics/${topic.id}`}
+                  description={`${topic.meta_claim} — ${topic.verdict.label}`}
                   topicMeta={{
                     metaClaim: topic.meta_claim,
-                    confidenceScore: topic.confidence_score,
+                    verdictLabel: topic.verdict.label,
+                    balance: topic.balance,
+                    weight: topic.weight,
                     status: topic.status,
                     cruxQuestion: topic.pillars[0]?.crux?.title,
                     topicTitle: topic.title,
@@ -1120,7 +1096,9 @@ export default function TopicDetailView({
 
           {/* ── Controversy Meter ── */}
           <ControversyMeter
-            confidenceScore={topic.confidence_score}
+            balance={topic.balance}
+            weight={topic.weight}
+            verdict={topic.verdict}
             status={topic.status}
           />
 
@@ -1138,30 +1116,21 @@ export default function TopicDetailView({
               <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#4f7b77]/20 rounded-tl-xl" />
               <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#4f7b77]/20 rounded-br-xl" />
 
-              <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-5">
+              <div className="inline-flex flex-col items-center gap-3">
                 <span
-                  className={`text-5xl sm:text-6xl font-mono font-bold tabular-nums leading-none ${
-                    topic.confidence_score >= 85
-                      ? "text-emerald-700"
-                      : topic.confidence_score >= 60
-                        ? "text-deep"
-                        : topic.confidence_score >= 40
-                          ? "text-rust-700"
-                          : "text-stone-600"
-                  }`}
+                  className="font-serif text-3xl sm:text-4xl font-semibold leading-tight"
+                  style={{ color: QUADRANT_STYLE[topic.verdict.quadrant].color }}
                 >
-                  {topic.confidence_score}%
+                  {topic.verdict.label}
                 </span>
-                <div className="flex flex-col items-center sm:items-start gap-1.5">
+                <div className="flex flex-col items-center gap-1.5">
                   <span
                     className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium border ${statusColors[topic.status]}`}
                   >
                     <StatusIcon className="h-3.5 w-3.5" />
                     {statusLabels[topic.status]}
                   </span>
-                  <p className="text-sm text-stone-500 font-medium">
-                    {getVerdictLabel(topic.confidence_score)}
-                  </p>
+                  <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} />
                 </div>
               </div>
             </div>
@@ -1434,12 +1403,10 @@ export default function TopicDetailView({
               </blockquote>
               <p className="text-sm text-stone-500 mt-4 leading-relaxed">
                 This topic is currently classified as{" "}
-                <strong className="text-primary">
-                  {statusLabels[topic.status].toLowerCase()}
-                </strong>{" "}
-                with a computed confidence score of{" "}
-                <strong className="text-primary">{topic.confidence_score}%</strong>,
-                based on {totalEvidence} weighted evidence items across{" "}
+                <strong className="text-primary">{statusLabels[topic.status].toLowerCase()}</strong>. The
+                evidence balance is <strong className="text-primary">{topic.balance}/100</strong> (which way
+                it tips) with a weight of <strong className="text-primary">{topic.weight}/100</strong> (how
+                much bears on it), computed from {totalEvidence} weighted evidence items across{" "}
                 {topic.pillars.length} analytical pillars.
               </p>
             </section>
@@ -1660,7 +1627,7 @@ export default function TopicDetailView({
             <VerdictVoting
               topicId={topic.id}
               topicTitle={topic.title}
-              confidenceScore={topic.confidence_score}
+              balance={topic.balance}
             />
           </AnimateOnScroll>
 
@@ -1761,7 +1728,9 @@ export default function TopicDetailView({
                 description={topic.meta_claim}
                 topicMeta={{
                   metaClaim: topic.meta_claim,
-                  confidenceScore: topic.confidence_score,
+                  verdictLabel: topic.verdict.label,
+                  balance: topic.balance,
+                  weight: topic.weight,
                   status: topic.status,
                   cruxQuestion: topic.pillars[0]?.crux?.title,
                   topicTitle: topic.title,

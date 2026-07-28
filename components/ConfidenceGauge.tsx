@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 interface ConfidenceGaugeProps {
   score: number;
   size?: number;
+  /** Caption below the score. Defaults to "Confidence". */
+  label?: string;
 }
 
-export const ConfidenceGauge = memo(function ConfidenceGauge({ score, size = 120 }: ConfidenceGaugeProps) {
+export const ConfidenceGauge = memo(function ConfidenceGauge({ score, size = 120, label = "Confidence" }: ConfidenceGaugeProps) {
   const strokeWidth = 7;
   const radius = (size - strokeWidth * 2 - 8) / 2;
   const circumference = 2 * Math.PI * radius;
@@ -31,7 +33,7 @@ export const ConfidenceGauge = memo(function ConfidenceGauge({ score, size = 120
       className="relative"
       style={{ width: size, height: size }}
       role="meter"
-      aria-label="Confidence score"
+      aria-label={`${label} score`}
       aria-valuenow={score}
       aria-valuemin={0}
       aria-valuemax={100}
@@ -118,7 +120,7 @@ export const ConfidenceGauge = memo(function ConfidenceGauge({ score, size = 120
           className="font-sans uppercase tracking-[0.15em] text-muted font-medium"
           style={{ fontSize: size * 0.075, marginTop: size * 0.02 }}
         >
-          Confidence
+          {label}
         </span>
       </div>
     </div>

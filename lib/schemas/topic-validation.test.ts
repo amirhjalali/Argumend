@@ -22,6 +22,9 @@ const validTopic = {
   title: "Test Topic",
   meta_claim: "A claim",
   confidence_score: 75,
+  balance: 75,
+  weight: 70,
+  verdict: { label: "Leans toward the claim — moderately evidenced", quadrant: "moderate" as const },
   status: "contested",
   category: "policy",
   pillars: [
@@ -50,7 +53,7 @@ function pillarWith(evidence: Pillar["evidence"]): Pillar {
 
 const strong = { sourceReliability: 10, independence: 10, replicability: 10, directness: 10 };
 
-describe("computeConfidenceScore — asymmetry and uncertainty", () => {
+describe("computeConfidenceScore (= computeBalance) — direction and evenness", () => {
   it("falls below 50 when against evidence outweighs for", () => {
     const score = computeConfidenceScore([
       pillarWith([
@@ -61,15 +64,17 @@ describe("computeConfidenceScore — asymmetry and uncertainty", () => {
     expect(score).toBeLessThan(50);
   });
 
-  it("stays just under 50 for evenly matched evidence (the +1 uncertainty term)", () => {
+  // Two-axis model (spec 2026-07-14): balance is a clean forStrength /
+  // (forStrength + againstStrength) ratio with no uncertainty bias — evenly
+  // matched evidence balances to exactly 50, the documented "even split" point.
+  it("balances to exactly 50 for evenly matched evidence", () => {
     const score = computeConfidenceScore([
       pillarWith([
         { id: "e1", title: "for", description: "d", side: "for", weight: strong },
         { id: "e2", title: "against", description: "d", side: "against", weight: strong },
       ]),
     ]);
-    expect(score).toBeLessThan(50);
-    expect(score).toBeGreaterThanOrEqual(48);
+    expect(score).toBe(50);
   });
 });
 

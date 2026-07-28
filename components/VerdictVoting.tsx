@@ -11,7 +11,7 @@ import { Vote, RotateCcw, Users, BarChart3, ArrowRight } from "lucide-react";
 interface VerdictVotingProps {
   topicId: string;
   topicTitle: string;
-  confidenceScore: number; // The AI's evidence-based score for comparison
+  balance: number; // The AI's evidence-balance (0 = against, 100 = for) for comparison
 }
 
 interface StoredVote {
@@ -130,7 +130,7 @@ function removeVote(topicId: string, currentVote: number): void {
 // Component
 // ---------------------------------------------------------------------------
 
-export function VerdictVoting({ topicId, topicTitle, confidenceScore }: VerdictVotingProps) {
+export function VerdictVoting({ topicId, topicTitle, balance }: VerdictVotingProps) {
   const [userVote, setUserVote] = useState<number | null>(null);
   const [hasVoted, setHasVoted] = useState(false);
   const [aggregate, setAggregate] = useState<{ votes: number[]; count: number } | null>(null);
@@ -339,22 +339,20 @@ export function VerdictVoting({ topicId, topicTitle, confidenceScore }: VerdictV
                 <span className="font-medium text-primary">
                   Compare your verdict with our evidence-based analysis:
                 </span>{" "}
-                The AI confidence score for this topic is{" "}
-                <span className="font-mono font-semibold text-deep tabular-nums">
-                  {confidenceScore}%
-                </span>
-                .
-                {userVote !== null && Math.abs(userVote - confidenceScore) <= 15 && (
+                The evidence balance for this topic is{" "}
+                <span className="font-mono font-semibold text-deep tabular-nums">{balance}/100</span>{" "}
+                (0 = against, 100 = for).
+                {userVote !== null && Math.abs(userVote - balance) <= 15 && (
                   <span className="text-emerald-700 font-medium">
                     {" "}Your verdict aligns closely with the evidence-based analysis.
                   </span>
                 )}
-                {userVote !== null && Math.abs(userVote - confidenceScore) > 15 && userVote > confidenceScore && (
+                {userVote !== null && Math.abs(userVote - balance) > 15 && userVote > balance && (
                   <span className="text-rust-700 font-medium">
                     {" "}You seem more convinced than the evidence alone suggests -- explore the counterarguments in the analysis above.
                   </span>
                 )}
-                {userVote !== null && Math.abs(userVote - confidenceScore) > 15 && userVote < confidenceScore && (
+                {userVote !== null && Math.abs(userVote - balance) > 15 && userVote < balance && (
                   <span className="text-deep font-medium">
                     {" "}You seem more skeptical than the evidence indicates -- the supporting evidence above may offer a new perspective.
                   </span>

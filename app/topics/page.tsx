@@ -19,6 +19,7 @@ import { categoryColors, statusColors, categoryTopBorder } from "@/lib/categoryC
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -30,12 +31,14 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
   highly_speculative: HelpCircle,
 };
 
-type SortOption = "category" | "confidence-desc" | "confidence-asc" | "title-asc";
+type SortOption = "category" | "weight-desc" | "contested" | "balance-desc" | "balance-asc" | "title-asc";
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
   { value: "category", label: "By category" },
-  { value: "confidence-desc", label: "Highest confidence" },
-  { value: "confidence-asc", label: "Lowest confidence" },
+  { value: "weight-desc", label: "Most settled" },
+  { value: "contested", label: "Most contested" },
+  { value: "balance-desc", label: "Strongest for" },
+  { value: "balance-asc", label: "Strongest against" },
   { value: "title-asc", label: "Alphabetical" },
 ];
 
@@ -47,7 +50,7 @@ const STATUS_LABELS: Record<TopicStatus, string> = {
   highly_speculative: "Speculative",
 };
 
-// Default confidence bounds — values outside [DEFAULT_MIN, DEFAULT_MAX] count as
+// Default balance bounds — values outside [DEFAULT_MIN, DEFAULT_MAX] count as
 // an active filter and get reflected in the URL.
 const DEFAULT_MIN = 0;
 const DEFAULT_MAX = 100;
@@ -59,8 +62,8 @@ const DEFAULT_MAX = 100;
 export default function TopicsPage() {
   const [activeCategory, setActiveCategory] = useState<TopicCategory | "all">("all");
   const [activeStatuses, setActiveStatuses] = useState<Set<TopicStatus>>(new Set());
-  const [minConfidence, setMinConfidence] = useState(DEFAULT_MIN);
-  const [maxConfidence, setMaxConfidence] = useState(DEFAULT_MAX);
+  const [minBalance, setMinBalance] = useState(DEFAULT_MIN);
+  const [maxBalance, setMaxBalance] = useState(DEFAULT_MAX);
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("category");
 
@@ -77,12 +80,12 @@ export default function TopicsPage() {
       filtered = filtered.filter((t) => activeStatuses.has(t.status));
     }
 
-    // Confidence-range filter
-    if (minConfidence > DEFAULT_MIN || maxConfidence < DEFAULT_MAX) {
+    // Balance-range filter
+    if (minBalance > DEFAULT_MIN || maxBalance < DEFAULT_MAX) {
       filtered = filtered.filter(
         (t) =>
-          t.confidence_score >= minConfidence &&
-          t.confidence_score <= maxConfidence
+          t.balance >= minBalance &&
+          t.balance <= maxBalance
       );
     }
 
@@ -103,12 +106,19 @@ export default function TopicsPage() {
           const catDiff =
             CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category);
           if (catDiff !== 0) return catDiff;
-          return b.confidence_score - a.confidence_score;
+          return b.weight - a.weight;
         }
-        case "confidence-desc":
-          return b.confidence_score - a.confidence_score;
-        case "confidence-asc":
-          return a.confidence_score - b.confidence_score;
+        case "weight-desc":
+          return b.weight - a.weight;
+        case "contested":
+          // most contested = well-evidenced AND balanced: small lean first, weight breaks ties
+          return (
+            Math.abs(a.balance - 50) - Math.abs(b.balance - 50) || b.weight - a.weight
+          );
+        case "balance-desc":
+          return b.balance - a.balance;
+        case "balance-asc":
+          return a.balance - b.balance;
         case "title-asc":
           return a.title.localeCompare(b.title);
         default:
@@ -117,7 +127,7 @@ export default function TopicsPage() {
     });
 
     return filtered;
-  }, [activeCategory, activeStatuses, minConfidence, maxConfidence, search, sortBy]);
+  }, [activeCategory, activeStatuses, minBalance, maxBalance, search, sortBy]);
 
   // Count per category
   const categoryCounts = useMemo(() => {
@@ -140,16 +150,16 @@ export default function TopicsPage() {
   const clearFilters = () => {
     setActiveCategory("all");
     setActiveStatuses(new Set());
-    setMinConfidence(DEFAULT_MIN);
-    setMaxConfidence(DEFAULT_MAX);
+    setMinBalance(DEFAULT_MIN);
+    setMaxBalance(DEFAULT_MAX);
     setSearch("");
   };
 
   const hasFilters =
     activeCategory !== "all" ||
     activeStatuses.size > 0 ||
-    minConfidence > DEFAULT_MIN ||
-    maxConfidence < DEFAULT_MAX ||
+    minBalance > DEFAULT_MIN ||
+    maxBalance < DEFAULT_MAX ||
     search.trim().length > 0;
 
   // ---------------------------------------------------------------------------
@@ -190,8 +200,8 @@ export default function TopicsPage() {
       if (params.get("min") === null) nextMin = DEFAULT_MIN;
       if (params.get("max") === null) nextMax = DEFAULT_MAX;
       if (nextMin > nextMax) nextMin = nextMax; // keep the range coherent
-      if (nextMin !== DEFAULT_MIN) setMinConfidence(nextMin);
-      if (nextMax !== DEFAULT_MAX) setMaxConfidence(nextMax);
+      if (nextMin !== DEFAULT_MIN) setMinBalance(nextMin);
+      if (nextMax !== DEFAULT_MAX) setMaxBalance(nextMax);
 
       const sortParam = params.get("sort");
       if (sortParam && SORT_OPTIONS.some((o) => o.value === sortParam)) {
@@ -211,8 +221,8 @@ export default function TopicsPage() {
     if (activeStatuses.size > 0) {
       params.set("status", ALL_STATUSES.filter((s) => activeStatuses.has(s)).join(","));
     }
-    if (minConfidence > DEFAULT_MIN) params.set("min", String(minConfidence));
-    if (maxConfidence < DEFAULT_MAX) params.set("max", String(maxConfidence));
+    if (minBalance > DEFAULT_MIN) params.set("min", String(minBalance));
+    if (maxBalance < DEFAULT_MAX) params.set("max", String(maxBalance));
     if (sortBy !== "category") params.set("sort", sortBy);
     if (search.trim()) params.set("q", search.trim());
 
@@ -223,7 +233,7 @@ export default function TopicsPage() {
       qs ? `${window.location.pathname}?${qs}` : window.location.pathname
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeCategory, activeStatuses, minConfidence, maxConfidence, sortBy, search]);
+  }, [activeCategory, activeStatuses, minBalance, maxBalance, sortBy, search]);
 
   const topicsJsonLd = useMemo(
     () => ({
@@ -336,7 +346,7 @@ export default function TopicsPage() {
             </div>
           </div>
 
-          {/* Status + Confidence filter row */}
+          {/* Status + Balance filter row */}
           <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6 mb-6">
             {/* Status chips (multi-select; none selected = any status) */}
             <div className="flex items-center gap-2 flex-wrap">
@@ -364,12 +374,12 @@ export default function TopicsPage() {
               })}
             </div>
 
-            {/* Confidence range (dual slider) */}
+            {/* Balance range (dual slider) */}
             <div className="flex flex-col gap-1.5 w-full max-w-[260px] lg:ml-auto">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-medium text-stone-500">Confidence</span>
+                <span className="text-xs font-medium text-stone-500">Balance</span>
                 <span className="font-mono text-xs tabular-nums text-stone-700 dark:text-stone-300">
-                  {minConfidence}&ndash;{maxConfidence}%
+                  {minBalance}&ndash;{maxBalance}%
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -378,11 +388,11 @@ export default function TopicsPage() {
                   type="range"
                   min={0}
                   max={100}
-                  value={minConfidence}
+                  value={minBalance}
                   onChange={(e) =>
-                    setMinConfidence(Math.min(Number(e.target.value), maxConfidence))
+                    setMinBalance(Math.min(Number(e.target.value), maxBalance))
                   }
-                  aria-label="Minimum confidence"
+                  aria-label="Minimum balance"
                   className="flex-1 h-1 appearance-none bg-stone-200 dark:bg-stone-700 rounded-full accent-deep cursor-pointer"
                 />
               </div>
@@ -392,11 +402,11 @@ export default function TopicsPage() {
                   type="range"
                   min={0}
                   max={100}
-                  value={maxConfidence}
+                  value={maxBalance}
                   onChange={(e) =>
-                    setMaxConfidence(Math.max(Number(e.target.value), minConfidence))
+                    setMaxBalance(Math.max(Number(e.target.value), minBalance))
                   }
-                  aria-label="Maximum confidence"
+                  aria-label="Maximum balance"
                   className="flex-1 h-1 appearance-none bg-stone-200 dark:bg-stone-700 rounded-full accent-deep cursor-pointer"
                 />
               </div>
@@ -429,7 +439,7 @@ export default function TopicsPage() {
               <SearchX className="h-10 w-10 text-stone-300 mx-auto mb-4" />
               <p className="text-stone-600 font-medium mb-1">No topics found</p>
               <p className="text-sm text-stone-500 mb-5 max-w-xs mx-auto">
-                No topics match your current filters. Try widening the confidence
+                No topics match your current filters. Try widening the balance
                 range, picking a different status, or clearing all filters to browse
                 all {topicSummaries.length} topics.
               </p>
@@ -463,25 +473,9 @@ export default function TopicsPage() {
                       {topic.meta_claim}
                     </p>
 
-                    {/* Confidence score bar */}
-                    <div className="flex items-center gap-2.5 mb-3">
-                      <div
-                        className="h-1.5 flex-1 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden"
-                        role="meter"
-                        aria-valuenow={topic.confidence_score}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                        aria-label={`Confidence: ${topic.confidence_score}%`}
-                      >
-                        <div
-                          className="h-full bg-deep rounded-full transition-all duration-500 animate-bar-fill"
-                          style={{ width: `${topic.confidence_score}%` }}
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600 dark:text-stone-400">
-                        {topic.confidence_score}%
-                      </span>
+                    {/* Balance + weight */}
+                    <div className="flex items-center justify-between gap-2.5 mb-3">
+                      <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
                     </div>
 
                     {/* Footer: pills + pillar count */}

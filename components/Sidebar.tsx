@@ -8,6 +8,7 @@ import { learnNav, metaNav, primaryNav } from "@/lib/nav";
 import { topicSummaries } from "@/data/topicIndex";
 import { TrendingTopics } from "@/components/TrendingTopics";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 const DESKTOP_QUERY = "(min-width: 768px)";
 
@@ -196,9 +197,12 @@ export function Sidebar({
                       {topic.title}
                     </span>
 
-                    <span className="flex-shrink-0 text-[11px] font-mono tabular-nums text-muted dark:text-stone-400">
-                      {topic.confidence_score}%
-                    </span>
+                    <BalanceWeightChip
+                      balance={topic.balance}
+                      weight={topic.weight}
+                      verdict={topic.verdict}
+                      className="flex-shrink-0"
+                    />
                   </button>
                 </li>
               );
