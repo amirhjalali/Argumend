@@ -1234,7 +1234,9 @@ git add components/ app/topics/[id]/TopicDetailView.tsx
 git commit -m "feat: migrate topic-page surfaces to Balance + Weight readouts"
 ```
 
----### Task 7: SEO/meta surfaces — JSON-LD, OG image, `is/`, `questions/`, embed
+---
+
+### Task 7: SEO/meta surfaces — JSON-LD, OG image, `is/`, `questions/`, embed
 
 **Files:**
 - Modify: `app/topics/[id]/page.tsx` (L3, L31-33, L98-104)
