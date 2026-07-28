@@ -10,12 +10,18 @@ export type {
   TopicCategory,
   TopicStatus,
   Topic,
+  Verdict,
+  VerdictQuadrant,
 } from "@/lib/schemas/topic";
 
 export {
   calculateEvidenceScore,
   getVerdictLabel,
   computeConfidenceScore,
+  computeBalance,
+  computeWeight,
+  getVerdict,
+  getLeanLabel,
 } from "@/lib/schemas/topic";
 
 // Debate mode types (not part of topic schema)
