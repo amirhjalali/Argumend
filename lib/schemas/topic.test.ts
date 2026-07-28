@@ -119,6 +119,9 @@ describe("TopicSchema", () => {
     title: "Test Topic",
     meta_claim: "A claim",
     confidence_score: 75,
+    balance: 75,
+    weight: 60,
+    verdict: { label: "Leans toward the claim — moderately evidenced", quadrant: "moderate" },
     status: "contested",
     category: "policy",
     pillars: [
@@ -156,6 +159,20 @@ describe("TopicSchema", () => {
     const invalidTopic = { ...validTopic, status: "unknown" };
     const result = TopicSchema.safeParse(invalidTopic);
     expect(result.success).toBe(false);
+  });
+
+  it("rejects balance/weight outside 0-100", () => {
+    expect(TopicSchema.safeParse({ ...validTopic, balance: 150 }).success).toBe(false);
+    expect(TopicSchema.safeParse({ ...validTopic, weight: -5 }).success).toBe(false);
+  });
+
+  it("rejects an invalid verdict quadrant", () => {
+    expect(
+      TopicSchema.safeParse({
+        ...validTopic,
+        verdict: { label: "x", quadrant: "sideways" },
+      }).success
+    ).toBe(false);
   });
 });
 

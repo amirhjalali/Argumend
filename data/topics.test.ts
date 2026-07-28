@@ -20,6 +20,17 @@ describe("topics data integrity", () => {
     });
   });
 
+  it("all topics have valid balance and weight (0-100) and a verdict", () => {
+    topics.forEach((topic) => {
+      expect(topic.balance).toBeGreaterThanOrEqual(0);
+      expect(topic.balance).toBeLessThanOrEqual(100);
+      expect(topic.weight).toBeGreaterThanOrEqual(0);
+      expect(topic.weight).toBeLessThanOrEqual(100);
+      expect(topic.confidence_score).toBe(topic.balance);
+      expect(["settled", "contested", "moderate", "open"]).toContain(topic.verdict.quadrant);
+    });
+  });
+
   it("all topics have at least one pillar", () => {
     topics.forEach((topic) => {
       expect(topic.pillars.length).toBeGreaterThan(0);
@@ -100,7 +111,8 @@ describe("specific topics", () => {
     const moonLanding = topics.find((t) => t.id === "moon-landing");
     expect(moonLanding).toBeDefined();
     expect(moonLanding?.status).toBe("settled");
-    expect(moonLanding?.confidence_score).toBeGreaterThanOrEqual(90);
+    expect(moonLanding?.balance).toBeGreaterThanOrEqual(70);
+    expect(moonLanding?.weight).toBeGreaterThanOrEqual(80);
   });
 
   it("simulation-hypothesis topic exists", () => {

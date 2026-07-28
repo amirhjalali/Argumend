@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const masculinityCrisisData = {
   id: "masculinity-crisis",
@@ -247,4 +247,4 @@ export const masculinityCrisisData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

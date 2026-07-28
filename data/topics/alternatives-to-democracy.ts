@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const alternativesToDemocracyData = {
   id: "alternatives-to-democracy",
@@ -230,4 +230,4 @@ export const alternativesToDemocracyData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

@@ -120,25 +120,6 @@ export const TopicStatusSchema = z.enum([
 ]);
 
 // ============================================================================
-// Topic Schema (unified with embedded questions/references)
-// ============================================================================
-
-export const TopicSchema = z.object({
-  id: z.string(),
-  title: z.string(), // e.g., "The Moon Landing"
-  meta_claim: z.string(),
-  confidence_score: z.number().min(0).max(100), // 0 to 100
-  status: TopicStatusSchema,
-  category: TopicCategorySchema,
-  pillars: z.array(PillarSchema),
-  evidence: z.array(EvidenceSchema).optional(), // Topic-level evidence for scales view
-  // Embedded metadata (previously in topicConfigs)
-  imageUrl: z.string().url().optional(),
-  references: z.array(ReferenceSchema).optional(),
-  questions: z.array(QuestionSchema).optional(),
-});
-
-// ============================================================================
 // Two-Axis Confidence: Balance + Weight
 // ============================================================================
 
@@ -240,6 +221,28 @@ export function getVerdict(balance: number, weight: number): Verdict {
 }
 
 // ============================================================================
+// Topic Schema (unified with embedded questions/references)
+// ============================================================================
+
+export const TopicSchema = z.object({
+  id: z.string(),
+  title: z.string(), // e.g., "The Moon Landing"
+  meta_claim: z.string(),
+  confidence_score: z.number().min(0).max(100), // @deprecated — always = balance; kept for JSON-LD ratingValue
+  balance: z.number().min(0).max(100), // which way the evidence tips (50 = even)
+  weight: z.number().min(0).max(100), // how much we actually know
+  verdict: VerdictSchema, // 2-D verdict computed from balance + weight
+  status: TopicStatusSchema,
+  category: TopicCategorySchema,
+  pillars: z.array(PillarSchema),
+  evidence: z.array(EvidenceSchema).optional(), // Topic-level evidence for scales view
+  // Embedded metadata (previously in topicConfigs)
+  imageUrl: z.string().url().optional(),
+  references: z.array(ReferenceSchema).optional(),
+  questions: z.array(QuestionSchema).optional(),
+});
+
+// ============================================================================
 // Type Inference
 // ============================================================================
 
@@ -253,6 +256,12 @@ export type Question = z.infer<typeof QuestionSchema>;
 export type TopicCategory = z.infer<typeof TopicCategorySchema>;
 export type TopicStatus = z.infer<typeof TopicStatusSchema>;
 export type Topic = z.infer<typeof TopicSchema>;
+
+/** Raw authored topic data — computed fields are injected by buildTopic. */
+export type TopicInput = Omit<Topic, "confidence_score" | "balance" | "weight" | "verdict"> & {
+  /** Optional authored score; only consulted as a floor for "settled" topics. */
+  confidence_score?: number;
+};
 
 // ============================================================================
 // Confidence Score Computation

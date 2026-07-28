@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const governmentPlatformBansData = {
   id: "government-platform-bans",
@@ -264,4 +264,4 @@ export const governmentPlatformBansData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

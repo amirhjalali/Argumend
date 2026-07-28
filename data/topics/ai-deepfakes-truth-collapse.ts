@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const aiDeepfakesTruthCollapseData = {
   id: "ai-deepfakes-truth-collapse",
@@ -247,4 +247,4 @@ export const aiDeepfakesTruthCollapseData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

@@ -1,4 +1,5 @@
-import { Topic, TopicCategory, TopicSchema, computeConfidenceScore } from "@/lib/schemas/topic";
+import { Topic, TopicCategory, TopicInput, TopicSchema, computeBalance, computeWeight, getVerdict } from "@/lib/schemas/topic";
+import { WEIGHT } from "@/lib/constants";
 
 // ============================================================================
 // Topic Data Imports
@@ -130,19 +131,27 @@ const labLeakTheoryData = covidOriginsData;
 // Build Topics with Computed Confidence Scores
 // ============================================================================
 
-function buildTopic(data: Omit<Topic, "confidence_score"> & { confidence_score?: number }): Topic {
-  // Compute confidence from evidence if not explicitly set to a high/settled value
-  const computedScore = computeConfidenceScore(data.pillars);
+function buildTopic(data: TopicInput): Topic {
+  const computedBalance = computeBalance(data.pillars);
+  const computedWeight = computeWeight(data.pillars);
 
-  // For "settled" topics, use the higher of computed vs original (trust the data)
-  // For contested topics, prefer computed score
-  const finalScore = data.status === "settled"
-    ? Math.max(computedScore, data.confidence_score ?? 0)
-    : computedScore;
+  // Settled topics: trust the authored score as a floor on the tilt, and
+  // guarantee a weight floor — "settled" is an editorial assertion of both.
+  const balance =
+    data.status === "settled"
+      ? Math.max(computedBalance, data.confidence_score ?? 0)
+      : computedBalance;
+  const weight =
+    data.status === "settled"
+      ? Math.max(computedWeight, WEIGHT.SETTLED_FLOOR)
+      : computedWeight;
 
   return TopicSchema.parse({
     ...data,
-    confidence_score: finalScore,
+    balance,
+    weight,
+    verdict: getVerdict(balance, weight),
+    confidence_score: balance, // @deprecated mirror — JSON-LD + unmigrated surfaces only
   });
 }
 

@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const privacyVsConvenienceData = {
   id: "privacy-vs-convenience",
@@ -353,6 +353,4 @@ export const privacyVsConvenienceData = {
         "GDPR has imposed billions in fines and forced structural changes like the EU-US Data Privacy Framework. Over 160 countries now have data protection laws. But dark patterns render consent banners meaningless, the US still lacks federal privacy legislation, and Big Tech's advertising revenue continues to grow in regulated markets. Is the global regulatory trend sufficient to reverse surveillance capitalism, or is it merely adding compliance costs without changing the fundamental dynamic?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const tiktokBrainRotData = {
   id: "tiktok-brain-rot",
@@ -315,6 +315,4 @@ export const tiktokBrainRotData = {
         "Developing brains (under 25) may be more susceptible to the effects of rapid-switching content on attention and reward circuits than mature adult brains. Children under 13 and adolescents 13-17 show stronger associations between social media use and attentional problems in most studies. If the effects are age-dependent, age-gated restrictions might be justified even if the evidence for harm to adults is weak. But defining precise thresholds requires understanding the dose-response relationship — is 30 minutes benign while 3 hours is harmful, or is any habitual exposure problematic during critical developmental windows?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

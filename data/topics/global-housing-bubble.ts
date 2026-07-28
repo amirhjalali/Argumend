@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const globalHousingBubbleData = {
   id: "global-housing-bubble",
@@ -327,4 +327,4 @@ export const globalHousingBubbleData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

@@ -4,7 +4,7 @@ import {
   CROSS_CATEGORY_CLUSTERS,
   getCrossCategoryRelated,
 } from "./topics";
-import { computeConfidenceScore } from "@/lib/schemas/topic";
+import { computeBalance, computeWeight } from "@/lib/schemas/topic";
 
 // ============================================================================
 // Cross-Category Clusters
@@ -218,12 +218,13 @@ describe("topic content quality", () => {
     });
   });
 
-  it("confidence scores match computed values for contested topics", () => {
+  it("balance and weight match computed values for contested topics", () => {
     topics
       .filter((t) => t.status !== "settled")
       .forEach((topic) => {
-        const computed = computeConfidenceScore(topic.pillars);
-        expect(topic.confidence_score).toBe(computed);
+        expect(topic.balance).toBe(computeBalance(topic.pillars));
+        expect(topic.weight).toBe(computeWeight(topic.pillars));
+        expect(topic.confidence_score).toBe(topic.balance);
       });
   });
 
