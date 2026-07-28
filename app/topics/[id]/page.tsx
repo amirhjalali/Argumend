@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { topics, CATEGORY_LABELS } from "@/data/topics";
-import { getVerdictLabel } from "@/lib/schemas/topic";
 import { JsonLd } from "@/components/JsonLd";
 import TopicPageClient from "./TopicPageClient";
 
@@ -28,8 +27,7 @@ export async function generateMetadata({
     return { title: "Topic Not Found" };
   }
 
-  const verdict = getVerdictLabel(topic.confidence_score);
-  const description = `${topic.meta_claim} — ${verdict}. Explore ${topic.pillars.length} argument pillars with steel-manned positions, weighted evidence, and crux questions.`;
+  const description = `${topic.meta_claim} — ${topic.verdict.label}. Explore ${topic.pillars.length} argument pillars with steel-manned positions, weighted evidence, and crux questions.`;
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
   return {
@@ -97,10 +95,11 @@ export default async function TopicPage({ params }: PageProps) {
           author: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
           reviewRating: {
             "@type": "Rating",
-            ratingValue: topic.confidence_score,
+            ratingValue: topic.confidence_score, // = balance; schema.org needs a scalar
             bestRating: 100,
             worstRating: 0,
-            alternateName: getVerdictLabel(topic.confidence_score),
+            alternateName: topic.verdict.label,
+            ratingExplanation: `Balance of evidence ${topic.balance}/100 (50 = even split); weight of evidence ${topic.weight}/100.`,
           },
           itemReviewed: {
             "@type": "Claim",
