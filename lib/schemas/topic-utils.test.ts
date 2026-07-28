@@ -130,7 +130,7 @@ describe("computeBalance", () => {
       makePillar([{ side: "for", weights: [5, 5, 5, 5] }]),
     ];
     const score = computeBalance(pillars);
-    // forScore=20, againstScore=0, raw = 20/(20+0+1) ≈ 0.952
+    // forScore=20, againstScore=0, raw = 20/(20+0) = 1.0 → 100
     expect(score).toBeGreaterThan(50);
     expect(score).toBeLessThanOrEqual(100);
   });
@@ -140,7 +140,7 @@ describe("computeBalance", () => {
       makePillar([{ side: "against", weights: [5, 5, 5, 5] }]),
     ];
     const score = computeBalance(pillars);
-    // forScore=0, againstScore=20, raw = 0/(0+20+1) ≈ 0
+    // forScore=0, againstScore=20, raw = 0/(0+20) = 0 → 0
     expect(score).toBeLessThan(50);
     expect(score).toBeGreaterThanOrEqual(0);
   });
@@ -159,7 +159,7 @@ describe("computeBalance", () => {
     ];
     const score = computeBalance(pillars);
     // forScore = 32+28+24 = 84, againstScore = 12+16 = 28
-    // raw = 84 / (84 + 28 + 1) = 84/113 ≈ 0.743 → 74
+    // raw = 84 / (84 + 28) = 84/112 = 0.75 → 75
     expect(score).toBeGreaterThan(50);
     expect(score).toBeLessThanOrEqual(100);
   });

@@ -82,15 +82,16 @@ const methodologySteps = [
   },
   {
     number: "05",
-    title: "Confidence Calibration",
+    title: "Balance & Weight",
     color: "#4f7b77",
     description:
-      "The final confidence score reflects the weight of evidence, not the model's opinion. The formula is transparent and the output is calibrated to what the evidence actually supports.",
+      "Two orthogonal scores, not one. Balance shows which way the evidence tips; weight shows how much we actually know. The formulas are transparent and the verdict is calibrated to what the evidence actually supports.",
     details: [
-      "Formula: forScore / (forScore + againstScore + 1) x 100",
-      "90%+ = Settled — scientific consensus level",
-      "50-89% = Probable — good evidence, some uncertainty",
-      "<50% = Contested — genuine uncertainty, real disagreement",
+      "Balance: forStrength / (forStrength + againstStrength) x 100 — 50 is an even split",
+      "Weight: a composite of evidential mass, source quality, and crux resolvability",
+      "High weight + strong lean = Settled — evidence strongly favors one side",
+      "High weight + weak lean = Well-mapped, genuinely contested",
+      "Low weight = Open question — limited evidence so far, regardless of lean",
     ],
   },
 ];
@@ -131,7 +132,7 @@ export default function MethodologyPage() {
           "@type": "WebPage",
           name: "Methodology",
           description:
-            "How Argumend analyzes arguments: argument extraction, steel-manning, multi-judge AI council, evidence weighting, and confidence calibration.",
+            "How Argumend analyzes arguments: argument extraction, steel-manning, multi-judge AI council, evidence weighting, and two-axis balance and weight scoring.",
           url: "https://argumend.org/methodology",
           isPartOf: {
             "@type": "WebSite",
@@ -341,62 +342,105 @@ export default function MethodologyPage() {
           </div>
         </section>
 
-        {/* Confidence Calibration */}
+        {/* Balance & Weight */}
         <section className="mb-16 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
-            Confidence calibration
+            Balance & weight
           </h2>
           <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            The confidence score reflects the balance of evidence, not the
-            model&apos;s opinion.
+            A single score can&apos;t distinguish &ldquo;richly evidenced and
+            genuinely contested&rdquo; from &ldquo;we barely know
+            anything.&rdquo; So we compute two orthogonal numbers instead of
+            one.
           </p>
 
           <div className="bg-[#faf8f3] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)] mb-6">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
-                <span className="font-mono text-sm font-bold text-deep">f(x)</span>
+            <div className="grid sm:grid-cols-2 gap-6 mb-6">
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
+                    <span className="font-mono text-sm font-bold text-deep">B</span>
+                  </div>
+                  <p className="text-sm font-semibold text-primary">Balance — which way it tips</p>
+                </div>
+                <p className="font-mono text-xs text-stone-500 dark:text-stone-400 mb-2">
+                  balance = forStrength / (forStrength + againstStrength) x 100
+                </p>
+                <p className="text-sm text-secondary leading-relaxed">
+                  Summed over each side&apos;s 0–40 evidence scores. 50 is an
+                  even split; above 50 leans toward the claim, below leans
+                  against it.
+                </p>
               </div>
               <div>
-                <p className="text-sm font-semibold text-primary">The Formula</p>
-                <p className="font-mono text-xs text-stone-500 dark:text-stone-400">
-                  confidence = forScore / (forScore + againstScore + 1) x 100
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-rust-500/10 flex items-center justify-center">
+                    <span className="font-mono text-sm font-bold text-rust-500">W</span>
+                  </div>
+                  <p className="text-sm font-semibold text-primary">Weight — how much we know</p>
+                </div>
+                <p className="font-mono text-xs text-stone-500 dark:text-stone-400 mb-2">
+                  weight = mass + quality + resolvability
+                </p>
+                <p className="text-sm text-secondary leading-relaxed">
+                  A composite of evidential mass (with diminishing returns
+                  for piling on more evidence), average source quality, and
+                  how resolvable the underlying cruxes are.
                 </p>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <span className="w-14 text-center text-sm font-mono font-medium text-deep">
-                  90%+
-                </span>
-                <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
-                  <div className="h-full w-[95%] bg-gradient-to-r from-[#4f7b77] to-[#5a8a86] rounded-full" />
+            <div className="border-t border-stone-200/60 dark:border-[var(--border-default)] pt-5">
+              <p className="text-sm font-semibold text-primary mb-4">The verdict matrix</p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <span className="w-24 text-center text-xs font-mono font-medium text-deep">
+                    high weight
+                    <br />
+                    strong lean
+                  </span>
+                  <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
+                    <div className="h-full w-[95%] bg-gradient-to-r from-[#4f7b77] to-[#5a8a86] rounded-full" />
+                  </div>
+                  <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
+                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Settled</strong> — evidence strongly favors one side
+                  </p>
                 </div>
-                <p className="text-sm text-stone-600 dark:text-stone-400 w-48">
-                  <strong className="text-stone-900 dark:text-[var(--text-heading)]">Settled</strong> — Scientific consensus
-                </p>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="w-14 text-center text-sm font-mono font-medium text-rust-500">
-                  50-89%
-                </span>
-                <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
-                  <div className="h-full w-[65%] bg-gradient-to-r from-rust-500 to-rust-600 rounded-full" />
+                <div className="flex items-center gap-4">
+                  <span className="w-24 text-center text-xs font-mono font-medium text-deep">
+                    high weight
+                    <br />
+                    weak lean
+                  </span>
+                  <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
+                    <div className="h-full w-[80%] bg-gradient-to-r from-[#4f7b77]/70 to-[#5a8a86]/70 rounded-full" />
+                  </div>
+                  <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
+                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Well-mapped, genuinely contested</strong> — richly evidenced, still split
+                  </p>
                 </div>
-                <p className="text-sm text-stone-600 dark:text-stone-400 w-48">
-                  <strong className="text-stone-900 dark:text-[var(--text-heading)]">Probable</strong> — Good evidence, some uncertainty
-                </p>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="w-14 text-center text-sm font-mono font-medium text-[#a23b3b]">
-                  &lt;50%
-                </span>
-                <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
-                  <div className="h-full w-[35%] bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] rounded-full" />
+                <div className="flex items-center gap-4">
+                  <span className="w-24 text-center text-xs font-mono font-medium text-rust-500">
+                    medium weight
+                  </span>
+                  <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
+                    <div className="h-full w-[55%] bg-gradient-to-r from-rust-500 to-rust-600 rounded-full" />
+                  </div>
+                  <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
+                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Leans / Balanced</strong> — moderately evidenced
+                  </p>
                 </div>
-                <p className="text-sm text-stone-600 dark:text-stone-400 w-48">
-                  <strong className="text-stone-900 dark:text-[var(--text-heading)]">Contested</strong> — Genuine uncertainty
-                </p>
+                <div className="flex items-center gap-4">
+                  <span className="w-24 text-center text-xs font-mono font-medium text-[#a23b3b]">
+                    low weight
+                  </span>
+                  <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
+                    <div className="h-full w-[25%] bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] rounded-full" />
+                  </div>
+                  <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
+                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Open question</strong> — limited evidence so far, lean not asserted
+                  </p>
+                </div>
               </div>
             </div>
           </div>

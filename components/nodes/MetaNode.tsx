@@ -101,7 +101,7 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
         {/* Footer: Score & Action */}
         <div className="flex items-center justify-between border-t border-stone-100 pt-4">
           {typeof data.score === "number" && (
-            <ConfidenceGauge score={data.score} size={100} />
+            <ConfidenceGauge score={data.score} size={100} label="Balance" />
           )}
 
           {data.hasChildren ? (

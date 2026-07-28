@@ -154,30 +154,37 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* Confidence Scores */}
+        {/* Balance & Weight */}
         <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1917]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
-            Reading confidence scores
+            Reading balance and weight
           </h2>
           <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            We don&apos;t claim certainty. These numbers tell you how confident the evidence makes us&mdash;nothing more.
+            We don&apos;t claim certainty. Balance shows which way the evidence tips; weight shows how much of it there actually is&mdash;nothing more.
           </p>
           <div className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-2xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)]">
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="p-4 text-center">
+                <h3 className="font-serif text-base text-primary mb-1">Balance</h3>
+                <p className="text-sm text-stone-500">Which way the evidence leans. 50 is an even split; further from 50 means a stronger lean toward or against the claim.</p>
+              </div>
+              <div className="p-4 text-center border-l border-stone-200/50 dark:border-[var(--border-default)]">
+                <h3 className="font-serif text-base text-primary mb-1">Weight</h3>
+                <p className="text-sm text-stone-500">How much we actually know&mdash;evidence volume, source quality, and whether the open questions are even resolvable.</p>
+              </div>
+            </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-4 text-center">
-                <p className="font-mono tabular-nums text-deep text-2xl font-bold mb-2">90%+</p>
                 <h3 className="font-serif text-base text-primary mb-1">Settled</h3>
-                <p className="text-sm text-stone-500">The evidence is overwhelming. Think: &ldquo;Did we land on the moon?&rdquo;</p>
+                <p className="text-sm text-stone-500">High weight, strong lean. Think: &ldquo;Did we land on the moon?&rdquo;</p>
               </div>
               <div className="p-4 text-center border-x border-stone-200/50 dark:border-[var(--border-default)]">
-                <p className="font-mono tabular-nums text-deep text-2xl font-bold mb-2">50-89%</p>
-                <h3 className="font-serif text-base text-primary mb-1">Probable</h3>
-                <p className="text-sm text-stone-500">Good evidence, but real uncertainty remains.</p>
+                <h3 className="font-serif text-base text-primary mb-1">Well-mapped, genuinely contested</h3>
+                <p className="text-sm text-stone-500">High weight, weak lean. Richly evidenced, but reasonable people still land on different sides.</p>
               </div>
               <div className="p-4 text-center">
-                <p className="font-mono tabular-nums text-deep text-2xl font-bold mb-2">&lt;50%</p>
-                <h3 className="font-serif text-base text-primary mb-1">Contested</h3>
-                <p className="text-sm text-stone-500">Genuinely open. Smart people land on different sides.</p>
+                <h3 className="font-serif text-base text-primary mb-1">Open question</h3>
+                <p className="text-sm text-stone-500">Low weight, regardless of lean. We simply don&apos;t know enough yet.</p>
               </div>
             </div>
           </div>

@@ -635,31 +635,31 @@ When you find the crux, you've found the most productive place to focus your att
 To find the crux on any map, look for the node labeled "crux" or "key disagreement." Read it carefully and ask yourself: which side of this question do I find more convincing, and what evidence would change my mind?`,
       },
       {
-        title: "Using Confidence Scores",
-        content: `Every major node on an Argumend map displays a confidence score — a number from 0 to 100 that represents how well-supported that particular claim or argument is, given the available evidence.
+        title: "Using Balance and Weight Scores",
+        content: `Every major node on an Argumend map displays two scores, not one: **balance**, a number from 0 to 100 showing which way the evidence tips, and **weight**, a number from 0 to 100 showing how much evidence there actually is.
 
-A confidence score of 85 does not mean "85% chance this is true." It means that 85% of the relevant, weighted evidence points in this direction. The distinction matters: a high confidence score reflects the current state of evidence, not an absolute truth claim. New evidence can shift scores.
+Balance is computed as forStrength / (forStrength + againstStrength) x 100 over the 0–40 scores each piece of evidence earns. A balance of 50 means the evidence is evenly split; above 50 leans toward the claim, below 50 leans against it. Balance alone tells you *direction*, nothing about *confidence in that direction*.
 
-Here's how to interpret the ranges:
+That's what weight is for. Weight is a composite of three things: the evidential mass (how much evidence there is, with diminishing returns for piling on more), the average quality of the sources, and how resolvable the underlying cruxes are — some disagreements can in principle be settled by more research, others can't be settled at all. High weight means the map is richly evidenced and rests on cruxes that are at least theoretically answerable. Low weight means we simply don't know much yet, whatever the balance says.
 
-**80-100: Strong evidence.** The claim is well-supported by multiple independent, high-quality sources. Opposing evidence is sparse or weak. You can treat this as a reliable basis for further reasoning, while remaining open to new information.
+Putting the two axes together produces the verdict:
 
-**60-79: Moderate evidence.** The balance of evidence favors this claim, but there are meaningful counterarguments or gaps. This is the range where productive debate is most likely — there's enough evidence to form a view, but not enough to be certain.
+**High weight, strong lean: "Settled — evidence strongly favors [side]."** The claim is well-supported by multiple independent, high-quality sources, and opposing evidence is sparse or weak.
 
-**40-59: Contested.** Evidence is roughly balanced on both sides, or there simply isn't enough evidence to tip the scales. Claims in this range deserve skepticism in both directions. This is where the crux often lives.
+**High weight, weak lean: "Well-mapped, genuinely contested."** The map is richly evidenced on both sides — this is not the same thing as "we don't know." It means smart people have looked hard at this and still land on different sides.
 
-**Below 40: Weak support.** The available evidence mostly contradicts this claim, or the claim rests on low-quality sources. Treat with caution.
+**Medium weight: "… moderately evidenced."** There's enough evidence to form a view, but real gaps remain. This is the range where productive debate is most likely.
 
-Confidence scores are most useful as a triage tool. When exploring a complex map with dozens of nodes, start with the low-confidence nodes — those are where the interesting questions are, where the debate is genuinely unresolved, and where new evidence would make the biggest difference.
+**Low weight: "Open question — limited evidence so far."** Whatever the balance number says, there simply isn't enough evidence yet to trust the lean. Treat any apparent direction as provisional.
 
-You can also compare confidence scores across pillars to get a quick read on the overall state of the debate. If every pillar supporting a position has scores above 75, and every opposing pillar is below 40, the evidence landscape is lopsided. If scores are mixed, the debate is genuinely open.`,
+Balance and weight are most useful together as a triage tool. When exploring a complex map with dozens of nodes, start with the low-weight nodes — those are where the interesting questions are, where the debate is genuinely unresolved, and where new evidence would make the biggest difference. A pillar with high weight and a strong lean is settled business; a pillar with low weight deserves your attention regardless of which way its balance currently points.`,
       },
     ],
     keyTakeaways: [
       "Start by scanning the pillars to understand the major lines of reasoning before diving into details",
       "Pay attention to evidence direction (supporting vs. opposing) and verification status — not all evidence is created equal",
       "Find the crux first — it's the single point where resolving a disagreement would shift the most about the debate",
-      "Use confidence scores as a triage tool to identify where evidence is strong, where it's contested, and where your attention is most needed",
+      "Balance shows which way the evidence tips; weight shows how much of it there is — use both together, not balance alone, to triage where your attention is most needed",
     ],
     furtherReading: [
       { title: "Good Reasoning Matters", author: "Leo Groarke & Christopher Tindale" },
@@ -915,7 +915,7 @@ On Argumend's maps, evidence nodes indicate directness level. When you see a cha
 
 A useful mental model: imagine you're a juror. You wouldn't convict based solely on one witness's testimony (low independence, low replicability). You'd want multiple witnesses (independence), whose accounts have been verified (replicability), who actually saw the event in question (directness), and who have no reason to lie (reliability). The same standards apply to evaluating evidence in any domain.
 
-**One final principle:** be honest about uncertainty. Sometimes the available evidence is simply insufficient to reach a confident conclusion. That's okay. Acknowledging what you don't know is itself a sign of good epistemic practice. Argumend's confidence scores embrace this — a score of 50 isn't a failure, it's an honest reflection of genuine uncertainty, and recognizing that uncertainty is the first step toward resolving it.`,
+**One final principle:** be honest about uncertainty. Sometimes the available evidence is simply insufficient to reach a confident conclusion. That's okay. Acknowledging what you don't know is itself a sign of good epistemic practice. This is exactly why Argumend separates balance from weight — a balance of 50 means the evidence is evenly split, but on its own it says nothing about how much evidence there is. A richly evidenced, genuinely contested topic (high weight, even balance) and a topic we barely know anything about (low weight, even balance) can both show a balance of 50. Only the weight score tells them apart, and that distinction — not the balance number alone — is the honest reflection of genuine uncertainty.`,
       },
     ],
     keyTakeaways: [
