@@ -282,7 +282,7 @@ export function MobileArgumentList() {
               {topic.status.replace("_", " ")}
             </span>
             <span className="text-[13px] font-mono text-stone-400">
-              {topic.confidence_score}% confidence
+              {topic.verdict.label}
             </span>
           </div>
 

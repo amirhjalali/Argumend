@@ -5,16 +5,6 @@ import { Share2, Copy, Check, Lightbulb } from "lucide-react";
 import type { TopicStatus } from "@/lib/schemas/topic";
 
 // ---------------------------------------------------------------------------
-// Status display labels
-// ---------------------------------------------------------------------------
-
-const STATUS_LABELS: Record<TopicStatus, string> = {
-  settled: "Settled",
-  contested: "Contested",
-  highly_speculative: "Highly Speculative",
-};
-
-// ---------------------------------------------------------------------------
 // Props
 // ---------------------------------------------------------------------------
 
@@ -25,7 +15,9 @@ interface ShareButtonsProps {
   /** Topic-specific fields for richer share text */
   topicMeta?: {
     metaClaim: string;
-    confidenceScore: number;
+    verdictLabel: string;
+    balance: number;
+    weight: number;
     status: TopicStatus;
     /** The first crux question title from pillars[0].crux.title */
     cruxQuestion?: string;
@@ -57,15 +49,14 @@ function copyToClipboard(text: string) {
  * Build the pre-filled tweet text for a topic analysis.
  *
  * Template:
- *   "[meta_claim question form]? The evidence says: [status] ([confidence]% confidence).
+ *   "[meta_claim]. Verdict: [verdict label].
  *
  *    The crux: [first crux question]
  *
  *    See the full argument map →"
  */
 function buildTweetText(meta: NonNullable<ShareButtonsProps["topicMeta"]>): string {
-  const statusLabel = STATUS_LABELS[meta.status];
-  let text = `${meta.metaClaim} The evidence says: ${statusLabel} (${meta.confidenceScore}% confidence).`;
+  let text = `${meta.metaClaim} Verdict: ${meta.verdictLabel}.`;
 
   if (meta.cruxQuestion) {
     text += `\n\nThe crux: ${meta.cruxQuestion}`;

@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { ArrowRight, ExternalLink, BookOpen, CheckCircle, AlertCircle, HelpCircle } from "lucide-react";
 import type { Topic, TopicCategory, TopicStatus, Evidence } from "@/lib/schemas/topic";
-import { calculateEvidenceScore, getVerdictLabel } from "@/lib/schemas/topic";
+import { calculateEvidenceScore } from "@/lib/schemas/topic";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import { SynopticTable } from "@/components/SynopticTable";
+import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 
 const statusMeta: Record<TopicStatus, { label: string; icon: typeof CheckCircle; chip: string }> = {
   settled: {
@@ -93,7 +94,6 @@ function EvidenceItem({ ev }: { ev: Evidence }) {
 
 export function ReadModeView({ topic }: { topic: Topic }) {
   const StatusIcon = statusMeta[topic.status].icon;
-  const verdict = getVerdictLabel(topic.confidence_score);
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
   return (
@@ -113,16 +113,18 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             >
               {categoryLabel}
             </span>
-            <span className="inline-flex items-center rounded-full border border-stone-200/70 dark:border-[#3d3a36] px-2.5 py-1 text-[10px] font-mono text-secondary">
-              {topic.confidence_score}/100
-            </span>
           </div>
           <ReadGraphToggle current="read" />
         </div>
         <h1 className="font-serif text-4xl sm:text-5xl leading-[1.1] tracking-tight text-primary mb-3">
           {topic.title}
         </h1>
-        <p className="font-sans text-sm text-secondary italic">{verdict}.</p>
+        <BalanceWeightReadout
+          balance={topic.balance}
+          weight={topic.weight}
+          verdict={topic.verdict}
+          className="mt-4"
+        />
       </header>
 
       {/* ─── The Claim ─── */}

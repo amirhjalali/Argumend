@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { Scale, ExternalLink, ChevronDown } from "lucide-react";
 import { useState, useMemo } from "react";
 import { useLogicGraph, getLoadedTopics } from "@/hooks/useLogicGraph";
-import type { Evidence, EvidenceWeight, Topic, Pillar } from "@/types/logic";
-import { calculateEvidenceScore, getVerdictLabel } from "@/types/logic";
+import type { Evidence, EvidenceWeight, Topic, Pillar, Verdict } from "@/types/logic";
+import { calculateEvidenceScore } from "@/types/logic";
+import { QUADRANT_STYLE } from "@/components/BalanceWeightChip";
 
 interface EvidenceCardProps {
   evidence: Evidence;
@@ -250,27 +251,25 @@ function BalanceMeter({ forWeight, againstWeight }: {
   );
 }
 
-function VerdictDisplay({ confidence, forWeight, againstWeight }: {
-  confidence: number;
+function VerdictDisplay({ balance, weight, verdict, forWeight, againstWeight }: {
+  balance: number;
+  weight: number;
+  verdict: Verdict;
   forWeight: number;
   againstWeight: number;
 }) {
-  const verdictLabel = getVerdictLabel(confidence);
+  const s = QUADRANT_STYLE[verdict.quadrant];
+  const verdictLabel = verdict.label;
   const total = forWeight + againstWeight;
   const forPercent = total > 0 ? Math.round((forWeight / total) * 100) : 50;
-
-  const verdictStyles = confidence >= 80
-    ? { border: "border-score-high/40", text: "text-score-high", badge: "bg-score-high" }
-    : confidence >= 55
-    ? { border: "border-score-mid/40", text: "text-score-mid", badge: "bg-score-mid" }
-    : { border: "border-score-low/40", text: "text-score-low", badge: "bg-score-low" };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
-      className={`rounded-2xl border ${verdictStyles.border} bg-panel/85 p-4 md:p-6 shadow-card`}
+      className="rounded-2xl border bg-panel/85 p-4 md:p-6 shadow-card"
+      style={{ borderColor: `${s.color}66` }}
     >
       <div className="text-center space-y-4">
         {/* Verdict Label */}
@@ -278,7 +277,7 @@ function VerdictDisplay({ confidence, forWeight, againstWeight }: {
           <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-500 mb-2">
             The Verdict
           </div>
-          <div className={`font-serif text-2xl font-bold ${verdictStyles.text}`}>
+          <div className="font-serif text-2xl font-bold" style={{ color: s.color }}>
             {verdictLabel}
           </div>
         </div>
@@ -323,8 +322,11 @@ function VerdictDisplay({ confidence, forWeight, againstWeight }: {
 
           <div className="w-px h-6 bg-stone-300" />
 
-          <div className={`px-3 py-1 rounded-full ${verdictStyles.badge} text-white font-mono font-bold`}>
-            {confidence}%
+          <div
+            className="px-3 py-1 rounded-full text-white font-mono font-bold"
+            style={{ backgroundColor: s.color }}
+          >
+            {balance}/100 · w{weight}
           </div>
         </div>
       </div>
@@ -503,7 +505,9 @@ export function ScalesOfEvidence() {
 
         {/* Verdict */}
         <VerdictDisplay
-          confidence={topic.confidence_score}
+          balance={topic.balance}
+          weight={topic.weight}
+          verdict={topic.verdict}
           forWeight={forWeight}
           againstWeight={againstWeight}
         />
