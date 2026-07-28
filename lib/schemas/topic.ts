@@ -286,17 +286,6 @@ export function calculateEvidenceScore(weight: EvidenceWeight): number {
   );
 }
 
-/**
- * Get verdict label based on confidence score.
- * @deprecated 1-D verdict — replaced by getVerdict(balance, weight). Deleted once all callers are migrated (Task 9).
- */
-export function getVerdictLabel(confidenceScore: number): string {
-  if (confidenceScore >= 95) return "Established beyond reasonable doubt";
-  if (confidenceScore >= 75) return "Preponderance of evidence supports";
-  if (confidenceScore >= 50) return "Evidence leans toward, but contested";
-  return "Insufficient evidence";
-}
-
 // ============================================================================
 // Validation Helpers
 // ============================================================================

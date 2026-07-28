@@ -16,7 +16,6 @@ export type {
 
 export {
   calculateEvidenceScore,
-  getVerdictLabel,
   computeConfidenceScore,
   computeBalance,
   computeWeight,
