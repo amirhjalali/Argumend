@@ -4,6 +4,12 @@
     "title": "The Cost Disease",
     "meta_claim": "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
     "confidence_score": 66,
+    "balance": 66,
+    "weight": 81,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 5,
@@ -14,6 +20,12 @@
     "title": "Meditations on Moloch",
     "meta_claim": "Competition and coordination failure — Scott Alexander's 'Moloch' — systematically push civilization toward equilibria that sacrifice human values for competitive advantage, and durably escaping those multipolar traps requires a coordination mechanism strong enough to override the incentives that create them.",
     "confidence_score": 46,
+    "balance": 46,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 5,
@@ -24,6 +36,12 @@
     "title": "AI 2027: The Recursive-Automation Timeline",
     "meta_claim": "The AI 2027 scenario forecasts that once AI systems can meaningfully automate AI research itself, a feedback loop compresses the path to superintelligence into the late 2020s — making this a decisive and dangerous period. The claim rests less on 'AI will be powerful' than on two contested quantitative bets: that the automation of R&D triggers an intelligence explosion, and that the resulting takeoff is fast (months, not decades) rather than a gradual ramp.",
     "confidence_score": 53,
+    "balance": 53,
+    "weight": 77,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 5,
@@ -34,6 +52,12 @@
     "title": "Repealing the Jones Act",
     "meta_claim": "The Jones Act's requirement that cargo moving between U.S. ports travel on ships that are U.S.-built, U.S.-flagged, and U.S.-crewed imposes large and measurable economic costs — inflated domestic shipping prices, a shrunken merchant fleet, freight pushed onto trucks and rail, and disproportionate harm to Puerto Rico, Hawaii, Alaska, and Guam — that outweigh its claimed national-security and maritime-industry benefits, so it should be repealed or substantially reformed.",
     "confidence_score": 73,
+    "balance": 73,
+    "weight": 77,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 5,
@@ -43,7 +67,13 @@
     "id": "nuclear-energy-safety",
     "title": "Nuclear Energy for Climate",
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
-    "confidence_score": 54,
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 77,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -54,6 +84,12 @@
     "title": "Universal Healthcare in the US",
     "meta_claim": "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
     "confidence_score": 65,
+    "balance": 65,
+    "weight": 75,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -63,7 +99,13 @@
     "id": "gun-control-effectiveness",
     "title": "Gun Control Effectiveness",
     "meta_claim": "Stricter gun control laws significantly reduce gun violence and mass shootings.",
-    "confidence_score": 55,
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 70,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -73,7 +115,13 @@
     "id": "minimum-wage-effects",
     "title": "Raising the Minimum Wage",
     "meta_claim": "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
-    "confidence_score": 74,
+    "confidence_score": 75,
+    "balance": 75,
+    "weight": 71,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -84,6 +132,12 @@
     "title": "Drug Decriminalization",
     "meta_claim": "Decriminalizing personal drug use reduces harm and improves public health outcomes compared to criminalization.",
     "confidence_score": 75,
+    "balance": 75,
+    "weight": 67,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -94,6 +148,12 @@
     "title": "The Death Penalty",
     "meta_claim": "The death penalty serves as an effective deterrent against murder and is justified as a form of criminal justice.",
     "confidence_score": 26,
+    "balance": 26,
+    "weight": 60,
+    "verdict": {
+      "label": "Leans toward the counterclaim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -104,6 +164,12 @@
     "title": "Policing Reform in America",
     "meta_claim": "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
     "confidence_score": 78,
+    "balance": 78,
+    "weight": 60,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -114,6 +180,12 @@
     "title": "Mandatory Voting",
     "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
     "confidence_score": 75,
+    "balance": 75,
+    "weight": 56,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -123,7 +195,13 @@
     "id": "reparations-slavery",
     "title": "Reparations for Slavery",
     "meta_claim": "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
-    "confidence_score": 75,
+    "confidence_score": 76,
+    "balance": 76,
+    "weight": 62,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -134,6 +212,12 @@
     "title": "Immigration and Wages",
     "meta_claim": "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
     "confidence_score": 21,
+    "balance": 21,
+    "weight": 66,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the counterclaim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -143,7 +227,13 @@
     "id": "open-borders",
     "title": "The Case for Open Borders",
     "meta_claim": "Significantly relaxing or eliminating immigration restrictions would produce massive economic gains and is morally justified.",
-    "confidence_score": 49,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 58,
+    "verdict": {
+      "label": "Balanced — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "highly_speculative",
     "category": "policy",
     "pillarCount": 2,
@@ -154,6 +244,12 @@
     "title": "Universal Basic Income",
     "meta_claim": "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
     "confidence_score": 76,
+    "balance": 76,
+    "weight": 72,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -164,6 +260,12 @@
     "title": "Wealth Tax on Billionaires",
     "meta_claim": "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
     "confidence_score": 49,
+    "balance": 49,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -173,7 +275,13 @@
     "id": "standardized-testing-debate",
     "title": "Standardized Testing Value",
     "meta_claim": "Standardized tests like the SAT and ACT are valid, fair measures of academic ability that should remain a core component of college admissions and educational assessment.",
-    "confidence_score": 59,
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 61,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -183,7 +291,13 @@
     "id": "electoral-college-reform",
     "title": "Electoral College Reform",
     "meta_claim": "The Electoral College should be replaced with a national popular vote for electing the President of the United States.",
-    "confidence_score": 64,
+    "confidence_score": 65,
+    "balance": 65,
+    "weight": 61,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -194,6 +308,12 @@
     "title": "Surveillance and Public Safety",
     "meta_claim": "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety.",
     "confidence_score": 19,
+    "balance": 19,
+    "weight": 54,
+    "verdict": {
+      "label": "Leans toward the counterclaim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
@@ -204,6 +324,12 @@
     "title": "The US-Iran Conflict",
     "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
     "confidence_score": 48,
+    "balance": 48,
+    "weight": 76,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -214,6 +340,12 @@
     "title": "The Epstein Files",
     "meta_claim": "The Jeffrey Epstein case reveals systemic institutional failure — law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for decades, and full accountability has still not been achieved.",
     "confidence_score": 70,
+    "balance": 70,
+    "weight": 76,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -224,6 +356,12 @@
     "title": "Should TikTok Be Banned?",
     "meta_claim": "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
     "confidence_score": 53,
+    "balance": 53,
+    "weight": 80,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 4,
@@ -234,6 +372,12 @@
     "title": "The US Immigration & Border Crisis",
     "meta_claim": "The current approach to US immigration — combining border enforcement, asylum restrictions, and deportation — is the most effective way to manage immigration and protect national interests.",
     "confidence_score": 40,
+    "balance": 40,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -244,6 +388,12 @@
     "title": "Social Media's Impact on Elections",
     "meta_claim": "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
     "confidence_score": 69,
+    "balance": 69,
+    "weight": 70,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -254,6 +404,12 @@
     "title": "Should Nuclear Weapons Be Abolished?",
     "meta_claim": "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe rather than more.",
     "confidence_score": 30,
+    "balance": 30,
+    "weight": 70,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the counterclaim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -264,6 +420,12 @@
     "title": "Should Schools Ban Smartphones?",
     "meta_claim": "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
     "confidence_score": 66,
+    "balance": 66,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -274,6 +436,12 @@
     "title": "Pandemic Preparedness Investment",
     "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
     "confidence_score": 57,
+    "balance": 57,
+    "weight": 75,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -283,7 +451,13 @@
     "id": "iran-war-justification",
     "title": "Is Military Action Against Iran Justified?",
     "meta_claim": "Military strikes against Iran's nuclear and military infrastructure are a justified response to regional aggression and nuclear proliferation risks.",
-    "confidence_score": 50,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -294,6 +468,12 @@
     "title": "Will China Invade Taiwan Before 2030?",
     "meta_claim": "China will attempt military reunification with Taiwan within this decade, fundamentally reshaping the global order.",
     "confidence_score": 46,
+    "balance": 46,
+    "weight": 70,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "highly_speculative",
     "category": "policy",
     "pillarCount": 3,
@@ -304,6 +484,12 @@
     "title": "Is the World Heading for Water Wars?",
     "meta_claim": "Freshwater scarcity will become the defining geopolitical conflict of the 21st century, potentially triggering wars and mass migration.",
     "confidence_score": 67,
+    "balance": 67,
+    "weight": 74,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -314,6 +500,12 @@
     "title": "Do Sugar Taxes Actually Reduce Obesity?",
     "meta_claim": "Sugar taxes on sweetened beverages are an effective public health intervention that meaningfully reduces sugar consumption and obesity rates.",
     "confidence_score": 67,
+    "balance": 67,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -324,6 +516,12 @@
     "title": "Social Media Age Limits",
     "meta_claim": "Children under 16 should be legally prohibited from using social media platforms.",
     "confidence_score": 59,
+    "balance": 59,
+    "weight": 60,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
@@ -334,6 +532,12 @@
     "title": "Social Media and Teen Mental Health",
     "meta_claim": "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
     "confidence_score": 50,
+    "balance": 50,
+    "weight": 15,
+    "verdict": {
+      "label": "Open question — limited evidence so far",
+      "quadrant": "open"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
@@ -344,6 +548,12 @@
     "title": "Existential Risk from AGI",
     "meta_claim": "The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.",
     "confidence_score": 56,
+    "balance": 56,
+    "weight": 78,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -354,6 +564,12 @@
     "title": "Mandatory AI Content Labeling",
     "meta_claim": "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
     "confidence_score": 62,
+    "balance": 62,
+    "weight": 60,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
@@ -363,7 +579,13 @@
     "id": "big-tech-antitrust",
     "title": "Breaking Up Big Tech",
     "meta_claim": "Major technology companies (Google, Apple, Amazon, Meta) should be broken up or heavily regulated to restore competition and protect consumers.",
-    "confidence_score": 65,
+    "confidence_score": 66,
+    "balance": 66,
+    "weight": 61,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
@@ -374,6 +596,12 @@
     "title": "Cancel Culture",
     "meta_claim": "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
     "confidence_score": 64,
+    "balance": 64,
+    "weight": 60,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
@@ -383,7 +611,13 @@
     "id": "media-bias-democracy",
     "title": "Media Bias and Democracy",
     "meta_claim": "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
-    "confidence_score": 76,
+    "confidence_score": 77,
+    "balance": 77,
+    "weight": 66,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
@@ -394,6 +628,12 @@
     "title": "Space Colonization Feasibility",
     "meta_claim": "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
     "confidence_score": 58,
+    "balance": 58,
+    "weight": 56,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
@@ -404,6 +644,12 @@
     "title": "Lab-Grown Meat Adoption",
     "meta_claim": "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
     "confidence_score": 56,
+    "balance": 56,
+    "weight": 51,
+    "verdict": {
+      "label": "Balanced — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
@@ -414,6 +660,12 @@
     "title": "Will AI Replace Most White-Collar Jobs?",
     "meta_claim": "Artificial intelligence and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
     "confidence_score": 57,
+    "balance": 57,
+    "weight": 77,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -424,6 +676,12 @@
     "title": "AI in Education: Revolution or Risk?",
     "meta_claim": "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
     "confidence_score": 47,
+    "balance": 47,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -434,6 +692,12 @@
     "title": "Should AI Be Regulated Like Drugs or Nuclear Energy?",
     "meta_claim": "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
     "confidence_score": 57,
+    "balance": 57,
+    "weight": 69,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -444,6 +708,12 @@
     "title": "AI White-Collar Job Displacement",
     "meta_claim": "Large language models and AI agents will permanently eliminate more white-collar professional jobs than they create within the next decade, requiring fundamental restructuring of the knowledge economy.",
     "confidence_score": 47,
+    "balance": 47,
+    "weight": 77,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 4,
@@ -454,6 +724,12 @@
     "title": "E/acc vs. Tech Regulation",
     "meta_claim": "Rapid, unregulated technological advancement creates more benefit than harm",
     "confidence_score": 63,
+    "balance": 63,
+    "weight": 74,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -464,6 +740,12 @@
     "title": "Will Artificial Superintelligence Arrive Before 2035?",
     "meta_claim": "Current AI scaling trends suggest artificial general intelligence, and potentially superintelligence, could emerge within the next decade.",
     "confidence_score": 59,
+    "balance": 59,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 3,
@@ -474,6 +756,12 @@
     "title": "Can Small Modular Reactors Save Nuclear Energy?",
     "meta_claim": "Small modular reactors represent a viable path to carbon-free baseload power that can be deployed at scale within this decade.",
     "confidence_score": 44,
+    "balance": 44,
+    "weight": 68,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -484,6 +772,12 @@
     "title": "Is Short-Form Video Causing Cognitive Decline?",
     "meta_claim": "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
     "confidence_score": 64,
+    "balance": 64,
+    "weight": 70,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -494,6 +788,12 @@
     "title": "Will AI Replace Doctors Within a Decade?",
     "meta_claim": "AI systems will be capable of diagnosing and treating most medical conditions better than human physicians within 10 years, fundamentally disrupting healthcare.",
     "confidence_score": 49,
+    "balance": 49,
+    "weight": 70,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -504,6 +804,12 @@
     "title": "Have We Already Lost the Battle for Digital Privacy?",
     "meta_claim": "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
     "confidence_score": 51,
+    "balance": 51,
+    "weight": 74,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -513,7 +819,13 @@
     "id": "climate-change",
     "title": "Climate Change",
     "meta_claim": "Climate change is primarily caused by human activity.",
-    "confidence_score": 85,
+    "confidence_score": 86,
+    "balance": 86,
+    "weight": 84,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "settled",
     "category": "science",
     "pillarCount": 3,
@@ -524,6 +836,12 @@
     "title": "Electric Vehicles vs. ICE Cars",
     "meta_claim": "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
     "confidence_score": 62,
+    "balance": 62,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
@@ -534,6 +852,12 @@
     "title": "Should We Ban Factory Farming?",
     "meta_claim": "Industrial animal agriculture (factory farming) should be banned or drastically reformed due to its ethical, environmental, and public health costs.",
     "confidence_score": 67,
+    "balance": 67,
+    "weight": 69,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
@@ -543,7 +867,13 @@
     "id": "organic-food-health",
     "title": "Is Organic Food Healthier?",
     "meta_claim": "Organic food is significantly healthier and more nutritious than conventionally grown food.",
-    "confidence_score": 61,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 62,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
@@ -554,6 +884,12 @@
     "title": "Gene Editing Human Embryos",
     "meta_claim": "Germline gene editing of human embryos (using CRISPR or similar) should be permitted for preventing serious genetic diseases.",
     "confidence_score": 48,
+    "balance": 48,
+    "weight": 62,
+    "verdict": {
+      "label": "Balanced — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "highly_speculative",
     "category": "science",
     "pillarCount": 2,
@@ -563,7 +899,13 @@
     "id": "space-exploration-value",
     "title": "Is Space Exploration Worth It?",
     "meta_claim": "Government-funded space exploration provides sufficient scientific, economic, and strategic returns to justify its cost.",
-    "confidence_score": 60,
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
@@ -574,6 +916,12 @@
     "title": "Veganism for Environmental Impact",
     "meta_claim": "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint, including greenhouse gas emissions, land use, and water pollution.",
     "confidence_score": 63,
+    "balance": 63,
+    "weight": 64,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
@@ -584,6 +932,12 @@
     "title": "Psychedelics for Mental Health",
     "meta_claim": "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
     "confidence_score": 75,
+    "balance": 75,
+    "weight": 55,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
@@ -594,6 +948,12 @@
     "title": "COVID-19 Lab Leak Origin",
     "meta_claim": "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
     "confidence_score": 64,
+    "balance": 64,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -603,7 +963,13 @@
     "id": "ultra-processed-food",
     "title": "Are Ultra-Processed Foods Driving the Obesity Epidemic?",
     "meta_claim": "Ultra-processed foods are the primary driver of the global obesity and chronic disease epidemic, and their regulation would significantly improve public health outcomes.",
-    "confidence_score": 61,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -614,6 +980,12 @@
     "title": "The Science of Life Extension",
     "meta_claim": "Recent breakthroughs in longevity research — including senolytics, epigenetic reprogramming, and caloric restriction mimetics — will significantly extend healthy human lifespan within the next 20 years.",
     "confidence_score": 65,
+    "balance": 65,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -624,6 +996,12 @@
     "title": "Gender-Affirming Care for Minors",
     "meta_claim": "Evidence-based gender-affirming medical care for transgender adolescents, including puberty blockers and hormone therapy, improves mental health outcomes and should be accessible.",
     "confidence_score": 36,
+    "balance": 36,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -633,7 +1011,13 @@
     "id": "microplastics-health-crisis",
     "title": "The Microplastics Health Crisis",
     "meta_claim": "Microplastic and nanoplastic contamination of human blood, organs, and placentas represents a major emerging public health crisis comparable to lead exposure, not merely an environmental nuisance.",
-    "confidence_score": 66,
+    "confidence_score": 67,
+    "balance": 67,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -644,6 +1028,12 @@
     "title": "GLP-1 Weight Loss Drugs",
     "meta_claim": "GLP-1 receptor agonists like Ozempic and Mounjaro represent a safe, effective long-term solution to the obesity epidemic that should be widely accessible, not a dangerous shortcut that medicalizes a lifestyle problem.",
     "confidence_score": 47,
+    "balance": 47,
+    "weight": 80,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 4,
@@ -653,7 +1043,13 @@
     "id": "fluoride-water-supplies",
     "title": "Fluoride in Water Supplies",
     "meta_claim": "Community water fluoridation is a safe and effective public health measure",
-    "confidence_score": 32,
+    "confidence_score": 33,
+    "balance": 33,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -664,6 +1060,12 @@
     "title": "Lithium Mining & EV Environmental Impact",
     "meta_claim": "Electric vehicles are significantly better for the environment than gas cars when mining impacts are included",
     "confidence_score": 44,
+    "balance": 44,
+    "weight": 79,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -674,6 +1076,12 @@
     "title": "Are Seed Oils Harmful to Human Health?",
     "meta_claim": "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
     "confidence_score": 45,
+    "balance": 45,
+    "weight": 70,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -684,6 +1092,12 @@
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
     "confidence_score": 68,
+    "balance": 68,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -694,6 +1108,12 @@
     "title": "Is Loneliness a Public Health Crisis?",
     "meta_claim": "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
     "confidence_score": 57,
+    "balance": 57,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -704,6 +1124,12 @@
     "title": "The Future of Remote Work",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
     "confidence_score": 57,
+    "balance": 57,
+    "weight": 60,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
@@ -714,6 +1140,12 @@
     "title": "The Value of a College Degree",
     "meta_claim": "A four-year college degree remains the best investment in future earnings and career outcomes for most young adults.",
     "confidence_score": 60,
+    "balance": 60,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
@@ -724,6 +1156,12 @@
     "title": "Homeschooling vs. Public School",
     "meta_claim": "Homeschooled students achieve better academic and social outcomes than public school students on average.",
     "confidence_score": 58,
+    "balance": 58,
+    "weight": 54,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
@@ -734,6 +1172,12 @@
     "title": "Should Billionaires Exist?",
     "meta_claim": "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
     "confidence_score": 67,
+    "balance": 67,
+    "weight": 60,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
@@ -743,7 +1187,13 @@
     "id": "foreign-aid-effectiveness",
     "title": "Does Foreign Aid Work?",
     "meta_claim": "International development aid significantly improves outcomes in recipient countries and is an effective use of donor resources.",
-    "confidence_score": 38,
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 68,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
@@ -754,6 +1204,12 @@
     "title": "Cryptocurrency as Store of Value",
     "meta_claim": "Bitcoin and major cryptocurrencies represent a legitimate long-term store of value comparable to gold or real estate.",
     "confidence_score": 50,
+    "balance": 50,
+    "weight": 15,
+    "verdict": {
+      "label": "Open question — limited evidence so far",
+      "quadrant": "open"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
@@ -764,6 +1220,12 @@
     "title": "Cryptocurrency Regulation",
     "meta_claim": "Cryptocurrencies should be regulated like traditional financial instruments",
     "confidence_score": 47,
+    "balance": 47,
+    "weight": 75,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -773,7 +1235,13 @@
     "id": "gig-economy-regulation",
     "title": "Gig Economy Regulation",
     "meta_claim": "Gig economy platforms (Uber, Lyft, DoorDash, etc.) should be required to classify their workers as employees rather than independent contractors, providing full labor protections.",
-    "confidence_score": 65,
+    "confidence_score": 66,
+    "balance": 66,
+    "weight": 55,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
@@ -784,6 +1252,12 @@
     "title": "The Housing Affordability Crisis",
     "meta_claim": "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, as the free market alone cannot provide adequate affordable housing.",
     "confidence_score": 66,
+    "balance": 66,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -794,6 +1268,12 @@
     "title": "The Four-Day Work Week",
     "meta_claim": "A four-day work week with no reduction in pay leads to equal or higher productivity, improved worker wellbeing, and should be adopted broadly across industries.",
     "confidence_score": 54,
+    "balance": 54,
+    "weight": 66,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -803,7 +1283,13 @@
     "id": "student-debt-forgiveness",
     "title": "Student Debt Forgiveness",
     "meta_claim": "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
-    "confidence_score": 78,
+    "confidence_score": 79,
+    "balance": 79,
+    "weight": 72,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -813,7 +1299,13 @@
     "id": "inflation-monetary-policy",
     "title": "Inflation & Monetary Policy",
     "meta_claim": "Post-pandemic inflation was primarily driven by excessive government spending and monetary expansion, not supply chain disruptions.",
-    "confidence_score": 49,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 82,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -824,6 +1316,12 @@
     "title": "Is There a Global Housing Bubble About to Burst?",
     "meta_claim": "Major housing markets worldwide are in an unsustainable bubble driven by low interest rates, speculation, and foreign investment, and a correction is imminent.",
     "confidence_score": 69,
+    "balance": 69,
+    "weight": 76,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -834,6 +1332,12 @@
     "title": "Is the US National Debt a Ticking Time Bomb?",
     "meta_claim": "The US national debt, exceeding $36 trillion, poses an existential threat to economic stability and will lead to a fiscal crisis within a generation.",
     "confidence_score": 59,
+    "balance": 59,
+    "weight": 84,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -844,6 +1348,12 @@
     "title": "Does Return-to-Office Actually Improve Productivity?",
     "meta_claim": "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
     "confidence_score": 35,
+    "balance": 35,
+    "weight": 68,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -854,6 +1364,12 @@
     "title": "Are Lab-Grown Diamonds More Ethical Than Mined Diamonds?",
     "meta_claim": "Lab-grown diamonds are the ethical choice — they avoid the human rights abuses and environmental destruction of diamond mining.",
     "confidence_score": 60,
+    "balance": 60,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -864,6 +1380,12 @@
     "title": "Does Rent Control Help or Hurt Renters?",
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
     "confidence_score": 57,
+    "balance": 57,
+    "weight": 71,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -874,6 +1396,12 @@
     "title": "Is Degrowth the Only Way to Save the Planet?",
     "meta_claim": "Endless GDP growth is incompatible with ecological survival. Rich nations must deliberately shrink their economies to stay within planetary boundaries.",
     "confidence_score": 56,
+    "balance": 56,
+    "weight": 72,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -884,6 +1412,12 @@
     "title": "Free Will",
     "meta_claim": "Human beings possess genuine free will—the ability to have done otherwise in any given situation.",
     "confidence_score": 48,
+    "balance": 48,
+    "weight": 69,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
@@ -894,6 +1428,12 @@
     "title": "The Simulation Hypothesis",
     "meta_claim": "We are almost certainly living in a computer simulation run by a post-human civilization.",
     "confidence_score": 51,
+    "balance": 51,
+    "weight": 69,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
@@ -904,6 +1444,12 @@
     "title": "The Moon Landing",
     "meta_claim": "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
     "confidence_score": 90,
+    "balance": 90,
+    "weight": 82,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "settled",
     "category": "philosophy",
     "pillarCount": 2,
@@ -913,7 +1459,13 @@
     "id": "minneapolis-shooting",
     "title": "Minneapolis ICE Shooting",
     "meta_claim": "Federal agents acted with excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026.",
-    "confidence_score": 84,
+    "confidence_score": 85,
+    "balance": 85,
+    "weight": 49,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 2,
@@ -923,7 +1475,13 @@
     "id": "consciousness-ai-systems",
     "title": "Consciousness in AI Systems",
     "meta_claim": "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
-    "confidence_score": 35,
+    "confidence_score": 36,
+    "balance": 36,
+    "weight": 45,
+    "verdict": {
+      "label": "Leans toward the counterclaim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "highly_speculative",
     "category": "philosophy",
     "pillarCount": 2,
@@ -934,6 +1492,12 @@
     "title": "Meaning of Life Without Religion",
     "meta_claim": "A meaningful, fulfilling human life is fully achievable without religious belief, and secular philosophical frameworks provide adequate foundations for purpose, ethics, and existential satisfaction.",
     "confidence_score": 67,
+    "balance": 67,
+    "weight": 59,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "highly_speculative",
     "category": "philosophy",
     "pillarCount": 2,
@@ -943,7 +1507,13 @@
     "id": "meritocracy-myth",
     "title": "Is Meritocracy a Myth?",
     "meta_claim": "The belief that success is primarily determined by individual talent and effort is a myth that legitimizes systemic inequality.",
-    "confidence_score": 68,
+    "confidence_score": 69,
+    "balance": 69,
+    "weight": 79,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
@@ -953,7 +1523,13 @@
     "id": "consciousness-hard-problem",
     "title": "The Hard Problem of Consciousness",
     "meta_claim": "Consciousness — subjective experience or 'what it is like' to be something — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
-    "confidence_score": 69,
+    "confidence_score": 70,
+    "balance": 70,
+    "weight": 68,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
@@ -964,6 +1540,12 @@
     "title": "Artificial Wombs & Synthetic Embryos",
     "meta_claim": "Ectogenesis (artificial womb technology) and in-vitro gametogenesis (creating eggs/sperm from skin cells) will fundamentally alter human reproduction within 15 years, raising profound ethical questions about parenthood, consent, and biological boundaries.",
     "confidence_score": 69,
+    "balance": 69,
+    "weight": 66,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -974,6 +1556,12 @@
     "title": "Government Bans on Social Media Platforms",
     "meta_claim": "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms like TikTok on national security grounds, even at the cost of restricting free expression for millions of citizens.",
     "confidence_score": 63,
+    "balance": 63,
+    "weight": 68,
+    "verdict": {
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -983,7 +1571,13 @@
     "id": "gain-of-function-research-ban",
     "title": "Should Gain-of-Function Research Be Banned?",
     "meta_claim": "Gain-of-function research that enhances the transmissibility or pathogenicity of potential pandemic pathogens poses an existential biosecurity risk that outweighs its scientific benefits and should be permanently banned worldwide.",
-    "confidence_score": 57,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 62,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -994,6 +1588,12 @@
     "title": "Smartphone Age Restrictions for Children",
     "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the developmental harms of constant connectivity, social media, and algorithmic content outweigh the benefits of access and safety.",
     "confidence_score": 71,
+    "balance": 71,
+    "weight": 60,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -1004,6 +1604,12 @@
     "title": "Are There Better Systems Than Democracy?",
     "meta_claim": "Liberal democracy, while historically successful, may be structurally incapable of addressing long-term existential challenges like climate change, AI governance, and pandemics, and alternative governance models deserve serious consideration.",
     "confidence_score": 49,
+    "balance": 49,
+    "weight": 61,
+    "verdict": {
+      "label": "Balanced — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
@@ -1014,6 +1620,12 @@
     "title": "Geoengineering & Carbon Capture",
     "meta_claim": "Geoengineering interventions — particularly stratospheric aerosol injection and direct air carbon capture — are now a necessary complement to emissions reduction, not a dangerous distraction from it.",
     "confidence_score": 44,
+    "balance": 44,
+    "weight": 64,
+    "verdict": {
+      "label": "Balanced — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -1024,6 +1636,12 @@
     "title": "Central Bank Digital Currencies",
     "meta_claim": "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
     "confidence_score": 43,
+    "balance": 43,
+    "weight": 61,
+    "verdict": {
+      "label": "Leans toward the counterclaim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -1034,6 +1652,12 @@
     "title": "The Modern Masculinity Crisis",
     "meta_claim": "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
     "confidence_score": 86,
+    "balance": 86,
+    "weight": 63,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
@@ -1044,6 +1668,12 @@
     "title": "AI Deepfakes & the Collapse of Shared Truth",
     "meta_claim": "AI-generated deepfake audio, video, and images have advanced to the point where no digital media can be trusted as authentic, fundamentally undermining evidence-based discourse, journalism, and democratic accountability.",
     "confidence_score": 72,
+    "balance": 72,
+    "weight": 61,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
@@ -1054,6 +1684,12 @@
     "title": "The Global Fertility Collapse",
     "meta_claim": "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
     "confidence_score": 59,
+    "balance": 59,
+    "weight": 64,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
@@ -1064,6 +1700,12 @@
     "title": "Anti-Aging & Radical Life Extension",
     "meta_claim": "Recent advances in longevity science — including rapamycin, senolytics, epigenetic reprogramming, and caloric restriction mimetics — suggest that meaningful human lifespan extension beyond 120 years is achievable within our lifetimes.",
     "confidence_score": 62,
+    "balance": 62,
+    "weight": 62,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -1073,7 +1715,13 @@
     "id": "nuclear-proliferation-new-arms-race",
     "title": "The New Nuclear Arms Race",
     "meta_claim": "The collapse of Cold War-era arms control treaties and simultaneous nuclear modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
-    "confidence_score": 86,
+    "confidence_score": 87,
+    "balance": 87,
+    "weight": 64,
+    "verdict": {
+      "label": "Leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -1084,6 +1732,12 @@
     "title": "Transgender Athletes in Competitive Sports",
     "meta_claim": "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
     "confidence_score": 44,
+    "balance": 44,
+    "weight": 64,
+    "verdict": {
+      "label": "Balanced — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -1094,6 +1748,12 @@
     "title": "Animal Consciousness & Moral Rights",
     "meta_claim": "Scientific evidence increasingly demonstrates that many animals possess rich subjective experiences and consciousness, which morally obligates humanity to extend rights protections far beyond current legal frameworks.",
     "confidence_score": 74,
+    "balance": 74,
+    "weight": 65,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
@@ -1104,6 +1764,12 @@
     "title": "Mass Immigration & National Identity",
     "meta_claim": "High levels of immigration fundamentally transform the cultural identity and social cohesion of receiving nations in ways that democratic majorities have not consented to and that integration policies cannot adequately address.",
     "confidence_score": 49,
+    "balance": 49,
+    "weight": 61,
+    "verdict": {
+      "label": "Balanced — moderately evidenced",
+      "quadrant": "moderate"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
@@ -1114,6 +1780,12 @@
     "title": "Psychedelic Therapy: Revolution or Overhype?",
     "meta_claim": "The psychedelic therapy renaissance — with psilocybin, MDMA, and ketamine treatments gaining clinical validation — represents a genuine paradigm shift in mental health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",
     "confidence_score": 75,
+    "balance": 75,
+    "weight": 65,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
@@ -1124,6 +1796,12 @@
     "title": "Affirmative Action & Meritocracy",
     "meta_claim": "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
     "confidence_score": 22,
+    "balance": 22,
+    "weight": 77,
+    "verdict": {
+      "label": "Settled — evidence strongly favors the counterclaim",
+      "quadrant": "settled"
+    },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,

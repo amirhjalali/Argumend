@@ -12,7 +12,7 @@
 
 import summaries from "./topicSummaries.json";
 
-import type { TopicCategory, TopicStatus } from "@/lib/schemas/topic";
+import type { TopicCategory, TopicStatus, Verdict } from "@/lib/schemas/topic";
 
 // ---------------------------------------------------------------------------
 // Lightweight Topic Summary type
@@ -22,7 +22,11 @@ export interface TopicSummary {
   id: string;
   title: string;
   meta_claim: string;
+  /** @deprecated — always equal to balance; do not display */
   confidence_score: number;
+  balance: number;
+  weight: number;
+  verdict: Verdict;
   status: TopicStatus;
   category: TopicCategory;
   pillarCount: number;
