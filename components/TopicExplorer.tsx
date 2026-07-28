@@ -27,7 +27,11 @@ import {
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import type { TopicSummary } from "@/data/topicIndex";
-import type { TopicCategory, TopicStatus } from "@/lib/schemas/topic";
+import type { TopicCategory, TopicStatus, Verdict } from "@/lib/schemas/topic";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
+import { BALANCE } from "@/lib/constants";
+
+export type LeanFilter = "all" | "for" | "against" | "balanced";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -44,7 +48,9 @@ interface TopicNodeData {
   title: string;
   category: TopicCategory;
   status: TopicStatus;
-  confidence_score: number;
+  balance: number;
+  weight: number;
+  verdict: Verdict;
   pillarCount: number;
   selected: boolean;
   [key: string]: unknown;
@@ -154,26 +160,12 @@ function TopicMapNode({ data }: { data: TopicNodeData }) {
             </span>
           </div>
 
-          {/* Confidence badge */}
-          <span
-            className="flex-shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-mono font-medium tabular-nums"
-            style={{
-              backgroundColor:
-                data.confidence_score >= 75
-                  ? "rgba(79, 123, 119, 0.15)"
-                  : data.confidence_score >= 50
-                  ? "rgba(196, 97, 60, 0.12)"
-                  : "rgba(139, 90, 60, 0.12)",
-              color:
-                data.confidence_score >= 75
-                  ? "#3a6965"
-                  : data.confidence_score >= 50
-                  ? "#C4613C"
-                  : "#8B5A3C",
-            }}
-          >
-            {data.confidence_score}%
-          </span>
+          {/* Balance + weight badge */}
+          <BalanceWeightChip
+            balance={data.balance}
+            weight={data.weight}
+            verdict={data.verdict}
+          />
         </div>
       </div>
     </div>
@@ -317,28 +309,32 @@ function computeForceLayout(
 interface FilterPanelProps {
   activeCategories: Set<TopicCategory>;
   activeStatuses: Set<TopicStatus>;
-  confidenceRange: [number, number];
+  minWeight: number;
+  leanFilter: LeanFilter;
   categoryLabels: Record<TopicCategory, string>;
   filteredCount: number;
   totalCount: number;
   hasActiveFilters: boolean;
   onToggleCategory: (cat: TopicCategory) => void;
   onToggleStatus: (status: TopicStatus) => void;
-  onSetConfidenceRange: (range: [number, number]) => void;
+  onSetMinWeight: (v: number) => void;
+  onSetLeanFilter: (v: LeanFilter) => void;
   onReset: () => void;
 }
 
 function FilterPanel({
   activeCategories,
   activeStatuses,
-  confidenceRange,
+  minWeight,
+  leanFilter,
   categoryLabels,
   filteredCount,
   totalCount,
   hasActiveFilters,
   onToggleCategory,
   onToggleStatus,
-  onSetConfidenceRange,
+  onSetMinWeight,
+  onSetLeanFilter,
   onReset,
 }: FilterPanelProps) {
   return (
@@ -422,50 +418,44 @@ function FilterPanel({
         </div>
       </div>
 
-      {/* Confidence Range */}
+      {/* Minimum weight of evidence */}
       <div>
         <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
-          Confidence Range
+          Min. Weight of Evidence
         </p>
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] text-stone-500 w-7 text-right font-mono">
-              {confidenceRange[0]}
-            </span>
-            <input
-              type="range"
-              min={0}
-              max={100}
-              value={confidenceRange[0]}
-              onChange={(e) =>
-                onSetConfidenceRange([
-                  Math.min(Number(e.target.value), confidenceRange[1]),
-                  confidenceRange[1],
-                ])
-              }
-              aria-label="Minimum confidence"
-              className="flex-1 h-1 appearance-none bg-stone-200 rounded-full accent-deep"
-            />
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] text-stone-500 w-7 text-right font-mono">
-              {confidenceRange[1]}
-            </span>
-            <input
-              type="range"
-              min={0}
-              max={100}
-              value={confidenceRange[1]}
-              onChange={(e) =>
-                onSetConfidenceRange([
-                  confidenceRange[0],
-                  Math.max(Number(e.target.value), confidenceRange[0]),
-                ])
-              }
-              aria-label="Maximum confidence"
-              className="flex-1 h-1 appearance-none bg-stone-200 rounded-full accent-deep"
-            />
-          </div>
+        <div className="flex items-center gap-2">
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={minWeight}
+            onChange={(e) => onSetMinWeight(Number(e.target.value))}
+            aria-label="Minimum weight of evidence"
+            className="flex-1"
+          />
+          <span className="font-mono text-xs tabular-nums text-stone-500 w-8 text-right">
+            {minWeight}
+          </span>
+        </div>
+      </div>
+
+      {/* Lean */}
+      <div className="mt-3">
+        <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">Lean</p>
+        <div className="flex gap-1">
+          {(["all", "for", "against", "balanced"] as const).map((v) => (
+            <button
+              key={v}
+              onClick={() => onSetLeanFilter(v)}
+              className={`px-2 py-1 rounded-md text-[11px] font-medium capitalize border ${
+                leanFilter === v
+                  ? "border-deep bg-deep/10 text-deep"
+                  : "border-stone-200 dark:border-[#3d3a36] text-stone-500"
+              }`}
+            >
+              {v}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -528,9 +518,12 @@ function SelectedTopicPanel({ topic, onClose, onNavigate }: SelectedTopicPanelPr
           <span className="text-[10px] text-stone-500">
             {topic.pillarCount} pillars
           </span>
-          <span className="font-mono text-xs text-stone-600 ml-auto">
-            {topic.confidence_score}%
-          </span>
+          <BalanceWeightChip
+            balance={topic.balance}
+            weight={topic.weight}
+            verdict={topic.verdict}
+            className="ml-auto"
+          />
         </div>
         <button
           onClick={() => onNavigate(topic.id)}
@@ -564,7 +557,8 @@ function TopicExplorerInner({
   const [activeStatuses, setActiveStatuses] = useState<Set<TopicStatus>>(
     new Set(ALL_STATUSES)
   );
-  const [confidenceRange, setConfidenceRange] = useState<[number, number]>([0, 100]);
+  const [minWeight, setMinWeight] = useState(0);
+  const [leanFilter, setLeanFilter] = useState<LeanFilter>("all");
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -583,10 +577,13 @@ function TopicExplorerInner({
         (t) =>
           activeCategories.has(t.category) &&
           activeStatuses.has(t.status) &&
-          t.confidence_score >= confidenceRange[0] &&
-          t.confidence_score <= confidenceRange[1]
+          t.weight >= minWeight &&
+          (leanFilter === "all" ||
+            (leanFilter === "balanced" && Math.abs(t.balance - 50) < BALANCE.EVEN_D) ||
+            (leanFilter === "for" && t.balance - 50 >= BALANCE.EVEN_D) ||
+            (leanFilter === "against" && 50 - t.balance >= BALANCE.EVEN_D))
       ),
-    [topics, activeCategories, activeStatuses, confidenceRange]
+    [topics, activeCategories, activeStatuses, minWeight, leanFilter]
   );
 
   const filteredIds = useMemo(
@@ -612,7 +609,9 @@ function TopicExplorerInner({
           title: t.title,
           category: t.category,
           status: t.status,
-          confidence_score: t.confidence_score,
+          balance: t.balance,
+          weight: t.weight,
+          verdict: t.verdict,
           pillarCount: t.pillarCount,
           selected: selectedNodeId === t.id,
         },
@@ -695,7 +694,8 @@ function TopicExplorerInner({
   const resetFilters = useCallback(() => {
     setActiveCategories(new Set(ALL_CATEGORIES));
     setActiveStatuses(new Set(ALL_STATUSES));
-    setConfidenceRange([0, 100]);
+    setMinWeight(0);
+    setLeanFilter("all");
   }, []);
 
   // Fit view on load and filter change
@@ -709,8 +709,8 @@ function TopicExplorerInner({
   const hasActiveFilters =
     activeCategories.size < ALL_CATEGORIES.length ||
     activeStatuses.size < ALL_STATUSES.length ||
-    confidenceRange[0] > 0 ||
-    confidenceRange[1] < 100;
+    minWeight > 0 ||
+    leanFilter !== "all";
 
   // Find selected topic
   const selectedTopic = selectedNodeId
@@ -786,9 +786,12 @@ function TopicExplorerInner({
                         </span>
                       </div>
                     </div>
-                    <span className="flex-shrink-0 font-mono text-xs tabular-nums text-stone-600">
-                      {topic.confidence_score}%
-                    </span>
+                    <BalanceWeightChip
+                      balance={topic.balance}
+                      weight={topic.weight}
+                      verdict={topic.verdict}
+                      className="flex-shrink-0"
+                    />
                     <ArrowRight className="h-3.5 w-3.5 text-stone-400 flex-shrink-0" />
                   </Link>
                 );
@@ -943,50 +946,44 @@ function TopicExplorerInner({
               </div>
             </div>
 
-            {/* Confidence Range */}
+            {/* Minimum weight of evidence */}
             <div>
               <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">
-                Confidence Range
+                Min. Weight of Evidence
               </p>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] text-stone-500 w-7 text-right font-mono">
-                    {confidenceRange[0]}
-                  </span>
-                  <input
-                    type="range"
-                    min={0}
-                    max={100}
-                    value={confidenceRange[0]}
-                    onChange={(e) =>
-                      setConfidenceRange([
-                        Math.min(Number(e.target.value), confidenceRange[1]),
-                        confidenceRange[1],
-                      ])
-                    }
-                    aria-label="Minimum confidence"
-                    className="flex-1 h-1 appearance-none bg-stone-200 rounded-full accent-deep"
-                  />
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] text-stone-500 w-7 text-right font-mono">
-                    {confidenceRange[1]}
-                  </span>
-                  <input
-                    type="range"
-                    min={0}
-                    max={100}
-                    value={confidenceRange[1]}
-                    onChange={(e) =>
-                      setConfidenceRange([
-                        confidenceRange[0],
-                        Math.max(Number(e.target.value), confidenceRange[0]),
-                      ])
-                    }
-                    aria-label="Maximum confidence"
-                    className="flex-1 h-1 appearance-none bg-stone-200 rounded-full accent-deep"
-                  />
-                </div>
+              <div className="flex items-center gap-2">
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  value={minWeight}
+                  onChange={(e) => setMinWeight(Number(e.target.value))}
+                  aria-label="Minimum weight of evidence"
+                  className="flex-1"
+                />
+                <span className="font-mono text-xs tabular-nums text-stone-500 w-8 text-right">
+                  {minWeight}
+                </span>
+              </div>
+            </div>
+
+            {/* Lean */}
+            <div className="mt-3">
+              <p className="text-[11px] font-medium text-stone-400 mb-2 tracking-wide">Lean</p>
+              <div className="flex gap-1">
+                {(["all", "for", "against", "balanced"] as const).map((v) => (
+                  <button
+                    key={v}
+                    onClick={() => setLeanFilter(v)}
+                    className={`px-2 py-1 rounded-md text-[11px] font-medium capitalize border ${
+                      leanFilter === v
+                        ? "border-deep bg-deep/10 text-deep"
+                        : "border-stone-200 dark:border-[#3d3a36] text-stone-500"
+                    }`}
+                  >
+                    {v}
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -1040,9 +1037,12 @@ function TopicExplorerInner({
                 <span className="text-[10px] text-stone-500">
                   {selectedTopic.pillarCount} pillars
                 </span>
-                <span className="font-mono text-xs text-stone-600 ml-auto">
-                  {selectedTopic.confidence_score}%
-                </span>
+                <BalanceWeightChip
+                  balance={selectedTopic.balance}
+                  weight={selectedTopic.weight}
+                  verdict={selectedTopic.verdict}
+                  className="ml-auto"
+                />
               </div>
               <button
                 onClick={() => handleNavigate(selectedTopic.id)}

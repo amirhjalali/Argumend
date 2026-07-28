@@ -15,6 +15,7 @@ import { getSavedTopicIds, listUserDebates } from "@/lib/db/queries";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory, TopicStatus } from "@/data/topicIndex";
 import { AppShell } from "@/components/AppShell";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 export const metadata: Metadata = {
   title: "Dashboard | ARGUMEND",
@@ -134,7 +135,6 @@ export default async function DashboardPage() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {savedTopicsList.map((topic) => {
                   const StatusIcon = statusIcons[topic.status];
-                  const confPct = Math.min(topic.confidence_score, 100);
 
                   return (
                     <Link
@@ -149,30 +149,9 @@ export default async function DashboardPage() {
                         {topic.meta_claim}
                       </p>
 
-                      {/* Confidence bar */}
+                      {/* Balance + weight */}
                       <div className="mb-3">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-[11px] font-medium text-stone-500 dark:text-[var(--text-muted)] uppercase tracking-widest">
-                            Confidence
-                          </span>
-                          <span className="font-mono text-xs tabular-nums text-stone-600 dark:text-stone-400 font-semibold">
-                            {topic.confidence_score}%
-                          </span>
-                        </div>
-                        <div
-                          className="h-1.5 rounded-full bg-stone-200/80 dark:bg-[var(--bg-overlay)] overflow-hidden"
-                          role="meter"
-                          aria-valuenow={topic.confidence_score}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                          aria-label={`Confidence: ${topic.confidence_score}%`}
-                        >
-                          <div
-                            className="h-full rounded-full bg-deep-light transition-all duration-300"
-                            style={{ width: `${confPct}%` }}
-                            aria-hidden="true"
-                          />
-                        </div>
+                        <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
                       </div>
 
                       <div className="flex items-center justify-between gap-2">

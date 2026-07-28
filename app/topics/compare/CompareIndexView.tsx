@@ -13,7 +13,8 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import type { TopicStatus } from "@/lib/schemas/topic";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
+import type { TopicStatus, Verdict } from "@/lib/schemas/topic";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -24,8 +25,12 @@ interface FeaturedPair {
   id2: string;
   title1: string;
   title2: string;
-  score1: number;
-  score2: number;
+  balance1: number;
+  weight1: number;
+  verdict1: Verdict;
+  balance2: number;
+  weight2: number;
+  verdict2: Verdict;
   status1: string;
   status2: string;
   category1: string;
@@ -37,7 +42,9 @@ interface FeaturedPair {
 interface TopicItem {
   id: string;
   title: string;
-  confidence_score: number;
+  balance: number;
+  weight: number;
+  verdict: Verdict;
   category: string;
   categoryLabel: string;
 }
@@ -90,9 +97,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
           <h3 className="font-serif text-sm sm:text-base text-primary leading-snug mb-2 group-hover:text-rust-700 transition-colors">
             {pair.title1}
           </h3>
-          <span className="font-mono text-lg font-bold tabular-nums text-rust-700">
-            {pair.score1}%
-          </span>
+          <BalanceWeightChip balance={pair.balance1} weight={pair.weight1} verdict={pair.verdict1} />
         </div>
 
         {/* Divider with "vs" */}
@@ -118,9 +123,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
           <h3 className="font-serif text-sm sm:text-base text-primary leading-snug mb-2 group-hover:text-deep transition-colors">
             {pair.title2}
           </h3>
-          <span className="font-mono text-lg font-bold tabular-nums text-deep">
-            {pair.score2}%
-          </span>
+          <BalanceWeightChip balance={pair.balance2} weight={pair.weight2} verdict={pair.verdict2} />
         </div>
       </div>
 
@@ -214,7 +217,7 @@ function TopicPicker({
                 {selectedA.title}
               </p>
               <p className="text-xs text-stone-500">
-                {selectedA.confidence_score}% confidence
+                {selectedA.verdict.label}
               </p>
             </div>
           ) : (
@@ -257,7 +260,7 @@ function TopicPicker({
                 {selectedB.title}
               </p>
               <p className="text-xs text-stone-500">
-                {selectedB.confidence_score}% confidence
+                {selectedB.verdict.label}
               </p>
             </div>
           ) : (
@@ -332,9 +335,12 @@ function TopicPicker({
               <span className="font-serif text-sm text-primary flex-1 truncate">
                 {topic.title}
               </span>
-              <span className="font-mono text-xs tabular-nums text-stone-400 shrink-0">
-                {topic.confidence_score}%
-              </span>
+              <BalanceWeightChip
+                balance={topic.balance}
+                weight={topic.weight}
+                verdict={topic.verdict}
+                className="shrink-0"
+              />
               {isSelectedA && (
                 <span className="text-[10px] font-bold text-rust-600 bg-rust-100 px-1.5 py-0.5 rounded shrink-0">
                   A
@@ -416,7 +422,7 @@ export default function CompareIndexView({
             </h1>
             <p className="text-sm sm:text-base text-stone-500 max-w-2xl mx-auto leading-relaxed">
               See how different controversial topics stack up against each other.
-              Compare confidence scores, evidence balance, argument pillars, and
+              Compare the balance and weight of evidence, argument pillars, and
               key crux questions.
             </p>
           </header>

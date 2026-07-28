@@ -19,6 +19,7 @@ import type { TopicCategory, TopicStatus } from "@/data/topicIndex";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 // ---------------------------------------------------------------------------
 // Constants & Lookup Tables
@@ -58,12 +59,14 @@ const categoryTopBorder: Record<TopicCategory, string> = {
   philosophy: "border-t-stone-400",
 };
 
-type SortOption = "evidence-desc" | "confidence-desc" | "confidence-asc" | "title-asc";
+type SortOption = "evidence-desc" | "weight-desc" | "contested" | "balance-desc" | "balance-asc" | "title-asc";
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
   { value: "evidence-desc", label: "Most Evidence" },
-  { value: "confidence-desc", label: "Highest Confidence" },
-  { value: "confidence-asc", label: "Lowest Confidence" },
+  { value: "weight-desc", label: "Most settled" },
+  { value: "contested", label: "Most contested" },
+  { value: "balance-desc", label: "Strongest for" },
+  { value: "balance-asc", label: "Strongest against" },
   { value: "title-asc", label: "A-Z" },
 ];
 
@@ -144,10 +147,17 @@ export default function ExplorePage() {
       switch (sortBy) {
         case "evidence-desc":
           return b.evidenceCount - a.evidenceCount;
-        case "confidence-desc":
-          return b.confidence_score - a.confidence_score;
-        case "confidence-asc":
-          return a.confidence_score - b.confidence_score;
+        case "weight-desc":
+          return b.weight - a.weight;
+        case "contested":
+          // most contested = well-evidenced AND balanced: small lean first, weight breaks ties
+          return (
+            Math.abs(a.balance - 50) - Math.abs(b.balance - 50) || b.weight - a.weight
+          );
+        case "balance-desc":
+          return b.balance - a.balance;
+        case "balance-asc":
+          return a.balance - b.balance;
         case "title-asc":
           return a.title.localeCompare(b.title);
         default:
@@ -410,25 +420,9 @@ export default function ExplorePage() {
                       {topic.meta_claim}
                     </p>
 
-                    {/* Confidence score bar */}
-                    <div className="flex items-center gap-2.5 mb-3">
-                      <div
-                        className="h-1.5 flex-1 bg-stone-100 dark:bg-[#3d3a36] rounded-full overflow-hidden"
-                        role="meter"
-                        aria-valuenow={topic.confidence_score}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                        aria-label={`Confidence: ${topic.confidence_score}%`}
-                      >
-                        <div
-                          className="h-full bg-deep rounded-full transition-all duration-500 animate-bar-fill"
-                          style={{ width: `${topic.confidence_score}%` }}
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600 dark:text-stone-400">
-                        {topic.confidence_score}%
-                      </span>
+                    {/* Balance + weight */}
+                    <div className="flex items-center justify-between gap-2.5 mb-3">
+                      <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
                     </div>
 
                     {/* Footer: status + counts + CTA */}
