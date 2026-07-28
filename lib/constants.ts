@@ -105,7 +105,7 @@ export const WEIGHT = {
   W_QUALITY: 0.3,
   W_RESOLVABILITY: 0.2,
   /** Weight floor for topics authored as status "settled" */
-  SETTLED_FLOOR: 80,
+  SETTLED_FLOOR: 82,
 } as const;
 
 /** 2-D verdict thresholds. */

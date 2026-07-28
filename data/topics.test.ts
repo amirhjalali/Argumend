@@ -125,3 +125,27 @@ describe("specific topics", () => {
     expect(aiRisk).toBeDefined();
   });
 });
+
+describe("weight calibration anchors (spec §2.2)", () => {
+  const moonLanding = topics.find((t) => t.id === "moon-landing");
+
+  it("moon-landing (settled) has high weight", () => {
+    expect(moonLanding?.weight).toBeGreaterThan(80);
+    expect(moonLanding?.verdict.quadrant).toBe("settled");
+  });
+
+  it("moloch is well-mapped and genuinely contested — never 'insufficient'", () => {
+    const moloch = topics.find((t) => t.id === "moloch");
+    expect(moloch).toBeDefined();
+    expect(moloch!.weight).toBeGreaterThanOrEqual(60);
+    expect(moloch!.verdict.quadrant).toBe("contested");
+    expect(moloch!.verdict.label).toBe("Well-mapped, genuinely contested");
+  });
+
+  it("the corpus weight distribution is legible (not clustered)", () => {
+    const weights = topics.map((t) => t.weight);
+    expect(Math.max(...weights) - Math.min(...weights)).toBeGreaterThan(40);
+    // at least one genuinely thin topic reads as an open question
+    expect(Math.min(...weights)).toBeLessThan(35);
+  });
+});
