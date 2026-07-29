@@ -24,12 +24,12 @@ export default function NotFound() {
       </p>
 
       {/* Headline */}
-      <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08] max-w-xl">
+      <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08] max-w-xl">
         Insufficient Evidence for This Page
       </h1>
 
       {/* Subtext */}
-      <p className="font-sans text-base sm:text-lg text-secondary max-w-md leading-relaxed mb-10">
+      <p className="font-sans text-base sm:text-lg text-secondary dark:text-stone-400 max-w-md leading-relaxed mb-10">
         The argument you&rsquo;re looking for hasn&rsquo;t been mapped yet. Or maybe it moved to stronger ground&mdash;arguments do that sometimes.
       </p>
 
@@ -44,21 +44,21 @@ export default function NotFound() {
         </Link>
         <Link
           href="/topics"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
         >
           <MessageSquare className="w-4 h-4" strokeWidth={1.8} />
           Browse Topics
         </Link>
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
         >
           <BookOpen className="w-4 h-4" strokeWidth={1.8} />
           Read the Blog
         </Link>
         <Link
           href="/analyze"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
         >
           <Brain className="w-4 h-4" strokeWidth={1.8} />
           Run an Analysis
@@ -83,7 +83,7 @@ export default function NotFound() {
       {/* Branding footer */}
       <div className="mt-16">
         <Link href="/" className="group flex flex-col items-center gap-1">
-          <span className="font-serif text-base font-medium tracking-[0.08em] text-muted dark:text-stone-400 group-hover:text-primary transition-colors">
+          <span className="font-serif text-base font-medium tracking-[0.08em] text-muted dark:text-stone-400 group-hover:text-primary dark:group-hover:text-stone-200 transition-colors">
             ARGUMEND
           </span>
           <span className="text-[10px] font-sans text-muted dark:text-stone-500">

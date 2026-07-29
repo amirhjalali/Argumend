@@ -61,11 +61,14 @@ const TOKENS = Object.keys(CANONICAL_DARK) as Token[];
  * class such as `text-primary-foo`.
  */
 const bareUse = (token: Token) =>
-  new RegExp(String.raw`(?<![-:\w])${token}(?![-\w])`, "g");
+  new RegExp(String.raw`(?<![-:\w])${token}(?:/\d{1,3})?(?![-\w])`, "g");
 
-/** Matches an existing pairing so we can check which dark class was used. */
+/** Matches an existing pairing so we can check which dark class was used
+ *  (opacity modifier, if any, is captured separately and stripped before the
+ *  canonical-class comparison — "text-primary/90 dark:text-stone-200/90" is
+ *  just as canonical as the unmodified pairing). */
 const pairedUse = (token: Token) =>
-  new RegExp(String.raw`(?<![-:\w])${token}(?![-\w])\s+(dark:text-[\w-]+)`, "g");
+  new RegExp(String.raw`(?<![-:\w])${token}(?:/\d{1,3})?(?![-\w])\s+(dark:text-[\w-]+)(?:/\d{1,3})?`, "g");
 
 /** A variant-prefixed use, e.g. `hover:text-primary`, needs `dark:hover:...`. */
 const variantUse = (token: Token) =>
@@ -112,6 +115,14 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/nodes/RichNode.tsx" },
   { path: "components/nodes/EvidenceNode.tsx" },
   { path: "app/embed/[topicId]/page.tsx" },
+  { path: "app/about/page.tsx" },
+  { path: "app/for-educators/page.tsx" },
+  { path: "app/dashboard/page.tsx" },
+  { path: "app/not-found.tsx" },
+  { path: "app/topics/compare/CompareIndexView.tsx" },
+  { path: "components/FalsificationCrux.tsx" },
+  { path: "components/HeroMiniCanvas.tsx" },
+  { path: "components/ZoomIndicator.tsx" },
 ];
 
 describe("dark-mode pairing for fixed-hex text tokens", () => {
@@ -130,14 +141,14 @@ describe("dark-mode pairing for fixed-hex text tokens", () => {
           const pairedCount =
             line.match(
               new RegExp(
-                String.raw`(?<![-:\w])${token}(?![-\w])\s+${escapeRe(CANONICAL_DARK[token])}(?![-\w])`,
+                String.raw`(?<![-:\w])${token}(?:/\d{1,3})?(?![-\w])\s+${escapeRe(CANONICAL_DARK[token])}(?:/\d{1,3})?(?![-\w])`,
                 "g",
               ),
             )?.length ?? 0;
           const cssVarPairedCount =
             line.match(
               new RegExp(
-                String.raw`(?<![-:\w])${token}(?![-\w])\s+${escapeRe(CSS_VAR_DARK[token])}`,
+                String.raw`(?<![-:\w])${token}(?:/\d{1,3})?(?![-\w])\s+${escapeRe(CSS_VAR_DARK[token])}`,
                 "g",
               ),
             )?.length ?? 0;
@@ -165,7 +176,7 @@ describe("dark-mode pairing for fixed-hex text tokens", () => {
       for (const match of src.matchAll(pairedUse(token))) {
         if (match[1] !== CANONICAL_DARK[token]) {
           offenders.push(
-            `${token} paired with "${match[1]}", expected "${CANONICAL_DARK[token]}"`,
+            `${token} paired with "${match[1]}" (± opacity), expected "${CANONICAL_DARK[token]}"`,
           );
         }
       }

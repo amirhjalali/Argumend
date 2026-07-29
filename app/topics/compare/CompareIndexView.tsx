@@ -88,7 +88,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
               {pair.categoryLabel1}
             </span>
           </div>
-          <h3 className="font-serif text-sm sm:text-base text-primary leading-snug mb-2 group-hover:text-rust-700 transition-colors">
+          <h3 className="font-serif text-sm sm:text-base text-primary dark:text-stone-200 leading-snug mb-2 group-hover:text-rust-700 transition-colors">
             {pair.title1}
           </h3>
           <BalanceWeightChip balance={pair.balance1} weight={pair.weight1} verdict={pair.verdict1} />
@@ -115,7 +115,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
               {pair.categoryLabel2}
             </span>
           </div>
-          <h3 className="font-serif text-sm sm:text-base text-primary leading-snug mb-2 group-hover:text-deep transition-colors">
+          <h3 className="font-serif text-sm sm:text-base text-primary dark:text-stone-200 leading-snug mb-2 group-hover:text-deep transition-colors">
             {pair.title2}
           </h3>
           <BalanceWeightChip balance={pair.balance2} weight={pair.weight2} verdict={pair.verdict2} />
@@ -180,7 +180,7 @@ function TopicPicker({
     <div className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8">
       <div className="flex items-center gap-2 mb-2">
         <ArrowLeftRight className="h-5 w-5 text-deep" />
-        <h2 className="font-serif text-2xl text-primary">
+        <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
           Pick Two Topics
         </h2>
       </div>
@@ -208,7 +208,7 @@ function TopicPicker({
           </span>
           {selectedA ? (
             <div className="flex-1 min-w-0">
-              <p className="font-serif text-sm font-semibold text-primary truncate">
+              <p className="font-serif text-sm font-semibold text-primary dark:text-stone-200 truncate">
                 {selectedA.title}
               </p>
               <p className="text-xs text-stone-500">
@@ -251,7 +251,7 @@ function TopicPicker({
           </span>
           {selectedB ? (
             <div className="flex-1 min-w-0">
-              <p className="font-serif text-sm font-semibold text-primary truncate">
+              <p className="font-serif text-sm font-semibold text-primary dark:text-stone-200 truncate">
                 {selectedB.title}
               </p>
               <p className="text-xs text-stone-500">
@@ -286,7 +286,7 @@ function TopicPicker({
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={`Search topics to fill slot ${activeSlot.toUpperCase()}...`}
-          className="w-full pl-10 pr-4 py-3 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
+          className="w-full pl-10 pr-4 py-3 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary dark:text-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
         />
         {search && (
           <button
@@ -327,7 +327,7 @@ function TopicPicker({
               >
                 {topic.categoryLabel}
               </span>
-              <span className="font-serif text-sm text-primary flex-1 truncate">
+              <span className="font-serif text-sm text-primary dark:text-stone-200 flex-1 truncate">
                 {topic.title}
               </span>
               <BalanceWeightChip
@@ -412,7 +412,7 @@ export default function CompareIndexView({
               <ArrowLeftRight className="h-3.5 w-3.5" />
               Topic Comparisons
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-4 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-4 leading-[1.08]">
               Compare Debates Side by Side
             </h1>
             <p className="text-sm sm:text-base text-stone-500 max-w-2xl mx-auto leading-relaxed">
@@ -430,7 +430,7 @@ export default function CompareIndexView({
           {/* Featured comparisons */}
           <section>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
-              <h2 className="font-serif text-2xl text-primary">
+              <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
                 Featured Comparisons
               </h2>
               <div className="relative w-full sm:w-64">
@@ -440,7 +440,7 @@ export default function CompareIndexView({
                   value={searchPairs}
                   onChange={(e) => setSearchPairs(e.target.value)}
                   placeholder="Filter comparisons..."
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary dark:text-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
                 />
               </div>
             </div>
