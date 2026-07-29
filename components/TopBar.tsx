@@ -1,13 +1,23 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Search, HelpCircle, ExternalLink, Home, Brain } from "lucide-react";
 import { MenuIcon } from "@/components/icons/MenuIcon";
 import { ViewToggle } from "./ViewToggle";
 import { UserMenu } from "./UserMenu";
-import { SearchModal } from "./SearchModal";
 import { ThemeToggle } from "./ThemeToggle";
+
+// TopBar renders on every route via AppShell, so anything it imports eagerly
+// lands in the shared client bundle. SearchModal drags in MiniSearch plus the
+// full topic/blog/concept indexes (~100KB+) but is only ever shown after the
+// user opens search, so it is code-split AND gated behind `hasOpenedSearch` —
+// next/dynamic only fetches the chunk once the component is actually rendered.
+const SearchModal = dynamic(
+  () => import("./SearchModal").then((m) => ({ default: m.SearchModal })),
+  { ssr: false }
+);
 
 interface TopBarProps {
   onMenuClick?: () => void;
@@ -17,8 +27,14 @@ interface TopBarProps {
 
 export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProps) {
   const [searchOpen, setSearchOpen] = useState(false);
+  // Stays true once search has been opened, so the modal keeps its mount (and
+  // its exit animation) across close/reopen while never mounting before use.
+  const [hasOpenedSearch, setHasOpenedSearch] = useState(false);
 
-  const openSearch = useCallback(() => setSearchOpen(true), []);
+  const openSearch = useCallback(() => {
+    setHasOpenedSearch(true);
+    setSearchOpen(true);
+  }, []);
   const closeSearch = useCallback(() => setSearchOpen(false), []);
 
   // Global Cmd+K / Ctrl+K shortcut
@@ -26,6 +42,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
     function handleKeyDown(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
+        setHasOpenedSearch(true);
         setSearchOpen((prev) => !prev);
       }
     }
@@ -128,7 +145,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
         </div>
       </header>
 
-      <SearchModal isOpen={searchOpen} onClose={closeSearch} />
+      {hasOpenedSearch && <SearchModal isOpen={searchOpen} onClose={closeSearch} />}
     </>
   );
 }
