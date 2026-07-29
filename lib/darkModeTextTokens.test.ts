@@ -107,6 +107,11 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
     // background, so it is always-light by design.
     exempt: ["font-serif font-bold text-primary leading-tight mt-3"],
   },
+  { path: "components/ScalesOfEvidence.tsx" },
+  { path: "components/SearchModal.tsx" },
+  { path: "components/nodes/RichNode.tsx" },
+  { path: "components/nodes/EvidenceNode.tsx" },
+  { path: "app/embed/[topicId]/page.tsx" },
 ];
 
 describe("dark-mode pairing for fixed-hex text tokens", () => {

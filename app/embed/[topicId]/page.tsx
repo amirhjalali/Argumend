@@ -106,7 +106,7 @@ function VerdictBanner({
         <span className="text-xs font-medium uppercase tracking-wide text-deep dark:text-deep-light">
           Verdict
         </span>
-        <p className="text-sm font-semibold text-primary dark:text-stone-100">
+        <p className="text-sm font-semibold text-primary dark:text-stone-200">
           {label}
         </p>
       </div>
@@ -114,7 +114,7 @@ function VerdictBanner({
         <span className="text-[11px] text-muted dark:text-stone-400">
           Margin
         </span>
-        <p className="text-sm font-mono font-semibold tabular-nums text-primary dark:text-stone-100">
+        <p className="text-sm font-mono font-semibold tabular-nums text-primary dark:text-stone-200">
           {margin}
         </p>
       </div>
@@ -160,10 +160,10 @@ export default async function EmbedPage({ params }: PageProps) {
     <main className="w-full max-w-[600px] mx-auto px-4 py-5 font-sans">
       {/* Header */}
       <div className="mb-4">
-        <h1 className="font-serif text-xl sm:text-2xl tracking-tight leading-tight mb-2 break-words text-primary dark:text-stone-100">
+        <h1 className="font-serif text-xl sm:text-2xl tracking-tight leading-tight mb-2 break-words text-primary dark:text-stone-200">
           {topic.title}
         </h1>
-        <p className="text-sm leading-relaxed text-secondary dark:text-stone-300">
+        <p className="text-sm leading-relaxed text-secondary dark:text-stone-400">
           {topic.meta_claim}
         </p>
       </div>
