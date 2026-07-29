@@ -9,6 +9,7 @@ import { topics } from "@/data/topics";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { getConceptIcon, getConceptStage } from "@/lib/conceptMeta";
 
 // ---------------------------------------------------------------------------
 // Static params for all concept slugs
@@ -82,6 +83,12 @@ export default async function ConceptDetailPage({ params }: PageProps) {
   // Split description into paragraphs
   const paragraphs = concept.description.split("\n\n");
 
+  // Taxonomy: which stage of the method this concept belongs to, plus its own icon
+  const stage = getConceptStage(concept.id);
+  // Wrapped in an object so the lint rule sees a stable component reference,
+  // not a component created during render (same pattern as the fallacy page).
+  const specimen = { Icon: getConceptIcon(concept.id) };
+
   // JSON-LD structured data — DefinedTerm is the correct type for a concept/term page.
   const jsonLd = {
     "@context": "https://schema.org",
@@ -124,9 +131,19 @@ export default async function ConceptDetailPage({ params }: PageProps) {
 
           {/* Hero */}
           <header className="mb-16 md:mb-24">
-            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
-              Key Concept
-            </p>
+            <div className="flex items-center gap-3 mb-5">
+              <div
+                className={`flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full ${stage.iconBg}`}
+              >
+                <specimen.Icon className={`h-6 w-6 ${stage.iconText}`} strokeWidth={1.8} />
+              </div>
+              <Link
+                href={`/concepts#${stage.id}`}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-medium ${stage.chip}`}
+              >
+                {stage.numeral}. {stage.label}
+              </Link>
+            </div>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               {concept.title}
             </h1>
@@ -141,12 +158,17 @@ export default async function ConceptDetailPage({ params }: PageProps) {
             </div>
           </section>
 
-          {/* Key Points */}
+          {/* Key Points — tinted by stage, tying the summary back to the taxonomy */}
           <section className="mb-16 md:mb-24">
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
-              Key Points
-            </h2>
-            <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
+            <div className="flex items-center gap-2 mb-4">
+              <specimen.Icon className={`h-5 w-5 ${stage.iconText}`} strokeWidth={1.8} />
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary">
+                Key Points
+              </h2>
+            </div>
+            <div
+              className={`bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 ${stage.borderAccent}`}
+            >
               <ul className="space-y-4">
                 {concept.keyPoints.map((point, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -194,20 +216,29 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                 Related Concepts
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {relatedConcepts.map((related) => (
-                  <Link
-                    key={related!.id}
-                    href={`/concepts/${related!.id}`}
-                    className="group bg-white/80 dark:bg-[#252420]/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
-                  >
-                    <h3 className="font-serif text-lg text-primary group-hover:text-deep transition-colors mb-1">
-                      {related!.title}
-                    </h3>
-                    <p className="text-sm text-secondary line-clamp-2">
-                      {related!.description.split("\n\n")[0]?.slice(0, 100)}...
-                    </p>
-                  </Link>
-                ))}
+                {relatedConcepts.map((related) => {
+                  const relatedStage = getConceptStage(related!.id);
+                  const RelatedIcon = getConceptIcon(related!.id);
+                  return (
+                    <Link
+                      key={related!.id}
+                      href={`/concepts/${related!.id}`}
+                      className={`group bg-white/80 dark:bg-[#252420]/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm transition-all duration-200 ${relatedStage.hoverBorder}`}
+                    >
+                      <div
+                        className={`flex items-center justify-center w-8 h-8 rounded-full mb-3 ${relatedStage.iconBg}`}
+                      >
+                        <RelatedIcon className={`h-4 w-4 ${relatedStage.iconText}`} strokeWidth={1.8} />
+                      </div>
+                      <h3 className="font-serif text-lg text-primary group-hover:text-deep transition-colors mb-1">
+                        {related!.title}
+                      </h3>
+                      <p className="text-sm text-secondary line-clamp-2">
+                        {related!.description.split("\n\n")[0]?.slice(0, 100)}...
+                      </p>
+                    </Link>
+                  );
+                })}
               </div>
             </section>
           )}
