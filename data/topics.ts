@@ -715,7 +715,7 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "ai-deepfakes-truth-collapse": ["ai-content-labeling", "media-bias-democracy", "surveillance-public-safety", "ai-risk"],
 
   // Pandemic preparedness cluster
-  "pandemic-preparedness": ["gain-of-function-research-ban", "covid-origins", "universal-healthcare", "surveillance-public-safety"],
+  "pandemic-preparedness": ["gain-of-function-research-ban", "lab-leak-theory", "universal-healthcare", "surveillance-public-safety"],
 
   // Policy cluster (new topics)
   "gain-of-function-research-ban": ["lab-leak-theory", "surveillance-public-safety", "covid-origins", "pandemic-preparedness"],
