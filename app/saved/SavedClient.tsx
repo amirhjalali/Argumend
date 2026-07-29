@@ -61,11 +61,11 @@ export function SavedClient() {
             <div className="p-2.5 rounded-xl bg-rust-50 dark:bg-rust-900/40 text-rust-500">
               <Bookmark className="h-6 w-6" strokeWidth={1.8} />
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary dark:text-stone-200 leading-[1.08]">
               Saved Topics
             </h1>
           </div>
-          <p className="text-base sm:text-lg text-secondary leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
             Topics you&apos;ve bookmarked on this device. They live in your
             browser &mdash; no account needed.
           </p>
@@ -84,10 +84,10 @@ export function SavedClient() {
         ) : savedTopics.length === 0 ? (
           <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-10 text-center">
             <Bookmark className="h-9 w-9 text-stone-300 dark:text-[var(--text-muted)] mx-auto mb-4" />
-            <h2 className="font-serif text-xl text-primary mb-2">
+            <h2 className="font-serif text-xl text-primary dark:text-stone-200 mb-2">
               Nothing saved yet
             </h2>
-            <p className="text-secondary mb-6 max-w-sm mx-auto leading-relaxed">
+            <p className="text-secondary dark:text-stone-400 mb-6 max-w-sm mx-auto leading-relaxed">
               Browse the topics and tap the bookmark on any argument map to keep
               it here for later.
             </p>
@@ -134,7 +134,7 @@ export function SavedClient() {
                       href={`/topics/${topic.id}`}
                       className="flex flex-col flex-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 rounded-md"
                     >
-                      <h2 className="font-serif text-base text-primary group-hover:text-deep transition-colors leading-snug mb-1.5 pr-8">
+                      <h2 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug mb-1.5 pr-8">
                         {topic.title}
                       </h2>
                       <p className="text-xs text-stone-500 dark:text-[var(--text-muted)] leading-relaxed line-clamp-2 mb-4 flex-1">

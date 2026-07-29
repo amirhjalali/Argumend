@@ -199,7 +199,7 @@ export function VerdictVoting({ topicId, topicTitle, balance }: VerdictVotingPro
           <Vote className="h-3.5 w-3.5" />
           Community Verdict
         </div>
-        <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2">
+        <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-2">
           What&rsquo;s Your Verdict?
         </h2>
         <p className="text-sm text-stone-500 leading-relaxed max-w-lg mx-auto">
@@ -283,7 +283,7 @@ export function VerdictVoting({ topicId, topicTitle, balance }: VerdictVotingPro
                       <div key={option.label} className="flex items-center gap-3">
                         <span
                           className={`text-xs w-28 sm:w-32 text-right font-medium truncate ${
-                            isUserChoice ? "text-primary font-semibold" : "text-stone-500"
+                            isUserChoice ? "text-primary dark:text-stone-200 font-semibold" : "text-stone-500"
                           }`}
                         >
                           {option.label}
@@ -336,6 +336,8 @@ export function VerdictVoting({ topicId, topicTitle, balance }: VerdictVotingPro
               className="rounded-lg border border-stone-200/60 bg-gradient-to-br from-[#faf8f5] to-[#f4f1eb] p-4 sm:p-5"
             >
               <p className="text-sm text-stone-600 leading-relaxed">
+                {/* Always-light card (fixed #faf8f5→#f4f1eb gradient, no dark
+                    variant), so the fixed-light brand token is correct here. */}
                 <span className="font-medium text-primary">
                   Compare your verdict with our evidence-based analysis:
                 </span>{" "}

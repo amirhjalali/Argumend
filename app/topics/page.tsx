@@ -270,10 +270,10 @@ export default function TopicsPage() {
                 { label: "Topics" },
               ]}
             />
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
               Explore Topics
             </h1>
-            <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+            <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
               <span className="font-mono text-stone-700 dark:text-stone-300">{topicSummaries.length}</span> topics
               mapped across {CATEGORY_ORDER.length} categories. Each one structured with
               steel-man arguments, weighted evidence, and crux questions.
