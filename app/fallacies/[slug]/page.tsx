@@ -1,12 +1,13 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, AlertTriangle, Quote, Eye, ShieldCheck } from "lucide-react";
+import { ArrowRight, Quote, Eye, ShieldCheck } from "lucide-react";
 import { fallacies, getFallacyBySlug, getAllFallacySlugs } from "@/data/fallacies";
 import { topicSummaries } from "@/data/topicIndex";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { getFallacyFamily, getFallacyIcon } from "@/lib/fallacyMeta";
 
 // ---------------------------------------------------------------------------
 // Static params for all fallacy slugs
@@ -62,6 +63,13 @@ export default async function FallacyDetailPage({ params }: PageProps) {
   if (!fallacy) notFound();
 
   const paragraphs = fallacy.longDescription.split("\n\n");
+  const family = getFallacyFamily(fallacy.slug);
+  // Kept as a member-expression access (`specimen.Icon`), not a hoisted
+  // `const Icon = ...`, so react-hooks/static-components doesn't mistake the
+  // lookup for a component defined during render (matches the `style.Icon`
+  // pattern already used in components/nodes/RichNode.tsx).
+  const specimen = { Icon: getFallacyIcon(fallacy.slug) };
+  const catalogNumber = fallacies.findIndex((f) => f.slug === fallacy.slug) + 1;
 
   // Resolve related fallacies to full objects
   const relatedFallacies = (fallacy.relatedFallacies ?? [])
@@ -108,9 +116,22 @@ export default async function FallacyDetailPage({ params }: PageProps) {
 
           {/* Hero */}
           <header className="mb-12 md:mb-16">
-            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
-              Logical Fallacy
-            </p>
+            <div className="flex items-center gap-3 mb-5">
+              <div
+                className={`flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full ${family.iconBg}`}
+              >
+                <specimen.Icon className={`h-6 w-6 ${family.iconText}`} strokeWidth={1.8} />
+              </div>
+              <Link
+                href={`/fallacies#${family.id}`}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-medium ${family.chip}`}
+              >
+                {family.numeral}. {family.label}
+              </Link>
+              <span className="ml-auto text-[11px] font-mono tabular-nums text-muted/70 dark:text-stone-500/70">
+                No. {String(catalogNumber).padStart(2, "0")}
+              </span>
+            </div>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
               {fallacy.name}
             </h1>
@@ -143,28 +164,30 @@ export default async function FallacyDetailPage({ params }: PageProps) {
           {/* Example */}
           <section className="mb-12 md:mb-16">
             <div className="flex items-center gap-2 mb-4">
-              <Quote className="h-5 w-5 text-deep" strokeWidth={1.8} />
+              <Quote className="h-5 w-5 text-rust-600 dark:text-rust-400" strokeWidth={1.8} />
               <h2 className="font-serif text-2xl sm:text-3xl text-primary">Example</h2>
             </div>
-            <blockquote className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-[#C4613C] border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
+            <blockquote className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-rust-500 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
               <p className="text-primary leading-[1.8] italic">{fallacy.example}</p>
             </blockquote>
           </section>
 
-          {/* Why it misleads */}
+          {/* Why it misleads — colored by family, ties the diagnosis back to the taxonomy */}
           <section className="mb-12 md:mb-16">
             <div className="flex items-center gap-2 mb-4">
-              <AlertTriangle className="h-5 w-5 text-deep" strokeWidth={1.8} />
+              <specimen.Icon className={`h-5 w-5 ${family.iconText}`} strokeWidth={1.8} />
               <h2 className="font-serif text-2xl sm:text-3xl text-primary">
                 Why It Misleads
               </h2>
             </div>
-            <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
+            <div
+              className={`bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 ${family.borderAccent}`}
+            >
               <p className="text-primary leading-[1.8]">{fallacy.whyItMisleads}</p>
             </div>
           </section>
 
-          {/* How to counter */}
+          {/* How to counter — deep teal is the constant "resolution" color across every fallacy */}
           <section className="mb-12 md:mb-16">
             <div className="flex items-center gap-2 mb-4">
               <ShieldCheck className="h-5 w-5 text-deep" strokeWidth={1.8} />
@@ -172,7 +195,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                 How to Counter It
               </h2>
             </div>
-            <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
+            <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-deep/40 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
               <p className="text-primary leading-[1.8]">{fallacy.howToCounter}</p>
             </div>
           </section>
@@ -217,20 +240,29 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                 Related Fallacies
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {relatedFallacies.map((related) => (
-                  <Link
-                    key={related.slug}
-                    href={`/fallacies/${related.slug}`}
-                    className="group bg-white/80 dark:bg-[#252420]/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
-                  >
-                    <h3 className="font-serif text-lg text-primary group-hover:text-deep transition-colors mb-1">
-                      {related.name}
-                    </h3>
-                    <p className="text-sm text-secondary line-clamp-2">
-                      {related.shortDefinition}
-                    </p>
-                  </Link>
-                ))}
+                {relatedFallacies.map((related) => {
+                  const relatedFamily = getFallacyFamily(related.slug);
+                  const RelatedIcon = getFallacyIcon(related.slug);
+                  return (
+                    <Link
+                      key={related.slug}
+                      href={`/fallacies/${related.slug}`}
+                      className={`group bg-white/80 dark:bg-[#252420]/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm transition-all duration-200 ${relatedFamily.hoverBorder}`}
+                    >
+                      <div
+                        className={`flex items-center justify-center w-8 h-8 rounded-full mb-3 ${relatedFamily.iconBg}`}
+                      >
+                        <RelatedIcon className={`h-4 w-4 ${relatedFamily.iconText}`} strokeWidth={1.8} />
+                      </div>
+                      <h3 className="font-serif text-lg text-primary group-hover:text-deep transition-colors mb-1">
+                        {related.name}
+                      </h3>
+                      <p className="text-sm text-secondary line-clamp-2">
+                        {related.shortDefinition}
+                      </p>
+                    </Link>
+                  );
+                })}
               </div>
             </section>
           )}
