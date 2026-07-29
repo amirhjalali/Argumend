@@ -6,11 +6,12 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    // Design metadata (chapter/family color tokens) lives in lib/ — e.g.
-    // lib/fallacyMeta.ts and lib/glossaryMeta.ts hold class strings that the
-    // pages only interpolate, so they must be scanned or those utilities
+    // Design metadata (chapter/family color tokens) lives in lib/ — the
+    // canonical palette maps (categoryColors, fallacyMeta, glossaryMeta,
+    // guideMeta, libraryMeta, questionMeta, …) hold class strings that pages
+    // only interpolate, so they must be scanned or those utilities
     // (border-l-crux/50, hover:border-skeptic/40, …) are never generated.
-    "./lib/**/*.{js,ts,jsx,tsx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {

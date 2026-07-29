@@ -8,6 +8,10 @@ import { LinkedText } from "@/components/LinkedText";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
+import {
+  getQuestionCategoryMeta,
+  classifyQuestion,
+} from "@/lib/questionMeta";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -97,6 +101,13 @@ export default async function QuestionPage({ params }: PageProps) {
   const { variation, topic } = result;
   const verdict = topic.verdict.label;
   const categoryLabel = CATEGORY_LABELS[topic.category];
+
+  // Two-axis identity for the page: category carries the color, question kind
+  // carries the icon + the "what kind of answer can this even have" framing.
+  const categoryMeta = getQuestionCategoryMeta(topic.category);
+  const CategoryIcon = categoryMeta.icon;
+  const kind = classifyQuestion(variation.question);
+  const KindIcon = kind.icon;
 
   // Topic link targets for cross-linking
   const linkTargets = buildTopicLinkTargets(topics);
@@ -237,10 +248,17 @@ export default async function QuestionPage({ params }: PageProps) {
             ]}
           />
 
-          {/* Category badge */}
-          <div className="mb-6">
-            <span className="inline-block rounded-full bg-deep/10 px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wide text-deep">
+          {/* Category + question-kind badges */}
+          <div className="mb-6 flex flex-wrap items-center gap-2">
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wide ${categoryMeta.chip}`}
+            >
+              <CategoryIcon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
               {categoryLabel}
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-panel px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wide text-muted dark:border-[var(--border-default)]">
+              <KindIcon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
+              {kind.label}
             </span>
           </div>
 
@@ -249,13 +267,20 @@ export default async function QuestionPage({ params }: PageProps) {
             {variation.question}
           </h1>
 
+          {/* What kind of answer this question can have */}
+          <p className="mt-3 font-sans text-sm italic leading-relaxed text-muted">
+            {kind.description}
+          </p>
+
           {/* Intro paragraph with cross-links */}
           <p className="mt-6 font-sans text-lg leading-relaxed text-secondary">
             <LinkedText segments={metaClaimSegments} />
           </p>
 
           {/* Evidence assessment */}
-          <div className="mt-6 rounded-lg border border-deep/15 bg-panel p-4">
+          <div
+            className={`mt-6 rounded-lg border border-t-2 border-stone-200/80 bg-panel p-4 dark:border-[var(--border-default)] ${categoryMeta.topBorder}`}
+          >
             <p className="font-sans text-sm text-muted">
               Evidence assessment
             </p>
@@ -389,16 +414,24 @@ export default async function QuestionPage({ params }: PageProps) {
                 Related questions about {topic.title}
               </h2>
               <ul className="space-y-2">
-                {relatedQuestions.map((v) => (
-                  <li key={v.slug}>
-                    <Link
-                      href={`/questions/${v.slug}`}
-                      className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
-                    >
-                      {v.question}
-                    </Link>
-                  </li>
-                ))}
+                {relatedQuestions.map((v) => {
+                  const RelatedIcon = classifyQuestion(v.question).icon;
+                  return (
+                    <li key={v.slug} className="flex items-start gap-2.5">
+                      <RelatedIcon
+                        className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70"
+                        strokeWidth={1.8}
+                        aria-hidden="true"
+                      />
+                      <Link
+                        href={`/questions/${v.slug}`}
+                        className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
+                      >
+                        {v.question}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
@@ -410,16 +443,24 @@ export default async function QuestionPage({ params }: PageProps) {
                 More {categoryLabel.toLowerCase()} questions
               </h2>
               <ul className="space-y-2">
-                {crossTopicQuestions.map((v) => (
-                  <li key={v.slug}>
-                    <Link
-                      href={`/questions/${v.slug}`}
-                      className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
-                    >
-                      {v.question}
-                    </Link>
-                  </li>
-                ))}
+                {crossTopicQuestions.map((v) => {
+                  const CrossIcon = classifyQuestion(v.question).icon;
+                  return (
+                    <li key={v.slug} className="flex items-start gap-2.5">
+                      <CrossIcon
+                        className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70"
+                        strokeWidth={1.8}
+                        aria-hidden="true"
+                      />
+                      <Link
+                        href={`/questions/${v.slug}`}
+                        className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
+                      >
+                        {v.question}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
               <Link
                 href="/questions"

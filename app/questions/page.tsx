@@ -4,6 +4,12 @@ import { topics, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topics";
 import { getAllQuestionVariations, getQuestionVariations } from "@/lib/questions";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import {
+  getQuestionCategoryMeta,
+  classifyQuestion,
+  questionKinds,
+  questionKindOrder,
+} from "@/lib/questionMeta";
 import { QuestionsSearch } from "./QuestionsSearch";
 
 // ---------------------------------------------------------------------------
@@ -103,6 +109,14 @@ function getGroupedQuestions(): Record<string, TopicQuestionGroup[]> {
 export default function QuestionsIndexPage() {
   const grouped = getGroupedQuestions();
 
+  // Per-category totals, used by the jump-nav chips and section headers.
+  const countByCategory = new Map<string, number>(
+    CATEGORY_ORDER.map((cat) => [
+      cat,
+      (grouped[cat] ?? []).reduce((sum, g) => sum + g.questions.length, 0),
+    ])
+  );
+
   // Build flat list for search component
   const allQuestions = allVariations.map((v) => {
     const topic = topics.find((t) => t.id === v.topicId);
@@ -163,24 +177,90 @@ export default function QuestionsIndexPage() {
           {/* Search */}
           <QuestionsSearch questions={allQuestions} />
 
+          {/* At-a-glance category index — doubles as a jump-to-section nav */}
+          <nav
+            aria-label="Question categories"
+            className="mt-8 flex flex-wrap gap-2"
+          >
+            {CATEGORY_ORDER.map((cat) => {
+              const count = countByCategory.get(cat) ?? 0;
+              if (count === 0) return null;
+              const meta = getQuestionCategoryMeta(cat);
+              const Icon = meta.icon;
+              return (
+                <a
+                  key={cat}
+                  href={`#${cat}`}
+                  className={`inline-flex items-center gap-2 rounded-full border py-1.5 pl-2.5 pr-3 font-sans text-xs font-medium transition-colors ${meta.chip}`}
+                >
+                  <Icon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
+                  {CATEGORY_LABELS[cat]}
+                  <span className="tabular-nums opacity-60">{count}</span>
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Legend: what the marks on each question mean */}
+          <div className="mt-6 rounded-xl border border-stone-200 bg-panel p-4 dark:border-[var(--border-default)]">
+            <p className="font-sans text-xs font-semibold uppercase tracking-wide text-muted">
+              Every question is marked by what kind of answer it can have
+            </p>
+            <dl className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+              {questionKindOrder.map((id) => {
+                const kind = questionKinds[id];
+                const Icon = kind.icon;
+                return (
+                  <div key={id} className="flex items-start gap-2.5">
+                    <Icon
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted"
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    />
+                    <div className="min-w-0">
+                      <dt className="font-sans text-sm font-semibold text-primary">
+                        {kind.label}
+                      </dt>
+                      <dd className="font-sans text-xs leading-relaxed text-secondary">
+                        {kind.description}
+                      </dd>
+                    </div>
+                  </div>
+                );
+              })}
+            </dl>
+          </div>
+
           {/* Category sections */}
           {CATEGORY_ORDER.map((cat) => {
             const groups = grouped[cat];
             if (!groups || groups.length === 0) return null;
 
             const catLabel = CATEGORY_LABELS[cat];
-            const questionCount = groups.reduce(
-              (sum, g) => sum + g.questions.length,
-              0
-            );
+            const questionCount = countByCategory.get(cat) ?? 0;
+            const meta = getQuestionCategoryMeta(cat);
+            const CategoryIcon = meta.icon;
 
             return (
-              <section key={cat} className="mt-12" id={cat}>
-                <div className="mb-6 flex items-baseline justify-between border-b border-stone-200 pb-3">
-                  <h2 className="font-serif text-2xl font-bold text-primary">
-                    {catLabel}
-                  </h2>
-                  <span className="font-sans text-sm text-muted">
+              <section key={cat} className="mt-12 scroll-mt-20" id={cat}>
+                <div
+                  className={`mb-6 flex items-center justify-between gap-3 border-b pb-3 ${meta.ruleBorder}`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full ${meta.iconBg}`}
+                    >
+                      <CategoryIcon
+                        className={`h-[18px] w-[18px] ${meta.iconText}`}
+                        strokeWidth={1.8}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <h2 className="font-serif text-2xl font-bold text-primary">
+                      {catLabel}
+                    </h2>
+                  </div>
+                  <span className="font-sans text-sm tabular-nums text-muted">
                     {questionCount} questions
                   </span>
                 </div>
@@ -188,28 +268,35 @@ export default function QuestionsIndexPage() {
                 <div className="space-y-8">
                   {groups.map((group) => (
                     <div key={group.topicId}>
-                      <h3 className="mb-3 font-sans text-sm font-semibold uppercase tracking-wide text-deep">
+                      <h3
+                        className={`mb-3 font-sans text-sm font-semibold uppercase tracking-wide ${meta.accentText}`}
+                      >
                         <Link
                           href={`/topics/${group.topicId}`}
-                          className="transition-colors hover:text-deep-dark"
+                          className="transition-opacity hover:opacity-75"
                         >
                           {group.topicTitle}
                         </Link>
                       </h3>
-                      <ul className="space-y-1.5 pl-4">
-                        {group.questions.map((q) => (
-                          <li
-                            key={q.slug}
-                            className="relative before:absolute before:-left-4 before:top-[0.6em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-deep/30"
-                          >
-                            <Link
-                              href={`/questions/${q.slug}`}
-                              className="font-sans text-primary transition-colors hover:text-deep"
-                            >
-                              {q.question}
-                            </Link>
-                          </li>
-                        ))}
+                      <ul className="space-y-1.5">
+                        {group.questions.map((q) => {
+                          const KindIcon = classifyQuestion(q.question).icon;
+                          return (
+                            <li key={q.slug} className="flex items-start gap-2.5">
+                              <KindIcon
+                                className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70"
+                                strokeWidth={1.8}
+                                aria-hidden="true"
+                              />
+                              <Link
+                                href={`/questions/${q.slug}`}
+                                className="font-sans text-primary transition-colors hover:text-deep"
+                              >
+                                {q.question}
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   ))}
