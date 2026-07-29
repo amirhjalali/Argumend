@@ -30,7 +30,7 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
               <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 mb-1">
                 A supporter changes their mind if…
               </div>
-              <p className="font-serif text-[15.5px] leading-snug text-primary">
+              <p className="font-serif text-[15.5px] leading-snug text-primary dark:text-stone-200">
                 {f.supporter_flip}
               </p>
             </div>
@@ -39,7 +39,7 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
               <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-stone-700 dark:text-stone-300 mb-1">
                 A skeptic changes their mind if…
               </div>
-              <p className="font-serif text-[15.5px] leading-snug text-primary">
+              <p className="font-serif text-[15.5px] leading-snug text-primary dark:text-stone-200">
                 {f.skeptic_flip}
               </p>
             </div>
@@ -52,7 +52,7 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
                   <dt className="font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-deep whitespace-nowrap pt-0.5">
                     Both agree
                   </dt>
-                  <dd className="text-primary/90">{f.common_ground}</dd>
+                  <dd className="text-primary/90 dark:text-stone-200/90">{f.common_ground}</dd>
                 </div>
               )}
               {f.live_disagreement && (
@@ -60,7 +60,7 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
                   <dt className="font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-[color:var(--crux-crimson,#a23b3b)] whitespace-nowrap pt-0.5">
                     Live fight
                   </dt>
-                  <dd className="text-primary/90">{f.live_disagreement}</dd>
+                  <dd className="text-primary/90 dark:text-stone-200/90">{f.live_disagreement}</dd>
                 </div>
               )}
             </dl>
@@ -68,16 +68,16 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
 
           {/* Secondary: the empirical test that could resolve it */}
           <details className="mt-3 group">
-            <summary className="cursor-pointer text-xs font-sans text-secondary hover:text-primary">
+            <summary className="cursor-pointer text-xs font-sans text-secondary dark:text-stone-400 hover:text-primary">
               How it could be settled empirically — {crux.title}
             </summary>
-            <p className="font-serif text-[15px] leading-relaxed text-primary/90 mt-2">
+            <p className="font-serif text-[15px] leading-relaxed text-primary/90 dark:text-stone-200/90 mt-2">
               {crux.description}
             </p>
-            <div className="mt-1.5 text-xs text-secondary font-sans">
+            <div className="mt-1.5 text-xs text-secondary dark:text-stone-400 font-sans">
               <span className="font-semibold">Method:</span> {crux.methodology}
             </div>
-            <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-mono text-secondary">
+            <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-mono text-secondary dark:text-stone-400">
               <span>cost: {crux.cost_to_verify}</span>
               <span>
                 <GlossaryTerm term="verification status">status</GlossaryTerm>:{" "}
@@ -88,16 +88,16 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
         </>
       ) : (
         <>
-          <h4 className="font-serif text-[19px] text-primary mb-1.5">{crux.title}</h4>
-          <p className="font-serif text-[16px] leading-relaxed text-primary/90 mb-2">
+          <h4 className="font-serif text-[19px] text-primary dark:text-stone-200 mb-1.5">{crux.title}</h4>
+          <p className="font-serif text-[16px] leading-relaxed text-primary/90 dark:text-stone-200/90 mb-2">
             {crux.description}
           </p>
-          <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-secondary font-sans">
+          <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-secondary dark:text-stone-400 font-sans">
             <span>
               <span className="font-semibold">Method:</span> {crux.methodology}
             </span>
           </div>
-          <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-mono text-secondary">
+          <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-mono text-secondary dark:text-stone-400">
             <span>cost: {crux.cost_to_verify}</span>
             <span>
               <GlossaryTerm term="verification status">status</GlossaryTerm>:{" "}

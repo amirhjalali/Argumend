@@ -32,7 +32,7 @@ export function ZoomIndicator() {
       <div className="flex items-center gap-1 rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] bg-[#fefcf9]/90 dark:bg-[var(--bg-card)]/90 backdrop-blur-sm p-1 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
         <button
           onClick={() => zoomOut()}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary transition-colors hover:bg-stone-200 dark:hover:bg-[#302e2a] hover:text-primary"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[#302e2a] hover:text-primary"
           aria-label="Zoom out"
           title="Zoom out"
         >
@@ -40,14 +40,14 @@ export function ZoomIndicator() {
         </button>
 
         <div className="min-w-[52px] px-2 text-center" role="status" aria-label={`Zoom level: ${zoomPercent}%`}>
-          <span className="font-mono text-xs font-semibold text-primary" aria-hidden="true">
+          <span className="font-mono text-xs font-semibold text-primary dark:text-stone-200" aria-hidden="true">
             {zoomPercent}%
           </span>
         </div>
 
         <button
           onClick={() => zoomIn()}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary transition-colors hover:bg-stone-200 dark:hover:bg-[#302e2a] hover:text-primary"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[#302e2a] hover:text-primary"
           aria-label="Zoom in"
           title="Zoom in"
         >
@@ -58,7 +58,7 @@ export function ZoomIndicator() {
 
         <button
           onClick={() => fitView({ padding: 0.2, duration: 500 })}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary transition-colors hover:bg-stone-200 dark:hover:bg-[#302e2a] hover:text-primary"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[#302e2a] hover:text-primary"
           aria-label="Fit to view"
           title="Fit to view"
         >

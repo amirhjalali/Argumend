@@ -234,11 +234,11 @@ export default function ForEducatorsPage() {
               { label: "For Educators" },
             ]}
           />
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 mb-7 leading-[1.08]">
             Teach students how to disagree<br />
             <span className="text-stone-500">without destroying the conversation</span>
           </h1>
-          <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
             Argumend helps students move beyond &ldquo;I feel that...&rdquo; to
             evidence-based reasoning. Built for IB Theory of Knowledge, AP Government,
             A-Level Critical Thinking, and any class where students need to think clearly
@@ -248,7 +248,7 @@ export default function ForEducatorsPage() {
 
         {/* Blockquote */}
         <blockquote className="mb-16 md:mb-24 py-6 border-l-4 border-deep/30 pl-6 md:pl-7 bg-deep/[0.02] rounded-r-xl">
-          <p className="font-serif text-xl md:text-2xl text-primary italic leading-[1.6]">
+          <p className="font-serif text-xl md:text-2xl text-primary dark:text-stone-200 italic leading-[1.6]">
             &ldquo;The goal is not to teach students what to think, but how to
             think &mdash; and how to disagree without destroying the
             conversation.&rdquo;
@@ -257,10 +257,10 @@ export default function ForEducatorsPage() {
 
         {/* Why Argumend for the Classroom */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
             Why Argumend for the classroom
           </h2>
-          <p className="text-lg text-secondary leading-relaxed mb-8 max-w-2xl">
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed mb-8 max-w-2xl">
             What students actually practice when they use Argumend.
           </p>
 
@@ -270,10 +270,10 @@ export default function ForEducatorsPage() {
                 key={benefit.title}
                 className="bg-[#fefcf9] dark:bg-[#252420] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[#3d3a36]"
               >
-                <h3 className="font-serif text-lg text-primary mb-2">
+                <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">
                   {benefit.title}
                 </h3>
-                <p className="text-[14px] md:text-[15px] text-secondary leading-relaxed">
+                <p className="text-[14px] md:text-[15px] text-secondary dark:text-stone-400 leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
@@ -283,10 +283,10 @@ export default function ForEducatorsPage() {
 
         {/* Ready-Made Lesson Plans */}
         <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1916]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Ready-made lesson plans
           </h2>
-          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Start using Argumend in your classroom today. Each lesson plan is
             designed for immediate use with minimal preparation.
           </p>
@@ -299,7 +299,7 @@ export default function ForEducatorsPage() {
               >
                 <div className="flex items-baseline gap-3 mb-1">
                   <span className="font-mono text-sm font-bold text-muted dark:text-stone-400">{plan.number}</span>
-                  <h3 className="font-serif text-lg font-semibold text-primary">
+                  <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200">
                     {plan.title}
                   </h3>
                 </div>
@@ -308,7 +308,7 @@ export default function ForEducatorsPage() {
                   {plan.steps.map((step, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-stone-400 mt-2 flex-shrink-0" />
-                      <span className="text-sm text-secondary leading-relaxed">
+                      <span className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
                         {step}
                       </span>
                     </li>
@@ -321,10 +321,10 @@ export default function ForEducatorsPage() {
 
         {/* Printable Worksheets */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Printable worksheets
           </h2>
-          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Download and print these structured templates for classroom use.
             Each worksheet is designed for clean, ink-friendly printing.
           </p>
@@ -339,11 +339,11 @@ export default function ForEducatorsPage() {
                   <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
                     <FileText className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-serif text-lg font-semibold text-primary leading-snug">
+                  <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 leading-snug">
                     {ws.title}
                   </h3>
                 </div>
-                <p className="text-sm text-secondary leading-relaxed mb-4 flex-1">
+                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed mb-4 flex-1">
                   {ws.description}
                 </p>
                 <Link
@@ -361,10 +361,10 @@ export default function ForEducatorsPage() {
 
         {/* Recommended Topics by Grade Level */}
         <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1916]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Recommended topics by grade level
           </h2>
-          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Not sure where to start? Here are our recommended topics organized
             by student level, from accessible introductions to advanced analysis.
           </p>
@@ -375,10 +375,10 @@ export default function ForEducatorsPage() {
                 key={level.label}
                 className="bg-[#fefcf9] rounded-xl border border-stone-200/60 p-5 md:p-6"
               >
-                <h3 className="font-serif text-lg font-semibold text-primary mb-1">
+                <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 mb-1">
                   {level.label}
                 </h3>
-                <p className="text-sm text-secondary leading-relaxed mb-4">
+                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed mb-4">
                   {level.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -400,10 +400,10 @@ export default function ForEducatorsPage() {
 
         {/* Subject Integration */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Fits into the subjects you teach
           </h2>
-          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Argument mapping is a cross-curricular skill. Here&apos;s how Argumend
             integrates with your existing syllabus.
           </p>
@@ -414,10 +414,10 @@ export default function ForEducatorsPage() {
                 key={subject.label}
                 className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36]"
               >
-                <h3 className="font-semibold text-primary mb-1">
+                <h3 className="font-semibold text-primary dark:text-stone-200 mb-1">
                   {subject.label}
                 </h3>
-                <p className="text-sm text-secondary leading-relaxed mb-2">
+                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed mb-2">
                   {subject.description}
                 </p>
                 <div className="flex flex-wrap gap-2">

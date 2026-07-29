@@ -81,7 +81,7 @@ export default async function DashboardPage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {/* Header */}
           <div className="mb-10">
-            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary mb-2 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary dark:text-stone-200 mb-2 leading-[1.08]">
               Welcome back, {firstName}
             </h1>
             <p className="text-base text-stone-500 dark:text-[var(--text-muted)] leading-relaxed">
@@ -93,7 +93,7 @@ export default async function DashboardPage() {
           <section className="mb-12">
             <div className="flex items-center gap-2 mb-5">
               <Bookmark className="h-5 w-5 text-rust-500" strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl text-primary">
+              <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
                 Saved Topics
               </h2>
               <span className="ml-auto text-sm text-muted dark:text-[var(--text-muted)] font-mono tabular-nums">
@@ -127,7 +127,7 @@ export default async function DashboardPage() {
                       href={`/topics/${topic.id}`}
                       className={`group flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}
                     >
-                      <h3 className="font-serif text-base text-primary group-hover:text-deep transition-colors leading-snug mb-1.5">
+                      <h3 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug mb-1.5">
                         {topic.title}
                       </h3>
                       <p className="text-xs text-stone-500 dark:text-[var(--text-muted)] leading-relaxed line-clamp-2 mb-4 flex-1">
@@ -166,7 +166,7 @@ export default async function DashboardPage() {
           <section>
             <div className="flex items-center gap-2 mb-5">
               <Swords className="h-5 w-5 text-deep" strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl text-primary">
+              <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
                 Recent Debates
               </h2>
               <span className="ml-auto text-sm text-muted dark:text-[var(--text-muted)] font-mono tabular-nums">
@@ -200,7 +200,7 @@ export default async function DashboardPage() {
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-medium text-primary truncate">
+                      <h3 className="text-sm font-medium text-primary dark:text-stone-200 truncate">
                         {debate.topicTitle}
                       </h3>
                       <div className="flex items-center gap-3 mt-1">
