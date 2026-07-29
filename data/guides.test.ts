@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { guides, getGuideById } from "./guides";
+import { getGuideIcon, getGuideTrack } from "@/lib/guideMeta";
 
 describe("guides data integrity", () => {
   it("has at least one guide", () => {
@@ -94,26 +95,21 @@ describe("guides data integrity", () => {
     });
   });
 
-  it("all guides have an icon (React component)", () => {
+  it("carries no presentation fields — icon and color live in lib/guideMeta", () => {
+    // The old per-guide `icon`/`color` produced duplicate icons and off-brand
+    // hexes (indigo #5b6abf, amber #b37d1e). Presentation now lives in
+    // lib/guideMeta.ts, keyed by id; keep the data module prose-only.
     guides.forEach((g) => {
-      // Lucide icons are forwardRef objects with a render function
-      expect(g.icon).toBeDefined();
-      expect(typeof g.icon).toSatisfy(
-        (t: string) => t === "function" || t === "object"
-      );
+      expect(g).not.toHaveProperty("icon");
+      expect(g).not.toHaveProperty("color");
     });
   });
 
-  it("all guides have a non-empty color", () => {
+  it("gives every guide the distinct icon and track guideMeta maps for its id", () => {
+    const icons = guides.map((g) => getGuideIcon(g.id));
+    expect(new Set(icons).size).toBe(guides.length);
     guides.forEach((g) => {
-      expect(g.color.trim().length).toBeGreaterThan(0);
-    });
-  });
-
-  it("all guide colors are valid hex codes", () => {
-    const hexPattern = /^#[0-9a-fA-F]{6}$/;
-    guides.forEach((g) => {
-      expect(g.color).toMatch(hexPattern);
+      expect(getGuideTrack(g.id)).toBeDefined();
     });
   });
 });
