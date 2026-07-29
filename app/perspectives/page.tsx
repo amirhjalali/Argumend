@@ -1,15 +1,23 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { createElement, useRef } from "react";
 import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
-import { Clock, Rewind, Users, MessageCircle, Target, Lightbulb, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import {
+  getPerspectiveIcon,
+  getPerspectiveLens,
+  groupScenesByLens,
+  perspectiveLenses,
+  perspectiveLensOrder,
+  type PerspectiveSceneId,
+} from "@/lib/perspectiveMeta";
 
 interface Scene {
-  id: string;
-  icon?: React.ReactNode;
+  /** Typed against the lens taxonomy so every scene keeps a lens and an icon. */
+  id: PerspectiveSceneId;
   label?: string;
   title: string;
   subtitle?: string;
@@ -17,7 +25,6 @@ interface Scene {
   imageSrc: string;
   imageAlt: string;
   crossed?: string;
-  accentColor: string;
 }
 
 const scenes: Scene[] = [
@@ -36,11 +43,9 @@ const scenes: Scene[] = [
     ),
     imageSrc: "/images/perspectives/moment.png",
     imageAlt: "The Aggressor pushing The Victim on a busy street",
-    accentColor: "#a23b3b",
   },
   {
     id: "30-seconds",
-    icon: <Rewind className="h-5 w-5" />,
     label: "30 seconds earlier",
     title: "But Wait",
     subtitle: "What happened just before that moment?",
@@ -57,11 +62,9 @@ const scenes: Scene[] = [
     ),
     imageSrc: "/images/perspectives/rewind.png",
     imageAlt: "30 seconds earlier: Struggle over a bag",
-    accentColor: "#C4613C",
   },
   {
     id: "2-minutes",
-    icon: <Rewind className="h-5 w-5" />,
     label: "2 minutes earlier",
     title: "Context Changes Everything",
     subtitle: "Go back further. The story transforms again.",
@@ -78,11 +81,9 @@ const scenes: Scene[] = [
     ),
     imageSrc: "/images/perspectives/context.png",
     imageAlt: "2 minutes earlier: The pickpocket revealed",
-    accentColor: "#2d7a6f",
   },
   {
     id: "third-witness",
-    icon: <Users className="h-5 w-5" />,
     label: "Another perspective",
     title: "A Third Witness",
     subtitle: "Same moment. Different eyes. Different truth.",
@@ -99,11 +100,9 @@ const scenes: Scene[] = [
     ),
     imageSrc: "/images/perspectives/witness.png",
     imageAlt: "Third witness watching from a cafe",
-    accentColor: "#6b5b95",
   },
   {
     id: "rumors",
-    icon: <MessageCircle className="h-5 w-5" />,
     label: "The telephone game",
     title: "The Rumors Spread",
     subtitle: "By the time it reaches you, what's left of the original?",
@@ -122,11 +121,9 @@ const scenes: Scene[] = [
     ),
     imageSrc: "/images/perspectives/rumors.png",
     imageAlt: "Rumors spreading and distorting the truth",
-    accentColor: "#b85c38",
   },
   {
     id: "motivated",
-    icon: <Target className="h-5 w-5" />,
     label: "Hidden agendas",
     title: "The Motivated Actors",
     subtitle: "Everyone tells the story that serves their needs.",
@@ -145,11 +142,9 @@ const scenes: Scene[] = [
     ),
     imageSrc: "/images/perspectives/motivated.png",
     imageAlt: "Different perspectives: Journalist, Friend, Shop Owner",
-    accentColor: "#4a6741",
   },
   {
     id: "synthesis",
-    icon: <Lightbulb className="h-5 w-5" />,
     title: "You Are Not Your Ideas",
     subtitle: "The lesson",
     content: (
@@ -175,7 +170,6 @@ const scenes: Scene[] = [
     ),
     imageSrc: "/images/perspectives/synthesis.png",
     imageAlt: "Truth emerging from the intersection of perspectives",
-    accentColor: "#2d7a6f",
   },
 ];
 
@@ -199,10 +193,13 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
   const isEven = index % 2 === 0;
+  const lens = getPerspectiveLens(scene.id);
+  const accent = lens.accent;
 
   return (
     <div
       ref={ref}
+      id={scene.id}
       className="min-h-[100svh] flex items-center justify-center px-4 md:px-8 py-10 md:py-20 relative overflow-hidden"
       style={{
         background: `linear-gradient(180deg,
@@ -213,7 +210,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
       {/* Accent line decoration */}
       <motion.div
         className="absolute left-0 top-0 bottom-0 w-1"
-        style={{ backgroundColor: scene.accentColor }}
+        style={{ backgroundColor: accent }}
         initial={{ scaleY: 0 }}
         animate={{ scaleY: isInView ? 1 : 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -227,29 +224,36 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
           animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : (isEven ? -60 : 60) }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {scene.label && (
-            <motion.div
-              className="flex items-center gap-3 mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+          <motion.div
+            className="flex items-center gap-3 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div
+              className="p-3 rounded-xl"
+              style={{ backgroundColor: `${accent}15` }}
             >
-              {scene.icon && (
-                <div
-                  className="p-3 rounded-xl"
-                  style={{ backgroundColor: `${scene.accentColor}15` }}
-                >
-                  <div style={{ color: scene.accentColor }}>{scene.icon}</div>
-                </div>
-              )}
+              {/* createElement, not <Icon />: a capitalized local would be a
+                  new component identity on every render (react-hooks/static-components). */}
+              {createElement(getPerspectiveIcon(scene.id), {
+                className: "h-5 w-5",
+                style: { color: accent },
+                strokeWidth: 1.8,
+              })}
+            </div>
+            <div className="flex flex-col leading-tight">
               <span
                 className="text-sm font-bold uppercase tracking-[0.2em]"
-                style={{ color: scene.accentColor }}
+                style={{ color: accent }}
               >
-                {scene.label}
+                {scene.label ?? lens.label}
               </span>
-            </motion.div>
-          )}
+              <span className="font-serif text-xs text-muted tracking-wide">
+                {scene.label ? `Lens ${lens.numeral} · ${lens.label}` : `Lens ${lens.numeral}`}
+              </span>
+            </div>
+          </motion.div>
 
           {scene.crossed && (
             <motion.div
@@ -306,8 +310,8 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
           <div
             className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl"
             style={{
-              boxShadow: `0 25px 80px -20px ${scene.accentColor}40`,
-              border: `4px solid ${scene.accentColor}20`
+              boxShadow: `0 25px 80px -20px ${accent}40`,
+              border: `4px solid ${accent}20`
             }}
           >
             <Image
@@ -322,7 +326,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
             <div
               className="absolute inset-0 opacity-20"
               style={{
-                background: `linear-gradient(135deg, ${scene.accentColor}00 0%, ${scene.accentColor}40 100%)`
+                background: `linear-gradient(135deg, ${accent}00 0%, ${accent}40 100%)`
               }}
             />
           </div>
@@ -338,6 +342,8 @@ export default function PerspectivesPage() {
     target: heroRef,
     offset: ["start start", "end start"]
   });
+
+  const lensGroups = groupScenesByLens(scenes);
 
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
@@ -370,13 +376,13 @@ export default function PerspectivesPage() {
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.03]"
-            style={{ background: "radial-gradient(circle, #2d7a6f 0%, transparent 70%)" }}
+            style={{ background: `radial-gradient(circle, ${perspectiveLenses.vantage.accent} 0%, transparent 70%)` }}
             animate={{ scale: [1, 1.1, 1], rotate: [0, 10, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
             className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full opacity-[0.03]"
-            style={{ background: "radial-gradient(circle, #C4613C 0%, transparent 70%)" }}
+            style={{ background: `radial-gradient(circle, ${perspectiveLenses.sequence.accent} 0%, transparent 70%)` }}
             animate={{ scale: [1.1, 1, 1.1], rotate: [0, -10, 0] }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -398,6 +404,34 @@ export default function PerspectivesPage() {
             <br className="hidden md:inline" />
             and why that&apos;s liberating.
           </p>
+
+          {/* The four lenses the story walks through — doubles as a jump nav */}
+          <nav
+            aria-label="The four lenses"
+            className="flex flex-wrap justify-center gap-2 mb-10 animate-fade-in-up"
+            style={{ animationDelay: '0.35s' }}
+          >
+            {perspectiveLensOrder.map((id) => {
+              const lens = perspectiveLenses[id];
+              const first = lensGroups.find((g) => g.lens.id === id)?.items[0];
+              return (
+                <a
+                  key={id}
+                  href={`#${first?.id ?? ""}`}
+                  title={lens.description}
+                  className="inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors hover:bg-overlay"
+                  style={{
+                    color: lens.accent,
+                    borderColor: `${lens.accent}33`,
+                    backgroundColor: `${lens.accent}0f`,
+                  }}
+                >
+                  <span className="font-serif text-[13px] opacity-70">{lens.numeral}</span>
+                  {lens.label}
+                </a>
+              );
+            })}
+          </nav>
 
           <div
             className="flex flex-col items-center gap-2 text-muted animate-fade-in"
