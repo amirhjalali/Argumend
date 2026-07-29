@@ -1,4 +1,3 @@
-import { Triangle, Brain, Layers, Map, Play, ShieldCheck, Target, Scale, Gauge, Waypoints, CloudFog, type LucideIcon } from "lucide-react";
 
 export interface GuideSection {
   readonly title: string;
@@ -14,8 +13,6 @@ export interface Guide {
   readonly title: string;
   readonly subtitle: string;
   readonly description: string;
-  readonly icon: LucideIcon;
-  readonly color: string;
   readonly readTime: string;
   readonly sections: readonly GuideSection[];
   readonly keyTakeaways: readonly string[];
@@ -32,8 +29,6 @@ export const guides: readonly Guide[] = [
     title: "Triangulation",
     subtitle: "Finding Truth Through Multiple Sources",
     description: "How to determine facts by cross-referencing independent sources and viewpoints. The fundamental technique for separating signal from noise.",
-    icon: Triangle,
-    color: "#4f7b77",
     readTime: "12 min read",
     sections: [
       {
@@ -161,8 +156,6 @@ True independence means each source would arrive at its conclusion regardless of
     title: "Understanding Bias",
     subtitle: "Recognizing and Accounting for Distorted Information",
     description: "How to identify cognitive biases and source biases, and how to appropriately weight information that comes from biased sources.",
-    icon: Brain,
-    color: "#a23b3b",
     readTime: "15 min read",
     sections: [
       {
@@ -336,8 +329,6 @@ The lesson: don't avoid fact-checking out of fear of backfire. Present accurate 
     title: "The Hierarchy of Evidence",
     subtitle: "Evaluating and Weighting Different Types of Proof",
     description: "Not all evidence is equal. Learn to assess evidence quality, understand study design, and know when to update your beliefs.",
-    icon: Layers,
-    color: "#C4613C",
     readTime: "14 min read",
     sections: [
       {
@@ -576,8 +567,6 @@ Many potentially useful treatments have been abandoned based on underpowered neg
     title: "How to Read an Argument Map",
     subtitle: "Navigating Interactive Argument Maps",
     description: "A practical guide to navigating Argumend's interactive argument maps — understanding nodes, connections, evidence, and cruxes.",
-    icon: Map,
-    color: "#2d8a6e",
     readTime: "10 min read",
     sections: [
       {
@@ -672,8 +661,6 @@ Balance and weight are most useful together as a triage tool. When exploring a c
     title: "Running Your First Analysis",
     subtitle: "From Text to Structured Insight",
     description: "Step-by-step guide to using Argumend's AI analysis tool to extract arguments, identify cruxes, and evaluate reasoning from any text.",
-    icon: Play,
-    color: "#5b6abf",
     readTime: "11 min read",
     sections: [
       {
@@ -791,8 +778,6 @@ The judge council is why Argumend's confidence scores are more calibrated than a
     title: "Evaluating Source Credibility",
     subtitle: "Assessing Evidence Reliability in Practice",
     description: "How to assess whether evidence is reliable — understanding source reliability, independence, replicability, and directness in Argumend's framework.",
-    icon: ShieldCheck,
-    color: "#b37d1e",
     readTime: "13 min read",
     sections: [
       {
@@ -935,8 +920,6 @@ A useful mental model: imagine you're a juror. You wouldn't convict based solely
     title: "The Crux Test",
     subtitle: "Finding What Would Change Your Mind",
     description: "Learn to identify the single point of disagreement that, if resolved, would actually change someone's position. The most powerful technique for turning unproductive arguments into productive ones.",
-    icon: Target,
-    color: "#C4613C",
     readTime: "11 min read",
     sections: [
       {
@@ -1068,8 +1051,6 @@ On Argumend, every topic's argument map highlights cruxes for exactly this reaso
     title: "Bayesian Thinking for Normal People",
     subtitle: "Updating Your Beliefs Like a Rational Agent",
     description: "A plain-language guide to the mathematical foundation behind rational belief updating. No equations required — just the intuitions that make you systematically less wrong over time.",
-    icon: Brain,
-    color: "#4f7b77",
     readTime: "13 min read",
     sections: [
       {
@@ -1180,8 +1161,6 @@ Argumend's confidence scores are designed with calibration in mind. A score of 7
     title: "The Argument Audit",
     subtitle: "Fact-Check Any Claim in 10 Minutes",
     description: "A step-by-step operational guide for evaluating any claim you encounter — on social media, in the news, or in conversation. The actual workflow used by fact-checkers and analysts, simplified for everyone.",
-    icon: ShieldCheck,
-    color: "#8b3f27",
     readTime: "10 min read",
     sections: [
       {
@@ -1285,8 +1264,6 @@ The entire audit — all five steps — should take about ten minutes for a typi
     title: "Steelmanning in Practice",
     subtitle: "Building Your Opponent's Best Case",
     description: "A hands-on guide to constructing the strongest possible version of positions you disagree with. The skill that separates genuine critical thinking from tribal point-scoring.",
-    icon: Layers,
-    color: "#5a8f8a",
     readTime: "12 min read",
     sections: [
       {
@@ -1390,8 +1367,6 @@ The practice integrates with everything else on Argumend. Every topic is built o
     title: "Cognitive Bias Field Guide",
     subtitle: "12 Biases That Distort Every Debate",
     description: "A practical field guide to the cognitive biases that warp reasoning in real debates. Each bias is illustrated with a real example from an Argumend topic, with tips for spotting it in the wild.",
-    icon: Map,
-    color: "#6b5b4f",
     readTime: "15 min read",
     sections: [
       {
@@ -1560,8 +1535,6 @@ The environmental debate on Argumend reveals this tension between individual act
     title: "Weighing Conflicting Evidence",
     subtitle: "What to Do When Good Evidence Points Both Ways",
     description: "Real debates rarely hinge on one side having all the evidence. Learn to reconcile credible studies that disagree — diagnosing the conflict, weighting by quality, and arriving at an honest net judgment.",
-    icon: Scale,
-    color: "#3a6965",
     readTime: "13 min read",
     sections: [
       {
@@ -1671,8 +1644,6 @@ That intellectual honesty has a payoff. When you can say "the best evidence lean
     title: "Reading Confidence Like a Forecaster",
     subtitle: "Calibration, Probability, and the Discipline of Honest Uncertainty",
     description: "Confidence isn't a feeling — it's a probability you can be right or wrong about. Learn how professional forecasters calibrate their uncertainty, and how to read confidence scores the same way.",
-    icon: Gauge,
-    color: "#4a6b8a",
     readTime: "13 min read",
     sections: [
       {
@@ -1780,8 +1751,6 @@ The reward is a kind of intellectual freedom. Once confidence is a number you ca
     title: "Telling Correlation From Causation",
     subtitle: "The Single Most Useful Distinction in Reasoning",
     description: "Two things moving together is not one causing the other. Learn the rival explanations behind every correlation, the questions that separate them, and what actually establishes cause and effect.",
-    icon: Waypoints,
-    color: "#5b6abf",
     readTime: "13 min read",
     sections: [
       {
@@ -1879,8 +1848,6 @@ On Argumend, this is why a topic rarely collapses into a single verdict. A claim
     title: "Spotting Manufactured Doubt",
     subtitle: "How Genuine Uncertainty Gets Faked — and How to Tell the Difference",
     description: "Not all doubt is honest. For decades, organized campaigns have manufactured the appearance of scientific controversy to delay action. Learn the playbook, why it works, and how to distinguish manufactured doubt from the real thing.",
-    icon: CloudFog,
-    color: "#8b3f27",
     readTime: "13 min read",
     sections: [
       {

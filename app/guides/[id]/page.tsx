@@ -1,13 +1,14 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Clock, BookOpen, CheckCircle2, ExternalLink, ArrowRight } from "lucide-react";
+import { Clock, BookOpen, CheckCircle2, ExternalLink, ArrowRight } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { guides, getGuideById } from "@/data/guides";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { renderInlineMarkdown } from "@/lib/markdown";
+import { getGuideIcon, getGuideTrack } from "@/lib/guideMeta";
 import {
   TableOfContents,
   slugifyHeading,
@@ -78,8 +79,15 @@ export default async function GuidePage({ params }: PageProps) {
     notFound();
   }
 
-  const Icon = guide.icon;
+  // Kept as a member-expression access (`hero.Icon`), not a hoisted
+  // `const Icon`, so react-hooks/static-components doesn't read a per-guide
+  // icon lookup as a component defined during render.
+  const hero = { Icon: getGuideIcon(guide.id) };
+  const track = getGuideTrack(guide.id);
   const media = getGeneratedMedia("guide", guide.id);
+  // Catalog number matches the numbering on /guides, which follows the
+  // canonical data order rather than the track grouping.
+  const catalogNumber = guides.findIndex((g) => g.id === guide.id) + 1;
 
   // Stamp stable, deduped anchor ids onto every section (H2) and subsection
   // (H3) so the table of contents links and the rendered headings stay in sync.
@@ -188,26 +196,27 @@ export default async function GuidePage({ params }: PageProps) {
 
           {/* Header */}
           <header className="mb-12 pb-8 border-b border-stone-200/60 dark:border-[var(--border-default)]">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex flex-wrap items-center gap-3 mb-5">
               <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center border border-stone-200/60 dark:border-[var(--border-default)]"
-                style={{ backgroundColor: `${guide.color}12` }}
+                className={`w-12 h-12 rounded-xl flex items-center justify-center border border-stone-200/60 dark:border-[var(--border-default)] ${track.iconBg}`}
               >
-                <Icon
-                  className="h-6 w-6"
-                  style={{ color: guide.color }}
-                  strokeWidth={1.5}
-                />
+                <hero.Icon className={`h-6 w-6 ${track.iconText}`} strokeWidth={1.5} />
               </div>
               <div className="flex items-center gap-3 text-sm text-muted dark:text-stone-400">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep">
-                  Foundational Guide
-                </span>
+                <Link
+                  href={`/guides#${track.id}`}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 border rounded-full text-xs font-medium ${track.chip}`}
+                >
+                  {track.numeral}. {track.label}
+                </Link>
                 <span className="flex items-center gap-1">
                   <Clock className="h-3.5 w-3.5" />
                   {guide.readTime}
                 </span>
               </div>
+              <span className="ml-auto text-[11px] font-mono tabular-nums text-muted/70 dark:text-stone-500/70">
+                No. {String(catalogNumber).padStart(2, "0")}
+              </span>
             </div>
 
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
@@ -282,17 +291,18 @@ export default async function GuidePage({ params }: PageProps) {
           </div>
 
           {/* Key Takeaways */}
-          <section className="my-12 bg-gradient-to-br from-[#faf8f5] to-canvas dark:from-[#252420] dark:to-[#302e2a] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)]">
+          <section
+            className={`my-12 bg-gradient-to-br from-[#faf8f5] to-canvas dark:from-[#252420] dark:to-[#302e2a] rounded-xl p-6 md:p-8 border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] ${track.borderAccent}`}
+          >
             <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5 text-deep" />
+              <CheckCircle2 className={`h-5 w-5 ${track.iconText}`} />
               Key Takeaways
             </h2>
             <ul className="space-y-3">
               {guide.keyTakeaways.map((takeaway, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <span
-                    className="w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0"
-                    style={{ backgroundColor: guide.color }}
+                    className={`w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0 ${track.dotBg}`}
                   />
                   <span className="text-primary leading-relaxed text-[15px]">
                     {takeaway}
@@ -334,44 +344,74 @@ export default async function GuidePage({ params }: PageProps) {
             </div>
           </section>
 
-          {/* Navigation */}
+          {/* Navigation — same track first, then the rest of the curriculum */}
           <nav className="mt-14 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-            <p className="text-sm text-muted dark:text-stone-400 mb-5 font-medium">Continue learning</p>
-            <div className="grid md:grid-cols-2 gap-3">
-              {guides
-                .filter((g) => g.id !== guide.id)
-                .map((otherGuide, idx) => {
-                  const OtherIcon = otherGuide.icon;
-                  return (
-                    <Link
-                      key={otherGuide.id}
-                      href={`/guides/${otherGuide.id}`}
-                      className="group flex items-center gap-3 p-4 rounded-xl bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
-                      style={{ animationDelay: `${idx * 60}ms` }}
+            {(() => {
+              const others = guides.filter((g) => g.id !== guide.id);
+              const sameTrack = others.filter(
+                (g) => getGuideTrack(g.id).id === track.id
+              );
+              const otherTracks = others.filter(
+                (g) => getGuideTrack(g.id).id !== track.id
+              );
+
+              const renderCard = (otherGuide: (typeof guides)[number], idx: number) => {
+                const OtherIcon = getGuideIcon(otherGuide.id);
+                const otherTrack = getGuideTrack(otherGuide.id);
+                return (
+                  <Link
+                    key={otherGuide.id}
+                    href={`/guides/${otherGuide.id}`}
+                    className={`group flex items-center gap-3 p-4 rounded-xl bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${otherTrack.hoverBorder}`}
+                    style={{ animationDelay: `${(idx % 6) * 60}ms` }}
+                  >
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-stone-200/40 dark:border-[var(--border-default)] ${otherTrack.iconBg}`}
                     >
-                      <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-stone-200/40 dark:border-[var(--border-default)]"
-                        style={{ backgroundColor: `${otherGuide.color}12` }}
-                      >
-                        <OtherIcon
-                          className="h-5 w-5"
-                          style={{ color: otherGuide.color }}
-                          strokeWidth={1.5}
-                        />
+                      <OtherIcon
+                        className={`h-5 w-5 ${otherTrack.iconText}`}
+                        strokeWidth={1.5}
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-primary group-hover:text-deep transition-colors truncate">
+                        {otherGuide.title}
+                      </p>
+                      <p className="text-xs text-muted dark:text-stone-400 truncate">
+                        {otherGuide.subtitle}
+                      </p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-500 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 transition-all duration-200" />
+                  </Link>
+                );
+              };
+
+              return (
+                <>
+                  {sameTrack.length > 0 && (
+                    <>
+                      <p className="text-sm text-muted dark:text-stone-400 mb-5 font-medium">
+                        More in {track.numeral}. {track.label}
+                      </p>
+                      <div className="grid md:grid-cols-2 gap-3 mb-10">
+                        {sameTrack.map(renderCard)}
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium text-primary group-hover:text-deep transition-colors truncate">
-                          {otherGuide.title}
-                        </p>
-                        <p className="text-xs text-muted dark:text-stone-400 truncate">
-                          {otherGuide.subtitle}
-                        </p>
+                    </>
+                  )}
+
+                  {otherTracks.length > 0 && (
+                    <>
+                      <p className="text-sm text-muted dark:text-stone-400 mb-5 font-medium">
+                        Other tracks
+                      </p>
+                      <div className="grid md:grid-cols-2 gap-3">
+                        {otherTracks.map(renderCard)}
                       </div>
-                      <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-500 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 transition-all duration-200" />
-                    </Link>
-                  );
-                })}
-            </div>
+                    </>
+                  )}
+                </>
+              );
+            })()}
           </nav>
         </article>
       </div>
