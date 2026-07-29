@@ -88,12 +88,12 @@ export default function HowItWorksPage() {
               { label: "How It Works" },
             ]}
           />
-          <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto mb-5">
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mx-auto mb-5">
             We turn messy debates into visual maps. You see the strongest arguments
             on every side, trace each claim to its source, and find the one question
             that would actually change someone&apos;s mind.
           </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 leading-[1.08]">
             Mapping arguments,<br />
             <span className="text-stone-500 dark:text-stone-400">not winning them</span>
           </h1>
@@ -101,10 +101,10 @@ export default function HowItWorksPage() {
 
         {/* Quick Start Steps */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Get started in 4 steps
           </h2>
-          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto">No account needed. Pick a topic and go.</p>
+          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto">No account needed. Pick a topic and go.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {steps.map((step) => (
               <div
@@ -113,8 +113,8 @@ export default function HowItWorksPage() {
               >
                 <span className="font-mono text-sm font-bold text-muted dark:text-stone-400 mt-0.5 flex-shrink-0">{step.number}</span>
                 <div className="flex-1">
-                  <h3 className="font-serif text-lg font-semibold text-primary mb-1">{step.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{step.description}</p>
+                  <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 mb-1">{step.title}</h3>
+                  <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -123,10 +123,10 @@ export default function HowItWorksPage() {
 
         {/* Visual Map Example */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Anatomy of an argument map
           </h2>
-          <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Every topic uses the same structure. Learn it once and you can read any debate on the platform.
           </p>
 
@@ -136,10 +136,10 @@ export default function HowItWorksPage() {
 
         {/* Node Types Reference */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Understanding node types
           </h2>
-          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto">Five types of nodes. That&apos;s all you need to know.</p>
+          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto">Five types of nodes. That&apos;s all you need to know.</p>
           <div className="space-y-3">
             {nodeTypes.map((type) => (
               <div
@@ -153,9 +153,9 @@ export default function HowItWorksPage() {
                     style={{ backgroundColor: type.color }}
                     aria-hidden="true"
                   />
-                  <h3 className="font-serif text-lg font-semibold text-primary">{type.name}</h3>
+                  <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200">{type.name}</h3>
                 </div>
-                <p className="text-sm text-secondary mb-2">{type.description}</p>
+                <p className="text-sm text-secondary dark:text-stone-400 mb-2">{type.description}</p>
                 <p className="text-xs font-mono text-muted dark:text-stone-400 italic bg-stone-50 dark:bg-[#302e2a] inline-block px-2 py-0.5 rounded">Example: {type.example}</p>
               </div>
             ))}
@@ -164,34 +164,34 @@ export default function HowItWorksPage() {
 
         {/* Balance & Weight */}
         <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1917]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Reading balance and weight
           </h2>
-          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             We don&apos;t claim certainty. Balance shows which way the evidence tips; weight shows how much of it there actually is&mdash;nothing more.
           </p>
           <div className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-2xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)]">
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="p-4 text-center">
-                <h3 className="font-serif text-base text-primary mb-1">Balance</h3>
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Balance</h3>
                 <p className="text-sm text-stone-500">Which way the evidence leans. 50 is an even split; further from 50 means a stronger lean toward or against the claim.</p>
               </div>
               <div className="p-4 text-center border-l border-stone-200/50 dark:border-[var(--border-default)]">
-                <h3 className="font-serif text-base text-primary mb-1">Weight</h3>
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Weight</h3>
                 <p className="text-sm text-stone-500">How much we actually know&mdash;evidence volume, source quality, and whether the open questions are even resolvable.</p>
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-4 text-center">
-                <h3 className="font-serif text-base text-primary mb-1">Settled</h3>
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Settled</h3>
                 <p className="text-sm text-stone-500">High weight, strong lean. Think: &ldquo;Did we land on the moon?&rdquo;</p>
               </div>
               <div className="p-4 text-center border-x border-stone-200/50 dark:border-[var(--border-default)]">
-                <h3 className="font-serif text-base text-primary mb-1">Well-mapped, genuinely contested</h3>
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Well-mapped, genuinely contested</h3>
                 <p className="text-sm text-stone-500">High weight, weak lean. Richly evidenced, but reasonable people still land on different sides.</p>
               </div>
               <div className="p-4 text-center">
-                <h3 className="font-serif text-base text-primary mb-1">Open question</h3>
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Open question</h3>
                 <p className="text-sm text-stone-500">Low weight, regardless of lean. We simply don&apos;t know enough yet.</p>
               </div>
             </div>
@@ -200,12 +200,12 @@ export default function HowItWorksPage() {
 
         {/* The Philosophy */}
         <section className="mb-12 md:mb-16 bg-[#faf8f3] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)]">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">The crux is everything</h2>
-          <p className="text-secondary leading-relaxed mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">The crux is everything</h2>
+          <p className="text-secondary dark:text-stone-400 leading-relaxed mb-4">
             Every disagreement has a crux&mdash;the specific evidence or experiment that would change minds.
             Most debates never bother to find it. We do.
           </p>
-          <p className="text-secondary leading-relaxed">
+          <p className="text-secondary dark:text-stone-400 leading-relaxed">
             Once you know the crux, you stop arguing past each other. You have a concrete question
             to investigate. Most of the time, that&apos;s enough.
           </p>
@@ -213,10 +213,10 @@ export default function HowItWorksPage() {
 
         {/* Closing CTA — reader now knows the structure; send them into a live map */}
         <section className="mb-16 md:mb-24 text-center">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-3">
             Now see it on a real debate
           </h2>
-          <p className="text-lg text-secondary leading-relaxed mb-8 max-w-md mx-auto">
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed mb-8 max-w-md mx-auto">
             You know how the map works. Watch it untangle the question this page kept
             using as its example.
           </p>

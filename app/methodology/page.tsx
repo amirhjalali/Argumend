@@ -153,7 +153,7 @@ export default function MethodologyPage() {
           <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
             Our Methodology
           </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 leading-[1.08]">
             Not just another<br />
             <span className="text-stone-500 dark:text-stone-400">AI opinion</span>
           </h1>
@@ -161,10 +161,10 @@ export default function MethodologyPage() {
 
         {/* The Problem */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
             The problem with &ldquo;just ask ChatGPT&rdquo;
           </h2>
-          <p className="text-lg text-secondary leading-relaxed mb-8">
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed mb-8">
             Asking a single AI for its opinion on a controversial topic is like
             asking one witness to describe an entire crime scene. You get a
             coherent story, but you have no idea what it&apos;s leaving out.
@@ -176,10 +176,10 @@ export default function MethodologyPage() {
                 key={problem.title}
                 className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)]"
               >
-                <h3 className="font-semibold text-primary mb-1.5">
+                <h3 className="font-semibold text-primary dark:text-stone-200 mb-1.5">
                   {problem.title}
                 </h3>
-                <p className="text-sm text-secondary leading-relaxed">
+                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
                   {problem.description}
                 </p>
               </div>
@@ -189,10 +189,10 @@ export default function MethodologyPage() {
 
         {/* How Argumend Is Different — no divider */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             How Argumend is different
           </h2>
-          <p className="text-lg text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Five steps that turn a messy debate into structured, auditable analysis.
           </p>
 
@@ -220,10 +220,10 @@ export default function MethodologyPage() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-serif text-lg text-primary mb-2">
+                      <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-secondary leading-relaxed mb-4">
+                      <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed mb-4">
                         {step.description}
                       </p>
                       <ul className="space-y-2">
@@ -233,7 +233,7 @@ export default function MethodologyPage() {
                               className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
                               style={{ backgroundColor: step.color }}
                             />
-                            <span className="text-sm text-secondary leading-relaxed">
+                            <span className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
                               {detail}
                             </span>
                           </li>
@@ -249,10 +249,10 @@ export default function MethodologyPage() {
 
         {/* Multi-Judge Council Visual — no divider */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             The 4-Judge AI Council
           </h2>
-          <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             Multiple models, independent evaluation, aggregated results.
           </p>
 
@@ -271,7 +271,7 @@ export default function MethodologyPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4f7b77]/20 to-[#4f7b77]/5 flex items-center justify-center mb-2">
                     <span className="font-serif text-sm font-bold text-deep">{judge.name[0]}</span>
                   </div>
-                  <p className="text-sm font-semibold text-primary">{judge.name}</p>
+                  <p className="text-sm font-semibold text-primary dark:text-stone-200">{judge.name}</p>
                   <p className="text-[11px] text-muted dark:text-stone-400">{judge.label}</p>
                 </div>
               ))}
@@ -305,10 +305,10 @@ export default function MethodologyPage() {
 
         {/* Evidence Weighting */}
         <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1917]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Evidence scoring dimensions
           </h2>
-          <p className="text-lg text-secondary text-center mb-3 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-3 max-w-xl mx-auto leading-relaxed">
             Every piece of evidence is scored on four independent dimensions.
           </p>
           <p className="text-center mb-10">
@@ -323,7 +323,7 @@ export default function MethodologyPage() {
                 style={{ borderLeftWidth: "4px", borderLeftColor: dim.color }}
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-serif text-lg text-primary">{dim.name}</h3>
+                  <h3 className="font-serif text-lg text-primary dark:text-stone-200">{dim.name}</h3>
                   <span
                     className="text-xs font-mono tabular-nums font-bold px-2.5 py-1 rounded-full"
                     style={{
@@ -334,7 +334,7 @@ export default function MethodologyPage() {
                     {dim.range}
                   </span>
                 </div>
-                <p className="text-[14px] text-secondary leading-relaxed">
+                <p className="text-[14px] text-secondary dark:text-stone-400 leading-relaxed">
                   {dim.description}
                 </p>
               </div>
@@ -344,10 +344,10 @@ export default function MethodologyPage() {
 
         {/* Balance & Weight */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Balance & weight
           </h2>
-          <p className="text-secondary text-center mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
             A single score can&apos;t distinguish &ldquo;richly evidenced and
             genuinely contested&rdquo; from &ldquo;we barely know
             anything.&rdquo; So we compute two orthogonal numbers instead of
@@ -361,12 +361,12 @@ export default function MethodologyPage() {
                   <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
                     <span className="font-mono text-sm font-bold text-deep">B</span>
                   </div>
-                  <p className="text-sm font-semibold text-primary">Balance — which way it tips</p>
+                  <p className="text-sm font-semibold text-primary dark:text-stone-200">Balance — which way it tips</p>
                 </div>
                 <p className="font-mono text-xs text-stone-500 dark:text-stone-400 mb-2">
                   balance = forStrength / (forStrength + againstStrength) x 100
                 </p>
-                <p className="text-sm text-secondary leading-relaxed">
+                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
                   Summed over each side&apos;s 0–40 evidence scores. 50 is an
                   even split; above 50 leans toward the claim, below leans
                   against it.
@@ -377,12 +377,12 @@ export default function MethodologyPage() {
                   <div className="w-10 h-10 rounded-lg bg-rust-500/10 flex items-center justify-center">
                     <span className="font-mono text-sm font-bold text-rust-500">W</span>
                   </div>
-                  <p className="text-sm font-semibold text-primary">Weight — how much we know</p>
+                  <p className="text-sm font-semibold text-primary dark:text-stone-200">Weight — how much we know</p>
                 </div>
                 <p className="font-mono text-xs text-stone-500 dark:text-stone-400 mb-2">
                   weight = mass + quality + resolvability
                 </p>
-                <p className="text-sm text-secondary leading-relaxed">
+                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
                   A composite of evidential mass (with diminishing returns
                   for piling on more evidence), average source quality, and
                   how resolvable the underlying cruxes are.
@@ -391,7 +391,7 @@ export default function MethodologyPage() {
             </div>
 
             <div className="border-t border-stone-200/60 dark:border-[var(--border-default)] pt-5">
-              <p className="text-sm font-semibold text-primary mb-4">The verdict matrix</p>
+              <p className="text-sm font-semibold text-primary dark:text-stone-200 mb-4">The verdict matrix</p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <span className="w-24 text-center text-xs font-mono font-medium text-deep">
@@ -448,20 +448,20 @@ export default function MethodologyPage() {
 
         {/* What This Means */}
         <section className="mb-16 md:mb-24 border border-stone-200/60 dark:border-[var(--border-default)] rounded-2xl p-8 md:p-10">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-6">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-6">
             What this means for you
           </h2>
-          <div className="space-y-6 text-secondary leading-relaxed">
+          <div className="space-y-6 text-secondary dark:text-stone-400 leading-relaxed">
             <div>
-              <h3 className="text-primary font-semibold mb-1">Transparency</h3>
+              <h3 className="text-primary dark:text-stone-200 font-semibold mb-1">Transparency</h3>
               <p>Every score can be traced back to specific evidence and specific judges. No black boxes.</p>
             </div>
             <div>
-              <h3 className="text-primary font-semibold mb-1">Multi-perspective</h3>
+              <h3 className="text-primary dark:text-stone-200 font-semibold mb-1">Multi-perspective</h3>
               <p>Multiple AI models with different training data and biases. When they disagree, that disagreement is itself valuable information.</p>
             </div>
             <div>
-              <h3 className="text-primary font-semibold mb-1">Updatable</h3>
+              <h3 className="text-primary dark:text-stone-200 font-semibold mb-1">Updatable</h3>
               <p>When new evidence emerges, scores change. Nothing here is the final word.</p>
             </div>
           </div>

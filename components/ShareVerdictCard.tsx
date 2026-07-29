@@ -150,7 +150,8 @@ function VerdictCardPreview({
             {getWinnerLabel(result.winner)}
           </span>
 
-          {/* Topic title */}
+          {/* Topic title. Always-light: this card is rasterized to a PNG on the
+              fixed #f4f1eb canvas, so no dark: pairing here. */}
           <h2
             className={`font-serif font-bold text-primary leading-tight mt-3 ${
               isTwitter ? "text-lg" : "text-xl"
@@ -353,7 +354,7 @@ export function ShareVerdictCard({
               <div className="flex items-center justify-between px-5 py-4 border-b border-stone-100 dark:border-stone-800">
                 <div className="flex items-center gap-2">
                   <ImageIcon className="w-4 h-4 text-deep" />
-                  <h3 className="font-serif font-semibold text-primary">
+                  <h3 className="font-serif font-semibold text-primary dark:text-stone-200">
                     Share Verdict
                   </h3>
                 </div>
@@ -378,7 +379,7 @@ export function ShareVerdictCard({
                       onClick={() => setFormat("twitter")}
                       className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
                         format === "twitter"
-                          ? "bg-white dark:bg-[var(--bg-card)] text-primary shadow-sm"
+                          ? "bg-white dark:bg-[var(--bg-card)] text-primary dark:text-stone-200 shadow-sm"
                           : "text-stone-500 hover:text-stone-700 dark:hover:text-stone-300"
                       }`}
                     >
@@ -388,7 +389,7 @@ export function ShareVerdictCard({
                       onClick={() => setFormat("instagram")}
                       className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
                         format === "instagram"
-                          ? "bg-white dark:bg-[var(--bg-card)] text-primary shadow-sm"
+                          ? "bg-white dark:bg-[var(--bg-card)] text-primary dark:text-stone-200 shadow-sm"
                           : "text-stone-500 hover:text-stone-700 dark:hover:text-stone-300"
                       }`}
                     >

@@ -69,18 +69,18 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
                 {exchange.topic}
               </span>
             </div>
-            <h3 className="font-serif text-lg text-primary mb-1">
+            <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-1">
               {exchange.insight}
             </h3>
-            <p className="text-sm text-secondary line-clamp-2">
+            <p className="text-sm text-secondary dark:text-stone-400 line-clamp-2">
               {exchange.lesson}
             </p>
           </div>
           <div className="flex-shrink-0 p-2 rounded-lg bg-[#f5f1ea] dark:bg-[#302e2a] border border-[#e8e0d4] dark:border-[#3d3a36]">
             {isExpanded ? (
-              <ChevronUp className="h-4 w-4 text-secondary" />
+              <ChevronUp className="h-4 w-4 text-secondary dark:text-stone-400" />
             ) : (
-              <ChevronDown className="h-4 w-4 text-secondary" />
+              <ChevronDown className="h-4 w-4 text-secondary dark:text-stone-400" />
             )}
           </div>
         </div>
@@ -99,7 +99,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                   msg.isResponse
                     ? "bg-gradient-to-br from-[#4f7b77] to-[#3d6360] text-white"
-                    : "bg-[#f5f1ea] dark:bg-[#302e2a] text-secondary border border-[#e8e0d4] dark:border-[#3d3a36]"
+                    : "bg-[#f5f1ea] dark:bg-[#302e2a] text-secondary dark:text-stone-400 border border-[#e8e0d4] dark:border-[#3d3a36]"
                 }`}>
                   {msg.isResponse ? (
                     <CrabIcon className="h-4 w-4" />
@@ -110,7 +110,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
                     <span className={`text-sm font-medium ${
-                      msg.isResponse ? "text-deep" : "text-primary"
+                      msg.isResponse ? "text-deep" : "text-primary dark:text-stone-200"
                     }`}>
                       {msg.agent}
                     </span>
@@ -120,7 +120,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
                       </span>
                     )}
                   </div>
-                  <p className="text-primary text-sm leading-relaxed whitespace-pre-line">
+                  <p className="text-primary dark:text-stone-200 text-sm leading-relaxed whitespace-pre-line">
                     {msg.message}
                   </p>
                 </div>
@@ -134,7 +134,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
               <Quote className="h-4 w-4 text-rust-500 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-medium text-rust-500 mb-1">Key Lesson</p>
-                <p className="text-sm text-primary leading-relaxed">
+                <p className="text-sm text-primary dark:text-stone-200 leading-relaxed">
                   {exchange.lesson}
                 </p>
               </div>
@@ -146,7 +146,7 @@ function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
             {exchange.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs text-secondary bg-[#f5f1ea] dark:bg-[#302e2a] px-2 py-1 rounded-md"
+                className="text-xs text-secondary dark:text-stone-400 bg-[#f5f1ea] dark:bg-[#302e2a] px-2 py-1 rounded-md"
               >
                 #{tag}
               </span>
@@ -190,10 +190,10 @@ export default function LessonsFromTheDeepPage() {
               <CrabIcon className="h-6 w-6 text-white" />
             </div>
           </div>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-5 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 mb-5 leading-[1.08]">
             Lessons from the deep
           </h1>
-          <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
             Wisdom gathered from agent discourse on Moltbook &mdash;
             insights that shaped how we think about evidence, identity,
             and structured disagreement.
@@ -233,7 +233,7 @@ export default function LessonsFromTheDeepPage() {
         </div>
 
         {/* Introduction — simple prose, no blockquote styling */}
-        <p className="text-secondary leading-relaxed mb-12">
+        <p className="text-secondary dark:text-stone-400 leading-relaxed mb-12">
           <a
             href="https://moltbook.com"
             target="_blank"
@@ -246,10 +246,10 @@ export default function LessonsFromTheDeepPage() {
 
         {/* Featured Exchanges */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
             Key Exchanges
           </h2>
-          <p className="text-lg text-secondary mb-8">The most valuable conversations that shaped our thinking.</p>
+          <p className="text-lg text-secondary dark:text-stone-400 mb-8">The most valuable conversations that shaped our thinking.</p>
           <div className="space-y-4">
             {featuredExchanges.map((exchange) => (
               <ExchangeCard key={exchange.id} exchange={exchange} />
@@ -259,10 +259,10 @@ export default function LessonsFromTheDeepPage() {
 
         {/* All Posts */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
             All Moltbook Posts
           </h2>
-          <p className="text-lg text-secondary mb-8">Every post we have shared on Moltbook, newest first.</p>
+          <p className="text-lg text-secondary dark:text-stone-400 mb-8">Every post we have shared on Moltbook, newest first.</p>
           <div className="bg-white/80 dark:bg-[#252420]/80 rounded-2xl border border-[#e8e0d4] dark:border-[#3d3a36] divide-y divide-[#e8e0d4] dark:divide-[#3d3a36] overflow-hidden">
             {moltbookPosts.map((post) => (
               <a
@@ -274,10 +274,10 @@ export default function LessonsFromTheDeepPage() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-serif text-primary group-hover:text-deep transition-colors mb-1 truncate">
+                    <h3 className="font-serif text-primary dark:text-stone-200 group-hover:text-deep transition-colors mb-1 truncate">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-secondary line-clamp-1">
+                    <p className="text-sm text-secondary dark:text-stone-400 line-clamp-1">
                       {post.summary}
                     </p>
                   </div>

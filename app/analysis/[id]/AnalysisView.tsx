@@ -105,7 +105,7 @@ function SectionDivider({ label, icon: Icon }: { label: string; icon: React.Comp
     <div className="flex items-center gap-3 pt-2">
       <div className="flex items-center gap-2 flex-shrink-0">
         <Icon className="h-4 w-4 text-deep" />
-        <h3 className="font-serif text-lg font-semibold text-primary">{label}</h3>
+        <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200">{label}</h3>
       </div>
       <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 dark:from-[rgba(61,58,54,0.8)] to-transparent" />
     </div>
@@ -478,12 +478,12 @@ function RelatedTopicCard({ topic }: { topic: TopicSummary }) {
     >
       <div className="space-y-2">
         <div className="flex items-start justify-between gap-2">
-          <h4 className="font-serif font-semibold text-primary text-sm group-hover:text-deep transition-colors leading-snug">
+          <h4 className="font-serif font-semibold text-primary dark:text-stone-200 text-sm group-hover:text-deep transition-colors leading-snug">
             {topic.title}
           </h4>
           <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep transition-colors flex-shrink-0 mt-0.5" />
         </div>
-        <p className="text-xs text-secondary line-clamp-2 leading-relaxed">
+        <p className="text-xs text-secondary dark:text-stone-400 line-clamp-2 leading-relaxed">
           {topic.meta_claim}
         </p>
         <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} />
@@ -543,7 +543,7 @@ export function AnalysisView({
       <div className="min-h-full">
         <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-10">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-secondary">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-secondary dark:text-stone-400">
             <Link
               href="/analyze"
               className="hover:text-deep transition-colors"
@@ -551,7 +551,7 @@ export function AnalysisView({
               Analyses
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-muted dark:text-[var(--text-muted)]" />
-            <span className="text-primary font-medium truncate max-w-[280px] sm:max-w-none">
+            <span className="text-primary dark:text-stone-200 font-medium truncate max-w-[280px] sm:max-w-none">
               {extracted.topic}
             </span>
           </nav>
@@ -581,10 +581,10 @@ export function AnalysisView({
               {/* Title + Summary + Gauge */}
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                 <div className="flex-1 min-w-0 space-y-3">
-                  <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+                  <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
                     {extracted.topic}
                   </h1>
-                  <p className="text-secondary text-sm leading-relaxed max-w-xl">
+                  <p className="text-secondary dark:text-stone-400 text-sm leading-relaxed max-w-xl">
                     {extracted.summary}
                   </p>
                   <div className="pt-1">
@@ -637,7 +637,7 @@ export function AnalysisView({
                 ))}
               </div>
             ) : (
-              <p className="text-secondary text-center py-4">
+              <p className="text-secondary dark:text-stone-400 text-center py-4">
                 No clear positions identified
               </p>
             )}
@@ -658,7 +658,7 @@ export function AnalysisView({
                 ))}
               </div>
             ) : (
-              <p className="text-secondary text-sm text-center py-3 italic">
+              <p className="text-secondary dark:text-stone-400 text-sm text-center py-3 italic">
                 No key cruxes identified in this content
               </p>
             )}
@@ -755,10 +755,10 @@ export function AnalysisView({
             <div className="relative overflow-hidden bg-gradient-to-br from-[#fefcf9] dark:from-[var(--bg-card)] to-deep/[0.03] border border-stone-200/60 dark:border-[var(--border-default)] rounded-2xl p-6 md:p-8 text-center space-y-4">
               <div className="absolute inset-0 bg-gradient-to-r from-rust-500/[0.02] via-transparent to-deep/[0.02] pointer-events-none" />
               <div className="relative">
-                <h3 className="font-serif text-xl font-bold text-primary">
+                <h3 className="font-serif text-xl font-bold text-primary dark:text-stone-200">
                   Have your own text to analyze?
                 </h3>
-                <p className="text-secondary text-sm max-w-md mx-auto mt-2">
+                <p className="text-secondary dark:text-stone-400 text-sm max-w-md mx-auto mt-2">
                   Paste a debate, article, or discussion. We extract positions,
                   flag fallacies, and score argument quality with multiple models.
                 </p>
