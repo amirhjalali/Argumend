@@ -28,10 +28,10 @@ export default function FAQPage() {
 
         {/* Hero */}
         <div className="mb-10 md:mb-12">
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-4 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-4 leading-[1.08]">
             Frequently asked questions
           </h1>
-          <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
             The questions people actually ask us, answered honestly.
           </p>
           <p className="mt-4 text-sm font-medium text-muted dark:text-stone-400">
@@ -48,7 +48,7 @@ export default function FAQPage() {
               className="group rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)]/70 transition-colors open:bg-[var(--bg-card)] open:shadow-[var(--shadow-card)]"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 [&::-webkit-details-marker]:hidden">
-                <h2 className="font-serif text-lg text-primary leading-snug">
+                <h2 className="font-serif text-lg text-primary dark:text-stone-200 leading-snug">
                   {faq.question}
                 </h2>
                 <svg
@@ -82,7 +82,7 @@ export default function FAQPage() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-[var(--border-default)]">
-          <p className="text-sm text-secondary">
+          <p className="text-sm text-secondary dark:text-stone-400">
             Still have questions? We probably missed something. Head to the{" "}
             <a href="/community" className="text-deep hover:underline">Community page</a> and let us know.
           </p>

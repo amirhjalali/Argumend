@@ -60,7 +60,7 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
         className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
           current === "read"
             ? "bg-deep text-white"
-            : "text-secondary hover:text-primary"
+            : "text-secondary dark:text-stone-400 hover:text-primary dark:hover:text-stone-200"
         }`}
       >
         <BookOpen className="h-3.5 w-3.5" aria-hidden />
@@ -73,7 +73,7 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
         className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
           current === "graph"
             ? "bg-deep text-white"
-            : "text-secondary hover:text-primary"
+            : "text-secondary dark:text-stone-400 hover:text-primary dark:hover:text-stone-200"
         }`}
       >
         <Network className="h-3.5 w-3.5" aria-hidden />

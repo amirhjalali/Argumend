@@ -35,12 +35,12 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
 
   return (
     <>
-      <header role="banner" className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 dark:bg-[#1a1917]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary border-b border-stone-200/40 dark:border-[#3d3a36]/60">
+      <header role="banner" className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f4f1eb]/90 dark:bg-[#1a1917]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary dark:text-stone-200 border-b border-stone-200/40 dark:border-[#3d3a36]/60">
         {/* Left: Menu + Logo */}
         <div className="flex items-center gap-3 md:gap-5">
           <button
             onClick={onMenuClick}
-            className="group relative flex items-center justify-center h-11 w-11 -ml-2 rounded-lg text-secondary transition-all duration-200 hover:text-primary hover:bg-[#f0ebe3] dark:hover:bg-[#302e2a]"
+            className="group relative flex items-center justify-center h-11 w-11 -ml-2 rounded-lg text-secondary dark:text-stone-400 transition-all duration-200 hover:text-primary dark:hover:text-stone-200 hover:bg-[#f0ebe3] dark:hover:bg-[#302e2a]"
             aria-label="Toggle sidebar"
           >
             <MenuIcon className="h-5 w-5 transition-transform duration-200 group-hover:scale-105" />
@@ -48,7 +48,7 @@ export function TopBar({ onMenuClick, showBackToHero, onBackToHero }: TopBarProp
 
           <Link href="/" className="flex items-center gap-3">
             <div className="flex flex-col">
-              <span className="font-serif text-lg md:text-xl font-medium tracking-[0.08em] text-primary leading-none">
+              <span className="font-serif text-lg md:text-xl font-medium tracking-[0.08em] text-primary dark:text-stone-200 leading-none">
                 ARGUMEND
               </span>
               <span className="text-[10px] font-sans text-stone-600 dark:text-stone-400 leading-none mt-1">

@@ -159,3 +159,54 @@ describe("off-palette color guard (app + components source trees)", () => {
     ).toEqual([]);
   });
 });
+
+/**
+ * Regression guard: bare `text-primary` / `text-secondary` on dark-adaptive files.
+ *
+ * `tailwind.config.ts` defines `primary`/`secondary` as fixed hex (#3d3a36 /
+ * #564d45), so the Tailwind utilities do NOT adapt in dark mode — bare uses render
+ * near-invisible on the #1a1917 dark canvas. See
+ * `.work/dark-mode-systemic-2026-06-30.md`. The agreed distributed fix (already
+ * validated for `text-muted`) is to pair each bare use on a dark-adaptive surface:
+ *   text-primary   -> "text-primary dark:text-stone-200"
+ *   text-secondary -> "text-secondary dark:text-stone-400"
+ *
+ * This guard covers the files that have been swept so far. It is intentionally an
+ * ALLOWLIST, not a repo-wide scan: hundreds of bare uses remain in files that are
+ * either not yet swept or intentionally always-light (e.g. NewsletterSignup's
+ * fixed-light `bg-[#faf8f5]` card, where a dark: pairing would be light-on-light).
+ * Add files here as they are swept.
+ *
+ * Variant-prefixed forms (`hover:text-primary`, `group-hover:…`) are excluded —
+ * they carry their own `dark:hover:` pairing elsewhere in the class string.
+ */
+describe("dark-mode text token guard (swept files)", () => {
+  const SWEPT_FILES = [
+    "app/blog/tag/[tag]/page.tsx",
+    "app/faq/page.tsx",
+    "components/DebateView.tsx",
+    "components/HomeClient.tsx",
+    "components/ReadGraphToggle.tsx",
+    "components/TopBar.tsx",
+  ];
+
+  /** Bare (non-variant-prefixed) `text-primary` without its dark: partner. */
+  const UNPAIRED_PRIMARY = /(?<![\w:-])text-primary(?!\s+dark:text-stone-200)/;
+  /** Bare (non-variant-prefixed) `text-secondary` without its dark: partner. */
+  const UNPAIRED_SECONDARY = /(?<![\w:-])text-secondary(?!\s+dark:text-stone-400)/;
+
+  it.each(SWEPT_FILES)(
+    "%s pairs every bare text-primary/text-secondary with a dark: override",
+    (relPath) => {
+      const src = readFileSync(join(process.cwd(), relPath), "utf8");
+      expect(
+        UNPAIRED_PRIMARY.test(src),
+        `${relPath}: bare \`text-primary\` must be written as \`text-primary dark:text-stone-200\``,
+      ).toBe(false);
+      expect(
+        UNPAIRED_SECONDARY.test(src),
+        `${relPath}: bare \`text-secondary\` must be written as \`text-secondary dark:text-stone-400\``,
+      ).toBe(false);
+    },
+  );
+});

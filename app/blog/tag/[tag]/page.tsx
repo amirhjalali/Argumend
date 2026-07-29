@@ -74,7 +74,7 @@ export default async function TagPage({ params }: PageProps) {
     return (
       <AppShell>
         <div className="min-h-[100svh] flex items-center justify-center">
-          <p className="text-secondary">Tag not found.</p>
+          <p className="text-secondary dark:text-stone-400">Tag not found.</p>
         </div>
       </AppShell>
     );
@@ -117,10 +117,10 @@ export default async function TagPage({ params }: PageProps) {
             <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
               Tag
             </p>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
               &ldquo;{tag}&rdquo;
             </h1>
-            <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+            <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
               {filtered.length} article{filtered.length !== 1 ? "s" : ""}{" "}
               tagged with &ldquo;{tag}&rdquo;.
             </p>
@@ -154,12 +154,12 @@ export default async function TagPage({ params }: PageProps) {
                   </div>
 
                   {/* Title */}
-                  <h2 className="font-serif text-xl md:text-2xl tracking-tight text-primary group-hover:text-deep transition-colors mb-3 leading-tight">
+                  <h2 className="font-serif text-xl md:text-2xl tracking-tight text-primary dark:text-stone-200 group-hover:text-deep transition-colors mb-3 leading-tight">
                     {article.title}
                   </h2>
 
                   {/* Description */}
-                  <p className="text-secondary leading-relaxed mb-5 max-w-2xl">
+                  <p className="text-secondary dark:text-stone-400 leading-relaxed mb-5 max-w-2xl">
                     {article.description}
                   </p>
 
