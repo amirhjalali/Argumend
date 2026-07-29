@@ -1,30 +1,15 @@
 import Link from "next/link";
-import {
-  Shield,
-  Target,
-  Scale,
-  Lightbulb,
-  AlertTriangle,
-  Layers,
-  ArrowRight,
-  BookOpen,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { concepts } from "@/data/concepts";
-
-// ---------------------------------------------------------------------------
-// Icon map -- lucide-react icons by name
-// ---------------------------------------------------------------------------
-const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement> & { strokeWidth?: number }>> = {
-  Shield,
-  Target,
-  Scale,
-  Lightbulb,
-  AlertTriangle,
-  Layers,
-};
+import {
+  conceptStageOrder,
+  conceptStages,
+  getConceptIcon,
+  groupConceptsByStage,
+} from "@/lib/conceptMeta";
 
 export default function ConceptsPage() {
   const conceptsJsonLd = {
@@ -45,6 +30,8 @@ export default function ConceptsPage() {
     },
   };
 
+  const stageGroups = groupConceptsByStage(concepts);
+
   return (
     <AppShell>
       <JsonLd data={conceptsJsonLd} />
@@ -58,54 +45,91 @@ export default function ConceptsPage() {
         <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
           Key Concepts
         </h1>
-        <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-10">
+        <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-4">
           Understanding the framework behind structured argumentation.
         </p>
+        <p className="text-base text-secondary leading-relaxed max-w-2xl mb-8">
+          The {concepts.length} concepts below are the stages of how every
+          Argumend map gets built: first the disagreement is framed fairly, then
+          the evidence is weighed and scored, then the reasoning is stress-tested
+          against what would actually change minds.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {concepts.map((concept, index) => {
-            const Icon = iconMap[concept.iconName] ?? BookOpen;
-            const firstParagraph = concept.description.split("\n\n")[0] ?? "";
-            const snippet =
-              firstParagraph.length > 180
-                ? firstParagraph.slice(0, 180) + "..."
-                : firstParagraph;
-
+        {/* Stage index — doubles as a jump-to-section nav */}
+        <nav aria-label="Method stages" className="flex flex-wrap gap-2 mb-14">
+          {conceptStageOrder.map((id) => {
+            const stage = conceptStages[id];
+            const count = stageGroups.find((g) => g.stage.id === id)?.items.length ?? 0;
             return (
-              <Link
-                key={concept.id}
-                href={`/concepts/${concept.id}`}
-                className="group bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:border-[#4f7b77]/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
-                style={{ animationDelay: `${index * 60}ms` }}
+              <a
+                key={id}
+                href={`#${id}`}
+                className={`inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${stage.chip}`}
               >
-                <div className="flex items-start gap-4">
-                  <div className="p-3.5 bg-gradient-to-br from-[#f5f1ea] to-[#ebe6de] dark:from-[#302e2a] dark:to-[#252420] rounded-xl border border-[#e8e0d4] dark:border-[#3d3a36] shadow-sm">
-                    <Icon className="h-6 w-6 text-deep" strokeWidth={1.8} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h2 className="font-serif text-xl text-primary mb-1 group-hover:text-deep transition-colors">
-                      {concept.title}
-                    </h2>
-                    <p className="text-primary leading-relaxed text-sm mb-3">
-                      {snippet}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1 text-deep text-sm font-medium">
-                        Learn more
-                        <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-                      </span>
-                      {concept.topicExamples.length > 0 && (
-                        <span className="text-[11px] text-muted dark:text-stone-500 bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 rounded-full">
-                          Used in {concept.topicExamples.length} topics
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </Link>
+                <span className="font-serif text-[13px] opacity-70">{stage.numeral}</span>
+                {stage.label}
+                <span className="opacity-60 tabular-nums">{count}</span>
+              </a>
             );
           })}
-        </div>
+        </nav>
+
+        {stageGroups.map(({ stage, items }) => (
+          <section key={stage.id} id={stage.id} className="mb-14 scroll-mt-20">
+            <div className="flex items-baseline gap-3 mb-2">
+              <span className={`font-serif text-2xl ${stage.iconText}`}>{stage.numeral}.</span>
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary">{stage.label}</h2>
+            </div>
+            <p className="text-secondary leading-relaxed max-w-2xl mb-6">{stage.description}</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {items.map((concept, index) => {
+                const Icon = getConceptIcon(concept.id);
+                const firstParagraph = concept.description.split("\n\n")[0] ?? "";
+                const snippet =
+                  firstParagraph.length > 180
+                    ? firstParagraph.slice(0, 180) + "..."
+                    : firstParagraph;
+
+                return (
+                  <Link
+                    key={concept.id}
+                    href={`/concepts/${concept.id}`}
+                    className={`group bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${stage.hoverBorder}`}
+                    style={{ animationDelay: `${index * 60}ms` }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div
+                        className={`flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-full ${stage.iconBg}`}
+                      >
+                        <Icon className={`h-5 w-5 ${stage.iconText}`} strokeWidth={1.8} />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-serif text-xl text-primary mb-1 group-hover:text-deep transition-colors">
+                          {concept.title}
+                        </h3>
+                        <p className="text-primary leading-relaxed text-sm mb-3">
+                          {snippet}
+                        </p>
+                        <div className="flex items-center justify-between">
+                          <span className="inline-flex items-center gap-1 text-deep text-sm font-medium">
+                            Learn more
+                            <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </span>
+                          {concept.topicExamples.length > 0 && (
+                            <span className="text-[11px] text-muted dark:text-stone-500 bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 rounded-full">
+                              Used in {concept.topicExamples.length} topics
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        ))}
 
         <div className="mt-10 bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-[#e8e0d4] dark:border-[#3d3a36]">
           <h2 className="font-serif text-xl text-primary mb-3">
