@@ -121,6 +121,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
         <button
           type="submit"
           disabled={loading}
+          aria-label={loading ? "Subscribing…" : "Subscribe"}
           className={`flex-shrink-0 bg-gradient-to-r from-rust-500 to-rust-600 hover:from-rust-600 hover:to-rust-700 text-white font-medium rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed ${
             isCompact ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"
           }`}

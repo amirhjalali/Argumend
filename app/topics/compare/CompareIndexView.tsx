@@ -286,6 +286,7 @@ function TopicPicker({
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={`Search topics to fill slot ${activeSlot.toUpperCase()}...`}
+          aria-label={`Search topics to fill slot ${activeSlot.toUpperCase()}`}
           className="w-full pl-10 pr-4 py-3 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
         />
         {search && (
@@ -440,6 +441,7 @@ export default function CompareIndexView({
                   value={searchPairs}
                   onChange={(e) => setSearchPairs(e.target.value)}
                   placeholder="Filter comparisons..."
+                  aria-label="Filter comparisons"
                   className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
                 />
               </div>
