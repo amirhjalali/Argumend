@@ -28,7 +28,7 @@ export function SynopticTable({ pillars }: { pillars: Pillar[] }) {
               <span className="md:hidden mb-1.5 block text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700">
                 Proponent says
               </span>
-              <p className="font-serif text-[15px] leading-relaxed text-primary">
+              <p className="font-serif text-[15px] leading-relaxed text-primary dark:text-stone-200">
                 {pillar.proponent_rebuttal}
               </p>
             </div>
@@ -36,7 +36,7 @@ export function SynopticTable({ pillars }: { pillars: Pillar[] }) {
               <span className="md:hidden mb-1.5 block text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-stone-700 dark:text-stone-300">
                 Skeptic says
               </span>
-              <p className="font-serif text-[15px] leading-relaxed text-primary">
+              <p className="font-serif text-[15px] leading-relaxed text-primary dark:text-stone-200">
                 {pillar.skeptic_premise}
               </p>
             </div>
@@ -49,7 +49,7 @@ export function SynopticTable({ pillars }: { pillars: Pillar[] }) {
             <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-[color:var(--crux-crimson,#a23b3b)]">
               Cruxes
             </span>
-            <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-secondary">
+            <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-secondary dark:text-stone-400">
               {pillars.map((pillar, idx) => (
                 <li key={pillar.crux.id} className="font-sans">
                   <span className="text-[color:var(--crux-crimson,#a23b3b)] font-semibold">
@@ -57,7 +57,7 @@ export function SynopticTable({ pillars }: { pillars: Pillar[] }) {
                   </span>{" "}
                   <a
                     href={`#crux-${pillar.crux.id}`}
-                    className="link-underline hover:text-primary"
+                    className="link-underline hover:text-primary dark:hover:text-stone-200"
                   >
                     {pillar.crux.title}
                   </a>

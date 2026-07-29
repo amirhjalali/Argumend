@@ -78,10 +78,10 @@ export default async function AnalysesPage() {
               <Brain className="h-3 w-3" />
               Analysis Archive
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
               Recent Analyses
             </h1>
-            <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mx-auto">
               Past analyses live here. Click any one to see the full
               breakdown, or share it with someone who disagrees with you.
             </p>
@@ -104,10 +104,10 @@ export default async function AnalysesPage() {
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-stone-100 dark:bg-[var(--bg-overlay)] mb-5">
                 <FileSearch className="h-7 w-7 text-muted dark:text-stone-400" strokeWidth={1.5} />
               </div>
-              <h3 className="font-serif text-lg text-primary mb-2">
+              <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">
                 Nothing here yet
               </h3>
-              <p className="text-secondary text-sm max-w-xs mx-auto mb-6 leading-relaxed">
+              <p className="text-secondary dark:text-stone-400 text-sm max-w-xs mx-auto mb-6 leading-relaxed">
                 This is where your analyses will live. Paste a debate, article, or
                 transcript and we&apos;ll do the rest.
               </p>
@@ -136,11 +136,11 @@ export default async function AnalysesPage() {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-serif text-base md:text-lg font-medium text-primary group-hover:text-deep transition-colors truncate">
+                        <h3 className="font-serif text-base md:text-lg font-medium text-primary dark:text-stone-200 group-hover:text-deep transition-colors truncate">
                           {analysis.topic}
                         </h3>
                         {analysis.summary && (
-                          <p className="mt-1.5 text-sm text-secondary line-clamp-2 leading-relaxed">
+                          <p className="mt-1.5 text-sm text-secondary dark:text-stone-400 line-clamp-2 leading-relaxed">
                             {analysis.summary}
                           </p>
                         )}
