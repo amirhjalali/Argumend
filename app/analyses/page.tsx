@@ -3,6 +3,7 @@ import { listAnalyses } from "@/lib/db/queries";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { formatShortDate } from "@/lib/formatDate";
 import {
   Brain,
   ChevronRight,
@@ -122,10 +123,7 @@ export default async function AnalysesPage() {
           ) : (
             <div className="space-y-3">
               {analyses.map((analysis, index) => {
-                const date = new Date(analysis.createdAt).toLocaleDateString(
-                  "en-US",
-                  { month: "short", day: "numeric", year: "numeric" }
-                );
+                const date = formatShortDate(analysis.createdAt);
                 const confidencePct = Math.round(analysis.confidence * 100);
                 return (
                   <Link

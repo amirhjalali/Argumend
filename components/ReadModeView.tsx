@@ -18,6 +18,7 @@ import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { FalsificationCrux } from "@/components/FalsificationCrux";
 import { FlagshipIntro } from "@/components/FlagshipIntro";
 import { categoryColors, statusColors } from "@/lib/categoryColors";
+import { formatLongDate } from "@/lib/formatDate";
 import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 
 // Labels + icons are local; chip colors come from the canonical, dark-mode-aware
@@ -283,7 +284,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             {/* ─── Provenance strip ─── */}
             <p className="mt-3 font-sans text-[11px] text-muted dark:text-[#8a8279]">
               {topic.last_updated ? (
-                <>Analyzed {formatDate(topic.last_updated)}</>
+                <>Analyzed {formatLongDate(topic.last_updated)}</>
               ) : (
                 <>Continuously reviewed</>
               )}
@@ -569,9 +570,3 @@ export function ReadModeView({ topic }: { topic: Topic }) {
   );
 }
 
-/** Format an ISO date string for the provenance strip. Falls back to the raw string. */
-function formatDate(iso: string): string {
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
-}
