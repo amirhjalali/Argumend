@@ -402,23 +402,23 @@ function DisagreementWarnings({ disagreements }: { disagreements: JudgingResult[
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.3 }}
-      className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 md:p-5"
+      className="bg-[color:var(--crux-crimson,#a23b3b)]/5 border border-[color:var(--crux-crimson,#a23b3b)]/30 rounded-xl p-4 md:p-5"
     >
       <div className="flex items-start gap-3">
-        <AlertTriangle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+        <AlertTriangle className="h-5 w-5 text-[color:var(--crux-crimson,#a23b3b)] flex-shrink-0 mt-0.5" />
         <div>
-          <h4 className="font-semibold text-yellow-800">Significant Disagreements Detected</h4>
-          <p className="text-sm text-yellow-700 mt-1">
+          <h4 className="font-semibold text-[color:var(--crux-crimson,#a23b3b)]">Significant Disagreements Detected</h4>
+          <p className="text-sm text-stone-700 dark:text-stone-300 mt-1">
             Judges had substantially different views on the following dimensions:
           </p>
           <ul className="mt-3 space-y-2">
             {disagreements.map((d) => (
               <li key={d.dimensionId} className="text-sm">
-                <span className="font-medium text-yellow-800">{d.dimensionName}</span>
-                <span className="text-yellow-600"> — {d.spread.toFixed(1)} point spread</span>
+                <span className="font-medium text-[color:var(--crux-crimson,#a23b3b)]">{d.dimensionName}</span>
+                <span className="text-stone-600 dark:text-stone-400"> — {d.spread.toFixed(1)} point spread</span>
                 <div className="flex gap-2 mt-1">
                   {d.scores.map((s) => (
-                    <span key={s.judgeId} className="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded">
+                    <span key={s.judgeId} className="text-xs bg-[color:var(--crux-crimson,#a23b3b)]/10 text-[color:var(--crux-crimson,#a23b3b)] px-2 py-0.5 rounded">
                       {s.judgeId}: {s.score}
                     </span>
                   ))}

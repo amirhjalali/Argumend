@@ -79,7 +79,7 @@ export function SavedClient() {
             className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-8 text-center"
             aria-hidden="true"
           >
-            <p className="text-muted">Loading your saved topics&hellip;</p>
+            <p className="text-muted dark:text-stone-400">Loading your saved topics&hellip;</p>
           </div>
         ) : savedTopics.length === 0 ? (
           <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-10 text-center">
@@ -102,7 +102,7 @@ export function SavedClient() {
         ) : (
           <>
             <div className="flex items-center justify-between mb-5">
-              <p className="text-sm text-muted">
+              <p className="text-sm text-muted dark:text-stone-400">
                 <span className="font-semibold text-stone-700 dark:text-stone-300 font-mono tabular-nums">
                   {savedTopics.length}
                 </span>{" "}
@@ -125,7 +125,7 @@ export function SavedClient() {
                       type="button"
                       onClick={() => remove(topic.id)}
                       aria-label={`Remove "${topic.title}" from saved`}
-                      className="absolute top-2.5 right-2.5 z-20 flex items-center justify-center h-8 w-8 rounded-lg text-stone-400 hover:text-rust-600 hover:bg-rust-50 dark:hover:bg-rust-900/40 transition-colors"
+                      className="absolute top-2.5 right-2.5 z-20 flex items-center justify-center h-8 w-8 rounded-lg text-muted dark:text-stone-400 hover:text-rust-600 hover:bg-rust-50 dark:hover:bg-rust-900/40 transition-colors"
                     >
                       <X className="h-4 w-4" />
                     </button>

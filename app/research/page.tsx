@@ -36,7 +36,7 @@ function InlineCitation({ ids, index }: { ids: string[]; index: Map<string, numb
             >
               [{num}]
             </a>
-            {i < ids.length - 1 && <span className="text-stone-400">,</span>}
+            {i < ids.length - 1 && <span className="text-muted dark:text-stone-400">,</span>}
           </sup>
         );
       })}
@@ -52,7 +52,7 @@ function formatAuthors(authors: string[]): string {
 function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) {
   return (
     <li id={`ref-${citation.id}`} className="flex gap-3 text-sm leading-relaxed scroll-mt-24">
-      <span className="text-muted font-mono text-xs mt-0.5 flex-shrink-0 w-6 text-right">
+      <span className="text-muted dark:text-stone-400 font-mono text-xs mt-0.5 flex-shrink-0 w-6 text-right">
         [{num}]
       </span>
       <div className="text-secondary">
@@ -75,7 +75,7 @@ function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) 
           </>
         )}
         {citation.accessDate && (
-          <span className="text-muted text-xs ml-1">
+          <span className="text-muted dark:text-stone-400 text-xs ml-1">
             (accessed {citation.accessDate})
           </span>
         )}
@@ -133,7 +133,7 @@ export default function ResearchPage() {
               { label: "Research" },
             ]}
           />
-          <p className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
+          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
             Research
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
@@ -231,7 +231,7 @@ export default function ResearchPage() {
 
         {/* Footer tagline */}
         <div className="pt-6 border-t border-stone-200/60 mt-8">
-          <p className="text-sm text-muted italic text-center">
+          <p className="text-sm text-muted dark:text-stone-400 italic text-center">
             All claims on this page are cited. If we got something wrong, tell us.
           </p>
         </div>

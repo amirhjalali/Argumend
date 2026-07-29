@@ -88,7 +88,7 @@ export default function GuidesPage() {
             ]}
           />
 
-          <p className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
+          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
             Foundational Guides
           </p>
 
@@ -102,7 +102,7 @@ export default function GuidesPage() {
             thinking -- from reading argument maps to recognizing bias.
           </p>
 
-          <p className="text-sm text-muted">
+          <p className="text-sm text-muted dark:text-stone-400">
             {guides.length} guides &middot; Approx. 75 min total reading time
           </p>
         </div>
@@ -174,7 +174,7 @@ export default function GuidesPage() {
                   </p>
 
                   {/* Section count */}
-                  <p className="text-xs text-muted mb-4">
+                  <p className="text-xs text-muted dark:text-stone-400 mb-4">
                     <BookOpen className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />
                     {sectionCount} sections
                   </p>
@@ -289,7 +289,7 @@ export default function GuidesPage() {
                               >
                                 {step.label}
                               </span>
-                              <span className="text-xs text-muted">
+                              <span className="text-xs text-muted dark:text-stone-400">
                                 {guide.readTime}
                               </span>
                             </div>

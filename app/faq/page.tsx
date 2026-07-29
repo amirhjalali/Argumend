@@ -34,7 +34,7 @@ export default function FAQPage() {
           <p className="text-lg text-secondary leading-relaxed max-w-2xl">
             The questions people actually ask us, answered honestly.
           </p>
-          <p className="mt-4 text-sm font-medium text-muted">
+          <p className="mt-4 text-sm font-medium text-muted dark:text-stone-400">
             {faqs.length} questions · tap any to expand
           </p>
         </div>
@@ -52,7 +52,7 @@ export default function FAQPage() {
                   {faq.question}
                 </h2>
                 <svg
-                  className="h-5 w-5 flex-shrink-0 text-stone-400 transition-transform duration-200 group-open:rotate-180"
+                  className="h-5 w-5 flex-shrink-0 text-muted dark:text-stone-400 transition-transform duration-200 group-open:rotate-180"
                   viewBox="0 0 20 20"
                   fill="none"
                   stroke="currentColor"

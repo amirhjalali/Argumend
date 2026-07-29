@@ -47,7 +47,7 @@ function TocLinks({
           <a
             href={`#${h.id}`}
             className={`block leading-snug transition-colors hover:text-deep ${
-              h.level === 3 ? "text-muted" : "text-secondary"
+              h.level === 3 ? "text-muted dark:text-stone-400" : "text-secondary"
             }`}
           >
             {h.text}
@@ -87,7 +87,7 @@ export function TableOfContents({
             <List className="h-4 w-4 text-deep" strokeWidth={1.75} />
             {label}
           </span>
-          <ChevronDown className="h-4 w-4 text-muted transition-transform duration-200 group-open:rotate-180" />
+          <ChevronDown className="h-4 w-4 text-muted dark:text-stone-400 transition-transform duration-200 group-open:rotate-180" />
         </summary>
         <nav aria-label="Table of contents" className="px-4 pb-4 pt-1">
           <TocLinks headings={headings} keyPrefix="m" />
@@ -100,7 +100,7 @@ export function TableOfContents({
           aria-label="Table of contents"
           className="pointer-events-auto sticky top-24 ml-6 max-h-[calc(100vh-8rem)] w-52 overflow-y-auto"
         >
-          <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-wide text-muted">
+          <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-wide text-muted dark:text-stone-400">
             On this page
           </p>
           <TocLinks headings={headings} keyPrefix="d" />

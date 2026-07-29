@@ -199,7 +199,7 @@ export default async function GuidePage({ params }: PageProps) {
                   strokeWidth={1.5}
                 />
               </div>
-              <div className="flex items-center gap-3 text-sm text-muted">
+              <div className="flex items-center gap-3 text-sm text-muted dark:text-stone-400">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep">
                   Foundational Guide
                 </span>
@@ -316,7 +316,7 @@ export default async function GuidePage({ params }: PageProps) {
                 >
                   <div>
                     <span className="font-medium text-primary">{item.title}</span>
-                    <span className="text-muted mx-2">by</span>
+                    <span className="text-muted dark:text-stone-400 mx-2">by</span>
                     <span className="text-secondary">{item.author}</span>
                   </div>
                   {item.url && (
@@ -336,7 +336,7 @@ export default async function GuidePage({ params }: PageProps) {
 
           {/* Navigation */}
           <nav className="mt-14 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-            <p className="text-sm text-muted mb-5 font-medium">Continue learning</p>
+            <p className="text-sm text-muted dark:text-stone-400 mb-5 font-medium">Continue learning</p>
             <div className="grid md:grid-cols-2 gap-3">
               {guides
                 .filter((g) => g.id !== guide.id)
@@ -363,7 +363,7 @@ export default async function GuidePage({ params }: PageProps) {
                         <p className="font-medium text-primary group-hover:text-deep transition-colors truncate">
                           {otherGuide.title}
                         </p>
-                        <p className="text-xs text-muted truncate">
+                        <p className="text-xs text-muted dark:text-stone-400 truncate">
                           {otherGuide.subtitle}
                         </p>
                       </div>

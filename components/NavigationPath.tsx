@@ -86,7 +86,7 @@ export function NavigationPath() {
         {path.map((item, index) => (
           <li key={item.id} className="flex items-center">
             {index > 0 && (
-              <ChevronRight className="h-3 w-3 text-muted mx-1 flex-shrink-0" aria-hidden="true" />
+              <ChevronRight className="h-3 w-3 text-muted dark:text-stone-400 mx-1 flex-shrink-0" aria-hidden="true" />
             )}
             <button
               onClick={() => handleNodeClick(item.id)}

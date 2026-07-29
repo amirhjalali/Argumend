@@ -298,12 +298,12 @@ export default function ForEducatorsPage() {
                 className="bg-[#fefcf9] rounded-xl border border-stone-200/60 p-5 md:p-6"
               >
                 <div className="flex items-baseline gap-3 mb-1">
-                  <span className="font-mono text-sm font-bold text-stone-400">{plan.number}</span>
+                  <span className="font-mono text-sm font-bold text-muted dark:text-stone-400">{plan.number}</span>
                   <h3 className="font-serif text-lg font-semibold text-primary">
                     {plan.title}
                   </h3>
                 </div>
-                <p className="text-xs text-stone-400 font-mono mb-3">{plan.duration}</p>
+                <p className="text-xs text-muted dark:text-stone-400 font-mono mb-3">{plan.duration}</p>
                 <ul className="space-y-2">
                   {plan.steps.map((step, i) => (
                     <li key={i} className="flex items-start gap-2.5">

@@ -114,7 +114,7 @@ export default async function TagPage({ params }: PageProps) {
                 { label: `Tag: "${tag}"` },
               ]}
             />
-            <p className="text-xs font-medium uppercase tracking-widest text-stone-400 mb-4">
+            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
               Tag
             </p>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
@@ -143,11 +143,11 @@ export default async function TagPage({ params }: PageProps) {
                     <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
                       {article.category}
                     </span>
-                    <span className="flex items-center gap-1 text-xs text-stone-400">
+                    <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                       <Calendar className="h-3 w-3" />
                       {formatDate(article.publishedAt)}
                     </span>
-                    <span className="flex items-center gap-1 text-xs text-stone-400">
+                    <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                       <Clock className="h-3 w-3" />
                       {article.readingTime}
                     </span>

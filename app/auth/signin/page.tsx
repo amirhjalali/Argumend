@@ -75,7 +75,7 @@ export default async function SignInPage() {
           </form>
 
           {/* Security note */}
-          <div className="mt-5 flex items-start gap-2 text-xs text-muted">
+          <div className="mt-5 flex items-start gap-2 text-xs text-muted dark:text-stone-400">
             <ShieldCheck className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" />
             <span>
               We only request your name and email. Your data stays private.

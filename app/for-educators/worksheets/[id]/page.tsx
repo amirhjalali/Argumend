@@ -580,7 +580,7 @@ export default async function WorksheetPage({ params }: PageProps) {
 
         {/* Footer */}
         <footer className="mt-10 pt-4 border-t border-stone-300 dark:border-stone-600 text-center">
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-muted dark:text-stone-400">
             argumend.org/for-educators &mdash; Free for classroom use
           </p>
         </footer>
