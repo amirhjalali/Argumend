@@ -323,7 +323,7 @@ export default function AnalyzePage() {
   }, []);
 
   return (
-    <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary">
+    <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary dark:text-stone-200">
       <TopBar onMenuClick={sidebar.toggle} />
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
@@ -385,10 +385,10 @@ export default function AnalyzePage() {
                   </div>
                 )}
               </div>
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
                 Analyze Any Argument
               </h1>
-              <p className="text-lg text-secondary leading-relaxed max-w-2xl mx-auto">
+              <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mx-auto">
                 Paste a debate, an article, or anything with an argument in it. In seconds,
                 we&apos;ll surface every position, pinpoint the crux that divides them, and rate
                 how strong the reasoning really is.
@@ -438,7 +438,7 @@ export default function AnalyzePage() {
                 {/* Text Input */}
                 <div className="bg-white dark:bg-[var(--bg-card)] rounded-2xl border border-stone-200/60 dark:border-[var(--border-default)] p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                    <label className="text-sm font-serif font-semibold text-primary">
+                    <label className="text-sm font-serif font-semibold text-primary dark:text-stone-200">
                       Content to Analyze
                     </label>
                     <div className="flex items-center gap-2">
@@ -633,7 +633,7 @@ export default function AnalyzePage() {
                     <MessageSquare className="h-3.5 w-3.5" />
                     Identified Topic
                   </div>
-                  <h2 className="mt-4 font-serif text-2xl sm:text-3xl text-primary mb-4">
+                  <h2 className="mt-4 font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
                     {result.extracted.topic}
                   </h2>
                   <p className="mt-2 text-stone-500 dark:text-stone-400 text-sm max-w-xl mx-auto leading-relaxed">
@@ -651,7 +651,7 @@ export default function AnalyzePage() {
                   transition={{ duration: 0.4, delay: 0.25 }}
                   className="space-y-4"
                 >
-                  <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
+                  <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2 flex items-center gap-2">
                     <FileText className="h-4 w-4 text-deep" />
                     Extracted Positions
                   </h3>
@@ -676,7 +676,7 @@ export default function AnalyzePage() {
                     transition={{ duration: 0.4, delay: 0.35 }}
                     className="space-y-4"
                   >
-                    <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
+                    <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2 flex items-center gap-2">
                       <Target className="h-4 w-4 text-deep" />
                       Key Cruxes
                       <span className="text-sm font-sans font-normal text-muted dark:text-[var(--text-muted)]">
@@ -699,7 +699,7 @@ export default function AnalyzePage() {
                     transition={{ duration: 0.4, delay: 0.45 }}
                     className="space-y-4"
                   >
-                    <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
+                    <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2 flex items-center gap-2">
                       <AlertTriangle className="h-4 w-4 text-rust-500" />
                       Potential Fallacies
                       <span className="text-sm font-sans font-normal text-muted dark:text-[var(--text-muted)]">

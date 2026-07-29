@@ -69,10 +69,10 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
         {/* Product value proposition — the 5-second "what is this".
             NOTE: hero copy — flagged for founder review. */}
         <div className="text-center space-y-2">
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 leading-[1.08]">
             See both sides of any controversial topic, mapped
           </h1>
-          <p className="font-sans text-base md:text-lg text-secondary max-w-xl mx-auto leading-relaxed">
+          <p className="font-sans text-base md:text-lg text-secondary dark:text-stone-400 max-w-xl mx-auto leading-relaxed">
             Steel-manned arguments, weighted evidence, and the crux that would
             change your mind — across {TOPIC_COUNT_LABEL} topics.
           </p>
@@ -83,7 +83,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
           <p className="text-xs font-medium text-deep/70 tracking-widest uppercase">
             Featured Analysis
           </p>
-          <h2 className="font-serif text-2xl sm:text-3xl tracking-tight text-primary leading-[1.12]">
+          <h2 className="font-serif text-2xl sm:text-3xl tracking-tight text-primary dark:text-stone-200 leading-[1.12]">
             {summary.title}
           </h2>
           {featuredReason && (
@@ -115,7 +115,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
                 The Crux
               </span>
             </div>
-            <h3 className="font-serif text-lg font-semibold text-primary mb-1.5">
+            <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 mb-1.5">
               {crux.title}
             </h3>
             <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
@@ -132,7 +132,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
                 <span className="text-xs font-semibold text-deep tracking-wide uppercase">
                   Strongest For
                 </span>
-                <p className="mt-2 text-sm font-medium text-primary leading-snug">
+                <p className="mt-2 text-sm font-medium text-primary dark:text-stone-200 leading-snug">
                   {forEvidence.title}
                 </p>
                 <div className="mt-2 flex items-center gap-2">
@@ -154,7 +154,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
                 <span className="text-xs font-semibold text-rust-600 dark:text-rust-400 tracking-wide uppercase">
                   Strongest Against
                 </span>
-                <p className="mt-2 text-sm font-medium text-primary leading-snug">
+                <p className="mt-2 text-sm font-medium text-primary dark:text-stone-200 leading-snug">
                   {againstEvidence.title}
                 </p>
                 <div className="mt-2 flex items-center gap-2">
