@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   title: "Dashboard",
   description: "Your saved topics and recent debate history.",
   robots: { index: false, follow: false },
+  alternates: {
+    canonical: "https://argumend.org/dashboard",
+  },
 };
 
 const statusIcons: Record<TopicStatus, typeof CheckCircle> = {

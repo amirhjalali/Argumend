@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     "Topics you've bookmarked on this device — pick up any argument map right where you left off.",
   // Utility page: keep it out of the index, but let crawlers follow its links.
   robots: { index: false, follow: true },
+  alternates: {
+    canonical: "https://argumend.org/saved",
+  },
 };
 
 export default function SavedPage() {
