@@ -11,7 +11,12 @@ const config: Config = {
     // guideMeta, libraryMeta, questionMeta, …) hold class strings that pages
     // only interpolate, so they must be scanned or those utilities
     // (border-l-crux/50, hover:border-skeptic/40, …) are never generated.
+    // Excludes *.test.ts: several lib/ test files embed raw regex source
+    // (e.g. the dark-mode-token guards' `(?<![-:\w])` lookbehinds) whose
+    // text the scanner otherwise misreads as arbitrary-value candidate
+    // classes, producing invalid generated CSS and breaking the build.
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
+    "!./lib/**/*.test.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
