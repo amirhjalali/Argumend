@@ -1,39 +1,21 @@
 import Link from "next/link";
-import { ExternalLink, BookOpen, Library as LibraryIcon, ArrowRight } from "lucide-react";
+import { ExternalLink, Library as LibraryIcon, ArrowRight } from "lucide-react";
 import { topics } from "@/data/topics";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { BalanceWeightChip } from "@/components/BalanceWeightChip";
-
-const externalResources = [
-  {
-    category: "Epistemology & Reasoning",
-    resources: [
-      { title: "Stanford Encyclopedia of Philosophy", url: "https://plato.stanford.edu/", description: "Comprehensive academic philosophy resource" },
-      { title: "LessWrong", url: "https://www.lesswrong.com/", description: "Community blog focused on rationality and reasoning" },
-      { title: "Rationality: From AI to Zombies", url: "https://www.readthesequences.com/", description: "Eliezer Yudkowsky's foundational rationality sequence" },
-    ],
-  },
-  {
-    category: "Scientific Method",
-    resources: [
-      { title: "The Logic of Scientific Discovery", url: "https://en.wikipedia.org/wiki/The_Logic_of_Scientific_Discovery", description: "Karl Popper's foundational work on falsificationism" },
-      { title: "Cochrane Library", url: "https://www.cochranelibrary.com/", description: "Systematic reviews of healthcare interventions" },
-      { title: "Our World in Data", url: "https://ourworldindata.org/", description: "Research and data on global problems" },
-    ],
-  },
-  {
-    category: "Critical Thinking",
-    resources: [
-      { title: "Thinking, Fast and Slow", url: "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow", description: "Daniel Kahneman on cognitive biases" },
-      { title: "The Scout Mindset", url: "https://www.juliagalef.com/book/", description: "Julia Galef on truth-seeking vs. advocacy" },
-      { title: "Superforecasting", url: "https://en.wikipedia.org/wiki/Superforecasting", description: "Philip Tetlock on prediction and calibration" },
-    ],
-  },
-];
+import {
+  libraryShelfOrder,
+  libraryShelves,
+  libraryResources,
+  libraryCatalogNumbers,
+  groupResourcesByShelf,
+} from "@/lib/libraryMeta";
 
 export default function LibraryPage() {
+  const shelfGroups = groupResourcesByShelf();
+
   return (
     <AppShell>
       <JsonLd
@@ -48,6 +30,16 @@ export default function LibraryPage() {
             "@type": "WebSite",
             name: "ARGUMEND",
             url: "https://argumend.org",
+          },
+          mainEntity: {
+            "@type": "ItemList",
+            numberOfItems: libraryResources.length,
+            itemListElement: libraryResources.map((resource, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: resource.title,
+              url: resource.url,
+            })),
           },
         }}
       />
@@ -110,42 +102,99 @@ export default function LibraryPage() {
             </div>
           </section>
 
-          {/* Recommended Reading */}
+          {/* Recommended Reading — three shelves, one distinct entry per card */}
           <section className="mb-16 md:mb-24">
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">
               Recommended Reading
             </h2>
-            <div className="space-y-8">
-              {externalResources.map((category, catIdx) => (
-                <div key={category.category}>
-                  <h3 className="font-serif text-lg text-primary mb-2 flex items-center gap-2">
-                    <BookOpen className="h-4 w-4 text-deep" strokeWidth={1.8} />
-                    {category.category}
-                  </h3>
-                  <div className="space-y-2">
-                    {category.resources.map((resource, resIdx) => (
-                      <a
-                        key={resource.title}
-                        href={resource.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center justify-between bg-white/80 dark:bg-[#252420]/80 rounded-xl px-5 py-4 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
-                        style={{ animationDelay: `${(catIdx * 3 + resIdx) * 50}ms` }}
-                      >
-                        <div>
-                          <h4 className="font-medium text-primary group-hover:text-deep transition-colors">
-                            {resource.title}
-                          </h4>
-                          <p className="text-sm text-secondary mt-0.5">
-                            {resource.description}
-                          </p>
-                        </div>
-                        <ExternalLink className="h-4 w-4 text-muted group-hover:text-deep transition-colors flex-shrink-0 ml-4" />
-                      </a>
-                    ))}
+            <p className="text-secondary leading-relaxed max-w-2xl mb-6">
+              {libraryResources.length} sources, sorted onto {shelfGroups.length}{" "}
+              shelves by the kind of thinking they teach — where the concepts
+              come from, how claims get tested, and why your own judgment slips.
+            </p>
+
+            {/* Shelf index — doubles as a jump-to-section nav */}
+            <nav aria-label="Library shelves" className="flex flex-wrap gap-2 mb-10">
+              {libraryShelfOrder.map((id) => {
+                const shelf = libraryShelves[id];
+                const count =
+                  shelfGroups.find((g) => g.shelf.id === id)?.items.length ?? 0;
+                return (
+                  <a
+                    key={id}
+                    href={`#${id}`}
+                    className={`inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${shelf.chip}`}
+                  >
+                    <span className="font-serif text-[13px] opacity-70">{shelf.numeral}</span>
+                    {shelf.label}
+                    <span className="opacity-60 tabular-nums">{count}</span>
+                  </a>
+                );
+              })}
+            </nav>
+
+            <div className="space-y-12">
+              {shelfGroups.map(({ shelf, items }) => {
+                const ShelfIcon = shelf.icon;
+                return (
+                  <div key={shelf.id} id={shelf.id} className="scroll-mt-20">
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span className={`font-serif text-2xl ${shelf.iconText}`}>
+                        {shelf.numeral}.
+                      </span>
+                      <h3 className="font-serif text-xl sm:text-2xl text-primary flex items-center gap-2">
+                        <ShelfIcon className={`h-5 w-5 ${shelf.iconText}`} strokeWidth={1.8} />
+                        {shelf.label}
+                      </h3>
+                    </div>
+                    <p className="text-secondary leading-relaxed max-w-2xl mb-5">
+                      {shelf.description}
+                    </p>
+
+                    <div className="space-y-2.5">
+                      {items.map((resource) => {
+                        const Icon = resource.icon;
+                        const num = libraryCatalogNumbers.get(resource.title) ?? 0;
+                        return (
+                          <a
+                            key={resource.title}
+                            href={resource.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`group relative flex items-start gap-4 bg-white/80 dark:bg-[#252420]/80 rounded-xl px-5 py-4 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${shelf.hoverBorder}`}
+                            style={{ animationDelay: `${(num - 1) * 50}ms` }}
+                          >
+                            <div
+                              className={`flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-full ${shelf.iconBg}`}
+                            >
+                              <Icon className={`h-5 w-5 ${shelf.iconText}`} strokeWidth={1.8} />
+                            </div>
+                            <div className="flex-1 min-w-0 pr-6">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <h4 className="font-medium text-primary group-hover:text-deep transition-colors">
+                                  {resource.title}
+                                </h4>
+                                <span className={`text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded border ${shelf.chip}`}>
+                                  {resource.kind}
+                                </span>
+                              </div>
+                              <p className="text-sm text-secondary mt-0.5">
+                                {resource.description}
+                              </p>
+                            </div>
+                            <div className="flex-shrink-0 flex flex-col items-end gap-2">
+                              <span className="text-[11px] font-mono tabular-nums text-muted/70 dark:text-stone-500/70">
+                                No. {String(num).padStart(2, "0")}
+                              </span>
+                              <ExternalLink className="h-4 w-4 text-muted group-hover:text-deep transition-colors" />
+                            </div>
+                          </a>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
 
