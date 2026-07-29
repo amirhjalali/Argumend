@@ -79,7 +79,7 @@ const countBare = (src: string): number => src.match(BARE_BRAND_TEXT)?.length ??
  * the migration proceeds; never raise it. Recomputed after the 2026-07-29
  * dark-mode burst-fix merge landed all six parallel chunks.
  */
-const BARE_TOKEN_CEILING = 255;
+const BARE_TOKEN_CEILING = 152;
 
 describe("dark-mode text token guard (text-primary / text-secondary) — repo-wide ratchet", () => {
   const cwd = process.cwd();
