@@ -22,6 +22,7 @@ import dynamic from "next/dynamic";
 import { AppShell } from "@/components/AppShell";
 import { ShareButtons } from "@/components/ShareButtons";
 import { ConfidenceGauge } from "@/components/ConfidenceGauge";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 // Heavy component — only rendered when judging result exists
 const JudgingResults = dynamic(
@@ -485,7 +486,7 @@ function RelatedTopicCard({ topic }: { topic: TopicSummary }) {
         <p className="text-xs text-secondary line-clamp-2 leading-relaxed">
           {topic.meta_claim}
         </p>
-        <ConfidenceBadge score={topic.confidence_score} />
+        <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} />
       </div>
     </Link>
   );

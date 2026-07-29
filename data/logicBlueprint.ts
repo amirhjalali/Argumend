@@ -34,7 +34,7 @@ export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
       title: topic.title,
       subtitle: "Meta Claim",
       content: topic.meta_claim,
-      score: topic.confidence_score,
+      score: topic.balance,
       imageUrl: topic.imageUrl,
       references: topic.references ?? [],
       children: rootChildren,

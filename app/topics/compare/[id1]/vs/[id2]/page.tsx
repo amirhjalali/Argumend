@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { topics, CATEGORY_LABELS } from "@/data/topics";
-import { getVerdictLabel, calculateEvidenceScore } from "@/lib/schemas/topic";
+import { calculateEvidenceScore } from "@/lib/schemas/topic";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { COMPARISON_PAIRS } from "@/app/topics/compare/comparisonPairs";

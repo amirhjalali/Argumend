@@ -89,3 +89,42 @@ export const EXAMPLE_ANALYSIS_TEXT = `The debate over nuclear energy has intensi
 Critics counter that nuclear is too expensive and too slow to build. The Vogtle plant in Georgia came in at $35 billion, more than double its original estimate. Meanwhile, solar and wind costs have plummeted 90% in a decade. There are also unresolved questions about waste storage — the US still has no permanent repository despite decades of trying.
 
 Supporters respond that newer reactor designs like SMRs could dramatically cut costs and construction times, and that the waste problem is more political than technical — Finland's Onkalo facility proves deep geological storage works. The real question may be whether we can afford to exclude any zero-carbon source while facing a climate emergency.`;
+
+// ---------------------------------------------------------------------------
+// Two-axis confidence: Balance (tilt) + Weight (how much we know)
+// Spec: docs/superpowers/specs/2026-07-14-two-axis-confidence-design.md
+// ALL thresholds/coefficients for balance, weight, and verdicts live here.
+// ---------------------------------------------------------------------------
+
+/** Lean-magnitude thresholds on d = |balance − 50|. */
+export const BALANCE = {
+  /** d below this reads as an even split */
+  EVEN_D: 7,
+  /** d below this reads as a lean */
+  LEAN_D: 20,
+  /** d below this reads as "clearly favors"; at or above = "strongly favors" */
+  CLEAR_D: 38,
+} as const;
+
+/** Weight-of-evidence formula coefficients. Calibrated in Task 3 — treat the
+ *  values below as starting points; the calibration script is the authority. */
+export const WEIGHT = {
+  /** Mass saturation: M = 1 − exp(−Σstrength / MASS_K). 250 ≈ 16 strong items → ~0.85 */
+  MASS_K: 250,
+  /** Component weights — must sum to 1 */
+  W_MASS: 0.5,
+  W_QUALITY: 0.3,
+  W_RESOLVABILITY: 0.2,
+  /** Weight floor for topics authored as status "settled" */
+  SETTLED_FLOOR: 82,
+} as const;
+
+/** 2-D verdict thresholds. */
+export const VERDICT = {
+  /** weight ≥ this → well-evidenced half of the matrix */
+  HIGH_WEIGHT: 65,
+  /** weight < this → "Open question" */
+  LOW_WEIGHT: 35,
+  /** d = |balance − 50| ≥ this (with high weight) → "Settled" */
+  SETTLED_D: 20,
+} as const;

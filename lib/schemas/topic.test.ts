@@ -3,9 +3,9 @@ import {
   TopicSchema,
   EvidenceSchema,
   PillarSchema,
-  computeConfidenceScore,
+  computeBalance,
+  getVerdict,
   calculateEvidenceScore,
-  getVerdictLabel,
   parseTopic,
   safeParseTopics,
 } from "./topic";
@@ -119,6 +119,9 @@ describe("TopicSchema", () => {
     title: "Test Topic",
     meta_claim: "A claim",
     confidence_score: 75,
+    balance: 75,
+    weight: 60,
+    verdict: { label: "Leans toward the claim — moderately evidenced", quadrant: "moderate" },
     status: "contested",
     category: "policy",
     pillars: [
@@ -157,9 +160,23 @@ describe("TopicSchema", () => {
     const result = TopicSchema.safeParse(invalidTopic);
     expect(result.success).toBe(false);
   });
+
+  it("rejects balance/weight outside 0-100", () => {
+    expect(TopicSchema.safeParse({ ...validTopic, balance: 150 }).success).toBe(false);
+    expect(TopicSchema.safeParse({ ...validTopic, weight: -5 }).success).toBe(false);
+  });
+
+  it("rejects an invalid verdict quadrant", () => {
+    expect(
+      TopicSchema.safeParse({
+        ...validTopic,
+        verdict: { label: "x", quadrant: "sideways" },
+      }).success
+    ).toBe(false);
+  });
 });
 
-describe("computeConfidenceScore", () => {
+describe("computeBalance", () => {
   it("returns 50 for empty evidence", () => {
     const pillars = [
       {
@@ -180,7 +197,7 @@ describe("computeConfidenceScore", () => {
       },
     ];
 
-    expect(computeConfidenceScore(pillars)).toBe(50);
+    expect(computeBalance(pillars)).toBe(50);
   });
 
   it("calculates higher score when for evidence outweighs against", () => {
@@ -219,7 +236,7 @@ describe("computeConfidenceScore", () => {
       },
     ];
 
-    const score = computeConfidenceScore(pillars);
+    const score = computeBalance(pillars);
     expect(score).toBeGreaterThan(50);
     expect(score).toBeLessThanOrEqual(100);
   });
@@ -249,12 +266,12 @@ describe("calculateEvidenceScore", () => {
   });
 });
 
-describe("getVerdictLabel", () => {
-  it("returns correct labels for different score ranges", () => {
-    expect(getVerdictLabel(98)).toBe("Established beyond reasonable doubt");
-    expect(getVerdictLabel(80)).toBe("Preponderance of evidence supports");
-    expect(getVerdictLabel(60)).toBe("Evidence leans toward, but contested");
-    expect(getVerdictLabel(30)).toBe("Insufficient evidence");
+describe("getVerdict", () => {
+  it("returns 2-D verdicts", () => {
+    expect(getVerdict(80, 80).quadrant).toBe("settled");
+    expect(getVerdict(52, 70).quadrant).toBe("contested");
+    expect(getVerdict(60, 50).quadrant).toBe("moderate");
+    expect(getVerdict(60, 20).quadrant).toBe("open");
   });
 });
 

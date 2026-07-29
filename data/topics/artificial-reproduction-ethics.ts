@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const artificialReproductionEthicsData = {
   id: "artificial-reproduction-ethics",
@@ -281,4 +281,4 @@ export const artificialReproductionEthicsData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

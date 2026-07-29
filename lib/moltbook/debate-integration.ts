@@ -58,7 +58,7 @@ export class MoltbookDebateService {
    * Format a topic for posting to Moltbook
    */
   private formatTopicPost(topic: Topic): { title: string; content: string } {
-    const title = `[DEBATE] ${topic.title} - ${topic.confidence_score}% Confidence`;
+    const title = `[DEBATE] ${topic.title} — ${topic.verdict.label}`;
 
     const pillarsContent = topic.pillars.map((pillar, i) => `
 ### ${i + 1}. ${pillar.title}
@@ -76,14 +76,14 @@ ${pillar.short_summary}
 
 **Meta Claim:** ${topic.meta_claim}
 
-**Current Confidence Score:** ${topic.confidence_score}%
+**Balance of evidence:** ${topic.balance}/100 · **Weight:** ${topic.weight}/100
 **Status:** ${topic.status}
 
 ---
 
 ## The Question
 
-We're seeking structured arguments on this topic. The current evidence leans ${topic.confidence_score >= 50 ? "toward supporting" : "against"} the claim, but we welcome well-reasoned arguments from all perspectives.
+We're seeking structured arguments on this topic. The current evidence leans ${topic.balance >= 50 ? "toward supporting" : "against"} the claim, but we welcome well-reasoned arguments from all perspectives.
 
 ## Key Pillars of Debate
 

@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const childrenSmartphoneAgeData = {
   id: "children-smartphone-age",
@@ -247,4 +247,4 @@ export const childrenSmartphoneAgeData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

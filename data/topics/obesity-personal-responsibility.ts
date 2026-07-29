@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const obesityPersonalResponsibilityData = {
   id: "obesity-personal-responsibility",
@@ -364,6 +364,4 @@ export const obesityPersonalResponsibilityData = {
         "GLP-1 drugs like semaglutide produce roughly 15% mean weight loss (and tirzepatide about 22%) — magnitudes previously achievable only through surgery — by correcting impaired gut-brain signaling. The SELECT trial showed cardiovascular benefits beyond weight loss, suggesting metabolic disease pathways. But about two-thirds of the lost weight returns within a year of stopping the drug, and US list prices run roughly $1,000-1,350/month. Is GLP-1 efficacy proof that obesity requires medical treatment like any other disease, or evidence that pharmaceutical companies have found a profitable way to treat symptoms while ignoring root causes?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

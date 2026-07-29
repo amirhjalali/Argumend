@@ -14,8 +14,8 @@ const principles = [
     description: "Every disagreement has a crux—the specific evidence that would change minds. We find it and make it explicit. This is where understanding happens.",
   },
   {
-    title: "Calibrated Confidence",
-    description: "We report uncertainty honestly. 90%+ means overwhelming evidence. 45% means genuinely contested. We never pretend to know more than we do.",
+    title: "Balance & Weight",
+    description: "We report uncertainty honestly, on two axes. Balance shows which way the evidence tips; weight shows how much of it there is. A 50/50 balance with high weight is genuinely contested—not the same as a 50/50 balance with barely any evidence.",
   },
   {
     title: "Source Transparency",
@@ -154,35 +154,47 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Confidence Explainer */}
+        {/* Balance & Weight Explainer */}
         <section className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-2xl p-6 md:p-8 mb-16 md:mb-24 border border-stone-200/60 dark:border-[var(--border-default)]">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Understanding confidence scores</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">Understanding balance and weight</h2>
           <p className="text-sm text-secondary mb-6">
-            We don&apos;t claim to know the truth. We show you how confident the evidence makes us&mdash;and let you decide.
+            We don&apos;t claim to know the truth. Balance shows which way the evidence tips; weight shows how much of it there is&mdash;together they let you decide.
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-deep text-2xl font-bold w-16 text-center">
-                90%+
+              <span className="font-mono tabular-nums text-deep text-sm font-bold w-24 text-center">
+                high weight
+                <br />
+                strong lean
               </span>
               <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Settled</strong> — Overwhelming evidence, scientific consensus
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Settled</strong> — evidence strongly favors one side
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-deep text-2xl font-bold w-16 text-center">
-                50-89%
+              <span className="font-mono tabular-nums text-deep text-sm font-bold w-24 text-center">
+                high weight
+                <br />
+                weak lean
               </span>
               <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Probable</strong> — Good evidence, some uncertainty remains
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Well-mapped, genuinely contested</strong> — richly evidenced, still split
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-deep text-2xl font-bold w-16 text-center">
-                &lt;50%
+              <span className="font-mono tabular-nums text-rust-500 text-sm font-bold w-24 text-center">
+                medium weight
               </span>
               <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Contested</strong> — Genuine uncertainty, reasonable people disagree
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Leans / Balanced</strong> — moderately evidenced
+              </p>
+            </div>
+            <div className="flex items-center gap-4">
+              <span className="font-mono tabular-nums text-[#a23b3b] text-sm font-bold w-24 text-center">
+                low weight
+              </span>
+              <p className="text-sm text-stone-600 dark:text-stone-400">
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Open question</strong> — limited evidence so far
               </p>
             </div>
           </div>

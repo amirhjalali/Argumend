@@ -19,6 +19,9 @@ import type { TopicCategory } from "@/data/topicIndex";
 import { categoryColors } from "@/lib/categoryColors";
 import { articleSummaries } from "@/data/blogIndex";
 import { concepts } from "@/data/concepts";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
+import { BALANCE } from "@/lib/constants";
+import type { Verdict } from "@/lib/schemas/topic";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -34,7 +37,9 @@ interface SearchResult {
   href: string;
   // Topic-specific fields
   category?: TopicCategory;
-  confidenceScore?: number;
+  balance?: number;
+  weight?: number;
+  verdict?: Verdict;
   // Extra searchable text (not rendered) — indexed by MiniSearch
   meta_claim?: string;
   categoryText?: string;
@@ -141,10 +146,12 @@ const FEATURED_TOPIC_IDS = [
 // Helpers
 // ---------------------------------------------------------------------------
 
-function getVerdictInfo(score: number): { label: string; color: string } {
-  if (score >= 65) return { label: "For", color: "text-rust-600" };
-  if (score <= 35) return { label: "Against", color: "text-deep" };
-  return { label: "Draw", color: "text-stone-500" };
+function getLeanInfo(balance: number): { label: string; color: string } {
+  const d = Math.abs(balance - 50);
+  if (d < BALANCE.EVEN_D) return { label: "Draw", color: "text-stone-500" };
+  return balance >= 50
+    ? { label: "For", color: "text-rust-600" }
+    : { label: "Against", color: "text-deep" };
 }
 
 const TYPE_CONFIG: Record<
@@ -209,7 +216,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
         type: "topic" as const,
         href: `/topics/${t.id}`,
         category: t.category,
-        confidenceScore: t.confidence_score,
+        balance: t.balance,
+        weight: t.weight,
+        verdict: t.verdict,
         meta_claim: t.meta_claim,
         categoryText: `${t.category} ${CATEGORY_LABELS[t.category]}`,
         tags: (extra.tags ?? []).join(" "),
@@ -289,7 +298,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           type: "topic" as ResultType,
           href: `/topics/${t.id}`,
           category: t.category,
-          confidenceScore: t.confidence_score,
+          balance: t.balance,
+          weight: t.weight,
+          verdict: t.verdict,
         }));
 
       return [{ label: "Popular Topics", type: "topic", results: featured }];
@@ -571,8 +582,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   const config = TYPE_CONFIG[result.type];
                   const Icon = config.icon;
                   const isTopic = result.type === "topic";
-                  const verdict = isTopic && result.confidenceScore != null
-                    ? getVerdictInfo(result.confidenceScore)
+                  const verdict = isTopic && result.balance != null
+                    ? getLeanInfo(result.balance)
                     : null;
 
                   return (
@@ -628,17 +639,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         </div>
                       </div>
 
-                      {/* Topic metadata: confidence + verdict */}
-                      {isTopic && result.confidenceScore != null && verdict ? (
-                        <div className="flex-shrink-0 flex items-center gap-2">
-                          <div className="text-right">
-                            <div className="text-[11px] font-semibold tabular-nums text-stone-600">
-                              {result.confidenceScore}%
-                            </div>
-                            <div className={`text-[10px] font-medium ${verdict.color}`}>
-                              {verdict.label}
-                            </div>
-                          </div>
+                      {/* Topic metadata: balance/weight chip + lean */}
+                      {isTopic && result.balance != null && result.weight != null && result.verdict ? (
+                        <div className="flex-shrink-0 flex flex-col items-end gap-0.5">
+                          <BalanceWeightChip balance={result.balance} weight={result.weight} verdict={result.verdict} />
+                          <div className={`text-[10px] font-medium ${verdict!.color}`}>{verdict!.label}</div>
                         </div>
                       ) : (
                         /* Non-topic badge */

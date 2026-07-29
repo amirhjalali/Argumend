@@ -1,15 +1,8 @@
 import { ImageResponse } from "next/og";
 import { topics } from "@/data/topics";
-import { getVerdictLabel } from "@/lib/schemas/topic";
+import { QUADRANT_STYLE } from "@/components/BalanceWeightChip";
 
 export const runtime = "edge";
-
-function getScoreColor(score: number): string {
-  if (score >= 85) return "#059669"; // emerald
-  if (score >= 60) return "#4f7b77"; // deep teal
-  if (score >= 40) return "#C4613C"; // rust
-  return "#78716c"; // stone
-}
 
 function getStatusLabel(status: string): string {
   switch (status) {
@@ -48,8 +41,8 @@ export async function GET(
     return new Response("Topic not found", { status: 404 });
   }
 
-  const scoreColor = getScoreColor(topic.confidence_score);
-  const verdict = getVerdictLabel(topic.confidence_score);
+  const scoreColor = QUADRANT_STYLE[topic.verdict.quadrant].color;
+  const verdict = topic.verdict.label;
   const statusLabel = getStatusLabel(topic.status);
   const statusColor = getStatusColor(topic.status);
 
@@ -267,7 +260,7 @@ export async function GET(
                     fontFamily: "Georgia, serif",
                   }}
                 >
-                  {topic.confidence_score}
+                  {topic.balance}
                 </div>
               </div>
             </div>
@@ -281,7 +274,15 @@ export async function GET(
                 letterSpacing: "3px",
               }}
             >
-              Confidence
+              Balance
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "10px" }}>
+              <div style={{ display: "flex", width: "120px", height: "8px", backgroundColor: "#e7e2d8", borderRadius: "4px" }}>
+                <div style={{ display: "flex", width: `${(topic.weight / 100) * 120}px`, height: "8px", backgroundColor: scoreColor, borderRadius: "4px" }} />
+              </div>
+              <div style={{ display: "flex", fontSize: "13px", color: "#78716c", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px" }}>
+                Weight {topic.weight}
+              </div>
             </div>
           </div>
         </div>

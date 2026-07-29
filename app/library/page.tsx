@@ -4,6 +4,7 @@ import { topics } from "@/data/topics";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 const externalResources = [
   {
@@ -83,7 +84,7 @@ export default function LibraryPage() {
                   <tr>
                     <th className="text-left px-5 py-3.5 text-sm font-semibold text-primary">Topic</th>
                     <th className="text-left px-5 py-3.5 text-sm font-semibold text-primary hidden sm:table-cell">Pillars</th>
-                    <th className="text-right px-5 py-3.5 text-sm font-semibold text-primary">Confidence</th>
+                    <th className="text-right px-5 py-3.5 text-sm font-semibold text-primary">Balance + Weight</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-stone-200/60 dark:divide-[var(--border-default)]">
@@ -99,15 +100,7 @@ export default function LibraryPage() {
                       </td>
                       <td className="px-5 py-3.5 text-right">
                         <div className="flex items-center justify-end gap-2">
-                          <div className="w-16 h-1.5 bg-stone-100 dark:bg-[#302e2a] rounded-full overflow-hidden hidden sm:block">
-                            <div
-                              className="h-full bg-deep rounded-full"
-                              style={{ width: `${topic.confidence_score}%` }}
-                            />
-                          </div>
-                          <span className="font-mono text-sm text-primary">
-                            {topic.confidence_score}%
-                          </span>
+                          <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} />
                         </div>
                       </td>
                     </tr>

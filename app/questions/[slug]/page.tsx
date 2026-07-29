@@ -2,12 +2,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { topics, CATEGORY_LABELS } from "@/data/topics";
-import { getVerdictLabel } from "@/lib/schemas/topic";
 import { getAllQuestionVariations, findQuestionBySlug } from "@/lib/questions";
 import { getTopicMentions, buildTopicLinkTargets } from "@/lib/topic-links";
 import { LinkedText } from "@/components/LinkedText";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -95,7 +95,7 @@ export default async function QuestionPage({ params }: PageProps) {
   }
 
   const { variation, topic } = result;
-  const verdict = getVerdictLabel(topic.confidence_score);
+  const verdict = topic.verdict.label;
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
   // Topic link targets for cross-linking
@@ -119,7 +119,7 @@ export default async function QuestionPage({ params }: PageProps) {
   // Build a synthesized answer from the pillars for QAPage schema
   const synthesizedAnswer = [
     `${topic.meta_claim}`,
-    `The evidence assessment yields a confidence score of ${topic.confidence_score}/100, which is classified as "${verdict}".`,
+    `The evidence assessment is "${verdict}" — balance of evidence ${topic.balance}/100 (50 = even split), weight of evidence ${topic.weight}/100.`,
     `Key arguments in favor include: ${forArguments.map((a) => a.summary).join(" ")}`,
     `Key arguments against include: ${againstArguments.map((a) => a.summary).join(" ")}`,
   ].join(" ");
@@ -254,7 +254,7 @@ export default async function QuestionPage({ params }: PageProps) {
             <LinkedText segments={metaClaimSegments} />
           </p>
 
-          {/* Confidence verdict */}
+          {/* Evidence assessment */}
           <div className="mt-6 rounded-lg border border-deep/15 bg-panel p-4">
             <p className="font-sans text-sm text-muted">
               Evidence assessment
@@ -262,16 +262,12 @@ export default async function QuestionPage({ params }: PageProps) {
             <p className="mt-1 font-serif text-xl font-semibold text-primary">
               {verdict}
             </p>
-            <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-stone-200">
-              <div
-                className="h-full rounded-full bg-deep transition-all"
-                style={{ width: `${topic.confidence_score}%` }}
-              />
-            </div>
-            <p className="mt-1 font-sans text-xs text-muted">
-              Confidence score: {topic.confidence_score}/100 across{" "}
-              {topic.pillars.length} argument pillars
-            </p>
+            <BalanceWeightReadout
+              balance={topic.balance}
+              weight={topic.weight}
+              verdict={topic.verdict}
+              className="mt-3"
+            />
           </div>
 
           {/* Arguments: For & Against */}

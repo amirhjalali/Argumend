@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const rentControlEffectivenessData = {
   id: "rent-control-effectiveness",
@@ -402,6 +402,4 @@ export const rentControlEffectivenessData = {
         "NYC data shows rent-stabilized tenants are disproportionately low-income and minority households. But Stockholm's multi-year queue and the long tenure of NYC's rent-stabilized tenants suggest the system rewards those who already have units rather than those who most need affordable housing. Should rent subsidies be means-tested and portable (like vouchers) rather than tied to specific units?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

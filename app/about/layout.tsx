@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "About ARGUMEND — Our Mission to Transform How People Disagree",
   description:
-    "ARGUMEND maps controversial topics visually with steel-manned arguments, crux identification, and calibrated confidence scores. Learn about our mission to transform how people disagree.",
+    "ARGUMEND maps controversial topics visually with steel-manned arguments, crux identification, and two-axis balance and weight scoring. Learn about our mission to transform how people disagree.",
   keywords: ["about argumend", "argument mapping platform", "critical thinking tool", "evidence-based reasoning"],
   openGraph: {
     title: "About ARGUMEND — Our Mission",
@@ -32,7 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           name: "About Argumend",
           headline: "About ARGUMEND",
           description:
-            "ARGUMEND maps controversial topics visually with steel-manned arguments, crux identification, and calibrated confidence scores.",
+            "ARGUMEND maps controversial topics visually with steel-manned arguments, crux identification, and two-axis balance and weight scoring.",
           url: "https://argumend.org/about",
           mainEntity: {
             "@type": "Organization",

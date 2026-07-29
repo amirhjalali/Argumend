@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const gainOfFunctionResearchBanData = {
   id: "gain-of-function-research-ban",
@@ -294,4 +294,4 @@ export const gainOfFunctionResearchBanData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

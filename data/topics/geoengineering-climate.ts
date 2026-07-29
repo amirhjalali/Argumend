@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const geoengineeringClimateData = {
   id: "geoengineering-climate",
@@ -292,4 +292,4 @@ export const geoengineeringClimateData = {
       ],
     },
   ],
-} satisfies Omit<Topic, "confidence_score">;
+} satisfies TopicInput;

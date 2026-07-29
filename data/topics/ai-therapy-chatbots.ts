@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const aiTherapyChatbotsData = {
   id: "ai-therapy-chatbots",
@@ -426,6 +426,4 @@ export const aiTherapyChatbotsData = {
         "Decades of research show the patient-therapist bond is one of the strongest predictors of outcome, and a chatbot cannot truly empathize, be accountable, or resist telling users what they want to hear. Yet Therabot users rated their bond on par with in-person providers, and people often disclose more freely to a non-judgmental machine. Does the felt experience of being heard drive symptom change regardless of who is on the other side — or is an alliance with something that cannot care a hollow proxy that may even foster dependence?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

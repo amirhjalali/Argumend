@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const daylightSavingTimeAbolitionData = {
   id: "daylight-saving-time-abolition",
@@ -425,6 +425,4 @@ export const daylightSavingTimeAbolitionData = {
         "Evening daylight has real value: it cut robberies ~7% (27% in the gained hour) in Doleac and Sanders's study, and it boosts outdoor activity and recreation spending. But the original energy-saving rationale failed — the best US study found DST raised electricity use ~1% — and every hour added to the evening is subtracted from the morning commute, when crash and pedestrian risk peak. When the US tried permanent DST in 1974, public support fell from 79% to 42% in one dark winter. Do evening benefits survive a full-day, full-year accounting?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

@@ -13,14 +13,13 @@ import {
   ArrowLeftRight,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { ConfidenceGauge } from "@/components/ConfidenceGauge";
+import { BalanceWeightChip, QUADRANT_STYLE } from "@/components/BalanceWeightChip";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import type {
   Topic,
   TopicStatus,
   Crux,
 } from "@/lib/schemas/topic";
-import { getVerdictLabel } from "@/lib/schemas/topic";
 import { categoryColors, statusColors } from "@/lib/categoryColors";
 
 // ---------------------------------------------------------------------------
@@ -78,17 +77,6 @@ interface ComparisonViewProps {
   topic2: Topic;
   stats1: TopicStats;
   stats2: TopicStats;
-}
-
-// ---------------------------------------------------------------------------
-// Confidence color helper
-// ---------------------------------------------------------------------------
-
-function confidenceColor(score: number): string {
-  if (score >= 85) return "text-deep";
-  if (score >= 60) return "text-deep-light";
-  if (score >= 40) return "text-rust-700";
-  return "text-stone-600";
 }
 
 // ---------------------------------------------------------------------------
@@ -241,7 +229,7 @@ function TopicColumnHeader({
 
   return (
     <div className="flex flex-col items-center text-center">
-      <ConfidenceGauge score={topic.confidence_score} size={100} />
+      <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
       <h2 className="font-serif text-xl sm:text-2xl text-primary mt-3 mb-2 leading-tight">
         {topic.title}
       </h2>
@@ -266,7 +254,7 @@ function TopicColumnHeader({
         </span>
       </div>
       <p className="text-xs text-muted dark:text-stone-400 italic">
-        {getVerdictLabel(topic.confidence_score)}
+        {topic.verdict.label}
       </p>
     </div>
   );
@@ -325,10 +313,17 @@ export default function ComparisonView({
             </h2>
 
             <StatRow
-              label="Confidence"
-              value1={topic1.confidence_score}
-              value2={topic2.confidence_score}
-              suffix="%"
+              label="Balance (for ↔ against)"
+              value1={topic1.balance}
+              value2={topic2.balance}
+              suffix="/100"
+              highlight="higher"
+            />
+            <StatRow
+              label="Weight of evidence"
+              value1={topic1.weight}
+              value2={topic2.weight}
+              suffix="/100"
               highlight="higher"
             />
             <StatRow
@@ -502,8 +497,11 @@ export default function ComparisonView({
                 <span className="font-serif text-lg text-primary group-hover:text-rust-700 transition-colors text-center">
                   {topic1.title}
                 </span>
-                <span className={`font-mono text-2xl font-bold tabular-nums ${confidenceColor(topic1.confidence_score)}`}>
-                  {topic1.confidence_score}%
+                <span
+                  className="text-sm font-medium"
+                  style={{ color: QUADRANT_STYLE[topic1.verdict.quadrant].color }}
+                >
+                  {topic1.verdict.label}
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-sm text-rust-600 font-medium">
                   Full analysis
@@ -518,8 +516,11 @@ export default function ComparisonView({
                 <span className="font-serif text-lg text-primary group-hover:text-deep transition-colors text-center">
                   {topic2.title}
                 </span>
-                <span className={`font-mono text-2xl font-bold tabular-nums ${confidenceColor(topic2.confidence_score)}`}>
-                  {topic2.confidence_score}%
+                <span
+                  className="text-sm font-medium"
+                  style={{ color: QUADRANT_STYLE[topic2.verdict.quadrant].color }}
+                >
+                  {topic2.verdict.label}
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-sm text-deep font-medium">
                   Full analysis

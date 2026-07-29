@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const degrowthEconomicsData = {
   id: "degrowth-economics",
@@ -401,6 +401,4 @@ export const degrowthEconomicsData = {
         "Rich nations have consumed 92% of excess CO2 emissions, and climate change disproportionately devastates the poorest countries. But developing nations depend on trade with wealthy economies for 30-50% of GDP. Would Northern degrowth create ecological space for Southern development, or would it crash the global trade system that hundreds of millions depend on for their livelihoods? Can degrowth be paired with debt cancellation and technology transfer to make it globally just?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

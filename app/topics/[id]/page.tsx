@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { topics, getCrossCategoryRelated, CATEGORY_LABELS } from "@/data/topics";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
-import { getVerdictLabel } from "@/lib/schemas/topic";
 import { JsonLd } from "@/components/JsonLd";
 import TopicPageClient from "./TopicPageClient";
 
@@ -33,8 +32,7 @@ export async function generateMetadata({
     return { title: "Topic Not Found" };
   }
 
-  const verdict = getVerdictLabel(topic.confidence_score);
-  const description = `${topic.meta_claim} — ${verdict}. Explore ${topic.pillars.length} argument pillars with steel-manned positions, weighted evidence, and crux questions.`;
+  const description = `${topic.meta_claim} — ${topic.verdict.label}. Explore ${topic.pillars.length} argument pillars with steel-manned positions, weighted evidence, and crux questions.`;
   const categoryLabel = CATEGORY_LABELS[topic.category];
   const media = getGeneratedMedia("topic", topic.id);
   const socialImage = media?.hero

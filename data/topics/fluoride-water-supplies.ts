@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const fluorideWaterSuppliesData = {
   id: "fluoride-water-supplies",
@@ -380,4 +380,4 @@ export const fluorideWaterSuppliesData = {
         "The strongest argument for water fluoridation is equity — it reaches low-income populations who lack access to dental care. But could school-based fluoride programs, community dental clinics, and targeted varnish treatments achieve the same results without adding a pharmacologically active substance to everyone's water? European countries suggest the answer is yes, but their universal healthcare systems provide infrastructure the US lacks.",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & { confidence_score?: number };
+} satisfies TopicInput;

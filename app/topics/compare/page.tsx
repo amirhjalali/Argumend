@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { topics, CATEGORY_LABELS } from "@/data/topics";
+import type { Verdict } from "@/lib/schemas/topic";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { COMPARISON_PAIRS } from "./comparisonPairs";
@@ -15,7 +16,7 @@ export const revalidate = 86400;
 export const metadata: Metadata = {
   title: "Compare Topics Side by Side — Argument Comparison",
   description:
-    `Compare controversial debates side by side. See confidence scores, evidence balance, and argument pillars for two topics at once. Pick any two of ${L} analyzed issues.`,
+    `Compare controversial debates side by side. See the balance and weight of evidence and argument pillars for two topics at once. Pick any two of ${L} analyzed issues.`,
   keywords: [
     "compare arguments",
     "debate comparison",
@@ -29,14 +30,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Compare Topics Side by Side — Argumend",
     description:
-      "Compare controversial debates side by side. See confidence scores, evidence, and argument pillars for two topics at once.",
+      "Compare controversial debates side by side. See the balance and weight of evidence and argument pillars for two topics at once.",
     url: "https://argumend.org/topics/compare",
   },
   twitter: {
     card: "summary_large_image",
     title: "Compare Topics Side by Side — Argumend",
     description:
-      "Pick any two controversial topics and compare evidence, confidence scores, and argument pillars.",
+      "Pick any two controversial topics and compare the balance and weight of evidence and argument pillars.",
   },
 };
 
@@ -54,8 +55,12 @@ function buildFeaturedPairs() {
       id2,
       title1: t1.title,
       title2: t2.title,
-      score1: t1.confidence_score,
-      score2: t2.confidence_score,
+      balance1: t1.balance,
+      weight1: t1.weight,
+      verdict1: t1.verdict,
+      balance2: t2.balance,
+      weight2: t2.weight,
+      verdict2: t2.verdict,
       status1: t1.status,
       status2: t2.status,
       category1: t1.category,
@@ -68,8 +73,12 @@ function buildFeaturedPairs() {
     id2: string;
     title1: string;
     title2: string;
-    score1: number;
-    score2: number;
+    balance1: number;
+    weight1: number;
+    verdict1: Verdict;
+    balance2: number;
+    weight2: number;
+    verdict2: Verdict;
     status1: string;
     status2: string;
     category1: string;
@@ -87,7 +96,9 @@ function buildTopicList() {
   return topics.map((t) => ({
     id: t.id,
     title: t.title,
-    confidence_score: t.confidence_score,
+    balance: t.balance,
+    weight: t.weight,
+    verdict: t.verdict,
     category: t.category,
     categoryLabel: CATEGORY_LABELS[t.category],
   }));

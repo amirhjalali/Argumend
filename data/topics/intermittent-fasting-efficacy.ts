@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const intermittentFastingEfficacyData = {
   id: "intermittent-fasting-efficacy",
@@ -430,6 +430,4 @@ export const intermittentFastingEfficacyData = {
         "Diets mostly fail because people quit, so a simple bright-line rule could win in the real world even if it ties in the lab. The evidence splits by protocol: Trepanowski's year-long trial found alternate-day fasting had the highest dropout (38% vs 29% for daily restriction), but meta-analyses report higher adherence for gentler 16:8 and 5:2 patterns, and the 4:3 trial showed better adherence at 12 months. Broader reviews find dropout ranging from 0-65% with no consistent winner. For people who can't sustain daily calorie counting, is a fasting window a genuinely easier on-ramp, or is 'simple rule' really just 'brittle rule'?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

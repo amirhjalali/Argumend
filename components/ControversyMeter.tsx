@@ -1,14 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import type { TopicStatus } from "@/lib/schemas/topic";
+import type { TopicStatus, Verdict } from "@/lib/schemas/topic";
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
 interface ControversyMeterProps {
-  confidenceScore: number; // 0-100
+  balance: number; // 0-100, 50 = even
+  weight: number; // 0-100
+  verdict: Verdict;
   status: TopicStatus;
 }
 
@@ -18,12 +20,14 @@ interface ControversyMeterProps {
 
 type HeatTier = "cool" | "warm" | "hot" | "explosive";
 
-function getHeatTier(score: number): HeatTier {
-  if (score >= 80) return "cool";
-  if (score >= 50) return "warm";
-  if (score >= 25) return "hot";
-  return "explosive";
-}
+// Quadrant → heat tier. Controversy is being well-mapped AND balanced:
+// settled maps coolest, well-mapped-contested is hottest, thin maps speculative.
+const QUADRANT_TIER: Record<Verdict["quadrant"], HeatTier> = {
+  settled: "cool",
+  moderate: "warm",
+  contested: "hot",
+  open: "explosive",
+};
 
 const tierConfig: Record<
   HeatTier,
@@ -85,17 +89,15 @@ const statusOverride: Record<TopicStatus, string | null> = {
 // Component
 // ---------------------------------------------------------------------------
 
-export function ControversyMeter({ confidenceScore, status }: ControversyMeterProps) {
+export function ControversyMeter({ balance, weight, verdict, status }: ControversyMeterProps) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const tier = getHeatTier(confidenceScore);
+  const tier = QUADRANT_TIER[verdict.quadrant];
   const config = tierConfig[tier];
   const displayLabel = statusOverride[status] ?? config.label;
 
-  // The marker position: 0% confidence = far right (most controversial),
-  // 100% confidence = far left (most settled). We invert for the "controversy"
-  // axis so higher controversy = further right.
-  const controversyPct = 100 - confidenceScore;
+  // Contested-ness: rich evidence pulling both ways. 0 when settled or thin.
+  const controversyPct = Math.round(weight * (1 - Math.abs(balance - 50) / 50));
 
   return (
     <div className="w-full mb-8">
@@ -120,15 +122,7 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
               ?
             </button>
           </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-sm font-medium text-primary">{displayLabel}</span>
-            {/* Numeric readout: the bar fills by controversy (inverse of the
-                page's confidence score), so show the confidence number to keep
-                the meter interpretable against the rest of the page. */}
-            <span className="text-xs font-medium tabular-nums text-stone-500 dark:text-[#8a8279]">
-              {confidenceScore}% confidence
-            </span>
-          </div>
+          <span className="text-sm font-medium text-primary">{displayLabel}</span>
         </div>
 
         {/* Bar */}
@@ -138,10 +132,10 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
             className={`absolute inset-0 rounded-full bg-gradient-to-r ${config.barClass} ${config.animationClass} motion-reduce:animate-none ${config.glowClass}`}
             style={{ width: `${Math.max(controversyPct, 4)}%` }}
             role="meter"
-            aria-valuenow={confidenceScore}
+            aria-valuenow={controversyPct}
             aria-valuemin={0}
             aria-valuemax={100}
-            aria-label={`Controversy level: ${displayLabel} (${confidenceScore}% confidence)`}
+            aria-label={`Controversy level: ${displayLabel} (balance ${balance}/100, weight ${weight}/100)`}
           />
 
           {/* Marker */}
@@ -151,7 +145,7 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
               left: `clamp(0px, calc(${controversyPct}% - 10px), calc(100% - 20px))`,
             }}
           >
-            <span className="sr-only">{confidenceScore}% confidence</span>
+            <span className="sr-only">{`Balance ${balance} of 100, weight ${weight} of 100`}</span>
           </div>
         </div>
 
@@ -171,8 +165,9 @@ export function ControversyMeter({ confidenceScore, status }: ControversyMeterPr
             <p className="font-medium text-primary mb-1">{displayLabel}</p>
             <p>{config.description}</p>
             <p className="mt-2 text-xs text-muted dark:text-stone-400">
-              Based on a {confidenceScore}% confidence score computed from
-              evidence quality, expert agreement, and verification status.
+              Based on the balance of evidence ({balance}/100 — which way it tips) and its
+              weight ({weight}/100 — how much bears on the question), computed from source
+              quality and crux verifiability.
             </p>
             {/* Arrow */}
             <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-white dark:bg-[var(--bg-card)] border-l border-t border-stone-200 dark:border-[var(--border-default)]" />

@@ -1,4 +1,4 @@
-import type { Topic } from "@/lib/schemas/topic";
+import type { TopicInput } from "@/lib/schemas/topic";
 
 export const labDiamondsEthicsData = {
   id: "lab-diamonds-ethics",
@@ -399,6 +399,4 @@ export const labDiamondsEthicsData = {
         "Botswana transformed from one of the world's poorest nations to an upper-middle-income country largely through diamond revenue. Across Africa, 10 million people depend on diamond mining livelihoods. But diamond reserves are depleting regardless, and the industry's colonial origins complicate the 'protecting livelihoods' narrative. Should consumers factor the economic impact on producing nations into their diamond purchasing decisions, or is that a form of coerced dependency?",
     },
   ],
-} satisfies Omit<Topic, "confidence_score"> & {
-  confidence_score?: number;
-};
+} satisfies TopicInput;

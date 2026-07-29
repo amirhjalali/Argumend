@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { BALANCE, VERDICT, WEIGHT } from "@/lib/constants";
 
 // ============================================================================
 // Evidence Weight Schema
@@ -130,6 +131,107 @@ export const TopicStatusSchema = z.enum([
 ]);
 
 // ============================================================================
+// Two-Axis Confidence: Balance + Weight
+// ============================================================================
+
+export const VerdictQuadrantSchema = z.enum(["settled", "contested", "moderate", "open"]);
+export const VerdictSchema = z.object({
+  label: z.string(),
+  quadrant: VerdictQuadrantSchema,
+});
+export type VerdictQuadrant = z.infer<typeof VerdictQuadrantSchema>;
+export type Verdict = z.infer<typeof VerdictSchema>;
+
+/**
+ * Balance of evidence — which way it tips. 0–100, 50 = even.
+ * forStrength / (forStrength + againstStrength) over the 0–40 evidence scores.
+ */
+export function computeBalance(pillars: Pillar[]): number {
+  const allEvidence = pillars.flatMap((p) => p.evidence ?? []);
+  const forScore = allEvidence
+    .filter((e) => e.side === "for")
+    .reduce((sum, e) => sum + calculateEvidenceScore(e.weight), 0);
+  const againstScore = allEvidence
+    .filter((e) => e.side === "against")
+    .reduce((sum, e) => sum + calculateEvidenceScore(e.weight), 0);
+  const total = forScore + againstScore;
+  if (total === 0) return 50;
+  return Math.round((forScore / total) * 100);
+}
+
+const RESOLVABILITY: Record<Crux["verification_status"], number> = {
+  verified: 1,
+  theoretical: 0.5,
+  impossible: 0,
+};
+
+/**
+ * Weight of argument — how much actually bears on the question. 0–100.
+ * Composite of evidential mass (saturating), average quality, and crux
+ * resolvability. Coefficients live in lib/constants.ts and are calibrated
+ * against the full topic corpus (scripts/calibrate-weight.ts).
+ */
+export function computeWeight(pillars: Pillar[]): number {
+  const strengths = pillars
+    .flatMap((p) => p.evidence ?? [])
+    .map((e) => calculateEvidenceScore(e.weight));
+  const totalStrength = strengths.reduce((sum, s) => sum + s, 0);
+
+  const mass = 1 - Math.exp(-totalStrength / WEIGHT.MASS_K);
+  const quality = strengths.length > 0 ? totalStrength / strengths.length / 40 : 0;
+  const resolvability =
+    pillars.length > 0
+      ? pillars.reduce((sum, p) => sum + RESOLVABILITY[p.crux.verification_status], 0) /
+        pillars.length
+      : 0;
+
+  return Math.round(
+    100 *
+      (WEIGHT.W_MASS * mass +
+        WEIGHT.W_QUALITY * quality +
+        WEIGHT.W_RESOLVABILITY * resolvability)
+  );
+}
+
+function favoredSide(balance: number): string {
+  return balance >= 50 ? "the claim" : "the counterclaim";
+}
+
+/** Human label for the lean magnitude alone (no weight information). */
+export function getLeanLabel(balance: number): string {
+  const d = Math.abs(balance - 50);
+  if (d < BALANCE.EVEN_D) return "Evenly balanced";
+  if (d < BALANCE.LEAN_D)
+    return balance >= 50 ? "Leans toward the claim" : "Leans toward the counterclaim";
+  if (d < BALANCE.CLEAR_D) return `Clearly favors ${favoredSide(balance)}`;
+  return `Strongly favors ${favoredSide(balance)}`;
+}
+
+/** 2-D verdict from both axes. Replaces the old 1-D getVerdictLabel. */
+export function getVerdict(balance: number, weight: number): Verdict {
+  const d = Math.abs(balance - 50);
+  if (weight >= VERDICT.HIGH_WEIGHT && d >= VERDICT.SETTLED_D) {
+    return {
+      label: `Settled — evidence strongly favors ${favoredSide(balance)}`,
+      quadrant: "settled",
+    };
+  }
+  if (weight >= VERDICT.HIGH_WEIGHT) {
+    return { label: "Well-mapped, genuinely contested", quadrant: "contested" };
+  }
+  if (weight >= VERDICT.LOW_WEIGHT) {
+    const lean =
+      d < BALANCE.EVEN_D
+        ? "Balanced"
+        : balance >= 50
+          ? "Leans toward the claim"
+          : "Leans toward the counterclaim";
+    return { label: `${lean} — moderately evidenced`, quadrant: "moderate" };
+  }
+  return { label: "Open question — limited evidence so far", quadrant: "open" };
+}
+
+// ============================================================================
 // Topic Schema (unified with embedded questions/references)
 // ============================================================================
 
@@ -137,7 +239,10 @@ export const TopicSchema = z.object({
   id: z.string(),
   title: z.string(), // e.g., "The Moon Landing"
   meta_claim: z.string(),
-  confidence_score: z.number().min(0).max(100), // 0 to 100
+  confidence_score: z.number().min(0).max(100), // @deprecated — always = balance; kept for JSON-LD ratingValue
+  balance: z.number().min(0).max(100), // which way the evidence tips (50 = even)
+  weight: z.number().min(0).max(100), // how much we actually know
+  verdict: VerdictSchema, // 2-D verdict computed from balance + weight
   status: TopicStatusSchema,
   category: TopicCategorySchema,
   pillars: z.array(PillarSchema),
@@ -183,51 +288,18 @@ export type TopicCategory = z.infer<typeof TopicCategorySchema>;
 export type TopicStatus = z.infer<typeof TopicStatusSchema>;
 export type Topic = z.infer<typeof TopicSchema>;
 
+/** Raw authored topic data — computed fields are injected by buildTopic. */
+export type TopicInput = Omit<Topic, "confidence_score" | "balance" | "weight" | "verdict"> & {
+  /** Optional authored score; only consulted as a floor for "settled" topics. */
+  confidence_score?: number;
+};
+
 // ============================================================================
 // Confidence Score Computation
 // ============================================================================
 
-/**
- * Score a single piece of evidence based on its weights.
- * Returns a value 0-40 (sum of all four weight dimensions).
- */
-function scoreEvidence(evidence: Evidence): number {
-  const { weight } = evidence;
-  return (
-    weight.sourceReliability +
-    weight.independence +
-    weight.replicability +
-    weight.directness
-  );
-}
-
-/**
- * Compute confidence score from all evidence across all pillars.
- * Returns a value 0-100 representing the strength of the "for" position.
- *
- * Formula: forScore / (forScore + againstScore + 1) * 100
- * The +1 prevents division by zero and adds slight uncertainty.
- */
-export function computeConfidenceScore(pillars: Pillar[]): number {
-  const allEvidence = pillars.flatMap((p) => p.evidence ?? []);
-
-  if (allEvidence.length === 0) {
-    return 50; // No evidence means neutral
-  }
-
-  const forEvidence = allEvidence.filter((e) => e.side === "for");
-  const againstEvidence = allEvidence.filter((e) => e.side === "against");
-
-  const forScore = forEvidence.reduce((sum, e) => sum + scoreEvidence(e), 0);
-  const againstScore = againstEvidence.reduce(
-    (sum, e) => sum + scoreEvidence(e),
-    0
-  );
-
-  // Normalize to 0-100 scale
-  const rawScore = forScore / (forScore + againstScore + 1);
-  return Math.round(rawScore * 100);
-}
+/** @deprecated Use computeBalance — this was always a balance, never a confidence. */
+export const computeConfidenceScore = computeBalance;
 
 // ============================================================================
 // Utility Functions
@@ -246,19 +318,10 @@ export function calculateEvidenceScore(weight: EvidenceWeight): number {
 }
 
 /**
- * Get verdict label based on confidence score.
- */
-export function getVerdictLabel(confidenceScore: number): string {
-  if (confidenceScore >= 95) return "Established beyond reasonable doubt";
-  if (confidenceScore >= 75) return "Preponderance of evidence supports";
-  if (confidenceScore >= 50) return "Evidence leans toward, but contested";
-  return "Insufficient evidence";
-}
-
-/**
  * Full-sentence verdict for prose contexts (e.g. the topic-page subhead), so it
- * reads as a complete clause instead of a dangling fragment. getVerdictLabel
- * stays compact for badges, cards, and OG images.
+ * reads as a complete clause instead of a dangling fragment. Prefer verdict.label
+ * (the 2-D balance+weight verdict) for badges, cards, and OG images — this is for
+ * prose that specifically wants a balance-only sentence.
  */
 export function getVerdictSentence(confidenceScore: number): string {
   if (confidenceScore >= 95)
