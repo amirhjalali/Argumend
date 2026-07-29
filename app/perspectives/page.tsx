@@ -200,7 +200,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
     <div
       ref={ref}
       id={scene.id}
-      className="min-h-[100svh] flex items-center justify-center px-4 md:px-8 py-10 md:py-20 relative overflow-hidden scroll-mt-0"
+      className="min-h-[100svh] flex items-center justify-center px-4 md:px-8 py-10 md:py-20 relative overflow-hidden"
       style={{
         background: `linear-gradient(180deg,
           ${index === 0 ? '#f5f0e8' : '#ebe6de'} 0%,
