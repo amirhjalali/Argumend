@@ -6,6 +6,11 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    // Class strings also live in plain .ts modules under lib/ — the canonical
+    // palette maps (categoryColors, fallacyMeta, questionMeta). Without this
+    // glob, tokens used *only* there (e.g. border-crux/25, border-t-crux) are
+    // never generated and the differentiation silently renders as unstyled.
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
