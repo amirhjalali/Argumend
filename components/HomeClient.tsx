@@ -166,7 +166,7 @@ function CanvasExperience() {
       .slice(0, GRID_TOPICS_COUNT) as typeof topicSummaries;
 
     return (
-      <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary">
+      <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary dark:text-stone-200">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"
@@ -200,7 +200,7 @@ function CanvasExperience() {
             {/* Section 2: Topic Grid */}
             <div className="px-4 md:px-8 py-10">
               <div className="max-w-4xl mx-auto">
-                <h2 className="font-serif text-xl font-semibold text-primary mb-5">
+                <h2 className="font-serif text-xl font-semibold text-primary dark:text-stone-200 mb-5">
                   {topicSummaries.length} topics analyzed
                 </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -210,7 +210,7 @@ function CanvasExperience() {
                       onClick={() => handleTopicSelect(topic.id)}
                       className="group text-left p-4 bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] rounded-xl hover:border-deep/30 hover:shadow-md hover:scale-[1.01] hover:-translate-y-0.5 transition-all"
                     >
-                      <h3 className="font-serif text-sm font-medium text-primary group-hover:text-deep transition-colors leading-snug line-clamp-2">
+                      <h3 className="font-serif text-sm font-medium text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug line-clamp-2">
                         {topic.title}
                       </h3>
                       <BalanceWeightChip
@@ -246,7 +246,7 @@ function CanvasExperience() {
   }
 
   return (
-    <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary">
+    <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary dark:text-stone-200">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"

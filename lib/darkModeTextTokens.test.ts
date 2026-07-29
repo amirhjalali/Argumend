@@ -123,6 +123,15 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/FalsificationCrux.tsx" },
   { path: "components/HeroMiniCanvas.tsx" },
   { path: "components/ZoomIndicator.tsx" },
+  { path: "app/blog/tag/[tag]/page.tsx" },
+  { path: "app/faq/page.tsx" },
+  { path: "components/DebateView.tsx" },
+  { path: "components/HomeClient.tsx" },
+  { path: "components/ReadGraphToggle.tsx" },
+  { path: "components/TopBar.tsx" },
+  // components/NewsletterSignup.tsx intentionally excluded: fixed-light
+  // `bg-[#faf8f5]` card with no dark surface, so bare text-primary/secondary
+  // is correct there and pairing it would be light-on-light.
 ];
 
 describe("dark-mode pairing for fixed-hex text tokens", () => {
