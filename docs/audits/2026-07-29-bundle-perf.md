@@ -20,7 +20,7 @@ both "eagerly imported by something that renders everywhere / by default":
 
 | # | Leak | Where | Est. impact | Status |
 |---|------|-------|-------------|--------|
-| 1 | `SearchModal` (MiniSearch + 3 data indexes) in the global shell | `components/TopBar.tsx:9` | ~100–115 KB raw off **every route** | **Fixed** |
+| 1 | `SearchModal` (MiniSearch + 3 data indexes) in the global shell | `components/TopBar.tsx:9` | **615 KB raw** removed from route chunks (measured) | **Fixed** |
 | 2 | `TopicDetailView` (1761 lines) eager on the default *read* view | `app/topics/[id]/TopicPageClient.tsx:9` | large chunk off ~157 topic pages' default path | **Fixed** |
 | 3 | `ShareVerdictCard` eager inside `JudgingResults` | `components/JudgingResults.tsx:18` | ~475 lines + framer-motion | Recommended |
 | 4 | `ConfidenceTimeline` eager, deep below fold | `app/topics/[id]/TopicDetailView.tsx:72` | ~447 lines + framer-motion | Recommended |
@@ -64,10 +64,18 @@ mounted would have fetched it on every page load anyway. `hasOpenedSearch` latch
 to `true` on first open and never resets, so the modal keeps its mount across
 close/reopen and `AnimatePresence` exit animations still play.
 
-**Est. impact:** ~100–115 KB of raw JS (MiniSearch + three data indexes + the
-component) moves out of the shared bundle on *every* route in the app. This is the
-single highest-leverage change in the audit — it is paid on 100% of page views and
-redeemed by a small minority.
+**Measured impact (verified against a post-change `npx next build`):**
+
+| | Before | After |
+|---|---|---|
+| Chunks containing `MiniSearch` | 6 | 1 |
+| Raw bytes of those chunks | 699,000 | 83,568 |
+| `.next/static/chunks` total | 9,020 KB | 8,576 KB |
+
+615 KB of duplicated raw JS removed from route bundles, and the remaining 83.5 KB is
+now a single isolated chunk fetched only on first search open. This is the highest-
+leverage change in the audit — it was paid on 100% of page views and redeemed by a
+small minority.
 
 ## 2. `TopicDetailView` on the default read path — FIXED
 
@@ -195,4 +203,7 @@ Worth recording so a future audit does not "re-fix" these:
 - `npx eslint components/TopBar.tsx "app/topics/[id]/TopicPageClient.tsx"` — clean
 - `npx vitest run` — green
 - `npx next build` — succeeds (re-run after both conversions; a bad `ssr:false`
-  boundary fails here, not in typecheck)
+  boundary fails here, not in typecheck). All 157 topic pages, 85 blog pages, and
+  the rest of the SSG surface still prerender.
+- `npx vitest run` — 786 tests / 35 files, all passing.
+- Bundle delta confirmed by diffing `.next/static/chunks` before vs. after (see §1).
