@@ -174,7 +174,7 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <h4 className="font-semibold text-sm text-primary leading-snug">
+            <h4 className="font-semibold text-sm text-primary dark:text-stone-200 leading-snug">
               {evidence.title}
             </h4>
             <span
@@ -255,7 +255,7 @@ function CruxCard({ crux }: { crux: Crux }) {
         <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center">
           <FlaskConical className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
         </div>
-        <h4 className="font-serif text-base font-semibold text-primary flex-1 min-w-0">
+        <h4 className="font-serif text-base font-semibold text-primary dark:text-stone-200 flex-1 min-w-0">
           Crux: {crux.title}
         </h4>
         <span
@@ -316,7 +316,7 @@ function PillarSection({
           {index + 1}
         </span>
         <div>
-          <h3 className="font-serif text-xl text-primary leading-tight">
+          <h3 className="font-serif text-xl text-primary dark:text-stone-200 leading-tight">
             {pillar.title}
           </h3>
           <p className="text-sm text-stone-500 mt-1 leading-relaxed">
@@ -391,7 +391,7 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
       className={`group flex flex-col bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 card-hover`}
     >
       <Link href={`/topics/${topic.id}`} className="block mb-1.5">
-        <h3 className="font-serif text-base text-primary group-hover:text-deep transition-colors leading-snug">
+        <h3 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug">
           {topic.title}
         </h3>
       </Link>
@@ -576,7 +576,7 @@ function ExploreMoreSection() {
 
   return (
     <section className="mb-8">
-      <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2">
+      <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-2">
         Explore More
       </h2>
       <p className="text-sm text-stone-500 mb-5">
@@ -595,7 +595,7 @@ function ExploreMoreSection() {
                 <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
                   <Icon className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-serif text-sm font-semibold text-primary group-hover:text-deep transition-colors leading-snug">
+                <h3 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug">
                   {card.title}
                 </h3>
               </div>
@@ -656,7 +656,7 @@ function DebateMessageBubble({ message }: { message: DebateMessage }) {
               isFor ? "" : "justify-end"
             }`}
           >
-            <span className="font-serif font-semibold text-sm text-primary">
+            <span className="font-serif font-semibold text-sm text-primary dark:text-stone-200">
               {llm?.name}
             </span>
             <span
@@ -708,7 +708,7 @@ function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicT
           <Swords className="h-3.5 w-3.5" />
           AI Debate
         </div>
-        <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">
+        <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-3">
           Watch AIs debate this topic
         </h2>
         <p className="text-sm text-stone-500 mb-5 max-w-lg mx-auto">
@@ -747,7 +747,7 @@ function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicT
           <Swords className="h-3.5 w-3.5" />
           AI Debate
         </div>
-        <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-3">
+        <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-3">
           Watch AIs debate this topic
         </h2>
         <p className="text-sm text-stone-500 mb-4 max-w-lg mx-auto">
@@ -1004,7 +1004,7 @@ export default function TopicDetailView({
               <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
               {topic.title}
             </h1>
 
@@ -1049,26 +1049,26 @@ export default function TopicDetailView({
             {/* Quick stats */}
             <div className="flex flex-wrap gap-4 mt-6 pt-5 border-t border-stone-200/60">
               <div className="text-center">
-                <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
+                <span className="block text-lg font-mono font-semibold text-primary dark:text-stone-200 tabular-nums">
                   {topic.pillars.length}
                 </span>
                 <span className="text-xs text-stone-500">Pillars</span>
               </div>
               <div className="text-center">
-                <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
+                <span className="block text-lg font-mono font-semibold text-primary dark:text-stone-200 tabular-nums">
                   {totalEvidence}
                 </span>
                 <span className="text-xs text-stone-500">Evidence Items</span>
               </div>
               <div className="text-center">
-                <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
+                <span className="block text-lg font-mono font-semibold text-primary dark:text-stone-200 tabular-nums">
                   {topic.pillars.length}
                 </span>
                 <span className="text-xs text-stone-500">Crux Questions</span>
               </div>
               {topic.references && (
                 <div className="text-center">
-                  <span className="block text-lg font-mono font-semibold text-primary tabular-nums">
+                  <span className="block text-lg font-mono font-semibold text-primary dark:text-stone-200 tabular-nums">
                     {topic.references.length}
                   </span>
                   <span className="text-xs text-stone-500">References</span>
@@ -1162,7 +1162,7 @@ export default function TopicDetailView({
                           <span className="text-xs font-mono text-deep/50 font-semibold">
                             {i + 1}.
                           </span>
-                          <h3 className="font-serif text-[15px] font-semibold text-primary leading-snug group-hover:text-deep transition-colors">
+                          <h3 className="font-serif text-[15px] font-semibold text-primary dark:text-stone-200 leading-snug group-hover:text-deep transition-colors">
                             {pillar.title}
                           </h3>
                         </div>
@@ -1251,7 +1251,7 @@ export default function TopicDetailView({
               </span>
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
               Where do you stand?
             </h2>
             <p className="text-sm text-stone-500 leading-relaxed mb-7">
@@ -1278,8 +1278,8 @@ export default function TopicDetailView({
                 onClick={() => setStance("unsure")}
                 className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg text-[15px] font-medium transition-all ${
                   stance === "unsure"
-                    ? "bg-stone-100 dark:bg-[#302e2a] text-primary ring-2 ring-offset-2 ring-stone-400/50 border border-stone-300 dark:border-[#4a4640] shadow-md scale-[1.02]"
-                    : "bg-white dark:bg-[#252420] text-primary border-2 border-stone-300 dark:border-[#3d3a36] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640]"
+                    ? "bg-stone-100 dark:bg-[#302e2a] text-primary dark:text-stone-200 ring-2 ring-offset-2 ring-stone-400/50 border border-stone-300 dark:border-[#4a4640] shadow-md scale-[1.02]"
+                    : "bg-white dark:bg-[#252420] text-primary dark:text-stone-200 border-2 border-stone-300 dark:border-[#3d3a36] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640]"
                 }`}
               >
                 <HelpCircle className="h-4 w-4" />
@@ -1393,7 +1393,7 @@ export default function TopicDetailView({
           {depth !== "30s" && (
             <AnimateOnScroll variant="fade-up" delay={50}>
             <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
                 The Claim
               </h2>
               <blockquote className="border-l-2 border-[#4f7b77] pl-4 sm:pl-5">
@@ -1403,9 +1403,9 @@ export default function TopicDetailView({
               </blockquote>
               <p className="text-sm text-stone-500 mt-4 leading-relaxed">
                 This topic is currently classified as{" "}
-                <strong className="text-primary">{statusLabels[topic.status].toLowerCase()}</strong>. The
-                evidence balance is <strong className="text-primary">{topic.balance}/100</strong> (which way
-                it tips) with a weight of <strong className="text-primary">{topic.weight}/100</strong> (how
+                <strong className="text-primary dark:text-stone-200">{statusLabels[topic.status].toLowerCase()}</strong>. The
+                evidence balance is <strong className="text-primary dark:text-stone-200">{topic.balance}/100</strong> (which way
+                it tips) with a weight of <strong className="text-primary dark:text-stone-200">{topic.weight}/100</strong> (how
                 much bears on it), computed from {totalEvidence} weighted evidence items across{" "}
                 {topic.pillars.length} analytical pillars.
               </p>
@@ -1417,7 +1417,7 @@ export default function TopicDetailView({
           {depth !== "30s" && (
             <AnimateOnScroll variant="fade-up" delay={50}>
             <section id="pillars" className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
                 Argument Pillars
               </h2>
 
@@ -1434,7 +1434,7 @@ export default function TopicDetailView({
                             {i + 1}
                           </span>
                           <div>
-                            <h3 className="font-serif text-lg text-primary leading-tight">
+                            <h3 className="font-serif text-lg text-primary dark:text-stone-200 leading-tight">
                               {pillar.title}
                             </h3>
                             <p className="text-sm text-stone-500 mt-0.5">
@@ -1497,7 +1497,7 @@ export default function TopicDetailView({
           {depth === "5m" && topic.references && topic.references.length > 0 && (
             <AnimateOnScroll variant="fade-up" delay={50}>
             <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
                 References
               </h2>
               <ul className="space-y-2">
@@ -1522,7 +1522,7 @@ export default function TopicDetailView({
           {/* CTA */}
           <AnimateOnScroll variant="fade-up" delay={50}>
           <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8 text-center">
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
               Explore interactively
             </h2>
             <p className="text-sm text-stone-500 mb-5">
@@ -1554,7 +1554,7 @@ export default function TopicDetailView({
                 <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-2">
                   Historical Context
                 </p>
-                <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2">
+                <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-2">
                   How Confidence Has Evolved
                 </h2>
                 <p className="text-sm text-stone-500 mb-6 leading-relaxed max-w-2xl">
@@ -1578,7 +1578,7 @@ export default function TopicDetailView({
           {topic.questions && topic.questions.length > 0 && (
             <AnimateOnScroll variant="fade-up" delay={100}>
             <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-2">
                 Frequently Asked Questions
               </h2>
               <p className="text-sm text-stone-500 mb-6 leading-relaxed">
@@ -1590,7 +1590,7 @@ export default function TopicDetailView({
                     key={q.id}
                     className="group rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916] overflow-hidden transition-colors hover:border-deep/20"
                   >
-                    <summary className="flex items-center gap-3 cursor-pointer px-5 py-4 text-sm font-medium text-primary select-none list-none [&::-webkit-details-marker]:hidden">
+                    <summary className="flex items-center gap-3 cursor-pointer px-5 py-4 text-sm font-medium text-primary dark:text-stone-200 select-none list-none [&::-webkit-details-marker]:hidden">
                       <ChevronRight className="h-4 w-4 text-muted dark:text-stone-400 group-open:rotate-90 transition-transform duration-200 flex-shrink-0" />
                       <span className="font-serif text-base leading-snug">{q.title}</span>
                     </summary>
@@ -1635,7 +1635,7 @@ export default function TopicDetailView({
           {(relatedTopics.length > 0 || crossCategoryTopics.length > 0) && (
             <AnimateOnScroll variant="fade-up" delay={100}>
             <section className="mb-8">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-2">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-2">
                 Related Topics
               </h2>
               <p className="text-sm text-stone-500 mb-6">
@@ -1719,8 +1719,8 @@ export default function TopicDetailView({
 
           {/* Share CTA */}
           <div className="mt-12 p-6 rounded-xl bg-[#faf8f5] dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] text-center mb-8">
-            <h3 className="font-serif text-lg text-primary mb-2">Found this analysis useful?</h3>
-            <p className="text-secondary text-sm mb-4">Share it with someone who might see things differently.</p>
+            <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">Found this analysis useful?</h3>
+            <p className="text-secondary dark:text-stone-400 text-sm mb-4">Share it with someone who might see things differently.</p>
             <div className="flex items-center justify-center gap-3">
               <ShareButtons
                 title={`${topic.title} — Argument Analysis | Argumend`}

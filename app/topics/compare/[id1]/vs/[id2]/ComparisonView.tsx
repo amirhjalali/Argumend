@@ -190,7 +190,7 @@ function CruxList({ cruxes }: { cruxes: Crux[] }) {
           >
             <div className="flex items-start gap-2 mb-1.5">
               <FlaskConical className="h-3.5 w-3.5 text-deep mt-0.5 flex-shrink-0" />
-              <h4 className="font-serif text-sm font-semibold text-primary leading-snug flex-1">
+              <h4 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 leading-snug flex-1">
                 {crux.title}
               </h4>
             </div>
@@ -230,7 +230,7 @@ function TopicColumnHeader({
   return (
     <div className="flex flex-col items-center text-center">
       <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
-      <h2 className="font-serif text-xl sm:text-2xl text-primary mt-3 mb-2 leading-tight">
+      <h2 className="font-serif text-xl sm:text-2xl text-primary dark:text-stone-200 mt-3 mb-2 leading-tight">
         {topic.title}
       </h2>
       <p className="text-sm text-stone-500 leading-relaxed mb-3 line-clamp-3">
@@ -280,7 +280,7 @@ export default function ComparisonView({
               <ArrowLeftRight className="h-3.5 w-3.5" />
               Side-by-Side Comparison
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-4 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-4 leading-[1.08]">
               <span className="text-rust-700">{topic1.title}</span>
               <span className="text-muted dark:text-stone-400 mx-2 sm:mx-3 font-sans text-2xl sm:text-3xl lg:text-4xl italic">
                 vs
@@ -308,7 +308,7 @@ export default function ComparisonView({
 
           {/* ── Stats comparison ── */}
           <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-2xl text-primary mb-6 text-center">
+            <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-6 text-center">
               By the Numbers
             </h2>
 
@@ -368,12 +368,12 @@ export default function ComparisonView({
 
           {/* ── Evidence Balance ── */}
           <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-2xl text-primary mb-6 text-center">
+            <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-6 text-center">
               Evidence Balance
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-serif text-base text-primary mb-3 text-center">
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-3 text-center">
                   {topic1.title}
                 </h3>
                 <EvidenceBalanceBar
@@ -383,7 +383,7 @@ export default function ComparisonView({
                 />
               </div>
               <div>
-                <h3 className="font-serif text-base text-primary mb-3 text-center">
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-3 text-center">
                   {topic2.title}
                 </h3>
                 <EvidenceBalanceBar
@@ -397,13 +397,13 @@ export default function ComparisonView({
 
           {/* ── Pillar Summaries ── */}
           <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-2xl text-primary mb-6 text-center">
+            <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-6 text-center">
               Argument Pillars
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Topic 1 Pillars */}
               <div>
-                <h3 className="font-serif text-base text-primary mb-4 text-center">
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-4 text-center">
                   {topic1.title}
                 </h3>
                 <div className="space-y-3">
@@ -416,7 +416,7 @@ export default function ComparisonView({
                         <span className="flex-shrink-0 w-6 h-6 rounded-md bg-rust-100 flex items-center justify-center text-xs font-mono font-semibold text-rust-700">
                           {i + 1}
                         </span>
-                        <h4 className="font-serif text-sm font-semibold text-primary leading-snug">
+                        <h4 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 leading-snug">
                           {pillar.title}
                         </h4>
                       </div>
@@ -430,7 +430,7 @@ export default function ComparisonView({
 
               {/* Topic 2 Pillars */}
               <div>
-                <h3 className="font-serif text-base text-primary mb-4 text-center">
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-4 text-center">
                   {topic2.title}
                 </h3>
                 <div className="space-y-3">
@@ -443,7 +443,7 @@ export default function ComparisonView({
                         <span className="flex-shrink-0 w-6 h-6 rounded-md bg-deep/10 flex items-center justify-center text-xs font-mono font-semibold text-deep">
                           {i + 1}
                         </span>
-                        <h4 className="font-serif text-sm font-semibold text-primary leading-snug">
+                        <h4 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 leading-snug">
                           {pillar.title}
                         </h4>
                       </div>
@@ -459,7 +459,7 @@ export default function ComparisonView({
 
           {/* ── Key Cruxes ── */}
           <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-2xl text-primary mb-2 text-center">
+            <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-2 text-center">
               Key Crux Questions
             </h2>
             <p className="text-sm text-stone-500 mb-6 text-center max-w-xl mx-auto">
@@ -468,14 +468,14 @@ export default function ComparisonView({
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-serif text-base text-primary mb-4 text-center flex items-center justify-center gap-2">
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-4 text-center flex items-center justify-center gap-2">
                   <FlaskConical className="h-4 w-4 text-rust-500" />
                   {topic1.title}
                 </h3>
                 <CruxList cruxes={stats1.cruxes} />
               </div>
               <div>
-                <h3 className="font-serif text-base text-primary mb-4 text-center flex items-center justify-center gap-2">
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-4 text-center flex items-center justify-center gap-2">
                   <FlaskConical className="h-4 w-4 text-deep" />
                   {topic2.title}
                 </h3>
@@ -486,7 +486,7 @@ export default function ComparisonView({
 
           {/* ── CTAs ── */}
           <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
-            <h2 className="font-serif text-2xl text-primary mb-6 text-center">
+            <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-6 text-center">
               Dive Deeper
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -494,7 +494,7 @@ export default function ComparisonView({
                 href={`/topics/${topic1.id}`}
                 className="group flex flex-col items-center gap-3 rounded-xl border border-stone-200/60 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916] p-6 hover:border-rust-300/50 hover:shadow-md transition-all card-hover"
               >
-                <span className="font-serif text-lg text-primary group-hover:text-rust-700 transition-colors text-center">
+                <span className="font-serif text-lg text-primary dark:text-stone-200 group-hover:text-rust-700 transition-colors text-center">
                   {topic1.title}
                 </span>
                 <span
@@ -513,7 +513,7 @@ export default function ComparisonView({
                 href={`/topics/${topic2.id}`}
                 className="group flex flex-col items-center gap-3 rounded-xl border border-stone-200/60 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916] p-6 hover:border-deep/30 hover:shadow-md transition-all card-hover"
               >
-                <span className="font-serif text-lg text-primary group-hover:text-deep transition-colors text-center">
+                <span className="font-serif text-lg text-primary dark:text-stone-200 group-hover:text-deep transition-colors text-center">
                   {topic2.title}
                 </span>
                 <span

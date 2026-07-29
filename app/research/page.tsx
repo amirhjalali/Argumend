@@ -55,8 +55,8 @@ function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) 
       <span className="text-muted dark:text-stone-400 font-mono text-xs mt-0.5 flex-shrink-0 w-6 text-right">
         [{num}]
       </span>
-      <div className="text-secondary">
-        <span className="text-primary font-medium">{formatAuthors(citation.authors)}</span>
+      <div className="text-secondary dark:text-stone-400">
+        <span className="text-primary dark:text-stone-200 font-medium">{formatAuthors(citation.authors)}</span>
         {" "}({citation.year}).{" "}
         <em>{citation.title}.</em>{" "}
         <span className="text-stone-500">{citation.source}.</span>
@@ -136,11 +136,11 @@ export default function ResearchPage() {
           <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
             Research
           </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
             The science behind<br />
             <span className="text-stone-500">better arguments</span>
           </h1>
-          <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
             Every design decision in Argumend is grounded in peer-reviewed research on polarization,
             misinformation, and deliberative reasoning. This page documents the evidence.
           </p>
@@ -148,7 +148,7 @@ export default function ResearchPage() {
 
         {/* Pull quote */}
         <blockquote className="my-12 md:my-16 py-6 border-l-2 border-stone-300 pl-6 md:pl-7">
-          <p className="font-serif text-xl md:text-2xl text-primary italic leading-[1.6]">
+          <p className="font-serif text-xl md:text-2xl text-primary dark:text-stone-200 italic leading-[1.6]">
             &ldquo;It is the mark of an educated mind to be able to entertain a thought
             without accepting it.&rdquo;
           </p>
@@ -160,13 +160,13 @@ export default function ResearchPage() {
         {/* Sections */}
         {researchSections.map((section) => (
           <section key={section.id} id={section.id} className="mb-16 md:mb-24 scroll-mt-16">
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+            <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
               {section.title}
             </h2>
-            <p className="text-base text-secondary italic mb-6">
+            <p className="text-base text-secondary dark:text-stone-400 italic mb-6">
               {section.subtitle}
             </p>
-            <div className="space-y-5 text-base md:text-lg text-secondary leading-[1.75]">
+            <div className="space-y-5 text-base md:text-lg text-secondary dark:text-stone-400 leading-[1.75]">
               {section.paragraphs.map((para, i) => (
                 <p key={i}>
                   {para.text}
@@ -204,7 +204,7 @@ export default function ResearchPage() {
 
         {/* References */}
         <section id="references" className="mb-16 md:mb-24 scroll-mt-16">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">References</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">References</h2>
           <ol className="space-y-4">
             {orderedCitations.map(({ citation, num }) => (
               <ReferenceEntry key={citation.id} citation={citation} num={num} />
@@ -214,10 +214,10 @@ export default function ResearchPage() {
 
         {/* CTA */}
         <section className="text-center py-10 border-t border-stone-200/80">
-          <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
+          <h3 className="font-serif text-xl md:text-2xl text-primary dark:text-stone-200 mb-3">
             See the research in action
           </h3>
-          <p className="text-secondary mb-7">
+          <p className="text-secondary dark:text-stone-400 mb-7">
             Every topic analysis on Argumend implements these evidence-based principles.
           </p>
           <Link

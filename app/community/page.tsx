@@ -75,11 +75,11 @@ export default function CommunityPage() {
               { label: "Community" },
             ]}
           />
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary mb-7 leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 mb-7 leading-[1.08]">
             A community that<br />
             <span className="text-stone-500">disagrees well</span>
           </h1>
-          <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
             Argumend is open source. Help us improve the argument maps,
             challenge our confidence scores, or suggest new topics.
           </p>
@@ -87,10 +87,10 @@ export default function CommunityPage() {
 
         {/* Discussion Principles — Manifesto style */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
             Our Principles
           </h2>
-          <p className="text-lg text-secondary mb-10 max-w-2xl">Not guidelines. Rules. We hold ourselves to these and expect the same from contributors.</p>
+          <p className="text-lg text-secondary dark:text-stone-400 mb-10 max-w-2xl">Not guidelines. Rules. We hold ourselves to these and expect the same from contributors.</p>
           <div className="space-y-4">
             {principles.map((principle) => (
               <div
@@ -100,10 +100,10 @@ export default function CommunityPage() {
                 <div className="flex items-start gap-5">
                   <span className="font-serif text-2xl font-bold text-stone-300 dark:text-stone-600 flex-shrink-0">{principle.number}</span>
                   <div>
-                    <h3 className="font-serif text-lg text-primary mb-2">
+                    <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">
                       {principle.title}
                     </h3>
-                    <p className="text-secondary leading-relaxed">
+                    <p className="text-secondary dark:text-stone-400 leading-relaxed">
                       {principle.description}
                     </p>
                   </div>
@@ -115,20 +115,20 @@ export default function CommunityPage() {
 
         {/* How to Contribute */}
         <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
             How to Contribute
           </h2>
-          <p className="text-lg text-secondary mb-8">All contributions happen on GitHub.</p>
+          <p className="text-lg text-secondary dark:text-stone-400 mb-8">All contributions happen on GitHub.</p>
           <div className="bg-white/80 dark:bg-[#252420]/80 rounded-2xl border border-[#e8e0d4] dark:border-[#3d3a36] divide-y divide-[#e8e0d4] dark:divide-[#3d3a36] overflow-hidden">
             {contributing.map((item, i) => (
               <div key={item.title} className="p-6 hover:bg-[#faf8f5]/50 dark:hover:bg-[#302e2a]/50 transition-colors">
                 <div className="flex items-start gap-4">
                   <span className="font-mono text-xs font-bold text-deep/40 mt-1">0{i + 1}</span>
                   <div>
-                    <h3 className="font-serif text-lg text-primary mb-2">
+                    <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-secondary leading-relaxed">
+                    <p className="text-secondary dark:text-stone-400 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

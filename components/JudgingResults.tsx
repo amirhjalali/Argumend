@@ -167,17 +167,17 @@ function VerdictConfidenceSummary({ result }: { result: JudgingResult }) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
         <div className="space-y-1">
           <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Verdict Strength</p>
-          <p className="text-lg font-serif font-bold text-primary">{verdictStrength}</p>
+          <p className="text-lg font-serif font-bold text-primary dark:text-stone-200">{verdictStrength}</p>
           <p className="text-[10px] text-stone-500">{scoreDiff.toFixed(1)} point margin</p>
         </div>
         <div className="space-y-1">
           <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Judge Confidence</p>
-          <p className="text-lg font-serif font-bold text-primary">{Math.round(overallConf * 100)}%</p>
+          <p className="text-lg font-serif font-bold text-primary dark:text-stone-200">{Math.round(overallConf * 100)}%</p>
           <p className="text-[10px] text-stone-500">{confInfo.label}</p>
         </div>
         <div className="space-y-1">
           <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Agreement</p>
-          <p className="text-lg font-serif font-bold text-primary">
+          <p className="text-lg font-serif font-bold text-primary dark:text-stone-200">
             {result.hasConsensus ? "Unanimous" : `${result.verdicts.filter(v => v.winner === result.winner).length}/${result.verdicts.length}`}
           </p>
           <p className="text-[10px] text-stone-500">
@@ -205,7 +205,7 @@ function DimensionBreakdown({
     >
       <div className="flex items-center gap-2 mb-6">
         <BarChart3 className="h-5 w-5 text-deep" />
-        <h3 className="font-serif font-semibold text-primary">Score Breakdown by Dimension</h3>
+        <h3 className="font-serif font-semibold text-primary dark:text-stone-200">Score Breakdown by Dimension</h3>
       </div>
 
       <div className="flex justify-between text-xs md:text-sm uppercase tracking-widest text-muted dark:text-stone-400 mb-4 px-1">
@@ -278,7 +278,7 @@ function JudgeCard({
               />
             </div>
             <div>
-              <h4 className="font-semibold text-primary">{verdict.judgeName}</h4>
+              <h4 className="font-semibold text-primary dark:text-stone-200">{verdict.judgeName}</h4>
               <p className="text-xs text-stone-500">{llmOption?.fullName}</p>
             </div>
           </div>
@@ -439,7 +439,7 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC, topicTitle, to
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2 flex-shrink-0">
           <Gavel className="h-4 w-4 text-deep" />
-          <h2 className="text-lg font-serif font-semibold text-primary">Judge Council Verdict</h2>
+          <h2 className="text-lg font-serif font-semibold text-primary dark:text-stone-200">Judge Council Verdict</h2>
         </div>
         <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />
         <span className="text-xs text-muted dark:text-stone-400 flex-shrink-0">
@@ -490,7 +490,7 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC, topicTitle, to
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 flex-shrink-0">
             <Users className="h-4 w-4 text-deep" />
-            <h3 className="font-serif font-semibold text-primary">Individual Judge Verdicts</h3>
+            <h3 className="font-serif font-semibold text-primary dark:text-stone-200">Individual Judge Verdicts</h3>
           </div>
           <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />
         </div>

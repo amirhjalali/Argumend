@@ -94,13 +94,13 @@ function EvidenceItem({ ev }: { ev: Evidence }) {
         >
           {tier}
         </span>
-        <span className="text-[10px] font-mono text-secondary">{pct}%</span>
+        <span className="text-[10px] font-mono text-secondary dark:text-stone-400">{pct}%</span>
       </div>
-      <p className="font-serif text-[16px] leading-snug text-primary mb-1">
+      <p className="font-serif text-[16px] leading-snug text-primary dark:text-stone-200 mb-1">
         <span className="font-semibold">{ev.title}.</span>{" "}
-        <span className="text-primary/90">{ev.description}</span>
+        <span className="text-primary dark:text-stone-200/90">{ev.description}</span>
       </p>
-      <div className="mt-1.5 flex items-center gap-3 text-xs text-secondary">
+      <div className="mt-1.5 flex items-center gap-3 text-xs text-secondary dark:text-stone-400">
         <div className="w-24 flex-shrink-0">
           <ConfidenceBar value={score} max={40} tone={ev.side} />
         </div>
@@ -270,7 +270,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
               </div>
               <ReadGraphToggle current="read" />
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl leading-[1.1] tracking-tight text-primary mb-3">
+            <h1 className="font-serif text-4xl sm:text-5xl leading-[1.1] tracking-tight text-primary dark:text-stone-200 mb-3">
               {topic.title}
             </h1>
             <BalanceWeightReadout
@@ -298,12 +298,12 @@ export function ReadModeView({ topic }: { topic: Topic }) {
 
           {/* ─── The Claim ─── */}
           <section aria-label="The claim">
-            <p className="font-serif text-[22px] leading-[1.55] text-primary first-letter:font-serif first-letter:text-[64px] first-letter:font-semibold first-letter:float-left first-letter:leading-[0.85] first-letter:mr-2 first-letter:mt-1 first-letter:text-deep">
+            <p className="font-serif text-[22px] leading-[1.55] text-primary dark:text-stone-200 first-letter:font-serif first-letter:text-[64px] first-letter:font-semibold first-letter:float-left first-letter:leading-[0.85] first-letter:mr-2 first-letter:mt-1 first-letter:text-deep">
               {topic.meta_claim}
             </p>
 
             {/* ─── Bottom line ─── */}
-            <p className="mt-5 font-serif text-[17px] leading-relaxed text-secondary border-l-2 border-deep/40 pl-4 italic">
+            <p className="mt-5 font-serif text-[17px] leading-relaxed text-secondary dark:text-stone-400 border-l-2 border-deep/40 pl-4 italic">
               <span className="not-italic font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-deep block mb-1">
                 Bottom line
               </span>
@@ -336,15 +336,15 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                 className="mt-12 scroll-mt-24"
               >
                 <div className="mb-4">
-                  <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary mb-1">
+                  <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-1">
                     <GlossaryTerm term="pillar">Pillar</GlossaryTerm> {idx + 1} of{" "}
                     {topic.pillars.length}
                   </div>
-                  <h2 className="font-serif text-[28px] leading-tight text-primary">
+                  <h2 className="font-serif text-[28px] leading-tight text-primary dark:text-stone-200">
                     {pillar.title}
                   </h2>
                   {pillar.short_summary && (
-                    <p className="font-serif text-[17px] leading-relaxed text-secondary mt-2 italic">
+                    <p className="font-serif text-[17px] leading-relaxed text-secondary dark:text-stone-400 mt-2 italic">
                       {pillar.short_summary}
                     </p>
                   )}
@@ -354,7 +354,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                   <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-stone-700 dark:text-stone-300 mb-1">
                     The Skeptic
                   </div>
-                  <p className="font-serif text-[18px] leading-relaxed text-primary">
+                  <p className="font-serif text-[18px] leading-relaxed text-primary dark:text-stone-200">
                     {pillar.skeptic_premise}
                   </p>
                 </blockquote>
@@ -363,14 +363,14 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                   <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 mb-1">
                     The Proponent
                   </div>
-                  <p className="font-serif text-[18px] leading-relaxed text-primary">
+                  <p className="font-serif text-[18px] leading-relaxed text-primary dark:text-stone-200">
                     {pillar.proponent_rebuttal}
                   </p>
                 </div>
 
                 {(evFor || evAgainst || (pillar.evidence?.length ?? 0) > 0) && (
                   <div className="mt-6">
-                    <h3 className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary mb-3">
+                    <h3 className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-3">
                       Strongest evidence on each side
                     </h3>
                     <ul className="space-y-2.5 list-none p-0">
@@ -379,7 +379,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                     </ul>
                     {(pillar.evidence?.length ?? 0) > 2 && (
                       <details className="mt-3">
-                        <summary className="cursor-pointer text-xs text-secondary hover:text-primary font-sans">
+                        <summary className="cursor-pointer text-xs text-secondary dark:text-stone-400 hover:text-primary font-sans">
                           Show all {pillar.evidence!.length} evidence items
                         </summary>
                         <ul className="space-y-2.5 mt-3 list-none p-0">
@@ -403,7 +403,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
           {/* ─── Sources ─── */}
           {topic.references?.length ? (
             <section aria-label="Further reading" className="mt-14">
-              <h2 className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary mb-3">
+              <h2 className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-3">
                 Further reading
               </h2>
               <ul className="space-y-2.5 list-none p-0">
@@ -428,7 +428,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
           {/* ─── Related topics ─── */}
           {relatedTopics.length > 0 && (
             <section aria-label="Related topics" className="mt-4">
-              <h2 className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary mb-3">
+              <h2 className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-3">
                 Related topics
               </h2>
               <ul className="grid gap-3 sm:grid-cols-2 list-none p-0">
@@ -438,10 +438,10 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                       href={`/topics/${rt.id}`}
                       className="surface-card card-hover block rounded-lg border border-stone-200/70 dark:border-[#3d3a36] px-4 py-3 transition-colors"
                     >
-                      <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-secondary mb-1">
+                      <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-secondary dark:text-stone-400 mb-1">
                         {CATEGORY_LABELS[rt.category]}
                       </div>
-                      <div className="font-serif text-[17px] leading-snug text-primary">
+                      <div className="font-serif text-[17px] leading-snug text-primary dark:text-stone-200">
                         {rt.title}
                       </div>
                     </Link>
@@ -469,7 +469,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             className="hidden lg:block w-56 flex-shrink-0"
           >
             <div className="sticky top-24 pt-6">
-              <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary mb-3">
+              <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-3">
                 On this page
               </div>
               <ul className="space-y-1.5 list-none p-0 border-l border-stone-200/70 dark:border-[#3d3a36]">
@@ -481,8 +481,8 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                         href={`#${item.id}`}
                         className={`block border-l-2 pl-3 py-1 text-[13px] leading-snug font-sans transition-colors ${
                           isActive
-                            ? "border-l-deep text-primary font-medium"
-                            : "border-l-transparent text-secondary hover:text-primary"
+                            ? "border-l-deep text-primary dark:text-stone-200 font-medium"
+                            : "border-l-transparent text-secondary dark:text-stone-400 hover:text-primary"
                         }`}
                       >
                         {item.label}
@@ -510,7 +510,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             type="button"
             onClick={() => setMobileTocOpen((v) => !v)}
             aria-expanded={mobileTocOpen}
-            className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-[#252420]/90 backdrop-blur border border-stone-200/70 dark:border-[#3d3a36] px-3.5 py-2.5 text-sm font-sans font-medium text-primary shadow-lg"
+            className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-[#252420]/90 backdrop-blur border border-stone-200/70 dark:border-[#3d3a36] px-3.5 py-2.5 text-sm font-sans font-medium text-primary dark:text-stone-200 shadow-lg"
           >
             {mobileTocOpen ? <X className="h-4 w-4" aria-hidden /> : <List className="h-4 w-4" aria-hidden />}
             Contents
@@ -531,8 +531,8 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                         onClick={() => setMobileTocOpen(false)}
                         className={`block rounded-md px-3 py-2 text-[13px] leading-snug font-sans transition-colors ${
                           isActive
-                            ? "bg-deep/10 text-primary font-medium"
-                            : "text-secondary hover:bg-stone-100 dark:hover:bg-[#302e2a]"
+                            ? "bg-deep/10 text-primary dark:text-stone-200 font-medium"
+                            : "text-secondary dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-[#302e2a]"
                         }`}
                       >
                         {item.label}
