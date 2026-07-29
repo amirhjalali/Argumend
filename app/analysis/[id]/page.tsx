@@ -33,6 +33,9 @@ export async function generateMetadata({
     description,
     // Thin DB-backed pages: keep out of the index but let crawlers follow links.
     robots: { index: false, follow: true },
+    alternates: {
+      canonical: `https://argumend.org/analysis/${id}`,
+    },
     openGraph: {
       title: `${analysis.topic} - ARGUMEND Analysis`,
       description,
