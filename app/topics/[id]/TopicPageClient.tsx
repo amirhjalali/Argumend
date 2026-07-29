@@ -1,13 +1,23 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import type { Topic } from "@/lib/schemas/topic";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ReadModeView } from "@/components/ReadModeView";
 import { ReadGraphToggle } from "@/components/ReadGraphToggle";
-import TopicDetailView from "./TopicDetailView";
+import { SkeletonTopicDetail } from "@/components/SkeletonTopicDetail";
 import Link from "next/link";
+
+// `read` is the default view and the canonical/prerendered one, so ReadModeView
+// stays eager. TopicDetailView (~1.7k lines + framer-motion + the whole graph
+// UI) only renders behind `?view=graph`, which is a client-only query param —
+// code-split it so the default read path never downloads it.
+const TopicDetailView = dynamic(() => import("./TopicDetailView"), {
+  ssr: false,
+  loading: () => <SkeletonTopicDetail />,
+});
 
 // Topic + related topics are resolved SERVER-SIDE (app/topics/[id]/page.tsx) and
 // passed as props, so this client component never imports the ~500KB `data/topics`
