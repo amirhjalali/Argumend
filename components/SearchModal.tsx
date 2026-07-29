@@ -497,7 +497,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search topics, articles, concepts, pages..."
-              className="flex-1 bg-transparent text-lg text-primary placeholder:text-stone-500 outline-none font-sans"
+              className="flex-1 bg-transparent text-lg text-primary dark:text-stone-200 placeholder:text-stone-500 outline-none font-sans"
               autoComplete="off"
               spellCheck={false}
               aria-label="Search Argumend"
@@ -545,7 +545,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 </div>
                 <div className="text-stone-500 text-sm font-medium">
                   Nothing matching{" "}
-                  <span className="text-primary">
+                  <span className="text-primary dark:text-stone-200">
                     &ldquo;{query}&rdquo;
                   </span>
                 </div>
@@ -618,7 +618,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         <div className="flex items-center gap-2">
                           <span
                             className={`text-sm font-medium truncate ${
-                              isActive ? "text-rust-700" : "text-primary"
+                              isActive ? "text-rust-700" : "text-primary dark:text-stone-200"
                             }`}
                           >
                             {result.title}
