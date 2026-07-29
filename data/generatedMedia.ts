@@ -194,6 +194,56 @@ export const generatedMedia = [
     },
   },
   {
+    kind: "blog",
+    id: "how-to-tell-if-a-source-is-trustworthy",
+    hero: {
+      src: "/images/generated/blog/how-to-tell-if-a-source-is-trustworthy/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Secondary source cards traced back through a magnifier to an original primary record.",
+      prompt: `${basePrompt} Stack of overlapping document cards traced by a thin ink line back to an original primary record, provenance markers, magnifier aperture, three corroborating paths converging.`,
+    },
+  },
+  {
+    kind: "blog",
+    id: "assisted-dying-both-sides",
+    hero: {
+      src: "/images/generated/blog/assisted-dying-both-sides/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A nearly level balance beam weighing a teal autonomy cluster against a brown protection cluster.",
+      prompt: `${basePrompt} Nearly level balance beam, teal autonomy node cluster on one arm and warm brown protection-of-the-vulnerable cluster on the other, crimson marker at the fulcrum, protective arc, no human figures.`,
+    },
+  },
+  {
+    kind: "blog",
+    id: "cherry-picking-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/cherry-picking-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A few evidence marks lifted from a ghosted field into a tidy row implying a false trend.",
+      prompt: `${basePrompt} Wide field of faint ghosted evidence marks with a handful lifted out into a tidy rust row implying a false trend line, crimson outline around the omitted majority.`,
+    },
+  },
+  {
+    kind: "blog",
+    id: "how-to-read-a-scientific-study",
+    hero: {
+      src: "/images/generated/blog/how-to-read-a-scientific-study/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An open journal page annotated with leader lines to sample size, interval, and caveat blocks.",
+      prompt: `${basePrompt} Open journal page rendered as blocks and rules, teal leader lines to a sample-size cluster and a confidence-interval bracket, rust arrow curving away from causation, crimson footnote marker.`,
+    },
+  },
+  {
+    kind: "blog",
+    id: "immigration-economy-both-sides",
+    hero: {
+      src: "/images/generated/blog/immigration-economy-both-sides/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Two opposing economic node lattices meeting at a small crimson crux aperture.",
+      prompt: `${basePrompt} Teal lattice of labour and growth nodes expanding from the left against a rust cluster of wage and absorption-capacity nodes pressing from the right, crimson crux aperture at the midpoint, no flags or borders.`,
+    },
+  },
+  {
     kind: "topic",
     id: "ai-risk",
     hero: {
