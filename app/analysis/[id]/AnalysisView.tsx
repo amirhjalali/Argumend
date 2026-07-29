@@ -43,6 +43,7 @@ import {
   getArgumentStrength,
   getConfidenceInfo,
 } from "@/lib/analyze/extractor";
+import { formatLongDate } from "@/lib/formatDate";
 
 // ---------- Helpers ----------
 
@@ -519,11 +520,7 @@ export function AnalysisView({
   judgingResult,
   createdAt,
 }: AnalysisViewProps) {
-  const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const formattedDate = formatLongDate(createdAt);
 
   const formattedTime = new Date(createdAt).toLocaleTimeString("en-US", {
     hour: "numeric",

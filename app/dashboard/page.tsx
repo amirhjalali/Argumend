@@ -21,6 +21,7 @@ import {
   categoryTopBorder,
 } from "@/lib/categoryColors";
 import { BalanceWeightChip } from "@/components/BalanceWeightChip";
+import { formatShortDate } from "@/lib/formatDate";
 
 export const metadata: Metadata = {
   // Plain string — the root title template ("%s | ARGUMEND") adds the suffix;
@@ -41,14 +42,6 @@ const statusLabels: Record<TopicStatus, string> = {
   contested: "Contested",
   highly_speculative: "Speculative",
 };
-
-function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).format(date);
-}
 
 export default async function DashboardPage() {
   const session = await auth();
@@ -209,7 +202,7 @@ export default async function DashboardPage() {
                         </span>
                         <span className="text-xs text-muted dark:text-[var(--text-muted)] flex items-center gap-1">
                           <Clock className="h-3 w-3" />
-                          {formatDate(debate.createdAt)}
+                          {formatShortDate(debate.createdAt)}
                         </span>
                       </div>
                     </div>

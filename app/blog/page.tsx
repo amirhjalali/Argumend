@@ -13,14 +13,7 @@ import {
   tagToSlug,
 } from "@/data/blog";
 import { getGeneratedMedia } from "@/data/generatedMedia";
-
-function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+import { formatLongDate } from "@/lib/formatDate";
 
 export default function BlogPage() {
   const categories = getUniqueCategories();
@@ -183,7 +176,7 @@ export default function BlogPage() {
                   </span>
                   <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                     <Calendar className="h-3 w-3" />
-                    {formatDate(featuredArticle.publishedAt)}
+                    {formatLongDate(featuredArticle.publishedAt)}
                   </span>
                   <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                     <Clock className="h-3 w-3" />
@@ -257,7 +250,7 @@ export default function BlogPage() {
                         </span>
                         <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                           <Calendar className="h-3 w-3" />
-                          {formatDate(article.publishedAt)}
+                          {formatLongDate(article.publishedAt)}
                         </span>
                         <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                           <Clock className="h-3 w-3" />

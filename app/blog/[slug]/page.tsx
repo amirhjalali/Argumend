@@ -29,6 +29,7 @@ import {
   type TocHeading,
 } from "@/components/TableOfContents";
 import { BlogArticleClient } from "./client";
+import { formatLongDate } from "@/lib/formatDate";
 
 // ---------------------------------------------------------------------------
 // Heading anchors + TOC collection
@@ -267,13 +268,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
     renderMarkdown(article.content),
   );
 
-  const formatDate = (iso: string) =>
-    new Date(iso).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-
   // Word count for structured data
   const wordCount = article.content
     .replace(/[#*\[\]()]/g, "")
@@ -377,7 +371,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
               </span>
               <span className="flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5" />
-                {formatDate(article.publishedAt)}
+                {formatLongDate(article.publishedAt)}
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5" />

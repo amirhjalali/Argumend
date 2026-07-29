@@ -11,13 +11,7 @@ import {
   tagToSlug,
 } from "@/data/blog";
 
-function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+import { formatLongDate } from "@/lib/formatDate";
 
 // ---------------------------------------------------------------------------
 // Static params
@@ -145,7 +139,7 @@ export default async function TagPage({ params }: PageProps) {
                     </span>
                     <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                       <Calendar className="h-3 w-3" />
-                      {formatDate(article.publishedAt)}
+                      {formatLongDate(article.publishedAt)}
                     </span>
                     <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
                       <Clock className="h-3 w-3" />
