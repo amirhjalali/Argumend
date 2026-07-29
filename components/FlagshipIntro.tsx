@@ -27,7 +27,7 @@ export function FlagshipIntro({ topic }: { topic: Topic }) {
           <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-deep mb-2">
             The fact that reframes this debate
           </div>
-          <p className="font-serif text-[24px] sm:text-[26px] leading-[1.3] text-primary">
+          <p className="font-serif text-[24px] sm:text-[26px] leading-[1.3] text-primary dark:text-stone-200">
             {k.statement}
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs">
@@ -39,13 +39,13 @@ export function FlagshipIntro({ topic }: { topic: Topic }) {
                 href={k.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-0.5 text-secondary link-underline hover:text-primary"
+                className="inline-flex items-center gap-0.5 text-secondary dark:text-stone-400 link-underline hover:text-primary"
               >
                 {k.source}
                 <ExternalLink className="h-3 w-3" aria-hidden />
               </a>
             ) : (
-              <span className="text-secondary">{k.source}</span>
+              <span className="text-secondary dark:text-stone-400">{k.source}</span>
             )}
           </div>
         </section>
@@ -53,12 +53,12 @@ export function FlagshipIntro({ topic }: { topic: Topic }) {
 
       {sc && sc.length > 0 && (
         <section aria-label="The simple case" className="mt-5">
-          <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary mb-2">
+          <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-2">
             The honest version, in {sc.length === 3 ? "three" : sc.length} sentences
           </div>
           <ol className="space-y-2 list-none p-0 m-0">
             {sc.map((sentence, i) => (
-              <li key={i} className="flex gap-3 font-serif text-[17px] leading-relaxed text-primary">
+              <li key={i} className="flex gap-3 font-serif text-[17px] leading-relaxed text-primary dark:text-stone-200">
                 <span
                   aria-hidden
                   className="flex-shrink-0 font-sans text-[12px] font-semibold text-deep/70 pt-1.5 tabular-nums"

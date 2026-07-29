@@ -159,3 +159,76 @@ describe("off-palette color guard (app + components source trees)", () => {
     ).toEqual([]);
   });
 });
+
+/**
+ * Dark-mode guard: bare `text-primary` / `text-secondary` must carry a `dark:` pair.
+ *
+ * `tailwind.config.ts` defines primary (#3d3a36) and secondary (#564d45) as FIXED
+ * hex, so the `text-primary` / `text-secondary` utilities do NOT adapt in dark
+ * mode — they render near-invisible dark text on the #1a1917 dark canvas. The
+ * validated fix (same shape as the earlier `text-muted` + `dark:text-stone-400`
+ * pass) is to pair each bare use on a dark-adaptive surface:
+ *
+ *   text-primary   → "text-primary dark:text-stone-200"
+ *   text-secondary → "text-secondary dark:text-stone-400"
+ *
+ * Scoped to the files already migrated rather than a repo-wide scan: the
+ * migration is being rolled out file-by-file, and pages built entirely on the
+ * fixed-light `bg-canvas`/`bg-panel` tokens (no dark surface at all) are
+ * intentionally left alone — pairing their text alone would make it invisible.
+ *
+ * Variant forms (`hover:text-primary`, `group-hover:text-secondary`) and the
+ * CSS-var form (`text-[var(--text-primary)]`, which already adapts) are out of
+ * scope and not matched.
+ */
+describe("dark-mode pairing guard for text-primary / text-secondary", () => {
+  const pairedFiles = [
+    "app/topics/[id]/TopicDetailView.tsx",
+    "components/ReadModeView.tsx",
+    "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
+    "app/community/page.tsx",
+    "components/JudgingResults.tsx",
+    "components/FlagshipIntro.tsx",
+  ];
+
+  const EXPECTED_PAIR: Record<string, string> = {
+    primary: "dark:text-stone-200",
+    secondary: "dark:text-stone-400",
+  };
+
+  // A bare utility use: not preceded by a variant colon / word char / `[`,
+  // and not followed by more of an identifier (excludes text-primary-foo and
+  // the `text-[var(--text-primary)]` CSS-var form).
+  const BARE_TOKEN = /(?<![\w:[-])text-(primary|secondary)(?![\w\]-])/g;
+
+  const readSrc = (rel: string) =>
+    readFileSync(join(process.cwd(), ...rel.split("/")), "utf8");
+
+  it.each(pairedFiles)(
+    "%s pairs every bare text-primary/text-secondary with its dark: override",
+    (file) => {
+      const src = readSrc(file);
+      const unpaired: string[] = [];
+      for (const m of src.matchAll(BARE_TOKEN)) {
+        const token = m[1];
+        const rest = src.slice(m.index! + m[0].length);
+        if (!rest.startsWith(` ${EXPECTED_PAIR[token]}`)) {
+          const line = src.slice(0, m.index).split("\n").length;
+          unpaired.push(
+            `${file}:${line} — text-${token} needs "${EXPECTED_PAIR[token]}"`,
+          );
+        }
+      }
+      expect(unpaired, unpaired.join("\n")).toEqual([]);
+    },
+  );
+
+  it("uses the two canonical dark pairings and no ad-hoc substitutes", () => {
+    const adHoc = /text-(?:primary|secondary)\s+dark:text-(?!stone-(?:200|400)\b)/;
+    const offenders = pairedFiles.filter((file) => adHoc.test(readSrc(file)));
+    expect(
+      offenders,
+      `non-canonical dark pairing (expected dark:text-stone-200 / -400) in:\n${offenders.join("\n")}`,
+    ).toEqual([]);
+  });
+});
