@@ -5,7 +5,6 @@ import {
   EMOTIONAL_MARKERS,
   EVIDENCE_MARKERS,
   clamp,
-  normalize,
   splitSentences,
   countMarkers,
   keywordSet,
@@ -21,6 +20,7 @@ import {
   type RubricDimension,
 } from "./rubric";
 import type { DebateMessageInput as DebateMessage } from "@/types/debate";
+import { determineConsensusWinner } from "./consensus";
 
 const DEFAULT_MODELS: LLMModel[] = ["claude", "gpt-4", "gemini"];
 type ContentTypeForAnalysis = "transcript" | "article" | "freeform";
@@ -131,6 +131,8 @@ function modelDisplayName(model: LLMModel): string {
       return "Claude";
     case "gpt-4":
       return "GPT-4";
+    case "gpt-5":
+      return "GPT-5";
     case "gemini":
       return "Gemini";
     case "grok":
@@ -254,29 +256,6 @@ function findDisagreements(
   return disagreements;
 }
 
-function consensus(verdicts: JudgeVerdict[]): { winner: "for" | "against" | "draw" | null; hasConsensus: boolean } {
-  if (verdicts.length === 0) {
-    return { winner: null, hasConsensus: false };
-  }
-
-  const counts = { for: 0, against: 0, draw: 0 };
-  for (const verdict of verdicts) {
-    counts[verdict.winner] += 1;
-  }
-
-  const hasConsensus =
-    counts.for === verdicts.length ||
-    counts.against === verdicts.length ||
-    counts.draw === verdicts.length;
-  const majority = Math.ceil(verdicts.length / 2);
-
-  if (counts.for >= majority) return { winner: "for", hasConsensus };
-  if (counts.against >= majority) return { winner: "against", hasConsensus };
-  if (counts.draw >= majority) return { winner: "draw", hasConsensus };
-
-  return { winner: null, hasConsensus: false };
-}
-
 function buildVerdicts(
   forText: string,
   againstText: string,
@@ -333,7 +312,7 @@ function buildOfflineJudgingResult(
   const verdicts = buildVerdicts(forText, againstText, models, rubric);
   const aggregatedScores = aggregateScores(verdicts, rubric);
   const disagreements = findDisagreements(verdicts, rubric);
-  const consensusResult = consensus(verdicts);
+  const consensusResult = determineConsensusWinner(verdicts);
 
   let winner = consensusResult.winner;
   if (!winner) {

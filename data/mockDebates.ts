@@ -10,6 +10,7 @@
 import type { DebateMessage } from "@/types/debate";
 import type { LLMModel } from "@/types/logic";
 import _data from "./mockDebates.json";
+export { hasMockDebate } from "./mockDebateIndex";
 
 export type { DebateMessage } from "@/types/debate";
 
@@ -21,13 +22,6 @@ export const MOCK_DEBATES: Record<string, DebateMessage[]> = _data as Record<
   string,
   DebateMessage[]
 >;
-
-/**
- * Check if mock debate data exists for a topic.
- */
-export function hasMockDebate(topicId: string | undefined): boolean {
-  return Boolean(topicId && MOCK_DEBATES[topicId]);
-}
 
 /**
  * Get mock debate messages for a topic.

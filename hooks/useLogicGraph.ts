@@ -1,44 +1,35 @@
 "use client";
 
 import { generateBlueprint } from "@/data/logicBlueprint";
-import type { EvidenceNodeData } from "@/components/nodes/EvidenceNode";
+import { hasTopicLoader, loadTopicById } from "@/data/topicLoader";
 import { trackEvent } from "@/lib/analytics";
+import type { Topic } from "@/lib/schemas/topic";
 
-// Lazy-loaded to prevent 500KB topics.ts from being bundled into every page
-let _topics: typeof import("@/data/topics").topics | null = null;
-let _moonLanding: typeof import("@/data/topics").moonLanding | null = null;
+const FALLBACK_TOPIC_ID = "moon-landing";
+const loadedTopics = new Map<string, Topic>();
+let selectionGeneration = 0;
 
-async function getTopicsModule() {
-  if (!_topics) {
-    const mod = await import("@/data/topics");
-    _topics = mod.topics;
-    _moonLanding = mod.moonLanding;
-  }
-  return { topics: _topics!, moonLanding: _moonLanding! };
-}
-
-// Synchronous access after module is loaded (for use inside store actions)
-function getTopicsSync() {
-  return _topics;
+async function loadAndRememberTopic(topicId: string): Promise<Topic | null> {
+  const existing = loadedTopics.get(topicId);
+  if (existing) return existing;
+  const topic = await loadTopicById(topicId);
+  if (topic) loadedTopics.set(topic.id, topic);
+  return topic;
 }
 
 /**
- * Public synchronous access for lazy-loaded components (DebateView, ScalesOfEvidence, etc.)
- * that are only rendered after the store has already loaded topics.
- * Returns null if topics haven't been loaded yet.
+ * Public synchronous access for lazy-loaded components (DebateView,
+ * ScalesOfEvidence, etc.). Only individually requested topics are retained.
  */
 export function getLoadedTopics() {
-  return _topics;
-}
-
-function getMoonLandingSync() {
-  return _moonLanding;
+  return Array.from(loadedTopics.values());
 }
 import {
+  COLLISION_HORIZONTAL_GAP,
   COLLISION_PADDING,
-  HORIZONTAL_GAP,
   VERTICAL_GAP,
   getChildPosition,
+  getRootChildPosition,
 } from "@/lib/layout";
 import { getEdgeColor } from "@/lib/variantStyles";
 import type {
@@ -89,7 +80,7 @@ type GraphStore = {
   _initialized: boolean;
 
   // Actions
-  loadInitialTopic: () => Promise<void>; // Lazy-loads topics.ts and sets initial topic
+  loadInitialTopic: () => Promise<void>; // Loads only the default topic module
   setTopic: (topicId: string) => void;
   setView: (view: ArgumentView) => void;
   expandNode: (nodeId: string) => void;
@@ -103,8 +94,7 @@ type GraphStore = {
   onNodesChange: (changes: NodeChange<LogicNode>[]) => void;
 };
 
-// No initial topic loaded — topics.ts is lazy-loaded to avoid bundling 500KB
-// into every page. The first render will trigger loadInitialTopic().
+// No initial topic is loaded until the graph is opened or a topic is selected.
 
 function mapBlueprintToData(blueprint: BlueprintNode): LogicNodeData {
   return {
@@ -156,7 +146,6 @@ function buildEdge(source: string, target: string, slot: ChildSlot, targetVarian
     target,
     sourceHandle,
     targetHandle,
-    type: "bezier",
     animated: shouldAnimateEdges(),
     className: "logic-edge",
     style: { stroke: edgeColor, strokeOpacity: 0.5 },
@@ -169,14 +158,13 @@ function buildEdge(source: string, target: string, slot: ChildSlot, targetVarian
   };
 }
 
-// Helper to get blueprint for current topic (topics must be loaded first)
+// Helper to get a blueprint from the small in-memory loaded-topic cache.
 function getBlueprintForTopic(topicId: string) {
-  const topics = getTopicsSync();
-  const moonLanding = getMoonLandingSync();
-  if (!topics || !moonLanding) {
-    throw new Error("Topics not loaded yet. Call loadInitialTopic() first.");
+  const topic =
+    loadedTopics.get(topicId) ?? loadedTopics.get(FALLBACK_TOPIC_ID);
+  if (!topic) {
+    throw new Error("Topic not loaded yet. Load it before using graph actions.");
   }
-  const topic = topics.find(t => t.id === topicId) ?? moonLanding;
   return generateBlueprint(topic);
 }
 
@@ -211,7 +199,7 @@ function avoidCollisions(
   position: XYPosition,
   placedNodes: LogicNode[],
 ): XYPosition {
-  const minX = HORIZONTAL_GAP * 0.3;
+  const minX = COLLISION_HORIZONTAL_GAP;
   const minY = VERTICAL_GAP * COLLISION_PADDING;
   let adjusted = { ...position };
   let guard = 0;
@@ -244,7 +232,9 @@ function createNodesFromTemplates(
       const siblingsInSlot = templates.filter(t => t.slot === template.slot);
       const indexInSlot = siblingsInSlot.indexOf(template);
 
-      const position = getChildPosition(
+      const position = (parentNode.id === "root"
+        ? getRootChildPosition
+        : getChildPosition)(
         parentNode.position,
         template.slot,
         indexInSlot,
@@ -283,7 +273,16 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
 
   loadInitialTopic: async () => {
     if (get()._initialized) return;
-    const { moonLanding } = await getTopicsModule();
+    const generationAtStart = selectionGeneration;
+    const moonLanding = await loadAndRememberTopic(FALLBACK_TOPIC_ID);
+    if (
+      !moonLanding ||
+      get()._initialized ||
+      get().currentTopicId !== FALLBACK_TOPIC_ID ||
+      selectionGeneration !== generationAtStart
+    ) {
+      return;
+    }
     const blueprint = generateBlueprint(moonLanding);
     const rootBlueprint = blueprint["root"];
     const rootNode: LogicNode = {
@@ -306,12 +305,23 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
   setView: (view: ArgumentView) => set({ currentView: view }),
 
   setTopic: (topicId: string) => {
-    // Set the topic ID immediately for UI updates
-    set({ currentTopicId: topicId });
+    const requestGeneration = ++selectionGeneration;
+    const requestedTopicId = hasTopicLoader(topicId)
+      ? topicId
+      : FALLBACK_TOPIC_ID;
 
-    const doSetTopic = (topicsArr: typeof import("@/data/topics").topics) => {
-      const topic = topicsArr.find((t) => t.id === topicId);
-      if (!topic) return;
+    // Set the validated ID immediately for selection/loading UI. Unknown IDs
+    // resolve to the safe default and never trigger a broad corpus import.
+    set({ currentTopicId: requestedTopicId });
+
+    const doSetTopic = (topic: Topic) => {
+      // A later selection won while this module was loading.
+      if (
+        get().currentTopicId !== topic.id ||
+        selectionGeneration !== requestGeneration
+      ) {
+        return;
+      }
 
       const newBlueprint = generateBlueprint(topic);
       const newRootBlueprint = newBlueprint["root"];
@@ -324,7 +334,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       };
 
       set({
-        currentTopicId: topicId,
+        currentTopicId: topic.id,
         nodes: [newRootNode],
         edges: [],
         expandedNodes: {},
@@ -339,12 +349,17 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       get().expandNode("root");
     };
 
-    const topics = getTopicsSync();
-    if (topics) {
-      doSetTopic(topics);
+    const loaded = loadedTopics.get(requestedTopicId);
+    if (loaded) {
+      doSetTopic(loaded);
     } else {
-      // Topics not loaded yet — load them first
-      getTopicsModule().then(({ topics: t }) => doSetTopic(t));
+      void loadAndRememberTopic(requestedTopicId).then((topic) => {
+        if (topic) {
+          doSetTopic(topic);
+        } else if (requestedTopicId !== FALLBACK_TOPIC_ID) {
+          get().setTopic(FALLBACK_TOPIC_ID);
+        }
+      });
     }
   },
 
@@ -442,9 +457,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
     const { evidenceLoadedNodes, nodes, edges, currentTopicId } = get();
     if (evidenceLoadedNodes[pillarId]) return;
 
-    const topicsArr = getTopicsSync();
-    if (!topicsArr) return;
-    const topic = topicsArr.find((t) => t.id === currentTopicId);
+    const topic = loadedTopics.get(currentTopicId);
     if (!topic) return;
 
     const pillar = topic.pillars.find((p) => p.id === pillarId);
@@ -501,7 +514,6 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
         target: evidenceId,
         sourceHandle: "bottom",
         targetHandle: "top",
-        type: "bezier",
         animated: false,
         style: { stroke: edgeColor, strokeOpacity: 0.5 },
       });
@@ -559,7 +571,6 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       target: concept.targetId,
       sourceHandle: 'right', // Concepts branch to right
       targetHandle: 'left',
-      type: "bezier",
       animated: false,
       style: { strokeDasharray: "5,5", stroke: "#B0B0B0" }, // Dotted line for definitions
     };

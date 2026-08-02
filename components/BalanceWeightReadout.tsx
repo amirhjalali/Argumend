@@ -64,10 +64,10 @@ export function BalanceWeightReadout({
           </g>
         </svg>
         <div className="min-w-0">
-          <p className="font-serif text-lg sm:text-xl font-semibold leading-snug text-primary">
+          <p className="font-serif text-lg font-semibold leading-snug text-primary dark:text-stone-200 sm:text-xl">
             {verdict.label}
           </p>
-          <p className="mt-0.5 font-sans text-xs text-secondary">
+          <p className="mt-0.5 font-sans text-xs text-secondary dark:text-stone-400">
             Balance {balance}/100 · Weight {weight}/100
           </p>
         </div>
@@ -75,7 +75,7 @@ export function BalanceWeightReadout({
 
       {/* Balance: diverging meter centered on 50 */}
       <div className="mt-4">
-        <div className="mb-1 flex items-center justify-between font-sans text-[10px] uppercase tracking-widest text-muted">
+        <div className="mb-1 flex items-center justify-between font-sans text-[10px] uppercase tracking-widest text-muted dark:text-stone-400">
           <span>Against</span>
           <span>Balance of evidence</span>
           <span>For</span>
@@ -102,7 +102,7 @@ export function BalanceWeightReadout({
 
       {/* Weight: plain fill meter */}
       <div className="mt-3">
-        <div className="mb-1 flex items-center justify-between font-sans text-[10px] uppercase tracking-widest text-muted">
+        <div className="mb-1 flex items-center justify-between font-sans text-[10px] uppercase tracking-widest text-muted dark:text-stone-400">
           <span>Weight of evidence</span>
           <span className="font-mono tabular-nums normal-case tracking-normal">{weight}/100</span>
         </div>

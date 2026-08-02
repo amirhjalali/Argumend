@@ -213,8 +213,8 @@ export const centralBankDigitalCurrencyData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Bloomberg; Central Bank of Nigeria; Quartz Africa",
-          sourceUrl: "https://www.bloomberg.com/news/articles/2023-06-15/nigeria-s-enaira-fails-to-gain-users-despite-cash-curbs",
+          source: "IMF Working Paper 2023/104; Central Bank of Nigeria",
+          sourceUrl: "https://www.elibrary.imf.org/view/journals/001/2023/104/article-A001-en.xml",
           reasoning:
             "Nigeria's eNaira provides the strongest real-world counter-evidence to CBDC financial inclusion claims. The very low adoption rate despite government pressure directly demonstrates that a CBDC does not automatically solve financial inclusion. However, Nigeria's specific governance trust issues may not generalize to all countries.",
         },

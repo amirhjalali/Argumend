@@ -227,7 +227,7 @@ export default function ForEducatorsPage() {
       />
       <div className="mx-auto max-w-4xl px-4 md:px-8">
         {/* Hero */}
-        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
+        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent dark:from-[#252420]/80 -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -235,7 +235,7 @@ export default function ForEducatorsPage() {
             ]}
           />
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 mb-7 leading-[1.08]">
-            Teach students how to disagree<br />
+            Teach students how to disagree{" "}<br />
             <span className="text-stone-500">without destroying the conversation</span>
           </h1>
           <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
@@ -244,6 +244,22 @@ export default function ForEducatorsPage() {
             A-Level Critical Thinking, and any class where students need to think clearly
             about contested questions.
           </p>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="#printable-worksheets"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:from-rust-600 hover:to-rust-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2"
+            >
+              <Printer className="h-4 w-4" aria-hidden="true" />
+              Get printable worksheets
+            </Link>
+            <Link
+              href="/topics"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-stone-300 px-5 py-2.5 text-sm font-medium text-stone-700 transition-colors hover:bg-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:border-[#3d3a36] dark:text-stone-300 dark:hover:bg-[#252420]"
+            >
+              Browse classroom topics
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
 
         {/* Blockquote */}
@@ -295,7 +311,7 @@ export default function ForEducatorsPage() {
             {lessonPlans.map((plan) => (
               <div
                 key={plan.number}
-                className="bg-[#fefcf9] rounded-xl border border-stone-200/60 p-5 md:p-6"
+                className="bg-[#fefcf9] dark:bg-[#252420] rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-5 md:p-6"
               >
                 <div className="flex items-baseline gap-3 mb-1">
                   <span className="font-mono text-sm font-bold text-muted dark:text-stone-400">{plan.number}</span>
@@ -320,12 +336,12 @@ export default function ForEducatorsPage() {
         </section>
 
         {/* Printable Worksheets */}
-        <section className="mb-16 md:mb-24">
+        <section id="printable-worksheets" className="mb-16 scroll-mt-8 md:mb-24">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Printable worksheets
           </h2>
           <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            Download and print these structured templates for classroom use.
+            Open and print these structured templates for classroom use.
             Each worksheet is designed for clean, ink-friendly printing.
           </p>
 
@@ -348,7 +364,7 @@ export default function ForEducatorsPage() {
                 </p>
                 <Link
                   href={`/for-educators/worksheets/${ws.id}`}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-deep hover:text-deep-dark transition-colors"
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-deep hover:text-deep-dark transition-colors dark:text-[#7fb5b0] dark:hover:text-[#a7d0cc]"
                 >
                   <Printer className="h-3.5 w-3.5" />
                   View &amp; Print
@@ -373,7 +389,7 @@ export default function ForEducatorsPage() {
             {gradeLevels.map((level) => (
               <div
                 key={level.label}
-                className="bg-[#fefcf9] rounded-xl border border-stone-200/60 p-5 md:p-6"
+                className="bg-[#fefcf9] dark:bg-[#252420] rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-5 md:p-6"
               >
                 <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 mb-1">
                   {level.label}
@@ -386,7 +402,7 @@ export default function ForEducatorsPage() {
                     <Link
                       key={topic.id}
                       href={`/topics/${topic.id}`}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-deep/5 border border-deep/10 text-sm font-medium text-deep hover:bg-deep/10 hover:border-deep/20 transition-colors"
+                      className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-deep/10 bg-deep/5 px-3 py-1.5 text-sm font-medium text-deep transition-colors hover:border-deep/20 hover:bg-deep/10 dark:border-[#3d5754] dark:bg-[#243330] dark:text-[#9bc7c3] dark:hover:bg-[#2b403c]"
                     >
                       {topic.title}
                       <ArrowRight className="h-3 w-3" />
@@ -425,7 +441,7 @@ export default function ForEducatorsPage() {
                     <Link
                       key={topic}
                       href={topic}
-                      className="text-xs font-medium text-deep hover:text-deep-dark hover:underline transition-colors"
+                      className="inline-flex min-h-11 items-center text-xs font-medium text-deep transition-colors hover:text-deep-dark hover:underline dark:text-[#9bc7c3] dark:hover:text-[#b7d9d6]"
                     >
                       {subject.topicLabels[i]} &rarr;
                     </Link>

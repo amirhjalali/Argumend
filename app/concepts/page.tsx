@@ -42,13 +42,13 @@ export default function ConceptsPage() {
             { label: "Concepts" },
           ]}
         />
-        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
           Key Concepts
         </h1>
-        <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-4">
+        <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mb-4">
           Understanding the framework behind structured argumentation.
         </p>
-        <p className="text-base text-secondary leading-relaxed max-w-2xl mb-8">
+        <p className="text-base text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mb-8">
           The {concepts.length} concepts below are the stages of how every
           Argumend map gets built: first the disagreement is framed fairly, then
           the evidence is weighed and scored, then the reasoning is stress-tested
@@ -64,7 +64,7 @@ export default function ConceptsPage() {
               <a
                 key={id}
                 href={`#${id}`}
-                className={`inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${stage.chip}`}
+                className={`inline-flex min-h-11 items-center gap-2 rounded-full border py-2 pl-2.5 pr-3 text-xs font-medium transition-colors ${stage.chip}`}
               >
                 <span className="font-serif text-[13px] opacity-70">{stage.numeral}</span>
                 {stage.label}
@@ -78,9 +78,9 @@ export default function ConceptsPage() {
           <section key={stage.id} id={stage.id} className="mb-14 scroll-mt-20">
             <div className="flex items-baseline gap-3 mb-2">
               <span className={`font-serif text-2xl ${stage.iconText}`}>{stage.numeral}.</span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary">{stage.label}</h2>
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">{stage.label}</h2>
             </div>
-            <p className="text-secondary leading-relaxed max-w-2xl mb-6">{stage.description}</p>
+            <p className="text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mb-6">{stage.description}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {items.map((concept, index) => {
@@ -105,14 +105,14 @@ export default function ConceptsPage() {
                         <Icon className={`h-5 w-5 ${stage.iconText}`} strokeWidth={1.8} />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-serif text-xl text-primary mb-1 group-hover:text-deep transition-colors">
+                        <h3 className="font-serif text-xl text-primary dark:text-stone-200 mb-1 group-hover:text-deep dark:group-hover:text-[#9bc7c3] transition-colors">
                           {concept.title}
                         </h3>
-                        <p className="text-primary leading-relaxed text-sm mb-3">
+                        <p className="text-primary dark:text-stone-200 leading-relaxed text-sm mb-3">
                           {snippet}
                         </p>
                         <div className="flex items-center justify-between">
-                          <span className="inline-flex items-center gap-1 text-deep text-sm font-medium">
+                          <span className="inline-flex items-center gap-1 text-deep dark:text-[#9bc7c3] text-sm font-medium">
                             Learn more
                             <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                           </span>
@@ -132,13 +132,13 @@ export default function ConceptsPage() {
         ))}
 
         <div className="mt-10 bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-[#e8e0d4] dark:border-[#3d3a36]">
-          <h2 className="font-serif text-xl text-primary mb-3">
+          <h2 className="font-serif text-xl text-primary dark:text-stone-200 mb-3">
             The Methodology
           </h2>
-          <p className="text-primary leading-relaxed mb-4">
+          <p className="text-primary dark:text-stone-200 leading-relaxed mb-4">
             Our approach draws from several traditions:
           </p>
-          <ul className="space-y-2 text-primary">
+          <ul className="space-y-2 text-primary dark:text-stone-200">
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4f7b77] mt-2 flex-shrink-0" />
               <span><strong>Steel-manning</strong> -- presenting the strongest version of opposing arguments</span>
@@ -159,7 +159,7 @@ export default function ConceptsPage() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-          <p className="text-sm text-secondary">
+          <p className="text-sm text-secondary dark:text-stone-400">
             These concepts form the backbone of productive disagreement.
           </p>
         </div>

@@ -202,7 +202,7 @@ export const longevityAntiAgingData = {
             directness: 7,
           },
           source: "Bloomberg; MIT Technology Review",
-          sourceUrl: "https://www.bloomberg.com/news/features/2023-01-25/anti-aging-techniques-high-tech-health-regimen-costs-millionaire-bryan-johnson-2m-a-year",
+          sourceUrl: "https://www.bloomberg.com/news/features/2023-01-25/anti-aging-techniques-taken-to-extreme-by-bryan-johnson",
           reasoning:
             "Johnson's protocol is well-documented but represents a single individual's extreme approach, not a validated medical intervention. Replicability is very low because of cost and because n=1 experiments cannot establish causation. However, it directly illustrates the access inequality concern.",
         },

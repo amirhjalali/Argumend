@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const cryptocurrencyValueData = {
   id: "cryptocurrency-value",
   title: "Cryptocurrency as Store of Value",

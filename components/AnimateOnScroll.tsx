@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useCallback, useEffect, useState, type ReactNode, type CSSProperties } from "react";
+import React, { useCallback, useEffect, useState, type ReactNode, type CSSProperties } from "react";
 
 type AnimationVariant = "fade-up" | "fade-in" | "fade-left" | "fade-right" | "scale-up";
 

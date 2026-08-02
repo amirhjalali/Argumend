@@ -1,47 +1,43 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createJudgeCouncil } from "@/lib/judge/council";
-import type { DebateMessageInput as DebateMessage } from "@/types/debate";
 import { judgeContentOffline, judgeDebateOffline } from "@/lib/judge/offline";
-import { saveJudgment, listJudgments } from "@/lib/db/queries";
+import { saveJudgment } from "@/lib/db/queries";
+import { isDatabaseConfigured } from "@/lib/db";
 import { rateLimit } from "@/lib/rate-limit";
 import { modelsToAgents } from "@/lib/agents/types";
 import type { LLMModel } from "@/types/logic";
 import type { JudgingResult } from "@/lib/judge/rubric";
+import { JudgeMethodNotAllowedResponseSchema } from "@/lib/judge/contracts";
+import { isAuthConfigured } from "@/lib/auth-config";
 
 const JudgeRequestSchema = z.object({
   type: z.enum(["debate", "content"]),
   messages: z.array(z.object({
     side: z.enum(["for", "against"]),
-    content: z.string().min(1),
-    round: z.number().int().min(1),
-    model: z.string().optional(),
-  })).optional(),
+    content: z.string().min(1).max(50000),
+    round: z.number().int().min(1).max(20),
+    model: z.string().max(50).optional(),
+  })).max(40).optional(),
   topic: z.string().max(500).optional(),
   content: z.string().max(50000).optional(),
   contentType: z.enum(["transcript", "article", "freeform"]).optional(),
-  judgeModels: z.array(z.enum(["claude", "gpt-4", "gemini", "grok"])).optional(),
-  debateId: z.string().optional(),
+  judgeModels: z.array(z.enum(["claude", "gpt-4", "gemini", "grok"])).max(4).optional(),
+  debateId: z.string().max(200).optional(),
 });
 
 function isLiveJudgingEnabled(): boolean {
-  return (
-    process.env.ENABLE_LIVE_JUDGING_API === "true" ||
-    process.env.NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API === "true"
-  );
-}
-
-function getErrorMessage(error: unknown): string {
-  return error instanceof Error ? error.message : "Unknown error";
+  return process.env.ENABLE_LIVE_JUDGING_API === "true";
 }
 
 async function hasAuthenticatedUser(): Promise<boolean> {
+  if (!isAuthConfigured()) return false;
   try {
     const { auth } = await import("@/lib/auth");
     const session = await auth();
     return Boolean(session?.user);
-  } catch (error) {
-    console.warn("Auth unavailable; continuing with offline-safe behavior:", getErrorMessage(error));
+  } catch {
+    console.warn("Judge authentication unavailable; continuing with offline-safe behavior");
     return false;
   }
 }
@@ -62,8 +58,17 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  let raw: unknown;
   try {
-    const raw = await request.json();
+    raw = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid JSON", code: "INVALID_JSON" },
+      { status: 400 }
+    );
+  }
+
+  try {
     const parseResult = JudgeRequestSchema.safeParse(raw);
     if (!parseResult.success) {
       return NextResponse.json(
@@ -104,8 +109,8 @@ export async function POST(request: NextRequest) {
         } else {
           result = await council.judgeContent(content!, contentType || "freeform");
         }
-      } catch (error) {
-        console.warn("Live judging failed, falling back to offline judging:", error);
+      } catch {
+        console.warn("Live judging failed; falling back to offline judging");
         if (type === "debate") {
           result = judgeDebateOffline(messages!, topic, models);
         } else {
@@ -121,20 +126,21 @@ export async function POST(request: NextRequest) {
     // Persist when a database is configured. Offline mode still returns the
     // computed judgment when persistence is unavailable.
     let saved: Awaited<ReturnType<typeof saveJudgment>> | null = null;
-    try {
-      saved = await saveJudgment(result, {
-        debateId: body.debateId,
-      });
-    } catch (error) {
-      console.warn("Judgment persistence skipped:", getErrorMessage(error));
+    if (isDatabaseConfigured()) {
+      try {
+        saved = await saveJudgment(result, {
+          debateId: body.debateId,
+        });
+      } catch {
+        console.warn("Judgment persistence failed; returning the computed judgment");
+      }
     }
 
     return NextResponse.json({ ...result, id: saved?.id });
-  } catch (error) {
-    console.error("Judge API error:", error);
-    const message = getErrorMessage(error);
+  } catch {
+    console.error("Judge API request failed");
     return NextResponse.json(
-      { error: "Failed to judge content", details: message },
+      { error: "Failed to judge content", code: "JUDGE_FAILED" },
       { status: 500 }
     );
   }
@@ -143,32 +149,17 @@ export async function POST(request: NextRequest) {
 /**
  * GET /api/judge
  *
- * Returns recent judgments.
+ * Judgment history is not a public collection. Persisted debate judgments may
+ * contain content-derived reasoning, so exposing a recent global list would
+ * bypass debate ownership even if the debate rows themselves are protected.
  */
-export async function GET(request: NextRequest) {
-  // Rate limit: 30 requests per minute per IP
-  const ip = request.headers.get("x-forwarded-for") || "unknown";
-  const limit = rateLimit(`judge-list:${ip}`, { maxRequests: 30, windowMs: 60 * 1000 });
-  if (!limit.success) {
-    return NextResponse.json(
-      { error: "Rate limited. Please try again later." },
-      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
-    );
-  }
-
-  try {
-    const { searchParams } = new URL(request.url);
-    const pageLimit = Math.min(parseInt(searchParams.get("limit") || "20"), 100);
-    if (isNaN(pageLimit) || pageLimit < 1) {
-      return NextResponse.json(
-        { error: "Invalid limit parameter" },
-        { status: 400 }
-      );
-    }
-    const results = await listJudgments(pageLimit);
-    return NextResponse.json({ judgments: results });
-  } catch (error) {
-    console.error("Failed to list judgments:", error);
-    return NextResponse.json({ judgments: [], persistence: "unavailable" });
-  }
+export function GET() {
+  const body = JudgeMethodNotAllowedResponseSchema.parse({
+    error: "Listing judgments is not supported",
+    code: "METHOD_NOT_ALLOWED",
+  });
+  return NextResponse.json(body, {
+    status: 405,
+    headers: { Allow: "POST", "Cache-Control": "no-store" },
+  });
 }

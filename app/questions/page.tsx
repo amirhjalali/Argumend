@@ -1,6 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { topics, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topics";
+import {
+  topicSummaries as topics,
+  CATEGORY_LABELS,
+  CATEGORY_ORDER,
+} from "@/data/topicIndex";
 import { getAllQuestionVariations, getQuestionVariations } from "@/lib/questions";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -11,6 +15,8 @@ import {
   questionKindOrder,
 } from "@/lib/questionMeta";
 import { QuestionsSearch } from "./QuestionsSearch";
+import { getCollectionItemPresentation } from "@/lib/collectionStyles";
+import { buildGenericOgUrl } from "@/lib/og";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -24,9 +30,13 @@ export const revalidate = 86400;
 
 const allVariations = getAllQuestionVariations(topics);
 const totalCount = allVariations.length;
+const SOCIAL_IMAGE = buildGenericOgUrl({
+  title: `${totalCount}+ Questions Analyzed`,
+  subtitle: "Evidence-based answers to controversial questions",
+});
 
 export const metadata: Metadata = {
-  title: `${totalCount}+ Questions Analyzed with Evidence — ARGUMEND`,
+  title: `${totalCount}+ Questions Analyzed with Evidence`,
   description: `Browse ${totalCount}+ controversial questions across policy, technology, science, economics, and philosophy. Each question is analyzed with steel-manned arguments, weighted evidence, and crux questions.`,
   keywords: [
     "controversial questions",
@@ -46,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "ARGUMEND",
     images: [
       {
-        url: `https://argumend.org/api/og?title=${encodeURIComponent(`${totalCount}+ Questions Analyzed`)}&subtitle=${encodeURIComponent("Evidence-based answers to controversial questions")}`,
+        url: SOCIAL_IMAGE,
         width: 1200,
         height: 630,
         alt: `${totalCount}+ Questions Analyzed with Evidence on Argumend`,
@@ -57,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${totalCount}+ Questions Analyzed with Evidence`,
     description: `Browse controversial questions with steel-manned arguments and weighted evidence.`,
-    images: [`https://argumend.org/api/og?title=${encodeURIComponent(`${totalCount}+ Questions Analyzed`)}&subtitle=${encodeURIComponent("Evidence-based answers to controversial questions")}`],
+    images: [SOCIAL_IMAGE],
   },
 };
 
@@ -152,7 +162,7 @@ export default function QuestionsIndexPage() {
     <>
       <JsonLd data={collectionJsonLd} />
 
-      <div className="min-h-[100svh] bg-canvas">
+      <main id="main-content" className="min-h-[100svh] bg-canvas">
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <Breadcrumbs
@@ -164,10 +174,10 @@ export default function QuestionsIndexPage() {
 
           {/* Header */}
           <div className="mb-10">
-            <h1 className="font-serif text-4xl font-bold leading-tight text-primary sm:text-5xl">
+            <h1 className="font-serif text-4xl font-bold leading-tight text-primary dark:text-stone-200 sm:text-5xl">
               Questions we analyze
             </h1>
-            <p className="mt-4 font-sans text-lg text-secondary">
+            <p className="mt-4 font-sans text-lg text-secondary dark:text-stone-400">
               {totalCount} questions across {CATEGORY_ORDER.length} categories
               — each one analyzed with steel-manned arguments, weighted
               evidence, and crux questions that could resolve the debate.
@@ -191,7 +201,7 @@ export default function QuestionsIndexPage() {
                 <a
                   key={cat}
                   href={`#${cat}`}
-                  className={`inline-flex items-center gap-2 rounded-full border py-1.5 pl-2.5 pr-3 font-sans text-xs font-medium transition-colors ${meta.chip}`}
+                  className={`inline-flex min-h-11 items-center gap-2 rounded-full border py-2 pl-2.5 pr-3 font-sans text-xs font-medium transition-colors ${meta.chip}`}
                 >
                   <Icon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
                   {CATEGORY_LABELS[cat]}
@@ -203,7 +213,7 @@ export default function QuestionsIndexPage() {
 
           {/* Legend: what the marks on each question mean */}
           <div className="mt-6 rounded-xl border border-stone-200 bg-panel p-4 dark:border-[var(--border-default)]">
-            <p className="font-sans text-xs font-semibold uppercase tracking-wide text-muted">
+            <p className="font-sans text-xs font-semibold uppercase tracking-wide text-muted dark:text-stone-400">
               Every question is marked by what kind of answer it can have
             </p>
             <dl className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
@@ -213,15 +223,15 @@ export default function QuestionsIndexPage() {
                 return (
                   <div key={id} className="flex items-start gap-2.5">
                     <Icon
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted dark:text-stone-400"
                       strokeWidth={1.8}
                       aria-hidden="true"
                     />
                     <div className="min-w-0">
-                      <dt className="font-sans text-sm font-semibold text-primary">
+                      <dt className="font-sans text-sm font-semibold text-primary dark:text-stone-200">
                         {kind.label}
                       </dt>
-                      <dd className="font-sans text-xs leading-relaxed text-secondary">
+                      <dd className="font-sans text-xs leading-relaxed text-secondary dark:text-stone-400">
                         {kind.description}
                       </dd>
                     </div>
@@ -232,7 +242,7 @@ export default function QuestionsIndexPage() {
           </div>
 
           {/* Category sections */}
-          {CATEGORY_ORDER.map((cat) => {
+          {CATEGORY_ORDER.map((cat, categoryIndex) => {
             const groups = grouped[cat];
             if (!groups || groups.length === 0) return null;
 
@@ -242,7 +252,16 @@ export default function QuestionsIndexPage() {
             const CategoryIcon = meta.icon;
 
             return (
-              <section key={cat} className="mt-12 scroll-mt-20" id={cat}>
+              <section
+                key={cat}
+                className="mt-12 scroll-mt-20"
+                id={cat}
+                style={
+                  getCollectionItemPresentation(categoryIndex, {
+                    intrinsicSize: "0 1100px",
+                  }).style
+                }
+              >
                 <div
                   className={`mb-6 flex items-center justify-between gap-3 border-b pb-3 ${meta.ruleBorder}`}
                 >
@@ -256,11 +275,11 @@ export default function QuestionsIndexPage() {
                         aria-hidden="true"
                       />
                     </span>
-                    <h2 className="font-serif text-2xl font-bold text-primary">
+                    <h2 className="font-serif text-2xl font-bold text-primary dark:text-stone-200">
                       {catLabel}
                     </h2>
                   </div>
-                  <span className="font-sans text-sm tabular-nums text-muted">
+                  <span className="font-sans text-sm tabular-nums text-muted dark:text-stone-400">
                     {questionCount} questions
                   </span>
                 </div>
@@ -284,13 +303,13 @@ export default function QuestionsIndexPage() {
                           return (
                             <li key={q.slug} className="flex items-start gap-2.5">
                               <KindIcon
-                                className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70"
+                                className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70 dark:text-stone-400/70"
                                 strokeWidth={1.8}
                                 aria-hidden="true"
                               />
                               <Link
                                 href={`/questions/${q.slug}`}
-                                className="font-sans text-primary transition-colors hover:text-deep"
+                                className="font-sans text-primary dark:text-stone-200 transition-colors hover:text-deep dark:hover:text-teal-300"
                               >
                                 {q.question}
                               </Link>
@@ -306,11 +325,11 @@ export default function QuestionsIndexPage() {
           })}
 
           {/* Bottom CTA */}
-          <div className="mt-16 rounded-xl border border-rust-200 bg-rust-50 p-8 text-center">
-            <h2 className="font-serif text-2xl font-bold text-primary">
+          <div className="mt-16 rounded-xl border border-rust-200 bg-rust-50 p-8 text-center dark:border-rust-800/70 dark:bg-rust-900/30">
+            <h2 className="font-serif text-2xl font-bold text-primary dark:text-stone-200">
               Want to explore the full evidence?
             </h2>
-            <p className="mx-auto mt-2 max-w-md font-sans text-sm text-secondary">
+            <p className="mx-auto mt-2 max-w-md font-sans text-sm text-secondary dark:text-stone-400">
               Every question links to a detailed topic page with argument
               maps, weighted evidence scales, and crux questions.
             </p>
@@ -324,13 +343,13 @@ export default function QuestionsIndexPage() {
           </div>
 
           {/* Footer attribution */}
-          <footer className="mt-16 border-t border-stone-200 pt-6">
-            <p className="font-sans text-xs text-muted">
+          <footer className="mt-16 border-t border-stone-200 pt-6 dark:border-[var(--border-default)]">
+            <p className="font-sans text-xs text-muted dark:text-stone-400">
               Every analysis uses structured argument mapping with
               steel-manned positions and independently weighted evidence.{" "}
               <Link
                 href="/methodology"
-                className="text-deep underline decoration-deep/30 hover:decoration-deep"
+                className="text-deep underline decoration-deep/30 hover:decoration-deep dark:text-teal-300"
               >
                 Read our methodology
               </Link>
@@ -338,7 +357,7 @@ export default function QuestionsIndexPage() {
             </p>
           </footer>
         </div>
-      </div>
+      </main>
     </>
   );
 }

@@ -5,6 +5,8 @@ import { ArrowRight, CheckCircle, AlertCircle, HelpCircle, Tag } from "lucide-re
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
+import { CollectionPagination } from "@/components/CollectionPagination";
 import { topicSummaries } from "@/data/topicIndex";
 import type { TopicStatus, TopicSummary } from "@/data/topicIndex";
 import {
@@ -12,6 +14,15 @@ import {
   statusColors,
   categoryTopBorder,
 } from "@/lib/categoryColors";
+import { buildGenericOgUrl } from "@/lib/og";
+import { formatTaxonomyLabel } from "@/lib/taxonomyLabels";
+import {
+  buildPageHref,
+  paginate,
+  parsePageParam,
+} from "@/lib/collectionPagination";
+
+import { RELATED_TAG_LIMIT, TOPIC_TAG_PAGE_SIZE } from "./_config";
 
 // ---------------------------------------------------------------------------
 // Tag helpers
@@ -43,10 +54,6 @@ function findTagBySlug(slug: string): string | undefined {
   return getTagSlugMap().get(slug);
 }
 
-function titleCase(label: string): string {
-  return label.charAt(0).toUpperCase() + label.slice(1);
-}
-
 // ---------------------------------------------------------------------------
 // Status / category badge config (mirrors /topics card styling)
 // ---------------------------------------------------------------------------
@@ -68,22 +75,40 @@ export const dynamicParams = false;
 // ---------------------------------------------------------------------------
 // Metadata
 // ---------------------------------------------------------------------------
-type PageProps = { params: Promise<{ slug: string }> };
+type PageProps = {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const page = parsePageParam((await searchParams)?.page);
   const tag = findTagBySlug(slug);
-  if (!tag) return { title: "Tag Not Found — Argumend" };
+  if (!tag) {
+    return {
+      title: "Tag Not Found — Argumend",
+      robots: { index: false, follow: false },
+    };
+  }
 
-  const label = titleCase(tag);
+  const label = formatTaxonomyLabel(tag);
   const count = topicSummaries.filter((t) =>
     (t.tags ?? []).includes(tag),
   ).length;
-  const title = `${label} Debates — Argumend`;
+  const pageCount = Math.max(1, Math.ceil(count / TOPIC_TAG_PAGE_SIZE));
+  const title = page > 1
+    ? `Debates Tagged “${label}” — Page ${page} of ${pageCount} — Argumend`
+    : `Debates Tagged “${label}” — Argumend`;
   const description = `Browse ${count} debate${count !== 1 ? "s" : ""} tagged "${label}" on Argumend — interactive argument maps with steel-man positions, weighted evidence, and crux questions.`;
-  const url = `https://argumend.org/topics/tag/${slug}`;
+  const baseUrl = `https://argumend.org/topics/tag/${slug}`;
+  const url = buildPageHref(baseUrl, page);
+  const socialImage = buildGenericOgUrl({
+    title: `Debates Tagged ${label}`,
+    subtitle: `${count} argument maps tagged ${label}`,
+  });
 
   return {
     title,
@@ -94,31 +119,50 @@ export async function generateMetadata({
       type: "website",
       url,
       siteName: "ARGUMEND",
+      images: [{ url: socialImage, width: 1200, height: 630, alt: title }],
     },
+    twitter: { card: "summary_large_image", title, description, images: [socialImage] },
     alternates: { canonical: url },
+    pagination: {
+      previous: page > 1 ? buildPageHref(baseUrl, page - 1) : null,
+      next: page < pageCount ? buildPageHref(baseUrl, page + 1) : null,
+    },
+    robots: page > pageCount ? { index: false, follow: true } : undefined,
   };
 }
 
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
-export default async function TopicTagPage({ params }: PageProps) {
+export default async function TopicTagPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
   const tag = findTagBySlug(slug);
 
   if (!tag) notFound();
 
-  const label = titleCase(tag);
-  const topics: TopicSummary[] = topicSummaries
+  const label = formatTaxonomyLabel(tag);
+  const allTopics: TopicSummary[] = topicSummaries
     .filter((t) => (t.tags ?? []).includes(tag))
-    .sort((a, b) => b.confidence_score - a.confidence_score);
+    .sort(
+      (a, b) =>
+        b.weight - a.weight ||
+        Math.abs(b.balance - 50) - Math.abs(a.balance - 50)
+    );
+  const pagination = paginate(
+    allTopics,
+    parsePageParam((await searchParams)?.page),
+    TOPIC_TAG_PAGE_SIZE,
+  );
+  if (pagination.isOutOfRange) notFound();
+  const topics = pagination.items;
 
-  const url = `https://argumend.org/topics/tag/${slug}`;
+  const basePath = `/topics/tag/${slug}`;
+  const url = buildPageHref(`https://argumend.org${basePath}`, pagination.page);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: `${label} Debates`,
+    name: `Debates Tagged “${label}”`,
     description: `All debates tagged "${label}" on Argumend.`,
     url,
     isPartOf: {
@@ -128,10 +172,10 @@ export default async function TopicTagPage({ params }: PageProps) {
     },
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: topics.length,
+      numberOfItems: pagination.total,
       itemListElement: topics.map((topic, index) => ({
         "@type": "ListItem",
-        position: index + 1,
+        position: pagination.startIndex + index + 1,
         name: topic.title,
         url: `https://argumend.org/topics/${topic.id}`,
         description: topic.meta_claim,
@@ -141,14 +185,24 @@ export default async function TopicTagPage({ params }: PageProps) {
 
   // Related tags (other tags that co-occur on these topics) for cross-linking.
   const relatedTags = (() => {
-    const seen = new Map<string, string>();
-    for (const topic of topics) {
+    const seen = new Map<string, { label: string; count: number }>();
+    for (const topic of allTopics) {
       for (const t of topic.tags ?? []) {
         const s = tagToSlug(t);
-        if (s && s !== slug && !seen.has(s)) seen.set(s, t);
+        if (!s || s === slug) continue;
+        const previous = seen.get(s);
+        seen.set(s, {
+          label: previous?.label ?? t,
+          count: (previous?.count ?? 0) + 1,
+        });
       }
     }
-    return [...seen.entries()];
+    return [...seen.entries()]
+      .sort(
+        ([slugA, a], [slugB, b]) =>
+          b.count - a.count || slugA.localeCompare(slugB),
+      )
+      .slice(0, RELATED_TAG_LIMIT);
   })();
 
   return (
@@ -169,15 +223,15 @@ export default async function TopicTagPage({ params }: PageProps) {
               <Tag className="h-3 w-3" />
               Tag
             </p>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
-              {label} Debates
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
+              Debates tagged “{label}”
             </h1>
-            <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+            <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
               <span className="font-mono text-stone-700 dark:text-stone-300">
-                {topics.length}
+                {pagination.total}
               </span>{" "}
-              debate{topics.length !== 1 ? "s" : ""} tagged{" "}
-              <span className="font-medium text-primary">{label}</span>, each
+              debate{pagination.total !== 1 ? "s" : ""} tagged{" "}
+              <span className="font-medium text-primary dark:text-stone-200">{label}</span>, each
               mapped with steel-man arguments, weighted evidence, and crux
               questions.
             </p>
@@ -202,24 +256,13 @@ export default async function TopicTagPage({ params }: PageProps) {
                     {topic.meta_claim}
                   </p>
 
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <div
-                      className="h-1.5 flex-1 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden"
-                      role="meter"
-                      aria-valuenow={topic.confidence_score}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                      aria-label={`Confidence: ${topic.confidence_score}%`}
-                    >
-                      <div
-                        className="h-full bg-deep rounded-full transition-all duration-500 animate-bar-fill"
-                        style={{ width: `${topic.confidence_score}%` }}
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600 dark:text-stone-400">
-                      {topic.confidence_score}%
-                    </span>
+                  <div className="mb-3">
+                    <BalanceWeightChip
+                      balance={topic.balance}
+                      weight={topic.weight}
+                      verdict={topic.verdict}
+                      showLabel
+                    />
                   </div>
 
                   <div className="flex items-center justify-between gap-2 pt-3 mt-auto border-t border-stone-100 dark:border-stone-700/50">
@@ -245,6 +288,17 @@ export default async function TopicTagPage({ params }: PageProps) {
             })}
           </div>
 
+          <p className="mt-8 text-center text-sm text-stone-500 dark:text-stone-400" role="status">
+            Showing {pagination.startIndex + 1}&ndash;{pagination.endIndex} of{" "}
+            {pagination.total} debates
+          </p>
+          <CollectionPagination
+            basePath={basePath}
+            currentPage={pagination.page}
+            pageCount={pagination.pageCount}
+            label={`${label} debates`}
+          />
+
           {/* Related tags */}
           {relatedTags.length > 0 && (
             <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
@@ -252,14 +306,14 @@ export default async function TopicTagPage({ params }: PageProps) {
                 Related tags
               </p>
               <div className="flex flex-wrap gap-2">
-                {relatedTags.map(([s, t]) => (
+                {relatedTags.map(([s, { label: relatedLabel }]) => (
                   <Link
                     key={s}
                     href={`/topics/tag/${s}`}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-[var(--bg-card)] text-stone-600 dark:text-stone-400 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 dark:hover:border-deep/50 hover:text-deep transition-colors"
+                    className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-stone-200/60 bg-white px-4 py-2 text-sm font-medium text-stone-600 transition-colors hover:border-deep/30 hover:text-deep dark:border-[var(--border-default)] dark:bg-[var(--bg-card)] dark:text-stone-400 dark:hover:border-deep/50"
                   >
                     <Tag className="h-3 w-3" />
-                    {titleCase(t)}
+                    {formatTaxonomyLabel(relatedLabel)}
                   </Link>
                 ))}
               </div>
@@ -270,7 +324,7 @@ export default async function TopicTagPage({ params }: PageProps) {
           <div className="mt-10 text-center">
             <Link
               href="/topics"
-              className="inline-flex items-center gap-2 text-sm font-medium text-deep hover:text-deep-dark transition-colors"
+              className="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium text-deep transition-colors hover:bg-deep/5 hover:text-deep-dark"
             >
               <ArrowRight className="h-3.5 w-3.5 rotate-180" />
               Back to all topics

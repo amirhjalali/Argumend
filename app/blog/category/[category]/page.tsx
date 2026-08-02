@@ -1,45 +1,77 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { CollectionPagination } from "@/components/CollectionPagination";
 import {
-  articles,
-  getUniqueCategories,
-  categoryToSlug,
-} from "@/data/blog";
+  articleSummaries,
+  getArticleSummaryCategories,
+  blogCategoryToSlug,
+} from "@/data/blogIndex";
 
 import { formatLongDate } from "@/lib/formatDate";
+import { buildGenericOgUrl } from "@/lib/og";
+import {
+  buildPageHref,
+  paginate,
+  parsePageParam,
+} from "@/lib/collectionPagination";
+
+import { CATEGORY_PAGE_SIZE } from "./_config";
 
 // ---------------------------------------------------------------------------
 // Static params
 // ---------------------------------------------------------------------------
 export function generateStaticParams() {
-  return getUniqueCategories().map((cat) => ({
-    category: categoryToSlug(cat),
+  return getArticleSummaryCategories().map((cat) => ({
+    category: blogCategoryToSlug(cat),
   }));
 }
 
 // ---------------------------------------------------------------------------
 // Dynamic metadata
 // ---------------------------------------------------------------------------
-type PageProps = { params: Promise<{ category: string }> };
+type PageProps = {
+  params: Promise<{ category: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
 
 function findCategoryBySlug(slug: string): string | undefined {
-  return getUniqueCategories().find((c) => categoryToSlug(c) === slug);
+  return getArticleSummaryCategories().find(
+    (category) => blogCategoryToSlug(category) === slug,
+  );
 }
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: PageProps): Promise<Metadata> {
   const { category: categorySlug } = await params;
+  const page = parsePageParam((await searchParams)?.page);
   const category = findCategoryBySlug(categorySlug);
-  if (!category) return { title: "Category Not Found" };
+  if (!category) {
+    return {
+      title: "Category Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
 
-  const title = `${category} Articles`;
+  const filteredCount = articleSummaries.filter(
+    (article) => article.category === category,
+  ).length;
+  const pageCount = Math.max(1, Math.ceil(filteredCount / CATEGORY_PAGE_SIZE));
+  const title = page > 1
+    ? `${category} Articles — Page ${page} of ${pageCount}`
+    : `${category} Articles`;
   const description = `Browse all ${category.toLowerCase()} articles on the Argumend Blog. Evidence-based analysis and structured reasoning.`;
+  const canonical = buildPageHref(
+    `https://argumend.org/blog/category/${categorySlug}`,
+    page,
+  );
+  const socialImage = buildGenericOgUrl({ title, subtitle: "ARGUMEND Blog" });
 
   return {
     title,
@@ -48,45 +80,64 @@ export async function generateMetadata({
       title: `${title} | ARGUMEND Blog`,
       description,
       type: "website",
-      url: `https://argumend.org/blog/category/${categorySlug}`,
+      url: canonical,
       siteName: "ARGUMEND",
+      images: [{ url: socialImage, width: 1200, height: 630, alt: title }],
     },
+    twitter: { card: "summary_large_image", title, description, images: [socialImage] },
     alternates: {
-      canonical: `https://argumend.org/blog/category/${categorySlug}`,
+      canonical,
     },
+    pagination: {
+      previous: page > 1
+        ? buildPageHref(
+            `https://argumend.org/blog/category/${categorySlug}`,
+            page - 1,
+          )
+        : null,
+      next: page < pageCount
+        ? buildPageHref(
+            `https://argumend.org/blog/category/${categorySlug}`,
+            page + 1,
+          )
+        : null,
+    },
+    robots: page > pageCount ? { index: false, follow: true } : undefined,
   };
 }
 
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
-export default async function CategoryPage({ params }: PageProps) {
+export default async function CategoryPage({ params, searchParams }: PageProps) {
   const { category: categorySlug } = await params;
   const category = findCategoryBySlug(categorySlug);
 
-  if (!category) {
-    return (
-      <AppShell>
-        <div className="min-h-[100svh] flex items-center justify-center">
-          <p className="text-secondary dark:text-stone-400">Category not found.</p>
-        </div>
-      </AppShell>
-    );
-  }
+  if (!category) notFound();
 
-  const filtered = articles
+  const allFiltered = articleSummaries
     .filter((a) => a.category === category)
     .sort(
       (a, b) =>
         new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
     );
+  const pagination = paginate(
+    allFiltered,
+    parsePageParam((await searchParams)?.page),
+    CATEGORY_PAGE_SIZE,
+  );
+  if (pagination.isOutOfRange) notFound();
+  const filtered = pagination.items;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: `${category} Articles`,
     description: `All ${category.toLowerCase()} articles on the Argumend Blog.`,
-    url: `https://argumend.org/blog/category/${categorySlug}`,
+    url: buildPageHref(
+      `https://argumend.org/blog/category/${categorySlug}`,
+      pagination.page,
+    ),
     isPartOf: {
       "@type": "Blog",
       name: "ARGUMEND Blog",
@@ -115,7 +166,7 @@ export default async function CategoryPage({ params }: PageProps) {
               {category}
             </h1>
             <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
-              {filtered.length} article{filtered.length !== 1 ? "s" : ""} in
+              {pagination.total} article{pagination.total !== 1 ? "s" : ""} in
               this category.
             </p>
           </div>
@@ -180,6 +231,17 @@ export default async function CategoryPage({ params }: PageProps) {
             ))}
           </div>
 
+          <p className="mt-8 text-center text-sm text-stone-500" role="status">
+            Showing {pagination.startIndex + 1}&ndash;{pagination.endIndex} of{" "}
+            {pagination.total} articles
+          </p>
+          <CollectionPagination
+            basePath={`/blog/category/${categorySlug}`}
+            currentPage={pagination.page}
+            pageCount={pagination.pageCount}
+            label={`${category} articles`}
+          />
+
           {/* Back to Blog */}
           <div className="mt-10 text-center">
             <Link
@@ -191,10 +253,6 @@ export default async function CategoryPage({ params }: PageProps) {
             </Link>
           </div>
 
-          {/* Newsletter Signup */}
-          <div className="mt-12">
-            <NewsletterSignup />
-          </div>
         </div>
       </div>
     </AppShell>

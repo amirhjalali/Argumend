@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const genderAffirmingCareMinorsData = {
   id: "gender-affirming-care-minors",
   title: "Gender-Affirming Care for Minors",

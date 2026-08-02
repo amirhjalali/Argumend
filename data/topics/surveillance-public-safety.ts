@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const surveillancePublicSafetyData = {
   id: "surveillance-public-safety",
   title: "Surveillance and Public Safety",

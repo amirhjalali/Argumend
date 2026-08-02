@@ -162,21 +162,21 @@ export const seedOilsHealthData = {
         },
         {
           id: "eicosanoid-imbalance-animal",
-          title:
-            "Animal Studies Show High Omega-6 Diets Promote Inflammatory Eicosanoid Production",
+          title: "High-Linoleic-Acid Diet Increased Weight Gain in Male Mice",
           description:
-            "Some rodent studies report that high-linoleic-acid diets increase pro-inflammatory eicosanoids (e.g., prostaglandin E2, leukotriene B4) and promote adipose inflammation and weight gain versus diets with more balanced omega-6/omega-3. This is mechanistic, animal-model evidence; it has not translated cleanly to humans, where controlled trials (Rett & Whelan 2011) show dietary LA does not raise tissue arachidonic acid, the proposed upstream step.",
+            "A controlled study of 48 male mice compared low-fat and high-fat diets with linoleic acid providing 1%, 15%, or 22.5% of energy. Within the high-fat groups, higher linoleic acid produced greater weight gain and adiposity than saturated fat, but the researchers did not find the hypothalamic inflammation they had proposed as a mechanism. This animal result does not establish that ordinary human seed-oil intake causes obesity or inflammation.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
             independence: 6,
             replicability: 5,
-            directness: 3,
+            directness: 4,
           },
           source:
-            "Rodent feeding studies (mechanistic/animal evidence); no specific human-verified primary source available",
+            "Alvheim et al., Obesity (2017), male-mouse feeding experiment",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/27886622/",
           reasoning:
-            "Down-weighted: this rests on animal models and mechanistic speculation. Rodent fatty-acid metabolism differs from humans, doses often exceed proportional human intake, and the key human step (LA raising tissue AA) is not supported by controlled human trials. No specific peer-reviewed primary source could be web-verified for the original 'Nutrients 2012' citation, so attribution is left generic and weights are low.",
+            "The experiment directly supports a narrow mouse weight-gain result, not the earlier broad claim about inflammatory eicosanoids. Rodent fatty-acid metabolism differs from humans, the diets were high-fat and tightly engineered, and the proposed inflammatory mechanism was not observed, so reliability and directness remain low for the human-health debate.",
         },
       ],
     },
@@ -236,8 +236,7 @@ export const seedOilsHealthData = {
         },
         {
           id: "aldehyde-below-threshold",
-          title:
-            "Review Finds Aldehyde Levels from Normal Cooking Remain Below Toxicological Thresholds",
+          title: "Typical-Cooking Aldehyde Safety Margin Remains Uncertain",
           description:
             "Aldehyde exposure appears to scale steeply with frying intensity and oil PUFA content. Single, brief domestic cooking generates far less aldehyde than repeated, prolonged deep frying. However, the dose-response picture is genuinely contested: some groups (e.g., Grootveld et al.) report that repeated domestic deep frying with PUFA-rich oils can reach aldehyde levels they characterize as toxicologically significant. There is no single, web-verifiable review that cleanly establishes that typical home use stays 10-100x below all NOAELs, so the magnitude of any margin remains uncertain.",
           side: "against" as const,
@@ -248,7 +247,7 @@ export const seedOilsHealthData = {
             directness: 6,
           },
           source:
-            "Dose-response is contested; no single primary review web-verified for the specific 'below-NOAEL' claim",
+            "Synthesis / inference — contested dose-response literature with no verified margin estimate",
           reasoning:
             "Down-weighted and reframed: the original 'specific 2020 Food Chemistry review concluding 10-100x below NOAEL' could not be web-verified, and recent literature actively disputes that home frying is comfortably below harm thresholds. The honest position is uncertainty about the safety margin, not a confirmed large one.",
         },

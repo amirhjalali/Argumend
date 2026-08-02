@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const inflationMonetaryPolicyData = {
   id: "inflation-monetary-policy",
   title: "Inflation & Monetary Policy",

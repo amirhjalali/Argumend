@@ -106,11 +106,11 @@ export default function GuidesPage() {
             Foundational Guides
           </p>
 
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+          <h1 className="mb-6 font-serif text-3xl leading-[1.08] tracking-tight text-primary dark:text-stone-200 sm:text-4xl lg:text-5xl">
             Critical Thinking Guides
           </h1>
 
-          <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-3">
+          <p className="mb-3 max-w-2xl text-lg leading-relaxed text-secondary dark:text-stone-400">
             Build the reasoning skills to evaluate any claim. These{" "}
             {guides.length} guides are sorted into {groups.length} tracks, each
             covering a different stage of evidence-based thinking -- from
@@ -132,7 +132,8 @@ export default function GuidesPage() {
                 <a
                   key={id}
                   href={`#${id}`}
-                  className={`inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${track.chip}`}
+                  aria-label={`${track.numeral}. ${track.label}, ${count} ${count === 1 ? "guide" : "guides"}`}
+                  className={`inline-flex min-h-11 items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${track.chip}`}
                 >
                   <span className="font-serif text-[13px] opacity-70">
                     {track.numeral}
@@ -154,11 +155,11 @@ export default function GuidesPage() {
               <span className={`font-serif text-2xl ${track.iconText}`}>
                 {track.numeral}.
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary">
+              <h2 className="font-serif text-2xl text-primary dark:text-stone-200 sm:text-3xl">
                 {track.label}
               </h2>
             </div>
-            <p className="text-secondary leading-relaxed max-w-2xl mb-6">
+            <p className="mb-6 max-w-2xl leading-relaxed text-secondary dark:text-stone-400">
               {track.description}
             </p>
 
@@ -180,7 +181,7 @@ export default function GuidesPage() {
                       className={`relative h-full overflow-hidden bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-1 transition-all duration-200 flex flex-col ${track.hoverBorder}`}
                     >
                       {media?.hero && (
-                        <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100">
+                        <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 dark:border-[var(--border-default)] dark:bg-[var(--bg-overlay)]">
                           <Image
                             src={media.hero.src}
                             alt={media.hero.alt}
@@ -215,12 +216,12 @@ export default function GuidesPage() {
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-serif text-xl text-primary group-hover:text-deep transition-colors mb-1">
+                      <h3 className="mb-1 font-serif text-xl text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-teal-300">
                         {guide.title}
                       </h3>
 
                       {/* Subtitle */}
-                      <p className="text-sm font-medium text-secondary mb-2">
+                      <p className="mb-2 text-sm font-medium text-secondary dark:text-stone-400">
                         {guide.subtitle}
                       </p>
 
@@ -253,7 +254,7 @@ export default function GuidesPage() {
                       </div>
 
                       {/* CTA */}
-                      <div className="mt-auto flex items-center gap-2 text-sm font-medium text-deep group-hover:text-deep-dark transition-colors">
+                      <div className="mt-auto flex items-center gap-2 text-sm font-medium text-deep dark:text-teal-300 transition-colors group-hover:text-deep-dark dark:group-hover:text-teal-200">
                         <span>Start reading</span>
                         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                       </div>
@@ -272,13 +273,13 @@ export default function GuidesPage() {
             ═══════════════════════════════════════════════════════════════ */}
         <section className="mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <ListOrdered className="h-6 w-6 text-deep" strokeWidth={1.5} />
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary">
+            <ListOrdered className="h-6 w-6 text-deep dark:text-teal-300" strokeWidth={1.5} />
+            <h2 className="font-serif text-2xl text-primary dark:text-stone-200 sm:text-3xl">
               Recommended Reading Order
             </h2>
           </div>
 
-          <p className="text-secondary leading-relaxed max-w-2xl mb-8">
+          <p className="mb-8 max-w-2xl leading-relaxed text-secondary dark:text-stone-400">
             New to critical thinking? Follow this path from foundations to
             advanced skills. Each guide builds on the previous one.
           </p>
@@ -315,8 +316,8 @@ export default function GuidesPage() {
                           isStart
                             ? "bg-deep text-white shadow-md"
                             : isAdvanced
-                              ? "bg-rust-100 text-rust-700 border border-rust-200"
-                              : "bg-deep/10 text-deep border border-deep/20"
+                              ? "bg-rust-100 text-rust-700 border border-rust-200 dark:border-rust-800/60 dark:bg-rust-900/30 dark:text-rust-300"
+                              : "bg-deep/10 text-deep border border-deep/20 dark:border-deep/40 dark:bg-deep/20 dark:text-deep-light"
                         }`}
                       >
                         {idx + 1}
@@ -339,9 +340,9 @@ export default function GuidesPage() {
                               <span
                                 className={`text-xs font-medium px-2 py-0.5 rounded-full ${
                                   isStart
-                                    ? "bg-deep/10 text-deep"
+                                    ? "bg-deep/10 text-deep dark:bg-deep/20 dark:text-deep-light"
                                     : isAdvanced
-                                      ? "bg-rust-50 text-rust-600"
+                                      ? "bg-rust-50 text-rust-600 dark:bg-rust-900/30 dark:text-rust-300"
                                       : "bg-stone-100 dark:bg-[#302e2a] text-stone-500 dark:text-stone-400"
                                 }`}
                               >
@@ -352,7 +353,7 @@ export default function GuidesPage() {
                               </span>
                             </div>
 
-                            <h3 className="font-serif text-lg text-primary group-hover:text-deep transition-colors">
+                            <h3 className="font-serif text-lg text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-teal-300">
                               {guide.title}
                             </h3>
 
@@ -361,7 +362,7 @@ export default function GuidesPage() {
                             </p>
                           </div>
 
-                          <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-500 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 mt-1 transition-all duration-200" />
+                          <ArrowRight className="mt-1 h-4 w-4 flex-shrink-0 text-stone-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-deep dark:text-stone-500 dark:group-hover:text-teal-300" />
                         </div>
                       </div>
                     </Link>
@@ -381,23 +382,23 @@ export default function GuidesPage() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
                 <div className="w-14 h-14 rounded-xl bg-deep/10 flex items-center justify-center flex-shrink-0">
                   <GraduationCap
-                    className="h-7 w-7 text-deep"
+                    className="h-7 w-7 text-deep dark:text-teal-300"
                     strokeWidth={1.5}
                   />
                 </div>
 
                 <div className="flex-1">
-                  <h2 className="font-serif text-xl sm:text-2xl text-primary group-hover:text-deep transition-colors mb-2">
+                  <h2 className="mb-2 font-serif text-xl text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-teal-300 sm:text-2xl">
                     For Educators
                   </h2>
-                  <p className="text-secondary leading-relaxed max-w-xl">
+                  <p className="max-w-xl leading-relaxed text-secondary dark:text-stone-400">
                     Bring these critical thinking foundations into your
                     classroom. Access ready-made lesson plans, worksheets, and
                     cross-curricular activities for IB, AP, and A-Level courses.
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2 text-sm font-medium text-deep group-hover:text-deep-dark transition-colors whitespace-nowrap mt-2 sm:mt-0">
+                <div className="mt-2 flex items-center gap-2 whitespace-nowrap text-sm font-medium text-deep dark:text-teal-300 transition-colors group-hover:text-deep-dark dark:group-hover:text-teal-200 sm:mt-0">
                   <span>View lesson plans</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -410,16 +411,16 @@ export default function GuidesPage() {
             PHILOSOPHY / WHY THESE MATTER
             ═══════════════════════════════════════════════════════════════ */}
         <div className="bg-gradient-to-br from-[#faf8f3] to-[#f5f2eb] dark:from-[#252420] dark:to-[#302e2a] rounded-xl p-6 border border-[#e8e0d4] dark:border-[var(--border-default)]">
-          <h3 className="font-serif text-lg text-primary mb-2">
+          <h3 className="mb-2 font-serif text-lg text-primary dark:text-stone-200">
             Why These Foundations Matter
           </h3>
-          <p className="text-primary leading-relaxed mb-4">
+          <p className="mb-4 leading-relaxed text-primary dark:text-stone-200">
             Most disagreements aren&apos;t resolved because people argue about
             conclusions before agreeing on methods. These guides provide common
             ground -- shared principles for evaluating evidence that make
             productive disagreement possible.
           </p>
-          <p className="text-primary leading-relaxed">
+          <p className="leading-relaxed text-primary dark:text-stone-200">
             Master these foundations, and you&apos;ll be equipped to evaluate any
             claim on any topic. You&apos;ll know what questions to ask, what
             evidence to seek, and how to update your beliefs appropriately.
@@ -430,7 +431,7 @@ export default function GuidesPage() {
             FOOTER
             ═══════════════════════════════════════════════════════════════ */}
         <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-          <p className="text-sm text-secondary">
+          <p className="text-sm text-secondary dark:text-stone-400">
             These guides synthesize research from epistemology, cognitive
             science, and the philosophy of science. Sources are provided in each
             guide.

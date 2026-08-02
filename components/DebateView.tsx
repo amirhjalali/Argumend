@@ -144,7 +144,9 @@ interface ArgumentBubbleProps {
 function ArgumentBubble({ message }: ArgumentBubbleProps) {
   const llm = getLLMOption(message.model);
   const isFor = message.side === "for";
-  const Icon = llm?.Icon ?? ClaudeIcon;
+  const isProgrammatic = message.execution?.actual === "programmatic";
+  const isFallback = Boolean(message.execution?.fallbackCode);
+  const Icon = isProgrammatic ? MessageCircle : (llm?.Icon ?? ClaudeIcon);
 
   return (
     <motion.div
@@ -157,7 +159,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
       {message.round > 0 && message.side === "for" && (
         <div className="flex justify-center mb-6">
           <div className="px-4 py-1.5 bg-stone-100/80 dark:bg-[#302e2a] rounded-full border border-stone-200/50 dark:border-[#3d3a36]">
-            <span className="text-xs font-medium text-stone-500 tracking-wider uppercase">
+            <span className="text-xs font-medium text-stone-500 dark:text-stone-400 tracking-wider uppercase">
               Round {message.round}
             </span>
           </div>
@@ -168,14 +170,17 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
         {/* Avatar column */}
         <div className="flex flex-col items-center gap-2 pt-1">
           <div
-            className="w-11 h-11 rounded-xl flex items-center justify-center shadow-md border border-stone-200/50 dark:border-[#3d3a36]"
-            style={{ backgroundColor: llm?.bgLight }}
+            className={`w-11 h-11 rounded-xl flex items-center justify-center shadow-md border border-stone-200/50 dark:border-[#3d3a36] ${isProgrammatic ? "bg-stone-100 dark:bg-stone-800" : ""}`}
+            style={isProgrammatic ? undefined : { backgroundColor: llm?.bgLight }}
           >
-            <Icon className="w-6 h-6" style={{ color: llm?.color }} />
+            <Icon
+              className="w-6 h-6"
+              style={{ color: isProgrammatic ? "#78716c" : llm?.color }}
+            />
           </div>
           <div
             className={`w-0.5 flex-1 min-h-[20px] ${
-              isFor ? "bg-rust-200/60" : "bg-stone-200/60"
+              isFor ? "bg-rust-200/60 dark:bg-rust-500/30" : "bg-stone-200/60 dark:bg-stone-700"
             }`}
           />
         </div>
@@ -189,12 +194,24 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
             }`}
           >
             <span className="font-serif font-semibold text-primary dark:text-stone-200">
-              {llm?.name}
+              {isProgrammatic ? "Programmatic synthesis" : llm?.name}
             </span>
+            {isProgrammatic && (
+              <span
+                className="text-[11px] text-stone-500 dark:text-stone-400"
+                title={
+                  isFallback
+                    ? `${llm?.name ?? message.model} was requested; a local fallback generated this turn.`
+                    : `${llm?.name ?? message.model} was selected; this turn was generated locally.`
+                }
+              >
+                {isFallback ? "Live fallback" : "Local"}
+              </span>
+            )}
             <span
               className={`text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 font-medium ${
                 isFor
-                  ? "bg-rust-100/80 text-rust-700 border border-rust-200/50"
+                  ? "bg-rust-100/80 dark:bg-rust-500/15 text-rust-700 dark:text-rust-300 border border-rust-200/50 dark:border-rust-500/30"
                   : "bg-stone-100/80 dark:bg-stone-800/80 text-stone-600 dark:text-stone-300 border border-stone-200/50 dark:border-[var(--border-default)]"
               }`}
             >
@@ -211,8 +228,8 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
           <div
             className={`rounded-2xl p-5 border shadow-sm ${
               isFor
-                ? "bg-gradient-to-br from-rust-50/60 to-rust-100/30 border-rust-200/40"
-                : "bg-gradient-to-br from-stone-50/60 to-stone-50/30 border-stone-200/40"
+                ? "bg-gradient-to-br from-rust-50/60 to-rust-100/30 dark:from-rust-500/10 dark:to-rust-500/5 border-rust-200/40 dark:border-rust-500/25"
+                : "bg-gradient-to-br from-stone-50/60 to-stone-50/30 dark:from-stone-800/70 dark:to-stone-800/40 border-stone-200/40 dark:border-stone-700"
             }`}
           >
             {/* Quote decoration */}
@@ -222,7 +239,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
               }`}
               aria-hidden="true"
             />
-            <p className="text-stone-700 leading-relaxed whitespace-pre-wrap text-[15px]">
+            <p className="text-stone-700 dark:text-stone-300 leading-relaxed whitespace-pre-wrap text-[15px]">
               {message.content}
             </p>
           </div>
@@ -250,7 +267,7 @@ function ThinkingIndicator({ side, model }: ThinkingIndicatorProps) {
       className={`flex gap-2 md:gap-4 ${isFor ? "" : "flex-row-reverse"}`}
     >
       <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center shadow-md border border-stone-200/50"
+        className="w-11 h-11 rounded-xl flex items-center justify-center shadow-md border border-stone-200/50 dark:border-stone-700"
         style={{ backgroundColor: llm?.bgLight }}
       >
         <Icon className="w-6 h-6" style={{ color: llm?.color }} />
@@ -258,12 +275,12 @@ function ThinkingIndicator({ side, model }: ThinkingIndicatorProps) {
       <div
         className={`rounded-2xl px-5 py-4 border ${
           isFor
-            ? "bg-rust-50/40 border-rust-200/40"
-            : "bg-stone-50/40 border-stone-200/40"
+            ? "bg-rust-50/40 dark:bg-rust-500/10 border-rust-200/40 dark:border-rust-500/25"
+            : "bg-stone-50/40 dark:bg-stone-800/60 border-stone-200/40 dark:border-stone-700"
         }`}
       >
         <div className="flex items-center gap-3">
-          <span className="text-sm text-stone-500 italic font-serif">
+          <span className="text-sm text-stone-500 dark:text-stone-400 italic font-serif">
             {llm?.name} is composing...
           </span>
           <div className="flex gap-1">
@@ -308,6 +325,13 @@ function DebateHeader({
   const isDebating = state.phase === "debating";
   const isPaused = state.phase === "paused";
   const isMockView = state.phase === "mockView";
+  const canCancel = isDebating || isPaused;
+  const hasProgrammaticTurn = state.messages.some(
+    (message) => message.execution?.actual === "programmatic"
+  );
+  const hasFallbackTurn = state.messages.some((message) =>
+    Boolean(message.execution?.fallbackCode)
+  );
 
   return (
     <motion.div
@@ -325,7 +349,7 @@ function DebateHeader({
           >
             <ForIcon className="w-4 h-4" style={{ color: forLlm?.color }} />
           </div>
-          <span className="font-serif text-rust-700 font-medium">
+          <span className="font-serif text-rust-700 dark:text-rust-300 font-medium">
             {forLlm?.name}
           </span>
         </div>
@@ -333,7 +357,7 @@ function DebateHeader({
         <span className="text-muted dark:text-stone-400 font-serif italic">vs</span>
 
         <div className="flex items-center gap-2">
-          <span className="font-serif text-stone-600 font-medium">
+          <span className="font-serif text-stone-600 dark:text-stone-300 font-medium">
             {againstLlm?.name}
           </span>
           <div
@@ -361,7 +385,16 @@ function DebateHeader({
         {isDebating && (
           <div className="flex items-center gap-1.5 text-rust-600">
             <Loader2 className="h-4 w-4 animate-spin" />
-            <span className="text-xs font-medium">Live</span>
+            <span className="text-xs font-medium">Generating</span>
+          </div>
+        )}
+
+        {!isDebating && !isMockView && hasProgrammaticTurn && (
+          <div className="flex items-center gap-1.5 text-stone-500">
+            <MessageCircle className="h-4 w-4" />
+            <span className="text-xs font-medium">
+              {hasFallbackTurn ? "Programmatic fallback" : "Programmatic"}
+            </span>
           </div>
         )}
 
@@ -388,10 +421,12 @@ function DebateHeader({
           )}
           <button
             onClick={onReset}
-            className="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors text-stone-500"
-            aria-label="Reset debate"
+            className="inline-flex min-h-10 min-w-10 items-center justify-center gap-1.5 rounded-lg p-2 text-stone-500 dark:text-stone-300 transition-colors hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)]"
+            aria-label={canCancel ? "Cancel and reset debate" : "Reset debate"}
+            title={canCancel ? "Cancel and reset debate" : "Reset debate"}
           >
             <RotateCcw className="h-4 w-4" />
+            {canCancel && <span className="text-xs font-medium">Stop</span>}
           </button>
         </div>
       </div>
@@ -408,6 +443,9 @@ export function DebateView() {
   const topics = getLoadedTopics();
   const topic = topics?.find((t) => t.id === currentTopicId);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const completionRef = useRef<HTMLDivElement>(null);
+  const verdictRef = useRef<HTMLDivElement>(null);
+  const previousPhaseRef = useRef<DebateState["phase"]>("setup");
 
   const {
     state,
@@ -416,6 +454,7 @@ export function DebateView() {
     isSetupPhase,
     topicHasMockData,
     liveDebateEnabled,
+    liveJudgingEnabled,
     startDebate,
     resetDebate,
     requestJudgment,
@@ -433,6 +472,17 @@ export function DebateView() {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [state.messages, state.typingSide, state.phase]);
+
+  useEffect(() => {
+    if (state.phase === "complete" && previousPhaseRef.current !== "complete") {
+      completionRef.current?.focus();
+    }
+    previousPhaseRef.current = state.phase;
+  }, [state.phase]);
+
+  useEffect(() => {
+    if (state.judgingResult) verdictRef.current?.focus();
+  }, [state.judgingResult]);
 
   // No topic selected state
   if (!topic) {
@@ -467,11 +517,11 @@ export function DebateView() {
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08] max-w-3xl mx-auto">
             {topic.meta_claim}
           </h1>
-          <p className="text-stone-500 max-w-xl mx-auto">
+          <p className="text-stone-500 dark:text-stone-400 max-w-xl mx-auto">
             Select your debaters and witness a structured exchange of arguments.
           </p>
           {!liveDebateEnabled && (
-            <p className="text-xs text-rust-700 bg-rust-50 border border-rust-200 rounded-lg inline-block px-3 py-1.5">
+            <p className="text-xs text-rust-700 dark:text-rust-300 bg-rust-50 dark:bg-rust-500/10 border border-rust-200 dark:border-rust-500/30 rounded-lg inline-block px-3 py-1.5">
               Offline mode active: debates are generated locally without API calls.
             </p>
           )}
@@ -594,18 +644,16 @@ export function DebateView() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="p-4 bg-red-50/80 border border-red-200/60 rounded-xl"
+            className="p-4 bg-red-50/80 dark:bg-red-500/10 border border-red-200/60 dark:border-red-500/30 rounded-xl"
             role="alert"
           >
             <div className="flex items-start gap-3">
               <AlertCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <p className="text-red-700 text-sm font-medium">
-                  {state.failedModel
-                    ? `${state.failedModel.charAt(0).toUpperCase() + state.failedModel.slice(1)} API Error`
-                    : "Error"}
+                <p className="text-red-700 dark:text-red-300 text-sm font-medium">
+                  Debate generation paused
                 </p>
-                <p className="text-red-600 text-sm mt-1">{state.error}</p>
+                <p className="text-red-600 dark:text-red-400 text-sm mt-1">{state.error}</p>
               </div>
               <div className="flex gap-2">
                 <button
@@ -663,23 +711,30 @@ export function DebateView() {
             className="py-5 md:py-8 border-t border-stone-200/60"
           >
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-rust-50 to-rust-100 border border-rust-200/60 rounded-full">
+              <div
+                ref={completionRef}
+                tabIndex={-1}
+                className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-rust-50 to-rust-100 dark:from-rust-500/10 dark:to-rust-500/20 border border-rust-200/60 dark:border-rust-500/30 rounded-full focus:outline-none"
+                role="status"
+              >
                 <Swords className="h-4 w-4 text-rust-600" />
-                <span className="font-serif text-rust-800 font-medium">
+                <span className="font-serif text-rust-800 dark:text-rust-300 font-medium">
                   {state.phase === "mockView" ? "Example Debate" : "Debate Concluded"}{" "}
                   &mdash; {state.maxRounds} Rounds
                 </span>
               </div>
-              <p className="mt-4 text-stone-500 max-w-md mx-auto">
+              <p className="mt-4 text-stone-500 dark:text-stone-400 max-w-md mx-auto">
                 {state.phase === "mockView"
-                  ? "This is a pre-generated example. Start your own debate to see live AI responses."
+                  ? liveDebateEnabled
+                    ? "This is a pre-generated example. Start your own debate to see live AI responses."
+                    : "This is a pre-generated example. Generate your own debate locally without API calls."
                   : "Both sides have presented their arguments. Consider the evidence and form your own conclusion."}
               </p>
 
               {/* Action buttons - only for completed debates, not mock views */}
               {state.phase === "complete" && topic && state.forModel && state.againstModel && (
                 <div className="mt-6 flex justify-center gap-3">
-                  {/* Request AI Judgment button */}
+                  {/* Request judgment button */}
                   {!state.judgingResult && (
                     <motion.button
                       onClick={requestJudgment}
@@ -700,7 +755,7 @@ export function DebateView() {
                       ) : (
                         <>
                           <Gavel className="h-4 w-4" />
-                          Request AI Judgment
+                          {liveJudgingEnabled ? "Request AI Judgment" : "Run Programmatic Judgment"}
                         </>
                       )}
                     </motion.button>
@@ -713,11 +768,19 @@ export function DebateView() {
             {/* Judging Results */}
             {state.judgingResult && (
               <motion.div
+                ref={verdictRef}
+                tabIndex={-1}
+                aria-label={liveJudgingEnabled ? "AI judgment results" : "Programmatic judgment results"}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-8"
+                className="mt-8 focus:outline-none"
               >
-                <JudgingResults result={state.judgingResult} topicTitle={topic?.title} topicId={topic?.id} />
+                <JudgingResults
+                  result={state.judgingResult}
+                  topicTitle={topic?.title}
+                  topicId={topic?.id}
+                  mode={liveJudgingEnabled ? "live" : "programmatic"}
+                />
               </motion.div>
             )}
           </motion.div>

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const facialRecognitionPolicingData = {
   id: "facial-recognition-policing",
   title: "Facial Recognition in Policing",
@@ -192,7 +190,7 @@ export const facialRecognitionPolicingData = {
         },
         {
           id: "met-arrests-utility",
-          title: "Live Facial Recognition Produced 2,100+ Arrests in the UK",
+          title: "Live Facial Recognition Produced 2,100+ Arrests in London",
           description:
             "The Metropolitan Police reports more than 2,100 arrests since the start of 2024 from live facial recognition, with about 24% for violence against women and girls and over 100 registered sex offenders apprehended, while stating that in one year ~3 million faces were scanned with only 12 false alerts, none leading to arrest.",
           side: "against" as const,
@@ -203,9 +201,9 @@ export const facialRecognitionPolicingData = {
             directness: 7,
           },
           source:
-            "Metropolitan Police news release, 'Met wins judicial review over use of Live Facial Recognition' (2025), with figures reported by the BBC and The Register",
+            "London Assembly motion citing Metropolitan Police figures (2026)",
           sourceUrl:
-            "https://news.met.police.uk/news/met-wins-judicial-review-over-use-of-live-facial-recognition-508486",
+            "https://www.london.gov.uk/motions/live-facial-recognition",
           reasoning:
             "Demonstrates concrete public-safety output (including hard-to-solve VAWG and sex-offender cases). Independence is low because the figures are self-reported by the deploying agency and not independently audited, and 'arrests' are not the same as convictions; the false-alert claim, however, is consistent with the independent NPL testing.",
         },
@@ -283,4 +281,3 @@ export const facialRecognitionPolicingData = {
     },
   ],
 };
-

@@ -1,7 +1,16 @@
 import { NextRequest } from "next/server";
-import { z } from "zod";
 import { rateLimit } from "@/lib/rate-limit";
 import { chunkForSse, generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
+import { isAuthConfigured } from "@/lib/auth-config";
+import {
+  DEBATE_GENERATION_ERROR_MESSAGE,
+  DebateStreamEventSchema,
+  DebateTurnRequestSchema,
+  type DebateModel,
+  type DebateStreamEvent,
+  type DebateTurnExecution,
+  type DebateTurnRequest,
+} from "@/lib/debate/contracts";
 import {
   getAnthropic,
   getOpenAI,
@@ -9,43 +18,16 @@ import {
   isLiveDebateEnabled,
   buildSystemPrompt,
   buildUserPrompt,
-  type DebatePillar,
-  type DebateMessage,
 } from "@/lib/debate/shared";
 
-const StreamRequestSchema = z.object({
-  topic: z.string().min(1).max(500),
-  side: z.enum(["for", "against"]),
-  model: z.enum(["claude", "gpt-4", "gemini", "grok"]),
-  round: z.number().int().min(1).max(20),
-  previousMessages: z.array(z.object({
-    id: z.string().optional(),
-    side: z.enum(["for", "against"]),
-    content: z.string(),
-    round: z.number().int().min(1),
-    model: z.string().optional(),
-    role: z.string().optional(),
-  })),
-  pillars: z.array(z.object({
-    title: z.string(),
-    skepticPremise: z.string(),
-    proponentRebuttal: z.string(),
-  })).optional(),
-});
-
-type StreamRequest = z.infer<typeof StreamRequestSchema>;
-
-function getErrorMessage(error: unknown): string {
-  return error instanceof Error ? error.message : "Unknown error";
-}
-
 async function hasAuthenticatedUser(): Promise<boolean> {
+  if (!isAuthConfigured()) return false;
   try {
     const { auth } = await import("@/lib/auth");
     const session = await auth();
     return Boolean(session?.user);
-  } catch (error) {
-    console.warn("Auth unavailable; using programmatic debate stream fallback:", getErrorMessage(error));
+  } catch {
+    console.warn("Auth unavailable; using programmatic debate stream fallback");
     return false;
   }
 }
@@ -53,8 +35,9 @@ async function hasAuthenticatedUser(): Promise<boolean> {
 /**
  * SSE helper: encode a data event
  */
-function sseEvent(data: Record<string, unknown>): Uint8Array {
-  return new TextEncoder().encode(`data: ${JSON.stringify(data)}\n\n`);
+function sseEvent(data: DebateStreamEvent): Uint8Array {
+  const event = DebateStreamEventSchema.parse(data);
+  return new TextEncoder().encode(`data: ${JSON.stringify(event)}\n\n`);
 }
 
 /**
@@ -85,13 +68,14 @@ async function* streamClaude(
 /**
  * Stream OpenAI/GPT-4 response
  */
-async function* streamGPT4(
+async function* streamOpenAI(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  requestedModel: "gpt-4" | "gpt-5",
 ): AsyncGenerator<string> {
   const client = await getOpenAI();
   const stream = await client.chat.completions.create({
-    model: "gpt-4o",
+    model: requestedModel === "gpt-5" ? "gpt-5" : "gpt-4o",
     max_tokens: 1024,
     stream: true,
     messages: [
@@ -184,12 +168,21 @@ async function* streamGrok(
   }
 }
 
-function getStreamGenerator(model: string) {
+type StreamGenerator = (
+  systemPrompt: string,
+  userPrompt: string,
+) => AsyncGenerator<string>;
+
+function getStreamGenerator(model: DebateModel): StreamGenerator {
   switch (model) {
     case "claude":
       return streamClaude;
     case "gpt-4":
-      return streamGPT4;
+      return (systemPrompt, userPrompt) =>
+        streamOpenAI(systemPrompt, userPrompt, "gpt-4");
+    case "gpt-5":
+      return (systemPrompt, userPrompt) =>
+        streamOpenAI(systemPrompt, userPrompt, "gpt-5");
     case "gemini":
       return streamGemini;
     case "grok":
@@ -199,7 +192,7 @@ function getStreamGenerator(model: string) {
   }
 }
 
-function buildProgrammaticTokens(body: StreamRequest): string[] {
+function buildProgrammaticTokens(body: DebateTurnRequest): string[] {
   const argument = generateProgrammaticDebateTurn({
     topic: body.topic,
     side: body.side,
@@ -224,14 +217,20 @@ export async function POST(request: NextRequest) {
   if (!limit.success) {
     return new Response(
       JSON.stringify({ error: "Rate limited" }),
-      { status: 429, headers: { "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)) } }
+      {
+        status: 429,
+        headers: {
+          "Content-Type": "application/json",
+          "Retry-After": String(Math.ceil((limit.resetAt - Date.now()) / 1000)),
+        },
+      }
     );
   }
 
-  let body: StreamRequest;
+  let body: DebateTurnRequest;
   try {
     const raw = await request.json();
-    const parseResult = StreamRequestSchema.safeParse(raw);
+    const parseResult = DebateTurnRequestSchema.safeParse(raw);
     if (!parseResult.success) {
       return new Response(
         JSON.stringify({ error: "Invalid request", details: parseResult.error.flatten() }),
@@ -240,7 +239,7 @@ export async function POST(request: NextRequest) {
     }
     body = parseResult.data;
   } catch {
-    return new Response(JSON.stringify({ error: "Invalid JSON" }), {
+    return new Response(JSON.stringify({ error: "Invalid JSON", code: "INVALID_JSON" }), {
       status: 400,
       headers: { "Content-Type": "application/json" },
     });
@@ -251,20 +250,35 @@ export async function POST(request: NextRequest) {
   try {
     const liveDebateEnabled = isLiveDebateEnabled();
     const authenticated = liveDebateEnabled ? await hasAuthenticatedUser() : false;
+    if (request.signal.aborted) {
+      return new Response(
+        JSON.stringify({ error: "Request cancelled", code: "REQUEST_ABORTED" }),
+        {
+          status: 499,
+          headers: {
+            "Content-Type": "application/json",
+            "Cache-Control": "no-store",
+          },
+        },
+      );
+    }
     if (!liveDebateEnabled || !authenticated) {
       const programmaticTokens = buildProgrammaticTokens(body);
+      const execution: DebateTurnExecution = {
+        requested: liveDebateEnabled ? "live" : "programmatic",
+        actual: "programmatic",
+        requestedModel: model,
+        actualModel: null,
+        ...(liveDebateEnabled ? { fallbackCode: "AUTH_REQUIRED" as const } : {}),
+      };
       const stream = new ReadableStream({
         start(controller) {
           for (const token of programmaticTokens) {
-            controller.enqueue(sseEvent({ token }));
+            controller.enqueue(sseEvent({ type: "token", token }));
           }
           controller.enqueue(sseEvent({
-            done: true,
-            model,
-            fallback: true,
-            error: liveDebateEnabled
-              ? "Authentication is required for live debate streaming; used programmatic fallback."
-              : undefined,
+            type: "complete",
+            execution,
           }));
           controller.close();
         },
@@ -287,24 +301,51 @@ export async function POST(request: NextRequest) {
       async start(controller) {
         try {
           const generator = streamFn(systemPrompt, userPrompt);
+          let streamedContent = "";
           for await (const token of generator) {
-            controller.enqueue(sseEvent({ token }));
+            if (request.signal.aborted) return;
+            streamedContent += token;
+            controller.enqueue(sseEvent({ type: "token", token }));
           }
-          controller.enqueue(sseEvent({ done: true, model }));
-        } catch (error) {
-          const message = getErrorMessage(error);
-          console.warn("Live debate stream failed, falling back to programmatic mode:", message);
+          if (!streamedContent.trim()) {
+            throw new Error("Provider returned no debate content");
+          }
+          controller.enqueue(sseEvent({
+            type: "complete",
+            execution: {
+              requested: "live",
+              actual: "live",
+              requestedModel: model,
+              actualModel: model,
+            },
+          }));
+        } catch {
+          if (request.signal.aborted) return;
+          console.warn("Live debate stream failed; falling back to programmatic mode");
           try {
             const programmaticTokens = buildProgrammaticTokens(body);
+            controller.enqueue(sseEvent({ type: "replace" }));
             for (const token of programmaticTokens) {
-              controller.enqueue(sseEvent({ token }));
+              controller.enqueue(sseEvent({ type: "token", token }));
             }
-            controller.enqueue(sseEvent({ done: true, model, fallback: true }));
-          } catch (fallbackError) {
-            const fallbackMessage =
-              fallbackError instanceof Error ? fallbackError.message : "Unknown fallback error";
+            controller.enqueue(sseEvent({
+              type: "complete",
+              execution: {
+                requested: "live",
+                actual: "programmatic",
+                requestedModel: model,
+                actualModel: null,
+                fallbackCode: "PROVIDER_ERROR",
+              },
+            }));
+          } catch {
+            console.error("Programmatic debate fallback failed");
             controller.enqueue(
-              sseEvent({ error: `${message}; fallback failed: ${fallbackMessage}`, model })
+              sseEvent({
+                type: "error",
+                code: "DEBATE_GENERATION_FAILED",
+                message: DEBATE_GENERATION_ERROR_MESSAGE,
+              })
             );
           }
         } finally {
@@ -320,11 +361,10 @@ export async function POST(request: NextRequest) {
         Connection: "keep-alive",
       },
     });
-  } catch (error) {
-    console.error("Debate stream setup error:", error);
-    const message = getErrorMessage(error);
+  } catch {
+    console.error("Debate stream setup failed");
     return new Response(
-      JSON.stringify({ error: "Failed to set up debate stream", details: message }),
+      JSON.stringify({ error: "Failed to set up debate stream", code: "DEBATE_STREAM_FAILED" }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }

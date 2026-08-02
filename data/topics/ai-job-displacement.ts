@@ -249,20 +249,20 @@ export const aiJobDisplacementData = {
         },
         {
           id: "freelance-rate-collapse",
-          title: "Freelance Writing and Translation Rates Drop 30-50% Post-ChatGPT (2023-2024)",
+          title: "Upwork Finds Uneven Early Displacement in Writing and Translation",
           description:
-            "Analysis of freelance platforms including Upwork, Fiverr, and Freelancer.com showed that rates for content writing, copywriting, and translation services dropped 30-50% within 18 months of ChatGPT's release. Job postings for freelance writers on Upwork fell 33% year-over-year in 2023. Meanwhile, postings requiring AI prompting skills increased 1,000%. The International Association of Professional Translators reported members experiencing 40% revenue declines.",
+            "Upwork's synthetic-control analysis of platform transactions through Q3 2023 estimated that generative AI reduced aggregate freelancer earnings in writing by 8% and translation by 10%, with losses concentrated in lower-value contracts. The same analysis found platform-wide job posts up 2.4%, earnings per new contract up 1.3%, and growth in high-value work, including translation. This is evidence of task-level displacement and polarization, not a broad collapse across freelance rates.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 9,
+            sourceReliability: 6,
+            independence: 4,
+            replicability: 6,
+            directness: 8,
           },
-          source: "Bloomberg; Upwork Annual Report 2023; Freelancer.com Market Data",
-          sourceUrl: "https://www.bloomberg.com/news/articles/2023-12-20/ai-is-already-taking-jobs-in-writing-and-coding",
+          source: "Upwork Research Institute, platform transaction analysis (2024)",
+          sourceUrl: "https://www.upwork.com/research/generative-ai-work-value",
           reasoning:
-            "Freelance platform data is observable and multiple sources corroborate the trend. This represents real wage displacement in a concrete knowledge-work category. However, freelance content writing may be among the most vulnerable occupations — generalizing from this to all white-collar work is a stretch.",
+            "The analysis uses observed marketplace transactions and a stated quasi-experimental method, making it direct evidence for early displacement in two exposed categories. Independence is low because Upwork studies its own platform, and the result cannot be generalized to all freelancers or white-collar work. Its positive platform-wide and high-value findings also make a simple displacement narrative incomplete.",
         },
         {
           id: "tech-layoffs-ai-efficiency-2025",

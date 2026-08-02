@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const jonesActData = {
   id: "jones-act",
   title: "Repealing the Jones Act",
@@ -79,6 +77,8 @@ export const jonesActData = {
             directness: 9,
           },
           source: "Grabow, Manak & Ikenson, Cato Institute Policy Analysis No. 845 (2018)",
+          sourceUrl:
+            "https://www.cato.org/policy-analysis/jones-act-burden-america-can-no-longer-bear",
           reasoning:
             "Careful, well-sourced, and directly on the meta-claim — but authored by a think tank with an explicit free-trade prior, so independence is discounted.",
         },
@@ -95,6 +95,7 @@ export const jonesActData = {
             directness: 8,
           },
           source: "Maritime Administration (MARAD) / industry shipbuilding cost data",
+          sourceUrl: "https://www.congress.gov/crs-product/R45725",
           reasoning:
             "The multiple is directly observed and widely reproduced; the exact ratio varies by vessel type and year, so the specific figure carries some uncertainty.",
         },
@@ -102,7 +103,7 @@ export const jonesActData = {
           id: "usitc-welfare",
           title: "USITC: liberalization yields welfare gains",
           description:
-            "In successive editions of 'The Economic Effects of Significant U.S. Import Restraints,' the U.S. International Trade Commission modeled coastwise-shipping (Jones Act) liberalization and estimated net annual economic welfare gains — on the order of hundreds of millions to over a billion dollars in the editions that covered it.",
+            "In its 1999 'Economic Effects of Significant U.S. Import Restraints' update, the U.S. International Trade Commission estimated $1.324 billion in annual welfare gains from full Jones Act liberalization and $380 million from relaxing only the domestic-build requirement.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -110,9 +111,11 @@ export const jonesActData = {
             replicability: 7,
             directness: 8,
           },
-          source: "U.S. International Trade Commission, 'Economic Effects of Significant U.S. Import Restraints'",
+          source:
+            "U.S. International Trade Commission, Publication 3201 (1999)",
+          sourceUrl: "https://www.usitc.gov/publications/332/pub3201.pdf",
           reasoning:
-            "An independent federal agency using standard CGE methods on exactly this question; the exact dollar figure and edition should be verified before quoting.",
+            "An independent federal agency using CGE and partial-equilibrium models on exactly this question; the report publishes both estimates and explains why they are not additive.",
         },
         {
           id: "gao-uncertain",
@@ -167,6 +170,8 @@ export const jonesActData = {
             directness: 8,
           },
           source: "Federal Reserve Bank of New York, Report on the Competitiveness of Puerto Rico's Economy (2012)",
+          sourceUrl:
+            "https://www.newyorkfed.org/medialibrary/media/regional/puertorico/report.pdf",
           reasoning:
             "Independent central-bank analysis directly on the captive-route premium; the exact multiple should be confirmed against the report text.",
         },
@@ -183,6 +188,8 @@ export const jonesActData = {
             directness: 8,
           },
           source: "Colin Grabow, Cato Institute (Jones Act research)",
+          sourceUrl:
+            "https://www.cato.org/policy-analysis/jones-act-burden-america-can-no-longer-bear",
           reasoning:
             "Directly on point and consistent with other sources, but from an advocacy-leaning source, so independence is discounted.",
         },
@@ -199,6 +206,8 @@ export const jonesActData = {
             directness: 6,
           },
           source: "DHS/Customs and Border Protection Jones Act waiver (2017)",
+          sourceUrl:
+            "https://www.dhs.gov/sites/default/files/publications/17_0928_AS1_Jones-Act-Waiver.pdf",
           reasoning:
             "Suggestive real-world signal, but a short emergency waiver is weaker evidence of steady-state cost than direct price comparisons.",
         },
@@ -215,6 +224,7 @@ export const jonesActData = {
             directness: 6,
           },
           source: "U.S. Government Accountability Office, GAO-13-260 (2013)",
+          sourceUrl: "https://www.gao.gov/products/gao-13-260",
           reasoning:
             "A credible, source-grounded caution — though it reflects shipper expectations rather than measured post-repeal outcomes.",
         },
@@ -254,6 +264,8 @@ export const jonesActData = {
             directness: 6,
           },
           source: "U.S. DOT Bureau of Transportation Statistics / EPA modal emissions data",
+          sourceUrl:
+            "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P100X04Q.TXT",
           reasoning:
             "Well-established modal efficiency facts, but the link from the Act to a specific quantity of diverted freight is indirect.",
         },
@@ -270,6 +282,8 @@ export const jonesActData = {
             directness: 6,
           },
           source: "OECD / International Transport Forum cabotage analysis",
+          sourceUrl:
+            "https://www.itf-oecd.org/sites/default/files/docs/01shortsea.pdf",
           reasoning:
             "Consistent cross-national pattern, but disentangling the Act from geography and infrastructure is the hard, unresolved step.",
         },
@@ -285,6 +299,9 @@ export const jonesActData = {
             replicability: 5,
             directness: 6,
           },
+          source:
+            "Congressional Research Service, Shipping Under the Jones Act (2019)",
+          sourceUrl: "https://www.congress.gov/crs-product/R45725",
           reasoning:
             "A fair confounder that trims the environmental claim; it limits, but does not erase, the Act's modal effect.",
         },
@@ -324,6 +341,8 @@ export const jonesActData = {
             directness: 7,
           },
           source: "Maritime Administration (MARAD) / U.S. Transportation Command sealift readiness exercise (2019)",
+          sourceUrl:
+            "https://www.globalsecurity.org/military/library/report/2019/ustranscom_turbo-activation19-plus_aar_20191216.pdf",
           reasoning:
             "A concrete, government-run stress test directly on readiness; the exact mission-capable percentage should be verified before quoting.",
         },
@@ -339,7 +358,8 @@ export const jonesActData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Maritime Administration (MARAD) fleet statistics",
+          source: "Congressional Research Service analysis of MARAD fleet statistics",
+          sourceUrl: "https://www.congress.gov/crs-product/R45725",
           reasoning:
             "Directly undercuts the 'the Act sustains the fleet' premise; the precise current vessel count should be confirmed against MARAD data.",
         },
@@ -356,6 +376,7 @@ export const jonesActData = {
             directness: 6,
           },
           source: "MARAD / U.S. Transportation Command mariner-availability assessments",
+          sourceUrl: "https://www.gao.gov/products/gao-18-478",
           reasoning:
             "Credible official concern; the specific size of the gap has been estimated in the low thousands but should be verified.",
         },
@@ -372,6 +393,7 @@ export const jonesActData = {
             directness: 7,
           },
           source: "U.S. Department of Defense / Maritime Administration policy statements",
+          sourceUrl: "https://www.gao.gov/products/gao-18-478",
           reasoning:
             "A real and important rationale, but it argues for sustaining capability, not necessarily via cabotage — and much of it is assertion rather than measured outcome.",
         },
@@ -410,7 +432,9 @@ export const jonesActData = {
             replicability: 6,
             directness: 7,
           },
-          source: "Grennes (Mercatus, 2017); Cato Jones Act research; trade-economics literature",
+          source:
+            "Grennes (Mercatus, 2017); Cato Jones Act research; Clark Center Economic Experts Panel (2026)",
+          sourceUrl: "https://kentclarkcenter.org/surveys/the-jones-act/",
           reasoning:
             "Reflects a genuine breadth of expert agreement, though it is a survey of opinion rather than a single decisive measurement.",
         },
@@ -427,6 +451,7 @@ export const jonesActData = {
             directness: 6,
           },
           source: "Public-choice analysis of maritime protectionism",
+          sourceUrl: "https://www.congress.gov/crs-product/R45725",
           reasoning:
             "A well-supported structural read of the politics; it explains persistence but does not by itself prove the Act is welfare-reducing.",
         },
@@ -442,6 +467,9 @@ export const jonesActData = {
             replicability: 5,
             directness: 6,
           },
+          source:
+            "U.S. Government Accountability Office, GAO-21-118 (2020)",
+          sourceUrl: "https://www.gao.gov/assets/gao-21-118.pdf",
           reasoning:
             "A fair rebuttal on distributional grounds, though it concedes the aggregate cost and argues about who bears adjustment rather than about net welfare.",
         },

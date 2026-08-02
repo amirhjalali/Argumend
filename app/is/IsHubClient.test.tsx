@@ -1,9 +1,17 @@
 import "@/test/setup-dom";
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, beforeEach } from "vitest";
 import { render, fireEvent, cleanup, waitFor } from "@testing-library/react";
 import { IsHubClient, type IsCategoryGroup } from "./IsHubClient";
+import { getVerdict } from "@/lib/schemas/topic";
 
-afterEach(cleanup);
+beforeEach(() => {
+  window.history.replaceState(null, "", "/is");
+});
+
+afterEach(() => {
+  cleanup();
+  window.history.replaceState(null, "", "/");
+});
 
 // Two categories, three questions total — enough to exercise default render,
 // search filtering, category narrowing, and the no-match empty state.
@@ -12,15 +20,15 @@ const groups: IsCategoryGroup[] = [
     id: "policy",
     label: "Policy",
     entries: [
-      { slug: "nuclear-safe", question: "Is nuclear power safe?", confidence: 88 },
-      { slug: "rent-control", question: "Does rent control work?", confidence: 42 },
+      { slug: "nuclear-safe", question: "Is nuclear power safe?", balance: 88, weight: 82, verdict: getVerdict(88, 82) },
+      { slug: "rent-control", question: "Does rent control work?", balance: 42, weight: 45, verdict: getVerdict(42, 45) },
     ],
   },
   {
     id: "science",
     label: "Science",
     entries: [
-      { slug: "moon-landing", question: "Did humans land on the moon?", confidence: 99 },
+      { slug: "moon-landing", question: "Did humans land on the moon?", balance: 99, weight: 91, verdict: getVerdict(99, 91) },
     ],
   },
 ];
@@ -87,7 +95,43 @@ describe("IsHubClient", () => {
       expect(view.getByText(/No questions match/)).toBeTruthy();
     });
     expect(view.getByText(/No questions match/)).toBeTruthy();
-    expect(view.getByRole("button", { name: "Clear filters" })).toBeTruthy();
     expect(view.queryByText("Is nuclear power safe?") === null).toBe(true);
+    fireEvent.click(view.getByRole("button", { name: "Clear filters" }));
+    await waitFor(() =>
+      expect(document.activeElement).toBe(view.getByLabelText("Search questions")),
+    );
+  });
+
+  it("restores shareable controls from URL and responds to history navigation", async () => {
+    window.history.replaceState(
+      null,
+      "",
+      "/is?q=moon&category=science&sort=least_evidence",
+    );
+    const view = render(<IsHubClient groups={groups} totalCount={totalCount} />);
+
+    await waitFor(() =>
+      expect(
+        (view.getByLabelText("Search questions") as HTMLInputElement).value,
+      ).toBe("moon"),
+    );
+    expect(
+      (view.getByLabelText("Filter by category") as HTMLSelectElement).value,
+    ).toBe("science");
+    expect(
+      (view.getByLabelText("Sort questions") as HTMLSelectElement).value,
+    ).toBe("least_evidence");
+    expect(view.getByText("Did humans land on the moon?")).toBeTruthy();
+
+    window.history.pushState(null, "", "/is?q=rent&category=policy");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+
+    await waitFor(() =>
+      expect(
+        (view.getByLabelText("Search questions") as HTMLInputElement).value,
+      ).toBe("rent"),
+    );
+    expect(view.getByText("Does rent control work?")).toBeTruthy();
+    expect(window.location.search).toBe("?q=rent&category=policy");
   });
 });

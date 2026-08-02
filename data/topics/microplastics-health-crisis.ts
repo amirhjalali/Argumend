@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const microplasticsHealthCrisisData = {
   id: "microplastics-health-crisis",
   title: "The Microplastics Health Crisis",

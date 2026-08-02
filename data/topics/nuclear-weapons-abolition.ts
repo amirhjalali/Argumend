@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const nuclearWeaponsAbolitionData = {
   id: "nuclear-weapons-abolition",
   title: "Should Nuclear Weapons Be Abolished?",

@@ -115,7 +115,7 @@ export function buildJudgeDebatePrompt(
     : "";
 
   const debateSection = messages
-    .map((m, i) => {
+    .map((m) => {
       const sideLabel = m.side === "for" ? "FOR" : "AGAINST";
       return `### Round ${m.round} - ${sideLabel}\n${m.content}`;
     })
@@ -172,7 +172,10 @@ const ParsedDimensionScoreSchema = z.object({
 const ParsedSideScoreSchema = z.object({
   dimensions: z.array(ParsedDimensionScoreSchema),
   summary: z.string().optional().default(""),
-  confidence: z.coerce.number().finite().min(0).max(1).default(0.5),
+  confidence: z.preprocess(
+    (value) => value === null ? undefined : value,
+    z.coerce.number().finite().min(0).max(1).default(0.5),
+  ),
 });
 
 export const ParsedJudgeResponseSchema = z.object({

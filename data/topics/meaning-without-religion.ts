@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const meaningWithoutReligionData = {
   id: "meaning-without-religion",
   title: "Meaning of Life Without Religion",

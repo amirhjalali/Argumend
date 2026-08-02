@@ -3,6 +3,8 @@ import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
 import { recordTopicView, getTrendingTopics } from "@/lib/db/queries";
+import { isDatabaseConfigured } from "@/lib/db";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
 const TopicViewRequestSchema = z.object({
   topicId: z.string().min(1, "topicId is required").max(200),
@@ -32,9 +34,22 @@ export async function POST(req: NextRequest) {
     }
     const { topicId } = parseResult.data;
 
-    // Optionally capture userId if signed in
-    const session = await auth();
-    const userId = session?.user?.id;
+    // View analytics are optional. In the default offline product there is no
+    // persistence to contact and no reason to initialize auth just to discard
+    // the result.
+    if (!isDatabaseConfigured()) {
+      return NextResponse.json({ ok: true });
+    }
+
+    // Optionally capture userId if signed in. View tracking is non-critical and
+    // must remain anonymous/offline-safe when the auth backend is unavailable.
+    let userId: string | undefined;
+    try {
+      const session = await auth();
+      userId = session?.user?.id;
+    } catch {
+      userId = undefined;
+    }
 
     // Fire-and-forget — don't block the response on DB write
     recordTopicView(topicId, userId).catch(() => {
@@ -74,15 +89,20 @@ export async function GET(req: NextRequest) {
     );
   }
 
+  if (!isDatabaseConfigured()) {
+    return NextResponse.json({ trending: [] });
+  }
+
   try {
     const trending = await getTrendingTopics(pageLimit);
     return NextResponse.json({ trending });
-  } catch (err) {
+  } catch (error) {
     // Trending topics are non-critical UI. Degrade gracefully instead of 5xx
     // so the page renders without the widget instead of failing. Log the
     // actual cause so it shows up in server logs.
-    const msg = err instanceof Error ? err.message : String(err);
-    console.warn(`[topic-views] getTrendingTopics failed: ${msg}`);
+    console.warn(
+      `[topic-views] getTrendingTopics failed: ${sanitizeServerLog(error)}`,
+    );
     return NextResponse.json({ trending: [] });
   }
 }

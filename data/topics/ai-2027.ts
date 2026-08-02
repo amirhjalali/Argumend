@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const ai2027Data = {
   id: "ai-2027",
   title: "AI 2027: The Recursive-Automation Timeline",
@@ -98,6 +96,7 @@ export const ai2027Data = {
             directness: 6,
           },
           source: "SWE-bench Verified leaderboard (Jimenez et al. benchmark)",
+          sourceUrl: "https://www.swebench.com/verified.html",
           reasoning:
             "A real, fast-moving trend on a curated benchmark; directness is moderate because passing filtered GitHub issues is not the same as originating novel research.",
         },
@@ -108,11 +107,12 @@ export const ai2027Data = {
             "Frontier progress is gated by training-run wall-clock time, chip supply, and the latency of real-world experiments. Parallel AI cognition speeds only the parallelizable fraction; Amdahl's law caps the total speedup at the non-automatable remainder.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 5,
             independence: 7,
             replicability: 5,
-            directness: 7,
+            directness: 6,
           },
+          source: "Synthesis / inference — Amdahl's law applied to an unmeasured R&D pipeline",
           reasoning:
             "A clean, well-grounded structural argument, but hard to size precisely — how large the serial fraction is remains the empirical question.",
         },
@@ -128,6 +128,7 @@ export const ai2027Data = {
             replicability: 4,
             directness: 6,
           },
+          source: "Synthesis / inference — qualitative constraint from experiment and compute latency",
           reasoning:
             "Directly targets the loop's assumed multiplier, but is a qualitative bound rather than a measured coefficient.",
         },
@@ -186,6 +187,8 @@ export const ai2027Data = {
             directness: 6,
           },
           source: "Epoch AI, algorithmic progress analysis (Ho, Besiroglu et al.)",
+          sourceUrl:
+            "https://epoch.ai/publications/algorithmic-progress-in-language-models",
           reasoning:
             "Strong evidence the trend has a second compounding engine; the exact halving time is estimated with wide error bars.",
         },
@@ -225,18 +228,21 @@ export const ai2027Data = {
         },
         {
           id: "reasoning-diminishing-returns",
-          title: "Reasoning-benchmark gains per compute are slowing",
+          title: "ARC-AGI Remained Hard Despite Large Compute Budgets",
           description:
-            "On benchmarks designed to resist memorization (e.g., abstraction-and-reasoning tasks), capability gains per additional compute dollar look markedly slower than on language fluency — suggesting the research-relevant part of the curve may bend first.",
+            "In the official 2024 ARC Prize competition, the private-set state of the art rose from 33% to 55.5%, but no entrant reached the 85% grand-prize threshold despite 1,430 teams and 17,789 submissions. The organizers also reported that systems using frontier models and roughly 1,000 times the competition compute budget tracked the constrained leaderboard surprisingly closely. This shows that at least one abstraction benchmark was not solved by scale alone; it does not establish a general law of diminishing returns per compute dollar.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 5,
           },
+          source: "ARC Prize 2024 winners and technical report",
+          sourceUrl:
+            "https://arcprize.org/blog/arc-prize-2024-winners-technical-report",
           reasoning:
-            "Targets exactly the capability the loop requires, but benchmark choice is contested and the frontier moves quickly.",
+            "The competition results are reproducible and directly reported by the benchmark organizer. Directness is capped because ARC-AGI is one disputed proxy for general reasoning, and comparing leaderboard compute does not isolate a causal compute-response curve.",
         },
       ],
     },
@@ -277,6 +283,8 @@ export const ai2027Data = {
             directness: 8,
           },
           source: "Davidson, 'Compute-centric framework for takeoff speeds' (Open Philanthropy, 2023)",
+          sourceUrl:
+            "https://coefficientgiving.org/research/what-a-compute-centric-framework-says-about-takeoff-speeds/",
           reasoning:
             "A serious, explicit quantitative model aimed squarely at the crux; it is a model, not an observation, so replicability and independence are moderate.",
         },
@@ -293,6 +301,7 @@ export const ai2027Data = {
             directness: 5,
           },
           source: "Fawzi et al., 'AlphaTensor' (Nature, 2022)",
+          sourceUrl: "https://www.nature.com/articles/s41586-022-05172-4",
           reasoning:
             "Peer-reviewed and real, but each case is narrow; extrapolating from point improvements to a general R&D explosion is the contested leap.",
         },
@@ -309,6 +318,7 @@ export const ai2027Data = {
             directness: 8,
           },
           source: "Christiano, 'Takeoff Speeds' (2018)",
+          sourceUrl: "https://ai-alignment.com/takeoff-speeds-2b705d7b8a31",
           reasoning:
             "The canonical, directly-on-point counter-model from within the same community; it is an argument rather than measured data, so replicability is low.",
         },
@@ -319,11 +329,12 @@ export const ai2027Data = {
             "Turning a superhuman model into world-changing capability requires fabs, power, robotics, and organizational adoption — supply chains that historically scale over years, damping any purely-cognitive explosion into a slower real-world ramp.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 5,
             independence: 7,
             replicability: 5,
             directness: 6,
           },
+          source: "Synthesis / inference — physical supply-chain constraints applied to takeoff",
           reasoning:
             "A robust constraint on physical impact; less binding on a purely software-mediated research explosion, which is the specific channel the scenario invokes.",
         },
@@ -381,6 +392,7 @@ export const ai2027Data = {
             directness: 6,
           },
           source: "Public capex announcements; Epoch AI compute tracking",
+          sourceUrl: "https://epoch.ai/trends",
           reasoning:
             "The spending is real and public; reading it as an irreversible commitment to racing is an inference rather than a certainty.",
         },
@@ -396,6 +408,9 @@ export const ai2027Data = {
             replicability: 5,
             directness: 6,
           },
+          source: "UN Biological Weapons Convention treaty record",
+          sourceUrl:
+            "https://treaties.un.org/Pages/showDetails.aspx?objid=0800000280101653",
           reasoning:
             "A genuine historical counterexample; its force is blunted by how much harder AI capability is to verify than nuclear material.",
         },
@@ -411,6 +426,9 @@ export const ai2027Data = {
             replicability: 6,
             directness: 5,
           },
+          source: "U.S. Bureau of Industry and Security advanced-computing controls",
+          sourceUrl:
+            "https://www.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items-peoples",
           reasoning:
             "Concrete policy evidence that the race is steerable; whether it slows the overall timeline or merely concentrates it in one country is ambiguous.",
         },
@@ -450,6 +468,8 @@ export const ai2027Data = {
             directness: 6,
           },
           source: "Kokotajlo, 'What 2026 Looks Like' (2021)",
+          sourceUrl:
+            "https://www.lesswrong.com/posts/6Xgy6CAf2jqHhynHL/what-2026-looks-like",
           reasoning:
             "A real and notably prescient prior forecast, but a single author's single case; it argues for method credibility, not proof of the 2027 date.",
         },
@@ -466,6 +486,7 @@ export const ai2027Data = {
             directness: 5,
           },
           source: "Grace et al., AI Impacts expert survey (2023)",
+          sourceUrl: "https://arxiv.org/abs/2401.02843",
           reasoning:
             "Large, independent survey; expert aggregate timelines are historically noisy, and shortening is a directional signal rather than a validated prediction.",
         },
@@ -476,11 +497,12 @@ export const ai2027Data = {
             "The AI winters of the 1970s and late 1980s each followed a stretch of assured, imminent-breakthrough forecasting. The outside view on 'AI is about to transform everything soon' has a poor historical record.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 5,
             independence: 8,
-            replicability: 6,
-            directness: 6,
+            replicability: 5,
+            directness: 5,
           },
+          source: "Synthesis / inference — historical base-rate comparison across AI winters",
           reasoning:
             "A well-documented base rate that legitimately widens the error bars; critics note the current scaling regime differs structurally from the symbolic-AI eras that busted.",
         },

@@ -46,8 +46,10 @@ function TocLinks({
         <li key={`${keyPrefix}-${h.id}`} className={h.level === 3 ? "pl-3.5" : ""}>
           <a
             href={`#${h.id}`}
-            className={`block leading-snug transition-colors hover:text-deep ${
-              h.level === 3 ? "text-muted dark:text-stone-400" : "text-secondary"
+            className={`flex min-h-11 items-center rounded-sm leading-snug transition-colors hover:text-deep dark:hover:text-deep-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep ${
+              h.level === 3
+                ? "text-muted dark:text-stone-400"
+                : "text-secondary dark:text-stone-400"
             }`}
           >
             {h.text}
@@ -82,9 +84,9 @@ export function TableOfContents({
     <>
       {/* Mobile → large-desktop: collapsible disclosure, in flow. */}
       <details className="group mb-10 rounded-xl border border-stone-200/60 bg-[#faf8f5] dark:border-[var(--border-default)] dark:bg-[#252420] 2xl:hidden">
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 font-sans text-sm font-medium text-primary [&::-webkit-details-marker]:hidden">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 font-sans text-sm font-medium text-primary dark:text-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep [&::-webkit-details-marker]:hidden">
           <span className="flex items-center gap-2">
-            <List className="h-4 w-4 text-deep" strokeWidth={1.75} />
+            <List className="h-4 w-4 text-deep dark:text-deep-light" strokeWidth={1.75} />
             {label}
           </span>
           <ChevronDown className="h-4 w-4 text-muted dark:text-stone-400 transition-transform duration-200 group-open:rotate-180" />

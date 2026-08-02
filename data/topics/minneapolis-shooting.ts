@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const minneapolisShootingData = {
   id: "minneapolis-shooting",
   title: "Minneapolis ICE Shooting",

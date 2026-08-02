@@ -3,27 +3,48 @@
 import { useEffect, useRef, useState } from "react";
 import { AppShell } from "@/components/AppShell";
 
+export function calculateReadingProgress(
+  scrollTop: number,
+  scrollHeight: number,
+  clientHeight: number,
+): number {
+  const scrollableDistance = scrollHeight - clientHeight;
+  if (scrollableDistance <= 0) return 0;
+  return Math.min(Math.max(scrollTop / scrollableDistance, 0), 1);
+}
+
 function ReadingProgressBar() {
   const [progress, setProgress] = useState(0);
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
+    // AppShell's main can own scrolling when its flex parent is height-bound,
+    // but long article routes currently grow the document instead. Detect the
+    // element that is actually scrollable rather than assuming either model.
+    const main = document.getElementById("main-content");
+    const scrollContainer =
+      main && main.scrollHeight > main.clientHeight ? main : null;
+    const scrollTarget: HTMLElement | Window = scrollContainer ?? window;
+
     const handleScroll = () => {
       if (rafRef.current) return;
       rafRef.current = requestAnimationFrame(() => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrolled = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-        setProgress(scrolled);
+        const scrollTop = scrollContainer?.scrollTop ?? window.scrollY;
+        const scrollHeight =
+          scrollContainer?.scrollHeight ?? document.documentElement.scrollHeight;
+        const clientHeight = scrollContainer?.clientHeight ?? window.innerHeight;
+        setProgress(
+          calculateReadingProgress(scrollTop, scrollHeight, clientHeight),
+        );
         rafRef.current = 0;
       });
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    scrollTarget.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      scrollTarget.removeEventListener("scroll", handleScroll);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);

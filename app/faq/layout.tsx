@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 import { faqs } from "@/data/faqs";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -11,11 +12,13 @@ export const metadata: Metadata = {
     title: "FAQ — Frequently Asked Questions",
     description: "Everything you want to know about argument mapping, cruxes, confidence scores, and critical thinking.",
     url: "https://argumend.org/faq",
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "FAQ — Argument Mapping Questions Answered",
     description: "What is a crux? What is steel-manning? How do confidence scores work?",
+    images: [DEFAULT_SOCIAL_IMAGE_URL],
   },
   alternates: {
     canonical: "https://argumend.org/faq",

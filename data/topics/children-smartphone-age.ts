@@ -167,9 +167,9 @@ export const childrenSmartphoneAgeData = {
         },
         {
           id: "france-school-phone-ban-results",
-          title: "France's 2018 School Phone Ban: A School-Only Restriction With Limited Scope",
+          title: "School-Only Phone Bans Have Limited Scope",
           description:
-            "France implemented a nationwide ban on smartphone use in schools in 2018 (kindergarten through 9th grade). The ban improved classroom behavior and attention, and some later quasi-experimental evaluations report modest benefits — including reduced bullying and lower health-care take-up for psychological symptoms among girls. But because the ban only covers school hours, while most social-media use occurs outside school, it cannot test whether smartphone ownership drives the broader mental-health crisis. It is therefore weak evidence on either side: neither a clean demonstration that restrictions help population mental health, nor that smartphones are harmless.",
+            "France implemented a nationwide ban on smartphone use in schools in 2018 (kindergarten through 9th grade). Later quasi-experimental evidence from Norwegian middle schools reports modest benefits from similar policies — including reduced bullying and lower health-care take-up for psychological symptoms among girls. But because these bans cover only school hours, while most social-media use occurs outside school, they cannot test whether smartphone ownership drives the broader mental-health crisis. They are therefore weak evidence on either side: neither a clean demonstration that restrictions help population mental health, nor that smartphones are harmless.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -177,8 +177,8 @@ export const childrenSmartphoneAgeData = {
             replicability: 6,
             directness: 5,
           },
-          source: "French Ministry of Education; Le Monde; Norwegian School of Economics working paper (Abrahamsson, 2024, school phone bans and outcomes)",
-          sourceUrl: "https://www.lemonde.fr/en/france/article/2023/09/13/phones-in-school-what-assessment-after-five-years-of-ban_6134567_7.html",
+          source: "Abrahamsson, Norwegian School of Economics Discussion Paper 01/2024; French Ministry of Education",
+          sourceUrl: "https://openaccess.nhh.no/nhh-xmlui/bitstream/handle/11250/3119200/DP%2001.pdf?isAllowed=y&sequence=1",
           reasoning:
             "Reframed: the earlier claim that French mental-health data showed 'no improvement' is contradicted by later quasi-experimental evaluations finding modest benefits, so it cannot stand as evidence against the smartphone-harm thesis. The genuine limitation is scope: a school-hours-only ban (~7 of 16 waking hours) is a poor test of the ownership-restriction hypothesis. Directness lowered because this natural experiment speaks only indirectly to the meta_claim about banning ownership.",
         },

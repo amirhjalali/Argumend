@@ -20,11 +20,12 @@ const ROOT_Y = 26;
 const PILLAR_Y = 92;
 const MAX_PILLARS = 5;
 
-// Parchment palette (see CLAUDE.md design system)
+// Theme-aware palette. CSS variables adapt with the root `.dark` class while
+// the semantic accents remain stable in both themes.
 const TEAL = "#4f7b77"; // root accent
-const STONE_CONNECTOR = "#cdc6bb"; // stone connectors
+const STONE_CONNECTOR = "var(--border-divider)"; // stone connectors
 const RUST = "#C4613C"; // proponent-leaning pillar
-const STONE_DOT = "#a39b8e"; // neutral / skeptic-leaning pillar
+const STONE_DOT = "var(--text-muted)"; // neutral / skeptic-leaning pillar
 
 /** Decide a dot color from a pillar's evidence balance. */
 function pillarTint(pillar: Pillar): string {
@@ -90,7 +91,7 @@ export function MiniGraphPreview({
         cx={ROOT_X}
         cy={ROOT_Y}
         r={11}
-        fill="#faf8f5"
+        fill="var(--bg-surface)"
         stroke={TEAL}
         strokeWidth={2.5}
       />
@@ -103,14 +104,14 @@ export function MiniGraphPreview({
         return (
           <g key={pillar.id}>
             <circle cx={x} cy={PILLAR_Y} r={6.5} fill={tint} opacity={0.92} />
-            <circle cx={x} cy={PILLAR_Y} r={6.5} fill="none" stroke="#faf8f5" strokeWidth={1.5} />
+            <circle cx={x} cy={PILLAR_Y} r={6.5} fill="none" stroke="var(--bg-surface)" strokeWidth={1.5} />
             <text
               x={x}
               y={PILLAR_Y + 22}
               textAnchor="middle"
               fontSize="8.5"
               fontFamily="var(--font-sans), system-ui, sans-serif"
-              fill="#7a7068"
+              fill="var(--text-muted)"
             >
               {truncate(pillar.title, 14)}
             </text>
@@ -121,7 +122,7 @@ export function MiniGraphPreview({
   );
 
   return (
-    <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/40 dark:bg-[#252420]/40 px-3 pt-3 pb-2">
+    <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/40 dark:bg-[var(--bg-card)] px-3 pt-3 pb-2">
       {interactive ? (
         <button
           type="button"

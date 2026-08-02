@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { topics } from "@/data/topics";
+import { topicSummaries } from "@/data/topicIndex";
 import { getMockVerdict } from "@/data/mockVerdicts";
 import { DEFAULT_RUBRIC } from "@/lib/judge/rubric";
 import type { JudgingResult } from "@/lib/judge/rubric";
@@ -76,7 +76,7 @@ export async function GET(
   const { searchParams } = new URL(request.url);
   const format = searchParams.get("format") === "instagram" ? "instagram" : "twitter";
 
-  const topic = topics.find((t) => t.id === topicId);
+  const topic = topicSummaries.find((t) => t.id === topicId);
   if (!topic) {
     return new Response("Topic not found", { status: 404 });
   }
@@ -398,7 +398,7 @@ export async function GET(
                 color: "#a8a29e",
               }}
             >
-              argumend.com
+              argumend.org
             </div>
           </div>
         </div>

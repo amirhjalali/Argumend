@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const netNeutralityData = {
   id: "net-neutrality",
   title: "Net Neutrality",

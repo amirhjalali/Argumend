@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const consciousnessHardProblemData = {
   id: "consciousness-hard-problem",
   title: "The Hard Problem of Consciousness",

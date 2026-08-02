@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const assistedDyingEuthanasiaData = {
   id: "assisted-dying-euthanasia",
   title: "The Right to Assisted Dying",

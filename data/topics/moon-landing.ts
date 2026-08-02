@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const moonLandingData = {
   id: "moon-landing",
   title: "The Moon Landing",
@@ -161,13 +159,14 @@ export const moonLandingData = {
             "No Earth-based telescope, including Hubble, can resolve objects as small as the lunar modules on the Moon's surface.",
           side: "against" as const,
           weight: {
-            sourceReliability: 3,
+            sourceReliability: 9,
             independence: 5,
-            replicability: 2,
-            directness: 2,
+            replicability: 9,
+            directness: 8,
           },
           source:
-            "Diffraction-limit optics (Hubble's ~0.05 arcsec resolution corresponds to ~90 m at lunar distance, far larger than a 4 m lander)",
+            "NASA Astronomy Picture of the Day, Hubble resolution at lunar distance",
+          sourceUrl: "https://apod.nasa.gov/apod/ap020628.html",
           reasoning:
             "True statement of optics, but not evidence of fakery: Hubble's diffraction limit makes a few-meter object unresolvable at 384,000 km. Orbiters like LRO image the sites instead.",
         },
@@ -263,20 +262,22 @@ export const moonLandingData = {
         },
         {
           id: "belt-intensity-claim",
-          title: "Van Allen Belts Are Lethal",
+          title: "Apollo Dosimeters Recorded Non-Lethal Radiation Doses",
           description:
-            "Hoax claim that Van Allen belt radiation would kill astronauts during transit.",
+            "NASA's mission dosimetry records show crew-averaged skin doses of 0.16 to 1.14 rad across the nine Apollo lunar missions, averaging 0.46 rad. Much of the dose came from the Van Allen belts, but no crew exceeded recommended annual limits for radiation workers. Transit risk was real and actively monitored; the measured doses contradict the claim that belt passage was necessarily lethal.",
           side: "against" as const,
           weight: {
-            sourceReliability: 2,
-            independence: 4,
-            replicability: 1,
-            directness: 3,
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 8,
+            directness: 9,
           },
           source:
-            "Debunked: contradicted by measured Apollo dosimeter doses (~0.16-1.14 rad; NASA SP-368)",
+            "NASA Apollo mission dosimetry summary and SP-368",
+          sourceUrl:
+            "https://history.nasa.gov/wp-content/uploads/static/history/alsj/WOTM/WOTM-Radiation.html",
           reasoning:
-            "Misunderstands that dose = intensity × time; the fast belt transit produced only ~1-2 rad, far below a lethal (hundreds of rad) dose.",
+            "The figures are direct instrument measurements summarized by NASA and match the mission radiation-protection record. Independence is not maximal because NASA operated the missions, but the readings are quantitative, mission-specific, and physically consistent with short transit through lower-intensity regions.",
         },
       ],
     },

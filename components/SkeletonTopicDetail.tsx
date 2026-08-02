@@ -11,7 +11,6 @@ import {
   Skeleton,
   SkeletonText,
   SkeletonBadge,
-  SkeletonParagraph,
 } from "@/components/Skeleton";
 
 // ---------------------------------------------------------------------------

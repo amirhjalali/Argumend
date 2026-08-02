@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 // ============================================================================
 // Internal Cross-Linking Utility
 // ============================================================================
@@ -112,7 +110,7 @@ export function getTopicMentions(
  * Extract minimal topic link targets from full topic objects.
  */
 export function buildTopicLinkTargets(
-  topics: Topic[]
+  topics: readonly TopicLinkTarget[]
 ): TopicLinkTarget[] {
   return topics.map((t) => ({ id: t.id, title: t.title }));
 }

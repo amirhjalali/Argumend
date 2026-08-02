@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const eaccVsTechRegulationData = {
   id: "eacc-vs-tech-regulation",
   title: "E/acc vs. Tech Regulation",

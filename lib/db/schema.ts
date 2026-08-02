@@ -12,6 +12,7 @@ import {
   uniqueIndex,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
+import type { DebatePersistenceStatus } from "@/lib/debate/status";
 import type { AdapterAccountType } from "next-auth/adapters";
 import type {
   ExtractedPosition,
@@ -96,8 +97,6 @@ export const analyses = pgTable(
     id: uuid("id").defaultRandom().primaryKey(),
     /** Owner (optional — null for anonymous) */
     userId: text("user_id").references(() => users.id, { onDelete: "set null" }),
-    /** Hash of input content for dedup/caching */
-    contentHash: text("content_hash"),
     contentType: text("content_type").notNull().default("freeform"),
     /** Extracted topic/claim */
     topic: text("topic").notNull(),
@@ -116,13 +115,10 @@ export const analyses = pgTable(
     forStrength: real("for_strength"),
     /** Overall AGAINST position strength 1-10 */
     againstStrength: real("against_strength"),
-    /** Original input content (truncated for storage) */
-    inputContent: text("input_content"),
     createdAt: timestamp("created_at").defaultNow().notNull(),
   },
   (table) => [
     index("analyses_userId_idx").on(table.userId),
-    index("analyses_contentHash_idx").on(table.contentHash),
     index("analyses_createdAt_idx").on(table.createdAt),
   ]
 );
@@ -141,7 +137,10 @@ export const debates = pgTable(
     topicTitle: text("topic_title").notNull(),
     forModel: text("for_model").notNull(),
     againstModel: text("against_model").notNull(),
-    status: text("status").notNull().default("in_progress"),
+    status: text("status")
+      .$type<DebatePersistenceStatus>()
+      .notNull()
+      .default("in_progress"),
     winner: text("winner"),
     totalRounds: integer("total_rounds").notNull().default(3),
     createdAt: timestamp("created_at").defaultNow().notNull(),
@@ -240,19 +239,13 @@ export const judgeVerdicts = pgTable(
 // Newsletters — email signups
 // ============================================================================
 
-export const newsletters = pgTable(
-  "newsletters",
-  {
+export const newsletters = pgTable("newsletters", {
     id: uuid("id").defaultRandom().primaryKey(),
     email: text("email").notNull().unique(),
     subscribedAt: timestamp("subscribed_at").defaultNow().notNull(),
     unsubscribedAt: timestamp("unsubscribed_at"),
     source: text("source").default("website"),
-  },
-  (table) => [
-    index("newsletters_email_idx").on(table.email),
-  ]
-);
+});
 
 // ============================================================================
 // Saved Topics — user bookmarks
@@ -285,7 +278,9 @@ export const topicViews = pgTable(
     id: uuid("id").defaultRandom().primaryKey(),
     topicId: text("topic_id").notNull(),
     viewedAt: timestamp("viewed_at").defaultNow().notNull(),
-    userId: text("user_id"),
+    userId: text("user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
   },
   (t) => [
     index("topic_views_topicId_idx").on(t.topicId),
@@ -326,6 +321,7 @@ export const usersRelations = relations(users, ({ many }) => ({
   debates: many(debates),
   savedTopics: many(savedTopics),
   topicSubscriptions: many(topicSubscriptions),
+  topicViews: many(topicViews),
 }));
 
 export const topicViewsRelations = relations(topicViews, ({ one }) => ({

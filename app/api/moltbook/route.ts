@@ -10,7 +10,34 @@ import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
 import { MoltbookClient } from "@/lib/moltbook/client";
 import { MoltbookDebateService, NOTABLE_DEBATE_AGENTS } from "@/lib/moltbook/debate-integration";
-import { topics } from "@/data/topics";
+import { topicSummaries } from "@/data/topicIndex";
+import { loadTopicById } from "@/data/topicLoader";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
+import { isAuthConfigured } from "@/lib/auth-config";
+
+const MoltbookAgentResponseSchema = z.object({
+  name: z.string().min(1),
+  description: z.string(),
+  avatar_url: z.string().optional(),
+  follower_count: z.number().finite().nonnegative().optional(),
+  post_count: z.number().finite().nonnegative().optional(),
+  claimed: z.boolean(),
+}).passthrough();
+
+const MoltbookPostResponseSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  content: z.string().optional(),
+  url: z.string().optional(),
+  submolt: z.string().min(1),
+  author: MoltbookAgentResponseSchema,
+  upvotes: z.number().finite(),
+  downvotes: z.number().finite(),
+  comment_count: z.number().finite().nonnegative(),
+  created_at: z.string().min(1),
+}).passthrough();
+
+const MoltbookFeedResponseSchema = z.array(MoltbookPostResponseSchema);
 
 const MoltbookPostSchema = z.discriminatedUnion("action", [
   z.object({
@@ -50,6 +77,32 @@ const MoltbookPostSchema = z.discriminatedUnion("action", [
   }),
 ]);
 
+const MOLTBOOK_UNAVAILABLE_MESSAGE =
+  "Moltbook is temporarily unavailable. Please try again later.";
+
+function featureUnavailable() {
+  return NextResponse.json(
+    {
+      success: false,
+      error: "Moltbook sharing is not available.",
+      code: "FEATURE_UNAVAILABLE",
+      configured: false,
+    },
+    { status: 503 },
+  );
+}
+
+function upstreamUnavailable() {
+  return NextResponse.json(
+    {
+      success: false,
+      error: MOLTBOOK_UNAVAILABLE_MESSAGE,
+      code: "UPSTREAM_UNAVAILABLE",
+    },
+    { status: 502 },
+  );
+}
+
 // Lazy initialization to avoid build-time errors
 function getClient(): MoltbookClient | null {
   const apiKey = process.env.MOLTBOOK_API_KEY;
@@ -74,14 +127,7 @@ export async function GET(request: NextRequest) {
   if (action === "feed") {
     const client = getClient();
     if (!client) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "MOLTBOOK_API_KEY not configured",
-          configured: false,
-        },
-        { status: 503 }
-      );
+      return featureUnavailable();
     }
 
     const submolt = searchParams.get("submolt") ?? undefined;
@@ -98,8 +144,16 @@ export async function GET(request: NextRequest) {
       ? 10
       : Math.min(Math.max(limitRaw, 1), 50);
 
-    const response = await client.getFeed({ submolt, sort, limit });
-    if (!response.success || !response.data) {
+    let response: Awaited<ReturnType<MoltbookClient["getFeed"]>>;
+    try {
+      response = await client.getFeed({ submolt, sort, limit });
+    } catch {
+      // Fetch/JSON errors can include an excerpt of the upstream response body.
+      console.error("Moltbook feed request failed");
+      return upstreamUnavailable();
+    }
+    const feed = MoltbookFeedResponseSchema.safeParse(response.data);
+    if (response.success !== true || !feed.success) {
       const cooldownMinutes = parseCooldownMinutes(response.hint);
       if (response.error === "Rate limited") {
         return NextResponse.json(
@@ -112,15 +166,13 @@ export async function GET(request: NextRequest) {
         );
       }
 
-      return NextResponse.json(
-        { success: false, error: response.error || "Failed to fetch feed" },
-        { status: 502 }
-      );
+      console.warn("Moltbook feed returned an invalid or unsuccessful response");
+      return upstreamUnavailable();
     }
 
     return NextResponse.json({
       success: true,
-      data: response.data,
+      data: feed.data,
     });
   }
 
@@ -136,7 +188,7 @@ export async function GET(request: NextRequest) {
   if (action === "topics") {
     return NextResponse.json({
       success: true,
-      data: topics.map(t => ({
+      data: topicSummaries.map(t => ({
         id: t.id,
         title: t.title,
         balance: t.balance,
@@ -151,41 +203,74 @@ export async function GET(request: NextRequest) {
   if (action === "status") {
     const client = getClient();
     if (!client) {
-      return NextResponse.json({
-        success: false,
-        error: "MOLTBOOK_API_KEY not configured",
-        configured: false,
-        connected: false,
-      });
+      return featureUnavailable();
     }
 
     try {
       const profile = await client.getMyProfile();
+      const profileData = MoltbookAgentResponseSchema.safeParse(profile.data);
+      if (profile.success !== true || !profileData.success) {
+        console.warn("Moltbook status returned an invalid or unsuccessful response");
+        return NextResponse.json(
+          {
+            success: false,
+            error: MOLTBOOK_UNAVAILABLE_MESSAGE,
+            code: "UPSTREAM_UNAVAILABLE",
+            configured: true,
+            connected: false,
+          },
+          { status: 502 },
+        );
+      }
       return NextResponse.json({
         success: true,
         configured: true,
         connected: true,
-        profile: profile.data,
+        profile: profileData.data,
       });
     } catch {
+      console.error("Moltbook status request failed");
       return NextResponse.json({
         success: false,
-        error: "Failed to connect to Moltbook",
+        error: MOLTBOOK_UNAVAILABLE_MESSAGE,
+        code: "UPSTREAM_UNAVAILABLE",
         configured: true,
         connected: false,
-      });
+      }, { status: 502 });
     }
   }
 
-  return NextResponse.json({
-    success: false,
-    error: "Unknown action. Use: feed, agents, topics, or status",
-  });
+  return NextResponse.json(
+    {
+      success: false,
+      error: "Unknown action. Use: feed, agents, topics, or status",
+    },
+    { status: 400 },
+  );
 }
 
 export async function POST(request: NextRequest) {
   // Require authentication for Moltbook write operations
-  const session = await auth();
+  if (!isAuthConfigured()) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  let session: { user?: unknown } | null;
+  try {
+    session = (await auth()) as { user?: unknown } | null;
+  } catch (error) {
+    console.error(
+      "Moltbook authentication check failed:",
+      sanitizeServerLog(error),
+    );
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Sign-in is temporarily unavailable. Please try again later.",
+        code: "AUTH_UNAVAILABLE",
+      },
+      { status: 503 },
+    );
+  }
   if (!session?.user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -202,10 +287,7 @@ export async function POST(request: NextRequest) {
 
   const client = getClient();
   if (!client) {
-    return NextResponse.json(
-      { success: false, error: "MOLTBOOK_API_KEY not configured" },
-      { status: 503 }
-    );
+    return featureUnavailable();
   }
 
   const service = new MoltbookDebateService(client);
@@ -230,6 +312,7 @@ export async function POST(request: NextRequest) {
   const body = parseResult.data;
   const { action } = body;
 
+  try {
   if (action === "post") {
     const { submolt, title, content, url } = body;
 
@@ -240,7 +323,8 @@ export async function POST(request: NextRequest) {
       url,
     });
 
-    if (!response.success || !response.data) {
+    const post = MoltbookPostResponseSchema.safeParse(response.data);
+    if (response.success !== true || !post.success) {
       const cooldownMinutes = parseCooldownMinutes(response.hint);
       if (response.error === "Rate limited") {
         return NextResponse.json(
@@ -253,17 +337,15 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      return NextResponse.json(
-        { success: false, error: response.error || "Failed to post to Moltbook" },
-        { status: 502 }
-      );
+      console.warn("Moltbook post returned an invalid or unsuccessful response");
+      return upstreamUnavailable();
     }
 
     return NextResponse.json({
       success: true,
       data: {
-        ...response.data,
-        url: response.data.url || `https://moltbook.com/m/${submolt}/posts/${response.data.id}`,
+        ...post.data,
+        url: post.data.url || `https://moltbook.com/m/${submolt}/posts/${post.data.id}`,
       },
     });
   }
@@ -271,7 +353,7 @@ export async function POST(request: NextRequest) {
   // Post a topic as a debate
   if (action === "post_debate") {
     const { topicId } = body;
-    const topic = topics.find(t => t.id === topicId);
+    const topic = await loadTopicById(topicId);
 
     if (!topic) {
       return NextResponse.json(
@@ -297,7 +379,7 @@ export async function POST(request: NextRequest) {
   // Post a debate invitation for a specific position
   if (action === "post_invitation") {
     const { topicId, position } = body;
-    const topic = topics.find(t => t.id === topicId);
+    const topic = await loadTopicById(topicId);
 
     if (!topic) {
       return NextResponse.json(
@@ -378,4 +460,8 @@ export async function POST(request: NextRequest) {
     { success: false, error: "Unknown action" },
     { status: 400 }
   );
+  } catch {
+    console.error(`Moltbook ${action} request failed`);
+    return upstreamUnavailable();
+  }
 }

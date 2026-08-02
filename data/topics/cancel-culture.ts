@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const cancelCultureData = {
   id: "cancel-culture",
   title: "Cancel Culture",
@@ -78,7 +76,8 @@ export const cancelCultureData = {
             replicability: 4,
             directness: 5,
           },
-          source: "Illustrative media commentary (no single primary dataset)",
+          source:
+            "Synthesis / inference — illustrative cases with no systematic outcome dataset",
           reasoning:
             "No web-verifiable systematic study aggregates cancellation outcomes, so no sourceUrl is provided and weights are kept low. Suggestive but subject to survivorship bias — we don't see cases where less powerful people quietly disappeared.",
         },
@@ -94,7 +93,8 @@ export const cancelCultureData = {
             replicability: 4,
             directness: 4,
           },
-          source: "General historical argument (no single citable source)",
+          source:
+            "Synthesis / inference — broad historical analogy rather than an effect estimate",
           reasoning:
             "A framing/contextual claim rather than a specific empirical finding, so no sourceUrl is provided. Less direct because the increased speed and scale of online pile-ons may change the qualitative nature of the phenomenon.",
         },

@@ -28,17 +28,20 @@ function VerificationBadge({
     verified: {
       icon: CheckCircle2,
       label: "Verified",
-      className: "text-emerald-600 bg-emerald-50",
+      className:
+        "text-emerald-700 bg-emerald-50 dark:text-emerald-300 dark:bg-emerald-500/15",
     },
     theoretical: {
       icon: HelpCircle,
       label: "Theoretical",
-      className: "text-rust-600 bg-rust-50",
+      className:
+        "text-rust-700 bg-rust-50 dark:text-rust-300 dark:bg-rust-500/15",
     },
     impossible: {
       icon: XCircle,
       label: "Impossible",
-      className: "text-red-500 bg-red-50",
+      className:
+        "text-red-600 bg-red-50 dark:text-red-300 dark:bg-red-500/15",
     },
   }[status];
 
@@ -69,8 +72,8 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
       <div
         className={`rounded-lg border px-3 py-2.5 transition-colors ${
           isFor
-            ? "border-emerald-200/60 bg-emerald-50/30"
-            : "border-rose-200/60 bg-rose-50/30"
+            ? "border-emerald-200/60 bg-emerald-50/30 dark:border-emerald-500/25 dark:bg-emerald-500/10"
+            : "border-rose-200/60 bg-rose-50/30 dark:border-rose-500/25 dark:bg-rose-500/10"
         }`}
       >
         <div className="flex items-start gap-2">
@@ -81,7 +84,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between gap-2">
-              <p className="text-[13px] font-medium text-stone-700 leading-snug">
+              <p className="text-[13px] font-medium text-stone-700 dark:text-stone-200 leading-snug">
                 {evidence.title}
               </p>
               <span className="flex-shrink-0 text-[11px] font-mono text-muted dark:text-stone-400">
@@ -91,7 +94,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
 
             {expanded && (
               <div className="mt-2 space-y-2">
-                <p className="text-[13px] text-stone-500 leading-relaxed">
+                <p className="text-[13px] text-stone-500 dark:text-stone-400 leading-relaxed">
                   {evidence.description}
                 </p>
 
@@ -109,7 +112,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
                       <span className="text-[11px] text-muted dark:text-stone-400 w-[72px] truncate">
                         {label}
                       </span>
-                      <div className="flex-1 h-1.5 bg-stone-200/60 rounded-full overflow-hidden">
+                      <div className="flex-1 h-1.5 bg-stone-200/60 dark:bg-stone-700/70 rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full ${
                             isFor ? "bg-emerald-400" : "bg-rose-400"
@@ -147,18 +150,18 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
   const againstEvidence = evidence.filter((e) => e.side === "against");
 
   return (
-    <div className="border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl overflow-hidden bg-white/50 dark:bg-[#252420]/50">
+    <div className="border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl overflow-hidden bg-white/50 dark:bg-[var(--bg-card)]">
       {/* Pillar header */}
       <button
         onClick={() => setExpanded(!expanded)}
         aria-expanded={expanded}
-        className="flex w-full items-center gap-3 px-4 py-3.5 text-left hover:bg-stone-50/50 transition-colors"
+        className="flex w-full items-center gap-3 px-4 py-3.5 text-left hover:bg-stone-50/50 dark:hover:bg-[var(--bg-overlay)] transition-colors"
       >
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-stone-100 text-[11px] font-medium text-stone-500 flex-shrink-0">
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-stone-100 dark:bg-[var(--bg-muted)] text-[11px] font-medium text-stone-500 dark:text-stone-300 flex-shrink-0">
           {index + 1}
         </span>
         <div className="flex-1 min-w-0">
-          <p className="text-[14px] font-medium text-stone-800 leading-snug">
+          <p className="text-[14px] font-medium text-stone-800 dark:text-stone-200 leading-snug">
             {pillar.title}
           </p>
           <p className="text-[13px] text-muted dark:text-stone-400 mt-0.5 line-clamp-1">
@@ -177,27 +180,27 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
           {/* Arguments */}
           <div className="grid gap-3">
             {/* Proponent view */}
-            <div className="rounded-lg bg-emerald-50/40 border border-emerald-100/60 p-3">
+            <div className="rounded-lg bg-emerald-50/40 dark:bg-emerald-500/10 border border-emerald-100/60 dark:border-emerald-500/20 p-3">
               <div className="flex items-center gap-1.5 mb-1.5">
-                <Shield className="h-3.5 w-3.5 text-emerald-600" />
-                <span className="text-[11px] font-medium text-emerald-700 uppercase tracking-wide">
+                <Shield className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-300" />
+                <span className="text-[11px] font-medium text-emerald-700 dark:text-emerald-300 uppercase tracking-wide">
                   Proponent
                 </span>
               </div>
-              <p className="text-[13px] text-stone-600 leading-relaxed">
+              <p className="text-[13px] text-stone-600 dark:text-stone-300 leading-relaxed">
                 {pillar.proponent_rebuttal}
               </p>
             </div>
 
             {/* Skeptic view */}
-            <div className="rounded-lg bg-rose-50/40 border border-rose-100/60 p-3">
+            <div className="rounded-lg bg-rose-50/40 dark:bg-rose-500/10 border border-rose-100/60 dark:border-rose-500/20 p-3">
               <div className="flex items-center gap-1.5 mb-1.5">
-                <AlertTriangle className="h-3.5 w-3.5 text-rose-500" />
-                <span className="text-[11px] font-medium text-rose-600 uppercase tracking-wide">
+                <AlertTriangle className="h-3.5 w-3.5 text-rose-500 dark:text-rose-300" />
+                <span className="text-[11px] font-medium text-rose-600 dark:text-rose-300 uppercase tracking-wide">
                   Skeptic
                 </span>
               </div>
-              <p className="text-[13px] text-stone-600 leading-relaxed">
+              <p className="text-[13px] text-stone-600 dark:text-stone-300 leading-relaxed">
                 {pillar.skeptic_premise}
               </p>
             </div>
@@ -222,7 +225,7 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
           <div>
             <button
               onClick={() => setShowCrux(!showCrux)}
-              className="flex items-center gap-1.5 py-2 min-h-[44px] text-[13px] text-rust-700 font-medium hover:text-rust-800 transition-colors"
+              className="flex items-center gap-1.5 py-2 min-h-[44px] text-[13px] text-rust-700 dark:text-rust-300 font-medium hover:text-rust-800 dark:hover:text-rust-200 transition-colors"
             >
               <FlaskConical className="h-3.5 w-3.5" />
               Decisive Test: {pillar.crux.title}
@@ -234,8 +237,8 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
             </button>
 
             {showCrux && (
-              <div className="mt-2 rounded-lg bg-rust-50/50 border border-rust-100/60 p-3 space-y-2">
-                <p className="text-[13px] text-stone-600 leading-relaxed">
+              <div className="mt-2 rounded-lg bg-rust-50/50 dark:bg-rust-500/10 border border-rust-100/60 dark:border-rust-500/20 p-3 space-y-2">
+                <p className="text-[13px] text-stone-600 dark:text-stone-300 leading-relaxed">
                   {pillar.crux.description}
                 </p>
                 <div className="flex items-center gap-2">
@@ -276,13 +279,16 @@ export function MobileArgumentList() {
   };
 
   const statusColors = {
-    settled: "bg-emerald-100 text-emerald-700",
-    contested: "bg-rust-100 text-rust-700",
-    highly_speculative: "bg-rose-100 text-rose-600",
+    settled:
+      "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300",
+    contested:
+      "bg-rust-100 text-rust-700 dark:bg-rust-500/15 dark:text-rust-300",
+    highly_speculative:
+      "bg-rose-100 text-rose-600 dark:bg-rose-500/15 dark:text-rose-300",
   };
 
   return (
-    <div className="h-full overflow-y-auto bg-[#faf8f5]">
+    <div className="h-full overflow-y-auto bg-[var(--bg-surface)]">
       <div className="px-4 py-5 space-y-5 max-w-lg mx-auto">
         {/* Topic header */}
         <div className="space-y-3">
@@ -299,11 +305,11 @@ export function MobileArgumentList() {
             </span>
           </div>
 
-          <h1 className="font-serif text-xl font-medium text-stone-900 leading-snug">
+          <h1 className="font-serif text-xl font-medium text-stone-900 dark:text-stone-100 leading-snug">
             {topic.title}
           </h1>
 
-          <p className="text-[13px] text-stone-500 leading-relaxed">
+          <p className="text-[13px] text-stone-500 dark:text-stone-400 leading-relaxed">
             {topic.meta_claim}
           </p>
         </div>
@@ -324,7 +330,7 @@ export function MobileArgumentList() {
               className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-md text-[13px] font-medium transition-colors ${
                 currentView === id
                   ? "bg-white dark:bg-[var(--bg-card)] text-stone-800 dark:text-[var(--text-primary)] shadow-sm"
-                  : "text-stone-500"
+                  : "text-stone-500 dark:text-stone-400"
               }`}
             >
               <Icon className="h-3.5 w-3.5" aria-hidden="true" />

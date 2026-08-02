@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const congestionPricingData = {
   id: "congestion-pricing",
   title: "Congestion Pricing",

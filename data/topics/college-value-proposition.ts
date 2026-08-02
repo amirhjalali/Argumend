@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const collegeValuePropositionData = {
   id: "college-value-proposition",
   title: "The Value of a College Degree",

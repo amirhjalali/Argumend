@@ -3,6 +3,10 @@ import {
   getChildPosition,
   VERTICAL_GAP,
   HORIZONTAL_GAP,
+  COLLISION_HORIZONTAL_GAP,
+  ROOT_INQUIRY_HORIZONTAL_GAP,
+  ROOT_INQUIRY_VERTICAL_GAP,
+  getRootChildPosition,
 } from "./layout";
 
 describe("getChildPosition", () => {
@@ -92,6 +96,29 @@ describe("getChildPosition", () => {
   });
 });
 
+describe("getRootChildPosition", () => {
+  const parentPosition = { x: 0, y: 0 };
+
+  it("keeps inquiries in a lane clear of centered pillars", () => {
+    const inquiry = getRootChildPosition(parentPosition, "right", 1, 3);
+    const rightPillar = getRootChildPosition(parentPosition, "center", 1, 2);
+
+    expect(inquiry.x).toBe(ROOT_INQUIRY_HORIZONTAL_GAP);
+    expect(inquiry.x - rightPillar.x).toBeGreaterThan(
+      COLLISION_HORIZONTAL_GAP,
+    );
+  });
+
+  it("spaces inquiry cards by their rendered height", () => {
+    const first = getRootChildPosition(parentPosition, "right", 0, 3);
+    const second = getRootChildPosition(parentPosition, "right", 1, 3);
+    const third = getRootChildPosition(parentPosition, "right", 2, 3);
+
+    expect(second.y - first.y).toBe(ROOT_INQUIRY_VERTICAL_GAP);
+    expect(third.y - second.y).toBe(ROOT_INQUIRY_VERTICAL_GAP);
+  });
+});
+
 describe("layout constants", () => {
   it("VERTICAL_GAP is positive", () => {
     expect(VERTICAL_GAP).toBeGreaterThan(0);
@@ -107,5 +134,9 @@ describe("layout constants", () => {
 
     // Assuming cards are ~300px tall, vertical gap should be larger
     expect(VERTICAL_GAP).toBeGreaterThan(300);
+
+    // Rich nodes are 340px wide; collision checks must compare actual card
+    // bounds rather than treating nearby top-left anchors as non-overlapping.
+    expect(COLLISION_HORIZONTAL_GAP).toBeGreaterThan(340);
   });
 });

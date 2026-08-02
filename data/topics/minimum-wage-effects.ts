@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const minimumWageEffectsData = {
   id: "minimum-wage-effects",
   title: "Raising the Minimum Wage",

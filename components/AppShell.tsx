@@ -1,11 +1,14 @@
 "use client";
 
+import { useRef } from "react";
 import { Footer } from "@/components/Footer";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
-import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { useSidebarState } from "@/hooks/useSidebarState";
 import { ANIMATION } from "@/lib/constants";
+import { useMobileSidebarA11y } from "@/hooks/useMobileSidebarA11y";
+
+const APP_SIDEBAR_ID = "app-sidebar-navigation";
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -13,18 +16,24 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   const sidebar = useSidebarState();
-  const currentTopicId = useLogicGraph((state) => state.currentTopicId);
-  const setTopic = useLogicGraph((state) => state.setTopic);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const sidebarRef = useRef<HTMLElement>(null);
+
+  useMobileSidebarA11y({
+    isOpen: sidebar.isOpen,
+    close: sidebar.close,
+    drawerRef: sidebarRef,
+    triggerRef: menuButtonRef,
+  });
 
   return (
     <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary">
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"
-      >
-        Skip to main content
-      </a>
-      <TopBar onMenuClick={sidebar.toggle} />
+      <TopBar
+        onMenuClick={sidebar.toggle}
+        sidebarId={APP_SIDEBAR_ID}
+        sidebarOpen={sidebar.isOpen}
+        menuButtonRef={menuButtonRef}
+      />
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
         {/* Mobile overlay when sidebar is open */}
@@ -41,7 +50,11 @@ export function AppShell({ children }: AppShellProps) {
 
         {/* Sidebar Container */}
         <aside
+          ref={sidebarRef}
+          id={APP_SIDEBAR_ID}
           aria-label="Sidebar navigation"
+          aria-hidden={!sidebar.isOpen}
+          inert={!sidebar.isOpen}
           className={`
             fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
             flex-shrink-0 ${sidebar.mounted ? "transition-all duration-500" : ""}
@@ -59,8 +72,6 @@ export function AppShell({ children }: AppShellProps) {
             <Sidebar
               isOpen={sidebar.isOpen}
               onClose={sidebar.close}
-              currentTopicId={currentTopicId}
-              onTopicSelect={setTopic}
             />
           </div>
 

@@ -13,26 +13,45 @@ import { useCallback, useEffect, useState } from "react";
 
 export const SAVED_TOPICS_KEY = "argumend.savedTopics";
 const SYNC_EVENT = "argumend:savedTopicsChanged";
+const STORAGE_ERROR = "Could not update saved topics on this device.";
+const STORAGE_READ_ERROR = "Saved topics could not be read in this browser.";
 
-function readSaved(): string[] {
-  if (typeof window === "undefined") return [];
+interface SavedReadResult {
+  ids: string[];
+  error: string | null;
+}
+
+function normalizeSaved(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+
+  const ids = value.flatMap((id) => {
+    if (typeof id !== "string") return [];
+    const normalized = id.trim();
+    return normalized ? [normalized] : [];
+  });
+  return Array.from(new Set(ids));
+}
+
+function readSaved(): SavedReadResult {
+  if (typeof window === "undefined") return { ids: [], error: null };
   try {
     const raw = window.localStorage.getItem(SAVED_TOPICS_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === "string") : [];
+    if (!raw) return { ids: [], error: null };
+    return { ids: normalizeSaved(JSON.parse(raw)), error: null };
   } catch {
-    return [];
+    return { ids: [], error: STORAGE_READ_ERROR };
   }
 }
 
-function writeSaved(ids: string[]): void {
-  if (typeof window === "undefined") return;
+function writeSaved(ids: string[]): boolean {
+  if (typeof window === "undefined") return false;
   try {
-    window.localStorage.setItem(SAVED_TOPICS_KEY, JSON.stringify(ids));
+    window.localStorage.setItem(SAVED_TOPICS_KEY, JSON.stringify(normalizeSaved(ids)));
     window.dispatchEvent(new CustomEvent(SYNC_EVENT));
+    return true;
   } catch {
-    // ignore (private mode / quota)
+    // Private browsing policies and exhausted quotas can reject local writes.
+    return false;
   }
 }
 
@@ -43,31 +62,63 @@ function writeSaved(ids: string[]): void {
  */
 export function useSavedTopics(topicId: string): {
   saved: boolean;
-  toggle: () => void;
+  hydrated: boolean;
+  error: string | null;
+  toggle: () => boolean | null;
 } {
+  const normalizedTopicId = topicId.trim();
   const [saved, setSaved] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const sync = () => setSaved(readSaved().includes(topicId));
+    const sync = () => {
+      const result = readSaved();
+      setSaved(
+        normalizedTopicId.length > 0 && result.ids.includes(normalizedTopicId),
+      );
+      setHydrated(true);
+      setError(result.error);
+    };
+    const syncStorage = (event: StorageEvent) => {
+      if (event.key === SAVED_TOPICS_KEY || event.key === null) sync();
+    };
     sync();
     window.addEventListener(SYNC_EVENT, sync);
-    window.addEventListener("storage", sync);
+    window.addEventListener("storage", syncStorage);
     return () => {
       window.removeEventListener(SYNC_EVENT, sync);
-      window.removeEventListener("storage", sync);
+      window.removeEventListener("storage", syncStorage);
     };
-  }, [topicId]);
+  }, [normalizedTopicId]);
 
   const toggle = useCallback(() => {
-    const current = readSaved();
-    const next = current.includes(topicId)
-      ? current.filter((id) => id !== topicId)
-      : [...current, topicId];
-    writeSaved(next);
-    setSaved(next.includes(topicId));
-  }, [topicId]);
+    if (!normalizedTopicId) {
+      setSaved(false);
+      setError(null);
+      return false;
+    }
+    const result = readSaved();
+    if (result.error) {
+      setError(result.error);
+      return null;
+    }
+    const current = result.ids;
+    const next = current.includes(normalizedTopicId)
+      ? current.filter((id) => id !== normalizedTopicId)
+      : [...current, normalizedTopicId];
+    if (writeSaved(next)) {
+      const nextSaved = next.includes(normalizedTopicId);
+      setSaved(nextSaved);
+      setError(null);
+      return nextSaved;
+    } else {
+      setError(STORAGE_ERROR);
+      return null;
+    }
+  }, [normalizedTopicId]);
 
-  return { saved, toggle };
+  return { saved, hydrated, error, toggle };
 }
 
 /**
@@ -81,30 +132,48 @@ export function useSavedTopics(topicId: string): {
 export function useSavedTopicIds(): {
   ids: string[];
   hydrated: boolean;
+  error: string | null;
   remove: (topicId: string) => void;
 } {
   const [ids, setIds] = useState<string[]>([]);
   const [hydrated, setHydrated] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const sync = () => {
-      setIds(readSaved());
+      const result = readSaved();
+      setIds(result.ids);
       setHydrated(true);
+      setError(result.error);
+    };
+    const syncStorage = (event: StorageEvent) => {
+      if (event.key === SAVED_TOPICS_KEY || event.key === null) sync();
     };
     sync();
     window.addEventListener(SYNC_EVENT, sync);
-    window.addEventListener("storage", sync);
+    window.addEventListener("storage", syncStorage);
     return () => {
       window.removeEventListener(SYNC_EVENT, sync);
-      window.removeEventListener("storage", sync);
+      window.removeEventListener("storage", syncStorage);
     };
   }, []);
 
   const remove = useCallback((topicId: string) => {
-    const next = readSaved().filter((id) => id !== topicId);
-    writeSaved(next);
-    setIds(next);
+    const normalizedTopicId = topicId.trim();
+    if (!normalizedTopicId) return;
+    const result = readSaved();
+    if (result.error) {
+      setError(result.error);
+      return;
+    }
+    const next = result.ids.filter((id) => id !== normalizedTopicId);
+    if (writeSaved(next)) {
+      setIds(next);
+      setError(null);
+    } else {
+      setError(STORAGE_ERROR);
+    }
   }, []);
 
-  return { ids, hydrated, remove };
+  return { ids, hydrated, error, remove };
 }

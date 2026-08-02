@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const deathPenaltyDeterrenceData = {
   id: "death-penalty-deterrence",
   title: "The Death Penalty",

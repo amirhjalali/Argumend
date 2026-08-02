@@ -39,6 +39,24 @@ describe("renderInlineMarkdown", () => {
     expect(html).toContain('href="#"');
     expect(html).not.toContain("javascript:");
   });
+
+  it("does not treat protocol-relative external URLs as internal links", () => {
+    const html = renderInlineMarkdown("[x](//example.com/path)");
+
+    expect(html).toContain('href="#"');
+    expect(html).not.toContain("example.com");
+  });
+
+  it("renders raw HTML as text instead of executable markup", () => {
+    const html = renderInlineMarkdown(
+      '<img src=x onerror="alert(1)"> <script>alert(2)</script>',
+    );
+
+    expect(html).toContain("&lt;img");
+    expect(html).toContain("&lt;script&gt;");
+    expect(html).not.toContain("<img");
+    expect(html).not.toContain("<script>");
+  });
 });
 
 describe("renderMarkdown", () => {
@@ -62,5 +80,13 @@ describe("renderMarkdown", () => {
     expect(html).toContain("<h2");
     expect(html).toContain("<p");
     expect(html).toContain("A paragraph.");
+  });
+
+  it("escapes raw HTML before adding block markup", () => {
+    const html = renderMarkdown("## Safe heading\n\n<script>alert(1)</script>");
+
+    expect(html).toContain("<h2");
+    expect(html).toContain("&lt;script&gt;");
+    expect(html).not.toContain("<script>");
   });
 });

@@ -1,8 +1,26 @@
 import { ImageResponse } from "next/og";
-import { topics } from "@/data/topics";
-import { QUADRANT_STYLE } from "@/components/BalanceWeightChip";
+import topicSummaryData from "@/data/topicSummaries.json";
+import type { TopicSummary } from "@/data/topicIndex";
+import type { VerdictQuadrant } from "@/lib/schemas/topic";
+import {
+  OG_HEIGHT,
+  OG_IMAGE_CACHE_CONTROL,
+  OG_NOT_FOUND_CACHE_CONTROL,
+  OG_WIDTH,
+  isValidTopicOgId,
+  ogErrorResponse,
+  truncateOgText,
+} from "@/lib/og";
 
 export const runtime = "edge";
+
+const QUADRANT_COLORS: Record<VerdictQuadrant, string> = {
+  settled: "#3a6965",
+  contested: "#a23b3b",
+  moderate: "#C4613C",
+  open: "#7a7068",
+};
+const topicSummaries = topicSummaryData as TopicSummary[];
 
 function getStatusLabel(status: string): string {
   switch (status) {
@@ -31,27 +49,29 @@ function getStatusColor(status: string): string {
 }
 
 export async function GET(
-  request: Request,
+  _request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const topic = topics.find((t) => t.id === id);
-
+  if (!isValidTopicOgId(id)) {
+    return ogErrorResponse(400, "INVALID_TOPIC_ID");
+  }
+  const topic = topicSummaries.find((candidate) => candidate.id === id);
   if (!topic) {
-    return new Response("Topic not found", { status: 404 });
+    return ogErrorResponse(404, "TOPIC_NOT_FOUND", OG_NOT_FOUND_CACHE_CONTROL);
   }
 
-  const scoreColor = QUADRANT_STYLE[topic.verdict.quadrant].color;
-  const verdict = topic.verdict.label;
+  const scoreColor = QUADRANT_COLORS[topic.verdict.quadrant];
+  const title = truncateOgText(topic.title, 96);
+  const verdict = truncateOgText(topic.verdict.label, 140);
+  const metaClaim = truncateOgText(topic.meta_claim, 150);
   const statusLabel = getStatusLabel(topic.status);
   const statusColor = getStatusColor(topic.status);
 
-  const evidenceCount = topic.pillars.reduce(
-    (sum, p) => sum + (p.evidence?.length ?? 0),
-    0
-  );
-  const referenceCount = topic.references?.length ?? 0;
-  const pillarCount = topic.pillars.length;
+  const evidenceCount = topic.evidenceCount;
+  const pillarCount = topic.pillarCount;
+  const balance = Math.min(100, Math.max(0, topic.balance));
+  const weight = Math.min(100, Math.max(0, topic.weight));
 
   return new ImageResponse(
     (
@@ -128,7 +148,7 @@ export async function GET(
             <div
               style={{
                 display: "flex",
-                fontSize: "54px",
+                fontSize: title.length > 72 ? "38px" : title.length > 40 ? "44px" : "54px",
                 fontWeight: 700,
                 color: "#3d3a36",
                 lineHeight: 1.12,
@@ -137,7 +157,7 @@ export async function GET(
                 marginTop: "4px",
               }}
             >
-              {topic.title}
+              {title}
             </div>
 
             {/* Verdict */}
@@ -191,25 +211,6 @@ export async function GET(
               >
                 {evidenceCount} Evidence Items
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  fontSize: "18px",
-                  color: "#a8a29e",
-                }}
-              >
-                ·
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  fontSize: "18px",
-                  color: "#78716c",
-                  fontWeight: 500,
-                }}
-              >
-                {referenceCount} References
-              </div>
             </div>
           </div>
 
@@ -260,7 +261,7 @@ export async function GET(
                     fontFamily: "Georgia, serif",
                   }}
                 >
-                  {topic.balance}
+                  {balance}
                 </div>
               </div>
             </div>
@@ -278,10 +279,10 @@ export async function GET(
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "10px" }}>
               <div style={{ display: "flex", width: "120px", height: "8px", backgroundColor: "#e7e2d8", borderRadius: "4px" }}>
-                <div style={{ display: "flex", width: `${(topic.weight / 100) * 120}px`, height: "8px", backgroundColor: scoreColor, borderRadius: "4px" }} />
+                <div style={{ display: "flex", width: `${(weight / 100) * 120}px`, height: "8px", backgroundColor: scoreColor, borderRadius: "4px" }} />
               </div>
               <div style={{ display: "flex", fontSize: "13px", color: "#78716c", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px" }}>
-                Weight {topic.weight}
+                Weight {weight}
               </div>
             </div>
           </div>
@@ -302,7 +303,7 @@ export async function GET(
           <div
             style={{
               display: "flex",
-              flex: 1,
+              width: "800px",
               fontSize: "16px",
               color: "#78716c",
               lineHeight: 1.5,
@@ -312,9 +313,7 @@ export async function GET(
               fontStyle: "italic",
             }}
           >
-            &ldquo;{topic.meta_claim.length > 110
-              ? topic.meta_claim.slice(0, 107) + "..."
-              : topic.meta_claim}&rdquo;
+            &ldquo;{metaClaim}&rdquo;
           </div>
 
           {/* Brand mark */}
@@ -324,7 +323,7 @@ export async function GET(
               alignItems: "center",
               gap: "10px",
               flexShrink: 0,
-              marginLeft: "24px",
+              marginLeft: "auto",
             }}
           >
             <div
@@ -353,8 +352,12 @@ export async function GET(
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      width: OG_WIDTH,
+      height: OG_HEIGHT,
+      headers: {
+        "Cache-Control": OG_IMAGE_CACHE_CONTROL,
+        "X-Content-Type-Options": "nosniff",
+      },
     }
   );
 }

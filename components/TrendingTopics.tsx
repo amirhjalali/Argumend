@@ -92,6 +92,7 @@ export function TrendingTopics() {
                   <li key={item.topicId}>
                     <Link
                       href={`/topics/${item.topicId}`}
+                      prefetch={false}
                       tabIndex={isOpen ? 0 : -1}
                       className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 min-h-[40px] text-[13px] text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50 transition-colors group"
                     >

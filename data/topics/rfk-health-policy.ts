@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const rfkHealthPolicyData = {
   id: "rfk-health-policy",
   title: "RFK Jr's Health Policy Agenda (MAHA)",

@@ -42,7 +42,7 @@ const contributing = [
       "Spotted a weak argument? Know better evidence? Tell us. The whole point is to make our steel-men stronger and our cruxes sharper.",
   },
   {
-    title: "Challenge Our Confidence Scores",
+    title: "Challenge Our Evidence Assessments",
     description:
       "Think we over- or under-weighted something? Say so. Bring citations and we\u2019ll take it seriously.",
   },
@@ -57,7 +57,7 @@ export default function CommunityPage() {
           "@type": "WebPage",
           name: "Argumend Community",
           description:
-            "A community that disagrees well. Help improve argument maps, challenge confidence scores, or suggest new topics on GitHub.",
+            "A community that disagrees well. Help improve argument maps, challenge evidence assessments, or suggest new topics on GitHub.",
           url: "https://argumend.org/community",
           isPartOf: {
             "@type": "WebSite",
@@ -81,7 +81,7 @@ export default function CommunityPage() {
           </h1>
           <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
             Argumend is open source. Help us improve the argument maps,
-            challenge our confidence scores, or suggest new topics.
+            challenge our evidence assessments, or suggest new topics.
           </p>
         </div>
 

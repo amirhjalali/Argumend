@@ -6,6 +6,7 @@
  */
 
 import type { LLMModel } from "./logic";
+import type { DebateTurnExecution } from "@/lib/debate/contracts";
 
 /** Full debate message used in components and storage. */
 export interface DebateMessage {
@@ -14,6 +15,8 @@ export interface DebateMessage {
   model: LLMModel;
   content: string;
   round: number;
+  /** How this turn was actually generated. Omitted for legacy/example data. */
+  execution?: DebateTurnExecution;
 }
 
 /** Minimal shape for API inputs (judging, prompt building). */

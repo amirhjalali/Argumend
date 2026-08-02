@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const fourDayWorkWeekData = {
   id: "four-day-work-week",
   title: "The Four-Day Work Week",

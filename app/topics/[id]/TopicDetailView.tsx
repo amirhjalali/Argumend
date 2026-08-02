@@ -11,7 +11,6 @@ import {
   HelpCircle,
   ArrowRight,
   Shield,
-  Beaker,
   Ban,
   ThumbsUp,
   ThumbsDown,
@@ -39,7 +38,6 @@ import {
   Check,
   Compass,
   Search,
-  BookOpen as BookOpenIcon,
   Layers,
   GitCompare,
 } from "lucide-react";

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const reparationsSlaveryData = {
   id: "reparations-slavery",
   title: "Reparations for Slavery",
@@ -99,7 +97,9 @@ export const reparationsSlaveryData = {
             directness: 7,
           },
           source:
-            "General policy commentary (no single primary source verified for this framing); population figures per U.S. Census Bureau",
+            "Darity and Mullen interview on proposed reparations eligibility criteria",
+          sourceUrl:
+            "https://www.irp.wisc.edu/resource/william-darity-jr-and-kirsten-mullen-on-why-its-time-to-pay-reparations-to-black-americans/",
           reasoning:
             "Legitimate practical concern, but framed here as general commentary rather than a specific cited study, so source-reliability and independence are scored conservatively. The difficulty of implementation does not negate the moral case — many complex government programs (Social Security, Medicare) require identity verification.",
         },

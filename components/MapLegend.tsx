@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence, type MotionProps } from "framer-motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Info, X } from "lucide-react";
@@ -35,6 +35,13 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
   // small toggle pill, not a tall card occluding the 300–340px nodes. Expands
   // on click; all content is preserved when open.
   const [isOpen, setIsOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const legendPanelId = "map-legend-panel";
+
+  const closeLegend = () => {
+    setIsOpen(false);
+    requestAnimationFrame(() => toggleRef.current?.focus());
+  };
 
   // Honour prefers-reduced-motion — swap the spring/scale entrances for a quick
   // opacity fade so motion-sensitive users don't get the pop-in.
@@ -90,7 +97,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
             borderColor: `${crux.accentColor}40`,
           }}
         >
-          <CruxIcon className="h-3.5 w-3.5" style={{ color: crux.accentColor }} strokeWidth={2} />
+          <CruxIcon className="h-3.5 w-3.5" style={{ color: crux.accentColor }} strokeWidth={2} aria-hidden="true" />
           <span className="font-semibold">Find the crux</span>
         </motion.button>
       )}
@@ -99,18 +106,21 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
         {isOpen ? (
           <motion.div
             key="legend"
+            id={legendPanelId}
             {...cardMotion}
             className="w-48 md:w-56 lg:w-64 rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm p-4 md:p-5 shadow-2xl max-h-[45vh] md:max-h-none overflow-y-auto"
           >
             {/* Header */}
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="font-serif text-sm md:text-base font-semibold text-primary">
+              <h3 className="font-serif text-sm md:text-base font-semibold text-primary dark:text-stone-200">
                 How to Read This Map
               </h3>
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={closeLegend}
                 className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 dark:hover:bg-[#302e2a] hover:text-stone-600 dark:hover:text-stone-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
                 aria-label="Collapse legend"
+                aria-controls={legendPanelId}
+                aria-expanded="true"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -130,6 +140,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
                         className="h-3.5 w-3.5"
                         style={{ color: accentColor }}
                         strokeWidth={2}
+                        aria-hidden="true"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -158,12 +169,15 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
         ) : (
           <motion.button
             key="button"
+            ref={toggleRef}
             {...pillMotion}
             onClick={() => setIsOpen(true)}
             aria-label="Show map legend"
+            aria-controls={legendPanelId}
+            aria-expanded="false"
             className="flex items-center gap-1.5 rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm px-3 py-2 text-xs text-stone-500 dark:text-[#8a8279] shadow-lg hover:border-stone-300 dark:hover:border-[#4a4640] hover:shadow-xl transition-all"
           >
-            <Info className="h-3.5 w-3.5 text-deep" />
+            <Info className="h-3.5 w-3.5 text-deep" aria-hidden="true" />
             <span className="font-medium">Legend</span>
           </motion.button>
         )}

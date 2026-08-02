@@ -140,7 +140,7 @@ export const transgenderAthletesSportsData = {
             directness: 7,
           },
           source: "International Olympic Committee; Associated Press",
-          sourceUrl: "https://olympics.com/ioc/news/ioc-updates-framework-on-fairness-inclusion-and-non-discrimination",
+          sourceUrl: "https://apnews.com/article/ioc-olympic-transgender-female-eligibility-520cd9cee152a312767a667acf77dbc8",
           reasoning:
             "The Olympic competition record is a verifiable, high-reliability fact. The absence of transgender Olympic medalists despite two decades of eligibility is significant evidence against the 'domination' narrative. However, directness is moderate because the small number of transgender elite athletes means the sample is too small for statistical conclusions, and the absence of domination at the Olympic level does not necessarily apply to sub-elite or youth competition.",
         },

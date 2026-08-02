@@ -297,10 +297,10 @@ export const housingAffordabilityCrisisData = {
             replicability: 8,
             directness: 8,
           },
-          source: "National Council of State Housing Agencies; HUD Capital Needs Assessment; Government Accountability Office",
-          sourceUrl: "https://www.gao.gov/products/gao-23-105380",
+          source: "Congressional hearing record; National Association of Housing and Redevelopment Officials capital-needs estimate",
+          sourceUrl: "https://www.congress.gov/event/117th-congress/house-event/LC66633/text",
           reasoning:
-            "GAO and HUD data are authoritative government sources. The $70 billion backlog is a devastating indictment of US public housing policy. However, it reflects deliberate underfunding — Congress appropriated $3.2 billion annually when $6 billion was needed — rather than inherent impossibility of public housing. Well-funded developments (e.g., New York's NYCHA Queensbridge Houses) maintain high satisfaction.",
+            "The congressional hearing record directly preserves the housing-authority estimate and its funding context. The $70 billion backlog is a devastating indictment of US public housing policy. However, it reflects deliberate underfunding — Congress appropriated $3.2 billion annually when $6 billion was needed — rather than inherent impossibility of public housing. Well-funded developments (e.g., New York's NYCHA Queensbridge Houses) maintain high satisfaction.",
         },
         {
           id: "finland-housing-first",

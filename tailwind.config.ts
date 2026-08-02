@@ -21,11 +21,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: "#f4f1eb", // LessWrong parchment
-        sidebar: "#efe9df", // Sidebar backdrop
-        panel: "#fdfaf6", // Cards / panels
-        paper: "#fefdfb", // Lightweight paper for nodes
-        overlay: "#e7e0d5",
+        // Semantic surfaces use channel variables so Tailwind's opacity
+        // modifiers keep working (for example `bg-panel/85`) while the same
+        // utility adapts to the active color scheme.
+        canvas: "rgb(var(--bg-canvas-rgb) / <alpha-value>)", // LessWrong parchment
+        sidebar: "rgb(var(--bg-sidebar-rgb) / <alpha-value>)", // Sidebar backdrop
+        panel: "rgb(var(--bg-panel-rgb) / <alpha-value>)", // Cards / panels
+        paper: "rgb(var(--bg-paper-rgb) / <alpha-value>)", // Lightweight paper for nodes
+        overlay: "rgb(var(--bg-overlay-rgb) / <alpha-value>)",
 
         primary: "#3d3a36",
         secondary: "#564d45",

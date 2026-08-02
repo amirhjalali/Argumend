@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const gmoCropsSafetyData = {
   id: "gmo-crops-safety",
   title: "GMO Crops: Safe and Beneficial?",

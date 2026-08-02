@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Code, Copy, Check, X } from "lucide-react";
+import { copyTextToClipboard } from "@/lib/copyToClipboard";
+import { useModalAccessibility } from "@/hooks/useModalAccessibility";
 
 interface EmbedButtonProps {
   topicId: string;
@@ -10,9 +12,21 @@ interface EmbedButtonProps {
 export function EmbedButton({ topicId }: EmbedButtonProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState<string | null>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const embedCode = `<iframe src="https://argumend.com/embed/${topicId}" width="100%" height="400" frameborder="0" style="border:none;border-radius:8px;" loading="lazy"></iframe>`;
+  const embedCode = `<iframe src="https://argumend.org/embed/${encodeURIComponent(topicId)}" width="100%" height="400" frameborder="0" style="border:none;border-radius:8px;" loading="lazy" title="ARGUMEND argument summary"></iframe>`;
+
+  const close = useCallback(() => {
+    setOpen(false);
+    setCopied(false);
+    setCopyError(null);
+  }, []);
+
+  const dialogRef = useModalAccessibility<HTMLDivElement>({
+    isOpen: open,
+    onClose: close,
+  });
 
   // Close on outside click
   useEffect(() => {
@@ -22,62 +36,61 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
         popoverRef.current &&
         !popoverRef.current.contains(e.target as Node)
       ) {
-        setOpen(false);
+        close();
       }
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, [open]);
-
-  // Close on Escape
-  useEffect(() => {
-    if (!open) return;
-    function handleKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
-    }
-    document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
-  }, [open]);
+  }, [open, close]);
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(embedCode);
+      await copyTextToClipboard(embedCode);
+      setCopyError(null);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch {
-      const ta = document.createElement("textarea");
-      ta.value = embedCode;
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
+      setCopied(false);
+      setCopyError("The embed code could not be copied. Select and copy it manually.");
     }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <div className="relative" ref={popoverRef}>
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          setCopyError(null);
+          setOpen((value) => !value);
+        }}
         className="inline-flex items-center justify-center h-11 w-11 rounded-lg text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors"
         aria-label="Embed this topic"
+        aria-expanded={open}
+        aria-controls="topic-embed-dialog"
         title="Embed"
       >
         <Code className="h-4 w-4" />
       </button>
 
       {open && (
-        <div role="dialog" aria-label="Embed code" className="absolute left-0 top-full mt-2 z-50 w-[340px] sm:w-[400px] rounded-lg border border-stone-200 dark:border-[var(--border-default)] bg-white dark:bg-[var(--bg-card)] shadow-lw p-4 animate-in fade-in slide-in-from-top-1">
+        <div
+          ref={dialogRef}
+          id="topic-embed-dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="topic-embed-title"
+          tabIndex={-1}
+          className="fixed inset-x-4 top-20 z-50 mx-auto max-h-[calc(100svh-6rem)] w-auto max-w-[400px] overflow-y-auto rounded-lg border border-stone-200 dark:border-[var(--border-default)] bg-white dark:bg-[var(--bg-card)] shadow-lw p-4 animate-in fade-in slide-in-from-top-1 sm:absolute sm:inset-x-auto sm:left-0 sm:top-full sm:mt-2 sm:w-[400px] sm:max-w-[calc(100vw-2rem)]"
+        >
           {/* Header */}
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-semibold text-primary">
+            <h3 id="topic-embed-title" className="text-sm font-semibold text-primary dark:text-stone-200">
               Embed this topic
             </h3>
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={close}
+              data-modal-initial-focus
               className="inline-flex items-center justify-center h-6 w-6 rounded text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors"
               aria-label="Close"
             >
@@ -86,7 +99,7 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
           </div>
 
           {/* Description */}
-          <p className="text-xs text-stone-500 mb-3">
+          <p className="text-xs text-stone-500 dark:text-stone-400 mb-3">
             Copy the code below to embed this argument summary on your website or blog.
           </p>
 
@@ -116,6 +129,15 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
               </>
             )}
           </button>
+
+          {copyError && (
+            <p
+              role="alert"
+              className="mt-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300"
+            >
+              {copyError}
+            </p>
+          )}
         </div>
       )}
     </div>

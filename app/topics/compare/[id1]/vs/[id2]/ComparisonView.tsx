@@ -9,7 +9,6 @@ import {
   FlaskConical,
   ThumbsUp,
   ThumbsDown,
-  BarChart3,
   ArrowLeftRight,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
@@ -43,18 +42,18 @@ const verificationColors: Record<
   { bg: string; text: string; label: string }
 > = {
   verified: {
-    bg: "bg-skeptic/10",
-    text: "text-skeptic-dark",
+    bg: "bg-skeptic/10 dark:bg-skeptic/20",
+    text: "text-skeptic-dark dark:text-[#7fb5b0]",
     label: "Verified",
   },
   theoretical: {
-    bg: "bg-deep/10",
-    text: "text-deep",
+    bg: "bg-deep/10 dark:bg-deep/20",
+    text: "text-deep dark:text-[#7fb5b0]",
     label: "Theoretical",
   },
   impossible: {
-    bg: "bg-stone-100",
-    text: "text-stone-600",
+    bg: "bg-stone-100 dark:bg-[#302e2a]",
+    text: "text-stone-600 dark:text-stone-300",
     label: "Impossible to Verify",
   },
 };
@@ -83,7 +82,7 @@ interface ComparisonViewProps {
 // Stat comparison row
 // ---------------------------------------------------------------------------
 
-function StatRow({
+export function StatRow({
   label,
   value1,
   value2,
@@ -96,26 +95,42 @@ function StatRow({
   suffix?: string;
   highlight?: "higher" | "lower";
 }) {
-  const v1Wins = highlight === "higher" ? value1 > value2 : value1 < value2;
-  const v2Wins = highlight === "higher" ? value2 > value1 : value2 < value1;
+  const v1Wins =
+    highlight === "higher"
+      ? value1 > value2
+      : highlight === "lower"
+        ? value1 < value2
+        : false;
+  const v2Wins =
+    highlight === "higher"
+      ? value2 > value1
+      : highlight === "lower"
+        ? value2 < value1
+        : false;
 
   return (
     <div className="flex items-center gap-3 py-3 border-b border-stone-200/40 dark:border-[#3d3a36]/60 last:border-b-0">
       <span
         className={`flex-1 text-right font-mono text-sm tabular-nums ${
-          v1Wins ? "font-semibold text-deep" : "text-stone-600"
+          v1Wins
+            ? "font-semibold text-deep dark:text-[#7fb5b0]"
+            : "text-stone-600 dark:text-stone-300"
         }`}
+        data-highlighted={v1Wins || undefined}
       >
         {value1}
         {suffix}
       </span>
-      <span className="w-32 text-center text-xs font-medium text-stone-500 uppercase tracking-widest shrink-0">
+      <span className="w-28 sm:w-36 text-center text-[11px] sm:text-xs font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider sm:tracking-widest shrink-0">
         {label}
       </span>
       <span
         className={`flex-1 text-left font-mono text-sm tabular-nums ${
-          v2Wins ? "font-semibold text-deep" : "text-stone-600"
+          v2Wins
+            ? "font-semibold text-deep dark:text-[#7fb5b0]"
+            : "text-stone-600 dark:text-stone-300"
         }`}
+        data-highlighted={v2Wins || undefined}
       >
         {value2}
         {suffix}
@@ -128,7 +143,7 @@ function StatRow({
 // Evidence balance bar
 // ---------------------------------------------------------------------------
 
-function EvidenceBalanceBar({
+export function EvidenceBalanceBar({
   forCount,
   againstCount,
   side,
@@ -138,34 +153,55 @@ function EvidenceBalanceBar({
   side: "left" | "right";
 }) {
   const total = forCount + againstCount;
-  const forPct = total > 0 ? Math.round((forCount / total) * 100) : 50;
+  const forPct = total > 0 ? Math.round((forCount / total) * 100) : 0;
+  const againstPct = total > 0 ? 100 - forPct : 0;
 
   return (
-    <div>
+    <div
+      role="img"
+      aria-label={
+        total > 0
+          ? `${forCount} supporting and ${againstCount} counter evidence items; ${forPct}% supporting and ${againstPct}% counter by item count.`
+          : "No evidence items mapped yet."
+      }
+    >
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-xs font-medium text-stone-500 flex items-center gap-1">
-          <ThumbsUp className="h-3 w-3 text-deep" />
-          {forCount} for
+        <span className="text-xs font-medium text-stone-500 dark:text-stone-400 flex items-center gap-1">
+          <ThumbsUp className="h-3 w-3 text-deep" aria-hidden="true" />
+          {forCount} supporting
         </span>
-        <span className="text-xs font-medium text-stone-500 flex items-center gap-1">
-          {againstCount} against
-          <ThumbsDown className="h-3 w-3 text-red-400" />
+        <span className="text-xs font-medium text-stone-500 dark:text-stone-400 flex items-center gap-1">
+          {againstCount} counter
+          <ThumbsDown className="h-3 w-3 text-red-400" aria-hidden="true" />
         </span>
       </div>
       <div className="h-2.5 rounded-full overflow-hidden flex bg-stone-200/60 dark:bg-[#3d3a36]">
-        <div
-          className={`h-full ${
-            side === "left"
-              ? "bg-gradient-to-r from-rust-500 to-rust-600"
-              : "bg-gradient-to-r from-deep-light to-deep"
-          } animate-bar-fill`}
-          style={{ width: `${forPct}%` }}
-        />
-        <div className="h-full flex-1 bg-stone-300/40" />
+        {total > 0 ? (
+          <>
+            <div
+              className={`h-full ${
+                side === "left"
+                  ? "bg-gradient-to-r from-rust-500 to-rust-600"
+                  : "bg-gradient-to-r from-deep-light to-deep"
+              } animate-bar-fill`}
+              style={{ width: `${forPct}%` }}
+              aria-hidden="true"
+            />
+            <div
+              className="h-full bg-stone-400/50 dark:bg-stone-500/60"
+              style={{ width: `${againstPct}%` }}
+              aria-hidden="true"
+            />
+          </>
+        ) : (
+          <div className="h-full w-full bg-stone-200/70 dark:bg-[#302e2a]" aria-hidden="true" />
+        )}
       </div>
       <div className="text-center mt-1">
         <span className="text-[11px] font-mono text-muted dark:text-stone-400 tabular-nums">
-          {forPct}% for / {100 - forPct}% against
+          {total > 0
+            ? `${forPct}% supporting / ${againstPct}% counter`
+            : "No evidence items mapped yet"}
         </span>
       </div>
     </div>
@@ -189,12 +225,12 @@ function CruxList({ cruxes }: { cruxes: Crux[] }) {
             className="rounded-lg border border-deep/15 bg-[#4f7b77]/[0.03] p-3.5"
           >
             <div className="flex items-start gap-2 mb-1.5">
-              <FlaskConical className="h-3.5 w-3.5 text-deep mt-0.5 flex-shrink-0" />
+              <FlaskConical className="h-3.5 w-3.5 text-deep mt-0.5 flex-shrink-0" aria-hidden="true" />
               <h4 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 leading-snug flex-1">
                 {crux.title}
               </h4>
             </div>
-            <p className="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-2 pl-5.5">
+            <p className="text-xs text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-2 mb-2 pl-5.5">
               {crux.description}
             </p>
             <div className="flex items-center gap-2 pl-5.5">
@@ -220,7 +256,6 @@ function CruxList({ cruxes }: { cruxes: Crux[] }) {
 
 function TopicColumnHeader({
   topic,
-  side,
 }: {
   topic: Topic;
   side: "left" | "right";
@@ -233,7 +268,7 @@ function TopicColumnHeader({
       <h2 className="font-serif text-xl sm:text-2xl text-primary dark:text-stone-200 mt-3 mb-2 leading-tight">
         {topic.title}
       </h2>
-      <p className="text-sm text-stone-500 leading-relaxed mb-3 line-clamp-3">
+      <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed mb-3 line-clamp-3">
         {topic.meta_claim}
       </p>
       <div className="flex flex-wrap items-center justify-center gap-1.5 mb-2">
@@ -249,7 +284,7 @@ function TopicColumnHeader({
             statusColors[topic.status]
           }`}
         >
-          <StatusIcon className="h-3 w-3" />
+          <StatusIcon className="h-3 w-3" aria-hidden="true" />
           {statusLabels[topic.status]}
         </span>
       </div>
@@ -281,13 +316,13 @@ export default function ComparisonView({
               Side-by-Side Comparison
             </div>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-4 leading-[1.08]">
-              <span className="text-rust-700">{topic1.title}</span>
+              <span className="text-rust-700 dark:text-rust-400">{topic1.title}</span>
               <span className="text-muted dark:text-stone-400 mx-2 sm:mx-3 font-sans text-2xl sm:text-3xl lg:text-4xl italic">
                 vs
               </span>
-              <span className="text-deep">{topic2.title}</span>
+              <span className="text-deep dark:text-[#7fb5b0]">{topic2.title}</span>
             </h1>
-            <p className="text-sm sm:text-base text-stone-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-stone-500 dark:text-stone-400 max-w-2xl mx-auto leading-relaxed">
               Compare the evidence, arguments, and analytical depth of these two
               debates side by side.
             </p>
@@ -313,11 +348,10 @@ export default function ComparisonView({
             </h2>
 
             <StatRow
-              label="Balance (for ↔ against)"
+              label="Balance (claim ↔ counterclaim)"
               value1={topic1.balance}
               value2={topic2.balance}
               suffix="/100"
-              highlight="higher"
             />
             <StatRow
               label="Weight of evidence"
@@ -333,32 +367,32 @@ export default function ComparisonView({
               highlight="higher"
             />
             <StatRow
-              label="Evidence"
+              label="Evidence items"
               value1={stats1.totalEvidence}
               value2={stats2.totalEvidence}
               highlight="higher"
             />
             <StatRow
-              label="For"
+              label="Supporting items"
               value1={stats1.totalFor}
               value2={stats2.totalFor}
               highlight="higher"
             />
             <StatRow
-              label="Against"
+              label="Counter items"
               value1={stats1.totalAgainst}
               value2={stats2.totalAgainst}
               highlight="higher"
             />
             <StatRow
-              label="Avg For Wt"
+              label="Avg support strength"
               value1={stats1.avgForWeight}
               value2={stats2.avgForWeight}
               suffix="/40"
               highlight="higher"
             />
             <StatRow
-              label="Avg Against Wt"
+              label="Avg counter strength"
               value1={stats1.avgAgainstWeight}
               value2={stats2.avgAgainstWeight}
               suffix="/40"
@@ -369,8 +403,12 @@ export default function ComparisonView({
           {/* ── Evidence Balance ── */}
           <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
             <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-6 text-center">
-              Evidence Balance
+              Evidence Item Mix
             </h2>
+            <p className="-mt-3 mb-6 text-center text-sm text-stone-500 dark:text-stone-400">
+              Counts show how each map is composed. The Balance score above also
+              accounts for the strength of each evidence item.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-3 text-center">
@@ -420,7 +458,7 @@ export default function ComparisonView({
                           {pillar.title}
                         </h4>
                       </div>
-                      <p className="text-xs text-stone-500 leading-relaxed line-clamp-2 pl-8.5">
+                      <p className="text-xs text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-2 pl-8.5">
                         {pillar.short_summary}
                       </p>
                     </div>
@@ -447,7 +485,7 @@ export default function ComparisonView({
                           {pillar.title}
                         </h4>
                       </div>
-                      <p className="text-xs text-stone-500 leading-relaxed line-clamp-2 pl-8.5">
+                      <p className="text-xs text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-2 pl-8.5">
                         {pillar.short_summary}
                       </p>
                     </div>
@@ -462,7 +500,7 @@ export default function ComparisonView({
             <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-2 text-center">
               Key Crux Questions
             </h2>
-            <p className="text-sm text-stone-500 mb-6 text-center max-w-xl mx-auto">
+            <p className="text-sm text-stone-500 dark:text-stone-400 mb-6 text-center max-w-xl mx-auto">
               The decisive questions that would resolve each debate. These are
               the tests and experiments that matter most.
             </p>

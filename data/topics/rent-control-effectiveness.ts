@@ -97,10 +97,9 @@ export const rentControlEffectivenessData = {
         },
         {
           id: "new-construction-exemptions",
-          title:
-            "Modern Rent Stabilization Exempts New Construction, Preserving Building Incentives",
+          title: "Oregon's Rent Cap Exempts Newer Construction",
           description:
-            "Oregon's statewide rent stabilization (SB 608, 2019) and California's Tenant Protection Act (AB 1482, 2019), along with many European rent regulations, explicitly exempt newer construction from rent caps for a fixed window (Oregon and California exempt buildings for roughly their first 15 years). Economic theory predicts that if new buildings are exempt from price caps, the marginal incentive to build is largely unaffected, removing the classic mechanism by which rent control suppresses supply. Whether construction has in fact held steady under these specific laws is an empirical question complicated by the COVID-19 pandemic and interest-rate shifts; the earlier claim of 'no decline in Oregon permits' was not verified against a primary data source here.",
+            "Oregon's statewide rent-stabilization law, SB 608 (2019), exempts residential buildings for their first 15 years. That design removes direct rent caps from newly completed units and therefore narrows the classic supply-deterrence mechanism. It does not prove that construction was unaffected: post-2019 permit trends also reflect the pandemic, financing costs, and local land-use rules.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -109,9 +108,11 @@ export const rentControlEffectivenessData = {
             directness: 6,
           },
           source:
-            "Oregon SB 608 (2019) and California AB 1482 (2019) statutory text — policy-design point; permit-trend claim not independently verified",
+            "Oregon Legislative Information System, SB 608 (2019) enrolled text",
+          sourceUrl:
+            "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/SB608",
           reasoning:
-            "The policy-design argument is logically sound — exempting new construction removes the theoretical mechanism through which rent control reduces supply, and the new-construction exemptions in SB 608 and AB 1482 are a matter of statute. However, the specific empirical claim that permits did not decline was not verifiable against a primary source, so it has been qualified and weights lowered. No sourceUrl is asserted because none was web-verified.",
+            "The exemption is directly verifiable in the enrolled statute. Its incentive implication is an economic inference rather than a measured construction effect, so directness and replicability remain moderate.",
         },
         {
           id: "economist-consensus-survey",
@@ -191,21 +192,22 @@ export const rentControlEffectivenessData = {
         },
         {
           id: "stockholm-queue",
-          title:
-            "Stockholm Rent Control Creates 9-12 Year Queue for Housing",
+          title: "Stockholm Housing Queue Averaged Nine Years in 2025",
           description:
-            "Stockholm's comprehensive rent regulation system is widely reported to have produced long waiting queues for first-hand rental contracts, allocated through the municipal Bostadsförmedlingen (Stockholm Housing Agency), with multi-year average waits and far longer waits for desirable central locations. The regulated system is also associated with a sizeable secondary (sublet) market in which contracts change hands above the regulated rent. The specific figures sometimes cited (e.g., a 9-12 year average queue, 700,000+ registrants) have not been verified here against a primary Housing Agency source and should be treated as indicative rather than exact.",
+            "Stockholm's municipal Housing Agency reported that recipients of ordinary rental contracts in 2025 had spent an average of 9.0 years in its queue; 894,592 people were registered at year end. Waits varied sharply, with some homes going to applicants queued under two years and others requiring more than twenty. The statistics establish a severe access queue but do not isolate rent regulation from housing supply, location preferences, or the low cost of remaining registered.",
           side: "for" as const,
           weight: {
-            sourceReliability: 5,
+            sourceReliability: 8,
             independence: 6,
-            replicability: 5,
-            directness: 6,
+            replicability: 8,
+            directness: 7,
           },
           source:
-            "Bostadsförmedlingen (Stockholm Housing Agency); secondary press and policy reporting — specific figures not independently verified",
+            "Bostadsförmedlingen i Stockholm, 2025 annual statistics",
+          sourceUrl:
+            "https://bostad.stockholm.se/nyhetsarkiv/2026/alla-tiders-formedlingsrekord/",
           reasoning:
-            "Stockholm is frequently cited as a case where rent regulation, combined with restrictive zoning and no vacancy decontrol, creates long access queues for newcomers. The qualitative pattern is well established in the literature, but no primary Housing Agency source URL could be verified for the precise queue-length and registrant numbers, so the specific figures were softened and weights lowered. No sourceUrl is asserted because none was web-verified.",
+            "The agency's administrative statistics directly establish queue length and registrations. Causal attribution is weaker because the source does not estimate how much of the wait is caused by rent regulation rather than supply and demand conditions.",
         },
         {
           id: "nyc-misallocation",
@@ -229,21 +231,22 @@ export const rentControlEffectivenessData = {
         },
         {
           id: "low-income-disproportionate-benefit",
-          title:
-            "Rent Stabilization Disproportionately Benefits Low-Income and Minority Households",
+          title: "NYC Rent Stabilization Serves More Black and Hispanic Households",
           description:
-            "The NYC Housing and Vacancy Survey (HVS), the official triennial survey mandated by city and state law, is widely used to document that rent-stabilized tenants in New York skew lower-income and are disproportionately Black and Hispanic relative to market-rate tenants — challenging the claim that rent regulation mainly benefits affluent insiders. The specific percentages previously cited here (e.g., 61% of stabilized tenants below $50,000 in income; 58% Black/Hispanic; a 33% vs 41% rent-burden comparison; a 300,000+ household NYC Comptroller estimate) could not be verified against a primary HVS or Comptroller source and are presented as illustrative pending direct confirmation.",
+            "The official 2023 NYC Housing and Vacancy Survey reports that 23% of rent-stabilized households were headed by a Black New Yorker and 36% by a Hispanic New Yorker, compared with 17% and 24% of market-rental households. White and Asian household shares were higher in market rentals. These tenure demographics challenge the claim that stabilized units primarily serve affluent white insiders, though they do not measure who receives the largest dollar subsidy.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 6,
-            replicability: 6,
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
             directness: 7,
           },
           source:
-            "NYC Housing and Vacancy Survey — directional pattern; specific figures not independently verified",
+            "2023 New York City Housing and Vacancy Survey, selected findings",
+          sourceUrl:
+            "https://www.nyc.gov/assets/hpd/downloads/pdfs/about/2023-nychvs-selected-initial-findings.pdf",
           reasoning:
-            "The HVS is the official, legally mandated data source for NYC housing policy, and the directional finding that stabilized tenants skew lower-income and more non-white is well established. However, the precise percentages and the Comptroller estimate were not verifiable against a primary source here, so weights were lowered and the figures qualified. No sourceUrl is asserted because none was web-verified.",
+            "The representative city survey directly reports the demographic comparison. Directness is capped because household composition is not the same as distribution of rent savings, wealth, or lifetime incidence.",
         },
       ],
     },
@@ -285,10 +288,9 @@ export const rentControlEffectivenessData = {
       evidence: [
         {
           id: "minneapolis-upzoning",
-          title:
-            "Minneapolis Eliminated Single-Family Zoning; Rents Stabilized While Neighbors Rose",
+          title: "Minneapolis 2040 Broadened Citywide Housing Options",
           description:
-            "In 2018, Minneapolis adopted the Minneapolis 2040 comprehensive plan, which eliminated single-family-only zoning citywide and allowed up to three units on residential lots — a widely cited US example of broad zoning liberalization. Reporting and analyses (e.g., Pew, Brookings) have noted that Minneapolis added housing and saw relatively restrained rent growth compared with peer cities over the following years. The specific figures previously cited here (a 12% increase in small-multifamily permits; flat 2019-2023 median rents versus 15-25% increases in Milwaukee, Kansas City, and Indianapolis) were not verified against a primary data source and are presented as illustrative. Neighboring St. Paul separately adopted a rent-stabilization ballot measure in 2021 (later amended), indicating that supply reform alone was viewed by some as insufficient.",
+            "Minneapolis adopted its 2040 comprehensive plan in 2018 and put it into effect in 2020, using zoning changes to create more housing options in more parts of the city. The official record establishes a broad supply-side reform, but it does not by itself establish how much additional housing was caused by the plan or whether rents fell relative to a credible counterfactual.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -297,27 +299,31 @@ export const rentControlEffectivenessData = {
             directness: 6,
           },
           source:
-            "Minneapolis 2040 plan; secondary analyses (Pew, Brookings) — directional pattern; specific figures not independently verified",
+            "City of Minneapolis comprehensive-plan record",
+          sourceUrl:
+            "https://www.minneapolismn.gov/government/departments/cped/planning/comp-plan/",
           reasoning:
-            "The Minneapolis 2040 upzoning is the most-cited US example of supply-side reform, and its adoption and broad design are well documented. However, the precise permit and rent figures were not verifiable against a primary source here, the concurrent pandemic complicates attribution, and effects on bottom-quartile rents are less clear than on medians — so the figures were qualified and weights lowered. No sourceUrl is asserted because none was web-verified.",
+            "The city source directly establishes adoption, timing, and policy direction. The card no longer claims unverified rent or permit effects; those require independent outcome data and a causal design.",
         },
         {
           id: "vienna-social-housing",
           title:
             "Vienna's Social Housing Model: 60% of Residents in Public or Subsidized Housing",
           description:
-            "Vienna is widely cited as maintaining one of Europe's more affordable big-city housing markets through a large social-housing sector in which the city directly builds and manages housing (Gemeindebau) and subsidizes cooperative (limited-profit) housing. A commonly cited figure is that roughly half to 60% of Vienna's residents live in municipally owned or subsidized housing, supported by a dedicated housing-contribution levy and a system over a century old, which acts as an anchor on private-market rents. The more specific claims previously stated here (rents 50-60% below London/Paris/Amsterdam; 5,000-7,000 new units built per year) were not verified against a primary City of Vienna source and are presented as illustrative.",
+            "The City of Vienna reports that more than 60% of residents live in municipally owned or city-subsidized housing and that the city owns about 220,000 municipal apartments. This directly establishes the model's scale. It does not by itself prove that Vienna's system can be transplanted elsewhere or isolate its effect on private rents from land policy, taxation, and long-run construction.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 8,
             independence: 6,
-            replicability: 4,
-            directness: 6,
+            replicability: 8,
+            directness: 7,
           },
           source:
-            "City of Vienna social-housing program (Gemeindebau / Wohnbauförderung) — directional pattern; specific figures not independently verified",
+            "City of Vienna housing-market overview (2025)",
+          sourceUrl:
+            "https://www.wien.gv.at/spezial/aktionsplan-gegen-rassismus/die-stadt-wien-fordert-gleichberechtigung-und-chancengleichheit-auf-dem-wohnungsmarkt/ausgangslage-und-herausforderungen/",
           reasoning:
-            "Vienna is the most-cited example of supply-side, publicly led affordability, and the broad shape of its model (a large municipal/subsidized housing stock, dedicated funding, century-long commitment) is well established. However, the precise rent-gap and annual-construction figures were not verifiable against a primary source here, so they were qualified and weights lowered. Replicability is low given the unique fiscal and political preconditions. No sourceUrl is asserted because none was web-verified.",
+            "The city figures directly support the scale claim. Independence is moderate because the city describes its own program, and policy replicability remains uncertain given Vienna's distinct fiscal and political history.",
         },
         {
           id: "housing-voucher-underfunding",

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const sexWorkDecriminalizationData = {
   id: "sex-work-decriminalization",
   title: "Decriminalizing Sex Work",

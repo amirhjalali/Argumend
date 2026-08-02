@@ -58,7 +58,9 @@ export const GRAPH = {
   /** Maximum zoom level */
   MAX_ZOOM: 1.6,
   /** Padding for fit view */
-  FIT_VIEW_PADDING: 0.4,
+  FOCUS_FIT_VIEW_PADDING: 0.08,
+  /** Padding for the full-map overview control */
+  OVERVIEW_FIT_VIEW_PADDING: 0.08,
   /** Duration for animated transitions (ms) */
   TRANSITION_DURATION: 450,
   /** Background grid gap */

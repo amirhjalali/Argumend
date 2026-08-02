@@ -1336,7 +1336,7 @@ Here is how to spot misinformation in approximately sixty seconds:
 
 This process becomes faster with practice. Experienced fact-checkers can often identify likely misinformation in seconds because they have internalized these patterns. The goal is not to become a professional fact-checker but to develop enough skill to avoid being easily misled.
 
-At [Argumend](https://argumend.com), we build structured analysis into every topic we cover, identifying the strongest evidence on each side and flagging where claims are well-supported versus where they rely on weak or misleading sourcing. Our confidence scores reflect how robust the evidence base actually is — not how loudly a claim is being made. Tools like these, combined with the individual skills outlined above, create a genuine defense against the rising tide of misinformation.
+At [Argumend](https://argumend.org), we build structured analysis into every topic we cover, identifying the strongest evidence on each side and flagging where claims are well-supported versus where they rely on weak or misleading sourcing. Our confidence scores reflect how robust the evidence base actually is — not how loudly a claim is being made. Tools like these, combined with the individual skills outlined above, create a genuine defense against the rising tide of misinformation.
 
 The sixty seconds you invest in checking a claim before believing or sharing it is not wasted time. It is one of the most valuable investments you can make — in your own understanding, in the quality of public discourse, and in a world where truth still matters.`,
   },
@@ -1446,7 +1446,7 @@ Changing your mind is a skill, and like any skill, it improves with deliberate p
 
 3. **Practice saying "I was wrong."** Start with low-stakes situations. You were wrong about a restaurant recommendation, about a factual claim in conversation, about a prediction. Build the muscle of admitting error in small ways, and it becomes easier in larger ones.
 
-4. **Use Argumend's structured analyses.** On [Argumend](https://argumend.com), every topic is broken down into specific claims with confidence scores that reflect the strength of evidence on each side. This framework models what rational belief updating looks like in practice — not picking a team, but evaluating each claim on its merits and acknowledging where the evidence is genuinely mixed.
+4. **Use Argumend's structured analyses.** On [Argumend](https://argumend.org), every topic is broken down into specific claims with confidence scores that reflect the strength of evidence on each side. This framework models what rational belief updating looks like in practice — not picking a team, but evaluating each claim on its merits and acknowledging where the evidence is genuinely mixed.
 
 The art of changing your mind is ultimately the art of caring more about being right than about being consistent. It requires courage, because it means exposing yourself to the possibility of error. It requires humility, because it means accepting that your current understanding is incomplete. And it requires patience, because genuine understanding develops slowly, through the steady accumulation of evidence and the willingness to follow that evidence wherever it leads.
 
@@ -1542,7 +1542,7 @@ On a question where scientific consensus is strong, genuine fairness means repor
 
 On a question where expert opinion is genuinely divided, fairness means presenting the strongest versions of competing arguments, identifying the specific points of disagreement, and helping the audience understand what evidence would resolve the dispute.
 
-This is the approach we take at [Argumend](https://argumend.com). Our structured analysis of every topic begins by assessing the actual state of evidence — not by mechanically assigning equal weight to opposing positions, but by evaluating each claim on its merits and assigning confidence scores based on the strength and quality of the supporting evidence. When the evidence is lopsided, our analysis reflects that. When it is genuinely mixed, our analysis reflects that too. The goal is not balance for its own sake, but accuracy — which sometimes means acknowledging that both sides are not, in fact, equal.
+This is the approach we take at [Argumend](https://argumend.org). Our structured analysis of every topic begins by assessing the actual state of evidence — not by mechanically assigning equal weight to opposing positions, but by evaluating each claim on its merits and assigning confidence scores based on the strength and quality of the supporting evidence. When the evidence is lopsided, our analysis reflects that. When it is genuinely mixed, our analysis reflects that too. The goal is not balance for its own sake, but accuracy — which sometimes means acknowledging that both sides are not, in fact, equal.
 
 The false balance fallacy persists because it feels fair and because avoiding it requires the uncomfortable task of making judgments about the quality of evidence. But intellectual honesty demands that we weigh evidence, not just count opinions. True fairness is not giving equal weight to every voice. It is giving appropriate weight to every piece of evidence — and having the courage to say, when the evidence warrants it, that one position is simply better supported than the other.`,
   },
@@ -1633,7 +1633,7 @@ Educators who have implemented argument mapping education report several consist
 
 The rise of digital tools has made argument mapping more accessible than ever. Software platforms allow students to build maps collaboratively, share them for peer review, and work with complex arguments that would be unwieldy on paper.
 
-At [Argumend](https://argumend.com), we have built argument mapping into the core of our platform. Every topic analysis includes a visual logic graph that maps the key claims, supporting evidence, objections, and cruxes — the specific points where the strongest arguments on each side collide. This is not a static diagram but a structured, interactive analysis that models the kind of reasoning we believe every student should learn to do independently.
+At [Argumend](https://argumend.org), we have built argument mapping into the core of our platform. Every topic analysis includes a visual logic graph that maps the key claims, supporting evidence, objections, and cruxes — the specific points where the strongest arguments on each side collide. This is not a static diagram but a structured, interactive analysis that models the kind of reasoning we believe every student should learn to do independently.
 
 Our approach draws on the same research that supports classroom argument mapping, but extends it by incorporating confidence scoring and evidence quality assessment. Each node in an Argumend logic graph is not just a claim — it is a claim with an explicit confidence level based on the strength of the supporting evidence. This teaches a crucial lesson that traditional argument mapping sometimes misses: not all reasons are equally strong, and recognizing the difference between a well-supported claim and a weakly supported one is as important as identifying the logical structure.
 
@@ -1747,7 +1747,7 @@ This technique transforms debate from a competitive exercise into a collaborativ
 
 ## Cruxes at Argumend
 
-The concept of cruxes is fundamental to how [Argumend](https://argumend.com) analyzes every topic on our platform. When we map a debate, we do not simply list arguments for and against. We identify the specific cruxes — the key points where the strongest arguments on each side directly collide — and highlight them as the focal points of the analysis.
+The concept of cruxes is fundamental to how [Argumend](https://argumend.org) analyzes every topic on our platform. When we map a debate, we do not simply list arguments for and against. We identify the specific cruxes — the key points where the strongest arguments on each side directly collide — and highlight them as the focal points of the analysis.
 
 For example, in our analysis of nuclear energy, we identify cruxes such as whether next-generation reactor designs adequately address safety concerns, whether nuclear power can be deployed fast enough to contribute meaningfully to decarbonization, and whether long-term waste storage is a solved problem. Each of these cruxes is a specific, investigable question. And for each one, we present the strongest evidence and arguments on both sides, along with a confidence score that reflects how well the evidence supports each position.
 
@@ -7113,7 +7113,7 @@ export function categoryToSlug(category: string): string {
 }
 
 export function tagToSlug(tag: string): string {
-  return tag.toLowerCase().replace(/\s+/g, "-");
+  return tag.toLowerCase().replace(/\$/g, "").replace(/\s+/g, "-");
 }
 
 export function getRelatedArticles(

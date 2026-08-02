@@ -1,10 +1,15 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { topics, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topics";
+import {
+  topicSummaries as topics,
+  CATEGORY_LABELS,
+  CATEGORY_ORDER,
+} from "@/data/topicIndex";
 import { isClaims } from "@/data/is-claims";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { IsHubClient, type IsCategoryGroup } from "./IsHubClient";
+import { buildGenericOgUrl } from "@/lib/og";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -13,10 +18,14 @@ import { IsHubClient, type IsCategoryGroup } from "./IsHubClient";
 export const revalidate = 86400;
 
 const totalCount = isClaims.length;
+const SOCIAL_IMAGE = buildGenericOgUrl({
+  title: "Is It True?",
+  subtitle: `${totalCount} claims fact-checked with evidence`,
+});
 
 export const metadata: Metadata = {
-  title: `Is It True? ${totalCount} Claims Fact-Checked with Evidence — ARGUMEND`,
-  description: `Direct, evidence-based answers to ${totalCount} "is it true?" questions — from "is nuclear energy safe?" to "do antidepressants work?" Each shows a confidence-rated verdict with steel-manned arguments on both sides.`,
+  title: `Is It True? ${totalCount} Claims Fact-Checked with Evidence`,
+  description: `Direct, evidence-based answers to ${totalCount} "is it true?" questions — from "is nuclear energy safe?" to "do antidepressants work?" Each separates evidence balance from evidential weight.`,
   keywords: [
     "is it true",
     "fact check",
@@ -28,12 +37,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://argumend.org/is" },
   openGraph: {
     title: `Is It True? ${totalCount} Claims Fact-Checked with Evidence`,
-    description: `Confidence-rated, evidence-based answers to ${totalCount} contested "is it true?" questions.`,
+    description: `Evidence-based answers to ${totalCount} contested questions with separate balance and weight scores.`,
     url: "https://argumend.org/is",
     siteName: "ARGUMEND",
     images: [
       {
-        url: `https://argumend.org/api/og?title=${encodeURIComponent("Is It True?")}&subtitle=${encodeURIComponent(`${totalCount} claims fact-checked with evidence`)}`,
+        url: SOCIAL_IMAGE,
         width: 1200,
         height: 630,
         alt: `${totalCount} claims fact-checked with evidence on Argumend`,
@@ -43,9 +52,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `Is It True? ${totalCount} Claims Fact-Checked`,
-    description: `Confidence-rated, evidence-based answers to contested "is it true?" questions.`,
+    description: `Evidence-based answers to contested questions with separate balance and weight scores.`,
     images: [
-      `https://argumend.org/api/og?title=${encodeURIComponent("Is It True?")}&subtitle=${encodeURIComponent(`${totalCount} claims fact-checked with evidence`)}`,
+      SOCIAL_IMAGE,
     ],
   },
 };
@@ -66,7 +75,9 @@ function getGroups(): IsCategoryGroup[] {
     (byCategory[topic.category] ??= []).push({
       slug: claim.slug,
       question: claim.question,
-      confidence: topic.confidence_score,
+      balance: topic.balance,
+      weight: topic.weight,
+      verdict: topic.verdict,
     });
   }
 
@@ -84,7 +95,7 @@ export default function IsIndexPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: `Is It True? ${totalCount} Claims Fact-Checked with Evidence`,
-    description: `Direct, confidence-rated answers to ${totalCount} contested "is it true?" questions across policy, technology, science, economics, and philosophy.`,
+    description: `Direct answers to ${totalCount} contested questions with evidence balance and weight across policy, technology, science, economics, and philosophy.`,
     url: "https://argumend.org/is",
     publisher: {
       "@type": "Organization",
@@ -103,28 +114,29 @@ export default function IsIndexPage() {
     <>
       <JsonLd data={collectionJsonLd} />
 
-      <div className="min-h-[100svh] bg-canvas">
+      <main id="main-content" className="min-h-[100svh] bg-canvas">
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Is it true?" }]} />
 
           <div className="mb-8">
-            <h1 className="font-serif text-4xl font-bold leading-tight text-primary sm:text-5xl">
+            <h1 className="font-serif text-4xl font-bold leading-tight text-primary dark:text-stone-200 sm:text-5xl">
               Is it true?
             </h1>
-            <p className="mt-4 font-sans text-lg text-secondary">
+            <p className="mt-4 font-sans text-lg text-secondary dark:text-stone-400">
               Direct, evidence-based answers to {totalCount} contested claims — each
-              with a confidence-rated verdict and steel-manned arguments on both sides.
-              The badge shows how settled the evidence is, not which side is louder.
+              with separate evidence balance and weight plus steel-manned arguments on
+              both sides. The badge shows both which way the evidence leans and how
+              much evidence supports that assessment.
             </p>
           </div>
 
           <IsHubClient groups={groups} totalCount={totalCount} />
 
-          <div className="mt-16 rounded-xl border border-rust-200 bg-rust-50 p-8 text-center">
-            <h2 className="font-serif text-2xl font-bold text-primary">
+          <div className="mt-16 rounded-xl border border-rust-200 bg-rust-50 p-8 text-center dark:border-rust-800/70 dark:bg-rust-900/30">
+            <h2 className="font-serif text-2xl font-bold text-primary dark:text-stone-200">
               Don&rsquo;t just take the verdict
             </h2>
-            <p className="mx-auto mt-2 max-w-md font-sans text-sm text-secondary">
+            <p className="mx-auto mt-2 max-w-md font-sans text-sm text-secondary dark:text-stone-400">
               Every answer links to a full topic page with the argument map, weighted
               evidence, and the crux that would change each side&rsquo;s mind.
             </p>
@@ -137,12 +149,12 @@ export default function IsIndexPage() {
             </Link>
           </div>
 
-          <footer className="mt-16 border-t border-stone-200 pt-6">
-            <p className="font-sans text-xs text-muted">
+          <footer className="mt-16 border-t border-stone-200 pt-6 dark:border-[var(--border-default)]">
+            <p className="font-sans text-xs text-muted dark:text-stone-400">
               Each verdict reflects independently weighted evidence, not opinion.{" "}
               <Link
                 href="/methodology"
-                className="text-deep underline decoration-deep/30 hover:decoration-deep"
+                className="text-deep underline decoration-deep/30 hover:decoration-deep dark:text-teal-300"
               >
                 Read our methodology
               </Link>
@@ -150,7 +162,7 @@ export default function IsIndexPage() {
             </p>
           </footer>
         </div>
-      </div>
+      </main>
     </>
   );
 }

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const spaceExplorationValueData = {
   id: "space-exploration-value",
   title: "Is Space Exploration Worth It?",

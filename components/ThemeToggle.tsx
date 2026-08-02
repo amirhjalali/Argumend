@@ -18,9 +18,9 @@ export function ThemeToggle() {
     // Render a placeholder with the same dimensions to avoid layout shift
     return (
       <div className="flex items-center gap-0.5 p-1 rounded-lg bg-stone-100 dark:bg-[#252420]">
-        <div className="h-8 w-8 rounded-md" />
-        <div className="h-8 w-8 rounded-md" />
-        <div className="h-8 w-8 rounded-md" />
+        <div className="h-11 w-11 rounded-md" />
+        <div className="h-11 w-11 rounded-md" />
+        <div className="h-11 w-11 rounded-md" />
       </div>
     );
   }
@@ -48,11 +48,11 @@ export function ThemeToggle() {
             aria-label={label}
             title={label}
             className={`
-              relative flex items-center justify-center h-8 w-8 rounded-md
+              relative flex h-11 w-11 items-center justify-center rounded-md
               transition-all duration-200
               ${
                 isActive
-                  ? "bg-white dark:bg-[#3d3a36] text-primary shadow-sm"
+                  ? "bg-white dark:bg-[#3d3a36] text-primary dark:text-stone-200 shadow-sm"
                   : "text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300"
               }
             `}

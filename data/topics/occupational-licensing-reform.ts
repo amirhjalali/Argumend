@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const occupationalLicensingReformData = {
   id: "occupational-licensing-reform",
   title: "Occupational Licensing Reform",

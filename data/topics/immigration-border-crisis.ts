@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const immigrationBorderCrisisData = {
   id: "immigration-border-crisis",
   title: "The US Immigration & Border Crisis",

@@ -41,7 +41,7 @@ const scenes: Scene[] = [
         It&apos;s obvious who&apos;s at fault.
       </p>
     ),
-    imageSrc: "/images/perspectives/moment.png",
+    imageSrc: "/images/perspectives/moment.jpg",
     imageAlt: "The Aggressor pushing The Victim on a busy street",
   },
   {
@@ -60,7 +60,7 @@ const scenes: Scene[] = [
         <span className="text-secondary italic">Who&apos;s the aggressor now?</span>
       </p>
     ),
-    imageSrc: "/images/perspectives/rewind.png",
+    imageSrc: "/images/perspectives/rewind.jpg",
     imageAlt: "30 seconds earlier: Struggle over a bag",
   },
   {
@@ -79,7 +79,7 @@ const scenes: Scene[] = [
         The &ldquo;defender&rdquo; was the actual thief, reacting to being caught.
       </p>
     ),
-    imageSrc: "/images/perspectives/context.png",
+    imageSrc: "/images/perspectives/context.jpg",
     imageAlt: "2 minutes earlier: The pickpocket revealed",
   },
   {
@@ -98,7 +98,7 @@ const scenes: Scene[] = [
         They saw exactly what happened—and understood none of it.
       </p>
     ),
-    imageSrc: "/images/perspectives/witness.png",
+    imageSrc: "/images/perspectives/witness.jpg",
     imageAlt: "Third witness watching from a cafe",
   },
   {
@@ -119,7 +119,7 @@ const scenes: Scene[] = [
         <span className="text-primary font-semibold">None of this happened.</span> But now it&apos;s part of the story.
       </p>
     ),
-    imageSrc: "/images/perspectives/rumors.png",
+    imageSrc: "/images/perspectives/rumors.jpg",
     imageAlt: "Rumors spreading and distorting the truth",
   },
   {
@@ -140,7 +140,7 @@ const scenes: Scene[] = [
         <span className="text-secondary italic">None are lying, exactly. All are selecting.</span>
       </p>
     ),
-    imageSrc: "/images/perspectives/motivated.png",
+    imageSrc: "/images/perspectives/motivated.jpg",
     imageAlt: "Different perspectives: Journalist, Friend, Shop Owner",
   },
   {
@@ -168,7 +168,7 @@ const scenes: Scene[] = [
         </p>
       </div>
     ),
-    imageSrc: "/images/perspectives/synthesis.png",
+    imageSrc: "/images/perspectives/synthesis.jpg",
     imageAlt: "Truth emerging from the intersection of perspectives",
   },
 ];
@@ -391,13 +391,13 @@ export default function PerspectivesPage() {
         <div className="text-center max-w-4xl relative z-10">
           {/* No-JS fallback: content is visible by default, animations enhance */}
           <div className="animate-fade-in-up">
-            <h1 className="display-text text-primary mb-8">
+            <h1 className="display-text mb-8 text-primary dark:text-stone-200">
               Perspectives
             </h1>
           </div>
 
           <p
-            className="text-base md:text-xl lg:text-2xl text-secondary mb-12 max-w-2xl mx-auto animate-fade-in-up"
+            className="mx-auto mb-12 max-w-2xl animate-fade-in-up text-base text-secondary dark:text-stone-400 md:text-xl lg:text-2xl"
             style={{ animationDelay: '0.2s' }}
           >
             A scroll-driven story about why you are not your ideas—
@@ -434,7 +434,7 @@ export default function PerspectivesPage() {
           </nav>
 
           <div
-            className="flex flex-col items-center gap-2 text-muted animate-fade-in"
+            className="flex flex-col items-center gap-2 text-muted dark:text-stone-400 animate-fade-in"
             style={{ animationDelay: '0.5s' }}
           >
             <span className="text-sm font-medium tracking-wide">Scroll to begin</span>
@@ -460,7 +460,7 @@ export default function PerspectivesPage() {
       >
         <div className="text-center max-w-xl">
           <motion.h2
-            className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary mb-6"
+            className="mb-6 font-serif text-2xl text-primary dark:text-stone-200 md:text-3xl lg:text-4xl xl:text-5xl"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -469,7 +469,7 @@ export default function PerspectivesPage() {
             Try it on a real topic
           </motion.h2>
           <motion.p
-            className="text-lg md:text-xl text-secondary mb-10"
+            className="mb-10 text-lg text-secondary dark:text-stone-400 md:text-xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}

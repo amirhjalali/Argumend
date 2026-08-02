@@ -1,11 +1,17 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
 type Database = ReturnType<typeof drizzle<typeof schema>>;
 
 let _db: Database | null = null;
 let _initialized = false;
+
+/** Database-backed features are opt-in; an empty value keeps offline mode. */
+export function isDatabaseConfigured(): boolean {
+  return Boolean(process.env.DATABASE_URL?.trim());
+}
 
 /**
  * Lazily initialize the database connection on first use.
@@ -16,7 +22,7 @@ function initDb(): Database | null {
   if (_initialized) return _db;
   _initialized = true;
 
-  const connectionString = process.env.DATABASE_URL;
+  const connectionString = process.env.DATABASE_URL?.trim();
   if (!connectionString) {
     console.warn("[db] DATABASE_URL not set — running without database");
     return null;
@@ -29,20 +35,12 @@ function initDb(): Database | null {
       connect_timeout: 5,
     });
     _db = drizzle(client, { schema });
-  } catch (e) {
-    const msg = e instanceof Error ? e.message : String(e);
-    console.warn(`[db] Failed to initialize: ${msg}`);
+  } catch (error) {
+    console.warn(`[db] Failed to initialize: ${sanitizeServerLog(error)}`);
   }
 
   return _db;
 }
-
-/**
- * Database instance. `null` until first access via getDb().
- * Kept for backwards compatibility — auth.ts checks `if (db)`.
- * Always null at module load; use getDb() for actual access.
- */
-export const db: Database | null = null;
 
 /**
  * Returns the database instance or throws if unavailable.

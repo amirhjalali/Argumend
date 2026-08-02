@@ -15,6 +15,15 @@ import {
   type TocHeading,
 } from "@/components/TableOfContents";
 import { notFound } from "next/navigation";
+import { getGuideFallbackOgUrl } from "./_config";
+import {
+  CONTENT_FIRST_PUBLISHED,
+  CONTENT_LAST_UPDATED,
+  ORGANIZATION_ID,
+  SITE_NAME,
+  SITE_URL,
+  WEBSITE_ID,
+} from "@/lib/site";
 
 // ---------------------------------------------------------------------------
 // Static params
@@ -35,35 +44,36 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const guide = getGuideById(id);
   if (!guide) return { title: "Guide Not Found" };
   const media = getGeneratedMedia("guide", guide.id);
+  const ogImageUrl = media?.hero
+    ? absoluteMediaUrl(media.hero.src)
+    : getGuideFallbackOgUrl(guide.title);
 
   return {
-    title: `${guide.title} -- Guide | Argumend`,
+    title: `${guide.title} — Guide | Argumend`,
     description: guide.description.slice(0, 160),
     alternates: {
       canonical: `https://argumend.org/guides/${guide.id}`,
     },
     openGraph: {
-      title: `${guide.title} -- Guide | Argumend`,
+      title: `${guide.title} — Guide | Argumend`,
       description: guide.description.slice(0, 160),
       url: `https://argumend.org/guides/${guide.id}`,
       type: "article",
-      siteName: "Argumend",
-      images: media?.hero
-        ? [
-            {
-              url: absoluteMediaUrl(media.hero.src),
-              width: media.hero.width,
-              height: media.hero.height,
-              alt: media.hero.alt,
-            },
-          ]
-        : undefined,
+      siteName: SITE_NAME,
+      images: [
+        {
+          url: ogImageUrl,
+          width: media?.hero.width ?? 1200,
+          height: media?.hero.height ?? 630,
+          alt: media?.hero.alt ?? `${guide.title} — Critical Thinking Guide`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${guide.title} -- Guide | Argumend`,
+      title: `${guide.title} — Guide | Argumend`,
       description: guide.description.slice(0, 160),
-      images: media?.hero ? [absoluteMediaUrl(media.hero.src)] : undefined,
+      images: [ogImageUrl],
     },
   };
 }
@@ -134,8 +144,9 @@ export default async function GuidePage({ params }: PageProps) {
     timeRequired: `PT${parseInt(guide.readTime, 10) || 10}M`,
     author: {
       "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
+      "@id": ORGANIZATION_ID,
+      name: SITE_NAME,
+      url: SITE_URL,
       logo: {
         "@type": "ImageObject",
         url: "https://argumend.org/icon.png",
@@ -143,15 +154,16 @@ export default async function GuidePage({ params }: PageProps) {
     },
     publisher: {
       "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
+      "@id": ORGANIZATION_ID,
+      name: SITE_NAME,
+      url: SITE_URL,
       logo: {
         "@type": "ImageObject",
         url: "https://argumend.org/icon.png",
       },
     },
-    datePublished: "2025-01-01",
-    dateModified: "2025-12-05",
+    datePublished: CONTENT_FIRST_PUBLISHED,
+    dateModified: CONTENT_LAST_UPDATED,
     articleSection: "Foundational Guides",
     inLanguage: "en-US",
     about: {
@@ -161,14 +173,15 @@ export default async function GuidePage({ params }: PageProps) {
     },
     isPartOf: {
       "@type": "WebSite",
-      name: "Argumend",
-      url: "https://argumend.org",
+      "@id": WEBSITE_ID,
+      name: SITE_NAME,
+      url: SITE_URL,
     },
     image: {
       "@type": "ImageObject",
       url: media?.hero
         ? absoluteMediaUrl(media.hero.src)
-        : `https://argumend.org/api/og/guides/${guide.id}`,
+        : getGuideFallbackOgUrl(guide.title),
       width: media?.hero.width ?? 1200,
       height: media?.hero.height ?? 630,
     },
@@ -205,7 +218,7 @@ export default async function GuidePage({ params }: PageProps) {
               <div className="flex items-center gap-3 text-sm text-muted dark:text-stone-400">
                 <Link
                   href={`/guides#${track.id}`}
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 border rounded-full text-xs font-medium ${track.chip}`}
+                  className={`inline-flex min-h-11 items-center gap-1.5 px-2.5 py-1 border rounded-full text-xs font-medium ${track.chip}`}
                 >
                   {track.numeral}. {track.label}
                 </Link>
@@ -219,15 +232,15 @@ export default async function GuidePage({ params }: PageProps) {
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+            <h1 className="mb-6 font-serif text-3xl leading-[1.08] tracking-tight text-primary dark:text-stone-200 sm:text-4xl lg:text-5xl">
               {guide.title}
             </h1>
-            <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+            <p className="max-w-2xl text-lg leading-relaxed text-secondary dark:text-stone-400">
               {guide.subtitle}
             </p>
 
             {media?.hero && (
-              <div className="relative mt-8 aspect-[1672/941] overflow-hidden rounded-xl border border-stone-200/70 bg-stone-100 shadow-sm">
+              <div className="relative mt-8 aspect-[1672/941] overflow-hidden rounded-xl border border-stone-200/70 bg-stone-100 shadow-sm dark:border-[var(--border-default)] dark:bg-[var(--bg-overlay)]">
                 <Image
                   src={media.hero.src}
                   alt={media.hero.alt}
@@ -249,14 +262,14 @@ export default async function GuidePage({ params }: PageProps) {
               <section key={sectionIdx} className="mb-16 md:mb-24">
                 <h2
                   id={section.anchorId}
-                  className="font-serif text-2xl sm:text-3xl text-primary mb-4 scroll-mt-24"
+                  className="mb-4 scroll-mt-24 font-serif text-2xl text-primary dark:text-stone-200 sm:text-3xl"
                 >
                   {section.title}
                 </h2>
 
                 {/* Main section content (inline markdown: bold/italic/links) */}
                 <div
-                  className="text-primary leading-[1.8] whitespace-pre-line text-[15px] md:text-base mb-6"
+                  className="mb-6 whitespace-pre-line text-[15px] leading-[1.8] text-primary dark:text-stone-200 md:text-base"
                   dangerouslySetInnerHTML={{
                     __html: renderInlineMarkdown(section.content),
                   }}
@@ -272,12 +285,12 @@ export default async function GuidePage({ params }: PageProps) {
                       >
                         <h3
                           id={subsection.anchorId}
-                          className="font-serif text-lg text-primary mb-2 scroll-mt-24"
+                          className="mb-2 scroll-mt-24 font-serif text-lg text-primary dark:text-stone-200"
                         >
                           {subsection.title}
                         </h3>
                         <div
-                          className="text-primary leading-[1.75] whitespace-pre-line text-[15px]"
+                          className="whitespace-pre-line text-[15px] leading-[1.75] text-primary dark:text-stone-200"
                           dangerouslySetInnerHTML={{
                             __html: renderInlineMarkdown(subsection.content),
                           }}
@@ -294,7 +307,7 @@ export default async function GuidePage({ params }: PageProps) {
           <section
             className={`my-12 bg-gradient-to-br from-[#faf8f5] to-canvas dark:from-[#252420] dark:to-[#302e2a] rounded-xl p-6 md:p-8 border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] ${track.borderAccent}`}
           >
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 flex items-center gap-2">
+            <h2 className="mb-4 flex items-center gap-2 font-serif text-2xl text-primary dark:text-stone-200 sm:text-3xl">
               <CheckCircle2 className={`h-5 w-5 ${track.iconText}`} />
               Key Takeaways
             </h2>
@@ -304,7 +317,7 @@ export default async function GuidePage({ params }: PageProps) {
                   <span
                     className={`w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0 ${track.dotBg}`}
                   />
-                  <span className="text-primary leading-relaxed text-[15px]">
+                  <span className="text-[15px] leading-relaxed text-primary dark:text-stone-200">
                     {takeaway}
                   </span>
                 </li>
@@ -314,27 +327,29 @@ export default async function GuidePage({ params }: PageProps) {
 
           {/* Further Reading */}
           <section className="my-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4 flex items-center gap-2">
-              <BookOpen className="h-5 w-5 text-secondary" />
+            <h2 className="mb-4 flex items-center gap-2 font-serif text-2xl text-primary dark:text-stone-200 sm:text-3xl">
+              <BookOpen className="h-5 w-5 text-secondary dark:text-stone-400" />
               Further Reading
             </h2>
             <div className="space-y-2">
               {guide.furtherReading.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between p-4 rounded-xl bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
+                  className="flex items-start justify-between gap-3 rounded-xl border border-stone-200/60 bg-white/80 p-4 transition-all duration-200 hover:border-deep/30 hover:shadow-sm dark:border-[var(--border-default)] dark:bg-[#252420]/80 dark:hover:border-teal-400/50 sm:items-center"
                 >
-                  <div>
-                    <span className="font-medium text-primary">{item.title}</span>
+                  <div className="min-w-0 text-sm sm:text-base">
+                    <span className="font-medium text-primary dark:text-stone-200">{item.title}</span>
                     <span className="text-muted dark:text-stone-400 mx-2">by</span>
-                    <span className="text-secondary">{item.author}</span>
+                    <span className="text-secondary dark:text-stone-400">{item.author}</span>
                   </div>
                   {item.url && (
                     <a
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-deep hover:text-deep-dark transition-colors"
+                      aria-label={`Open ${item.title} in a new tab`}
+                      title={`Open ${item.title} in a new tab`}
+                      className="flex min-h-11 min-w-11 flex-shrink-0 items-center justify-center rounded-lg text-deep transition-colors hover:bg-deep/10 hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-teal-300 dark:hover:bg-teal-900/30 dark:hover:text-teal-200 dark:focus-visible:ring-teal-300"
                     >
                       <ExternalLink className="h-4 w-4" />
                     </a>
@@ -374,14 +389,14 @@ export default async function GuidePage({ params }: PageProps) {
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-primary group-hover:text-deep transition-colors truncate">
+                      <p className="truncate font-medium text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-teal-300">
                         {otherGuide.title}
                       </p>
                       <p className="text-xs text-muted dark:text-stone-400 truncate">
                         {otherGuide.subtitle}
                       </p>
                     </div>
-                    <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-500 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 transition-all duration-200" />
+                    <ArrowRight className="h-4 w-4 flex-shrink-0 text-stone-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-deep dark:text-stone-500 dark:group-hover:text-teal-300" />
                   </Link>
                 );
               };

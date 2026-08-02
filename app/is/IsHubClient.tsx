@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
-import { confidenceTier } from "@/lib/schemas/topic";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
+import type { Verdict } from "@/lib/schemas/topic";
 
 // ---------------------------------------------------------------------------
 // Types — kept minimal; the server component does the topic→category mapping
@@ -13,7 +14,9 @@ import { confidenceTier } from "@/lib/schemas/topic";
 export interface IsEntry {
   slug: string;
   question: string;
-  confidence: number;
+  balance: number;
+  weight: number;
+  verdict: Verdict;
 }
 
 export interface IsCategoryGroup {
@@ -24,19 +27,10 @@ export interface IsCategoryGroup {
   entries: IsEntry[];
 }
 
-type SortMode = "category" | "settled" | "unsettled";
-
-/** Tier → tone classes (teal = settled, stone = thin). No amber per design system. */
-function tierTone(pct: number): string {
-  const tier = confidenceTier(pct);
-  if (tier === "Established") return "bg-deep/10 text-deep border-deep/20";
-  if (tier === "Strong") return "bg-emerald-50 text-emerald-700 border-emerald-200/60";
-  if (tier === "Contested") return "bg-rust-50 text-rust-700 border-rust-200/60";
-  return "bg-stone-100 text-stone-600 border-stone-200/60";
-}
+type SortMode = "category" | "most_evidence" | "least_evidence";
 
 const inputClass =
-  "rounded-lg border border-stone-300 bg-panel py-2.5 font-sans text-sm text-primary focus:border-deep focus:outline-none focus:ring-1 focus:ring-deep dark:border-[#3d3a36]";
+  "min-h-11 rounded-lg border border-stone-300 bg-panel py-2.5 font-sans text-sm text-primary dark:text-stone-200 focus:border-deep focus:outline-none focus:ring-1 focus:ring-deep dark:border-[#3d3a36] dark:focus:border-teal-400 dark:focus:ring-teal-400";
 
 interface IsHubClientProps {
   groups: IsCategoryGroup[];
@@ -55,6 +49,50 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState<SortMode>("category");
+  const hasMounted = useRef(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const restoreControlsFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const nextCategory = params.get("category") ?? "all";
+      const nextSort = params.get("sort") ?? "category";
+      setQuery(params.get("q") ?? "");
+      setCategory(
+        nextCategory === "all" || groups.some((group) => group.id === nextCategory)
+          ? nextCategory
+          : "all",
+      );
+      setSort(
+        nextSort === "most_evidence" || nextSort === "least_evidence"
+          ? nextSort
+          : "category",
+      );
+    };
+    restoreControlsFromUrl();
+    window.addEventListener("popstate", restoreControlsFromUrl);
+    return () => window.removeEventListener("popstate", restoreControlsFromUrl);
+  }, [groups]);
+
+  useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+    const params = new URLSearchParams(window.location.search);
+    if (query.trim()) params.set("q", query.trim());
+    else params.delete("q");
+    if (category !== "all") params.set("category", category);
+    else params.delete("category");
+    if (sort !== "category") params.set("sort", sort);
+    else params.delete("sort");
+    const search = params.toString();
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`,
+    );
+  }, [category, query, sort]);
 
   const normalizedQuery = query.trim().toLowerCase();
 
@@ -70,9 +108,9 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
         }
         if (sort !== "category") {
           entries = [...entries].sort((a, b) =>
-            sort === "settled"
-              ? b.confidence - a.confidence
-              : a.confidence - b.confidence,
+            sort === "most_evidence"
+              ? b.weight - a.weight
+              : a.weight - b.weight,
           );
         }
         return { ...g, entries };
@@ -82,12 +120,19 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
 
   const shownCount = visibleGroups.reduce((n, g) => n + g.entries.length, 0);
   const isFiltering = normalizedQuery !== "" || category !== "all";
+  const hasControlChanges = isFiltering || sort !== "category";
   const showJumpNav = category === "all" && visibleGroups.length > 1;
 
   const clearFilters = () => {
     setQuery("");
     setCategory("all");
     setSort("category");
+    requestAnimationFrame(() => searchInputRef.current?.focus());
+  };
+
+  const clearSearch = () => {
+    setQuery("");
+    requestAnimationFrame(() => searchInputRef.current?.focus());
   };
 
   return (
@@ -98,7 +143,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
           {/* Search */}
           <div className="relative min-w-[12rem] flex-1">
             <Search
-              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted"
+              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted dark:text-stone-400"
               strokeWidth={1.8}
               aria-hidden="true"
             />
@@ -106,19 +151,20 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
               Search questions
             </label>
             <input
+              ref={searchInputRef}
               id="is-search"
               type="search"
               value={query}
               onInput={(e) => setQuery(e.currentTarget.value)}
               placeholder="Search questions…"
-              className={`${inputClass} w-full pl-9 pr-9 placeholder:text-muted`}
+              className={`${inputClass} w-full pl-9 pr-12 placeholder:text-muted dark:placeholder:text-stone-500`}
             />
             {query && (
               <button
                 type="button"
-                onClick={() => setQuery("")}
+                onClick={clearSearch}
                 aria-label="Clear search"
-                className="absolute right-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full text-muted transition-colors hover:bg-stone-100 hover:text-primary dark:hover:bg-[#302e2a]"
+                className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-lg text-muted transition-colors hover:bg-stone-100 hover:text-primary dark:text-stone-400 dark:hover:bg-[#302e2a] dark:hover:text-stone-200"
               >
                 <X className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
               </button>
@@ -143,7 +189,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
             ))}
           </select>
 
-          {/* Sort by confidence */}
+          {/* Sort by evidential weight */}
           <label htmlFor="is-sort" className="sr-only">
             Sort questions
           </label>
@@ -154,9 +200,20 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
             className={`${inputClass} pl-3 pr-8`}
           >
             <option value="category">Sort: by category</option>
-            <option value="settled">Sort: most settled first</option>
-            <option value="unsettled">Sort: least settled first</option>
+            <option value="most_evidence">Sort: most evidence first</option>
+            <option value="least_evidence">Sort: least evidence first</option>
           </select>
+
+          {hasControlChanges && visibleGroups.length > 0 && (
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-stone-300 px-3 py-2 text-sm font-medium text-deep transition-colors hover:bg-deep/5 dark:border-[#3d3a36] dark:text-teal-300 dark:hover:bg-teal-400/10"
+            >
+              <X className="h-3.5 w-3.5" aria-hidden="true" />
+              Clear filters
+            </button>
+          )}
         </div>
 
         {/* Sticky category jump-nav — anchor links to existing section ids */}
@@ -165,12 +222,12 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
             aria-label="Jump to category"
             className="mt-2.5 flex items-center gap-2 overflow-x-auto pb-0.5 text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            <span className="flex-shrink-0 font-sans text-xs text-muted">Jump to</span>
+            <span className="flex-shrink-0 font-sans text-xs text-muted dark:text-stone-400">Jump to</span>
             {visibleGroups.map((g) => (
               <a
                 key={g.id}
                 href={`#${g.id}`}
-                className="flex-shrink-0 rounded-full border border-stone-200 bg-panel px-3 py-1 font-sans text-[13px] text-secondary transition-colors hover:border-deep/40 hover:text-deep dark:border-[#3d3a36]"
+                className="inline-flex min-h-11 flex-shrink-0 items-center rounded-full border border-stone-200 bg-panel px-3 py-2 font-sans text-[13px] text-secondary dark:text-stone-400 transition-colors hover:border-deep/40 hover:text-deep dark:border-[#3d3a36] dark:hover:border-teal-400/60 dark:hover:text-teal-300"
               >
                 {g.label}
               </a>
@@ -180,7 +237,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
       </div>
 
       {/* Result count */}
-      <p className="mb-6 font-sans text-sm text-muted" aria-live="polite">
+      <p className="mb-6 font-sans text-sm text-muted dark:text-stone-400" aria-live="polite" aria-atomic="true">
         {isFiltering
           ? `Showing ${shownCount} of ${totalCount} questions`
           : `${totalCount} questions`}
@@ -189,16 +246,16 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
       {/* Sections (or friendly empty state) */}
       {visibleGroups.length === 0 ? (
         <div className="surface-card px-6 py-14 text-center">
-          <p className="font-serif text-lg text-primary">
+          <p className="font-serif text-lg text-primary dark:text-stone-200">
             No questions match &ldquo;{query.trim()}&rdquo;.
           </p>
-          <p className="mt-2 font-sans text-sm text-secondary">
+          <p className="mt-2 font-sans text-sm text-secondary dark:text-stone-400">
             Try a different term or clear the filters to see all {totalCount} questions.
           </p>
           <button
             type="button"
             onClick={clearFilters}
-            className="mt-5 inline-flex items-center gap-2 rounded-lg border border-deep/30 px-4 py-2 font-sans text-sm font-medium text-deep transition-colors hover:bg-deep/5"
+            className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg border border-deep/30 px-4 py-2 font-sans text-sm font-medium text-deep transition-colors hover:bg-deep/5"
           >
             Clear filters
           </button>
@@ -207,8 +264,8 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
         visibleGroups.map((g) => (
           <section key={g.id} id={g.id} className="mt-12 scroll-mt-32 first:mt-0">
             <div className="mb-5 flex items-baseline justify-between border-b border-stone-200 pb-3 dark:border-[#3d3a36]">
-              <h2 className="font-serif text-2xl font-bold text-primary">{g.label}</h2>
-              <span className="font-sans text-sm text-muted">
+              <h2 className="font-serif text-2xl font-bold text-primary dark:text-stone-200">{g.label}</h2>
+              <span className="font-sans text-sm text-muted dark:text-stone-400">
                 {g.entries.length} {g.entries.length === 1 ? "question" : "questions"}
               </span>
             </div>
@@ -220,15 +277,16 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
                     href={`/is/${e.slug}`}
                     className="surface-card card-hover flex items-center justify-between gap-4 rounded-lg border border-stone-200/70 px-4 py-3 transition-colors dark:border-[#3d3a36]"
                   >
-                    <span className="font-serif text-[17px] leading-snug text-primary">
+                    <span className="font-serif text-[17px] leading-snug text-primary dark:text-stone-200">
                       {e.question}
                     </span>
-                    <span
-                      className={`flex-shrink-0 rounded-full border px-2 py-0.5 font-mono text-[11px] ${tierTone(e.confidence)}`}
-                      title={`Confidence ${e.confidence}/100 — ${confidenceTier(e.confidence)}`}
-                    >
-                      {e.confidence}
-                    </span>
+                    <BalanceWeightChip
+                      balance={e.balance}
+                      weight={e.weight}
+                      verdict={e.verdict}
+                      showLabel
+                      className="flex-shrink-0"
+                    />
                   </Link>
                 </li>
               ))}

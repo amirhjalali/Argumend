@@ -178,16 +178,18 @@ export const degrowthEconomicsData = {
           title:
             "No Modern Democracy Has Voluntarily Chosen Economic Contraction",
           description:
-            "There is no historical precedent for a democratic society voluntarily choosing to shrink its economy. Every instance of sustained GDP decline — the Great Depression, post-Soviet collapse, the Greek debt crisis — was involuntary and accompanied by mass unemployment, political instability, and social crisis. Even wartime economies aimed for maximum output. The degrowth movement's vision of planned, democratic contraction is historically unprecedented.",
+            "Advocates and critics have not identified a modern democracy that deliberately adopted sustained aggregate GDP contraction as a policy goal. Common comparison cases — the Great Depression, post-Soviet contraction, and the Greek debt crisis — were involuntary and socially costly. This is an outside-view inference from historical cases, not proof that democratic, redistributive degrowth is impossible.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 9,
-            replicability: 9,
-            directness: 9,
+            sourceReliability: 5,
+            independence: 6,
+            replicability: 5,
+            directness: 5,
           },
+          source:
+            "Synthesis / inference — absence-of-precedent claim across historical cases",
           reasoning:
-            "The historical record is clear and independently verifiable. The absence of precedent is a powerful argument against political feasibility, though proponents counter that many now-accepted policies (universal suffrage, abolition of slavery) also lacked precedent before they were achieved.",
+            "No single primary source can establish an exhaustive absence claim. It is useful as a modest political-feasibility prior, but the category boundary is debatable and unprecedented policies can still succeed.",
         },
         {
           id: "wellbeing-economy-governments",
@@ -232,7 +234,7 @@ export const degrowthEconomicsData = {
           title:
             "France's Yellow Vest Protests Showed Backlash Against Green Austerity",
           description:
-            "In November 2018, French President Macron's proposed fuel tax increase — designed to reduce carbon emissions — triggered the Gilets Jaunes (Yellow Vest) movement, the largest sustained protest in France since 1968. The protests forced Macron to abandon the tax and introduce a 10 billion euro package of concessions. The movement demonstrated that even modest green policies that increase costs for working people face explosive political resistance. Degrowth policies that would reduce overall consumption and economic output would face far greater opposition, particularly from lower-income populations who already struggle with affordability.",
+            "France's planned 2019 fuel-tax increase helped trigger the Yellow Vest protests in November 2018; the government suspended the increase and introduced a substantial fiscal response. The episode shows the political risk of climate policy perceived as raising working people's living costs. Extrapolating from a regressive fuel tax to redistributive degrowth remains an analogy, not a direct test.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -240,7 +242,9 @@ export const degrowthEconomicsData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Le Monde; The Guardian; INSEE economic analysis",
+          source: "International Monetary Fund, France 2019 Article IV report",
+          sourceUrl:
+            "https://www.imf.org/-/media/files/publications/cr/2019/1fraea2019002.pdf",
           reasoning:
             "The Yellow Vest movement is well-documented and directly illustrates the political risks of policies that reduce material living standards in the name of environmental goals. However, degrowth proponents argue the protests targeted regressive taxation, not degrowth per se, and that progressive redistribution (taxing the wealthy, universal basic services) would avoid this dynamic.",
         },

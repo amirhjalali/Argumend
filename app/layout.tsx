@@ -6,6 +6,14 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { GAPageView } from "@/components/GAPageView";
 import { TOPIC_COUNT_LABEL as L } from "@/data/topicIndex";
+import {
+  ORGANIZATION_ID,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+  WEB_APPLICATION_ID,
+  WEBSITE_ID,
+} from "@/lib/site";
 import "./globals.css";
 
 const serif = EB_Garamond({
@@ -24,8 +32,7 @@ const sans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const GA_MEASUREMENT_ID =
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-MD0CVQQZW6";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const viewport: Viewport = {
   themeColor: [
@@ -66,27 +73,33 @@ export const metadata: Metadata = {
     title: "ARGUMEND — Map Arguments, Not Win Them",
     description:
       "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "ARGUMEND — See both sides. Find the crux.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ARGUMEND — Map Arguments, Not Win Them",
     description:
       "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+    images: ["/og.png"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+  // Keep rich preview allowances without emitting a generic `robots` meta.
+  // Next injects the latter automatically for 404s; defining it here would
+  // produce a contradictory duplicate alongside the required `noindex`.
+  other: {
+    googlebot:
+      "max-video-preview:-1, max-image-preview:large, max-snippet:-1",
   },
   alternates: {
-    canonical: "https://argumend.org",
+    canonical: SITE_URL,
   },
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
@@ -100,35 +113,35 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="Argumend Blog"
+          title="ARGUMEND: Arguments and Analysis"
           href="/feed.xml"
         />
       </head>
-      {GA_MEASUREMENT_ID ? (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
-            `}
-          </Script>
-        </>
-      ) : null}
       <body className={`${serif.variable} ${sans.variable} antialiased`}>
+        {GA_MEASUREMENT_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
+              `}
+            </Script>
+          </>
+        ) : null}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-primary focus:rounded-lg focus:shadow-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:flex focus:min-h-11 focus:items-center focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-primary focus:shadow-lg"
         >
           Skip to content
         </a>
@@ -144,12 +157,14 @@ export default function RootLayout({
           data={{
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            name: "ARGUMEND",
-            url: "https://argumend.org",
-            description:
-              "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+            "@id": WEB_APPLICATION_ID,
+            name: SITE_NAME,
+            url: SITE_URL,
+            description: SITE_DESCRIPTION,
             applicationCategory: "EducationalApplication",
             operatingSystem: "Web",
+            isPartOf: { "@id": WEBSITE_ID },
+            provider: { "@id": ORGANIZATION_ID },
             offers: {
               "@type": "Offer",
               price: "0",
@@ -161,15 +176,15 @@ export default function RootLayout({
           data={{
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "Argumend",
-            url: "https://argumend.org",
+            "@id": ORGANIZATION_ID,
+            name: SITE_NAME,
+            url: SITE_URL,
             description:
               "Structured argument mapping platform for controversial topics. See both sides, weigh the evidence, find what actually matters.",
             sameAs: [
-              "https://x.com/argumend",
-              "https://github.com/argumend",
+              "https://github.com/amirhjalali/Argumend",
             ],
-            logo: "https://argumend.org/icon.png",
+            logo: `${SITE_URL}/icon.png`,
             foundingDate: "2024",
             knowsAbout: [
               "argument mapping",

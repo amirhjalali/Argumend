@@ -1,4 +1,10 @@
 import { Metadata } from "next";
+import { buildGenericOgUrl } from "@/lib/og";
+
+const SOCIAL_IMAGE = buildGenericOgUrl({
+  title: "Key Concepts",
+  subtitle: "The framework behind structured argumentation",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -19,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "ARGUMEND",
     images: [
       {
-        url: `https://argumend.org/api/og?title=${encodeURIComponent("Key Concepts")}&subtitle=${encodeURIComponent("The framework behind structured argumentation")}`,
+        url: SOCIAL_IMAGE,
         width: 1200,
         height: 630,
         alt: "Key Concepts on Argumend",
@@ -31,7 +37,7 @@ export const metadata: Metadata = {
     title: "Key Concepts | ARGUMEND",
     description:
       "Understand the key concepts behind Argumend: steel-manning, cruxes, evidence weighting, confidence calibration, logical fallacies, and argument pillars.",
-    images: [`https://argumend.org/api/og?title=${encodeURIComponent("Key Concepts")}&subtitle=${encodeURIComponent("The framework behind structured argumentation")}`],
+    images: [SOCIAL_IMAGE],
   },
 };
 

@@ -10,6 +10,13 @@ build
 
 # Testing
 coverage
+**/*.test.*
+**/__tests__/
+test-results/
+playwright-report/
+screenshots/
+output/
+.playwright-cli/
 
 # Misc
 .DS_Store
@@ -21,11 +28,18 @@ yarn-debug.log*
 yarn-error.log*
 
 # Local env files
-.env*.local
+.env
+.env.*
+!.env.example
 
 # IDE
 .idea
 .vscode
+
+# Repository-only tooling and scratch output
+scripts/
+*.tsbuildinfo
+tmp/
 
 # Git
 .git

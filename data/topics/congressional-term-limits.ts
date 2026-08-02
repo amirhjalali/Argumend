@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const congressionalTermLimitsData = {
   id: "congressional-term-limits",
   title: "Congressional Term Limits",

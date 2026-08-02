@@ -10,11 +10,16 @@
 
 :root {
   --bg-canvas: #f4f1eb;
+  --bg-canvas-rgb: 244 241 235;
   --bg-surface: #faf8f5;
   --bg-panel: #fdfaf6;
+  --bg-panel-rgb: 253 250 246;
   --bg-paper: #fefdfb;
+  --bg-paper-rgb: 254 253 251;
   --bg-sidebar: #efe9df;
+  --bg-sidebar-rgb: 239 233 223;
   --bg-overlay: #e7e0d5;
+  --bg-overlay-rgb: 231 224 213;
   --bg-input: #faf8f5;
   --bg-card: #ffffff;
   --bg-card-hover: #fefcf9;
@@ -43,11 +48,16 @@
 
 .dark {
   --bg-canvas: #1a1917;
+  --bg-canvas-rgb: 26 25 23;
   --bg-surface: #201f1c;
   --bg-panel: #252420;
+  --bg-panel-rgb: 37 36 32;
   --bg-paper: #2a2926;
+  --bg-paper-rgb: 42 41 38;
   --bg-sidebar: #1e1d1a;
+  --bg-sidebar-rgb: 30 29 26;
   --bg-overlay: #302e2a;
+  --bg-overlay-rgb: 48 46 42;
   --bg-input: #252420;
   --bg-card: #252420;
   --bg-card-hover: #2a2926;
@@ -336,12 +346,24 @@ html {
   color: #2d524f;
 }
 
+.dark .prose-custom a {
+  color: #8bb5b1;
+}
+
+.dark .prose-custom a:hover {
+  color: #b1d0cd;
+}
+
 .prose-custom blockquote {
   border-left: 3px solid #3a6965;
   padding-left: 1.25rem;
   margin: 1.5rem 0;
   font-style: italic;
   color: var(--text-secondary);
+}
+
+.dark .prose-custom blockquote {
+  border-left-color: #8bb5b1;
 }
 
 .prose-custom code {
@@ -701,6 +723,10 @@ html {
 
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
   *,
   *::before,
   *::after {

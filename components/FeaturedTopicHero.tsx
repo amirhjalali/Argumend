@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { ArrowRight, Crosshair } from "lucide-react";
 import {
   topicSummaries,
@@ -10,9 +10,11 @@ import {
 } from "@/data/topicIndex";
 import type { Topic } from "@/lib/schemas/topic";
 import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
+import { loadTopicById } from "@/data/topicLoader";
 
 interface FeaturedTopicHeroProps {
   onTopicSelect: (id: string) => void;
+  preview?: ReactNode;
 }
 
 // Extract the best evidence item for a given side across all pillars
@@ -37,19 +39,17 @@ function getBestEvidence(
   return best;
 }
 
-export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
+export function FeaturedTopicHero({ onTopicSelect, preview }: FeaturedTopicHeroProps) {
   const [topic, setTopic] = useState<Topic | null>(null);
 
   // Get lightweight summary (available immediately)
   const summary = topicSummaries.find((t) => t.id === featuredTopicId);
 
-  // Dynamically import full topic data (~5KB for one topic)
+  // Load only the featured topic module, not the aggregate corpus.
   useEffect(() => {
     let cancelled = false;
-    import("@/data/topics").then((mod) => {
+    loadTopicById(featuredTopicId).then((found) => {
       if (cancelled) return;
-      const topics: Topic[] = mod.topics;
-      const found = topics.find((t: Topic) => t.id === featuredTopicId);
       if (found) setTopic(found);
     });
     return () => {
@@ -64,131 +64,142 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
   const againstEvidence = topic ? getBestEvidence(topic, "against") : null;
 
   return (
-    <div className="flex flex-col items-center px-4 md:px-8 pt-8 pb-8 bg-gradient-to-b from-[#f4f1eb] to-stone-50 dark:from-[#1a1917] dark:to-[#201f1c]">
-      <div className="w-full max-w-2xl space-y-6">
-        {/* Product value proposition — the 5-second "what is this".
-            NOTE: hero copy — flagged for founder review. */}
-        <div className="text-center space-y-2">
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 leading-[1.08]">
-            See both sides of any controversial topic, mapped
-          </h1>
-          <p className="font-sans text-base md:text-lg text-secondary dark:text-stone-400 max-w-xl mx-auto leading-relaxed">
-            Steel-manned arguments, weighted evidence, and the crux that would
-            change your mind — across {TOPIC_COUNT_LABEL} topics.
-          </p>
+    <section
+      aria-labelledby="homepage-product-promise"
+      className="bg-gradient-to-b from-[#f4f1eb] to-stone-50 px-4 py-7 dark:from-[#1a1917] dark:to-[#201f1c] sm:py-9 md:px-8 lg:px-10 lg:py-10"
+    >
+      <div className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:items-start lg:gap-10 xl:gap-14">
+        <div className="space-y-6 lg:pt-2">
+          {/* Product value proposition — the first-screen "what is this?" */}
+          <div className="space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-deep/80 dark:text-deep-light">
+              Argument maps for difficult questions
+            </p>
+            <h1
+              id="homepage-product-promise"
+              className="max-w-xl font-serif text-4xl leading-[1.05] tracking-tight text-primary dark:text-stone-200 sm:text-5xl lg:text-[3.35rem]"
+            >
+              See both sides of any controversial topic, mapped
+            </h1>
+            <p className="max-w-xl text-base leading-relaxed text-secondary dark:text-stone-400 md:text-lg">
+              Steel-manned arguments, weighted evidence, and the crux that would
+              change your mind — across {TOPIC_COUNT_LABEL} topics.
+            </p>
+          </div>
+
+          {/* Keep the primary conversion action before the featured detail so
+              it remains visible in a typical desktop first viewport. */}
+          <div>
+            <button
+              onClick={() => onTopicSelect(featuredTopicId)}
+              className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 px-6 py-3 font-serif text-sm font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-px hover:scale-[1.02] hover:from-rust-600 hover:to-rust-700 hover:shadow-lg active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4f1eb]"
+            >
+              Open the interactive map
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </div>
+
+          {/* Featured topic context */}
+          <div className="space-y-3 border-t border-stone-300/60 pt-5 dark:border-[#3d3a36]">
+            <p className="text-xs font-medium uppercase tracking-widest text-deep/70 dark:text-deep-light">
+              Featured analysis
+            </p>
+            <h2 className="font-serif text-2xl leading-[1.12] tracking-tight text-primary dark:text-stone-200 sm:text-3xl">
+              {summary.title}
+            </h2>
+            {featuredReason && (
+              <p className="max-w-xl font-serif text-base leading-relaxed text-stone-500 dark:text-stone-400">
+                {featuredReason}
+              </p>
+            )}
+            <div className="space-y-2 pt-1">
+              <BalanceWeightReadout
+                balance={summary.balance}
+                weight={summary.weight}
+                verdict={summary.verdict}
+                className="w-full max-w-md"
+              />
+              <p className="max-w-md text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+                {summary.meta_claim}
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Featured topic */}
-        <div className="text-center space-y-3">
-          <p className="text-xs font-medium text-deep/70 tracking-widest uppercase">
-            Featured Analysis
-          </p>
-          <h2 className="font-serif text-2xl sm:text-3xl tracking-tight text-primary dark:text-stone-200 leading-[1.12]">
-            {summary.title}
-          </h2>
-          {featuredReason && (
-            <p className="font-serif text-base md:text-lg text-stone-500 dark:text-stone-400 max-w-lg mx-auto leading-relaxed">
-              {featuredReason}
-            </p>
+        <div className="space-y-4">
+          {preview}
+
+          {crux && (
+            <div className="rounded-r-xl border-l-4 border-[#a23b3b] bg-[#faf5f0] p-4 dark:bg-[#1e1d1a] sm:p-5">
+              <div className="mb-2 flex items-center gap-2">
+                <Crosshair className="h-4 w-4 text-[#a23b3b]" aria-hidden="true" />
+                <span className="text-xs font-semibold uppercase tracking-wide text-[#a23b3b]">
+                  The Crux
+                </span>
+              </div>
+              <h3 className="mb-1.5 font-serif text-lg font-semibold text-primary dark:text-stone-200">
+                {crux.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+                {crux.description}
+              </p>
+            </div>
+          )}
+
+          {(forEvidence || againstEvidence) && (
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {forEvidence && (
+                <div className="rounded-xl border border-stone-200/60 bg-white p-4 dark:border-[#3d3a36] dark:bg-[#252420]">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-deep dark:text-deep-light">
+                    Strongest For
+                  </span>
+                  <p className="mt-2 text-sm font-medium leading-snug text-primary dark:text-stone-200">
+                    {forEvidence.title}
+                  </p>
+                  <div className="mt-2 flex items-center gap-2">
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-stone-100 dark:bg-[#302e2a]">
+                      <div
+                        className="h-full rounded-full bg-deep"
+                        style={{ width: `${(forEvidence.score / 40) * 100}%` }}
+                      />
+                    </div>
+                    <span className="text-xs tabular-nums text-muted dark:text-stone-400">
+                      {forEvidence.score}/40
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-xs text-muted dark:text-stone-400">
+                    {forEvidence.source}
+                  </p>
+                </div>
+              )}
+              {againstEvidence && (
+                <div className="rounded-xl border border-stone-200/60 bg-white p-4 dark:border-[#3d3a36] dark:bg-[#252420]">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-rust-600 dark:text-rust-400">
+                    Strongest Against
+                  </span>
+                  <p className="mt-2 text-sm font-medium leading-snug text-primary dark:text-stone-200">
+                    {againstEvidence.title}
+                  </p>
+                  <div className="mt-2 flex items-center gap-2">
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-stone-100 dark:bg-[#302e2a]">
+                      <div
+                        className="h-full rounded-full bg-rust-500"
+                        style={{ width: `${(againstEvidence.score / 40) * 100}%` }}
+                      />
+                    </div>
+                    <span className="text-xs tabular-nums text-muted dark:text-stone-400">
+                      {againstEvidence.score}/40
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-xs text-muted dark:text-stone-400">
+                    {againstEvidence.source}
+                  </p>
+                </div>
+              )}
+            </div>
           )}
         </div>
-
-        {/* Balance + Weight */}
-        <div className="flex flex-col items-center gap-2">
-          <BalanceWeightReadout
-            balance={summary.balance}
-            weight={summary.weight}
-            verdict={summary.verdict}
-            className="w-full max-w-md"
-          />
-          <p className="text-sm text-stone-500 dark:text-stone-400 text-center max-w-md">
-            {summary.meta_claim}
-          </p>
-        </div>
-
-        {/* Crux */}
-        {crux && (
-          <div className="bg-[#faf5f0] dark:bg-[#1e1d1a] border-l-4 border-[#a23b3b] rounded-r-xl p-5">
-            <div className="flex items-center gap-2 mb-2">
-              <Crosshair className="h-4 w-4 text-[#a23b3b]" />
-              <span className="text-xs font-semibold text-[#a23b3b] tracking-wide uppercase">
-                The Crux
-              </span>
-            </div>
-            <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 mb-1.5">
-              {crux.title}
-            </h3>
-            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
-              {crux.description}
-            </p>
-          </div>
-        )}
-
-        {/* Evidence Cards */}
-        {(forEvidence || againstEvidence) && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {forEvidence && (
-              <div className="bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] rounded-xl p-4">
-                <span className="text-xs font-semibold text-deep tracking-wide uppercase">
-                  Strongest For
-                </span>
-                <p className="mt-2 text-sm font-medium text-primary dark:text-stone-200 leading-snug">
-                  {forEvidence.title}
-                </p>
-                <div className="mt-2 flex items-center gap-2">
-                  <div className="flex-1 bg-stone-100 dark:bg-[#302e2a] rounded-full h-1.5 overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-deep"
-                      style={{ width: `${(forEvidence.score / 40) * 100}%` }}
-                    />
-                  </div>
-                  <span className="text-xs text-muted dark:text-stone-400 tabular-nums">
-                    {forEvidence.score}/40
-                  </span>
-                </div>
-                <p className="mt-1.5 text-xs text-muted dark:text-stone-400">{forEvidence.source}</p>
-              </div>
-            )}
-            {againstEvidence && (
-              <div className="bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] rounded-xl p-4">
-                <span className="text-xs font-semibold text-rust-600 dark:text-rust-400 tracking-wide uppercase">
-                  Strongest Against
-                </span>
-                <p className="mt-2 text-sm font-medium text-primary dark:text-stone-200 leading-snug">
-                  {againstEvidence.title}
-                </p>
-                <div className="mt-2 flex items-center gap-2">
-                  <div className="flex-1 bg-stone-100 dark:bg-[#302e2a] rounded-full h-1.5 overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-rust-500"
-                      style={{
-                        width: `${(againstEvidence.score / 40) * 100}%`,
-                      }}
-                    />
-                  </div>
-                  <span className="text-xs text-muted dark:text-stone-400 tabular-nums">
-                    {againstEvidence.score}/40
-                  </span>
-                </div>
-                <p className="mt-1.5 text-xs text-muted dark:text-stone-400">
-                  {againstEvidence.source}
-                </p>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* CTA */}
-        <div className="flex justify-center">
-          <button
-            onClick={() => onTopicSelect(featuredTopicId)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-serif font-semibold text-sm bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 hover:scale-[1.03] hover:-translate-y-px active:scale-[0.97] transition-all duration-200"
-          >
-            Open the interactive map
-            <ArrowRight className="h-4 w-4" />
-          </button>
-        </div>
       </div>
-    </div>
+    </section>
   );
 }

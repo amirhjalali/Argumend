@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const selfDrivingCarSafetyData = {
   id: "self-driving-car-safety",
   title: "Self-Driving Car Safety",

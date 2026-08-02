@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const globalWaterCrisisData = {
   id: "global-water-crisis",
   title: "Is the World Heading for Water Wars?",

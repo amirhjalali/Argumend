@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { topics } from "./topics";
 import { TopicSchema } from "@/lib/schemas/topic";
+import { validateSourceUrl } from "@/scripts/source-url-health";
 
 describe("topics data integrity", () => {
   it("has at least one topic", () => {
@@ -111,7 +112,7 @@ describe("topics data integrity", () => {
   // change strips sourceUrls (or adds unsourced evidence) and drops overall
   // coverage below the ratchet, CI fails. Mirrors scripts/citation-coverage.ts.
   const CITATION_URL_RE = /^https?:\/\/\S+\.\S+/;
-  const COVERAGE_RATCHET = 0.95; // current is ~0.98; never let it fall below 95%.
+  const COVERAGE_RATCHET = 0.98;
 
   it(`maintains >=${COVERAGE_RATCHET * 100}% evidence citation coverage (ratchet)`, () => {
     const evidence = topics.flatMap((t) => t.pillars.flatMap((p) => p.evidence ?? []));
@@ -125,9 +126,79 @@ describe("topics data integrity", () => {
         `fell below the ${COVERAGE_RATCHET * 100}% ratchet. Backfill sourceUrls on new/edited evidence.`,
     ).toBeGreaterThanOrEqual(COVERAGE_RATCHET);
   });
+
+  it("uses valid, non-placeholder HTTP(S) URLs for every linked citation", () => {
+    const linkedEvidence = topics.flatMap((topic) =>
+      topic.pillars.flatMap((pillar) =>
+        (pillar.evidence ?? []).filter(
+          (item): item is typeof item & { sourceUrl: string } =>
+            typeof item.sourceUrl === "string",
+        ),
+      ),
+    );
+
+    for (const item of linkedEvidence) {
+      expect(
+        validateSourceUrl(item.sourceUrl),
+        `${item.id} has an invalid or placeholder citation URL: ${item.sourceUrl}`,
+      ).toMatchObject({ valid: true });
+    }
+  });
+
+  it("labels unsourced synthesis explicitly and caps its evidence strength", () => {
+    const unlinkedEvidence = topics.flatMap((topic) =>
+      topic.pillars.flatMap((pillar) =>
+        (pillar.evidence ?? [])
+          .filter((item) => !item.sourceUrl)
+          .map((item) => ({ topicId: topic.id, item })),
+      ),
+    );
+
+    expect(unlinkedEvidence.length).toBeLessThanOrEqual(16);
+    for (const { topicId, item } of unlinkedEvidence) {
+      const label = `${topicId} :: ${item.id}`;
+      expect(item.source, `${label} must disclose that it is synthesis`).toMatch(
+        /^Synthesis \/ inference —/,
+      );
+      expect(item.weight.sourceReliability, `${label} source reliability`).toBeLessThanOrEqual(5);
+      expect(item.weight.replicability, `${label} replicability`).toBeLessThanOrEqual(5);
+      expect(item.weight.directness, `${label} directness`).toBeLessThanOrEqual(6);
+    }
+  });
+
+  it("keeps the freelance-displacement card aligned with Upwork's measured effects", () => {
+    const card = topics
+      .find((topic) => topic.id === "ai-job-displacement")
+      ?.pillars.flatMap((pillar) => pillar.evidence ?? [])
+      .find((item) => item.id === "freelance-rate-collapse");
+
+    expect(card?.sourceUrl).toBe(
+      "https://www.upwork.com/research/generative-ai-work-value",
+    );
+    expect(card?.description).toContain("writing by 8%");
+    expect(card?.description).toContain("translation by 10%");
+    expect(card?.description).not.toMatch(/30-50%|30–50%/);
+  });
 });
 
 describe("specific topics", () => {
+  it("keeps the Jones Act evidence fully source-linked", () => {
+    const jonesAct = topics.find((t) => t.id === "jones-act");
+    const evidence = jonesAct?.pillars.flatMap((pillar) => pillar.evidence ?? []) ?? [];
+
+    expect(evidence.length).toBeGreaterThan(0);
+    expect(evidence.every((item) => item.source && item.sourceUrl)).toBe(true);
+  });
+
+  it("keeps Cost Disease evidence citation coverage above 80%", () => {
+    const costDisease = topics.find((t) => t.id === "scott-cost-disease");
+    const evidence = costDisease?.pillars.flatMap((pillar) => pillar.evidence ?? []) ?? [];
+    const sourceLinked = evidence.filter((item) => item.source && item.sourceUrl);
+
+    expect(evidence.length).toBeGreaterThan(0);
+    expect(sourceLinked.length / evidence.length).toBeGreaterThanOrEqual(0.8);
+  });
+
   it("moon-landing topic exists and is settled", () => {
     const moonLanding = topics.find((t) => t.id === "moon-landing");
     expect(moonLanding).toBeDefined();

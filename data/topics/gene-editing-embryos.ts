@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const geneEditingEmbryosData = {
   id: "gene-editing-embryos",
   title: "Gene Editing Human Embryos",

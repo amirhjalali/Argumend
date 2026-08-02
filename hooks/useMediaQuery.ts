@@ -2,6 +2,27 @@
 
 import { useCallback, useSyncExternalStore } from "react";
 
+function subscribeHydration() {
+  return () => {};
+}
+
+function getClientHydrationSnapshot() {
+  return true;
+}
+
+function getServerHydrationSnapshot() {
+  return false;
+}
+
+/** False during SSR, then true from the first client snapshot onward. */
+export function useIsHydrated(): boolean {
+  return useSyncExternalStore(
+    subscribeHydration,
+    getClientHydrationSnapshot,
+    getServerHydrationSnapshot,
+  );
+}
+
 export function useMediaQuery(query: string): boolean {
   const subscribe = useCallback(
     (onStoreChange: () => void) => {

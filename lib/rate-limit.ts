@@ -1,5 +1,5 @@
 /**
- * Simple in-memory rate limiter with sliding window.
+ * Simple in-memory rate limiter with fixed windows.
  *
  * Tracks requests per IP using a Map. Entries are cleaned up
  * periodically (every 100 requests) to prevent unbounded growth.
@@ -28,6 +28,7 @@ interface RateLimitResult {
 
 const store = new Map<string, RateLimitEntry>();
 let requestCounter = 0;
+const MAX_STORE_ENTRIES = 10_000;
 
 /**
  * Clean up expired entries from the store.
@@ -40,6 +41,18 @@ function cleanup(): void {
       store.delete(key);
     }
   }
+}
+
+function makeRoomForNewKey(): void {
+  if (store.size < MAX_STORE_ENTRIES) return;
+
+  cleanup();
+  if (store.size < MAX_STORE_ENTRIES) return;
+
+  // Map iteration follows insertion order. Evicting the oldest entry keeps an
+  // attacker sending unique identifiers from growing process memory forever.
+  const oldestKey = store.keys().next().value as string | undefined;
+  if (oldestKey !== undefined) store.delete(oldestKey);
 }
 
 /**
@@ -62,6 +75,13 @@ function cleanup(): void {
  * ```
  */
 export function rateLimit(key: string, opts: RateLimitOptions): RateLimitResult {
+  if (!Number.isInteger(opts.maxRequests) || opts.maxRequests < 1) {
+    throw new RangeError("maxRequests must be a positive integer");
+  }
+  if (!Number.isFinite(opts.windowMs) || opts.windowMs <= 0) {
+    throw new RangeError("windowMs must be a positive finite number");
+  }
+
   const now = Date.now();
 
   // Periodic cleanup every 100 requests
@@ -76,6 +96,7 @@ export function rateLimit(key: string, opts: RateLimitOptions): RateLimitResult 
 
   if (!entry || now >= entry.resetAt) {
     // First request or window expired — start a fresh window
+    if (!entry) makeRoomForNewKey();
     const resetAt = now + opts.windowMs;
     store.set(key, { count: 1, resetAt });
     return { success: true, remaining: opts.maxRequests - 1, resetAt };

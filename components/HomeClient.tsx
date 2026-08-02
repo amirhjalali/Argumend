@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, type RefObject } from "react";
 import dynamic from "next/dynamic";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { useSidebarState } from "@/hooks/useSidebarState";
@@ -15,6 +15,10 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { topicSummaries, CATEGORY_ORDER, featuredTopicId } from "@/data/topicIndex";
 import { FEATURES } from "@/lib/constants";
+import { useMobileSidebarA11y } from "@/hooks/useMobileSidebarA11y";
+import { ViewToggle } from "@/components/ViewToggle";
+
+const HOME_SIDEBAR_ID = "home-sidebar-navigation";
 
 // Heavy view components — only loaded when the user switches to them
 const ScalesOfEvidence = dynamic(
@@ -43,7 +47,6 @@ const DesktopCanvas = dynamic(() => import("@/components/DesktopCanvas"), {
 const HeroMiniCanvas = dynamic(() => import("@/components/HeroMiniCanvas"), {
   ssr: false,
 });
-
 // ---------------------------------------------------------------------------
 // Sidebar layout wrapper -- eliminates duplication between hero and canvas views
 // ---------------------------------------------------------------------------
@@ -52,6 +55,7 @@ interface SidebarLayoutProps {
   sidebar: ReturnType<typeof useSidebarState>;
   currentTopicId: string;
   onTopicSelect: (id: string) => void;
+  sidebarRef: RefObject<HTMLElement | null>;
   children: React.ReactNode;
 }
 
@@ -59,6 +63,7 @@ function SidebarLayout({
   sidebar,
   currentTopicId,
   onTopicSelect,
+  sidebarRef,
   children,
 }: SidebarLayoutProps) {
   return (
@@ -77,7 +82,11 @@ function SidebarLayout({
 
       {/* Sidebar Container */}
       <aside
+        ref={sidebarRef}
+        id={HOME_SIDEBAR_ID}
         aria-label="Sidebar navigation"
+        aria-hidden={!sidebar.isOpen}
+        inert={!sidebar.isOpen}
         className={`
           fixed md:relative top-0 md:top-auto bottom-0 left-0 z-40 md:z-auto
           flex-shrink-0 ${sidebar.mounted ? "transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]" : ""}
@@ -109,6 +118,15 @@ function CanvasExperience() {
   const sidebar = useSidebarState();
   const isMobile = useIsMobile();
   const [showHero, setShowHero] = useState(true);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const sidebarRef = useRef<HTMLElement>(null);
+
+  useMobileSidebarA11y({
+    isOpen: sidebar.isOpen,
+    close: sidebar.close,
+    drawerRef: sidebarRef,
+    triggerRef: menuButtonRef,
+  });
 
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const setTopic = useLogicGraph((state) => state.setTopic);
@@ -121,9 +139,17 @@ function CanvasExperience() {
     (id: string) => {
       setTopic(id);
       setShowHero(false);
+      const params = new URLSearchParams({ topic: id, view: currentView });
+      window.history.replaceState({}, "", `/?${params.toString()}`);
     },
-    [setTopic]
+    [currentView, setTopic]
   );
+
+  const handleBackToHero = useCallback(() => {
+    setView("logic-map");
+    setShowHero(true);
+    window.history.replaceState({}, "", "/");
+  }, [setView]);
 
   // Handle URL params like ?topic=X&view=debate (from topic detail page links)
   // Intentional mount-time initialization from URL state, not a cascading render.
@@ -133,7 +159,10 @@ function CanvasExperience() {
     const params = new URLSearchParams(window.location.search);
     const topicParam = params.get("topic");
     const viewParam = params.get("view");
-    if (topicParam) {
+    const topicExists = topicParam
+      ? topicSummaries.some((topic) => topic.id === topicParam)
+      : false;
+    if (topicParam && topicExists) {
       setTopic(topicParam);
       // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional mount-time init from URL params
       setShowHero(false);
@@ -155,6 +184,8 @@ function CanvasExperience() {
         preserved.set("view", viewParam);
       }
       window.history.replaceState({}, "", `/?${preserved.toString()}`);
+    } else if (topicParam) {
+      window.history.replaceState({}, "", "/");
     }
   }, [setTopic, setView]);
 
@@ -167,35 +198,32 @@ function CanvasExperience() {
 
     return (
       <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary dark:text-stone-200">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"
-        >
-          Skip to main content
-        </a>
-        <TopBar onMenuClick={sidebar.toggle} showBackToHero={false} />
+        <TopBar
+          onMenuClick={sidebar.toggle}
+          showBackToHero={false}
+          sidebarId={HOME_SIDEBAR_ID}
+          sidebarOpen={sidebar.isOpen}
+          menuButtonRef={menuButtonRef}
+        />
 
         <SidebarLayout
           sidebar={sidebar}
           currentTopicId={currentTopicId}
           onTopicSelect={handleTopicSelect}
+          sidebarRef={sidebarRef}
         >
           <main id="main-content" role="main" className="relative flex-1 min-w-0 overflow-y-auto">
-            {/* Section 1: Featured Topic Hero */}
-            {/* Live mini-canvas showpiece — additive hero VISUAL above the
-                existing featured-topic content. Flag-gated and desktop-only;
-                flipping FEATURES.LIVE_HERO_CANVAS to false fully restores the
-                prior poster-only hero. */}
-            {FEATURES.LIVE_HERO_CANVAS && !isMobile && (
-              <div className="px-4 md:px-8 pt-8 bg-gradient-to-b from-[#f4f1eb] to-[#f4f1eb] dark:from-[#1a1917] dark:to-[#1a1917]">
-                <div className="w-full max-w-2xl mx-auto">
+            {/* Section 1: compact two-column hero on desktop, linear on mobile. */}
+            <FeaturedTopicHero
+              onTopicSelect={handleTopicSelect}
+              preview={
+                FEATURES.LIVE_HERO_CANVAS && !isMobile ? (
                   <HeroMiniCanvas
                     onClick={() => handleTopicSelect(featuredTopicId)}
                   />
-                </div>
-              </div>
-            )}
-            <FeaturedTopicHero onTopicSelect={handleTopicSelect} />
+                ) : undefined
+              }
+            />
 
             {/* Section 2: Topic Grid */}
             <div className="px-4 md:px-8 py-10">
@@ -247,24 +275,27 @@ function CanvasExperience() {
 
   return (
     <div className="flex min-h-[100svh] w-full flex-col bg-transparent font-sans text-primary dark:text-stone-200">
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[#4f7b77] focus:text-white focus:rounded"
-      >
-        Skip to main content
-      </a>
       <TopBar
         onMenuClick={sidebar.toggle}
         showBackToHero
-        onBackToHero={() => setShowHero(true)}
+        onBackToHero={handleBackToHero}
+        viewToggle={<ViewToggle />}
+        sidebarId={HOME_SIDEBAR_ID}
+        sidebarOpen={sidebar.isOpen}
+        menuButtonRef={menuButtonRef}
       />
 
       <SidebarLayout
         sidebar={sidebar}
         currentTopicId={currentTopicId}
         onTopicSelect={handleTopicSelect}
+        sidebarRef={sidebarRef}
       >
         <main id="main-content" role="main" className="relative flex-1 min-w-0">
+          <h1 className="sr-only">
+            {topicSummaries.find((topic) => topic.id === currentTopicId)?.title ??
+              "Interactive argument view"}
+          </h1>
           {currentView === "scales" ? (
             <ScalesOfEvidence />
           ) : currentView === "debate" ? (

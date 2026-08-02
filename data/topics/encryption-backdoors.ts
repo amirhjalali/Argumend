@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const encryptionBackdoorsData = {
   id: "encryption-backdoors",
   title: "Encryption Backdoors",

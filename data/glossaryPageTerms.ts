@@ -71,7 +71,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
       "A numerical measure (0-100) of how strongly available evidence supports or undermines a claim. A score of 95+ indicates overwhelming evidence (settled science). Around 50 means genuinely contested. Scores are computed from individual evidence items, each weighted on four dimensions.",
     example: "Compare confidence scores across all topics",
     exampleHref: "/topics",
-    learnMoreHref: "/concepts/confidence-scores",
+    learnMoreHref: "/concepts/confidence-calibration",
     learnMoreText: "How confidence scores work",
     category: "core",
   },
@@ -115,8 +115,6 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
       "Whether a crux has been verified, remains theoretical, or is impossible to test with current methods. 'Verified' means the test has been performed and results are available. 'Theoretical' means the test is possible but hasn't been done. 'Impossible' means the test cannot currently be performed.",
     example: "Compare verification statuses on the Moon Landing topic",
     exampleHref: "/topics/moon-landing",
-    learnMoreHref: "/concepts/verification-status",
-    learnMoreText: "Verification status explained",
     category: "core",
   },
   // Reasoning Concepts

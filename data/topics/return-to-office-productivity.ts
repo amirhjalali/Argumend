@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const returnToOfficeProductivityData = {
   id: "return-to-office-productivity",
   title: "Does Return-to-Office Actually Improve Productivity?",
@@ -358,7 +356,7 @@ export const returnToOfficeProductivityData = {
             directness: 4,
           },
           source:
-            "Commentary / hypothesis — no specific verified study located; magnitude claims removed",
+            "Synthesis / inference — plausible sunk-cost hypothesis with no verified effect estimate",
           reasoning:
             "Previously this item asserted an Envoy finding that long-lease (10+ year) firms were '2.3x' more likely to mandate full RTO and that mandate timing correlated with lease renewals. That specific finding could not be located or verified in any primary source, so the quantitative claims were removed and weights lowered substantially. The underlying sunk-cost intuition is reasonable but currently unsubstantiated; the Ding & Ma determinant analysis (see the S&P 500 study) speaks more directly and credibly to RTO motives.",
         },

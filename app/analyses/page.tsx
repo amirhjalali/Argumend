@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listAnalyses } from "@/lib/db/queries";
+import { isDatabaseConfigured } from "@/lib/db";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -11,9 +12,10 @@ import {
   FileSearch,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: "Recent Analyses | Argumend",
+  title: "Recent Analyses",
   description:
     "Browse recent argument analyses on Argumend. See AI-extracted positions, cruxes, and quality scores for debates, articles, and transcripts.",
   keywords: [
@@ -27,12 +29,14 @@ export const metadata: Metadata = {
     description:
       "Browse AI-extracted argument analyses with positions, cruxes, and quality scores for debates and articles.",
     url: "https://argumend.org/analyses",
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Recent Analyses | Argumend",
     description:
       "Browse AI-extracted argument analyses with cruxes, positions, and quality scores.",
+    images: [DEFAULT_SOCIAL_IMAGE_URL],
   },
   alternates: {
     canonical: "https://argumend.org/analyses",
@@ -42,10 +46,13 @@ export const metadata: Metadata = {
 export default async function AnalysesPage() {
   let analyses: Awaited<ReturnType<typeof listAnalyses>> = [];
 
-  try {
-    analyses = await listAnalyses(50);
-  } catch {
-    // DB may not be available during build
+  if (isDatabaseConfigured()) {
+    try {
+      analyses = await listAnalyses(50);
+    } catch {
+      // A configured database can still be temporarily unavailable. Render the
+      // empty archive without exposing infrastructure details to visitors.
+    }
   }
 
   return (

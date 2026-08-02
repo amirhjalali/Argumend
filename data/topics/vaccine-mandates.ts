@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const vaccineMandatesData = {
   id: "vaccine-mandates",
   title: "Government Vaccine Mandates",

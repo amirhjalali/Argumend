@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
 import {
+  isDebateOwnershipError,
   saveDebate,
   saveDebateRound,
   updateDebateStatus,
 } from "@/lib/db/queries";
+import { DebatePersistenceStatusSchema } from "@/lib/debate/status";
 
 const CreateRequestSchema = z.object({
   action: z.literal("create"),
@@ -28,7 +31,7 @@ const SaveRoundRequestSchema = z.object({
 const UpdateStatusRequestSchema = z.object({
   action: z.literal("updateStatus"),
   debateId: z.string().min(1),
-  status: z.string().min(1).max(50),
+  status: DebatePersistenceStatusSchema,
   winner: z.string().max(50).optional(),
 });
 
@@ -41,7 +44,8 @@ const PersistRequestSchema = z.discriminatedUnion("action", [
 export async function POST(req: NextRequest) {
   // Require authentication for persisting debate data
   const session = await auth();
-  if (!session?.user) {
+  const userId = session?.user?.id;
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -69,6 +73,7 @@ export async function POST(req: NextRequest) {
     switch (body.action) {
       case "create": {
         const debate = await saveDebate({
+          userId,
           topicId: body.topicId,
           topicTitle: body.topicTitle,
           forModel: body.forModel,
@@ -79,7 +84,7 @@ export async function POST(req: NextRequest) {
       }
 
       case "saveRound": {
-        await saveDebateRound({
+        await saveDebateRound(userId, {
           debateId: body.debateId,
           roundNumber: body.roundNumber,
           forContent: body.forContent,
@@ -89,7 +94,12 @@ export async function POST(req: NextRequest) {
       }
 
       case "updateStatus": {
-        await updateDebateStatus(body.debateId, body.status, body.winner);
+        await updateDebateStatus(
+          userId,
+          body.debateId,
+          body.status,
+          body.winner
+        );
         return NextResponse.json({ ok: true });
       }
 
@@ -97,7 +107,13 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Unknown action" }, { status: 400 });
     }
   } catch (e) {
-    console.error("Debate persist error:", e);
+    if (isDebateOwnershipError(e)) {
+      return NextResponse.json(
+        { error: "Forbidden", code: e.code },
+        { status: 403 }
+      );
+    }
+    console.error("Debate persist error:", sanitizeServerLog(e));
     return NextResponse.json(
       { error: "Failed to persist debate" },
       { status: 500 }

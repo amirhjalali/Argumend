@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const universalHealthcareData = {
   id: "universal-healthcare",
   title: "Universal Healthcare in the US",

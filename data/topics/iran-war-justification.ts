@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const iranWarJustificationData = {
   id: "iran-war-justification",
   title: "Is Military Action Against Iran Justified?",

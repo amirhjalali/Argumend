@@ -57,7 +57,7 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
         type="button"
         aria-pressed={current === "read"}
         onClick={() => switchTo("read")}
-        className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
+        className={`inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
           current === "read"
             ? "bg-deep text-white"
             : "text-secondary dark:text-stone-400 hover:text-primary dark:hover:text-stone-200"
@@ -70,7 +70,7 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
         type="button"
         aria-pressed={current === "graph"}
         onClick={() => switchTo("graph")}
-        className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
+        className={`inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium tracking-wide transition-colors ${
           current === "graph"
             ? "bg-deep text-white"
             : "text-secondary dark:text-stone-400 hover:text-primary dark:hover:text-stone-200"

@@ -5,6 +5,8 @@ import { ArrowRight, CheckCircle, AlertCircle, HelpCircle } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
+import { CollectionPagination } from "@/components/CollectionPagination";
 import {
   topicSummaries,
   CATEGORY_LABELS,
@@ -16,6 +18,14 @@ import {
   statusColors,
   categoryTopBorder,
 } from "@/lib/categoryColors";
+import { buildGenericOgUrl } from "@/lib/og";
+import {
+  buildPageHref,
+  paginate,
+  parsePageParam,
+} from "@/lib/collectionPagination";
+
+import { TOPIC_CATEGORY_PAGE_SIZE } from "./_config";
 
 // ---------------------------------------------------------------------------
 // Slug helpers — categories are single words, so the slug is the category id.
@@ -49,20 +59,38 @@ export const dynamicParams = false;
 // ---------------------------------------------------------------------------
 // Metadata
 // ---------------------------------------------------------------------------
-type PageProps = { params: Promise<{ slug: string }> };
+type PageProps = {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const page = parsePageParam((await searchParams)?.page);
   const category = findCategoryBySlug(slug);
-  if (!category) return { title: "Category Not Found — Argumend" };
+  if (!category) {
+    return {
+      title: "Category Not Found — Argumend",
+      robots: { index: false, follow: false },
+    };
+  }
 
   const label = CATEGORY_LABELS[category];
   const count = topicSummaries.filter((t) => t.category === category).length;
-  const title = `${label} Debates — Argumend`;
+  const pageCount = Math.max(1, Math.ceil(count / TOPIC_CATEGORY_PAGE_SIZE));
+  const title = page > 1
+    ? `${label} Debates — Page ${page} of ${pageCount} — Argumend`
+    : `${label} Debates — Argumend`;
   const description = `Explore ${count} ${label.toLowerCase()} debates mapped as interactive argument graphs — steel-man positions, weighted evidence, and crux questions.`;
-  const url = `https://argumend.org/topics/category/${slug}`;
+  const baseUrl = `https://argumend.org/topics/category/${slug}`;
+  const url = buildPageHref(baseUrl, page);
+  const socialImage = buildGenericOgUrl({
+    title: `${label} Debates`,
+    subtitle: `${count} argument maps with weighted evidence`,
+  });
 
   return {
     title,
@@ -73,26 +101,45 @@ export async function generateMetadata({
       type: "website",
       url,
       siteName: "ARGUMEND",
+      images: [{ url: socialImage, width: 1200, height: 630, alt: title }],
     },
+    twitter: { card: "summary_large_image", title, description, images: [socialImage] },
     alternates: { canonical: url },
+    pagination: {
+      previous: page > 1 ? buildPageHref(baseUrl, page - 1) : null,
+      next: page < pageCount ? buildPageHref(baseUrl, page + 1) : null,
+    },
+    robots: page > pageCount ? { index: false, follow: true } : undefined,
   };
 }
 
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
-export default async function TopicCategoryPage({ params }: PageProps) {
+export default async function TopicCategoryPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
   const category = findCategoryBySlug(slug);
 
   if (!category) notFound();
 
   const label = CATEGORY_LABELS[category];
-  const topics: TopicSummary[] = topicSummaries
+  const allTopics: TopicSummary[] = topicSummaries
     .filter((t) => t.category === category)
-    .sort((a, b) => b.confidence_score - a.confidence_score);
+    .sort(
+      (a, b) =>
+        b.weight - a.weight ||
+        Math.abs(b.balance - 50) - Math.abs(a.balance - 50)
+    );
+  const pagination = paginate(
+    allTopics,
+    parsePageParam((await searchParams)?.page),
+    TOPIC_CATEGORY_PAGE_SIZE,
+  );
+  if (pagination.isOutOfRange) notFound();
+  const topics = pagination.items;
 
-  const url = `https://argumend.org/topics/category/${slug}`;
+  const basePath = `/topics/category/${slug}`;
+  const url = buildPageHref(`https://argumend.org${basePath}`, pagination.page);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -107,10 +154,10 @@ export default async function TopicCategoryPage({ params }: PageProps) {
     },
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: topics.length,
+      numberOfItems: pagination.total,
       itemListElement: topics.map((topic, index) => ({
         "@type": "ListItem",
-        position: index + 1,
+        position: pagination.startIndex + index + 1,
         name: topic.title,
         url: `https://argumend.org/topics/${topic.id}`,
         description: topic.meta_claim,
@@ -135,14 +182,14 @@ export default async function TopicCategoryPage({ params }: PageProps) {
             <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-3">
               Category
             </p>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
               {label} Debates
             </h1>
-            <p className="text-lg text-secondary leading-relaxed max-w-2xl">
+            <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
               <span className="font-mono text-stone-700 dark:text-stone-300">
-                {topics.length}
+                {pagination.total}
               </span>{" "}
-              {label.toLowerCase()} debate{topics.length !== 1 ? "s" : ""} mapped
+              {label.toLowerCase()} debate{pagination.total !== 1 ? "s" : ""} mapped
               with steel-man arguments, weighted evidence, and crux questions.
             </p>
           </div>
@@ -166,24 +213,13 @@ export default async function TopicCategoryPage({ params }: PageProps) {
                     {topic.meta_claim}
                   </p>
 
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <div
-                      className="h-1.5 flex-1 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden"
-                      role="meter"
-                      aria-valuenow={topic.confidence_score}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                      aria-label={`Confidence: ${topic.confidence_score}%`}
-                    >
-                      <div
-                        className="h-full bg-deep rounded-full transition-all duration-500 animate-bar-fill"
-                        style={{ width: `${topic.confidence_score}%` }}
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <span className="flex-shrink-0 font-mono text-sm tabular-nums text-stone-600 dark:text-stone-400">
-                      {topic.confidence_score}%
-                    </span>
+                  <div className="mb-3">
+                    <BalanceWeightChip
+                      balance={topic.balance}
+                      weight={topic.weight}
+                      verdict={topic.verdict}
+                      showLabel
+                    />
                   </div>
 
                   <div className="flex items-center justify-between gap-2 pt-3 mt-auto border-t border-stone-100 dark:border-stone-700/50">
@@ -208,6 +244,17 @@ export default async function TopicCategoryPage({ params }: PageProps) {
               );
             })}
           </div>
+
+          <p className="mt-8 text-center text-sm text-stone-500 dark:text-stone-400" role="status">
+            Showing {pagination.startIndex + 1}&ndash;{pagination.endIndex} of{" "}
+            {pagination.total} debates
+          </p>
+          <CollectionPagination
+            basePath={basePath}
+            currentPage={pagination.page}
+            pageCount={pagination.pageCount}
+            label={`${label} debates`}
+          />
 
           {/* Browse other categories */}
           <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const socialMediaMentalHealthData = {
   id: "social-media-mental-health",
   title: "Social Media and Teen Mental Health",

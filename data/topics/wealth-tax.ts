@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const wealthTaxData = {
   id: "wealth-tax",
   title: "Wealth Tax on Billionaires",

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const organicFoodHealthData = {
   id: "organic-food-health",
   title: "Is Organic Food Healthier?",

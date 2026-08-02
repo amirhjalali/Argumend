@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const trumpTariffsData = {
   id: "trump-tariffs",
   title: "Trump's Tariffs & Protectionist Trade Policy",

@@ -6,12 +6,16 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { fallacies } from "@/data/fallacies";
 import { fallacyFamilyOrder, fallacyFamilies, getFallacyIcon, groupFallaciesByFamily } from "@/lib/fallacyMeta";
+import { buildGenericOgUrl } from "@/lib/og";
 
 const TITLE = "Logical Fallacies: A Field Guide to Bad Arguments";
 const DESCRIPTION =
   "A clear, balanced guide to the most common logical fallacies — ad hominem, straw man, false dilemma, slippery slope, and more. Learn how each one misleads and how to counter it.";
 const URL = "https://argumend.org/fallacies";
-const OG_IMAGE = `https://argumend.org/api/og?title=${encodeURIComponent("Logical Fallacies")}&subtitle=${encodeURIComponent("A Field Guide to Bad Arguments")}`;
+const OG_IMAGE = buildGenericOgUrl({
+  title: "Logical Fallacies",
+  subtitle: "A Field Guide to Bad Arguments",
+});
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -22,7 +26,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: URL,
     type: "website",
-    siteName: "Argumend",
+    siteName: "ARGUMEND",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Logical Fallacies" }],
   },
   twitter: {
@@ -68,28 +72,28 @@ export default function FallaciesPage() {
           ]}
         />
 
-        <p className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
+        <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
           Field Guide
         </p>
-        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
           Logical Fallacies
         </h1>
-        <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-4">
+        <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mb-4">
           A logical fallacy is a flaw in reasoning that makes an argument
           unsound — even when it sounds persuasive. The conclusion might still
           be true, but the path used to reach it doesn&apos;t hold up.
         </p>
-        <p className="text-base text-secondary leading-relaxed max-w-2xl mb-8">
+        <p className="text-base text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mb-8">
           Below are {fallacies.length} of the most common fallacies you&apos;ll
           encounter in public debate, sorted into {groups.length} families by
           the kind of error they make. Each entry explains what the fallacy
           is, gives a concrete example, shows why it misleads, and offers a
           way to respond. For the broader methodology, see our{" "}
-          <Link href="/concepts/fallacies" className="text-deep link-underline font-medium">
+          <Link href="/concepts/fallacies" className="text-deep dark:text-[#9bc7c3] link-underline font-medium">
             concept overview
           </Link>{" "}
           and the{" "}
-          <Link href="/guides/argument-audit" className="text-deep link-underline font-medium">
+          <Link href="/guides/argument-audit" className="text-deep dark:text-[#9bc7c3] link-underline font-medium">
             argument audit guide
           </Link>
           .
@@ -104,7 +108,7 @@ export default function FallaciesPage() {
               <a
                 key={id}
                 href={`#${id}`}
-                className={`inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${family.chip}`}
+                className={`inline-flex min-h-10 items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${family.chip}`}
               >
                 <span className="font-serif text-[13px] opacity-70">{family.numeral}</span>
                 {family.label}
@@ -118,9 +122,9 @@ export default function FallaciesPage() {
           <section key={family.id} id={family.id} className="mb-14 scroll-mt-20">
             <div className="flex items-baseline gap-3 mb-2">
               <span className={`font-serif text-2xl ${family.iconText}`}>{family.numeral}.</span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary">{family.label}</h2>
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">{family.label}</h2>
             </div>
-            <p className="text-secondary leading-relaxed max-w-2xl mb-6">{family.description}</p>
+            <p className="text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mb-6">{family.description}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {items.map((fallacy) => {
@@ -143,13 +147,13 @@ export default function FallaciesPage() {
                         <Icon className={`h-5 w-5 ${family.iconText}`} strokeWidth={1.8} />
                       </div>
                       <div className="flex-1 min-w-0 pr-8">
-                        <h3 className="font-serif text-xl text-primary mb-1 group-hover:text-deep transition-colors">
+                        <h3 className="font-serif text-xl text-primary dark:text-stone-200 mb-1 group-hover:text-deep dark:group-hover:text-[#9bc7c3] transition-colors">
                           {fallacy.name}
                         </h3>
-                        <p className="text-primary leading-relaxed text-sm mb-3">
+                        <p className="text-primary dark:text-stone-200 leading-relaxed text-sm mb-3">
                           {fallacy.shortDefinition}
                         </p>
-                        <span className="inline-flex items-center gap-1 text-deep text-sm font-medium">
+                        <span className="inline-flex items-center gap-1 text-deep dark:text-[#9bc7c3] text-sm font-medium">
                           Learn more
                           <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </span>
@@ -164,20 +168,20 @@ export default function FallaciesPage() {
 
         <div className="mt-10 bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-[#e8e0d4] dark:border-[#3d3a36]">
           <div className="flex items-center gap-2 mb-3">
-            <BookOpen className="h-5 w-5 text-deep" strokeWidth={1.8} />
-            <h2 className="font-serif text-xl text-primary">
+            <BookOpen className="h-5 w-5 text-deep dark:text-[#9bc7c3]" strokeWidth={1.8} />
+            <h2 className="font-serif text-xl text-primary dark:text-stone-200">
               A note on spotting fallacies
             </h2>
           </div>
-          <p className="text-primary leading-relaxed mb-3">
+          <p className="text-primary dark:text-stone-200 leading-relaxed mb-3">
             Identifying a fallacy doesn&apos;t prove a conclusion is false — a
             sloppy argument can still land on a true claim. The point is to
             separate genuine evidence from rhetorical decoration, so you can
             judge a position on its strongest version rather than its weakest.
           </p>
-          <p className="text-primary leading-relaxed">
+          <p className="text-primary dark:text-stone-200 leading-relaxed">
             That is why the most reliable antidote to most fallacies is{" "}
-            <Link href="/concepts/steel-manning" className="text-deep link-underline font-medium">
+            <Link href="/concepts/steel-manning" className="text-deep dark:text-[#9bc7c3] link-underline font-medium">
               steel-manning
             </Link>
             : stating the opposing argument in its strongest form before
@@ -186,7 +190,7 @@ export default function FallaciesPage() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-          <p className="text-sm text-secondary">
+          <p className="text-sm text-secondary dark:text-stone-400">
             Recognizing bad reasoning — in others and in yourself — is the first
             step toward productive disagreement.
           </p>

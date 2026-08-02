@@ -13,6 +13,8 @@ import { ConfidenceBar } from "@/components/ConfidenceBar";
 import { VerdictVoting } from "@/components/VerdictVoting";
 import { CitationCard } from "@/components/CitationCard";
 import { SaveTopicButton } from "@/components/SaveTopicButton";
+import { SubscribeButton } from "@/components/SubscribeButton";
+import { EmbedButton } from "@/components/EmbedButton";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { FalsificationCrux } from "@/components/FalsificationCrux";
@@ -453,8 +455,13 @@ export function ReadModeView({ topic }: { topic: Topic }) {
           )}
 
           {/* ─── Save / track ─── */}
-          <section aria-label="Save this topic" className="mt-10 flex flex-col items-start gap-2">
+          <section
+            aria-label="Topic actions"
+            className="mt-10 flex flex-wrap items-center gap-2"
+          >
             <SaveTopicButton topicId={topic.id} />
+            <SubscribeButton topicId={topic.id} />
+            <EmbedButton topicId={topic.id} />
           </section>
 
           {/* ─── Newsletter: capture at peak intent (reader finished the topic) ─── */}
@@ -480,7 +487,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                     <li key={item.id} className="-ml-px">
                       <a
                         href={`#${item.id}`}
-                        className={`block border-l-2 pl-3 py-1 text-[13px] leading-snug font-sans transition-colors ${
+                        className={`flex min-h-11 items-center border-l-2 pl-3 py-1 text-[13px] leading-snug font-sans transition-colors ${
                           isActive
                             ? "border-l-deep text-primary dark:text-stone-200 font-medium"
                             : "border-l-transparent text-secondary dark:text-stone-400 hover:text-primary"
@@ -511,7 +518,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             type="button"
             onClick={() => setMobileTocOpen((v) => !v)}
             aria-expanded={mobileTocOpen}
-            className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-[#252420]/90 backdrop-blur border border-stone-200/70 dark:border-[#3d3a36] px-3.5 py-2.5 text-sm font-sans font-medium text-primary dark:text-stone-200 shadow-lg"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white/90 dark:bg-[#252420]/90 backdrop-blur border border-stone-200/70 dark:border-[#3d3a36] px-3.5 py-2.5 text-sm font-sans font-medium text-primary dark:text-stone-200 shadow-lg"
           >
             {mobileTocOpen ? <X className="h-4 w-4" aria-hidden /> : <List className="h-4 w-4" aria-hidden />}
             Contents
@@ -530,7 +537,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                       <a
                         href={`#${item.id}`}
                         onClick={() => setMobileTocOpen(false)}
-                        className={`block rounded-md px-3 py-2 text-[13px] leading-snug font-sans transition-colors ${
+                        className={`flex min-h-11 items-center rounded-md px-3 py-2 text-[13px] leading-snug font-sans transition-colors ${
                           isActive
                             ? "bg-deep/10 text-primary dark:text-stone-200 font-medium"
                             : "text-secondary dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-[#302e2a]"
@@ -558,7 +565,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
       >
         <Link
           href={`/?topic=${encodeURIComponent(topic.id)}&view=logic-map`}
-          className="inline-flex items-center gap-2 rounded-full bg-deep text-white px-4 py-2.5 text-sm font-sans font-medium shadow-lg hover:bg-deep/90 transition-colors"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full bg-deep text-white px-4 py-2.5 text-sm font-sans font-medium shadow-lg hover:bg-deep/90 transition-colors"
         >
           <Network className="h-4 w-4" aria-hidden />
           <span className="hidden sm:inline">Open the map</span>
@@ -569,4 +576,3 @@ export function ReadModeView({ topic }: { topic: Topic }) {
     </>
   );
 }
-

@@ -1,7 +1,6 @@
-import { BlueprintNode } from "@/types/graph";
-import { Topic, Evidence } from "@/types/logic";
+import type { BlueprintNode } from "@/types/graph";
+import type { Topic } from "@/types/logic";
 import { calculateEvidenceScore } from "@/lib/schemas/topic";
-import { moonLanding } from "./topics";
 
 export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
   const rootId = "root";
@@ -171,5 +170,3 @@ export function getEvidenceIdsForPillar(topic: Topic, pillarId: string): string[
   if (!pillar || !pillar.evidence) return [];
   return pillar.evidence.map((ev) => `evidence-${ev.id}`);
 }
-
-export const logicBlueprint = generateBlueprint(moonLanding);

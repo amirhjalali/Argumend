@@ -1,19 +1,21 @@
 import { MetadataRoute } from "next";
-import { topics } from "@/data/topics";
 import { guides } from "@/data/guides";
 import {
-  articles,
-  getUniqueCategories,
-  getUniqueTags,
-  categoryToSlug,
-  tagToSlug,
-} from "@/data/blog";
+  articleSummaries,
+  blogCategoryToSlug,
+  blogTagToSlug,
+  getArticleSummaryCategories,
+  getArticleSummaryTags,
+} from "@/data/blogIndex";
 import { getAllQuestionVariations } from "@/lib/questions";
 import { COMPARISON_PAIRS } from "@/app/topics/compare/comparisonPairs";
 import { isClaims } from "@/data/is-claims";
 import { getAllFallacySlugs } from "@/data/fallacies";
 import { concepts } from "@/data/concepts";
 import { topicSummaries, CATEGORY_ORDER } from "@/data/topicIndex";
+import { CONTENT_LAST_UPDATED, SITE_URL } from "@/lib/site";
+
+export const revalidate = 86400;
 
 /** Mirror of the tag-page slug scheme (lowercase, spaces → hyphens). */
 function tagToTopicSlug(tag: string): string {
@@ -21,19 +23,19 @@ function tagToTopicSlug(tag: string): string {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://argumend.org";
+  const baseUrl = SITE_URL;
 
   // Topics, guides, and concept pages have no per-item timestamps in the data
   // model, so we can't fabricate a real per-page freshness signal. Instead we
   // expose ONE honest "content corpus last revised" date. Bump this whenever
   // the topic/guide/concept corpus is meaningfully updated.
-  const CONTENT_LAST_UPDATED = new Date("2026-06-29");
+  const contentLastUpdated = new Date(`${CONTENT_LAST_UPDATED}T00:00:00Z`);
 
   // ── Homepage (priority 1.0) ───────────────────────────────────────────
   const homepage: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: CONTENT_LAST_UPDATED,
+      lastModified: contentLastUpdated,
       changeFrequency: "daily",
       priority: 1,
     },
@@ -43,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const listingPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/topics`,
-      lastModified: CONTENT_LAST_UPDATED,
+      lastModified: contentLastUpdated,
       changeFrequency: "weekly",
       priority: 0.9,
     },
@@ -51,9 +53,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Content hub pages (priority 0.8) ──────────────────────────────────
   const latestArticleDate =
-    articles.length > 0
+    articleSummaries.length > 0
       ? new Date(
-          Math.max(...articles.map((a) => new Date(a.publishedAt).getTime())),
+          Math.max(
+            ...articleSummaries.map((a) =>
+              new Date(a.publishedAt).getTime(),
+            ),
+          ),
         )
       : new Date("2025-12-15");
 
@@ -72,22 +78,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/topics/compare`,
-      lastModified: CONTENT_LAST_UPDATED,
+      lastModified: contentLastUpdated,
       changeFrequency: "weekly",
       priority: 0.8,
     },
   ];
 
   // ── Topic detail pages (priority 0.8) ─────────────────────────────────
-  const topicPages: MetadataRoute.Sitemap = topics.map((topic) => ({
+  const topicPages: MetadataRoute.Sitemap = topicSummaries.map((topic) => ({
     url: `${baseUrl}/topics/${topic.id}`,
-    lastModified: CONTENT_LAST_UPDATED,
+    lastModified: contentLastUpdated,
     changeFrequency: "weekly",
     priority: 0.8,
   }));
 
   // ── Blog articles (priority 0.7) ──────────────────────────────────────
-  const blogArticlePages: MetadataRoute.Sitemap = articles.map((a) => ({
+  const blogArticlePages: MetadataRoute.Sitemap = articleSummaries.map((a) => ({
     url: `${baseUrl}/blog/${a.slug}`,
     lastModified: new Date(a.publishedAt),
     changeFrequency: "monthly",
@@ -97,7 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Guide detail pages (priority 0.7) ─────────────────────────────────
   const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
     url: `${baseUrl}/guides/${guide.id}`,
-    lastModified: CONTENT_LAST_UPDATED,
+    lastModified: contentLastUpdated,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
@@ -106,17 +112,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const comparisonPages: MetadataRoute.Sitemap = COMPARISON_PAIRS.map(
     ([id1, id2]) => ({
       url: `${baseUrl}/topics/compare/${id1}/vs/${id2}`,
-      lastModified: CONTENT_LAST_UPDATED,
+      lastModified: contentLastUpdated,
       changeFrequency: "monthly",
       priority: 0.7,
     }),
   );
 
   // ── Question pages (priority 0.7) ─────────────────────────────────────
-  const questionVariations = getAllQuestionVariations(topics);
+  const questionVariations = getAllQuestionVariations(topicSummaries);
   const questionPages: MetadataRoute.Sitemap = questionVariations.map((v) => ({
     url: `${baseUrl}/questions/${v.slug}`,
-    lastModified: CONTENT_LAST_UPDATED,
+    lastModified: contentLastUpdated,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
@@ -124,7 +130,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── "Is [claim] true?" pages (priority 0.7) ──────────────────────────
   const isClaimPages: MetadataRoute.Sitemap = isClaims.map((c) => ({
     url: `${baseUrl}/is/${c.slug}`,
-    lastModified: CONTENT_LAST_UPDATED,
+    lastModified: contentLastUpdated,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
@@ -145,7 +151,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const conceptSlugs = concepts.map((c) => c.id);
   const conceptPages: MetadataRoute.Sitemap = conceptSlugs.map((slug) => ({
     url: `${baseUrl}/concepts/${slug}`,
-    lastModified: CONTENT_LAST_UPDATED,
+    lastModified: contentLastUpdated,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
@@ -154,13 +160,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const questionsListingPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/questions`,
-      lastModified: CONTENT_LAST_UPDATED,
+      lastModified: contentLastUpdated,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/is`,
-      lastModified: CONTENT_LAST_UPDATED,
+      lastModified: contentLastUpdated,
       changeFrequency: "weekly",
       priority: 0.8,
     },
@@ -251,9 +257,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // ── Blog category pages (priority 0.6) ────────────────────────────────
-  const blogCategoryPages: MetadataRoute.Sitemap = getUniqueCategories().map(
+  const blogCategoryPages: MetadataRoute.Sitemap = getArticleSummaryCategories().map(
     (cat) => ({
-      url: `${baseUrl}/blog/category/${categoryToSlug(cat)}`,
+      url: `${baseUrl}/blog/category/${blogCategoryToSlug(cat)}`,
       lastModified: latestArticleDate,
       changeFrequency: "weekly",
       priority: 0.6,
@@ -261,8 +267,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // ── Blog tag pages (priority 0.5) ─────────────────────────────────────
-  const blogTagPages: MetadataRoute.Sitemap = getUniqueTags().map((tag) => ({
-    url: `${baseUrl}/blog/tag/${tagToSlug(tag)}`,
+  const blogTagSlugs = Array.from(
+    new Set(getArticleSummaryTags().map(blogTagToSlug)),
+  );
+  const blogTagPages: MetadataRoute.Sitemap = blogTagSlugs.map((slug) => ({
+    url: `${baseUrl}/blog/tag/${slug}`,
     lastModified: latestArticleDate,
     changeFrequency: "weekly",
     priority: 0.5,
@@ -290,13 +299,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const fallacyPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/fallacies`,
-      lastModified: CONTENT_LAST_UPDATED,
+      lastModified: contentLastUpdated,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     ...getAllFallacySlugs().map((slug) => ({
       url: `${baseUrl}/fallacies/${slug}`,
-      lastModified: CONTENT_LAST_UPDATED,
+      lastModified: contentLastUpdated,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
@@ -306,7 +315,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const topicCategoryPages: MetadataRoute.Sitemap = CATEGORY_ORDER.map(
     (cat) => ({
       url: `${baseUrl}/topics/category/${cat}`,
-      lastModified: CONTENT_LAST_UPDATED,
+      lastModified: contentLastUpdated,
       changeFrequency: "weekly" as const,
       priority: 0.7,
     }),
@@ -320,7 +329,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ).filter(Boolean);
   const topicTagPages: MetadataRoute.Sitemap = topicTagSlugs.map((slug) => ({
     url: `${baseUrl}/topics/tag/${slug}`,
-    lastModified: CONTENT_LAST_UPDATED,
+    lastModified: contentLastUpdated,
     changeFrequency: "weekly" as const,
     priority: 0.6,
   }));

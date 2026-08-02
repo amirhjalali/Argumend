@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const estateInheritanceTaxData = {
   id: "estate-inheritance-tax",
   title: "The Estate Tax",

@@ -8,17 +8,19 @@
 
 import { TOPIC_COUNT } from "@/data/topicIndex";
 import { TopicCategorySchema, TopicStatusSchema } from "@/lib/schemas/topic";
-import { apiJson, corsPreflight, SITE_URL } from "./_shared/http";
+import { apiJson, corsPreflight, methodNotAllowed, SITE_URL } from "./_shared/http";
+import { ApiIndexResponseSchema } from "./_schemas";
 
 export const revalidate = 86400;
 
 export function GET() {
-  return apiJson({
+  const response = ApiIndexResponseSchema.parse({
     name: "Argumend Public API",
     version: "1",
     description:
-      "Read-only access to Argumend's analyzed debate topics — positions, evidence, cruxes, and confidence scores. Free, no API key, CORS-enabled.",
-    documentation: `${SITE_URL}/about`,
+      "Read-only access to Argumend's analyzed debate topics — positions, evidence, cruxes, evidence balance, weight, and verdicts. Free, no API key, CORS-enabled.",
+    documentation: `${SITE_URL}/api/v1`,
+    website: `${SITE_URL}/about`,
     topic_count: TOPIC_COUNT,
     base_url: `${SITE_URL}/api/v1`,
     endpoints: [
@@ -41,11 +43,23 @@ export function GET() {
         example: `${SITE_URL}/api/v1/topics/nuclear-energy-safety`,
       },
     ],
+    error_contract: {
+      status: 400,
+      shape: "{ error, code, issues? }",
+      cache_control: "no-store",
+    },
     license:
       "Topic content is provided for non-commercial and editorial use; please attribute argumend.org.",
   });
+
+  return apiJson(response);
 }
 
 export function OPTIONS() {
   return corsPreflight();
 }
+
+export const POST = methodNotAllowed;
+export const PUT = methodNotAllowed;
+export const PATCH = methodNotAllowed;
+export const DELETE = methodNotAllowed;

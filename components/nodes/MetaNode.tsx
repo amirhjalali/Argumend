@@ -21,6 +21,8 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
 
   return (
     <div
+      role="group"
+      aria-labelledby={`node-title-${id}`}
       className="relative w-[360px] md:w-[420px] rounded-xl border border-stone-200/80 dark:border-[var(--border-default)] border-t-2 border-t-deep dark:border-t-deep-light bg-[#fefcf9] dark:bg-[var(--bg-card)] shadow-[0_2px_6px_rgba(120,100,80,0.1)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.4)] transition-shadow duration-200 hover:shadow-[0_6px_20px_rgba(120,100,80,0.14)] dark:hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] node-enter"
     >
 
@@ -30,6 +32,8 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
         id="bottom"
         className="logic-handle"
         isConnectable={false}
+        aria-hidden="true"
+        tabIndex={-1}
       />
       <Handle
         type="source"
@@ -37,6 +41,8 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
         id="right"
         className="logic-handle"
         isConnectable={false}
+        aria-hidden="true"
+        tabIndex={-1}
       />
 
       {data.imageUrl && (
@@ -61,7 +67,7 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
               Meta Claim
             </p>
           </div>
-          <h2 className="text-xl font-serif font-normal leading-snug text-primary dark:text-[var(--text-primary)] tracking-tight">
+          <h2 id={`node-title-${id}`} className="text-xl font-serif font-normal leading-snug text-primary dark:text-[var(--text-primary)] tracking-tight">
             {data.title}
           </h2>
         </div>
@@ -106,7 +112,8 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
             <button
               className="flex items-center gap-1.5 rounded-md bg-deep px-4 py-2 text-sm font-medium text-white hover:bg-deep-dark transition-colors"
               onClick={() => (expanded ? collapseNode(id) : expandNode(id))}
-              aria-expanded={expanded}
+              aria-expanded={Boolean(expanded)}
+              aria-label={`${expanded ? "Collapse" : "Expand"} ${data.title}`}
             >
               {expanded ? "Collapse" : "Explore"}
               <ChevronRight className={`h-3.5 w-3.5 transition-transform ${expanded ? "rotate-90" : ""}`} />

@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
-import { topics, getCrossCategoryRelated, CATEGORY_LABELS } from "@/data/topics";
+import { notFound, redirect } from "next/navigation";
+import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
+import { loadTopicById } from "@/data/topicLoader";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { JsonLd } from "@/components/JsonLd";
 import TopicPageClient from "./TopicPageClient";
+import { buildTopicOgUrl } from "@/lib/og";
+import {
+  CONTENT_FIRST_PUBLISHED,
+  CONTENT_LAST_UPDATED,
+} from "@/lib/site";
 
 // ---------------------------------------------------------------------------
 // Static Generation
 // ---------------------------------------------------------------------------
 
 export function generateStaticParams() {
-  return topics.map((topic) => ({ id: topic.id }));
+  return topicSummaries.map((topic) => ({ id: topic.id }));
 }
 
 // ---------------------------------------------------------------------------
@@ -26,18 +32,18 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const topic = topics.find((t) => t.id === id);
+  const topic = topicSummaries.find((t) => t.id === id);
 
   if (!topic) {
     return { title: "Topic Not Found" };
   }
 
-  const description = `${topic.meta_claim} — ${topic.verdict.label}. Explore ${topic.pillars.length} argument pillars with steel-manned positions, weighted evidence, and crux questions.`;
+  const description = `${topic.meta_claim} — ${topic.verdict.label}. Explore ${topic.pillarCount} argument pillars with steel-manned positions, weighted evidence, and crux questions.`;
   const categoryLabel = CATEGORY_LABELS[topic.category];
   const media = getGeneratedMedia("topic", topic.id);
   const socialImage = media?.hero
     ? absoluteMediaUrl(media.hero.src)
-    : `https://argumend.org/api/og/${topic.id}`;
+    : buildTopicOgUrl(topic.id);
 
   return {
     title: `${topic.title} — Argument Analysis`,
@@ -84,10 +90,10 @@ export async function generateMetadata({
 
 export default async function TopicPage({ params, searchParams }: PageProps) {
   const { id } = await params;
-  const topic = topics.find((t) => t.id === id);
+  const topic = await loadTopicById(id);
 
   if (!topic) {
-    return <TopicPageClient topic={null} relatedTopics={[]} crossCategoryTopics={[]} />;
+    notFound();
   }
 
   const view = (await searchParams)?.view;
@@ -100,19 +106,11 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
   const media = getGeneratedMedia("topic", topic.id);
   const socialImage = media?.hero
     ? absoluteMediaUrl(media.hero.src)
-    : `https://argumend.org/api/og/${topic.id}`;
-
-  // Resolve related topics SERVER-SIDE and pass as props, so the client bundle
-  // doesn't import the full ~150-topic `data/topics` module (TopicDetailView
-  // only needs these few objects). Mirrors the read view's summary approach.
-  const relatedTopics = topics
-    .filter((t) => t.category === topic.category && t.id !== topic.id)
-    .slice(0, 4);
-  const crossCategoryTopics = getCrossCategoryRelated(topic.id, topic.category, 4);
+    : buildTopicOgUrl(topic.id);
 
   // Honest dates: published constant, modified from topic.last_updated if present.
-  const datePublished = "2025-01-01";
-  const dateModified = topic.last_updated ?? "2026-06-15";
+  const datePublished = CONTENT_FIRST_PUBLISHED;
+  const dateModified = topic.last_updated ?? CONTENT_LAST_UPDATED;
 
   // Extractable primary-source citations for AI answer engines (AEO).
   // Surfaces the verified evidence URLs as schema.org `citation` so crawlers and
@@ -170,11 +168,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           } as unknown as Record<string, unknown>}
         />
       ) : null}
-      <TopicPageClient
-        topic={topic}
-        relatedTopics={relatedTopics}
-        crossCategoryTopics={crossCategoryTopics}
-      />
+      <TopicPageClient topic={topic} />
     </>
   );
 }

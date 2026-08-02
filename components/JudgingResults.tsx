@@ -9,12 +9,11 @@ import {
   Users,
   BarChart3,
 } from "lucide-react";
-import { useState } from "react";
+import { useId, useState } from "react";
 import type { JudgingResult, JudgeVerdict, RubricDimension } from "@/lib/judge/rubric";
 import { DEFAULT_RUBRIC } from "@/lib/judge/rubric";
-import { getConfidenceInfo } from "@/lib/analyze/extractor";
+import { getConfidenceInfo } from "@/lib/analyze/scoring";
 import { getLLMOption, LLMIconRenderer } from "./icons/LLMIcons";
-import type { LLMModel } from "@/types/logic";
 import { ShareVerdictCard } from "@/components/ShareVerdictCard";
 
 interface JudgingResultsProps {
@@ -22,10 +21,19 @@ interface JudgingResultsProps {
   rubric?: RubricDimension[];
   topicTitle?: string;
   topicId?: string;
+  mode?: "live" | "programmatic";
 }
 
-function WinnerBanner({ result }: { result: JudgingResult }) {
+function WinnerBanner({
+  result,
+  mode,
+}: {
+  result: JudgingResult;
+  mode: "live" | "programmatic";
+}) {
   const { winner, hasConsensus } = result;
+  const agreeingCount = result.verdicts.filter((verdict) => verdict.winner === winner).length;
+  const unanimous = result.verdicts.length > 0 && agreeingCount === result.verdicts.length;
 
   const bannerStyles = {
     for: "from-rust-500 to-rust-600",
@@ -58,12 +66,14 @@ function WinnerBanner({ result }: { result: JudgingResult }) {
               {hasConsensus ? (
                 <span className="flex items-center gap-1.5">
                   <Users className="h-3.5 w-3.5" />
-                  Unanimous consensus from all judges
+                  {unanimous
+                    ? `Unanimous agreement from all ${mode === "live" ? "judges" : "evaluators"}`
+                    : `${agreeingCount} of ${result.verdicts.length} ${mode === "live" ? "judges" : "evaluators"} agree`}
                 </span>
               ) : (
                 <span className="flex items-center gap-1.5">
                   <AlertTriangle className="h-3.5 w-3.5" />
-                  Split decision - judges disagreed
+                  Split decision - {mode === "live" ? "judges" : "evaluators"} disagreed
                 </span>
               )}
             </p>
@@ -109,10 +119,14 @@ function ScoreBar({
   return (
     <div className="space-y-1.5" role="group" aria-label={`${label}: For ${forScore.toFixed(1)}, Against ${againstScore.toFixed(1)}`}>
       <div className="flex justify-between text-xs">
-        <span className="text-stone-600 font-medium">{label}</span>
+        <span className="text-stone-600 dark:text-stone-300 font-medium">{label}</span>
         <span className="text-muted dark:text-stone-400">{Math.round(weight * 100)}% weight</span>
       </div>
-      <div className="flex h-3 md:h-4 rounded-full overflow-hidden bg-stone-100" role="meter" aria-label={`${label} comparison`} aria-valuemin={0} aria-valuemax={maxScore}>
+      <div
+        className="flex h-3 md:h-4 rounded-full overflow-hidden bg-stone-100 dark:bg-stone-800"
+        role="img"
+        aria-label={`${label}: For ${forScore.toFixed(1)} out of ${maxScore}; Against ${againstScore.toFixed(1)} out of ${maxScore}`}
+      >
         {/* FOR side (left) */}
         <div className="flex-1 flex justify-end">
           <motion.div
@@ -136,13 +150,19 @@ function ScoreBar({
       </div>
       <div className="flex justify-between text-xs font-mono">
         <span className="text-rust-600 font-semibold" aria-label={`For score: ${forScore.toFixed(1)}`}>{forScore.toFixed(1)}</span>
-        <span className="text-stone-600 font-semibold" aria-label={`Against score: ${againstScore.toFixed(1)}`}>{againstScore.toFixed(1)}</span>
+        <span className="text-stone-600 dark:text-stone-300 font-semibold" aria-label={`Against score: ${againstScore.toFixed(1)}`}>{againstScore.toFixed(1)}</span>
       </div>
     </div>
   );
 }
 
-function VerdictConfidenceSummary({ result }: { result: JudgingResult }) {
+function VerdictConfidenceSummary({
+  result,
+  mode,
+}: {
+  result: JudgingResult;
+  mode: "live" | "programmatic";
+}) {
   // Average confidence across all judges for each side
   const avgForConf = result.verdicts.length > 0
     ? result.verdicts.reduce((sum, v) => sum + v.forScore.confidence, 0) / result.verdicts.length
@@ -156,6 +176,10 @@ function VerdictConfidenceSummary({ result }: { result: JudgingResult }) {
   // Score difference for verdict strength
   const scoreDiff = Math.abs(result.aggregatedScores.for.average - result.aggregatedScores.against.average);
   const verdictStrength = scoreDiff >= 2 ? "Decisive" : scoreDiff >= 0.8 ? "Close" : "Very Close";
+  const agreeingCount = result.verdicts.filter(
+    (verdict) => verdict.winner === result.winner
+  ).length;
+  const unanimous = result.verdicts.length > 0 && agreeingCount === result.verdicts.length;
 
   return (
     <motion.div
@@ -171,17 +195,23 @@ function VerdictConfidenceSummary({ result }: { result: JudgingResult }) {
           <p className="text-[10px] text-stone-500">{scoreDiff.toFixed(1)} point margin</p>
         </div>
         <div className="space-y-1">
-          <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Judge Confidence</p>
+          <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">
+            {mode === "live" ? "Judge" : "Evaluator"} Confidence
+          </p>
           <p className="text-lg font-serif font-bold text-primary dark:text-stone-200">{Math.round(overallConf * 100)}%</p>
           <p className="text-[10px] text-stone-500">{confInfo.label}</p>
         </div>
         <div className="space-y-1">
           <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Agreement</p>
           <p className="text-lg font-serif font-bold text-primary dark:text-stone-200">
-            {result.hasConsensus ? "Unanimous" : `${result.verdicts.filter(v => v.winner === result.winner).length}/${result.verdicts.length}`}
+            {unanimous ? "Unanimous" : `${agreeingCount}/${result.verdicts.length}`}
           </p>
           <p className="text-[10px] text-stone-500">
-            {result.hasConsensus ? "All judges agree" : "Split decision"}
+            {unanimous
+              ? `All ${mode === "live" ? "judges" : "evaluators"} agree`
+              : result.hasConsensus
+                ? "Majority agreement"
+                : "Split decision"}
           </p>
         </div>
       </div>
@@ -231,11 +261,14 @@ function DimensionBreakdown({
 function JudgeCard({
   verdict,
   index,
+  mode,
 }: {
   verdict: JudgeVerdict;
   index: number;
+  mode: "live" | "programmatic";
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const detailsId = useId();
   const llmOption = getLLMOption(verdict.model);
 
   const winnerLabel = verdict.winner === "for"
@@ -245,12 +278,13 @@ function JudgeCard({
     : "Draw";
 
   const avgConf = (verdict.forScore.confidence + verdict.againstScore.confidence) / 2;
+  const displayName = mode === "live" ? verdict.judgeName : `Programmatic evaluator ${index + 1}`;
 
   const winnerColor = verdict.winner === "for"
-    ? "text-rust-600 bg-rust-50"
+    ? "text-rust-600 dark:text-rust-300 bg-rust-50 dark:bg-rust-500/15"
     : verdict.winner === "against"
-    ? "text-stone-600 bg-stone-100"
-    : "text-stone-600 bg-stone-100";
+    ? "text-stone-600 dark:text-stone-200 bg-stone-100 dark:bg-stone-700"
+    : "text-stone-600 dark:text-stone-200 bg-stone-100 dark:bg-stone-700";
 
   return (
     <motion.div
@@ -261,29 +295,36 @@ function JudgeCard({
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-4 md:p-5 text-left hover:bg-stone-50/50 transition-colors"
+        className="w-full p-4 md:p-5 text-left hover:bg-stone-50/50 dark:hover:bg-[var(--bg-overlay)] transition-colors"
         aria-expanded={isExpanded}
-        aria-label={`${verdict.judgeName} verdict: ${winnerLabel} — ${isExpanded ? "collapse" : "expand"} details`}
+        aria-controls={detailsId}
+        aria-label={`${displayName} verdict: ${winnerLabel} — ${isExpanded ? "collapse" : "expand"} details`}
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 md:gap-4">
           <div className="flex items-center gap-2 md:gap-3">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ backgroundColor: llmOption?.bgLight }}
+              style={{ backgroundColor: mode === "live" ? llmOption?.bgLight : "#f5f5f4" }}
             >
-              <LLMIconRenderer
-                modelId={verdict.model}
-                className="h-5 w-5"
-                style={{ color: llmOption?.color }}
-              />
+              {mode === "live" ? (
+                <LLMIconRenderer
+                  modelId={verdict.model}
+                  className="h-5 w-5"
+                  style={{ color: llmOption?.color }}
+                />
+              ) : (
+                <Gavel className="h-5 w-5 text-stone-500" aria-hidden="true" />
+              )}
             </div>
             <div>
-              <h4 className="font-semibold text-primary dark:text-stone-200">{verdict.judgeName}</h4>
-              <p className="text-xs text-stone-500">{llmOption?.fullName}</p>
+              <h4 className="font-semibold text-primary dark:text-stone-200">{displayName}</h4>
+              <p className="text-xs text-stone-500 dark:text-stone-400">
+                {mode === "live" ? llmOption?.fullName : "Rule-based rubric"}
+              </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 md:gap-4">
+          <div className="flex w-full sm:w-auto items-center justify-between gap-2 md:gap-4">
             <div className={`px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-medium ${winnerColor}`}>
               {winnerLabel}
             </div>
@@ -301,7 +342,7 @@ function JudgeCard({
               </div>
               <div className="text-center">
                 <div className="text-xs text-muted dark:text-stone-400 truncate">AGAINST</div>
-                <div className="font-mono font-semibold text-stone-600">
+                <div className="font-mono font-semibold text-stone-600 dark:text-stone-300">
                   {verdict.againstScore.totalScore.toFixed(1)}
                 </div>
               </div>
@@ -318,43 +359,44 @@ function JudgeCard({
 
       {isExpanded && (
         <motion.div
+          id={detailsId}
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="px-4 md:px-5 pb-4 md:pb-5 border-t border-stone-100"
+          className="px-4 md:px-5 pb-4 md:pb-5 border-t border-stone-100 dark:border-[var(--border-subtle)]"
         >
           <div className="pt-4 space-y-4">
             {/* Overall Reasoning */}
             <div className="surface-paper p-4">
-              <h5 className="text-sm font-medium text-stone-700 mb-2">Overall Assessment</h5>
-              <p className="text-sm text-stone-600 leading-relaxed">
+              <h5 className="text-sm font-medium text-stone-700 dark:text-stone-200 mb-2">Overall Assessment</h5>
+              <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                 {verdict.overallReasoning}
               </p>
             </div>
 
             {/* For Side Summary */}
             <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1 p-3 md:p-4 bg-rust-50/50 rounded-lg border border-rust-100">
-                <h5 className="text-sm font-medium text-rust-800 mb-2 flex items-center gap-2">
+              <div className="flex-1 p-3 md:p-4 bg-rust-50/50 dark:bg-rust-500/10 rounded-lg border border-rust-100 dark:border-rust-500/30">
+                <h5 className="text-sm font-medium text-rust-800 dark:text-rust-300 mb-2 flex flex-wrap items-center gap-2">
                   <span className="text-xs md:text-sm truncate">FOR Side</span>
-                  <span className="text-xs bg-rust-100 text-rust-700 px-2 py-0.5 rounded-full">
+                  <span className="text-xs bg-rust-100 dark:bg-rust-500/20 text-rust-700 dark:text-rust-300 px-2 py-0.5 rounded-full">
                     Confidence: {Math.round(verdict.forScore.confidence * 100)}%
                   </span>
                 </h5>
-                <p className="text-sm text-rust-900/80 leading-relaxed">
+                <p className="text-sm text-rust-900/80 dark:text-rust-200/90 leading-relaxed">
                   {verdict.forScore.summary}
                 </p>
               </div>
 
-              <div className="flex-1 p-3 md:p-4 bg-stone-50 rounded-lg border border-stone-200">
-                <h5 className="text-sm font-medium text-stone-700 mb-2 flex items-center gap-2">
+              <div className="flex-1 p-3 md:p-4 bg-stone-50 dark:bg-stone-800/60 rounded-lg border border-stone-200 dark:border-stone-700">
+                <h5 className="text-sm font-medium text-stone-700 dark:text-stone-200 mb-2 flex flex-wrap items-center gap-2">
                   <span className="text-xs md:text-sm truncate">AGAINST Side</span>
-                  <span className="text-xs bg-stone-200 text-stone-600 px-2 py-0.5 rounded-full">
+                  <span className="text-xs bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-200 px-2 py-0.5 rounded-full">
                     Confidence: {Math.round(verdict.againstScore.confidence * 100)}%
                   </span>
                 </h5>
-                <p className="text-sm text-stone-600 leading-relaxed">
+                <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                   {verdict.againstScore.summary}
                 </p>
               </div>
@@ -362,7 +404,7 @@ function JudgeCard({
 
             {/* Dimension Details */}
             <details className="group">
-              <summary className="cursor-pointer text-sm text-stone-500 hover:text-stone-700 transition-colors">
+              <summary className="cursor-pointer text-sm text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 transition-colors">
                 View dimension-by-dimension scores
               </summary>
               <div className="mt-3 space-y-3">
@@ -371,17 +413,17 @@ function JudgeCard({
                     (d) => d.dimensionId === dim.dimensionId
                   );
                   return (
-                    <div key={dim.dimensionId} className="text-sm border-l-2 border-stone-200 pl-3">
+                    <div key={dim.dimensionId} className="text-sm border-l-2 border-stone-200 dark:border-stone-700 pl-3">
                       <div className="flex justify-between items-center mb-1">
-                        <span className="font-medium text-stone-700 capitalize">
+                        <span className="font-medium text-stone-700 dark:text-stone-200 capitalize">
                           {dim.dimensionId.replace(/-/g, " ")}
                         </span>
                         <div className="flex gap-2 md:gap-4 text-xs font-mono">
                           <span className="text-rust-600 truncate">FOR: {dim.score}</span>
-                          <span className="text-stone-600 truncate">AGAINST: {againstDim?.score ?? "—"}</span>
+                          <span className="text-stone-600 dark:text-stone-300 truncate">AGAINST: {againstDim?.score ?? "—"}</span>
                         </div>
                       </div>
-                      <p className="text-xs text-stone-500 line-clamp-2">{dim.reasoning}</p>
+                      <p className="text-xs text-stone-500 dark:text-stone-400 line-clamp-2">{dim.reasoning}</p>
                     </div>
                   );
                 })}
@@ -432,26 +474,34 @@ function DisagreementWarnings({ disagreements }: { disagreements: JudgingResult[
   );
 }
 
-export function JudgingResults({ result, rubric = DEFAULT_RUBRIC, topicTitle, topicId }: JudgingResultsProps) {
+export function JudgingResults({
+  result,
+  rubric = DEFAULT_RUBRIC,
+  topicTitle,
+  topicId,
+  mode = "live",
+}: JudgingResultsProps) {
   return (
     <div className="space-y-6" id="verdict">
       {/* Section divider with horizontal rule */}
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2 flex-shrink-0">
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="flex min-w-0 items-center gap-2">
           <Gavel className="h-4 w-4 text-deep" />
-          <h2 className="text-lg font-serif font-semibold text-primary dark:text-stone-200">Judge Council Verdict</h2>
+          <h2 className="text-lg font-serif font-semibold text-primary dark:text-stone-200">
+            {mode === "live" ? "Judge Council Verdict" : "Programmatic Rubric Verdict"}
+          </h2>
         </div>
-        <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />
+        <div className="hidden sm:block flex-1 h-px bg-gradient-to-r from-stone-200/80 dark:from-stone-700/80 to-transparent" />
         <span className="text-xs text-muted dark:text-stone-400 flex-shrink-0">
-          {result.verdicts.length} judges
+          {result.verdicts.length} {mode === "live" ? "judges" : "evaluators"}
         </span>
       </div>
 
       {/* Winner Banner */}
-      <WinnerBanner result={result} />
+      <WinnerBanner result={result} mode={mode} />
 
       {/* Verdict Confidence Summary */}
-      <VerdictConfidenceSummary result={result} />
+      <VerdictConfidenceSummary result={result} mode={mode} />
 
       {/* Share Verdict */}
       {topicTitle && topicId && (
@@ -460,6 +510,7 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC, topicTitle, to
             result={result}
             topicTitle={topicTitle}
             topicId={topicId}
+            mode={mode}
           />
         </div>
       )}
@@ -472,10 +523,10 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC, topicTitle, to
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-rust-50 border border-rust-200 rounded-xl p-4 flex items-center gap-3"
+          className="bg-rust-50 dark:bg-rust-500/10 border border-rust-200 dark:border-rust-500/30 rounded-xl p-4 flex items-center gap-3"
         >
           <AlertTriangle className="h-5 w-5 text-rust-600" />
-          <p className="text-sm text-rust-800">
+          <p className="text-sm text-rust-800 dark:text-rust-300">
             <span className="font-medium">Flagged for manual review:</span> This debate had significant
             disagreements among judges or other factors that warrant human review.
           </p>
@@ -490,12 +541,19 @@ export function JudgingResults({ result, rubric = DEFAULT_RUBRIC, topicTitle, to
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 flex-shrink-0">
             <Users className="h-4 w-4 text-deep" />
-            <h3 className="font-serif font-semibold text-primary dark:text-stone-200">Individual Judge Verdicts</h3>
+            <h3 className="font-serif font-semibold text-primary dark:text-stone-200">
+              Individual {mode === "live" ? "Judge" : "Evaluator"} Verdicts
+            </h3>
           </div>
           <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />
         </div>
         {result.verdicts.map((verdict, index) => (
-          <JudgeCard key={verdict.judgeId} verdict={verdict} index={index} />
+          <JudgeCard
+            key={verdict.judgeId}
+            verdict={verdict}
+            index={index}
+            mode={mode}
+          />
         ))}
       </div>
     </div>

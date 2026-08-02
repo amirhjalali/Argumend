@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const electoralCollegeReformData = {
   id: "electoral-college-reform",
   title: "Electoral College Reform",

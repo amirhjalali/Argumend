@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const aiConsciousnessData = {
   id: "consciousness-ai-systems",
   title: "Consciousness in AI Systems",

@@ -55,15 +55,15 @@ export const concepts: Concept[] = [
   },
   {
     id: "confidence-calibration",
-    title: "Confidence Calibration",
+    title: "Balance & Weight Calibration",
     description:
-      "Confidence calibration is the process of ensuring that stated confidence levels correspond to actual probabilities. When Argumend reports 90% confidence, it should mean that claims rated at 90% are correct roughly 90% of the time. This is harder than it sounds -- humans and AI models alike tend to be overconfident, stating high certainty even when the evidence is mixed.\n\nArgumend's confidence score is computed from the balance of evidence rather than any single model's opinion. The formula is transparent: confidence = forScore / (forScore + againstScore + 1) x 100. This produces a score that rises only when supporting evidence outweighs opposing evidence, and the +1 in the denominator introduces a mild bias toward uncertainty, ensuring that perfect confidence requires overwhelming evidence.\n\nThe resulting scores map to three broad categories. Scores above 90% indicate settled questions where there is scientific consensus or overwhelming evidence. Scores between 50% and 80% represent probable conclusions with good evidence but remaining uncertainty. Scores below 50% mark genuinely contested questions where reasonable, informed people disagree. Reporting uncertainty honestly is not a weakness -- it's a feature. Pretending to know more than we do is how bad decisions get made.",
+      "A single percentage cannot tell whether evidence strongly favors one side or whether there is enough good evidence to be confident in any direction. Argumend therefore reports two separate measurements rather than treating a directional score as a probability.\n\nBalance shows which way the weighted evidence tips: balance = forStrength / (forStrength + againstStrength) x 100. A score of 50 is even; values above 50 favor the claim, and values below 50 favor the counterclaim. Balance is not the probability that a claim is true. Weight shows how much we currently know. It combines evidential mass, average source quality, and how resolvable the topic's cruxes are.\n\nThe verdict uses both axes. High weight plus a strong lean can be settled; high weight near 50 is well-mapped but genuinely contested; medium weight supports a cautious lean; and low weight remains an open question regardless of apparent direction. Keeping direction and evidential strength separate prevents a thin one-sided record from masquerading as certainty.",
     keyPoints: [
-      "Confidence = forScore / (forScore + againstScore + 1) x 100",
-      "90%+ means settled with overwhelming evidence or scientific consensus",
-      "50-80% means probable with good evidence but some genuine uncertainty",
-      "Below 50% means genuinely contested -- reasonable people disagree",
-      "The formula's +1 bias means perfect confidence requires truly overwhelming evidence",
+      "Balance = forStrength / (forStrength + againstStrength) x 100; 50 is even",
+      "Balance shows direction, not the probability that a claim is true",
+      "Weight combines evidential mass, source quality, and crux resolvability",
+      "A verdict is derived from both balance and weight",
+      "Low-weight questions remain open even when the available evidence leans strongly",
     ],
     relatedConcepts: ["evidence-weighting", "cruxes", "fallacies"],
     topicExamples: ["ai-risk", "free-will", "cryptocurrency-value"],

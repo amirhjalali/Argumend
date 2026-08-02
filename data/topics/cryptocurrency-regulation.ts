@@ -430,9 +430,9 @@ export const cryptocurrencyRegulationData = {
         },
         {
           id: "gensler-vs-atkins-sec-approach",
-          title: "SEC Leadership Change from Gensler to Atkins Signals Regulatory Shift",
+          title: "Post-Gensler SEC Shifted from Enforcement Toward Rulemaking",
           description:
-            "SEC Chair Gary Gensler (2021-2025) pursued an aggressive enforcement approach, filing over 100 crypto-related actions and asserting that nearly all crypto tokens are securities. His successor, Paul Atkins (sworn in April 2025), adopted a dramatically different approach: engaging with the crypto industry on rulemaking, establishing a dedicated crypto task force, and dismissing major pending enforcement actions including the cases against Coinbase (February 2025) and Binance (May 2025). This leadership change demonstrates that US crypto regulation is driven more by the ideology of individual regulators than by clear legal frameworks — supporting the argument that bespoke legislation is needed to create durable, consistent rules that survive changes in SEC leadership.",
+            "SEC Chair Gary Gensler (2021-2025) pursued an aggressive enforcement approach to crypto. After he left office, Acting Chair Mark Uyeda established a Crypto Task Force focused on developing a clearer regulatory framework, and the Commission dismissed its Coinbase enforcement action in February 2025 while explicitly citing that policy work. Chair Paul Atkins, sworn in that April, continued the task-force roundtables. The sharp change in institutional approach across leadership transitions supports the argument that bespoke legislation is needed to create durable rules.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -440,10 +440,10 @@ export const cryptocurrencyRegulationData = {
             replicability: 8,
             directness: 7,
           },
-          source: "SEC; Reuters; Wall Street Journal",
-          sourceUrl: "https://www.sec.gov/about/commissioners/paul-atkins",
+          source: "SEC, Coinbase dismissal release (February 27, 2025)",
+          sourceUrl: "https://www.sec.gov/newsroom/press-releases/2025-47",
           reasoning:
-            "The regulatory whiplash between Gensler and Atkins is well-documented and directly demonstrates the instability of enforcement-based regulation. However, the evidence is recent and Atkins' actual regulatory approach is still evolving. The contrast effectively illustrates why legislation — which survives leadership changes — is preferable to enforcement discretion.",
+            "The SEC release directly documents the Coinbase dismissal, the Crypto Task Force, and the Commission's stated move away from expressing crypto policy primarily through enforcement. The broader durability claim remains an inference, and the new approach's long-term results are still developing.",
         },
       ],
     },

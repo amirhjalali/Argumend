@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const alcoholNoSafeLevelData = {
   id: "alcohol-no-safe-level",
   title: "Alcohol's Safe Level",

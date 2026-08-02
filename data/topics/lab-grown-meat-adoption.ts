@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const labGrownMeatData = {
   id: "lab-grown-meat-adoption",
   title: "Lab-Grown Meat Adoption",

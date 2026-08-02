@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const universalBasicIncomeData = {
   id: "universal-basic-income",
   title: "Universal Basic Income",

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { topics, CATEGORY_LABELS } from "@/data/topics";
+import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { Verdict } from "@/lib/schemas/topic";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { COMPARISON_PAIRS } from "./comparisonPairs";
 import CompareIndexView from "./CompareIndexView";
 import { TOPIC_COUNT_LABEL as L } from "@/data/topicIndex";
+import { COMPARE_INDEX_SOCIAL_IMAGE } from "./_config";
 
 // ---------------------------------------------------------------------------
 // Metadata
@@ -32,12 +33,22 @@ export const metadata: Metadata = {
     description:
       "Compare controversial debates side by side. See the balance and weight of evidence and argument pillars for two topics at once.",
     url: "https://argumend.org/topics/compare",
+    siteName: "ARGUMEND",
+    images: [
+      {
+        url: COMPARE_INDEX_SOCIAL_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Compare Topics Side by Side — Argumend",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Compare Topics Side by Side — Argumend",
     description:
       "Pick any two controversial topics and compare the balance and weight of evidence and argument pillars.",
+    images: [COMPARE_INDEX_SOCIAL_IMAGE],
   },
 };
 
@@ -47,8 +58,8 @@ export const metadata: Metadata = {
 
 function buildFeaturedPairs() {
   return COMPARISON_PAIRS.map(([id1, id2]) => {
-    const t1 = topics.find((t) => t.id === id1);
-    const t2 = topics.find((t) => t.id === id2);
+    const t1 = topicSummaries.find((t) => t.id === id1);
+    const t2 = topicSummaries.find((t) => t.id === id2);
     if (!t1 || !t2) return null;
     return {
       id1,
@@ -61,8 +72,6 @@ function buildFeaturedPairs() {
       balance2: t2.balance,
       weight2: t2.weight,
       verdict2: t2.verdict,
-      status1: t1.status,
-      status2: t2.status,
       category1: t1.category,
       category2: t2.category,
       categoryLabel1: CATEGORY_LABELS[t1.category],
@@ -79,8 +88,6 @@ function buildFeaturedPairs() {
     balance2: number;
     weight2: number;
     verdict2: Verdict;
-    status1: string;
-    status2: string;
     category1: string;
     category2: string;
     categoryLabel1: string;
@@ -93,7 +100,7 @@ function buildFeaturedPairs() {
 // ---------------------------------------------------------------------------
 
 function buildTopicList() {
-  return topics.map((t) => ({
+  return topicSummaries.map((t) => ({
     id: t.id,
     title: t.title,
     balance: t.balance,

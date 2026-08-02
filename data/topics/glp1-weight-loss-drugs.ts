@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const glp1WeightLossDrugsData = {
   id: "glp1-weight-loss-drugs",
   title: "GLP-1 Weight Loss Drugs",

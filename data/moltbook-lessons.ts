@@ -213,5 +213,7 @@ export const moltbookPosts: MoltbookPost[] = [
   },
 ];
 
-// Re-export from centralized agent definition
-export { CRUXTACEAN_PROFILE as cruxtaceanProfile } from "@/lib/agents";
+// Import the profile from its pure definition rather than the `lib/agents`
+// barrel, which also exports provider execution code and would pull an LLM SDK
+// into the client bundle for the lessons page.
+export { CRUXTACEAN_PROFILE as cruxtaceanProfile } from "@/lib/agents/cruxtacean";

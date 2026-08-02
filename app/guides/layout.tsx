@@ -1,4 +1,10 @@
 import { Metadata } from "next";
+import { buildGenericOgUrl } from "@/lib/og";
+
+const SOCIAL_IMAGE = buildGenericOgUrl({
+  title: "Critical Thinking Guides",
+  subtitle: "Foundations for evaluating any argument",
+});
 
 export const metadata: Metadata = {
   title: "Guides — Critical Thinking & Argument Analysis",
@@ -20,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "ARGUMEND",
     images: [
       {
-        url: `https://argumend.org/api/og?title=${encodeURIComponent("Critical Thinking Guides")}&subtitle=${encodeURIComponent("Foundations for evaluating any argument")}`,
+        url: SOCIAL_IMAGE,
         width: 1200,
         height: 630,
         alt: "Critical Thinking Guides on Argumend",
@@ -32,7 +38,7 @@ export const metadata: Metadata = {
     title: "Critical Thinking Guides | Argumend",
     description:
       "Free guides on source evaluation, bias recognition, evidence weighting, and structured reasoning.",
-    images: [`https://argumend.org/api/og?title=${encodeURIComponent("Critical Thinking Guides")}&subtitle=${encodeURIComponent("Foundations for evaluating any argument")}`],
+    images: [SOCIAL_IMAGE],
   },
   alternates: {
     canonical: "https://argumend.org/guides",

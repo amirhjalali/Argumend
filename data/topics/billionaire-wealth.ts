@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const billionaireWealthData = {
   id: "billionaire-wealth",
   title: "Should Billionaires Exist?",

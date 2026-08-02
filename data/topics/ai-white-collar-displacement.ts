@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const aiWhiteCollarDisplacementData = {
   id: "ai-white-collar-displacement",
   title: "AI White-Collar Job Displacement",

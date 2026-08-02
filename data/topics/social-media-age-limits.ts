@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const socialMediaAgeLimitsData = {
   id: "social-media-age-limits",
   title: "Social Media Age Limits",

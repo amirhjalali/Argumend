@@ -72,14 +72,16 @@ export const tiktokBrainRotData = {
           id: "attention-context-dependent",
           title: "Attention Is Context-Dependent, Not a Fixed Trait",
           description:
-            "Cognitive psychology research consistently shows that attention varies by task motivation, reward structure, and context. People who scroll TikTok for hours demonstrate sustained engagement — what changes is the threshold for voluntary attention allocation to low-stimulation tasks.",
+            "Controlled visual-attention experiments find that monetary incentives can improve detection sensitivity and alter activity in attention-related brain regions, demonstrating that measured attention varies with motivation and task context. That undercuts treating a single 'attention span' as a fixed personal capacity, but it does not show whether habitual short-video use changes willingness to engage with low-stimulation tasks.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 8,
-            replicability: 9,
+            replicability: 7,
             directness: 6,
           },
+          source: "Engelmann et al., Frontiers in Human Neuroscience (2009)",
+          sourceUrl: "https://doi.org/10.3389/neuro.09.004.2009",
           reasoning:
             "Well-established cognitive science, but doesn't address whether habitual high-stimulation consumption raises the threshold for engaging with lower-stimulation material.",
         },
@@ -133,13 +135,13 @@ export const tiktokBrainRotData = {
             "Short-form video algorithms deliver unpredictable reward — some videos are highly engaging, others are not — creating variable-ratio reinforcement schedules known to produce the most persistent behavioral patterns in operant conditioning research.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 5,
             independence: 6,
-            replicability: 8,
+            replicability: 5,
             directness: 5,
           },
           source:
-            "Variable-ratio reinforcement (operant conditioning, Ferster & Skinner) applied to algorithmic feeds",
+            "Synthesis / inference — variable-ratio reinforcement theory applied to algorithmic feeds",
           reasoning:
             "Variable-ratio reinforcement is well-established in behavioral psychology, and applying it to algorithmic feeds is logically sound — but this is a conceptual/mechanistic argument, not a measured finding from a specific short-video study. A previously listed 'Montag et al., Addictive Behaviors (2022)' citation for this item could not be verified and was removed; no specific empirical source is asserted here.",
         },

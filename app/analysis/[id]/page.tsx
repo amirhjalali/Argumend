@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { getAnalysis } from "@/lib/db/queries";
-import { getDb } from "@/lib/db";
+import { getDb, isDatabaseConfigured } from "@/lib/db";
 import { judgments } from "@/lib/db/schema";
 import { JsonLd } from "@/components/JsonLd";
 import { AnalysisView } from "./AnalysisView";
+import { buildGenericOgUrl } from "@/lib/og";
+import { isAnalysisId } from "@/lib/analysisId";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -17,6 +19,18 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
+  if (!isAnalysisId(id)) {
+    return {
+      title: "Analysis Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+  if (!isDatabaseConfigured()) {
+    return {
+      title: "Analysis Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
   const analysis = await getAnalysis(id);
 
   if (!analysis) {
@@ -44,7 +58,7 @@ export async function generateMetadata({
       url: `/analysis/${id}`,
       images: [
         {
-          url: `https://argumend.org/api/og?title=${encodeURIComponent(analysis.topic)}&subtitle=${encodeURIComponent("Argument Analysis")}`,
+          url: buildGenericOgUrl({ title: analysis.topic, subtitle: "Argument Analysis" }),
           width: 1200,
           height: 630,
           alt: analysis.topic,
@@ -55,7 +69,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${analysis.topic} - ARGUMEND`,
       description,
-      images: [`https://argumend.org/api/og?title=${encodeURIComponent(analysis.topic)}&subtitle=${encodeURIComponent("Argument Analysis")}`],
+      images: [buildGenericOgUrl({ title: analysis.topic, subtitle: "Argument Analysis" })],
     },
   };
 }
@@ -66,9 +80,11 @@ export default async function AnalysisPage({ params }: PageProps) {
   const { id } = await params;
 
   // Validate UUID
-  const uuidRegex =
-    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-  if (!uuidRegex.test(id)) {
+  if (!isAnalysisId(id)) {
+    notFound();
+  }
+
+  if (!isDatabaseConfigured()) {
     notFound();
   }
 

@@ -55,6 +55,8 @@ export interface NavItem {
   highlight?: boolean;
   /** Opt out of Next.js prefetch for heavier/auth-gated routes. */
   noPrefetch?: boolean;
+  /** Only expose this destination when account-backed features are enabled. */
+  requiresAuth?: boolean;
 }
 
 /** A NavItem that is guaranteed to carry an icon (primary/learn groups). */
@@ -70,7 +72,7 @@ export interface NavItemWithIcon extends NavItem {
 export const navItems: NavItem[] = [
   // --- Primary (sidebar main list) ---
   { label: "Home", href: "/", icon: Compass, group: "primary" },
-  { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard, group: "primary", noPrefetch: true },
+  { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard, group: "primary", noPrefetch: true, requiresAuth: true },
   { label: "Analyze Text", href: "/analyze", icon: Brain, group: "primary", highlight: true },
   { label: "Recent Analyses", href: "/analyses", icon: History, group: "primary", noPrefetch: true },
   { label: "Saved", href: "/saved", icon: Bookmark, group: "primary", noPrefetch: true },
@@ -106,6 +108,10 @@ const byHref = new Map(navItems.map((item) => [item.href, item]));
 export const primaryNav = navItems.filter(
   (item): item is NavItemWithIcon => item.group === "primary",
 );
+
+export function getVisiblePrimaryNav(authEnabled: boolean): NavItemWithIcon[] {
+  return primaryNav.filter((item) => authEnabled || !item.requiresAuth);
+}
 
 /** Sidebar "Learn & Explore" section (icon-bearing). */
 export const learnNav = navItems.filter(

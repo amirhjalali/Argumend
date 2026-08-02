@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -8,16 +5,15 @@ import {
   ExternalLink,
   MessageSquare,
   ArrowUp,
-  ChevronDown,
-  ChevronUp,
   Quote,
 } from "lucide-react";
 import {
   featuredExchanges,
   moltbookPosts,
   cruxtaceanProfile,
-  type MoltbookExchange
+  type MoltbookExchange,
 } from "@/data/moltbook-lessons";
+import { ExchangeCard } from "./ExchangeCard";
 
 function CrabIcon({ className }: { className?: string }) {
   return (
@@ -51,110 +47,79 @@ function CrabIcon({ className }: { className?: string }) {
   );
 }
 
-function ExchangeCard({ exchange }: { exchange: MoltbookExchange }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+function ExchangeDetails({ exchange }: { exchange: MoltbookExchange }) {
   return (
-    <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-[#e8e0d4] dark:border-[#3d3a36] overflow-hidden hover:shadow-md transition-all duration-200">
-      {/* Header */}
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        aria-expanded={isExpanded}
-        className="w-full p-5 text-left hover:bg-[#faf8f5] dark:hover:bg-[#302e2a] transition-colors"
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-medium text-deep bg-[#4f7b77]/10 px-2 py-0.5 rounded-full">
-                {exchange.topic}
-              </span>
-            </div>
-            <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-1">
-              {exchange.insight}
-            </h3>
-            <p className="text-sm text-secondary dark:text-stone-400 line-clamp-2">
-              {exchange.lesson}
-            </p>
-          </div>
-          <div className="flex-shrink-0 p-2 rounded-lg bg-[#f5f1ea] dark:bg-[#302e2a] border border-[#e8e0d4] dark:border-[#3d3a36]">
-            {isExpanded ? (
-              <ChevronUp className="h-4 w-4 text-secondary dark:text-stone-400" />
-            ) : (
-              <ChevronDown className="h-4 w-4 text-secondary dark:text-stone-400" />
-            )}
-          </div>
-        </div>
-      </button>
-
-      {/* Expanded Content */}
-      {isExpanded && (
-        <div className="border-t border-[#e8e0d4] dark:border-[#3d3a36]">
-          {/* The Exchange */}
-          <div className="p-5 space-y-4">
-            {exchange.exchanges.map((msg, idx) => (
-              <div
-                key={idx}
-                className={`flex gap-3 ${msg.isResponse ? "pl-6" : ""}`}
-              >
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+    <>
+      {/* The Exchange */}
+      <div className="p-5 space-y-4">
+        {exchange.exchanges.map((msg, idx) => (
+          <div
+            key={idx}
+            className={`flex gap-3 ${msg.isResponse ? "pl-6" : ""}`}
+          >
+            <div
+              className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                   msg.isResponse
                     ? "bg-gradient-to-br from-[#4f7b77] to-[#3d6360] text-white"
                     : "bg-[#f5f1ea] dark:bg-[#302e2a] text-secondary dark:text-stone-400 border border-[#e8e0d4] dark:border-[#3d3a36]"
-                }`}>
-                  {msg.isResponse ? (
-                    <CrabIcon className="h-4 w-4" />
-                  ) : (
-                    <span className="text-xs font-medium">{msg.agent[0]}</span>
-                  )}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className={`text-sm font-medium ${
-                      msg.isResponse ? "text-deep" : "text-primary dark:text-stone-200"
-                    }`}>
-                      {msg.agent}
-                    </span>
-                    {msg.karma && (
-                      <span className="text-xs text-[#a39686]">
-                        {msg.karma} karma
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-primary dark:text-stone-200 text-sm leading-relaxed whitespace-pre-line">
-                    {msg.message}
-                  </p>
-                </div>
+                }`}
+            >
+              {msg.isResponse ? (
+                <CrabIcon className="h-4 w-4" />
+              ) : (
+                <span className="text-xs font-medium">{msg.agent[0]}</span>
+              )}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1">
+                <span
+                  className={`text-sm font-medium ${
+                    msg.isResponse
+                      ? "text-deep"
+                      : "text-primary dark:text-stone-200"
+                  }`}
+                >
+                  {msg.agent}
+                </span>
+                {msg.karma && (
+                  <span className="text-xs text-[#a39686]">
+                    {msg.karma} karma
+                  </span>
+                )}
               </div>
-            ))}
-          </div>
-
-          {/* Lesson Box */}
-          <div className="mx-5 mb-5 p-4 bg-gradient-to-br from-[#faf8f5] to-[#f5f1ea] dark:from-[#302e2a] dark:to-[#252420] rounded-lg border border-[#e8e0d4] dark:border-[#3d3a36]">
-            <div className="flex items-start gap-3">
-              <Quote className="h-4 w-4 text-rust-500 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-xs font-medium text-rust-500 mb-1">Key Lesson</p>
-                <p className="text-sm text-primary dark:text-stone-200 leading-relaxed">
-                  {exchange.lesson}
-                </p>
-              </div>
+              <p className="text-primary dark:text-stone-200 text-sm leading-relaxed whitespace-pre-line">
+                {msg.message}
+              </p>
             </div>
           </div>
+        ))}
+      </div>
 
-          {/* Tags */}
-          <div className="px-5 pb-5 flex flex-wrap gap-2">
-            {exchange.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs text-secondary dark:text-stone-400 bg-[#f5f1ea] dark:bg-[#302e2a] px-2 py-1 rounded-md"
-              >
-                #{tag}
-              </span>
-            ))}
+      {/* Lesson Box */}
+      <div className="mx-5 mb-5 p-4 bg-gradient-to-br from-[#faf8f5] to-[#f5f1ea] dark:from-[#302e2a] dark:to-[#252420] rounded-lg border border-[#e8e0d4] dark:border-[#3d3a36]">
+        <div className="flex items-start gap-3">
+          <Quote aria-hidden="true" className="h-4 w-4 text-rust-500 flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="text-xs font-medium text-rust-500 mb-1">Key Lesson</p>
+            <p className="text-sm text-primary dark:text-stone-200 leading-relaxed">
+              {exchange.lesson}
+            </p>
           </div>
         </div>
-      )}
-    </div>
+      </div>
+
+      {/* Tags */}
+      <div className="px-5 pb-5 flex flex-wrap gap-2">
+        {exchange.tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-xs text-secondary dark:text-stone-400 bg-[#f5f1ea] dark:bg-[#302e2a] px-2 py-1 rounded-md"
+          >
+            #{tag}
+          </span>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -252,7 +217,14 @@ export default function LessonsFromTheDeepPage() {
           <p className="text-lg text-secondary dark:text-stone-400 mb-8">The most valuable conversations that shaped our thinking.</p>
           <div className="space-y-4">
             {featuredExchanges.map((exchange) => (
-              <ExchangeCard key={exchange.id} exchange={exchange} />
+              <ExchangeCard
+                key={exchange.id}
+                topic={exchange.topic}
+                insight={exchange.insight}
+                lesson={exchange.lesson}
+              >
+                <ExchangeDetails exchange={exchange} />
+              </ExchangeCard>
             ))}
           </div>
         </section>

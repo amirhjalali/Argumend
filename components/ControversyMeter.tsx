@@ -122,7 +122,7 @@ export function ControversyMeter({ balance, weight, verdict, status }: Controver
               ?
             </button>
           </div>
-          <span className="text-sm font-medium text-primary">{displayLabel}</span>
+          <span className="text-sm font-medium text-primary dark:text-stone-200">{displayLabel}</span>
         </div>
 
         {/* Bar */}
@@ -162,7 +162,7 @@ export function ControversyMeter({ balance, weight, verdict, status }: Controver
         {/* Tooltip */}
         {showTooltip && (
           <div className="absolute z-20 top-full left-1/2 -translate-x-1/2 mt-2 w-72 sm:w-80 p-4 rounded-lg bg-white dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-default)] shadow-lw text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-            <p className="font-medium text-primary mb-1">{displayLabel}</p>
+            <p className="font-medium text-primary dark:text-stone-200 mb-1">{displayLabel}</p>
             <p>{config.description}</p>
             <p className="mt-2 text-xs text-muted dark:text-stone-400">
               Based on the balance of evidence ({balance}/100 — which way it tips) and its

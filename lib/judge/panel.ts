@@ -26,6 +26,7 @@ import {
   type JudgingResult,
   type RubricDimension,
 } from "./rubric";
+import { determineConsensusWinner } from "./consensus";
 
 // ---------------------------------------------------------------------------
 // Judge Personas
@@ -510,27 +511,6 @@ function findDisagreements(
   return disagreements;
 }
 
-function consensus(verdicts: JudgeVerdict[]): {
-  winner: "for" | "against" | "draw" | null;
-  hasConsensus: boolean;
-} {
-  if (verdicts.length === 0) return { winner: null, hasConsensus: false };
-
-  const counts = { for: 0, against: 0, draw: 0 };
-  for (const v of verdicts) counts[v.winner] += 1;
-
-  const hasConsensus =
-    counts.for === verdicts.length ||
-    counts.against === verdicts.length ||
-    counts.draw === verdicts.length;
-  const majority = Math.ceil(verdicts.length / 2);
-
-  if (counts.for >= majority) return { winner: "for", hasConsensus };
-  if (counts.against >= majority) return { winner: "against", hasConsensus };
-  if (counts.draw >= majority) return { winner: "draw", hasConsensus };
-  return { winner: null, hasConsensus: false };
-}
-
 // ---------------------------------------------------------------------------
 // Public API
 // ---------------------------------------------------------------------------
@@ -558,7 +538,7 @@ export function judgeWithClaudePanel(
 
   const aggregated = aggregateScores(verdicts, rubric);
   const disagreements = findDisagreements(verdicts, rubric);
-  const consensusResult = consensus(verdicts);
+  const consensusResult = determineConsensusWinner(verdicts);
 
   let winner = consensusResult.winner;
   if (!winner) {

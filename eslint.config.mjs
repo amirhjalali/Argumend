@@ -9,6 +9,7 @@ export default tseslint.config(
       ".next/**",
       "out/**",
       "build/**",
+      "coverage/**",
       "drizzle/**",
       "next-env.d.ts",
       ".work/**",

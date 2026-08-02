@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const affirmativeActionMeritocracyData = {
   id: "affirmative-action-meritocracy",
   title: "Affirmative Action & Meritocracy",

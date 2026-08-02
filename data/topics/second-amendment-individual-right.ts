@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const secondAmendmentIndividualRightData = {
   id: "second-amendment-individual-right",
   title: "The Second Amendment: Individual Right?",

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Scale, ExternalLink, ChevronDown } from "lucide-react";
 import { useState, useMemo } from "react";
 import { useLogicGraph, getLoadedTopics } from "@/hooks/useLogicGraph";
-import type { Evidence, EvidenceWeight, Topic, Pillar, Verdict } from "@/types/logic";
+import type { Evidence, Topic, Verdict } from "@/types/logic";
 import { calculateEvidenceScore } from "@/types/logic";
 import { QUADRANT_STYLE } from "@/components/BalanceWeightChip";
 
@@ -274,7 +274,7 @@ function VerdictDisplay({ balance, weight, verdict, forWeight, againstWeight }: 
       <div className="text-center space-y-4">
         {/* Verdict Label */}
         <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-500 mb-2">
+          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-stone-500 dark:text-stone-400">
             The Verdict
           </div>
           <div className="font-serif text-2xl font-bold" style={{ color: s.color }}>
@@ -284,7 +284,7 @@ function VerdictDisplay({ balance, weight, verdict, forWeight, againstWeight }: 
 
         {/* Visual Weight Bar */}
         <div className="max-w-md mx-auto">
-          <div className="h-3 rounded-full bg-stone-200 overflow-hidden shadow-inner flex">
+          <div className="flex h-3 overflow-hidden rounded-full bg-stone-200 shadow-inner dark:bg-stone-700">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${forPercent}%` }}
@@ -306,21 +306,21 @@ function VerdictDisplay({ balance, weight, verdict, forWeight, againstWeight }: 
             <div className="w-3 h-3 rounded-full bg-gradient-to-br from-deep to-deep-dark" />
             <span className="font-mono">
               <span className="text-deep font-bold text-lg">{forWeight}</span>
-              <span className="text-stone-500 ml-1">FOR</span>
+              <span className="ml-1 text-stone-500 dark:text-stone-400">FOR</span>
             </span>
           </div>
 
-          <div className="w-px h-6 bg-stone-300" />
+          <div className="h-6 w-px bg-stone-300 dark:bg-stone-600" />
 
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-gradient-to-br from-stone-400 to-stone-500" />
             <span className="font-mono">
-              <span className="text-stone-600 font-bold text-lg">{againstWeight}</span>
-              <span className="text-stone-500 ml-1">AGAINST</span>
+              <span className="text-lg font-bold text-stone-600 dark:text-stone-300">{againstWeight}</span>
+              <span className="ml-1 text-stone-500 dark:text-stone-400">AGAINST</span>
             </span>
           </div>
 
-          <div className="w-px h-6 bg-stone-300" />
+          <div className="h-6 w-px bg-stone-300 dark:bg-stone-600" />
 
           <div
             className="px-3 py-1 rounded-full text-white font-mono font-bold"
@@ -344,7 +344,7 @@ function generateEvidenceFromTopic(topic: Topic): Evidence[] {
   }
 
   // Otherwise, generate from pillars
-  topic.pillars.forEach((pillar, pillarIndex) => {
+  topic.pillars.forEach((pillar) => {
     // Use explicit pillar evidence if available
     if (pillar.evidence && pillar.evidence.length > 0) {
       evidence.push(...pillar.evidence);

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const ukrainePeaceTermsData = {
   id: "ukraine-peace-terms",
   title: "How the Russia-Ukraine War Should End",

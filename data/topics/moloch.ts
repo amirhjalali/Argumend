@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const molochData = {
   id: "moloch",
   title: "Meditations on Moloch",
@@ -95,6 +93,7 @@ export const molochData = {
             directness: 6,
           },
           source: "Folk Theorem of repeated games (Friedman 1971 and later)",
+          sourceUrl: "https://doi.org/10.2307/2296617",
           reasoning:
             "A genuine formal counterweight; its bite depends entirely on whether real interactions have the long horizons it requires.",
         },
@@ -151,6 +150,8 @@ export const molochData = {
             directness: 7,
           },
           source: "Collapse of the Atlantic northwest cod fishery (1992 moratorium)",
+          sourceUrl:
+            "https://www.dfo-mpo.gc.ca/fisheries-peches/ifmp-gmp/cod-morue/2020/cod-atl-morue-2020-eng.html",
           reasoning:
             "A well-documented real-world race to the bottom in an ungoverned commons; a clean instance of the pattern.",
         },
@@ -167,6 +168,8 @@ export const molochData = {
             directness: 6,
           },
           source: "Attention-economy critiques (e.g. Wu, The Attention Merchants, 2016)",
+          sourceUrl:
+            "https://www.penguinrandomhouse.com/books/234876/the-attention-merchants-by-tim-wu/",
           reasoning:
             "Illustrative and widely observed, but hard to quantify cleanly; scored as a suggestive rather than decisive case.",
         },
@@ -240,6 +243,7 @@ export const molochData = {
             directness: 6,
           },
           source: "Hanson, The Age of Em, Oxford University Press (2016)",
+          sourceUrl: "https://academic.oup.com/book/40608",
           reasoning:
             "A rigorously argued but avowedly speculative scenario; low replicability by nature, scored accordingly.",
         },
@@ -256,6 +260,7 @@ export const molochData = {
             directness: 6,
           },
           source: "AI race-dynamics arguments (Bostrom, Superintelligence, 2014)",
+          sourceUrl: "https://nickbostrom.com/superintelligence",
           reasoning:
             "Theoretically compelling and central to the essay's stakes, but the empirical direction of safety spending is not yet resolved.",
         },
@@ -272,6 +277,8 @@ export const molochData = {
             directness: 7,
           },
           source: "Sustained post-1800 growth and the demographic transition",
+          sourceUrl:
+            "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2023?lang=en",
           reasoning:
             "Strong, broadly accepted economic history that directly contradicts the 'technology always feeds Moloch' generalization.",
         },
@@ -311,6 +318,7 @@ export const molochData = {
             directness: 7,
           },
           source: "Bostrom, 'What is a Singleton?' (2006); Superintelligence (2014)",
+          sourceUrl: "https://nickbostrom.com/fut/singleton",
           reasoning:
             "Directly articulates the mechanism the pillar rests on, but it is philosophical analysis of a hypothetical, not evidence that such an entity is achievable or safe.",
         },
@@ -327,6 +335,7 @@ export const molochData = {
             directness: 6,
           },
           source: "Value lock-in / singleton-risk arguments (Bostrom)",
+          sourceUrl: "https://nickbostrom.com/fut/singleton",
           reasoning:
             "A serious internal objection: the proposed cure carries a failure mode at least as bad as the disease, undercutting 'only a singleton' as a desirable solution.",
         },
@@ -343,6 +352,8 @@ export const molochData = {
             directness: 7,
           },
           source: "Ostrom, polycentric-governance work (e.g. 2010 Nobel lecture)",
+          sourceUrl:
+            "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/",
           reasoning:
             "Empirically grounded challenge to the necessity claim; its unresolved question is whether polycentric order survives indefinitely against strong competitive pressure.",
         },
@@ -416,6 +427,7 @@ export const molochData = {
             directness: 6,
           },
           source: "Nuclear Non-Proliferation Treaty (1968); START treaties",
+          sourceUrl: "https://legal.un.org/avl/ha/tnpt/tnpt.html",
           reasoning:
             "A real reversal of a race to the bottom, tempered by the fact that the underlying rivalry and breakout risk never fully disappeared.",
         },
@@ -432,6 +444,7 @@ export const molochData = {
             directness: 5,
           },
           source: "Pinker, The Better Angels of Our Nature, Viking (2011)",
+          sourceUrl: "https://stevenpinker.com/publications/better-angels-our-nature",
           reasoning:
             "Suggestive and large in scope, but the thesis is contested on measurement and attribution, so it is weighted modestly.",
         },
@@ -448,6 +461,7 @@ export const molochData = {
             directness: 6,
           },
           source: "Record of international climate agreements (Kyoto, Paris) vs. emissions",
+          sourceUrl: "https://www.unep.org/resources/emissions-gap-report",
           reasoning:
             "A pointed rebuttal to the optimistic pillar: it shows cooperation tracks payoff structure, which is the Moloch thesis rather than its refutation.",
         },

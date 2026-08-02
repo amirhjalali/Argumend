@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const openBordersData = {
   id: "open-borders",
   title: "The Case for Open Borders",

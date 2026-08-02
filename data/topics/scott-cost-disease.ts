@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const scottCostDiseaseData = {
   id: "scott-cost-disease",
   title: "The Cost Disease",
@@ -79,6 +77,8 @@ export const scottCostDiseaseData = {
             directness: 9,
           },
           source: "Helland & Tabarrok, Mercatus Center (2019)",
+          sourceUrl:
+            "https://www.mercatus.org/research/books/why-are-prices-so-damn-high",
           reasoning:
             "Careful, data-driven, and directly on the decomposition question — but authored by advocates of the Baumol reading.",
         },
@@ -95,6 +95,8 @@ export const scottCostDiseaseData = {
             directness: 7,
           },
           source: "Baumol, Yale University Press (2012)",
+          sourceUrl:
+            "https://yalebooks.yale.edu/book/9780300188486/the-cost-disease/",
           reasoning: "Foundational theory, widely reproduced; less direct on U.S. magnitudes.",
         },
         {
@@ -104,11 +106,12 @@ export const scottCostDiseaseData = {
             "Personal services like haircuts and restaurant meals are just as labor-bound as teaching, yet their real prices grew only modestly — implying Baumol alone can't explain the outliers.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 5,
             independence: 7,
-            replicability: 6,
-            directness: 7,
+            replicability: 5,
+            directness: 5,
           },
+          source: "Synthesis / inference — cross-sector price comparison, not a single study",
           reasoning:
             "A clean logical counterexample, though quantifying it precisely is harder than stating it.",
         },
@@ -116,7 +119,7 @@ export const scottCostDiseaseData = {
           id: "flat-output",
           title: "Flat output breaks the pure-Baumol story",
           description:
-            "NAEP long-term-trend scores for 17-year-olds are essentially flat since the 1970s while real per-pupil spending roughly doubled — Baumol predicts higher prices, not stagnant results.",
+            "NAEP long-term-trend scores for 17-year-olds are essentially flat since the 1970s while real per-pupil spending rose dramatically — Baumol predicts higher prices, not stagnant results.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -125,6 +128,7 @@ export const scottCostDiseaseData = {
             directness: 6,
           },
           source: "NAEP Long-Term Trend Assessment",
+          sourceUrl: "https://nces.ed.gov/pubs/web/96344han.asp",
           reasoning:
             "Strong, well-measured — but speaks to quantity/quality, not directly to the price mechanism.",
         },
@@ -181,6 +185,7 @@ export const scottCostDiseaseData = {
             directness: 7,
           },
           source: "Ginsberg, Oxford University Press (2011)",
+          sourceUrl: "https://academic.oup.com/book/40915",
           reasoning:
             "Well-documented staffing trend; attributing causation to cost is the softer step.",
         },
@@ -196,6 +201,7 @@ export const scottCostDiseaseData = {
             replicability: 4,
             directness: 6,
           },
+          source: "Synthesis / inference — qualitative steelman of administrative output",
           reasoning:
             "A fair steelman, but hard to size; much of the U.S.–Canada gap survives it.",
         },
@@ -253,6 +259,9 @@ export const scottCostDiseaseData = {
             replicability: 5,
             directness: 6,
           },
+          source: "RAND Health Insurance Experiment",
+          sourceUrl:
+            "https://www.rand.org/content/dam/rand/pubs/research_briefs/2006/RAND_RB9174.pdf",
           reasoning: "Widely accepted mechanism; harder to cleanly quantify than the loan case.",
         },
         {
@@ -267,6 +276,9 @@ export const scottCostDiseaseData = {
             replicability: 6,
             directness: 7,
           },
+          source:
+            "National Center for Education Statistics, 'Why We Worry About Education'",
+          sourceUrl: "https://nces.ed.gov/pubs/web/96344han.asp",
           reasoning: "A genuine limit on the hypothesis's scope.",
         },
       ],
@@ -322,6 +334,7 @@ export const scottCostDiseaseData = {
             directness: 8,
           },
           source: "Brooks & Liscow, American Economic Journal: Applied Economics (2023)",
+          sourceUrl: "https://www.aeaweb.org/articles?id=10.1257%2Fapp.20200398",
           reasoning:
             "Peer-reviewed, well-identified, directly on rising physical-build cost over time.",
         },
@@ -337,6 +350,9 @@ export const scottCostDiseaseData = {
             replicability: 6,
             directness: 6,
           },
+          source: "Transit Costs Project Final Report, NYU Marron Institute (2023)",
+          sourceUrl:
+            "https://transitcosts.com/transit-costs-study-final-report/",
           reasoning: "A real caveat that trims, but does not close, the measured gap.",
         },
       ],
@@ -369,11 +385,12 @@ export const scottCostDiseaseData = {
             "Statins, antiretrovirals, minimally invasive surgery, and modern oncology deliver outcomes unavailable at any price in 1960 — real quality gains that raw price indices ignore.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 5,
             independence: 7,
-            replicability: 6,
-            directness: 6,
+            replicability: 5,
+            directness: 5,
           },
+          source: "Synthesis / inference — broad historical quality adjustment across treatments",
           reasoning:
             "Clearly true for health care; the question is how much of the cost it justifies.",
         },
@@ -381,7 +398,7 @@ export const scottCostDiseaseData = {
           id: "naep-flat",
           title: "Schooling outputs are flat",
           description:
-            "NAEP long-term-trend scores for 17-year-olds barely moved since the 1970s while real per-pupil spending roughly doubled — leaving no quality gain to absorb the extra cost.",
+            "NAEP long-term-trend scores for 17-year-olds barely moved since the 1970s while real per-pupil spending rose dramatically — leaving no measured achievement gain to absorb the extra cost.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -390,6 +407,7 @@ export const scottCostDiseaseData = {
             directness: 7,
           },
           source: "NAEP Long-Term Trend Assessment",
+          sourceUrl: "https://nces.ed.gov/pubs/web/96344han.asp",
           reasoning:
             "Strong, hard-to-dismiss evidence that at least one sector's disease is real, not measured.",
         },
@@ -406,6 +424,8 @@ export const scottCostDiseaseData = {
             directness: 6,
           },
           source: "CDC / National Vital Statistics",
+          sourceUrl:
+            "https://www.cdc.gov/nchs/data/hestat/life-expectancy/lifeexpectancy-H.pdf",
           reasoning:
             "Directly undercuts the 'we're buying more health' defense in the flagship sector.",
         },

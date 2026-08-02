@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const aiContentLabelingData = {
   id: "ai-content-labeling",
   title: "Mandatory AI Content Labeling",

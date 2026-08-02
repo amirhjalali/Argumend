@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const dogeFederalCutsData = {
   id: "doge-federal-cuts",
   title: "DOGE & Federal Spending Cuts",

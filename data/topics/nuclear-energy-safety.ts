@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const nuclearEnergySafetyData = {
   id: "nuclear-energy-safety",
   title: "Nuclear Energy for Climate",

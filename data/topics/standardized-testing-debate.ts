@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const standardizedTestingDebateData = {
   id: "standardized-testing-debate",
   title: "Standardized Testing Value",

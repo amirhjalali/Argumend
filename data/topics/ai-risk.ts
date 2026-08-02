@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const aiRiskData = {
   id: "ai-risk",
   title: "Existential Risk from AGI",
@@ -388,7 +386,7 @@ export const aiRiskData = {
             directness: 4,
           },
           source:
-            "Diffuse optimistic position; no single canonical source. Contested by the differential-progress concern in alignment research.",
+            "Synthesis / inference — diffuse optimistic position with no canonical empirical source",
           reasoning:
             "An a priori tractability argument with no empirical backing or canonical source. Reliability and replicability lowered substantially; deliberately left without a sourceUrl rather than fabricating one.",
         },

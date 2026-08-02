@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const foreignAidEffectivenessData = {
   id: "foreign-aid-effectiveness",
   title: "Does Foreign Aid Work?",

@@ -225,7 +225,7 @@ export const fluorideWaterSuppliesData = {
             directness: 8,
           },
           source: "Australian NHMRC; York Centre for Reviews; CDC",
-          sourceUrl: "https://www.nhmrc.gov.au/about-us/publications/water-fluoridation-and-human-health-australia",
+          sourceUrl: "https://www.nhmrc.gov.au/about-us/publications/water-fluoridation-dental-and-other-human-health-outcomes",
           reasoning:
             "Multiple independent national reviews across different countries reaching similar safety conclusions is strong evidence. High replicability because the finding is consistent across studies. However, these reviews largely predate the most recent NTP report and neurodevelopmental studies, and population-level surveillance may not detect subtle cognitive effects. The absence of evidence for harm at 0.7 mg/L is meaningful but not the same as evidence of absence.",
         },

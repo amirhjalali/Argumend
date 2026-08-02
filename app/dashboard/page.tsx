@@ -47,6 +47,10 @@ const statusLabels: Record<TopicStatus, string> = {
 };
 
 export default async function DashboardPage() {
+  if (process.env.NEXT_PUBLIC_ENABLE_AUTH !== "true") {
+    redirect("/saved");
+  }
+
   const session = await auth();
 
   if (!session?.user?.id) {

@@ -175,9 +175,9 @@ export const globalHousingBubbleData = {
             directness: 4,
           },
           source:
-            "OECD analysis of housing supply responsiveness (interpretive; no single primary statistic)",
+            "OECD, Urban housing (supply constraints overview; interpretive)",
           sourceUrl:
-            "https://www.oecd.org/en/topics/sub-issues/housing-policy.html",
+            "https://www.oecd.org/en/topics/sub-issues/urban-housing.html",
           reasoning:
             "Supply constraints are real and documented, but this item is an interpretation rather than a verified figure, and such constraints also existed before previous corrections, so weights are kept low.",
         },
@@ -268,7 +268,7 @@ export const globalHousingBubbleData = {
           source:
             "NAR, International Transactions in U.S. Residential Real Estate (2024)",
           sourceUrl:
-            "https://www.nar.realtor/newsroom/annual-foreign-investment-in-u-s-existing-homes-sales-decreased-21-2-to-42-billion",
+            "https://www.nar.realtor/sites/default/files/documents/2024-international-transactions-in-us-residential-real-estate-report-07-17-2024.pdf",
           reasoning:
             "If foreign buying has already fallen sharply yet prices remain high, foreign capital is unlikely to be the primary driver. NAR's figures are US-focused, so the global generalization is partly extrapolated.",
         },

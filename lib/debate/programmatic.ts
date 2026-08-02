@@ -131,11 +131,15 @@ export function generateProgrammaticDebateTurn(
 export function chunkForSse(text: string, wordsPerChunk = 3): string[] {
   const words = text.split(/\s+/).filter(Boolean);
   if (words.length === 0) return [""];
+  const safeWordsPerChunk =
+    Number.isFinite(wordsPerChunk) && wordsPerChunk >= 1
+      ? Math.floor(wordsPerChunk)
+      : 3;
 
   const chunks: string[] = [];
-  for (let i = 0; i < words.length; i += wordsPerChunk) {
-    const part = words.slice(i, i + wordsPerChunk).join(" ");
-    chunks.push(i + wordsPerChunk < words.length ? `${part} ` : part);
+  for (let i = 0; i < words.length; i += safeWordsPerChunk) {
+    const part = words.slice(i, i + safeWordsPerChunk).join(" ");
+    chunks.push(i + safeWordsPerChunk < words.length ? `${part} ` : part);
   }
   return chunks;
 }

@@ -1,45 +1,74 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { CollectionPagination } from "@/components/CollectionPagination";
 import {
-  articles,
-  getUniqueTags,
-  tagToSlug,
-} from "@/data/blog";
+  articleSummaries,
+  getArticleSummaryTags,
+  blogTagToSlug,
+} from "@/data/blogIndex";
 
 import { formatLongDate } from "@/lib/formatDate";
+import { buildGenericOgUrl } from "@/lib/og";
+import {
+  buildPageHref,
+  paginate,
+  parsePageParam,
+} from "@/lib/collectionPagination";
+import { getTagsForSlug, TAG_PAGE_SIZE } from "./_config";
 
 // ---------------------------------------------------------------------------
 // Static params
 // ---------------------------------------------------------------------------
 export function generateStaticParams() {
-  return getUniqueTags().map((t) => ({
-    tag: tagToSlug(t),
+  return Array.from(new Set(getArticleSummaryTags().map(blogTagToSlug))).map((tag) => ({
+    tag,
   }));
 }
 
 // ---------------------------------------------------------------------------
 // Dynamic metadata
 // ---------------------------------------------------------------------------
-type PageProps = { params: Promise<{ tag: string }> };
+type PageProps = {
+  params: Promise<{ tag: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
 
 function findTagBySlug(slug: string): string | undefined {
-  return getUniqueTags().find((t) => tagToSlug(t) === slug);
+  return getTagsForSlug(slug)[0];
 }
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: PageProps): Promise<Metadata> {
   const { tag: tagSlug } = await params;
+  const page = parsePageParam((await searchParams)?.page);
   const tag = findTagBySlug(tagSlug);
-  if (!tag) return { title: "Tag Not Found" };
+  if (!tag) {
+    return {
+      title: "Tag Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
 
-  const title = `Articles tagged "${tag}"`;
+  const filteredCount = articleSummaries.filter((article) =>
+    article.tags.some((articleTag) => blogTagToSlug(articleTag) === tagSlug),
+  ).length;
+  const pageCount = Math.max(1, Math.ceil(filteredCount / TAG_PAGE_SIZE));
+  const title = page > 1
+    ? `Articles tagged "${tag}" — Page ${page} of ${pageCount}`
+    : `Articles tagged "${tag}"`;
   const description = `Browse all articles tagged "${tag}" on the Argumend Blog. Evidence-based analysis and structured reasoning.`;
+  const canonical = buildPageHref(
+    `https://argumend.org/blog/tag/${tagSlug}`,
+    page,
+  );
+  const socialImage = buildGenericOgUrl({ title, subtitle: "ARGUMEND Blog" });
 
   return {
     title,
@@ -48,45 +77,68 @@ export async function generateMetadata({
       title: `${title} | ARGUMEND Blog`,
       description,
       type: "website",
-      url: `https://argumend.org/blog/tag/${tagSlug}`,
+      url: canonical,
       siteName: "ARGUMEND",
+      images: [{ url: socialImage, width: 1200, height: 630, alt: title }],
     },
+    twitter: { card: "summary_large_image", title, description, images: [socialImage] },
     alternates: {
-      canonical: `https://argumend.org/blog/tag/${tagSlug}`,
+      canonical,
     },
+    pagination: {
+      previous: page > 1
+        ? buildPageHref(
+            `https://argumend.org/blog/tag/${tagSlug}`,
+            page - 1,
+          )
+        : null,
+      next: page < pageCount
+        ? buildPageHref(
+            `https://argumend.org/blog/tag/${tagSlug}`,
+            page + 1,
+          )
+        : null,
+    },
+    robots: page > pageCount ? { index: false, follow: true } : undefined,
   };
 }
 
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
-export default async function TagPage({ params }: PageProps) {
+export default async function TagPage({ params, searchParams }: PageProps) {
   const { tag: tagSlug } = await params;
   const tag = findTagBySlug(tagSlug);
 
   if (!tag) {
-    return (
-      <AppShell>
-        <div className="min-h-[100svh] flex items-center justify-center">
-          <p className="text-secondary dark:text-stone-400">Tag not found.</p>
-        </div>
-      </AppShell>
-    );
+    notFound();
   }
 
-  const filtered = articles
-    .filter((a) => a.tags.includes(tag))
+  const allFiltered = articleSummaries
+    .filter((article) =>
+      article.tags.some((articleTag) => blogTagToSlug(articleTag) === tagSlug),
+    )
     .sort(
       (a, b) =>
         new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
     );
+  const pagination = paginate(
+    allFiltered,
+    parsePageParam((await searchParams)?.page),
+    TAG_PAGE_SIZE,
+  );
+  if (pagination.isOutOfRange) notFound();
+  const filtered = pagination.items;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: `Articles tagged "${tag}"`,
     description: `All articles tagged "${tag}" on the Argumend Blog.`,
-    url: `https://argumend.org/blog/tag/${tagSlug}`,
+    url: buildPageHref(
+      `https://argumend.org/blog/tag/${tagSlug}`,
+      pagination.page,
+    ),
     isPartOf: {
       "@type": "Blog",
       name: "ARGUMEND Blog",
@@ -115,7 +167,7 @@ export default async function TagPage({ params }: PageProps) {
               &ldquo;{tag}&rdquo;
             </h1>
             <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
-              {filtered.length} article{filtered.length !== 1 ? "s" : ""}{" "}
+              {pagination.total} article{pagination.total !== 1 ? "s" : ""}{" "}
               tagged with &ldquo;{tag}&rdquo;.
             </p>
           </div>
@@ -163,7 +215,7 @@ export default async function TagPage({ params }: PageProps) {
                       <span
                         key={t}
                         className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] ${
-                          t === tag
+                          blogTagToSlug(t) === tagSlug
                             ? "bg-deep/10 text-deep font-medium"
                             : "bg-stone-100 dark:bg-[#302e2a] text-stone-500"
                         }`}
@@ -184,6 +236,17 @@ export default async function TagPage({ params }: PageProps) {
             ))}
           </div>
 
+          <p className="mt-8 text-center text-sm text-stone-500" role="status">
+            Showing {pagination.startIndex + 1}&ndash;{pagination.endIndex} of{" "}
+            {pagination.total} articles
+          </p>
+          <CollectionPagination
+            basePath={`/blog/tag/${tagSlug}`}
+            currentPage={pagination.page}
+            pageCount={pagination.pageCount}
+            label={`${tag} articles`}
+          />
+
           {/* Back to Blog */}
           <div className="mt-10 text-center">
             <Link
@@ -195,10 +258,6 @@ export default async function TagPage({ params }: PageProps) {
             </Link>
           </div>
 
-          {/* Newsletter Signup */}
-          <div className="mt-12">
-            <NewsletterSignup />
-          </div>
         </div>
       </div>
     </AppShell>

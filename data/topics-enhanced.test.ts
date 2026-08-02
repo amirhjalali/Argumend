@@ -20,7 +20,7 @@ describe("cross-category clusters", () => {
   });
 
   it("every cluster has exactly 4 related topic IDs", () => {
-    Object.entries(CROSS_CATEGORY_CLUSTERS).forEach(([key, related]) => {
+    Object.entries(CROSS_CATEGORY_CLUSTERS).forEach(([, related]) => {
       expect(related.length).toBe(4);
     });
   });
@@ -28,7 +28,7 @@ describe("cross-category clusters", () => {
   it("all related topic IDs in clusters exist in the topics array (except known gaps)", () => {
     // covid-origins is referenced but aliased as lab-leak-theory in the topics array
     const knownAliases = new Set(["covid-origins"]);
-    Object.entries(CROSS_CATEGORY_CLUSTERS).forEach(([key, related]) => {
+    Object.entries(CROSS_CATEGORY_CLUSTERS).forEach(([, related]) => {
       related.forEach((relatedId) => {
         if (!knownAliases.has(relatedId)) {
           expect(topicIds.has(relatedId)).toBe(true);

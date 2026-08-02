@@ -47,7 +47,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
   return (
     <div className="px-4 md:px-8 py-10 bg-stone-50/50 dark:bg-[#1a1917]/50">
       <div className="max-w-2xl mx-auto">
-        <h2 className="font-serif text-xl font-semibold text-primary mb-1">
+        <h2 className="font-serif text-xl font-semibold text-primary dark:text-stone-200 mb-1">
           Have your own argument?
         </h2>
         <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">
@@ -67,15 +67,17 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
 
           <div className="flex items-center justify-end mt-3 gap-2">
             <button
+              type="button"
               onClick={handleTryExample}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-deep hover:bg-deep/5 transition-all"
+              className="flex min-h-11 items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-deep hover:bg-deep/5 transition-all"
             >
               Try an Example
             </button>
             <button
+              type="button"
               onClick={handleAnalyze}
               disabled={!content.trim()}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-serif font-semibold text-sm transition-all duration-200 ${
+              className={`flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-serif font-semibold text-sm transition-all duration-200 ${
                 content.trim()
                   ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700"
                   : "bg-stone-100 dark:bg-[#302e2a] text-stone-400 cursor-not-allowed"

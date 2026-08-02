@@ -77,6 +77,66 @@ interface ConfidenceTimelineProps {
   topicTitle?: string;
 }
 
+interface ConfidenceTimelineTableProps {
+  events: TimelineEvent[];
+  topicTitle?: string;
+}
+
+/**
+ * Keyboard- and screen-reader-friendly equivalent of the visual SVG chart.
+ * Kept in a native details disclosure so the default view remains compact.
+ */
+export function ConfidenceTimelineTable({
+  events,
+  topicTitle,
+}: ConfidenceTimelineTableProps) {
+  const chronologicalEvents = [...events].sort((a, b) => a.year - b.year);
+
+  return (
+    <details className="group mt-3 overflow-hidden rounded-lg border border-stone-200/80 bg-white/40 dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]/40">
+      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-stone-700 transition-colors hover:bg-stone-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep dark:text-stone-300 dark:hover:bg-[#302e2a] [&::-webkit-details-marker]:hidden">
+        <span>View timeline data</span>
+        <span className="font-mono text-xs font-normal tabular-nums text-stone-500 dark:text-stone-400">
+          {chronologicalEvents.length} {chronologicalEvents.length === 1 ? "event" : "events"}
+        </span>
+      </summary>
+      <div className="overflow-x-auto border-t border-stone-200/80 dark:border-[var(--border-default)]">
+        <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
+          <caption className="sr-only">
+            Chronological confidence history{topicTitle ? ` for ${topicTitle}` : ""}
+          </caption>
+          <thead className="bg-stone-100/60 text-xs uppercase tracking-wide text-stone-500 dark:bg-[#302e2a]/70 dark:text-stone-400">
+            <tr>
+              <th scope="col" className="px-4 py-2 font-medium">Year</th>
+              <th scope="col" className="px-4 py-2 font-medium">Confidence</th>
+              <th scope="col" className="px-4 py-2 font-medium">Event</th>
+              <th scope="col" className="px-4 py-2 font-medium">Source</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-stone-200/70 dark:divide-[var(--border-subtle)]">
+            {chronologicalEvents.map((event, index) => (
+              <tr key={`${event.year}-${index}`} className="align-top">
+                <td className="whitespace-nowrap px-4 py-3 font-mono text-xs font-semibold tabular-nums text-stone-700 dark:text-stone-300">
+                  {event.year}
+                </td>
+                <td className="whitespace-nowrap px-4 py-3 font-mono text-xs font-bold tabular-nums" style={{ color: confidenceToColor(event.confidence) }}>
+                  {event.confidence}%
+                </td>
+                <td className="px-4 py-3 font-serif leading-relaxed text-stone-700 dark:text-stone-300">
+                  {event.event}
+                </td>
+                <td className="px-4 py-3 text-xs leading-relaxed text-stone-500 dark:text-stone-400">
+                  {event.source ?? "—"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+  );
+}
+
 export function ConfidenceTimeline({ events, topicTitle }: ConfidenceTimelineProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -424,10 +484,10 @@ export function ConfidenceTimeline({ events, topicTitle }: ConfidenceTimelinePro
         <motion.div
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mt-2 px-4 py-3 rounded-lg border border-stone-200/60 bg-[#faf8f5] sm:hidden"
+          className="mt-2 rounded-lg border border-stone-200/60 bg-[#faf8f5] px-4 py-3 dark:border-[var(--border-default)] dark:bg-[var(--bg-panel)] sm:hidden"
         >
           <div className="flex items-center gap-2 mb-1">
-            <span className="font-mono text-xs font-semibold text-primary tabular-nums">
+            <span className="font-mono text-xs font-semibold text-primary dark:text-stone-200 tabular-nums">
               {sortedEvents[hoveredIndex].year}
             </span>
             <span
@@ -437,11 +497,13 @@ export function ConfidenceTimeline({ events, topicTitle }: ConfidenceTimelinePro
               {sortedEvents[hoveredIndex].confidence}%
             </span>
           </div>
-          <p className="text-xs text-stone-600 font-serif leading-relaxed">
+          <p className="font-serif text-xs leading-relaxed text-stone-600 dark:text-stone-400">
             {sortedEvents[hoveredIndex].event}
           </p>
         </motion.div>
       )}
+
+      <ConfidenceTimelineTable events={sortedEvents} topicTitle={topicTitle} />
     </div>
   );
 }

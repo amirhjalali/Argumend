@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const aiRegulationData = {
   id: "ai-regulation",
   title: "Should AI Be Regulated Like Drugs or Nuclear Energy?",

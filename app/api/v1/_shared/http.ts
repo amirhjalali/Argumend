@@ -7,9 +7,10 @@
  */
 
 import { NextResponse } from "next/server";
+import { SITE_URL } from "@/lib/site";
 
 /** Canonical site origin. Topic `url`s point back here. */
-export const SITE_URL = "https://argumend.org";
+export { SITE_URL };
 
 /**
  * Permissive CORS so any website or client-side app can consume the API
@@ -44,29 +45,35 @@ export function apiJson(
     status: init?.status ?? 200,
     headers: {
       ...CORS_HEADERS,
-      ...(init?.cache === false ? {} : CACHE_HEADERS),
+      ...(init?.cache === false
+        ? { "Cache-Control": "no-store" }
+        : CACHE_HEADERS),
     },
   });
 }
 
 /** Standard preflight response shared by every route's OPTIONS handler. */
 export function corsPreflight(): Response {
-  return new Response(null, { status: 204, headers: CORS_HEADERS });
+  return new Response(null, {
+    status: 204,
+    headers: {
+      ...CORS_HEADERS,
+      "Cache-Control": "public, max-age=86400",
+    },
+  });
 }
 
-/**
- * Parse a query-string integer, falling back to `fallback` when missing or
- * malformed, and clamping the result to `[min, max]`. Prevents an abusive
- * `?limit=999999` from forcing a huge payload.
- */
-export function clampInt(
-  raw: string | null,
-  fallback: number,
-  min: number,
-  max: number
-): number {
-  if (raw === null) return fallback;
-  const n = Number.parseInt(raw, 10);
-  if (Number.isNaN(n)) return fallback;
-  return Math.min(Math.max(n, min), max);
+/** Stable, CORS-enabled response for the read-only API's unsupported methods. */
+export function methodNotAllowed(): NextResponse {
+  return NextResponse.json(
+    { error: "Method not allowed.", code: "METHOD_NOT_ALLOWED" },
+    {
+      status: 405,
+      headers: {
+        ...CORS_HEADERS,
+        Allow: "GET, HEAD, OPTIONS",
+        "Cache-Control": "no-store",
+      },
+    },
+  );
 }

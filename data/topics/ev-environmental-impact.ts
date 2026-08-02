@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const evEnvironmentalImpactData = {
   id: "ev-environmental-impact",
   title: "Electric Vehicles vs. ICE Cars",

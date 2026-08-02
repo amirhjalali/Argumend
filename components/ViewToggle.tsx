@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Map, Scale, Swords } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { ArgumentView } from "@/types/logic";
 import { trackEvent } from "@/lib/analytics";
@@ -15,7 +15,6 @@ const views: { id: ArgumentView; label: string; icon: typeof Map }[] = [
 
 export function ViewToggle() {
   const pathname = usePathname();
-  const router = useRouter();
   const currentView = useLogicGraph((state) => state.currentView);
   const setView = useLogicGraph((state) => state.setView);
 
@@ -26,6 +25,12 @@ export function ViewToggle() {
 
   const handleViewChange = (viewId: ArgumentView) => {
     setView(viewId);
+    const params = new URLSearchParams(window.location.search);
+    const topicId = params.get("topic");
+    if (topicId) {
+      params.set("view", viewId);
+      window.history.replaceState({}, "", `/?${params.toString()}`);
+    }
     trackEvent({ action: "view_switch", view: viewId });
   };
 
@@ -44,7 +49,7 @@ export function ViewToggle() {
             className={`
               relative flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] rounded-md text-sm font-medium
               transition-colors duration-200
-              ${isActive ? "text-primary" : "text-stone-500 hover:text-stone-700 dark:hover:text-stone-300"}
+              ${isActive ? "text-primary dark:text-stone-200" : "text-stone-500 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-300"}
             `}
           >
             {isActive && (

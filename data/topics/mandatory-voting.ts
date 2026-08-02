@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const mandatoryVotingData = {
   id: "mandatory-voting",
   title: "Mandatory Voting",

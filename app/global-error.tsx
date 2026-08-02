@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function GlobalError({
   error,
@@ -10,24 +10,56 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
   useEffect(() => {
     console.error("Global error boundary caught:", error);
+    headingRef.current?.focus();
   }, [error]);
 
   return (
     <html lang="en">
+      <head>
+        <style>{`
+          :root {
+            color-scheme: light dark;
+            --error-canvas: #f4f1eb;
+            --error-card: #faf8f5;
+            --error-border: rgba(214, 211, 209, 0.7);
+            --error-primary: #3d3a36;
+            --error-secondary: #78716c;
+            --error-muted: #9c9288;
+            --error-icon-bg: #fef2f2;
+          }
+          .global-error-action:focus-visible {
+            outline: 2px solid #C4613C;
+            outline-offset: 3px;
+          }
+          @media (prefers-color-scheme: dark) {
+            :root {
+              --error-canvas: #1a1917;
+              --error-card: #252420;
+              --error-border: #3d3a36;
+              --error-primary: #e8e4de;
+              --error-secondary: #b0a99f;
+              --error-muted: #928a80;
+              --error-icon-bg: rgba(127, 29, 29, 0.35);
+            }
+          }
+        `}</style>
+      </head>
       <body
         style={{
           margin: 0,
           fontFamily:
             'Georgia, "Times New Roman", Times, serif',
-          backgroundColor: "#f4f1eb",
-          color: "#3d3a36",
+          backgroundColor: "var(--error-canvas)",
+          color: "var(--error-primary)",
         }}
       >
         <div
           style={{
-            minHeight: "100vh",
+            minHeight: "100svh",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -36,10 +68,12 @@ export default function GlobalError({
         >
           <div style={{ maxWidth: "28rem", width: "100%", textAlign: "center" }}>
             <div
+              role="alert"
+              aria-labelledby="global-error-title"
               style={{
-                backgroundColor: "#faf8f5",
+                backgroundColor: "var(--error-card)",
                 borderRadius: "0.75rem",
-                border: "1px solid rgba(214, 211, 209, 0.6)",
+                border: "1px solid var(--error-border)",
                 padding: "2.5rem",
                 boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
               }}
@@ -51,7 +85,7 @@ export default function GlobalError({
                   height: "3rem",
                   margin: "0 auto 1.25rem",
                   borderRadius: "50%",
-                  backgroundColor: "#fef2f2",
+                  backgroundColor: "var(--error-icon-bg)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -74,11 +108,15 @@ export default function GlobalError({
               </div>
 
               <h1
+                ref={headingRef}
+                id="global-error-title"
+                tabIndex={-1}
                 style={{
                   fontFamily: 'Georgia, "Times New Roman", Times, serif',
                   fontSize: "1.5rem",
-                  color: "#3d3a36",
+                  color: "var(--error-primary)",
                   marginBottom: "0.5rem",
+                  outline: "none",
                 }}
               >
                 Something went wrong
@@ -86,7 +124,7 @@ export default function GlobalError({
               <p
                 style={{
                   fontFamily: "system-ui, sans-serif",
-                  color: "#78716c",
+                  color: "var(--error-secondary)",
                   fontSize: "0.875rem",
                   marginBottom: "1.5rem",
                   lineHeight: "1.6",
@@ -101,7 +139,7 @@ export default function GlobalError({
                   style={{
                     fontFamily: "ui-monospace, monospace",
                     fontSize: "0.75rem",
-                    color: "#a8a29e",
+                    color: "var(--error-muted)",
                     marginBottom: "1.5rem",
                   }}
                 >
@@ -118,7 +156,9 @@ export default function GlobalError({
                 }}
               >
                 <button
+                  type="button"
                   onClick={reset}
+                  className="global-error-action"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -131,6 +171,8 @@ export default function GlobalError({
                     fontWeight: 500,
                     border: "none",
                     cursor: "pointer",
+                    minHeight: "2.75rem",
+                    minWidth: "10rem",
                     boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
                   }}
                 >
@@ -138,18 +180,23 @@ export default function GlobalError({
                 </button>
                 <a
                   href="/"
+                  className="global-error-action"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "0.5rem",
                     padding: "0.625rem 1.25rem",
                     borderRadius: "0.5rem",
-                    border: "1px solid #d6d3d1",
-                    color: "#3d3a36",
+                    border: "1px solid var(--error-border)",
+                    color: "var(--error-primary)",
                     fontSize: "0.875rem",
                     fontWeight: 500,
                     textDecoration: "none",
                     backgroundColor: "transparent",
+                    minHeight: "2.75rem",
+                    minWidth: "10rem",
+                    boxSizing: "border-box",
+                    justifyContent: "center",
                   }}
                 >
                   Back to Home
@@ -162,11 +209,14 @@ export default function GlobalError({
               <a
                 href="/"
                 style={{
+                  minHeight: "2.75rem",
+                  display: "inline-flex",
+                  alignItems: "center",
                   fontFamily: 'Georgia, "Times New Roman", Times, serif',
                   fontSize: "1rem",
                   fontWeight: 500,
                   letterSpacing: "0.08em",
-                  color: "#9c9288",
+                  color: "var(--error-muted)",
                   textDecoration: "none",
                 }}
               >

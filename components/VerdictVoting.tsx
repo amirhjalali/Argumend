@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Vote, RotateCcw, Users, BarChart3, ArrowRight } from "lucide-react";
+import { Vote, RotateCcw, Users, BarChart3 } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -130,7 +130,7 @@ function removeVote(topicId: string, currentVote: number): void {
 // Component
 // ---------------------------------------------------------------------------
 
-export function VerdictVoting({ topicId, topicTitle, balance }: VerdictVotingProps) {
+export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
   const [userVote, setUserVote] = useState<number | null>(null);
   const [hasVoted, setHasVoted] = useState(false);
   const [aggregate, setAggregate] = useState<{ votes: number[]; count: number } | null>(null);

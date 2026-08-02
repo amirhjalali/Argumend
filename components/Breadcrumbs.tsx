@@ -36,7 +36,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
             return (
-              <li key={index} className="flex items-center gap-1.5">
+              <li key={index} className="flex min-h-11 items-center gap-1.5">
                 {index > 0 && (
                   <span className="text-stone-300 dark:text-[#3d3a36] select-none">/</span>
                 )}
@@ -45,7 +45,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-muted dark:text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
+                    className="inline-flex min-h-11 items-center rounded-md text-muted transition-colors hover:text-stone-600 dark:text-stone-400 dark:hover:text-stone-300"
                   >
                     {item.label}
                   </Link>

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const spaceColonizationFeasibilityData = {
   id: "space-colonization-feasibility",
   title: "Space Colonization Feasibility",

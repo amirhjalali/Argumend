@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const veganismEnvironmentalData = {
   id: "veganism-environmental-impact",
   title: "Veganism for Environmental Impact",

@@ -5,10 +5,18 @@ import { extractArgumentsOffline } from "@/lib/analyze/offline";
 import { createJudgeCouncil } from "@/lib/judge/council";
 import { judgeDebateOffline } from "@/lib/judge/offline";
 import { saveAnalysis, saveJudgment, listAnalyses } from "@/lib/db/queries";
+import { isDatabaseConfigured } from "@/lib/db";
 import { rateLimit } from "@/lib/rate-limit";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 import { modelsToAgents } from "@/lib/agents/types";
 import type { LLMModel } from "@/types/logic";
 import type { ExtractedArguments } from "@/lib/analyze/extractor";
+import { toPublicAnalysis } from "@/lib/analyze/publicAnalysis";
+import { isAuthConfigured } from "@/lib/auth-config";
+import {
+  AnalyzeSuccessResponseSchema,
+  type AnalyzeExecution,
+} from "@/lib/analyze/contracts";
 
 const AnalyzeRequestSchema = z.object({
   content: z.string().min(1, "Content is required").max(50000, "Content too long. Maximum 50000 characters allowed."),
@@ -18,30 +26,21 @@ const AnalyzeRequestSchema = z.object({
 });
 
 function isLiveAnalyzeEnabled(): boolean {
-  return (
-    process.env.ENABLE_LIVE_ANALYZE_API === "true" ||
-    process.env.NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API === "true"
-  );
+  return process.env.ENABLE_LIVE_ANALYZE_API === "true";
 }
 
 function isLiveJudgingEnabled(): boolean {
-  return (
-    process.env.ENABLE_LIVE_JUDGING_API === "true" ||
-    process.env.NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API === "true"
-  );
-}
-
-function getErrorMessage(error: unknown): string {
-  return error instanceof Error ? error.message : "Unknown error";
+  return process.env.ENABLE_LIVE_JUDGING_API === "true";
 }
 
 async function hasAuthenticatedUser(): Promise<boolean> {
+  if (!isAuthConfigured()) return false;
   try {
     const { auth } = await import("@/lib/auth");
     const session = await auth();
     return Boolean(session?.user);
   } catch (error) {
-    console.warn("Auth unavailable; continuing with offline-safe behavior:", getErrorMessage(error));
+    console.warn("Auth unavailable; continuing with offline-safe behavior:", sanitizeServerLog(error));
     return false;
   }
 }
@@ -62,8 +61,17 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  let raw: unknown;
   try {
-    const raw = await request.json();
+    raw = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid JSON", code: "INVALID_JSON" },
+      { status: 400 }
+    );
+  }
+
+  try {
     const parseResult = AnalyzeRequestSchema.safeParse(raw);
     if (!parseResult.success) {
       return NextResponse.json(
@@ -75,22 +83,46 @@ export async function POST(request: NextRequest) {
     const { content, contentType, includeJudging, judgeModels } = body;
     const contentKind = contentType || "freeform";
     const wantsLiveAnalyze = isLiveAnalyzeEnabled();
-    const wantsLiveJudging = includeJudging && isLiveJudgingEnabled();
+    const wantsLiveJudging = Boolean(includeJudging && isLiveJudgingEnabled());
     const authenticated = wantsLiveAnalyze || wantsLiveJudging
       ? await hasAuthenticatedUser()
       : false;
+
+    let analysisExecution: AnalyzeExecution["analysis"] = {
+      requested: wantsLiveAnalyze ? "live" : "offline",
+      actual: "offline",
+    };
+    let judgingExecution: AnalyzeExecution["judging"] = includeJudging
+      ? {
+          requested: wantsLiveJudging ? "live" : "offline",
+          actual: "skipped",
+        }
+      : { requested: "disabled", actual: "disabled" };
 
     // Extract arguments from content (offline-first for cost control).
     let extracted: ExtractedArguments;
     if (wantsLiveAnalyze && authenticated) {
       try {
         extracted = await extractArguments(content, contentKind);
+        analysisExecution = { requested: "live", actual: "live" };
       } catch (error) {
-        console.warn("Live extraction failed, falling back to offline extraction:", error);
+        console.warn("Live extraction failed, falling back to offline extraction:", sanitizeServerLog(error));
         extracted = extractArgumentsOffline(content, contentKind);
+        analysisExecution = {
+          requested: "live",
+          actual: "offline",
+          fallbackCode: "ANALYSIS_PROVIDER_ERROR",
+        };
       }
     } else {
       extracted = extractArgumentsOffline(content, contentKind);
+      if (wantsLiveAnalyze) {
+        analysisExecution = {
+          requested: "live",
+          actual: "offline",
+          fallbackCode: "ANALYSIS_AUTH_UNAVAILABLE",
+        };
+      }
     }
 
     // Optionally run judging
@@ -109,13 +141,32 @@ export async function POST(request: NextRequest) {
           try {
             const council = createJudgeCouncil({ judges });
             judgingResult = await council.judgeDebate(messages, extracted.topic);
+            judgingExecution = { requested: "live", actual: "live" };
           } catch (error) {
-            console.warn("Live judging failed, falling back to offline judging:", error);
+            console.warn("Live judging failed, falling back to offline judging:", sanitizeServerLog(error));
             judgingResult = judgeDebateOffline(messages, extracted.topic, models);
+            judgingExecution = {
+              requested: "live",
+              actual: "offline",
+              fallbackCode: "JUDGING_PROVIDER_ERROR",
+            };
           }
         } else {
           judgingResult = judgeDebateOffline(messages, extracted.topic, models);
+          judgingExecution = wantsLiveJudging
+            ? {
+                requested: "live",
+                actual: "offline",
+                fallbackCode: "JUDGING_AUTH_UNAVAILABLE",
+              }
+            : { requested: "offline", actual: "offline" };
         }
+      } else {
+        judgingExecution = {
+          requested: wantsLiveJudging ? "live" : "offline",
+          actual: "skipped",
+          fallbackCode: "JUDGING_NO_ARGUMENTS",
+        };
       }
     }
 
@@ -123,35 +174,40 @@ export async function POST(request: NextRequest) {
     // the computed analysis when persistence is unavailable.
     let savedAnalysis: Awaited<ReturnType<typeof saveAnalysis>> | null = null;
     let savedJudgment = null;
-    try {
-      savedAnalysis = await saveAnalysis(
-        {
-          contentType: contentKind,
-          inputContent: content,
-        },
-        extracted
-      );
+    if (isDatabaseConfigured()) {
+      try {
+        savedAnalysis = await saveAnalysis(
+          {
+            contentType: contentKind,
+          },
+          extracted
+        );
 
-      if (judgingResult) {
-        savedJudgment = await saveJudgment(judgingResult, {
-          analysisId: savedAnalysis.id,
-        });
+        if (judgingResult) {
+          savedJudgment = await saveJudgment(judgingResult, {
+            analysisId: savedAnalysis.id,
+          });
+        }
+      } catch (error) {
+        console.warn("Analyze persistence skipped:", sanitizeServerLog(error));
       }
-    } catch (error) {
-      console.warn("Analyze persistence skipped:", getErrorMessage(error));
     }
 
-    return NextResponse.json({
+    const responseBody = AnalyzeSuccessResponseSchema.parse({
       id: savedAnalysis?.id,
       extracted,
       judgingResult,
       judgmentId: savedJudgment?.id,
+      execution: {
+        analysis: analysisExecution,
+        judging: judgingExecution,
+      },
     });
+    return NextResponse.json(responseBody);
   } catch (error) {
-    console.error("Analyze API error:", error);
-    const message = getErrorMessage(error);
+    console.error("Analyze API error:", sanitizeServerLog(error));
     return NextResponse.json(
-      { error: "Failed to analyze content", details: message },
+      { error: "Failed to analyze content", code: "ANALYZE_FAILED" },
       { status: 500 }
     );
   }
@@ -182,10 +238,13 @@ export async function GET(request: NextRequest) {
         { status: 400 }
       );
     }
+    if (!isDatabaseConfigured()) {
+      return NextResponse.json({ analyses: [], persistence: "unavailable" });
+    }
     const results = await listAnalyses(pageLimit);
-    return NextResponse.json({ analyses: results });
+    return NextResponse.json({ analyses: results.map(toPublicAnalysis) });
   } catch (error) {
-    console.error("Failed to list analyses:", error);
+    console.error("Failed to list analyses:", sanitizeServerLog(error));
     return NextResponse.json({ analyses: [], persistence: "unavailable" });
   }
 }

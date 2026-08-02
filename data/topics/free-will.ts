@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const freeWillData = {
   id: "free-will",
   title: "Free Will",

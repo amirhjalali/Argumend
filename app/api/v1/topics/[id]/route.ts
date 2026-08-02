@@ -9,9 +9,15 @@
  * Response: { topic: { ...Topic, url } } | 404 { error, url }
  */
 
-import { topics } from "@/data/topics";
+import { loadTopicById } from "@/data/topicLoader";
 import { topicSummaries } from "@/data/topicIndex";
-import { apiJson, corsPreflight, SITE_URL } from "../../_shared/http";
+import { apiJson, corsPreflight, methodNotAllowed, SITE_URL } from "../../_shared/http";
+import {
+  DEPRECATED_TOPIC_FIELDS,
+  TopicIdParamSchema,
+  TopicDetailResponseSchema,
+} from "../_schemas";
+import { ApiErrorResponseSchema } from "../../_schemas";
 
 // Prerender from static data, refresh at most once a day.
 export const revalidate = 86400;
@@ -27,23 +33,46 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const topic = topics.find((t) => t.id === id);
+  const parsedId = TopicIdParamSchema.safeParse(id);
 
-  if (!topic) {
-    return apiJson(
-      {
-        error: `Topic "${id}" not found.`,
-        topics_url: `${SITE_URL}/api/v1/topics`,
-      },
-      { status: 404, cache: false }
-    );
+  if (!parsedId.success) {
+    const error = ApiErrorResponseSchema.parse({
+      error: "Invalid topic id.",
+      code: "INVALID_TOPIC_ID",
+      issues: [{ field: "id", message: parsedId.error.issues[0].message }],
+    });
+    return apiJson(error, { status: 400, cache: false });
   }
 
-  return apiJson({
-    topic: { ...topic, url: `${SITE_URL}/topics/${topic.id}` },
+  const topic = await loadTopicById(parsedId.data);
+
+  if (!topic) {
+    const error = ApiErrorResponseSchema.parse({
+      error: `Topic "${parsedId.data}" not found.`,
+      code: "TOPIC_NOT_FOUND",
+      topics_url: `${SITE_URL}/api/v1/topics`,
+    });
+    return apiJson(error, { status: 404, cache: false });
+  }
+
+  const response = TopicDetailResponseSchema.parse({
+    topic: {
+      ...topic,
+      // Deprecated compatibility alias; balance is the canonical value.
+      confidence_score: topic.balance,
+      url: `${SITE_URL}/topics/${topic.id}`,
+    },
+    deprecated_fields: DEPRECATED_TOPIC_FIELDS,
   });
+
+  return apiJson(response);
 }
 
 export function OPTIONS() {
   return corsPreflight();
 }
+
+export const POST = methodNotAllowed;
+export const PUT = methodNotAllowed;
+export const PATCH = methodNotAllowed;
+export const DELETE = methodNotAllowed;

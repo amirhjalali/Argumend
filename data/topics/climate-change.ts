@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const climateChangeData = {
   id: "climate-change",
   title: "Climate Change",

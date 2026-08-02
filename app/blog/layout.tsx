@@ -1,4 +1,10 @@
 import { Metadata } from "next";
+import { buildGenericOgUrl } from "@/lib/og";
+
+const SOCIAL_IMAGE = buildGenericOgUrl({
+  title: "The Argumend Blog",
+  subtitle: "Essays on critical thinking and productive disagreement",
+});
 
 export const metadata: Metadata = {
   title: "Blog — Essays on Critical Thinking & Argument Analysis",
@@ -24,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "ARGUMEND",
     images: [
       {
-        url: `https://argumend.org/api/og?title=${encodeURIComponent("The Argumend Blog")}&subtitle=${encodeURIComponent("Essays on critical thinking and productive disagreement")}`,
+        url: SOCIAL_IMAGE,
         width: 1200,
         height: 630,
         alt: "The Argumend Blog",
@@ -36,7 +42,7 @@ export const metadata: Metadata = {
     title: "Blog | ARGUMEND",
     description:
       "Essays on critical thinking, logical fallacies, steel-manning, and the art of productive disagreement.",
-    images: [`https://argumend.org/api/og?title=${encodeURIComponent("The Argumend Blog")}&subtitle=${encodeURIComponent("Essays on critical thinking and productive disagreement")}`],
+    images: [SOCIAL_IMAGE],
   },
 };
 

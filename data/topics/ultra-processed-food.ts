@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const ultraProcessedFoodData = {
   id: "ultra-processed-food",
   title: "Are Ultra-Processed Foods Driving the Obesity Epidemic?",

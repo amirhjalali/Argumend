@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const remoteWorkPermanenceData = {
   id: "remote-work-permanence",
   title: "The Future of Remote Work",

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const mediaBiasDemocracyData = {
   id: "media-bias-democracy",
   title: "Media Bias and Democracy",

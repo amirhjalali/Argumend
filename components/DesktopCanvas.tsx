@@ -24,6 +24,8 @@ import { NavigationPath } from "@/components/NavigationPath";
 import { TopicIntroPanel } from "@/components/TopicIntroPanel";
 import { getMiniMapColor } from "@/lib/variantStyles";
 import { GRAPH, MINIMAP } from "@/lib/constants";
+import { getFocusFrameNodes } from "@/lib/graphViewport";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import type { LogicNodeData } from "@/types/graph";
 
 /**
@@ -43,6 +45,7 @@ function CanvasInner() {
   const reactFlow = useReactFlow();
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
+  const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   // A crux is reachable whenever the graph holds a crux node (already revealed)
   // or a pillar (whose expansion reveals one). Drives the persistent "Find the
@@ -111,24 +114,18 @@ function CanvasInner() {
 
   useEffect(() => {
     if (!focusTargets.length) return;
-    const focusSet = new Set(focusTargets);
-    // Also keep the parent of the focused nodes in frame so expanding a node
-    // doesn't yank the camera off the node the user just clicked.
-    const parentIds = new Set(
-      edges.filter((e) => focusSet.has(e.target)).map((e) => e.source),
-    );
-    const targetNodes = nodes.filter(
-      (node) => focusSet.has(node.id) || parentIds.has(node.id),
-    );
+    // Initial topic framing favors the readable root/pillar backbone; later
+    // expansions keep the clicked parent and every revealed child in frame.
+    const targetNodes = getFocusFrameNodes(nodes, edges, focusTargets);
     if (!targetNodes.length) return;
 
     reactFlow.fitView({
       nodes: targetNodes,
-      padding: GRAPH.FIT_VIEW_PADDING,
-      duration: GRAPH.TRANSITION_DURATION,
+      padding: GRAPH.FOCUS_FIT_VIEW_PADDING,
+      duration: reduceMotion ? 0 : GRAPH.TRANSITION_DURATION,
     });
     consumeFocusTargets();
-  }, [consumeFocusTargets, focusTargets, nodes, edges, reactFlow]);
+  }, [consumeFocusTargets, focusTargets, nodes, edges, reactFlow, reduceMotion]);
 
   return (
     <div className="h-full">
@@ -151,7 +148,8 @@ function CanvasInner() {
         onMoveStart={handleViewportInteract}
         onNodeClick={handleUserInteract}
         onNodeDragStart={handleUserInteract}
-        fitView
+        nodesFocusable={false}
+        edgesFocusable={false}
       >
         <Background
           color={backgroundDotColor}

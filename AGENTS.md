@@ -10,7 +10,7 @@ Argumend is a Next.js app for AI-powered argument mapping. The product defaults 
 bun install
 bun dev
 bun run lint
-bun test
+bun run test:ci
 bun run build
 ```
 

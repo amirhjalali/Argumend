@@ -85,7 +85,7 @@ export const InteractiveContent = memo(function InteractiveContent({ content, co
 
   if (!concepts || Object.keys(concepts).length === 0) {
     return (
-      <p className="text-sm font-sans leading-relaxed text-secondary">
+      <p className="text-sm font-sans leading-relaxed text-secondary dark:text-stone-400">
         {renderTextWithGlossary(content, "g", seen)}
       </p>
     );
@@ -94,7 +94,7 @@ export const InteractiveContent = memo(function InteractiveContent({ content, co
   const parts = splitByBracketedKeywords(content);
 
   return (
-    <p className="text-sm font-sans leading-relaxed text-secondary">
+    <p className="text-sm font-sans leading-relaxed text-secondary dark:text-stone-400">
       {parts.map((part, index) => {
         if (isBracketedKeyword(part)) {
           const keyword = extractBracketedKeyword(part);

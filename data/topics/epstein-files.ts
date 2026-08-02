@@ -158,7 +158,7 @@ export const epsteinFilesData = {
           },
           source: "Miami Herald Perversion of Justice Investigation",
           sourceUrl:
-            "https://www.miamiherald.com/news/local/article220097825.html",
+            "https://www.miamiherald.com/topics/jeffrey-epstein/",
           reasoning:
             "The difficulty of prosecuting wealthy defendants with elite counsel is a real systemic challenge, not unique to the Epstein case. However, this argument explains the plea deal\u2019s existence without justifying its most extraordinary features: blanket co-conspirator immunity, victim concealment, and the 13-month sentence with work release. Many complex cases go to trial successfully despite strong defense teams.",
         },

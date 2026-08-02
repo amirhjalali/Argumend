@@ -18,6 +18,7 @@ import {
   statusColors,
   categoryTopBorder,
 } from "@/lib/categoryColors";
+import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 // ---------------------------------------------------------------------------
 // Presentation maps (mirrors /dashboard so the two saved views feel identical)
@@ -40,7 +41,7 @@ const statusLabels: Record<TopicStatus, string> = {
 // ---------------------------------------------------------------------------
 
 export function SavedClient() {
-  const { ids, hydrated, remove } = useSavedTopicIds();
+  const { ids, hydrated, error, remove } = useSavedTopicIds();
 
   // Resolve saved IDs to summaries, preserving save order. IDs that no longer
   // map to a topic (e.g. removed from the dataset) are silently dropped.
@@ -71,15 +72,33 @@ export function SavedClient() {
           </p>
         </div>
 
-        {/* Body: loading -> empty -> grid */}
+        {/* Body: loading -> unavailable -> empty -> grid */}
         {!hydrated ? (
           // Hydration placeholder — matches server render (no localStorage on the
           // server), so there is no hydration mismatch.
           <div
             className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-8 text-center"
-            aria-hidden="true"
+            role="status"
+            aria-live="polite"
           >
             <p className="text-muted dark:text-stone-400">Loading your saved topics&hellip;</p>
+          </div>
+        ) : error && ids.length === 0 ? (
+          <div
+            role="alert"
+            className="rounded-xl border border-red-200 bg-red-50/80 p-8 text-center dark:border-red-900/60 dark:bg-red-950/30 sm:p-10"
+          >
+            <AlertCircle
+              className="mx-auto mb-4 h-9 w-9 text-red-500 dark:text-red-300"
+              aria-hidden="true"
+            />
+            <h2 className="font-serif text-xl text-red-900 dark:text-red-100">
+              Saved topics are unavailable
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-red-700 dark:text-red-300">
+              {error} Check this browser&rsquo;s storage or privacy settings, then
+              reload the page. No bookmarks were changed.
+            </p>
           </div>
         ) : savedTopics.length === 0 ? (
           <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-10 text-center">
@@ -93,7 +112,7 @@ export function SavedClient() {
             </p>
             <Link
               href="/topics"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+              className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)]"
             >
               Explore Topics
               <ArrowRight className="h-4 w-4" />
@@ -113,7 +132,6 @@ export function SavedClient() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {savedTopics.map((topic) => {
                 const StatusIcon = statusIcons[topic.status];
-                const confPct = Math.min(topic.confidence_score, 100);
 
                 return (
                   <div
@@ -125,7 +143,7 @@ export function SavedClient() {
                       type="button"
                       onClick={() => remove(topic.id)}
                       aria-label={`Remove "${topic.title}" from saved`}
-                      className="absolute top-2.5 right-2.5 z-20 flex items-center justify-center h-8 w-8 rounded-lg text-muted dark:text-stone-400 hover:text-rust-600 hover:bg-rust-50 dark:hover:bg-rust-900/40 transition-colors"
+                      className="absolute right-1.5 top-1.5 z-20 flex h-11 w-11 items-center justify-center rounded-lg text-muted dark:text-stone-400 hover:text-rust-600 hover:bg-rust-50 dark:hover:bg-rust-900/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)]"
                     >
                       <X className="h-4 w-4" />
                     </button>
@@ -141,30 +159,13 @@ export function SavedClient() {
                         {topic.meta_claim}
                       </p>
 
-                      {/* Confidence bar */}
                       <div className="mb-3">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-[11px] font-medium text-stone-500 dark:text-[var(--text-muted)] uppercase tracking-widest">
-                            Confidence
-                          </span>
-                          <span className="font-mono text-xs tabular-nums text-stone-600 dark:text-stone-400 font-semibold">
-                            {topic.confidence_score}%
-                          </span>
-                        </div>
-                        <div
-                          className="h-1.5 rounded-full bg-stone-200/80 dark:bg-[var(--bg-overlay)] overflow-hidden"
-                          role="meter"
-                          aria-valuenow={topic.confidence_score}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                          aria-label={`Confidence: ${topic.confidence_score}%`}
-                        >
-                          <div
-                            className="h-full rounded-full bg-deep-light transition-all duration-300"
-                            style={{ width: `${confPct}%` }}
-                            aria-hidden="true"
-                          />
-                        </div>
+                        <BalanceWeightChip
+                          balance={topic.balance}
+                          weight={topic.weight}
+                          verdict={topic.verdict}
+                          showLabel
+                        />
                       </div>
 
                       <div className="flex items-center justify-between gap-2 mt-auto">
@@ -200,6 +201,15 @@ export function SavedClient() {
               </Link>
             </div>
           </>
+        )}
+
+        {error && ids.length > 0 && (
+          <p
+            role="alert"
+            className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300"
+          >
+            {error} Your existing bookmarks have not changed.
+          </p>
         )}
       </div>
     </div>

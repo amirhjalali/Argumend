@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const adhdOverdiagnosisData = {
   id: "adhd-overdiagnosis",
   title: "Is ADHD Overdiagnosed?",

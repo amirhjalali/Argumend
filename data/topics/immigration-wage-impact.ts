@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const immigrationWageImpactData = {
   id: "immigration-wage-impact",
   title: "Immigration and Wages",

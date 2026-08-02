@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Scale, ChevronRight, Map } from "lucide-react";
+import { X, Scale, ChevronDown, ChevronRight, Map } from "lucide-react";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { topicSummaries } from "@/data/topicIndex";
 import { BalanceWeightChip } from "@/components/BalanceWeightChip";
@@ -13,6 +13,15 @@ import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 const SESSION_KEY = "argumend-intro-dismissed";
 // How long the intro lingers before auto-dismissing if the user does nothing.
 const AUTO_DISMISS_MS = 7000;
+const DESKTOP_QUERY = "(min-width: 768px)";
+
+function shouldStartMinimized() {
+  return (
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia(DESKTOP_QUERY).matches
+  );
+}
 
 interface TopicIntroPanelProps {
   /**
@@ -35,8 +44,9 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
       return false;
     }
   });
-  const [isMinimized, setIsMinimized] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(shouldStartMinimized);
   const [prevTopicId, setPrevTopicId] = useState<string | null>(null);
+  const contentId = useId();
 
   // Read prefers-reduced-motion once on mount (client-only) so the entrance can
   // be a quick fade instead of the spring/translate for motion-sensitive users.
@@ -70,7 +80,8 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
   // `dismissed`, so a non-dismissed panel re-shows for each new topic on its own.
   if (prevTopicId !== currentTopicId) {
     setPrevTopicId(currentTopicId);
-    if (isMinimized) setIsMinimized(false);
+    const nextMinimized = shouldStartMinimized();
+    if (isMinimized !== nextMinimized) setIsMinimized(nextMinimized);
   }
 
   // Persist any dismissal (including a first interaction) so it survives remounts.
@@ -122,20 +133,22 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
         <div className="bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] shadow-2xl overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-stone-200/40 dark:border-[var(--border-default)]">
-            <div className="flex items-center gap-2">
+            <div className="flex min-w-0 items-center gap-2">
               <Map className="h-3.5 w-3.5 text-deep" />
-              <span className="text-[11px] font-semibold text-deep tracking-wide uppercase">
-                Topic
+              <span className="truncate text-[11px] font-semibold uppercase tracking-wide text-deep">
+                {isMinimized ? topic.title : "Topic"}
               </span>
             </div>
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-400 dark:hover:bg-[#302e2a] dark:hover:text-stone-200"
                 aria-label={isMinimized ? "Show topic details" : "Hide topic details"}
+                aria-expanded={!isMinimized}
+                aria-controls={contentId}
               >
-                <ChevronRight
-                  className={`h-4 w-4 transition-transform duration-200 ${isMinimized ? "rotate-90" : "-rotate-90"}`}
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${isMinimized ? "" : "rotate-180"}`}
                 />
               </button>
               <button
@@ -152,6 +165,7 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
           <AnimatePresence>
             {!isMinimized && (
               <motion.div
+                id={contentId}
                 initial={reducedMotion ? false : { height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
@@ -160,7 +174,7 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
                 <div className="p-4">
                   {/* Topic Title + Verdict inline */}
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <h2 className="font-serif text-base font-bold text-primary truncate">
+                    <h2 className="font-serif text-base font-bold text-primary dark:text-stone-200 truncate">
                       {topic.title}
                     </h2>
                     <BalanceWeightChip

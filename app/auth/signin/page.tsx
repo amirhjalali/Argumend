@@ -6,29 +6,40 @@ import type { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sign In | Argumend",
+  title: "Sign In",
   description:
     "Sign in to Argumend to save your analyses, track debates, and join the community of critical thinkers.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://argumend.org/auth/signin",
   },
 };
 
 export default async function SignInPage() {
+  // Account-backed sessions are opt-in. In the default offline experience,
+  // send direct sign-in links to the fully on-device saved-topics page instead
+  // of presenting an OAuth action that cannot complete.
+  if (process.env.NEXT_PUBLIC_ENABLE_AUTH !== "true") {
+    redirect("/saved");
+  }
+
   const session = await auth();
   if (session) redirect("/");
 
   return (
-    <div className="flex min-h-[100svh] items-center justify-center bg-canvas px-4">
+    <main
+      id="main-content"
+      className="flex min-h-[100svh] items-center justify-center bg-canvas px-4"
+    >
       <div className="w-full max-w-sm space-y-10">
         {/* Logo / Wordmark */}
         <div className="text-center">
           <Link href="/" className="inline-block group">
-            <h1 className="font-serif text-3xl font-medium tracking-[0.08em] text-primary group-hover:text-deep transition-colors">
+            <h1 className="font-serif text-3xl font-medium tracking-[0.08em] text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-teal-300">
               ARGUMEND
             </h1>
           </Link>
-          <p className="mt-3 text-secondary text-sm leading-relaxed max-w-[280px] mx-auto">
+          <p className="mx-auto mt-3 max-w-[280px] text-sm leading-relaxed text-secondary dark:text-stone-400">
             Map arguments. Find cruxes. Think better together.
           </p>
         </div>
@@ -85,7 +96,7 @@ export default async function SignInPage() {
 
         {/* Guest CTA */}
         <div className="text-center space-y-3">
-          <p className="text-sm text-secondary">
+          <p className="text-sm text-secondary dark:text-stone-400">
             No account needed to explore.
           </p>
           <Link
@@ -97,13 +108,13 @@ export default async function SignInPage() {
         </div>
 
         {/* Footer note */}
-        <p className="text-center text-[11px] text-secondary pt-2">
+        <p className="pt-2 text-center text-[11px] text-secondary dark:text-stone-400">
           By signing in, you agree to our{" "}
-          <Link href="/about" className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors">
+          <Link href="/about" className="text-deep underline underline-offset-2 transition-colors hover:text-deep-dark dark:text-teal-300 dark:hover:text-teal-200">
             terms of use
           </Link>
         </p>
       </div>
-    </div>
+    </main>
   );
 }

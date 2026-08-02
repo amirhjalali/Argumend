@@ -51,8 +51,7 @@ export default function GlossaryPage() {
           "@context": "https://schema.org",
           "@type": "DefinedTermSet",
           name: "Critical Thinking & Argument Mapping Glossary",
-          description:
-            "Definitions of 20+ key terms used in critical thinking, argument mapping, and evidence-based reasoning.",
+          description: `Definitions of ${terms.length} key terms used in critical thinking, argument mapping, and evidence-based reasoning.`,
           url: "https://argumend.org/glossary",
           publisher: {
             "@type": "Organization",
@@ -72,18 +71,18 @@ export default function GlossaryPage() {
         />
 
         <div className="mb-10">
-          <p className="text-xs font-medium uppercase tracking-widest text-muted mb-4">
+          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
             Reference
           </p>
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2.5 rounded-xl bg-deep/10 text-deep">
+            <div className="p-2.5 rounded-xl bg-deep/10 text-deep dark:bg-deep/20 dark:text-[#9bc7c3]">
               <BookOpen className="h-6 w-6" />
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary">
+            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary dark:text-stone-200">
               Glossary
             </h1>
           </div>
-          <p className="text-secondary text-lg leading-relaxed max-w-2xl">
+          <p className="text-secondary dark:text-stone-400 text-lg leading-relaxed max-w-2xl">
             {terms.length} key terms used in critical thinking, argument
             mapping, and evidence-based reasoning, sorted into {chapters.length}{" "}
             chapters. Each definition is written to be clear, precise, and
@@ -100,7 +99,7 @@ export default function GlossaryPage() {
               <a
                 key={id}
                 href={`#${id}`}
-                className={`inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${chapter.chip}`}
+                className={`inline-flex min-h-10 items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${chapter.chip}`}
               >
                 <span className="font-serif text-[13px] opacity-70">{chapter.numeral}</span>
                 {chapter.label}
@@ -117,7 +116,7 @@ export default function GlossaryPage() {
               <a
                 key={letter}
                 href={`#letter-${letter}`}
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-stone-200/60 dark:border-[#3d3a36] text-sm font-mono font-medium text-stone-500 dark:text-stone-400 hover:border-deep/30 hover:text-deep hover:bg-deep/5 dark:hover:bg-deep/10 transition-colors"
+                className="flex h-11 w-11 items-center justify-center rounded-lg border border-stone-200/60 dark:border-[#3d3a36] text-sm font-mono font-medium text-stone-500 dark:text-stone-400 hover:border-deep/30 hover:text-deep dark:hover:text-[#9bc7c3] hover:bg-deep/5 dark:hover:bg-deep/10 transition-colors"
               >
                 {letter}
               </a>
@@ -132,11 +131,11 @@ export default function GlossaryPage() {
               <span className={`font-serif text-2xl ${chapter.iconText}`}>
                 {chapter.numeral}.
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">
                 {chapter.label}
               </h2>
             </div>
-            <p className="text-secondary leading-relaxed max-w-2xl mb-6">
+            <p className="text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mb-6">
               {chapter.description}
             </p>
 
@@ -170,15 +169,15 @@ export default function GlossaryPage() {
                       <Icon className={`h-5 w-5 ${chapter.iconText}`} strokeWidth={1.8} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <dt className="font-serif text-lg text-primary font-medium mb-1">
+                      <dt className="font-serif text-lg text-primary dark:text-stone-200 font-medium mb-1">
                         {t.term}
                       </dt>
-                      <dd className="text-secondary leading-relaxed pl-0">
+                      <dd className="text-secondary dark:text-stone-400 leading-relaxed pl-0">
                         {t.definition}
                         {t.exampleHref && t.example && (
                           <Link
                             href={t.exampleHref}
-                            className="flex items-center gap-1.5 mt-2 text-deep hover:text-deep-dark text-sm font-medium transition-colors"
+                            className="flex min-h-10 items-center gap-1.5 mt-2 text-deep dark:text-[#9bc7c3] hover:text-deep-dark dark:hover:text-[#b7d9d6] text-sm font-medium transition-colors"
                           >
                             <ArrowRight className="h-3 w-3" />
                             {t.example}
@@ -187,7 +186,7 @@ export default function GlossaryPage() {
                         {t.learnMoreHref && (
                           <Link
                             href={t.learnMoreHref}
-                            className="inline-flex items-center gap-1 ml-0 mt-1 text-deep hover:text-deep-dark text-sm font-medium transition-colors"
+                            className="inline-flex min-h-10 items-center gap-1 ml-0 mt-1 text-deep dark:text-[#9bc7c3] hover:text-deep-dark dark:hover:text-[#b7d9d6] text-sm font-medium transition-colors"
                           >
                             {t.learnMoreText || "Learn more"}
                             <ArrowRight className="h-3 w-3" />
@@ -204,7 +203,7 @@ export default function GlossaryPage() {
 
         {/* All Terms A-Z */}
         <section id="all-terms" className="mb-12 scroll-mt-24">
-          <h2 className="font-serif text-2xl text-primary mb-6 pb-2 border-b border-stone-200/60 dark:border-[#3d3a36]">
+          <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-6 pb-2 border-b border-stone-200/60 dark:border-[#3d3a36]">
             All Terms A&ndash;Z
           </h2>
           <div className="columns-1 sm:columns-2 gap-6">
@@ -215,7 +214,7 @@ export default function GlossaryPage() {
                 <a
                   key={t.term}
                   href={`#${glossaryTermId(t.term)}`}
-                  className="flex items-center gap-2 text-sm text-secondary hover:text-deep transition-colors py-1"
+                  className="flex min-h-10 items-center gap-2 text-sm text-secondary dark:text-stone-400 hover:text-deep dark:hover:text-[#9bc7c3] transition-colors py-1"
                 >
                   <Icon
                     className={`h-3.5 w-3.5 flex-shrink-0 ${chapter.iconText}`}
@@ -231,17 +230,17 @@ export default function GlossaryPage() {
 
         {/* CTA */}
         <div className="mt-14 p-6 rounded-xl bg-[#faf8f5] dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] text-center">
-          <h3 className="font-serif text-xl text-primary mb-2">
+          <h3 className="font-serif text-xl text-primary dark:text-stone-200 mb-2">
             See These Concepts in Action
           </h3>
-          <p className="text-secondary mb-4">
+          <p className="text-secondary dark:text-stone-400 mb-4">
             Every term in this glossary is applied across our topic
             analyses, with steel-manned positions, weighted evidence, and crux
             questions.
           </p>
           <Link
             href="/topics"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-b from-rust-500 to-rust-600 text-white font-medium text-sm hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+            className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-b from-rust-500 to-rust-600 text-white font-medium text-sm hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
           >
             Explore Topics
             <ArrowRight className="h-4 w-4" />

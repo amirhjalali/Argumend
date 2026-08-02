@@ -8,6 +8,7 @@ import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { getFallacyFamily, getFallacyIcon } from "@/lib/fallacyMeta";
+import { buildGenericOgUrl } from "@/lib/og";
 
 // ---------------------------------------------------------------------------
 // Static params for all fallacy slugs
@@ -26,12 +27,20 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const fallacy = getFallacyBySlug(slug);
-  if (!fallacy) return { title: "Fallacy Not Found" };
+  if (!fallacy) {
+    return {
+      title: "Fallacy Not Found",
+      robots: { index: false, follow: true },
+    };
+  }
 
   const title = `${fallacy.name} — Logical Fallacy`;
   const description = fallacy.shortDefinition.slice(0, 160);
   const url = `https://argumend.org/fallacies/${fallacy.slug}`;
-  const ogImage = `https://argumend.org/api/og?title=${encodeURIComponent(fallacy.name)}&subtitle=${encodeURIComponent("Logical Fallacy")}`;
+  const ogImage = buildGenericOgUrl({
+    title: fallacy.name,
+    subtitle: "Logical Fallacy",
+  });
 
   return {
     title,
@@ -42,7 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url,
       type: "article",
-      siteName: "Argumend",
+      siteName: "ARGUMEND",
       images: [{ url: ogImage, width: 1200, height: 630, alt: fallacy.name }],
     },
     twitter: {
@@ -124,7 +133,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
               </div>
               <Link
                 href={`/fallacies#${family.id}`}
-                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-medium ${family.chip}`}
+                className={`inline-flex min-h-10 items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-medium ${family.chip}`}
               >
                 {family.numeral}. {family.label}
               </Link>
@@ -132,10 +141,10 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                 No. {String(catalogNumber).padStart(2, "0")}
               </span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
               {fallacy.name}
             </h1>
-            <p className="text-lg md:text-xl text-secondary leading-relaxed">
+            <p className="text-lg md:text-xl text-secondary dark:text-stone-400 leading-relaxed">
               {fallacy.shortDefinition}
             </p>
             {fallacy.aliases.length > 0 && (
@@ -154,7 +163,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
 
           {/* Long description */}
           <section className="mb-12 md:mb-16">
-            <div className="space-y-5 text-base md:text-[17px] text-primary leading-[1.8]">
+            <div className="space-y-5 text-base md:text-[17px] text-primary dark:text-stone-200 leading-[1.8]">
               {paragraphs.map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
@@ -165,10 +174,10 @@ export default async function FallacyDetailPage({ params }: PageProps) {
           <section className="mb-12 md:mb-16">
             <div className="flex items-center gap-2 mb-4">
               <Quote className="h-5 w-5 text-rust-600 dark:text-rust-400" strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary">Example</h2>
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">Example</h2>
             </div>
             <blockquote className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-rust-500 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
-              <p className="text-primary leading-[1.8] italic">{fallacy.example}</p>
+              <p className="text-primary dark:text-stone-200 leading-[1.8] italic">{fallacy.example}</p>
             </blockquote>
           </section>
 
@@ -176,27 +185,27 @@ export default async function FallacyDetailPage({ params }: PageProps) {
           <section className="mb-12 md:mb-16">
             <div className="flex items-center gap-2 mb-4">
               <specimen.Icon className={`h-5 w-5 ${family.iconText}`} strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">
                 Why It Misleads
               </h2>
             </div>
             <div
               className={`bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 ${family.borderAccent}`}
             >
-              <p className="text-primary leading-[1.8]">{fallacy.whyItMisleads}</p>
+              <p className="text-primary dark:text-stone-200 leading-[1.8]">{fallacy.whyItMisleads}</p>
             </div>
           </section>
 
           {/* How to counter — deep teal is the constant "resolution" color across every fallacy */}
           <section className="mb-12 md:mb-16">
             <div className="flex items-center gap-2 mb-4">
-              <ShieldCheck className="h-5 w-5 text-deep" strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary">
+              <ShieldCheck className="h-5 w-5 text-deep dark:text-[#9bc7c3]" strokeWidth={1.8} />
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">
                 How to Counter It
               </h2>
             </div>
             <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-deep/40 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
-              <p className="text-primary leading-[1.8]">{fallacy.howToCounter}</p>
+              <p className="text-primary dark:text-stone-200 leading-[1.8]">{fallacy.howToCounter}</p>
             </div>
           </section>
 
@@ -204,12 +213,12 @@ export default async function FallacyDetailPage({ params }: PageProps) {
           {relatedTopics.length > 0 && (
             <section className="mb-12 md:mb-16">
               <div className="flex items-center gap-2 mb-4">
-                <Eye className="h-5 w-5 text-deep" strokeWidth={1.8} />
-                <h2 className="font-serif text-2xl sm:text-3xl text-primary">
+                <Eye className="h-5 w-5 text-deep dark:text-[#9bc7c3]" strokeWidth={1.8} />
+                <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">
                   See It in Real Debates
                 </h2>
               </div>
-              <p className="text-secondary mb-6 leading-relaxed">
+              <p className="text-secondary dark:text-stone-400 mb-6 leading-relaxed">
                 This fallacy frequently shows up in arguments about these topics.
                 Explore the structured argument maps to see the reasoning laid bare.
               </p>
@@ -217,12 +226,12 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                 {relatedTopics.map((topic) => (
                   <Link
                     key={topic.id}
-                    href={`/?topic=${topic.id}`}
+                    href={`/topics/${topic.id}`}
                     className="group flex items-center justify-between p-4 rounded-xl bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-deep" />
-                      <span className="text-primary font-medium group-hover:text-deep transition-colors">
+                      <span className="text-primary dark:text-stone-200 font-medium group-hover:text-deep dark:group-hover:text-[#9bc7c3] transition-colors">
                         {topic.title}
                       </span>
                     </div>
@@ -236,7 +245,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
           {/* Related fallacies */}
           {relatedFallacies.length > 0 && (
             <section className="mb-12 md:mb-16">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary mb-4">
+              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
                 Related Fallacies
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -254,10 +263,10 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                       >
                         <RelatedIcon className={`h-4 w-4 ${relatedFamily.iconText}`} strokeWidth={1.8} />
                       </div>
-                      <h3 className="font-serif text-lg text-primary group-hover:text-deep transition-colors mb-1">
+                      <h3 className="font-serif text-lg text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-[#9bc7c3] transition-colors mb-1">
                         {related.name}
                       </h3>
-                      <p className="text-sm text-secondary line-clamp-2">
+                      <p className="text-sm text-secondary dark:text-stone-400 line-clamp-2">
                         {related.shortDefinition}
                       </p>
                     </Link>
@@ -269,24 +278,24 @@ export default async function FallacyDetailPage({ params }: PageProps) {
 
           {/* CTA */}
           <section className="text-center py-10 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-            <h3 className="font-serif text-xl md:text-2xl text-primary mb-3">
+            <h3 className="font-serif text-xl md:text-2xl text-primary dark:text-stone-200 mb-3">
               Strengthen your reasoning
             </h3>
-            <p className="text-secondary mb-7 leading-relaxed">
+            <p className="text-secondary dark:text-stone-400 mb-7 leading-relaxed">
               The best defense against fallacies is steel-manning — engaging the
               strongest version of every argument. See how it works in practice.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
-                href="/"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                href="/topics"
+                className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 Explore Argument Maps
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
               <Link
                 href="/fallacies"
-                className="inline-flex items-center px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[#302e2a] transition-all duration-200"
+                className="inline-flex min-h-11 items-center px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary dark:text-stone-200 text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[#302e2a] transition-all duration-200"
               >
                 All Fallacies
               </Link>

@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import { getAnalysis } from "@/lib/db/queries";
-import { getDb } from "@/lib/db";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
+import { getDb, isDatabaseConfigured } from "@/lib/db";
 import { judgments } from "@/lib/db/schema";
 import { rateLimit } from "@/lib/rate-limit";
+import { toPublicAnalysis } from "@/lib/analyze/publicAnalysis";
 
 /**
  * GET /api/analysis/[id]
@@ -37,6 +39,16 @@ export async function GET(
       );
     }
 
+    if (!isDatabaseConfigured()) {
+      return NextResponse.json(
+        {
+          error: "Saved analysis storage is unavailable",
+          code: "PERSISTENCE_UNAVAILABLE",
+        },
+        { status: 503 },
+      );
+    }
+
     const analysis = await getAnalysis(id);
 
     if (!analysis) {
@@ -52,9 +64,12 @@ export async function GET(
       with: { verdicts: true },
     });
 
-    return NextResponse.json({ analysis, judgment });
+    return NextResponse.json({
+      analysis: toPublicAnalysis(analysis),
+      judgment,
+    });
   } catch (error) {
-    console.error("Failed to fetch analysis:", error);
+    console.error("Failed to fetch analysis:", sanitizeServerLog(error));
     return NextResponse.json(
       { error: "Failed to fetch analysis" },
       { status: 500 }

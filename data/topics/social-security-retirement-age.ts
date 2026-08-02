@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const socialSecurityRetirementAgeData = {
   id: "social-security-retirement-age",
   title: "Raising the Retirement Age",

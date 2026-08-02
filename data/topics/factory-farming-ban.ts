@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const factoryFarmingBanData = {
   id: "factory-farming-ban",
   title: "Should We Ban Factory Farming?",

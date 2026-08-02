@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const bigTechAntitrustData = {
   id: "big-tech-antitrust",
   title: "Breaking Up Big Tech",

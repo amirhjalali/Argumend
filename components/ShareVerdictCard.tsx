@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Share2,
@@ -13,6 +13,9 @@ import {
 import type { JudgingResult } from "@/lib/judge/rubric";
 import { DEFAULT_RUBRIC } from "@/lib/judge/rubric";
 import { trackEvent } from "@/lib/analytics";
+import { copyTextToClipboard } from "@/lib/copyToClipboard";
+import { useModalAccessibility } from "@/hooks/useModalAccessibility";
+import { downloadVerdictCardImage } from "@/lib/verdictCardImage";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -24,6 +27,7 @@ interface ShareVerdictCardProps {
   result: JudgingResult;
   topicTitle: string;
   topicId: string;
+  mode?: "live" | "programmatic";
 }
 
 // ---------------------------------------------------------------------------
@@ -81,31 +85,36 @@ function getDrivingDimension(result: JudgingResult): {
   return best;
 }
 
-function getConsensusLabel(result: JudgingResult): string {
+export function getConsensusLabel(
+  result: JudgingResult,
+  mode: "live" | "programmatic",
+): string {
   const total = result.verdicts.length;
-  if (result.hasConsensus) return `${total}/${total} unanimous`;
+  const group = mode === "live" ? "judges" : "evaluators";
   const agree = result.verdicts.filter(
     (v) => v.winner === result.winner
   ).length;
-  return `${agree}/${total} split`;
+  return `${agree}/${total} ${group} agree`;
 }
 
 function getShareUrl(topicId: string): string {
   const base =
     typeof window !== "undefined" ? window.location.origin : "https://argumend.org";
-  // Shared from the interactive judging/map experience — carry the root canvas
-  // state so recipients land on the same map view, not the static read page.
-  return `${base}/?topic=${encodeURIComponent(topicId)}&view=logic-map#verdict`;
+  // Verdict state is session-local, so link to the durable canonical topic
+  // instead of promising a verdict anchor that disappears on a fresh visit.
+  return `${base}/topics/${encodeURIComponent(topicId)}`;
 }
 
 function getShareText(
   topicTitle: string,
-  result: JudgingResult
+  result: JudgingResult,
+  mode: "live" | "programmatic",
 ): string {
   const winner = getWinnerLabel(result.winner);
   const forScore = result.aggregatedScores.for.average.toFixed(1);
   const againstScore = result.aggregatedScores.against.average.toFixed(1);
-  return `${topicTitle} — ${winner} (${forScore} vs ${againstScore}). AI judges have spoken.`;
+  const source = mode === "live" ? "AI judge council" : "programmatic rubric";
+  return `${topicTitle} — ${winner} (${forScore} vs ${againstScore}), scored by Argumend’s ${source}.`;
 }
 
 // ---------------------------------------------------------------------------
@@ -116,15 +125,17 @@ function VerdictCardPreview({
   result,
   topicTitle,
   format,
+  mode,
 }: {
   result: JudgingResult;
   topicTitle: string;
   format: CardFormat;
+  mode: "live" | "programmatic";
 }) {
   const forScore = result.aggregatedScores.for.average;
   const againstScore = result.aggregatedScores.against.average;
   const driving = getDrivingDimension(result);
-  const consensus = getConsensusLabel(result);
+  const consensus = getConsensusLabel(result, mode);
   const isTwitter = format === "twitter";
   const aspect = isTwitter ? "aspect-[1200/675]" : "aspect-square";
 
@@ -206,7 +217,7 @@ function VerdictCardPreview({
               </p>
             )}
             <p className="text-[9px] text-stone-400">
-              Judges:{" "}
+              {mode === "live" ? "Judges" : "Programmatic rubric"}:{" "}
               <span className="font-medium text-stone-600">{consensus}</span>
             </p>
           </div>
@@ -235,64 +246,77 @@ export function ShareVerdictCard({
   result,
   topicTitle,
   topicId,
+  mode = "live",
 }: ShareVerdictCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [format, setFormat] = useState<CardFormat>("twitter");
   const [copied, setCopied] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  const [downloadError, setDownloadError] = useState<string | null>(null);
+  const [copyError, setCopyError] = useState<string | null>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   const shareUrl = getShareUrl(topicId);
-  const shareText = getShareText(topicTitle, result);
+  const shareText = getShareText(topicTitle, result, mode);
 
   const handleOpen = useCallback(() => {
     setIsOpen(true);
+    setDownloadError(null);
+    setCopyError(null);
     trackEvent({ action: "share_click", platform: "verdict_card", topicId });
   }, [topicId]);
 
   const handleClose = useCallback(() => {
     setIsOpen(false);
     setCopied(false);
+    setDownloadError(null);
+    setCopyError(null);
   }, []);
+
+  const modalRef = useModalAccessibility<HTMLDivElement>({
+    isOpen,
+    onClose: handleClose,
+  });
 
   const handleCopyLink = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText(shareUrl);
+      await copyTextToClipboard(shareUrl);
+      setCopyError(null);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Fallback for older browsers
-      const textarea = document.createElement("textarea");
-      textarea.value = shareUrl;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setCopied(false);
+      setCopyError("The link could not be copied. Select and copy it manually below.");
     }
   }, [shareUrl]);
 
   const handleDownload = useCallback(async () => {
     setDownloading(true);
+    setDownloadError(null);
     try {
-      const params = new URLSearchParams({ format });
-      const res = await fetch(`/api/verdict-card/${topicId}?${params}`);
-      if (!res.ok) throw new Error("Failed to generate image");
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `argumend-verdict-${topicId}-${format}.png`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      const driving = getDrivingDimension(result);
+      await downloadVerdictCardImage(
+        {
+          topicTitle,
+          winnerLabel: getWinnerLabel(result.winner),
+          forScore: result.aggregatedScores.for.average,
+          againstScore: result.aggregatedScores.against.average,
+          drivingDimension: driving?.name ?? null,
+          consensus: getConsensusLabel(result, mode),
+          mode,
+          format,
+        },
+        `argumend-verdict-${topicId}-${format}.png`,
+      );
     } catch (err) {
       console.error("Download failed:", err);
+      setDownloadError(
+        "The image could not be generated. Check your connection and try again.",
+      );
     } finally {
       setDownloading(false);
     }
-  }, [topicId, format]);
+  }, [format, mode, result, topicId, topicTitle]);
 
   const handleShareNative = useCallback(async () => {
     if (typeof navigator !== "undefined" && navigator.share) {
@@ -324,6 +348,7 @@ export function ShareVerdictCard({
     <>
       {/* Trigger button */}
       <button
+        ref={triggerRef}
         onClick={handleOpen}
         className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-deep dark:text-[var(--text-primary)] bg-white dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-default)] rounded-xl hover:bg-stone-50 dark:hover:bg-[var(--bg-overlay)] transition-colors shadow-sm"
         aria-label="Share verdict"
@@ -333,7 +358,7 @@ export function ShareVerdictCard({
       </button>
 
       {/* Modal overlay */}
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={() => triggerRef.current?.focus()}>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -343,23 +368,29 @@ export function ShareVerdictCard({
             onClick={handleClose}
           >
             <motion.div
+              ref={modalRef}
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-lg bg-white dark:bg-[var(--bg-card)] rounded-2xl shadow-2xl overflow-hidden"
+              className="w-full max-w-lg max-h-[calc(100svh-2rem)] overflow-y-auto bg-white dark:bg-[var(--bg-card)] rounded-2xl shadow-2xl"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="share-verdict-title"
+              tabIndex={-1}
             >
               {/* Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-stone-100 dark:border-stone-800">
                 <div className="flex items-center gap-2">
                   <ImageIcon className="w-4 h-4 text-deep" />
-                  <h3 className="font-serif font-semibold text-primary dark:text-stone-200">
+                  <h3 id="share-verdict-title" className="font-serif font-semibold text-primary dark:text-stone-200">
                     Share Verdict
                   </h3>
                 </div>
                 <button
                   onClick={handleClose}
+                  data-modal-initial-focus
                   className="p-1.5 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] rounded-lg transition-colors"
                   aria-label="Close"
                 >
@@ -370,7 +401,7 @@ export function ShareVerdictCard({
               {/* Body */}
               <div className="p-5 space-y-4">
                 {/* Format toggle */}
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="text-xs text-stone-500 uppercase tracking-wider font-medium">
                     Format
                   </span>
@@ -403,13 +434,16 @@ export function ShareVerdictCard({
                   result={result}
                   topicTitle={topicTitle}
                   format={format}
+                  mode={mode}
                 />
 
                 {/* Actions */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <button
                     onClick={handleDownload}
                     disabled={downloading}
+                    aria-busy={downloading || undefined}
+                    aria-describedby={downloadError ? "verdict-download-error" : undefined}
                     className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-rust-500 to-rust-600 rounded-xl hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm disabled:opacity-60"
                   >
                     {downloading ? (
@@ -424,6 +458,7 @@ export function ShareVerdictCard({
 
                   <button
                     onClick={handleCopyLink}
+                    aria-describedby={copyError ? "verdict-copy-error" : undefined}
                     className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 bg-stone-100 dark:bg-stone-800 rounded-xl hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
                   >
                     {copied ? (
@@ -439,6 +474,41 @@ export function ShareVerdictCard({
                     )}
                   </button>
                 </div>
+
+                {copyError && (
+                  <div
+                    id="verdict-copy-error"
+                    role="alert"
+                    className="space-y-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300"
+                  >
+                    <p>{copyError}</p>
+                    <input
+                      readOnly
+                      value={shareUrl}
+                      onFocus={(event) => event.currentTarget.select()}
+                      aria-label="Verdict share link"
+                      className="w-full rounded-lg border border-red-200 bg-white px-3 py-2 font-mono text-xs text-stone-700 outline-none focus:ring-2 focus:ring-red-400 dark:border-red-900 dark:bg-stone-900 dark:text-stone-200"
+                    />
+                  </div>
+                )}
+
+                {downloadError && (
+                  <div
+                    id="verdict-download-error"
+                    role="alert"
+                    className="flex flex-col gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300 sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <span>{downloadError}</span>
+                    <button
+                      type="button"
+                      onClick={handleDownload}
+                      disabled={downloading}
+                      className="min-h-10 flex-shrink-0 rounded-lg border border-red-300 bg-white px-3 py-2 text-xs font-semibold text-red-700 transition-colors hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 disabled:opacity-60 dark:border-red-800 dark:bg-red-950/50 dark:text-red-200 dark:hover:bg-red-900/40"
+                    >
+                      Try download again
+                    </button>
+                  </div>
+                )}
 
                 {/* Share buttons row */}
                 <div className="flex gap-3">

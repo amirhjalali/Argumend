@@ -27,6 +27,7 @@ import {
   type ParsedJudgeResponse,
 } from "./prompts";
 import type { LLMModel } from "@/types/logic";
+import { determineConsensusWinner } from "./consensus";
 
 /**
  * Configuration for the judge council
@@ -214,42 +215,6 @@ function findDisagreements(
 }
 
 /**
- * Determine consensus winner
- */
-function determineConsensusWinner(
-  verdicts: JudgeVerdict[]
-): { winner: "for" | "against" | "draw" | null; hasConsensus: boolean } {
-  if (verdicts.length === 0) {
-    return { winner: null, hasConsensus: false };
-  }
-
-  const winnerCounts = { for: 0, against: 0, draw: 0 };
-  for (const verdict of verdicts) {
-    winnerCounts[verdict.winner]++;
-  }
-
-  const majorityThreshold = Math.ceil(verdicts.length / 2);
-
-  // Check for unanimous consensus
-  const hasConsensus =
-    winnerCounts.for === verdicts.length ||
-    winnerCounts.against === verdicts.length ||
-    winnerCounts.draw === verdicts.length;
-
-  // Determine winner by majority
-  if (winnerCounts.for >= majorityThreshold) {
-    return { winner: "for", hasConsensus };
-  } else if (winnerCounts.against >= majorityThreshold) {
-    return { winner: "against", hasConsensus };
-  } else if (winnerCounts.draw >= majorityThreshold) {
-    return { winner: "draw", hasConsensus };
-  }
-
-  // No clear majority - use aggregate scores
-  return { winner: null, hasConsensus: false };
-}
-
-/**
  * Judge Council class
  *
  * Coordinates multiple AI judges to evaluate debates and content.
@@ -301,7 +266,6 @@ export class JudgeCouncil {
     userPrompt: string
   ): Promise<JudgingResult> {
     // Execute all judges in parallel
-    const startTime = Date.now();
     const judgePromises = this.judges.map(async (judge) => {
       const judgeStartTime = Date.now();
       const response = await executeAgent({

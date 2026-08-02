@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const nuclearFusionTimelineData = {
   id: "nuclear-fusion-timeline",
   title: "Fusion Power Within Two Decades",

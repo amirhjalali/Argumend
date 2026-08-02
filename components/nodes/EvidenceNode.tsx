@@ -24,12 +24,14 @@ function getScoreLabel(score: number): string {
   return "Minimal";
 }
 
-export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<EvidenceNodeData>>) {
+export const EvidenceNode = memo(function EvidenceNode({ id, data }: NodeProps<Node<EvidenceNodeData>>) {
   const isFor = data.side === "for";
   const scoreLabel = getScoreLabel(data.score);
 
   return (
     <div
+      role="group"
+      aria-labelledby={`node-title-${id}`}
       className={`relative w-[260px] md:w-[280px] rounded-xl border shadow-[0_1px_3px_rgba(120,100,80,0.08)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.35)] transition-shadow duration-200 hover:shadow-[0_4px_12px_rgba(120,100,80,0.12)] dark:hover:shadow-[0_4px_12px_rgba(0,0,0,0.45)] node-enter ${
         isFor
           ? "bg-gradient-to-br from-rust-50/90 to-rust-100/60 dark:from-[#2b211c] dark:to-[#241d18] border-rust-300/60 dark:border-rust-500/30 border-l-[3px] border-l-rust-500"
@@ -44,6 +46,8 @@ export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<
         id="top"
         className="logic-handle"
         isConnectable={false}
+        aria-hidden="true"
+        tabIndex={-1}
       />
       <Handle
         type="target"
@@ -51,6 +55,8 @@ export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<
         id="left"
         className="logic-handle"
         isConnectable={false}
+        aria-hidden="true"
+        tabIndex={-1}
       />
       <Handle
         type="source"
@@ -58,6 +64,8 @@ export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<
         id="bottom"
         className="logic-handle"
         isConnectable={false}
+        aria-hidden="true"
+        tabIndex={-1}
       />
       <Handle
         type="source"
@@ -65,6 +73,8 @@ export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<
         id="right"
         className="logic-handle"
         isConnectable={false}
+        aria-hidden="true"
+        tabIndex={-1}
       />
 
       <div className="p-4">
@@ -112,7 +122,7 @@ export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<
         </div>
 
         {/* Title */}
-        <h4 className="font-serif text-[15px] font-medium leading-snug text-primary dark:text-[var(--text-primary)] mb-2">
+        <h4 id={`node-title-${id}`} className="font-serif text-[15px] font-medium leading-snug text-primary dark:text-[var(--text-primary)] mb-2">
           {data.title}
         </h4>
 
@@ -129,6 +139,7 @@ export const EvidenceNode = memo(function EvidenceNode({ data }: NodeProps<Node<
                 href={data.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${data.source} (opens in a new tab)`}
                 className={`inline-flex items-center gap-1 text-[11px] font-medium transition-colors ${
                   isFor
                     ? "text-rust-600 dark:text-rust-400 hover:text-rust-700 dark:hover:text-rust-300"

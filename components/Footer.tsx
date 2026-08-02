@@ -9,7 +9,7 @@ export function Footer() {
         {/* Top section: logo + tagline, with newsletter capture */}
         <div className="mb-10 grid gap-8 md:grid-cols-2 md:items-start">
           <div>
-            <Link href="/" className="inline-block">
+            <Link href="/" prefetch={false} className="inline-flex min-h-11 items-center rounded-md">
               <span className="font-serif text-xl font-semibold text-stone-700 dark:text-stone-200">
                 Argumend
               </span>
@@ -33,12 +33,13 @@ export function Footer() {
               <h3 className="text-xs font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400">
                 {column.title}
               </h3>
-              <ul className="mt-3 space-y-2">
+              <ul className="mt-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-stone-500 dark:text-stone-400 transition-colors duration-200 hover:text-deep"
+                      prefetch={false}
+                      className="inline-flex min-h-11 items-center rounded-md text-sm text-stone-500 transition-colors duration-200 hover:text-deep dark:text-stone-400"
                     >
                       {link.label}
                     </Link>
@@ -58,7 +59,7 @@ export function Footer() {
             href="https://github.com/amirhjalali/Argumend"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-stone-400 transition-colors hover:text-stone-800 dark:hover:text-stone-200"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-800 dark:hover:bg-[#302e2a] dark:hover:text-stone-200"
             aria-label="Argumend on GitHub"
           >
             <svg

@@ -83,7 +83,7 @@ ${againstMsg?.content || "*No argument*"}
 
 ---
 
-*This debate was generated on [Argumend](https://argumend.com) using AI models to explore both sides of the argument.*`;
+*This debate was generated on [Argumend](https://argumend.org) using AI models to explore both sides of the argument.*`;
 
     return header + roundsContent + footer;
   };

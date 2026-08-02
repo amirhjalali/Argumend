@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PrintWorksheetButton } from "./PrintWorksheetButton";
+import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 
 // ---------------------------------------------------------------------------
 // Worksheet Data
@@ -16,7 +18,12 @@ interface Worksheet {
     description?: string;
     type: "lines" | "table" | "grid" | "numbered-list" | "two-column";
     lines?: number;
-    rows?: { label: string; subLabel?: string }[];
+    rows?: {
+      label: string;
+      subLabel?: string;
+      lowAnchor?: string;
+      highAnchor?: string;
+    }[];
     columns?: string[];
     items?: string[];
   }[];
@@ -157,10 +164,30 @@ const worksheets: Record<string, Worksheet> = {
         type: "table",
         columns: ["Dimension", "What It Measures", "0 (Low)", "10 (High)"],
         rows: [
-          { label: "Source Reliability", subLabel: "Track record, peer review, expertise of the source" },
-          { label: "Independence", subLabel: "Free from conflicts of interest, corroborated by independent sources" },
-          { label: "Replicability", subLabel: "Can others verify this? Has it been reproduced?" },
-          { label: "Directness", subLabel: "How directly does this evidence address the specific claim?" },
+          {
+            label: "Source Reliability",
+            subLabel: "Track record, peer review, expertise of the source",
+            lowAnchor: "Unknown source; poor track record",
+            highAnchor: "Relevant expertise; strong track record or peer review",
+          },
+          {
+            label: "Independence",
+            subLabel: "Free from conflicts of interest, corroborated by independent sources",
+            lowAnchor: "Single interested source",
+            highAnchor: "Independent sources corroborate it",
+          },
+          {
+            label: "Replicability",
+            subLabel: "Can others verify this? Has it been reproduced?",
+            lowAnchor: "Cannot be checked or reproduced",
+            highAnchor: "Repeatedly verified or reproduced",
+          },
+          {
+            label: "Directness",
+            subLabel: "How directly does this evidence address the specific claim?",
+            lowAnchor: "Only indirectly related to the claim",
+            highAnchor: "Directly measures or addresses the claim",
+          },
         ],
       },
       {
@@ -294,14 +321,34 @@ type PageProps = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
   const ws = worksheets[id];
-  if (!ws) return { title: "Worksheet Not Found" };
+  if (!ws) {
+    return {
+      title: "Worksheet Not Found",
+      robots: { index: false, follow: true },
+    };
+  }
+
+  const canonical = `https://argumend.org/for-educators/worksheets/${ws.id}`;
+  const title = `${ws.title} — Argumend for Educators`;
 
   return {
-    title: `${ws.title} — Argumend for Educators`,
+    title,
     description: ws.instructions,
     robots: { index: true, follow: true },
     alternates: {
-      canonical: `https://argumend.org/for-educators/worksheets/${ws.id}`,
+      canonical,
+    },
+    openGraph: {
+      title,
+      description: ws.instructions,
+      url: canonical,
+      images: [DEFAULT_SOCIAL_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: ws.instructions,
+      images: [DEFAULT_SOCIAL_IMAGE_URL],
     },
   };
 }
@@ -328,7 +375,7 @@ function RenderNumberedList({ items }: { items: string[] }) {
   return (
     <div className="space-y-3 mt-3">
       {items.map((item, i) => (
-        <p key={i} className="text-base leading-relaxed pl-2">
+        <p key={i} className="break-words pl-2 text-base leading-relaxed [overflow-wrap:anywhere]">
           {item}
         </p>
       ))}
@@ -338,7 +385,7 @@ function RenderNumberedList({ items }: { items: string[] }) {
 
 function RenderTwoColumn({ columns }: { columns: string[] }) {
   return (
-    <div className="grid grid-cols-2 gap-6 mt-3">
+    <div className="worksheet-two-column mt-3 grid grid-cols-1 gap-6 sm:grid-cols-2">
       {columns.map((col) => (
         <div key={col}>
           <p className="font-semibold text-sm mb-2">{col}</p>
@@ -358,90 +405,130 @@ function RenderTwoColumn({ columns }: { columns: string[] }) {
 }
 
 function RenderGrid({
+  label,
   columns,
   rows,
 }: {
+  label: string;
   columns: string[];
-  rows: { label: string; subLabel?: string }[];
+  rows: Worksheet["sections"][number]["rows"];
 }) {
+  if (!rows) return null;
+
   return (
-    <table className="w-full border-collapse mt-3">
-      <thead>
-        <tr>
-          {columns.map((col) => (
-            <th
-              key={col}
-              className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[#302e2a]"
-            >
-              {col}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row) => (
-          <tr key={row.label}>
-            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-sm font-medium">
-              {row.label}
-              {row.subLabel && (
-                <span className="text-stone-500 ml-1">{row.subLabel}</span>
-              )}
-            </td>
-            {columns.slice(1).map((col) => (
-              <td
-                key={col}
-                className="border border-stone-400 dark:border-stone-600 px-3 py-3 min-h-[40px]"
-              >
-                &nbsp;
-              </td>
+    <>
+      <p className="screen-only mt-3 text-xs text-stone-500 sm:hidden">
+        Swipe the table left to see every column.
+      </p>
+      <div
+        className="worksheet-table-wrap mt-2 overflow-x-auto rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 sm:mt-3"
+        role="region"
+        aria-label={`${label} table`}
+        tabIndex={0}
+      >
+        <table className="w-full min-w-[620px] border-collapse">
+          <thead>
+            <tr>
+              {columns.map((col) => (
+                <th
+                  key={col}
+                  scope="col"
+                  className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[#302e2a]"
+                >
+                  {col}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.label}>
+                <th
+                  scope="row"
+                  className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-medium"
+                >
+                  {row.label}
+                  {row.subLabel && (
+                    <span className="text-stone-500 ml-1">{row.subLabel}</span>
+                  )}
+                </th>
+                {columns.slice(1).map((col) => (
+                  <td
+                    key={col}
+                    className="border border-stone-400 dark:border-stone-600 px-3 py-3 min-h-[40px]"
+                  >
+                    &nbsp;
+                  </td>
+                ))}
+              </tr>
             ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
 
 function RenderTable({
+  label,
   columns,
   rows,
 }: {
+  label: string;
   columns: string[];
-  rows: { label: string; subLabel?: string }[];
+  rows: Worksheet["sections"][number]["rows"];
 }) {
+  if (!rows) return null;
+
   return (
-    <table className="w-full border-collapse mt-3">
-      <thead>
-        <tr>
-          {columns.map((col) => (
-            <th
-              key={col}
-              className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[#302e2a]"
-            >
-              {col}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row) => (
-          <tr key={row.label}>
-            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-sm font-medium">
-              {row.label}
-            </td>
-            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-600 dark:text-stone-400">
-              {row.subLabel}
-            </td>
-            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500">
-              Unreliable, no track record
-            </td>
-            <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500">
-              Peer-reviewed, expert consensus
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      <p className="screen-only mt-3 text-xs text-stone-500 sm:hidden">
+        Swipe the table left to see every column.
+      </p>
+      <div
+        className="worksheet-table-wrap mt-2 overflow-x-auto rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 sm:mt-3"
+        role="region"
+        aria-label={`${label} table`}
+        tabIndex={0}
+      >
+        <table className="w-full min-w-[680px] border-collapse">
+          <thead>
+            <tr>
+              {columns.map((col) => (
+                <th
+                  key={col}
+                  scope="col"
+                  className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[#302e2a]"
+                >
+                  {col}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.label}>
+                <th
+                  scope="row"
+                  className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-medium"
+                >
+                  {row.label}
+                </th>
+                <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-600 dark:text-stone-400">
+                  {row.subLabel}
+                </td>
+                <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500">
+                  {row.lowAnchor}
+                </td>
+                <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500">
+                  {row.highAnchor}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
 
@@ -461,13 +548,40 @@ export default async function WorksheetPage({ params }: PageProps) {
     <div className="min-h-[100svh] bg-white dark:bg-[#1a1916]">
       {/* Print-optimized styles */}
       <style>{`
+        @page { margin: 0.55in; }
         @media print {
           body, html { background: white !important; }
           .worksheet-nav { display: none !important; }
-          .worksheet-content { padding: 0 !important; max-width: 100% !important; }
+          .screen-only { display: none !important; }
+          .worksheet-content {
+            background: white !important;
+            color: #1c1917 !important;
+            padding: 0 !important;
+            max-width: 100% !important;
+          }
+          .worksheet-content * {
+            border-color: #a8a29e !important;
+            color: #1c1917 !important;
+          }
           .worksheet-header { margin-bottom: 1rem !important; }
+          .worksheet-instructions, .worksheet-content thead th { background: #f5f5f4 !important; }
+          .worksheet-section, .worksheet-content tr { break-inside: avoid-page; }
+          .worksheet-footer {
+            display: block !important;
+            position: fixed;
+            right: 0;
+            bottom: 0.04in;
+            left: 0;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            font-size: 8pt !important;
+          }
+          .worksheet-content thead { display: table-header-group; }
+          .worksheet-table-wrap { overflow: visible !important; }
+          .worksheet-content table { min-width: 0 !important; font-size: 10pt !important; }
+          .worksheet-two-column { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
           h2 { font-size: 14pt !important; margin-top: 1rem !important; }
-          table { font-size: 10pt !important; }
           .page-break { break-before: page; }
         }
         @media screen {
@@ -476,33 +590,20 @@ export default async function WorksheetPage({ params }: PageProps) {
       `}</style>
 
       {/* Navigation bar (hidden when printing) */}
-      <nav className="worksheet-nav bg-[#f4f1eb] dark:bg-[#121210] border-b border-stone-200 dark:border-[#3d3a36] px-4 py-3">
+      <nav aria-label="Worksheet controls" className="worksheet-nav bg-[#f4f1eb] dark:bg-[#121210] border-b border-stone-200 dark:border-[#3d3a36] px-4 py-2.5">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Link
             href="/for-educators"
-            className="text-sm text-deep hover:text-deep-dark transition-colors"
+            className="inline-flex min-h-11 items-center rounded-md text-sm text-deep transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:text-[#7fb5b0]"
           >
             &larr; Back to Educator Resources
           </Link>
-          <button
-            type="button"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
-            data-print-button
-          >
-            Print Worksheet
-          </button>
+          <PrintWorksheetButton />
         </div>
       </nav>
 
-      {/* Client-side print script */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `document.querySelector('[data-print-button]')?.addEventListener('click',function(){window.print()})`,
-        }}
-      />
-
       {/* Worksheet content */}
-      <div className="worksheet-content">
+      <main id="main-content" className="worksheet-content">
         {/* Header */}
         <header className="worksheet-header mb-8 pb-4 border-b-2 border-stone-800 dark:border-stone-400">
           <p className="text-xs font-mono uppercase tracking-widest text-stone-500 mb-1">
@@ -537,7 +638,7 @@ export default async function WorksheetPage({ params }: PageProps) {
         </div>
 
         {/* Instructions */}
-        <div className="mb-8 bg-stone-50 dark:bg-[#252420] border border-stone-200 dark:border-[#3d3a36] rounded-lg p-4">
+        <div className="worksheet-instructions mb-8 bg-stone-50 dark:bg-[#252420] border border-stone-200 dark:border-[#3d3a36] rounded-lg p-4">
           <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
             Instructions
           </p>
@@ -549,7 +650,7 @@ export default async function WorksheetPage({ params }: PageProps) {
         {/* Sections */}
         <div className="space-y-8">
           {ws.sections.map((section, i) => (
-            <section key={i}>
+            <section key={i} className="worksheet-section">
               <h2 className="text-lg font-serif font-bold text-stone-900 dark:text-stone-100 mb-1">
                 {section.heading}
               </h2>
@@ -569,22 +670,22 @@ export default async function WorksheetPage({ params }: PageProps) {
                 <RenderTwoColumn columns={section.columns} />
               )}
               {section.type === "grid" && section.columns && section.rows && (
-                <RenderGrid columns={section.columns} rows={section.rows} />
+                <RenderGrid label={section.heading} columns={section.columns} rows={section.rows} />
               )}
               {section.type === "table" && section.columns && section.rows && (
-                <RenderTable columns={section.columns} rows={section.rows} />
+                <RenderTable label={section.heading} columns={section.columns} rows={section.rows} />
               )}
             </section>
           ))}
         </div>
 
         {/* Footer */}
-        <footer className="mt-10 pt-4 border-t border-stone-300 dark:border-stone-600 text-center">
+        <footer className="worksheet-footer mt-10 pt-4 border-t border-stone-300 dark:border-stone-600 text-center">
           <p className="text-xs text-muted dark:text-stone-400">
             argumend.org/for-educators &mdash; Free for classroom use
           </p>
         </footer>
-      </div>
+      </main>
     </div>
   );
 }

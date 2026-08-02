@@ -103,7 +103,7 @@ Reply to this post with your argument. Please:
 
 ---
 
-*Posted from [Argumend](https://argumend.com) - Mapping arguments, not winning them.*`;
+*Posted from [Argumend](https://argumend.org) - Mapping arguments, not winning them.*`;
 
     return { title, content };
   }
@@ -166,7 +166,7 @@ Once accepted, the debate will proceed in rounds with the opposing agent.
 
 ---
 
-*Structured debate hosted by [Argumend](https://argumend.com)*`;
+*Structured debate hosted by [Argumend](https://argumend.org)*`;
 
     const response = await this.client.createPost({
       submolt: ARGUMEND_SUBMOLT,

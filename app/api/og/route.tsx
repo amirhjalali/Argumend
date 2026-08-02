@@ -1,4 +1,12 @@
 import { ImageResponse } from "next/og";
+import {
+  OG_HEIGHT,
+  OG_IMAGE_CACHE_CONTROL,
+  OG_WIDTH,
+  ogErrorResponse,
+  truncateOgText,
+} from "@/lib/og";
+import { parseGenericOgUrl } from "@/lib/ogQuery";
 
 export const runtime = "edge";
 
@@ -29,17 +37,18 @@ function getVerdictLabel(verdict: string): string {
 }
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+  const parsed = parseGenericOgUrl(request.url);
+  if (!parsed.success) {
+    return ogErrorResponse(parsed.status, parsed.code);
+  }
 
-  const title = searchParams.get("title") || "ARGUMEND";
-  const subtitle = searchParams.get("subtitle") || "";
-  const verdict = searchParams.get("verdict") || ""; // "for" | "against" | "draw"
-  const score = searchParams.get("score") || "";
-
+  const verdict = parsed.data.verdict || "";
+  const scoreNum = parsed.data.score;
+  const hasScore = scoreNum !== undefined;
+  const title = truncateOgText(parsed.data.title || "ARGUMEND", hasScore ? 76 : 96);
+  const subtitle = truncateOgText(parsed.data.subtitle || "", hasScore ? 140 : 180);
   const verdictColor = getVerdictColor(verdict);
   const verdictLabel = getVerdictLabel(verdict);
-  const hasScore = score !== "" && !isNaN(Number(score));
-  const scoreNum = hasScore ? Number(score) : 0;
 
   return new ImageResponse(
     (
@@ -118,7 +127,7 @@ export async function GET(request: Request) {
             <div
               style={{
                 display: "flex",
-                fontSize: title.length > 40 ? "44px" : "54px",
+                fontSize: title.length > 72 ? "38px" : title.length > 40 ? "44px" : "54px",
                 fontWeight: 700,
                 color: "#3d3a36",
                 lineHeight: 1.12,
@@ -127,7 +136,7 @@ export async function GET(request: Request) {
                 marginTop: "4px",
               }}
             >
-              {title.length > 70 ? title.slice(0, 67) + "..." : title}
+              {title}
             </div>
 
             {/* Subtitle */}
@@ -141,9 +150,7 @@ export async function GET(request: Request) {
                   fontStyle: "italic",
                 }}
               >
-                {subtitle.length > 120
-                  ? subtitle.slice(0, 117) + "..."
-                  : subtitle}
+                {subtitle}
               </div>
             )}
           </div>
@@ -196,9 +203,9 @@ export async function GET(request: Request) {
                       fontFamily: "Georgia, serif",
                     }}
                   >
-                    {scoreNum % 1 === 0
+                    {scoreNum !== undefined && (scoreNum % 1 === 0
                       ? scoreNum.toFixed(0)
-                      : scoreNum.toFixed(1)}
+                      : scoreNum.toFixed(1))}
                   </div>
                 </div>
               </div>
@@ -264,8 +271,12 @@ export async function GET(request: Request) {
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      width: OG_WIDTH,
+      height: OG_HEIGHT,
+      headers: {
+        "Cache-Control": OG_IMAGE_CACHE_CONTROL,
+        "X-Content-Type-Options": "nosniff",
+      },
     }
   );
 }

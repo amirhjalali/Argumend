@@ -8,7 +8,6 @@
  */
 
 import type {
-  AgentConfig,
   AgentResponse,
   AgentExecutionRequest,
 } from "./types";
@@ -113,16 +112,17 @@ async function executeWithClaude(
 }
 
 /**
- * Execute with GPT-4 model (with retry)
+ * Execute with an OpenAI model (with retry)
  */
-async function executeWithGPT4(
+async function executeWithOpenAI(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  requestedModel: "gpt-4" | "gpt-5",
 ): Promise<string> {
   return withRetry(async () => {
     const client = await getOpenAI();
     const response = await client.chat.completions.create({
-      model: "gpt-4o",
+      model: requestedModel === "gpt-5" ? "gpt-5" : "gpt-4o",
       max_tokens: 2048,
       messages: [
         { role: "system", content: systemPrompt },
@@ -250,7 +250,8 @@ export async function executeAgent(
             content = await executeWithClaude(systemPrompt, userPrompt);
             break;
           case "gpt-4":
-            content = await executeWithGPT4(systemPrompt, userPrompt);
+          case "gpt-5":
+            content = await executeWithOpenAI(systemPrompt, userPrompt, agent.model);
             break;
           case "gemini":
             content = await executeWithGemini(systemPrompt, userPrompt);

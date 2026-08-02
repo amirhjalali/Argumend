@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { topics, CATEGORY_LABELS } from "@/data/topics";
+import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
+import { loadTopicById } from "@/data/topicLoader";
 import { getAllQuestionVariations, findQuestionBySlug } from "@/lib/questions";
 import { getTopicMentions, buildTopicLinkTargets } from "@/lib/topic-links";
 import { LinkedText } from "@/components/LinkedText";
@@ -12,6 +13,11 @@ import {
   getQuestionCategoryMeta,
   classifyQuestion,
 } from "@/lib/questionMeta";
+import { buildTopicOgUrl } from "@/lib/og";
+import {
+  CONTENT_FIRST_PUBLISHED,
+  CONTENT_LAST_UPDATED,
+} from "@/lib/site";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -24,7 +30,7 @@ export const revalidate = 86400;
 // ---------------------------------------------------------------------------
 
 export function generateStaticParams() {
-  const variations = getAllQuestionVariations(topics);
+  const variations = getAllQuestionVariations(topicSummaries);
   return variations.map((v) => ({ slug: v.slug }));
 }
 
@@ -38,7 +44,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const result = findQuestionBySlug(slug, topics);
+  const result = findQuestionBySlug(slug, topicSummaries);
 
   if (!result) {
     return { title: "Question Not Found" };
@@ -70,7 +76,7 @@ export async function generateMetadata({
       siteName: "ARGUMEND",
       images: [
         {
-          url: `https://argumend.org/api/og/${topic.id}`,
+          url: buildTopicOgUrl(topic.id),
           width: 1200,
           height: 630,
           alt: variation.question,
@@ -81,7 +87,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${variation.question} | ARGUMEND`,
       description: variation.metaDescription,
-      images: [`https://argumend.org/api/og/${topic.id}`],
+      images: [buildTopicOgUrl(topic.id)],
     },
   };
 }
@@ -92,13 +98,15 @@ export async function generateMetadata({
 
 export default async function QuestionPage({ params }: PageProps) {
   const { slug } = await params;
-  const result = findQuestionBySlug(slug, topics);
+  const summaryResult = findQuestionBySlug(slug, topicSummaries);
 
-  if (!result) {
+  if (!summaryResult) {
     notFound();
   }
 
-  const { variation, topic } = result;
+  const topic = await loadTopicById(summaryResult.topic.id);
+  if (!topic) notFound();
+  const { variation } = summaryResult;
   const verdict = topic.verdict.label;
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
@@ -110,7 +118,7 @@ export default async function QuestionPage({ params }: PageProps) {
   const KindIcon = kind.icon;
 
   // Topic link targets for cross-linking
-  const linkTargets = buildTopicLinkTargets(topics);
+  const linkTargets = buildTopicLinkTargets(topicSummaries);
 
   // Collect "for" and "against" arguments from pillars
   const forArguments: { title: string; summary: string }[] = [];
@@ -196,8 +204,8 @@ export default async function QuestionPage({ params }: PageProps) {
         url: "https://argumend.org/icon.png",
       },
     },
-    datePublished: "2025-01-01",
-    dateModified: "2026-03-19",
+    datePublished: CONTENT_FIRST_PUBLISHED,
+    dateModified: CONTENT_LAST_UPDATED,
     articleSection: categoryLabel,
     inLanguage: "en-US",
     about: {
@@ -214,14 +222,14 @@ export default async function QuestionPage({ params }: PageProps) {
   );
 
   // Related questions from the same topic
-  const relatedQuestions = getAllQuestionVariations(topics).filter(
+  const relatedQuestions = getAllQuestionVariations(topicSummaries).filter(
     (v) => v.topicId === topic.id && v.slug !== variation.slug
   );
 
   // Questions from other topics in the same category (for broader discovery)
-  const crossTopicQuestions = getAllQuestionVariations(topics)
+  const crossTopicQuestions = getAllQuestionVariations(topicSummaries)
     .filter((v) => {
-      const vTopic = topics.find((t) => t.id === v.topicId);
+      const vTopic = topicSummaries.find((t) => t.id === v.topicId);
       return (
         vTopic &&
         vTopic.category === topic.category &&
@@ -236,7 +244,7 @@ export default async function QuestionPage({ params }: PageProps) {
       <JsonLd data={faqJsonLd} />
       <JsonLd data={articleJsonLd} />
 
-      <div className="min-h-[100svh] bg-canvas">
+      <main id="main-content" className="min-h-[100svh] bg-canvas">
         <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <Breadcrumbs
@@ -256,24 +264,24 @@ export default async function QuestionPage({ params }: PageProps) {
               <CategoryIcon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
               {categoryLabel}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-panel px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wide text-muted dark:border-[var(--border-default)]">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-panel px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wide text-muted dark:border-[var(--border-default)] dark:text-stone-400">
               <KindIcon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
               {kind.label}
             </span>
           </div>
 
           {/* Main question heading */}
-          <h1 className="font-serif text-4xl font-bold leading-tight text-primary sm:text-5xl">
+          <h1 className="font-serif text-4xl font-bold leading-tight text-primary dark:text-stone-200 sm:text-5xl">
             {variation.question}
           </h1>
 
           {/* What kind of answer this question can have */}
-          <p className="mt-3 font-sans text-sm italic leading-relaxed text-muted">
+          <p className="mt-3 font-sans text-sm italic leading-relaxed text-muted dark:text-stone-400">
             {kind.description}
           </p>
 
           {/* Intro paragraph with cross-links */}
-          <p className="mt-6 font-sans text-lg leading-relaxed text-secondary">
+          <p className="mt-6 font-sans text-lg leading-relaxed text-secondary dark:text-stone-400">
             <LinkedText segments={metaClaimSegments} />
           </p>
 
@@ -281,10 +289,10 @@ export default async function QuestionPage({ params }: PageProps) {
           <div
             className={`mt-6 rounded-lg border border-t-2 border-stone-200/80 bg-panel p-4 dark:border-[var(--border-default)] ${categoryMeta.topBorder}`}
           >
-            <p className="font-sans text-sm text-muted">
+            <p className="font-sans text-sm text-muted dark:text-stone-400">
               Evidence assessment
             </p>
-            <p className="mt-1 font-serif text-xl font-semibold text-primary">
+            <p className="mt-1 font-serif text-xl font-semibold text-primary dark:text-stone-200">
               {verdict}
             </p>
             <BalanceWeightReadout
@@ -299,19 +307,19 @@ export default async function QuestionPage({ params }: PageProps) {
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
             {/* For column */}
             <div>
-              <h2 className="mb-4 font-serif text-2xl font-bold text-primary">
+              <h2 className="mb-4 font-serif text-2xl font-bold text-primary dark:text-stone-200">
                 Arguments for
               </h2>
               <ul className="space-y-4">
                 {forArguments.map((arg, i) => (
                   <li
                     key={i}
-                    className="rounded-lg border border-rust-200 bg-rust-50 p-4"
+                    className="rounded-lg border border-rust-200 bg-rust-50 p-4 dark:border-rust-800/70 dark:bg-rust-900/30"
                   >
-                    <h3 className="font-sans text-sm font-semibold uppercase tracking-wide text-rust-700">
+                    <h3 className="font-sans text-sm font-semibold uppercase tracking-wide text-rust-700 dark:text-rust-300">
                       {arg.title}
                     </h3>
-                    <p className="mt-2 font-sans text-sm leading-relaxed text-primary">
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-primary dark:text-stone-200">
                       <LinkedText
                         segments={getTopicMentions(
                           arg.summary,
@@ -327,19 +335,19 @@ export default async function QuestionPage({ params }: PageProps) {
 
             {/* Against column */}
             <div>
-              <h2 className="mb-4 font-serif text-2xl font-bold text-primary">
+              <h2 className="mb-4 font-serif text-2xl font-bold text-primary dark:text-stone-200">
                 Arguments against
               </h2>
               <ul className="space-y-4">
                 {againstArguments.map((arg, i) => (
                   <li
                     key={i}
-                    className="rounded-lg border border-stone-200 bg-stone-50 p-4"
+                    className="rounded-lg border border-stone-200 bg-stone-50 p-4 dark:border-[var(--border-default)] dark:bg-[var(--bg-panel)]"
                   >
-                    <h3 className="font-sans text-sm font-semibold uppercase tracking-wide text-stone-600">
+                    <h3 className="font-sans text-sm font-semibold uppercase tracking-wide text-stone-600 dark:text-stone-400">
                       {arg.title}
                     </h3>
-                    <p className="mt-2 font-sans text-sm leading-relaxed text-primary">
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-primary dark:text-stone-200">
                       <LinkedText
                         segments={getTopicMentions(
                           arg.summary,
@@ -356,10 +364,10 @@ export default async function QuestionPage({ params }: PageProps) {
 
           {/* Key crux questions */}
           <div className="mt-12">
-            <h2 className="mb-4 font-serif text-2xl font-bold text-primary">
+            <h2 className="mb-4 font-serif text-2xl font-bold text-primary dark:text-stone-200">
               The crux questions
             </h2>
-            <p className="mb-6 font-sans text-sm text-secondary">
+            <p className="mb-6 font-sans text-sm text-secondary dark:text-stone-400">
               These are the decisive points that could resolve the debate.
               Each pillar has a crux — a testable or definitive question
               that, if answered, would shift the balance of evidence.
@@ -368,15 +376,15 @@ export default async function QuestionPage({ params }: PageProps) {
               {topic.pillars.map((pillar) => (
                 <li
                   key={pillar.crux.id}
-                  className="rounded-lg border border-deep/10 bg-panel p-4"
+                  className="rounded-lg border border-deep/10 bg-panel p-4 dark:border-teal-700/40"
                 >
-                  <h3 className="font-sans text-sm font-semibold text-deep">
+                  <h3 className="font-sans text-sm font-semibold text-deep dark:text-teal-300">
                     {pillar.crux.title}
                   </h3>
-                  <p className="mt-1 font-sans text-sm leading-relaxed text-secondary">
+                  <p className="mt-1 font-sans text-sm leading-relaxed text-secondary dark:text-stone-400">
                     {pillar.crux.description}
                   </p>
-                  <p className="mt-2 font-sans text-xs text-muted">
+                  <p className="mt-2 font-sans text-xs text-muted dark:text-stone-400">
                     Status:{" "}
                     <span className="font-medium capitalize">
                       {pillar.crux.verification_status.replace("_", " ")}
@@ -389,11 +397,11 @@ export default async function QuestionPage({ params }: PageProps) {
           </div>
 
           {/* CTA to full topic page */}
-          <div className="mt-12 rounded-xl border border-rust-200 bg-rust-50 p-8 text-center">
-            <h2 className="font-serif text-2xl font-bold text-primary">
+          <div className="mt-12 rounded-xl border border-rust-200 bg-rust-50 p-8 text-center dark:border-rust-800/70 dark:bg-rust-900/30">
+            <h2 className="font-serif text-2xl font-bold text-primary dark:text-stone-200">
               Explore the full analysis
             </h2>
-            <p className="mx-auto mt-2 max-w-md font-sans text-sm text-secondary">
+            <p className="mx-auto mt-2 max-w-md font-sans text-sm text-secondary dark:text-stone-400">
               See all the evidence, weighted scores, and detailed analysis
               for each argument pillar on the full{" "}
               <strong>{topic.title}</strong> topic page.
@@ -410,7 +418,7 @@ export default async function QuestionPage({ params }: PageProps) {
           {/* Related questions from the same topic */}
           {relatedQuestions.length > 0 && (
             <div className="mt-12">
-              <h2 className="mb-4 font-serif text-xl font-bold text-primary">
+              <h2 className="mb-4 font-serif text-xl font-bold text-primary dark:text-stone-200">
                 Related questions about {topic.title}
               </h2>
               <ul className="space-y-2">
@@ -419,13 +427,13 @@ export default async function QuestionPage({ params }: PageProps) {
                   return (
                     <li key={v.slug} className="flex items-start gap-2.5">
                       <RelatedIcon
-                        className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70"
+                        className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70 dark:text-stone-400/70"
                         strokeWidth={1.8}
                         aria-hidden="true"
                       />
                       <Link
                         href={`/questions/${v.slug}`}
-                        className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
+                        className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep dark:text-teal-300 dark:hover:text-teal-200"
                       >
                         {v.question}
                       </Link>
@@ -439,7 +447,7 @@ export default async function QuestionPage({ params }: PageProps) {
           {/* Cross-topic questions (same category) */}
           {crossTopicQuestions.length > 0 && (
             <div className="mt-10">
-              <h2 className="mb-4 font-serif text-xl font-bold text-primary">
+              <h2 className="mb-4 font-serif text-xl font-bold text-primary dark:text-stone-200">
                 More {categoryLabel.toLowerCase()} questions
               </h2>
               <ul className="space-y-2">
@@ -448,13 +456,13 @@ export default async function QuestionPage({ params }: PageProps) {
                   return (
                     <li key={v.slug} className="flex items-start gap-2.5">
                       <CrossIcon
-                        className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70"
+                        className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70 dark:text-stone-400/70"
                         strokeWidth={1.8}
                         aria-hidden="true"
                       />
                       <Link
                         href={`/questions/${v.slug}`}
-                        className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
+                        className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep dark:text-teal-300 dark:hover:text-teal-200"
                       >
                         {v.question}
                       </Link>
@@ -464,7 +472,7 @@ export default async function QuestionPage({ params }: PageProps) {
               </ul>
               <Link
                 href="/questions"
-                className="mt-4 inline-flex items-center gap-1 font-sans text-sm text-muted transition-colors hover:text-deep"
+                className="mt-4 inline-flex items-center gap-1 font-sans text-sm text-muted transition-colors hover:text-deep dark:text-stone-400 dark:hover:text-teal-300"
               >
                 Browse all questions <span aria-hidden="true">&rarr;</span>
               </Link>
@@ -472,15 +480,15 @@ export default async function QuestionPage({ params }: PageProps) {
           )}
 
           {/* Footer attribution */}
-          <footer className="mt-16 border-t border-stone-200 pt-6">
-            <p className="font-sans text-xs text-muted">
+          <footer className="mt-16 border-t border-stone-200 pt-6 dark:border-[var(--border-default)]">
+            <p className="font-sans text-xs text-muted dark:text-stone-400">
               This analysis is generated by ARGUMEND using structured
               argument mapping. Every claim is steel-manned, every piece
               of evidence is independently weighted. Not a poll. Not an
               opinion.{" "}
               <Link
                 href="/methodology"
-                className="text-deep underline decoration-deep/30 hover:decoration-deep"
+                className="text-deep underline decoration-deep/30 hover:decoration-deep dark:text-teal-300"
               >
                 Read our methodology
               </Link>
@@ -488,7 +496,7 @@ export default async function QuestionPage({ params }: PageProps) {
             </p>
           </footer>
         </div>
-      </div>
+      </main>
     </>
   );
 }

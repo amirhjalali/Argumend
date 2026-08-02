@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { topics } from "@/data/topics";
+import { topicSummaries } from "@/data/topicIndex";
+import { loadTopicById } from "@/data/topicLoader";
 import { getMockVerdict } from "@/data/mockVerdicts";
 import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 import type { Metadata } from "next";
@@ -9,7 +10,7 @@ import type { Metadata } from "next";
 // ---------------------------------------------------------------------------
 
 export function generateStaticParams() {
-  return topics.map((topic) => ({ topicId: topic.id }));
+  return topicSummaries.map((topic) => ({ topicId: topic.id }));
 }
 
 // ---------------------------------------------------------------------------
@@ -22,11 +23,11 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { topicId } = await params;
-  const topic = topics.find((t) => t.id === topicId);
+  const topic = topicSummaries.find((t) => t.id === topicId);
   if (!topic) return { title: "Not Found" };
 
   return {
-    title: `${topic.title} — ARGUMEND Embed`,
+    title: `${topic.title} — Embed`,
     description: topic.meta_claim,
     robots: { index: false, follow: false },
   };
@@ -128,7 +129,7 @@ function VerdictBanner({
 
 export default async function EmbedPage({ params }: PageProps) {
   const { topicId } = await params;
-  const topic = topics.find((t) => t.id === topicId);
+  const topic = await loadTopicById(topicId);
 
   if (!topic) {
     notFound();
@@ -157,7 +158,7 @@ export default async function EmbedPage({ params }: PageProps) {
   const topicUrl = `https://argumend.org/topics/${topicId}`;
 
   return (
-    <main className="w-full max-w-[600px] mx-auto px-4 py-5 font-sans">
+    <main id="main-content" className="w-full max-w-[600px] mx-auto px-4 py-5 font-sans">
       {/* Header */}
       <div className="mb-4">
         <h1 className="font-serif text-xl sm:text-2xl tracking-tight leading-tight mb-2 break-words text-primary dark:text-stone-200">

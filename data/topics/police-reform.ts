@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const policeReformData = {
   id: "police-reform",
   title: "Policing Reform in America",

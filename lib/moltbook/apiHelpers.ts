@@ -27,7 +27,9 @@ export function handleApiResponse<T>(
   context: string
 ): ApiResult<T> {
   if (!response.success || !response.data) {
-    console.error(`${context}:`, response.error);
+    // Upstream error strings can contain response-body or request excerpts.
+    // Keep only the operation context in application logs.
+    console.error(context);
     return null;
   }
   return response.data;

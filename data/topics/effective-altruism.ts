@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const effectiveAltruismData = {
   id: "effective-altruism",
   title: "Effective Altruism",

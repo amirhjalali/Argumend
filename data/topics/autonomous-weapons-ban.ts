@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const autonomousWeaponsBanData = {
   id: "autonomous-weapons-ban",
   title: "Banning Killer Robots",

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const usNationalDebtCrisisData = {
   id: "us-national-debt-crisis",
   title: "Is the US National Debt a Ticking Time Bomb?",

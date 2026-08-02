@@ -45,14 +45,16 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
 
   return (
     <div
+      role="group"
+      aria-labelledby={`node-title-${id}`}
       className={`relative w-[300px] md:w-[340px] rounded-xl border border-stone-200/80 dark:border-[var(--border-default)] border-l-[3px] ${style.borderClass} bg-[#fefcf9] dark:bg-[var(--bg-card)] shadow-[0_1px_3px_rgba(120,100,80,0.08)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.35)] transition-shadow duration-200 hover:shadow-[0_4px_16px_rgba(120,100,80,0.12)] dark:hover:shadow-[0_4px_16px_rgba(0,0,0,0.45)] node-enter`}
       style={{ animationDelay: `${((data.birthOrder as number) ?? 0) * 80}ms` }}
     >
       {/* Handles for various layout directions */}
-      <Handle type="target" position={Position.Top} id="top" className="logic-handle" isConnectable={false} />
-      <Handle type="target" position={Position.Left} id="left" className="logic-handle" isConnectable={false} />
-      <Handle type="source" position={Position.Bottom} id="bottom" className="logic-handle" isConnectable={false} />
-      <Handle type="source" position={Position.Right} id="right" className="logic-handle" isConnectable={false} />
+      <Handle type="target" position={Position.Top} id="top" className="logic-handle" isConnectable={false} aria-hidden="true" tabIndex={-1} />
+      <Handle type="target" position={Position.Left} id="left" className="logic-handle" isConnectable={false} aria-hidden="true" tabIndex={-1} />
+      <Handle type="source" position={Position.Bottom} id="bottom" className="logic-handle" isConnectable={false} aria-hidden="true" tabIndex={-1} />
+      <Handle type="source" position={Position.Right} id="right" className="logic-handle" isConnectable={false} aria-hidden="true" tabIndex={-1} />
 
       {/* Optional Image */}
       {data.imageUrl && (
@@ -79,7 +81,7 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
         </div>
 
         {/* Title - Serif, lighter weight */}
-        <h3 className="mb-3 font-serif text-[17px] font-normal leading-snug text-primary dark:text-[var(--text-primary)] tracking-tight">
+        <h3 id={`node-title-${id}`} className="mb-3 font-serif text-[17px] font-normal leading-snug text-primary dark:text-[var(--text-primary)] tracking-tight">
           {data.title}
         </h3>
 
@@ -145,7 +147,8 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
               <button
                 className="flex flex-1 items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium text-stone-700 dark:text-[var(--text-secondary)] bg-stone-100 dark:bg-[var(--bg-muted)] hover:bg-stone-200 dark:hover:bg-[#3d3a36] transition-colors"
                 onClick={() => (expanded ? collapseNode(id) : expandNode(id))}
-                aria-expanded={expanded}
+                aria-expanded={Boolean(expanded)}
+                aria-label={`${expanded ? "Collapse" : "Expand"} ${data.title}`}
               >
                 {expanded ? "Collapse" : "Explore"}
                 <ChevronDown className={`h-3 w-3 transition-transform ${expanded ? "rotate-180" : ""}`} />
@@ -160,6 +163,8 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
               <button
                 className="flex flex-1 items-center justify-center gap-1.5 rounded-md bg-[#a23b3b] px-3 py-2 text-xs font-medium text-white hover:bg-[#8a3232] transition-colors"
                 onClick={() => openCrux(id)}
+                aria-haspopup="dialog"
+                aria-label={`Open crux details for ${data.title}`}
               >
                 View Crux
                 <Scale className="h-3 w-3" />
@@ -170,13 +175,16 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
           {/* Show Evidence button for pillars with evidence */}
           {isPillar && hasEvidence && (
             <button
-              className={`flex items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
+              className={`flex items-center justify-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium transition-colors ${
                 evidenceLoaded
-                  ? "text-rust-500 dark:text-rust-300 bg-rust-50/50 dark:bg-rust-500/10 border border-rust-200/50 dark:border-rust-500/20"
+                  ? "cursor-not-allowed text-rust-500 opacity-60 dark:text-rust-300 bg-rust-50/50 dark:bg-rust-500/10 border border-rust-200/50 dark:border-rust-500/20"
                   : "text-rust-700 dark:text-rust-300 bg-rust-100/80 dark:bg-rust-500/15 hover:bg-rust-200/80 dark:hover:bg-rust-500/25 border border-rust-200/50 dark:border-rust-500/25"
               }`}
-              onClick={() => loadEvidence(id)}
-              disabled={evidenceLoaded}
+              onClick={() => {
+                if (!evidenceLoaded) loadEvidence(id);
+              }}
+              aria-disabled={Boolean(evidenceLoaded)}
+              aria-label={evidenceLoaded ? `Evidence loaded for ${data.title}` : `Load evidence for ${data.title}`}
             >
               <BarChart3 className="h-3.5 w-3.5" />
               {evidenceLoaded ? "Evidence Loaded" : "Show Evidence"}

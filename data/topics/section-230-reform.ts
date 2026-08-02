@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const section230ReformData = {
   id: "section-230-reform",
   title: "Reforming Section 230",

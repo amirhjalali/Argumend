@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const psychedelicsMentalHealthData = {
   id: "psychedelics-mental-health",
   title: "Psychedelics for Mental Health",

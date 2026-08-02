@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const modernMonetaryTheoryData = {
   id: "modern-monetary-theory",
   title: "Modern Monetary Theory",

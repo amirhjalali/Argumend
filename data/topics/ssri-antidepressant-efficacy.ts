@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const ssriAntidepressantEfficacyData = {
   id: "ssri-antidepressant-efficacy",
   title: "Do Antidepressants Beat Placebo?",

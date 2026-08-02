@@ -4,13 +4,14 @@ import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { learnNav, metaNav, primaryNav } from "@/lib/nav";
+import { getVisiblePrimaryNav, learnNav, metaNav } from "@/lib/nav";
 import { topicSummaries } from "@/data/topicIndex";
 import { TrendingTopics } from "@/components/TrendingTopics";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 const DESKTOP_QUERY = "(min-width: 768px)";
+const authEntryEnabled = process.env.NEXT_PUBLIC_ENABLE_AUTH === "true";
 
 function subscribeDesktopChange(onStoreChange: () => void) {
   if (typeof window === "undefined") return () => {};
@@ -30,12 +31,11 @@ function getServerDesktopSnapshot() {
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
-  currentTopicId: string;
-  onTopicSelect: (id: string) => void;
+  currentTopicId?: string;
+  onTopicSelect?: (id: string) => void;
 }
 
 export function Sidebar({
-  isOpen,
   onClose,
   currentTopicId,
   onTopicSelect,
@@ -51,32 +51,39 @@ export function Sidebar({
   );
   const [learnOpenOverride, setLearnOpenOverride] = useState<boolean | null>(null);
   const learnOpen = learnOpenOverride ?? isDesktop;
+  const visiblePrimaryNav = getVisiblePrimaryNav(authEntryEnabled);
+  const activeNavHref = [...visiblePrimaryNav, ...learnNav, ...metaNav]
+    .filter(({ href }) =>
+      href === "/"
+        ? pathname === "/"
+        : pathname === href || pathname.startsWith(`${href}/`),
+    )
+    .sort((a, b) => b.href.length - a.href.length)[0]?.href;
 
   const handleTopicClick = (id: string) => {
-    onTopicSelect(id);
-    // Navigate to home if not already there
-    if (pathname !== "/") {
-      router.push("/");
+    if (pathname === "/") {
+      // The home canvas already owns the graph store, so topic switches remain
+      // in-place there. Shared content shells deliberately do not import it.
+      onTopicSelect?.(id);
+    } else {
+      const params = new URLSearchParams({ topic: id, view: "logic-map" });
+      router.push(`/?${params.toString()}`);
     }
     if (window.innerWidth < 768) {
       onClose();
     }
   };
 
-  const isActiveRoute = (href: string) => {
-    if (href === "/") return pathname === "/";
-    // Exact match or a true sub-path — so /analyses doesn't light up
-    // /analyze, and /topics/compare doesn't light up /topics.
-    return pathname === href || pathname.startsWith(href + "/");
-  };
+  const isActiveRoute = (href: string) => href === activeNavHref;
 
   return (
-    <nav aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] dark:bg-[#1a1917] md:bg-transparent text-primary shadow-lg md:shadow-none">
+    <nav aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] dark:bg-[#1a1917] md:bg-transparent text-primary dark:text-stone-200 shadow-lg md:shadow-none">
       {/* Mobile close button - appears at top of sidebar */}
       <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50 dark:border-[#3d3a36]/50">
         <span className="text-sm font-medium text-stone-600 dark:text-stone-300">Menu</span>
         <button
           onClick={onClose}
+          data-sidebar-initial-focus
           className="flex items-center justify-center h-11 w-11 -mr-2 rounded-lg text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
           aria-label="Close menu"
         >
@@ -89,13 +96,13 @@ export function Sidebar({
       <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5">
         {/* Primary Navigation */}
         <div className="space-y-0.5 pb-5" role="list" aria-label="Primary navigation">
-          {primaryNav.map(({ label, icon: Icon, href, highlight, noPrefetch }) => {
+          {visiblePrimaryNav.map(({ label, icon: Icon, href, highlight }) => {
             const isActive = isActiveRoute(href);
             return (
               <Link
                 key={label}
                 href={href}
-                prefetch={noPrefetch ? false : undefined}
+                prefetch={false}
                 aria-current={isActive ? "page" : undefined}
                 className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                   isActive
@@ -149,6 +156,7 @@ export function Sidebar({
                   <Link
                     key={label}
                     href={href}
+                    prefetch={false}
                     tabIndex={learnOpen ? 0 : -1}
                     aria-current={isActive ? "page" : undefined}
                     className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
@@ -187,6 +195,7 @@ export function Sidebar({
                 <li key={topic.id}>
                   <button
                     onClick={() => handleTopicClick(topic.id)}
+                    aria-pressed={isSelected}
                     className={`flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-left transition-colors ${
                       isSelected
                         ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-rust-500 pl-[10px]"
@@ -212,6 +221,7 @@ export function Sidebar({
           {topicSummaries.length > 8 && (
             <Link
               href="/topics"
+              prefetch={false}
               className="flex items-center gap-1 px-3 py-2.5 min-h-[44px] mt-1 text-[13px] font-medium text-deep hover:text-deep-dark transition-colors"
             >
               View all {topicSummaries.length} topics
@@ -229,7 +239,9 @@ export function Sidebar({
               <li key={label}>
                 <Link
                   href={href}
-                  className="text-[12px] text-muted dark:text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
+                  prefetch={false}
+                  aria-current={isActiveRoute(href) ? "page" : undefined}
+                  className="inline-flex min-h-11 items-center rounded-md px-1 text-[12px] text-muted transition-colors hover:text-stone-600 dark:text-stone-400 dark:hover:text-stone-300"
                 >
                   {label}
                 </Link>

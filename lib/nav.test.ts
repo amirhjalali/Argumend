@@ -7,6 +7,7 @@ import {
   learnNav,
   metaNav,
   footerColumns,
+  getVisiblePrimaryNav,
 } from "./nav";
 
 describe("navItems (the single source of truth)", () => {
@@ -73,6 +74,18 @@ describe("derived sidebar groups", () => {
   it("opts auth-gated / heavy routes out of prefetch", () => {
     const noPrefetch = navItems.filter((i) => i.noPrefetch).map((i) => i.href).sort();
     expect(noPrefetch).toEqual(["/analyses", "/dashboard", "/saved"]);
+  });
+
+  it("does not tease the dashboard in the default offline experience", () => {
+    expect(getVisiblePrimaryNav(false).map((item) => item.href)).not.toContain(
+      "/dashboard",
+    );
+  });
+
+  it("exposes the dashboard after account features are enabled", () => {
+    expect(getVisiblePrimaryNav(true).map((item) => item.href)).toContain(
+      "/dashboard",
+    );
   });
 });
 

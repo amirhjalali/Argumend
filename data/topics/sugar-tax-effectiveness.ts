@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const sugarTaxEffectivenessData = {
   id: "sugar-tax-effectiveness",
   title: "Do Sugar Taxes Actually Reduce Obesity?",
@@ -273,18 +271,20 @@ export const sugarTaxEffectivenessData = {
         {
           id: "no-obesity-reduction-evidence",
           title:
-            "Population-Wide Obesity Reduction Attributable to a Tax Alone Remains Unproven",
+            "UK Levy's Early Obesity Signal Was Limited to Older Girls",
           description:
-            "Most sugar-tax evaluations measure purchasing or sugar intake rather than obesity. No study has demonstrated a statistically significant, causally attributable reduction in overall population obesity from a sugar tax alone; the strongest health signal to date is an associational 8% relative obesity reduction in UK year-6 girls (Rogers et al. 2023), which did not extend to boys or younger children. Tax-vs-obesity links are still mostly modeling-based projections.",
+            "An interrupted time-series study of more than one million English primary-school children found that obesity prevalence among year-6 girls was 1.6 percentage points below its modeled counterfactual 19 months after the UK Soft Drinks Industry Levy. It found no overall change among year-6 boys or reception-age children and could not rule out concurrent interventions or time-varying confounding. The result is a promising subgroup association, not evidence of population-wide obesity reduction from the levy alone.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 7,
-            replicability: 6,
-            directness: 8,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 7,
           },
+          source: "Rogers et al., PLOS Medicine (2023)",
+          sourceUrl: "https://doi.org/10.1371/journal.pmed.1004160",
           reasoning:
-            "No single citable study asserts this negative, so it carries no sourceUrl; it is a characterization of the literature's current state. The most direct test of the policy's stated obesity goal remains unmet, though a 5-10 year measurement lag and the year-6-girls signal are valid counterpoints. Weights de-inflated accordingly.",
+            "The large official surveillance dataset and explicit interrupted time-series method make this a useful early outcome study. It remains observational, the effect appeared in only one age-sex subgroup, and the authors explicitly note possible confounding, so it cannot establish a general obesity effect.",
         },
       ],
     },
@@ -394,6 +394,8 @@ export const sugarTaxEffectivenessData = {
             replicability: 5,
             directness: 5,
           },
+          source:
+            "Synthesis / inference — normative autonomy and policy-scope critique",
           reasoning:
             "This is a normative/values critique of policy scope rather than an empirical finding, so it carries no sourceUrl; weights de-inflated to reflect that it is an argument about policy design and autonomy, not evidence about effectiveness.",
         },

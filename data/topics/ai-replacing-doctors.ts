@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const aiReplacingDoctorsData = {
   id: "ai-replacing-doctors",
   title: "Will AI Replace Doctors Within a Decade?",

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const tiktokBanData = {
   id: "tiktok-ban",
   title: "Should TikTok Be Banned?",

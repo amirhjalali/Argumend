@@ -3,9 +3,15 @@ import { z } from "zod";
 import { getDb } from "@/lib/db/index";
 import { newsletters } from "@/lib/db/schema";
 import { rateLimit } from "@/lib/rate-limit";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
 const NewsletterRequestSchema = z.object({
-  email: z.string().email("Please enter a valid email address.").max(254),
+  email: z
+    .string()
+    .trim()
+    .toLowerCase()
+    .email("Please enter a valid email address.")
+    .max(254),
   source: z.string().max(100).optional(),
 });
 
@@ -46,17 +52,15 @@ export async function POST(request: NextRequest) {
       const firstError = parseResult.error.issues[0]?.message || "Invalid request";
       return NextResponse.json({ error: firstError }, { status: 400 });
     }
-    email = parseResult.data.email.trim().toLowerCase();
+    email = parseResult.data.email;
     source = parseResult.data.source;
   } catch {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  // Persist durably. The app runs offline by default, so a missing or unreachable
-  // database must NEVER lose a signup or show the visitor an error. If the DB
-  // write fails for any reason (getDb throws, connection drops, insert errors),
-  // we fall back to a structured, greppable log marker and STILL report success —
-  // the address can be recovered from logs and reconciled later.
+  // Newsletter subscriptions require durable storage. Offline mode keeps the
+  // rest of the product usable, but must not claim a signup succeeded when no
+  // database accepted it or leak a visitor's email address into application logs.
   try {
     // Insert into DB — on conflict (already subscribed), do nothing
     await getDb()
@@ -67,12 +71,10 @@ export async function POST(request: NextRequest) {
       })
       .onConflictDoNothing({ target: newsletters.email });
   } catch (error) {
-    const reason = error instanceof Error ? error.message : String(error);
-    // Strip CR/LF so a crafted `source` (validated only as a <=100-char string)
-    // or `reason` can't forge or split log lines / poison a log aggregator.
-    const oneLine = (s: string) => s.replace(/[\r\n]+/g, " ");
-    console.warn(
-      `[newsletter-fallback] ${email} ${new Date().toISOString()} source=${oneLine(source || "website")} reason=${oneLine(reason)}`
+    console.warn("Newsletter persistence unavailable:", sanitizeServerLog(error));
+    return NextResponse.json(
+      { error: "Newsletter signup is temporarily unavailable. Please try again later." },
+      { status: 503 }
     );
   }
 

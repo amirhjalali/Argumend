@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useId } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -39,10 +39,7 @@ import type {
   PotentialFallacy,
   DetectedBias,
 } from "@/lib/analyze/extractor";
-import {
-  getArgumentStrength,
-  getConfidenceInfo,
-} from "@/lib/analyze/extractor";
+import { getArgumentStrength, getConfidenceInfo } from "@/lib/analyze/scoring";
 import { formatLongDate } from "@/lib/formatDate";
 
 // ---------- Helpers ----------
@@ -136,7 +133,14 @@ function StrengthBadge({ score }: { score: number }) {
 function PositionStrengthBar({ score, side }: { score: number; side: "for" | "against" }) {
   const pct = (score / 10) * 100;
   return (
-    <div className="flex items-center gap-2 mt-1">
+    <div
+      className="flex items-center gap-2 mt-1"
+      role="meter"
+      aria-label={`${side === "for" ? "For" : "Against"} position average argument strength`}
+      aria-valuemin={0}
+      aria-valuemax={10}
+      aria-valuenow={Number(score.toFixed(1))}
+    >
       <div className="flex-1 h-1.5 rounded-full bg-stone-100 dark:bg-[var(--bg-overlay)] overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
@@ -164,6 +168,8 @@ function SplitStrengthBar({ forScore, againstScore }: { forScore: number; agains
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.12 }}
       className="surface-card p-5 md:p-6"
+      role="img"
+      aria-label={`Relative argument strength: for ${forScore} out of 10, against ${againstScore} out of 10`}
     >
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
@@ -261,6 +267,7 @@ function BiasCard({ bias }: { bias: DetectedBias }) {
 
 function PositionCard({ position }: { position: ExtractedPosition }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const detailsId = useId();
   const isFor = position.side === "for";
   const aggregateStrength = computePositionStrength(position);
 
@@ -276,6 +283,8 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
+        aria-expanded={isExpanded}
+        aria-controls={detailsId}
         className="w-full p-4 md:p-5 text-left hover:bg-white/40 dark:hover:bg-[#252420]/40 transition-colors"
       >
         <div className="flex items-center justify-between">
@@ -303,7 +312,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            <ChevronDown className={`h-5 w-5 ${isFor ? "text-rust-400" : "text-muted dark:text-stone-400"}`} />
+            <ChevronDown aria-hidden="true" className={`h-5 w-5 ${isFor ? "text-rust-400" : "text-muted dark:text-stone-400"}`} />
           </motion.div>
         </div>
 
@@ -316,6 +325,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
       <AnimatePresence>
         {isExpanded && (
           <motion.div
+            id={detailsId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -362,6 +372,11 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
                     </div>
                   );
                 })}
+                {position.arguments.length === 0 && (
+                  <p className="text-sm text-stone-500 dark:text-stone-400">
+                    No individual arguments were identified for this side.
+                  </p>
+                )}
               </div>
             </div>
           </motion.div>
@@ -385,10 +400,12 @@ function CruxCard({ crux, index }: { crux: IdentifiedCrux; index: number }) {
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-stone-800 dark:text-[var(--text-heading)] font-medium leading-snug">{crux.description}</p>
-          <div className="mt-2 flex items-start gap-2">
-            <div className="w-1 h-1 rounded-full bg-deep/40 mt-2 flex-shrink-0" />
-            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed italic">{crux.significance}</p>
-          </div>
+          {crux.significance && (
+            <div className="mt-2 flex items-start gap-2">
+              <div className="w-1 h-1 rounded-full bg-deep/40 mt-2 flex-shrink-0" />
+              <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed italic">{crux.significance}</p>
+            </div>
+          )}
         </div>
       </div>
     </motion.div>
@@ -454,23 +471,6 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
 }
 
 
-function ConfidenceBadge({ score }: { score: number }) {
-  let color: string;
-  if (score >= 80) {
-    color = "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400";
-  } else if (score >= 50) {
-    color = "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-600 dark:text-stone-400";
-  } else {
-    color = "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400";
-  }
-
-  return (
-    <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${color}`}>
-      {score}% confidence
-    </span>
-  );
-}
-
 function RelatedTopicCard({ topic }: { topic: TopicSummary }) {
   return (
     <Link
@@ -534,6 +534,11 @@ export function AnalysisView({
 
   const hasFallacies = extracted.potentialFallacies.length > 0;
   const hasBiases = extracted.detectedBiases && extracted.detectedBiases.length > 0;
+  const judgingMode = judgingResult?.verdicts.every((verdict) =>
+    verdict.judgeName.includes("Programmatic")
+  )
+    ? "programmatic"
+    : "live";
 
   return (
     <AppShell>
@@ -545,7 +550,7 @@ export function AnalysisView({
               href="/analyze"
               className="hover:text-deep transition-colors"
             >
-              Analyses
+              Analyze
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-muted dark:text-[var(--text-muted)]" />
             <span className="text-primary dark:text-stone-200 font-medium truncate max-w-[280px] sm:max-w-none">
@@ -582,7 +587,7 @@ export function AnalysisView({
                     {extracted.topic}
                   </h1>
                   <p className="text-secondary dark:text-stone-400 text-sm leading-relaxed max-w-xl">
-                    {extracted.summary}
+                    {extracted.summary || "No summary was available for this analysis."}
                   </p>
                   <div className="pt-1">
                     <ConfidenceExplainer score={extracted.confidence} />
@@ -591,7 +596,11 @@ export function AnalysisView({
 
                 {/* Circular confidence gauge */}
                 <div className="flex-shrink-0 self-center md:self-start">
-                  <ConfidenceGauge score={Math.round(extracted.confidence * 100)} size={110} />
+                  <ConfidenceGauge
+                    score={Math.round(extracted.confidence * 100)}
+                    size={110}
+                    label="Extraction confidence"
+                  />
                 </div>
               </div>
             </div>
@@ -713,7 +722,7 @@ export function AnalysisView({
               transition={{ delay: 0.3 }}
               className="pt-2"
             >
-              <JudgingResults result={judgingResult} />
+              <JudgingResults result={judgingResult} mode={judgingMode} />
             </motion.div>
           )}
 
@@ -757,7 +766,8 @@ export function AnalysisView({
                 </h3>
                 <p className="text-secondary dark:text-stone-400 text-sm max-w-md mx-auto mt-2">
                   Paste a debate, article, or discussion. We extract positions,
-                  flag fallacies, and score argument quality with multiple models.
+                  flag potential fallacies, and assess argument quality. Programmatic
+                  analysis works without an AI provider.
                 </p>
                 <Link
                   href="/analyze"

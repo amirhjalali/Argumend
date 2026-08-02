@@ -1,33 +1,48 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { rateLimit } from "@/lib/rate-limit";
+import {
+  TopicSubscriptionRequestSchema,
+  type TopicSubscriptionStatus,
+} from "@/lib/subscriptions/contracts";
 import {
   subscribeTopic,
   unsubscribeTopic,
   isSubscribed,
   getSubscriberCount,
 } from "@/lib/db/queries";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
-const SubscriptionRequestSchema = z.object({
-  topicId: z.string().min(1, "topicId is required").max(200),
-  subscribe: z.boolean(),
-});
+const TopicIdSchema = TopicSubscriptionRequestSchema.shape.topicId;
+
+function subscriptionsEnabled(): boolean {
+  return process.env.NEXT_PUBLIC_ENABLE_AUTH === "true";
+}
+
+function featureDisabled() {
+  return NextResponse.json(
+    { error: "Topic follows are not enabled", code: "FEATURE_DISABLED" },
+    { status: 404 },
+  );
+}
 
 /**
  * GET /api/topic-subscriptions?topicId=xxx
  * Check subscription status and subscriber count.
  */
 export async function GET(req: NextRequest) {
+  if (!subscriptionsEnabled()) return featureDisabled();
+
   try {
     const url = new URL(req.url);
-    const topicId = url.searchParams.get("topicId");
-    if (!topicId || topicId.length > 200) {
+    const topicIdResult = TopicIdSchema.safeParse(url.searchParams.get("topicId"));
+    if (!topicIdResult.success) {
       return NextResponse.json(
-        { error: "topicId is required" },
-        { status: 400 }
+        { error: "Invalid topicId", code: "INVALID_REQUEST" },
+        { status: 400 },
       );
     }
+    const topicId = topicIdResult.data;
 
     const session = await auth();
     const userId = session?.user?.id;
@@ -37,11 +52,23 @@ export async function GET(req: NextRequest) {
       userId ? isSubscribed(userId, topicId) : Promise.resolve(false),
     ]);
 
-    return NextResponse.json({ subscribed, subscriberCount });
-  } catch {
+    const response: TopicSubscriptionStatus = {
+      authenticated: Boolean(userId),
+      subscribed,
+      subscriberCount,
+    };
+    return NextResponse.json(response);
+  } catch (error) {
+    console.error(
+      "Failed to fetch topic follow status:",
+      sanitizeServerLog(error),
+    );
     return NextResponse.json(
-      { error: "Failed to fetch subscription status" },
-      { status: 500 }
+      {
+        error: "Topic follows are temporarily unavailable",
+        code: "SUBSCRIPTION_UNAVAILABLE",
+      },
+      { status: 503 },
     );
   }
 }
@@ -52,12 +79,14 @@ export async function GET(req: NextRequest) {
  * Body: { topicId: string; subscribe: boolean }
  */
 export async function POST(req: NextRequest) {
+  if (!subscriptionsEnabled()) return featureDisabled();
+
   try {
     const session = await auth();
     if (!session?.user?.id) {
       return NextResponse.json(
-        { error: "Authentication required" },
-        { status: 401 }
+        { error: "Authentication required", code: "AUTH_REQUIRED" },
+        { status: 401 },
       );
     }
 
@@ -70,12 +99,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const raw = await req.json();
-    const parseResult = SubscriptionRequestSchema.safeParse(raw);
+    let raw: unknown;
+    try {
+      raw = await req.json();
+    } catch {
+      return NextResponse.json(
+        { error: "Invalid JSON body", code: "INVALID_JSON" },
+        { status: 400 },
+      );
+    }
+
+    const parseResult = TopicSubscriptionRequestSchema.safeParse(raw);
     if (!parseResult.success) {
       return NextResponse.json(
-        { error: "Invalid request", details: parseResult.error.flatten() },
-        { status: 400 }
+        { error: "Invalid request", code: "INVALID_REQUEST" },
+        { status: 400 },
       );
     }
     const { topicId, subscribe } = parseResult.data;
@@ -88,14 +126,20 @@ export async function POST(req: NextRequest) {
 
     const subscriberCount = await getSubscriberCount(topicId);
 
-    return NextResponse.json({
+    const response: TopicSubscriptionStatus = {
+      authenticated: true,
       subscribed: subscribe,
       subscriberCount,
-    });
-  } catch {
+    };
+    return NextResponse.json(response);
+  } catch (error) {
+    console.error("Failed to update topic follow:", sanitizeServerLog(error));
     return NextResponse.json(
-      { error: "Failed to update subscription" },
-      { status: 500 }
+      {
+        error: "Topic follows are temporarily unavailable",
+        code: "SUBSCRIPTION_UNAVAILABLE",
+      },
+      { status: 503 },
     );
   }
 }

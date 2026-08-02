@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const simulationHypothesisData = {
   id: "simulation-hypothesis",
   title: "The Simulation Hypothesis",

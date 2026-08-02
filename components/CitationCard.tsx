@@ -1,7 +1,7 @@
 "use client";
 
-import { memo, useState, useRef } from "react";
-import { ExternalLink, FileText, BookOpen, Globe, Calendar } from "lucide-react";
+import { memo, useEffect, useRef, useState } from "react";
+import { ExternalLink, FileText, BookOpen, Globe } from "lucide-react";
 import type { Reference } from "@/types/graph";
 
 interface CitationCardProps {
@@ -39,6 +39,13 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
   const triggerRef = useRef<HTMLAnchorElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  useEffect(
+    () => () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    },
+    [],
+  );
+
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -60,6 +67,17 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
     }, 150);
   };
 
+  const handleFocus = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsHovered(true);
+  };
+
+  const handleBlur = (event: React.FocusEvent<HTMLSpanElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      setIsHovered(false);
+    }
+  };
+
   const domain = reference.url ? getDomain(reference.url) : null;
 
   return (
@@ -67,6 +85,8 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
       className="relative inline-block"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
     >
       {/* Citation Link */}
       <a
@@ -74,7 +94,7 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
         href={reference.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-start gap-1.5 text-xs font-sans text-secondary transition-colors hover:text-rust-500 group"
+        className="inline-flex items-start gap-1.5 text-xs font-sans text-secondary dark:text-stone-400 transition-colors hover:text-rust-500 group"
       >
         <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-stone-100 text-[10px] font-bold text-stone-500 group-hover:bg-rust-500/10 group-hover:text-rust-500 transition-colors flex-shrink-0 mt-0.5">
           {index}
@@ -100,11 +120,11 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
               <SourceIcon url={reference.url} source={reference.source} className="h-4 w-4 text-rust-500" strokeWidth={2} />
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="font-serif text-sm font-semibold text-primary leading-tight mb-1">
+              <h4 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 leading-tight mb-1">
                 {reference.title}
               </h4>
               {reference.source && (
-                <p className="text-xs text-stone-500 italic">
+                <p className="text-xs text-stone-500 dark:text-stone-400 italic">
                   {reference.source}
                 </p>
               )}
@@ -112,9 +132,9 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
           </div>
 
           {/* Source Details */}
-          <div className="space-y-2 pt-3 border-t border-stone-100">
+          <div className="space-y-2 pt-3 border-t border-stone-100 dark:border-[var(--border-default)]">
             {domain && (
-              <div className="flex items-center gap-2 text-xs text-stone-500">
+              <div className="flex items-center gap-2 text-xs text-stone-500 dark:text-stone-400">
                 <Globe className="h-3.5 w-3.5 flex-shrink-0" />
                 <span className="truncate">{domain}</span>
               </div>

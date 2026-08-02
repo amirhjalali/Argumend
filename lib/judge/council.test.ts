@@ -17,13 +17,11 @@ import {
   type JudgeVerdict,
   type JudgingResult,
 } from "./rubric";
+import { determineConsensusWinner } from "./consensus";
 
 // ---------------------------------------------------------------
-// The functions aggregateScores, findDisagreements, and
-// determineConsensusWinner are not exported from council.ts.
-// We re-implement them here identically so we can unit-test the
-// exact same logic against known inputs.  This avoids modifying
-// the production source just to expose internal helpers.
+// aggregateScores and findDisagreements are reimplemented here for unit
+// coverage. Consensus is imported from the shared production helper.
 // ---------------------------------------------------------------
 
 function aggregateScores(
@@ -127,36 +125,6 @@ function findDisagreements(
   }
 
   return disagreements;
-}
-
-function determineConsensusWinner(
-  verdicts: JudgeVerdict[]
-): { winner: "for" | "against" | "draw" | null; hasConsensus: boolean } {
-  if (verdicts.length === 0) {
-    return { winner: null, hasConsensus: false };
-  }
-
-  const winnerCounts = { for: 0, against: 0, draw: 0 };
-  for (const verdict of verdicts) {
-    winnerCounts[verdict.winner]++;
-  }
-
-  const majorityThreshold = Math.ceil(verdicts.length / 2);
-
-  const hasConsensus =
-    winnerCounts.for === verdicts.length ||
-    winnerCounts.against === verdicts.length ||
-    winnerCounts.draw === verdicts.length;
-
-  if (winnerCounts.for >= majorityThreshold) {
-    return { winner: "for", hasConsensus };
-  } else if (winnerCounts.against >= majorityThreshold) {
-    return { winner: "against", hasConsensus };
-  } else if (winnerCounts.draw >= majorityThreshold) {
-    return { winner: "draw", hasConsensus };
-  }
-
-  return { winner: null, hasConsensus: false };
 }
 
 // ---------------------------------------------------------------
@@ -677,7 +645,7 @@ describe("determineConsensusWinner", () => {
         makeVerdict("j2", [4, 4, 4, 4, 4], [8, 8, 8, 8, 8], "against"),
         makeVerdict("j3", [5, 5, 5, 5, 5], [5, 5, 5, 5, 5], "draw"),
       ];
-      // majorityThreshold = ceil(3/2) = 2
+      // strict majority threshold = floor(3/2) + 1 = 2
       // for=1, against=1, draw=1 — none reaches 2
       const result = determineConsensusWinner(verdicts);
       expect(result.winner).toBeNull();
@@ -691,34 +659,35 @@ describe("determineConsensusWinner", () => {
         makeVerdict("j3", [4, 4, 4, 4, 4], [8, 8, 8, 8, 8], "against"),
         makeVerdict("j4", [3, 3, 3, 3, 3], [9, 9, 9, 9, 9], "against"),
       ];
-      // majorityThreshold = ceil(4/2) = 2
-      // for=2, against=2 — both reach threshold; code checks "for" first
       const result = determineConsensusWinner(verdicts);
-      expect(result.winner).toBe("for"); // checked first in the if-else chain
+      expect(result.winner).toBeNull();
       expect(result.hasConsensus).toBe(false);
+
+      const reversed = determineConsensusWinner([...verdicts].reverse());
+      expect(reversed).toEqual(result);
     });
   });
 
   describe("majority threshold math", () => {
-    it("ceil(1/2) = 1, so single verdict always has majority", () => {
+    it("a single verdict is a strict and unanimous majority", () => {
       const v = makeVerdict("j1", [5, 5, 5, 5, 5], [5, 5, 5, 5, 5], "draw");
       const result = determineConsensusWinner([v]);
       expect(result.winner).toBe("draw");
       expect(result.hasConsensus).toBe(true);
     });
 
-    it("ceil(2/2) = 1, so 1/2 is enough for majority with 2 judges", () => {
+    it("a 1-1 panel has no majority regardless of input order", () => {
       const verdicts = [
         makeVerdict("j1", [8, 8, 8, 8, 8], [4, 4, 4, 4, 4], "for"),
         makeVerdict("j2", [4, 4, 4, 4, 4], [8, 8, 8, 8, 8], "against"),
       ];
-      // threshold = 1, for=1 >= 1 => winner = "for" (checked first)
       const result = determineConsensusWinner(verdicts);
-      expect(result.winner).toBe("for");
+      expect(result.winner).toBeNull();
       expect(result.hasConsensus).toBe(false);
+      expect(determineConsensusWinner([...verdicts].reverse())).toEqual(result);
     });
 
-    it("ceil(5/2) = 3, needs 3/5 for majority", () => {
+    it("floor(5/2) + 1 = 3, so 3/5 is required", () => {
       // Only 2/5 for "for" — not enough
       const verdicts = [
         makeVerdict("j1", [8, 8, 8, 8, 8], [4, 4, 4, 4, 4], "for"),

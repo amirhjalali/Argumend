@@ -1,23 +1,12 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { JsonLd } from "@/components/JsonLd";
 import { faqs } from "@/data/faqs";
+import { getCollectionItemPresentation } from "@/lib/collectionStyles";
 
 export default function FAQPage() {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
-
   return (
     <AppShell>
-      <JsonLd data={faqJsonLd} />
       <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
         <Breadcrumbs
           items={[
@@ -46,6 +35,11 @@ export default function FAQPage() {
               key={index}
               open={index === 0}
               className="group rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)]/70 transition-colors open:bg-[var(--bg-card)] open:shadow-[var(--shadow-card)]"
+              style={
+                getCollectionItemPresentation(index, {
+                  intrinsicSize: "0 76px",
+                }).style
+              }
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 [&::-webkit-details-marker]:hidden">
                 <h2 className="font-serif text-lg text-primary dark:text-stone-200 leading-snug">

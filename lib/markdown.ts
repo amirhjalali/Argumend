@@ -1,8 +1,9 @@
 // Lightweight markdown -> HTML for TRUSTED, repo-authored content (blog posts,
 // guides) rendered via dangerouslySetInnerHTML. Hardened: link hrefs are
 // scheme-allowlisted (only /, #, http(s)://, mailto:) and escaped for HTML
-// attribute context; link text is left as-is because earlier inline passes inject
-// intended HTML and the content is static/trusted. Do NOT use on user input.
+// attribute context, and raw HTML tags are escaped before the small Markdown
+// allowlist is expanded. Do NOT use this intentionally small renderer for
+// arbitrary user-authored Markdown.
 
 /** Escape a string for safe use inside a double-quoted HTML attribute. */
 export function escapeAttr(s: string): string {
@@ -14,21 +15,21 @@ export function escapeAttr(s: string): string {
 }
 
 const LINK_CLASS =
-  "text-deep underline underline-offset-2 hover:text-deep-dark transition-colors";
+  "text-deep underline underline-offset-2 hover:text-deep-dark dark:text-[#8bb5b1] dark:hover:text-[#b1d0cd] transition-colors";
 
-/**
- * Inline formatting only — bold, italic, links. Safe to use inside a
- * `whitespace-pre-line` block (preserves the source's own line breaks), e.g.
- * guide section content.
- */
-export function renderInlineMarkdown(md: string): string {
+/** Prevent raw HTML from becoming executable while preserving ordinary prose. */
+function escapeRawHtmlTags(text: string): string {
+  return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function renderInlineSyntax(md: string): string {
   return md
     .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, rawHref) => {
       const href = String(rawHref).trim();
-      const allowed = /^(https?:\/\/|\/|#|mailto:)/i.test(href);
+      const allowed = /^(https?:\/\/|\/(?!\/)|#|mailto:)/i.test(href);
       const safeHref = allowed ? href : "#";
       const external = /^https?:\/\//i.test(safeHref);
       const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
@@ -37,13 +38,22 @@ export function renderInlineMarkdown(md: string): string {
 }
 
 /**
+ * Inline formatting only — bold, italic, links. Safe to use inside a
+ * `whitespace-pre-line` block (preserves the source's own line breaks), e.g.
+ * guide section content.
+ */
+export function renderInlineMarkdown(md: string): string {
+  return renderInlineSyntax(escapeRawHtmlTags(md));
+}
+
+/**
  * Full block-level render — headings, unordered/ordered lists, paragraphs, plus
  * inline formatting. For long-form posts (blog).
  */
 export function renderMarkdown(md: string): string {
   // Headings first (line-anchored), then inline (bold/italic/links).
-  const html = renderInlineMarkdown(
-    md
+  const html = renderInlineSyntax(
+    escapeRawHtmlTags(md)
       .replace(
         /^### (.+)$/gm,
         '<h3 class="font-serif text-lg text-primary mt-10 mb-2">$1</h3>',

@@ -30,6 +30,7 @@ import {
 } from "@/components/TableOfContents";
 import { BlogArticleClient } from "./client";
 import { formatLongDate } from "@/lib/formatDate";
+import { buildGenericOgUrl } from "@/lib/og";
 
 // ---------------------------------------------------------------------------
 // Heading anchors + TOC collection
@@ -209,9 +210,7 @@ export async function generateMetadata(
   const ogImage =
     media?.hero
       ? absoluteMediaUrl(media.hero.src)
-      : `https://argumend.org/api/og?title=${encodeURIComponent(
-          article.title,
-        )}&subtitle=${encodeURIComponent(article.category)}`;
+      : buildGenericOgUrl({ title: article.title, subtitle: article.category });
 
   return {
     title: article.title,
@@ -307,9 +306,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
       "@type": "ImageObject",
       url: media?.hero
         ? absoluteMediaUrl(media.hero.src)
-        : `https://argumend.org/api/og?title=${encodeURIComponent(
-            article.title,
-          )}&subtitle=${encodeURIComponent(article.category)}`,
+        : buildGenericOgUrl({ title: article.title, subtitle: article.category }),
       width: media?.hero.width ?? 1200,
       height: media?.hero.height ?? 630,
     },
@@ -327,12 +324,12 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
   return (
     <BlogArticleClient>
-      <div className="min-h-[100svh] bg-canvas">
+      <div className="min-h-[100svh] bg-canvas dark:bg-[var(--bg-canvas)]">
         {/* JSON-LD (placed early for crawlers) */}
         <JsonLd data={jsonLd} />
 
         {/* Breadcrumb + article header */}
-        <div className="bg-[#faf8f5]/60 border-b border-stone-200/60">
+        <div className="bg-[#faf8f5]/60 border-b border-stone-200/60 dark:border-[var(--border-default)] dark:bg-[#1a1916]/60">
           <div className="mx-auto max-w-3xl px-4 md:px-8 pt-6 md:pt-10 pb-8 md:pb-12">
             {/* Breadcrumb with BreadcrumbList JSON-LD */}
             <Breadcrumbs
@@ -346,25 +343,25 @@ export default async function BlogArticlePage({ params }: PageProps) {
             {/* Category */}
             <Link
               href={`/blog/category/${categoryToSlug(article.category)}`}
-              className="inline-flex items-center rounded-full bg-deep/10 border border-deep/20 px-3 py-1 text-xs font-medium text-deep mb-4 hover:bg-deep/20 transition-colors"
+              className="mb-4 inline-flex min-h-11 items-center rounded-full border border-deep/20 bg-deep/10 px-3 py-2 text-xs font-medium text-deep transition-colors hover:bg-deep/20 dark:border-deep-light/25 dark:bg-deep-light/10 dark:text-deep-light dark:hover:bg-deep-light/20"
             >
               {article.category}
             </Link>
 
             {/* Title */}
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary mb-6 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
               {article.title}
             </h1>
 
             {/* Description / lede */}
             {article.description && (
-              <p className="text-lg text-secondary leading-relaxed mb-6 max-w-2xl">
+              <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed mb-6 max-w-2xl">
                 {article.description}
               </p>
             )}
 
             {/* Meta row */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted dark:text-stone-400">
               <span className="flex items-center gap-1.5">
                 <User className="h-3.5 w-3.5" />
                 {article.author}
@@ -389,7 +386,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
             </div>
 
             {media?.hero && (
-              <div className="relative mt-8 aspect-[1672/941] overflow-hidden rounded-xl border border-stone-200/70 bg-stone-100 shadow-sm">
+              <div className="relative mt-8 aspect-[1672/941] overflow-hidden rounded-xl border border-stone-200/70 bg-stone-100 shadow-sm dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]">
                 <Image
                   src={media.hero.src}
                   alt={media.hero.alt}
@@ -413,16 +410,16 @@ export default async function BlogArticlePage({ params }: PageProps) {
           />
 
           {/* Tags */}
-          <div className="mt-14 pt-8 border-t border-stone-200/60">
+          <div className="mt-14 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-medium text-muted mr-1">
+              <span className="text-xs font-medium text-muted dark:text-stone-400 mr-1">
                 Tags:
               </span>
               {article.tags.map((tag) => (
                 <Link
                   key={tag}
                   href={`/blog/tag/${tagToSlug(tag)}`}
-                  className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2.5 py-1 text-xs text-secondary hover:bg-deep/10 hover:text-deep transition-colors"
+                  className="inline-flex min-h-11 items-center gap-1 rounded-full bg-stone-100 px-2.5 py-2 text-xs text-stone-600 transition-colors hover:bg-deep/10 hover:text-deep dark:bg-[var(--bg-card)] dark:text-stone-400 dark:hover:bg-deep-light/10 dark:hover:text-deep-light"
                 >
                   <Tag className="h-2.5 w-2.5" />
                   {tag}
@@ -439,7 +436,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
           {/* Related reading — cross-type internal linking (posts + topics + guide) */}
           {relatedReading.length > 0 && (
             <div className="mt-14">
-              <h3 className="font-serif text-lg text-primary mb-3">
+              <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-3">
                 Related reading
               </h3>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -450,14 +447,14 @@ export default async function BlogArticlePage({ params }: PageProps) {
                     className="group block animate-card-fade-in"
                     style={{ animationDelay: `${idx * 80}ms` }}
                   >
-                    <div className="bg-[#faf8f5] rounded-xl p-5 border border-stone-200/60 hover:border-deep/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 h-full">
-                      <span className="text-[10px] font-medium text-deep uppercase tracking-wide">
+                    <div className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 dark:hover:border-deep-light/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 h-full">
+                      <span className="text-[10px] font-medium text-deep dark:text-deep-light uppercase tracking-wide">
                         {item.kind}
                       </span>
-                      <h4 className="font-serif text-sm text-primary mt-2 mb-2 leading-snug group-hover:text-deep transition-colors">
+                      <h4 className="font-serif text-sm text-primary dark:text-stone-200 mt-2 mb-2 leading-snug group-hover:text-deep dark:group-hover:text-deep-light transition-colors">
                         {item.title}
                       </h4>
-                      <p className="text-xs text-muted">
+                      <p className="text-xs text-muted dark:text-stone-400">
                         {item.label}
                       </p>
                     </div>

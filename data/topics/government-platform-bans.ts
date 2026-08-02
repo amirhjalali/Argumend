@@ -194,8 +194,8 @@ export const governmentPlatformBansData = {
             replicability: 9,
             directness: 7,
           },
-          source: "Federal Communications Commission; Congressional Research Service",
-          sourceUrl: "https://www.fcc.gov/consumers/guides/foreign-ownership-broadcast-cable-and-common-carrier",
+          source: "47 U.S.C. § 310(b), U.S. House Office of the Law Revision Counsel",
+          sourceUrl: "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title47-section310&num=0&edition=prelim",
           reasoning:
             "This is strong evidence that foreign ownership restrictions in media can exist without sliding into censorship. However, the analogy is imperfect because broadcast licensing is fundamentally different from banning an internet platform — broadcasting requires scarce spectrum while internet access does not.",
         },

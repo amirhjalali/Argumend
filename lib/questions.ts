@@ -1,5 +1,7 @@
 import type { Topic } from "@/lib/schemas/topic";
 
+type QuestionTopic = Pick<Topic, "id" | "meta_claim">;
+
 // ============================================================================
 // Question Variation Type
 // ============================================================================
@@ -489,7 +491,7 @@ export function questionToSlug(question: string): string {
  * Generate all question variations for a given topic.
  * Returns an empty array if the topic has no defined questions.
  */
-export function getQuestionVariations(topic: Topic): QuestionVariation[] {
+export function getQuestionVariations(topic: QuestionTopic): QuestionVariation[] {
   const questions = TOPIC_QUESTIONS[topic.id];
   if (!questions || questions.length === 0) return [];
 
@@ -506,7 +508,7 @@ export function getQuestionVariations(topic: Topic): QuestionVariation[] {
  * Used by generateStaticParams().
  */
 export function getAllQuestionVariations(
-  topics: Topic[]
+  topics: readonly QuestionTopic[]
 ): QuestionVariation[] {
   return topics.flatMap(getQuestionVariations);
 }
@@ -515,10 +517,10 @@ export function getAllQuestionVariations(
  * Find a question variation by its slug.
  * Returns undefined if no match.
  */
-export function findQuestionBySlug(
+export function findQuestionBySlug<T extends QuestionTopic>(
   slug: string,
-  topics: Topic[]
-): { variation: QuestionVariation; topic: Topic } | undefined {
+  topics: readonly T[]
+): { variation: QuestionVariation; topic: T } | undefined {
   for (const topic of topics) {
     const variations = getQuestionVariations(topic);
     const match = variations.find((v) => v.slug === slug);

@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const usIranConflictData = {
   id: "us-iran-conflict",
   title: "The US-Iran Conflict",

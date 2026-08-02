@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { CheckCircle, Loader2 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
@@ -11,6 +11,7 @@ interface NewsletterSignupProps {
 }
 
 export function NewsletterSignup({ variant = "default", source }: NewsletterSignupProps) {
+  const errorId = useId();
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,10 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim() }),
+        body: JSON.stringify({
+          email: email.trim(),
+          source: source ?? (variant === "compact" ? "blog-post" : "blog-index"),
+        }),
       });
 
       const data = await res.json();
@@ -53,10 +57,21 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
   };
 
   const isCompact = variant === "compact";
+  const placement = source ?? (isCompact ? "blog-post" : "blog-index");
+  const formLabel =
+    placement === "footer"
+      ? "Footer newsletter signup"
+      : placement === "topic-read"
+        ? "Topic newsletter signup"
+        : placement === "blog-post"
+          ? "Article newsletter signup"
+          : "Newsletter signup";
 
   if (submitted) {
     return (
       <div
+        role="status"
+        aria-live="polite"
         className={`bg-[#faf8f5] border border-[#e8e0d4] rounded-xl ${
           isCompact ? "p-5" : "p-8"
         }`}
@@ -64,7 +79,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
         <div className={`flex items-center gap-3 ${isCompact ? "" : "justify-center"}`}>
           <CheckCircle className="h-5 w-5 text-deep flex-shrink-0" />
           <p className="text-deep font-medium text-sm">
-            You&apos;re in! Check your inbox.
+            You&apos;re subscribed. New arguments will land here weekly.
           </p>
         </div>
       </div>
@@ -96,7 +111,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
       </p>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="flex gap-2" aria-label="Newsletter signup">
+      <form onSubmit={handleSubmit} className="flex gap-2" aria-label={formLabel}>
         <div className="flex-1 min-w-0">
           <input
             type="email"
@@ -111,9 +126,9 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
             placeholder="you@example.com"
             aria-label="Email address"
             aria-invalid={error ? true : undefined}
-            aria-describedby={error ? "newsletter-error" : undefined}
+            aria-describedby={error ? errorId : undefined}
             disabled={loading}
-            className={`w-full bg-white dark:bg-[var(--bg-card)] border border-stone-300 dark:border-[var(--border-default)] rounded-lg text-primary dark:text-stone-200 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
+            className={`min-h-11 w-full bg-white dark:bg-[var(--bg-card)] border border-stone-300 dark:border-[var(--border-default)] rounded-lg text-primary dark:text-stone-200 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"
             } ${error ? "border-red-400 focus:ring-red-400/30 focus:border-red-400/50" : ""} ${loading ? "opacity-60" : ""}`}
           />
@@ -122,12 +137,12 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
           type="submit"
           disabled={loading}
           aria-label={loading ? "Subscribing…" : "Subscribe"}
-          className={`flex-shrink-0 bg-gradient-to-r from-rust-500 to-rust-600 hover:from-rust-600 hover:to-rust-700 text-white font-medium rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed ${
+          className={`min-h-11 flex-shrink-0 bg-gradient-to-r from-rust-500 to-rust-600 hover:from-rust-600 hover:to-rust-700 text-white font-medium rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed ${
             isCompact ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"
           }`}
         >
           {loading ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
           ) : (
             "Subscribe"
           )}
@@ -136,7 +151,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
 
       {/* Error message */}
       {error && (
-        <p id="newsletter-error" className="mt-2 text-xs text-red-500" role="alert">{error}</p>
+        <p id={errorId} className="mt-2 text-xs text-red-500" role="alert">{error}</p>
       )}
     </div>
   );

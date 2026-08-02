@@ -15,6 +15,8 @@ import {
 import type { Edge, Node, NodeProps } from "@xyflow/react";
 import { Crown, Landmark } from "lucide-react";
 import { featuredTopicId } from "@/data/topicIndex";
+import { loadTopicById } from "@/data/topicLoader";
+import { useIsHydrated, useMediaQuery } from "@/hooks/useMediaQuery";
 
 // ---------------------------------------------------------------------------
 // HeroMiniCanvas
@@ -270,30 +272,18 @@ export interface HeroMiniCanvasProps {
 }
 
 export default function HeroMiniCanvas({ onClick, title }: HeroMiniCanvasProps) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsHydrated();
   const [rootTitle, setRootTitle] = useState<string>(title ?? FALLBACK_TITLE);
   const [pillarTitles, setPillarTitles] = useState<string[]>([]);
-  const [reduceMotion, setReduceMotion] = useState(false);
-
-  // Guard React Flow against SSR / hydration surprises: only render after mount.
-  useEffect(() => {
-    setMounted(true);
-    if (typeof window !== "undefined" && window.matchMedia) {
-      setReduceMotion(
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      );
-    }
-  }, []);
+  const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   // Lazy-load the featured topic to source real pillar titles. Falls back to a
   // small static set if the load fails so the showpiece is never empty.
   useEffect(() => {
     let cancelled = false;
-    import("@/data/topics")
-      .then((mod) => {
+    loadTopicById(featuredTopicId)
+      .then((topic) => {
         if (cancelled) return;
-        const topics = mod.topics;
-        const topic = topics.find((t) => t.id === featuredTopicId);
         if (!topic) return;
         if (!title) setRootTitle(topic.title);
         const titles = (topic.pillars ?? [])

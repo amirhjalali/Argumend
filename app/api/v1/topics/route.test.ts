@@ -2,7 +2,9 @@ import { describe, it, expect } from "vitest";
 import { NextRequest } from "next/server";
 import { topicSummaries } from "@/data/topicIndex";
 import { SITE_URL } from "@/app/api/v1/_shared/http";
-import { GET, OPTIONS } from "./route";
+import { GET, OPTIONS, POST } from "./route";
+import { TopicListResponseSchema } from "./_schemas";
+import { ApiErrorResponseSchema } from "../_schemas";
 
 // Exercises the public list endpoint by importing the handlers directly and
 // invoking them with a constructed NextRequest. The handler reads
@@ -22,6 +24,7 @@ describe("GET /api/v1/topics", () => {
     expect(res.status).toBe(200);
 
     const body = await res.json();
+    expect(TopicListResponseSchema.safeParse(body).success).toBe(true);
     expect(typeof body.count).toBe("number");
     expect(typeof body.total).toBe("number");
     expect(typeof body.limit).toBe("number");
@@ -40,7 +43,14 @@ describe("GET /api/v1/topics", () => {
     expect(typeof topic.title).toBe("string");
     expect(typeof topic.category).toBe("string");
     expect(typeof topic.status).toBe("string");
+    expect(typeof topic.balance).toBe("number");
+    expect(typeof topic.weight).toBe("number");
+    expect(["settled", "contested", "moderate", "open"]).toContain(
+      topic.verdict.quadrant
+    );
     expect(typeof topic.confidence_score).toBe("number");
+    expect(topic.confidence_score).toBe(topic.balance);
+    expect(body.deprecated_fields.confidence_score).toContain("Deprecated");
     // url is absolute and points back to the canonical topic page.
     expect(topic.url).toBe(`${SITE_URL}/topics/${topic.id}`);
     expect(topic.url.startsWith("https://")).toBe(true);
@@ -80,8 +90,12 @@ describe("GET /api/v1/topics", () => {
     expect(res.status).toBe(400);
 
     const body = await res.json();
-    expect(body.error).toEqual(expect.any(String));
-    expect(body.error).toContain("nonsense");
+    expect(ApiErrorResponseSchema.safeParse(body).success).toBe(true);
+    expect(body.code).toBe("INVALID_QUERY");
+    expect(body.issues).toEqual(
+      expect.arrayContaining([expect.objectContaining({ field: "category" })]),
+    );
+    expect(res.headers.get("cache-control")).toBe("no-store");
   });
 
   it("rejects an unknown ?status with a 400 JSON error", async () => {
@@ -89,8 +103,11 @@ describe("GET /api/v1/topics", () => {
     expect(res.status).toBe(400);
 
     const body = await res.json();
-    expect(body.error).toEqual(expect.any(String));
-    expect(body.error).toContain("bogus");
+    expect(ApiErrorResponseSchema.safeParse(body).success).toBe(true);
+    expect(body.code).toBe("INVALID_QUERY");
+    expect(body.issues).toEqual(
+      expect.arrayContaining([expect.objectContaining({ field: "status" })]),
+    );
   });
 
   it("narrows results with a valid ?status filter", async () => {
@@ -125,9 +142,30 @@ describe("GET /api/v1/topics", () => {
     expect(beyond.total).toBe(topicSummaries.length);
   });
 
+  it.each([
+    ["?limit=2.5", "limit"],
+    ["?limit=2items", "limit"],
+    ["?limit=0", "limit"],
+    ["?limit=101", "limit"],
+    ["?offset=-1", "offset"],
+    ["?offset=1.5", "offset"],
+  ])("rejects malformed pagination %s", async (query, field) => {
+    const res = await GET(listRequest(query));
+    expect(res.status).toBe(400);
+    expect(res.headers.get("cache-control")).toBe("no-store");
+
+    const body = await res.json();
+    expect(ApiErrorResponseSchema.safeParse(body).success).toBe(true);
+    expect(body.code).toBe("INVALID_QUERY");
+    expect(body.issues).toEqual(
+      expect.arrayContaining([expect.objectContaining({ field })]),
+    );
+  });
+
   it("includes permissive CORS headers on list responses", async () => {
     const res = await GET(listRequest());
     expect(res.headers.get("Access-Control-Allow-Origin")).toBe("*");
+    expect(res.headers.get("cache-control")).toContain("s-maxage=3600");
   });
 });
 
@@ -137,5 +175,17 @@ describe("OPTIONS /api/v1/topics", () => {
     expect(res.status).toBe(204);
     expect(res.headers.get("Access-Control-Allow-Origin")).toBe("*");
     expect(res.headers.get("Access-Control-Allow-Methods")).toContain("GET");
+  });
+});
+
+describe("unsupported methods /api/v1/topics", () => {
+  it("returns a typed CORS-enabled 405 with an Allow header", async () => {
+    const res = POST();
+
+    expect(res.status).toBe(405);
+    expect(res.headers.get("Allow")).toBe("GET, HEAD, OPTIONS");
+    expect(res.headers.get("Access-Control-Allow-Origin")).toBe("*");
+    expect(res.headers.get("Cache-Control")).toBe("no-store");
+    await expect(res.json()).resolves.toMatchObject({ code: "METHOD_NOT_ALLOWED" });
   });
 });

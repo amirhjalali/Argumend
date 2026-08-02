@@ -2,7 +2,7 @@
 
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { useModalAccessibility } from "@/hooks/useModalAccessibility";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { X, Scale, ScrollText } from "lucide-react";
 import dynamic from "next/dynamic";
 
@@ -21,9 +21,7 @@ export function CruxModal() {
         onClose: closeCrux,
     });
 
-    return (
-        <AnimatePresence>
-            {selectedCrux && (
+    return selectedCrux ? (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
                     {/* Backdrop */}
                     <motion.div
@@ -40,8 +38,9 @@ export function CruxModal() {
                         ref={modalRef}
                         role="dialog"
                         aria-modal="true"
-                        aria-label={`Crux details: ${selectedCrux.title}`}
                         aria-labelledby="crux-modal-title"
+                        aria-describedby="crux-modal-description"
+                        tabIndex={-1}
                         className="relative w-full mx-4 md:mx-auto max-w-2xl overflow-hidden rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5] dark:bg-[var(--bg-card)] shadow-2xl"
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -57,15 +56,16 @@ export function CruxModal() {
                                 <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-deep">
                                     Crux of Verification
                                 </p>
-                                <h3 id="crux-modal-title" className="mt-2 font-serif text-lg md:text-xl font-bold tracking-tight text-primary">
+                                <h2 id="crux-modal-title" className="mt-2 font-serif text-lg md:text-xl font-bold tracking-tight text-primary dark:text-stone-200">
                                     {selectedCrux.title}
-                                </h3>
+                                </h2>
                                 <p className="mt-1 font-serif text-base italic text-stone-500 dark:text-[#8a8279]">
                                     from &ldquo;{selectedCrux.pillarTitle}&rdquo;
                                 </p>
                             </div>
                             <button
                                 onClick={closeCrux}
+                                data-modal-initial-focus
                                 className="rounded-full p-2 text-stone-400 transition-colors hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] hover:text-stone-600 dark:hover:text-stone-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
                                 aria-label="Close crux details"
                             >
@@ -83,7 +83,7 @@ export function CruxModal() {
                                             The Question
                                         </span>
                                     </div>
-                                    <p className="font-serif text-base leading-relaxed text-stone-600 dark:text-[#b0a99f]">
+                                    <p id="crux-modal-description" className="font-serif text-base leading-relaxed text-stone-600 dark:text-[#b0a99f]">
                                         {selectedCrux.description}
                                     </p>
                                 </section>
@@ -107,7 +107,7 @@ export function CruxModal() {
                                         Mathematical Form
                                     </p>
                                     <div className="flex items-center justify-center rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/80 dark:bg-[#252420]/80 py-6">
-                                        <span className="font-serif text-lg text-primary">
+                                        <span className="font-serif text-lg text-primary dark:text-stone-200">
                                             <InlineMath math={selectedCrux.equation} />
                                         </span>
                                     </div>
@@ -135,7 +135,5 @@ export function CruxModal() {
                         </div>
                     </motion.div>
                 </div>
-            )}
-        </AnimatePresence>
-    );
+    ) : null;
 }

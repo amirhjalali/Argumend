@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "For Educators — Teach Critical Thinking with Argument Maps",
@@ -17,11 +18,13 @@ export const metadata: Metadata = {
     title: "For Educators — Teach Critical Thinking with Argument Maps",
     description: "Free lesson plans and tools for teaching critical thinking through structured argument mapping.",
     url: "https://argumend.org/for-educators",
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "For Educators — Teach Critical Thinking",
     description: "Free argument mapping tools and lesson plans for classrooms.",
+    images: [DEFAULT_SOCIAL_IMAGE_URL],
   },
   alternates: {
     canonical: "https://argumend.org/for-educators",

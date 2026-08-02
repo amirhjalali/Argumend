@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const aiEnergyWaterFootprintData = {
   id: "ai-energy-water-footprint",
   title: "AI's Energy & Water Footprint",

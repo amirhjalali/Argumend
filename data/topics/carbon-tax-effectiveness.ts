@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const carbonTaxEffectivenessData = {
   id: "carbon-tax-effectiveness",
   title: "Carbon Tax Effectiveness",

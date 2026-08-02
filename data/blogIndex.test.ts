@@ -1,7 +1,20 @@
 import { describe, it, expect } from "vitest";
 
-import { articles } from "@/data/blog";
-import { articleSummaries } from "@/data/blogIndex";
+import {
+  articles,
+  categoryToSlug,
+  getUniqueCategories,
+  getUniqueTags,
+  tagToSlug,
+} from "@/data/blog";
+import {
+  articleSummaries,
+  blogCategoryToSlug,
+  blogTagToSlug,
+  getArticleSummaryCategories,
+  getArticleSummaryCategoryFacets,
+  getArticleSummaryTags,
+} from "@/data/blogIndex";
 
 /**
  * Sync guard for the lightweight blog index.
@@ -54,5 +67,45 @@ describe("blog index is in sync with data/blog", () => {
         `orphan summary "${summary.slug}" has no matching article`
       ).toBe(true);
     }
+  });
+
+  it("keeps lightweight category and tag navigation identical to the full source", () => {
+    expect(getArticleSummaryCategories()).toEqual(getUniqueCategories());
+    expect(getArticleSummaryTags()).toEqual(getUniqueTags());
+    for (const category of getUniqueCategories()) {
+      expect(blogCategoryToSlug(category)).toBe(categoryToSlug(category));
+    }
+    for (const tag of getUniqueTags()) {
+      expect(blogTagToSlug(tag)).toBe(tagToSlug(tag));
+    }
+  });
+
+  it("removes dollar signs that Next cannot route reliably from tag slugs", () => {
+    expect(tagToSlug("us debt $36 trillion")).toBe("us-debt-36-trillion");
+    expect(blogTagToSlug("us debt $36 trillion")).toBe(
+      "us-debt-36-trillion",
+    );
+  });
+
+  it("builds editorial category facets ordered by article count", () => {
+    const facets = getArticleSummaryCategoryFacets();
+
+    expect(facets).toHaveLength(getUniqueCategories().length);
+    expect(facets.map(({ count }) => count)).toEqual(
+      facets.map(({ count }) => count).sort((a, b) => b - a),
+    );
+    expect(facets[0]).toMatchObject({
+      category: "Logic & Reasoning",
+      count: 20,
+      label: "Logic & Reasoning",
+      slug: "logic-reasoning",
+    });
+    expect(facets.find(({ category }) => category === "analysis")).toMatchObject({
+      label: "Analysis",
+      slug: "analysis",
+    });
+    expect(facets.reduce((sum, { count }) => sum + count, 0)).toBe(
+      articleSummaries.length,
+    );
   });
 });

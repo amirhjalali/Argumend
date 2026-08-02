@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, RefObject } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 
 interface ModalAccessibilityOptions {
   isOpen: boolean;
@@ -18,66 +18,92 @@ export function useModalAccessibility<T extends HTMLElement>({
   onClose,
 }: ModalAccessibilityOptions): RefObject<T | null> {
   const modalRef = useRef<T>(null);
+  const onCloseRef = useRef(onClose);
 
-  // ESC key handler
+  // Consumers often pass an inline callback. Keep the current callback in a
+  // ref so callback identity changes cannot tear down an otherwise-open modal.
   useEffect(() => {
-    if (!isOpen) return;
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
-    function handleEscape(e: KeyboardEvent): void {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    }
-
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [isOpen, onClose]);
-
-  // Focus trap + focus restore
+  // Initial focus, Escape, focus containment/restoration, and scroll locking
+  // belong to one lifecycle so they cannot drift apart during modal teardown.
   useEffect(() => {
     if (!isOpen || !modalRef.current) return;
 
-    // Remember what was focused before the modal opened, so we can restore it on close.
+    const modal = modalRef.current;
     const previouslyFocused = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
-    const focusableElements = Array.from(
-      modalRef.current.querySelectorAll<HTMLElement>(
+    const getFocusableElements = () =>
+      Array.from(
+        modal.querySelectorAll<HTMLElement>(
         'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      )
-    ).filter((el) => el.offsetParent !== null);
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
+        )
+      ).filter(
+        (element) =>
+          !element.hasAttribute("hidden") &&
+          !element.closest('[aria-hidden="true"]')
+      );
 
-    function handleTab(e: KeyboardEvent): void {
-      if (e.key === "Tab") {
-        if (e.shiftKey && document.activeElement === firstElement) {
-          e.preventDefault();
-          lastElement?.focus();
-        } else if (!e.shiftKey && document.activeElement === lastElement) {
-          e.preventDefault();
-          firstElement?.focus();
-        }
+    function handleKeyDown(event: KeyboardEvent): void {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onCloseRef.current();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+      const focusableElements = getFocusableElements();
+      const firstElement = focusableElements[0] ?? modal;
+      const lastElement = focusableElements[focusableElements.length - 1] ?? modal;
+      const activeElement = document.activeElement;
+
+      if (!modal.contains(activeElement)) {
+        event.preventDefault();
+        firstElement.focus();
+      } else if (event.shiftKey && activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
       }
     }
 
-    document.addEventListener("keydown", handleTab);
-    firstElement?.focus();
+    document.addEventListener("keydown", handleKeyDown);
+    const frame = requestAnimationFrame(() => {
+      const initialFocus =
+        modal.querySelector<HTMLElement>("[data-modal-initial-focus]") ??
+        getFocusableElements()[0] ??
+        modal;
+      initialFocus.focus();
+    });
 
     return () => {
-      document.removeEventListener("keydown", handleTab);
-      // Restore focus to the trigger element rather than dropping it to <body>.
-      previouslyFocused?.focus();
-    };
-  }, [isOpen]);
-
-  // Body scroll lock
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = "";
+      cancelAnimationFrame(frame);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      // AnimatePresence may keep this subtree mounted after `isOpen` becomes
+      // false. Retire its modal semantics immediately so it no longer blocks
+      // focus restoration or remains exposed as an active modal during exit.
+      modal.removeAttribute("aria-modal");
+      // Exit animations can leave the modal subtree mounted for a few frames.
+      // Wait only for any *other* active modal, then focus outside this exiting
+      // subtree so its later removal cannot drop focus back to <body>.
+      const restoreFocus = (attempt = 0) => {
+        if (!previouslyFocused?.isConnected) return;
+        if (!document.querySelector('[aria-modal="true"]')) {
+          previouslyFocused.focus();
+          return;
+        }
+        if (attempt < 30) {
+          requestAnimationFrame(() => restoreFocus(attempt + 1));
+        }
       };
-    }
+      requestAnimationFrame(() => restoreFocus());
+    };
   }, [isOpen]);
 
   return modalRef;

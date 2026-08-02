@@ -40,10 +40,7 @@ export async function getGemini(): Promise<GoogleGenerativeAI> {
 }
 
 export function isLiveDebateEnabled(): boolean {
-  return (
-    process.env.ENABLE_LIVE_DEBATE_API === "true" ||
-    process.env.NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API === "true"
-  );
+  return process.env.ENABLE_LIVE_DEBATE_API === "true";
 }
 
 export interface DebatePillar {

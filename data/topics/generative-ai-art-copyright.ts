@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const generativeAiArtCopyrightData = {
   id: "generative-ai-art-copyright",
   title: "AI Training & Copyright",

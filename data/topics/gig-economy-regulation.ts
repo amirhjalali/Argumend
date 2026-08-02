@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const gigEconomyRegulationData = {
   id: "gig-economy-regulation",
   title: "Gig Economy Regulation",

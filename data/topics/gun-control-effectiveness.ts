@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const gunControlEffectivenessData = {
   id: "gun-control-effectiveness",
   title: "Gun Control Effectiveness",
@@ -231,6 +229,8 @@ export const gunControlEffectivenessData = {
             replicability: 4,
             directness: 5,
           },
+          source:
+            "Synthesis / inference — method-substitution possibility, not an observed effect estimate",
           reasoning:
             "Theoretical concern; evidence suggests guns enable higher casualties.",
         },

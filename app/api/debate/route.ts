@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { rateLimit } from "@/lib/rate-limit";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 import { generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
+import { isAuthConfigured } from "@/lib/auth-config";
+import {
+  DebateTurnRequestSchema,
+  DebateTurnSuccessSchema,
+  type DebateModel,
+  type DebateTurnExecution,
+} from "@/lib/debate/contracts";
 import {
   getAnthropic,
   getOpenAI,
@@ -9,49 +17,39 @@ import {
   isLiveDebateEnabled,
   buildSystemPrompt,
   buildUserPrompt,
-  type DebatePillar,
-  type DebateMessage,
 } from "@/lib/debate/shared";
-
-const DebateRequestSchema = z.object({
-  topic: z.string().min(1),
-  topicId: z.string().min(1),
-  side: z.enum(["for", "against"]),
-  model: z.enum(["claude", "gpt-4", "gemini", "grok"]),
-  round: z.number().int().min(1).max(20),
-  previousMessages: z.array(z.object({
-    id: z.string().optional(),
-    side: z.enum(["for", "against"]),
-    content: z.string(),
-    round: z.number().int().min(1),
-    model: z.string().optional(),
-    role: z.string().optional(),
-  })),
-  pillars: z.array(z.object({
-    title: z.string(),
-    skepticPremise: z.string(),
-    proponentRebuttal: z.string(),
-  })).optional(),
-});
 
 interface GenerationResult {
   argument: string;
-  actualModel: string;
-  fallback?: boolean;
-  error?: string;
+  actualModel: DebateModel;
 }
 
-function getErrorMessage(error: unknown): string {
-  return error instanceof Error ? error.message : "Unknown error";
+const GrokCompletionSchema = z.object({
+  choices: z.array(
+    z.object({
+      message: z.object({ content: z.string().min(1) }),
+    }),
+  ).min(1),
+});
+
+function requireArgument(value: unknown, provider: string): string {
+  if (typeof value !== "string" || !value.trim()) {
+    throw new Error(`${provider} returned no debate content`);
+  }
+  return value;
 }
 
 async function hasAuthenticatedUser(): Promise<boolean> {
+  if (!isAuthConfigured()) return false;
   try {
     const { auth } = await import("@/lib/auth");
     const session = await auth();
     return Boolean(session?.user);
   } catch (error) {
-    console.warn("Auth unavailable; using programmatic debate fallback:", getErrorMessage(error));
+    console.warn(
+      "Auth unavailable; using programmatic debate fallback:",
+      sanitizeServerLog(error),
+    );
     return false;
   }
 }
@@ -71,7 +69,10 @@ async function generateWithClaude(
 
     const textBlock = response.content.find((block) => block.type === "text");
     return {
-      argument: textBlock && "text" in textBlock ? textBlock.text : "Unable to generate argument.",
+      argument: requireArgument(
+        textBlock && "text" in textBlock ? textBlock.text : null,
+        "Claude",
+      ),
       actualModel: "claude",
     };
   } catch (error) {
@@ -80,14 +81,15 @@ async function generateWithClaude(
   }
 }
 
-async function generateWithGPT4(
+async function generateWithOpenAI(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  requestedModel: "gpt-4" | "gpt-5",
 ): Promise<GenerationResult> {
   try {
     const client = await getOpenAI();
     const response = await client.chat.completions.create({
-      model: "gpt-4o",
+      model: requestedModel === "gpt-5" ? "gpt-5" : "gpt-4o",
       max_tokens: 1024,
       messages: [
         { role: "system", content: systemPrompt },
@@ -96,12 +98,15 @@ async function generateWithGPT4(
     });
 
     return {
-      argument: response.choices[0]?.message?.content || "Unable to generate argument.",
-      actualModel: "gpt-4",
+      argument: requireArgument(
+        response.choices[0]?.message?.content,
+        "OpenAI",
+      ),
+      actualModel: requestedModel,
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
-    throw new Error(`GPT-4 API failed: ${message}`);
+    throw new Error(`OpenAI API failed: ${message}`);
   }
 }
 
@@ -121,7 +126,7 @@ async function generateWithGemini(
     const text = response.text();
 
     return {
-      argument: text || "Unable to generate argument.",
+      argument: requireArgument(text, "Gemini"),
       actualModel: "gemini",
     };
   } catch (error) {
@@ -158,13 +163,15 @@ async function generateWithGrok(
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`HTTP ${response.status}: ${errorText}`);
+      // Upstream error bodies can echo request/prompt content. The status is
+      // sufficient for diagnostics and avoids copying private debate text into
+      // application logs.
+      throw new Error(`HTTP ${response.status}`);
     }
 
-    const data = await response.json();
+    const data = GrokCompletionSchema.parse(await response.json());
     return {
-      argument: data.choices[0]?.message?.content || "Unable to generate argument.",
+      argument: requireArgument(data.choices[0].message.content, "Grok"),
       actualModel: "grok",
     };
   } catch (error) {
@@ -184,9 +191,18 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  let raw: unknown;
   try {
-    const raw = await request.json();
-    const parseResult = DebateRequestSchema.safeParse(raw);
+    raw = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid JSON", code: "INVALID_JSON" },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const parseResult = DebateTurnRequestSchema.safeParse(raw);
     if (!parseResult.success) {
       return NextResponse.json(
         { error: "Invalid request", details: parseResult.error.flatten() },
@@ -197,6 +213,7 @@ export async function POST(request: NextRequest) {
     const { topic, side, model, round, previousMessages, pillars } = body;
 
     let result: GenerationResult;
+    let execution: DebateTurnExecution;
     const liveDebateEnabled = isLiveDebateEnabled();
     const authenticated = liveDebateEnabled ? await hasAuthenticatedUser() : false;
     if (!liveDebateEnabled || !authenticated) {
@@ -209,10 +226,13 @@ export async function POST(request: NextRequest) {
           pillars,
         }),
         actualModel: model,
-        fallback: true,
-        error: liveDebateEnabled
-          ? "Authentication is required for live debate generation; used programmatic fallback."
-          : undefined,
+      };
+      execution = {
+        requested: liveDebateEnabled ? "live" : "programmatic",
+        actual: "programmatic",
+        requestedModel: model,
+        actualModel: null,
+        ...(liveDebateEnabled ? { fallbackCode: "AUTH_REQUIRED" as const } : {}),
       };
     } else {
       const systemPrompt = buildSystemPrompt(side, topic, pillars);
@@ -224,7 +244,8 @@ export async function POST(request: NextRequest) {
             result = await generateWithClaude(systemPrompt, userPrompt);
             break;
           case "gpt-4":
-            result = await generateWithGPT4(systemPrompt, userPrompt);
+          case "gpt-5":
+            result = await generateWithOpenAI(systemPrompt, userPrompt, model);
             break;
           case "gemini":
             result = await generateWithGemini(systemPrompt, userPrompt);
@@ -235,9 +256,17 @@ export async function POST(request: NextRequest) {
           default:
             result = await generateWithClaude(systemPrompt, userPrompt);
         }
+        execution = {
+          requested: "live",
+          actual: "live",
+          requestedModel: model,
+          actualModel: result.actualModel,
+        };
       } catch (error) {
-        const message = error instanceof Error ? error.message : "Unknown error";
-        console.warn("Live debate generation failed, falling back to programmatic mode:", message);
+        console.warn(
+          "Live debate generation failed, falling back to programmatic mode:",
+          sanitizeServerLog(error),
+        );
         result = {
           argument: generateProgrammaticDebateTurn({
             topic,
@@ -247,23 +276,25 @@ export async function POST(request: NextRequest) {
             pillars,
           }),
           actualModel: model,
-          fallback: true,
-          error: message,
+        };
+        execution = {
+          requested: "live",
+          actual: "programmatic",
+          requestedModel: model,
+          actualModel: null,
+          fallbackCode: "PROVIDER_ERROR",
         };
       }
     }
 
-    return NextResponse.json({
+    return NextResponse.json(DebateTurnSuccessSchema.parse({
       argument: result.argument,
-      model: result.actualModel,
-      fallback: result.fallback,
-      error: result.error,
-    });
+      execution,
+    }));
   } catch (error) {
-    console.error("Debate API error:", error);
-    const message = getErrorMessage(error);
+    console.error("Debate API error:", sanitizeServerLog(error));
     return NextResponse.json(
-      { error: "Failed to generate debate argument", details: message },
+      { error: "Failed to generate debate argument", code: "DEBATE_FAILED" },
       { status: 500 }
     );
   }

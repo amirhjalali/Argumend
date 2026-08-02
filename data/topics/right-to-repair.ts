@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const rightToRepairData = {
   id: "right-to-repair",
   title: "Right to Repair",

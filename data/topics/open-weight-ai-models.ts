@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const openWeightAiModelsData = {
   id: "open-weight-ai-models",
   title: "Releasing Open-Weight Frontier AI Models",

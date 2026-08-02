@@ -22,6 +22,7 @@ import { concepts } from "@/data/concepts";
 import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 import { BALANCE } from "@/lib/constants";
 import type { Verdict } from "@/lib/schemas/topic";
+import { useModalAccessibility } from "@/hooks/useModalAccessibility";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -195,10 +196,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLElement | null>(null);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const modalRef = useModalAccessibility<HTMLDivElement>({ isOpen, onClose });
 
   // -----------------------------------------------------------------------
   // Build search index once
@@ -336,64 +336,20 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     [groups]
   );
 
+  const updateQuery = useCallback((nextQuery: string) => {
+    setQuery(nextQuery);
+    setActiveIndex(0);
+  }, []);
+
   // -----------------------------------------------------------------------
-  // Reset state on open/close + body scroll lock
+  // Reset query state on open. The shared modal hook owns focus containment,
+  // Escape, body scroll lock, and focus restoration (including animated exits).
   // -----------------------------------------------------------------------
 
-  // Capture the element that triggered the modal so we can restore focus on close
-  useEffect(() => {
-    if (isOpen) {
-      triggerRef.current = document.activeElement as HTMLElement;
-      setQuery("");
-      setActiveIndex(0);
-      document.body.style.overflow = "hidden";
-      requestAnimationFrame(() => {
-        inputRef.current?.focus();
-      });
-      return () => {
-        document.body.style.overflow = "";
-        // Restore focus to the trigger element
-        triggerRef.current?.focus();
-      };
-    }
-  }, [isOpen]);
-
-  // Focus trap: cycle Tab/Shift+Tab within the modal
   useEffect(() => {
     if (!isOpen) return;
-
-    const handleFocusTrap = (e: KeyboardEvent) => {
-      if (e.key !== "Tab" || !modalRef.current) return;
-
-      const focusableElements = Array.from(
-        modalRef.current.querySelectorAll<HTMLElement>(
-          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        )
-      ).filter((el) => el.offsetParent !== null);
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
-
-      if (e.shiftKey) {
-        if (document.activeElement === firstElement) {
-          e.preventDefault();
-          lastElement?.focus();
-        }
-      } else {
-        if (document.activeElement === lastElement) {
-          e.preventDefault();
-          firstElement?.focus();
-        }
-      }
-    };
-
-    document.addEventListener("keydown", handleFocusTrap);
-    return () => document.removeEventListener("keydown", handleFocusTrap);
-  }, [isOpen]);
-
-  // Reset active index when results change
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [query]);
+    queueMicrotask(() => updateQuery(""));
+  }, [isOpen, updateQuery]);
 
   // -----------------------------------------------------------------------
   // Keyboard navigation
@@ -409,6 +365,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
+      if (flatResults.length === 0) return;
+
       switch (e.key) {
         case "ArrowDown":
           e.preventDefault();
@@ -428,13 +386,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             navigate(flatResults[activeIndex]);
           }
           break;
-        case "Escape":
-          e.preventDefault();
-          onClose();
-          break;
       }
     },
-    [flatResults, activeIndex, navigate, onClose]
+    [flatResults, activeIndex, navigate]
   );
 
   // Scroll active item into view
@@ -448,8 +402,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
   }, [activeIndex]);
 
-  if (!isOpen) return null;
-
   // -----------------------------------------------------------------------
   // Render
   // -----------------------------------------------------------------------
@@ -458,13 +410,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   return (
     <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.15 }}
-        className="fixed inset-0 z-[100] flex items-start justify-center pt-[12vh] px-4"
-      >
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+          className="fixed inset-0 z-[100] flex items-start justify-center pt-[12vh] px-4"
+        >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -482,20 +435,21 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           exit={{ opacity: 0, y: -8, scale: 0.98 }}
           transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
           ref={modalRef}
+          id="argumend-search-dialog"
           className="relative w-full max-w-2xl bg-[#faf8f5] dark:bg-[#252420] rounded-2xl shadow-2xl border border-stone-200/40 dark:border-[#3d3a36] overflow-hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Search Argumend"
-          onKeyDown={handleKeyDown}
         >
           {/* Search Input */}
           <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60 dark:border-[#3d3a36]">
             <Search className="h-5 w-5 text-deep flex-shrink-0" strokeWidth={1.8} />
             <input
               ref={inputRef}
+              data-modal-initial-focus
               type="text"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => updateQuery(e.target.value)}
               placeholder="Search topics, articles, concepts, pages..."
               className="flex-1 bg-transparent text-lg text-primary dark:text-stone-200 placeholder:text-stone-500 outline-none font-sans"
               autoComplete="off"
@@ -504,11 +458,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               role="combobox"
               aria-expanded={groups.length > 0}
               aria-controls="search-results"
+              aria-autocomplete="list"
+              aria-describedby="search-result-status"
               aria-activedescendant={flatResults[activeIndex] ? `search-result-${flatResults[activeIndex].id}` : undefined}
+              onKeyDown={handleKeyDown}
             />
             {query && (
               <button
-                onClick={() => setQuery("")}
+                onClick={() => updateQuery("")}
                 className="flex items-center justify-center h-11 w-11 rounded-md text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
                 aria-label="Clear search"
               >
@@ -525,10 +482,18 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           </div>
 
           {/* Screen-reader-only live region announcing result count */}
-          <div className="sr-only" role="status" aria-live="polite">
+          <div
+            id="search-result-status"
+            className="sr-only"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             {query.trim()
-              ? `${flatResults.length} result${flatResults.length !== 1 ? "s" : ""}`
-              : ""}
+              ? flatResults.length > 0
+                ? `${flatResults.length} result${flatResults.length !== 1 ? "s" : ""} for “${query.trim()}”`
+                : `No results for “${query.trim()}”`
+              : `${flatResults.length} popular topic${flatResults.length !== 1 ? "s" : ""}`}
           </div>
 
           {/* Results */}
@@ -699,7 +664,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             </div>
           </div>
         </motion.div>
-      </motion.div>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }

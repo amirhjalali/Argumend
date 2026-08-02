@@ -12,6 +12,30 @@ import {
 } from "./schema";
 import type { ExtractedArguments } from "@/lib/analyze/extractor";
 import type { JudgingResult } from "@/lib/judge/rubric";
+import type { DebatePersistenceStatus } from "@/lib/debate/status";
+
+export const DEBATE_OWNERSHIP_ERROR_CODE = "DEBATE_FORBIDDEN" as const;
+
+export class DebateOwnershipError extends Error {
+  readonly code = DEBATE_OWNERSHIP_ERROR_CODE;
+
+  constructor() {
+    super("Debate not found or not owned by the current user");
+    this.name = "DebateOwnershipError";
+  }
+}
+
+export function isDebateOwnershipError(
+  error: unknown
+): error is DebateOwnershipError {
+  return (
+    error instanceof DebateOwnershipError ||
+    (typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      error.code === DEBATE_OWNERSHIP_ERROR_CODE)
+  );
+}
 
 // ============================================================================
 // Analyses
@@ -19,16 +43,13 @@ import type { JudgingResult } from "@/lib/judge/rubric";
 
 export async function saveAnalysis(
   input: {
-    contentHash?: string;
     contentType: string;
-    inputContent?: string;
   },
   result: ExtractedArguments
 ) {
   const [row] = await getDb()
     .insert(analyses)
     .values({
-      contentHash: input.contentHash,
       contentType: input.contentType,
       topic: result.topic,
       summary: result.summary,
@@ -36,18 +57,31 @@ export async function saveAnalysis(
       cruxes: result.identifiedCruxes,
       fallacies: result.potentialFallacies,
       confidence: result.confidence,
-      inputContent: input.inputContent?.slice(0, 50_000),
       detectedBiases: result.detectedBiases ?? [],
       forStrength: result.forStrength,
       againstStrength: result.againstStrength,
     })
-    .returning();
+    .returning({ id: analyses.id });
   return row;
 }
 
 export async function getAnalysis(id: string) {
   return getDb().query.analyses.findFirst({
     where: eq(analyses.id, id),
+    columns: {
+      id: true,
+      contentType: true,
+      topic: true,
+      summary: true,
+      positions: true,
+      cruxes: true,
+      fallacies: true,
+      detectedBiases: true,
+      confidence: true,
+      forStrength: true,
+      againstStrength: true,
+      createdAt: true,
+    },
   });
 }
 
@@ -55,6 +89,20 @@ export async function listAnalyses(limit = 20) {
   return getDb().query.analyses.findMany({
     orderBy: desc(analyses.createdAt),
     limit,
+    columns: {
+      id: true,
+      contentType: true,
+      topic: true,
+      summary: true,
+      positions: true,
+      cruxes: true,
+      fallacies: true,
+      detectedBiases: true,
+      confidence: true,
+      forStrength: true,
+      againstStrength: true,
+      createdAt: true,
+    },
   });
 }
 
@@ -63,6 +111,7 @@ export async function listAnalyses(limit = 20) {
 // ============================================================================
 
 export async function saveDebate(input: {
+  userId: string;
   topicId?: string;
   topicTitle: string;
   forModel: string;
@@ -72,6 +121,7 @@ export async function saveDebate(input: {
   const [row] = await getDb()
     .insert(debates)
     .values({
+      userId: input.userId,
       topicId: input.topicId,
       topicTitle: input.topicTitle,
       forModel: input.forModel,
@@ -83,23 +133,38 @@ export async function saveDebate(input: {
 }
 
 export async function updateDebateStatus(
+  userId: string,
   id: string,
-  status: string,
+  status: DebatePersistenceStatus,
   winner?: string
 ) {
-  await getDb()
+  const rows = await getDb()
     .update(debates)
     .set({ status, winner, updatedAt: new Date() })
-    .where(eq(debates.id, id));
+    .where(and(eq(debates.id, id), eq(debates.userId, userId)))
+    .returning({ id: debates.id });
+
+  if (rows.length === 0) {
+    throw new DebateOwnershipError();
+  }
 }
 
-export async function saveDebateRound(input: {
+export async function saveDebateRound(userId: string, input: {
   debateId: string;
   roundNumber: number;
   forContent: string;
   againstContent: string;
 }) {
-  const [row] = await getDb().insert(debateRounds).values(input).returning();
+  const database = getDb();
+  const ownedDebate = await database.query.debates.findFirst({
+    where: and(eq(debates.id, input.debateId), eq(debates.userId, userId)),
+    columns: { id: true },
+  });
+  if (!ownedDebate) {
+    throw new DebateOwnershipError();
+  }
+
+  const [row] = await database.insert(debateRounds).values(input).returning();
   return row;
 }
 
@@ -125,38 +190,43 @@ export async function saveJudgment(
   result: JudgingResult,
   link: { debateId?: string; analysisId?: string }
 ) {
-  // Insert the judgment
-  const [judgment] = await getDb()
-    .insert(judgments)
-    .values({
-      debateId: link.debateId,
-      analysisId: link.analysisId,
-      winner: result.winner,
-      hasConsensus: result.hasConsensus,
-      flaggedForReview: result.flaggedForReview,
-      aggregatedScores: result.aggregatedScores,
-      disagreements: result.disagreements,
-    })
-    .returning();
+  const database = getDb();
 
-  // Insert individual verdicts
-  if (result.verdicts.length > 0) {
-    await getDb().insert(judgeVerdicts).values(
-      result.verdicts.map((v) => ({
-        judgmentId: judgment.id,
-        judgeId: v.judgeId,
-        judgeName: v.judgeName,
-        model: v.model,
-        forScore: v.forScore,
-        againstScore: v.againstScore,
-        winner: v.winner,
-        overallReasoning: v.overallReasoning,
-        latencyMs: v.latencyMs,
-      }))
-    );
-  }
+  // The parent judgment and its individual verdicts form one logical record.
+  // Keep them atomic so a verdict insert failure cannot leave an incomplete
+  // judgment visible to readers.
+  return database.transaction(async (transaction) => {
+    const [judgment] = await transaction
+      .insert(judgments)
+      .values({
+        debateId: link.debateId,
+        analysisId: link.analysisId,
+        winner: result.winner,
+        hasConsensus: result.hasConsensus,
+        flaggedForReview: result.flaggedForReview,
+        aggregatedScores: result.aggregatedScores,
+        disagreements: result.disagreements,
+      })
+      .returning();
 
-  return judgment;
+    if (result.verdicts.length > 0) {
+      await transaction.insert(judgeVerdicts).values(
+        result.verdicts.map((verdict) => ({
+          judgmentId: judgment.id,
+          judgeId: verdict.judgeId,
+          judgeName: verdict.judgeName,
+          model: verdict.model,
+          forScore: verdict.forScore,
+          againstScore: verdict.againstScore,
+          winner: verdict.winner,
+          overallReasoning: verdict.overallReasoning,
+          latencyMs: verdict.latencyMs,
+        }))
+      );
+    }
+
+    return judgment;
+  });
 }
 
 export async function getJudgment(id: string) {

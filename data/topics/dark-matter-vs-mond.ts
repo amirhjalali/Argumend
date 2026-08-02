@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const darkMatterVsMondData = {
   id: "dark-matter-vs-mond",
   title: "Dark Matter vs. MOND",

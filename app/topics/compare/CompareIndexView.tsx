@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
@@ -8,9 +8,6 @@ import {
   ArrowRight,
   Search,
   X,
-  CheckCircle,
-  AlertCircle,
-  HelpCircle,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import type { TopicCategory, Verdict } from "@/lib/schemas/topic";
@@ -32,8 +29,6 @@ interface FeaturedPair {
   balance2: number;
   weight2: number;
   verdict2: Verdict;
-  status1: string;
-  status2: string;
   category1: string;
   category2: string;
   categoryLabel1: string;
@@ -59,11 +54,7 @@ interface CompareIndexViewProps {
 // Constants
 // ---------------------------------------------------------------------------
 
-const statusIcons: Record<string, typeof CheckCircle> = {
-  settled: CheckCircle,
-  contested: AlertCircle,
-  highly_speculative: HelpCircle,
-};
+const INITIAL_TOPIC_RESULTS = 16;
 
 // ---------------------------------------------------------------------------
 // Comparison pair card
@@ -88,7 +79,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
               {pair.categoryLabel1}
             </span>
           </div>
-          <h3 className="font-serif text-sm sm:text-base text-primary dark:text-stone-200 leading-snug mb-2 group-hover:text-rust-700 transition-colors">
+          <h3 className="font-serif text-sm sm:text-base text-primary dark:text-stone-200 leading-snug mb-2 group-hover:text-rust-700 dark:group-hover:text-rust-400 transition-colors">
             {pair.title1}
           </h3>
           <BalanceWeightChip balance={pair.balance1} weight={pair.weight1} verdict={pair.verdict1} />
@@ -115,7 +106,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
               {pair.categoryLabel2}
             </span>
           </div>
-          <h3 className="font-serif text-sm sm:text-base text-primary dark:text-stone-200 leading-snug mb-2 group-hover:text-deep transition-colors">
+          <h3 className="font-serif text-sm sm:text-base text-primary dark:text-stone-200 leading-snug mb-2 group-hover:text-deep dark:group-hover:text-[#7fb5b0] transition-colors">
             {pair.title2}
           </h3>
           <BalanceWeightChip balance={pair.balance2} weight={pair.weight2} verdict={pair.verdict2} />
@@ -124,10 +115,10 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
 
       {/* Footer */}
       <div className="flex items-center justify-center gap-2 px-4 py-2.5 bg-stone-50/50 dark:bg-[#1a1916]/50 border-t border-stone-200/40 dark:border-[#3d3a36]/60">
-        <span className="text-xs font-medium text-stone-500 group-hover:text-deep transition-colors">
+        <span className="text-xs font-medium text-stone-500 dark:text-stone-400 group-hover:text-deep dark:group-hover:text-[#7fb5b0] transition-colors">
           Compare side by side
         </span>
-        <ArrowRight className="h-3 w-3 text-muted dark:text-stone-400 group-hover:text-deep group-hover:translate-x-0.5 transition-all" />
+        <ArrowRight className="h-3 w-3 text-muted dark:text-stone-400 group-hover:text-deep dark:group-hover:text-[#7fb5b0] group-hover:translate-x-0.5 transition-all" />
       </div>
     </Link>
   );
@@ -147,16 +138,60 @@ function TopicPicker({
   const [selectedA, setSelectedA] = useState<TopicItem | null>(null);
   const [selectedB, setSelectedB] = useState<TopicItem | null>(null);
   const [activeSlot, setActiveSlot] = useState<"a" | "b">("a");
+  const hasMounted = useRef(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const slotARef = useRef<HTMLButtonElement>(null);
+  const slotBRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const restorePickerFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const nextA = allTopics.find((topic) => topic.id === params.get("a")) ?? null;
+      const nextB = allTopics.find((topic) => topic.id === params.get("b")) ?? null;
+      setSelectedA(nextA);
+      setSelectedB(nextB);
+      setActiveSlot(params.get("slot") === "b" || (nextA && !nextB) ? "b" : "a");
+      setSearch("");
+    };
+    restorePickerFromUrl();
+    window.addEventListener("popstate", restorePickerFromUrl);
+    return () => window.removeEventListener("popstate", restorePickerFromUrl);
+  }, [allTopics]);
+
+  useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+    const params = new URLSearchParams(window.location.search);
+    if (selectedA) params.set("a", selectedA.id);
+    else params.delete("a");
+    if (selectedB) params.set("b", selectedB.id);
+    else params.delete("b");
+    if (selectedA || selectedB) params.set("slot", activeSlot);
+    else params.delete("slot");
+    const searchParams = params.toString();
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${window.location.pathname}${searchParams ? `?${searchParams}` : ""}${window.location.hash}`,
+    );
+  }, [activeSlot, selectedA, selectedB]);
 
   const filtered = useMemo(() => {
     if (!search.trim()) return allTopics;
-    const q = search.toLowerCase();
+    const q = search.trim().toLowerCase();
     return allTopics.filter(
       (t) =>
         t.title.toLowerCase().includes(q) ||
         t.categoryLabel.toLowerCase().includes(q)
     );
   }, [search, allTopics]);
+
+  const hasSearch = search.trim().length > 0;
+  const visibleTopics = hasSearch
+    ? filtered
+    : filtered.slice(0, INITIAL_TOPIC_RESULTS);
 
   const handleSelect = (topic: TopicItem) => {
     if (activeSlot === "a") {
@@ -166,6 +201,12 @@ function TopicPicker({
       setSelectedB(topic);
     }
     setSearch("");
+    requestAnimationFrame(() => searchInputRef.current?.focus());
+  };
+
+  const clearSearch = () => {
+    setSearch("");
+    requestAnimationFrame(() => searchInputRef.current?.focus());
   };
 
   const canCompare = selectedA && selectedB && selectedA.id !== selectedB.id;
@@ -179,22 +220,24 @@ function TopicPicker({
   return (
     <div className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8">
       <div className="flex items-center gap-2 mb-2">
-        <ArrowLeftRight className="h-5 w-5 text-deep" />
+        <ArrowLeftRight className="h-5 w-5 text-deep dark:text-[#7fb5b0]" aria-hidden="true" />
         <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
           Pick Two Topics
         </h2>
       </div>
-      <p className="text-sm text-stone-500 mb-6">
+      <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
         Select any two topics to compare their evidence and arguments side by
         side.
       </p>
 
       {/* Selected topics */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6"
+        role="group"
+        aria-label="Topics to compare"
+      >
         {/* Slot A */}
-        <button
-          type="button"
-          onClick={() => setActiveSlot("a")}
+        <div
           className={`flex items-center gap-3 rounded-lg border-2 p-4 min-h-[72px] transition-all text-left ${
             activeSlot === "a"
               ? "border-rust-400 bg-rust-50/30 dark:bg-rust-900/20"
@@ -203,107 +246,148 @@ function TopicPicker({
                 : "border-dashed border-stone-300 dark:border-[#3d3a36] bg-stone-50/50 dark:bg-[#1a1916]/50"
           }`}
         >
-          <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-rust-100 flex items-center justify-center text-xs font-bold text-rust-700">
-            A
-          </span>
-          {selectedA ? (
-            <div className="flex-1 min-w-0">
-              <p className="font-serif text-sm font-semibold text-primary dark:text-stone-200 truncate">
-                {selectedA.title}
-              </p>
-              <p className="text-xs text-stone-500">
-                {selectedA.verdict.label}
-              </p>
-            </div>
-          ) : (
-            <p className="text-sm text-muted dark:text-stone-400">Select first topic...</p>
-          )}
+          <button
+            ref={slotARef}
+            type="button"
+            onClick={() => setActiveSlot("a")}
+            className="flex min-h-11 min-w-0 flex-1 items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500/50 focus-visible:ring-offset-4 dark:focus-visible:ring-offset-[#1a1916]"
+            aria-pressed={activeSlot === "a"}
+            aria-label={
+              selectedA
+                ? `Choose a different topic for slot A. Current topic: ${selectedA.title}`
+                : "Choose a topic for slot A"
+            }
+          >
+            <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-rust-100 dark:bg-rust-500/20 flex items-center justify-center text-xs font-bold text-rust-700 dark:text-rust-300">
+              A
+            </span>
+            {selectedA ? (
+              <span className="flex-1 min-w-0">
+                <span className="block font-serif text-sm font-semibold text-primary dark:text-stone-200 truncate">
+                  {selectedA.title}
+                </span>
+                <span className="block text-xs text-stone-500 dark:text-stone-400">
+                  {selectedA.verdict.label}
+                </span>
+              </span>
+            ) : (
+              <span className="text-sm text-muted dark:text-stone-400">Select first topic...</span>
+            )}
+          </button>
           {selectedA && (
             <button
               type="button"
-              onClick={(e) => {
-                e.stopPropagation();
+              onClick={() => {
                 setSelectedA(null);
                 setActiveSlot("a");
+                requestAnimationFrame(() => slotARef.current?.focus());
               }}
-              className="flex-shrink-0 p-1 rounded hover:bg-stone-200/50 transition-colors"
-              aria-label="Clear selection"
+              className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg hover:bg-stone-200/50 dark:hover:bg-[#302e2a] transition-colors"
+              aria-label={`Clear topic A: ${selectedA.title}`}
             >
-              <X className="h-3.5 w-3.5 text-muted dark:text-stone-400" />
+              <X className="h-4 w-4 text-muted dark:text-stone-400" aria-hidden="true" />
             </button>
           )}
-        </button>
+        </div>
 
         {/* Slot B */}
-        <button
-          type="button"
-          onClick={() => setActiveSlot("b")}
+        <div
           className={`flex items-center gap-3 rounded-lg border-2 p-4 min-h-[72px] transition-all text-left ${
             activeSlot === "b"
-              ? "border-deep bg-deep/5"
+              ? "border-deep bg-deep/5 dark:border-[#7fb5b0] dark:bg-deep/10"
               : selectedB
                 ? "border-stone-200 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916]"
                 : "border-dashed border-stone-300 dark:border-[#3d3a36] bg-stone-50/50 dark:bg-[#1a1916]/50"
           }`}
         >
-          <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center text-xs font-bold text-deep">
-            B
-          </span>
-          {selectedB ? (
-            <div className="flex-1 min-w-0">
-              <p className="font-serif text-sm font-semibold text-primary dark:text-stone-200 truncate">
-                {selectedB.title}
-              </p>
-              <p className="text-xs text-stone-500">
-                {selectedB.verdict.label}
-              </p>
-            </div>
-          ) : (
-            <p className="text-sm text-muted dark:text-stone-400">Select second topic...</p>
-          )}
+          <button
+            ref={slotBRef}
+            type="button"
+            onClick={() => setActiveSlot("b")}
+            className="flex min-h-11 min-w-0 flex-1 items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/50 focus-visible:ring-offset-4 dark:focus-visible:ring-offset-[#1a1916]"
+            aria-pressed={activeSlot === "b"}
+            aria-label={
+              selectedB
+                ? `Choose a different topic for slot B. Current topic: ${selectedB.title}`
+                : "Choose a topic for slot B"
+            }
+          >
+            <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 dark:bg-deep/25 flex items-center justify-center text-xs font-bold text-deep dark:text-[#7fb5b0]">
+              B
+            </span>
+            {selectedB ? (
+              <span className="flex-1 min-w-0">
+                <span className="block font-serif text-sm font-semibold text-primary dark:text-stone-200 truncate">
+                  {selectedB.title}
+                </span>
+                <span className="block text-xs text-stone-500 dark:text-stone-400">
+                  {selectedB.verdict.label}
+                </span>
+              </span>
+            ) : (
+              <span className="text-sm text-muted dark:text-stone-400">Select second topic...</span>
+            )}
+          </button>
           {selectedB && (
             <button
               type="button"
-              onClick={(e) => {
-                e.stopPropagation();
+              onClick={() => {
                 setSelectedB(null);
                 setActiveSlot("b");
+                requestAnimationFrame(() => slotBRef.current?.focus());
               }}
-              className="flex-shrink-0 p-1 rounded hover:bg-stone-200/50 transition-colors"
-              aria-label="Clear selection"
+              className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg hover:bg-stone-200/50 dark:hover:bg-[#302e2a] transition-colors"
+              aria-label={`Clear topic B: ${selectedB.title}`}
             >
-              <X className="h-3.5 w-3.5 text-muted dark:text-stone-400" />
+              <X className="h-4 w-4 text-muted dark:text-stone-400" aria-hidden="true" />
             </button>
           )}
-        </button>
+        </div>
       </div>
 
       {/* Search bar */}
       <div className="relative mb-4">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted dark:text-stone-400" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted dark:text-stone-400" aria-hidden="true" />
         <input
+          ref={searchInputRef}
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={`Search topics to fill slot ${activeSlot.toUpperCase()}...`}
           aria-label={`Search topics to fill slot ${activeSlot.toUpperCase()}`}
-          className="w-full pl-10 pr-4 py-3 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary dark:text-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
+          aria-controls="compare-topic-results"
+          aria-describedby="compare-topic-results-status"
+          className="w-full pl-10 pr-12 py-3 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary dark:text-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
         />
         {search && (
           <button
             type="button"
-            onClick={() => setSearch("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-stone-100 transition-colors"
+            onClick={clearSearch}
+            className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-lg hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
             aria-label="Clear search"
           >
-            <X className="h-3.5 w-3.5 text-muted dark:text-stone-400" />
+            <X className="h-4 w-4 text-muted dark:text-stone-400" aria-hidden="true" />
           </button>
         )}
       </div>
 
       {/* Topic list */}
-      <div className="max-h-64 overflow-y-auto rounded-lg border border-stone-200/40 dark:border-[#3d3a36]/60 divide-y divide-stone-200/40 dark:divide-[#3d3a36]/60">
-        {filtered.map((topic) => {
+      <div className="mb-2 flex items-center justify-between gap-3 text-xs text-stone-500 dark:text-stone-400">
+        <p id="compare-topic-results-status" aria-live="polite" aria-atomic="true">
+          {hasSearch
+            ? `${filtered.length} ${filtered.length === 1 ? "match" : "matches"}`
+            : `Showing ${visibleTopics.length} of ${allTopics.length} topics`}
+        </p>
+        {!hasSearch && allTopics.length > visibleTopics.length && (
+          <p className="hidden text-right sm:block">Search to find any topic</p>
+        )}
+      </div>
+      <div
+        id="compare-topic-results"
+        className="max-h-64 overflow-y-auto rounded-lg border border-stone-200/40 dark:border-[#3d3a36]/60 divide-y divide-stone-200/40 dark:divide-[#3d3a36]/60"
+        aria-label="Topic search results"
+      >
+        {visibleTopics.map((topic) => {
           const isSelectedA = selectedA?.id === topic.id;
           const isSelectedB = selectedB?.id === topic.id;
           const isDisabled = isSelectedA || isSelectedB;
@@ -350,7 +434,7 @@ function TopicPicker({
             </button>
           );
         })}
-        {filtered.length === 0 && (
+        {visibleTopics.length === 0 && (
           <div className="px-4 py-6 text-center text-sm text-muted dark:text-stone-400">
             No topics match your search.
           </div>
@@ -369,7 +453,7 @@ function TopicPicker({
               : "bg-stone-200 dark:bg-[#302e2a] text-muted dark:text-stone-400 cursor-not-allowed"
           }`}
         >
-          <ArrowLeftRight className="h-4 w-4" />
+          <ArrowLeftRight className="h-4 w-4" aria-hidden="true" />
           {canCompare
             ? "Compare these topics"
             : selectedA && selectedB && selectedA.id === selectedB.id
@@ -390,6 +474,39 @@ export default function CompareIndexView({
   allTopics,
 }: CompareIndexViewProps) {
   const [searchPairs, setSearchPairs] = useState("");
+  const hasMounted = useRef(false);
+  const pairFilterRef = useRef<HTMLInputElement>(null);
+
+  const clearPairFilter = () => {
+    setSearchPairs("");
+    requestAnimationFrame(() => pairFilterRef.current?.focus());
+  };
+
+  useEffect(() => {
+    const restoreFilterFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      setSearchPairs(params.get("pairs") ?? "");
+    };
+    restoreFilterFromUrl();
+    window.addEventListener("popstate", restoreFilterFromUrl);
+    return () => window.removeEventListener("popstate", restoreFilterFromUrl);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+    const params = new URLSearchParams(window.location.search);
+    if (searchPairs.trim()) params.set("pairs", searchPairs.trim());
+    else params.delete("pairs");
+    const searchParams = params.toString();
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${window.location.pathname}${searchParams ? `?${searchParams}` : ""}${window.location.hash}`,
+    );
+  }, [searchPairs]);
 
   const filteredPairs = useMemo(() => {
     if (!searchPairs.trim()) return featuredPairs;
@@ -416,7 +533,7 @@ export default function CompareIndexView({
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-4 leading-[1.08]">
               Compare Debates Side by Side
             </h1>
-            <p className="text-sm sm:text-base text-stone-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-stone-500 dark:text-stone-400 max-w-2xl mx-auto leading-relaxed">
               See how different controversial topics stack up against each other.
               Compare the balance and weight of evidence, argument pillars, and
               key crux questions.
@@ -435,17 +552,39 @@ export default function CompareIndexView({
                 Featured Comparisons
               </h2>
               <div className="relative w-full sm:w-64">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted dark:text-stone-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted dark:text-stone-400" aria-hidden="true" />
                 <input
+                  ref={pairFilterRef}
                   type="text"
                   value={searchPairs}
                   onChange={(e) => setSearchPairs(e.target.value)}
                   placeholder="Filter comparisons..."
                   aria-label="Filter comparisons"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm text-primary dark:text-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-deep/30 focus:border-deep/40 transition-all"
+                  aria-describedby="featured-comparison-status"
+                  className="min-h-11 w-full rounded-lg border border-stone-200/60 bg-white py-2.5 pl-10 pr-12 text-sm text-stone-900 placeholder:text-stone-400 transition-all focus:border-deep/40 focus:outline-none focus:ring-2 focus:ring-deep/30 dark:border-[#3d3a36] dark:bg-[#252420] dark:text-stone-200 dark:placeholder:text-stone-500"
                 />
+                {searchPairs && (
+                  <button
+                    type="button"
+                    onClick={clearPairFilter}
+                    className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-lg hover:bg-stone-100 dark:hover:bg-[#302e2a]"
+                    aria-label="Clear comparison filter"
+                  >
+                    <X className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                )}
               </div>
             </div>
+
+            <p
+              id="featured-comparison-status"
+              className="sr-only"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {filteredPairs.length} featured comparison{filteredPairs.length === 1 ? "" : "s"}
+            </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 stagger-children">
               {filteredPairs.map((pair) => (
@@ -472,7 +611,7 @@ export default function CompareIndexView({
               >
                 &larr; Back to all topics
               </Link>
-              <p className="text-xs text-stone-500 italic">
+              <p className="text-xs text-stone-500 dark:text-stone-400 italic">
                 Data-driven analysis. Question everything.
               </p>
             </div>

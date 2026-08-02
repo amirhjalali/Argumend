@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[#1a1916] flex flex-col items-center justify-center px-6 py-20 text-center">
+    <main id="main-content" className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[#1a1916] flex flex-col items-center justify-center px-6 py-20 text-center">
       {/* Icon */}
       <div className="mb-8">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#efe9df] dark:bg-[#302e2a] border border-stone-200/60 dark:border-[var(--border-default)]">
@@ -34,31 +34,31 @@ export default function NotFound() {
       </p>
 
       {/* Navigation Links */}
-      <nav className="flex flex-wrap items-center justify-center gap-3 mb-10">
+      <nav aria-label="Not found navigation" className="flex flex-wrap items-center justify-center gap-3 mb-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#1a1916]"
         >
           <Home className="w-4 h-4" strokeWidth={1.8} />
           Back to Home
         </Link>
         <Link
           href="/topics"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
+          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#1a1916]"
         >
           <MessageSquare className="w-4 h-4" strokeWidth={1.8} />
           Browse Topics
         </Link>
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
+          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#1a1916]"
         >
           <BookOpen className="w-4 h-4" strokeWidth={1.8} />
           Read the Blog
         </Link>
         <Link
           href="/analyze"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors"
+          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#1a1916]"
         >
           <Brain className="w-4 h-4" strokeWidth={1.8} />
           Run an Analysis
@@ -69,11 +69,11 @@ export default function NotFound() {
       <div className="pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)] max-w-sm w-full">
         <p className="font-sans text-sm text-muted dark:text-stone-400">
           If you had something specific in mind, our{" "}
-          <Link href="/topics" className="text-deep hover:underline">
+          <Link href="/topics" className="text-deep hover:underline dark:text-[#9bc7c3]">
             topics
           </Link>{" "}
           and{" "}
-          <Link href="/guides" className="text-deep hover:underline">
+          <Link href="/guides" className="text-deep hover:underline dark:text-[#9bc7c3]">
             guides
           </Link>{" "}
           are good places to start.
@@ -82,7 +82,7 @@ export default function NotFound() {
 
       {/* Branding footer */}
       <div className="mt-16">
-        <Link href="/" className="group flex flex-col items-center gap-1">
+        <Link href="/" className="group flex min-h-11 flex-col items-center justify-center gap-1 rounded-md">
           <span className="font-serif text-base font-medium tracking-[0.08em] text-muted dark:text-stone-400 group-hover:text-primary dark:group-hover:text-stone-200 transition-colors">
             ARGUMEND
           </span>
@@ -91,6 +91,6 @@ export default function NotFound() {
           </span>
         </Link>
       </div>
-    </div>
+    </main>
   );
 }

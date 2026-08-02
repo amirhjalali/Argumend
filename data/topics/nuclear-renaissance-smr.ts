@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const nuclearRenaissanceSmrData = {
   id: "nuclear-renaissance-smr",
   title: "Can Small Modular Reactors Save Nuclear Energy?",

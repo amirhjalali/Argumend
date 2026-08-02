@@ -1,5 +1,5 @@
-import { Topic, TopicCategory, TopicInput, TopicSchema, computeBalance, computeWeight, getVerdict } from "@/lib/schemas/topic";
-import { WEIGHT } from "@/lib/constants";
+import type { Topic, TopicCategory } from "@/lib/schemas/topic";
+import { buildTopic } from "./buildTopic";
 
 // ============================================================================
 // Topic Data Imports
@@ -177,39 +177,6 @@ import { deExtinctionSpeciesData } from "./topics/de-extinction-species";
 
 // labLeakTheoryData is now imported from ./topics/covid-origins.ts (covidOriginsData)
 const labLeakTheoryData = covidOriginsData;
-
-// ============================================================================
-// Build Topics with Computed Confidence Scores
-// ============================================================================
-
-function buildTopic(data: TopicInput): Topic {
-  const computedBalance = computeBalance(data.pillars);
-  const computedWeight = computeWeight(data.pillars);
-
-  // Settled topics: trust the authored score as a floor on the tilt, and
-  // guarantee a weight floor — "settled" is an editorial assertion of both.
-  const balance =
-    data.status === "settled"
-      ? Math.max(computedBalance, data.confidence_score ?? 0)
-      : computedBalance;
-  const weight =
-    data.status === "settled"
-      ? Math.max(computedWeight, WEIGHT.SETTLED_FLOOR)
-      : computedWeight;
-
-  // Guarantee every topic has at least one tag so tag pages always have content.
-  // Always include the category, then any explicit tags (deduped).
-  const tags = Array.from(new Set([data.category, ...(data.tags ?? [])]));
-
-  return TopicSchema.parse({
-    ...data,
-    tags,
-    balance,
-    weight,
-    verdict: getVerdict(balance, weight),
-    confidence_score: balance, // @deprecated mirror — JSON-LD + unmigrated surfaces only
-  });
-}
 
 // ============================================================================
 // Export Topics

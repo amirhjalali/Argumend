@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const vapingHarmReductionData = {
   id: "vaping-harm-reduction",
   title: "Vaping as Harm Reduction",

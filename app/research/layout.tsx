@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "Research — The Science Behind Argument Mapping",
@@ -9,11 +10,13 @@ export const metadata: Metadata = {
     title: "Research — The Science Behind Argument Mapping",
     description: "Peer-reviewed polarization research, deliberative reasoning, and misinformation studies behind Argumend.",
     url: "https://argumend.org/research",
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Research — The Science Behind Argument Mapping",
     description: "Peer-reviewed science behind Argumend's methodology.",
+    images: [DEFAULT_SOCIAL_IMAGE_URL],
   },
   alternates: {
     canonical: "https://argumend.org/research",

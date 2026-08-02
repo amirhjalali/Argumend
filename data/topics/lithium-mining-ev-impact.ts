@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const lithiumMiningEvImpactData = {
   id: "lithium-mining-ev-impact",
   title: "Lithium Mining & EV Environmental Impact",

@@ -1,20 +1,23 @@
 import { Metadata } from "next";
+import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Analyze Arguments — AI Argument Analysis Tool",
+  title: "Analyze Arguments — Structured Argument Analysis Tool",
   description:
-    "Paste any debate, article, or transcript. AI extracts positions, finds cruxes, and scores argument quality with a multi-judge council. Free and transparent analysis.",
+    "Paste any debate, article, or transcript. Argumend extracts positions, finds cruxes, and assesses argument quality with transparent programmatic analysis by default.",
   keywords: ["argument analysis tool", "AI debate analysis", "logical fallacy detector", "argument quality score", "crux finder"],
   openGraph: {
-    title: "Analyze Arguments — AI Argument Analysis Tool",
-    description: "AI extracts positions, finds cruxes, and scores argument quality with a multi-judge council. Free and transparent.",
+    title: "Analyze Arguments — Structured Argument Analysis Tool",
+    description: "Extract positions, find cruxes, and assess argument quality with transparent programmatic analysis by default.",
     url: "https://argumend.org/analyze",
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Analyze Arguments — Free AI Analysis Tool",
-    description: "Paste any debate or article. AI finds the cruxes and scores argument quality.",
+    title: "Analyze Arguments — Free Argument Analysis Tool",
+    description: "Paste any debate or article. Argumend finds the cruxes and assesses argument quality.",
+    images: [DEFAULT_SOCIAL_IMAGE_URL],
   },
   alternates: {
     canonical: "https://argumend.org/analyze",
@@ -26,7 +29,7 @@ const howToJsonLd = {
   "@type": "HowTo",
   name: "How to Analyze Arguments with Argumend",
   description:
-    "Use AI to break down any article, transcript, or claim into a structured argument map with evidence weighting and confidence scores.",
+    "Break down any article, transcript, or claim into structured positions, cruxes, and evidence assessments.",
   step: [
     {
       "@type": "HowToStep",
@@ -37,26 +40,26 @@ const howToJsonLd = {
     {
       "@type": "HowToStep",
       position: 2,
-      name: "AI extracts the argument structure",
-      text: "Our AI identifies the central claim, supporting and opposing arguments, evidence, and logical structure.",
+      name: "Argumend extracts the argument structure",
+      text: "Argumend identifies the central claim, supporting and opposing arguments, evidence, and logical structure. Programmatic analysis works without an AI provider.",
     },
     {
       "@type": "HowToStep",
       position: 3,
-      name: "Review the argument map",
-      text: "Explore the visual argument map showing pillars of disagreement, weighted evidence, and crux questions.",
+      name: "Review the structured report",
+      text: "Compare the extracted positions, supporting evidence, and key points of disagreement.",
     },
     {
       "@type": "HowToStep",
       position: 4,
       name: "Evaluate the evidence",
-      text: "See how each piece of evidence scores on reliability, independence, replicability, and directness.",
+      text: "Inspect argument-strength assessments, reasoning notes, and potential fallacies.",
     },
     {
       "@type": "HowToStep",
       position: 5,
-      name: "Check the confidence score",
-      text: "Get a quantified confidence score (0-100) showing how strongly the evidence supports or undermines the claim.",
+      name: "Review extraction confidence",
+      text: "Use the extraction-confidence score to understand how clearly the source text’s argument structure could be identified. It is not a truth score.",
     },
   ],
 };

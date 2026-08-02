@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const aiInEducationData = {
   id: "ai-in-education",
   title: "AI in Education: Revolution or Risk?",

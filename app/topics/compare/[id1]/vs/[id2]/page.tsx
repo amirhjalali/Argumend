@@ -1,11 +1,14 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { topics, CATEGORY_LABELS } from "@/data/topics";
+import { topicSummaries } from "@/data/topicIndex";
+import { loadTopicById } from "@/data/topicLoader";
 import { calculateEvidenceScore } from "@/lib/schemas/topic";
+import type { Topic } from "@/lib/schemas/topic";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { COMPARISON_PAIRS } from "@/app/topics/compare/comparisonPairs";
 import ComparisonView from "./ComparisonView";
+import { buildGenericOgUrl } from "@/lib/og";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -31,15 +34,22 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { id1, id2 } = await params;
-  const topic1 = topics.find((t) => t.id === id1);
-  const topic2 = topics.find((t) => t.id === id2);
+  const topic1 = topicSummaries.find((t) => t.id === id1);
+  const topic2 = topicSummaries.find((t) => t.id === id2);
 
-  if (!topic1 || !topic2) {
-    return { title: "Comparison Not Found" };
+  if (!topic1 || !topic2 || id1 === id2) {
+    return {
+      title: "Comparison Not Found",
+      robots: { index: false, follow: true },
+    };
   }
 
   const title = `${topic1.title} vs ${topic2.title} — Argument Comparison`;
-  const description = `Compare the evidence and arguments for "${topic1.title}" and "${topic2.title}" side by side. See confidence scores, evidence balance, key cruxes, and analytical pillars for both debates.`;
+  const description = `Compare the evidence and arguments for "${topic1.title}" and "${topic2.title}" side by side. See evidence balance, evidential weight, key cruxes, and analytical pillars for both debates.`;
+  const socialImage = buildGenericOgUrl({
+    title: `${topic1.title} vs ${topic2.title}`,
+    subtitle: "Side-by-side evidence and argument comparison",
+  });
 
   return {
     title,
@@ -63,11 +73,20 @@ export async function generateMetadata({
       description,
       url: `https://argumend.org/topics/compare/${id1}/vs/${id2}`,
       siteName: "ARGUMEND",
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: `${topic1.title} vs ${topic2.title}`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [socialImage],
     },
   };
 }
@@ -76,7 +95,7 @@ export async function generateMetadata({
 // Helper: compute topic stats
 // ---------------------------------------------------------------------------
 
-function computeTopicStats(topic: (typeof topics)[number]) {
+function computeTopicStats(topic: Topic) {
   const allEvidence = topic.pillars.flatMap((p) => p.evidence ?? []);
   const totalEvidence = allEvidence.length;
   const forEvidence = allEvidence.filter((e) => e.side === "for");
@@ -119,10 +138,12 @@ function computeTopicStats(topic: (typeof topics)[number]) {
 
 export default async function ComparisonPage({ params }: PageProps) {
   const { id1, id2 } = await params;
-  const topic1 = topics.find((t) => t.id === id1);
-  const topic2 = topics.find((t) => t.id === id2);
+  const [topic1, topic2] = await Promise.all([
+    loadTopicById(id1),
+    loadTopicById(id2),
+  ]);
 
-  if (!topic1 || !topic2) {
+  if (!topic1 || !topic2 || id1 === id2) {
     notFound();
   }
 
@@ -160,7 +181,7 @@ export default async function ComparisonPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: `Comparison: ${topic1.title} vs ${topic2.title}`,
-    description: `Side-by-side evidence comparison of "${topic1.title}" and "${topic2.title}" with confidence scores, argument pillars, and crux questions.`,
+    description: `Side-by-side evidence comparison of "${topic1.title}" and "${topic2.title}" with balance, evidential weight, argument pillars, and crux questions.`,
     numberOfItems: 2,
     itemListElement: [
       {

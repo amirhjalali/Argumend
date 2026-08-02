@@ -13,7 +13,8 @@
  * here too.
  *
  * For full post data (`content`), import from `data/blog.ts` only in server
- * components (blog pages, sitemap) or lazy-loaded client code.
+ * components that actually render article prose. Discovery surfaces such as
+ * sitemap and RSS should use this index.
  *
  * Mirrors the standalone-index pattern of `data/topicIndex.ts`.
  */
@@ -1274,3 +1275,42 @@ export const articleSummaries: ArticleSummary[] = [
     readingTime: "10 min read",
   },
 ];
+
+export function getArticleSummaryCategories(): string[] {
+  return [...new Set(articleSummaries.map((article) => article.category))];
+}
+
+export type BlogCategoryFacet = {
+  category: string;
+  count: number;
+  label: string;
+  slug: string;
+};
+
+export function getArticleSummaryCategoryFacets(): BlogCategoryFacet[] {
+  const counts = new Map<string, number>();
+  for (const article of articleSummaries) {
+    counts.set(article.category, (counts.get(article.category) ?? 0) + 1);
+  }
+
+  return [...counts.entries()]
+    .map(([category, count]) => ({
+      category,
+      count,
+      label: category.charAt(0).toUpperCase() + category.slice(1),
+      slug: blogCategoryToSlug(category),
+    }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+}
+
+export function getArticleSummaryTags(): string[] {
+  return [...new Set(articleSummaries.flatMap((article) => article.tags))];
+}
+
+export function blogCategoryToSlug(category: string): string {
+  return category.toLowerCase().replace(/[&\s]+/g, "-").replace(/-+/g, "-");
+}
+
+export function blogTagToSlug(tag: string): string {
+  return tag.toLowerCase().replace(/\$/g, "").replace(/\s+/g, "-");
+}

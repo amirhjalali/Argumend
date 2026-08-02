@@ -1,5 +1,3 @@
-import type { Topic } from "@/lib/schemas/topic";
-
 export const studentDebtForgivenessData = {
   id: "student-debt-forgiveness",
   title: "Student Debt Forgiveness",

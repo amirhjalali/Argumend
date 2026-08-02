@@ -5,6 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const isDev = process.env.NODE_ENV === 'development';
+const authEntryEnabled = process.env.NEXT_PUBLIC_ENABLE_AUTH === 'true';
 
 // Build Content-Security-Policy header value
 const cspDirectives = [
@@ -20,6 +21,12 @@ const cspDirectives = [
 ];
 const contentSecurityPolicy = cspDirectives.join('; ');
 
+const embedContentSecurityPolicy = cspDirectives
+  .map((directive) =>
+    directive.startsWith("frame-ancestors ") ? "frame-ancestors *" : directive
+  )
+  .join('; ');
+
 const securityHeaders = [
   { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
   { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -28,6 +35,13 @@ const securityHeaders = [
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
   { key: 'Content-Security-Policy', value: contentSecurityPolicy },
+];
+
+const discoveryCacheHeaders = [
+  {
+    key: 'Cache-Control',
+    value: 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400',
+  },
 ];
 
 const nextConfig = {
@@ -49,6 +63,22 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Avoid streaming an account-only shell before the page-level redirect.
+      // In the default offline experience these URLs belong to local bookmarks.
+      ...(!authEntryEnabled
+        ? [
+            {
+              source: '/auth/signin',
+              destination: '/saved',
+              permanent: false,
+            },
+            {
+              source: '/dashboard',
+              destination: '/saved',
+              permanent: false,
+            },
+          ]
+        : []),
       // www → non-www canonical redirect
       {
         source: '/:path*',
@@ -67,10 +97,26 @@ const nextConfig = {
   },
   async headers() {
     return [
+      // Stable generated discovery documents should not be revalidated by
+      // every browser request; Next's route cache refreshes them daily.
+      { source: '/robots.txt', headers: discoveryCacheHeaders },
+      { source: '/sitemap.xml', headers: discoveryCacheHeaders },
+      { source: '/manifest.webmanifest', headers: discoveryCacheHeaders },
       {
-        // Apply security headers to all routes
-        source: '/(.*)',
+        // Protect normal pages from framing. The dedicated embed widget is
+        // intentionally excluded and receives its own policy below.
+        source: '/((?!embed/).*)',
         headers: securityHeaders,
+      },
+      {
+        source: '/embed/:path*',
+        headers: [
+          ...securityHeaders.filter(
+            ({ key }) =>
+              key !== 'X-Frame-Options' && key !== 'Content-Security-Policy'
+          ),
+          { key: 'Content-Security-Policy', value: embedContentSecurityPolicy },
+        ],
       },
     ];
   },
