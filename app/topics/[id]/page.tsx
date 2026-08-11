@@ -7,6 +7,11 @@ import { JsonLd } from "@/components/JsonLd";
 import TopicPageClient from "./TopicPageClient";
 import { buildTopicOgUrl } from "@/lib/og";
 import {
+  argumentTopicIds,
+  loadArgumentTopic,
+} from "@/lib/argument/draftTopics";
+import { DebateView } from "@/components/argument/DebateView";
+import {
   CONTENT_FIRST_PUBLISHED,
   CONTENT_LAST_UPDATED,
 } from "@/lib/site";
@@ -16,7 +21,10 @@ import {
 // ---------------------------------------------------------------------------
 
 export function generateStaticParams() {
-  return topicSummaries.map((topic) => ({ id: topic.id }));
+  return [
+    ...topicSummaries.map((topic) => ({ id: topic.id })),
+    ...argumentTopicIds.map((id) => ({ id })),
+  ];
 }
 
 // ---------------------------------------------------------------------------
@@ -32,6 +40,18 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
+
+  const argumentTopic = loadArgumentTopic(id);
+  if (argumentTopic) {
+    return {
+      title: `${argumentTopic.meta.title} — Debate Map`,
+      description: argumentTopic.meta.tagline,
+      alternates: {
+        canonical: `https://argumend.org/topics/${argumentTopic.meta.id}`,
+      },
+    };
+  }
+
   const topic = topicSummaries.find((t) => t.id === id);
 
   if (!topic) {
@@ -90,6 +110,20 @@ export async function generateMetadata({
 
 export default async function TopicPage({ params, searchParams }: PageProps) {
   const { id } = await params;
+
+  // New-model (ArgumentGraph) topics render the progressive-disclosure
+  // DebateView — no canvas bundle, no hydration for the core experience.
+  const argumentTopic = loadArgumentTopic(id);
+  if (argumentTopic) {
+    return (
+      <DebateView
+        title={argumentTopic.meta.title}
+        graph={argumentTopic.graph}
+        cruxes={argumentTopic.cruxes}
+      />
+    );
+  }
+
   const topic = await loadTopicById(id);
 
   if (!topic) {
