@@ -128,7 +128,7 @@ describe("content-route graph import boundaries", () => {
       "utf8",
     );
 
-    expect(topBarSource.match(/prefetch=\{false\}/g)).toHaveLength(3);
+    expect(topBarSource.match(/prefetch=\{false\}/g)).toHaveLength(4);
     expect(sidebarSource.match(/prefetch=\{false\}/g)).toHaveLength(4);
     expect(footerSource.match(/prefetch=\{false\}/g)).toHaveLength(2);
     expect(trendingSource.match(/prefetch=\{false\}/g)).toHaveLength(1);

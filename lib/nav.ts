@@ -1,11 +1,9 @@
 /**
  * Single source of truth for site navigation.
  *
- * Strategic Bet E (IA): the Sidebar and Footer used to maintain their own
- * divergent hardcoded link arrays, which let them drift — `/questions` was
- * reachable only from the footer, several pages used different labels in each
- * place, etc. Every navigation destination is now declared ONCE in `navItems`
- * below; the Sidebar and Footer DERIVE their links from it so they can't drift.
+ * Argumend 1.0 pruning collapses public navigation to Explore · Analyze ·
+ * About. Hidden routes still serve when visited directly, but they are
+ * deliberately de-linked from the canonical nav.
  *
  * To add, remove, rename, or re-group a destination, edit `navItems` (and, for
  * the footer's curated columns, `footerColumns`). Do not reintroduce local link
@@ -14,27 +12,12 @@
 
 import type { LucideIcon } from "lucide-react";
 import {
-  ArrowLeftRight,
-  BadgeCheck,
-  BookOpen,
   Bookmark,
   Brain,
   Compass,
-  Eye,
-  FileText,
-  GraduationCap,
   HelpCircle,
-  History,
   LayoutDashboard,
-  Layers,
   ListChecks,
-  Map as MapIcon,
-  MessageCircleQuestion,
-  Network,
-  Newspaper,
-  Scale,
-  Shell,
-  Users,
 } from "lucide-react";
 
 /**
@@ -65,40 +48,17 @@ export interface NavItemWithIcon extends NavItem {
 }
 
 /**
- * THE canonical list — every navigation destination, declared exactly once.
- * The UNION of everything that previously lived in the Sidebar and the Footer.
- * Order within a group defines render order in the sidebar.
+ * THE canonical list — every linked navigation destination, declared exactly
+ * once. Order within a group defines render order in the sidebar.
  */
 export const navItems: NavItem[] = [
   // --- Primary (sidebar main list) ---
   { label: "Home", href: "/", icon: Compass, group: "primary" },
-  { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard, group: "primary", noPrefetch: true, requiresAuth: true },
+  { label: "Explore", href: "/topics", icon: ListChecks, group: "primary" },
   { label: "Analyze Text", href: "/analyze", icon: Brain, group: "primary", highlight: true },
-  { label: "Recent Analyses", href: "/analyses", icon: History, group: "primary", noPrefetch: true },
   { label: "Saved", href: "/saved", icon: Bookmark, group: "primary", noPrefetch: true },
-  { label: "Topics", href: "/topics", icon: ListChecks, group: "primary" },
-  { label: "Compare Topics", href: "/topics/compare", icon: ArrowLeftRight, group: "primary" },
-  { label: "Is It True?", href: "/is", icon: BadgeCheck, group: "primary" },
-  { label: "How It Works", href: "/how-it-works", icon: MapIcon, group: "primary" },
   { label: "About", href: "/about", icon: HelpCircle, group: "primary" },
-
-  // --- Learn & Explore (sidebar collapsible section) ---
-  { label: "Blog", href: "/blog", icon: Newspaper, group: "learn" },
-  { label: "Research", href: "/research", icon: FileText, group: "learn" },
-  { label: "Guides", href: "/guides", icon: GraduationCap, group: "learn" },
-  { label: "Fallacies", href: "/fallacies", icon: Network, group: "learn" },
-  { label: "Concepts", href: "/concepts", icon: Layers, group: "learn" },
-  { label: "Perspectives", href: "/perspectives", icon: Eye, group: "learn" },
-  { label: "Library", href: "/library", icon: BookOpen, group: "learn" },
-  { label: "Questions", href: "/questions", icon: MessageCircleQuestion, group: "learn" },
-  { label: "Lessons From the Deep", href: "/lessons-from-the-deep", icon: Shell, group: "learn" },
-  { label: "Community", href: "/community", icon: Users, group: "learn" },
-  { label: "For Educators", href: "/for-educators", icon: GraduationCap, group: "learn" },
-  { label: "Methodology", href: "/methodology", icon: Scale, group: "learn" },
-  { label: "Glossary", href: "/glossary", icon: BookOpen, group: "learn" },
-
-  // --- Meta (sidebar footer utility links) ---
-  { label: "FAQ", href: "/faq", group: "meta" },
+  { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard, group: "primary", noPrefetch: true, requiresAuth: true },
 ];
 
 /** Lookup by href, used to resolve the footer's curated columns. */
@@ -131,15 +91,11 @@ export const metaNav = navItems.filter((item) => item.group === "meta");
 const FOOTER_COLUMN_HREFS: { title: string; hrefs: string[] }[] = [
   {
     title: "Explore",
-    hrefs: ["/topics", "/is", "/saved", "/questions", "/blog", "/guides", "/library"],
-  },
-  {
-    title: "Learn",
-    hrefs: ["/research", "/concepts", "/how-it-works", "/methodology", "/for-educators", "/glossary"],
+    hrefs: ["/topics", "/saved"],
   },
   {
     title: "About",
-    hrefs: ["/about", "/community", "/faq", "/perspectives"],
+    hrefs: ["/about"],
   },
 ];
 

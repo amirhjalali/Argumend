@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, type ReactNode, type Ref } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Search, HelpCircle, ExternalLink, Home, Brain } from "lucide-react";
+import { Search, HelpCircle, Home, Brain, ListChecks } from "lucide-react";
 import { MenuIcon } from "@/components/icons/MenuIcon";
 import { UserMenu } from "./UserMenu";
 import { ThemeToggle } from "./ThemeToggle";
@@ -121,6 +121,15 @@ export function TopBar({
         {/* Right: Actions */}
         <div className="flex shrink-0 items-center gap-1 md:gap-2">
           <Link
+            href="/topics"
+            prefetch={false}
+            className="hidden lg:flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 dark:text-stone-400 text-sm hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
+          >
+            <ListChecks className="h-3.5 w-3.5" strokeWidth={1.8} />
+            <span>Explore</span>
+          </Link>
+
+          <Link
             href="/analyze"
             prefetch={false}
             aria-label="Analyze text"
@@ -131,12 +140,12 @@ export function TopBar({
           </Link>
 
           <Link
-            href="/how-it-works"
+            href="/about"
             prefetch={false}
             className="hidden lg:flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 dark:text-stone-400 text-sm hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
           >
             <HelpCircle className="h-3.5 w-3.5" strokeWidth={1.8} />
-            <span>How it works</span>
+            <span>About</span>
           </Link>
 
           <button
@@ -151,16 +160,6 @@ export function TopBar({
               <span className="text-xs">⌘</span>K
             </kbd>
           </button>
-
-          <a
-            href="https://github.com/amirhjalali/Argumend"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 dark:text-stone-400 text-sm hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
-          >
-            <ExternalLink className="h-3.5 w-3.5" strokeWidth={1.8} />
-            <span>Contribute</span>
-          </a>
 
           <div className="hidden sm:block">
             <ThemeToggle />

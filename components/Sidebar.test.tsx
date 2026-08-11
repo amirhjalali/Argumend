@@ -88,17 +88,26 @@ describe("Sidebar topic routing", () => {
     expect(onTopicSelect).not.toHaveBeenCalled();
   });
 
-  it("marks only the most specific matching destination as current", () => {
+  it("marks Explore current for hidden /topics subroutes", () => {
     pathname = "/topics/compare";
     const view = render(
       <Sidebar isOpen onClose={vi.fn()} onTopicSelect={vi.fn()} />,
     );
 
     expect(
-      view.getByRole("link", { name: "Compare Topics" }).getAttribute("aria-current"),
+      view.getByRole("link", { name: "Explore" }).getAttribute("aria-current"),
     ).toBe("page");
     expect(
-      view.getByRole("link", { name: "Topics" }).hasAttribute("aria-current"),
+      view.getByRole("link", { name: "Analyze Text" }).hasAttribute("aria-current"),
     ).toBe(false);
+  });
+
+  it("does not render empty learn or meta navigation sections", () => {
+    const view = render(
+      <Sidebar isOpen onClose={vi.fn()} onTopicSelect={vi.fn()} />,
+    );
+
+    expect(view.queryByRole("button", { name: "Learn & Explore" })).toBeNull();
+    expect(view.queryByRole("link", { name: "FAQ" })).toBeNull();
   });
 });

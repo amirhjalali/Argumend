@@ -42,8 +42,8 @@ export function Sidebar({
 }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
-  // Default the "Learn & Explore" section open on desktop; user toggles override
-  // the responsive default.
+  // If the optional learn section has links, default it open on desktop; user
+  // toggles override the responsive default.
   const isDesktop = useSyncExternalStore(
     subscribeDesktopChange,
     getDesktopSnapshot,
@@ -52,6 +52,8 @@ export function Sidebar({
   const [learnOpenOverride, setLearnOpenOverride] = useState<boolean | null>(null);
   const learnOpen = learnOpenOverride ?? isDesktop;
   const visiblePrimaryNav = getVisiblePrimaryNav(authEntryEnabled);
+  const hasLearnNav = learnNav.length > 0;
+  const hasMetaNav = metaNav.length > 0;
   const activeNavHref = [...visiblePrimaryNav, ...learnNav, ...metaNav]
     .filter(({ href }) =>
       href === "/"
@@ -127,60 +129,64 @@ export function Sidebar({
         {/* Trending This Week */}
         <TrendingTopics />
 
-        {/* Learn & Explore collapsible section */}
-        <div className="pb-5">
-          <button
-            onClick={() => setLearnOpenOverride(!learnOpen)}
-            className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-muted dark:text-stone-400 tracking-wide hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
-            aria-expanded={learnOpen}
-            aria-controls="learn-explore-menu"
-            aria-label="Learn & Explore"
-          >
-            {learnOpen ? (
-              <ChevronDown className="h-3.5 w-3.5" strokeWidth={1.8} />
-            ) : (
-              <ChevronRight className="h-3.5 w-3.5" strokeWidth={1.8} />
-            )}
-            <span>Learn &amp; Explore</span>
-          </button>
+        {hasLearnNav && (
+          <>
+            {/* Learn & Explore collapsible section */}
+            <div className="pb-5">
+              <button
+                onClick={() => setLearnOpenOverride(!learnOpen)}
+                className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-muted dark:text-stone-400 tracking-wide hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
+                aria-expanded={learnOpen}
+                aria-controls="learn-explore-menu"
+                aria-label="Learn & Explore"
+              >
+                {learnOpen ? (
+                  <ChevronDown className="h-3.5 w-3.5" strokeWidth={1.8} />
+                ) : (
+                  <ChevronRight className="h-3.5 w-3.5" strokeWidth={1.8} />
+                )}
+                <span>Learn &amp; Explore</span>
+              </button>
 
-          <div
-            className={`grid transition-[grid-template-rows] duration-200 ease-out ${
-              learnOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-            }`}
-          >
-            <div id="learn-explore-menu" className="mt-0.5 space-y-0.5 pl-3 overflow-hidden" role="list" aria-label="Learn & Explore">
-              {learnNav.map(({ label, icon: Icon, href }) => {
-                const isActive = isActiveRoute(href);
-                return (
-                  <Link
-                    key={label}
-                    href={href}
-                    prefetch={false}
-                    tabIndex={learnOpen ? 0 : -1}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
-                      isActive
-                        ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
-                        : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50"
-                    }`}
-                  >
-                    <Icon
-                      className={`h-4 w-4 ${
-                        isActive ? "text-stone-700 dark:text-stone-300" : "text-stone-400"
-                      }`}
-                      strokeWidth={1.8}
-                    />
-                    <span>{label}</span>
-                  </Link>
-                );
-              })}
+              <div
+                className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+                  learnOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div id="learn-explore-menu" className="mt-0.5 space-y-0.5 pl-3 overflow-hidden" role="list" aria-label="Learn & Explore">
+                  {learnNav.map(({ label, icon: Icon, href }) => {
+                    const isActive = isActiveRoute(href);
+                    return (
+                      <Link
+                        key={label}
+                        href={href}
+                        prefetch={false}
+                        tabIndex={learnOpen ? 0 : -1}
+                        aria-current={isActive ? "page" : undefined}
+                        className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
+                          isActive
+                            ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
+                            : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50"
+                        }`}
+                      >
+                        <Icon
+                          className={`h-4 w-4 ${
+                            isActive ? "text-stone-700 dark:text-stone-300" : "text-stone-400"
+                          }`}
+                          strokeWidth={1.8}
+                        />
+                        <span>{label}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        {/* Divider */}
-        <div className="h-px bg-stone-200/50 dark:bg-[#3d3a36]/50 mb-5" />
+            {/* Divider */}
+            <div className="h-px bg-stone-200/50 dark:bg-[#3d3a36]/50 mb-5" />
+          </>
+        )}
 
         {/* Featured Topics (limited to 8) */}
         <section className="pb-5" aria-labelledby="sidebar-topics-heading">
@@ -233,21 +239,23 @@ export function Sidebar({
 
       {/* Footer */}
       <div className="px-4 py-3 border-t border-stone-200/50 dark:border-[#3d3a36]/50 space-y-2">
-        <div className="flex items-center justify-between">
-          <ul className="flex items-center gap-3">
-            {metaNav.map(({ label, href }) => (
-              <li key={label}>
-                <Link
-                  href={href}
-                  prefetch={false}
-                  aria-current={isActiveRoute(href) ? "page" : undefined}
-                  className="inline-flex min-h-11 items-center rounded-md px-1 text-[12px] text-muted transition-colors hover:text-stone-600 dark:text-stone-400 dark:hover:text-stone-300"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className={`flex items-center ${hasMetaNav ? "justify-between" : "justify-end"}`}>
+          {hasMetaNav && (
+            <ul className="flex items-center gap-3">
+              {metaNav.map(({ label, href }) => (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    prefetch={false}
+                    aria-current={isActiveRoute(href) ? "page" : undefined}
+                    className="inline-flex min-h-11 items-center rounded-md px-1 text-[12px] text-muted transition-colors hover:text-stone-600 dark:text-stone-400 dark:hover:text-stone-300"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
           <ThemeToggle />
         </div>
       </div>

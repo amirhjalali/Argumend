@@ -3,6 +3,8 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { footerColumns } from "@/lib/nav";
 
 export function Footer() {
+  const visibleFooterColumns = footerColumns.filter((column) => column.links.length > 0);
+
   return (
     <footer className="bg-[#f4f1eb] dark:bg-[#1a1917] border-t border-stone-200 dark:border-[#3d3a36]" role="contentinfo">
       <div className="mx-auto max-w-6xl px-6 py-12">
@@ -28,7 +30,7 @@ export function Footer() {
 
         {/* Link columns */}
         <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-          {footerColumns.map((column) => (
+          {visibleFooterColumns.map((column) => (
             <div key={column.title}>
               <h3 className="text-xs font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400">
                 {column.title}
