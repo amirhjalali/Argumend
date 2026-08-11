@@ -30,7 +30,18 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
   },
 };
 
-export const argumentTopicIds = Object.keys(DRAFTS);
+export { argumentTopicIds } from "@/lib/argument/topicIds";
+import { argumentTopicIds as registeredIds } from "@/lib/argument/topicIds";
+
+// The proxy allowlist (lib/argument/topicIds.ts) must stay in lockstep with the
+// draft registry, or new-model topics 404 at the middleware before the page runs.
+const draftIds = Object.keys(DRAFTS).sort().join(",");
+const registered = [...registeredIds].sort().join(",");
+if (draftIds !== registered) {
+  throw new Error(
+    `ArgumentGraph topic registry mismatch: drafts [${draftIds}] vs allowlisted ids [${registered}] — update lib/argument/topicIds.ts`
+  );
+}
 
 export interface ArgumentTopic {
   meta: ArgumentTopicMeta;

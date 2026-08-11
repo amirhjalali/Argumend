@@ -7,6 +7,7 @@ import {
 } from "@/data/blogIndex";
 import { isClaims } from "@/data/is-claims";
 import { CATEGORY_ORDER, topicSummaries } from "@/data/topicIndex";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { isAnalysisId } from "@/lib/analysisId";
 import { getAllQuestionVariations } from "@/lib/questions";
 
@@ -71,7 +72,11 @@ export const WORKSHEET_ROUTE_IDS = [
   "crux-finder",
 ] as const;
 
-const topicIds = new Set(topicSummaries.map((topic) => topic.id));
+const topicIds = new Set([
+  ...topicSummaries.map((topic) => topic.id),
+  // New-model (ArgumentGraph) topics render via DebateView but share /topics/:id.
+  ...argumentTopicIds,
+]);
 const topicCategories = new Set<string>(CATEGORY_ORDER);
 const topicTags = new Set(
   topicSummaries.flatMap((topic) =>

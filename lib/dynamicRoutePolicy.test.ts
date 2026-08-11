@@ -34,6 +34,8 @@ const invalidDynamicRoutes = [
 
 const validDynamicRoutes = [
   "/topics/climate-change",
+  // New-model (ArgumentGraph) topic — served by DebateView, must clear the proxy.
+  "/topics/ai-mass-unemployment",
   "/topics/category/science",
   "/topics/tag/policy",
   "/topics/compare/climate-change/vs/nuclear-energy-safety",
