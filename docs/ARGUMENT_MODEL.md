@@ -237,7 +237,7 @@ EDGES
 e1 —evidences(supporting)→ c1       c1 —premise_of→ i1        i1 —concludes→ c2
 p1 —depends_on→ c2                  c5 —undercuts→ i1         c5 —supports→ p2
 e2 —evidences(supporting)→ c5       c2 —depends_on→ c4        c3 —qualifies→ c2
-c6 —limits_scope→ e3
+e3 —evidences(qualifying)→ c2       c6 —limits_scope→ e3
 ```
 
 What this shows: p1's case runs through i1 and is unfooted without c2 (`depends_on`, not a redundant supports-pair); c5 undercuts the *attribution step* while granting the decline, and the same claim is p2's supporting chain — one proposition, two roles; c4 is the inspectable hidden assumption; c3 scopes the whole predictive layer; c6 attacks what e3 is *taken to show* without disputing what it *says* — the `limits_scope` move. Both positions have support and opposition; their supporting sets differ. The crux engine finds c2 (contested, undercut, position-fork) and c3 (scoping propagation) — consistent with `CRUX_ENGINE.md` acceptance test 1.
