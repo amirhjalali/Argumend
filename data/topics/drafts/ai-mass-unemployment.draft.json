@@ -1,0 +1,3176 @@
+{
+  "topicId": "ai-mass-unemployment",
+  "modelVersion": 2,
+  "question": {
+    "id": "q-ai-mass-unemployment",
+    "type": "question",
+    "statement": "Will AI cause mass unemployment in the U.S. within the next 15 years?",
+    "summary": "Will AI cause mass unemployment in the U.S. within 15 years?",
+    "tags": [
+      "ai",
+      "labor-market",
+      "employment",
+      "flagship"
+    ],
+    "provenance": {
+      "origin": "extracted",
+      "modelId": "sonnet-flagship-draft-v1",
+      "sourceRef": "synthesized from all six research reports"
+    },
+    "createdAt": "2026-08-11T00:00:00Z",
+    "modelVersion": 2
+  },
+  "nodes": [
+    {
+      "id": "q-ai-mass-unemployment",
+      "type": "question",
+      "statement": "Will AI cause mass unemployment in the U.S. within the next 15 years?",
+      "summary": "Will AI cause mass unemployment in the U.S. within 15 years?",
+      "tags": [
+        "ai",
+        "labor-market",
+        "employment",
+        "flagship"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "synthesized from all six research reports"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "p-displacement-now",
+      "type": "position",
+      "label": "Displacement-now",
+      "statement": "AI is already causing measurable, AI-caused employment displacement concentrated in early-career and AI-exposed white-collar work, and this will compound into a broad U.S. unemployment crisis within 15 years.",
+      "constituency": "Labor economists documenting entry-level hiring collapse (Stanford Digital Economy Lab, Census researchers), frontier-lab leaders forecasting rapid capability growth, and journalists covering AI-attributed layoffs.",
+      "steelmanBasis": "Two independently-designed studies (Stanford/ADP payroll data and Census QWI industry-state cells), using different data sources and different methods, both find a double-digit relative employment decline for early-career workers in AI-exposed occupations after controlling for firm-level and macro shocks — a convergence that is hard to wave away as a single adversarial source.",
+      "displayRank": 1,
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2 Entry-Level White-Collar Hiring; c-capability-forecasts.md §1 Measured Capability Trends"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "p-automation-panic-redux",
+      "type": "position",
+      "label": "Automation-panic redux",
+      "statement": "The current alarm over AI and jobs repeats a 250-year pattern of failed technological-unemployment predictions; the observed early-career decline is substantially explained by the interest-rate cycle, the post-2021 tech correction, and offshoring, not AI, and historical reinstatement will again absorb displaced labor.",
+      "constituency": "Economic historians and diffusion-skeptic researchers (Narayanan & Kapoor, Autor's task-based framework, Acemoglu's modest-TFP estimate) plus labor-market analysts pointing to confounds in the early-career data.",
+      "steelmanBasis": "Every headline number in the displacement case has a live confound: Indeed's own data shows nearly half of the tech-postings decline predates ChatGPT, the Federal Reserve found no aggregate reduction in job postings at AI-adopting firms, and 250 years of automation — agriculture, ATMs, containerization — never produced permanent mass unemployment, because reinstatement and demand growth absorbed displaced labor even when specific cohorts suffered.",
+      "displayRank": 2,
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §5 AI-Attributed Layoffs; b-theory-history.md §4 Steelman: This Time Is Like Last Time"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "p-wage-collapse-not-unemployment",
+      "type": "position",
+      "label": "Wage-collapse, not unemployment",
+      "statement": "AI will not push headline U-3 unemployment into crisis territory, but it will reproduce the historical pattern in which a specific, identifiable cohort absorbs concentrated wage stagnation, occupational downgrading, and credential devaluation even as aggregate employment statistics look normal.",
+      "constituency": "Labor economists studying wage structure and concentrated regional/occupational shocks (Acemoglu-Restrepo's wage-structure decomposition, the China-shock literature, Dallas Fed wage-growth researchers).",
+      "steelmanBasis": "The historical record — Engels' pause, telephone operators, the China trade shock — shows the sharpest technology-driven harms have consistently shown up as wage stagnation and cohort-specific earnings loss rather than headline unemployment; defining 'mass unemployment' as U-3 above 10% and then declaring victory when it doesn't happen ignores exactly the channel through which past transitions actually hurt people.",
+      "displayRank": 3,
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md §5 Middle Positions; h-workers-distribution-geography.md §1 Who Is Exposed"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "p-institutional-who-decides",
+      "type": "position",
+      "label": "Institutional: who decides, and who pays",
+      "statement": "Whether AI produces mass unemployment is not a fact waiting to be measured; it is a policy and governance outcome. The real disagreement is who gets to decide the pace and terms of AI deployment, and who bears the transition costs — questions evidence about exposure and capability cannot settle.",
+      "constituency": "Labor unions and their bargaining precedents (WGA, SAG-AFTRA, ILA), algorithmic-management researchers (Dubal), and policy scholars focused on transition-cost allocation and worker voice.",
+      "steelmanBasis": "Live, binding precedents already exist — WGA's 2023 MBA AI provisions, SAG-AFTRA's digital-replica consent requirements, the ILA's 2025 automation-protection agreement — showing that identical AI capability produces very different worker outcomes depending on who holds bargaining power over deployment, which is the actual lever available in the next 15 years regardless of how the empirical capability dispute resolves.",
+      "displayRank": 4,
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md PROCEDURAL: Who decides deployment terms?"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-early-career-decline",
+      "type": "claim",
+      "statement": "Early-career workers in the most AI-exposed occupations have experienced a relative employment decline since 2022.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "Two independently designed studies using different data (ADP payroll microdata; Census Quarterly Workforce Indicators) and different methods both find a double-digit relative decline for 22-25-year-olds in AI-exposed occupations, but both cover a short post-treatment window and the Stanford team's own broadest-controls specification pushes the significant timing to 2024.",
+      "attributedTo": [
+        "Brynjolfsson",
+        "Chandar",
+        "Chen",
+        "Lee Tucker"
+      ],
+      "tags": [
+        "early-career",
+        "causal-attribution",
+        "entry-level"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2 Entry-Level White-Collar Hiring"
+      },
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "a longer post-treatment panel and replication by an independent research team using a third administrative data source"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-decline-caused-by-ai",
+      "type": "claim",
+      "statement": "The early-career employment decline in AI-exposed occupations is caused by AI adoption rather than the interest-rate cycle, the tech-sector correction, or offshoring.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "Stanford's follow-up specifically tested and rejected interest rates as a full explanation, but rival explanations (offshoring, the broader tech hiring freeze, which Indeed shows was already half-collapsed before ChatGPT) remain live and are not ruled out by the same data.",
+      "attributedTo": [
+        "Brynjolfsson",
+        "Chandar",
+        "Chen"
+      ],
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "linked employer-worker data with firm-time controls, AI adoption timing, occupation-level task automation measures, and worker reallocation outcomes settle attribution"
+      },
+      "tags": [
+        "causal-attribution",
+        "early-career"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2, §5 Neutral Disagreement Proposition 1"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-rates-dont-fully-explain",
+      "type": "claim",
+      "statement": "Interest-rate increases and the broader tech-sector hiring correction do not fully explain the disproportionate decline in entry-level, AI-exposed employment.",
+      "epistemicType": "empirical",
+      "status": "broadly_accepted",
+      "statusBasis": "Stanford Digital Economy Lab's February 2026 follow-up note directly tested and rejected interest rates as a full explanation, though it also concedes that under the broadest firm-time controls, the timing of the decline becomes statistically significant only starting in 2024.",
+      "attributedTo": [
+        "Brynjolfsson",
+        "Chandar",
+        "Chen"
+      ],
+      "tags": [
+        "causal-attribution",
+        "confounders"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-postings-decline-prechatgpt",
+      "type": "claim",
+      "statement": "Nearly half of the decline in U.S. tech job postings from their peak occurred before ChatGPT's public release.",
+      "epistemicType": "empirical",
+      "status": "broadly_accepted",
+      "statusBasis": "Indeed's own Hiring Lab analysis of its tech-postings index reports this directly and concludes there is no 'smoking gun' linking the plunge specifically to AI.",
+      "tags": [
+        "tech-cycle",
+        "confounders",
+        "causal-attribution"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-offshoring-rival-explanation",
+      "type": "claim",
+      "statement": "A material share of the decline in U.S. junior white-collar hiring reflects offshoring to global capability centers in India and the Philippines rather than AI automation.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "The corpus explicitly flags this as an unverified causal split: the scale of India's global-capability-center buildout over 2022-2026 makes the hypothesis plausible, but no public data links specific U.S. entry-level cuts to specific simultaneous offshore hiring in the same functions.",
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "firm-level data linking U.S. entry-level cuts to simultaneous India/Philippines/GCC hiring in the same functions; absent that, this remains unverified"
+      },
+      "tags": [
+        "offshoring",
+        "geography",
+        "causal-attribution"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §2 Rival Hypothesis: Offshoring and Global Labor Arbitrage"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-aggregate-unemployment-normal",
+      "type": "claim",
+      "statement": "U.S. aggregate unemployment stayed below 4.5% and labor-force participation remained near recent historical norms through mid-2026.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "Direct BLS unemployment-rate and labor-force-participation series through June 2026 show no aggregate crisis; this is a plain reading of the published data with no contrary source in the corpus.",
+      "tags": [
+        "macro",
+        "aggregate",
+        "no-signal"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §1 Aggregate Data"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-firms-cut-hiring-not-output",
+      "type": "claim",
+      "statement": "Firms facing improved AI capability respond primarily by reducing hiring and headcount growth rather than by expanding output or redesigning jobs to use the freed-up capacity.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "This is an unstated mechanism assumption underlying the causal-attribution case: the observable data (hiring rates, headcount) cannot by itself distinguish 'AI reduced labor demand' from 'AI raised output per worker and firms chose to expand.' The corpus's own firm-level bridge evidence (Hampole et al.-style reallocation) is not decisive either way.",
+      "implicit": true,
+      "tags": [
+        "hidden-assumption",
+        "firm-behavior"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §4 Firm-Level Experiments and Macro Estimates"
+      },
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "firm-level panels linking AI adoption to headcount, output, and pricing decisions over multiple years"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-mass-unemployment-definition-strict",
+      "type": "claim",
+      "statement": "'Mass unemployment' should be defined as sustained U-3 unemployment above 10% for multiple quarters, rather than by wage collapse, labor-force participation decline, or underemployment.",
+      "epistemicType": "definitional",
+      "status": "contested",
+      "statusBasis": "The corpus's definitional-crux section lays out at least three live candidate definitions (strict U-3 above 10%, a stronger 15-20% Amodei-style crisis threshold, and a broader participation/wage/underemployment definition) with no consensus among the sides on which one settles the parent question.",
+      "resolution": {
+        "kind": "definitional-choice",
+        "condition": "sides agree on a metric before forecasting: U-3 threshold and duration, employment-population ratio, U-6, prime-age participation, or entry-level career access"
+      },
+      "tags": [
+        "definitional",
+        "mass-unemployment"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md Definitional Crux"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-agriculture-no-permanent-unemployment",
+      "type": "claim",
+      "statement": "U.S. agricultural employment collapsed from roughly 41% of the workforce in 1900 to about 2% by 2000 without the economy settling into permanent mass unemployment.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "Multiple converging historical data series (CEA archive, Federal Reserve long-run tables, USDA) document the same decline with no contrary account in the corpus; displaced agricultural labor moved into manufacturing and services over decades.",
+      "tags": [
+        "history",
+        "agriculture",
+        "reinstatement"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md §2 Historical Episodes"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-engels-pause-wage-stagnation",
+      "type": "claim",
+      "statement": "During Britain's Industrial Revolution, output per worker rose substantially faster than real wages for several decades, a pattern known as the 'Engels' pause.'",
+      "epistemicType": "empirical",
+      "status": "broadly_accepted",
+      "statusBasis": "Crafts' revised estimates (43.9% output-per-worker growth versus 27.1% real consumption-earnings growth, 1770-1840) and Allen's earlier, starker estimates both show the pattern, though the two studies differ on exact magnitude.",
+      "attributedTo": [
+        "Crafts",
+        "Allen"
+      ],
+      "tags": [
+        "history",
+        "wage-stagnation",
+        "industrial-revolution"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md §2 Historical Episodes"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-telephone-operators-mixed",
+      "type": "claim",
+      "statement": "Telephone operator employment fell 50-80% during AT&T's 1920-1940 mechanization of switching, and incumbent operators were more likely a decade later to be in lower-paying occupations or out of work, even though later cohorts' overall employment did not fall.",
+      "epistemicType": "empirical",
+      "status": "broadly_accepted",
+      "statusBasis": "Feigenbaum and Gross's peer-reviewed QJE/NBER micro-historical study documents both halves of this result directly from AT&T personnel and Census data.",
+      "attributedTo": [
+        "Feigenbaum",
+        "Gross"
+      ],
+      "tags": [
+        "history",
+        "gendered-work",
+        "entry-level",
+        "cohort-harm"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md §2 Historical Episodes"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-reinstatement-will-continue",
+      "type": "claim",
+      "statement": "Human comparative advantage is broad enough that new AI-complementary tasks will continue to emerge and reinstate labor demand, as happened after past automation waves.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "This is Autor's central task-based prediction, directly disputed by the 'no remaining comparative advantage' argument, which holds that AI (unlike prior automation) can eventually perform the very new tasks that would otherwise reinstate labor demand.",
+      "attributedTo": [
+        "Autor"
+      ],
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "evidence that new, sizable labor-intensive task categories emerge after AI deployment and pay wages comparable to displaced work"
+      },
+      "tags": [
+        "reinstatement",
+        "comparative-advantage"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md §1 Task-Based Theory"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-no-remaining-comparative-advantage",
+      "type": "claim",
+      "statement": "If AI can eventually perform the same new tasks that would otherwise reinstate labor demand, the historical reinstatement mechanism will fail to operate for AI as it did for prior automation waves.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "Korinek and Suh's formal model of AGI as the ability to perform all tasks humans can perform directly implies this; it is contested because it depends on unresolved questions about whether AI capability actually reaches that generality within the 15-year window.",
+      "attributedTo": [
+        "Korinek",
+        "Suh"
+      ],
+      "tags": [
+        "reinstatement",
+        "agi",
+        "comparative-advantage"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md §3 Steelman: This Time Is Different"
+      },
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "AI systems demonstrate broad autonomous task generality across novel, previously non-automated task categories rather than only within pre-specified domains"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-so-so-automation",
+      "type": "claim",
+      "statement": "AI development is biased toward labor-substituting automation that saves labor cost or increases managerial control without generating comparably large productivity gains or new labor-intensive tasks.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "This is Acemoglu and Restrepo's own theoretical 'so-so automation' claim; it is disputed by researchers who argue AI is already generating new complementary task categories (translation quality control, AI-output oversight roles) fast enough to avoid the so-so pattern.",
+      "attributedTo": [
+        "Acemoglu",
+        "Restrepo"
+      ],
+      "tags": [
+        "so-so-automation",
+        "task-displacement"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md §1 Task-Based Theory"
+      },
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "measured productivity gains at AI-adopting firms versus the rate of new labor-intensive task creation over the next decade"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-displaced-workers-can-retrain-costlessly",
+      "type": "claim",
+      "statement": "Workers displaced from automated tasks can retrain and relocate into newly created tasks without prohibitive cost, delay, or loss of earnings.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "This is an unstated assumption behind reinstatement-based optimism about AI; it is directly contradicted by the corpus's own retraining evidence, which finds TAA participants earned less and worked fewer weeks than matched comparison workers even after receiving training services.",
+      "implicit": true,
+      "tags": [
+        "hidden-assumption",
+        "reinstatement",
+        "retraining"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 1 (retraining evidence)"
+      },
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "well-funded, targeted retraining programs evaluated at national AI-displacement scale show earnings and reemployment outcomes comparable to pre-displacement work"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-trade-shock-precedent",
+      "type": "claim",
+      "statement": "Regionally concentrated trade-driven job loss (the China trade shock) produced elevated unemployment, reduced labor-force participation, and depressed wages in exposed local labor markets for at least a decade, even though the U.S. economy overall adjusted.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "Autor, Dorn, and Hanson's peer-reviewed decomposition and their later persistence work both document depressed wages, participation, and employment in exposed local labor markets through 2019, with no contrary finding in the corpus.",
+      "attributedTo": [
+        "Autor",
+        "Dorn",
+        "Hanson"
+      ],
+      "tags": [
+        "history",
+        "china-shock",
+        "geography",
+        "cohort-harm"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-enterprise-diffusion-slow",
+      "type": "claim",
+      "statement": "Enterprise AI diffusion is currently slow because integration, data access, workflow redesign, worker trust, procurement, compliance, and liability constraints bind more tightly than raw model capability.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "Narayanan and Kapoor's 'AI as Normal Technology' argument, backed by the Census finding that only 5.4% of U.S. businesses used AI in production as of 2024, makes this case; it is directly opposed by the fast-diffusion argument that software propagates through SaaS products without the physical-installation lag of prior general-purpose technologies.",
+      "attributedTo": [
+        "Narayanan",
+        "Kapoor"
+      ],
+      "tags": [
+        "diffusion-lag",
+        "adoption"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "g-timeline-symmetry.md §1 Independent Capability-Skeptic Case"
+      },
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "2027-2028 Census BTOS or comparable surveys show whether production-workflow AI adoption crosses roughly 25-30% of U.S. firms"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-time-horizons-doubling-trend-measured",
+      "type": "claim",
+      "statement": "Measured task-completion time horizons for frontier AI agents on software, ML, and cybersecurity tasks grew exponentially between 2019 and 2026, doubling roughly every seven months.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "This is METR's own directly reported trend measurement (Time Horizon 1.1), not itself in dispute; what is disputed is whether the trend continues and what it implies for employment.",
+      "tags": [
+        "capability-trajectory",
+        "metr"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md §1 Measured Capability Trends"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-time-horizons-keep-doubling",
+      "type": "claim",
+      "statement": "Frontier AI agents' measured task-completion time horizon will continue doubling at roughly its 2025-2026 rate through 2028, extending AI's reach to multi-day and multi-week tasks within the 15-year window.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "METR itself warns that its benchmark suite is saturating above roughly 16 hours, making the extrapolation past that point unreliable; the trend's continuation past the current benchmark ceiling is exactly what is disputed.",
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "by end-2028, independent time-horizon suites with mostly non-saturated tasks show 50% horizons above one work-week across software, research, browser, and office workflows"
+      },
+      "tags": [
+        "capability-trajectory",
+        "metr"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md §1 Measured Capability Trends; Propositions Still In Dispute #1"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-p50-p80-reliability-gap",
+      "type": "claim",
+      "statement": "Measured 50%-success time horizons for frontier AI models run roughly an order of magnitude longer than measured 80%-success time horizons for the same models.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "This is a directly measured property of the published benchmark data (e.g., Claude Opus 4.6: P50 718.81 minutes versus P80 69.87 minutes), not an interpretive claim.",
+      "tags": [
+        "metr",
+        "reliability-gap"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "g-timeline-symmetry.md §2 Source Hygiene And Forecast Ecosystem Disclosure"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-reliability-is-the-threshold",
+      "type": "claim",
+      "statement": "Reliability at high success rates, not raw median task-completion capability, is the threshold that determines whether AI substitutes for employed labor.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "This is the interpretive claim connecting the P50/P80 gap to employment relevance; it is disputed by those who argue that partial, supervised, or human-reviewed automation is already economically substitutive even at coin-flip reliability on the hardest tasks.",
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "2027-2028 OSWorld-like and enterprise-agent evaluations show >80% completion on multi-hour workflows with low hallucination, no reward hacking, and auditable error recovery"
+      },
+      "tags": [
+        "reliability",
+        "employment-threshold"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md Propositions Still In Dispute #2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-capability-plateau",
+      "type": "claim",
+      "statement": "AI capability progress will plateau or narrow in scope because the effective stock of high-quality training text, compute-efficient scaling, and reliable long-context reasoning are approaching practical limits.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "Epoch AI's own data-limit and data-movement-bottleneck estimates support this, but the corpus's balance review notes that the plateau case in the underlying capability report is sourced almost entirely to Epoch and an Anthropic research blog, giving the skeptical position no independent voice.",
+      "attributedTo": [
+        "Epoch AI"
+      ],
+      "tags": [
+        "capability-trajectory",
+        "plateau"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md §2 The Scaling Dispute"
+      },
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "post-2030 frontier model releases show whether new approaches (synthetic data, other modalities, algorithmic efficiency) sustain prior capability growth rates or whether progress visibly narrows"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-evaluator-funding-bias",
+      "type": "claim",
+      "statement": "AI capability evaluators such as METR, Epoch AI, AI Impacts, and the Forecasting Research Institute systematically favor short-timeline conclusions because of a shared funding cluster and intellectual milieu with AI-risk philanthropy.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "The funders are disclosed (Coefficient/Open Philanthropy grants to FRI, Epoch, and AI Impacts, plus METR's access relationships with OpenAI and Anthropic), but the corpus finds no causal proof that this funding shaped conclusions; the claim is raised as a structural concern by the corpus's own adversarial balance review, not established.",
+      "tags": [
+        "source-bias",
+        "forecasting"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "g-timeline-symmetry.md §2 Source Hygiene And Forecast Ecosystem Disclosure"
+      },
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "a comparison of short-timeline forecasters' track records against non-AI-risk-funded forecasters on the same resolved benchmark questions"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-insider-forecasts-discounted",
+      "type": "claim",
+      "statement": "Frontier AI labs' short-timeline predictions about transformative AI or AGI should be discounted for the labs' fundraising, recruitment, regulatory, and product incentives to make near-term AI capability seem urgent.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "The corpus proposes this discount as reasonable given the labs' obvious conflict of interest, but cannot verify a systematic base rate that tech insiders overpredict their own technologies; the general claim is explicitly flagged as unverified even though the specific conflict of interest is undisputed.",
+      "attributedTo": [
+        "Amodei",
+        "Altman",
+        "Hassabis"
+      ],
+      "tags": [
+        "source-bias",
+        "insider-forecast"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md §4 Insider Claims vs Outside Views"
+      },
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "a base-rate dataset comparing frontier-tech insiders' predictions to outcomes across multiple technology cycles"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-productivity-above-trend",
+      "type": "claim",
+      "statement": "U.S. nonfarm business labor productivity growth from 2024 through mid-2026 has been running well above its 2005-2019 trend, consistent with AI-driven productivity gains already appearing in the aggregate data.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "The raw productivity figures (3.0% in 2024, 2.1% in 2025, 2.2% year-over-year in 2026 Q2, versus a roughly 1.4-1.5% 2005-2019 trend) are uncontested BLS data, but whether three-plus years running about 50% above trend represents an AI-driven acceleration, or ordinary cyclical variation, is itself disputed.",
+      "tags": [
+        "productivity-paradox",
+        "macro"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §1 Aggregate Data"
+      },
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "a multi-year decomposition of productivity growth into AI-attributable and non-AI-attributable components"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-no-productivity-boom-visible",
+      "type": "claim",
+      "statement": "No unmistakable AI-driven productivity boom or broad payroll contraction is visible yet in aggregate U.S. economic data through mid-2026.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "This is the corpus's own headline 'no macro signal yet' reading of the same productivity series; it sits in tension with the observation that 2024-2026 productivity growth is itself running well above its pre-2020 trend.",
+      "tags": [
+        "productivity-paradox",
+        "macro",
+        "no-signal"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §1 Aggregate Data"
+      },
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "the same productivity decomposition; this claim and its rival reading resolve together once the acceleration is attributed"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-exposure-not-displacement",
+      "type": "claim",
+      "statement": "Occupational AI-exposure scores measure task overlap with AI capability, not realized employment displacement, because most exposed occupations combine automatable and non-automatable tasks.",
+      "epistemicType": "empirical",
+      "status": "broadly_accepted",
+      "statusBasis": "The ILO explicitly frames generative AI's dominant near-term effect as task transformation rather than full job automation for this reason; this is a methodological point about what exposure indices measure, not itself contested in the corpus.",
+      "attributedTo": [
+        "ILO"
+      ],
+      "tags": [
+        "exposure",
+        "displacement",
+        "methodology"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-clerical-workers-face-displacement-risk",
+      "type": "claim",
+      "statement": "Clerical and administrative-support workers face material employment displacement risk from generative AI over the next 15 years.",
+      "epistemicType": "predictive",
+      "status": "contested",
+      "statusBasis": "This forward-looking risk claim follows from clerical work's status as the most AI-exposed occupational group, but is directly contested by the point that exposure measures task overlap rather than realized displacement, and by the observation that AI-exposed workers are on average better cushioned by pay and credentials than non-exposed workers.",
+      "tags": [
+        "clerical",
+        "displacement",
+        "gender"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "clerical employment, hiring, and wage data over at least eight further quarters relative to matched lower-exposure occupations"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-clerical-most-exposed",
+      "type": "claim",
+      "statement": "Clerical and administrative-support work is the occupational group with the highest generative-AI exposure globally.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "This is the ILO's (Gmyrek, Berg, Bescond) directly reported exposure-index finding, unchallenged elsewhere in the corpus, because clerical tasks are heavily text-, record-, accounting-, and scheduling-based.",
+      "attributedTo": [
+        "Gmyrek",
+        "Berg",
+        "Bescond",
+        "ILO"
+      ],
+      "tags": [
+        "clerical",
+        "exposure"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-women-more-exposed-segregation",
+      "type": "claim",
+      "statement": "Women are exposed to generative AI at roughly two to three times the rate of men in high-income countries, driven by occupational segregation into clerical work rather than by any difference in ability.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "The ILO's 2025 refined exposure index and 2026 gender brief converge on consistent ratios (a roughly 2.7x exposure ratio; 9.6% of female employment versus 3.5% of male employment in the highest-exposure category) and explicitly attribute the gap to occupational segregation.",
+      "attributedTo": [
+        "ILO"
+      ],
+      "tags": [
+        "gender",
+        "clerical",
+        "exposure"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-race-education-displacement-incidence",
+      "type": "claim",
+      "statement": "Black workers and workers without a bachelor's degree are substantially more likely to experience job displacement than white workers and workers with a bachelor's degree, and displaced workers' earnings remain depressed for years afterward.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "Brookings' PSID-based study finds Black workers 67% more likely and non-bachelor's-degree workers 67% more likely to experience displacement than their respective comparison groups, with earnings 25% lower a full decade after displacement; no contrary source appears in the corpus.",
+      "attributedTo": [
+        "Brookings"
+      ],
+      "tags": [
+        "race",
+        "education",
+        "displacement-incidence"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-exposed-workers-higher-paid",
+      "type": "claim",
+      "statement": "Workers in the most AI-exposed occupations are disproportionately higher-paid and more educated than workers in the least AI-exposed occupations.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "Pew's O*NET-based analysis directly reports this ($33/hour versus $20/hour; bachelor's-degree workers more than twice as likely to be in the highest-exposure jobs), and it is not disputed elsewhere in the corpus.",
+      "attributedTo": [
+        "Pew Research"
+      ],
+      "tags": [
+        "exposure",
+        "education",
+        "wages"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-cushioned-by-credentials",
+      "type": "claim",
+      "statement": "High AI exposure among educated, higher-paid workers means those workers are better cushioned against displacement harm by savings, credentials, and remote-work options than lower-exposure, lower-paid workers would be.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "This is the optimistic reading of the exposure-versus-pay correlation; it is directly disputed by the claim that the same credentials being deployed as cushioning are the asset AI is depreciating.",
+      "tags": [
+        "exposure",
+        "incidence",
+        "credentials"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "reemployment earnings and duration outcomes for displaced high-exposure, credentialed workers relative to displaced low-exposure workers"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-credential-pathway-narrows",
+      "type": "claim",
+      "statement": "If routine junior-analyst, coding, paralegal, and administrative tasks become automatable, the credential-to-experience pathway that converts education into a wage premium narrows, even for otherwise well-cushioned educated workers.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "This is the direct rebuttal to the credential-cushioning claim; it is reinforced by Dallas Fed evidence that a one-standard-deviation increase in AI exposure is associated with a measurable reduction in wage growth specifically in occupations with zero experience premium, where credentials do not otherwise protect workers.",
+      "tags": [
+        "exposure",
+        "incidence",
+        "credential-depreciation"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "the same reemployment earnings and duration data; this claim and its rival reading resolve together"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-care-jobs-largest-growth",
+      "type": "claim",
+      "statement": "Home health and personal care aide jobs are projected to be the single largest source of U.S. job growth from 2024 to 2034, adding about 740,000 jobs at a 2024 median wage of roughly $34,900.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "This is BLS's own Employment Projections 2024-34 figure, the single most directly responsive federal dataset to a 15-year U.S. employment question, and is not disputed elsewhere in the corpus.",
+      "attributedTo": [
+        "BLS"
+      ],
+      "tags": [
+        "care-work",
+        "projections",
+        "wages"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §4 Where the Jobs Actually Are and Will Be"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-care-reallocation-counts-as-adjustment",
+      "type": "claim",
+      "statement": "An economy in which displaced administrative or clerical workers move into home-health and personal-care jobs paying $30,000-$40,000 less per year has successfully 'adjusted' to AI displacement.",
+      "epistemicType": "normative",
+      "status": "contested",
+      "statusBasis": "This is a value claim the corpus explicitly frames as unresolvable by wage-gap evidence alone: whether 'adjustment' means any reemployment at all, comparable earnings, comparable autonomy, or socially useful work paired with wage insurance is a question of what adjustment is for, not a measurable fact.",
+      "resolution": {
+        "kind": "value-difference",
+        "condition": "agreement on whether adjustment means any reemployment, comparable earnings, comparable autonomy, or socially useful work with wage insurance"
+      },
+      "tags": [
+        "care-work",
+        "normative",
+        "wage-gap"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §4 Where the Jobs Actually Are and Will Be; Revised Disagreement Proposition 4"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-care-work-automation-resistant",
+      "type": "claim",
+      "statement": "Care work resists AI automation because it is embodied, relational, mobile, and trust-heavy, making it a durable labor-demand absorber regardless of cognitive AI progress.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "This is plausible given care work's physical and relational character, but the corpus does not test whether robotics or process automation will erode this resistance over the 15-year horizon, and it competes directly with unresolved capability-trajectory questions about how far AI-plus-robotics progress reaches by 2041.",
+      "tags": [
+        "care-work",
+        "automation-resistance"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §4 Where the Jobs Actually Are and Will Be"
+      },
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "robotics and process-automation progress in home-health and personal-care settings over the next decade"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-algorithmic-management-dominant-experience",
+      "type": "claim",
+      "statement": "For most currently employed U.S. workers, the dominant AI-at-work experience over the next 15 years will be algorithmic management — automated scheduling, monitoring, quota-setting, and personalized pay — rather than outright job loss.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "This is proposed as a reframing of the unemployment question itself; it has not yet been measured against AI-attributed layoff data at scale, though the mechanism (algorithmic wage-setting, warehouse monitoring) is independently well documented.",
+      "attributedTo": [
+        "Dubal"
+      ],
+      "resolution": {
+        "kind": "future-observable",
+        "condition": "worker surveys and administrative data show growth in automated scheduling, quota, pay, monitoring, and evaluation systems exceeding AI-attributable layoffs"
+      },
+      "tags": [
+        "algorithmic-management",
+        "reframe"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §3 The Labor the Corpus Couldn't See"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-annotation-is-ai-production",
+      "type": "claim",
+      "statement": "Data annotation, content moderation, and RLHF labeling are themselves a form of AI production work, employing an estimated global workforce in the millions, much of it low-wage and concentrated in the Global South.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "Fairwork's cloudwork report and Appen's contributor-count figures converge on scale even though precise headcounts vary by source, and documented conditions (Kenyan Sama workers paid $1.32-$2/hour to review graphic content) are corroborated by multiple independent investigations.",
+      "attributedTo": [
+        "Fairwork",
+        "Appen"
+      ],
+      "tags": [
+        "annotation",
+        "ghost-work",
+        "global-south"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §3 The Labor the Corpus Couldn't See"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-klarna-workload-not-headcount",
+      "type": "claim",
+      "statement": "The \"700 full-time agents\" workload-equivalence figure for Klarna AI-assistant coverage does not establish that 700 employee positions were eliminated.",
+      "epistemicType": "empirical",
+      "status": "broadly_accepted",
+      "statusBasis": "Klarna's own later actions confirm this reading: in May 2025 its CEO said the cost-cutting push had gone too far and the firm began recruiting human agents, while Klarna's own statement said it never stopped using outsourced agents even during the AI-first push.",
+      "tags": [
+        "klarna",
+        "limits-scope",
+        "customer-support"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §3 Directly Exposed Sectors"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-retraining-modest-negative",
+      "type": "claim",
+      "statement": "U.S. retraining programs such as Trade Adjustment Assistance have shown modest-to-negative earnings and employment effects for participants relative to matched comparison workers.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "Mathematica's national TAA evaluation and the Department of Labor's CLEAR review both rate the earnings, wage, and employment evidence unfavorable, despite favorable effects on education and skills received.",
+      "tags": [
+        "retraining",
+        "policy-evidence"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 1"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-targeted-programs-can-help",
+      "type": "claim",
+      "statement": "Better-designed, targeted, employer-linked, long-horizon workforce programs can meaningfully improve displaced workers' earnings and employment, even though generic short retraining programs mostly do not.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "The WIA/WIOA Gold Standard randomized evaluation found staff-assisted intensive services increased earnings 7%-20%, and Card, Kluve, and Weber's meta-analysis of 200+ programs found effects turn positive after 2-3 years for human-capital programs; the corpus notes this is inference about what better-funded programs could do, not proof at the scale a national AI-displacement emergency would require.",
+      "tags": [
+        "retraining",
+        "policy-evidence"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 2"
+      },
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "evaluation of a well-funded, AI-displacement-specific workforce program at national scale"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-ubi-pilots-scope-limited",
+      "type": "claim",
+      "statement": "Existing UBI and guaranteed-income pilots tested modest-to-moderate cash transfers in labor markets where jobs still existed, not in an economy experiencing AI-scale labor-demand collapse.",
+      "epistemicType": "empirical",
+      "status": "uncontested",
+      "statusBasis": "This scope limitation is a matter of research design that the corpus itself states directly: these trials can inform labor-supply, spending, and wellbeing effects, but cannot prove whether a national UBI would be fiscally sustainable, inflation-neutral, or adequate if AI caused a broad labor-demand collapse.",
+      "tags": [
+        "ubi",
+        "evidence-limits",
+        "limits-scope"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 3"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-cash-transfers-reduce-labor-supply",
+      "type": "claim",
+      "statement": "Unconditional cash transfers modestly reduce recipients' labor-force participation and hours worked relative to controls.",
+      "epistemicType": "empirical",
+      "status": "contested",
+      "statusBasis": "OpenResearch's public summary and its NBER revision report different magnitudes for the same trial (2 percentage points/1.3 fewer hours versus 4.1 percentage points/1-2 fewer hours), while Stockton's SEED pilot found increased full-time employment among recipients relative to controls, so the direction is not uniform across the UBI evidence base.",
+      "tags": [
+        "ubi",
+        "labor-supply"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 3"
+      },
+      "resolution": {
+        "kind": "existing-evidence",
+        "condition": "additional randomized UBI trials with consistent methodology across different labor-market conditions"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-ai-firms-owe-transition-costs",
+      "type": "claim",
+      "statement": "AI developers and deployers who profit from labor displacement owe wage insurance, retraining, severance, relocation, or public contributions to the workers whose displacement they caused.",
+      "epistemicType": "normative",
+      "status": "contested",
+      "statusBasis": "This is the polluter-pays position in the corpus's own framing; evidence can estimate displacement, profits, and incidence, but cannot settle the moral boundary between innovation and compensable harm, which is exactly what this claim asserts.",
+      "resolution": {
+        "kind": "value-difference",
+        "condition": "evidence can estimate displacement, profits, and capacity to pay, but cannot determine whether displacement is a compensable externality or ordinary market change"
+      },
+      "tags": [
+        "normative",
+        "transition-costs",
+        "polluter-pays"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md NORMATIVE: Who owes transition costs?"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-market-process-no-special-obligation",
+      "type": "claim",
+      "statement": "AI-driven productivity gains are ordinary market competition; firms owe only compliance with existing labor law, and compensation for displaced workers belongs to the general tax-and-transfer system rather than to AI firms specifically.",
+      "epistemicType": "normative",
+      "status": "contested",
+      "statusBasis": "This is the market-process position directly opposed to the polluter-pays claim in the corpus's own framing of the dispute; both are stated as live, evidence-independent normative positions.",
+      "tags": [
+        "normative",
+        "transition-costs"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md NORMATIVE: Who owes transition costs?"
+      },
+      "resolution": {
+        "kind": "value-difference",
+        "condition": "evidence can estimate displacement, profits, and capacity to pay, but cannot determine whether displacement is a compensable externality or ordinary market change"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-workers-should-have-bargaining-rights",
+      "type": "claim",
+      "statement": "Workers should have bargaining or veto rights over the terms of AI deployment in their workplaces before jobs are redesigned.",
+      "epistemicType": "procedural",
+      "status": "contested",
+      "statusBasis": "Live precedents exist on the labor-side-governance position: the WGA's 2023 MBA provisions bar AI from reducing writer credit or compensation, SAG-AFTRA requires informed consent and compensation for digital replicas, and the ILA's 2025 agreement won automation protections after a 2024 strike.",
+      "attributedTo": [
+        "WGA",
+        "SAG-AFTRA",
+        "ILA"
+      ],
+      "resolution": {
+        "kind": "authority-allocation",
+        "condition": "resolved by allocating decision rights through collective bargaining law, contract precedent, or regulation, not by evidence or values converging"
+      },
+      "tags": [
+        "procedural",
+        "worker-power",
+        "bargaining"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md PROCEDURAL: Who decides deployment terms?"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-management-prerogative",
+      "type": "claim",
+      "statement": "Firms must retain managerial authority to adopt productivity-enhancing AI tools, subject only to existing law and contract, without new labor-side veto rights over deployment decisions.",
+      "epistemicType": "procedural",
+      "status": "contested",
+      "statusBasis": "This is the management-prerogative position directly opposed to worker bargaining/veto rights in the corpus's own framing; evidence can compare productivity, wages, employment, and safety under different governance regimes, but cannot settle how much authority over capital investment labor should hold.",
+      "tags": [
+        "procedural",
+        "management-prerogative"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md PROCEDURAL: Who decides deployment terms?"
+      },
+      "resolution": {
+        "kind": "authority-allocation",
+        "condition": "resolved by allocating decision rights through collective bargaining law, contract precedent, or regulation, not by evidence or values converging"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-work-intrinsically-necessary",
+      "type": "claim",
+      "statement": "Paid work is intrinsically necessary for human dignity, social contact, and psychological wellbeing, such that a large-scale shift away from paid work would be a social harm even if income needs are met.",
+      "epistemicType": "normative",
+      "status": "contested",
+      "statusBasis": "Jahoda's latent-deprivation model and later meta-analysis support this empirically for people who are currently involuntarily unemployed, but whether that generalizes normatively to a deliberately reorganized post-work society is a separate, contested value question the same evidence cannot settle.",
+      "attributedTo": [
+        "Jahoda"
+      ],
+      "resolution": {
+        "kind": "value-difference",
+        "condition": "evidence can measure mental health, social isolation, identity, and life satisfaction, but cannot settle whether a life without paid work is dignified liberation or social catastrophe"
+      },
+      "tags": [
+        "normative",
+        "work-meaning"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md NORMATIVE: Work as intrinsic value vs work as income mechanism"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "c-ai-increases-output-per-worker",
+      "type": "claim",
+      "statement": "Randomized trials of AI coding and consulting assistance find AI increases individual worker output and task-completion rates.",
+      "epistemicType": "empirical",
+      "status": "broadly_accepted",
+      "statusBasis": "Multiple independent randomized trials (a 4,867-developer study at Microsoft, Accenture, and a Fortune 100 company finding +26.08% completed tasks; a BCG consultant trial finding faster, higher-quality work inside the AI's capability frontier) converge on this, though they measure productivity, not employer headcount decisions.",
+      "tags": [
+        "productivity",
+        "rct"
+      ],
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §4 Firm-Level Experiments and Macro Estimates"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2
+    },
+    {
+      "id": "i-causal-attribution",
+      "type": "inference",
+      "warrant": "Occupation-level relative employment declines concentrated in AI-exposed cells, and not fully explained by the interest-rate cycle, license attributing the decline to AI adoption rather than to confounding macro cycles.",
+      "warrantImplicit": false,
+      "warrantKind": "causal-identification",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2 Entry-Level White-Collar Hiring"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Inference: Occupation-level relative employment declines concentrated in AI-exposed cells, and not fully explained by the interest-rate cycle, license attributing the decline to AI adoption rather than to confounding macro cycles."
+    },
+    {
+      "id": "i-historical-reinstatement-analogy",
+      "type": "inference",
+      "warrant": "Technologies that displaced workers from a broad category of routine physical or informational tasks were historically followed, within the same economy, by new task creation of comparable labor-absorbing scale, licensing the inference that AI will follow the same reinstatement pattern.",
+      "warrantImplicit": false,
+      "warrantKind": "analogy",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md §2 Historical Episodes; §1 Task-Based Theory"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Inference: Technologies that displaced workers from a broad category of routine physical or informational tasks were historically followed, within the same economy, by new task creation of comparable labor-absorbing scale, licensing the inference that AI will follow the same reinstatement pattern."
+    },
+    {
+      "id": "i-concentrated-harm-analogy",
+      "type": "inference",
+      "warrant": "Episodes where a specific incumbent worker cohort absorbed a technology- or trade-driven shock produced years-long earnings and reemployment losses for that cohort even when the wider economy's aggregate employment adjusted, licensing the inference that AI-exposed cohorts today will suffer comparable concentrated, credential-eroding harm regardless of the aggregate outcome.",
+      "warrantImplicit": false,
+      "warrantKind": "analogy",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "b-theory-history.md §2 Historical Episodes; h-workers-distribution-geography.md §1 Who Is Exposed"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Inference: Episodes where a specific incumbent worker cohort absorbed a technology- or trade-driven shock produced years-long earnings and reemployment losses for that cohort even when the wider economy's aggregate employment adjusted, licensing the inference that AI-exposed cohorts today will suffer comparable concentrated, credential-eroding harm regardless of the aggregate outcome."
+    },
+    {
+      "id": "i-metr-extrapolation",
+      "type": "inference",
+      "warrant": "A six-plus-year exponential trend in measured task-completion capability, even amid periodic benchmark redesign, licenses extrapolating the same growth rate forward absent a specific identified mechanism for saturation.",
+      "warrantImplicit": false,
+      "warrantKind": "statistical-generalization",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md §1 Measured Capability Trends"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Inference: A six-plus-year exponential trend in measured task-completion capability, even amid periodic benchmark redesign, licenses extrapolating the same growth rate forward absent a specific identified mechanism for saturation."
+    },
+    {
+      "id": "i-productivity-rct-generalization",
+      "type": "inference",
+      "warrant": "When randomized trials show AI raises measured output per worker on a fixed task set, firms facing inelastic demand for that output will capture the savings by reducing headcount growth rather than by expanding output, absent evidence of firms choosing to expand instead.",
+      "warrantImplicit": true,
+      "warrantKind": "aggregation-model",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §4 Firm-Level Experiments and Macro Estimates"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Inference: When randomized trials show AI raises measured output per worker on a fixed task set, firms facing inelastic demand for that output will capture the savings by reducing headcount growth rather than by expanding output, absent evidence of firms choosing to expand instead."
+    },
+    {
+      "id": "i-exposure-to-displacement",
+      "type": "inference",
+      "warrant": "Occupations whose task content substantially overlaps with generative AI capability will see employers substitute AI for the exposed tasks at a rate sufficient to reduce headcount in that occupation.",
+      "warrantImplicit": true,
+      "warrantKind": "statistical-generalization",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Inference: Occupations whose task content substantially overlaps with generative AI capability will see employers substitute AI for the exposed tasks at a rate sufficient to reduce headcount in that occupation."
+    },
+    {
+      "id": "e-stanford-adp-16pct",
+      "type": "evidence",
+      "finding": "Workers aged 22-25 in the most AI-exposed occupations experienced a 16% relative employment decline after controlling for firm-level shocks, concentrated in software development, customer service, and clerical occupations.",
+      "source": {
+        "title": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence",
+        "url": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/",
+        "author": "Brynjolfsson, Chandar, Chen",
+        "institution": "Stanford Digital Economy Lab",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "The central load-bearing figure for the displacement-now position's early-career decline claim; uses ADP payroll microdata with firm-level controls.",
+      "weight": {
+        "sourceReliability": 8,
+        "independence": 7,
+        "replicability": 6,
+        "directness": 8,
+        "weightBasis": "Large administrative payroll dataset (ADP) with firm-time controls, published by an academic research lab with no direct commercial stake in the result; not yet independently replicated by a separate research team, and the underlying causal window is short."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Workers aged 22-25 in the most AI-exposed occupations experienced a 16% relative employment decline after controlling for firm-level shocks, concentrated in software development, customer service, and clerical occupations."
+    },
+    {
+      "id": "e-stanford-followup-rates",
+      "type": "evidence",
+      "finding": "A February 2026 Stanford Digital Economy Lab follow-up finds interest rates affect employment generally but do not explain the disproportionate decline in entry-level AI-exposed jobs; with the broadest firm-time controls, the decline's timing becomes statistically significant only starting in 2024.",
+      "source": {
+        "title": "Canaries, Interest Rates, and Timing: More on Recent Drivers of Employment Changes for Young Workers",
+        "url": "https://digitaleconomy.stanford.edu/news/canaries-interest-rates-and-timinga-more-on-recent-drivers-of-employment-changes-for-young-workers",
+        "author": "Brynjolfsson, Chandar, Chen",
+        "institution": "Stanford Digital Economy Lab",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "Directly tests and partially rebuts the interest-rate confound while also conceding a weaker timing result, making it the key premise for the causal-attribution inference.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "A February 2026 Stanford Digital Economy Lab follow-up finds interest rates affect employment generally but do not explain the disproportionate decline in entry-level AI-exposed jobs; with the broadest firm-time controls, the decline's timing becomes statistically significant only starting in 2024."
+    },
+    {
+      "id": "e-census-qwi-12pct",
+      "type": "evidence",
+      "finding": "Using Quarterly Workforce Indicators, early-career workers aged 22-24 in the most AI-exposed industry-state cells show a 12% regression-adjusted employment decline over 10 quarters after ChatGPT's release, driven by lower hiring.",
+      "source": {
+        "title": "Census Working Paper CES-WP-26-27",
+        "url": "https://www.census.gov/library/working-papers/2026/adrm/CES-WP-26-27.html",
+        "author": "Lee Tucker",
+        "institution": "U.S. Census Bureau",
+        "kind": "government",
+        "verification": "verified-live"
+      },
+      "relevance": "An independent data source and method (QWI industry-state cells versus ADP payroll microdata) converging on a comparable early-career decline, strengthening the displacement-now case beyond a single study.",
+      "weight": {
+        "sourceReliability": 9,
+        "independence": 9,
+        "replicability": 7,
+        "directness": 8,
+        "weightBasis": "Federal statistical agency working paper using administrative QWI data, methodologically independent of the Stanford/ADP study yet converging on a similar magnitude; independence and government sourcing make this among the most load-bearing nodes in the causal-attribution dispute."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Using Quarterly Workforce Indicators, early-career workers aged 22-24 in the most AI-exposed industry-state cells show a 12% regression-adjusted employment decline over 10 quarters after ChatGPT's release, driven by lower hiring."
+    },
+    {
+      "id": "e-signalfire-2026",
+      "type": "evidence",
+      "finding": "Tech hiring overall runs at 75% of its pre-pandemic baseline; new-grad/entry-level hiring is down roughly 65% at Tech Majors and about 76% at early-stage startups versus 2019, while engineering held up better than design, product, and marketing.",
+      "source": {
+        "title": "SignalFire State of Talent Report 2026",
+        "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+        "institution": "SignalFire",
+        "kind": "industry",
+        "interest": "SignalFire is a venture capital firm whose talent-intelligence report markets its own AI-powered recruiting and hiring-analytics product.",
+        "verification": "verified-live"
+      },
+      "relevance": "Provides granular entry-level-versus-senior hiring figures that sharpen the early-career decline picture beyond aggregate BLS data, though the source has a commercial stake in an alarming hiring-trend narrative.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Tech hiring overall runs at 75% of its pre-pandemic baseline; new-grad/entry-level hiring is down roughly 65% at Tech Majors and about 76% at early-stage startups versus 2019, while engineering held up better than design, product, and marketing."
+    },
+    {
+      "id": "e-indeed-postings-decline",
+      "type": "evidence",
+      "finding": "Tech postings were down 36% from early-2020 levels by July 2025, but nearly half of the net decline from peak occurred before ChatGPT's public launch, and there is no 'smoking gun' linking the plunge specifically to AI.",
+      "source": {
+        "title": "The US Tech Hiring Freeze Continues",
+        "url": "https://www.hiringlab.org/2025/07/30/the-us-tech-hiring-freeze-continues/",
+        "institution": "Indeed Hiring Lab",
+        "kind": "industry",
+        "interest": "Indeed is a job-listings platform with a commercial interest in framing hiring-market trends for employer and jobseeker audiences.",
+        "verification": "verified-live"
+      },
+      "relevance": "Directly undercuts the causal-attribution inference by showing the underlying postings decline was already well underway before the treatment (AI) it is attributed to.",
+      "weight": {
+        "sourceReliability": 7,
+        "independence": 6,
+        "replicability": 8,
+        "directness": 8,
+        "weightBasis": "Primary job-postings index from a major platform with direct visibility into the underlying data, but a job-listings platform has some interest in hiring-trend narratives; the pre/post-ChatGPT timing split is a straightforward, replicable descriptive fact regardless of interest."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Tech postings were down 36% from early-2020 levels by July 2025, but nearly half of the net decline from peak occurred before ChatGPT's public launch, and there is no 'smoking gun' linking the plunge specifically to AI."
+    },
+    {
+      "id": "e-linkedin-april-2026",
+      "type": "evidence",
+      "finding": "U.S. entry-level hiring in AI-augmented roles fell 8.9% year over year versus 1.9% overall, though LinkedIn characterizes entry-level hiring broadly as slowing rather than collapsing.",
+      "source": {
+        "title": "AI Labor Market Update, April 2026",
+        "url": "https://www.linkedin.com/posts/linkedin-economic-graph_ai-labor-market-update-april-2026-activity-7454884872873209857-ryRi",
+        "institution": "LinkedIn Economic Graph",
+        "kind": "industry",
+        "interest": "LinkedIn is Microsoft-owned and its Economic Graph reports serve LinkedIn's own platform and product narrative about the AI-era labor market.",
+        "verification": "verified-live"
+      },
+      "relevance": "Corroborates a real but more moderate entry-level slowdown than the Stanford/Census figures, complicating both the strongest displacement and strongest panic-redux readings.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "U.S. entry-level hiring in AI-augmented roles fell 8.9% year over year versus 1.9% overall, though LinkedIn characterizes entry-level hiring broadly as slowing rather than collapsing."
+    },
+    {
+      "id": "e-klarna-700-agents",
+      "type": "evidence",
+      "finding": "Klarna's OpenAI-powered assistant handled 2.3 million conversations in one month, two-thirds of customer-service chats, doing the equivalent work of 700 full-time agents and cutting average resolution time from 11 minutes to under 2 minutes.",
+      "source": {
+        "title": "Klarna AI assistant handles two-thirds of customer service chats in its first month",
+        "url": "https://www.prnewswire.co.uk/news-releases/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month-302072744.html",
+        "institution": "Klarna",
+        "kind": "industry",
+        "interest": "Klarna press release promoting its own AI deployment.",
+        "verification": "verified-live"
+      },
+      "relevance": "The corpus's canonical customer-support displacement anecdote; frequently cited as proof of AI-driven headcount reduction, though it is a workload-equivalence figure from a company's own press release.",
+      "weight": {
+        "sourceReliability": 3,
+        "independence": 2,
+        "replicability": 4,
+        "directness": 5,
+        "weightBasis": "Primary source is the company's own press release with a direct commercial interest in publicizing its AI deployment; the '700 agents' figure is a workload-equivalence claim, not an audited headcount reduction, and Klarna's own later actions (rehiring human agents in 2025) qualify the figure further."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §3 Directly Exposed Sectors"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Klarna's OpenAI-powered assistant handled 2.3 million conversations in one month, two-thirds of customer-service chats, doing the equivalent work of 700 full-time agents and cutting average resolution time from 11 minutes to under 2 minutes."
+    },
+    {
+      "id": "e-microsoft-accenture-rct",
+      "type": "evidence",
+      "finding": "A randomized trial across Microsoft, Accenture, and a Fortune 100 company covering 4,867 developers finds AI coding assistants increased completed tasks by 26.08%, with larger gains among less experienced developers.",
+      "source": {
+        "title": "The Effects of Generative AI on High-Skilled Work",
+        "url": "https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2025.00535",
+        "institution": "Management Science",
+        "kind": "peer-reviewed",
+        "verification": "verified-live"
+      },
+      "relevance": "The strongest available randomized evidence that AI raises individual output per worker; serves as the premise evidence for the productivity-to-headcount generalization inference.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §3 Directly Exposed Sectors"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "A randomized trial across Microsoft, Accenture, and a Fortune 100 company covering 4,867 developers finds AI coding assistants increased completed tasks by 26.08%, with larger gains among less experienced developers."
+    },
+    {
+      "id": "e-metr-dev-slowdown-rct",
+      "type": "evidence",
+      "finding": "METR's randomized trial of 16 experienced open-source developers on 246 real tasks found AI access increased completion time by 19%, showing productivity gains are not universal and may depend on task familiarity, codebase complexity, and review burden.",
+      "source": {
+        "title": "AI coding tools may not speed up every developer, study shows",
+        "url": "https://techcrunch.com/2025/07/11/ai-coding-tools-may-not-speed-up-every-developer-study-shows/",
+        "institution": "METR (reported via TechCrunch)",
+        "kind": "journalism",
+        "interest": "METR is an AI-safety-funded evaluation nonprofit with access/partnership relationships to OpenAI and Anthropic; METR's public materials state it accepts no compensation for evaluations, but the funding cluster and intellectual milieu are disclosed as a source-hygiene concern in the corpus.",
+        "verification": "verified-live"
+      },
+      "relevance": "Directly undercuts the generalization from other productivity RCTs to broad headcount-reducing conclusions: a comparably rigorous randomized trial found the opposite sign for experienced developers on real, unfamiliar codebases.",
+      "weight": {
+        "sourceReliability": 8,
+        "independence": 6,
+        "replicability": 7,
+        "directness": 7,
+        "weightBasis": "Randomized design on real open-source tasks with experienced developers is methodologically strong and directly comparable to the Microsoft/Accenture trial it is used to qualify; independence is moderate given METR's evaluation-partnership relationships with frontier labs, disclosed per the corpus's source-hygiene addendum."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §3 Directly Exposed Sectors"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "METR's randomized trial of 16 experienced open-source developers on 246 real tasks found AI access increased completion time by 19%, showing productivity gains are not universal and may depend on task familiarity, codebase complexity, and review burden."
+    },
+    {
+      "id": "e-acemoglu-tfp-modest",
+      "type": "evidence",
+      "finding": "Using a task-based model and existing exposure/productivity estimates, AI is estimated to raise total factor productivity by no more than 0.66% over 10 years, and likely less than 0.53%, because many exposed tasks are hard to learn, context-dependent, and not cleanly automated.",
+      "source": {
+        "title": "The Simple Macroeconomics of AI",
+        "url": "https://www.nber.org/papers/w32487",
+        "author": "Daron Acemoglu",
+        "institution": "NBER",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "The central modest-effects estimate underpinning the automation-panic-redux position's claim that AI's aggregate economic impact will be far smaller than headline forecasts suggest.",
+      "weight": {
+        "sourceReliability": 8,
+        "independence": 8,
+        "replicability": 5,
+        "directness": 6,
+        "weightBasis": "NBER working paper by a leading labor economist with no direct commercial stake, but the estimate depends heavily on existing exposure/productivity assumptions that critics argue may undercount new tasks, faster adoption, and organizational redesign; not independently replicated with alternative modeling assumptions."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §4 Firm-Level Experiments and Macro Estimates"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Using a task-based model and existing exposure/productivity estimates, AI is estimated to raise total factor productivity by no more than 0.66% over 10 years, and likely less than 0.53%, because many exposed tasks are hard to learn, context-dependent, and not cleanly automated."
+    },
+    {
+      "id": "e-challenger-2026-ai-layoffs",
+      "type": "evidence",
+      "finding": "Through June 2026, AI was cited as a reason in 101,743 announced layoffs, about 23% of all announced cuts that year; since 2023, AI had been cited in 173,568 cumulative announced cuts.",
+      "source": {
+        "title": "Challenger Report: June Layoffs Cool to 45,849, Down 53% From May; AI Leads Reasons for Fourth Consecutive Month",
+        "url": "https://www.challengergray.com/blog/challenger-report-june-layoffs-cool-to-45849-down-53-from-may-ai-leads-reasons-for-fourth-consecutive-month/",
+        "institution": "Challenger, Gray & Christmas",
+        "kind": "industry",
+        "interest": "Challenger, Gray & Christmas is an outplacement and executive-coaching firm whose business benefits from public attention to layoff trends.",
+        "verification": "verified-live"
+      },
+      "relevance": "The corpus's headline AI-attributed layoff figure, but these are employer-announced reasons rather than audited causal estimates, and a standalone 2024 total could not be independently verified.",
+      "unverifiedFlags": [
+        "A standalone 2024 AI-attributed layoff total could not be verified from a primary Challenger page; the exact 2024 figure is unverified per the corpus's verification record."
+      ],
+      "weight": {
+        "sourceReliability": 5,
+        "independence": 5,
+        "replicability": 6,
+        "directness": 4,
+        "weightBasis": "Figures are employer self-reported stated reasons for layoffs, not audited causal attributions matching eliminated roles to deployed AI systems; the outplacement firm has a mild interest in publicizing layoff-trend stories, and 'AI' as a cited reason can function as cover for ordinary restructuring."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §5 AI-Attributed Layoffs"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Through June 2026, AI was cited as a reason in 101,743 announced layoffs, about 23% of all announced cuts that year; since 2023, AI had been cited in 173,568 cumulative announced cuts."
+    },
+    {
+      "id": "e-pew-exposure-wages",
+      "type": "evidence",
+      "finding": "Workers in the most AI-exposed jobs earned $33 per hour in 2022 versus $20 in the least-exposed jobs, and college graduates in the most exposed jobs earned $41 versus $26 in the least-exposed college-graduate jobs.",
+      "source": {
+        "title": "Which U.S. Workers Are More Exposed to AI on Their Jobs?",
+        "url": "https://www.pewresearch.org/social-trends/2023/07/26/earnings-of-workers-with-more-or-less-exposure-to-ai/",
+        "institution": "Pew Research Center",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "Establishes the empirical basis for the claim that AI exposure concentrates in higher-paid, more-educated work, central to the incidence dispute over whether exposure translates into vulnerability or cushioning.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §6 Wages Versus Employment"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Workers in the most AI-exposed jobs earned $33 per hour in 2022 versus $20 in the least-exposed jobs, and college graduates in the most exposed jobs earned $41 versus $26 in the least-exposed college-graduate jobs."
+    },
+    {
+      "id": "e-dallas-fed-wage-growth",
+      "type": "evidence",
+      "finding": "A one-standard-deviation increase in AI exposure has little effect on wage growth for occupations with median experience premia, but is associated with a 0.28 percentage-point reduction in wage growth for occupations with zero experience premium.",
+      "source": {
+        "title": "AI Exposure and Wage Growth",
+        "url": "https://www.dallasfed.org/research/economics/2026/0224",
+        "institution": "Federal Reserve Bank of Dallas",
+        "kind": "government",
+        "verification": "verified-live"
+      },
+      "relevance": "Supports the credential-pathway-narrows claim by showing AI exposure compresses wage growth specifically where experience does not otherwise protect workers, i.e. where the credential premium is thinnest.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §6 Wages Versus Employment"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "A one-standard-deviation increase in AI exposure has little effect on wage growth for occupations with median experience premia, but is associated with a 0.28 percentage-point reduction in wage growth for occupations with zero experience premium."
+    },
+    {
+      "id": "e-metr-time-horizon-doubling",
+      "type": "evidence",
+      "finding": "Frontier agent task-completion time horizons doubled roughly every seven months for about six years through 2025-2026; METR's 2026 update gives a P50 doubling time of 196.5 days overall, but warns that estimates above 16 hours are unreliable because the benchmark suite is saturating.",
+      "source": {
+        "title": "Time Horizon 1.1",
+        "url": "https://metr.org/blog/2026-1-29-time-horizon-1-1/",
+        "institution": "METR",
+        "kind": "institutional",
+        "interest": "METR is an AI-safety-funded evaluation nonprofit with access/partnership relationships to OpenAI, Anthropic, Google DeepMind, Meta, and Amazon; METR states it accepts no compensation for evaluations, but shares a funding cluster (Open Philanthropy and adjacent AI-risk philanthropy) with several other capability-forecasting sources in this corpus.",
+        "verification": "verified-live"
+      },
+      "relevance": "The central empirical trend underlying fast-timeline capability forecasts, and simultaneously the source of the strongest caveat against extrapolating it — METR's own saturation warning.",
+      "weight": {
+        "sourceReliability": 8,
+        "independence": 5,
+        "replicability": 6,
+        "directness": 6,
+        "weightBasis": "Rigorously constructed benchmark with human-calibrated task durations, but produced by an organization with disclosed funding and access ties to the frontier labs whose models it evaluates, and the metric's own authors warn against extrapolating it past the point their benchmark suite saturates."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md §1 Measured Capability Trends"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Frontier agent task-completion time horizons doubled roughly every seven months for about six years through 2025-2026; METR's 2026 update gives a P50 doubling time of 196.5 days overall, but warns that estimates above 16 hours are unreliable because the benchmark suite is saturating."
+    },
+    {
+      "id": "e-metr-p50-p80-gap",
+      "type": "evidence",
+      "finding": "For the same models, METR's reported 50%-success time horizons run roughly an order of magnitude longer than its 80%-success time horizons (e.g., Claude Opus 4.6: P50 718.81 minutes versus P80 69.87 minutes; GPT-5: P50 203.01 minutes versus P80 38.31 minutes).",
+      "source": {
+        "title": "METR Time Horizon 1.1 benchmark data",
+        "url": "https://benchmarklist.com/benchmarks/metr_time_horizon_1_1/",
+        "institution": "BenchmarkList (extraction of METR data)",
+        "kind": "other",
+        "verification": "verified-live"
+      },
+      "relevance": "The single most direct challenge to using the P50 time-horizon metric for employment forecasts: employers do not substitute labor at coin-flip reliability, and this figure quantifies exactly how much shorter the high-reliability horizon is.",
+      "weight": {
+        "sourceReliability": 7,
+        "independence": 7,
+        "replicability": 8,
+        "directness": 9,
+        "weightBasis": "Directly extracted numeric benchmark data rather than an interpretive claim; high directness because it is exactly the caveat that breaks the capability-to-substitution inference, though it is a third-party extraction rather than METR's own headline framing of its data."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "g-timeline-symmetry.md §2 Source Hygiene And Forecast Ecosystem Disclosure"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "For the same models, METR's reported 50%-success time horizons run roughly an order of magnitude longer than its 80%-success time horizons (e.g., Claude Opus 4.6: P50 718.81 minutes versus P80 69.87 minutes; GPT-5: P50 203.01 minutes versus P80 38.31 minutes)."
+    },
+    {
+      "id": "e-benchmark-gap-osworld-swebench",
+      "type": "evidence",
+      "finding": "Epoch's SWE-bench Verified tracker lists a highest internal score of 83% on a narrow, human-filtered coding benchmark, while OSWorld 2.0, a long-horizon real computer-use benchmark, found the best model completed only 20.6% of 108 tasks at a 500-step budget, with no model exceeding 10% on the longest task bin.",
+      "source": {
+        "title": "SWE-bench Verified tracker and OSWorld 2.0 results",
+        "url": "https://osworld-v2.xlang.ai/",
+        "institution": "Epoch AI / OSWorld",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "Directly evidences the gap between narrow benchmark saturation and messy, real-world, long-horizon task reliability that separates capability from employment-grade substitution.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md §1 Measured Capability Trends"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Epoch's SWE-bench Verified tracker lists a highest internal score of 83% on a narrow, human-filtered coding benchmark, while OSWorld 2.0, a long-horizon real computer-use benchmark, found the best model completed only 20.6% of 108 tasks at a 500-step budget, with no model exceeding 10% on the longest task bin."
+    },
+    {
+      "id": "e-epoch-data-limits",
+      "type": "evidence",
+      "finding": "The effective stock of quality- and repetition-adjusted public human text for language-model training is estimated at about 300 trillion tokens, with an 80% confidence interval that current trends fully use that stock between 2026 and 2032.",
+      "source": {
+        "title": "Will We Run Out of Data? Limits of LLM Scaling Based on Human-Generated Data",
+        "url": "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data",
+        "institution": "Epoch AI",
+        "kind": "institutional",
+        "interest": "Epoch AI shares the same disclosed funding cluster (Coefficient Giving/Open Philanthropy, and a partnership with OpenAI on FrontierMath) as several other capability-forecasting sources in this corpus.",
+        "verification": "verified-live"
+      },
+      "relevance": "The primary quantitative basis for the capability-plateau claim; the corpus notes this plateau case is sourced almost entirely to Epoch and an Anthropic research blog, limiting its independence.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md §2 The Scaling Dispute"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "The effective stock of quality- and repetition-adjusted public human text for language-model training is estimated at about 300 trillion tokens, with an 80% confidence interval that current trends fully use that stock between 2026 and 2032."
+    },
+    {
+      "id": "e-census-btos-ai-adoption",
+      "type": "evidence",
+      "finding": "Only 5.4% of U.S. businesses used AI to produce goods or services in the prior two weeks as of 2024, with expected use rising to 6.6% over the next six months, concentrated in information, professional services, and finance.",
+      "source": {
+        "title": "Tracking Firm Use of AI in Real Time (CES-WP-24-16R)",
+        "url": "https://www2.census.gov/library/working-papers/2024/adrm/ces/CES-WP-24-16R.pdf",
+        "institution": "U.S. Census Bureau",
+        "kind": "government",
+        "verification": "verified-live"
+      },
+      "relevance": "The strongest direct evidence for slow enterprise diffusion, showing a large gap between headline model capability and actual production-workflow adoption.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "c-capability-forecasts.md §6 Diffusion Lag"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Only 5.4% of U.S. businesses used AI to produce goods or services in the prior two weeks as of 2024, with expected use rising to 6.6% over the next six months, concentrated in information, professional services, and finance."
+    },
+    {
+      "id": "e-narayanan-kapoor-normal-tech",
+      "type": "evidence",
+      "finding": "AI's social and economic impact depends less on an abstract capability score than on institutions, deployment, complementary capital, regulation, and workflow redesign; transformative impacts are predicted to unfold 'slow (on the timescale of decades)' because AI methods, applications, and adoption move at different speeds.",
+      "source": {
+        "title": "AI as Normal Technology",
+        "url": "https://knightcolumbia.org/content/ai-as-normal-technology",
+        "author": "Narayanan, Kapoor",
+        "institution": "Knight First Amendment Institute, Columbia University",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "The best-credentialed independent capability-skeptic argument in the corpus, from researchers with reputational capital built on debunking inflated AI claims; grounds the enterprise-diffusion-is-slow claim.",
+      "weight": {
+        "sourceReliability": 8,
+        "independence": 8,
+        "replicability": 5,
+        "directness": 6,
+        "weightBasis": "Authored by researchers with an established track record of skeptical, empirically grounded AI analysis (AI Snake Oil) and no funding ties to AI labs or AI-safety philanthropy disclosed in the corpus; the argument is conceptual/historical rather than a single reproducible measurement, so directness and replicability are moderate."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "g-timeline-symmetry.md §1 Independent Capability-Skeptic Case"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "AI's social and economic impact depends less on an abstract capability score than on institutions, deployment, complementary capital, regulation, and workflow redesign; transformative impacts are predicted to unfold 'slow (on the timescale of decades)' because AI methods, applications, and adoption move at different speeds."
+    },
+    {
+      "id": "e-fed-no-postings-reduction",
+      "type": "evidence",
+      "finding": "A 2026 Federal Reserve analysis found no overall reduction in job postings among AI-adopting firms or industries, while noting that pockets of worker harm can coexist with stable aggregate postings.",
+      "source": {
+        "title": "AI Adoption and Firms' Job-Posting Behavior",
+        "url": "https://www.federalreserve.gov/econres/notes/feds-notes/ai-adoption-and-firms-job-posting-behavior-20260327.html",
+        "institution": "Federal Reserve",
+        "kind": "government",
+        "verification": "verified-live"
+      },
+      "relevance": "Government-sourced evidence directly challenging the aggregate-level case for AI-driven labor demand reduction, while explicitly not ruling out concentrated harm to specific worker cells.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §2 Rival Hypothesis: Offshoring and Global Labor Arbitrage"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "A 2026 Federal Reserve analysis found no overall reduction in job postings among AI-adopting firms or industries, while noting that pockets of worker harm can coexist with stable aggregate postings."
+    },
+    {
+      "id": "e-ilo-clerical-exposure",
+      "type": "evidence",
+      "finding": "Clerical work is the occupational group with the highest generative-AI exposure globally, because many clerical tasks are text-, record-, accounting-, scheduling-, and information-processing tasks that can be codified or assisted by large language models.",
+      "source": {
+        "title": "Generative AI and Jobs: A Global Analysis of Potential Effects on Job Quantity and Quality",
+        "url": "https://www.ilo.org/publications/generative-ai-and-jobs-global-analysis-potential-effects-job-quantity-and",
+        "author": "Gmyrek, Berg, Bescond",
+        "institution": "International Labour Organization",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "The single most load-bearing exposure finding for the gendered-clerical-exposure theme; a UN agency quantitative result directly on the parent question, previously absent from the corpus until this addendum.",
+      "weight": {
+        "sourceReliability": 9,
+        "independence": 9,
+        "replicability": 7,
+        "directness": 6,
+        "weightBasis": "UN agency methodology applied consistently across occupations with no commercial stake in the result; directness is moderate because the index measures task-overlap exposure, not realized displacement, which is exactly the limits_scope point raised elsewhere in this graph."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Clerical work is the occupational group with the highest generative-AI exposure globally, because many clerical tasks are text-, record-, accounting-, scheduling-, and information-processing tasks that can be codified or assisted by large language models."
+    },
+    {
+      "id": "e-ilo-gender-brief-2026",
+      "type": "evidence",
+      "finding": "Female-dominated occupations are exposed to generative AI at 29% versus 16% for male-dominated occupations, and 16% of female-dominated occupations fall into the highest exposure category versus 3% of male-dominated ones; globally, the highest-exposure category is 9.6% of female employment in high-income countries versus 3.5% of male employment.",
+      "source": {
+        "title": "Generative AI, Occupational Segregation, and Gender Equality in the World of Work",
+        "url": "https://www.ilo.org/publications/gen-ai-occupational-segregation-and-gender-equality-world-work",
+        "institution": "International Labour Organization",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "Quantifies the mechanism (occupational segregation into clerical work, not ability) behind women's disproportionate AI exposure, directly supporting the gendered-exposure claim.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Female-dominated occupations are exposed to generative AI at 29% versus 16% for male-dominated occupations, and 16% of female-dominated occupations fall into the highest exposure category versus 3% of male-dominated ones; globally, the highest-exposure category is 9.6% of female employment in high-income countries versus 3.5% of male employment."
+    },
+    {
+      "id": "e-bls-clerical-workforce",
+      "type": "evidence",
+      "finding": "U.S. office and administrative support occupations employ 16.444 million people and are 70.5% women, 14.9% Black, 5.6% Asian, and 20.0% Hispanic or Latino; secretaries and administrative assistants (excluding legal, medical, and executive) number 1.491 million and are 91.9% women, with a May 2024 median annual wage of $47,460.",
+      "source": {
+        "title": "Labor Force Statistics from the Current Population Survey, Table 11",
+        "url": "https://www.bls.gov/cps/cpsaat11.htm",
+        "institution": "U.S. Bureau of Labor Statistics",
+        "kind": "government",
+        "verification": "verified-live"
+      },
+      "relevance": "Grounds the gendered-clerical-exposure claim in concrete U.S. workforce demographics and wages, showing exposure is not an abstraction but concentrated in a specific, large, mostly-female, middle-income workforce.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "U.S. office and administrative support occupations employ 16.444 million people and are 70.5% women, 14.9% Black, 5.6% Asian, and 20.0% Hispanic or Latino; secretaries and administrative assistants (excluding legal, medical, and executive) number 1.491 million and are 91.9% women, with a May 2024 median annual wage of $47,460."
+    },
+    {
+      "id": "e-brookings-psid-displacement",
+      "type": "evidence",
+      "finding": "Black workers were 67% more likely than white workers to experience job displacement, and workers without a bachelor's degree were 67% more likely than those with a bachelor's degree; annual earnings fell 57% in the year after displacement and remained 25% lower in the tenth year.",
+      "source": {
+        "title": "Job Displacement in the United States by Race, Education, and Parental Income",
+        "url": "https://www.brookings.edu/articles/job-displacement-in-the-united-states-by-race-education-and-parental-income/",
+        "institution": "Brookings Institution",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "The single strongest evidence for uneven displacement incidence by race and education, showing both higher incidence and deeper, longer-lasting harm for the same groups.",
+      "weight": {
+        "sourceReliability": 8,
+        "independence": 8,
+        "replicability": 6,
+        "directness": 7,
+        "weightBasis": "PSID-based longitudinal panel study from an independent think tank with no commercial stake in the AI-jobs debate specifically; directness is high for displacement incidence generally, though the underlying displacements are not AI-specific."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Black workers were 67% more likely than white workers to experience job displacement, and workers without a bachelor's degree were 67% more likely than those with a bachelor's degree; annual earnings fell 57% in the year after displacement and remained 25% lower in the tenth year."
+    },
+    {
+      "id": "e-bls-displaced-worker-survey",
+      "type": "evidence",
+      "finding": "BLS's January 2024 Displaced Worker Survey found 2.578 million long-tenured workers were displaced in 2021-2023; only 65.7% were reemployed by January 2024, 16.1% were unemployed, and 18.2% had left the labor force; among reemployed full-time wage-and-salary workers, roughly 38% earned less than on the lost job.",
+      "source": {
+        "title": "Displaced Workers Summary",
+        "url": "https://www.bls.gov/news.release/disp.htm",
+        "institution": "U.S. Bureau of Labor Statistics",
+        "kind": "government",
+        "verification": "verified-live"
+      },
+      "relevance": "Establishes the general baseline severity of job displacement in the U.S. economy against which AI-specific displacement claims should be measured.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "BLS's January 2024 Displaced Worker Survey found 2.578 million long-tenured workers were displaced in 2021-2023; only 65.7% were reemployed by January 2024, 16.1% were unemployed, and 18.2% had left the labor force; among reemployed full-time wage-and-salary workers, roughly 38% earned less than on the lost job."
+    },
+    {
+      "id": "e-adhm-china-shock",
+      "type": "evidence",
+      "finding": "Rising Chinese import competition caused higher unemployment, lower labor-force participation, lower wages, and sharply higher transfer payments in exposed local labor markets, explaining about one-quarter of the contemporaneous decline in U.S. manufacturing employment; wages and participation remained depressed and unemployment elevated for at least a decade in exposed places.",
+      "source": {
+        "title": "The China Syndrome: Local Labor Market Effects of Import Competition in the United States",
+        "url": "https://www.aeaweb.org/articles?id=10.1257%2Faer.103.6.2121",
+        "author": "Autor, Dorn, Hanson",
+        "institution": "American Economic Review",
+        "kind": "peer-reviewed",
+        "verification": "verified-live"
+      },
+      "relevance": "The best available U.S. analogue for geographically and occupationally concentrated displacement persisting despite national-level economic adjustment; grounds both the trade-shock-precedent claim and the concentrated-harm-analogy inference.",
+      "weight": {
+        "sourceReliability": 9,
+        "independence": 9,
+        "replicability": 8,
+        "directness": 5,
+        "weightBasis": "Widely replicated, peer-reviewed, quasi-experimental identification strategy with no commercial stake; directness is moderate because it evidences a trade shock, not an AI shock, so its use here is explicitly analogical rather than a direct AI measurement."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Rising Chinese import competition caused higher unemployment, lower labor-force participation, lower wages, and sharply higher transfer payments in exposed local labor markets, explaining about one-quarter of the contemporaneous decline in U.S. manufacturing employment; wages and participation remained depressed and unemployment elevated for at least a decade in exposed places."
+    },
+    {
+      "id": "e-bls-care-projections",
+      "type": "evidence",
+      "finding": "Home health and personal care aides are projected to be the largest-growth U.S. occupation from 2024 to 2034: 4.348 million jobs in 2024 rising to 5.088 million in 2034, +739,800 jobs (+17.0%), at a 2024 median wage of $34,900 — accounting for roughly one of every seven jobs added over the decade.",
+      "source": {
+        "title": "Occupational Outlook Handbook: Home Health and Personal Care Aides",
+        "url": "https://www.bls.gov/ooh/healthcare/home-health-aides-and-personal-care-aides.htm",
+        "institution": "U.S. Bureau of Labor Statistics",
+        "kind": "government",
+        "verification": "verified-live"
+      },
+      "relevance": "The single most directly responsive federal dataset to a 15-year U.S. employment question, showing both the volume of physically-anchored job growth and its comparatively low wage relative to the clerical work it might reabsorb.",
+      "weight": {
+        "sourceReliability": 9,
+        "independence": 9,
+        "replicability": 8,
+        "directness": 8,
+        "weightBasis": "Official 10-year federal occupational projection, the most directly responsive dataset in the corpus to a 15-year employment question; high weight on all dimensions, though it is a projection rather than a realized outcome."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §4 Where the Jobs Actually Are and Will Be"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Home health and personal care aides are projected to be the largest-growth U.S. occupation from 2024 to 2034: 4.348 million jobs in 2024 rising to 5.088 million in 2034, +739,800 jobs (+17.0%), at a 2024 median wage of $34,900 — accounting for roughly one of every seven jobs added over the decade."
+    },
+    {
+      "id": "e-dubal-algorithmic-wage",
+      "type": "evidence",
+      "finding": "Granular behavioral data produces unpredictable, variable, personalized hourly pay for on-demand workers, a pattern documented through ethnographic fieldwork with gig workers and termed 'algorithmic wage discrimination.'",
+      "source": {
+        "title": "On Algorithmic Wage Discrimination",
+        "url": "https://www.columbialawreview.org/content/on-algorithmic-wage-discrimination/",
+        "author": "Veena Dubal",
+        "institution": "Columbia Law Review",
+        "kind": "peer-reviewed",
+        "verification": "verified-live"
+      },
+      "relevance": "Grounds the algorithmic-management-as-dominant-experience claim in a specific, documented mechanism rather than a general assertion.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §3 The Labor the Corpus Couldn't See"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Granular behavioral data produces unpredictable, variable, personalized hourly pay for on-demand workers, a pattern documented through ethnographic fieldwork with gig workers and termed 'algorithmic wage discrimination.'"
+    },
+    {
+      "id": "e-fairwork-cloudwork-2025",
+      "type": "evidence",
+      "finding": "Fairwork's 2025 cloudwork report evaluates 16 global cloudwork platforms, including data-annotation services, framing the sector as involving millions of workers in AI supply chains; Appen separately reports maintaining a global crowd of more than 1 million contributors across 235+ languages.",
+      "source": {
+        "title": "Cloudwork Report 2025",
+        "url": "https://fair.work/en/fw/publications/cloudwork-report-2025/",
+        "institution": "Fairwork",
+        "kind": "advocacy",
+        "verification": "verified-live"
+      },
+      "relevance": "Establishes the scale of the annotation/ghost-work labor force that the exposure-and-displacement framing of the corpus otherwise omits.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §3 The Labor the Corpus Couldn't See"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Fairwork's 2025 cloudwork report evaluates 16 global cloudwork platforms, including data-annotation services, framing the sector as involving millions of workers in AI supply chains; Appen separately reports maintaining a global crowd of more than 1 million contributors across 235+ languages."
+    },
+    {
+      "id": "e-oxford-econ-annotation-market",
+      "type": "evidence",
+      "finding": "The U.S. data annotation market is estimated at $2.7-$5.0 billion in 2024, directly supporting nearly 200,000 flexible earning opportunities and 9,000 additional full-time employee jobs.",
+      "source": {
+        "title": "The Economic Impact of the Data Annotation Industry",
+        "url": "https://www.oxfordeconomics.com/resource/the-economic-impact-of-the-data-annotation-industry/",
+        "institution": "Oxford Economics",
+        "kind": "industry",
+        "interest": "Commissioned by Scale AI, a data-annotation company with a direct commercial stake in a market-size and job-creation framing of its own industry.",
+        "verification": "verified-live"
+      },
+      "relevance": "Quantifies the annotation labor market's U.S. scale, though the commissioning relationship means the figures should be read with the same interest discount the corpus applies to other commercially interested sources.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §3 The Labor the Corpus Couldn't See"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "The U.S. data annotation market is estimated at $2.7-$5.0 billion in 2024, directly supporting nearly 200,000 flexible earning opportunities and 9,000 additional full-time employee jobs."
+    },
+    {
+      "id": "e-time-kenya-sama",
+      "type": "evidence",
+      "finding": "OpenAI's Kenyan data labelers, employed through Sama, were paid take-home wages of about $1.32-$2 per hour while reviewing graphic sexual abuse, violence, suicide, and hate content, while OpenAI paid Sama $12.50 per worker-hour.",
+      "source": {
+        "title": "OpenAI Used Kenyan Workers on Less Than $2 Per Hour",
+        "url": "https://time.com/6247678/openai-chatgpt-kenya-workers/",
+        "institution": "TIME",
+        "kind": "journalism",
+        "verification": "verified-live"
+      },
+      "relevance": "The most concrete documented account of conditions in the AI supply-chain labor the exposure-and-displacement framing omits; corroborated by a separate Equidem investigation covering four countries.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §3 The Labor the Corpus Couldn't See"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "OpenAI's Kenyan data labelers, employed through Sama, were paid take-home wages of about $1.32-$2 per hour while reviewing graphic sexual abuse, violence, suicide, and hate content, while OpenAI paid Sama $12.50 per worker-hour."
+    },
+    {
+      "id": "e-xai-annotation-layoffs",
+      "type": "evidence",
+      "finding": "In 2025, xAI reportedly laid off 500 generalist data-annotation workers, about one-third of a 1,500-person annotation team, while pivoting toward specialist AI tutors.",
+      "source": {
+        "title": "xAI Reportedly Lays Off 500 Workers From Data Annotation Team",
+        "url": "https://techcrunch.com/2025/09/13/xai-reportedly-lays-off-500-workers-from-data-annotation-team",
+        "institution": "TechCrunch",
+        "kind": "journalism",
+        "verification": "verified-live"
+      },
+      "relevance": "A concrete, documented instance of the general-labor-compression-plus-specialist-premium pattern inside the AI industry's own supply chain.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §3 The Labor the Corpus Couldn't See"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "In 2025, xAI reportedly laid off 500 generalist data-annotation workers, about one-third of a 1,500-person annotation team, while pivoting toward specialist AI tutors."
+    },
+    {
+      "id": "e-mathematica-taa-eval",
+      "type": "evidence",
+      "finding": "In the final follow-up year, Trade Adjustment Assistance participants earned about $3,300 less than matched comparison workers and worked 33 weeks versus 35 weeks for comparisons, despite TAA substantially increasing receipt of services and training.",
+      "source": {
+        "title": "Trade Adjustment Assistance Evaluation",
+        "url": "https://www.mathematica.org/projects/trade-adjustment-assistance-evaluation",
+        "institution": "Mathematica",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "The national-scale evaluation grounding the claim that generic U.S. retraining programs show modest-to-negative earnings effects for participants.",
+      "weight": {
+        "sourceReliability": 8,
+        "independence": 8,
+        "replicability": 7,
+        "directness": 8,
+        "weightBasis": "National random-assignment-adjacent evaluation commissioned to assess a specific federal program with no commercial stake in the outcome; high directness because it directly measures the policy tool (retraining) most often proposed as the AI-displacement remedy."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 1"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "In the final follow-up year, Trade Adjustment Assistance participants earned about $3,300 less than matched comparison workers and worked 33 weeks versus 35 weeks for comparisons, despite TAA substantially increasing receipt of services and training."
+    },
+    {
+      "id": "e-wia-gold-standard",
+      "type": "evidence",
+      "finding": "A randomized evaluation enrolling more than 34,000 job seekers in 28 local workforce areas found staff-assisted intensive services increased earnings by about $3,300 to $7,100 (7%-20%) over the follow-up period, though evidence on training itself was inconclusive within 30 months.",
+      "source": {
+        "title": "WIA Gold Standard Evaluation",
+        "url": "https://www.mathematica.org/projects/wia-gold-standard-evaluation",
+        "institution": "Mathematica",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "Shows that better-targeted case-management and intensive-services programs can outperform generic retraining, supporting the claim that program design and funding, not retraining per se, determine effectiveness.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "A randomized evaluation enrolling more than 34,000 job seekers in 28 local workforce areas found staff-assisted intensive services increased earnings by about $3,300 to $7,100 (7%-20%) over the follow-up period, though evidence on training itself was inconclusive within 30 months."
+    },
+    {
+      "id": "e-openresearch-ubi-rct",
+      "type": "evidence",
+      "finding": "OpenResearch's U.S. randomized trial gave 1,000 low-income adults $1,000/month for three years; the public summary reports recipients were 2 percentage points less likely to be employed and worked 1.3 fewer hours per week, while the NBER revision reports a 4.1 percentage-point decrease in labor-market participation.",
+      "source": {
+        "title": "Unconditional Cash Study",
+        "url": "https://www.openresearchlab.org/projects/unconditional-cash-study",
+        "institution": "OpenResearch",
+        "kind": "institutional",
+        "interest": "OpenResearch was founded and is funded by Sam Altman, OpenAI's CEO, giving it a direct stake in the AI-and-work policy narrative regardless of which direction the results cut.",
+        "verification": "verified-live"
+      },
+      "relevance": "The largest and most rigorous U.S. UBI-style trial in the corpus, central to both the cash-transfer labor-supply claim and the claim that UBI pilots cannot speak to AI-scale labor-demand collapse.",
+      "weight": {
+        "sourceReliability": 8,
+        "independence": 5,
+        "replicability": 6,
+        "directness": 4,
+        "weightBasis": "Large randomized trial with rigorous design, but funded by OpenAI's CEO, a figure with a direct interest in the AI-and-work policy conversation; directness is low for the parent question because the trial tested modest transfers in a full-employment economy, not an AI-scale labor-demand collapse."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 3"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "OpenResearch's U.S. randomized trial gave 1,000 low-income adults $1,000/month for three years; the public summary reports recipients were 2 percentage points less likely to be employed and worked 1.3 fewer hours per week, while the NBER revision reports a 4.1 percentage-point decrease in labor-market participation."
+    },
+    {
+      "id": "e-finland-basic-income",
+      "type": "evidence",
+      "finding": "Finland's 2017-2018 basic income experiment randomly selected 2,000 unemployed people aged 25-58 to receive EUR560 monthly for two years; employment effects were small (about 6 more days worked in year two than controls), while life satisfaction and perceived economic security improved.",
+      "source": {
+        "title": "Basic Income Experiment Results",
+        "url": "https://valtioneuvosto.fi/en/-//1271139/perustulokokeilun-tulokset-tyollisyysvaikutukset-vahaisia-toimeentulo-ja-psyykkinen-terveys-koettiin-paremmaksi",
+        "institution": "Finnish Government",
+        "kind": "government",
+        "verification": "verified-live"
+      },
+      "relevance": "A second, government-run randomized UBI trial with a different design (unemployed-only sample, different transfer size) than OpenResearch's, showing employment effects were small in both directions.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Finland's 2017-2018 basic income experiment randomly selected 2,000 unemployed people aged 25-58 to receive EUR560 monthly for two years; employment effects were small (about 6 more days worked in year two than controls), while life satisfaction and perceived economic security improved."
+    },
+    {
+      "id": "e-stockton-seed",
+      "type": "evidence",
+      "finding": "Stockton's SEED program gave 125 residents $500/month for 24 months; first-year results showed full-time employment rising from 28% to 40% among recipients versus 32% to 37% in the control group.",
+      "source": {
+        "title": "Guaranteed Income Increases Employment, Improves Financial and Physical Health",
+        "url": "https://www.stocktondemonstration.org/press-landing/guaranteed-income-increases-employment-improves-financial-and-physical-health",
+        "institution": "Stockton Economic Empowerment Demonstration",
+        "kind": "institutional",
+        "verification": "verified-live"
+      },
+      "relevance": "The one UBI-style pilot in the corpus finding increased employment among recipients, showing the labor-supply direction is not uniform across the UBI evidence base.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "d-policy-normative.md paragraph 2"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Stockton's SEED program gave 125 residents $500/month for 24 months; first-year results showed full-time employment rising from 28% to 40% among recipients versus 32% to 37% in the control group."
+    },
+    {
+      "id": "e-eloundou-gpts-are-gpts",
+      "type": "evidence",
+      "finding": "An early estimate found roughly 80% of U.S. workers could have at least 10% of tasks affected by generative AI and 19% could have at least 50% affected; the published Science version estimates 1.8% of jobs have over half their tasks exposed using only LLM interfaces, rising to just over 46% when likely complementary software is included.",
+      "source": {
+        "title": "GPTs are GPTs: Labor Market Impact Potential of LLMs",
+        "url": "https://doi.org/10.1126/science.adj0998",
+        "author": "Eloundou, Manning, Mishkin, Rock",
+        "institution": "OpenAI / Science",
+        "kind": "peer-reviewed",
+        "interest": "Three of the four authors are OpenAI employees, and the underlying task-exposure ratings were themselves partly generated using GPT-4.",
+        "verification": "verified-live"
+      },
+      "relevance": "One of the corpus's two headline distributional exposure baselines; the wide range between the working-paper and published versions itself illustrates how sensitive exposure estimates are to methodology and definition.",
+      "weight": {
+        "sourceReliability": 6,
+        "independence": 4,
+        "replicability": 6,
+        "directness": 5,
+        "weightBasis": "Peer-reviewed publication in Science, but three of four authors are OpenAI employees and the exposure methodology was itself partly LLM-generated, a disclosed conflict of interest and methodological circularity that the corpus's balance review specifically flagged."
+      },
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §1 Who Is Exposed: Gender, Race, Class"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "An early estimate found roughly 80% of U.S. workers could have at least 10% of tasks affected by generative AI and 19% could have at least 50% affected; the published Science version estimates 1.8% of jobs have over half their tasks exposed using only LLM interfaces, rising to just over 46% when likely complementary software is included."
+    },
+    {
+      "id": "e-upwork-translation-value",
+      "type": "evidence",
+      "finding": "Generative AI reduced low-value writing and translation work but increased high-value translation earnings by about 7%-8%, with new demand emerging in multilingual model training, quality control, and specialized localization; translation and localization demand later grew 29% in September 2025 as firms sought human oversight of AI output.",
+      "source": {
+        "title": "Generative AI and the Future of Translation Work",
+        "url": "https://www.upwork.com/research/ai-translation-future",
+        "institution": "Upwork",
+        "kind": "industry",
+        "interest": "Upwork is a freelance platform whose revenue depends on freelance labor demand existing, giving it a commercial interest in an 'AI creates new freelance work' narrative.",
+        "verification": "verified-live"
+      },
+      "relevance": "Shows task recomposition (new complementary demand emerging alongside displaced low-value tasks) as a qualifying counter-signal to a pure displacement reading of AI's effect on exposed freelance occupations.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "a-empirical-record.md §3 Directly Exposed Sectors"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "Generative AI reduced low-value writing and translation work but increased high-value translation earnings by about 7%-8%, with new demand emerging in multilingual model training, quality control, and specialized localization; translation and localization demand later grew 29% in September 2025 as firms sought human oversight of AI output."
+    },
+    {
+      "id": "e-offshore-capacity-growth",
+      "type": "evidence",
+      "finding": "India had over 1,700 global capability centers generating $64.6 billion in revenue and employing more than 1.9 million people in FY2024, projected to reach $100 billion and 2.5 million headcount by 2030; the Philippine IT-BPM sector grew from 1.7 million FTEs and $38 billion in revenue in 2023 to more than $40 billion and about 1.9 million workers in 2025.",
+      "source": {
+        "title": "India GCC Landscape Report; IBPAP 2026 Outlook",
+        "url": "https://community.nasscom.in/index.php/communities/nasscom-insights/india-gcc-landscape-report-5-year-journey?page=7",
+        "institution": "NASSCOM / IBPAP",
+        "kind": "industry",
+        "interest": "NASSCOM and IBPAP are trade associations for the industries whose growth these reports document.",
+        "verification": "verified-live"
+      },
+      "relevance": "Establishes the scale of the offshoring/global-capability-center buildout that is the leading rival hypothesis to AI automation for explaining U.S. junior white-collar hiring declines; through available 2026 data, offshore headcount grew rather than contracted.",
+      "provenance": {
+        "origin": "extracted",
+        "modelId": "sonnet-flagship-draft-v1",
+        "sourceRef": "h-workers-distribution-geography.md §2 Rival Hypothesis: Offshoring and Global Labor Arbitrage"
+      },
+      "createdAt": "2026-08-11T00:00:00Z",
+      "modelVersion": 2,
+      "statement": "India had over 1,700 global capability centers generating $64.6 billion in revenue and employing more than 1.9 million people in FY2024, projected to reach $100 billion and 2.5 million headcount by 2030; the Philippine IT-BPM sector grew from 1.7 million FTEs and $38 billion in revenue in 2023 to more than $40 billion and about 1.9 million workers in 2025."
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-001",
+      "from": "c-early-career-decline",
+      "to": "i-causal-attribution",
+      "type": "premise_of"
+    },
+    {
+      "id": "edge-002",
+      "from": "c-rates-dont-fully-explain",
+      "to": "i-causal-attribution",
+      "type": "premise_of"
+    },
+    {
+      "id": "edge-003",
+      "from": "i-causal-attribution",
+      "to": "c-decline-caused-by-ai",
+      "type": "concludes"
+    },
+    {
+      "id": "edge-004",
+      "from": "c-agriculture-no-permanent-unemployment",
+      "to": "i-historical-reinstatement-analogy",
+      "type": "premise_of"
+    },
+    {
+      "id": "edge-005",
+      "from": "c-telephone-operators-mixed",
+      "to": "i-historical-reinstatement-analogy",
+      "type": "premise_of"
+    },
+    {
+      "id": "edge-006",
+      "from": "i-historical-reinstatement-analogy",
+      "to": "c-reinstatement-will-continue",
+      "type": "concludes"
+    },
+    {
+      "id": "edge-007",
+      "from": "c-telephone-operators-mixed",
+      "to": "i-concentrated-harm-analogy",
+      "type": "premise_of"
+    },
+    {
+      "id": "edge-008",
+      "from": "c-trade-shock-precedent",
+      "to": "i-concentrated-harm-analogy",
+      "type": "premise_of"
+    },
+    {
+      "id": "edge-009",
+      "from": "i-concentrated-harm-analogy",
+      "to": "c-credential-pathway-narrows",
+      "type": "concludes"
+    },
+    {
+      "id": "edge-010",
+      "from": "c-time-horizons-doubling-trend-measured",
+      "to": "i-metr-extrapolation",
+      "type": "premise_of"
+    },
+    {
+      "id": "edge-011",
+      "from": "i-metr-extrapolation",
+      "to": "c-time-horizons-keep-doubling",
+      "type": "concludes"
+    },
+    {
+      "id": "edge-012",
+      "from": "c-ai-increases-output-per-worker",
+      "to": "i-productivity-rct-generalization",
+      "type": "premise_of"
+    },
+    {
+      "id": "edge-013",
+      "from": "i-productivity-rct-generalization",
+      "to": "c-firms-cut-hiring-not-output",
+      "type": "concludes"
+    },
+    {
+      "id": "edge-014",
+      "from": "c-clerical-most-exposed",
+      "to": "i-exposure-to-displacement",
+      "type": "premise_of"
+    },
+    {
+      "id": "edge-015",
+      "from": "i-exposure-to-displacement",
+      "to": "c-clerical-workers-face-displacement-risk",
+      "type": "concludes"
+    },
+    {
+      "id": "edge-016",
+      "from": "e-indeed-postings-decline",
+      "to": "i-causal-attribution",
+      "type": "undercuts",
+      "note": "Nearly half the postings decline predates ChatGPT, breaking the inference's timing-based causal-identification warrant even while granting the observed decline."
+    },
+    {
+      "id": "edge-017",
+      "from": "c-offshoring-rival-explanation",
+      "to": "i-causal-attribution",
+      "type": "undercuts",
+      "note": "A rival cause (offshoring to GCCs) can produce the same observed cell-level decline, breaking the inference's claim to have isolated AI as the cause."
+    },
+    {
+      "id": "edge-018",
+      "from": "c-no-remaining-comparative-advantage",
+      "to": "i-historical-reinstatement-analogy",
+      "type": "undercuts",
+      "note": "If AI can eventually perform the new tasks that would reinstate labor demand, the historical analogy's warrant (new comparative-advantage tasks reliably emerge) does not transfer to AI."
+    },
+    {
+      "id": "edge-019",
+      "from": "c-displaced-workers-can-retrain-costlessly",
+      "to": "i-historical-reinstatement-analogy",
+      "type": "undercuts",
+      "note": "Even where new tasks emerge in aggregate, the inference's practical relevance to currently displaced workers depends on an implicit costless-retraining assumption the retraining evidence contradicts."
+    },
+    {
+      "id": "edge-020",
+      "from": "c-reinstatement-will-continue",
+      "to": "i-concentrated-harm-analogy",
+      "type": "undercuts",
+      "note": "If broad comparative-advantage reinstatement holds for AI, the concentrated-cohort-harm analogy's generalization from narrower historical episodes to the AI case is weakened."
+    },
+    {
+      "id": "edge-021",
+      "from": "e-metr-time-horizon-doubling",
+      "to": "i-metr-extrapolation",
+      "type": "undercuts",
+      "note": "METR's own report states estimates above roughly 16 hours are unreliable because the benchmark suite is saturating, directly breaking the extrapolation warrant past that point."
+    },
+    {
+      "id": "edge-022",
+      "from": "c-p50-p80-reliability-gap",
+      "to": "i-metr-extrapolation",
+      "type": "undercuts",
+      "note": "Even if the P50 trend continues, the order-of-magnitude gap to P80 reliability means the extrapolated horizon does not translate into employment-grade substitution capability."
+    },
+    {
+      "id": "edge-023",
+      "from": "e-metr-dev-slowdown-rct",
+      "to": "i-productivity-rct-generalization",
+      "type": "undercuts",
+      "note": "A comparably rigorous randomized trial found AI access increased completion time by 19% for experienced developers on unfamiliar real codebases, breaking the generalization from other productivity RCTs to a uniform headcount-reduction conclusion."
+    },
+    {
+      "id": "edge-024",
+      "from": "c-exposure-not-displacement",
+      "to": "i-exposure-to-displacement",
+      "type": "undercuts",
+      "note": "Occupational exposure indices measure task overlap, not realized substitution; the inference's warrant (exposure predicts headcount reduction) does not follow because most exposed occupations combine automatable and non-automatable tasks."
+    },
+    {
+      "id": "edge-025",
+      "from": "c-exposure-not-displacement",
+      "to": "e-ilo-clerical-exposure",
+      "type": "limits_scope",
+      "note": "The exposure index measures task overlap, not realized job loss; it does not by itself show clerical workers have been or will be displaced."
+    },
+    {
+      "id": "edge-026",
+      "from": "c-klarna-workload-not-headcount",
+      "to": "e-klarna-700-agents",
+      "type": "limits_scope",
+      "note": "The '700 agents' figure is workload equivalence, not an audited count of eliminated positions."
+    },
+    {
+      "id": "edge-027",
+      "from": "c-ubi-pilots-scope-limited",
+      "to": "e-openresearch-ubi-rct",
+      "type": "limits_scope",
+      "note": "The trial tested a $1,000/month transfer in a full-employment economy; it cannot speak to fiscal sustainability or adequacy under AI-scale labor-demand collapse."
+    },
+    {
+      "id": "edge-028",
+      "from": "c-ubi-pilots-scope-limited",
+      "to": "e-finland-basic-income",
+      "type": "limits_scope",
+      "note": "The trial sampled only unemployed benefit recipients in a full-employment economy over two years; it cannot speak to AI-scale macro adaptation."
+    },
+    {
+      "id": "edge-029",
+      "from": "c-mass-unemployment-definition-strict",
+      "to": "c-decline-caused-by-ai",
+      "type": "qualifies",
+      "note": "Whether the early-career decline matters for 'mass unemployment' depends on which definition of mass unemployment is adopted."
+    },
+    {
+      "id": "edge-030",
+      "from": "c-mass-unemployment-definition-strict",
+      "to": "c-clerical-workers-face-displacement-risk",
+      "type": "qualifies",
+      "note": "Clerical displacement risk bears on 'mass unemployment' only under some candidate definitions (e.g. participation or wage-based ones), not necessarily under a strict U-3 threshold."
+    },
+    {
+      "id": "edge-031",
+      "from": "c-exposed-workers-higher-paid",
+      "to": "c-clerical-workers-face-displacement-risk",
+      "type": "qualifies",
+      "note": "Clerical work is lower-paid than the average AI-exposed occupation, so the general 'exposed workers are cushioned' pattern does not straightforwardly extend to this group."
+    },
+    {
+      "id": "edge-032",
+      "from": "c-no-productivity-boom-visible",
+      "to": "c-productivity-above-trend",
+      "type": "contradicts",
+      "note": "One reads 2024-2026 BLS productivity data as showing no unmistakable AI-driven boom; the other reads the same data as already running well above pre-2020 trend."
+    },
+    {
+      "id": "edge-033",
+      "from": "p-displacement-now",
+      "to": "c-decline-caused-by-ai",
+      "type": "depends_on",
+      "note": "Displacement-now's forward-looking case is unfooted if the observed early-career decline is not actually AI-caused."
+    },
+    {
+      "id": "edge-034",
+      "from": "p-wage-collapse-not-unemployment",
+      "to": "c-mass-unemployment-definition-strict",
+      "type": "depends_on",
+      "note": "The position's framing ('not unemployment, but wage collapse') presupposes the strict U-3 definition; under a broader definition the position collapses into displacement-now."
+    },
+    {
+      "id": "edge-035",
+      "from": "p-institutional-who-decides",
+      "to": "c-workers-should-have-bargaining-rights",
+      "type": "depends_on",
+      "note": "The position's claim that governance is the load-bearing question is unfooted if workers have no legitimate claim to bargain over deployment terms at all."
+    },
+    {
+      "id": "edge-036",
+      "from": "c-decline-caused-by-ai",
+      "to": "c-firms-cut-hiring-not-output",
+      "type": "depends_on",
+      "note": "Attributing the decline to AI adoption presupposes some mechanism by which AI reduces labor demand rather than simply raising output; without a firm-behavior mechanism the observed decline does not cash out as AI-driven labor-demand reduction."
+    },
+    {
+      "id": "edge-037",
+      "from": "c-women-more-exposed-segregation",
+      "to": "c-clerical-most-exposed",
+      "type": "depends_on",
+      "note": "Women's disproportionate exposure is explained by occupational segregation into clerical work; the claim is unintelligible without clerical work's status as the most-exposed occupational group."
+    },
+    {
+      "id": "edge-038",
+      "from": "c-care-reallocation-counts-as-adjustment",
+      "to": "c-care-jobs-largest-growth",
+      "type": "depends_on",
+      "note": "The normative claim that reallocation into care work counts as adjustment has no referent unless care work is actually where displaced workers would go."
+    },
+    {
+      "id": "edge-039",
+      "from": "c-clerical-workers-face-displacement-risk",
+      "to": "p-displacement-now",
+      "type": "supports"
+    },
+    {
+      "id": "edge-040",
+      "from": "c-time-horizons-keep-doubling",
+      "to": "p-displacement-now",
+      "type": "supports"
+    },
+    {
+      "id": "edge-041",
+      "from": "c-race-education-displacement-incidence",
+      "to": "p-displacement-now",
+      "type": "supports"
+    },
+    {
+      "id": "edge-042",
+      "from": "c-women-more-exposed-segregation",
+      "to": "p-displacement-now",
+      "type": "supports"
+    },
+    {
+      "id": "edge-043",
+      "from": "c-exposure-not-displacement",
+      "to": "p-displacement-now",
+      "type": "opposes"
+    },
+    {
+      "id": "edge-044",
+      "from": "c-capability-plateau",
+      "to": "p-displacement-now",
+      "type": "opposes"
+    },
+    {
+      "id": "edge-045",
+      "from": "c-postings-decline-prechatgpt",
+      "to": "p-automation-panic-redux",
+      "type": "supports"
+    },
+    {
+      "id": "edge-046",
+      "from": "c-agriculture-no-permanent-unemployment",
+      "to": "p-automation-panic-redux",
+      "type": "supports"
+    },
+    {
+      "id": "edge-047",
+      "from": "c-reinstatement-will-continue",
+      "to": "p-automation-panic-redux",
+      "type": "supports"
+    },
+    {
+      "id": "edge-048",
+      "from": "c-enterprise-diffusion-slow",
+      "to": "p-automation-panic-redux",
+      "type": "supports"
+    },
+    {
+      "id": "edge-049",
+      "from": "c-capability-plateau",
+      "to": "p-automation-panic-redux",
+      "type": "supports"
+    },
+    {
+      "id": "edge-050",
+      "from": "c-offshoring-rival-explanation",
+      "to": "p-automation-panic-redux",
+      "type": "supports"
+    },
+    {
+      "id": "edge-051",
+      "from": "c-decline-caused-by-ai",
+      "to": "p-automation-panic-redux",
+      "type": "opposes"
+    },
+    {
+      "id": "edge-052",
+      "from": "c-no-remaining-comparative-advantage",
+      "to": "p-automation-panic-redux",
+      "type": "opposes"
+    },
+    {
+      "id": "edge-053",
+      "from": "c-time-horizons-keep-doubling",
+      "to": "p-automation-panic-redux",
+      "type": "opposes"
+    },
+    {
+      "id": "edge-054",
+      "from": "c-so-so-automation",
+      "to": "p-wage-collapse-not-unemployment",
+      "type": "supports"
+    },
+    {
+      "id": "edge-055",
+      "from": "c-telephone-operators-mixed",
+      "to": "p-wage-collapse-not-unemployment",
+      "type": "supports"
+    },
+    {
+      "id": "edge-056",
+      "from": "c-engels-pause-wage-stagnation",
+      "to": "p-wage-collapse-not-unemployment",
+      "type": "supports"
+    },
+    {
+      "id": "edge-057",
+      "from": "c-credential-pathway-narrows",
+      "to": "p-wage-collapse-not-unemployment",
+      "type": "supports"
+    },
+    {
+      "id": "edge-058",
+      "from": "c-aggregate-unemployment-normal",
+      "to": "p-wage-collapse-not-unemployment",
+      "type": "supports"
+    },
+    {
+      "id": "edge-059",
+      "from": "c-trade-shock-precedent",
+      "to": "p-wage-collapse-not-unemployment",
+      "type": "supports"
+    },
+    {
+      "id": "edge-060",
+      "from": "c-cushioned-by-credentials",
+      "to": "p-wage-collapse-not-unemployment",
+      "type": "opposes"
+    },
+    {
+      "id": "edge-061",
+      "from": "c-reinstatement-will-continue",
+      "to": "p-wage-collapse-not-unemployment",
+      "type": "opposes"
+    },
+    {
+      "id": "edge-062",
+      "from": "c-ai-firms-owe-transition-costs",
+      "to": "p-institutional-who-decides",
+      "type": "supports"
+    },
+    {
+      "id": "edge-063",
+      "from": "c-algorithmic-management-dominant-experience",
+      "to": "p-institutional-who-decides",
+      "type": "supports"
+    },
+    {
+      "id": "edge-064",
+      "from": "c-care-reallocation-counts-as-adjustment",
+      "to": "p-institutional-who-decides",
+      "type": "supports"
+    },
+    {
+      "id": "edge-065",
+      "from": "c-work-intrinsically-necessary",
+      "to": "p-institutional-who-decides",
+      "type": "supports"
+    },
+    {
+      "id": "edge-066",
+      "from": "c-annotation-is-ai-production",
+      "to": "p-institutional-who-decides",
+      "type": "supports"
+    },
+    {
+      "id": "edge-067",
+      "from": "c-management-prerogative",
+      "to": "p-institutional-who-decides",
+      "type": "opposes"
+    },
+    {
+      "id": "edge-068",
+      "from": "c-market-process-no-special-obligation",
+      "to": "p-institutional-who-decides",
+      "type": "opposes"
+    },
+    {
+      "id": "edge-069",
+      "from": "c-credential-pathway-narrows",
+      "to": "c-cushioned-by-credentials",
+      "type": "opposes",
+      "note": "Both are interpretive readings of the same exposure-versus-pay data; one says credentials cushion, the other says the same credentials are the asset being depreciated."
+    },
+    {
+      "id": "edge-070",
+      "from": "c-ai-firms-owe-transition-costs",
+      "to": "c-market-process-no-special-obligation",
+      "type": "opposes",
+      "note": "Polluter-pays versus ordinary-market-competition are stated as directly rival normative positions in the corpus."
+    },
+    {
+      "id": "edge-071",
+      "from": "c-workers-should-have-bargaining-rights",
+      "to": "c-management-prerogative",
+      "type": "opposes",
+      "note": "Labor-side governance versus management-prerogative are stated as directly rival procedural positions in the corpus."
+    },
+    {
+      "id": "edge-072",
+      "from": "e-stanford-adp-16pct",
+      "to": "c-early-career-decline",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-073",
+      "from": "e-stanford-followup-rates",
+      "to": "c-rates-dont-fully-explain",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-074",
+      "from": "e-census-qwi-12pct",
+      "to": "c-early-career-decline",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-075",
+      "from": "e-signalfire-2026",
+      "to": "c-early-career-decline",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-076",
+      "from": "e-indeed-postings-decline",
+      "to": "c-postings-decline-prechatgpt",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-077",
+      "from": "e-linkedin-april-2026",
+      "to": "c-early-career-decline",
+      "type": "evidences",
+      "polarity": "qualifying"
+    },
+    {
+      "id": "edge-078",
+      "from": "e-klarna-700-agents",
+      "to": "c-firms-cut-hiring-not-output",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-079",
+      "from": "e-microsoft-accenture-rct",
+      "to": "c-ai-increases-output-per-worker",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-080",
+      "from": "e-acemoglu-tfp-modest",
+      "to": "c-so-so-automation",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-081",
+      "from": "e-challenger-2026-ai-layoffs",
+      "to": "c-decline-caused-by-ai",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-082",
+      "from": "e-pew-exposure-wages",
+      "to": "c-exposed-workers-higher-paid",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-083",
+      "from": "e-dallas-fed-wage-growth",
+      "to": "c-credential-pathway-narrows",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-084",
+      "from": "e-metr-time-horizon-doubling",
+      "to": "c-time-horizons-doubling-trend-measured",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-085",
+      "from": "e-metr-p50-p80-gap",
+      "to": "c-p50-p80-reliability-gap",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-086",
+      "from": "e-benchmark-gap-osworld-swebench",
+      "to": "c-reliability-is-the-threshold",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-087",
+      "from": "e-epoch-data-limits",
+      "to": "c-capability-plateau",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-088",
+      "from": "e-census-btos-ai-adoption",
+      "to": "c-enterprise-diffusion-slow",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-089",
+      "from": "e-narayanan-kapoor-normal-tech",
+      "to": "c-enterprise-diffusion-slow",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-090",
+      "from": "e-fed-no-postings-reduction",
+      "to": "c-decline-caused-by-ai",
+      "type": "evidences",
+      "polarity": "challenging"
+    },
+    {
+      "id": "edge-091",
+      "from": "e-ilo-clerical-exposure",
+      "to": "c-clerical-most-exposed",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-092",
+      "from": "e-ilo-gender-brief-2026",
+      "to": "c-women-more-exposed-segregation",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-093",
+      "from": "e-bls-clerical-workforce",
+      "to": "c-clerical-most-exposed",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-094",
+      "from": "e-brookings-psid-displacement",
+      "to": "c-race-education-displacement-incidence",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-095",
+      "from": "e-bls-displaced-worker-survey",
+      "to": "c-race-education-displacement-incidence",
+      "type": "evidences",
+      "polarity": "qualifying"
+    },
+    {
+      "id": "edge-096",
+      "from": "e-adhm-china-shock",
+      "to": "c-trade-shock-precedent",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-097",
+      "from": "e-bls-care-projections",
+      "to": "c-care-jobs-largest-growth",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-098",
+      "from": "e-dubal-algorithmic-wage",
+      "to": "c-algorithmic-management-dominant-experience",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-099",
+      "from": "e-fairwork-cloudwork-2025",
+      "to": "c-annotation-is-ai-production",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-100",
+      "from": "e-oxford-econ-annotation-market",
+      "to": "c-annotation-is-ai-production",
+      "type": "evidences",
+      "polarity": "qualifying"
+    },
+    {
+      "id": "edge-101",
+      "from": "e-time-kenya-sama",
+      "to": "c-annotation-is-ai-production",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-102",
+      "from": "e-xai-annotation-layoffs",
+      "to": "c-annotation-is-ai-production",
+      "type": "evidences",
+      "polarity": "qualifying"
+    },
+    {
+      "id": "edge-103",
+      "from": "e-mathematica-taa-eval",
+      "to": "c-retraining-modest-negative",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-104",
+      "from": "e-mathematica-taa-eval",
+      "to": "c-displaced-workers-can-retrain-costlessly",
+      "type": "evidences",
+      "polarity": "challenging"
+    },
+    {
+      "id": "edge-105",
+      "from": "e-wia-gold-standard",
+      "to": "c-targeted-programs-can-help",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-106",
+      "from": "e-openresearch-ubi-rct",
+      "to": "c-cash-transfers-reduce-labor-supply",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-107",
+      "from": "e-finland-basic-income",
+      "to": "c-cash-transfers-reduce-labor-supply",
+      "type": "evidences",
+      "polarity": "qualifying"
+    },
+    {
+      "id": "edge-108",
+      "from": "e-stockton-seed",
+      "to": "c-cash-transfers-reduce-labor-supply",
+      "type": "evidences",
+      "polarity": "challenging"
+    },
+    {
+      "id": "edge-109",
+      "from": "e-eloundou-gpts-are-gpts",
+      "to": "c-clerical-workers-face-displacement-risk",
+      "type": "evidences",
+      "polarity": "qualifying"
+    },
+    {
+      "id": "edge-110",
+      "from": "e-offshore-capacity-growth",
+      "to": "c-offshoring-rival-explanation",
+      "type": "evidences",
+      "polarity": "supporting"
+    },
+    {
+      "id": "edge-111",
+      "from": "e-upwork-translation-value",
+      "to": "c-decline-caused-by-ai",
+      "type": "evidences",
+      "polarity": "qualifying"
+    },
+    {
+      "id": "edge-112",
+      "from": "c-reliability-is-the-threshold",
+      "to": "c-time-horizons-keep-doubling",
+      "type": "qualifies",
+      "note": "Even if measured time horizons keep doubling, only reliability at high success rates determines whether that capability translates into labor substitution."
+    },
+    {
+      "id": "edge-113",
+      "from": "c-evaluator-funding-bias",
+      "to": "i-metr-extrapolation",
+      "type": "undercuts",
+      "note": "If the evaluation ecosystem supplying the time-horizon trend shares a funding cluster and short-timeline prior, the extrapolation's evidentiary independence is weaker than it appears."
+    },
+    {
+      "id": "edge-114",
+      "from": "c-insider-forecasts-discounted",
+      "to": "c-time-horizons-keep-doubling",
+      "type": "qualifies",
+      "note": "Frontier-lab-adjacent short-timeline narratives partly motivate confidence in continued time-horizon doubling; discounting insider incentives should discount that confidence too."
+    },
+    {
+      "id": "edge-115",
+      "from": "c-no-productivity-boom-visible",
+      "to": "p-automation-panic-redux",
+      "type": "supports"
+    },
+    {
+      "id": "edge-116",
+      "from": "c-productivity-above-trend",
+      "to": "p-displacement-now",
+      "type": "supports"
+    },
+    {
+      "id": "edge-117",
+      "from": "c-targeted-programs-can-help",
+      "to": "c-ai-firms-owe-transition-costs",
+      "type": "supports",
+      "note": "Evidence that well-designed programs can work supports the practical case that funding transition costs is a workable, not merely aspirational, obligation."
+    },
+    {
+      "id": "edge-118",
+      "from": "c-cash-transfers-reduce-labor-supply",
+      "to": "c-ai-firms-owe-transition-costs",
+      "type": "qualifies",
+      "note": "If cash transfers reduce labor supply, straightforward income-replacement remedies are more complicated than a simple compensation obligation implies."
+    },
+    {
+      "id": "edge-119",
+      "from": "c-ubi-pilots-scope-limited",
+      "to": "c-cash-transfers-reduce-labor-supply",
+      "type": "qualifies",
+      "note": "The labor-supply finding cannot be generalized beyond the modest-transfer, full-employment conditions the pilots actually tested."
+    },
+    {
+      "id": "edge-120",
+      "from": "c-care-work-automation-resistant",
+      "to": "p-wage-collapse-not-unemployment",
+      "type": "supports"
+    },
+    {
+      "id": "edge-121",
+      "from": "c-algorithmic-management-dominant-experience",
+      "to": "c-clerical-workers-face-displacement-risk",
+      "type": "qualifies",
+      "note": "Reframes the primary AI-at-work harm as control and pay unpredictability rather than headcount loss, limiting how much weight the displacement-risk framing alone should carry."
+    },
+    {
+      "id": "edge-122",
+      "from": "c-race-education-displacement-incidence",
+      "to": "p-institutional-who-decides",
+      "type": "supports"
+    }
+  ]
+}
