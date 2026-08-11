@@ -19,6 +19,8 @@
  */
 import { topics } from "../data/topics";
 import { isKnownSoft404Url, validateSourceUrl } from "./source-url-health";
+import { readdirSync, readFileSync } from "node:fs";
+import { basename, join } from "node:path";
 
 type Item = { topic: string; evidenceId: string; url: string };
 type Status = "OK" | "REDIRECTED" | "DEAD" | "MALFORMED" | "BLOCKED" | "ERROR";
@@ -31,18 +33,55 @@ type Result = Item & {
 const CONCURRENCY = 16;
 const TIMEOUT_MS = 15000;
 
-const items: Item[] = [];
-for (const t of topics) {
-  for (const p of t.pillars) {
-    for (const e of p.evidence ?? []) {
-      const url = (e as { sourceUrl?: string }).sourceUrl;
-      const id = (e as { id?: string }).id ?? "?";
-      if (typeof url === "string") {
-        items.push({ topic: t.id, evidenceId: id, url });
+function collectLegacyTopicSourceItems(): Item[] {
+  const legacyItems: Item[] = [];
+  for (const t of topics) {
+    for (const p of t.pillars) {
+      for (const e of p.evidence ?? []) {
+        const url = (e as { sourceUrl?: string }).sourceUrl;
+        const id = (e as { id?: string }).id ?? "?";
+        if (typeof url === "string") {
+          legacyItems.push({ topic: t.id, evidenceId: id, url });
+        }
       }
     }
   }
+  return legacyItems;
 }
+
+function collectDraftArgumentGraphSourceItems(): Item[] {
+  const draftsDir = join(process.cwd(), "data/topics/drafts");
+  return readdirSync(draftsDir)
+    .filter((name) => name.endsWith(".draft.json"))
+    .flatMap((name) => {
+      const path = join(draftsDir, name);
+      const raw = JSON.parse(readFileSync(path, "utf8")) as {
+        topicId?: unknown;
+        nodes?: unknown;
+      };
+      const topic =
+        typeof raw.topicId === "string"
+          ? raw.topicId
+          : basename(name, ".draft.json");
+      const nodes = Array.isArray(raw.nodes) ? raw.nodes : [];
+
+      return nodes.flatMap((node) => {
+        const candidate = node as {
+          id?: unknown;
+          source?: { url?: unknown };
+        };
+        const url = candidate.source?.url;
+        if (typeof url !== "string") return [];
+        const evidenceId = typeof candidate.id === "string" ? candidate.id : "?";
+        return [{ topic, evidenceId, url }];
+      });
+    });
+}
+
+const items: Item[] = [
+  ...collectLegacyTopicSourceItems(),
+  ...collectDraftArgumentGraphSourceItems(),
+];
 
 async function check(item: Item): Promise<Result> {
   const validation = validateSourceUrl(item.url);
