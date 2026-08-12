@@ -167,8 +167,13 @@ describe("DebateView", () => {
     }
 
     // Value-difference cruxes render the honest "nothing settles this" copy.
-    expect(screen.getByText(/standing value disagreement/).textContent).toContain(
-      "Nothing, by evidence alone",
+    expect(view.container.textContent).toContain(
+      "nothing, by evidence alone — this is a values fight",
+    );
+
+    // Evidence sits behind a second tap, not in the default crux view.
+    expect(screen.getAllByText(/Show the evidence and the exact claim/).length).toBe(
+      cruxes.length,
     );
 
     // Evidence keeps full provenance: polarity, source, flagged interests

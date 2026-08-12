@@ -43,10 +43,14 @@ export async function generateMetadata({
 
   const argumentTopic = loadArgumentTopic(id);
   if (argumentTopic) {
-    const ogImage = buildGenericOgUrl({
-      title: argumentTopic.meta.title,
-      subtitle: argumentTopic.meta.tagline,
-    });
+    // Prefer the topic's own illustration for link previews — a real image
+    // travels far better than a generated text card.
+    const ogImage = argumentTopic.meta.hero
+      ? `https://argumend.org${argumentTopic.meta.hero.src}`
+      : buildGenericOgUrl({
+          title: argumentTopic.meta.title,
+          subtitle: argumentTopic.meta.tagline,
+        });
     const pageTitle = `${argumentTopic.meta.title} — Debate Map`;
     const url = `https://argumend.org/topics/${argumentTopic.meta.id}`;
     return {

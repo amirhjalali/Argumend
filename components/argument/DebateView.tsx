@@ -9,6 +9,7 @@
  * status bases, every claim) one tap deeper, never gone. Zero client JS for
  * the core (native <details>); no canvas bundle; designed at 390px.
  */
+import Image from "next/image";
 import Link from "next/link";
 import type {
   ArgumentGraph,
@@ -19,6 +20,8 @@ import type {
 } from "@/types/argument";
 import type { CruxResult } from "@/lib/crux";
 import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
+import { DivergenceChart } from "./DivergenceChart";
+import { ShareCard } from "./ShareCard";
 
 // Position accent colors from the design system: teal, rust, brown, crimson.
 const POSITION_ACCENTS = ["#3a6965", "#C4613C", "#8B5A3C", "#a23b3b"];
@@ -60,6 +63,17 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
     <article className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
       {/* ---------------- Layer 1: hook and the shape of the fight ---------------- */}
       <header>
+        {meta.hero && (
+          <Image
+            src={meta.hero.src}
+            alt={meta.hero.alt}
+            width={1600}
+            height={1066}
+            priority
+            sizes="(max-width: 672px) 100vw, 672px"
+            className="mb-6 w-full rounded-lg"
+          />
+        )}
         <p className="text-[11px] font-medium uppercase tracking-wider text-muted dark:text-stone-400">
           Argumend · debate map
         </p>
@@ -77,6 +91,8 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
             {meta.tldr}
           </p>
         </div>
+        {meta.shareCard && <ShareCard {...meta.shareCard} />}
+        {meta.id === "ai-mass-unemployment" && <DivergenceChart />}
       </header>
 
       <section aria-label="Positions" className="mt-10">
@@ -96,6 +112,17 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
               <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-300">
                 {position.summary ?? position.statement}
               </p>
+              {meta.advocates?.[position.id] && (
+                <p className="mt-2 text-xs leading-relaxed text-secondary dark:text-stone-300">
+                  <span className="font-medium text-stone-800 dark:text-stone-200">
+                    {meta.advocates[position.id].name}
+                  </span>{" "}
+                  <span className="text-muted dark:text-stone-400">
+                    ({meta.advocates[position.id].affiliation})
+                  </span>{" "}
+                  {meta.advocates[position.id].line}
+                </p>
+              )}
               {position.summary ? (
                 <details className="mt-2">
                   <summary className="cursor-pointer list-none text-xs font-medium text-muted dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 [&::-webkit-details-marker]:hidden">
@@ -144,72 +171,6 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
         </section>
       )}
 
-      {/* ---------------- Layer 2: the cruxes ---------------- */}
-      <section aria-label="Cruxes" className="mt-10">
-        <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100">
-          The whole fight turns on {cruxes.length === 5 ? "five" : cruxes.length} questions
-        </h2>
-        <p className="mt-1 text-sm text-muted dark:text-stone-400">
-          Settle one of these and whole positions move.
-        </p>
-        <ol className="mt-4 space-y-3">
-          {cruxes.map((crux, index) => {
-            const claim = nodesById.get(crux.claimId);
-            if (claim?.type !== "claim") return null;
-            const isValueCrux = claim.resolution?.kind === "value-difference";
-            return (
-              <li key={crux.claimId}>
-                <details className="group surface-card rounded-lg border-l-4 border-[#a23b3b]">
-                  <summary className="cursor-pointer list-none p-4 [&::-webkit-details-marker]:hidden">
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-serif text-lg text-[#a23b3b]">
-                        {index + 1}
-                      </span>
-                      <span className="text-[15px] leading-snug font-medium text-stone-900 dark:text-stone-100">
-                        {claim.summary ?? claim.statement}
-                      </span>
-                    </div>
-                    {(claim.implicit || isValueCrux) && (
-                      <div className="mt-2 flex flex-wrap gap-1.5 pl-7">
-                        {claim.implicit && (
-                          <Chip tone="crux">Hidden assumption — nobody says this out loud</Chip>
-                        )}
-                        {isValueCrux && <Chip tone="warn">Values, not facts</Chip>}
-                      </div>
-                    )}
-                  </summary>
-                  <div className="border-t border-stone-200 dark:border-[#3d3a36] px-4 py-4 space-y-4">
-                    {claim.summary && (
-                      <p className="text-sm leading-relaxed text-stone-800 dark:text-stone-200">
-                        The claim, precisely: {claim.statement}
-                      </p>
-                    )}
-                    <DetailBlock label="Why people fight about it">
-                      {claim.statusBasis}
-                    </DetailBlock>
-                    <DetailBlock label="What would settle it">
-                      {claim.resolution
-                        ? isValueCrux
-                          ? `Nothing, by evidence alone — this is a standing value disagreement. ${claim.resolution.condition}`
-                          : claim.resolution.condition
-                        : "Not yet specified."}
-                    </DetailBlock>
-                    {crux.affectedPositions.length > 0 && (
-                      <DetailBlock label="So what">
-                        <p className="text-sm text-secondary dark:text-stone-300">
-                          {renderStakes(crux, nodesById)}
-                        </p>
-                      </DetailBlock>
-                    )}
-                    <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
-                  </div>
-                </details>
-              </li>
-            );
-          })}
-        </ol>
-      </section>
-
       {/* ---------------- Payoff ---------------- */}
       {meta.takeaways.length > 0 && (
         <section aria-label="Takeaways" className="mt-10 surface-paper rounded-lg p-4 sm:p-5">
@@ -231,6 +192,83 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
           </ul>
         </section>
       )}
+
+      {/* ---------------- Layer 2: the cruxes ---------------- */}
+      <section aria-label="Cruxes" className="mt-10">
+        <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100">
+          The whole fight turns on {cruxes.length === 5 ? "five" : cruxes.length} questions
+        </h2>
+        <p className="mt-1 text-sm text-muted dark:text-stone-400">
+          Settle one of these and whole positions move.
+        </p>
+        <ol className="mt-4 space-y-3">
+          {cruxes.map((crux, index) => {
+            const claim = nodesById.get(crux.claimId);
+            if (claim?.type !== "claim") return null;
+            const isValueCrux = claim.resolution?.kind === "value-difference";
+            const note = meta.cruxNotes?.[crux.claimId];
+            return (
+              <li key={crux.claimId}>
+                <details className="group surface-card rounded-lg border-l-4 border-[#a23b3b]">
+                  <summary className="cursor-pointer list-none p-4 [&::-webkit-details-marker]:hidden">
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-serif text-lg text-[#a23b3b]">
+                        {index + 1}
+                      </span>
+                      <span className="text-[15px] leading-snug font-medium text-stone-900 dark:text-stone-100">
+                        {claim.summary ?? claim.statement}
+                      </span>
+                    </div>
+                    {(claim.implicit || isValueCrux) && (
+                      <div className="mt-2 flex flex-wrap gap-1.5 pl-7">
+                        {claim.implicit && (
+                          <Chip tone="crux">Hidden assumption — nobody says this out loud</Chip>
+                        )}
+                        {isValueCrux && <Chip tone="warn">Values, not facts</Chip>}
+                      </div>
+                    )}
+                  </summary>
+                  <div className="border-t border-stone-200 dark:border-[#3d3a36] px-4 py-4 space-y-3">
+                    <p className="text-sm leading-relaxed text-stone-800 dark:text-stone-200">
+                      {note?.fight ?? claim.statusBasis}
+                    </p>
+                    <p className="text-sm leading-relaxed text-secondary dark:text-stone-300">
+                      <span className="font-medium text-stone-800 dark:text-stone-200">
+                        So what:
+                      </span>{" "}
+                      {note?.soWhat ?? renderStakes(crux, nodesById)}
+                    </p>
+                    <p className="text-sm leading-relaxed text-secondary dark:text-stone-300">
+                      <span className="font-medium text-stone-800 dark:text-stone-200">
+                        What would settle it:
+                      </span>{" "}
+                      {claim.resolution
+                        ? isValueCrux
+                          ? `nothing, by evidence alone — this is a values fight. ${claim.resolution.condition}`
+                          : claim.resolution.condition
+                        : "not yet specified."}
+                    </p>
+                    <details className="pt-1">
+                      <summary className="cursor-pointer list-none text-xs font-medium text-muted dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 [&::-webkit-details-marker]:hidden">
+                        Show the evidence and the exact claim →
+                      </summary>
+                      <div className="mt-3 space-y-3">
+                        <DetailBlock label="The claim, precisely">
+                          {claim.statement}
+                        </DetailBlock>
+                        <DetailBlock label="Status basis">
+                          {claim.statusBasis}
+                        </DetailBlock>
+                        <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
+                      </div>
+                    </details>
+                  </div>
+                </details>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
 
       {/* ---------------- Layer 3: researcher mode ---------------- */}
       <section aria-label="All claims" className="mt-10">
