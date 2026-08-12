@@ -43,6 +43,8 @@ export interface ArgumentTopicMeta {
   };
   /** Steal-able insight cards surfaced between positions and cruxes. */
   highlights: ArgumentTopicHighlight[];
+  /** The closer: how the camps split on the same evidence, + a copy-paste take. */
+  closer?: { heading: string; splits: { camp: string; reading: string }[]; take: string };
   /** "What you can honestly say after five minutes" bullets. */
   takeaways: string[];
   /**
@@ -120,6 +122,16 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
           source: "BLS Employment Projections 2024–34",
         },
       ],
+      closer: {
+        heading: "All four camps accept both numbers. They disagree about which one is the story.",
+        splits: [
+          { camp: "Yes — it's already starting", reading: "the −16% is the leading edge; the 4.2% is a lagging average that will catch up." },
+          { camp: "No — we've panicked before", reading: "the 4.2% is the story; the −16% is a confounded slice, half of it predating ChatGPT." },
+          { camp: "Not fewer jobs — worse ones", reading: "both are true and both miss it — the damage shows up in wages and career ladders, which neither number tracks." },
+          { camp: "Wrong question — who decides?", reading: "neither number settles anything; deployment terms are set in contracts and law, not forecasts." },
+        ],
+        take: "Unemployment is near 4% and early-career hiring in AI-exposed jobs is down 16%. Both are real. Which one you think is the story is which camp you're in — and the honest answer is that firm-level data to settle it doesn't exist yet.",
+      },
       takeaways: [
         "Early-career workers in AI-exposed jobs fell ~16% — but nearly half the tech-postings collapse happened before ChatGPT existed. Attribution is the live fight, not the decline itself.",
         "Klarna's famous “AI replaced 700 agents” was workload math, not layoffs — and the company later rehired humans. Headline AI-layoff numbers rarely mean what they seem.",

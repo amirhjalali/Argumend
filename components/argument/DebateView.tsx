@@ -83,6 +83,10 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
         <p className="mt-4 text-[15px] leading-relaxed text-stone-800 dark:text-stone-200">
           {meta.hook}
         </p>
+        <p className="mt-1.5 text-xs text-muted dark:text-stone-400">
+          “AI-exposed” means jobs whose everyday tasks overlap most with what
+          current AI systems do — software, clerical, customer service, analysis.
+        </p>
         <div className="mt-5 surface-paper rounded-lg border-l-4 border-[#C4613C] p-4">
           <p className="text-[11px] font-medium uppercase tracking-wider text-[#C4613C]">
             What this map shows
@@ -269,6 +273,36 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
           })}
         </ol>
       </section>
+
+
+      {/* ---------------- The closer ---------------- */}
+      {meta.closer && (
+        <section aria-label="Where the camps split" className="mt-10">
+          <h2 className="font-serif text-xl leading-snug text-stone-900 dark:text-stone-100">
+            {meta.closer.heading}
+          </h2>
+          <ul className="mt-4 space-y-2.5">
+            {meta.closer.splits.map((split) => (
+              <li key={split.camp} className="text-sm leading-relaxed">
+                <span className="font-medium text-stone-900 dark:text-stone-100">
+                  {split.camp}:
+                </span>{" "}
+                <span className="text-secondary dark:text-stone-300">
+                  {split.reading}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <blockquote className="mt-5 border-l-4 border-[#C4613C] surface-paper rounded-r-lg p-4">
+            <p className="text-[15px] leading-relaxed text-stone-900 dark:text-stone-100">
+              {meta.closer.take}
+            </p>
+            <p className="mt-2 text-[11px] uppercase tracking-wider text-muted dark:text-stone-400">
+              The take, if you only remember one thing
+            </p>
+          </blockquote>
+        </section>
+      )}
 
       {/* ---------------- Layer 3: researcher mode ---------------- */}
       <section aria-label="All claims" className="mt-10">
