@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ExternalLink, Network, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
 import type { Topic, TopicCategory, TopicStatus, Evidence } from "@/lib/schemas/topic";
-import { calculateEvidenceScore, confidenceTier } from "@/lib/schemas/topic";
+import { calculateEvidenceScore, confidenceTier } from "@/lib/evidenceMetrics";
 import { CATEGORY_LABELS, topicSummaries, getCrossCategoryRelatedSummaries } from "@/data/topicIndex";
 import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import { SynopticTable } from "@/components/SynopticTable";

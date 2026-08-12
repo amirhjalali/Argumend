@@ -1,7 +1,12 @@
 import { topicSummaries, CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topicIndex";
 import { evidenceCitationStats } from "@/data/corpusStats";
 import type { TopicCategory } from "@/lib/schemas/topic";
-import { CONTENT_LAST_UPDATED, SITE_URL } from "@/lib/site";
+import {
+  ARGUMENT_TOPICS_LAST_UPDATED,
+  CONTENT_LAST_UPDATED,
+  SITE_URL,
+} from "@/lib/site";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
 
 const BASE = SITE_URL;
 
@@ -73,6 +78,18 @@ Corpus last reviewed: ${CONTENT_LAST_UPDATED}.
     .filter(Boolean)
     .join("\n\n");
 
+  // These pages use the richer ArgumentGraph model and intentionally are not
+  // represented as balance/verdict records in the legacy v1 topics API.
+  const debateMaps = `## Flagship debate maps
+These maps show multiple positions and their load-bearing cruxes without reducing the debate to a single balance or verdict score.
+Flagship maps last reviewed: ${ARGUMENT_TOPICS_LAST_UPDATED}.
+${argumentTopicIndex
+  .map(
+    (topic) =>
+      `- [${topic.title}](${BASE}/topics/${topic.id}): ${topic.tagline}`,
+  )
+  .join("\n")}`;
+
   const footer = `\n## More
 - Methodology: ${BASE}/methodology
 - How it works: ${BASE}/how-it-works
@@ -87,7 +104,7 @@ Corpus last reviewed: ${CONTENT_LAST_UPDATED}.
 - XML sitemap: ${BASE}/sitemap.xml
 `;
 
-  const body = `${intro}\n${byCategory}\n${footer}`;
+  const body = `${intro}\n${debateMaps}\n\n${byCategory}\n${footer}`;
 
   return new Response(body, {
     headers: {

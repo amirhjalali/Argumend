@@ -115,6 +115,14 @@ Canonical interactive map links use the root canvas route:
 /?topic=<topic-id>&view=logic-map
 ```
 
+Three flagship ArgumentGraph debate maps use canonical `/topics/<argument-id>`
+URLs. Their core reading experience is server-rendered, works offline without
+API keys or a database, and presents four positions, three-to-five crux
+questions, evidence, and resolution conditions through native progressive
+disclosure. These debate maps are deliberately distinct from the legacy
+interactive canvas topics, whose canonical links continue to use the root
+`?topic=...&view=logic-map` route above.
+
 Legacy topic graph links such as `/topics/<topic-id>?view=graph` redirect to that canvas URL.
 
 Known public dynamic routes are validated in `proxy.ts` against lightweight

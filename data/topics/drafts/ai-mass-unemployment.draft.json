@@ -1099,7 +1099,7 @@
    "statement": "Better-designed, targeted, employer-linked, long-horizon workforce programs can meaningfully improve displaced workers' earnings and employment, even though generic short retraining programs mostly do not.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "The WIA/WIOA Gold Standard randomized evaluation found staff-assisted intensive services increased earnings 7%-20%, and Card, Kluve, and Weber's meta-analysis of 200+ programs found effects turn positive after 2-3 years for human-capital programs; the corpus notes this is inference about what better-funded programs could do, not proof at the scale a national AI-displacement emergency would require.",
+   "statusBasis": "The WIA Gold Standard randomized evaluation found that staff-assisted intensive services increased earnings 7%-20%, while evidence on training itself was inconclusive within 30 months. That supports targeted case management, not generic retraining or effectiveness at the scale a national AI-displacement emergency would require.",
    "tags": [
     "retraining",
     "policy-evidence"
@@ -3230,7 +3230,7 @@
    "from": "e-stanford-adp-16pct",
    "to": "c-early-career-decline",
    "type": "evidences",
-   "polarity": "supporting"
+   "polarity": "qualifying"
   },
   {
    "id": "edge-073",

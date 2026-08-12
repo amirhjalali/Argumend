@@ -1,5 +1,12 @@
 import { z } from "zod";
 import { BALANCE, VERDICT, WEIGHT } from "@/lib/constants";
+import { calculateEvidenceScore } from "@/lib/evidenceMetrics";
+
+export {
+  calculateEvidenceScore,
+  confidenceTier,
+  type ConfidenceTier,
+} from "@/lib/evidenceMetrics";
 
 // ============================================================================
 // Evidence Weight Schema
@@ -306,18 +313,6 @@ export const computeConfidenceScore = computeBalance;
 // ============================================================================
 
 /**
- * Calculate total score for a single evidence item.
- */
-export function calculateEvidenceScore(weight: EvidenceWeight): number {
-  return (
-    weight.sourceReliability +
-    weight.independence +
-    weight.replicability +
-    weight.directness
-  );
-}
-
-/**
  * Full-sentence verdict for prose contexts (e.g. the topic-page subhead), so it
  * reads as a complete clause instead of a dangling fragment. Prefer verdict.label
  * (the 2-D balance+weight verdict) for badges, cards, and OG images — this is for
@@ -331,20 +326,6 @@ export function getVerdictSentence(confidenceScore: number): string {
   if (confidenceScore >= 50)
     return "The evidence leans toward this claim, but it stays genuinely contested";
   return "There's too little evidence to settle this claim";
-}
-
-/**
- * Map a 0–100 confidence percentage to a qualitative tier. Used to present
- * each piece of evidence as an "atomic fact" with a legible confidence level
- * (the flagship Stage-3 experience), separating settled facts from arguable ones.
- */
-export type ConfidenceTier = "Established" | "Strong" | "Contested" | "Thin";
-
-export function confidenceTier(pct: number): ConfidenceTier {
-  if (pct >= 90) return "Established";
-  if (pct >= 75) return "Strong";
-  if (pct >= 50) return "Contested";
-  return "Thin";
 }
 
 // ============================================================================

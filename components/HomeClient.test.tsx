@@ -1,6 +1,7 @@
 import "@/test/setup-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render } from "@testing-library/react";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
 
 const logic = vi.hoisted(() => ({
   setTopic: vi.fn(),
@@ -89,5 +90,31 @@ describe("HomeClient home reset", () => {
         name: "Consciousness in AI Systems",
       }),
     ).toBeTruthy();
+  });
+
+  it("promotes every flagship debate map with a direct canonical route", () => {
+    const view = render(<HomeClient />);
+
+    const mapsHeading = view.getByRole("heading", {
+        level: 1,
+        name: "The whole fight, not a verdict.",
+      });
+    const legacyFeaturedTopic = view.getByRole("button", { name: "Open featured" });
+
+    expect(mapsHeading.compareDocumentPosition(legacyFeaturedTopic)).toBe(
+      Node.DOCUMENT_POSITION_FOLLOWING,
+    );
+
+    for (const topic of argumentTopicIndex) {
+      expect(
+        view
+          .getByRole("link", { name: new RegExp(topic.title) })
+          .getAttribute("href"),
+      ).toBe(`/topics/${topic.id}`);
+    }
+
+    const headings = view.getAllByRole("heading");
+    expect(headings[0]).toBe(mapsHeading);
+    expect(view.getAllByRole("heading", { level: 1 })).toHaveLength(1);
   });
 });

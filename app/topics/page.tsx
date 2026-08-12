@@ -54,8 +54,8 @@ export default async function TopicsPage({ searchParams }: TopicsPageProps) {
 }
 
 /**
- * Server-rendered banner linking the Explore index to the new-model
- * (ArgumentGraph) debate maps — currently their only in-product inbound link.
+ * Server-rendered Explore entry point for the new-model (ArgumentGraph)
+ * debate maps; the same lightweight registry also powers home and search.
  */
 function FeaturedDebateMaps() {
   const featured = argumentTopicIds

@@ -14,7 +14,11 @@ import { getAllFallacySlugs } from "@/data/fallacies";
 import { concepts } from "@/data/concepts";
 import { topicSummaries, CATEGORY_ORDER } from "@/data/topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
-import { CONTENT_LAST_UPDATED, SITE_URL } from "@/lib/site";
+import {
+  ARGUMENT_TOPICS_LAST_UPDATED,
+  CONTENT_LAST_UPDATED,
+  SITE_URL,
+} from "@/lib/site";
 
 export const revalidate = 86400;
 
@@ -31,6 +35,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // expose ONE honest "content corpus last revised" date. Bump this whenever
   // the topic/guide/concept corpus is meaningfully updated.
   const contentLastUpdated = new Date(`${CONTENT_LAST_UPDATED}T00:00:00Z`);
+  const argumentTopicsLastUpdated = new Date(
+    `${ARGUMENT_TOPICS_LAST_UPDATED}T00:00:00Z`,
+  );
 
   // ── Homepage (priority 1.0) ───────────────────────────────────────────
   const homepage: MetadataRoute.Sitemap = [
@@ -96,7 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── New-model (ArgumentGraph) debate maps — the flagship experience ────
   const argumentTopicPages: MetadataRoute.Sitemap = argumentTopicIds.map((id) => ({
     url: `${baseUrl}/topics/${id}`,
-    lastModified: contentLastUpdated,
+    lastModified: argumentTopicsLastUpdated,
     changeFrequency: "weekly",
     priority: 0.9,
   }));

@@ -15,13 +15,14 @@ export type {
 } from "@/lib/schemas/topic";
 
 export {
-  calculateEvidenceScore,
   computeConfidenceScore,
   computeBalance,
   computeWeight,
   getVerdict,
   getLeanLabel,
 } from "@/lib/schemas/topic";
+
+export { calculateEvidenceScore } from "@/lib/evidenceMetrics";
 
 // Debate mode types (not part of topic schema)
 export type ArgumentView = "logic-map" | "scales" | "debate";

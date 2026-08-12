@@ -4,7 +4,7 @@ import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { JsonLd } from "@/components/JsonLd";
-import TopicPageClient from "./TopicPageClient";
+import LegacyTopicPageLoader from "./LegacyTopicPageLoader";
 import { buildGenericOgUrl, buildTopicOgUrl } from "@/lib/og";
 import {
   argumentTopicIds,
@@ -12,6 +12,8 @@ import {
 } from "@/lib/argument/draftTopics";
 import { DebateView } from "@/components/argument/DebateView";
 import {
+  ARGUMENT_TOPICS_FIRST_PUBLISHED,
+  ARGUMENT_TOPICS_LAST_UPDATED,
   CONTENT_FIRST_PUBLISHED,
   CONTENT_LAST_UPDATED,
 } from "@/lib/site";
@@ -43,14 +45,13 @@ export async function generateMetadata({
 
   const argumentTopic = loadArgumentTopic(id);
   if (argumentTopic) {
-    // Prefer the topic's own illustration for link previews — a real image
-    // travels far better than a generated text card.
-    const ogImage = argumentTopic.meta.hero
-      ? `https://argumend.org${argumentTopic.meta.hero.src}`
-      : buildGenericOgUrl({
-          title: argumentTopic.meta.title,
-          subtitle: argumentTopic.meta.tagline,
-        });
+    // The in-page illustration is intentionally text-free and 3:2. Social
+    // previews need a branded, readable 1200×630 composition instead of
+    // relying on platform-specific crops of that editorial artwork.
+    const ogImage = buildGenericOgUrl({
+      title: argumentTopic.meta.title,
+      subtitle: argumentTopic.meta.tagline,
+    });
     const pageTitle = `${argumentTopic.meta.title} — Debate Map`;
     const url = `https://argumend.org/topics/${argumentTopic.meta.id}`;
     return {
@@ -160,8 +161,8 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
             headline: argumentTopic.meta.title,
             description: argumentTopic.meta.tagline,
             url: `https://argumend.org/topics/${argumentTopic.meta.id}`,
-            datePublished: CONTENT_FIRST_PUBLISHED,
-            dateModified: CONTENT_LAST_UPDATED,
+            datePublished: ARGUMENT_TOPICS_FIRST_PUBLISHED,
+            dateModified: ARGUMENT_TOPICS_LAST_UPDATED,
             author: { "@type": "Organization", name: "ARGUMEND" },
             citation: citations,
           }}
@@ -253,7 +254,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           } as unknown as Record<string, unknown>}
         />
       ) : null}
-      <TopicPageClient topic={topic} />
+      <LegacyTopicPageLoader topic={topic} />
     </>
   );
 }

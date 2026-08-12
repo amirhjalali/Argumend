@@ -54,7 +54,7 @@
    "label": "Continue aid, but condition it",
    "statement": "The United States should continue providing military and diplomatic support to Israel, but explicitly and rigorously condition it on compliance with U.S. and international humanitarian-law standards, using the legal tools already on the books.",
    "constituency": "Members of Congress and administration officials who invoke the Leahy Law and NSM-20-style reviews, human-rights-oriented foreign-policy analysts, and voters who want continued alliance support but object to what they see as effectively unconditional backing regardless of conduct.",
-   "steelmanBasis": "The Leahy Law and NSM-20 already establish that U.S. arms transfers are supposed to be conditioned on human-rights and international-humanitarian-law compliance; the record shows the tools exist — partial remediation findings, an NSM-20 report reportedly finding it reasonable to assess U.S. weapons were used inconsistently with IHL — but have not been applied to their full legal force. Closing that gap, not severing the alliance, is the more defensible middle path.",
+   "steelmanBasis": "The Leahy Law and other current arms-transfer authorities establish human-rights and international-humanitarian-law review mechanisms; the now-rescinded NSM-20 also demonstrated that the executive branch can require and assess recipient assurances. The record includes partial remediation findings and a May 2024 NSM-20 assessment that it was reasonable to believe covered U.S. arms had been used in some instances inconsistently with IHL obligations or civilian-harm best practices. Enforcing the authorities that remain in force, rather than severing the alliance, is this camp's middle path.",
    "displayRank": 2,
    "summary": "Keep the alliance, but actually enforce the human-rights strings that are already supposed to be attached.",
    "provenance": {
@@ -86,9 +86,9 @@
    "id": "p-enforce-existing-law",
    "type": "position",
    "label": "Wrong question — enforce the law we have",
-   "statement": "The central question is not whether to raise or lower aid levels, but whether U.S. arms transfers to Israel receive the same transparency, congressional-notification, and legal-review treatment already required for transfers to other states.",
+   "statement": "The central question is not whether to raise or lower aid levels, but whether U.S. arms transfers to Israel receive the transparency, congressional notification, and legal review required by the distinct authorities that govern them.",
    "constituency": "Arms-export-control legal scholars, congressional-oversight and transparency advocates, and Leahy Law enforcement proponents who argue the maintain/reduce framing obscures a prior, more tractable procedural failure.",
-   "steelmanBasis": "Reporting indicates large volumes of transfers occur via threshold-splitting and standing FMS cases that avoid individualized congressional notification; the Leahy Law's own remediation process reached only partial, contested conclusions; and the NSM-20 report's finding was reportedly ambiguous enough that neither side agrees what it establishes — evidence that the review machinery, not the aid level, is where the dispute is actually tractable.",
+   "steelmanBasis": "Reporting indicates that many transfers use standing FMS cases or fall below individualized congressional-notification thresholds; that pattern establishes a transparency gap, not intentional threshold-splitting. The Leahy Law's remediation process reached partial, contested conclusions, while the May 2024 NSM-20 report paired serious concerns with assurances sufficient for aid to continue before NSM-20 was rescinded in February 2025. This camp therefore treats the application of each current authority, rather than the aid level alone, as the tractable dispute.",
    "displayRank": 4,
    "summary": "Before arguing over more or less aid, ask whether the U.S. is even following its own rules for reviewing what it already sends.",
    "provenance": {
@@ -115,10 +115,10 @@
   {
    "id": "c-post-oct7-aid-surge",
    "type": "claim",
-   "statement": "Since October 2023, Congress has appropriated substantial emergency military aid to Israel above the pre-existing ten-year baseline, and major arms-sale notifications have continued at scale through 2025 and into 2026.",
+   "statement": "Since October 2023, Congress has appropriated substantial emergency military aid to Israel above the pre-existing ten-year baseline, and major arms-sale notifications continued at scale through 2025.",
    "epistemicType": "empirical",
    "status": "broadly_accepted",
-   "statusBasis": "Documented in an April 2024 emergency supplemental appropriation and in a running series of 2025-2026 defense-sales notifications; the existence and rough scale of the surge is uncontested, though its precise cumulative total varies by what is counted.",
+   "statusBasis": "Documented in an April 2024 emergency supplemental appropriation and 2025 defense-sales notifications; the existence and rough scale of the surge is uncontested, though its precise cumulative total varies by what is counted.",
    "tags": ["military-aid", "supplemental"],
    "provenance": {"origin": "extracted", "modelId": "sonnet-israel-draft-v1", "sourceRef": "research.md §Material Facts, paras 2-4"},
    "createdAt": "2026-08-11T00:00:00Z",
@@ -404,14 +404,26 @@
   {
    "id": "c-nsm20-finding-ambiguous",
    "type": "claim",
-   "statement": "A 2024 executive-branch review reportedly found it reasonable to assess that U.S. weapons had been used by Israeli forces in ways inconsistent with international humanitarian law, but did not conclude that Israel's assurances were insufficiently credible to require a cutoff of assistance.",
+   "statement": "The 2024 NSM-20 report found it reasonable to assess that covered U.S. weapons had been used by Israeli forces in instances inconsistent with international humanitarian law obligations or civilian-harm best practices, while still judging Israel's assurances credible enough for assistance to continue.",
    "epistemicType": "empirical",
-   "status": "contested",
-   "statusBasis": "This finding is known only through a congressional office's characterization of an executive-branch report whose full text and classification status are not fully public; the characterization itself is not disputed as accurate reporting, but its underlying reasoning cannot be independently checked.",
+   "status": "broadly_accepted",
+   "statusBasis": "An unclassified copy of the State and Defense Departments' report is public and contains both findings. The factual contents of the report are therefore inspectable; the live dispute is whether those two findings can be reconciled and whether continuing assistance was a lawful application of the standard or an evasion of it.",
    "tags": ["legal", "nsm-20"],
-   "resolution": {"kind": "existing-evidence", "condition": "public release of the underlying report's full text and reasoning"},
    "provenance": {"origin": "extracted", "modelId": "sonnet-israel-draft-v1", "sourceRef": "research.md §Legal and Normative Dispute, para 5"},
    "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-nsm20-rescinded",
+   "type": "claim",
+   "statement": "NSM-20 was rescinded on February 21, 2025; its rescission did not repeal the separate Leahy Law, Arms Export Control Act, Foreign Assistance Act, or other authorities governing U.S. arms transfers.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "The Congressional Research Service records the rescission and analyzes NSM-20 separately from the standing statutory authorities.",
+   "tags": ["legal", "nsm-20", "current-law"],
+   "resolution": {"kind": "existing-evidence", "condition": "the presidential rescission record and current versions of the separate governing statutes"},
+   "provenance": {"origin": "curator", "sourceRef": "CRS U.S. Foreign Aid to Israel"},
+   "createdAt": "2026-08-12T00:00:00Z",
    "modelVersion": 2
   },
   {
@@ -443,10 +455,10 @@
   {
    "id": "c-gaza-death-toll-uncertain",
    "type": "claim",
-   "statement": "The true scale of Palestinian deaths in the Gaza war is uncertain, with government, health-ministry, and independent epidemiological estimates diverging significantly and no single source resolving the range.",
+   "statement": "The reported direct-death total in Gaza had converged near 71,000–73,000 by mid-2026, but the true scale and composition of Palestinian deaths remain uncertain because identification, undercount, indirect mortality, and combatant-versus-civilian classification are unresolved.",
    "epistemicType": "empirical",
    "status": "unresolved",
-   "statusBasis": "Health-ministry-derived counts relayed by the UN, an anonymously-sourced senior-official estimate, Israeli combatant-ratio claims, a conflict-data organization's codeable militant-fatality count, and a peer-reviewed capture-recapture mortality estimate all diverge from one another; none is independently verified against death registries or cemetery records, and at least one widely circulated projection has required a public correction after being misreported as a current count.",
+   "statusBasis": "OCHA relayed 73,016 reported fatalities by June 2026, with 71,444 identified by the end of 2025; a January 2026 report attributed an estimate of roughly 71,000 to a senior Israeli military official. That topline convergence narrows one dispute but does not settle missing or unidentified deaths, traumatic-death undercount suggested by capture-recapture work, indirect deaths, or the sharply contested civilian/combatant breakdown.",
    "tags": ["casualties", "gaza"],
    "resolution": {"kind": "existing-evidence", "condition": "independent access to death registries, cemetery records, missing-persons lists, and household mortality surveys"},
    "provenance": {"origin": "extracted", "modelId": "sonnet-israel-draft-v1", "sourceRef": "research.md §Humanitarian Record and Casualty Disputes; Core Disagreements #2"},
@@ -598,7 +610,7 @@
   {
    "id": "c-review-process-should-match-other-states",
    "type": "claim",
-   "statement": "Arms transfers to Israel should receive the same transparency and congressional-review treatment applied to transfers to other states.",
+   "statement": "Arms transfers to Israel should receive the transparency, congressional notification, and legal review required by the specific authorities that govern them.",
    "epistemicType": "procedural",
    "status": "contested",
    "statusBasis": "This is presented in the underlying research as an open procedural disagreement rather than a settled rule; resolving it turns on which institution's view of proper review authority and threshold-setting practice ultimately governs, not on new factual findings.",
@@ -782,15 +794,17 @@
   {
    "id": "e-dsca-2025-notifications",
    "type": "evidence",
-   "statement": "Major 2025 U.S. arms-sale notifications to Israel included $6.75 billion for munitions, JDAM kits, fuzes, and support; 3,000 AGM-114 Hellfire missiles for $660 million; $675.7 million in 1,000-pound bomb bodies and JDAM kits; and $510 million in JDAM guidance kits.",
-   "finding": "Major 2025 U.S. arms-sale notifications to Israel included $6.75 billion for munitions, JDAM kits, fuzes, and support; 3,000 AGM-114 Hellfire missiles for $660 million; $675.7 million in 1,000-pound bomb bodies and JDAM kits; and $510 million in JDAM guidance kits.",
+   "statement": "In February 2025, the Defense Security Cooperation Agency notified Congress of a possible $6.75 billion sale to Israel covering munitions, JDAM guidance kits, fuzes, and related support.",
+   "finding": "In February 2025, the Defense Security Cooperation Agency notified Congress of a possible $6.75 billion sale to Israel covering munitions, JDAM guidance kits, fuzes, and related support.",
    "relevance": "Shows that large-scale arms transfers continued at pace well after the initial post-October-7 supplemental, supporting the claim that the aid surge is ongoing rather than a one-time spike.",
    "source": {
     "title": "Israel — Munitions, Guidance Kits, Fuzes, and Munitions Support",
     "url": "https://www.dsca.mil/Press-Media/Major-Arms-Sales/Article-Display/Article/4060920/israel-munitions-guidance-kits-fuzes-and-munitions-support",
     "institution": "U.S. Defense Security Cooperation Agency",
     "kind": "government",
-    "verification": "verified-content"
+    "publishedAt": "2025-02-07",
+    "verification": "verified-content",
+    "verifiedAt": "2026-08-12"
    },
    "tags": ["military-aid", "arms-sales"],
    "provenance": {"origin": "extracted", "modelId": "sonnet-israel-draft-v1", "sourceRef": "research.md §Material Facts, para 4"},
@@ -1015,7 +1029,7 @@
    "relevance": "Direct government record of the Leahy Law review's actual outcome, central to both the conditional-leverage and enforce-existing-law positions.",
    "source": {
     "title": "Department Press Briefing – April 29, 2024",
-    "url": "https://www.state.gov/briefings/department-press-briefing-april-29-2024/",
+    "url": "https://2021-2025.state.gov/briefings/department-press-briefing-april-29-2024/",
     "institution": "U.S. Department of State",
     "publishedAt": "2024-04-29",
     "kind": "government",
@@ -1027,42 +1041,63 @@
    "modelVersion": 2
   },
   {
-   "id": "e-senate-nsm20-cardin",
+   "id": "e-state-nsm20-report",
    "type": "evidence",
-   "statement": "A Senate Foreign Relations Committee chair's release states that the administration's NSM-20 report found it reasonable to assess that U.S. weapons had been used by Israeli forces in ways inconsistent with international humanitarian law, but did not conclude that Israel's assurances were insufficiently credible to require a cutoff.",
-   "finding": "A Senate Foreign Relations Committee chair's release states that the administration's NSM-20 report found it reasonable to assess that U.S. weapons had been used by Israeli forces in ways inconsistent with international humanitarian law, but did not conclude that Israel's assurances were insufficiently credible to require a cutoff.",
-   "relevance": "The only public characterization of the NSM-20 report's substantive finding, and the direct source for the ambiguous-finding claim both normative readings (lawful application vs. evasion) argue from.",
+   "statement": "The State and Defense Departments' May 2024 NSM-20 report found it reasonable to assess that covered U.S. weapons had been used in instances inconsistent with IHL obligations or civilian-harm best practices, yet judged Israel's assurances credible and reliable enough for covered assistance to continue.",
+   "finding": "The State and Defense Departments' May 2024 NSM-20 report found it reasonable to assess that covered U.S. weapons had been used in instances inconsistent with IHL obligations or civilian-harm best practices, yet judged Israel's assurances credible and reliable enough for covered assistance to continue.",
+   "relevance": "The primary document contains the two findings whose coexistence drives the competing lawful-application and legal-evasion readings.",
    "source": {
-    "title": "Chair Cardin on Developments in Israel, the Administration's NSM-20 Report",
-    "url": "https://www.foreign.senate.gov/press/dem/release/chair-cardin-on-developments-in-israel-the-administrations-nsm-20-report",
-    "institution": "Senate Foreign Relations Committee (Democratic staff)",
-    "kind": "government",
-    "interest": "A congressional committee chair's office release characterizing an executive-branch report; reflects the chair's own political framing of the report's significance, and the underlying report itself is not fully public.",
-    "verification": "verified-content"
+    "title": "Report to Congress under Section 2 of NSM-20",
+    "url": "https://www.justsecurity.org/wp-content/uploads/2024/05/Report-to-Congress-under-Section-2-of-the-National-Security-Memorandum-on-Safeguards-and-Accountability-with-Respect-to-Transferred-Defense.pdf",
+    "institution": "U.S. Department of State and U.S. Department of Defense",
+    "publishedAt": "2024-05-10",
+    "kind": "primary-document",
+    "interest": "An executive-branch self-assessment of whether continued assistance complied with its own policy; the unclassified government document is hosted by Just Security rather than on a current State Department URL.",
+    "verification": "verified-content",
+    "verifiedAt": "2026-08-12"
    },
-   "unverifiedFlags": ["The underlying NSM-20 report's full text and classification status are not fully public; this is a secondhand characterization by a congressional office."],
-   "weight": {"sourceReliability": 6, "independence": 5, "replicability": 3, "directness": 8, "weightBasis": "The only public window into a non-public executive-branch finding, filtered through one committee chair's political framing; load-bearing for the entire NSM-20 dispute despite the source limitation."},
+   "weight": {"sourceReliability": 8, "independence": 3, "replicability": 8, "directness": 10, "weightBasis": "The primary government report is direct and inspectable, though it is an executive-branch assessment of its own decision and the public copy is hosted outside a government domain."},
    "tags": ["legal", "nsm-20"],
    "provenance": {"origin": "extracted", "modelId": "sonnet-israel-draft-v1", "sourceRef": "research.md §Legal and Normative Dispute, para 5"},
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2
   },
   {
-   "id": "e-ocha-moh-aug2025",
+   "id": "e-crs-nsm20-rescission",
    "type": "evidence",
-   "statement": "As of August 27, 2025, OCHA cited Gaza Ministry of Health figures of 62,895 Palestinian fatalities and 158,927 injuries since October 7, 2023, while noting that UN verification of the health-ministry count is incomplete.",
-   "finding": "As of August 27, 2025, OCHA cited Gaza Ministry of Health figures of 62,895 Palestinian fatalities and 158,927 injuries since October 7, 2023, while noting that UN verification of the health-ministry count is incomplete.",
-   "relevance": "The most widely cited running casualty figure in the dispute, relayed by a UN body that itself flags the figure's incomplete verification.",
+   "statement": "The Congressional Research Service reports that President Trump rescinded NSM-20 on February 21, 2025, while discussing the Leahy Law, Arms Export Control Act, Foreign Assistance Act, and other arms-transfer authorities separately.",
+   "finding": "The Congressional Research Service reports that President Trump rescinded NSM-20 on February 21, 2025, while discussing the Leahy Law, Arms Export Control Act, Foreign Assistance Act, and other arms-transfer authorities separately.",
+   "relevance": "Directly supports the map's dated rescission statement and prevents a rescinded executive policy from being described as current law.",
    "source": {
-    "title": "OCHA Situation Report: Gaza Strip, 28 Aug 2025",
-    "url": "https://www.un.org/unispal/document/ocha-sitrep-gaza-28aug25/",
+    "title": "U.S. Foreign Aid to Israel",
+    "url": "https://www.congress.gov/crs-product/RL33222",
+    "institution": "Congressional Research Service",
+    "kind": "government",
+    "verification": "verified-content",
+    "verifiedAt": "2026-08-12"
+   },
+   "weight": {"sourceReliability": 9, "independence": 8, "replicability": 9, "directness": 9, "weightBasis": "Official nonpartisan congressional research summarizing both the rescission and the distinct continuing authorities."},
+   "tags": ["legal", "nsm-20", "current-law"],
+   "provenance": {"origin": "curator", "sourceRef": "CRS U.S. Foreign Aid to Israel"},
+   "createdAt": "2026-08-12T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-ocha-moh-jun2026",
+   "type": "evidence",
+   "statement": "OCHA's June 17, 2026 snapshot relayed 73,016 reported Palestinian fatalities, of which 71,444 had been identified by the end of 2025, while explicitly attributing figures not yet verified by the UN to their source.",
+   "finding": "OCHA's June 17, 2026 snapshot relayed 73,016 reported Palestinian fatalities, of which 71,444 had been identified by the end of 2025, while explicitly attributing figures not yet verified by the UN to their source.",
+   "relevance": "Provides the current reported topline and its identified-versus-reported distinction, which should not be conflated with the separate disputes over undercount, indirect mortality, or civilian/combatant composition.",
+   "source": {
+    "title": "Reported Impact Snapshot: Gaza Strip, 17 June 2026",
+    "url": "https://www.ochaopt.org/sites/default/files/Gaza_Reported_Impact_Snapshot_17_June_2026.pdf",
     "institution": "UN Office for the Coordination of Humanitarian Affairs",
-    "publishedAt": "2025-08-27",
+    "publishedAt": "2026-06-17",
     "kind": "institutional",
-    "interest": "Relays figures compiled by the Gaza Ministry of Health, a party to the conflict; OCHA itself states its verification of the health-ministry count is incomplete.",
+    "interest": "Relays Gaza Ministry of Health figures and explicitly attributes figures not yet verified by the UN to their source.",
     "verification": "verified-content"
    },
-   "weight": {"sourceReliability": 7, "independence": 5, "replicability": 6, "directness": 9, "weightBasis": "The most widely cited casualty baseline in the debate, but sourced through a UN relay of health-ministry data whose own verification is explicitly incomplete — central and contested in equal measure."},
+   "weight": {"sourceReliability": 7, "independence": 5, "replicability": 7, "directness": 9, "weightBasis": "A current UN relay that clearly distinguishes reported and identified fatalities and discloses attribution; strong for what the official topline says, not independent verification of every death or its status."},
    "tags": ["casualties", "gaza"],
    "provenance": {"origin": "extracted", "modelId": "sonnet-israel-draft-v1", "sourceRef": "research.md §Humanitarian Record and Casualty Disputes, para 1"},
    "createdAt": "2026-08-11T00:00:00Z",
@@ -1368,7 +1403,7 @@
   {"id": "ed087", "from": "i-warrant-alliance-necessity", "to": "c-regional-stability-depends-on-alliance", "type": "concludes"},
   {"id": "ed088", "from": "i-leverage-generalization", "to": "c-conditioning-unlikely-to-durably-shift-policy", "type": "concludes"},
 
-  {"id": "ed089", "from": "c-moh-toll-doesnt-distinguish-combatants", "to": "e-ocha-moh-aug2025", "type": "limits_scope", "note": "The topline count's failure to separate combatants from civilians limits what it can be taken to show about the civilian share of deaths."},
+  {"id": "ed089", "from": "c-moh-toll-doesnt-distinguish-combatants", "to": "e-ocha-moh-jun2026", "type": "limits_scope", "note": "The topline count's failure to separate combatants from civilians limits what it can be taken to show about the civilian share of deaths."},
   {"id": "ed090", "from": "c-lancet-projection-not-current-count", "to": "e-lancet-186000-correspondence", "type": "limits_scope", "note": "The 186,000 figure is a forward projection, not a current count, limiting what it can be taken to show about deaths that have already occurred."},
 
   {"id": "ed091", "from": "e-mou-fact-sheet", "to": "c-mou-38b", "type": "evidences", "polarity": "supporting"},
@@ -1390,8 +1425,8 @@
   {"id": "ed107", "from": "e-icj-advisory-jul2024", "to": "c-icj-advisory-opinion-occupation-unlawful", "type": "evidences", "polarity": "supporting"},
   {"id": "ed108", "from": "e-icc-arrest-warrants", "to": "c-icc-jurisdiction-disputed", "type": "evidences", "polarity": "supporting"},
   {"id": "ed109", "from": "e-state-leahy-review-april2024", "to": "c-leahy-review-limited-cutoff", "type": "evidences", "polarity": "supporting"},
-  {"id": "ed110", "from": "e-senate-nsm20-cardin", "to": "c-nsm20-finding-ambiguous", "type": "evidences", "polarity": "supporting"},
-  {"id": "ed111", "from": "e-ocha-moh-aug2025", "to": "c-gaza-death-toll-uncertain", "type": "evidences", "polarity": "qualifying"},
+  {"id": "ed110", "from": "e-state-nsm20-report", "to": "c-nsm20-finding-ambiguous", "type": "evidences", "polarity": "supporting"},
+  {"id": "ed111", "from": "e-ocha-moh-jun2026", "to": "c-gaza-death-toll-uncertain", "type": "evidences", "polarity": "qualifying"},
   {"id": "ed112", "from": "e-jta-idf-71000", "to": "c-gaza-death-toll-uncertain", "type": "evidences", "polarity": "qualifying"},
   {"id": "ed113", "from": "e-netanyahu-combatant-estimate", "to": "c-casualty-figures-mostly-combatants", "type": "evidences", "polarity": "supporting"},
   {"id": "ed114", "from": "e-acled-militant-fatalities", "to": "c-casualty-figures-mostly-combatants", "type": "evidences", "polarity": "qualifying"},
@@ -1401,6 +1436,18 @@
   {"id": "ed118", "from": "e-pew-toomuch-aid", "to": "c-us-opinion-shifted", "type": "evidences", "polarity": "supporting"},
   {"id": "ed119", "from": "e-aipac-lobbying-spend", "to": "c-lobby-determines-policy", "type": "evidences", "polarity": "qualifying"},
   {"id": "ed120", "from": "e-mearsheimer-walt", "to": "c-lobby-determines-policy", "type": "evidences", "polarity": "supporting"},
-  {"id": "ed121", "from": "e-brookings-mead", "to": "c-lobby-thesis-overstated", "type": "evidences", "polarity": "supporting"}
+  {"id": "ed121", "from": "e-brookings-mead", "to": "c-lobby-thesis-overstated", "type": "evidences", "polarity": "supporting"},
+
+  {"id": "ed122", "from": "e-biden-bomb-pause-may2024", "to": "c-aid-buys-leverage", "type": "evidences", "polarity": "qualifying", "note": "The pause demonstrates a usable tactical lever, but its narrow and temporary character does not establish durable strategic leverage."},
+  {"id": "ed123", "from": "c-aid-preserves-access", "to": "c-aid-buys-leverage", "type": "supports", "note": "The access argument supplies the strongest case that continued assistance preserves an influence channel, though access and policy compliance are not the same outcome."},
+  {"id": "ed124", "from": "c-aid-hasnt-bought-compliance", "to": "c-aid-buys-leverage", "type": "qualifies", "note": "The observed pattern of policy disagreement limits claims about usable leverage, without proving that a condition never enforced could not work."},
+  {"id": "ed125", "from": "c-bomb-pause-no-durable-shift", "to": "c-aid-buys-leverage", "type": "qualifies", "note": "The same episode points toward tactical capacity but away from assuming durable strategic compliance."},
+
+  {"id": "ed126", "from": "e-crs-hamas-fto", "to": "c-regional-stability-depends-on-alliance", "type": "evidences", "polarity": "qualifying", "note": "The source establishes the Iran-aligned threat environment, not the counterfactual claim that the current alliance structure is what stabilizes it."},
+  {"id": "ed127", "from": "e-israel-mod-iron-dome", "to": "c-regional-stability-depends-on-alliance", "type": "evidences", "polarity": "supporting", "note": "Joint defensive capability supplies a concrete stabilizing mechanism, but the interested source does not establish a regional counterfactual."},
+  {"id": "ed128", "from": "e-state-abraham-accords", "to": "c-regional-stability-depends-on-alliance", "type": "evidences", "polarity": "supporting", "note": "The accords document a U.S.-brokered regional architecture, while their existence alone does not show that current aid levels are necessary to sustain it."},
+  {"id": "ed129", "from": "e-crs-saudi-conditions", "to": "c-regional-stability-depends-on-alliance", "type": "evidences", "polarity": "challenging", "note": "Saudi conditions show that at least one major normalization path depends on ending Gaza operations and a Palestinian political horizon, not simply preserving current support."},
+  {"id": "ed130", "from": "e-crs-nsm20-rescission", "to": "c-nsm20-rescinded", "type": "evidences", "polarity": "supporting"},
+  {"id": "ed131", "from": "c-nsm20-rescinded", "to": "p-enforce-existing-law", "type": "supports", "note": "The rescission makes it essential to distinguish a historical executive review from the separate authorities still in force."}
  ]
 }

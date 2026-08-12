@@ -9,6 +9,7 @@ import {
   FileText,
   Lightbulb,
   File,
+  Network,
   ArrowRight,
   CornerDownLeft,
 } from "lucide-react";
@@ -23,12 +24,13 @@ import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 import { BALANCE } from "@/lib/constants";
 import type { Verdict } from "@/lib/schemas/topic";
 import { useModalAccessibility } from "@/hooks/useModalAccessibility";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
-type ResultType = "topic" | "blog" | "concept" | "page";
+type ResultType = "map" | "topic" | "blog" | "concept" | "page";
 
 interface SearchResult {
   id: string;
@@ -159,6 +161,11 @@ const TYPE_CONFIG: Record<
   ResultType,
   { icon: typeof Search; label: string; badgeClasses: string }
 > = {
+  map: {
+    icon: Network,
+    label: "Debate Maps",
+    badgeClasses: "bg-rust-50 text-rust-700 dark:bg-rust-900/30 dark:text-rust-300",
+  },
   topic: {
     icon: MessageSquare,
     label: "Topics",
@@ -205,6 +212,17 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   // -----------------------------------------------------------------------
 
   const allItems = useMemo<SearchResult[]>(() => {
+    const argumentMapResults: SearchResult[] = argumentTopicIndex.map((topic) => ({
+      id: `map-${topic.id}`,
+      title: topic.title,
+      subtitle: topic.tagline,
+      type: "map" as const,
+      href: `/topics/${topic.id}`,
+      meta_claim: topic.tagline,
+      tags: "argument map debate map flagship cruxes positions",
+      aliases: topic.aliases.join(" "),
+    }));
+
     const topicResults: SearchResult[] = topicSummaries.map((t) => {
       // `tags`/`aliases` may be added by a concurrent schema change — read
       // them defensively so this keeps working whether or not they exist.
@@ -250,7 +268,13 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       meta_claim: p.subtitle,
     }));
 
-    return [...topicResults, ...blogResults, ...conceptResults, ...pageResults];
+    return [
+      ...argumentMapResults,
+      ...topicResults,
+      ...blogResults,
+      ...conceptResults,
+      ...pageResults,
+    ];
   }, []);
 
   // -----------------------------------------------------------------------
@@ -287,8 +311,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const groups = useMemo<SearchGroup[]>(() => {
     const trimmed = query.trim();
 
-    // Empty query: show featured topics
+    // Empty query: lead with the flagship debate maps, then familiar topics.
+    // `allItems` keeps the result shape identical to searched map results and
+    // preserves one keyboard-order source of truth through `flatResults`.
     if (!trimmed) {
+      const debateMaps = allItems.filter((item) => item.type === "map");
       const featured = topicSummaries
         .filter((t) => FEATURED_TOPIC_IDS.includes(t.id))
         .map((t) => ({
@@ -303,7 +330,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           verdict: t.verdict,
         }));
 
-      return [{ label: "Popular Topics", type: "topic", results: featured }];
+      return [
+        { label: "Debate Maps", type: "map", results: debateMaps },
+        { label: "Popular Topics", type: "topic", results: featured },
+      ];
     }
 
     // Ranked fuzzy search via MiniSearch — results come back ordered by score.
@@ -313,7 +343,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       .filter((item): item is SearchResult => item != null);
 
     // Group by type
-    const typeOrder: ResultType[] = ["topic", "blog", "concept", "page"];
+    const typeOrder: ResultType[] = ["map", "topic", "blog", "concept", "page"];
     const grouped: SearchGroup[] = [];
 
     for (const type of typeOrder) {
@@ -328,7 +358,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
 
     return grouped;
-  }, [query, miniSearch, itemsById]);
+  }, [query, miniSearch, itemsById, allItems]);
 
   // Flat list of all visible results for keyboard navigation
   const flatResults = useMemo(
@@ -450,7 +480,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               type="text"
               value={query}
               onChange={(e) => updateQuery(e.target.value)}
-              placeholder="Search topics, articles, concepts, pages..."
+              placeholder="Search debate maps, topics, articles, concepts..."
               className="flex-1 bg-transparent text-lg text-primary dark:text-stone-200 placeholder:text-stone-500 outline-none font-sans"
               autoComplete="off"
               spellCheck={false}
@@ -493,7 +523,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               ? flatResults.length > 0
                 ? `${flatResults.length} result${flatResults.length !== 1 ? "s" : ""} for “${query.trim()}”`
                 : `No results for “${query.trim()}”`
-              : `${flatResults.length} popular topic${flatResults.length !== 1 ? "s" : ""}`}
+              : `${groups[0]?.results.length ?? 0} debate maps and ${groups[1]?.results.length ?? 0} popular topics`}
           </div>
 
           {/* Results */}

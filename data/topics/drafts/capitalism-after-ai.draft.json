@@ -319,7 +319,7 @@
    "statement": "In the largest U.S. randomized guaranteed-income trial to date, unconditional cash transfers around $1,000/month measurably reduced recipients' labor-force participation and hours worked.",
    "epistemicType": "empirical",
    "status": "broadly_accepted",
-   "statusBasis": "A peer-reviewed randomized controlled trial with a multi-year panel; the direction of the labor-supply effect is not seriously disputed, though its size relative to an AI-driven demand-collapse scenario is.",
+   "statusBasis": "A randomized controlled trial reported in an NBER working paper with a multi-year panel; the direction of the measured labor-supply effect is not seriously disputed, though its size relative to an AI-driven demand-collapse scenario is.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -467,7 +467,11 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "implicit": true
+   "implicit": true,
+   "resolution": {
+    "kind": "future-observable",
+    "condition": "a decade of repeated market-share, entry, switching-cost, and beneficial-ownership measurements showing whether control remains concentrated or diffuses separately across frontier models, cloud compute, AI chips, and equity ownership"
+   }
   },
   {
    "id": "c-reallocation-keeps-pace",
@@ -483,7 +487,11 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "implicit": true
+   "implicit": true,
+   "resolution": {
+    "kind": "future-observable",
+    "condition": "longitudinal evidence tracking displaced workers' re-employment time, earnings recovery, and movement into complementary jobs alongside the duration and scale of aggregate underemployment after broad AI adoption"
+   }
   },
   {
    "id": "c-demand-collapse-without-recycling",
@@ -635,8 +643,8 @@
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
    "resolution": {
-    "kind": "value-difference",
-    "condition": "cannot be settled by further observation alone; turns partly on how much wage-income concentration is required before the channel counts as having 'lost primacy'"
+    "kind": "future-observable",
+    "condition": "longitudinal household-income data showing whether wages cease to be the largest income source for non-owners, paired with an explicit preregistered threshold for what counts as losing primacy"
    },
    "summary": "Do wages stop being how ordinary people get a share of the economy?"
   },
@@ -765,7 +773,7 @@
     "kind": "government",
     "verification": "verified-live",
     "verifiedAt": "2026-08-11",
-    "url": "https://fred.stlouisfed.org/data/PRS85006173",
+    "url": "https://fred.stlouisfed.org/series/PRS85006173",
     "institution": "Federal Reserve Bank of St. Louis / U.S. Bureau of Labor Statistics"
    },
    "relevance": "The central quantitative anchor for the claim that labor's income share has been declining in the U.S.; a two-decade indexed time series.",
@@ -1123,7 +1131,7 @@
    "statement": "A randomized guaranteed-income study gave 1,000 low-income U.S. adults $1,000/month for three years and found non-transfer income fell about $1,800/year, labor-force participation fell 4.1 percentage points, and hours fell 1-2 per week.",
    "source": {
     "title": "The Employment Effects of a Guaranteed Income",
-    "kind": "peer-reviewed",
+    "kind": "primary-document",
     "verification": "verified-live",
     "verifiedAt": "2026-08-11",
     "url": "https://www.nber.org/papers/w32719",
@@ -1151,11 +1159,11 @@
    "finding": "Mondragon reported over \u20ac11.2 billion in 2024 sales, more than 70,000 employees, and \u20ac632 million in profits.",
    "statement": "Mondragon reported over \u20ac11.2 billion in 2024 sales, more than 70,000 employees, and \u20ac632 million in profits.",
    "source": {
-    "title": "Letters for the President",
+    "title": "Annual Report 2024",
     "kind": "primary-document",
     "verification": "verified-live",
     "verifiedAt": "2026-08-11",
-    "url": "https://www.mondragon-corporation.com/en/anual-report/letters-for-the-president/",
+    "url": "https://www.mondragon-corporation.com/people/site/assets/files/103207/annual-report-2024.pdf",
     "institution": "Mondragon Corporation",
     "interest": "Self-reported figures from the cooperative federation's own annual report, published to promote the cooperative model it represents; no independent audit is cited in the corpus."
    },
@@ -2284,6 +2292,54 @@
    "from": "c-demand-collapse-without-recycling",
    "to": "p-definitional-skeptic",
    "type": "opposes"
+  },
+  {
+   "id": "edge-111",
+   "from": "e-menlo-model-share",
+   "to": "c-ai-ownership-stays-concentrated",
+   "type": "evidences",
+   "polarity": "qualifying",
+   "note": "The current enterprise-spend snapshot establishes concentration at one layer, but does not by itself establish persistence, beneficial ownership, or concentration across the full stack."
+  },
+  {
+   "id": "edge-112",
+   "from": "e-korinek-vipra-scale-economies",
+   "to": "c-ai-ownership-stays-concentrated",
+   "type": "evidences",
+   "polarity": "supporting",
+   "note": "Scale and scope economies supply a mechanism for durable concentration, while remaining theoretical rather than a decade-long observation."
+  },
+  {
+   "id": "edge-113",
+   "from": "e-oecd-genai-productivity-2026",
+   "to": "c-ai-ownership-stays-concentrated",
+   "type": "evidences",
+   "polarity": "challenging",
+   "note": "The microdata finding that smaller firms also gain opportunities cuts against mechanical concentration, without proving that frontier ownership will diffuse."
+  },
+  {
+   "id": "edge-114",
+   "from": "e-autor-automation-review",
+   "to": "c-reallocation-keeps-pace",
+   "type": "evidences",
+   "polarity": "supporting",
+   "note": "The historical record supports substitution-plus-complementarity, but predates current general-purpose AI and cannot settle the speed of AI-era reallocation."
+  },
+  {
+   "id": "edge-115",
+   "from": "e-bessen-textiles-steel-autos",
+   "to": "c-reallocation-keeps-pace",
+   "type": "evidences",
+   "polarity": "qualifying",
+   "note": "The case studies show reallocation depends on demand elasticity rather than following automatically from automation."
+  },
+  {
+   "id": "edge-116",
+   "from": "e-korinek-agi-scenario",
+   "to": "c-reallocation-keeps-pace",
+   "type": "evidences",
+   "polarity": "challenging",
+   "note": "The modeled wage-collapse scenario bears against universal reallocation optimism only conditionally; it is not observed AI-era worker-flow evidence."
   }
  ]
 }

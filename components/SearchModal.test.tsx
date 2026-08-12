@@ -2,6 +2,7 @@ import "@/test/setup-dom";
 import { useCallback, useState } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
 
 const push = vi.hoisted(() => vi.fn());
 
@@ -84,5 +85,62 @@ describe("SearchModal keyboard lifecycle", () => {
     const close = view.getByRole("button", { name: "Close search" });
     fireEvent.keyDown(close, { key: "Enter" });
     expect(push).not.toHaveBeenCalled();
+  });
+
+  it("shows every debate map before popular topics in the empty-state keyboard order", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    const options = view.getAllByRole("option");
+    expect(options).toHaveLength(argumentTopicIndex.length + 5);
+    argumentTopicIndex.forEach((topic, index) => {
+      expect(options[index].textContent).toContain(topic.title);
+      expect(options[index].textContent).toContain("Debate Map");
+    });
+    expect(options[argumentTopicIndex.length].textContent).not.toContain("Debate Map");
+    expect(input.getAttribute("aria-activedescendant")).toBe(
+      `search-result-map-${argumentTopicIndex[0].id}`,
+    );
+    expect(view.getByRole("status").textContent).toBe(
+      `${argumentTopicIndex.length} debate maps and 5 popular topics`,
+    );
+
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    fireEvent.keyDown(input, { key: "Enter" });
+    expect(push).toHaveBeenLastCalledWith(`/topics/${argumentTopicIndex[1].id}`);
+  });
+
+  it.each(argumentTopicIndex)(
+    "finds the lightweight debate-map entry for $id without loading its graph",
+    async (topic) => {
+      const view = render(<SearchHarness />);
+      fireEvent.click(view.getByRole("button", { name: "Open search" }));
+      const input = view.getByRole("combobox", { name: "Search Argumend" });
+      await waitFor(() => expect(document.activeElement).toBe(input));
+
+      fireEvent.change(input, { target: { value: topic.title } });
+      const result = view.getByRole("option", { name: new RegExp(topic.title) });
+      expect(result.textContent).toContain("Debate Map");
+
+      fireEvent.click(result);
+      expect(push).toHaveBeenLastCalledWith(`/topics/${topic.id}`);
+    },
+  );
+
+  it("indexes useful aliases for the flagship maps", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    fireEvent.change(input, { target: { value: "conditional aid Gaza" } });
+
+    expect(
+      view.getByRole("option", {
+        name: /Should the U\.S\. reduce its support for Israel\?/,
+      }),
+    ).toBeTruthy();
   });
 });

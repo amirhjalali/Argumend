@@ -110,6 +110,21 @@ describe("content-route graph import boundaries", () => {
     expect(homeSource).toContain("viewToggle={<ViewToggle />}");
   });
 
+  it("keeps the legacy topic reader asynchronous on the shared topic route", () => {
+    const routeSource = readFileSync(
+      resolve(process.cwd(), "app/topics/[id]/page.tsx"),
+      "utf8",
+    );
+    const loaderSource = readFileSync(
+      resolve(process.cwd(), "app/topics/[id]/LegacyTopicPageLoader.tsx"),
+      "utf8",
+    );
+
+    expect(routeSource).not.toMatch(/import\s+TopicPageClient\s+from/);
+    expect(routeSource).toMatch(/import\s+LegacyTopicPageLoader\s+from/);
+    expect(loaderSource).toContain('import("./TopicPageClient")');
+  });
+
   it("does not speculatively prefetch every shared-shell destination", () => {
     const topBarSource = readFileSync(
       resolve(process.cwd(), "components/TopBar.tsx"),
@@ -132,6 +147,47 @@ describe("content-route graph import boundaries", () => {
     expect(sidebarSource.match(/prefetch=\{false\}/g)).toHaveLength(4);
     expect(footerSource.match(/prefetch=\{false\}/g)).toHaveLength(2);
     expect(trendingSource.match(/prefetch=\{false\}/g)).toHaveLength(1);
+  });
+});
+
+describe("home graph-runtime lazy boundaries", () => {
+  it("keeps React Flow runtime code inside the desktop canvas chunk", () => {
+    const storeSource = readFileSync(
+      resolve(process.cwd(), "hooks/useLogicGraph.ts"),
+      "utf8",
+    );
+    const canvasSource = readFileSync(
+      resolve(process.cwd(), "components/DesktopCanvas.tsx"),
+      "utf8",
+    );
+
+    expect(storeSource).not.toMatch(
+      /import\s+\{[^}]+\}\s+from\s+["']@xyflow\/react["']/,
+    );
+    expect(storeSource).toMatch(
+      /import\s+type\s+\{[^}]+\}\s+from\s+["']@xyflow\/react["']/,
+    );
+    expect(canvasSource).toContain("applyNodeChanges");
+  });
+
+  it("loads topic validation only when an individual topic is requested", () => {
+    const loaderSource = readFileSync(
+      resolve(process.cwd(), "data/topicLoader.ts"),
+      "utf8",
+    );
+    const blueprintSource = readFileSync(
+      resolve(process.cwd(), "data/logicBlueprint.ts"),
+      "utf8",
+    );
+
+    expect(loaderSource).not.toMatch(/import\s+\{\s*buildTopic\s*\}\s+from/);
+    expect(loaderSource).toContain('import("./buildTopic")');
+    expect(blueprintSource).toMatch(
+      /from\s+["']@\/lib\/evidenceMetrics["']/,
+    );
+    expect(blueprintSource).not.toMatch(
+      /from\s+["']@\/lib\/schemas\/topic["']/,
+    );
   });
 });
 
@@ -175,8 +231,11 @@ describe("shared search lazy boundary", () => {
     expect(source).toMatch(/from\s+["']@\/data\/topicIndex["']/);
     expect(source).toMatch(/from\s+["']@\/data\/blogIndex["']/);
     expect(source).toMatch(/from\s+["']@\/data\/concepts["']/);
+    expect(source).toMatch(/from\s+["']@\/lib\/argument\/topicIds["']/);
     expect(source).not.toMatch(/from\s+["']@\/data\/topics["']/);
     expect(source).not.toMatch(/from\s+["']@\/data\/blog["']/);
+    expect(source).not.toMatch(/from\s+["']@\/lib\/argument\/draftTopics["']/);
+    expect(source).not.toMatch(/data\/topics\/drafts/);
     expect(source).not.toMatch(/from\s+["']@\/hooks\/useLogicGraph["']/);
     expect(source).not.toMatch(/from\s+["']@xyflow\/react["']/);
     expect(source).not.toMatch(/from\s+["'](?:openai|@anthropic-ai\/sdk)["']/);

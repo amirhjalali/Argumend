@@ -10,9 +10,10 @@ import {
   MiniMap,
   ReactFlow,
   ReactFlowProvider,
+  applyNodeChanges,
   useReactFlow,
 } from "@xyflow/react";
-import type { Node } from "@xyflow/react";
+import type { Node, NodeChange } from "@xyflow/react";
 import { CruxModal } from "@/components/CruxModal";
 import { MetaNode } from "@/components/nodes/MetaNode";
 import { RichNode } from "@/components/nodes/RichNode";
@@ -37,7 +38,11 @@ import type { LogicNodeData } from "@/types/graph";
 function CanvasInner() {
   const nodes = useLogicGraph((state) => state.nodes);
   const edges = useLogicGraph((state) => state.edges);
-  const onNodesChange = useLogicGraph((state) => state.onNodesChange);
+  const onNodesChange = useCallback((changes: NodeChange<Node<LogicNodeData>>[]) => {
+    useLogicGraph.setState((state) => ({
+      nodes: applyNodeChanges(changes, state.nodes),
+    }));
+  }, []);
   const focusTargets = useLogicGraph((state) => state.focusTargets);
   const consumeFocusTargets = useLogicGraph(
     (state) => state.consumeFocusTargets,

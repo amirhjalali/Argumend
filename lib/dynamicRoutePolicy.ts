@@ -120,6 +120,17 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
   const segments = pathnameSegments(pathname);
   if (!segments) return true;
 
+  // Public editorial images can live beneath route-shaped directories (for
+  // example, `/topics/<hero>.jpg`). Keep this exception deliberately narrow:
+  // this policy is a 404 optimization, not a general file-extension bypass.
+  if (
+    segments.length === 2 &&
+    (segments[0] === "topics" || segments[0] === "blog") &&
+    /\.(?:avif|gif|jpe?g|png|webp)$/i.test(segments[1])
+  ) {
+    return false;
+  }
+
   if (segments.length === 2 && segments[0] === "topics") {
     return (
       !RESERVED_TOPIC_SEGMENTS.has(segments[1]) &&

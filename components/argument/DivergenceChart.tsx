@@ -263,7 +263,7 @@ export function DivergenceChart() {
           </text>
         </svg>
       </div>
-      <p className="mt-2 text-[10px] leading-relaxed text-muted dark:text-stone-400">
+      <p className="mt-2 text-[11px] leading-relaxed text-muted dark:text-stone-400">
         Left: BLS U-3, December values + June 2026. Right: relative employment of
         22–25-year-olds in the most AI-exposed occupations, indexed to late 2022
         (−16%, Stanford Digital Economy Lab / ADP) — dashed because it is a

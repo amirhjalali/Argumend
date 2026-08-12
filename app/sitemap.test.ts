@@ -7,7 +7,11 @@ import {
   getArticleSummaryTags,
 } from "@/data/blogIndex";
 import { topicSummaries } from "@/data/topicIndex";
-import { CONTENT_LAST_UPDATED } from "@/lib/site";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
+import {
+  ARGUMENT_TOPICS_LAST_UPDATED,
+  CONTENT_LAST_UPDATED,
+} from "@/lib/site";
 import sitemap from "./sitemap";
 
 describe("sitemap", () => {
@@ -58,6 +62,24 @@ describe("sitemap", () => {
     }
     for (const article of articleSummaries) {
       expect(urls).toContain(`https://argumend.org/blog/${article.slug}`);
+    }
+  });
+
+  it("covers every registered ArgumentGraph map as a high-priority topic", () => {
+    const expectedLastModified = new Date(
+      `${ARGUMENT_TOPICS_LAST_UPDATED}T00:00:00Z`,
+    ).getTime();
+
+    for (const id of argumentTopicIds) {
+      const url = `https://argumend.org/topics/${id}`;
+      const matchingEntries = entries.filter((entry) => entry.url === url);
+
+      expect(matchingEntries).toHaveLength(1);
+      expect(matchingEntries[0].priority).toBe(0.9);
+      expect(matchingEntries[0].changeFrequency).toBe("weekly");
+      expect(
+        new Date(matchingEntries[0].lastModified as string | Date).getTime(),
+      ).toBe(expectedLastModified);
     }
   });
 

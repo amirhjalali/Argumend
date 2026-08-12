@@ -54,7 +54,7 @@ import type {
   Evidence,
   Crux,
 } from "@/lib/schemas/topic";
-import { calculateEvidenceScore } from "@/lib/schemas/topic";
+import { calculateEvidenceScore } from "@/lib/evidenceMetrics";
 import { categoryColors, statusColors, categoryTopBorder } from "@/lib/categoryColors";
 import { BalanceWeightChip, QUADRANT_STYLE } from "@/components/BalanceWeightChip";
 import { CATEGORY_LABELS } from "@/data/topicIndex";

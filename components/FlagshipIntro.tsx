@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import type { Topic } from "@/lib/schemas/topic";
-import { confidenceTier } from "@/lib/schemas/topic";
+import { confidenceTier } from "@/lib/evidenceMetrics";
 
 /**
  * The flagship Stage-1 + Stage-2 intro, shown directly under the header.

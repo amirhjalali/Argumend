@@ -1,6 +1,6 @@
 import type { BlueprintNode } from "@/types/graph";
 import type { Topic } from "@/types/logic";
-import { calculateEvidenceScore } from "@/lib/schemas/topic";
+import { calculateEvidenceScore } from "@/lib/evidenceMetrics";
 
 export function generateBlueprint(topic: Topic): Record<string, BlueprintNode> {
   const rootId = "root";

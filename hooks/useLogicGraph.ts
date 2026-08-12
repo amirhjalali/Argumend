@@ -39,13 +39,11 @@ import type {
   ConceptData,
 } from "@/types/graph";
 import type { ArgumentView } from "@/types/logic";
-import {
+import type {
   Edge,
   MarkerType,
   Node,
-  NodeChange,
   XYPosition,
-  applyNodeChanges,
 } from "@xyflow/react";
 import { create } from "zustand";
 
@@ -91,7 +89,6 @@ type GraphStore = {
   closeCrux: () => void;
   consumeFocusTargets: () => void;
   setFocusTargets: (targets: string[]) => void;
-  onNodesChange: (changes: NodeChange<LogicNode>[]) => void;
 };
 
 // No initial topic is loaded until the graph is opened or a topic is selected.
@@ -150,7 +147,7 @@ function buildEdge(source: string, target: string, slot: ChildSlot, targetVarian
     className: "logic-edge",
     style: { stroke: edgeColor, strokeOpacity: 0.5 },
     markerEnd: {
-      type: MarkerType.ArrowClosed,
+      type: "arrowclosed" as MarkerType,
       color: edgeColor,
       width: 18,
       height: 18,
@@ -606,9 +603,4 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
   consumeFocusTargets: () => set({ focusTargets: [] }),
 
   setFocusTargets: (targets: string[]) => set({ focusTargets: targets }),
-
-  onNodesChange: (changes: NodeChange<LogicNode>[]) =>
-    set((state) => ({
-      nodes: applyNodeChanges(changes, state.nodes),
-    })),
 }));

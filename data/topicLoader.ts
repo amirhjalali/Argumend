@@ -1,4 +1,3 @@
-import { buildTopic } from "./buildTopic";
 import type { Topic, TopicInput } from "@/lib/schemas/topic";
 
 type TopicModuleLoader = () => Promise<unknown>;
@@ -198,8 +197,8 @@ export function loadTopicById(topicId: string): Promise<Topic | null> {
   const loader = topicModuleLoaders[topicId as keyof typeof topicModuleLoaders];
   if (!loader) return Promise.resolve(null);
 
-  const pending = loader()
-    .then((module) => {
+  const pending = Promise.all([loader(), import("./buildTopic")])
+    .then(([module, { buildTopic }]) => {
       const input = findTopicInput(module, topicId);
       return input ? buildTopic(input) : null;
     })

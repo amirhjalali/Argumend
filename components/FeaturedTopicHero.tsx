@@ -15,6 +15,7 @@ import { loadTopicById } from "@/data/topicLoader";
 interface FeaturedTopicHeroProps {
   onTopicSelect: (id: string) => void;
   preview?: ReactNode;
+  headingLevel?: "h1" | "h2";
 }
 
 // Extract the best evidence item for a given side across all pillars
@@ -39,8 +40,13 @@ function getBestEvidence(
   return best;
 }
 
-export function FeaturedTopicHero({ onTopicSelect, preview }: FeaturedTopicHeroProps) {
+export function FeaturedTopicHero({
+  onTopicSelect,
+  preview,
+  headingLevel = "h1",
+}: FeaturedTopicHeroProps) {
   const [topic, setTopic] = useState<Topic | null>(null);
+  const Heading = headingLevel;
 
   // Get lightweight summary (available immediately)
   const summary = topicSummaries.find((t) => t.id === featuredTopicId);
@@ -75,12 +81,12 @@ export function FeaturedTopicHero({ onTopicSelect, preview }: FeaturedTopicHeroP
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-deep/80 dark:text-deep-light">
               Argument maps for difficult questions
             </p>
-            <h1
+            <Heading
               id="homepage-product-promise"
               className="max-w-xl font-serif text-4xl leading-[1.05] tracking-tight text-primary dark:text-stone-200 sm:text-5xl lg:text-[3.35rem]"
             >
               See both sides of any controversial topic, mapped
-            </h1>
+            </Heading>
             <p className="max-w-xl text-base leading-relaxed text-secondary dark:text-stone-400 md:text-lg">
               Steel-manned arguments, weighted evidence, and the crux that would
               change your mind — across {TOPIC_COUNT_LABEL} topics.

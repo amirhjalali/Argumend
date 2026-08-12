@@ -191,6 +191,30 @@ describe("Argument schemas", () => {
     expect(EvidenceSchema.safeParse(evidence({ relevance: " " })).success).toBe(false);
   });
 
+  it("allows only HTTP(S) evidence source URLs", () => {
+    for (const url of ["https://example.com/study", "http://example.com/archive"]) {
+      expect(
+        EvidenceSchema.safeParse(
+          evidence({ source: { ...evidence().source, url } }),
+        ).success,
+      ).toBe(true);
+    }
+
+    for (const url of [
+      "not a url",
+      "http://",
+      "javascript:alert(1)",
+      "data:text/html,<h1>unsafe</h1>",
+      "ftp://example.com/study",
+    ]) {
+      expect(
+        EvidenceSchema.safeParse(
+          evidence({ source: { ...evidence().source, url } }),
+        ).success,
+      ).toBe(false);
+    }
+  });
+
   it("parses a complete graph and returns discriminated parse errors", () => {
     const q1 = question();
     const graph = {

@@ -70,8 +70,20 @@ describe("early dynamic-route 404 policy", () => {
     "/api/auth/session",
     "/_next/static/chunk.js",
     "/icon.png",
+    "/topics/ai-mass-unemployment-hero.jpg",
+    "/topics/capitalism-after-ai-hero.jpg",
+    "/blog/editorial-illustration.webp",
   ])("does not intercept unrelated route %s", (pathname) => {
     expect(shouldServeNamedNotFound(pathname)).toBe(false);
+  });
+
+  it.each([
+    "/analysis/definitely-missing.jpg",
+    "/guides/definitely-missing.json",
+    "/concepts/definitely-missing.png",
+    "/for-educators/worksheets/definitely-missing.webp",
+  ])("does not let dotted dynamic ids bypass the named 404: %s", (pathname) => {
+    expect(shouldServeNamedNotFound(pathname)).toBe(true);
   });
 
   it("rejects same-topic comparisons while allowing arbitrary distinct known pairs", () => {

@@ -3,6 +3,15 @@ import type { ArgumentGraph } from "@/types/argument";
 
 const NonEmptyStringSchema = z.string().trim().min(1);
 
+const HttpUrlSchema = z
+  .string()
+  .url()
+  .refine((value) => {
+    if (!URL.canParse(value)) return false;
+    const protocol = new URL(value).protocol;
+    return protocol === "https:" || protocol === "http:";
+  }, "Source URL must use HTTP or HTTPS");
+
 const ProvenanceSchema = z
   .object({
     origin: z.enum(["source", "extracted", "curator"]),
@@ -136,7 +145,7 @@ export const InferenceSchema = NodeBaseSchema.extend({
 export const SourceSchema = z
   .object({
     title: NonEmptyStringSchema,
-    url: z.string().url().optional(),
+    url: HttpUrlSchema.optional(),
     author: z.string().optional(),
     institution: z.string().optional(),
     publishedAt: z.string().optional(),
