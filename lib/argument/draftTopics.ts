@@ -10,6 +10,7 @@ import { parseArgumentGraph } from "@/lib/schemas/argument";
 import { identifyCruxes, type CruxResult } from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
 import aiMassUnemploymentDraft from "@/data/topics/drafts/ai-mass-unemployment.draft.json";
+import capitalismAfterAiDraft from "@/data/topics/drafts/capitalism-after-ai.draft.json";
 
 export interface ArgumentTopicHighlight {
   /** The big steal-able number/phrase ("−16%", "700 'agents'"). */
@@ -171,6 +172,50 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       },
     },
     raw: aiMassUnemploymentDraft,
+  },
+  "capitalism-after-ai": {
+    meta: {
+      id: "capitalism-after-ai",
+      title: "Can capitalism survive AI?",
+      tagline:
+        "Labor's share of income has been falling for forty years. AI aims at the channel itself. Four camps, and a fight over what “survive” even means.",
+      hook: "Capitalism pays most people through wages. AI is the first technology aimed squarely at that channel — and labor's share of U.S. income has already been sliding for forty years.",
+      tldr: "Almost nobody argues markets stop working. The real fight is narrower and stranger: whether the wage channel keeps distributing enough income to sustain demand and consent — and whether a system that keeps markets but pays people through dividends or transfers still counts as the thing we're defending. Two of the five cruxes are assumptions nobody states out loud; a third is a definition.",
+      shareCard: {
+        left: { value: "−13pts", label: "U.S. labor share of income, 2000 → today (indexed, BLS via FRED)" },
+        right: { value: "40%", label: "One firm's share of enterprise foundation-model spend, 2025" },
+        line: "Falling wage share, rising concentration. Whether that ends capitalism depends on what you think capitalism is.",
+        attribution: "BLS/FRED · Menlo Ventures — argumend.org",
+      },
+      advocates: {
+        "p-adapts-as-always": { name: "David Autor", affiliation: "MIT", line: "argues automation substitutes for labor in some tasks while complementing it in others, and that new task creation has repeatedly restored labor demand." },
+        "p-requires-restructuring": { name: "Anton Korinek", affiliation: "University of Virginia / IMF", line: "argues output can rise sharply once labor stops constraining production, which makes the distribution channel — not growth — the binding problem." },
+        "p-breaks-fundamentally": { name: "Loukas Karabarbounis & Brent Neiman", affiliation: "Chicago Booth", line: "document a global decline in labor's share since the 1980s tracking the falling price of capital — the trend AI would extend, not begin." },
+        "p-definitional-skeptic": { name: "Definitional skeptics", affiliation: "across the debate", line: "argue the sides score their predictions against different bars — private ownership, market allocation, or wages as the income channel — so both can claim victory on the same facts." },
+      },
+      highlights: [
+        { fact: "−13 pts", context: "Decline in the U.S. nonfarm labor share index between 2000 and today — the trend line AI would have to reverse, not merely avoid worsening.", source: "BLS via FRED" },
+        { fact: "40% / 27%", context: "Two firms' share of 2025 U.S. enterprise foundation-model spend — concentration at the input layer, before any product market.", source: "Menlo Ventures" },
+        { fact: "€11.2B", context: "Mondragon's 2024 sales across 70,000+ worker-owners — the largest live test of an alternative ownership structure at industrial scale.", source: "Mondragon 2024 report" },
+        { fact: "$1,000/mo", context: "The largest U.S. guaranteed-income RCT: three years, 1,000 adults — real evidence on transfers, in an economy where jobs still existed.", source: "NBER / OpenResearch" },
+      ],
+      closer: {
+        heading: "Everyone sees the same falling wage share. They disagree about what it implies.",
+        splits: [
+          { camp: "Yes — it adapts like it always has", reading: "the trend is real but bounded; new tasks and new sectors have restored labor demand every previous time." },
+          { camp: "Only if the channel is rebuilt", reading: "markets survive; the wage channel doesn't, so dividends, ownership, or transfers have to carry what wages used to." },
+          { camp: "No — the wage bargain breaks", reading: "once output no longer needs labor, the bargain that made markets politically survivable is gone, whatever we call what's left." },
+          { camp: "Wrong question", reading: "none of this is decidable until someone says which feature — private ownership, market prices, or wage income — has to survive for the answer to be yes." },
+        ],
+        take: "Labor's share of income has fallen for forty years and AI points at the same channel. Whether that kills capitalism or just changes how it pays people depends entirely on which definition you started with — which is why both sides will claim they were right.",
+      },
+      takeaways: [
+        "Almost nobody serious argues markets stop working. The fight is over whether wages keep distributing enough income — and that's a narrower, more answerable question than “does capitalism survive.”",
+        "Two of the top cruxes are assumptions neither side states out loud: that AI ownership stays concentrated, and that labor reallocation keeps pace. Both cases quietly depend on them.",
+        "There are live alternatives with real track records — sovereign dividends, worker ownership at Mondragon scale, guaranteed-income trials — so “what else could work” is an evidence question, not just theory.",
+      ],
+    },
+    raw: capitalismAfterAiDraft,
   },
 };
 

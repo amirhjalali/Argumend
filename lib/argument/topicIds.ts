@@ -5,4 +5,4 @@
  * can allowlist these ids without pulling in the draft JSON, Zod schemas, or
  * the crux engine that lib/argument/draftTopics.ts loads.
  */
-export const argumentTopicIds = ["ai-mass-unemployment"];
+export const argumentTopicIds = ["ai-mass-unemployment", "capitalism-after-ai"];

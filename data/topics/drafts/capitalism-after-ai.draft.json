@@ -1,0 +1,2289 @@
+{
+ "topicId": "capitalism-after-ai",
+ "modelVersion": 2,
+ "question": {
+  "id": "q-capitalism-after-ai",
+  "type": "question",
+  "statement": "Can market capitalism survive advanced AI in recognizable form?",
+  "summary": "Can market capitalism survive advanced AI in recognizable form?",
+  "tags": [
+   "ai",
+   "capitalism",
+   "political-economy",
+   "flagship"
+  ],
+  "provenance": {
+   "origin": "extracted",
+   "modelId": "sonnet-capitalism-draft-v1",
+   "sourceRef": "synthesized from full research report"
+  },
+  "createdAt": "2026-08-11T00:00:00Z",
+  "modelVersion": 2
+ },
+ "nodes": [
+  {
+   "id": "q-capitalism-after-ai",
+   "type": "question",
+   "statement": "Can market capitalism survive advanced AI in recognizable form?",
+   "summary": "Can market capitalism survive advanced AI in recognizable form?",
+   "tags": [
+    "ai",
+    "capitalism",
+    "political-economy",
+    "flagship"
+   ],
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "synthesized from full research report"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "p-adapts-as-always",
+   "label": "Yes \u2014 it adapts like it always has",
+   "statement": "Advanced AI is a disruptive technology like mechanization, electrification, and computerization before it; capitalism survives it in recognizable form because private ownership, profit-seeking firms, and price-mediated markets persist while institutions (antitrust, tax, safety-net law) adapt around the edges, as they always have.",
+   "constituency": "Economic historians and diffusion-skeptic economists (Autor's task-based framework, Bessen's demand-elasticity work, Crafts's long-run productivity history) plus market-optimist policy analysts who read antitrust and redistribution as adaptation, not transformation.",
+   "steelmanBasis": "Centuries of automation \u2014 agriculture, electrification, computers \u2014 disrupted specific occupations without ending markets, and each time institutions (the Sherman Act, the NLRA, Social Security, the FLSA) adapted around the disruption rather than replacing it; a capitalist economy with aggressive antitrust, AI taxes, citizen dividends, and public compute is still recognizably capitalist as long as private firms, markets, and profit stay central.",
+   "displayRank": 1,
+   "summary": "We panicked about the steam engine too \u2014 markets absorbed it, and they'll absorb this.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "closing synthesis paragraph; historical-adaptation paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "type": "position"
+  },
+  {
+   "id": "p-requires-restructuring",
+   "label": "Only if the income-distribution channel is rebuilt",
+   "statement": "Market capitalism can survive advanced AI in recognizable form, but only if it restructures how purchasing power reaches people who do not own the machines \u2014 through citizen dividends, AI taxation, public compute, and preemptive antitrust \u2014 because the labor market alone will not keep doing that job.",
+   "constituency": "Institutionalist and redistribution-focused economists (Korinek's AGI-scenario work, IMF diffusion-bottleneck analysis), sovereign-wealth and data-dividend policy advocates, and competition regulators (FTC, UK CMA) tracking compute/cloud/model bottlenecks.",
+   "steelmanBasis": "The causal chain is concrete and already partly observed: task automation lowers the marginal product of broad labor categories, which lowers the wage bill and labor's income share, which weakens mass purchasing power unless something else \u2014 transfers, capital ownership diffusion, new work, or cheaper goods \u2014 recycles it; Korinek's AGI scenario formalizes exactly this, and existing sovereign-wealth dividends and antitrust interventions show the restructuring tools already exist at some scale.",
+   "displayRank": 2,
+   "summary": "Capitalism survives AI only if it rebuilds how income reaches people who don't own the machines.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "demand-collapse paragraph; alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "type": "position"
+  },
+  {
+   "id": "p-breaks-fundamentally",
+   "label": "No \u2014 the wage bargain itself breaks",
+   "statement": "Advanced AI attacks capitalism's historic bargain \u2014 that wages give non-owners access to the social product \u2014 deeply enough that if machines produce most output while ownership of those machines stays concentrated, the result is a post-capitalist system regardless of how much redistribution is bolted on.",
+   "constituency": "Postcapitalist theorists (Mason's zero-marginal-cost thesis), the Marxian \u201cFragment on Machines\u201d lineage, and monopoly-breakup / data-democracy advocates who read AI-era concentration as qualitatively different from prior automation waves.",
+   "steelmanBasis": "If social knowledge becomes objectified in machinery as fixed capital, direct labor time stops being an adequate measure and basis of value \u2014 the strongest theoretical lineage for AI making wage-centered capitalism obsolete \u2014 and it is reinforced by a live empirical fact: AI's task generality targets cognitive work across a much wider frontier simultaneously than any prior automation wave, removing the complementary-task margin that powered past reinstatement.",
+   "displayRank": 3,
+   "summary": "When machines own the output and wages stop mattering, calling it capitalism is just nostalgia.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "post-capitalist case paragraph; Fragment on Machines paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "type": "position"
+  },
+  {
+   "id": "p-definitional-skeptic",
+   "label": "Wrong question \u2014 'survive' is undefined",
+   "statement": "Whether capitalism 'survives' advanced AI is not a fact waiting to be measured; it depends entirely on which definition of capitalism is stipulated \u2014 private ownership and market allocation, or labor as the primary income channel \u2014 and most of the apparent empirical disagreement between the other positions is actually a disagreement about definitions.",
+   "constituency": "Philosophers of economics and definitional-clarity advocates working from the IMF/Stanford Encyclopedia framing of what capitalism structurally requires, plus policy scholars who note the question cannot be operationalized until its terms are fixed.",
+   "steelmanBasis": "A great deal of the dispute among the other three positions collapses once you notice they are using different definitions of 'survive': under a narrow ownership-and-markets definition a heavily redistributive, publicly-computed economy is still capitalism, while under a broad labor-income definition the same economy is not \u2014 and no amount of further evidence about labor share, concentration, or dividends resolves which definition is correct, because that is a definitional choice, not an empirical one.",
+   "displayRank": 4,
+   "summary": "Ask ten economists what 'capitalism surviving' means and you get ten different bars \u2014 the debate never gets past definitions.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "opening definitional-issue paragraph; disagreement proposition 6"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "type": "position"
+  },
+  {
+   "id": "c-survival-definition-contested",
+   "type": "claim",
+   "statement": "Whether capitalism has 'survived' AI depends on which criterion is used: private ownership and market allocation persisting, or labor remaining the primary channel through which households obtain purchasing power.",
+   "epistemicType": "definitional",
+   "status": "contested",
+   "statusBasis": "The two readings genuinely diverge in what they predict counts as survival, and the research corpus explicitly frames much of the wider dispute as downstream of this unresolved choice rather than of any further evidence.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "opening definitional-issue paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "resolution": {
+    "kind": "definitional-choice",
+    "condition": "the field converges on a stipulated threshold definition of 'capitalism' before further empirical work is treated as dispositive"
+   },
+   "summary": "What do we even mean by capitalism 'surviving' AI?"
+  },
+  {
+   "id": "c-narrow-ownership-markets-definition",
+   "type": "claim",
+   "statement": "Under a narrow definition, capitalism survives AI so long as private ownership of productive assets, profit-seeking firms, and price-mediated allocation of capital and labor persist, regardless of how large the welfare state or how many transfers are paid.",
+   "epistemicType": "definitional",
+   "status": "broadly_accepted",
+   "statusBasis": "This is the standard institutional definition used in mainstream economics reference treatments and is not itself contested; what is contested is whether it is the right definition to use for this question.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "opening definitional-issue paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-broad-labor-income-definition",
+   "type": "claim",
+   "statement": "Under a broad definition, capitalism survives AI only if most households continue to obtain their purchasing power mainly by selling labor in competitive labor markets, rather than through transfers or capital dividends.",
+   "epistemicType": "definitional",
+   "status": "contested",
+   "statusBasis": "This reading is defended by the post-capitalist and restructuring cases as the operative bar, but disputed by the narrow-definition camp as conflating a contingent historical feature of capitalism with a defining one.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "opening definitional-issue paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-high-tax-ubi-still-capitalism",
+   "type": "claim",
+   "statement": "A high-tax, UBI-funded, public-compute economy in which private firms still compete for profit and prices still allocate most goods counts as capitalism, just heavily redistributive.",
+   "epistemicType": "definitional",
+   "status": "contested",
+   "statusBasis": "Directly drawn from the corpus's own disagreement proposition; resolvable only by first fixing threshold criteria for private ownership, market allocation, wage centrality, profit motive, and the public/nonprofit share of output.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "disagreement proposition 6"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "resolution": {
+    "kind": "definitional-choice",
+    "condition": "threshold criteria for private ownership, market allocation, wage centrality, profit motive, and public/nonprofit output share are stipulated and applied"
+   },
+   "summary": "Is a heavily taxed, UBI-funded, publicly-computed economy still capitalism?"
+  },
+  {
+   "id": "c-labor-share-declining-us",
+   "type": "claim",
+   "statement": "U.S. nonfarm business labor share has trended downward over the past two decades, running below its 2017 baseline level through 2025 and 2026.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "The indexed FRED/BLS series shows a consistent multi-decade decline, but the claim is a generalization from one national accounting series and does not by itself settle causal attribution to AI specifically versus longer-running structural trends.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capital-labor share data paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-labor-share-declining-global",
+   "type": "claim",
+   "statement": "Labor's share of income has declined globally since the early 1980s, a trend partly explained by falling prices of investment goods inducing substitution from labor toward capital.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Documented across countries and time by widely cited academic work; the 'partly' is load-bearing since the same authors' later work stresses measurement disputes over the residual.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capital-labor share data paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-labor-share-measurement-disputed",
+   "type": "claim",
+   "statement": "The magnitude, and even some of the direction, of labor-share decline is disputed once offshoring, demographics, superstar-firm effects, and gross-versus-net accounting choices are taken into account.",
+   "epistemicType": "empirical",
+   "status": "contested",
+   "statusBasis": "Multiple competing explanations (mismeasurement/offshoring, superstar firms, demographics) are live in the literature and have not been adjudicated against one another with a shared accounting standard.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capital-labor share data paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-model-market-concentrated",
+   "type": "claim",
+   "statement": "The market for frontier AI foundation-model API usage is highly concentrated, with the top three providers accounting for the large majority of enterprise spend.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Based on a widely cited 2025 industry estimate; the estimate itself is described by its own source as derived from survey-weighted usage and financial triangulation rather than audited market-share data.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-cloud-concentrated",
+   "type": "claim",
+   "statement": "Cloud infrastructure, the computational substrate AI models run on, is concentrated among a small number of providers commanding hundreds of billions of dollars in annual spend.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Consistent quarterly market-tracking data from an independent research firm; concentration at this layer is not seriously disputed in the corpus.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-chip-concentrated",
+   "type": "claim",
+   "statement": "The market for AI-training and AI-inference chips is even more concentrated than the cloud or model layers, dominated by a single supplier.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Convergent estimates from an international policy body and an industry analyst firm both put one supplier's share of AI chips or GPU shipments above 80%, though the exact figure varies by whether shipments or revenue and how broadly 'AI chip' is defined.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-antitrust-flagged-ai-partnerships",
+   "type": "claim",
+   "statement": "Competition regulators in the U.S. and U.K. have identified cloud-AI lab partnerships as capable of affecting access to compute and talent and raising switching costs.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Two independent regulators (FTC, UK CMA) reached broadly convergent conclusions in separate 2025 reports.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "antitrust concern paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-cash-dividend-exists-modest",
+   "type": "claim",
+   "statement": "At least one U.S. state already pays residents an annual per-person cash dividend funded by natural-resource capital, at an amount far smaller than typical wage income.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Alaska's Permanent Fund Dividend is a documented, decades-old, ongoing program with a publicly reported per-person payment amount.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-sovereign-wealth-can-reach-trillions",
+   "type": "claim",
+   "statement": "At least one sovereign wealth fund built on resource rents has grown to trillions of dollars in value while leaving domestic private markets and firms intact.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Norway's Government Pension Fund Global reports audited year-end value and annual return figures; scale is not disputed, only whether it is a template for other economies.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-ubi-trial-reduces-labor-supply",
+   "type": "claim",
+   "statement": "In the largest U.S. randomized guaranteed-income trial to date, unconditional cash transfers around $1,000/month measurably reduced recipients' labor-force participation and hours worked.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "A peer-reviewed randomized controlled trial with a multi-year panel; the direction of the labor-supply effect is not seriously disputed, though its size relative to an AI-driven demand-collapse scenario is.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-worker-coop-can-reach-scale",
+   "type": "claim",
+   "statement": "At least one worker-cooperative federation has reached multi-billion-dollar, multi-decade commercial scale while competing in ordinary markets.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Self-reported annual figures (sales, employment, profit) from a single, long-running federation; scale within one federation does not establish economy-wide feasibility.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-historical-automation-preserved-markets",
+   "type": "claim",
+   "statement": "Successive waves of mechanization, electrification, and computerization disrupted specific occupations without ending market allocation or private ownership.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Long-run economic-history research finds large productivity effects from each wave, typically with long adoption lags, and none produced a permanent, economy-wide departure from market allocation.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capitalism-survived-everything paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-institutions-adapted-historically",
+   "type": "claim",
+   "statement": "Prior technology-driven economic disruptions were met with new institutions \u2014 antitrust law, collective-bargaining rights, social insurance, wage-and-hour law \u2014 that preserved a recognizably capitalist system.",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Each institution (Sherman Act 1890, NLRA 1935, Social Security Act 1935, FLSA) is independently documented and dated; the claim is that adaptation, not abolition, was the historical pattern.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capitalism-survived-everything paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-automation-complements-labor-historically",
+   "type": "claim",
+   "statement": "Historically, automation has substituted for labor in some tasks while complementing it and raising labor demand in others, rather than producing net job elimination.",
+   "epistemicType": "empirical",
+   "status": "contested",
+   "statusBasis": "This is the central finding of a canonical labor-economics review, but its applicability to a technology with much broader task generality than prior automation is exactly what is disputed by the opposing position.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "strongest-rebuttal paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-ubi-trial-scale-mismatch",
+   "type": "claim",
+   "statement": "The guaranteed-income trial's labor-supply effects were measured in a full-employment economy with intact job openings elsewhere, not in a scenario of AI-driven demand collapse across many occupations at once, so the finding may not generalize to AI-scale disruption.",
+   "epistemicType": "empirical",
+   "status": "contested",
+   "statusBasis": "The trial's own design context (a normal full-employment labor market) differs structurally from the scenario the demand-collapse and redistribution debate is actually about; extraction flags this as a live scope objection rather than an established limitation.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-individual-data-marginal-contribution-negligible",
+   "type": "claim",
+   "statement": "An individual user's data contributes negligibly to a frontier model's capability at the margin, so treating it as individually compensable labor overstates any single person's claim on model output.",
+   "epistemicType": "empirical",
+   "status": "contested",
+   "statusBasis": "Not directly measured in the corpus; treated as an implicit premise of data-dividend skepticism, extracted per the attack-driven inference rule because it is the load-bearing objection to the data-as-labor argument.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "property-rights paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "implicit": true
+  },
+  {
+   "id": "c-agi-transformative-claim-unverified",
+   "type": "claim",
+   "statement": "Frontier AI will become capable of performing virtually all economically valuable human work.",
+   "epistemicType": "predictive",
+   "status": "unresolved",
+   "statusBasis": "The corpus explicitly flags this claim as UNVERIFIED: it is a modeled scenario input used for scenario planning, not an observed or established trajectory.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "task-automation mechanism paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "resolution": {
+    "kind": "future-observable",
+    "condition": "a multi-year track record of AI systems performing a broad majority of currently human-performed economically valuable tasks at competitive cost"
+   }
+  },
+  {
+   "id": "c-task-automation-lowers-labor-share",
+   "type": "claim",
+   "statement": "Task automation will lower the marginal product of broad labor categories widely enough to shrink the aggregate wage bill and labor's share of income, rather than being absorbed by complementary task growth.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "This is the pivotal, disputed link in the demand-collapse chain; it is plausible under transformative-AI scenarios but not established by current short-run evidence.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "task-automation mechanism paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-ai-ownership-stays-concentrated",
+   "type": "claim",
+   "statement": "Ownership and control of frontier AI models, compute, and the data that trains them will remain concentrated in a small number of firms and individuals rather than diffusing broadly over the next decade.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "Not argued explicitly as a standalone premise anywhere in the corpus, but the demand-collapse and post-capitalist conclusions do not follow unless ownership stays concentrated rather than diffusing; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "implicit": true
+  },
+  {
+   "id": "c-reallocation-keeps-pace",
+   "type": "claim",
+   "statement": "Workers displaced from AI-exposed tasks will be able to re-enter higher-productivity complementary jobs at a pace that avoids sustained aggregate underemployment, as occurred in prior automation waves.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "Not stated explicitly by the market-optimist case, but its conclusion that adaptation equals survival presupposes reallocation keeps pace with displacement; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "strongest-rebuttal paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "implicit": true
+  },
+  {
+   "id": "c-demand-collapse-without-recycling",
+   "type": "claim",
+   "statement": "If labor income falls faster than transfers, capital-income diffusion, new work, or falling prices recycle purchasing power to non-owners, aggregate consumer demand will fall short of what AI-augmented output capacity could otherwise support.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "This is the modern formalization (Korinek's AGI scenario) of a demand-collapse argument that predates AI (Keynes, Hobson); it is a coherent mechanism but its empirical trigger conditions have not yet been observed at AI-relevant scale.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "demand-collapse paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "resolution": {
+    "kind": "future-observable",
+    "condition": "observing whether transfers, capital income, price declines, new goods, and investment demand offset a falling wage bill without chronic underemployment"
+   },
+   "summary": "If AI cuts the wage bill, who's left to buy what AI produces?"
+  },
+  {
+   "id": "c-wages-plummet-under-agi-scenario",
+   "type": "claim",
+   "statement": "Under transformative-AI scenarios, competitive wages eventually fall sharply as machines substitute for increasingly less-scarce human labor, even as aggregate output rises.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "Directly drawn from a named economist's formal AGI scenario modeling; it is a modeled prediction under a specific scenario assumption, not an observed trend.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "demand-collapse paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-ai-markets-tip-into-durable-oligopoly",
+   "type": "claim",
+   "statement": "Frontier AI markets \u2014 models, cloud, and chips \u2014 will tip into a durable oligopoly with persistently high concentration, high switching costs, and exclusionary control over bottleneck inputs, rather than eroding through entry.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "Directly drawn from the corpus's own disagreement proposition; current concentration is high but whether it tips into a durable, exclusionary structure versus eroding under competitive and regulatory pressure is exactly the open question.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "disagreement proposition 3"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "resolution": {
+    "kind": "future-observable",
+    "condition": "five-year evidence on model, cloud, chip, and application shares showing whether high concentration and exclusionary input control persist"
+   },
+   "summary": "Will the AI stack lock into a permanent handful of winners?"
+  },
+  {
+   "id": "c-open-models-lower-entry-barriers",
+   "type": "claim",
+   "statement": "Open-weight models, model routing, synthetic data, and cheaper inference will lower entry barriers for downstream firms enough to offset concentration at the frontier-model and compute layers.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "Consistent with recent microdata findings that generative-AI exposure creates opportunities for smaller firms as well as advantages for incumbents, but it is a prediction about a still-unsettled competitive dynamic, not a settled trend.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "antitrust concern paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-reinstatement-will-recur",
+   "type": "claim",
+   "statement": "As in prior automation waves, reinstatement effects and demand growth will again create enough new complementary work to absorb most workers displaced by AI within a normal business-cycle horizon.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "Analogically supported by 250 years of automation history, but whether the analogy holds for a technology with much broader task generality is the crux the opposing position attacks.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "strongest-rebuttal paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "resolution": {
+    "kind": "future-observable",
+    "condition": "tracking displaced-worker reemployment and new-occupation creation over a multi-year horizon comparable to prior technology transitions"
+   },
+   "summary": "Will AI create enough new jobs to replace the ones it automates, like past technologies did?"
+  },
+  {
+   "id": "c-scarcity-migrates",
+   "type": "claim",
+   "statement": "Even if AI relieves scarcity in many cognitive-labor-intensive goods and services, scarcity persists and migrates to energy, chips, data-center capacity, land, minerals, trusted human services, and status goods.",
+   "epistemicType": "predictive",
+   "status": "broadly_accepted",
+   "statusBasis": "Consistent with diffusion-bottleneck analysis identifying energy, data centers, and connectivity as binding constraints; the broader claim that scarcity migrates rather than vanishes is a reasonable generalization from those specific bottlenecks.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "post-scarcity paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-capital-owners-recycle-demand",
+   "type": "claim",
+   "statement": "Capital owners' own consumption and investment, falling prices from productivity gains, and new goods created by AI-enabled production can recycle enough purchasing power to non-owners to prevent chronic demand shortfall, without requiring new redistribution institutions.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "This is the corpus's own 'strongest rebuttal' framing of the demand-collapse argument; it is a coherent alternative mechanism but, like the demand-collapse claim itself, has not been tested at AI-relevant scale.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "strongest-rebuttal paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-redistribution-restores-demand-loop",
+   "type": "claim",
+   "statement": "Institutions that compensate workers for lost labor income \u2014 citizen dividends, AI taxation, public compute access \u2014 can restore an effective demand loop even if labor's share of the task frontier keeps shrinking.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "Directly proposed as the resolution condition in Korinek's AGI-scenario framing and echoed by IMF diffusion-bottleneck analysis recommending shared infrastructure and public-good AI models; untested at the scale a full labor-income substitution would require.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-wage-channel-loses-primacy",
+   "type": "claim",
+   "statement": "Wages will cease to be the primary mechanism by which non-owners of capital gain access to the social product, forcing any surviving system to route purchasing power through some other channel.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "The strongest theoretical lineage for this claim (the Marxian 'Fragment on Machines' argument) is disputed even by scholars sympathetic to it as to whether it implies collapse of the wage channel or merely its diminished centrality.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "post-capitalist case paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "resolution": {
+    "kind": "value-difference",
+    "condition": "cannot be settled by further observation alone; turns partly on how much wage-income concentration is required before the channel counts as having 'lost primacy'"
+   },
+   "summary": "Do wages stop being how ordinary people get a share of the economy?"
+  },
+  {
+   "id": "c-dividends-insufficient-at-current-scale",
+   "type": "claim",
+   "statement": "Cash-dividend and basic-income mechanisms tested or deployed to date are too small in scale, or reduce labor supply enough at the margin, that they cannot alone substitute for a broad labor-income channel at AI-driven scale.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "Generalizes from the modest scale of existing dividends and the observed labor-supply response in guaranteed-income trials; the generalization to AI-driven scale is itself contested (see the trial's scope-mismatch objection).",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-ai-task-generality-breaks-analogy",
+   "type": "claim",
+   "statement": "Unlike prior automation waves that displaced specific tasks within occupations, advanced AI targets cognitive tasks across a much wider swath of the task frontier simultaneously, weakening the complementary-task margin that powered past reinstatement.",
+   "epistemicType": "predictive",
+   "status": "contested",
+   "statusBasis": "A structural claim about AI's breadth relative to prior automation; plausible given AI's cross-occupation applicability but not yet demonstrated by a completed reinstatement cycle the way prior waves can be observed in hindsight.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "post-capitalist case paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-citizens-deserve-ai-rents",
+   "type": "claim",
+   "statement": "Citizens deserve an enforceable claim on AI rents because frontier models are trained substantially on collectively produced human knowledge, data, and creative work.",
+   "epistemicType": "normative",
+   "status": "contested",
+   "statusBasis": "Directly drawn from the corpus's own disagreement proposition; explicitly flagged there as not settleable empirically, requiring a political theory of ownership, desert, privacy, and public goods.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "disagreement proposition 5"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Do ordinary people have a moral claim on the profits AI makes from their data?"
+  },
+  {
+   "id": "c-data-labor-deserves-compensation",
+   "type": "claim",
+   "statement": "Data that functions as an input to AI capability, generated through users' ordinary online behavior, deserves compensation on the same logic that labor deserves a wage.",
+   "epistemicType": "normative",
+   "status": "contested",
+   "statusBasis": "The 'data as labor' position is argued in the academic literature as a response to unequal distribution and monopsony-like bargaining power, but it is a normative extension of a labor-desert principle, not an empirical finding.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "property-rights paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-worker-ownership-preferable-to-ubi",
+   "type": "claim",
+   "statement": "Distributing AI-era capital income through worker ownership and cooperative structures is preferable to redistributing it after the fact through taxation and dividends, because ownership also confers bargaining power over deployment terms.",
+   "epistemicType": "normative",
+   "status": "contested",
+   "statusBasis": "A normative preference among redistribution mechanisms; existing cooperative scale evidence establishes feasibility but not that ownership is normatively preferable to dividends, which is a further value claim.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "c-compute-governance-process",
+   "type": "claim",
+   "statement": "Whether frontier compute, model weights, and AI capital access are governed as ordinary private property or as infrastructure subject to public oversight should be settled through antitrust enforcement, legislation, and international agreement, not left to default private control.",
+   "epistemicType": "procedural",
+   "status": "contested",
+   "statusBasis": "Live regulatory activity (FTC and CMA reports, IMF's public-good-AI-models proposal) shows this is already being contested through exactly those institutional channels, but no settled allocation of decision rights exists yet.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "antitrust concern paragraph; alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "resolution": {
+    "kind": "authority-allocation",
+    "condition": "legislative, antitrust, and international-agreement processes settle who holds decision rights over compute and model-weight access"
+   },
+   "summary": "Who should get to decide who controls the compute AI runs on?"
+  },
+  {
+   "id": "c-data-ownership-boundaries-contested",
+   "type": "claim",
+   "statement": "The ownership boundaries over the data, copyrighted works, and user behavior used to train AI models are legally and normatively contested, unlike the comparatively settled property rights over traditional productive capital.",
+   "epistemicType": "procedural",
+   "status": "contested",
+   "statusBasis": "Multiple unresolved legal and institutional disputes (copyright litigation, data-as-labor proposals, monopsony bargaining concerns) are live simultaneously, with no settled precedent comparable to established property law for physical capital.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "property-rights paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "resolution": {
+    "kind": "authority-allocation",
+    "condition": "courts, legislatures, or negotiated data-bargaining institutions settle who holds enforceable rights over training data"
+   }
+  },
+  {
+   "id": "e-labor-share-fred",
+   "type": "evidence",
+   "finding": "U.S. nonfarm business labor share, indexed to 2017=100, was 112.828 in Q1 2000, 99.721 in Q1 2017, 97.871 in Q1 2025, 94.843 in Q1 2026, and 93.547 in Q2 2026.",
+   "statement": "U.S. nonfarm business labor share, indexed to 2017=100, was 112.828 in Q1 2000, 99.721 in Q1 2017, 97.871 in Q1 2025, 94.843 in Q1 2026, and 93.547 in Q2 2026.",
+   "source": {
+    "title": "Nonfarm Business Sector: Labor Share",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://fred.stlouisfed.org/data/PRS85006173",
+    "institution": "Federal Reserve Bank of St. Louis / U.S. Bureau of Labor Statistics"
+   },
+   "relevance": "The central quantitative anchor for the claim that labor's income share has been declining in the U.S.; a two-decade indexed time series.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capital-labor share data paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 9,
+    "independence": 8,
+    "replicability": 9,
+    "directness": 7,
+    "weightBasis": "Official government statistical series with a long, consistently constructed time series; highly reliable and independently reproducible, but it is a single accounting measure and does not itself settle what causes the decline or how much of it AI explains."
+   }
+  },
+  {
+   "id": "e-karabarbounis-neiman",
+   "type": "evidence",
+   "finding": "A global decline in labor share since the early 1980s is documented across countries, with falling investment-goods prices inducing substitution from labor toward capital explaining roughly half of the decline.",
+   "statement": "A global decline in labor share since the early 1980s is documented across countries, with falling investment-goods prices inducing substitution from labor toward capital explaining roughly half of the decline.",
+   "source": {
+    "title": "The Global Decline of the Labor Share",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://doi.org/10.1093/qje/qjt032",
+    "author": "Karabarbounis, Neiman",
+    "institution": "Quarterly Journal of Economics"
+   },
+   "relevance": "Establishes that labor-share decline predates AI by decades and has a partially identified structural cause, which bears on how much weight to give AI-specific causal stories.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capital-labor share data paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 9,
+    "independence": 8,
+    "replicability": 7,
+    "directness": 6,
+    "weightBasis": "Widely cited, peer-reviewed cross-country study; strong on documenting the trend and one structural driver, but the authors' own later work stresses substantial measurement disputes over the unexplained residual."
+   }
+  },
+  {
+   "id": "e-labor-share-measurement-critique",
+   "type": "evidence",
+   "finding": "A review of the labor-share literature catalogs competing explanations for the decline, including a mismeasurement/offshoring hypothesis, a superstar-firm hypothesis, and a demographic-composition hypothesis, without adjudicating between them.",
+   "statement": "A review of the labor-share literature catalogs competing explanations for the decline, including a mismeasurement/offshoring hypothesis, a superstar-firm hypothesis, and a demographic-composition hypothesis, without adjudicating between them.",
+   "source": {
+    "title": "Understanding the Decline in the Labor Share",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11057198/"
+   },
+   "relevance": "Shows that the labor-share decline's magnitude and causal attribution remain genuinely contested in the literature, which limits how much the raw FRED series can be taken to show on its own.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capital-labor share data paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-menlo-model-share",
+   "type": "evidence",
+   "finding": "2025 U.S. enterprise foundation-model API usage and spend was estimated at Anthropic 40%, OpenAI 27%, and Google 21%, with the top three providers at a combined 88%.",
+   "statement": "2025 U.S. enterprise foundation-model API usage and spend was estimated at Anthropic 40%, OpenAI 27%, and Google 21%, with the top three providers at a combined 88%.",
+   "source": {
+    "title": "2025: The State of Generative AI in the Enterprise",
+    "kind": "industry",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/",
+    "institution": "Menlo Ventures",
+    "interest": "Menlo Ventures is a venture capital firm investing across the AI stack with a commercial interest in a widely cited enterprise-AI narrative; the report itself states these are estimates from survey-weighted usage and financial triangulation, not audited market shares."
+   },
+   "relevance": "The headline figure for concentration at the foundation-model layer of the AI stack.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 6,
+    "independence": 4,
+    "replicability": 4,
+    "directness": 8,
+    "weightBasis": "Directly on point for model-layer concentration, but the source is a venture capital firm's own market report using estimated, not audited, shares, and it has a commercial interest in the enterprise-AI narrative it is publicizing."
+   }
+  },
+  {
+   "id": "e-synergy-cloud-share",
+   "type": "evidence",
+   "finding": "Q4 2025 worldwide cloud infrastructure market shares were Amazon 28%, Microsoft 21%, and Google 14%, with 2025 full-year cloud infrastructure spending at $419 billion.",
+   "statement": "Q4 2025 worldwide cloud infrastructure market shares were Amazon 28%, Microsoft 21%, and Google 14%, with 2025 full-year cloud infrastructure spending at $419 billion.",
+   "source": {
+    "title": "GenAI Helps Drive Quarterly Cloud Revenues to $119 Billion",
+    "kind": "industry",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4",
+    "institution": "Synergy Research Group",
+    "interest": "Synergy Research Group sells cloud-market research and tracking subscriptions, giving it an interest in cloud-market visibility, though its quarterly tracking methodology is widely cited as an industry reference."
+   },
+   "relevance": "Establishes concentration at the cloud-infrastructure layer that AI models run on.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 7,
+    "independence": 6,
+    "replicability": 6,
+    "directness": 7,
+    "weightBasis": "An independent market-tracking firm with a consistent quarterly methodology used widely as an industry reference; sells subscriptions to related research, a mild commercial interest in market visibility."
+   }
+  },
+  {
+   "id": "e-oecd-nvidia-gpu-share",
+   "type": "evidence",
+   "finding": "Recent estimates cited by the OECD give one supplier over 80% of GPU chips used for AI.",
+   "statement": "Recent estimates cited by the OECD give one supplier over 80% of GPU chips used for AI.",
+   "source": {
+    "title": "Competition in Artificial Intelligence Infrastructure",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.oecd.org/en/publications/competition-in-artificial-intelligence-infrastructure_623d1874-en/full-report/component-5.html",
+    "institution": "OECD"
+   },
+   "relevance": "An intergovernmental competition-policy body's own estimate of chip-layer concentration, independent of industry analyst firms.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-dcd-techinsights-nvidia-98pct",
+   "type": "evidence",
+   "finding": "One supplier shipped 3.76 million data-center GPUs in 2023, equating to a 98% share of data-center GPU shipments, per an industry analyst firm's figures reported in trade press.",
+   "statement": "One supplier shipped 3.76 million data-center GPUs in 2023, equating to a 98% share of data-center GPU shipments, per an industry analyst firm's figures reported in trade press.",
+   "source": {
+    "title": "Nvidia GPU Shipments Totaled 3.76M in 2023, Equating to a 98% Market Share: Report",
+    "kind": "journalism",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.datacenterdynamics.com/en/news/nvidia-gpu-shipments-totaled-376m-in-2023-equating-to-a-98-market-share-report/",
+    "institution": "Data Center Dynamics"
+   },
+   "relevance": "A shipment-unit-based concentration figure for AI-relevant GPUs, converging with the OECD's revenue/usage-based estimate on very high concentration.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-techinsights-ai-chip-market",
+   "type": "evidence",
+   "finding": "The 2023 data-center AI chip market was estimated at $17.7 billion, with one supplier at 65% share, a second at 22%, and a third at 11%, once the broader category of AI chips beyond GPUs is counted.",
+   "statement": "The 2023 data-center AI chip market was estimated at $17.7 billion, with one supplier at 65% share, a second at 22%, and a third at 11%, once the broader category of AI chips beyond GPUs is counted.",
+   "source": {
+    "title": "Data Center AI Chip Market Q1 2024 Update",
+    "kind": "industry",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.techinsights.com/blog/data-center-ai-chip-market-q1-2024-update",
+    "institution": "TechInsights"
+   },
+   "relevance": "Shows that the extreme concentration figures for GPU shipments specifically are less extreme once a broader definition of 'AI chip' is used, qualifying how the chip-concentration claim should be read.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-ftc-2025-ai-partnerships",
+   "type": "evidence",
+   "finding": "A 2025 FTC staff report on the Microsoft/OpenAI, Amazon/Anthropic, and Alphabet/Anthropic partnerships found these arrangements can affect access to compute and talent, increase switching costs, and give cloud partners sensitive technical and business information.",
+   "statement": "A 2025 FTC staff report on the Microsoft/OpenAI, Amazon/Anthropic, and Alphabet/Anthropic partnerships found these arrangements can affect access to compute and talent, increase switching costs, and give cloud partners sensitive technical and business information.",
+   "source": {
+    "title": "FTC Issues Staff Report on AI Partnerships and Investments",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-issues-staff-report-ai-partnerships-investments-study",
+    "institution": "Federal Trade Commission"
+   },
+   "relevance": "A U.S. competition regulator's own findings on bottleneck risk in cloud-AI lab partnerships.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "antitrust concern paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-cma-foundation-models",
+   "type": "evidence",
+   "finding": "The UK Competition and Markets Authority warned of risks to fair, open, and effective competition arising from foundation-model partnerships and market structure.",
+   "statement": "The UK Competition and Markets Authority warned of risks to fair, open, and effective competition arising from foundation-model partnerships and market structure.",
+   "source": {
+    "title": "AI Foundation Models Update Paper",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.gov.uk/government/publications/ai-foundation-models-update-paper",
+    "institution": "UK Competition and Markets Authority"
+   },
+   "relevance": "A second, independent national regulator reaching a broadly convergent concern about foundation-model competition.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "antitrust concern paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-korinek-vipra-scale-economies",
+   "type": "evidence",
+   "finding": "Foundation models exhibit economies of scale and scope with risks of tipping toward dominance and vertical integration across the AI stack.",
+   "statement": "Foundation models exhibit economies of scale and scope with risks of tipping toward dominance and vertical integration across the AI stack.",
+   "source": {
+    "title": "Rethinking Competition in the Age of AI",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.nber.org/papers/w33139",
+    "author": "Korinek, Vipra",
+    "institution": "National Bureau of Economic Research"
+   },
+   "relevance": "The theoretical mechanism (scale/scope economies, tipping, vertical integration) that would make current concentration durable rather than transient.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "antitrust concern paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-ftc-antitrust-laws-general",
+   "type": "evidence",
+   "finding": "U.S. antitrust statutes \u2014 the Sherman Act, Clayton Act, and FTC Act \u2014 have been applied by regulators from horse-and-buggy-era markets to digital markets, and Clayton Act Section 7 already reaches mergers whose effect 'may be substantially to lessen competition.'",
+   "statement": "U.S. antitrust statutes \u2014 the Sherman Act, Clayton Act, and FTC Act \u2014 have been applied by regulators from horse-and-buggy-era markets to digital markets, and Clayton Act Section 7 already reaches mergers whose effect 'may be substantially to lessen competition.'",
+   "source": {
+    "title": "Guide to Antitrust Laws",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.ftc.gov/advice-guidance/competition-guidance/guide-antitrust-laws/antitrust-laws",
+    "institution": "Federal Trade Commission"
+   },
+   "relevance": "Supports the view that existing, deliberately general antitrust law is already capable of addressing AI-market concentration without new legislation, cutting against the claim that concentration will go unaddressed.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capitalism-survived-everything paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-oecd-genai-productivity-2026",
+   "type": "evidence",
+   "finding": "A 2026 OECD microdata review finds non-generative AI adoption is not associated with significant increases in market power, and that generative-AI exposure creates opportunities for smaller firms as well as advantages for incumbents.",
+   "statement": "A 2026 OECD microdata review finds non-generative AI adoption is not associated with significant increases in market power, and that generative-AI exposure creates opportunities for smaller firms as well as advantages for incumbents.",
+   "source": {
+    "title": "The Effects of Generative AI on Productivity, Innovation and Entrepreneurship",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://doi.org/10.1787/6f88a1ea-en",
+    "institution": "OECD"
+   },
+   "relevance": "Direct microdata evidence cutting against the prediction that AI adoption mechanically increases market concentration.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "antitrust concern paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-alaska-pfd-2024",
+   "type": "evidence",
+   "finding": "Alaska's 2024 Permanent Fund Dividend paid $1,702 per person.",
+   "statement": "Alaska's 2024 Permanent Fund Dividend paid $1,702 per person.",
+   "source": {
+    "title": "Payments and Tax Information",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://pfd.alaska.gov/payments/tax-information",
+    "institution": "State of Alaska, Permanent Fund Dividend Division"
+   },
+   "relevance": "Establishes that a resource-rent citizen dividend already exists at real, non-hypothetical scale, though far below typical wage income.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-norway-gpfg-2025",
+   "type": "evidence",
+   "finding": "Norway's Government Pension Fund Global ended 2025 at NOK 21,268 billion, with a 15.1% return for the year.",
+   "statement": "Norway's Government Pension Fund Global ended 2025 at NOK 21,268 billion, with a 15.1% return for the year.",
+   "source": {
+    "title": "Strong Return in 2025",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.nbim.no/en/news-and-insights/the-press/press-releases/2026/strong-return-in-2025/",
+    "institution": "Norges Bank Investment Management"
+   },
+   "relevance": "Shows a sovereign-wealth mechanism can reach trillion-dollar scale while domestic markets and private firms remain intact, though the fund itself does not pay a direct per-citizen dividend the way Alaska's does.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-ubi-rct-nber",
+   "type": "evidence",
+   "finding": "A randomized guaranteed-income study gave 1,000 low-income U.S. adults $1,000/month for three years and found non-transfer income fell about $1,800/year, labor-force participation fell 4.1 percentage points, and hours fell 1-2 per week.",
+   "statement": "A randomized guaranteed-income study gave 1,000 low-income U.S. adults $1,000/month for three years and found non-transfer income fell about $1,800/year, labor-force participation fell 4.1 percentage points, and hours fell 1-2 per week.",
+   "source": {
+    "title": "The Employment Effects of a Guaranteed Income",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.nber.org/papers/w32719",
+    "institution": "National Bureau of Economic Research"
+   },
+   "relevance": "The largest randomized U.S. evidence on how unconditional cash transfers affect labor supply, central to assessing whether UBI-style mechanisms could substitute for lost wage income.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 9,
+    "independence": 8,
+    "replicability": 8,
+    "directness": 6,
+    "weightBasis": "A well-powered randomized controlled trial, the strongest causal design in the corpus for this question; directness is capped because it measures labor-supply response in a full-employment economy, not under AI-scale demand collapse."
+   }
+  },
+  {
+   "id": "e-mondragon-2024-report",
+   "type": "evidence",
+   "finding": "Mondragon reported over \u20ac11.2 billion in 2024 sales, more than 70,000 employees, and \u20ac632 million in profits.",
+   "statement": "Mondragon reported over \u20ac11.2 billion in 2024 sales, more than 70,000 employees, and \u20ac632 million in profits.",
+   "source": {
+    "title": "Letters for the President",
+    "kind": "primary-document",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.mondragon-corporation.com/en/anual-report/letters-for-the-president/",
+    "institution": "Mondragon Corporation",
+    "interest": "Self-reported figures from the cooperative federation's own annual report, published to promote the cooperative model it represents; no independent audit is cited in the corpus."
+   },
+   "relevance": "Demonstrates worker-cooperative federations can reach substantial commercial scale, though scale within one federation does not establish economy-wide feasibility.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 6,
+    "independence": 3,
+    "replicability": 5,
+    "directness": 6,
+    "weightBasis": "Self-reported annual-report figures from the organization being cited as a proof of concept; directionally useful for showing scale is possible, but not independently audited and not evidence of economy-wide feasibility."
+   }
+  },
+  {
+   "id": "e-imf-diffusion-bottlenecks",
+   "type": "evidence",
+   "finding": "An IMF 2026 scenario exercise flags energy, data centers, and connectivity as diffusion bottlenecks, notes labor-tax bases may erode under rapid AI diffusion, and proposes shared infrastructure and public-good AI models as mitigations.",
+   "statement": "An IMF 2026 scenario exercise flags energy, data centers, and connectivity as diffusion bottlenecks, notes labor-tax bases may erode under rapid AI diffusion, and proposes shared infrastructure and public-good AI models as mitigations.",
+   "source": {
+    "title": "Scenario Planning for Rapid AI Diffusion",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.elibrary.imf.org/view/journals/068/2026/002/article-A001-en.xml",
+    "institution": "International Monetary Fund"
+   },
+   "relevance": "Supports the claim that scarcity migrates to new bottlenecks under AI rather than disappearing, and is the direct source for compute-governance mitigation proposals.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "post-scarcity paragraph; alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-korinek-agi-scenario",
+   "type": "evidence",
+   "finding": "IMF scenario-planning work models output rising sharply once labor ceases to constrain production, while competitive wages eventually 'plummet' as machines substitute for increasingly scarce human labor; the analysis argues shared prosperity then requires institutions that compensate workers for lost labor income.",
+   "statement": "IMF scenario-planning work models output rising sharply once labor ceases to constrain production, while competitive wages eventually 'plummet' as machines substitute for increasingly scarce human labor; the analysis argues shared prosperity then requires institutions that compensate workers for lost labor income.",
+   "source": {
+    "title": "Scenario Planning for an AGI Future",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.imf.org/en/publications/fandd/issues/2023/12/scenario-planning-for-an-agi-future-anton-korinek",
+    "author": "Korinek",
+    "institution": "International Monetary Fund, Finance & Development",
+    "interest": "The author is a leading academic advocate for AI-focused redistribution policy (AI taxation, compensation mechanisms), and the piece argues in support of that broader policy program."
+   },
+   "relevance": "The formal source for the demand-collapse-under-AGI mechanism and its proposed redistributive resolution; the corpus explicitly flags the underlying 'AI performs virtually all valuable work' premise as unverified.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "demand-collapse paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "unverifiedFlags": [
+    "The claim that AI will perform virtually all economically valuable human work remains UNVERIFIED per the research corpus \u2014 the source presents it as one modeled scenario among several, not an observed or established trajectory."
+   ],
+   "weight": {
+    "sourceReliability": 7,
+    "independence": 5,
+    "replicability": 4,
+    "directness": 8,
+    "weightBasis": "The most directly on-point formal treatment of the demand-collapse-under-AGI mechanism in the corpus, from a credible institutional source, but it is explicitly scenario modeling by an author who also advocates for the redistribution policies the scenario motivates, and its key capability premise is unverified."
+   }
+  },
+  {
+   "id": "e-autor-automation-review",
+   "type": "evidence",
+   "finding": "A canonical review of the automation literature finds automation substitutes for labor in some tasks but also complements labor, raises output, and increases labor demand in other tasks, arguing commentators often miss these complementarities.",
+   "statement": "A canonical review of the automation literature finds automation substitutes for labor in some tasks but also complements labor, raises output, and increases labor demand in other tasks, arguing commentators often miss these complementarities.",
+   "source": {
+    "title": "Why Are There Still So Many Jobs?",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://doi.org/10.1257/JEP.29.3.3",
+    "author": "Autor",
+    "institution": "Journal of Economic Perspectives"
+   },
+   "relevance": "The central academic source for the claim that historical automation complements as well as substitutes for labor, load-bearing for the market-optimist position.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "strongest-rebuttal paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 9,
+    "independence": 8,
+    "replicability": 7,
+    "directness": 6,
+    "weightBasis": "A widely cited, peer-reviewed synthesis of decades of automation research; highly credible on the historical pattern, but directness is capped because it predates the current generation of general-purpose AI and its applicability to AI's broader task generality is contested."
+   }
+  },
+  {
+   "id": "e-bessen-textiles-steel-autos",
+   "type": "evidence",
+   "finding": "Historical case studies of textiles, steel, and autos find automation increased employment when demand for the industry's output was elastic and reduced it when demand became satiated, making demand elasticity the key variable rather than automation itself.",
+   "statement": "Historical case studies of textiles, steel, and autos find automation increased employment when demand for the industry's output was elastic and reduced it when demand became satiated, making demand elasticity the key variable rather than automation itself.",
+   "source": {
+    "title": "Automation and Jobs: When Technology Boosts Employment",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.nber.org/papers/w24235",
+    "author": "Bessen",
+    "institution": "National Bureau of Economic Research"
+   },
+   "relevance": "A second, methodologically distinct historical source corroborating that automation's employment effect depends on demand conditions, not on automation alone.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "strongest-rebuttal paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-crafts-industrial-revolution",
+   "type": "evidence",
+   "finding": "Long-run economic-history research finds steam, electricity, and information and communications technology had large productivity effects, often with long adoption lags, and that the First Industrial Revolution is not a template for permanently adverse worker living standards.",
+   "statement": "Long-run economic-history research finds steam, electricity, and information and communications technology had large productivity effects, often with long adoption lags, and that the First Industrial Revolution is not a template for permanently adverse worker living standards.",
+   "source": {
+    "title": "Steam as a General Purpose Technology",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://doi.org/10.1093/oxrep/grab012",
+    "author": "Crafts",
+    "institution": "Oxford Review of Economic Policy"
+   },
+   "relevance": "The economic-history basis for the claim that past general-purpose technologies disrupted occupations without ending market allocation.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capitalism-survived-everything paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-nlra-1935",
+   "type": "evidence",
+   "finding": "The National Labor Relations Act of 1935 created the National Labor Relations Board and established private-sector collective-bargaining rights.",
+   "statement": "The National Labor Relations Act of 1935 created the National Labor Relations Board and established private-sector collective-bargaining rights.",
+   "source": {
+    "title": "National Labor Relations Act (1935)",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.archives.gov/milestone-documents/national-labor-relations-act",
+    "institution": "U.S. National Archives"
+   },
+   "relevance": "One of the historical institutional adaptations cited as evidence that capitalism absorbed prior technology-and-industrialization-driven disruption through new institutions rather than abolition.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capitalism-survived-everything paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-ssa-1935",
+   "type": "evidence",
+   "finding": "The Social Security Act of 1935 established old-age benefits and the unemployment-insurance architecture still in use.",
+   "statement": "The Social Security Act of 1935 established old-age benefits and the unemployment-insurance architecture still in use.",
+   "source": {
+    "title": "Social Security Act (1935)",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.archives.gov/milestone-documents/social-security-act",
+    "institution": "U.S. National Archives"
+   },
+   "relevance": "A second landmark institutional adaptation cited as evidence of historical adaptation rather than abolition of markets.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capitalism-survived-everything paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-flsa",
+   "type": "evidence",
+   "finding": "The Fair Labor Standards Act established federal minimum wage, overtime pay, recordkeeping, and child-labor rules.",
+   "statement": "The Fair Labor Standards Act established federal minimum wage, overtime pay, recordkeeping, and child-labor rules.",
+   "source": {
+    "title": "Handy Reference Guide to the Fair Labor Standards Act",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.dol.gov/agencies/whd/compliance-assistance/handy-reference-guide-flsa",
+    "institution": "U.S. Department of Labor"
+   },
+   "relevance": "A third landmark institutional adaptation supporting the claim that prior disruptions were met with new labor-market institutions rather than the end of markets.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capitalism-survived-everything paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-data-as-labor-argument",
+   "type": "evidence",
+   "finding": "Advocates for treating user data as compensated labor or collective property argue that free user data creates unequal distribution and monopsony-like bargaining problems between platforms and users.",
+   "statement": "Advocates for treating user data as compensated labor or collective property argue that free user data creates unequal distribution and monopsony-like bargaining problems between platforms and users.",
+   "source": {
+    "title": "Should We Treat Data as Labor? Moving Beyond 'Free'",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://pubs.aeaweb.org/doi/10.1257/pandp.20181003",
+    "institution": "American Economic Association, Papers and Proceedings",
+    "interest": "The paper argues in favor of the data-as-labor policy position it describes, one of several competing proposals for AI-era data governance."
+   },
+   "relevance": "The academic source for the normative data-as-labor argument underlying claims about compensable data and citizen claims on AI rents.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "property-rights paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-mason-postcapitalism",
+   "type": "evidence",
+   "finding": "Paul Mason's postcapitalism thesis argues information technology creates 'zero marginal cost' goods, delinks work from wages, strengthens network effects, and requires breaking tech monopolies, adopting UBI or basic services, and building data democracy.",
+   "statement": "Paul Mason's postcapitalism thesis argues information technology creates 'zero marginal cost' goods, delinks work from wages, strengthens network effects, and requires breaking tech monopolies, adopting UBI or basic services, and building data democracy.",
+   "source": {
+    "title": "Postcapitalism: A Guide to Our Future",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-923X.12851",
+    "author": "Mason",
+    "institution": "The Political Quarterly",
+    "interest": "Mason is a prominent public advocate for postcapitalist political economy, and the piece argues for his own thesis rather than surveying competing views."
+   },
+   "relevance": "The central contemporary theoretical source for the claim that the wage channel loses primacy under information-technology-driven zero-marginal-cost production.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "post-capitalist case paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-fragment-on-machines",
+   "type": "evidence",
+   "finding": "Scholarship on Marx's 'Fragment on Machines' argues that when social knowledge is objectified in machinery as fixed capital, direct labor time becomes less adequate as the measure and basis of value, though modern scholars debate whether this implies economic collapse.",
+   "statement": "Scholarship on Marx's 'Fragment on Machines' argues that when social knowledge is objectified in machinery as fixed capital, direct labor time becomes less adequate as the measure and basis of value, though modern scholars debate whether this implies economic collapse.",
+   "source": {
+    "title": "Marx and the Machine",
+    "kind": "peer-reviewed",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.tandfonline.com/doi/full/10.1080/03085147.2017.1397360"
+   },
+   "relevance": "The deepest theoretical lineage in the corpus for the claim that AI-era automation makes wage-centered capitalism obsolete, while noting the debate over whether it implies collapse is unsettled even among sympathetic scholars.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "Fragment on Machines paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-keynes-effective-demand",
+   "type": "evidence",
+   "finding": "Keynes's effective-demand principle rejected the view that supply automatically creates full-employment demand, arguing output and employment can settle below full employment when expected demand is inadequate.",
+   "statement": "Keynes's effective-demand principle rejected the view that supply automatically creates full-employment demand, arguing output and employment can settle below full employment when expected demand is inadequate.",
+   "source": {
+    "title": "The General Theory of Employment, Interest and Money, Ch. 3",
+    "kind": "primary-document",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://gutenberg.net.au/ebooks03/0300071h/chap03.html",
+    "author": "Keynes"
+   },
+   "relevance": "The foundational theoretical basis, predating AI, for why a falling wage bill need not be automatically offset by other demand.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "demand-collapse paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "e-hobson-underconsumption",
+   "type": "evidence",
+   "finding": "Underconsumptionist theory argues that unequal income distribution can cause excessive saving, insufficient consumption, and depression dynamics.",
+   "statement": "Underconsumptionist theory argues that unequal income distribution can cause excessive saving, insufficient consumption, and depression dynamics.",
+   "source": {
+    "title": "Underconsumption: An Exposition",
+    "kind": "primary-document",
+    "verification": "verified-live",
+    "verifiedAt": "2026-08-11",
+    "url": "https://www.marxists.org/archive/hobson/1933/11/underconsum.htm",
+    "author": "Hobson"
+   },
+   "relevance": "A second, independent pre-AI theoretical lineage for the demand-collapse mechanism, showing the argument is older than AI and not invented to fit it.",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "demand-collapse paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "i-demand-collapse-chain",
+   "type": "inference",
+   "statement": "Inference: Aggregate consumption tracks the marginal propensity to consume of whoever receives income; shifting income from wage earners toward concentrated capital ownership mechanically lowers aggregate demand unless something outside the wage channel \u2014 transfers, new demand, or falling prices \u2014 recycles the shortfall.",
+   "warrant": "Aggregate consumption tracks the marginal propensity to consume of whoever receives income; shifting income from wage earners toward concentrated capital ownership mechanically lowers aggregate demand unless something outside the wage channel \u2014 transfers, new demand, or falling prices \u2014 recycles the shortfall.",
+   "warrantImplicit": false,
+   "warrantKind": "aggregation-model",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "demand-collapse paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "i-historical-adaptation-analogy",
+   "type": "inference",
+   "statement": "Inference: Because reinstatement and institutional adaptation operated as a general dynamic across mechanization, electrification, and computerization rather than as features specific to any one technology, the same dynamic should generalize to AI-driven disruption as well.",
+   "warrant": "Because reinstatement and institutional adaptation operated as a general dynamic across mechanization, electrification, and computerization rather than as features specific to any one technology, the same dynamic should generalize to AI-driven disruption as well.",
+   "warrantImplicit": false,
+   "warrantKind": "analogy",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "capitalism-survived-everything paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "i-concentration-to-oligopoly",
+   "type": "inference",
+   "statement": "Inference: Compounding scale economies in compute, data, talent, and distribution cause dominant positions in a vertically related stack to harden rather than erode, because switching costs and network effects at each layer reinforce dominance at the others instead of competing it away.",
+   "warrant": "Compounding scale economies in compute, data, talent, and distribution cause dominant positions in a vertically related stack to harden rather than erode, because switching costs and network effects at each layer reinforce dominance at the others instead of competing it away.",
+   "warrantImplicit": false,
+   "warrantKind": "aggregation-model",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "concentration paragraph; antitrust concern paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "i-wage-bargain-breakdown",
+   "type": "inference",
+   "statement": "Inference: Capitalism's stability has rested on wages being the mechanism through which non-owners access the social product; when a technology can produce a large share of output without needing broad labor input, and ownership of that technology stays concentrated, that access channel weakens structurally regardless of near-term policy choices.",
+   "warrant": "Capitalism's stability has rested on wages being the mechanism through which non-owners access the social product; when a technology can produce a large share of output without needing broad labor input, and ownership of that technology stays concentrated, that access channel weakens structurally regardless of near-term policy choices.",
+   "warrantImplicit": false,
+   "warrantKind": "causal-identification",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "post-capitalist case paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "i-data-as-labor-to-rents",
+   "type": "inference",
+   "statement": "Inference: If a contested input to production functions as uncompensated labor, the general principle that labor deserves compensation applies to it regardless of whether the input is contractually labeled as labor.",
+   "warrant": "If a contested input to production functions as uncompensated labor, the general principle that labor deserves compensation applies to it regardless of whether the input is contractually labeled as labor.",
+   "warrantImplicit": false,
+   "warrantKind": "normative-principle-application",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "property-rights paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  },
+  {
+   "id": "i-ubi-scale-mismatch",
+   "type": "inference",
+   "statement": "Inference: Generalizing from currently observed dividend scales and the observed labor-supply response to guaranteed income, a mechanism that is small relative to wage income and that reduces work effort at the margin cannot be assumed to scale up to replace a broad labor-income channel without further institutional redesign.",
+   "warrant": "Generalizing from currently observed dividend scales and the observed labor-supply response to guaranteed income, a mechanism that is small relative to wage income and that reduces work effort at the margin cannot be assumed to scale up to replace a broad labor-income channel without further institutional redesign.",
+   "warrantImplicit": false,
+   "warrantKind": "statistical-generalization",
+   "provenance": {
+    "origin": "extracted",
+    "modelId": "sonnet-capitalism-draft-v1",
+    "sourceRef": "alternatives paragraph"
+   },
+   "createdAt": "2026-08-11T00:00:00Z",
+   "modelVersion": 2
+  }
+ ],
+ "edges": [
+  {
+   "id": "edge-001",
+   "from": "p-adapts-as-always",
+   "to": "c-narrow-ownership-markets-definition",
+   "type": "depends_on",
+   "note": "The adaptation case is unfooted without the narrow ownership-and-markets definition of survival."
+  },
+  {
+   "id": "edge-002",
+   "from": "p-breaks-fundamentally",
+   "to": "c-broad-labor-income-definition",
+   "type": "depends_on",
+   "note": "The breakdown case is unfooted without the broad labor-income definition of survival."
+  },
+  {
+   "id": "edge-003",
+   "from": "p-requires-restructuring",
+   "to": "c-high-tax-ubi-still-capitalism",
+   "type": "depends_on",
+   "note": "The restructuring case is unfooted unless a heavily redistributive, publicly-computed economy still counts as capitalism."
+  },
+  {
+   "id": "edge-004",
+   "from": "p-definitional-skeptic",
+   "to": "c-survival-definition-contested",
+   "type": "depends_on",
+   "note": "The definitional-skeptic position is unfooted without the definitional-ambiguity claim itself being true."
+  },
+  {
+   "id": "edge-005",
+   "from": "c-narrow-ownership-markets-definition",
+   "to": "p-definitional-skeptic",
+   "type": "supports"
+  },
+  {
+   "id": "edge-006",
+   "from": "c-broad-labor-income-definition",
+   "to": "p-definitional-skeptic",
+   "type": "supports"
+  },
+  {
+   "id": "edge-007",
+   "from": "c-high-tax-ubi-still-capitalism",
+   "to": "p-definitional-skeptic",
+   "type": "supports"
+  },
+  {
+   "id": "edge-008",
+   "from": "c-data-ownership-boundaries-contested",
+   "to": "p-definitional-skeptic",
+   "type": "supports"
+  },
+  {
+   "id": "edge-009",
+   "from": "c-survival-definition-contested",
+   "to": "c-demand-collapse-without-recycling",
+   "type": "qualifies",
+   "note": "Whether a demand collapse counts as capitalism 'not surviving' depends on which definition of survival is used."
+  },
+  {
+   "id": "edge-010",
+   "from": "c-survival-definition-contested",
+   "to": "c-wage-channel-loses-primacy",
+   "type": "qualifies",
+   "note": "Whether losing wage-channel primacy counts as capitalism 'not surviving' depends on which definition of survival is used."
+  },
+  {
+   "id": "edge-011",
+   "from": "c-survival-definition-contested",
+   "to": "c-ai-markets-tip-into-durable-oligopoly",
+   "type": "qualifies",
+   "note": "Whether AI-market oligopoly counts against capitalism 'surviving' depends on whether market allocation or broad participation is the operative criterion."
+  },
+  {
+   "id": "edge-012",
+   "from": "c-labor-share-declining-global",
+   "to": "c-labor-share-declining-us",
+   "type": "supports"
+  },
+  {
+   "id": "edge-013",
+   "from": "c-labor-share-measurement-disputed",
+   "to": "c-labor-share-declining-us",
+   "type": "qualifies",
+   "note": "Disputes how much the raw indexed series alone shows once offshoring, demographics, and superstar-firm effects are accounted for, without disputing the series itself."
+  },
+  {
+   "id": "edge-014",
+   "from": "c-antitrust-flagged-ai-partnerships",
+   "to": "c-compute-governance-process",
+   "type": "supports"
+  },
+  {
+   "id": "edge-015",
+   "from": "c-worker-coop-can-reach-scale",
+   "to": "c-worker-ownership-preferable-to-ubi",
+   "type": "supports"
+  },
+  {
+   "id": "edge-016",
+   "from": "c-agi-transformative-claim-unverified",
+   "to": "c-wages-plummet-under-agi-scenario",
+   "type": "supports"
+  },
+  {
+   "id": "edge-017",
+   "from": "c-redistribution-restores-demand-loop",
+   "to": "c-compute-governance-process",
+   "type": "depends_on",
+   "note": "Redistribution mechanisms (dividends, AI taxation, public compute) presuppose some governance process exists to administer and allocate them."
+  },
+  {
+   "id": "edge-018",
+   "from": "c-task-automation-lowers-labor-share",
+   "to": "i-demand-collapse-chain",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-019",
+   "from": "c-wage-channel-loses-primacy",
+   "to": "i-demand-collapse-chain",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-020",
+   "from": "i-demand-collapse-chain",
+   "to": "c-demand-collapse-without-recycling",
+   "type": "concludes"
+  },
+  {
+   "id": "edge-021",
+   "from": "c-capital-owners-recycle-demand",
+   "to": "i-demand-collapse-chain",
+   "type": "undercuts",
+   "note": "Grants that labor share and wage-channel primacy could fall; disputes that demand collapse follows, because capital-owner consumption/investment, falling prices, and new goods already recycle purchasing power."
+  },
+  {
+   "id": "edge-022",
+   "from": "c-historical-automation-preserved-markets",
+   "to": "i-historical-adaptation-analogy",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-023",
+   "from": "c-institutions-adapted-historically",
+   "to": "i-historical-adaptation-analogy",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-024",
+   "from": "i-historical-adaptation-analogy",
+   "to": "c-reinstatement-will-recur",
+   "type": "concludes"
+  },
+  {
+   "id": "edge-025",
+   "from": "c-ai-task-generality-breaks-analogy",
+   "to": "i-historical-adaptation-analogy",
+   "type": "undercuts",
+   "note": "Grants that prior waves preserved markets; disputes that the same reinstatement dynamic generalizes to AI, because AI's task generality removes the complementary-task margin that powered past reinstatement."
+  },
+  {
+   "id": "edge-026",
+   "from": "c-model-market-concentrated",
+   "to": "i-concentration-to-oligopoly",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-027",
+   "from": "c-cloud-concentrated",
+   "to": "i-concentration-to-oligopoly",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-028",
+   "from": "c-chip-concentrated",
+   "to": "i-concentration-to-oligopoly",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-029",
+   "from": "i-concentration-to-oligopoly",
+   "to": "c-ai-markets-tip-into-durable-oligopoly",
+   "type": "concludes"
+  },
+  {
+   "id": "edge-030",
+   "from": "c-open-models-lower-entry-barriers",
+   "to": "i-concentration-to-oligopoly",
+   "type": "undercuts",
+   "note": "Grants current stack-level concentration; disputes that it tips into a durable, exclusionary oligopoly, because falling downstream entry barriers offset frontier-layer concentration."
+  },
+  {
+   "id": "edge-031",
+   "from": "c-ai-ownership-stays-concentrated",
+   "to": "i-wage-bargain-breakdown",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-032",
+   "from": "c-task-automation-lowers-labor-share",
+   "to": "i-wage-bargain-breakdown",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-033",
+   "from": "i-wage-bargain-breakdown",
+   "to": "c-wage-channel-loses-primacy",
+   "type": "concludes"
+  },
+  {
+   "id": "edge-034",
+   "from": "c-automation-complements-labor-historically",
+   "to": "i-wage-bargain-breakdown",
+   "type": "undercuts",
+   "note": "Grants concentrated ownership and task automation; disputes that the wage channel loses primacy, because automation historically also complements labor and raises demand for other tasks."
+  },
+  {
+   "id": "edge-035",
+   "from": "c-data-ownership-boundaries-contested",
+   "to": "i-data-as-labor-to-rents",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-036",
+   "from": "c-data-labor-deserves-compensation",
+   "to": "i-data-as-labor-to-rents",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-037",
+   "from": "i-data-as-labor-to-rents",
+   "to": "c-citizens-deserve-ai-rents",
+   "type": "concludes"
+  },
+  {
+   "id": "edge-038",
+   "from": "c-individual-data-marginal-contribution-negligible",
+   "to": "i-data-as-labor-to-rents",
+   "type": "undercuts",
+   "note": "Grants that data ownership boundaries are contested and that labor deserves compensation; disputes that this licenses an individual rent claim, because any one user's marginal contribution to model capability is negligible."
+  },
+  {
+   "id": "edge-039",
+   "from": "c-cash-dividend-exists-modest",
+   "to": "i-ubi-scale-mismatch",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-040",
+   "from": "c-ubi-trial-reduces-labor-supply",
+   "to": "i-ubi-scale-mismatch",
+   "type": "premise_of"
+  },
+  {
+   "id": "edge-041",
+   "from": "i-ubi-scale-mismatch",
+   "to": "c-dividends-insufficient-at-current-scale",
+   "type": "concludes"
+  },
+  {
+   "id": "edge-042",
+   "from": "c-ubi-trial-scale-mismatch",
+   "to": "i-ubi-scale-mismatch",
+   "type": "undercuts",
+   "note": "Grants the observed dividend scale and labor-supply response; disputes that this shows dividends can't scale, because the trial measured a full-employment economy, not an AI-scale demand-collapse scenario."
+  },
+  {
+   "id": "edge-043",
+   "from": "c-ubi-trial-scale-mismatch",
+   "to": "e-ubi-rct-nber",
+   "type": "limits_scope",
+   "note": "The RCT's labor-supply finding was measured in a full-employment economy with intact job openings elsewhere, not under AI-driven demand collapse across many occupations at once."
+  },
+  {
+   "id": "edge-044",
+   "from": "c-labor-share-measurement-disputed",
+   "to": "e-labor-share-fred",
+   "type": "limits_scope",
+   "note": "The raw indexed series alone does not settle magnitude or causal attribution once offshoring, demographics, and superstar-firm effects are considered."
+  },
+  {
+   "id": "edge-045",
+   "from": "c-ai-task-generality-breaks-analogy",
+   "to": "c-reallocation-keeps-pace",
+   "type": "contradicts"
+  },
+  {
+   "id": "edge-046",
+   "from": "c-ai-ownership-stays-concentrated",
+   "to": "c-open-models-lower-entry-barriers",
+   "type": "contradicts"
+  },
+  {
+   "id": "edge-047",
+   "from": "e-labor-share-fred",
+   "to": "c-labor-share-declining-us",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-048",
+   "from": "e-karabarbounis-neiman",
+   "to": "c-labor-share-declining-global",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-049",
+   "from": "e-labor-share-measurement-critique",
+   "to": "c-labor-share-measurement-disputed",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-050",
+   "from": "e-menlo-model-share",
+   "to": "c-model-market-concentrated",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-051",
+   "from": "e-synergy-cloud-share",
+   "to": "c-cloud-concentrated",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-052",
+   "from": "e-oecd-nvidia-gpu-share",
+   "to": "c-chip-concentrated",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-053",
+   "from": "e-dcd-techinsights-nvidia-98pct",
+   "to": "c-chip-concentrated",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-054",
+   "from": "e-techinsights-ai-chip-market",
+   "to": "c-chip-concentrated",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-055",
+   "from": "e-ftc-2025-ai-partnerships",
+   "to": "c-antitrust-flagged-ai-partnerships",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-056",
+   "from": "e-cma-foundation-models",
+   "to": "c-antitrust-flagged-ai-partnerships",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-057",
+   "from": "e-korinek-vipra-scale-economies",
+   "to": "c-ai-markets-tip-into-durable-oligopoly",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-058",
+   "from": "e-ftc-antitrust-laws-general",
+   "to": "c-ai-markets-tip-into-durable-oligopoly",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-059",
+   "from": "e-oecd-genai-productivity-2026",
+   "to": "c-ai-markets-tip-into-durable-oligopoly",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-060",
+   "from": "e-alaska-pfd-2024",
+   "to": "c-cash-dividend-exists-modest",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-061",
+   "from": "e-norway-gpfg-2025",
+   "to": "c-sovereign-wealth-can-reach-trillions",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-062",
+   "from": "e-ubi-rct-nber",
+   "to": "c-ubi-trial-reduces-labor-supply",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-063",
+   "from": "e-mondragon-2024-report",
+   "to": "c-worker-coop-can-reach-scale",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-064",
+   "from": "e-imf-diffusion-bottlenecks",
+   "to": "c-scarcity-migrates",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-065",
+   "from": "e-korinek-agi-scenario",
+   "to": "c-wages-plummet-under-agi-scenario",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-066",
+   "from": "e-korinek-agi-scenario",
+   "to": "c-agi-transformative-claim-unverified",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-067",
+   "from": "e-autor-automation-review",
+   "to": "c-automation-complements-labor-historically",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-068",
+   "from": "e-bessen-textiles-steel-autos",
+   "to": "c-automation-complements-labor-historically",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-069",
+   "from": "e-crafts-industrial-revolution",
+   "to": "c-historical-automation-preserved-markets",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-070",
+   "from": "e-nlra-1935",
+   "to": "c-institutions-adapted-historically",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-071",
+   "from": "e-ssa-1935",
+   "to": "c-institutions-adapted-historically",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-072",
+   "from": "e-flsa",
+   "to": "c-institutions-adapted-historically",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-073",
+   "from": "e-data-as-labor-argument",
+   "to": "c-data-labor-deserves-compensation",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-074",
+   "from": "e-mason-postcapitalism",
+   "to": "c-wage-channel-loses-primacy",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-075",
+   "from": "e-fragment-on-machines",
+   "to": "c-wage-channel-loses-primacy",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-076",
+   "from": "e-keynes-effective-demand",
+   "to": "c-demand-collapse-without-recycling",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-077",
+   "from": "e-hobson-underconsumption",
+   "to": "c-demand-collapse-without-recycling",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-078",
+   "from": "c-historical-automation-preserved-markets",
+   "to": "p-adapts-as-always",
+   "type": "supports"
+  },
+  {
+   "id": "edge-079",
+   "from": "c-institutions-adapted-historically",
+   "to": "p-adapts-as-always",
+   "type": "supports"
+  },
+  {
+   "id": "edge-080",
+   "from": "c-reinstatement-will-recur",
+   "to": "p-adapts-as-always",
+   "type": "supports"
+  },
+  {
+   "id": "edge-081",
+   "from": "c-capital-owners-recycle-demand",
+   "to": "p-adapts-as-always",
+   "type": "supports"
+  },
+  {
+   "id": "edge-082",
+   "from": "c-open-models-lower-entry-barriers",
+   "to": "p-adapts-as-always",
+   "type": "supports"
+  },
+  {
+   "id": "edge-083",
+   "from": "c-automation-complements-labor-historically",
+   "to": "p-adapts-as-always",
+   "type": "supports"
+  },
+  {
+   "id": "edge-084",
+   "from": "c-reallocation-keeps-pace",
+   "to": "p-adapts-as-always",
+   "type": "supports"
+  },
+  {
+   "id": "edge-085",
+   "from": "c-demand-collapse-without-recycling",
+   "to": "p-adapts-as-always",
+   "type": "opposes"
+  },
+  {
+   "id": "edge-086",
+   "from": "c-ai-markets-tip-into-durable-oligopoly",
+   "to": "p-adapts-as-always",
+   "type": "opposes"
+  },
+  {
+   "id": "edge-087",
+   "from": "c-labor-share-declining-us",
+   "to": "p-adapts-as-always",
+   "type": "opposes"
+  },
+  {
+   "id": "edge-088",
+   "from": "c-task-automation-lowers-labor-share",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-089",
+   "from": "c-demand-collapse-without-recycling",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-090",
+   "from": "c-redistribution-restores-demand-loop",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-091",
+   "from": "c-wages-plummet-under-agi-scenario",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-092",
+   "from": "c-ai-markets-tip-into-durable-oligopoly",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-093",
+   "from": "c-compute-governance-process",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-094",
+   "from": "c-sovereign-wealth-can-reach-trillions",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-095",
+   "from": "c-antitrust-flagged-ai-partnerships",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-096",
+   "from": "c-worker-ownership-preferable-to-ubi",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-097",
+   "from": "c-labor-share-declining-us",
+   "to": "p-requires-restructuring",
+   "type": "supports"
+  },
+  {
+   "id": "edge-098",
+   "from": "c-dividends-insufficient-at-current-scale",
+   "to": "p-requires-restructuring",
+   "type": "opposes"
+  },
+  {
+   "id": "edge-099",
+   "from": "c-capital-owners-recycle-demand",
+   "to": "p-requires-restructuring",
+   "type": "opposes"
+  },
+  {
+   "id": "edge-100",
+   "from": "c-wage-channel-loses-primacy",
+   "to": "p-breaks-fundamentally",
+   "type": "supports"
+  },
+  {
+   "id": "edge-101",
+   "from": "c-ai-ownership-stays-concentrated",
+   "to": "p-breaks-fundamentally",
+   "type": "supports"
+  },
+  {
+   "id": "edge-102",
+   "from": "c-citizens-deserve-ai-rents",
+   "to": "p-breaks-fundamentally",
+   "type": "supports"
+  },
+  {
+   "id": "edge-103",
+   "from": "c-data-labor-deserves-compensation",
+   "to": "p-breaks-fundamentally",
+   "type": "supports"
+  },
+  {
+   "id": "edge-104",
+   "from": "c-wages-plummet-under-agi-scenario",
+   "to": "p-breaks-fundamentally",
+   "type": "supports"
+  },
+  {
+   "id": "edge-105",
+   "from": "c-ai-task-generality-breaks-analogy",
+   "to": "p-breaks-fundamentally",
+   "type": "supports"
+  },
+  {
+   "id": "edge-106",
+   "from": "c-automation-complements-labor-historically",
+   "to": "p-breaks-fundamentally",
+   "type": "opposes"
+  },
+  {
+   "id": "edge-107",
+   "from": "c-scarcity-migrates",
+   "to": "p-breaks-fundamentally",
+   "type": "opposes"
+  },
+  {
+   "id": "edge-108",
+   "from": "c-reinstatement-will-recur",
+   "to": "p-breaks-fundamentally",
+   "type": "opposes"
+  },
+  {
+   "id": "edge-109",
+   "from": "c-labor-share-declining-us",
+   "to": "p-definitional-skeptic",
+   "type": "opposes"
+  },
+  {
+   "id": "edge-110",
+   "from": "c-demand-collapse-without-recycling",
+   "to": "p-definitional-skeptic",
+   "type": "opposes"
+  }
+ ]
+}
