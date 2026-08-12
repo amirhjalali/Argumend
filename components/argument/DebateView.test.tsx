@@ -4,27 +4,31 @@ import { DebateView } from "./DebateView";
 import { identifyCruxes } from "@/lib/crux";
 import { workedExampleGraph, baseNode, evidence } from "@/lib/argument/fixtures";
 import { loadArgumentTopic } from "@/lib/argument/draftTopics";
+import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
 import type { ArgumentGraph, Claim, Evidence } from "@/types/argument";
-
-const EPISTEMIC_LABELS: Record<Claim["epistemicType"], string> = {
-  empirical: "Empirical",
-  predictive: "Predictive",
-  normative: "Values",
-  definitional: "Definitional",
-  procedural: "Who decides",
-};
-
-const STATUS_LABELS: Record<Claim["status"], string> = {
-  uncontested: "Uncontested",
-  broadly_accepted: "Broadly accepted",
-  contested: "Contested",
-  unresolved: "Unresolved",
-  superseded: "Superseded",
-};
 
 afterEach(() => {
   cleanup();
 });
+
+const TEST_META: ArgumentTopicMeta = {
+  id: "worked-example",
+  title: "Fallback title",
+  tagline: "Test tagline",
+  hook: "If you are in the test cohort, this page is about your pipeline.",
+  tldr: "This is two fights in a trench coat: attribution and definitions.",
+  highlights: [
+    {
+      fact: "−16%",
+      context: "Relative decline in the test cohort.",
+      source: "Test source",
+    },
+  ],
+  takeaways: [
+    "The decline is real; the attribution is the fight.",
+    "Headline numbers rarely mean what they seem.",
+  ],
+};
 
 function enrichedWorkedExampleGraph(): ArgumentGraph {
   const graph = workedExampleGraph();
@@ -96,19 +100,8 @@ function enrichedWorkedExampleGraph(): ArgumentGraph {
   };
 }
 
-function expectedStats(graph: ArgumentGraph, cruxCount: number): string {
-  const positions = graph.nodes.filter((node) => node.type === "position");
-  const claims = graph.nodes.filter((node) => node.type === "claim");
-  const evidenceNodes = graph.nodes.filter((node) => node.type === "evidence");
-  const contested = claims.filter(
-    (claim) => claim.status === "contested" || claim.status === "unresolved",
-  );
-
-  return `${positions.length} positions · ${claims.length} claims · ${evidenceNodes.length} pieces of evidence · ${contested.length} open disputes · ${cruxCount} cruxes`;
-}
-
 describe("DebateView", () => {
-  it("renders the worked-example overview, positions, crux chips, evidence, scope notes, and summary affordances", () => {
+  it("leads with hook and tldr instead of inventory, renders camps, numbers, cruxes, evidence, and disclosure affordances", () => {
     const graph = enrichedWorkedExampleGraph();
     const cruxes = identifyCruxes(graph);
     const claimById = new Map(
@@ -118,32 +111,43 @@ describe("DebateView", () => {
     );
 
     const view = render(
-      <DebateView title="Fallback title" graph={graph} cruxes={cruxes} />,
+      <DebateView meta={TEST_META} graph={graph} cruxes={cruxes} />,
     );
 
+    // Layer 1 leads with the question, the identity hook, and the payoff card —
+    // and the inventory stats bar is gone by design (product critique 2026-08-11).
     expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
       graph.question.statement,
     );
-    expect(screen.getByText(expectedStats(graph, cruxes.length))).not.toBeNull();
+    expect(screen.getByText(TEST_META.hook)).not.toBeNull();
+    expect(screen.getByText(TEST_META.tldr)).not.toBeNull();
+    expect(view.container.textContent).not.toContain("pieces of evidence ·");
 
     const positionsSection = screen.getByLabelText("Positions");
     const positionHeadings = within(positionsSection).getAllByRole("heading", {
       level: 3,
     });
-    expect(positionHeadings.map((heading) => heading.textContent)).toEqual([
-      "Displacement-now",
-      "Automation-panic redux",
-    ]);
     const positions = graph.nodes
       .filter((node) => node.type === "position")
       .sort((a, b) => a.displayRank - b.displayRank);
+    expect(positionHeadings.map((heading) => heading.textContent)).toEqual(
+      positions.map((position) => position.label),
+    );
     for (const [index, position] of positions.entries()) {
       const card = positionHeadings[index].closest("div");
-      expect(card?.textContent).toContain(position.label);
+      // Statement and constituency stay reachable (inside the expand) even
+      // when a one-line summary leads the card.
       expect(card?.textContent).toContain(position.statement);
       expect(card?.textContent).toContain(position.constituency);
     }
 
+    // Steal-able numbers render from meta.highlights.
+    const numbersSection = screen.getByLabelText("Key numbers");
+    expect(within(numbersSection).getByText("−16%")).not.toBeNull();
+    expect(within(numbersSection).getByText("Test source")).not.toBeNull();
+
+    // Crux headlines carry at most the two meaningful chips — never the
+    // epistemic/status tag soup the critique flagged.
     const cruxSummaries = [
       ...screen
         .getByLabelText("Cruxes")
@@ -153,39 +157,62 @@ describe("DebateView", () => {
     for (const [index, summary] of cruxSummaries.entries()) {
       const claim = claimById.get(cruxes[index].claimId);
       expect(claim).toBeDefined();
-      expect(within(summary).getByText(EPISTEMIC_LABELS[claim!.epistemicType])).not.toBeNull();
-      expect(within(summary).getByText(STATUS_LABELS[claim!.status])).not.toBeNull();
+      expect(within(summary).queryByText("Empirical")).toBeNull();
+      expect(within(summary).queryByText("Contested")).toBeNull();
       if (claim!.implicit) {
-        expect(within(summary).getByText("Hidden assumption")).not.toBeNull();
+        expect(
+          within(summary).getByText(/Hidden assumption/),
+        ).not.toBeNull();
       }
     }
 
+    // Value-difference cruxes render the honest "nothing settles this" copy.
     expect(screen.getByText(/standing value disagreement/).textContent).toContain(
       "Nothing, by evidence alone",
     );
+
+    // Evidence keeps full provenance: polarity, source, flagged interests
+    // (behind the ⚑ affordance), unverified flags, and scope limits.
     expect(screen.getAllByText(/Supports:/).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/Challenges:/).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/Qualifies:/).length).toBeGreaterThan(0);
     expect(view.container.textContent).toContain("Stanford/ADP");
-    expect(screen.getByText("Interest note: job-listings platform")).not.toBeNull();
+    expect(screen.getAllByText("⚑ interest").length).toBeGreaterThan(0);
+    expect(screen.getByText("job-listings platform")).not.toBeNull();
     expect(
       screen.getByText("Unverified: needs replication against 2026 occupation cells"),
     ).not.toBeNull();
     expect(
       screen.getByText(
-        "Scope note: Klarna's 700-agents figure measures workload equivalence, not eliminated positions",
+        /But note: Klarna's 700-agents figure measures workload equivalence/,
       ),
     ).not.toBeNull();
 
+    // Payoff block renders every takeaway.
+    const takeawaysSection = screen.getByLabelText("Takeaways");
+    for (const takeaway of TEST_META.takeaways) {
+      expect(within(takeawaysSection).getByText(takeaway)).not.toBeNull();
+    }
+
+    // Researcher mode wraps the remaining claims behind one disclosure.
+    const researcherSection = screen.getByLabelText("All claims");
+    expect(
+      within(researcherSection).getByText(/Researcher mode/),
+    ).not.toBeNull();
+
+    // Native details/summary disclosure stays keyboard-reachable with
+    // touch-friendly padding.
     const summaries = [...view.container.querySelectorAll("summary")];
     expect(summaries.length).toBeGreaterThan(0);
     for (const summary of summaries) {
       expect(summary.closest("details")).not.toBeNull();
       expect(summary.getAttribute("role")).toBeNull();
-      expect(summary.hasAttribute("tabindex")).toBe(false);
       expect(summary.getAttribute("aria-hidden")).toBeNull();
-      expect(summary.className).toMatch(/\bp-(4|3\.5)\b/);
     }
+    // Top-level crux/researcher summaries keep the 44px-friendly padding.
+    const paddedSummaries = summaries.filter((summary) =>
+      /\bp-(4|3\.5)\b/.test(summary.className),
+    );
+    expect(paddedSummaries.length).toBeGreaterThan(0);
   });
 
   it("static-renders the full flagship graph with many claim summaries", () => {
@@ -194,12 +221,14 @@ describe("DebateView", () => {
 
     const view = render(
       <DebateView
-        title={topic!.meta.title}
+        meta={topic!.meta}
         graph={topic!.graph}
         cruxes={topic!.cruxes}
       />,
     );
 
     expect(view.container.querySelectorAll("summary").length).toBeGreaterThanOrEqual(40);
+    // The redesigned flagship leads with its hook, not inventory.
+    expect(view.container.textContent).toContain("Both numbers are real.");
   });
 });

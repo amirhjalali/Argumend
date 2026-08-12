@@ -163,7 +163,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           }}
         />
         <DebateView
-          title={argumentTopic.meta.title}
+          meta={argumentTopic.meta}
           graph={argumentTopic.graph}
           cruxes={argumentTopic.cruxes}
         />

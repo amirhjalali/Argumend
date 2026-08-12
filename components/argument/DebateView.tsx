@@ -1,26 +1,24 @@
 /**
  * DebateView — the progressive-disclosure experience for ArgumentGraph topics.
  *
- * Mobile-first (designed at 390px): the page is a vertical read — question,
- * positions, cruxes, then the full claim/evidence layer — with native
- * <details> disclosure so the core experience ships zero client JavaScript.
- * The React Flow canvas is deliberately absent here: this IS the product;
- * the full map is a desktop enhancement for legacy topics.
- *
- * Layer 1: question · positions · "the debate comes down to" crux list
- * Layer 2: each crux expands into what's disputed / why it matters / resolution
- * Layer 3: every claim with status basis, evidence (polarity + provenance +
- *          interest disclosures), objections, and scope limits
+ * Redesigned 2026-08-11 after a four-model product critique
+ * (docs/reviews/2026-08-11-product-critique/): lead with insight, not
+ * inventory. The page is a vertical read — hook → what the fight is really
+ * about → the four camps in one line each → steal-able numbers → the five
+ * questions the fight turns on → payoff — with the full apparatus (steelmen,
+ * status bases, every claim) one tap deeper, never gone. Zero client JS for
+ * the core (native <details>); no canvas bundle; designed at 390px.
  */
+import Link from "next/link";
 import type {
   ArgumentGraph,
   ArgumentEdge,
   ArgumentNode,
   Claim,
-  Evidence,
   Position,
 } from "@/types/argument";
 import type { CruxResult } from "@/lib/crux";
+import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
 
 // Position accent colors from the design system: teal, rust, brown, crimson.
 const POSITION_ACCENTS = ["#3a6965", "#C4613C", "#8B5A3C", "#a23b3b"];
@@ -42,12 +40,12 @@ const STATUS_LABELS: Record<Claim["status"], string> = {
 };
 
 interface DebateViewProps {
-  title: string;
+  meta: ArgumentTopicMeta;
   graph: ArgumentGraph;
   cruxes: CruxResult[];
 }
 
-export function DebateView({ title, graph, cruxes }: DebateViewProps) {
+export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
   const nodesById = new Map(graph.nodes.map((n) => [n.id, n]));
   const question = graph.nodes.find((n) => n.type === "question");
   const positions = graph.nodes
@@ -56,36 +54,34 @@ export function DebateView({ title, graph, cruxes }: DebateViewProps) {
   const claims = graph.nodes.filter(
     (n): n is Claim => n.type === "claim" && n.status !== "superseded"
   );
-  // Superseded evidence is excluded from rendering and counts, matching the
-  // crux engine's exclusion — a retracted finding must never read as live support.
-  const evidence = graph.nodes.filter(
-    (n): n is Evidence => n.type === "evidence" && n.status !== "superseded"
-  );
-  const contested = claims.filter(
-    (c) => c.status === "contested" || c.status === "unresolved"
-  );
   const cruxClaimIds = new Set(cruxes.map((c) => c.claimId));
 
   return (
     <article className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
-      {/* ---------------- Layer 1: the debate at a glance ---------------- */}
+      {/* ---------------- Layer 1: hook and the shape of the fight ---------------- */}
       <header>
         <p className="text-[11px] font-medium uppercase tracking-wider text-muted dark:text-stone-400">
-          An Argumend debate map
+          Argumend · debate map
         </p>
         <h1 className="mt-2 font-serif text-3xl sm:text-4xl leading-tight text-stone-900 dark:text-stone-100">
-          {question?.statement ?? title}
+          {question?.statement ?? meta.title}
         </h1>
-        <p className="mt-3 text-sm text-secondary dark:text-stone-400">
-          {positions.length} positions · {claims.length} claims ·{" "}
-          {evidence.length} pieces of evidence · {contested.length} open disputes
-          · {cruxes.length} cruxes
+        <p className="mt-4 text-[15px] leading-relaxed text-stone-800 dark:text-stone-200">
+          {meta.hook}
         </p>
+        <div className="mt-5 surface-paper rounded-lg border-l-4 border-[#C4613C] p-4">
+          <p className="text-[11px] font-medium uppercase tracking-wider text-[#C4613C]">
+            What this map shows
+          </p>
+          <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-300">
+            {meta.tldr}
+          </p>
+        </div>
       </header>
 
-      <section aria-label="Positions" className="mt-8">
+      <section aria-label="Positions" className="mt-10">
         <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100">
-          The positions
+          The four camps
         </h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {positions.map((position, index) => (
@@ -98,29 +94,69 @@ export function DebateView({ title, graph, cruxes }: DebateViewProps) {
                 {position.label}
               </h3>
               <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-300">
-                {position.statement}
+                {position.summary ?? position.statement}
               </p>
-              <p className="mt-2 text-xs text-muted dark:text-stone-400">
-                Held by: {position.constituency}
-              </p>
+              {position.summary ? (
+                <details className="mt-2">
+                  <summary className="cursor-pointer list-none text-xs font-medium text-muted dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 [&::-webkit-details-marker]:hidden">
+                    Read the full case →
+                  </summary>
+                  <div className="mt-2 space-y-2">
+                    <p className="text-sm leading-relaxed text-secondary dark:text-stone-300">
+                      {position.statement}
+                    </p>
+                    <p className="text-xs text-muted dark:text-stone-400">
+                      Held by: {position.constituency}
+                    </p>
+                  </div>
+                </details>
+              ) : (
+                <p className="mt-2 text-xs text-muted dark:text-stone-400">
+                  Held by: {position.constituency}
+                </p>
+              )}
             </div>
           ))}
         </div>
       </section>
 
+      {/* ---------------- Steal-able numbers ---------------- */}
+      {meta.highlights.length > 0 && (
+        <section aria-label="Key numbers" className="mt-10">
+          <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100">
+            Numbers worth stealing
+          </h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {meta.highlights.map((highlight) => (
+              <div key={highlight.fact} className="surface-card rounded-lg p-4">
+                <p className="font-serif text-3xl text-[#3a6965] dark:text-[#6fa39e]">
+                  {highlight.fact}
+                </p>
+                <p className="mt-1.5 text-sm leading-snug text-secondary dark:text-stone-300">
+                  {highlight.context}
+                </p>
+                <p className="mt-2 text-[11px] text-muted dark:text-stone-400">
+                  {highlight.source}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ---------------- Layer 2: the cruxes ---------------- */}
       <section aria-label="Cruxes" className="mt-10">
         <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100">
-          The debate mostly comes down to
+          The whole fight turns on {cruxes.length === 5 ? "five" : cruxes.length} questions
         </h2>
         <p className="mt-1 text-sm text-muted dark:text-stone-400">
-          Unresolved questions with the most leverage — computed from the
-          argument structure, not editorial choice.
+          Settle one of these and whole positions move.
         </p>
         <ol className="mt-4 space-y-3">
           {cruxes.map((crux, index) => {
             const claim = nodesById.get(crux.claimId);
             if (claim?.type !== "claim") return null;
+            const isValueCrux = claim.resolution?.kind === "value-difference";
             return (
               <li key={crux.claimId}>
                 <details className="group surface-card rounded-lg border-l-4 border-[#a23b3b]">
@@ -133,43 +169,36 @@ export function DebateView({ title, graph, cruxes }: DebateViewProps) {
                         {claim.summary ?? claim.statement}
                       </span>
                     </div>
-                    <div className="mt-2 flex flex-wrap gap-1.5 pl-7">
-                      <Chip>{EPISTEMIC_LABELS[claim.epistemicType]}</Chip>
-                      <Chip>{STATUS_LABELS[claim.status]}</Chip>
-                      {claim.implicit && <Chip tone="crux">Hidden assumption</Chip>}
-                      {crux.evidenceStarved && <Chip tone="warn">Thin evidence</Chip>}
-                    </div>
+                    {(claim.implicit || isValueCrux) && (
+                      <div className="mt-2 flex flex-wrap gap-1.5 pl-7">
+                        {claim.implicit && (
+                          <Chip tone="crux">Hidden assumption — nobody says this out loud</Chip>
+                        )}
+                        {isValueCrux && <Chip tone="warn">Values, not facts</Chip>}
+                      </div>
+                    )}
                   </summary>
                   <div className="border-t border-stone-200 dark:border-[#3d3a36] px-4 py-4 space-y-4">
                     {claim.summary && (
                       <p className="text-sm leading-relaxed text-stone-800 dark:text-stone-200">
-                        {claim.statement}
+                        The claim, precisely: {claim.statement}
                       </p>
                     )}
-                    <DetailBlock label="Why it's contested">
+                    <DetailBlock label="Why people fight about it">
                       {claim.statusBasis}
                     </DetailBlock>
                     <DetailBlock label="What would settle it">
                       {claim.resolution
-                        ? claim.resolution.kind === "value-difference"
+                        ? isValueCrux
                           ? `Nothing, by evidence alone — this is a standing value disagreement. ${claim.resolution.condition}`
                           : claim.resolution.condition
                         : "Not yet specified."}
                     </DetailBlock>
                     {crux.affectedPositions.length > 0 && (
-                      <DetailBlock label="Who has stakes here">
-                        <ul className="space-y-1">
-                          {crux.affectedPositions.map((p) => {
-                            const pos = nodesById.get(p.id);
-                            if (pos?.type !== "position") return null;
-                            return (
-                              <li key={p.id} className="text-sm text-secondary dark:text-stone-300">
-                                {p.delta >= 0 ? "Strengthens" : "Weakens"}{" "}
-                                <span className="font-medium">{pos.label}</span>
-                              </li>
-                            );
-                          })}
-                        </ul>
+                      <DetailBlock label="So what">
+                        <p className="text-sm text-secondary dark:text-stone-300">
+                          {renderStakes(crux, nodesById)}
+                        </p>
                       </DetailBlock>
                     )}
                     <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
@@ -181,51 +210,78 @@ export function DebateView({ title, graph, cruxes }: DebateViewProps) {
         </ol>
       </section>
 
-      {/* ---------------- Layer 3: the full argument ---------------- */}
-      <section aria-label="All claims" className="mt-10">
-        <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100">
-          Explore the full argument
-        </h2>
-        <p className="mt-1 text-sm text-muted dark:text-stone-400">
-          Every claim in the map, with its evidence, objections, and status —
-          nothing behind the curtain.
-        </p>
-        <div className="mt-4 space-y-2">
-          {claims
-            .filter((c) => !cruxClaimIds.has(c.id))
-            .sort(byStatusSeverity)
-            .map((claim) => (
-              <details key={claim.id} className="surface-card rounded-lg">
-                <summary className="cursor-pointer list-none p-3.5 [&::-webkit-details-marker]:hidden">
-                  <span className="text-sm leading-snug text-stone-900 dark:text-stone-100">
-                    {claim.statement}
-                  </span>
-                  <span className="mt-1.5 flex flex-wrap gap-1.5">
-                    <Chip>{EPISTEMIC_LABELS[claim.epistemicType]}</Chip>
-                    <Chip>{STATUS_LABELS[claim.status]}</Chip>
-                    {claim.implicit && <Chip tone="crux">Hidden assumption</Chip>}
-                  </span>
-                </summary>
-                <div className="border-t border-stone-200 dark:border-[#3d3a36] px-3.5 py-3.5 space-y-3">
-                  <DetailBlock label="Status basis">{claim.statusBasis}</DetailBlock>
-                  <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
-                </div>
-              </details>
+      {/* ---------------- Payoff ---------------- */}
+      {meta.takeaways.length > 0 && (
+        <section aria-label="Takeaways" className="mt-10 surface-paper rounded-lg p-4 sm:p-5">
+          <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100">
+            What you can honestly say after five minutes
+          </h2>
+          <ul className="mt-3 space-y-2.5">
+            {meta.takeaways.map((takeaway) => (
+              <li
+                key={takeaway.slice(0, 40)}
+                className="flex gap-2.5 text-sm leading-relaxed text-secondary dark:text-stone-300"
+              >
+                <span className="text-[#C4613C]" aria-hidden>
+                  →
+                </span>
+                {takeaway}
+              </li>
             ))}
-        </div>
+          </ul>
+        </section>
+      )}
+
+      {/* ---------------- Layer 3: researcher mode ---------------- */}
+      <section aria-label="All claims" className="mt-10">
+        <details className="surface-card rounded-lg">
+          <summary className="cursor-pointer list-none p-4 [&::-webkit-details-marker]:hidden">
+            <span className="font-serif text-lg text-stone-900 dark:text-stone-100">
+              Researcher mode
+            </span>
+            <span className="block mt-1 text-sm text-muted dark:text-stone-400">
+              All {claims.length} claims with their evidence, objections, status,
+              and source-interest disclosures.
+            </span>
+          </summary>
+          <div className="border-t border-stone-200 dark:border-[#3d3a36] p-3.5 space-y-2">
+            {claims
+              .filter((c) => !cruxClaimIds.has(c.id))
+              .sort(byStatusSeverity)
+              .map((claim) => (
+                <details key={claim.id} className="surface-paper rounded-lg">
+                  <summary className="cursor-pointer list-none p-3.5 [&::-webkit-details-marker]:hidden">
+                    <span className="text-sm leading-snug text-stone-900 dark:text-stone-100">
+                      {claim.summary ?? claim.statement}
+                    </span>
+                    <span className="mt-1.5 flex flex-wrap gap-1.5">
+                      <Chip>{EPISTEMIC_LABELS[claim.epistemicType]}</Chip>
+                      <Chip>{STATUS_LABELS[claim.status]}</Chip>
+                      {claim.implicit && <Chip tone="crux">Hidden assumption</Chip>}
+                    </span>
+                  </summary>
+                  <div className="border-t border-stone-200 dark:border-[#3d3a36] px-3.5 py-3.5 space-y-3">
+                    {claim.summary && (
+                      <p className="text-sm leading-relaxed text-secondary dark:text-stone-300">
+                        {claim.statement}
+                      </p>
+                    )}
+                    <DetailBlock label="Status basis">{claim.statusBasis}</DetailBlock>
+                    <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
+                  </div>
+                </details>
+              ))}
+          </div>
+        </details>
       </section>
 
-      <footer className="mt-12 rounded-lg surface-paper p-4">
+      <footer className="mt-10">
         <p className="text-xs leading-relaxed text-muted dark:text-stone-400">
-          <span className="font-medium text-secondary dark:text-stone-300">
-            How this map was made:
-          </span>{" "}
-          assembled by AI from a research corpus whose ~360 citations were
-          liveness-checked, adversarially reviewed for balance in five
-          directions, and validated against Argumend&apos;s argument model.
-          Sources with commercial or institutional interests are disclosed
-          inline. Crux rankings are computed from the argument structure and
-          are reproducible.
+          Assembled by AI. Every source linked and checked, interests disclosed
+          inline, balance adversarially reviewed, crux rankings reproducible.{" "}
+          <Link href="/methodology" className="link-underline">
+            How this map was made →
+          </Link>
         </p>
       </footer>
     </article>
@@ -233,6 +289,25 @@ export function DebateView({ title, graph, cruxes }: DebateViewProps) {
 }
 
 // ---------------------------------------------------------------------------
+
+/** "Settling this strengthens X and weakens Y." — stakes as one plain sentence. */
+function renderStakes(
+  crux: CruxResult,
+  nodesById: Map<string, ArgumentNode>
+): string {
+  const strengthens: string[] = [];
+  const weakens: string[] = [];
+  for (const p of crux.affectedPositions) {
+    const pos = nodesById.get(p.id);
+    if (pos?.type !== "position") continue;
+    (p.delta >= 0 ? strengthens : weakens).push(`“${pos.label}”`);
+  }
+  const parts: string[] = [];
+  if (strengthens.length > 0) parts.push(`strengthens ${strengthens.join(" and ")}`);
+  if (weakens.length > 0) parts.push(`weakens ${weakens.join(" and ")}`);
+  if (parts.length === 0) return "Reshapes the map without picking a side.";
+  return `If this turns out true, it ${parts.join(" and ")}.`;
+}
 
 function Chip({
   children,
@@ -324,7 +399,7 @@ function ClaimEvidence({
               return (
                 <li key={edge.id} className="text-sm leading-relaxed">
                   <span className="text-[#8B5A3C] mr-1.5" aria-hidden>⟂</span>
-                  {other.statement}
+                  {other.type === "claim" ? (other.summary ?? other.statement) : other.statement}
                 </li>
               );
             })}
@@ -373,7 +448,15 @@ function EvidenceItem({
           </>
         )}
         {node.source.interest && (
-          <span className="block italic">Interest note: {node.source.interest}</span>
+          <>
+            {" · "}
+            <details className="inline-block align-baseline">
+              <summary className="inline cursor-pointer list-none text-[#8B5A3C] [&::-webkit-details-marker]:hidden">
+                ⚑ interest
+              </summary>
+              <span className="block italic">{node.source.interest}</span>
+            </details>
+          </>
         )}
         {(node.unverifiedFlags ?? []).map((flag) => (
           <span key={flag} className="block text-[#8B5A3C]">
@@ -389,7 +472,7 @@ function EvidenceItem({
             key={limit.id}
             className="mt-1 block rounded bg-stone-100 dark:bg-[#302e2a] px-2 py-1 text-xs text-secondary dark:text-stone-300"
           >
-            Scope note: {limiter.statement}
+            But note: {limiter.statement}
           </span>
         );
       })}

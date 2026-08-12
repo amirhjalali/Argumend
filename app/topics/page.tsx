@@ -81,8 +81,8 @@ function FeaturedDebateMaps() {
             {topic.meta.tagline}
           </p>
           <p className="mt-2 text-xs text-muted dark:text-stone-400">
-            {topic.cruxes.length} computed cruxes · every claim, source, and
-            assumption inspectable
+            Both sides at full strength · five minutes to see what the fight
+            actually turns on
           </p>
         </Link>
       ))}
