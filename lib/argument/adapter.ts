@@ -30,7 +30,10 @@ export function adaptTopicToArgumentGraph(topic: Topic): AdaptTopicToArgumentGra
   reviewFlags.push("QUESTION requires editorial review after naive declarative-to-interrogative rewrite.");
 
   const skepticPosition = {
-    ...baseNode("position-skeptic", "The AI 2027 scenario is too aggressive."),
+    ...baseNode(
+      "position-skeptic",
+      `The claim "${topic.meta_claim}" does not hold.`
+    ),
     type: "position" as const,
     label: "Skeptic",
     constituency: "[REQUIRES REVIEW] synthesized from pillar structure",
@@ -38,7 +41,10 @@ export function adaptTopicToArgumentGraph(topic: Topic): AdaptTopicToArgumentGra
     displayRank: 1,
   };
   const proponentPosition = {
-    ...baseNode("position-proponent", "The AI 2027 scenario identifies a real short-timeline risk."),
+    ...baseNode(
+      "position-proponent",
+      `The claim "${topic.meta_claim}" holds.`
+    ),
     type: "position" as const,
     label: "Proponent",
     constituency: "[REQUIRES REVIEW] synthesized from pillar structure",

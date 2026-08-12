@@ -19,7 +19,7 @@
  */
 import { topics } from "../data/topics";
 import { isKnownSoft404Url, validateSourceUrl } from "./source-url-health";
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 
 type Item = { topic: string; evidenceId: string; url: string };
@@ -51,6 +51,9 @@ function collectLegacyTopicSourceItems(): Item[] {
 
 function collectDraftArgumentGraphSourceItems(): Item[] {
   const draftsDir = join(process.cwd(), "data/topics/drafts");
+  // Absent drafts dir (promoted drafts, sparse checkout) must not crash the
+  // legacy link-rot audit — there is simply nothing extra to check.
+  if (!existsSync(draftsDir)) return [];
   return readdirSync(draftsDir)
     .filter((name) => name.endsWith(".draft.json"))
     .flatMap((name) => {

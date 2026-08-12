@@ -60,13 +60,13 @@ export function loadArgumentTopic(id: string): ArgumentTopic | null {
 
   const parsed = parseArgumentGraph(entry.raw);
   if (!parsed.ok) {
-    // A draft that fails its own schema must never half-render; fall back to 404
-    // and let the validation harness (scripts/validate-argument-draft.ts) say why.
-    console.error(
-      `ArgumentGraph draft "${id}" failed schema validation:`,
-      parsed.errors.slice(0, 5)
+    // A registered draft failing its own schema is a build-stopping defect:
+    // returning null here would let `next build` succeed while the canonical
+    // URL silently 404s. Fail loudly; scripts/validate-argument-draft.ts gives
+    // the full diagnostic.
+    throw new Error(
+      `ArgumentGraph draft "${id}" failed schema validation (${parsed.errors.length} errors): ${parsed.errors.slice(0, 5).join("; ")}`
     );
-    return null;
   }
 
   const topic: ArgumentTopic = {

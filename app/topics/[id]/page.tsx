@@ -5,7 +5,7 @@ import { loadTopicById } from "@/data/topicLoader";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { JsonLd } from "@/components/JsonLd";
 import TopicPageClient from "./TopicPageClient";
-import { buildTopicOgUrl } from "@/lib/og";
+import { buildGenericOgUrl, buildTopicOgUrl } from "@/lib/og";
 import {
   argumentTopicIds,
   loadArgumentTopic,
@@ -43,11 +43,29 @@ export async function generateMetadata({
 
   const argumentTopic = loadArgumentTopic(id);
   if (argumentTopic) {
+    const ogImage = buildGenericOgUrl({
+      title: argumentTopic.meta.title,
+      subtitle: argumentTopic.meta.tagline,
+    });
+    const pageTitle = `${argumentTopic.meta.title} — Debate Map`;
+    const url = `https://argumend.org/topics/${argumentTopic.meta.id}`;
     return {
-      title: `${argumentTopic.meta.title} — Debate Map`,
+      title: pageTitle,
       description: argumentTopic.meta.tagline,
-      alternates: {
-        canonical: `https://argumend.org/topics/${argumentTopic.meta.id}`,
+      alternates: { canonical: url },
+      openGraph: {
+        type: "article",
+        title: `${pageTitle} | ARGUMEND`,
+        description: argumentTopic.meta.tagline,
+        url,
+        siteName: "ARGUMEND",
+        images: [{ url: ogImage, width: 1200, height: 630, alt: argumentTopic.meta.title }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: argumentTopic.meta.tagline,
+        images: [ogImage],
       },
     };
   }
@@ -115,12 +133,41 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
   // DebateView — no canvas bundle, no hydration for the core experience.
   const argumentTopic = loadArgumentTopic(id);
   if (argumentTopic) {
+    // Re-establish the legacy path's AEO invariant: Article structured data
+    // with the graph's evidence source URLs exposed as schema.org citations.
+    const seenUrls = new Set<string>();
+    const citations = argumentTopic.graph.nodes
+      .filter(
+        (n) => n.type === "evidence" && n.status !== "superseded" && n.source.url
+      )
+      .map((n) => (n.type === "evidence" ? n.source.url : undefined))
+      .filter((url): url is string => {
+        if (!url || seenUrls.has(url)) return false;
+        seenUrls.add(url);
+        return true;
+      });
+
     return (
-      <DebateView
-        title={argumentTopic.meta.title}
-        graph={argumentTopic.graph}
-        cruxes={argumentTopic.cruxes}
-      />
+      <>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: argumentTopic.meta.title,
+            description: argumentTopic.meta.tagline,
+            url: `https://argumend.org/topics/${argumentTopic.meta.id}`,
+            datePublished: CONTENT_FIRST_PUBLISHED,
+            dateModified: CONTENT_LAST_UPDATED,
+            author: { "@type": "Organization", name: "ARGUMEND" },
+            citation: citations,
+          }}
+        />
+        <DebateView
+          title={argumentTopic.meta.title}
+          graph={argumentTopic.graph}
+          cruxes={argumentTopic.cruxes}
+        />
+      </>
     );
   }
 

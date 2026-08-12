@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
+import { loadArgumentTopic } from "@/lib/argument/draftTopics";
 import { TOPIC_COUNT_LABEL } from "@/data/topicIndex";
 import { buildPageHref, TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
 import TopicsPageClient from "./TopicsPageClient";
@@ -42,5 +45,47 @@ export default async function TopicsPage({ searchParams }: TopicsPageProps) {
   if (state.page > pageCount) {
     notFound();
   }
-  return <TopicsPageClient initialState={state} />;
+  return (
+    <>
+      <FeaturedDebateMaps />
+      <TopicsPageClient initialState={state} />
+    </>
+  );
+}
+
+/**
+ * Server-rendered banner linking the Explore index to the new-model
+ * (ArgumentGraph) debate maps — currently their only in-product inbound link.
+ */
+function FeaturedDebateMaps() {
+  const featured = argumentTopicIds
+    .map((id) => loadArgumentTopic(id))
+    .filter((topic): topic is NonNullable<typeof topic> => topic !== null);
+  if (featured.length === 0) return null;
+
+  return (
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-8">
+      {featured.map((topic) => (
+        <Link
+          key={topic.meta.id}
+          href={`/topics/${topic.meta.id}`}
+          className="surface-card card-hover block rounded-lg border-l-4 border-[#a23b3b] p-4 sm:p-5"
+        >
+          <p className="text-[11px] font-medium uppercase tracking-wider text-[#a23b3b]">
+            Featured debate map
+          </p>
+          <h2 className="mt-1.5 font-serif text-xl sm:text-2xl text-stone-900 dark:text-stone-100">
+            {topic.meta.title}
+          </h2>
+          <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-300">
+            {topic.meta.tagline}
+          </p>
+          <p className="mt-2 text-xs text-muted dark:text-stone-400">
+            {topic.cruxes.length} computed cruxes · every claim, source, and
+            assumption inspectable
+          </p>
+        </Link>
+      ))}
+    </div>
+  );
 }

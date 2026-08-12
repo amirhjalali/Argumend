@@ -53,8 +53,14 @@ export function DebateView({ title, graph, cruxes }: DebateViewProps) {
   const positions = graph.nodes
     .filter((n): n is Position => n.type === "position")
     .sort((a, b) => a.displayRank - b.displayRank);
-  const claims = graph.nodes.filter((n): n is Claim => n.type === "claim");
-  const evidence = graph.nodes.filter((n): n is Evidence => n.type === "evidence");
+  const claims = graph.nodes.filter(
+    (n): n is Claim => n.type === "claim" && n.status !== "superseded"
+  );
+  // Superseded evidence is excluded from rendering and counts, matching the
+  // crux engine's exclusion — a retracted finding must never read as live support.
+  const evidence = graph.nodes.filter(
+    (n): n is Evidence => n.type === "evidence" && n.status !== "superseded"
+  );
   const contested = claims.filter(
     (c) => c.status === "contested" || c.status === "unresolved"
   );
@@ -285,9 +291,11 @@ function ClaimEvidence({
   graph: ArgumentGraph;
   nodesById: Map<string, ArgumentNode>;
 }) {
-  const evidenceEdges = graph.edges.filter(
-    (e) => e.type === "evidences" && e.to === claim.id
-  );
+  const evidenceEdges = graph.edges.filter((e) => {
+    if (e.type !== "evidences" || e.to !== claim.id) return false;
+    const source = nodesById.get(e.from);
+    return source?.type === "evidence" && source.status !== "superseded";
+  });
   const objections = graph.edges.filter(
     (e) => (e.type === "opposes" || e.type === "contradicts") &&
       (e.to === claim.id || (e.type === "contradicts" && e.from === claim.id))

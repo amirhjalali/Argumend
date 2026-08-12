@@ -72,11 +72,11 @@ export const WORKSHEET_ROUTE_IDS = [
   "crux-finder",
 ] as const;
 
-const topicIds = new Set([
-  ...topicSummaries.map((topic) => topic.id),
-  // New-model (ArgumentGraph) topics render via DebateView but share /topics/:id.
-  ...argumentTopicIds,
-]);
+const topicIds = new Set(topicSummaries.map((topic) => topic.id));
+// New-model (ArgumentGraph) topics render via DebateView on /topics/:id ONLY.
+// Kept separate from topicIds: embed/compare routes serve legacy topics alone,
+// so argument ids must not leak into their allowlists.
+const debateTopicIds = new Set(argumentTopicIds);
 const topicCategories = new Set<string>(CATEGORY_ORDER);
 const topicTags = new Set(
   topicSummaries.flatMap((topic) =>
@@ -121,7 +121,11 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
   if (!segments) return true;
 
   if (segments.length === 2 && segments[0] === "topics") {
-    return !RESERVED_TOPIC_SEGMENTS.has(segments[1]) && !topicIds.has(segments[1]);
+    return (
+      !RESERVED_TOPIC_SEGMENTS.has(segments[1]) &&
+      !topicIds.has(segments[1]) &&
+      !debateTopicIds.has(segments[1])
+    );
   }
   if (
     segments.length === 3 &&

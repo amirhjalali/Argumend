@@ -13,6 +13,7 @@ import { isClaims } from "@/data/is-claims";
 import { getAllFallacySlugs } from "@/data/fallacies";
 import { concepts } from "@/data/concepts";
 import { topicSummaries, CATEGORY_ORDER } from "@/data/topicIndex";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { CONTENT_LAST_UPDATED, SITE_URL } from "@/lib/site";
 
 export const revalidate = 86400;
@@ -90,6 +91,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: contentLastUpdated,
     changeFrequency: "weekly",
     priority: 0.8,
+  }));
+
+  // ── New-model (ArgumentGraph) debate maps — the flagship experience ────
+  const argumentTopicPages: MetadataRoute.Sitemap = argumentTopicIds.map((id) => ({
+    url: `${baseUrl}/topics/${id}`,
+    lastModified: contentLastUpdated,
+    changeFrequency: "weekly",
+    priority: 0.9,
   }));
 
   // ── Blog articles (priority 0.7) ──────────────────────────────────────
@@ -339,6 +348,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...listingPages,
     ...hubPages,
     ...topicPages,
+    ...argumentTopicPages,
     ...blogArticlePages,
     ...guidePages,
     ...comparisonPages,

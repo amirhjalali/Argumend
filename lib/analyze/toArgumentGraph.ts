@@ -307,7 +307,14 @@ function rewriteQuestion(topic: string): string {
 }
 
 function lowercaseFirst(value: string): string {
-  return value.length === 0 ? value : `${value[0]?.toLowerCase() ?? ""}${value.slice(1)}`;
+  if (value.length === 0) return value;
+  // Preserve acronyms and initialisms ("AI will…" must not become "aI will…"):
+  // only lowercase when the second character is not also uppercase.
+  const second = value[1];
+  if (second !== undefined && second === second.toUpperCase() && second !== second.toLowerCase()) {
+    return value;
+  }
+  return `${value[0]?.toLowerCase() ?? ""}${value.slice(1)}`;
 }
 
 function mappablePositions(
