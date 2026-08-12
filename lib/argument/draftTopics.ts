@@ -11,6 +11,7 @@ import { identifyCruxes, type CruxResult } from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
 import aiMassUnemploymentDraft from "@/data/topics/drafts/ai-mass-unemployment.draft.json";
 import capitalismAfterAiDraft from "@/data/topics/drafts/capitalism-after-ai.draft.json";
+import usIsraelSupportDraft from "@/data/topics/drafts/us-israel-support.draft.json";
 
 export interface ArgumentTopicHighlight {
   /** The big steal-able number/phrase ("−16%", "700 'agents'"). */
@@ -216,6 +217,48 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       ],
     },
     raw: capitalismAfterAiDraft,
+  },
+  "us-israel-support": {
+    meta: {
+      id: "us-israel-support",
+      title: "Should the U.S. reduce its support for Israel?",
+      hero: {
+        src: "/topics/us-israel-support-hero.jpg",
+        alt: "Two stone tables seen from above, angled toward each other but not touching, each scattered with documents and olive branches.",
+      },
+      tagline:
+        "$38 billion committed, 100+ arms sales, repeated UN vetoes — and a fight where the two sides do not even agree on the casualty numbers. Four positions, mapped without a thumb on the scale.",
+      hook: "This is the argument where people are least likely to grant that the other side is arguing in good faith. So this map does something specific: where the facts themselves are disputed — casualty counts, what the administration's own arms-transfer review actually found — it shows you the dispute instead of picking a number.",
+      tldr: "Almost nobody disputes the aid figures: $38 billion committed under the 2016 MOU, a $3.5 billion supplemental, 100+ arms sales. The fight is over three other things — what the casualty record actually is, whether U.S. aid buys any real leverage over Israeli policy, and whether existing U.S. law is already being followed. The last one is procedural, and it turns out to be where several of the deepest disagreements actually live.",
+      advocates: {
+        "p-maintain-support": { name: "The strategic-alliance case", affiliation: "CFR, defense establishment", line: "argues Israel is the one reliable partner in the region, that missile-defense co-development returns value to the U.S., and that visible daylight invites escalation." },
+        "p-conditional-leverage": { name: "The conditioning case", affiliation: "congressional critics, rights organizations", line: "argues the human-rights conditions already written into U.S. law should actually bind — keep the alliance, enforce the strings." },
+        "p-substantially-reduce": { name: "The reduction case", affiliation: "restraint-school analysts", line: "argues unconditional backing has not produced policy change and carries real costs to U.S. standing, so the support should shrink." },
+        "p-enforce-existing-law": { name: "The procedural case", affiliation: "arms-transfer law specialists", line: "argues the prior question is whether the U.S. is following its own arms-transfer statutes at all — settle that before debating more or less." },
+      },
+      highlights: [
+        { fact: "$38B", context: "Committed under the 2016 U.S.–Israel MOU for FY2019–FY2028: $33B in Foreign Military Financing plus $5B for missile defense.", source: "White House MOU fact sheet" },
+        { fact: "100+", context: "Separate military sales approved and delivered by March 2024 — most below the thresholds that trigger congressional review.", source: "Washington Post reporting" },
+        { fact: "Disputed", context: "Gaza casualty figures: OCHA cites Gaza Ministry of Health totals; Israeli figures and independent projections diverge sharply. This map shows the range and who contests what.", source: "OCHA / MoH / competing assessments" },
+        { fact: "Ambiguous", context: "What the administration's own NSM-20 arms-transfer review concluded is itself contested — a procedural fact at the center of the legal dispute.", source: "Senate Foreign Relations release" },
+      ],
+      closer: {
+        heading: "The four positions disagree less about values than about three specific unknowns.",
+        splits: [
+          { camp: "Maintain full support", reading: "the alliance is load-bearing for regional stability; conditioning it signals unreliability to every other partner." },
+          { camp: "Continue aid, but condition it", reading: "the leverage exists and is simply unused — the strings in current law were meant to bind." },
+          { camp: "Substantially reduce", reading: "the leverage was tested and did not work, so continued support buys costs without compliance." },
+          { camp: "Enforce the law we have", reading: "none of the above is answerable while it remains contested whether existing arms-transfer statutes are being applied at all." },
+        ],
+        take: "Whether U.S. aid buys real leverage over Israeli policy is an unstated assumption underneath two of the four positions — and neither side has clean evidence for it. That, plus a genuinely disputed casualty record, explains most of why this argument doesn't move.",
+      },
+      takeaways: [
+        "The aid numbers are not in dispute: $38B under the 2016 MOU, a $3.5B supplemental, 100+ arms sales. Arguing about the facts of the aid is arguing about a settled record.",
+        "The casualty record IS in dispute — sources diverge and the methodologies differ. Any single number quoted at you, from either direction, is a choice among contested figures.",
+        "“Does U.S. aid buy leverage?” is the hidden hinge. Two positions quietly assume it does, one assumes it was tested and failed, and the evidence is thin either way.",
+      ],
+    },
+    raw: usIsraelSupportDraft,
   },
 };
 
