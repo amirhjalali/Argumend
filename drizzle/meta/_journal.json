@@ -15,6 +15,13 @@
       "when": 1785515713603,
       "tag": "0001_privacy_auth_schema",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1787059200000,
+      "tag": "0002_disagreement_reports",
+      "breakpoints": true
     }
   ]
 }

@@ -17,6 +17,7 @@ import {
   topicViews,
   users,
   verificationTokens,
+  disagreementReports,
 } from "./schema";
 
 const root = process.cwd();
@@ -60,6 +61,9 @@ describe("database schema and migration privacy ratchet", () => {
     const columns = getTableColumns(analyses);
     expect(columns).not.toHaveProperty("inputContent");
     expect(columns).not.toHaveProperty("contentHash");
+    const disagreementColumns = getTableColumns(disagreementReports);
+    expect(disagreementColumns).not.toHaveProperty("sourceText");
+    expect(disagreementColumns).not.toHaveProperty("inputContent");
 
     const migratedColumns = snapshot.tables["public.analyses"].columns;
     expect(migratedColumns).not.toHaveProperty("input_content");

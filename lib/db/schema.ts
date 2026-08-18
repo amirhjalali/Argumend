@@ -21,6 +21,8 @@ import type {
   DetectedBias,
 } from "@/lib/analyze/extractor";
 import type { JudgeScore, JudgingResult } from "@/lib/judge/rubric";
+import type { DisagreementReportV1 } from "@/types/disagreement";
+import type { ArgumentGraph } from "@/types/argument";
 
 // ============================================================================
 // Auth.js tables — users, accounts, sessions, verification tokens
@@ -378,5 +380,81 @@ export const judgeVerdictsRelations = relations(judgeVerdicts, ({ one }) => ({
   judgment: one(judgments, {
     fields: [judgeVerdicts.judgmentId],
     references: [judgments.id],
+  }),
+}));
+
+export const disagreementReports = pgTable(
+  "disagreement_reports",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    slug: text("slug").notNull(),
+    userId: text("user_id").references(() => users.id, { onDelete: "set null" }),
+    schemaVersion: integer("schema_version").notNull().default(1),
+    visibility: text("visibility").notNull().default("unlisted"),
+    sourceKind: text("source_kind"),
+    sourceUrl: text("source_url"),
+    sourcePlatform: text("source_platform"),
+    title: text("title").notNull(),
+    diagnosisHeadline: text("diagnosis_headline").notNull(),
+    diagnosisPattern: text("diagnosis_pattern").notNull(),
+    primaryCrux: text("primary_crux"),
+    report: jsonb("report").$type<DisagreementReportV1>().notNull(),
+    graph: jsonb("graph").$type<ArgumentGraph>().notNull(),
+    reportDigest: text("report_digest").notNull(),
+    provider: text("provider").notNull(),
+    model: text("model").notNull(),
+    promptVersion: text("prompt_version").notNull(),
+    manageTokenHash: text("manage_token_hash").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    publishedAt: timestamp("published_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+    deletedAt: timestamp("deleted_at"),
+  },
+  (table) => [
+    uniqueIndex("disagreement_reports_slug_idx").on(table.slug),
+    index("disagreement_reports_createdAt_idx").on(table.createdAt),
+    index("disagreement_reports_visibility_createdAt_idx").on(table.visibility, table.createdAt),
+    index("disagreement_reports_pattern_idx").on(table.diagnosisPattern),
+    index("disagreement_reports_userId_idx").on(table.userId),
+    index("disagreement_reports_digest_idx").on(table.reportDigest),
+  ],
+);
+
+export const disagreementFeedback = pgTable(
+  "disagreement_feedback",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    reportId: uuid("report_id")
+      .notNull()
+      .references(() => disagreementReports.id, { onDelete: "cascade" }),
+    section: text("section").notNull(),
+    targetId: text("target_id"),
+    vote: text("vote"),
+    correction: text("correction"),
+    anonymousSessionHash: text("anonymous_session_hash").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (table) => [
+    uniqueIndex("disagreement_feedback_unique_idx").on(
+      table.reportId,
+      table.section,
+      table.targetId,
+      table.anonymousSessionHash,
+    ),
+    index("disagreement_feedback_reportId_idx").on(table.reportId),
+    index("disagreement_feedback_createdAt_idx").on(table.createdAt),
+  ],
+);
+
+export const disagreementReportsRelations = relations(disagreementReports, ({ one, many }) => ({
+  user: one(users, { fields: [disagreementReports.userId], references: [users.id] }),
+  feedback: many(disagreementFeedback),
+}));
+
+export const disagreementFeedbackRelations = relations(disagreementFeedback, ({ one }) => ({
+  report: one(disagreementReports, {
+    fields: [disagreementFeedback.reportId],
+    references: [disagreementReports.id],
   }),
 }));

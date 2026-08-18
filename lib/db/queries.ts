@@ -9,6 +9,8 @@ import {
   savedTopics,
   topicViews,
   topicSubscriptions,
+  disagreementReports,
+  disagreementFeedback,
 } from "./schema";
 import type { ExtractedArguments } from "@/lib/analyze/extractor";
 import type { JudgingResult } from "@/lib/judge/rubric";
@@ -351,4 +353,108 @@ export async function getSubscriberCount(topicId: string) {
     .from(topicSubscriptions)
     .where(eq(topicSubscriptions.topicId, topicId));
   return result?.count ?? 0;
+}
+
+export async function publishDisagreementReport(input: {
+  slug: string;
+  title: string;
+  diagnosisHeadline: string;
+  diagnosisPattern: string;
+  primaryCrux?: string | null;
+  report: import("@/types/disagreement").DisagreementReportV1;
+  graph: import("@/types/argument").ArgumentGraph;
+  reportDigest: string;
+  provider: string;
+  model: string;
+  promptVersion: string;
+  manageTokenHash: string;
+  sourceKind?: string | null;
+  sourceUrl?: string | null;
+  sourcePlatform?: string | null;
+}) {
+  const [row] = await getDb()
+    .insert(disagreementReports)
+    .values({
+      slug: input.slug,
+      title: input.title,
+      diagnosisHeadline: input.diagnosisHeadline,
+      diagnosisPattern: input.diagnosisPattern,
+      primaryCrux: input.primaryCrux ?? null,
+      report: input.report,
+      graph: input.graph,
+      reportDigest: input.reportDigest,
+      provider: input.provider,
+      model: input.model,
+      promptVersion: input.promptVersion,
+      manageTokenHash: input.manageTokenHash,
+      sourceKind: input.sourceKind ?? null,
+      sourceUrl: input.sourceUrl ?? null,
+      sourcePlatform: input.sourcePlatform ?? null,
+      visibility: "unlisted",
+    })
+    .returning({ id: disagreementReports.id, slug: disagreementReports.slug });
+  return row;
+}
+
+export async function getPublishedDisagreementReport(slug: string) {
+  return getDb().query.disagreementReports.findFirst({
+    where: and(
+      eq(disagreementReports.slug, slug),
+      eq(disagreementReports.visibility, "unlisted"),
+    ),
+  });
+}
+
+export async function getDisagreementReportBySlug(slug: string) {
+  return getDb().query.disagreementReports.findFirst({
+    where: eq(disagreementReports.slug, slug),
+  });
+}
+
+export async function softDeleteDisagreementReport(slug: string) {
+  const [row] = await getDb()
+    .update(disagreementReports)
+    .set({
+      visibility: "deleted",
+      deletedAt: new Date(),
+      updatedAt: new Date(),
+    })
+    .where(eq(disagreementReports.slug, slug))
+    .returning({ id: disagreementReports.id });
+  return row;
+}
+
+export async function upsertDisagreementFeedback(input: {
+  reportId: string;
+  section: string;
+  targetId?: string | null;
+  vote?: string | null;
+  correction?: string | null;
+  anonymousSessionHash: string;
+}) {
+  const [row] = await getDb()
+    .insert(disagreementFeedback)
+    .values({
+      reportId: input.reportId,
+      section: input.section,
+      targetId: input.targetId ?? null,
+      vote: input.vote ?? null,
+      correction: input.correction ?? null,
+      anonymousSessionHash: input.anonymousSessionHash,
+    })
+    .onConflictDoUpdate({
+      target: [
+        disagreementFeedback.reportId,
+        disagreementFeedback.section,
+        disagreementFeedback.targetId,
+        disagreementFeedback.anonymousSessionHash,
+      ],
+      set: {
+        vote: input.vote ?? null,
+        correction: input.correction ?? null,
+        updatedAt: new Date(),
+      },
+    })
+    .returning({ id: disagreementFeedback.id });
+  return row;
 }

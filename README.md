@@ -82,7 +82,16 @@ NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true
 
 ENABLE_LIVE_DEBATE_API=true
 NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true
+
+ENABLE_DISAGREEMENT_V2=true
+NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2=true
+ARGUMEND_DISAGREEMENT_MODEL=claude-sonnet-4-20250514
 ```
+
+Disagreement Diagnosis V2 is a separate, source-only Analyze loop at `/analyze-v2`.
+It stays off unless both flags are true and `ARGUMEND_DISAGREEMENT_MODEL` is set.
+Publishing unlisted `/d/<slug>` reports also requires `ENABLE_DISAGREEMENT_PUBLISHING`,
+`REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`. The old `/analyze` path is unchanged.
 
 The unprefixed `ENABLE_LIVE_*` flags are the server-side authorization boundary
 for provider calls. Their matching `NEXT_PUBLIC_ENABLE_LIVE_*` flags only expose

@@ -28,6 +28,11 @@ describe(".env.example", () => {
       expect(example[`ENABLE_LIVE_${feature}_API`]).toBe("false");
       expect(example[`NEXT_PUBLIC_ENABLE_LIVE_${feature}_API`]).toBe("false");
     }
+    expect(example.ENABLE_DISAGREEMENT_V2).toBe("false");
+    expect(example.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2).toBe("false");
+    expect(example.ENABLE_DISAGREEMENT_PUBLISHING).toBe("false");
+    expect(example.ARGUMEND_DISAGREEMENT_MODEL).toBe("");
+    expect(example.REPORT_PUBLICATION_SECRET).toBe("");
     expect(example.NEXT_PUBLIC_ENABLE_AUTH).toBe("false");
   });
 });
