@@ -123,6 +123,106 @@ describe("crux projection", () => {
   });
 });
 
+describe("contradicts edges", () => {
+  it("keeps the graph when the model names a pair in reverse order", async () => {
+    // `contradicts` is symmetric and the graph stores each pair once in
+    // lexicographic order. Passing the model's order through failed validation
+    // and collapsed the whole graph — every position and crux — over sorting.
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
+    const extraction = structuredClone(example.extraction);
+    const [first, second] = extraction.claims;
+    const [low, high] = [first.id, second.id].sort();
+    extraction.claimRelations = [{ fromClaimId: high, toClaimId: low, type: "contradicts" }];
+    const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+
+    const result = await analyzeDisagreement({
+      content,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(result.report.quality.warnings.join(" ")).not.toMatch(/failed validation/i);
+    expect(result.graph.nodes.length).toBeGreaterThan(1);
+    const edge = result.graph.edges.find((item) => item.type === "contradicts");
+    expect(edge).toBeDefined();
+    expect(edge!.from < edge!.to).toBe(true);
+  });
+
+  it("stores a duplicated pair only once", async () => {
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
+    const extraction = structuredClone(example.extraction);
+    const [first, second] = extraction.claims;
+    extraction.claimRelations = [
+      { fromClaimId: first.id, toClaimId: second.id, type: "contradicts" },
+      { fromClaimId: second.id, toClaimId: first.id, type: "contradicts" },
+    ];
+    const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+
+    const result = await analyzeDisagreement({
+      content,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(result.graph.edges.filter((item) => item.type === "contradicts")).toHaveLength(1);
+    expect(result.report.quality.warnings.join(" ")).not.toMatch(/failed validation/i);
+  });
+});
+
+describe("common ground honesty", () => {
+  it("never claims explicit agreement whose quotes did not survive grounding", async () => {
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
+    const extraction = structuredClone(example.extraction);
+    extraction.commonGroundCandidates = [
+      {
+        statement: "Both treat the coverage figures as the relevant measure.",
+        participantIds: extraction.participants.map((participant) => participant.id),
+        basis: "explicit",
+        confidence: "high",
+        // A quote that is not in the source: the guardrail drops it, and the
+        // "explicit" label must not outlive the evidence for it.
+        groundingQuotes: [{ quote: "This sentence appears nowhere in the source text at all." }],
+      },
+    ];
+    const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+
+    const result = await analyzeDisagreement({
+      content,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    const item = result.report.commonGround[0];
+    expect(item.grounding).toHaveLength(0);
+    expect(item.basis).toBe("strongly-implied");
+    expect(item.confidence).not.toBe("high");
+  });
+});
+
+describe("crux explanations", () => {
+  it("does not fall back to a sentence true of every crux", async () => {
+    for (const example of DISAGREEMENT_FEW_SHOT_EXAMPLES) {
+      const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+      const result = await analyzeDisagreement({
+        content,
+        contentType: example.contentType,
+        requestId: REQUEST_ID,
+        provider: new FakeDisagreementProvider(example.extraction),
+      });
+
+      for (const crux of result.report.cruxes) {
+        expect(crux.whyItMatters).not.toBe("Resolving this would change the structure of the disagreement.");
+        for (const branch of crux.branches) {
+          expect(branch.condition).not.toMatch(/^If If /);
+        }
+      }
+    }
+  });
+});
+
 describe("dangling references", () => {
   it("drops them with a warning instead of discarding the extraction", async () => {
     // The spec has the normalizer drop dangling references and warn. Failing

@@ -38,6 +38,35 @@ function normalizeQuestion(value: string): string {
   return value.trim().toLowerCase().replace(/\s+/g, " ").replace(/[?.]+$/, "");
 }
 
+/**
+ * Says what this crux actually decides, in terms of the positions it moves.
+ *
+ * The old fallback — "Resolving this would change the structure of the
+ * disagreement" — is true of every crux ever selected, so it tells the reader
+ * nothing while occupying the field that is supposed to justify the selection.
+ * Naming the affected positions is at least specific to this one.
+ */
+function whyItMatters(input: {
+  related?: { summary: string };
+  claim?: { statement: string };
+  positionLabels: Map<string, string>;
+  affected: string[];
+}): string {
+  if (input.related?.summary) return input.related.summary;
+
+  const named = input.affected
+    .map((id) => input.positionLabels.get(id))
+    .filter((label): label is string => Boolean(label));
+
+  if (named.length >= 2) {
+    return `Settling this moves ${named.slice(0, 3).join(", ")} — they do not stand or fall together on it.`;
+  }
+  if (named.length === 1) {
+    return `${named[0]} depends on this; the other positions do not turn on it.`;
+  }
+  return "The positions diverge here, though the source does not say how much rests on it.";
+}
+
 /** Trims a claim so it reads as a clause inside "If ... holds". */
 function asCondition(statement: string): string {
   return statement.trim().replace(/\s+/g, " ").replace(/[.]+$/, "");
@@ -58,7 +87,9 @@ function cruxBranches(input: {
   const { claim, affectedPositionIds, positionLabels } = input;
   if (!claim) return [];
 
-  const condition = `If ${asCondition(claim.statement)} holds`;
+  // A claim that already opens with "If" would otherwise read "If If ...".
+  const stated = asCondition(claim.statement);
+  const condition = /^if\s/i.test(stated) ? `${stated}, and that holds` : `If ${stated} holds`;
   const stanceFor = new Map(claim.stanceByPosition.map((stance) => [stance.positionId, stance.relation]));
   const named = affectedPositionIds.filter((id) => stanceFor.has(id));
   const strengthened = named.filter((id) => stanceFor.get(id) === "supports");
@@ -164,14 +195,23 @@ export function projectDisagreementReport(input: {
     grounding: ground(position.groundingQuotes, position.id),
   }));
 
-  const commonGround: CommonGroundItem[] = extraction.commonGroundCandidates.map((item, index) => ({
-    id: `cg-${index + 1}`,
-    statement: item.statement,
-    participantIds: item.participantIds,
-    basis: item.basis,
-    confidence: item.confidence,
-    grounding: ground(item.groundingQuotes, `cg-${index + 1}`),
-  }));
+  const commonGround: CommonGroundItem[] = extraction.commonGroundCandidates.map((item, index) => {
+    const grounding = ground(item.groundingQuotes, `cg-${index + 1}`);
+    // "Explicit" tells the reader these people said this. When the quotes that
+    // were supposed to show it did not survive grounding — because the model
+    // invented them — the label is a claim we cannot back, and it lands on real
+    // named people taking positions on contested subjects. Demote rather than
+    // assert. Confidence follows, since the basis for it is gone.
+    const unsupported = item.basis === "explicit" && grounding.length === 0;
+    return {
+      id: `cg-${index + 1}`,
+      statement: item.statement,
+      participantIds: item.participantIds,
+      basis: unsupported ? ("strongly-implied" as const) : item.basis,
+      confidence: unsupported && item.confidence === "high" ? ("medium" as const) : item.confidence,
+      grounding,
+    };
+  });
 
   const disagreements: DisagreementItem[] = extraction.disagreementCandidates.map((item) => ({
     id: item.id,
@@ -219,7 +259,7 @@ export function projectDisagreementReport(input: {
       claimId: result.claimId,
       question,
       type,
-      whyItMatters: related?.summary ?? "Resolving this would change the structure of the disagreement.",
+      whyItMatters: whyItMatters({ related, claim, positionLabels, affected: result.affectedPositions.map((item) => item.id) }),
       affectedPositionIds: result.affectedPositions.map((item) => item.id),
       branches: cruxBranches({
         claim,
