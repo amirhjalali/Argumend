@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { TopBar } from "@/components/TopBar";
 import { DisagreementReportView } from "@/components/disagreement/DisagreementReportView";
+import { PublicShareControls } from "@/components/disagreement/PublicShareControls";
 import { RepresentationFeedback } from "@/components/disagreement/RepresentationFeedback";
 import { isDatabaseConfigured } from "@/lib/db";
 import { getPublishedDisagreementReport } from "@/lib/db/queries";
@@ -68,6 +69,11 @@ export default async function PublicDisagreementPage({ params }: PageProps) {
             <>
               <RepresentationFeedback slug={slug} section="overall" />
               <RepresentationFeedback slug={slug} section="abuse" />
+              <PublicShareControls
+                slug={slug}
+                publicUrl={`https://argumend.org/d/${slug}`}
+                headline={row.report.diagnosis.headline}
+              />
               <Link
                 href="/analyze-v2"
                 className="min-h-11 text-sm underline"

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import type { ArgumentGraph } from "@/types/argument";
 import type { DisagreementReportV1 } from "@/types/disagreement";
+import { DeleteReportControl } from "./DeleteReportControl";
 
 export function ShareReport({
   report,
@@ -20,8 +21,10 @@ export function ShareReport({
   publicUrl?: string;
 }) {
   const [url, setUrl] = useState("");
+  const [slug, setSlug] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [deleted, setDeleted] = useState(false);
 
   async function publish() {
     if (!publicationToken || !graph) {
@@ -45,6 +48,7 @@ export function ShareReport({
       }
       const absolute = new URL(data.url, window.location.origin).toString();
       setUrl(absolute);
+      setSlug(data.url.replace("/d/", ""));
       if (data.manageToken) {
         localStorage.setItem(`argumend-manage:${data.url.replace("/d/", "")}`, data.manageToken);
       }
@@ -80,7 +84,7 @@ export function ShareReport({
           Create shareable link
         </button>
       ) : null}
-      {shareUrl ? (
+      {shareUrl && !deleted ? (
         <div className="flex flex-wrap gap-2">
           <button type="button" className="min-h-11 rounded-full border px-4" onClick={() => copy(shareUrl)}>
             Copy link
@@ -89,6 +93,9 @@ export function ShareReport({
             Share to X
           </a>
         </div>
+      ) : null}
+      {shareUrl && slug ? (
+        <DeleteReportControl slug={slug} onDeleted={() => setDeleted(true)} />
       ) : null}
       {error ? <p className="text-sm text-[#a23b3b]">{error}</p> : null}
     </section>
