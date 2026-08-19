@@ -105,7 +105,19 @@ tsx scripts/disagreement/run-corpus.ts --provider cli --model sonnet
 
 # One map
 tsx scripts/disagreement/run-corpus.ts --provider cli --only capitalism-after-ai
+
+# Widen to the legacy three-pillar topics, bounded
+tsx scripts/disagreement/run-corpus.ts --provider cli --include-legacy --limit 15
 ```
+
+Flags: `--provider fake|cli`, `--cli claude|codex`, `--model`, `--only <topicId>`,
+`--timeout <seconds>`, `--include-legacy`, `--limit <n>`.
+
+`--include-legacy` reaches the 156 three-pillar topics through
+`adaptTopicToArgumentGraph`. Their ground truth is weaker — the adapter rewrites
+a declarative meta-claim into a question and flags its own output for editorial
+review — so read those rows as indicative, not as a bar to clear. Curated maps
+win on an id collision.
 
 Each run writes to `.eval-runs/corpus-<timestamp>/` (gitignored): one JSON file
 per map holding the transcript, the report, the graph, and the recovery score,

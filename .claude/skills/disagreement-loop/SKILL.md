@@ -48,6 +48,9 @@ The founder's standing directive is **do not externalize** — no
 
 # One map
 ./node_modules/.bin/tsx scripts/disagreement/run-corpus.ts --provider cli --only capitalism-after-ai
+
+# Widen to the legacy three-pillar topics (weaker ground truth), bounded
+./node_modules/.bin/tsx scripts/disagreement/run-corpus.ts --provider cli --include-legacy --limit 15
 ```
 
 Output lands in `.eval-runs/` (gitignored). That is the founder-checkpoint
