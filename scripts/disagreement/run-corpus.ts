@@ -41,6 +41,11 @@ interface Options {
    */
   includeLegacy: boolean;
   limit?: number;
+  /**
+   * Maps analyzed at once. Each is an independent subprocess, and a single dense
+   * map takes minutes, so a sequential run wastes almost all of the wall clock.
+   */
+  concurrency: number;
 }
 
 function parseArgs(argv: string[]): Options {
@@ -49,6 +54,7 @@ function parseArgs(argv: string[]): Options {
     cliKind: process.env.ARGUMEND_DISAGREEMENT_CLI === "codex" ? "codex" : "claude",
     model: process.env.ARGUMEND_DISAGREEMENT_MODEL?.trim() || "sonnet",
     includeLegacy: false,
+    concurrency: 4,
   };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -59,6 +65,7 @@ function parseArgs(argv: string[]): Options {
     else if (arg === "--timeout") options.timeoutMs = Number(argv[++index]) * 1000;
     else if (arg === "--include-legacy") options.includeLegacy = true;
     else if (arg === "--limit") options.limit = Number(argv[++index]);
+    else if (arg === "--concurrency") options.concurrency = Math.max(1, Number(argv[++index]));
   }
   return options;
 }
@@ -125,13 +132,13 @@ async function main() {
   const scores: MapRecoveryScore[] = [];
   const failures: Array<{ id: string; error: string }> = [];
 
-  for (const graph of graphs) {
+  async function runOne(graph: ArgumentGraph): Promise<void> {
     let debate: RenderedDebate;
     try {
       debate = renderDebateFromGraph(graph);
     } catch (error) {
       failures.push({ id: graph.topicId, error: `render: ${(error as Error).message}` });
-      continue;
+      return;
     }
 
     const started = Date.now();
@@ -174,6 +181,16 @@ async function main() {
       );
     }
   }
+
+  // Workers pull from one shared queue, so a slow map delays only itself
+  // rather than holding up a whole batch the way fixed chunks would.
+  const queue = [...graphs];
+  const workers = Array.from({ length: Math.min(options.concurrency, queue.length) }, async () => {
+    for (let next = queue.shift(); next; next = queue.shift()) {
+      await runOne(next);
+    }
+  });
+  await Promise.all(workers);
 
   const summary = summarizeRecovery(scores);
   writeFileSync(
