@@ -60,6 +60,11 @@ Expect **5 to 15 minutes per dense map**. This lane is offline batch only; the
 provider refuses to run when `NODE_ENV=production` because a subprocess per
 request is not a serving architecture.
 
+**Always pass `--concurrency`.** Each map is an independent subprocess, so a
+sequential run spends nearly all of its wall clock idle. The default is 4; 6 to
+8 is fine. If runs start failing with `MODEL_UNAVAILABLE`, the subscription is
+rate-limiting the parallel calls — lower it rather than retrying into the wall.
+
 ## Map recovery: our maps are the answer key
 
 The flagship ArgumentGraphs already contain steelmanned positions, typed claims,
