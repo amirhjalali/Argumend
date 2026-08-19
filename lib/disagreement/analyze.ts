@@ -1,5 +1,13 @@
-import type { DisagreementAnalysisBundleV1, DisagreementContentType } from "@/types/disagreement";
-import { parseRawDisagreementExtraction } from "@/lib/schemas/disagreement";
+import type {
+  DisagreementAnalysisBundleV1,
+  DisagreementContentType,
+  RawDisagreementExtractionV1,
+} from "@/types/disagreement";
+import {
+  RawDisagreementExtractionSchema,
+  parseRawDisagreementExtraction,
+} from "@/lib/schemas/disagreement";
+import { issuePaths } from "./model/cli";
 import { DisagreementError } from "./errors";
 import { buildArgumentGraph } from "./buildGraph";
 import type { DisagreementModelProvider } from "./model/provider";
@@ -22,11 +30,23 @@ export async function analyzeDisagreement(input: {
 
   const extracted = await input.provider.extract(request, { signal: input.signal });
   const parsed = parseRawDisagreementExtraction(extracted.data);
-  if (!parsed.success) {
-    throw new DisagreementError("MODEL_SCHEMA_INVALID", input.requestId);
+
+  // A structurally invalid payload is unusable. Dangling references are not:
+  // §10.3 of the spec says to drop them and warn, and normalizeExtraction does
+  // exactly that. Failing here would discard a whole extraction for a problem
+  // the very next step exists to repair.
+  if (!parsed.success && parsed.error) {
+    throw new DisagreementError(
+      "MODEL_SCHEMA_INVALID",
+      input.requestId,
+      `Extraction failed schema validation at: ${issuePaths({ issues: parsed.error.issues }).join(", ") || "unknown"}`,
+    );
   }
 
-  const normalized = normalizeExtraction(parsed.data);
+  const structural = parsed.success
+    ? parsed.data
+    : (RawDisagreementExtractionSchema.parse(extracted.data) as RawDisagreementExtractionV1);
+  const normalized = normalizeExtraction(structural);
   const graphResult = buildArgumentGraph(normalized.extraction);
   const report = projectDisagreementReport({
     extraction: normalized.extraction,

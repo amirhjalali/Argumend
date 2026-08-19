@@ -123,6 +123,46 @@ describe("crux projection", () => {
   });
 });
 
+describe("dangling references", () => {
+  it("drops them with a warning instead of discarding the extraction", async () => {
+    // The spec has the normalizer drop dangling references and warn. Failing
+    // the parse first would throw away a whole extraction over a problem the
+    // very next step exists to repair.
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
+    const extraction = structuredClone(example.extraction);
+    extraction.claims[0].stanceByPosition.push({ positionId: "pos-does-not-exist", relation: "supports" });
+    extraction.claimRelations.push({
+      fromClaimId: extraction.claims[0].id,
+      toClaimId: "claim-does-not-exist",
+      type: "supports",
+    });
+    const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+
+    const result = await analyzeDisagreement({
+      content,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(result.report.positions.length).toBeGreaterThan(0);
+    expect(result.report.quality.warnings.join(" ")).toMatch(/dangling|Dropped/i);
+    expect(result.graph.nodes.some((node) => node.id === "pos-does-not-exist")).toBe(false);
+  });
+
+  it("still rejects a structurally invalid payload", async () => {
+    const broken = { mainQuestion: "only this" } as never;
+    await expect(
+      analyzeDisagreement({
+        content: `Some real disagreement text.\n\n${"Context note for length. ".repeat(8)}`,
+        contentType: "conversation",
+        requestId: REQUEST_ID,
+        provider: new FakeDisagreementProvider(broken),
+      }),
+    ).rejects.toMatchObject({ code: "MODEL_SCHEMA_INVALID" });
+  });
+});
+
 describe("crux branch direction", () => {
   it("never says one condition strengthens both sides of the split", async () => {
     for (const example of DISAGREEMENT_FEW_SHOT_EXAMPLES) {
