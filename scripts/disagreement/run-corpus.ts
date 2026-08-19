@@ -20,6 +20,8 @@ import { CliDisagreementProvider, type DisagreementCliKind } from "@/lib/disagre
 import { FakeDisagreementProvider } from "@/lib/disagreement/model/fake";
 import type { DisagreementModelProvider } from "@/lib/disagreement/model/provider";
 import { argumentTopicIds, loadArgumentTopic } from "@/lib/argument/draftTopics";
+import { adaptTopicToArgumentGraph } from "@/lib/argument/adapter";
+import { topics } from "@/data/topics";
 import type { ArgumentGraph } from "@/types/argument";
 
 const OUTPUT_ROOT = ".eval-runs";
@@ -31,6 +33,14 @@ interface Options {
   only?: string;
   /** Dense maps can outrun the default; raise rather than lose the run. */
   timeoutMs?: number;
+  /**
+   * Widen the corpus to the legacy three-pillar topics through the documented
+   * adapter. Their ground truth is weaker — the adapter rewrites a declarative
+   * meta-claim into a question and flags its own output for editorial review —
+   * so treat their recovery scores as indicative, not as a bar to clear.
+   */
+  includeLegacy: boolean;
+  limit?: number;
 }
 
 function parseArgs(argv: string[]): Options {
@@ -38,6 +48,7 @@ function parseArgs(argv: string[]): Options {
     provider: "fake",
     cliKind: process.env.ARGUMEND_DISAGREEMENT_CLI === "codex" ? "codex" : "claude",
     model: process.env.ARGUMEND_DISAGREEMENT_MODEL?.trim() || "sonnet",
+    includeLegacy: false,
   };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -46,16 +57,33 @@ function parseArgs(argv: string[]): Options {
     else if (arg === "--model") options.model = argv[++index];
     else if (arg === "--only") options.only = argv[++index];
     else if (arg === "--timeout") options.timeoutMs = Number(argv[++index]) * 1000;
+    else if (arg === "--include-legacy") options.includeLegacy = true;
+    else if (arg === "--limit") options.limit = Number(argv[++index]);
   }
   return options;
 }
 
-function loadGraphs(only?: string): ArgumentGraph[] {
-  const ids = only ? argumentTopicIds.filter((id) => id === only) : argumentTopicIds;
-  return ids
+function loadGraphs(options: Options): ArgumentGraph[] {
+  const graphs: ArgumentGraph[] = argumentTopicIds
     .map((id) => loadArgumentTopic(id))
     .filter((topic): topic is NonNullable<typeof topic> => Boolean(topic))
     .map((topic) => topic.graph);
+
+  if (options.includeLegacy) {
+    for (const topic of topics) {
+      // A legacy topic that already has a curated map must not be rendered
+      // twice; the curated version is the better ground truth.
+      if (graphs.some((graph) => graph.topicId === topic.id)) continue;
+      try {
+        graphs.push(adaptTopicToArgumentGraph(topic).graph);
+      } catch {
+        // A topic the adapter cannot express is skipped, not fatal.
+      }
+    }
+  }
+
+  const filtered = options.only ? graphs.filter((graph) => graph.topicId === options.only) : graphs;
+  return options.limit ? filtered.slice(0, options.limit) : filtered;
 }
 
 function createProvider(options: Options, id: string): DisagreementModelProvider {
@@ -80,7 +108,7 @@ function formatScore(score: MapRecoveryScore): string {
 
 async function main() {
   const options = parseArgs(process.argv.slice(2));
-  const graphs = loadGraphs(options.only);
+  const graphs = loadGraphs(options);
   if (graphs.length === 0) {
     throw new Error("No ArgumentGraph drafts matched. Nothing to run.");
   }
