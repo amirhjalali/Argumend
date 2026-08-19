@@ -38,6 +38,39 @@ function normalizeQuestion(value: string): string {
   return value.trim().toLowerCase().replace(/\s+/g, " ").replace(/[?.]+$/, "");
 }
 
+const QUESTION_STOP_WORDS = new Set([
+  "the", "a", "an", "and", "or", "but", "if", "is", "are", "was", "were", "be", "to", "of", "in",
+  "on", "for", "with", "as", "by", "at", "from", "it", "its", "not", "do", "does", "will", "would",
+  "should", "can", "could", "this", "that", "what", "which", "how", "why", "whether", "true",
+]);
+
+function questionWords(value: string): Set<string> {
+  return new Set(
+    normalizeQuestion(value)
+      .replace(/[^a-z0-9\s-]/g, " ")
+      .split(/\s+/)
+      .filter((word) => word.length > 2 && !QUESTION_STOP_WORDS.has(word)),
+  );
+}
+
+/**
+ * True when a crux question just restates the disagreement's own question.
+ *
+ * Such a crux is not load-bearing: it hands the reader back the thing they
+ * asked about instead of naming what would settle it. The spec asks for a crux
+ * that is downstream-relevant rather than merely memorable.
+ */
+function restatesMainQuestion(cruxQuestion: string, mainQuestion: string): boolean {
+  const crux = questionWords(cruxQuestion);
+  const main = questionWords(mainQuestion);
+  if (crux.size === 0 || main.size === 0) return false;
+  let shared = 0;
+  for (const word of crux) {
+    if (main.has(word)) shared += 1;
+  }
+  return shared / crux.size >= 0.8 && shared / main.size >= 0.8;
+}
+
 /**
  * Says what this crux actually decides, in terms of the positions it moves.
  *
@@ -236,6 +269,38 @@ export function projectDisagreementReport(input: {
   // and is dropped only when that collides too.
   const cruxes: ReportCrux[] = [];
   const seenQuestions = new Set<string>();
+  type Candidate = { result: (typeof ranked)[number]; question: string };
+  const deferredRestatements: Candidate[] = [];
+
+  const addCrux = ({ result, question }: Candidate) => {
+    const claim = claimsById.get(result.claimId);
+    const related = disagreements.find((item) => item.relatedClaimIds.includes(result.claimId));
+    const type = related?.type ?? (claim ? typeFromEpistemic(claim.epistemicType) : "empirical");
+    const resolutionKind = claim?.resolution?.kind ?? (
+      type === "normative" ? "value-difference" :
+      type === "definitional" ? "definitional-choice" :
+      type === "predictive" ? "future-observable" :
+      "existing-evidence"
+    );
+    const affected = result.affectedPositions.map((item) => item.id);
+    seenQuestions.add(normalizeQuestion(question));
+    cruxes.push({
+      id: `crux-${cruxes.length + 1}`,
+      claimId: result.claimId,
+      question,
+      type,
+      whyItMatters: whyItMatters({ related, claim, positionLabels, affected }),
+      affectedPositionIds: affected,
+      branches: cruxBranches({ claim, affectedPositionIds: affected, positionLabels }),
+      resolution: {
+        kind: resolutionKind,
+        condition: claim?.resolution?.condition ?? related?.resolutionCondition ?? "Further clarification is required.",
+      },
+      evidenceState: "not-independently-checked",
+      confidence: (claim?.confidence ?? "medium") as ConfidenceBand,
+    });
+  };
+
   for (const result of ranked) {
     if (cruxes.length >= DISAGREEMENT_LIMITS.maxCruxes) break;
     const claim = claimsById.get(result.claimId);
@@ -245,34 +310,20 @@ export function projectDisagreementReport(input: {
       (candidate) => candidate && !seenQuestions.has(normalizeQuestion(candidate)),
     );
     if (!question) continue;
-    seenQuestions.add(normalizeQuestion(question));
+    // A crux that just restates the disagreement's own question hands the
+    // reader back what they asked instead of naming what would settle it. Defer
+    // rather than drop: if nothing more specific survives, it still beats
+    // showing no crux at all.
+    if (restatesMainQuestion(question, extraction.mainQuestion)) {
+      deferredRestatements.push({ result, question });
+      continue;
+    }
+    addCrux({ result, question });
+  }
 
-    const type = related?.type ?? (claim ? typeFromEpistemic(claim.epistemicType) : "empirical");
-    const resolutionKind = claim?.resolution?.kind ?? (
-      type === "normative" ? "value-difference" :
-      type === "definitional" ? "definitional-choice" :
-      type === "predictive" ? "future-observable" :
-      "existing-evidence"
-    );
-    cruxes.push({
-      id: `crux-${cruxes.length + 1}`,
-      claimId: result.claimId,
-      question,
-      type,
-      whyItMatters: whyItMatters({ related, claim, positionLabels, affected: result.affectedPositions.map((item) => item.id) }),
-      affectedPositionIds: result.affectedPositions.map((item) => item.id),
-      branches: cruxBranches({
-        claim,
-        affectedPositionIds: result.affectedPositions.map((item) => item.id),
-        positionLabels,
-      }),
-      resolution: {
-        kind: resolutionKind,
-        condition: claim?.resolution?.condition ?? related?.resolutionCondition ?? "Further clarification is required.",
-      },
-      evidenceState: "not-independently-checked",
-      confidence: (claim?.confidence ?? "medium") as ConfidenceBand,
-    });
+  for (const candidate of deferredRestatements) {
+    if (cruxes.length > 0) break;
+    addCrux(candidate);
   }
 
   const groundingCoverage = computeGroundingCoverage({ expectedQuotes, groundedQuotes });

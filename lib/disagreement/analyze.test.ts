@@ -258,6 +258,55 @@ describe("crux explanations", () => {
   });
 });
 
+describe("crux selection", () => {
+  it("prefers a specific crux over one that restates the main question", async () => {
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
+    const extraction = structuredClone(example.extraction);
+    extraction.mainQuestion = "What share of people lack adequate health insurance?";
+    // A candidate whose question is the main question reworded, ranked first.
+    extraction.disagreementCandidates[0].question = "What share of people lack adequate health insurance?";
+    const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+
+    const result = await analyzeDisagreement({
+      content,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(result.report.cruxes.length).toBeGreaterThan(0);
+    const restated = result.report.cruxes.filter(
+      (crux) => crux.question.toLowerCase().replace(/[?]/g, "") === extraction.mainQuestion.toLowerCase().replace(/[?]/g, ""),
+    );
+    expect(restated).toHaveLength(0);
+  });
+
+  it("still shows a restating crux when nothing more specific exists", async () => {
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
+    const extraction = structuredClone(example.extraction);
+    // Every available question restates the main one, so deferral would
+    // otherwise leave the report with no crux at all.
+    extraction.mainQuestion = "uninsured coverage rate";
+    for (const candidate of extraction.disagreementCandidates) {
+      candidate.question = "uninsured coverage rate";
+    }
+    extraction.claims.forEach((claim, index) => {
+      claim.statement = `uninsured coverage rate reading ${index === 0 ? "eight" : "fifteen"}`;
+    });
+    const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+
+    const result = await analyzeDisagreement({
+      content,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    // Showing the restatement beats showing nothing.
+    expect(result.report.cruxes.length).toBeGreaterThan(0);
+  });
+});
+
 describe("dangling references", () => {
   it("drops them with a warning instead of discarding the extraction", async () => {
     // The spec has the normalizer drop dangling references and warn. Failing
