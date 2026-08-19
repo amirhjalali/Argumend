@@ -5,6 +5,7 @@ import { createRequestId, DisagreementError } from "@/lib/disagreement/errors";
 import { handleDisagreementError, logDisagreementEvent } from "@/lib/disagreement/http";
 import {
   createDisagreementProvider,
+  resolveAnalyzeTimeoutMs,
   isDisagreementPublishingEnabled,
   isDisagreementV2Enabled,
 } from "@/lib/disagreement/model";
@@ -68,7 +69,7 @@ export async function POST(request: NextRequest) {
   try {
     const started = Date.now();
     const provider = createDisagreementProvider(requestId);
-    const timeout = AbortSignal.timeout(45_000);
+    const timeout = AbortSignal.timeout(resolveAnalyzeTimeoutMs());
     const bundle = await analyzeDisagreement({
       content: typeof body.content === "string" ? body.content : "",
       contentType: body.contentType as "conversation" | "article" | "freeform" | undefined,

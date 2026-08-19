@@ -40,6 +40,19 @@ ARGUMEND_DISAGREEMENT_MODEL=sonnet   # a CLI alias, not a pinned production mode
 `claude` is the tested path. `codex` is implemented against the same interface
 but was unverified at the time of writing because that lane was out of quota.
 
+### Using it from `/analyze-v2`
+
+The analyze route aborts at 45 seconds, which the CLI lane cannot meet. So the
+route's budget follows the configured lane: it stays at the spec's 45 seconds
+for the hosted provider, and widens to the CLI budget only when
+`ARGUMEND_DISAGREEMENT_PROVIDER=cli` **and** the process is not production.
+Production is never widened, and the CLI provider refuses to run there in any
+case.
+
+Practically: with the CLI lane set, `/analyze-v2` works against `next dev`, but
+a submission takes minutes rather than seconds. It is a review tool, not a
+demo of the served experience.
+
 ### Contract handling
 
 The CLI returns free text, not a tool call, so the provider does the work the

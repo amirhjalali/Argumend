@@ -1,3 +1,7 @@
+import {
+  DISAGREEMENT_CLI_TIMEOUT_MS,
+  DISAGREEMENT_MODEL_TIMEOUT_MS,
+} from "@/lib/disagreement/constants";
 import { DisagreementError } from "@/lib/disagreement/errors";
 import { AnthropicDisagreementProvider } from "./anthropic";
 import { CliDisagreementProvider, type DisagreementCliKind } from "./cli";
@@ -20,6 +24,23 @@ export function isDisagreementPublishingEnabled(): boolean {
     Boolean(process.env.REPORT_PUBLICATION_SECRET) &&
     Boolean(process.env.DATABASE_URL)
   );
+}
+
+/**
+ * How long the analyze route waits before aborting.
+ *
+ * The spec fixes the served path at 45 seconds. The local CLI lane cannot meet
+ * that — it pays subprocess and cold-start cost and routinely takes minutes —
+ * so when that lane is deliberately selected outside production the route is
+ * given the CLI's own budget instead. Production is never widened, and the CLI
+ * provider refuses to run there anyway.
+ */
+export function resolveAnalyzeTimeoutMs(): number {
+  const usingCli = process.env.ARGUMEND_DISAGREEMENT_PROVIDER === "cli";
+  if (usingCli && process.env.NODE_ENV !== "production") {
+    return DISAGREEMENT_CLI_TIMEOUT_MS;
+  }
+  return DISAGREEMENT_MODEL_TIMEOUT_MS;
 }
 
 export function createDisagreementProvider(
