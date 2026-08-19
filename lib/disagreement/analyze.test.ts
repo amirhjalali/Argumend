@@ -171,6 +171,41 @@ describe("contradicts edges", () => {
   });
 });
 
+describe("stranded claims", () => {
+  it("keeps the graph when dropping a position orphans its claims", async () => {
+    // Dropping an under-wired position strands any claim that pointed only at
+    // it, and one stranded claim invalidates the graph exactly as the position
+    // did — trading one collapse for another.
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
+    const extraction = structuredClone(example.extraction);
+    extraction.positions.push({
+      ...structuredClone(extraction.positions[0]),
+      id: "pos-orphan",
+      label: "Only ever supported",
+    });
+    extraction.claims.push({
+      ...structuredClone(extraction.claims[0]),
+      id: "c-orphan",
+      // Points only at the position that will be dropped for lacking a contest.
+      stanceByPosition: [{ positionId: "pos-orphan", relation: "supports" }],
+    });
+    const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+
+    const result = await analyzeDisagreement({
+      content,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(result.report.quality.warnings.join(" ")).not.toMatch(/failed validation/i);
+    expect(result.graph.nodes.length).toBeGreaterThan(1);
+    expect(result.graph.nodes.some((node) => node.id === "c-orphan")).toBe(false);
+    // The report still presents everything the source supported.
+    expect(result.report.positions.some((position) => position.id === "pos-orphan")).toBe(true);
+  });
+});
+
 describe("common ground honesty", () => {
   it("never claims explicit agreement whose quotes did not survive grounding", async () => {
     const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
