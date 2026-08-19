@@ -272,9 +272,13 @@ export class CliDisagreementProvider implements DisagreementModelProvider {
     let lastIssuePaths: string[] = [];
 
     for (let attempt = 0; attempt < 2; attempt += 1) {
+      // Naming the offending fields makes the single repair attempt worth
+      // spending; a bare "that was invalid" gives the model nothing to act on.
       const repairNote =
         attempt === 1
-          ? "Your previous reply was not a single valid JSON object matching the schema. Return only that JSON object.\n\n"
+          ? `Your previous reply was not a single valid JSON object matching the schema.${
+              lastIssuePaths.length > 0 ? ` These fields were wrong or missing: ${lastIssuePaths.join(", ")}.` : ""
+            } Return only that JSON object.\n\n`
           : "";
       const command = buildCliCommand({
         kind: this.kind,

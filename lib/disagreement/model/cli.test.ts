@@ -198,6 +198,23 @@ describe("CliDisagreementProvider", () => {
     expect(runner.calls[1].stdin).toContain("was not a single valid JSON object");
   });
 
+  it("tells the repair attempt which fields were wrong", async () => {
+    const runner = runnerReturning([
+      { stdout: claudeEnvelope({ ...EXTRACTION, participants: "not-an-array" }) },
+      { stdout: claudeEnvelope(EXTRACTION) },
+    ]);
+    const provider = new CliDisagreementProvider("req-1", {
+      kind: "claude",
+      model: "sonnet",
+      runner: runner.run,
+    });
+
+    await provider.extract(REQUEST, {});
+
+    expect(runner.calls[1].stdin).toContain("These fields were wrong or missing");
+    expect(runner.calls[1].stdin).toContain("participants");
+  });
+
   it("gives up with MODEL_SCHEMA_INVALID after the bounded repair attempt", async () => {
     const runner = runnerReturning([{ stdout: "still not json" }]);
     const provider = new CliDisagreementProvider("req-1", {
