@@ -38,7 +38,10 @@ export interface RenderedDebate {
 export interface RenderDebateOptions {
   /** Speaker names, one per position. Neutral by design. */
   speakerNames?: string[];
-  /** Supporting claims voiced per speaker in the body of the debate. */
+  /**
+   * Ordinary supporting claims voiced per speaker. Crux claims are voiced on
+   * top of this cap, never traded against it.
+   */
   claimsPerSpeaker?: number;
   maxCharacters?: number;
 }
@@ -124,15 +127,47 @@ export function renderDebateFromGraph(
   const speakerFor = new Map(positions.map((position, index) => [position.id, names[index]]));
   const lines: string[] = [];
 
+  const ranked = identifyCruxes(graph).slice(0, 3);
+  const claimsById = new Map(graph.nodes.filter(isClaim).map((claim) => [claim.id, claim]));
+  const cruxClaims = ranked
+    .map((result) => claimsById.get(result.claimId))
+    .filter((claim): claim is Claim => Boolean(claim));
+
+  // A map carries far more claims than a readable transcript can voice, and the
+  // claims the crux engine ranks highest are usually not the first ones a
+  // position depends on. Voicing only the first few would ask the pipeline to
+  // recover a crux that was never in its input, which measures the renderer
+  // rather than the pipeline. So each speaker's lines lead with whichever crux
+  // claims their own position is wired to.
+  const spokenClaims = new Map<string, Claim[]>();
+  const assignedCruxIds = new Set<string>();
+  for (const position of positions) {
+    const related = claimsForPosition(graph, position.id);
+    const relatedIds = new Set(related.map((claim) => claim.id));
+    const ownCruxes = cruxClaims.filter((claim) => relatedIds.has(claim.id));
+    ownCruxes.forEach((claim) => assignedCruxIds.add(claim.id));
+    const rest = related.filter((claim) => !ownCruxes.some((crux) => crux.id === claim.id));
+    spokenClaims.set(position.id, [...ownCruxes, ...rest.slice(0, claimsPerSpeaker)]);
+  }
+
+  // A crux wired to no position still has to be said by someone, or the answer
+  // key is absent from the transcript.
+  const orphanCruxes = cruxClaims.filter((claim) => !assignedCruxIds.has(claim.id));
+  if (orphanCruxes.length > 0) {
+    const first = positions[0].id;
+    spokenClaims.set(first, [...orphanCruxes, ...(spokenClaims.get(first) ?? [])]);
+  }
+
   // Opening round: each speaker states their own case in their own voice.
   for (const position of positions) {
     lines.push(`${speakerFor.get(position.id)}: ${speak(position.statement)}`);
   }
 
   // Body: each speaker argues from the claims their position actually rests on.
-  for (let depth = 0; depth < claimsPerSpeaker; depth += 1) {
+  const maxDepth = Math.max(...positions.map((position) => spokenClaims.get(position.id)?.length ?? 0));
+  for (let depth = 0; depth < maxDepth; depth += 1) {
     for (const position of positions) {
-      const claim = claimsForPosition(graph, position.id)[depth];
+      const claim = spokenClaims.get(position.id)?.[depth];
       if (!claim) continue;
       lines.push(`${speakerFor.get(position.id)}: ${speak(claim.statement)}`);
     }
@@ -153,12 +188,6 @@ export function renderDebateFromGraph(
   if (source.length > maxCharacters) {
     source = source.slice(0, maxCharacters).replace(/\n[^\n]*$/, "");
   }
-
-  const ranked = identifyCruxes(graph).slice(0, 3);
-  const claimsById = new Map(graph.nodes.filter(isClaim).map((claim) => [claim.id, claim]));
-  const cruxClaims = ranked
-    .map((result) => claimsById.get(result.claimId))
-    .filter((claim): claim is Claim => Boolean(claim));
 
   return {
     id: graph.topicId,

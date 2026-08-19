@@ -37,6 +37,19 @@ function claudeEnvelope(body: unknown): string {
 
 const originalNodeEnv = process.env.NODE_ENV;
 
+async function captureError(run: () => Promise<unknown>): Promise<Error> {
+  let caught: unknown;
+  let threw = false;
+  try {
+    await run();
+  } catch (error) {
+    caught = error;
+    threw = true;
+  }
+  if (!threw) throw new Error("expected the call to reject, but it resolved");
+  return caught as Error;
+}
+
 /** NODE_ENV is typed read-only, so the guard is exercised through the record. */
 function setNodeEnv(value: string | undefined) {
   const env = process.env as Record<string, string | undefined>;
@@ -235,7 +248,7 @@ describe("CliDisagreementProvider", () => {
       runner: runner.run,
     });
 
-    const error = await provider.extract(REQUEST, {}).catch((caught: Error) => caught);
+    const error = await captureError(() => provider.extract(REQUEST, {}));
 
     expect(error).toBeInstanceOf(DisagreementError);
     expect(error.message).toContain("participants");
@@ -252,7 +265,7 @@ describe("CliDisagreementProvider", () => {
       runner: runner.run,
     });
 
-    const error = await provider.extract(REQUEST, {}).catch((caught: Error) => caught);
+    const error = await captureError(() => provider.extract(REQUEST, {}));
     expect(error.message).toContain("no json object");
   });
 

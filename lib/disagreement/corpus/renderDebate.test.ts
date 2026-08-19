@@ -232,9 +232,36 @@ describe("renderDebateFromGraph", () => {
     const graph = buildGraph("limit", positions, claims, edges);
     const rendered = renderDebateFromGraph(graph, { claimsPerSpeaker: 1 });
 
-    expect(rendered.source).toContain("First supporting claim content here.");
-    expect(rendered.source).not.toContain("Second supporting claim content here.");
-    expect(rendered.source).not.toContain("Third supporting claim content here.");
+    // The cap governs ordinary supporting claims only. Crux claims are always
+    // voiced, because a transcript missing the answer key would measure the
+    // renderer rather than the pipeline.
+    const spoken = claims.filter((claim) => rendered.source.includes(claim.statement));
+    const cruxCount = rendered.truth.cruxStatements.length;
+    expect(spoken.length).toBeLessThanOrEqual(cruxCount + 1);
+    expect(spoken.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("always voices every crux claim so the answer key is present in the input", () => {
+    const positions = [
+      makePosition("p-a", "A", "Position A statement.", 1),
+      makePosition("p-b", "B", "Position B statement.", 2),
+    ];
+    const claims = [
+      makeClaim("c-1", "First supporting claim content here."),
+      makeClaim("c-2", "Second supporting claim content here."),
+      makeClaim("c-3", "Third supporting claim content here."),
+    ];
+    const edges = [
+      makeEdge("e1", "p-a", "c-1", "depends_on"),
+      makeEdge("e2", "p-a", "c-2", "depends_on"),
+      makeEdge("e3", "p-a", "c-3", "depends_on"),
+    ];
+    const graph = buildGraph("crux-present", positions, claims, edges);
+    const rendered = renderDebateFromGraph(graph, { claimsPerSpeaker: 0 });
+
+    for (const statement of rendered.truth.cruxStatements) {
+      expect(rendered.source).toContain(statement);
+    }
   });
 
   it("truncates at maxCharacters without leaving a dangling partial line", () => {

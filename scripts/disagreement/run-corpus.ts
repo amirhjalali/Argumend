@@ -138,6 +138,12 @@ async function main() {
       const message = error instanceof Error ? error.message : String(error);
       failures.push({ id: debate.id, error: message });
       console.error(`FAIL ${debate.id}: ${message}`);
+      // Keep the transcript that failed. Without it the failure cannot be
+      // reproduced or judged, which is the whole point of an offline run.
+      writeFileSync(
+        join(outputDir, `${debate.id}.failed.json`),
+        JSON.stringify({ id: debate.id, truth: debate.truth, source: debate.source, error: message }, null, 2),
+      );
     }
   }
 
