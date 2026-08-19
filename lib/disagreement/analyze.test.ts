@@ -123,6 +123,47 @@ describe("crux projection", () => {
   });
 });
 
+describe("crux branch direction", () => {
+  it("never says one condition strengthens both sides of the split", async () => {
+    for (const example of DISAGREEMENT_FEW_SHOT_EXAMPLES) {
+      const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+      const result = await analyzeDisagreement({
+        content,
+        contentType: example.contentType,
+        requestId: REQUEST_ID,
+        provider: new FakeDisagreementProvider(example.extraction),
+      });
+
+      for (const crux of result.report.cruxes) {
+        const strengthened = crux.branches.filter((branch) => branch.consequence.includes("stronger"));
+        // Every strengthening branch must name a distinct set of positions;
+        // the same condition cannot make opposing positions both stronger.
+        const named = strengthened.flatMap((branch) => branch.consequence.split(" and "));
+        expect(new Set(named).size, `${example.name} repeats a strengthened position`).toBe(named.length);
+        expect(strengthened.length).toBeLessThanOrEqual(1);
+      }
+    }
+  });
+
+  it("states a direction for each side when the claim records stances", async () => {
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
+    const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+    const result = await analyzeDisagreement({
+      content,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(example.extraction),
+    });
+
+    const crux = result.report.cruxes[0];
+    expect(crux).toBeDefined();
+    expect(crux.branches.some((branch) => branch.consequence.includes("stronger"))).toBe(true);
+    expect(crux.branches.some((branch) => branch.consequence.includes("weaker"))).toBe(true);
+    // Positions are named, not referred to by raw id.
+    expect(crux.branches.every((branch) => !/"pos[-_]/.test(branch.consequence))).toBe(true);
+  });
+});
+
 describe("deriveDiagnosis", () => {
   it("covers the constrained patterns", () => {
     expect(deriveDiagnosis({

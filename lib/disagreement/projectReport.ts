@@ -38,6 +38,58 @@ function normalizeQuestion(value: string): string {
   return value.trim().toLowerCase().replace(/\s+/g, " ").replace(/[?.]+$/, "");
 }
 
+/** Trims a claim so it reads as a clause inside "If ... holds". */
+function asCondition(statement: string): string {
+  return statement.trim().replace(/\s+/g, " ").replace(/[.]+$/, "");
+}
+
+/**
+ * A crux splits the disagreement, so the same condition cannot strengthen every
+ * position it touches. Direction comes from how each position stands to the
+ * claim: a position the claim supports gains if it holds, a position it opposes
+ * loses. Emitting "becomes stronger" for both sides states something
+ * impossible, and it is the crux — the product's central object — that says it.
+ */
+function cruxBranches(input: {
+  claim?: { statement: string; stanceByPosition: Array<{ positionId: string; relation: "supports" | "opposes" }> };
+  affectedPositionIds: string[];
+  positionLabels: Map<string, string>;
+}): Array<{ condition: string; consequence: string }> {
+  const { claim, affectedPositionIds, positionLabels } = input;
+  if (!claim) return [];
+
+  const condition = `If ${asCondition(claim.statement)} holds`;
+  const stanceFor = new Map(claim.stanceByPosition.map((stance) => [stance.positionId, stance.relation]));
+  const named = affectedPositionIds.filter((id) => stanceFor.has(id));
+  const strengthened = named.filter((id) => stanceFor.get(id) === "supports");
+  const weakened = named.filter((id) => stanceFor.get(id) === "opposes");
+
+  const label = (id: string) => positionLabels.get(id) ?? id;
+  const branches: Array<{ condition: string; consequence: string }> = [];
+
+  if (strengthened.length > 0) {
+    branches.push({
+      condition,
+      consequence: `${strengthened.map(label).join(" and ")} becomes stronger.`,
+    });
+  }
+  if (weakened.length > 0) {
+    branches.push({
+      condition,
+      consequence: `${weakened.map(label).join(" and ")} becomes weaker.`,
+    });
+  }
+
+  // With no recorded stance there is no defensible direction to assert.
+  if (branches.length === 0 && affectedPositionIds.length > 0) {
+    branches.push({
+      condition,
+      consequence: "The balance between the positions shifts, but the source does not say which way.",
+    });
+  }
+  return branches.slice(0, DISAGREEMENT_LIMITS.maxBranchesPerCrux);
+}
+
 function resolutionPathKind(
   type: DisagreementType,
 ): ResolutionPath["kind"] {
@@ -134,6 +186,7 @@ export function projectDisagreementReport(input: {
     grounding: ground(item.groundingQuotes, item.id),
   }));
 
+  const positionLabels = new Map(positions.map((position) => [position.id, position.label]));
   const ranked = input.graphValid ? identifyCruxes(graph) : [];
   const claimsById = new Map(extraction.claims.map((claim) => [claim.id, claim]));
 
@@ -168,10 +221,11 @@ export function projectDisagreementReport(input: {
       type,
       whyItMatters: related?.summary ?? "Resolving this would change the structure of the disagreement.",
       affectedPositionIds: result.affectedPositions.map((item) => item.id),
-      branches: result.affectedPositions.slice(0, 2).map((position) => ({
-        condition: `If ${claim?.statement ?? "this claim"} holds`,
-        consequence: `The "${position.id}" position becomes stronger.`,
-      })),
+      branches: cruxBranches({
+        claim,
+        affectedPositionIds: result.affectedPositions.map((item) => item.id),
+        positionLabels,
+      }),
       resolution: {
         kind: resolutionKind,
         condition: claim?.resolution?.condition ?? related?.resolutionCondition ?? "Further clarification is required.",

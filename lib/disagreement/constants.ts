@@ -1,6 +1,6 @@
 export const DISAGREEMENT_REPORT_SCHEMA_VERSION = 1 as const;
 
-export const DISAGREEMENT_PROMPT_VERSION = "disagreement-extraction-v1.0.0";
+export const DISAGREEMENT_PROMPT_VERSION = "disagreement-extraction-v1.1.0";
 
 export const DISAGREEMENT_SOURCE_MODE = "source-only" as const;
 

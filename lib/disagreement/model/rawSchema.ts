@@ -30,7 +30,7 @@ export const RAW_EXTRACTION_TOOL = {
           required: ["id", "label", "kind"],
           properties: {
             id: { type: "string" },
-            label: { type: "string" },
+            label: { type: "string", maxLength: L.maxThesisCharacters },
             kind: { type: "string", enum: ["named", "speaker-label", "author", "implicit"] },
           },
         },
@@ -53,7 +53,7 @@ export const RAW_EXTRACTION_TOOL = {
           ],
           properties: {
             id: { type: "string" },
-            label: { type: "string" },
+            label: { type: "string", maxLength: L.maxThesisCharacters },
             participantIds: { type: "array", items: { type: "string" } },
             thesis: { type: "string", maxLength: L.maxThesisCharacters },
             steelman: { type: "string", maxLength: L.maxSteelmanCharacters },
@@ -95,7 +95,7 @@ export const RAW_EXTRACTION_TOOL = {
           ],
           properties: {
             id: { type: "string" },
-            statement: { type: "string" },
+            statement: { type: "string", maxLength: L.maxSummaryCharacters },
             participantIds: { type: "array", items: { type: "string" } },
             epistemicType: {
               type: "string",
@@ -132,7 +132,7 @@ export const RAW_EXTRACTION_TOOL = {
                     "authority-allocation",
                   ],
                 },
-                condition: { type: "string" },
+                condition: { type: "string", maxLength: L.maxSummaryCharacters },
               },
             },
             groundingQuotes: {
@@ -176,7 +176,7 @@ export const RAW_EXTRACTION_TOOL = {
           additionalProperties: false,
           required: ["statement", "participantIds", "basis", "confidence", "groundingQuotes"],
           properties: {
-            statement: { type: "string" },
+            statement: { type: "string", maxLength: L.maxSummaryCharacters },
             participantIds: { type: "array", items: { type: "string" } },
             basis: { type: "string", enum: ["explicit", "strongly-implied"] },
             confidence: { type: "string", enum: ["low", "medium", "high"] },
@@ -215,7 +215,7 @@ export const RAW_EXTRACTION_TOOL = {
           ],
           properties: {
             id: { type: "string" },
-            question: { type: "string" },
+            question: { type: "string", maxLength: L.maxQuestionCharacters },
             type: {
               type: "string",
               enum: [
@@ -229,7 +229,7 @@ export const RAW_EXTRACTION_TOOL = {
                 "trust",
               ],
             },
-            summary: { type: "string" },
+            summary: { type: "string", maxLength: L.maxSummaryCharacters },
             claimIds: { type: "array", items: { type: "string" } },
             participantStances: {
               type: "array",
@@ -240,11 +240,11 @@ export const RAW_EXTRACTION_TOOL = {
                 properties: {
                   participantId: { type: "string" },
                   positionId: { type: "string" },
-                  stance: { type: "string" },
+                  stance: { type: "string", maxLength: L.maxSummaryCharacters },
                 },
               },
             },
-            resolutionCondition: { type: "string" },
+            resolutionCondition: { type: "string", maxLength: L.maxSummaryCharacters },
             confidence: { type: "string", enum: ["low", "medium", "high"] },
             groundingQuotes: {
               type: "array",
@@ -262,7 +262,14 @@ export const RAW_EXTRACTION_TOOL = {
           },
         },
       },
-      caveats: { type: "array", items: { type: "string" } },
+      caveats: {
+        type: "array",
+        maxItems: 12,
+        // The combined budget cannot be expressed in JSON Schema, so it is
+        // stated here where the model will actually read it.
+        description: `Each at most ${L.maxSummaryCharacters} characters, and at most ${L.maxCaveatsCombinedCharacters} characters in total across all caveats.`,
+        items: { type: "string", maxLength: L.maxSummaryCharacters },
+      },
     },
   },
 };

@@ -52,7 +52,40 @@ export function buildArgumentGraph(
     });
   };
 
-  const canBuildPositions = extraction.positions.length >= 2;
+  // The ArgumentGraph validator requires every POSITION to carry both a
+  // supporting claim chain and an opposing claim. A model that extracts four
+  // faithful positions but wires claims to only three of them would otherwise
+  // lose the ENTIRE graph — and with it every crux — while a thinner
+  // two-position extraction succeeds. Richer output must not be punished, so an
+  // under-wired position is left out of the graph rather than taken as grounds
+  // to discard the rest. The report still presents every extracted position;
+  // only the graph, which is an assertion about argumentative structure,
+  // declines to include what the source did not support.
+  const positionWiring = new Map<string, { supports: number; opposes: number }>();
+  for (const position of extraction.positions) {
+    positionWiring.set(position.id, { supports: 0, opposes: 0 });
+  }
+  for (const claim of extraction.claims) {
+    for (const stance of claim.stanceByPosition) {
+      const wiring = positionWiring.get(stance.positionId);
+      if (!wiring) continue;
+      if (stance.relation === "supports") wiring.supports += 1;
+      else wiring.opposes += 1;
+    }
+  }
+  const keptPositions = extraction.positions.filter((position) => {
+    const wiring = positionWiring.get(position.id);
+    return Boolean(wiring && wiring.supports > 0 && wiring.opposes > 0);
+  });
+  const keptPositionIds = new Set(keptPositions.map((position) => position.id));
+  const droppedCount = extraction.positions.length - keptPositions.length;
+  if (droppedCount > 0 && keptPositions.length >= 2) {
+    warnings.push(
+      `Graph omitted ${droppedCount} position(s) that the source did not both support and contest; the report still lists them.`,
+    );
+  }
+
+  const canBuildPositions = keptPositions.length >= 2;
   if (!canBuildPositions) {
     warnings.push("Graph omitted positions because a valid multi-position structure was not available.");
     const graph: ArgumentGraph = {
@@ -70,7 +103,7 @@ export function buildArgumentGraph(
     };
   }
 
-  extraction.positions.forEach((position, index) => {
+  keptPositions.forEach((position, index) => {
     const node: Position = {
       id: position.id,
       type: "position",
@@ -104,6 +137,7 @@ export function buildArgumentGraph(
     nodes.push(node);
 
     for (const stance of claim.stanceByPosition) {
+      if (!keptPositionIds.has(stance.positionId)) continue;
       addEdge(claim.id, stance.positionId, stance.relation);
     }
   }

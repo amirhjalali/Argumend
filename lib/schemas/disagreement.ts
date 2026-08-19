@@ -102,6 +102,24 @@ function caveatsCombinedLimit(caveats: string[]): boolean {
   return caveats.join("").length <= L.maxCaveatsCombinedCharacters;
 }
 
+/**
+ * Keeps caveats within the combined budget by dropping whole trailing entries.
+ * Whole entries, never partial text: a half-sentence caveat is worse than an
+ * absent one, since a truncated qualification can read as a stronger claim than
+ * the model made.
+ */
+function trimCaveats(caveats: string[]): string[] {
+  if (caveatsCombinedLimit(caveats)) return caveats;
+  const kept: string[] = [];
+  let used = 0;
+  for (const caveat of caveats) {
+    if (used + caveat.length > L.maxCaveatsCombinedCharacters) break;
+    kept.push(caveat);
+    used += caveat.length;
+  }
+  return kept;
+}
+
 export const RawGroundingQuoteSchema = z
   .object({
     quote: boundedText(L.maxQuoteCharacters),
@@ -217,15 +235,11 @@ export const RawDisagreementExtractionSchema = z
     caveats: z.array(boundedText(L.maxSummaryCharacters)).max(12),
   })
   .strict()
-  .superRefine((value, ctx) => {
-    if (!caveatsCombinedLimit(value.caveats)) {
-      ctx.addIssue({
-        code: "custom",
-        message: `Caveats combined must be <= ${L.maxCaveatsCombinedCharacters} characters`,
-        path: ["caveats"],
-      });
-    }
-  });
+  // The combined caveat budget is a presentation cap, not a correctness
+  // property. Rejecting a whole extraction over it throws away minutes of work
+  // and every position, claim, and quote in it because the model was slightly
+  // too thorough about its own limitations. Trim to the budget instead.
+  .transform((value) => ({ ...value, caveats: trimCaveats(value.caveats) }));
 
 export const GroundingRefSchema = z
   .object({

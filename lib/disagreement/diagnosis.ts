@@ -34,8 +34,20 @@ const HEADLINES: Record<DiagnosisPattern, string> = {
 
 export function deriveDiagnosis(input: DiagnosisInputs): DiagnosisPattern {
   if (input.positionCount === 0) return "not-a-disagreement";
-  if (!input.graphValid || input.groundingCoverage < 0.2 || input.explicitPositionCount === 0) {
+
+  // "Insufficient context" is a claim about the SOURCE: it tells the reader the
+  // text did not carry a diagnosable disagreement. A graph that failed to build
+  // is a fact about our pipeline, not about their text, so it must not produce
+  // that headline over a report that did recover positions, shared ground, and
+  // typed disagreements. Losing the graph costs the cruxes, which the report
+  // reports honestly as absent; it does not license telling the reader we found
+  // nothing when we found a great deal.
+  const sourceIsThin = input.groundingCoverage < 0.2 || input.explicitPositionCount === 0;
+  if (sourceIsThin) {
     if (input.positionCount < 2) return input.positionCount === 0 ? "not-a-disagreement" : "insufficient-context";
+    return "insufficient-context";
+  }
+  if (!input.graphValid && input.disagreementCount === 0 && input.commonGroundCount === 0) {
     return "insufficient-context";
   }
   if (input.positionCount < 2) return "not-a-disagreement";

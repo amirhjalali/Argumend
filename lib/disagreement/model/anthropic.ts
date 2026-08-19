@@ -5,6 +5,7 @@ import { DISAGREEMENT_SYSTEM_PROMPT } from "@/lib/disagreement/prompts/v1/system
 import { buildDisagreementUserPrompt } from "@/lib/disagreement/prompts/v1/user";
 import type { RawDisagreementExtractionV1 } from "@/types/disagreement";
 import { RAW_EXTRACTION_TOOL } from "./rawSchema";
+import { issuePaths } from "./cli";
 import type {
   DisagreementExtractRequest,
   DisagreementExtractResult,
@@ -59,26 +60,29 @@ export class AnthropicDisagreementProvider implements DisagreementModelProvider 
   ): Promise<DisagreementExtractResult> {
     const started = Date.now();
     const userPrompt = buildDisagreementUserPrompt(request);
-    let lastSchemaError: unknown;
+    let lastIssuePaths: string[] = [];
 
-    for (let attempt = 0; attempt < 3; attempt += 1) {
-      try {
-        const payload = await this.callModel({
-          userPrompt,
-          repairNote:
-            attempt === 2 && lastSchemaError
-              ? "The previous tool payload failed schema validation. Return a valid extract_disagreement payload only."
-              : undefined,
-          signal: options.signal,
-        });
-        const parsed = RawDisagreementExtractionSchema.safeParse(payload);
-        if (!parsed.success) {
-          lastSchemaError = parsed.error;
-          if (attempt >= 1) {
-            throw new DisagreementError("MODEL_SCHEMA_INVALID", this.requestId);
-          }
-          continue;
-        }
+    // At most one bounded schema repair (spec §9): attempt 0 is the fresh
+    // call, attempt 1 is the single repair attempt and carries a note naming
+    // the fields that failed validation last time. This is a separate,
+    // smaller budget than the transient-failure retry inside callModel.
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const repairNote =
+        attempt === 1
+          ? `The previous tool payload failed schema validation.${
+              lastIssuePaths.length > 0
+                ? ` These fields were wrong or missing: ${lastIssuePaths.join(", ")}.`
+                : ""
+            } Return a valid extract_disagreement payload only.`
+          : undefined;
+
+      const payload = await this.callModel({
+        userPrompt,
+        repairNote,
+        signal: options.signal,
+      });
+      const parsed = RawDisagreementExtractionSchema.safeParse(payload);
+      if (parsed.success) {
         return {
           data: parsed.data as RawDisagreementExtractionV1,
           meta: {
@@ -87,23 +91,46 @@ export class AnthropicDisagreementProvider implements DisagreementModelProvider 
             latencyMs: Date.now() - started,
           },
         };
+      }
+      lastIssuePaths = issuePaths(parsed.error);
+    }
+
+    throw new DisagreementError(
+      "MODEL_SCHEMA_INVALID",
+      this.requestId,
+      `Extraction failed schema validation at: ${lastIssuePaths.join(", ") || "unknown"}`,
+    );
+  }
+
+  /**
+   * Bounded exponential backoff for transient HTTP failures (429/5xx/network),
+   * independent of the schema-repair budget in `extract`. AbortError always
+   * maps to MODEL_TIMEOUT immediately; a non-retryable or exhausted-retry
+   * error maps to MODEL_UNAVAILABLE.
+   */
+  private async callModel(input: {
+    userPrompt: string;
+    repairNote?: string;
+    signal?: AbortSignal;
+  }): Promise<unknown> {
+    for (let transientAttempt = 0; transientAttempt < 3; transientAttempt += 1) {
+      try {
+        return await this.sendToModel(input);
       } catch (error) {
-        if (error instanceof DisagreementError) throw error;
         if (error instanceof DOMException && error.name === "AbortError") {
           throw new DisagreementError("MODEL_TIMEOUT", this.requestId);
         }
-        if (attempt < 2 && isRetryable(error)) {
-          await sleep(250 * 2 ** attempt, options.signal);
+        if (transientAttempt < 2 && isRetryable(error)) {
+          await sleep(250 * 2 ** transientAttempt, input.signal);
           continue;
         }
         throw new DisagreementError("MODEL_UNAVAILABLE", this.requestId);
       }
     }
-
-    throw new DisagreementError("MODEL_SCHEMA_INVALID", this.requestId);
+    throw new DisagreementError("MODEL_UNAVAILABLE", this.requestId);
   }
 
-  private async callModel(input: {
+  private async sendToModel(input: {
     userPrompt: string;
     repairNote?: string;
     signal?: AbortSignal;

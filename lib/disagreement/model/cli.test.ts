@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { DISAGREEMENT_FEW_SHOT_EXAMPLES } from "@/lib/disagreement/prompts/v1/examples";
+import { DISAGREEMENT_LIMITS } from "@/lib/disagreement/constants";
 import { DisagreementError } from "@/lib/disagreement/errors";
+import { RAW_EXTRACTION_TOOL } from "./rawSchema";
 import {
   CliDisagreementProvider,
   buildCliCommand,
@@ -137,6 +139,35 @@ describe("buildCliCommand", () => {
     expect(command.args[0]).toBe("exec");
     expect(command.args).toContain("--skip-git-repo-check");
     expect(command.stdin).toBe("SYS\n\nUSER");
+  });
+});
+
+describe("the schema handed to the model", () => {
+  // Every limit the validator enforces must be one the model was told about.
+  // A cap the model cannot see produces a rejected extraction after minutes of
+  // work, blaming the model for a rule it was never given.
+  function collectStringFields(node: unknown, path: string[] = []): Array<{ path: string; hasMax: boolean }> {
+    if (!node || typeof node !== "object") return [];
+    const record = node as Record<string, unknown>;
+    if (record.type === "string") {
+      return [{ path: path.join("."), hasMax: typeof record.maxLength === "number" }];
+    }
+    return Object.entries(record).flatMap(([key, value]) => collectStringFields(value, [...path, key]));
+  }
+
+  it("bounds every free-text field the model is asked to produce", () => {
+    const fields = collectStringFields(RAW_EXTRACTION_TOOL.input_schema);
+    // Enum-valued fields carry their own constraint; free text needs a length.
+    const unbounded = fields.filter(
+      (field) => !field.hasMax && !/kind|type|relation|explicitness|confidence|basis|id$|Id$|Ids/i.test(field.path),
+    );
+    expect(unbounded, `unbounded free-text fields: ${unbounded.map((f) => f.path).join(", ")}`).toEqual([]);
+  });
+
+  it("states the combined caveat budget, which JSON Schema cannot express", () => {
+    const caveats = (RAW_EXTRACTION_TOOL.input_schema as { properties: Record<string, { description?: string }> })
+      .properties.caveats;
+    expect(caveats.description).toContain(String(DISAGREEMENT_LIMITS.maxCaveatsCombinedCharacters));
   });
 });
 
