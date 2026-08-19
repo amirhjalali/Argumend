@@ -1,0 +1,36 @@
+{
+  "id": "insufficient-context-2",
+  "contentType": "freeform",
+  "source": "Fragment from meeting notes: Casey said \"cheaper isn't safer\" after Morgan mentioned the bridge option, then the recording cuts out. Later someone wrote \"board asked for option C again\" in the margin, but the attachment with the actual options is missing and no one explains what cheaper or safer refers to.",
+  "allowedPatterns": ["insufficient-context"],
+  "expectCrux": false,
+  "minPositions": 0,
+  "maxPositions": 1,
+  "extraction": {
+    "mainQuestion": "What was the disagreement about the bridge option?",
+    "participants": [
+      { "id": "casey", "label": "Casey", "kind": "named" },
+      { "id": "morgan", "label": "Morgan", "kind": "named" },
+      { "id": "board", "label": "Board", "kind": "implicit" }
+    ],
+    "positions": [
+      {
+        "id": "pos-cheaper-not-safer",
+        "label": "Cheaper may be unsafe",
+        "participantIds": ["casey"],
+        "thesis": "Casey may be objecting that a cheaper bridge option is not safer.",
+        "steelman": "The fragment hints that Casey is skeptical of a cheaper option's safety, but the missing options prevent a full position map.",
+        "explicitness": "inferred",
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "cheaper isn't safer", "participantId": "casey" }
+        ]
+      }
+    ],
+    "claims": [],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [],
+    "caveats": ["Only one partial inferred position is recoverable from the fragment; the counterposition and options are missing."]
+  }
+}

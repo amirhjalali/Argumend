@@ -1,0 +1,130 @@
+{
+  "id": "forecast-split",
+  "contentType": "conversation",
+  "source": "Marta: The Lynx should start the rookie point guard while Ellis is out six weeks. The team already knows the offense will be rough, but those minutes will make the rookie playable by the playoffs.\nGio: Sign a veteran for the six-week stretch. Everyone agrees Ellis is out and the rookie needs reps, but if they hand him thirty minutes now, the Lynx will lose the home-court seed before Ellis returns.\nMarta: The schedule is soft enough to absorb the mistakes.\nGio: The next ten games include five road back-to-backs, so the soft-schedule argument is wishful.",
+  "allowedPatterns": ["forecast-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the Lynx start the rookie point guard or sign a veteran while Ellis is out?",
+    "participants": [
+      { "id": "marta", "label": "Marta", "kind": "named" },
+      { "id": "gio", "label": "Gio", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-start-rookie",
+        "label": "Start the rookie",
+        "participantIds": ["marta"],
+        "thesis": "The Lynx should start the rookie point guard while Ellis is out so he becomes playable by the playoffs.",
+        "steelman": "Short-term mistakes may be worth the development payoff if the schedule can absorb them.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The Lynx should start the rookie point guard while Ellis is out six weeks.", "participantId": "marta" }
+        ]
+      },
+      {
+        "id": "pos-sign-veteran",
+        "label": "Sign a veteran",
+        "participantIds": ["gio"],
+        "thesis": "The Lynx should sign a veteran for the six-week stretch to avoid losing the home-court seed.",
+        "steelman": "Protecting playoff seeding during Ellis's absence is more important than immediate rookie development.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Sign a veteran for the six-week stretch.", "participantId": "gio" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-rookie-playoff-ready",
+        "statement": "Starting the rookie now will make him playable by the playoffs.",
+        "participantIds": ["marta"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-start-rookie", "relation": "supports" },
+          { "positionId": "pos-sign-veteran", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["marta"],
+        "disputedByParticipantIds": ["gio"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "future-observable",
+          "condition": "Observe the rookie's development and playoff readiness after the six-week stretch."
+        },
+        "groundingQuotes": [
+          { "quote": "those minutes will make the rookie playable by the playoffs.", "participantId": "marta" }
+        ]
+      },
+      {
+        "id": "claim-lose-seed",
+        "statement": "Starting the rookie for thirty minutes now will cost the Lynx the home-court seed.",
+        "participantIds": ["gio"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-sign-veteran", "relation": "supports" },
+          { "positionId": "pos-start-rookie", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["gio"],
+        "disputedByParticipantIds": ["marta"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "future-observable",
+          "condition": "Observe team record and seeding while Ellis is out."
+        },
+        "groundingQuotes": [
+          { "quote": "the Lynx will lose the home-court seed before Ellis returns.", "participantId": "gio" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Both participants accept that Ellis is out and the rookie needs development reps.",
+        "participantIds": ["marta", "gio"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "while Ellis is out six weeks.", "participantId": "marta" },
+          { "quote": "Everyone agrees Ellis is out and the rookie needs reps", "participantId": "gio" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-rookie-development",
+        "question": "Will starting the rookie now make him playoff-ready?",
+        "type": "predictive",
+        "summary": "Marta predicts development payoff from immediate minutes.",
+        "claimIds": ["claim-rookie-playoff-ready"],
+        "participantStances": [
+          { "participantId": "marta", "positionId": "pos-start-rookie", "stance": "Yes, minutes now help the playoffs." },
+          { "participantId": "gio", "positionId": "pos-sign-veteran", "stance": "The development payoff is not worth the seeding risk." }
+        ],
+        "resolutionCondition": "Observe rookie performance after the stretch.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-seeding-risk",
+        "question": "Will starting the rookie cost the Lynx home-court seeding?",
+        "type": "predictive",
+        "summary": "Gio predicts seeding loss from rookie minutes.",
+        "claimIds": ["claim-lose-seed"],
+        "participantStances": [
+          { "participantId": "marta", "positionId": "pos-start-rookie", "stance": "The schedule is soft enough to absorb mistakes." },
+          { "participantId": "gio", "positionId": "pos-sign-veteran", "stance": "The schedule is too hard to risk it." }
+        ],
+        "resolutionCondition": "Observe the team's record and seed before Ellis returns.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The sports forecasts are claims made by the speakers, not independently projected."]
+  }
+}

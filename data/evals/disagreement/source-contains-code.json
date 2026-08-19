@@ -1,0 +1,106 @@
+{
+  "id": "source-contains-code",
+  "contentType": "conversation",
+  "source": "Maya: This guard is enough for the profile cache. If there is no user, returning the cached profile avoids another network call.\n```ts\nif (!user) return cachedProfile;\nreturn fetchProfile(user.id);\n```\nLeo: That returns someone else's cachedProfile when user is null after logout. The safe behavior is to return null or clear the cache, not show the previous account.\nMaya: The cache is scoped by tab, so I do not think it crosses accounts.\nLeo: Logout in the same tab is exactly the crossing case I am worried about.",
+  "allowedPatterns": ["single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Is returning cachedProfile safe when user is null?",
+    "participants": [
+      { "id": "maya", "label": "Maya", "kind": "named" },
+      { "id": "leo", "label": "Leo", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-cache-safe",
+        "label": "Guard is safe",
+        "participantIds": ["maya"],
+        "thesis": "Returning cachedProfile when user is null is safe enough and avoids a network call.",
+        "steelman": "If the cache is scoped correctly, the guard prevents unnecessary fetching without leaking data.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "This guard is enough for the profile cache.", "participantId": "maya" }
+        ]
+      },
+      {
+        "id": "pos-cache-unsafe",
+        "label": "Guard leaks prior profile",
+        "participantIds": ["leo"],
+        "thesis": "Returning cachedProfile when user is null is unsafe because logout in the same tab can show the previous account.",
+        "steelman": "A null user state should not display cached account data after logout.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "That returns someone else's cachedProfile when user is null after logout.", "participantId": "leo" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-cache-scoped",
+        "statement": "The profile cache is scoped so returning cachedProfile does not cross accounts.",
+        "participantIds": ["maya"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-cache-safe", "relation": "supports" },
+          { "positionId": "pos-cache-unsafe", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["maya"],
+        "disputedByParticipantIds": ["leo"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Run the logout-in-same-tab case or inspect cache scoping."
+        },
+        "groundingQuotes": [
+          { "quote": "The cache is scoped by tab, so I do not think it crosses accounts.", "participantId": "maya" }
+        ]
+      },
+      {
+        "id": "claim-logout-crossing",
+        "statement": "Logout in the same tab can make the guard show the previous account.",
+        "participantIds": ["leo"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-cache-unsafe", "relation": "supports" },
+          { "positionId": "pos-cache-safe", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["leo"],
+        "disputedByParticipantIds": ["maya"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Test the guard after logout in the same tab."
+        },
+        "groundingQuotes": [
+          { "quote": "if (!user) return cachedProfile;", "participantId": "leo" },
+          { "quote": "Logout in the same tab is exactly the crossing case I am worried about.", "participantId": "leo" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-cache-safety",
+        "question": "Can the null-user guard show a previous account's cached profile?",
+        "type": "empirical",
+        "summary": "Maya thinks cache scoping makes the guard safe; Leo says same-tab logout exposes the bug.",
+        "claimIds": ["claim-cache-scoped", "claim-logout-crossing"],
+        "participantStances": [
+          { "participantId": "maya", "positionId": "pos-cache-safe", "stance": "The guard is safe because the cache is scoped." },
+          { "participantId": "leo", "positionId": "pos-cache-unsafe", "stance": "The guard can show the previous account after logout." }
+        ],
+        "resolutionCondition": "Reproduce the same-tab logout case or inspect cache invalidation.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The code block is used as source context, not executed."]
+  }
+}

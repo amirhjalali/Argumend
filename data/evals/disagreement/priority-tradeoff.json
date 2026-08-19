@@ -1,0 +1,130 @@
+{
+  "id": "priority-tradeoff",
+  "contentType": "conversation",
+  "source": "Sofia: I know the ICU buffer matters, but clearing the delayed cancer surgery backlog should get priority for the next two weeks. Every postponed case means another family waiting for a biopsy or tumor removal.\nMalik: I know the backlog matters, but keep eight ICU beds empty through flu season. If a respiratory surge arrives, cancelled surgeries are bad; no ICU bed for an emergency is worse.\nSofia: We can reserve four beds and still move the longest-delayed cases.\nMalik: Four beds is not enough margin when staffing is already thin.",
+  "allowedPatterns": ["priority-tradeoff"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the hospital prioritize clearing delayed cancer surgeries or preserving a larger ICU buffer?",
+    "participants": [
+      { "id": "sofia", "label": "Sofia", "kind": "named" },
+      { "id": "malik", "label": "Malik", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-clear-backlog",
+        "label": "Prioritize delayed surgeries",
+        "participantIds": ["sofia"],
+        "thesis": "The hospital should prioritize clearing delayed cancer surgeries over keeping the full ICU buffer for the next two weeks.",
+        "steelman": "Long-delayed cancer cases are urgent enough to justify using some ICU margin while preserving a smaller reserve.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "clearing the delayed cancer surgery backlog should get priority for the next two weeks.", "participantId": "sofia" }
+        ]
+      },
+      {
+        "id": "pos-preserve-buffer",
+        "label": "Preserve ICU buffer",
+        "participantIds": ["malik"],
+        "thesis": "The hospital should keep eight ICU beds empty through flu season even if surgeries remain delayed.",
+        "steelman": "A respiratory surge could make ICU capacity more urgent than reducing the surgery backlog right now.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "keep eight ICU beds empty through flu season.", "participantId": "malik" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-backlog-priority",
+        "statement": "Delayed cancer surgeries should take priority over preserving the full ICU buffer for two weeks.",
+        "participantIds": ["sofia"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-clear-backlog", "relation": "supports" },
+          { "positionId": "pos-preserve-buffer", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["sofia"],
+        "disputedByParticipantIds": ["malik"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The hospital must decide how to weight delayed cancer care against surge capacity."
+        },
+        "groundingQuotes": [
+          { "quote": "Every postponed case means another family waiting for a biopsy or tumor removal.", "participantId": "sofia" }
+        ]
+      },
+      {
+        "id": "claim-buffer-priority",
+        "statement": "A larger ICU buffer should take priority because a respiratory surge could make emergency capacity scarce.",
+        "participantIds": ["malik"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-preserve-buffer", "relation": "supports" },
+          { "positionId": "pos-clear-backlog", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["malik"],
+        "disputedByParticipantIds": ["sofia"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The hospital must decide how much ICU margin to preserve under flu-season uncertainty."
+        },
+        "groundingQuotes": [
+          { "quote": "no ICU bed for an emergency is worse.", "participantId": "malik" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Both participants acknowledge that the surgery backlog and ICU buffer matter.",
+        "participantIds": ["sofia", "malik"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I know the ICU buffer matters", "participantId": "sofia" },
+          { "quote": "I know the backlog matters", "participantId": "malik" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-surgery-priority",
+        "question": "Should the delayed cancer surgery backlog get priority for the next two weeks?",
+        "type": "priority",
+        "summary": "Sofia gives more weight to delayed cancer surgeries.",
+        "claimIds": ["claim-backlog-priority"],
+        "participantStances": [
+          { "participantId": "sofia", "positionId": "pos-clear-backlog", "stance": "Yes, clear the longest-delayed cases." },
+          { "participantId": "malik", "positionId": "pos-preserve-buffer", "stance": "No, preserve more ICU capacity." }
+        ],
+        "resolutionCondition": "Clarify the priority weight assigned to delayed cancer care.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-icu-priority",
+        "question": "Should the ICU buffer get priority over the surgery backlog during flu season?",
+        "type": "priority",
+        "summary": "Malik gives more weight to surge capacity.",
+        "claimIds": ["claim-buffer-priority"],
+        "participantStances": [
+          { "participantId": "sofia", "positionId": "pos-clear-backlog", "stance": "A four-bed reserve is enough to move cases." },
+          { "participantId": "malik", "positionId": "pos-preserve-buffer", "stance": "Eight beds are needed as margin." }
+        ],
+        "resolutionCondition": "Clarify the priority weight assigned to ICU surge margin.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["This maps a priority tradeoff; it does not verify clinical capacity forecasts."]
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "id": "mostly-agreement",
+  "contentType": "conversation",
+  "source": "Tara: I am not trying to kill the appointment reminder project. We agree reminder texts reduce no-shows and that patients need an easy opt-out. I just think texts should be the default unless someone declines.\nLuis: Yes, nobody is arguing against reminders or opt-outs. I object to making texts the default because some patients share phones and may not want clinic messages appearing there.\nTara: Then put the opt-out in the intake form and every message. If we ask people to opt in first, the no-show problem stays exactly where it is.\nLuis: I can live with reminders. I want consent before the first message, not after.",
+  "allowedPatterns": ["mostly-common-ground"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should clinic reminder texts be default-on or opt-in?",
+    "participants": [
+      { "id": "tara", "label": "Tara", "kind": "named" },
+      { "id": "luis", "label": "Luis", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-default-on",
+        "label": "Default-on reminders",
+        "participantIds": ["tara"],
+        "thesis": "Appointment reminder texts should be on by default with an easy opt-out.",
+        "steelman": "Default-on reminders preserve the no-show benefit while still giving patients a way to decline.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "texts should be the default unless someone declines.", "participantId": "tara" }
+        ]
+      },
+      {
+        "id": "pos-opt-in",
+        "label": "Consent before first text",
+        "participantIds": ["luis"],
+        "thesis": "Reminder texts should require consent before the first message.",
+        "steelman": "Patients who share phones should not receive clinic messages unless they first agree.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I want consent before the first message, not after.", "participantId": "luis" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-default-needed",
+        "statement": "Requiring opt-in would preserve too much of the no-show problem.",
+        "participantIds": ["tara"],
+        "epistemicType": "procedural",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-default-on", "relation": "supports" },
+          { "positionId": "pos-opt-in", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["tara"],
+        "disputedByParticipantIds": ["luis"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "authority-allocation",
+          "condition": "The clinic must decide whether participation defaults or first-message consent should govern rollout."
+        },
+        "groundingQuotes": [
+          { "quote": "If we ask people to opt in first, the no-show problem stays exactly where it is.", "participantId": "tara" }
+        ]
+      },
+      {
+        "id": "claim-consent-needed",
+        "statement": "Shared-phone privacy makes first-message consent necessary.",
+        "participantIds": ["luis"],
+        "epistemicType": "procedural",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-opt-in", "relation": "supports" },
+          { "positionId": "pos-default-on", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["luis"],
+        "disputedByParticipantIds": ["tara"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "authority-allocation",
+          "condition": "The clinic must decide how privacy consent should be obtained."
+        },
+        "groundingQuotes": [
+          { "quote": "some patients share phones and may not want clinic messages appearing there.", "participantId": "luis" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Both participants support reminder texts as a no-show intervention.",
+        "participantIds": ["tara", "luis"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We agree reminder texts reduce no-shows", "participantId": "tara" },
+          { "quote": "nobody is arguing against reminders", "participantId": "luis" }
+        ]
+      },
+      {
+        "statement": "Both participants accept that patients need an opt-out.",
+        "participantIds": ["tara", "luis"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "patients need an easy opt-out.", "participantId": "tara" },
+          { "quote": "nobody is arguing against reminders or opt-outs.", "participantId": "luis" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-consent-default",
+        "question": "Should consent be handled by default-on opt-out or by opt-in before the first message?",
+        "type": "procedural",
+        "summary": "They mostly agree on reminders and opt-outs, but disagree about the consent default.",
+        "claimIds": ["claim-default-needed", "claim-consent-needed"],
+        "participantStances": [
+          { "participantId": "tara", "positionId": "pos-default-on", "stance": "Default-on with opt-out." },
+          { "participantId": "luis", "positionId": "pos-opt-in", "stance": "Opt-in before first text." }
+        ],
+        "resolutionCondition": "Choose the consent procedure for the reminder rollout.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The disagreement is narrow relative to the amount of shared ground in the exchange."]
+  }
+}

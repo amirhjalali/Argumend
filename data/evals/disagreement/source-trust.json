@@ -1,0 +1,123 @@
+{
+  "id": "source-trust",
+  "contentType": "conversation",
+  "source": "Chen: The RiverLab report says benzene averaged 1.4 parts per billion last month, and I trust it because the raw sensor logs are posted with timestamps.\nDana: I accept that the PDF says 1.4, but RiverLab is paid by the refinery. A number from a paid lab is not enough when the calibration files are controlled by the same contractor.\nChen: Payment alone does not make the measurements false.\nDana: I am not saying the PDF number is fake. I am saying the source is not trustworthy enough to close the neighborhood complaint.",
+  "allowedPatterns": ["trust-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the RiverLab benzene report be trusted enough to close the complaint?",
+    "participants": [
+      { "id": "chen", "label": "Chen", "kind": "named" },
+      { "id": "dana", "label": "Dana", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-trust-riverlab",
+        "label": "Trust the report",
+        "participantIds": ["chen"],
+        "thesis": "The RiverLab report should be trusted because raw timestamped sensor logs are posted.",
+        "steelman": "Public logs provide enough transparency to rely on the reported benzene average.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I trust it because the raw sensor logs are posted with timestamps.", "participantId": "chen" }
+        ]
+      },
+      {
+        "id": "pos-distrust-riverlab",
+        "label": "Do not trust the report enough",
+        "participantIds": ["dana"],
+        "thesis": "The RiverLab report is not trustworthy enough to close the complaint because the lab is paid by the refinery and controls calibration files.",
+        "steelman": "A paid contractor's number needs an independent source audit before ending a neighborhood complaint.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "the source is not trustworthy enough to close the neighborhood complaint.", "participantId": "dana" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-logs-support-trust",
+        "statement": "Posted timestamped raw sensor logs make the RiverLab report trustworthy enough to use.",
+        "participantIds": ["chen"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-trust-riverlab", "relation": "supports" },
+          { "positionId": "pos-distrust-riverlab", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["chen"],
+        "disputedByParticipantIds": ["dana"],
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "the raw sensor logs are posted with timestamps.", "participantId": "chen" }
+        ]
+      },
+      {
+        "id": "claim-paid-lab-undermines",
+        "statement": "RiverLab being paid by the refinery and controlling calibration files undermines trust in the report.",
+        "participantIds": ["dana"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-distrust-riverlab", "relation": "supports" },
+          { "positionId": "pos-trust-riverlab", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["dana"],
+        "disputedByParticipantIds": ["chen"],
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "RiverLab is paid by the refinery.", "participantId": "dana" },
+          { "quote": "the calibration files are controlled by the same contractor.", "participantId": "dana" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Both participants accept that the PDF reports a 1.4 parts-per-billion average.",
+        "participantIds": ["chen", "dana"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The RiverLab report says benzene averaged 1.4 parts per billion last month", "participantId": "chen" },
+          { "quote": "I accept that the PDF says 1.4", "participantId": "dana" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-log-trust",
+        "question": "Do posted raw sensor logs make the RiverLab report trustworthy enough?",
+        "type": "trust",
+        "summary": "Chen trusts the posted logs; Dana says the source relationship still matters.",
+        "claimIds": ["claim-logs-support-trust"],
+        "participantStances": [
+          { "participantId": "chen", "positionId": "pos-trust-riverlab", "stance": "The logs make the report trustworthy enough." },
+          { "participantId": "dana", "positionId": "pos-distrust-riverlab", "stance": "The logs are not enough without independent calibration trust." }
+        ],
+        "resolutionCondition": "Audit log custody, calibration, and independence of the source.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-paid-source",
+        "question": "Does RiverLab's payment relationship undermine the report enough to keep the complaint open?",
+        "type": "trust",
+        "summary": "Dana treats source dependence as disqualifying; Chen says payment alone does not make measurements false.",
+        "claimIds": ["claim-paid-lab-undermines"],
+        "participantStances": [
+          { "participantId": "chen", "positionId": "pos-trust-riverlab", "stance": "Payment alone does not make the report false." },
+          { "participantId": "dana", "positionId": "pos-distrust-riverlab", "stance": "The paid source is not trustworthy enough." }
+        ],
+        "resolutionCondition": "Audit the lab's independence and calibration controls.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The disagreement is about source trust, not whether this analysis verifies the benzene measurement."]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "id": "sarcasm",
+  "contentType": "conversation",
+  "source": "Nora: Brilliant idea, let's definitely buy the $9,000 espresso machine because nothing says fiscal discipline like a toy that needs imported filters. For the record, my vote is no: the savings are imaginary.\nOmar: Keep the sarcasm if you want. The sales team spends forty minutes a day walking to the cafe, and the machine pays for itself if it cuts even half of those trips.\nNora: Sure, because every minute near a latte magically turns into booked revenue.\nOmar: I am saying travel time is real work time, not magic.",
+  "allowedPatterns": ["single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Would buying the office espresso machine save enough work time to justify its cost?",
+    "participants": [
+      { "id": "nora", "label": "Nora", "kind": "named" },
+      { "id": "omar", "label": "Omar", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-do-not-buy-machine",
+        "label": "Do not buy the machine",
+        "participantIds": ["nora"],
+        "thesis": "The company should not buy the espresso machine because the claimed savings are imaginary.",
+        "steelman": "The purchase is wasteful if cafe trips do not translate into recoverable productive time.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "my vote is no: the savings are imaginary.", "participantId": "nora" }
+        ]
+      },
+      {
+        "id": "pos-buy-machine",
+        "label": "Buy the machine",
+        "participantIds": ["omar"],
+        "thesis": "The company should buy the espresso machine because reducing cafe trips would save work time.",
+        "steelman": "If the machine cuts enough walking time, the time savings can justify the equipment cost.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "the machine pays for itself if it cuts even half of those trips.", "participantId": "omar" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-savings-imaginary",
+        "statement": "The espresso machine's claimed savings are imaginary.",
+        "participantIds": ["nora"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-do-not-buy-machine", "relation": "supports" },
+          { "positionId": "pos-buy-machine", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["nora"],
+        "disputedByParticipantIds": ["omar"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Estimate how much cafe travel time would actually be recovered."
+        },
+        "groundingQuotes": [
+          { "quote": "the savings are imaginary.", "participantId": "nora" }
+        ]
+      },
+      {
+        "id": "claim-time-savings-real",
+        "statement": "Cutting cafe trips would recover enough work time for the machine to pay for itself.",
+        "participantIds": ["omar"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-buy-machine", "relation": "supports" },
+          { "positionId": "pos-do-not-buy-machine", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["omar"],
+        "disputedByParticipantIds": ["nora"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Measure cafe-trip time and compare it with machine cost."
+        },
+        "groundingQuotes": [
+          { "quote": "The sales team spends forty minutes a day walking to the cafe", "participantId": "omar" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-payback",
+        "question": "Would reduced cafe trips make the espresso machine pay for itself?",
+        "type": "empirical",
+        "summary": "Nora uses sarcasm to reject Omar's payback claim; Omar treats travel time as real work time.",
+        "claimIds": ["claim-savings-imaginary", "claim-time-savings-real"],
+        "participantStances": [
+          { "participantId": "nora", "positionId": "pos-do-not-buy-machine", "stance": "No, the savings are imaginary." },
+          { "participantId": "omar", "positionId": "pos-buy-machine", "stance": "Yes, cutting cafe trips saves enough time." }
+        ],
+        "resolutionCondition": "Compare observed cafe travel time with the machine's cost and maintenance.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["Nora's sarcastic wording is interpreted as opposition because she explicitly says her vote is no."]
+  }
+}

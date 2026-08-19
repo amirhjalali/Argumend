@@ -1,0 +1,119 @@
+{
+  "id": "mixed-value-and-empirical",
+  "contentType": "conversation",
+  "source": "Alma: Deploy the resume-screening model for the summer hiring round. In the pilot, it flagged 30 candidates recruiters had missed, and manual review is already inconsistent.\nBo: Pause it. Even if it finds some missed candidates, an opaque score should not rank people's livelihoods until applicants can see and contest the reason.\nAlma: We can add appeals after launch; the empirical question is whether the model improves the first pass.\nBo: For me the threshold question is whether a better first pass justifies using a process applicants cannot meaningfully challenge.",
+  "allowedPatterns": ["value-conflict"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the company deploy the resume-screening model before applicant appeals are available?",
+    "participants": [
+      { "id": "alma", "label": "Alma", "kind": "named" },
+      { "id": "bo", "label": "Bo", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-deploy-model",
+        "label": "Deploy the model",
+        "participantIds": ["alma"],
+        "thesis": "The company should deploy the resume-screening model because the pilot suggests it improves the first-pass review.",
+        "steelman": "If the model finds candidates manual review misses, delaying it preserves an inconsistent process.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Deploy the resume-screening model for the summer hiring round.", "participantId": "alma" }
+        ]
+      },
+      {
+        "id": "pos-pause-model",
+        "label": "Pause the model",
+        "participantIds": ["bo"],
+        "thesis": "The company should pause the model until applicants can see and contest the reason for an opaque score.",
+        "steelman": "Accuracy gains do not settle whether an opaque ranking process is acceptable for hiring decisions.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Pause it.", "participantId": "bo" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-contestable-process",
+        "statement": "An opaque score should not rank applicants until they can contest the reason.",
+        "participantIds": ["bo"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-pause-model", "relation": "supports" },
+          { "positionId": "pos-deploy-model", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["bo"],
+        "disputedByParticipantIds": ["alma"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The company would need to decide how much contestability is required before deployment."
+        },
+        "groundingQuotes": [
+          { "quote": "an opaque score should not rank people's livelihoods until applicants can see and contest the reason.", "participantId": "bo" }
+        ]
+      },
+      {
+        "id": "claim-model-improves-first-pass",
+        "statement": "The model improves first-pass review by flagging candidates recruiters missed.",
+        "participantIds": ["alma"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-deploy-model", "relation": "supports" },
+          { "positionId": "pos-pause-model", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["alma"],
+        "disputedByParticipantIds": ["bo"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Evaluate the pilot's missed-candidate results and recruiter baseline."
+        },
+        "groundingQuotes": [
+          { "quote": "it flagged 30 candidates recruiters had missed", "participantId": "alma" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-contestability",
+        "question": "Is it acceptable to deploy an opaque hiring score before applicants can contest it?",
+        "type": "normative",
+        "summary": "Bo treats contestability as a threshold requirement; Alma treats it as something that can follow launch.",
+        "claimIds": ["claim-contestable-process"],
+        "participantStances": [
+          { "participantId": "alma", "positionId": "pos-deploy-model", "stance": "Appeals can be added after launch." },
+          { "participantId": "bo", "positionId": "pos-pause-model", "stance": "Contestability must come first." }
+        ],
+        "resolutionCondition": "Clarify whether process contestability is a prerequisite or an improvement after deployment.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-model-performance",
+        "question": "Does the pilot show that the model improves first-pass resume review?",
+        "type": "empirical",
+        "summary": "Alma cites the pilot's missed-candidate count; Bo says that does not settle the process concern.",
+        "claimIds": ["claim-model-improves-first-pass"],
+        "participantStances": [
+          { "participantId": "alma", "positionId": "pos-deploy-model", "stance": "The pilot supports deployment." },
+          { "participantId": "bo", "positionId": "pos-pause-model", "stance": "Performance evidence is not enough without contestability." }
+        ],
+        "resolutionCondition": "Review pilot performance separately from the normative contestability threshold.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The empirical and value questions are entangled; resolving the pilot data alone would not settle the process objection."]
+  }
+}

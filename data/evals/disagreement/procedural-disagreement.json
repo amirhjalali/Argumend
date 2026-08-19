@@ -1,0 +1,130 @@
+{
+  "id": "procedural-disagreement",
+  "contentType": "conversation",
+  "source": "Mei: We agree the incident report should be public. Legal should review the draft first, then engineering can publish it with the recommended redactions.\nNoah: We agree it should be public, but engineering should publish the timeline today and let legal add comments afterward. Waiting for legal review is how reports disappear for weeks.\nMei: Publishing before privilege review can create problems the team cannot undo.\nNoah: Letting legal control the first release creates a different problem: the technical timeline gets softened before users see it.",
+  "allowedPatterns": ["mixed-disagreement"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "What procedure should govern publication of the incident report?",
+    "participants": [
+      { "id": "mei", "label": "Mei", "kind": "named" },
+      { "id": "noah", "label": "Noah", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-legal-first",
+        "label": "Legal review first",
+        "participantIds": ["mei"],
+        "thesis": "Legal should review the incident report before engineering publishes it.",
+        "steelman": "A first review can prevent irreversible privilege or disclosure problems while still allowing publication.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Legal should review the draft first", "participantId": "mei" }
+        ]
+      },
+      {
+        "id": "pos-engineering-first",
+        "label": "Engineering publishes first",
+        "participantIds": ["noah"],
+        "thesis": "Engineering should publish the technical timeline today and let legal comment afterward.",
+        "steelman": "Publishing the technical account first protects transparency and prevents indefinite delay or softening.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "engineering should publish the timeline today and let legal add comments afterward.", "participantId": "noah" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-privilege-review",
+        "statement": "Publishing before legal review can create problems the team cannot undo.",
+        "participantIds": ["mei"],
+        "epistemicType": "procedural",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-legal-first", "relation": "supports" },
+          { "positionId": "pos-engineering-first", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["mei"],
+        "disputedByParticipantIds": ["noah"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "authority-allocation",
+          "condition": "Decide whether legal review has gatekeeping authority before publication."
+        },
+        "groundingQuotes": [
+          { "quote": "Publishing before privilege review can create problems the team cannot undo.", "participantId": "mei" }
+        ]
+      },
+      {
+        "id": "claim-technical-softening",
+        "statement": "Legal control of the first release can soften the technical timeline before users see it.",
+        "participantIds": ["noah"],
+        "epistemicType": "procedural",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-engineering-first", "relation": "supports" },
+          { "positionId": "pos-legal-first", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["noah"],
+        "disputedByParticipantIds": ["mei"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "authority-allocation",
+          "condition": "Decide whether engineering controls the first technical publication."
+        },
+        "groundingQuotes": [
+          { "quote": "the technical timeline gets softened before users see it.", "participantId": "noah" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Both participants agree the incident report should be public.",
+        "participantIds": ["mei", "noah"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We agree the incident report should be public.", "participantId": "mei" },
+          { "quote": "We agree it should be public", "participantId": "noah" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-review-order",
+        "question": "Should legal review happen before or after engineering publishes the timeline?",
+        "type": "procedural",
+        "summary": "They agree on publication but disagree about review order and control.",
+        "claimIds": ["claim-privilege-review"],
+        "participantStances": [
+          { "participantId": "mei", "positionId": "pos-legal-first", "stance": "Legal review first." },
+          { "participantId": "noah", "positionId": "pos-engineering-first", "stance": "Engineering publishes first." }
+        ],
+        "resolutionCondition": "Allocate authority over the first release.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-delay-risk",
+        "question": "Which procedural risk matters more: irreversible legal problems or softened technical disclosure?",
+        "type": "procedural",
+        "summary": "Mei emphasizes legal risk; Noah emphasizes delay and softened disclosure.",
+        "claimIds": ["claim-technical-softening"],
+        "participantStances": [
+          { "participantId": "mei", "positionId": "pos-legal-first", "stance": "Avoid irreversible legal problems." },
+          { "participantId": "noah", "positionId": "pos-engineering-first", "stance": "Avoid reports disappearing or being softened." }
+        ],
+        "resolutionCondition": "Choose a publication process that assigns final timing and review authority.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The diagnosis falls back to the generic mixed pattern because procedural disputes do not have a dedicated pattern label."]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "id": "quoted-opponent",
+  "contentType": "article",
+  "source": "Opinion: The county should sign the desalination contract this month. Reservoirs have missed spring targets twice, and a guaranteed coastal supply would give planners a backstop before the next dry cycle. Councilmember Reed told the Sentinel, \"A desalination contract will saddle ratepayers with high bills before we know whether conservation targets work.\" That objection treats delay as free. The author disagrees: waiting another two summers risks buying emergency water at a worse price.",
+  "allowedPatterns": ["forecast-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the county sign the desalination contract now or wait for conservation results?",
+    "participants": [
+      { "id": "author", "label": "Author", "kind": "author" },
+      { "id": "reed", "label": "Councilmember Reed", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-sign-now",
+        "label": "Sign the contract now",
+        "participantIds": ["author"],
+        "thesis": "The county should sign the desalination contract now to secure a backstop before another dry cycle.",
+        "steelman": "Early commitment may avoid emergency water purchases if reservoirs remain low.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The county should sign the desalination contract this month.", "participantId": "author" }
+        ]
+      },
+      {
+        "id": "pos-wait-conservation",
+        "label": "Wait for conservation results",
+        "participantIds": ["reed"],
+        "thesis": "The county should not sign now because the contract may burden ratepayers before conservation results are known.",
+        "steelman": "Waiting avoids locking in high bills if conservation targets solve enough of the supply problem.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "A desalination contract will saddle ratepayers with high bills before we know whether conservation targets work.", "participantId": "reed" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-delay-risk",
+        "statement": "Waiting risks buying emergency water at a worse price.",
+        "participantIds": ["author"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-sign-now", "relation": "supports" },
+          { "positionId": "pos-wait-conservation", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["author"],
+        "disputedByParticipantIds": ["reed"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "future-observable",
+          "condition": "Observe future reservoir levels, conservation performance, and emergency water prices."
+        },
+        "groundingQuotes": [
+          { "quote": "waiting another two summers risks buying emergency water at a worse price.", "participantId": "author" }
+        ]
+      },
+      {
+        "id": "claim-ratepayer-burden",
+        "statement": "Signing now will saddle ratepayers with high bills before conservation targets are tested.",
+        "participantIds": ["reed"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-wait-conservation", "relation": "supports" },
+          { "positionId": "pos-sign-now", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["reed"],
+        "disputedByParticipantIds": ["author"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "future-observable",
+          "condition": "Observe whether conservation targets reduce the need for desalination before contract costs accrue."
+        },
+        "groundingQuotes": [
+          { "quote": "will saddle ratepayers with high bills before we know whether conservation targets work.", "participantId": "reed" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-water-forecast",
+        "question": "Is delay riskier than signing before conservation results are known?",
+        "type": "predictive",
+        "summary": "The author forecasts costly delay, while Reed forecasts unnecessary ratepayer burden from signing now.",
+        "claimIds": ["claim-delay-risk", "claim-ratepayer-burden"],
+        "participantStances": [
+          { "participantId": "author", "positionId": "pos-sign-now", "stance": "Sign now to avoid worse future costs." },
+          { "participantId": "reed", "positionId": "pos-wait-conservation", "stance": "Wait to avoid premature high bills." }
+        ],
+        "resolutionCondition": "Future conservation performance and water-purchase costs would bear on the forecast.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The quoted opponent is treated as a participant because the article quotes Reed's position directly."]
+  }
+}

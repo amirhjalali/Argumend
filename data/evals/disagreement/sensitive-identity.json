@@ -1,0 +1,105 @@
+{
+  "id": "sensitive-identity",
+  "contentType": "conversation",
+  "source": "Leah: The community pool should keep the women-only swim hour. Some residents have told the desk they will not swim otherwise, and the hour is only once a week.\nBen: Replace it with private changing stalls and open swim for everyone. Reserving the pool by gender excludes families with nonbinary teens and still does not help people who need privacy outside that hour.\nLeah: The stalls are good, but they do not solve the same problem for residents who asked for a separate hour.\nBen: A public pool should solve privacy without deciding who belongs in a gendered slot.",
+  "allowedPatterns": ["value-conflict"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the community pool keep a women-only swim hour or replace it with privacy upgrades open to everyone?",
+    "participants": [
+      { "id": "leah", "label": "Leah", "kind": "named" },
+      { "id": "ben", "label": "Ben", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-keep-women-hour",
+        "label": "Keep women-only hour",
+        "participantIds": ["leah"],
+        "thesis": "The pool should keep the women-only swim hour because some residents say they will not swim otherwise.",
+        "steelman": "A limited separate hour can preserve access for residents who need that arrangement to use the pool.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The community pool should keep the women-only swim hour.", "participantId": "leah" }
+        ]
+      },
+      {
+        "id": "pos-open-privacy-upgrades",
+        "label": "Use privacy upgrades for everyone",
+        "participantIds": ["ben"],
+        "thesis": "The pool should replace gender-reserved time with private changing stalls and open swim for everyone.",
+        "steelman": "Privacy should be addressed without reserving access by gender category.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Replace it with private changing stalls and open swim for everyone.", "participantId": "ben" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-separate-hour-needed",
+        "statement": "Some residents need the separate swim hour to use the pool.",
+        "participantIds": ["leah"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-keep-women-hour", "relation": "supports" },
+          { "positionId": "pos-open-privacy-upgrades", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["leah"],
+        "disputedByParticipantIds": ["ben"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The pool board would need to decide whether a separate hour is justified by access needs."
+        },
+        "groundingQuotes": [
+          { "quote": "Some residents have told the desk they will not swim otherwise", "participantId": "leah" }
+        ]
+      },
+      {
+        "id": "claim-gender-slot-excludes",
+        "statement": "Gender-reserved pool time excludes some families and is not the right privacy mechanism.",
+        "participantIds": ["ben"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-open-privacy-upgrades", "relation": "supports" },
+          { "positionId": "pos-keep-women-hour", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ben"],
+        "disputedByParticipantIds": ["leah"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The pool board would need to decide whether privacy should be handled without gender-reserved time."
+        },
+        "groundingQuotes": [
+          { "quote": "Reserving the pool by gender excludes families with nonbinary teens", "participantId": "ben" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-pool-access",
+        "question": "Should privacy access be handled through a gender-reserved hour or open privacy upgrades?",
+        "type": "normative",
+        "summary": "Leah prioritizes the separate hour requested by some residents; Ben prioritizes privacy without gender-reserved access.",
+        "claimIds": ["claim-separate-hour-needed", "claim-gender-slot-excludes"],
+        "participantStances": [
+          { "participantId": "leah", "positionId": "pos-keep-women-hour", "stance": "Keep the limited separate hour." },
+          { "participantId": "ben", "positionId": "pos-open-privacy-upgrades", "stance": "Replace it with privacy upgrades open to everyone." }
+        ],
+        "resolutionCondition": "Clarify the access and privacy values the pool policy should prioritize.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["No participant's identity traits are inferred from their position."]
+  }
+}

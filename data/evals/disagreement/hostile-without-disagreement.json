@@ -1,0 +1,22 @@
+{
+  "id": "hostile-without-disagreement",
+  "contentType": "conversation",
+  "source": "Rin: Your slide comments were rude and completely unhelpful.\nSam: Your whole draft was a mess, so spare me the lecture.\nRin: This is exactly why nobody wants feedback from you.\nSam: Fine, keep pretending your deck is precious.\nRin: I am done with the attitude.\nSam: Same. Send it to someone else next time.\nRin: Great, we finally agree on one thing: I will not ask you again.",
+  "allowedPatterns": ["not-a-disagreement"],
+  "expectCrux": false,
+  "minPositions": 0,
+  "maxPositions": 1,
+  "extraction": {
+    "mainQuestion": "What substantive issue is being disputed?",
+    "participants": [
+      { "id": "rin", "label": "Rin", "kind": "named" },
+      { "id": "sam", "label": "Sam", "kind": "named" }
+    ],
+    "positions": [],
+    "claims": [],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [],
+    "caveats": ["The exchange is hostile, but it does not contain a substantive claim conflict to map."]
+  }
+}

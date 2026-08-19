@@ -1,0 +1,119 @@
+{
+  "id": "different-questions",
+  "contentType": "conversation",
+  "source": "Kai: We need to cut the elm on Mercer this week. The arborist said the split trunk gives it a high chance of failing in the next storm.\nLena: I am not answering the storm-risk question. I am asking whether the parks department should keep replacing mature canopy with tiny saplings every time maintenance gets hard.\nKai: That is a separate policy debate. For this tree, the question is whether it might fall onto the bus stop.\nLena: And for me the question is whether the city keeps using risk language to shrink canopy in the hottest blocks.",
+  "allowedPatterns": ["mixed-disagreement"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Are Kai and Lena disagreeing about this elm's immediate risk or the city's canopy policy?",
+    "participants": [
+      { "id": "kai", "label": "Kai", "kind": "named" },
+      { "id": "lena", "label": "Lena", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-remove-risk",
+        "label": "Remove the risky elm",
+        "participantIds": ["kai"],
+        "thesis": "The elm should be cut this week because it may fail in a storm and hit the bus stop.",
+        "steelman": "A specific near-term safety risk justifies immediate removal independent of broader canopy policy.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We need to cut the elm on Mercer this week.", "participantId": "kai" }
+        ]
+      },
+      {
+        "id": "pos-question-canopy-policy",
+        "label": "Question canopy loss",
+        "participantIds": ["lena"],
+        "thesis": "The city should not treat each hard maintenance case as a reason to shrink mature canopy.",
+        "steelman": "The important decision is the cumulative canopy policy, not only the risk analysis for one tree.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I am asking whether the parks department should keep replacing mature canopy with tiny saplings every time maintenance gets hard.", "participantId": "lena" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-elm-risk",
+        "statement": "The split trunk creates a high near-term failure risk.",
+        "participantIds": ["kai"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-remove-risk", "relation": "supports" },
+          { "positionId": "pos-question-canopy-policy", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["kai"],
+        "disputedByParticipantIds": ["lena"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Review the arborist's risk assessment and the tree's condition."
+        },
+        "groundingQuotes": [
+          { "quote": "The arborist said the split trunk gives it a high chance of failing in the next storm.", "participantId": "kai" }
+        ]
+      },
+      {
+        "id": "claim-risk-language-canopy",
+        "statement": "The city is using risk language to shrink canopy in hot blocks.",
+        "participantIds": ["lena"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-question-canopy-policy", "relation": "supports" },
+          { "positionId": "pos-remove-risk", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["lena"],
+        "disputedByParticipantIds": ["kai"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "They would need to decide whether the policy frame or immediate hazard frame controls the decision."
+        },
+        "groundingQuotes": [
+          { "quote": "the city keeps using risk language to shrink canopy in the hottest blocks.", "participantId": "lena" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-tree-risk",
+        "question": "Is the Mercer elm an immediate safety risk that should be removed?",
+        "type": "empirical",
+        "summary": "Kai focuses on the particular tree's failure risk.",
+        "claimIds": ["claim-elm-risk"],
+        "participantStances": [
+          { "participantId": "kai", "positionId": "pos-remove-risk", "stance": "Yes, cut it this week." },
+          { "participantId": "lena", "positionId": "pos-question-canopy-policy", "stance": "That is not the question she is answering." }
+        ],
+        "resolutionCondition": "Check the tree-specific arborist assessment.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-canopy-policy",
+        "question": "Is the city using maintenance risk to justify broader canopy loss?",
+        "type": "normative",
+        "summary": "Lena focuses on the broader policy pattern.",
+        "claimIds": ["claim-risk-language-canopy"],
+        "participantStances": [
+          { "participantId": "kai", "positionId": "pos-remove-risk", "stance": "That is a separate policy debate." },
+          { "participantId": "lena", "positionId": "pos-question-canopy-policy", "stance": "That is the real question." }
+        ],
+        "resolutionCondition": "Separate the tree-risk decision from the canopy-policy decision.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The speakers are partly talking past each other by treating different questions as primary."]
+  }
+}

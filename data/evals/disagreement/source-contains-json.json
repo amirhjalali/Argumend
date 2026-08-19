@@ -1,0 +1,106 @@
+{
+  "id": "source-contains-json",
+  "contentType": "conversation",
+  "source": "Rae: The onboarding beta is healthy enough to expand. Yesterday's export says:\n```json\n{\"invited\":50,\"active\":41,\"crashes\":2,\"median_minutes\":6}\n```\nForty-one active users is enough to ship the onboarding test to the next cohort.\nDev: That JSON proves my point. Two crashes among 41 active users is too high to expand it, especially when the first screen is where people decide whether the product feels reliable.\nRae: Two crashes is not a launch blocker for a beta.\nDev: It is a blocker when the beta is supposed to test first impressions.",
+  "allowedPatterns": ["single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Is the onboarding beta healthy enough to expand?",
+    "participants": [
+      { "id": "rae", "label": "Rae", "kind": "named" },
+      { "id": "dev", "label": "Dev", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-expand-beta",
+        "label": "Expand the beta",
+        "participantIds": ["rae"],
+        "thesis": "The onboarding beta is healthy enough to expand to the next cohort.",
+        "steelman": "The active-user count indicates enough engagement to justify broader testing despite a small crash count.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The onboarding beta is healthy enough to expand.", "participantId": "rae" }
+        ]
+      },
+      {
+        "id": "pos-do-not-expand-beta",
+        "label": "Do not expand yet",
+        "participantIds": ["dev"],
+        "thesis": "The beta should not expand because two crashes among 41 active users is too high for a first-impression test.",
+        "steelman": "Reliability during onboarding matters enough that the crash count should block expansion.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Two crashes among 41 active users is too high to expand it", "participantId": "dev" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-active-enough",
+        "statement": "Forty-one active users is enough to expand the onboarding beta.",
+        "participantIds": ["rae"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-expand-beta", "relation": "supports" },
+          { "positionId": "pos-do-not-expand-beta", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["rae"],
+        "disputedByParticipantIds": ["dev"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Compare active-user and crash thresholds for expanding the beta."
+        },
+        "groundingQuotes": [
+          { "quote": "Forty-one active users is enough to ship the onboarding test to the next cohort.", "participantId": "rae" }
+        ]
+      },
+      {
+        "id": "claim-crashes-too-high",
+        "statement": "Two crashes among 41 active users is too high for this onboarding beta.",
+        "participantIds": ["dev"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-do-not-expand-beta", "relation": "supports" },
+          { "positionId": "pos-expand-beta", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["dev"],
+        "disputedByParticipantIds": ["rae"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Set or review the crash threshold for first-impression onboarding tests."
+        },
+        "groundingQuotes": [
+          { "quote": "\"crashes\":2", "participantId": "dev" },
+          { "quote": "Two crashes among 41 active users is too high to expand it", "participantId": "dev" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-beta-health",
+        "question": "Do the active-user and crash numbers justify expanding the beta?",
+        "type": "empirical",
+        "summary": "Rae emphasizes active use; Dev emphasizes crash risk in onboarding.",
+        "claimIds": ["claim-active-enough", "claim-crashes-too-high"],
+        "participantStances": [
+          { "participantId": "rae", "positionId": "pos-expand-beta", "stance": "The beta is healthy enough to expand." },
+          { "participantId": "dev", "positionId": "pos-do-not-expand-beta", "stance": "The crash count should block expansion." }
+        ],
+        "resolutionCondition": "Assess the beta against agreed active-use and crash thresholds.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The JSON snippet is treated only as pasted source content, not independently verified telemetry."]
+  }
+}

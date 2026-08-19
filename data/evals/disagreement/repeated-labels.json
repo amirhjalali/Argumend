@@ -1,0 +1,105 @@
+{
+  "id": "repeated-labels",
+  "contentType": "conversation",
+  "source": "Jamie: Cut the podcast episodes to twenty minutes. Our commuters bail out before the guest's third story.\nCasey: Keep the forty-minute format. The whole reason listeners write in is that we let guests build an argument instead of doing headline snippets.\nJamie: We can keep depth and still edit harder. The analytics chart drops sharply after minute twenty-three.\nCasey: That chart counts people who finish later in the week as partial listens. You are treating an app quirk as an editorial mandate.\nJamie: Sponsors buy completed listens, not good intentions.\nCasey: Sponsors also renew because the show sounds different from every chopped-up interview feed.",
+  "allowedPatterns": ["single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the podcast cut episodes to twenty minutes or keep the forty-minute format?",
+    "participants": [
+      { "id": "jamie", "label": "Jamie", "kind": "named" },
+      { "id": "casey", "label": "Casey", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-cut-episodes",
+        "label": "Cut to twenty minutes",
+        "participantIds": ["jamie"],
+        "thesis": "The podcast should cut episodes to twenty minutes because listeners and sponsors reward completed listens.",
+        "steelman": "If most listeners drop after the early segment, tighter editing could improve completion and sponsor value.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Cut the podcast episodes to twenty minutes.", "participantId": "jamie" }
+        ]
+      },
+      {
+        "id": "pos-keep-format",
+        "label": "Keep forty minutes",
+        "participantIds": ["casey"],
+        "thesis": "The podcast should keep the forty-minute format because depth is the show's differentiator.",
+        "steelman": "Longer interviews may preserve the reason listeners and sponsors value the show even if completion metrics look weaker.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Keep the forty-minute format.", "participantId": "casey" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-drop-after-twenty-three",
+        "statement": "The analytics show a sharp listener drop after minute twenty-three.",
+        "participantIds": ["jamie"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-cut-episodes", "relation": "supports" },
+          { "positionId": "pos-keep-format", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["jamie"],
+        "disputedByParticipantIds": ["casey"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Audit the analytics treatment of partial and delayed listens."
+        },
+        "groundingQuotes": [
+          { "quote": "The analytics chart drops sharply after minute twenty-three.", "participantId": "jamie" }
+        ]
+      },
+      {
+        "id": "claim-app-quirk",
+        "statement": "The drop-off chart is distorted by how the app counts later finishes.",
+        "participantIds": ["casey"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-keep-format", "relation": "supports" },
+          { "positionId": "pos-cut-episodes", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["casey"],
+        "disputedByParticipantIds": ["jamie"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Check whether delayed completions are classified as partial listens."
+        },
+        "groundingQuotes": [
+          { "quote": "That chart counts people who finish later in the week as partial listens.", "participantId": "casey" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-completion-metric",
+        "question": "Does the completion metric show a real listener problem or an app-counting artifact?",
+        "type": "empirical",
+        "summary": "Jamie treats the drop-off chart as decisive; Casey says the metric is distorted.",
+        "claimIds": ["claim-drop-after-twenty-three", "claim-app-quirk"],
+        "participantStances": [
+          { "participantId": "jamie", "positionId": "pos-cut-episodes", "stance": "The chart shows episodes are too long." },
+          { "participantId": "casey", "positionId": "pos-keep-format", "stance": "The chart miscounts later completions." }
+        ],
+        "resolutionCondition": "Review completion definitions and delayed-listen data.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The source asserts analytics behavior but does not provide the chart itself."]
+  }
+}

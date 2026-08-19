@@ -1,0 +1,105 @@
+{
+  "id": "sensitive-political",
+  "contentType": "conversation",
+  "source": "Nadia: Keep same-day voter registration. In the county memo, 842 ballots were counted last November after voters fixed address errors at the clerk's desk, and throwing that out will exclude eligible voters over paperwork timing.\nEli: End same-day registration for municipal races. The same memo says precinct workers stayed past midnight verifying those fixes, and late verification is why results look messy for days.\nNadia: A slower count is not the same as an inaccurate count.\nEli: A count that people cannot understand on election night is a problem even when the final number is accurate.",
+  "allowedPatterns": ["single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the county keep same-day voter registration for municipal races?",
+    "participants": [
+      { "id": "nadia", "label": "Nadia", "kind": "named" },
+      { "id": "eli", "label": "Eli", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-keep-same-day",
+        "label": "Keep same-day registration",
+        "participantIds": ["nadia"],
+        "thesis": "The county should keep same-day voter registration because it lets eligible voters fix paperwork errors.",
+        "steelman": "Administrative delays are less important than preserving ballot access for eligible voters with address errors.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Keep same-day voter registration.", "participantId": "nadia" }
+        ]
+      },
+      {
+        "id": "pos-end-same-day",
+        "label": "End same-day registration",
+        "participantIds": ["eli"],
+        "thesis": "The county should end same-day registration for municipal races because late verification delays and confuses results.",
+        "steelman": "Election procedures should produce understandable, timely results as well as accurate final counts.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "End same-day registration for municipal races.", "participantId": "eli" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-ballots-fixed",
+        "statement": "Same-day registration allowed 842 ballots with address errors to be counted.",
+        "participantIds": ["nadia"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-keep-same-day", "relation": "supports" },
+          { "positionId": "pos-end-same-day", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["nadia"],
+        "disputedByParticipantIds": ["eli"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Review the county memo's ballot-fix count and eligibility process."
+        },
+        "groundingQuotes": [
+          { "quote": "842 ballots were counted last November after voters fixed address errors at the clerk's desk", "participantId": "nadia" }
+        ]
+      },
+      {
+        "id": "claim-verification-delay",
+        "statement": "Same-day registration made precinct workers stay past midnight verifying fixes.",
+        "participantIds": ["eli"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-end-same-day", "relation": "supports" },
+          { "positionId": "pos-keep-same-day", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["eli"],
+        "disputedByParticipantIds": ["nadia"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Review the memo's verification time records and election-night reporting process."
+        },
+        "groundingQuotes": [
+          { "quote": "precinct workers stayed past midnight verifying those fixes", "participantId": "eli" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-registration-effects",
+        "question": "Do same-day registration's ballot-access benefits outweigh its verification delays?",
+        "type": "empirical",
+        "summary": "Nadia emphasizes counted ballots; Eli emphasizes verification delay and public legibility.",
+        "claimIds": ["claim-ballots-fixed", "claim-verification-delay"],
+        "participantStances": [
+          { "participantId": "nadia", "positionId": "pos-keep-same-day", "stance": "Keep it to avoid excluding eligible voters over timing errors." },
+          { "participantId": "eli", "positionId": "pos-end-same-day", "stance": "End it because late verification makes results messy." }
+        ],
+        "resolutionCondition": "Assess the county memo's ballot-access and verification-delay evidence.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The political claims are represented neutrally from the source and are not independently verified."]
+  }
+}

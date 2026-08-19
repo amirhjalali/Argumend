@@ -1,0 +1,116 @@
+{
+  "id": "same-conclusion-different-reasons",
+  "contentType": "conversation",
+  "source": "Dana: We both support the Willow Street closure, but for totally different reasons. I want the pilot because it will show that half the car trips disappear once the shortcut is gone.\nMorgan: I support the closure too, but not as a traffic experiment. Even if the same cars detour onto Pine, residents on Willow should not have their front doors treated like a bypass.\nDana: If the counts do not fall, I would reopen it after the pilot.\nMorgan: That proves my point. I would keep it closed even if the counts do not fall, because the street's use should change.",
+  "allowedPatterns": ["mostly-common-ground"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "What should determine whether Willow Street stays closed after the pilot?",
+    "participants": [
+      { "id": "dana", "label": "Dana", "kind": "named" },
+      { "id": "morgan", "label": "Morgan", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-traffic-test",
+        "label": "Closure as traffic test",
+        "participantIds": ["dana"],
+        "thesis": "Willow Street should be closed as a pilot to test whether car trips disappear.",
+        "steelman": "A reversible pilot is justified if it can show whether the shortcut is generating avoidable traffic.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I want the pilot because it will show that half the car trips disappear once the shortcut is gone.", "participantId": "dana" }
+        ]
+      },
+      {
+        "id": "pos-residential-priority",
+        "label": "Closure as street priority",
+        "participantIds": ["morgan"],
+        "thesis": "Willow Street should stay closed because residents should not have their street used as a bypass.",
+        "steelman": "The policy is justified by how the street should be allocated, even if traffic counts do not improve.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "residents on Willow should not have their front doors treated like a bypass.", "participantId": "morgan" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-counts-decide",
+        "statement": "The closure should depend on whether car counts fall during the pilot.",
+        "participantIds": ["dana"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-traffic-test", "relation": "supports" },
+          { "positionId": "pos-residential-priority", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["dana"],
+        "disputedByParticipantIds": ["morgan"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "They would need to decide whether measured traffic reduction or street allocation should control the decision."
+        },
+        "groundingQuotes": [
+          { "quote": "If the counts do not fall, I would reopen it after the pilot.", "participantId": "dana" }
+        ]
+      },
+      {
+        "id": "claim-keep-even-if-counts",
+        "statement": "The closure should remain even if total car counts do not fall.",
+        "participantIds": ["morgan"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-residential-priority", "relation": "supports" },
+          { "positionId": "pos-traffic-test", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["morgan"],
+        "disputedByParticipantIds": ["dana"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "They would need to decide whether residential street use can justify closure without traffic reduction."
+        },
+        "groundingQuotes": [
+          { "quote": "I would keep it closed even if the counts do not fall", "participantId": "morgan" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Both participants support closing Willow Street.",
+        "participantIds": ["dana", "morgan"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We both support the Willow Street closure", "participantId": "dana" },
+          { "quote": "I support the closure too", "participantId": "morgan" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-reason-for-closure",
+        "question": "Should the closure depend on traffic-count results or on residential street priority?",
+        "type": "normative",
+        "summary": "They agree on closing Willow Street but disagree about the reason that should justify it.",
+        "claimIds": ["claim-counts-decide", "claim-keep-even-if-counts"],
+        "participantStances": [
+          { "participantId": "dana", "positionId": "pos-traffic-test", "stance": "Keep the closure only if counts fall." },
+          { "participantId": "morgan", "positionId": "pos-residential-priority", "stance": "Keep the closure even if counts do not fall." }
+        ],
+        "resolutionCondition": "Clarify whether the policy is an empirical traffic test or a value judgment about street use.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["They share the same immediate conclusion, so the disagreement is about the load-bearing rationale."]
+  }
+}

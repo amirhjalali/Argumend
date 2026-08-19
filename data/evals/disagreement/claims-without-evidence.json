@@ -1,0 +1,97 @@
+{
+  "id": "claims-without-evidence",
+  "contentType": "conversation",
+  "source": "Hana: Moving the help button to the top right will confuse new users. People expect support in the footer, and this redesign will make tickets worse.\nIvo: It will reduce tickets. The current footer link is buried, and a top-right button is where people look when they need help.\nHana: You are assuming visibility equals comprehension.\nIvo: You are assuming the old convention still matters.",
+  "allowedPatterns": ["causal-model-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Would moving the help button to the top right increase or reduce support tickets?",
+    "participants": [
+      { "id": "hana", "label": "Hana", "kind": "named" },
+      { "id": "ivo", "label": "Ivo", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-footer-help",
+        "label": "Keep help in the footer",
+        "participantIds": ["hana"],
+        "thesis": "The help button should stay in the footer because moving it to the top right will confuse new users.",
+        "steelman": "A familiar footer location may be easier for new users than a more visible but unexpected control.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Moving the help button to the top right will confuse new users.", "participantId": "hana" }
+        ]
+      },
+      {
+        "id": "pos-top-right-help",
+        "label": "Move help to top right",
+        "participantIds": ["ivo"],
+        "thesis": "The help button should move to the top right because the footer link is buried and a visible button will reduce tickets.",
+        "steelman": "Users who need help are more likely to notice a persistent top-right support button than a footer link.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "It will reduce tickets.", "participantId": "ivo" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-confuse-users",
+        "statement": "Moving the help button to the top right will confuse new users and worsen tickets.",
+        "participantIds": ["hana"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-footer-help", "relation": "supports" },
+          { "positionId": "pos-top-right-help", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["hana"],
+        "disputedByParticipantIds": ["ivo"],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "this redesign will make tickets worse.", "participantId": "hana" }
+        ]
+      },
+      {
+        "id": "claim-reduce-tickets",
+        "statement": "A top-right help button will reduce tickets because the footer link is buried.",
+        "participantIds": ["ivo"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-top-right-help", "relation": "supports" },
+          { "positionId": "pos-footer-help", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ivo"],
+        "disputedByParticipantIds": ["hana"],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The current footer link is buried", "participantId": "ivo" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-help-button-effect",
+        "question": "Would the top-right help button confuse users or reduce support tickets?",
+        "type": "causal",
+        "summary": "Both sides assert opposite effects of the redesign without offering evidence in the source.",
+        "claimIds": ["claim-confuse-users", "claim-reduce-tickets"],
+        "participantStances": [
+          { "participantId": "hana", "positionId": "pos-footer-help", "stance": "It will confuse users and worsen tickets." },
+          { "participantId": "ivo", "positionId": "pos-top-right-help", "stance": "It will make help visible and reduce tickets." }
+        ],
+        "resolutionCondition": "Run a usability test or ticket-rate comparison; the source itself provides no evidence.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The speakers make assertions but provide no evidence in the source."]
+  }
+}

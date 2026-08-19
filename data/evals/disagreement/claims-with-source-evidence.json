@@ -1,0 +1,105 @@
+{
+  "id": "claims-with-source-evidence",
+  "contentType": "conversation",
+  "source": "Inez: Expand the homework text-message pilot. The spring report says 62 percent of participating students submitted homework on time, compared with 48 percent in the matched class that did not get texts.\nOren: The same report says only 18 of 70 eligible students used it at least twice. A result from that small opt-in group is not enough to make it districtwide.\nInez: The on-time gap is the best evidence we have.\nOren: The participation number is the warning label on that evidence.",
+  "allowedPatterns": ["single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Is the homework text-message pilot evidence strong enough to expand districtwide?",
+    "participants": [
+      { "id": "inez", "label": "Inez", "kind": "named" },
+      { "id": "oren", "label": "Oren", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-expand-texts",
+        "label": "Expand the pilot",
+        "participantIds": ["inez"],
+        "thesis": "The district should expand the homework text-message pilot because the report shows higher on-time submission among participants.",
+        "steelman": "The matched-class comparison suggests the text-message pilot may be improving homework submission.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Expand the homework text-message pilot.", "participantId": "inez" }
+        ]
+      },
+      {
+        "id": "pos-do-not-expand-texts",
+        "label": "Do not expand yet",
+        "participantIds": ["oren"],
+        "thesis": "The district should not expand the pilot because the evidence comes from a small opt-in group.",
+        "steelman": "Low participation makes the result too fragile to justify a districtwide rollout.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "A result from that small opt-in group is not enough to make it districtwide.", "participantId": "oren" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-on-time-gap",
+        "statement": "Participating students had a 62 percent on-time submission rate compared with 48 percent in a matched class.",
+        "participantIds": ["inez"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-expand-texts", "relation": "supports" },
+          { "positionId": "pos-do-not-expand-texts", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["inez"],
+        "disputedByParticipantIds": ["oren"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Inspect the spring report's matched-class comparison and methodology."
+        },
+        "groundingQuotes": [
+          { "quote": "62 percent of participating students submitted homework on time, compared with 48 percent in the matched class", "participantId": "inez" }
+        ]
+      },
+      {
+        "id": "claim-low-participation",
+        "statement": "Only 18 of 70 eligible students used the text-message pilot at least twice.",
+        "participantIds": ["oren"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-do-not-expand-texts", "relation": "supports" },
+          { "positionId": "pos-expand-texts", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["oren"],
+        "disputedByParticipantIds": ["inez"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Inspect the report's participation denominator and opt-in process."
+        },
+        "groundingQuotes": [
+          { "quote": "only 18 of 70 eligible students used it at least twice.", "participantId": "oren" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-pilot-evidence",
+        "question": "Does the report's on-time submission gap outweigh the low participation concern?",
+        "type": "empirical",
+        "summary": "Inez cites the outcome gap; Oren cites the low participation denominator.",
+        "claimIds": ["claim-on-time-gap", "claim-low-participation"],
+        "participantStances": [
+          { "participantId": "inez", "positionId": "pos-expand-texts", "stance": "The report is strong enough to expand." },
+          { "participantId": "oren", "positionId": "pos-do-not-expand-texts", "stance": "The report is too weak because participation was low." }
+        ],
+        "resolutionCondition": "Evaluate the report's design, denominator, and effect estimate.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The numbers are cited by speakers in the source and are not independently verified here."]
+  }
+}

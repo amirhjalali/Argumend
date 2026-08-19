@@ -1,0 +1,143 @@
+{
+  "id": "multiple-speakers-three-positions",
+  "contentType": "conversation",
+  "source": "Mina: Keep letter grades in the first-year seminar. Scholarships and transfer programs still ask for a transcript they can compare.\nTheo: Move the seminar to pass/fail. Students are gaming easy sections instead of taking the professor who will actually challenge them.\nRosa: Both of those miss the point. Replace the grade with a narrative evaluation, because the seminar is supposed to teach revision and discussion, not rank people.\nMina: Narrative comments are fine as an add-on, but without grades the outside readers will treat the course as invisible.\nTheo: A hidden course is still better than turning the seminar into GPA theater.\nRosa: If we keep a rank, the feedback becomes decoration.",
+  "allowedPatterns": ["value-conflict"],
+  "expectCrux": true,
+  "minPositions": 3,
+  "maxPositions": 3,
+  "extraction": {
+    "mainQuestion": "How should the first-year seminar be evaluated?",
+    "participants": [
+      { "id": "mina", "label": "Mina", "kind": "named" },
+      { "id": "theo", "label": "Theo", "kind": "named" },
+      { "id": "rosa", "label": "Rosa", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-letter-grades",
+        "label": "Keep letter grades",
+        "participantIds": ["mina"],
+        "thesis": "The seminar should keep letter grades because outside programs need comparable transcripts.",
+        "steelman": "A standard grade preserves the course's legibility for scholarships and transfers.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Keep letter grades in the first-year seminar.", "participantId": "mina" }
+        ]
+      },
+      {
+        "id": "pos-pass-fail",
+        "label": "Use pass/fail",
+        "participantIds": ["theo"],
+        "thesis": "The seminar should move to pass/fail to reduce GPA gaming.",
+        "steelman": "Pass/fail would let students choose challenging sections without grade anxiety.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Move the seminar to pass/fail.", "participantId": "theo" }
+        ]
+      },
+      {
+        "id": "pos-narrative",
+        "label": "Use narrative evaluation",
+        "participantIds": ["rosa"],
+        "thesis": "The seminar should replace grades with narrative evaluation focused on revision and discussion.",
+        "steelman": "Narrative assessment fits the course's learning goals better than ranking or pass/fail sorting.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Replace the grade with a narrative evaluation", "participantId": "rosa" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-comparable-transcript",
+        "statement": "Scholarships and transfer programs need a comparable transcript grade.",
+        "participantIds": ["mina"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-letter-grades", "relation": "supports" },
+          { "positionId": "pos-pass-fail", "relation": "opposes" },
+          { "positionId": "pos-narrative", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["mina"],
+        "disputedByParticipantIds": ["theo", "rosa"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The department would need to decide how much outside comparability should count."
+        },
+        "groundingQuotes": [
+          { "quote": "Scholarships and transfer programs still ask for a transcript they can compare.", "participantId": "mina" }
+        ]
+      },
+      {
+        "id": "claim-gpa-gaming",
+        "statement": "Letter grades make students choose easy seminar sections.",
+        "participantIds": ["theo"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-pass-fail", "relation": "supports" },
+          { "positionId": "pos-letter-grades", "relation": "opposes" },
+          { "positionId": "pos-narrative", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["theo"],
+        "disputedByParticipantIds": ["mina", "rosa"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The faculty would need to decide how much grade-risk avoidance matters."
+        },
+        "groundingQuotes": [
+          { "quote": "Students are gaming easy sections instead of taking the professor who will actually challenge them.", "participantId": "theo" }
+        ]
+      },
+      {
+        "id": "claim-feedback-over-rank",
+        "statement": "The seminar should prioritize revision feedback over ranking students.",
+        "participantIds": ["rosa"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-narrative", "relation": "supports" },
+          { "positionId": "pos-letter-grades", "relation": "opposes" },
+          { "positionId": "pos-pass-fail", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["rosa"],
+        "disputedByParticipantIds": ["mina", "theo"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The department would need to decide whether feedback or sorting is the primary purpose."
+        },
+        "groundingQuotes": [
+          { "quote": "the seminar is supposed to teach revision and discussion, not rank people.", "participantId": "rosa" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-evaluation-purpose",
+        "question": "Should the seminar prioritize comparability, lower grade pressure, or narrative feedback?",
+        "type": "normative",
+        "summary": "The speakers hold three incompatible priorities for evaluating the seminar.",
+        "claimIds": ["claim-comparable-transcript", "claim-gpa-gaming", "claim-feedback-over-rank"],
+        "participantStances": [
+          { "participantId": "mina", "positionId": "pos-letter-grades", "stance": "Keep comparable grades." },
+          { "participantId": "theo", "positionId": "pos-pass-fail", "stance": "Reduce GPA gaming." },
+          { "participantId": "rosa", "positionId": "pos-narrative", "stance": "Replace ranking with feedback." }
+        ],
+        "resolutionCondition": "The department must choose which purpose of assessment should dominate.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["This maps a three-way value dispute; it does not verify claims about scholarships or student behavior."]
+  }
+}

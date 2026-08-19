@@ -1,0 +1,104 @@
+{
+  "id": "multiple-speakers-two-positions",
+  "contentType": "conversation",
+  "source": "Elena: Approve the subsidy for Harbor Market. The east side has one full grocery in three miles, and an anchor store would pull daily foot traffic to the block.\nMarco: Do not approve it. The loading dock puts trucks on Cedar at school pickup, and a subsidized chain will make nearby rents jump.\nPriya: Elena is right. My clients already take two buses for produce; a store within walking distance changes the whole errand.\nJules: Marco is right on the lease issue; the city would be paying one landlord to raise everyone else's rent.\nElena: The traffic study says trucks can use Bay Avenue. The bigger harm is leaving residents with no practical grocery option.",
+  "allowedPatterns": ["causal-model-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Would subsidizing Harbor Market improve or harm the east side block?",
+    "participants": [
+      { "id": "elena", "label": "Elena", "kind": "named" },
+      { "id": "marco", "label": "Marco", "kind": "named" },
+      { "id": "priya", "label": "Priya", "kind": "named" },
+      { "id": "jules", "label": "Jules", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-approve-market",
+        "label": "Approve the market subsidy",
+        "participantIds": ["elena", "priya"],
+        "thesis": "The city should subsidize Harbor Market because it would improve grocery access and pull useful foot traffic to the east side.",
+        "steelman": "An anchor grocery could reduce travel burdens for residents and make nearby retail more viable.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Approve the subsidy for Harbor Market.", "participantId": "elena" },
+          { "quote": "a store within walking distance changes the whole errand.", "participantId": "priya" }
+        ]
+      },
+      {
+        "id": "pos-reject-market",
+        "label": "Reject the market subsidy",
+        "participantIds": ["marco", "jules"],
+        "thesis": "The city should not subsidize Harbor Market because truck traffic and rent pressure would harm the block.",
+        "steelman": "A subsidized chain may shift public costs onto neighbors through congestion and higher commercial rents.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Do not approve it.", "participantId": "marco" },
+          { "quote": "the city would be paying one landlord to raise everyone else's rent.", "participantId": "jules" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-access-foot-traffic",
+        "statement": "A subsidized anchor grocery would improve access and bring useful daily foot traffic.",
+        "participantIds": ["elena", "priya"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-approve-market", "relation": "supports" },
+          { "positionId": "pos-reject-market", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["elena", "priya"],
+        "disputedByParticipantIds": ["marco", "jules"],
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "an anchor store would pull daily foot traffic to the block.", "participantId": "elena" }
+        ]
+      },
+      {
+        "id": "claim-traffic-rents",
+        "statement": "The subsidized store would create truck congestion and raise nearby rents.",
+        "participantIds": ["marco", "jules"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-reject-market", "relation": "supports" },
+          { "positionId": "pos-approve-market", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["marco", "jules"],
+        "disputedByParticipantIds": ["elena", "priya"],
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The loading dock puts trucks on Cedar at school pickup", "participantId": "marco" },
+          { "quote": "a subsidized chain will make nearby rents jump.", "participantId": "marco" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-neighborhood-effects",
+        "question": "Would the market subsidy's access benefits outweigh its congestion and rent effects?",
+        "type": "causal",
+        "summary": "The camps disagree about the likely neighborhood effects of the subsidy.",
+        "claimIds": ["claim-access-foot-traffic", "claim-traffic-rents"],
+        "participantStances": [
+          { "participantId": "elena", "positionId": "pos-approve-market", "stance": "The subsidy would improve access and foot traffic." },
+          { "participantId": "marco", "positionId": "pos-reject-market", "stance": "The subsidy would worsen traffic and rents." },
+          { "participantId": "priya", "positionId": "pos-approve-market", "stance": "The access gain matters for clients." },
+          { "participantId": "jules", "positionId": "pos-reject-market", "stance": "The lease effect is the problem." }
+        ],
+        "resolutionCondition": "A credible forecast of traffic, grocery access, and commercial rent effects for this block.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The traffic and rent claims are mapped from the source, not independently checked."]
+  }
+}

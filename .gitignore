@@ -47,3 +47,4 @@ screenshots/
 scripts/moltbook-session*
 scripts/moltbook-posts-ready.md
 package-lock.json
+.eval-runs/

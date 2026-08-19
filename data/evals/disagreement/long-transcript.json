@@ -1,0 +1,107 @@
+{
+  "id": "long-transcript",
+  "contentType": "conversation",
+  "source": "Asha: I want the Maple Ridge prescribed burn approved for late April. The fuel crew says the south slope has eight years of needles and ladder brush, and a spring burn is the only tool that changes that before fire season.\nGabe: I want the burn delayed until the mechanical thinning is done. A rushed burn on that slope could send smoke into the elementary school valley and still leave the larger trunks packed too tightly.\nAsha: Mechanical thinning is scheduled for September because the contractor is booked. By then the ridge has already gone through the driest wind period. Waiting means we accept another summer with the same fuel bed.\nGabe: Waiting means we do the preparation in the right order. If crews thin first, the burn can be cooler, smaller, and easier to hold.\nAsha: The burn boss already scaled the unit down to forty acres and added a wet line on the east edge. This is not the old two-hundred-acre plan people objected to last year.\nGabe: Forty acres is still above the school valley. The parents who called me are not confused about acreage; they remember smoke settling for three days after the training burn.\nAsha: That training burn happened in November under an inversion. April afternoons usually lift smoke out toward the highway, and the plan has a cancellation trigger if the wind turns downslope.\nGabe: Usually is doing too much work. The valley has had weird evening drainage winds all spring. If the smoke sits, the cancellation trigger will not help the kids already breathing it.\nAsha: Then monitor and cancel if the forecast changes. Do not turn a manageable smoke risk into a reason to leave the ridge loaded.\nGabe: You keep calling the smoke manageable, but you have not answered the sequence problem. The same crew that says the slope is loaded also says thinning would remove the stems that make control harder.\nAsha: They said thinning helps control. They did not say burning before thinning is unsafe. Their memo says the untreated needles are the part most likely to carry a fast surface fire in July.\nGabe: And my point is that a fast surface fire is not the only risk. A prescribed fire escape would destroy trust in every future treatment.\nAsha: A no-burn summer after two dry winters also destroys trust when people see flames crest the ridge. The question is which risk we reduce now.\nGabe: The question is whether the board should approve a burn before the preparation steps it promised in January.\nAsha: The January promise was to reduce fuel before peak season. A spring burn is a preparation step, not a betrayal of one.\nGabe: It is a shortcut. Finish thinning, notify the school with a firm smoke plan, then burn in the fall.\nAsha: Fall puts us after the danger period. I can support more notice to the school, but not a delay that leaves the slope untreated all summer.",
+  "allowedPatterns": ["causal-model-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should Maple Ridge approve the spring prescribed burn before mechanical thinning?",
+    "participants": [
+      { "id": "asha", "label": "Asha", "kind": "named" },
+      { "id": "gabe", "label": "Gabe", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-spring-burn",
+        "label": "Approve the spring burn",
+        "participantIds": ["asha"],
+        "thesis": "Maple Ridge should approve the late-April prescribed burn because waiting leaves the south slope loaded through fire season.",
+        "steelman": "A smaller spring burn with weather triggers can reduce surface fuels before the driest wind period.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I want the Maple Ridge prescribed burn approved for late April.", "participantId": "asha" },
+          { "quote": "Waiting means we accept another summer with the same fuel bed.", "participantId": "asha" }
+        ]
+      },
+      {
+        "id": "pos-delay-until-thinning",
+        "label": "Delay until thinning",
+        "participantIds": ["gabe"],
+        "thesis": "Maple Ridge should delay the burn until mechanical thinning and a firmer smoke plan are complete.",
+        "steelman": "Thinning first could make the burn cooler and easier to hold while reducing smoke risk to the school valley.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I want the burn delayed until the mechanical thinning is done.", "participantId": "gabe" },
+          { "quote": "Finish thinning, notify the school with a firm smoke plan, then burn in the fall.", "participantId": "gabe" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-fuel-before-season",
+        "statement": "A spring burn is needed to reduce the current fuel bed before fire season.",
+        "participantIds": ["asha"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-spring-burn", "relation": "supports" },
+          { "positionId": "pos-delay-until-thinning", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["asha"],
+        "disputedByParticipantIds": ["gabe"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Compare modeled summer fire risk with and without a spring burn."
+        },
+        "groundingQuotes": [
+          { "quote": "a spring burn is the only tool that changes that before fire season.", "participantId": "asha" }
+        ]
+      },
+      {
+        "id": "claim-thinning-first-safer",
+        "statement": "Thinning before burning would make the burn cooler, smaller, and easier to hold.",
+        "participantIds": ["gabe"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-delay-until-thinning", "relation": "supports" },
+          { "positionId": "pos-spring-burn", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["gabe"],
+        "disputedByParticipantIds": ["asha"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Compare burn-control risk before and after mechanical thinning."
+        },
+        "groundingQuotes": [
+          { "quote": "If crews thin first, the burn can be cooler, smaller, and easier to hold.", "participantId": "gabe" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-risk-sequence",
+        "question": "Does burning now reduce more risk than delaying until thinning is complete?",
+        "type": "causal",
+        "summary": "Asha emphasizes reducing summer fuel risk; Gabe emphasizes smoke, control, and sequencing risk.",
+        "claimIds": ["claim-fuel-before-season", "claim-thinning-first-safer"],
+        "participantStances": [
+          { "participantId": "asha", "positionId": "pos-spring-burn", "stance": "Burn in spring to reduce the loaded fuel bed before peak season." },
+          { "participantId": "gabe", "positionId": "pos-delay-until-thinning", "stance": "Thin first, then burn under safer conditions." }
+        ],
+        "resolutionCondition": "Estimate fire-season fuel risk, smoke behavior, and control risk under both sequences.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The source contains operational claims about wildfire risk and smoke behavior that are not independently verified."]
+  }
+}
