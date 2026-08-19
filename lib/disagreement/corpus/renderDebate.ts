@@ -62,6 +62,18 @@ function speak(statement: string): string {
 }
 
 /**
+ * The legacy adapter emits editorial placeholders such as
+ * "[REQUIRES AUTHORING] The Net-Externality Test" for content a human has not
+ * written yet. Voicing those puts markup in a speaker's mouth and measures the
+ * adapter rather than the pipeline, so they are never spoken.
+ */
+export function isSpeakable(statement: string): boolean {
+  const text = statement.trim();
+  if (text.length < 20) return false;
+  return !/\[(REQUIRES AUTHORING|TODO|PLACEHOLDER|TK)\b/i.test(text);
+}
+
+/**
  * Claims a position leans on: what it depends on, and what argues for it.
  * Ordered so the position's own dependencies (its load-bearing premises) come
  * first, since those are what a speaker would actually lead with.
@@ -73,7 +85,7 @@ function claimsForPosition(graph: ArgumentGraph, positionId: string): Claim[] {
 
   const push = (id: string) => {
     const claim = claimsById.get(id);
-    if (!claim || seen.has(id)) return;
+    if (!claim || seen.has(id) || !isSpeakable(claim.statement)) return;
     seen.add(id);
     ordered.push(claim);
   };
@@ -99,7 +111,7 @@ function objectionsToPosition(graph: ArgumentGraph, positionId: string): Claim[]
     if (edge.to !== positionId) continue;
     if (edge.type !== "opposes" && edge.type !== "undercuts" && edge.type !== "contradicts") continue;
     const claim = claimsById.get(edge.from);
-    if (claim) objections.push(claim);
+    if (claim && isSpeakable(claim.statement)) objections.push(claim);
   }
   return objections;
 }
@@ -131,7 +143,7 @@ export function renderDebateFromGraph(
   const claimsById = new Map(graph.nodes.filter(isClaim).map((claim) => [claim.id, claim]));
   const cruxClaims = ranked
     .map((result) => claimsById.get(result.claimId))
-    .filter((claim): claim is Claim => Boolean(claim));
+    .filter((claim): claim is Claim => claim !== undefined && isSpeakable(claim.statement));
 
   // A map carries far more claims than a readable transcript can voice, and the
   // claims the crux engine ranks highest are usually not the first ones a

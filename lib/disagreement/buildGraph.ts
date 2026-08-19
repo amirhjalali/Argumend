@@ -133,7 +133,16 @@ export function buildArgumentGraph(
     : [{ message: parsed.ok ? "" : parsed.errors.join("; ") }];
 
   if (errors.length > 0) {
-    warnings.push("ArgumentGraph failed validation; falling back to a question-only graph.");
+    // Naming the failure keeps this diagnosable. A silent fallback degrades a
+    // substantive report to "insufficient context" with nothing to act on.
+    const reasons = errors
+      .map((issue) => issue.message)
+      .filter(Boolean)
+      .slice(0, 3)
+      .join("; ");
+    warnings.push(
+      `ArgumentGraph failed validation; falling back to a question-only graph${reasons ? ` (${reasons})` : ""}.`,
+    );
     const fallback: ArgumentGraph = {
       topicId,
       modelVersion: 2,
