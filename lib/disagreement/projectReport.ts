@@ -11,6 +11,7 @@ import type {
   ResolutionPath,
 } from "@/types/disagreement";
 import {
+  DISAGREEMENT_LIMITS,
   DISAGREEMENT_PROMPT_VERSION,
   DISAGREEMENT_REPORT_SCHEMA_VERSION,
   DISAGREEMENT_SHARE_EYEBROW,
@@ -31,6 +32,10 @@ function typeFromEpistemic(
 ): DisagreementType {
   if (value === "empirical") return "empirical";
   return value;
+}
+
+function normalizeQuestion(value: string): string {
+  return value.trim().toLowerCase().replace(/\s+/g, " ").replace(/[?.]+$/, "");
 }
 
 function resolutionPathKind(
@@ -129,12 +134,26 @@ export function projectDisagreementReport(input: {
     grounding: ground(item.groundingQuotes, item.id),
   }));
 
-  const ranked = input.graphValid ? identifyCruxes(graph).slice(0, 3) : [];
+  const ranked = input.graphValid ? identifyCruxes(graph) : [];
   const claimsById = new Map(extraction.claims.map((claim) => [claim.id, claim]));
 
-  const cruxes: ReportCrux[] = ranked.map((result, index) => {
+  // Several ranked claims can belong to one disagreement candidate. Reusing that
+  // candidate's question for each would render the same crux two or three times,
+  // so a claim whose preferred question is taken falls back to its own statement
+  // and is dropped only when that collides too.
+  const cruxes: ReportCrux[] = [];
+  const seenQuestions = new Set<string>();
+  for (const result of ranked) {
+    if (cruxes.length >= DISAGREEMENT_LIMITS.maxCruxes) break;
     const claim = claimsById.get(result.claimId);
     const related = disagreements.find((item) => item.relatedClaimIds.includes(result.claimId));
+    const claimQuestion = claim ? `Is this true: ${claim.statement}` : undefined;
+    const question = [related?.question, claimQuestion].find(
+      (candidate) => candidate && !seenQuestions.has(normalizeQuestion(candidate)),
+    );
+    if (!question) continue;
+    seenQuestions.add(normalizeQuestion(question));
+
     const type = related?.type ?? (claim ? typeFromEpistemic(claim.epistemicType) : "empirical");
     const resolutionKind = claim?.resolution?.kind ?? (
       type === "normative" ? "value-difference" :
@@ -142,10 +161,10 @@ export function projectDisagreementReport(input: {
       type === "predictive" ? "future-observable" :
       "existing-evidence"
     );
-    return {
-      id: `crux-${index + 1}`,
+    cruxes.push({
+      id: `crux-${cruxes.length + 1}`,
       claimId: result.claimId,
-      question: related?.question ?? (claim ? `Is this true: ${claim.statement}` : "What is the load-bearing question?"),
+      question,
       type,
       whyItMatters: related?.summary ?? "Resolving this would change the structure of the disagreement.",
       affectedPositionIds: result.affectedPositions.map((item) => item.id),
@@ -159,8 +178,8 @@ export function projectDisagreementReport(input: {
       },
       evidenceState: "not-independently-checked",
       confidence: (claim?.confidence ?? "medium") as ConfidenceBand,
-    };
-  });
+    });
+  }
 
   const groundingCoverage = computeGroundingCoverage({ expectedQuotes, groundedQuotes });
   const inferredPositionCount = positions.filter((position) => position.explicitness === "inferred").length;

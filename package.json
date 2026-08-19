@@ -17,6 +17,8 @@
     "check:sources": "tsx scripts/check-source-urls.ts",
     "eval:disagreement": "tsx scripts/eval-disagreement.ts",
     "eval:disagreement:live": "DISAGREEMENT_LIVE_EVAL=true tsx scripts/eval-disagreement.ts",
+    "corpus:disagreement": "tsx scripts/disagreement/run-corpus.ts",
+    "corpus:disagreement:live": "tsx scripts/disagreement/run-corpus.ts --provider cli",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",

@@ -85,6 +85,44 @@ describe("analyzeDisagreement", () => {
   });
 });
 
+describe("crux projection", () => {
+  it("never renders the same crux question twice", async () => {
+    // Several ranked claims routinely belong to one disagreement candidate; a
+    // live run surfaced three identical crux cards from that collision.
+    for (const example of DISAGREEMENT_FEW_SHOT_EXAMPLES) {
+      const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+      const result = await analyzeDisagreement({
+        content,
+        contentType: example.contentType,
+        requestId: REQUEST_ID,
+        provider: new FakeDisagreementProvider(example.extraction),
+      });
+
+      const questions = result.report.cruxes.map((crux) =>
+        crux.question.trim().toLowerCase().replace(/\s+/g, " ").replace(/[?.]+$/, ""),
+      );
+      expect(new Set(questions).size, `duplicate crux in ${example.name}`).toBe(questions.length);
+      expect(new Set(result.report.cruxes.map((crux) => crux.id)).size).toBe(questions.length);
+      expect(result.report.cruxes.length).toBeLessThanOrEqual(3);
+    }
+  });
+
+  it("keeps distinct claims as distinct cruxes rather than dropping them", async () => {
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[1];
+    const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;
+    const result = await analyzeDisagreement({
+      content,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(example.extraction),
+    });
+
+    expect(new Set(result.report.cruxes.map((crux) => crux.claimId)).size).toBe(
+      result.report.cruxes.length,
+    );
+  });
+});
+
 describe("deriveDiagnosis", () => {
   it("covers the constrained patterns", () => {
     expect(deriveDiagnosis({

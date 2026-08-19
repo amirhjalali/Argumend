@@ -1,11 +1,14 @@
 import { DisagreementError } from "@/lib/disagreement/errors";
 import { AnthropicDisagreementProvider } from "./anthropic";
+import { CliDisagreementProvider, type DisagreementCliKind } from "./cli";
 import { FakeDisagreementProvider } from "./fake";
 import type { DisagreementModelProvider } from "./provider";
 
 export type { DisagreementModelProvider } from "./provider";
 export { FakeDisagreementProvider } from "./fake";
 export { AnthropicDisagreementProvider } from "./anthropic";
+export { CliDisagreementProvider } from "./cli";
+export type { DisagreementCliKind } from "./cli";
 
 export function isDisagreementV2Enabled(): boolean {
   return process.env.ENABLE_DISAGREEMENT_V2 === "true";
@@ -24,8 +27,20 @@ export function createDisagreementProvider(
   options?: { fake?: DisagreementModelProvider },
 ): DisagreementModelProvider {
   if (options?.fake) return options.fake;
-  if (process.env.ARGUMEND_DISAGREEMENT_PROVIDER === "fake") {
+  const configured = process.env.ARGUMEND_DISAGREEMENT_PROVIDER;
+  if (configured === "fake") {
     return new FakeDisagreementProvider();
+  }
+
+  if (configured === "cli") {
+    const kind: DisagreementCliKind =
+      process.env.ARGUMEND_DISAGREEMENT_CLI === "codex" ? "codex" : "claude";
+    return new CliDisagreementProvider(requestId, {
+      kind,
+      // A CLI alias, not a pinned production model id: this lane is local-only.
+      model: process.env.ARGUMEND_DISAGREEMENT_MODEL?.trim() || "sonnet",
+      bin: process.env.ARGUMEND_DISAGREEMENT_CLI_BIN?.trim() || undefined,
+    });
   }
 
   const model = process.env.ARGUMEND_DISAGREEMENT_MODEL?.trim();

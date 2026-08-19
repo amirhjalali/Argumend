@@ -38,6 +38,12 @@ export const DISAGREEMENT_ANALYZE_RATE_LIMITS = {
 
 export const DISAGREEMENT_MODEL_TIMEOUT_MS = 45_000;
 
+/**
+ * The local CLI provider pays subprocess and cold-start cost that the HTTP
+ * provider does not, and it never runs inside a request handler.
+ */
+export const DISAGREEMENT_CLI_TIMEOUT_MS = 300_000;
+
 export const DISAGREEMENT_PUBLICATION_TOKEN_TTL_MS = 2 * 60 * 60 * 1000;
 
 export const DISAGREEMENT_PUBLICATION_MIN_GROUNDING_COVERAGE = 0.6;

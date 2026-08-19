@@ -79,6 +79,20 @@ Set via environment variables. All default to off (offline mode):
 - `ENABLE_LIVE_ANALYZE_API=true` — live argument extraction via AI
 - `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true` — live debate generation
 - `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true` — live multi-model judging
+- `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis at `/analyze-v2`
+
+### Disagreement Diagnosis (V2)
+
+Governing spec: `docs/plans/2026-08-18-argumend-v2-disagreement-diagnosis-spec.md`.
+Paste text → six-box diagnosis (positions, common ground, disagreement types, crux,
+evidence state, resolution paths). Source-only: it never claims independent
+verification, never names a winner, and shows no agreement percentage.
+
+`ARGUMEND_DISAGREEMENT_PROVIDER` selects the model lane: `anthropic` (hosted API),
+`cli` (a local subscription-backed CLI, refused in production, needs no API key), or
+`fake` (fixtures, for tests). The `cli` lane exists so diagnosis quality can be
+reviewed offline; see `docs/DISAGREEMENT_LOOP.md`, which also covers the map-recovery
+harness that evaluates the pipeline against the flagship ArgumentGraphs.
 
 ### Dynamic Imports
 
