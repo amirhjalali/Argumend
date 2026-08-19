@@ -124,7 +124,27 @@ tsx scripts/disagreement/run-corpus.ts --provider cli --include-legacy --limit 1
 ```
 
 Flags: `--provider fake|cli`, `--cli claude|codex`, `--model`, `--only <topicId>`,
-`--timeout <seconds>`, `--include-legacy`, `--limit <n>`.
+`--timeout <seconds>`, `--include-legacy`, `--limit <n>`, `--concurrency <n>`.
+
+**Always pass `--concurrency`** (default 4). Each map is an independent
+subprocess, so a sequential run spends nearly all of its wall clock idle. If
+runs start failing with `MODEL_UNAVAILABLE`, the subscription is rate-limiting
+the parallel calls; lower it rather than retrying into the wall.
+
+### The other half: authored sources
+
+Map recovery can only ask whether the pipeline recovers a structure we already
+know is there, and its input came from the same maps used to grade it. That is
+not evidence that a diagnosis of a *real* argument is any good. For that:
+
+```bash
+tsx scripts/disagreement/run-sources.ts --provider cli --concurrency 6 --limit 15
+```
+
+This diagnoses the authored fixture texts in `data/evals/disagreement/` — group
+chats, forum threads, op-eds, written as things a person would paste. It emits
+**no score**, deliberately: there is no answer key, so the output is reports to
+read. These are the founder-checkpoint material.
 
 `--include-legacy` reaches the 156 three-pillar topics through
 `adaptTopicToArgumentGraph`. Their ground truth is weaker — the adapter rewrites

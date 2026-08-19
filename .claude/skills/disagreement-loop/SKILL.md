@@ -51,7 +51,14 @@ The founder's standing directive is **do not externalize** — no
 
 # Widen to the legacy three-pillar topics (weaker ground truth), bounded
 ./node_modules/.bin/tsx scripts/disagreement/run-corpus.ts --provider cli --include-legacy --limit 15
+
+# Diagnose AUTHORED texts (no answer key) — the founder-checkpoint material
+./node_modules/.bin/tsx scripts/disagreement/run-sources.ts --provider cli --concurrency 6 --limit 15
 ```
+
+Use both. `run-corpus` asks whether the pipeline recovers a structure we already
+know is there; only `run-sources` shows whether a diagnosis of a real argument is
+any good, because its inputs were not generated from the maps used to grade them.
 
 Output lands in `.eval-runs/` (gitignored). That is the founder-checkpoint
 review material.
