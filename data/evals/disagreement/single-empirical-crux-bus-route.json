@@ -1,0 +1,117 @@
+{
+  "id": "single-empirical-crux-bus-route",
+  "contentType": "conversation",
+  "source": "Priya: The reworked 52 line saves riders eight minutes each way. That is why it deserves the priority lane.\nTomas: Eight minutes is the schedule fantasy. On paper the old line saved six. Riders care about the door-to-door reality.\nPriya: We both want the fastest reliable trip. The question is just what the new routing actually delivers.\nTomas: Agreed. Give me measured run times from the first month, not modeled ones, and I will back the lane either way.",
+  "allowedPatterns": ["single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Does the reworked 52 line actually save riders about eight minutes per trip?",
+    "participants": [
+      { "id": "priya", "label": "Priya", "kind": "named" },
+      { "id": "tomas", "label": "Tomas", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-lane-deserved",
+        "label": "Grant the priority lane now",
+        "participantIds": ["priya"],
+        "thesis": "The reworked 52 deserves the priority lane because it saves riders about eight minutes each way.",
+        "steelman": "If realized savings match the schedule, delaying the lane just forfeits rider time the route has already earned.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The reworked 52 line saves riders eight minutes each way.", "participantId": "priya" },
+          { "quote": "That is why it deserves the priority lane.", "participantId": "priya" }
+        ]
+      },
+      {
+        "id": "pos-measure-first",
+        "label": "Decide on measured data",
+        "participantIds": ["tomas"],
+        "thesis": "The priority lane decision should wait for measured door-to-door run times rather than rely on modeled schedules.",
+        "steelman": "Modeled schedules have overstated this corridor before, and infrastructure decisions should track realized performance.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Give me measured run times from the first month, not modeled ones, and I will back the lane either way.", "participantId": "tomas" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-eight-minute-saving",
+        "statement": "The reworked 52 saves riders about eight minutes each way in practice.",
+        "participantIds": ["priya"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-lane-deserved", "relation": "supports" },
+          { "positionId": "pos-measure-first", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["priya"],
+        "disputedByParticipantIds": ["tomas"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "One month of measured door-to-door run times compared against the pre-change baseline."
+        },
+        "groundingQuotes": [
+          { "quote": "The reworked 52 line saves riders eight minutes each way.", "participantId": "priya" }
+        ]
+      },
+      {
+        "id": "claim-schedules-overstate",
+        "statement": "Modeled schedule savings on this corridor overstate what riders actually experience.",
+        "participantIds": ["tomas"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-measure-first", "relation": "supports" },
+          { "positionId": "pos-lane-deserved", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["tomas"],
+        "disputedByParticipantIds": ["priya"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Compare scheduled versus measured run times across the last several route changes."
+        },
+        "groundingQuotes": [
+          { "quote": "Eight minutes is the schedule fantasy.", "participantId": "tomas" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Both participants want riders to have the fastest reliable trip and would support the lane if the savings are real.",
+        "participantIds": ["priya", "tomas"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We both want the fastest reliable trip.", "participantId": "priya" },
+          { "quote": "I will back the lane either way.", "participantId": "tomas" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-actual-saving",
+        "question": "Does the reworked 52 actually save riders about eight minutes per trip?",
+        "type": "empirical",
+        "summary": "Priya credits the schedule figure; Tomas expects measured savings to fall short of it.",
+        "claimIds": ["claim-eight-minute-saving", "claim-schedules-overstate"],
+        "participantStances": [
+          { "participantId": "priya", "positionId": "pos-lane-deserved", "stance": "Yes, roughly eight minutes each way." },
+          { "participantId": "tomas", "positionId": "pos-measure-first", "stance": "Unproven; schedules have been optimistic before." }
+        ],
+        "resolutionCondition": "Measured first-month run times against the old baseline.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["This maps one testable service-delivery dispute; it does not measure bus run times itself."]
+  }
+}

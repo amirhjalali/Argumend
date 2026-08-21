@@ -1,0 +1,152 @@
+{
+  "id": "definition-mismatch-remote-work",
+  "contentType": "conversation",
+  "source": "Dana: Remote-first is working. Our output per team is up twelve percent since we went distributed, and we hire people the office could never reach.\nRob: I do not think we can call it working while new engineers ship in nine months instead of four. Juniors are drowning without anyone to shadow.\nDana: The numbers are the numbers. Every metric the board tracks has held or improved.\nRob: Your metrics measure what the board already valued. If juniors never learn to carry a system, output holds for a year and then stalls.\nDana: That is a prediction, not a fact about how the teams are performing today.\nRob: And your twelve percent is a snapshot that ignores who will still be here in three years.",
+  "allowedPatterns": ["definition-mismatch"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Is remote-first working as a company model?",
+    "participants": [
+      { "id": "dana", "label": "Dana", "kind": "named" },
+      { "id": "rob", "label": "Rob", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-remote-working",
+        "label": "Remote-first is working",
+        "participantIds": ["dana"],
+        "thesis": "Remote-first is a working model because tracked output and hiring reach have held or improved.",
+        "steelman": "Board-level metrics are the company's own chosen standard of success, and by that standard the distributed model has delivered.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Remote-first is working.", "participantId": "dana" },
+          { "quote": "Every metric the board tracks has held or improved.", "participantId": "dana" }
+        ]
+      },
+      {
+        "id": "pos-remote-not-yet-working",
+        "label": "It is not working yet",
+        "participantIds": ["rob"],
+        "thesis": "Remote-first cannot be called working while junior engineers develop far more slowly without in-person mentorship.",
+        "steelman": "A model that quietly breaks the pipeline that turns juniors into seniors fails on a three-year horizon even if this year's output looks fine.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I do not think we can call it working while new engineers ship in nine months instead of four.", "participantId": "rob" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-def-output-standard",
+        "statement": "Whether remote-first is 'working' should be judged by the output and hiring metrics the board already tracks.",
+        "participantIds": ["dana"],
+        "epistemicType": "definitional",
+        "explicitness": "inferred",
+        "stanceByPosition": [
+          { "positionId": "pos-remote-working", "relation": "supports" },
+          { "positionId": "pos-remote-not-yet-working", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["dana"],
+        "disputedByParticipantIds": ["rob"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "definitional-choice",
+          "condition": "The sides agree on which criteria define a working model before evaluating the evidence."
+        },
+        "groundingQuotes": [
+          { "quote": "Your metrics measure what the board already valued.", "participantId": "rob" }
+        ]
+      },
+      {
+        "id": "claim-def-development-standard",
+        "statement": "Whether remote-first is 'working' must include whether junior engineers develop into seniors on schedule.",
+        "participantIds": ["rob"],
+        "epistemicType": "definitional",
+        "explicitness": "inferred",
+        "stanceByPosition": [
+          { "positionId": "pos-remote-not-yet-working", "relation": "supports" },
+          { "positionId": "pos-remote-working", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["rob"],
+        "disputedByParticipantIds": ["dana"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "definitional-choice",
+          "condition": "The sides agree whether career development counts among the criteria for a working model."
+        },
+        "groundingQuotes": [
+          { "quote": "If juniors never learn to carry a system, output holds for a year and then stalls.", "participantId": "rob" }
+        ]
+      },
+      {
+        "id": "claim-predict-stall",
+        "statement": "Output will stall within about three years if junior development keeps degrading.",
+        "participantIds": ["rob"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-remote-not-yet-working", "relation": "supports" },
+          { "positionId": "pos-remote-working", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["rob"],
+        "disputedByParticipantIds": ["dana"],
+        "confidence": "low",
+        "resolution": {
+          "kind": "future-observable",
+          "condition": "Track team-level output and junior-to-senior progression over the next three years."
+        },
+        "groundingQuotes": [
+          { "quote": "who will still be here in three years", "participantId": "rob" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Output per team has risen and junior shipping timelines have lengthened since going distributed.",
+        "participantIds": ["dana", "rob"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Our output per team is up twelve percent since we went distributed", "participantId": "dana" },
+          { "quote": "new engineers ship in nine months instead of four", "participantId": "rob" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-definition-working",
+        "question": "What does it mean for remote-first to be 'working'?",
+        "type": "definitional",
+        "summary": "Dana judges the model by tracked output; Rob insists development of juniors is part of the criterion.",
+        "claimIds": ["claim-def-output-standard", "claim-def-development-standard"],
+        "participantStances": [
+          { "participantId": "dana", "positionId": "pos-remote-working", "stance": "Working means the metrics the board tracks held or improved." },
+          { "participantId": "rob", "positionId": "pos-remote-not-yet-working", "stance": "Working must include juniors learning to carry systems." }
+        ],
+        "resolutionCondition": "Agree on the criteria that define a working model.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-predicted-stall",
+        "question": "Will output stall within three years if junior development keeps degrading?",
+        "type": "predictive",
+        "summary": "Rob predicts a stall; Dana calls it an unproven prediction rather than a present fact.",
+        "claimIds": ["claim-predict-stall"],
+        "participantStances": [
+          { "participantId": "rob", "positionId": "pos-remote-not-yet-working", "stance": "Yes, the pipeline failure compounds." },
+          { "participantId": "dana", "positionId": "pos-remote-working", "stance": "That is speculation, not performance." }
+        ],
+        "resolutionCondition": "Observe output and progression over a multi-year window.",
+        "confidence": "medium",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["This maps a definitional mismatch overlaid on a forecast dispute; it does not verify either side's metrics."]
+  }
+}

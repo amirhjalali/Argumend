@@ -1,0 +1,131 @@
+{
+  "id": "trust-split-traffic-study",
+  "contentType": "conversation",
+  "source": "Maya: The city's study says the new interchange will cut cut-through traffic by a third. I am convinced.\nDeshawn: The study was commissioned by the same developer who owns the land next to the interchange. I do not take their modeling at face value.\nMaya: The methodology chapter is solid. Independent reviewers signed off on the model.\nDeshawn: Reviewers chosen and paid by the department that wants the project built. If an environmental group had funded the same model, you would question it too.\nMaya: That is not fair. I would evaluate the methods either way.\nDeshawn: Maybe, but my point stands: until someone unaffiliated reruns the model, the a-third figure is marketing.",
+  "allowedPatterns": ["trust-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Can the city's interchange study be trusted as the basis for a decision?",
+    "participants": [
+      { "id": "maya", "label": "Maya", "kind": "named" },
+      { "id": "deshawn", "label": "Deshawn", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-trust-study",
+        "label": "Accept the study",
+        "participantIds": ["maya"],
+        "thesis": "The city's interchange study is trustworthy because its methodology was independently reviewed.",
+        "steelman": "Evaluating methods on their merits, with signed-off review, is exactly how good analysis should be accepted regardless of who paid.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The city's study says the new interchange will cut cut-through traffic by a third.", "participantId": "maya" },
+          { "quote": "Independent reviewers signed off on the model.", "participantId": "maya" }
+        ]
+      },
+      {
+        "id": "pos-distrust-study",
+        "label": "Withhold trust until replication",
+        "participantIds": ["deshawn"],
+        "thesis": "The study's figures should not be trusted until an unaffiliated party reruns the model, given who commissioned and reviewed it.",
+        "steelman": "Funding and reviewer selection shape conclusions in practice, so interested-party research warrants independent replication before it drives decisions.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "until someone unaffiliated reruns the model, the a-third figure is marketing.", "participantId": "deshawn" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-review-sound",
+        "statement": "The study's traffic model was reviewed by independent methodologists and is sound.",
+        "participantIds": ["maya"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-trust-study", "relation": "supports" },
+          { "positionId": "pos-distrust-study", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["maya"],
+        "disputedByParticipantIds": ["deshawn"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Disclose the reviewers' selection process and conflicts so independence can be assessed."
+        },
+        "groundingQuotes": [
+          { "quote": "Independent reviewers signed off on the model.", "participantId": "maya" }
+        ]
+      },
+      {
+        "id": "claim-funding-undermines",
+        "statement": "A study commissioned by a party with a financial stake, and reviewed by a department that wants the project, should not be trusted without independent replication.",
+        "participantIds": ["deshawn"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-distrust-study", "relation": "supports" },
+          { "positionId": "pos-trust-study", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["deshawn"],
+        "disputedByParticipantIds": ["maya"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "An unaffiliated team reruns the model and publishes inputs and code."
+        },
+        "groundingQuotes": [
+          { "quote": "The study was commissioned by the same developer who owns the land next to the interchange.", "participantId": "deshawn" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Both participants are talking about the same forecast figure of roughly one-third less cut-through traffic.",
+        "participantIds": ["maya", "deshawn"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "cut cut-through traffic by a third", "participantId": "maya" },
+          { "quote": "the a-third figure", "participantId": "deshawn" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-source-trust",
+        "question": "Should the city's interchange study be trusted given who commissioned and reviewed it?",
+        "type": "trust",
+        "summary": "The object-level dispute is really about whether the study's funding and review chain disqualify it.",
+        "claimIds": ["claim-funding-undermines", "claim-review-sound"],
+        "participantStances": [
+          { "participantId": "maya", "positionId": "pos-trust-study", "stance": "Yes; the methods were independently signed off." },
+          { "participantId": "deshawn", "positionId": "pos-distrust-study", "stance": "No; interested funders and hand-picked reviewers require replication." }
+        ],
+        "resolutionCondition": "Independent rerun of the model by an unaffiliated team.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-double-standard",
+        "question": "Would Maya evaluate identical methods differently if the funder's interests were reversed?",
+        "type": "empirical",
+        "summary": "Deshawn asserts a funding double standard; Maya denies evaluating methods differently.",
+        "claimIds": ["claim-review-sound"],
+        "participantStances": [
+          { "participantId": "maya", "positionId": "pos-trust-study", "stance": "I would evaluate the methods either way." },
+          { "participantId": "deshawn", "positionId": "pos-distrust-study", "stance": "You would question the same model from an environmental group." }
+        ],
+        "resolutionCondition": "Some test of stated standards against revealed practice across funders.",
+        "confidence": "low",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["This maps a source-trust dispute; it does not audit the actual study or its reviewers."]
+  }
+}

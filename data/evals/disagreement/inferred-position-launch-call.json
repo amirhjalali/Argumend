@@ -1,0 +1,274 @@
+{
+  "id": "inferred-position-launch-call",
+  "contentType": "conversation",
+  "source": "Hana: I think we should delay the launch until the load test passes at five thousand concurrent users.\nMarco: Waiting another month costs us the holiday window. Ship at three thousand and patch if it buckles.\nHana: A failed launch window is worse than a missed one. Outages during peak season become our reputation.\nMarco: Reputation does not pay salaries. Three thousand covers our forecast peak with margin.\nYusuf: I will go with whichever option keeps support tickets manageable in December.",
+  "allowedPatterns": [
+    "mixed-disagreement",
+    "value-conflict",
+    "priority-tradeoff"
+  ],
+  "expectCrux": true,
+  "minPositions": 3,
+  "maxPositions": 3,
+  "extraction": {
+    "mainQuestion": "Should the launch be delayed until the load test passes at five thousand concurrent users?",
+    "participants": [
+      {
+        "id": "hana",
+        "label": "Hana",
+        "kind": "named"
+      },
+      {
+        "id": "marco",
+        "label": "Marco",
+        "kind": "named"
+      },
+      {
+        "id": "yusuf",
+        "label": "Yusuf",
+        "kind": "named"
+      }
+    ],
+    "positions": [
+      {
+        "id": "pos-delay-until-tested",
+        "label": "Delay until load test passes",
+        "participantIds": [
+          "hana"
+        ],
+        "thesis": "The launch should wait until the system passes the load test at five thousand concurrent users.",
+        "steelman": "A peak-season outage converts first-time users into detractors and costs more than a missed launch window.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "I think we should delay the launch until the load test passes at five thousand concurrent users.",
+            "participantId": "hana"
+          }
+        ]
+      },
+      {
+        "id": "pos-ship-now",
+        "label": "Ship now at three thousand",
+        "participantIds": [
+          "marco"
+        ],
+        "thesis": "The team should ship now at three thousand concurrent users and patch if problems appear, because the holiday window matters more.",
+        "steelman": "Forecast demand fits current capacity with margin, so delay only surrenders revenue without reducing real risk.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "Ship at three thousand and patch if it buckles.",
+            "participantId": "marco"
+          }
+        ]
+      },
+      {
+        "id": "pos-support-manageable",
+        "label": "Whichever keeps support manageable",
+        "participantIds": [
+          "yusuf"
+        ],
+        "thesis": "Yusuf prefers whichever option keeps December support tickets manageable.",
+        "steelman": "Support load is the operational signal that captures both outage risk and launch timing, so optimizing for it is defensible.",
+        "explicitness": "inferred",
+        "confidence": "low",
+        "groundingQuotes": [
+          {
+            "quote": "I will go with whichever option keeps support tickets manageable in December.",
+            "participantId": "yusuf"
+          }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-outage-reputation",
+        "statement": "An outage during peak season would damage the product's reputation in a way a missed window would not.",
+        "participantIds": [
+          "hana"
+        ],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-delay-until-tested",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-ship-now",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "hana"
+        ],
+        "disputedByParticipantIds": [
+          "marco"
+        ],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "Agree how to weight reputational downside against a missed sales window."
+        },
+        "groundingQuotes": [
+          {
+            "quote": "A failed launch window is worse than a missed one.",
+            "participantId": "hana"
+          }
+        ]
+      },
+      {
+        "id": "claim-capacity-margin",
+        "statement": "Three thousand concurrent users covers the forecast holiday peak with margin.",
+        "participantIds": [
+          "marco"
+        ],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-ship-now",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-delay-until-tested",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "marco"
+        ],
+        "disputedByParticipantIds": [
+          "hana"
+        ],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Validate the demand forecast against last year's peak plus growth assumptions."
+        },
+        "groundingQuotes": [
+          {
+            "quote": "Three thousand covers our forecast peak with margin.",
+            "participantId": "marco"
+          }
+        ]
+      },
+      {
+        "id": "claim-support-criterion",
+        "statement": "The launch option should be chosen to keep December support tickets manageable.",
+        "participantIds": [
+          "yusuf"
+        ],
+        "epistemicType": "normative",
+        "explicitness": "inferred",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-support-manageable",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-ship-now",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "yusuf"
+        ],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "Agree that support-load exposure is an acceptable tiebreaking criterion for the launch call."
+        },
+        "groundingQuotes": [
+          {
+            "quote": "I will go with whichever option keeps support tickets manageable in December.",
+            "participantId": "yusuf"
+          }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "All three participants accept that December conditions, not average days, are what the decision must survive.",
+        "participantIds": [
+          "hana",
+          "marco",
+          "yusuf"
+        ],
+        "basis": "strongly-implied",
+        "confidence": "medium",
+        "groundingQuotes": [
+          {
+            "quote": "Outages during peak season become our reputation.",
+            "participantId": "hana"
+          },
+          {
+            "quote": "Waiting another month costs us the holiday window.",
+            "participantId": "marco"
+          },
+          {
+            "quote": "support tickets manageable in December.",
+            "participantId": "yusuf"
+          }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-capacity-sufficiency",
+        "question": "Does three thousand concurrent users cover the forecast holiday peak with margin?",
+        "type": "empirical",
+        "summary": "Marco says yes; Hana's insistence on the five-thousand test implies she does not trust the forecast margin.",
+        "claimIds": [
+          "claim-capacity-margin"
+        ],
+        "participantStances": [
+          {
+            "participantId": "marco",
+            "positionId": "pos-ship-now",
+            "stance": "Yes, with margin."
+          },
+          {
+            "participantId": "hana",
+            "positionId": "pos-delay-until-tested",
+            "stance": "Unproven until the load test passes."
+          }
+        ],
+        "resolutionCondition": "Run the load test or validate the forecast against prior peaks.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-risk-weighting",
+        "question": "Should a possible outage weigh more heavily than a missed holiday window?",
+        "type": "priority",
+        "summary": "Hana weights reputational downside above timing; Marco weights the certain cost of delay above speculative outage harm.",
+        "claimIds": [
+          "claim-outage-reputation"
+        ],
+        "participantStances": [
+          {
+            "participantId": "hana",
+            "positionId": "pos-delay-until-tested",
+            "stance": "Outage damage outweighs missing the window."
+          },
+          {
+            "participantId": "marco",
+            "positionId": "pos-ship-now",
+            "stance": "Reputation does not pay salaries; the missed window is certain."
+          }
+        ],
+        "resolutionCondition": "Leadership decides the risk tradeoff explicitly.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": [
+      "Yusuf's position is inferred from a stated criterion, not an explicit launch recommendation."
+    ]
+  }
+}

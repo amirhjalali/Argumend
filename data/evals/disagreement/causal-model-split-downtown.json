@@ -1,0 +1,260 @@
+{
+  "id": "causal-model-split-downtown",
+  "contentType": "conversation",
+  "source": "Alma: Downtown foot traffic is down thirty percent and both anchor stores are gone. The cause is simple: the commuter base never came back after remote work normalized.\nBen: The commuters come back Thursday to Saturday. What killed weekday traffic is that parking tripled to thirty dollars.\nAlma: Garage revenue data shows occupancy fell even when prices were unchanged early in the pandemic.\nBen: And yet the districts that kept cheap parking recovered twice as fast with the same remote-work rates.\nAlma: Those districts also had less visible disorder, which confounds your comparison.\nBen: Which is why I say pricing, not safety, is the lever we control.",
+  "allowedPatterns": [
+    "causal-model-split"
+  ],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "What is primarily causing the decline in downtown foot traffic?",
+    "participants": [
+      {
+        "id": "alma",
+        "label": "Alma",
+        "kind": "named"
+      },
+      {
+        "id": "ben",
+        "label": "Ben",
+        "kind": "named"
+      }
+    ],
+    "positions": [
+      {
+        "id": "pos-remote-cause",
+        "label": "Remote work emptied downtown",
+        "participantIds": [
+          "alma"
+        ],
+        "thesis": "The foot-traffic decline is caused primarily by the loss of the daily commuter base after remote work normalized.",
+        "steelman": "Occupancy fell before parking prices moved, which points to the vanished commuter base rather than later price changes.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "The cause is simple: the commuter base never came back after remote work normalized.",
+            "participantId": "alma"
+          }
+        ]
+      },
+      {
+        "id": "pos-pricing-cause",
+        "label": "Parking prices killed weekday traffic",
+        "participantIds": [
+          "ben"
+        ],
+        "thesis": "Weekday traffic declined mainly because parking tripled in price, not because commuters disappeared.",
+        "steelman": "Districts with identical remote-work rates but cheaper parking recovered faster, which isolates pricing as the controllable cause.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "What killed weekday traffic is that parking tripled to thirty dollars.",
+            "participantId": "ben"
+          }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-commuter-loss-causal",
+        "statement": "The decline in downtown foot traffic is caused primarily by the loss of the daily commuter base.",
+        "participantIds": [
+          "alma"
+        ],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-remote-cause",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-pricing-cause",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "alma"
+        ],
+        "disputedByParticipantIds": [
+          "ben"
+        ],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Compare weekday visitor origins and volumes before and after remote-work normalization, controlling for parking prices."
+        },
+        "groundingQuotes": [
+          {
+            "quote": "Garage revenue data shows occupancy fell even when prices were unchanged early in the pandemic.",
+            "participantId": "alma"
+          }
+        ]
+      },
+      {
+        "id": "claim-parking-price-causal",
+        "statement": "The weekday traffic decline is driven mainly by parking prices tripling to thirty dollars.",
+        "participantIds": [
+          "ben"
+        ],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-pricing-cause",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-remote-cause",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "ben"
+        ],
+        "disputedByParticipantIds": [
+          "alma"
+        ],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "A district-level comparison of recovery rates at differing price points with matched remote-work exposure."
+        },
+        "groundingQuotes": [
+          {
+            "quote": "the districts that kept cheap parking recovered twice as fast with the same remote-work rates.",
+            "participantId": "ben"
+          }
+        ]
+      },
+      {
+        "id": "claim-comparison-confounded",
+        "statement": "Districts with cheaper parking also differ in visible disorder, so their faster recovery does not isolate pricing as the cause.",
+        "participantIds": [
+          "alma"
+        ],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-remote-cause",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-pricing-cause",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "alma"
+        ],
+        "disputedByParticipantIds": [
+          "ben"
+        ],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "A comparison controlling for disorder measures as well as parking prices."
+        },
+        "groundingQuotes": [
+          {
+            "quote": "Those districts also had less visible disorder, which confounds your comparison.",
+            "participantId": "alma"
+          }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Downtown foot traffic is down about thirty percent and both anchor stores have closed.",
+        "participantIds": [
+          "alma",
+          "ben"
+        ],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "Downtown foot traffic is down thirty percent and both anchor stores are gone.",
+            "participantId": "alma"
+          }
+        ]
+      },
+      {
+        "statement": "Commuters still return late in the week.",
+        "participantIds": [
+          "alma",
+          "ben"
+        ],
+        "basis": "strongly-implied",
+        "confidence": "medium",
+        "groundingQuotes": [
+          {
+            "quote": "The commuters come back Thursday to Saturday.",
+            "participantId": "ben"
+          }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-primary-cause",
+        "question": "What is the primary cause of the downtown foot-traffic decline?",
+        "type": "causal",
+        "summary": "Both accept the same facts; Alma's causal model centers lost commuters, Ben's centers parking prices.",
+        "claimIds": [
+          "claim-commuter-loss-causal",
+          "claim-parking-price-causal"
+        ],
+        "participantStances": [
+          {
+            "participantId": "alma",
+            "positionId": "pos-remote-cause",
+            "stance": "The commuter base never returned."
+          },
+          {
+            "participantId": "ben",
+            "positionId": "pos-pricing-cause",
+            "stance": "Tripled parking prices did the damage."
+          }
+        ],
+        "resolutionCondition": "Causal decomposition of traffic by commuter origin and price exposure.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-comparison-validity",
+        "question": "Do cross-district parking comparisons isolate pricing as a cause?",
+        "type": "causal",
+        "summary": "Ben treats faster recovery in cheap-parking districts as decisive; Alma says disorder confounds it.",
+        "claimIds": [
+          "claim-comparison-confounded",
+          "claim-parking-price-causal"
+        ],
+        "participantStances": [
+          {
+            "participantId": "ben",
+            "positionId": "pos-pricing-cause",
+            "stance": "Same remote work, different prices, different outcomes."
+          },
+          {
+            "participantId": "alma",
+            "positionId": "pos-remote-cause",
+            "stance": "Those districts differ in disorder too."
+          }
+        ],
+        "resolutionCondition": "Matched-district analysis controlling for disorder.",
+        "confidence": "medium",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": [
+      "This maps competing causal models over agreed facts; it does not establish which cause dominates."
+    ]
+  }
+}

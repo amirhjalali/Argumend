@@ -1,0 +1,55 @@
+{
+  "id": "one-sided-article-libraries",
+  "contentType": "article",
+  "source": "Opinion: The library is the last true public living room. Libraries lend more than books. They lend warmth in winter, internet access to people who have none, a safe after-school destination, and answers from someone whose job is to help you find them. Every one of those services survives on the premise that no purchase is required at the door. When a city trims library hours, it does not save money so much as it moves costs onto hospitals, schools, and sidewalks. A city that wants cheaper social services should fund the places that prevent the need for them. The library is where a society keeps its promise that citizenship does not require a credit card.",
+  "allowedPatterns": ["not-a-disagreement"],
+  "expectCrux": false,
+  "minPositions": 1,
+  "maxPositions": 1,
+  "extraction": {
+    "mainQuestion": "Should cities fund libraries as a way of preventing costlier social-service needs?",
+    "participants": [
+      { "id": "columnist", "label": "Columnist", "kind": "author" }
+    ],
+    "positions": [
+      {
+        "id": "pos-fund-libraries",
+        "label": "Fund libraries preventively",
+        "participantIds": ["columnist"],
+        "thesis": "Cities should fund libraries generously because their free services prevent social costs that are more expensive to absorb elsewhere.",
+        "steelman": "Cutting library hours does not remove need; it displaces the cost onto hospitals, schools, and streets where intervention is dearer.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "A city that wants cheaper social services should fund the places that prevent the need for them.", "participantId": "columnist" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-trim-shifts-costs",
+        "statement": "Trimming library hours shifts costs onto hospitals, schools, and sidewalks rather than saving money.",
+        "participantIds": ["columnist"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-fund-libraries", "relation": "supports" }
+        ],
+        "acceptedByParticipantIds": ["columnist"],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Fiscal analysis comparing library operating savings with displaced service costs."
+        },
+        "groundingQuotes": [
+          { "quote": "it does not save money so much as it moves costs onto hospitals, schools, and sidewalks.", "participantId": "columnist" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [],
+    "caveats": ["Single-voice opinion column: one position is present and no opposing position is stated or implied."]
+  }
+}
