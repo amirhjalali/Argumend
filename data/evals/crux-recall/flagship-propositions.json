@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "description": "Pre-registered crux-engine validation ground truth per docs/CRUX_ENGINE.md 'Validation & acceptance'. Primary pool = the two explicit end-of-report proposition lists (ai-mass-unemployment: 4, capitalism-after-ai: 6 = 10 primary). us-israel-support's Core Disagreements list is encoded as a secondary inline-tagged set. Each proposition maps to the CLAIM(s) that carry it; 'authored' mappings were written into the graph at authoring time via provenance.sourceRef, 'derived' mappings were annotated afterwards by statement match and await founder review.",
+  "primaryRecallTargets": { "recallAt5": 0.6, "recallAt10": 0.8 },
+  "topics": {
+    "ai-mass-unemployment": {
+      "draft": "data/topics/drafts/ai-mass-unemployment.draft.json",
+      "set": "primary",
+      "propositions": [
+        {
+          "id": "aijobs-p1",
+          "statement": "The early-career employment decline in AI-exposed occupations is caused by AI adoption rather than rival explanations.",
+          "epistemicType": "empirical",
+          "claimIds": ["c-decline-caused-by-ai"],
+          "mapping": "authored",
+          "provenance": "a-empirical-record.md §5 Neutral Disagreement Proposition 1 (verbatim sourceRef on claim)"
+        },
+        {
+          "id": "aijobs-p2",
+          "statement": "Frontier AI agents' measured task-completion time horizon will continue doubling through 2028.",
+          "epistemicType": "predictive",
+          "claimIds": ["c-time-horizons-keep-doubling"],
+          "mapping": "authored",
+          "provenance": "c-capability-forecasts.md Propositions Still In Dispute #1 (verbatim sourceRef on claim)"
+        },
+        {
+          "id": "aijobs-p3",
+          "statement": "Reliability at high success rates, not raw median capability, is the threshold that determines substitution for employed labor.",
+          "epistemicType": "predictive",
+          "claimIds": ["c-reliability-is-the-threshold"],
+          "mapping": "authored",
+          "provenance": "c-capability-forecasts.md Propositions Still In Dispute #2 (verbatim sourceRef on claim)"
+        },
+        {
+          "id": "aijobs-p4",
+          "statement": "An economy where displaced clerical workers move into care jobs paying far less has successfully 'adjusted'.",
+          "epistemicType": "normative",
+          "claimIds": ["c-care-reallocation-counts-as-adjustment"],
+          "mapping": "authored",
+          "provenance": "h-workers-distribution-geography.md Revised Disagreement Proposition 4 (verbatim sourceRef on claim)"
+        }
+      ],
+      "namedTests": [
+        {
+          "id": "named-2-normative-survives",
+          "description": "CRUX_ENGINE acceptance test 2: the normative care-adjustment claim lands top-5 despite value-difference tractability.",
+          "claimId": "c-care-reallocation-counts-as-adjustment",
+          "withinTopK": 5
+        },
+        {
+          "id": "named-3-offshoring-top10",
+          "description": "CRUX_ENGINE acceptance test 3: the offshoring rival hypothesis reaches top-10 despite thin evidence.",
+          "claimId": "c-offshoring-rival-explanation",
+          "withinTopK": 10
+        },
+        {
+          "id": "named-4-implicit-assumption-ranked",
+          "description": "CRUX_ENGINE acceptance test 4: the implicit hiring-vs-output assumption appears in the ranked output at all.",
+          "claimId": "c-firms-cut-hiring-not-output",
+          "withinTopK": -1
+        }
+      ]
+    },
+    "capitalism-after-ai": {
+      "draft": "data/topics/drafts/capitalism-after-ai.draft.json",
+      "set": "primary",
+      "propositions": [
+        {
+          "id": "cap-p1",
+          "statement": "AI is already reducing labor's income share materially.",
+          "epistemicType": "empirical",
+          "claimIds": ["c-labor-share-declining-us", "c-task-automation-lowers-labor-share"],
+          "mapping": "derived",
+          "provenance": "research.md Disagreement Proposition 1; mapped to the U.S. record claim and the forward causal claim"
+        },
+        {
+          "id": "cap-p2",
+          "statement": "Frontier AI will substitute for most economically valuable labor.",
+          "epistemicType": "predictive",
+          "claimIds": ["c-wages-plummet-under-agi-scenario", "c-task-automation-lowers-labor-share"],
+          "mapping": "derived",
+          "provenance": "research.md Disagreement Proposition 2; mapped to the AGI wage scenario and broad task-automation claims"
+        },
+        {
+          "id": "cap-p3",
+          "statement": "AI markets will tip into durable oligopoly.",
+          "epistemicType": "empirical",
+          "claimIds": ["c-ai-markets-tip-into-durable-oligopoly"],
+          "mapping": "authored",
+          "provenance": "research.md Disagreement Proposition 3 (verbatim sourceRef on claim)"
+        },
+        {
+          "id": "cap-p4",
+          "statement": "Demand will collapse if labor income falls.",
+          "epistemicType": "predictive",
+          "claimIds": ["c-demand-collapse-without-recycling"],
+          "mapping": "derived",
+          "provenance": "research.md Disagreement Proposition 4; direct statement match"
+        },
+        {
+          "id": "cap-p5",
+          "statement": "Citizens deserve claims on AI rents because AI is trained on collective human knowledge.",
+          "epistemicType": "normative",
+          "claimIds": ["c-citizens-deserve-ai-rents"],
+          "mapping": "authored",
+          "provenance": "research.md Disagreement Proposition 5 (verbatim sourceRef on claim)"
+        },
+        {
+          "id": "cap-p6",
+          "statement": "A high-tax, UBI-funded, public-compute economy is still capitalism.",
+          "epistemicType": "definitional",
+          "claimIds": ["c-high-tax-ubi-still-capitalism"],
+          "mapping": "authored",
+          "provenance": "research.md Disagreement Proposition 6 (verbatim sourceRef on claim)"
+        }
+      ],
+      "namedTests": []
+    },
+    "us-israel-support": {
+      "draft": "data/topics/drafts/us-israel-support.draft.json",
+      "set": "secondary",
+      "propositions": [
+        {
+          "id": "israel-cd1",
+          "statement": "Does U.S. military aid materially change Israeli battlefield behavior?",
+          "epistemicType": "empirical",
+          "claimIds": [],
+          "mapping": "unmapped",
+          "provenance": "research.md Core Disagreements #1; no single draft claim carries it"
+        },
+        {
+          "id": "israel-cd2",
+          "statement": "Are Gaza casualty figures closer to MoH/OCHA counts, Israeli combatant-ratio claims, or higher excess-mortality estimates?",
+          "epistemicType": "empirical",
+          "claimIds": ["c-gaza-death-toll-uncertain"],
+          "mapping": "authored",
+          "provenance": "research.md Core Disagreements #2 (verbatim sourceRef on claim)"
+        },
+        {
+          "id": "israel-cd3",
+          "statement": "Would reduced U.S. support deter Israeli excesses or embolden Hamas, Hezbollah, and Iran?",
+          "epistemicType": "predictive",
+          "claimIds": [],
+          "mapping": "unmapped",
+          "provenance": "research.md Core Disagreements #3; no single draft claim carries it"
+        },
+        {
+          "id": "israel-cd4",
+          "statement": "Should alliance obligations override complicity concerns when an ally faces a terrorist enemy embedded among civilians?",
+          "epistemicType": "normative",
+          "claimIds": ["c-alliance-obligations-override-complicity", "c-complicity-overrides-alliance"],
+          "mapping": "authored",
+          "provenance": "research.md Core Disagreements #4 (verbatim sourceRefs on both claims)"
+        },
+        {
+          "id": "israel-cd5",
+          "statement": "Should arms transfers to Israel receive the same transparency and congressional-review treatment as transfers to other states?",
+          "epistemicType": "procedural",
+          "claimIds": ["c-arms-transfer-review-threshold-gap", "c-review-process-should-match-other-states"],
+          "mapping": "authored",
+          "provenance": "research.md Core Disagreements #5 (verbatim sourceRefs on both claims)"
+        },
+        {
+          "id": "israel-cd6",
+          "statement": "Does U.S. diplomatic protection at the UN increase leverage in private, or remove consequences in public?",
+          "epistemicType": "empirical",
+          "claimIds": [],
+          "mapping": "unmapped",
+          "provenance": "research.md Core Disagreements #6; no single draft claim carries it"
+        },
+        {
+          "id": "israel-cd7",
+          "statement": "Is Saudi-Israeli normalization more likely with strong U.S. backing or with support conditioned on Palestinian statehood steps?",
+          "epistemicType": "predictive",
+          "claimIds": [],
+          "mapping": "unmapped",
+          "provenance": "research.md Core Disagreements #7; no single draft claim carries it"
+        }
+      ],
+      "namedTests": []
+    }
+  }
+}

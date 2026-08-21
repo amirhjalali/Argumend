@@ -25,7 +25,20 @@ const FLOOR = 0.15;
 const MAX_RESULTS = 5;
 const REDUNDANCY_RHO = 0.35;
 
-export function identifyCruxes(graph: ArgumentGraph): CruxResult[] {
+export interface IdentifyCruxesOptions {
+  /**
+   * Maximum number of ranked cruxes returned. Defaults to 5. The validation
+   * harness raises this to score Recall@10 against the pre-registered
+   * acceptance thresholds without changing serving behavior.
+   */
+  limit?: number;
+}
+
+export function identifyCruxes(
+  graph: ArgumentGraph,
+  options: IdentifyCruxesOptions = {},
+): CruxResult[] {
+  const limit = Math.max(1, options.limit ?? MAX_RESULTS);
   const { signals } = computeCruxSignals(graph);
   const unsuppressed = signals.filter((signal) => signal.claim.cruxOverride !== "suppress");
   const pinned = unsuppressed
@@ -40,7 +53,7 @@ export function identifyCruxes(graph: ArgumentGraph): CruxResult[] {
   }));
 
   for (const signal of unpinned) {
-    if (selected.length >= MAX_RESULTS) break;
+    if (selected.length >= limit) break;
     const overlap = maxOverlap(signal, selected.map((item) => item.signal));
     const score = signal.baseScore * (1 - REDUNDANCY_RHO * overlap);
     if (isSelectable(signal, score)) {
@@ -57,7 +70,7 @@ export function identifyCruxes(graph: ArgumentGraph): CruxResult[] {
     .sort((a, b) => b.score - a.score || a.signal.claim.id.localeCompare(b.signal.claim.id));
 
   return [...pinnedResults, ...regularResults]
-    .slice(0, MAX_RESULTS)
+    .slice(0, limit)
     .map((item) => toResult(item.signal, item.score));
 }
 
