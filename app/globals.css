@@ -32,6 +32,8 @@
   --text-paragraph: rgba(31, 31, 29, 0.85);
   --text-heading: #1f1f1d;
 
+  --crux-crimson: #a23b3b;
+
   --border-default: rgba(214, 211, 209, 0.6);
   --border-subtle: rgba(214, 211, 209, 0.4);
   --border-muted: rgba(214, 211, 209, 0.5);
@@ -69,6 +71,8 @@
   --text-muted: #8a8279;
   --text-paragraph: rgba(232, 228, 222, 0.85);
   --text-heading: #f0ece6;
+
+  --crux-crimson: #c45c5c; /* crux.light — brighter for dark backgrounds */
 
   --border-default: rgba(61, 58, 54, 0.8);
   --border-subtle: rgba(61, 58, 54, 0.5);

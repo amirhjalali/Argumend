@@ -743,8 +743,8 @@ export function DebateView() {
                       whileTap={!state.isJudging ? { scale: 0.98 } : {}}
                       className={`inline-flex items-center gap-2 px-5 py-2.5 font-medium rounded-xl transition-colors shadow-md ${
                         state.isJudging
-                          ? "bg-purple-400 cursor-not-allowed"
-                          : "bg-purple-600 hover:bg-purple-700"
+                          ? "bg-deep-light cursor-not-allowed"
+                          : "bg-deep hover:bg-deep-dark"
                       } text-white`}
                     >
                       {state.isJudging ? (

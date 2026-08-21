@@ -1,7 +1,5 @@
 /**
  * Reusable Framer Motion animation variants.
- *
- * Issue #9: Extract animation variants from DeepDiveModal.tsx and other components.
  */
 
 import type { Variants } from "framer-motion";
