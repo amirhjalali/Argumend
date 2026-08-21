@@ -27,25 +27,27 @@ describe("canonical URL contracts", () => {
     }
   });
 
-  it("keeps every blog canonical aligned with the sitemap", async () => {
+  it("keeps every blog canonical self-aligned and out of the pruned sitemap", async () => {
     for (const article of articleSummaries) {
       const expected = `https://argumend.org/blog/${article.slug}`;
       const metadata = await blogMetadata({
         params: Promise.resolve({ slug: article.slug }),
       });
       expect(metadata.alternates?.canonical).toBe(expected);
-      expect(sitemapUrls.has(expected)).toBe(true);
+      // Blog is HIDDEN in docs/PRODUCT_PRUNING_AUDIT.md: pages still serve
+      // with self-canonicals, but the sitemap must not advertise them.
+      expect(sitemapUrls.has(expected)).toBe(false);
     }
   });
 
-  it("keeps question and claim canonicals aligned with the sitemap", async () => {
+  it("keeps question and claim canonicals self-aligned and out of the pruned sitemap", async () => {
     for (const question of getAllQuestionVariations(topicSummaries)) {
       const expected = `https://argumend.org/questions/${question.slug}`;
       const metadata = await questionMetadata({
         params: Promise.resolve({ slug: question.slug }),
       });
       expect(metadata.alternates?.canonical).toBe(expected);
-      expect(sitemapUrls.has(expected)).toBe(true);
+      expect(sitemapUrls.has(expected)).toBe(false);
     }
 
     for (const claim of isClaims) {
@@ -54,7 +56,7 @@ describe("canonical URL contracts", () => {
         params: Promise.resolve({ slug: claim.slug }),
       });
       expect(metadata.alternates?.canonical).toBe(expected);
-      expect(sitemapUrls.has(expected)).toBe(true);
+      expect(sitemapUrls.has(expected)).toBe(false);
     }
   });
 });

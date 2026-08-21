@@ -21,7 +21,7 @@ Argumend turns public questions into structured maps of positions, evidence, cru
 - Runs offline by default with static/programmatic topic data
 - Optionally enables live AI extraction, debate generation, and judging
 - Uses saved topic data so core flows can be developed without paid API calls
-- Keeps the topic and blog indexes crawlable and lightweight with stable `?page=` URLs; topic category/filter query state is preserved across pages
+- Keeps the pruned CORE surface (`/`, `/topics`, `/analyze`, `/about`) crawlable with stable `?page=` URLs; hidden and merge-pending routes still serve directly but are excluded from the sitemap per `docs/PRODUCT_PRUNING_AUDIT.md`
 
 ## Tech Stack
 
