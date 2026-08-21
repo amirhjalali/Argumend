@@ -1,60 +1,48 @@
-# Improvement Plan for Argumend v2
+# Improvement Plan for Argumend v2 — CLOSED
 
-This plan aims to refine the functionality and shift the aesthetic of Argumend towards a "Stoic / Greek / Roman" discourse theme, moving away from the current "Space" vibe.
+This plan is **complete and superseded**. The goals of record now live in
+`docs/plans/` — see `2026-08-12-argumentgraph-north-star.md` and
+`2026-08-18-argumend-v2-disagreement-diagnosis-spec.md` (spec of record).
 
-## Phase 1: Aesthetic Overhaul (Stoic Theme)
+Note: the "Stoic / Greek / Roman" reskin landed as the LessWrong-parchment
+design system documented in `CLAUDE.md` (parchment, stone, deep teal, rust,
+crux crimson; EB Garamond + Plus Jakarta Sans) rather than the literal
+marble/gold/olive palette first proposed here.
 
-- [ ] **1. Global Theme & Color Palette Update**:
-    - Replace "Space" colors (neon blues, purples, black voids) with "Stoic" colors (marble whites, parchment beiges, deep stone greys, philosophical golds, olive greens).
-    - Update `tailwind.config.ts` with new color variables (`accent-truth` -> `accent-logos`, `accent-doubt` -> `accent-pathos`, `bg-void` -> `bg-agora`, etc.).
-    - Remove "stars" and "dots" backgrounds; replace with subtle texture (paper/stone) or clean minimalist backgrounds.
+## Phase 1: Aesthetic Overhaul — DELIVERED
 
-- [ ] **2. Typography Update**:
-    - Switch fonts to evoke a classical feel.
-    - Headings: Serif font (e.g., Cinzel, Merriweather, or similar Google Font).
-    - Body: Clean Sans-serif or Humanist Serif (e.g., Lato or EB Garamond) for readability.
-    - Update `layout.tsx` to load new fonts.
+- [x] **1. Global Theme & Color Palette** — Space palette removed;
+      parchment/stone tokens in `tailwind.config.ts` plus CSS custom
+      properties in `app/globals.css` (`:root` / `.dark`).
+- [x] **2. Typography** — EB Garamond serif for headings and prose,
+      Plus Jakarta Sans for UI, loaded in `app/layout.tsx`.
+- [x] **3. Node Styling (Meta, RichNode)** — solid parchment cards with
+      classical borders; glassmorphism and neon borders removed from graph
+      nodes.
+- [x] **4. UI Components** — Crux Drawer / Deep Dive Modal were absorbed
+      into a single parchment `CruxModal`; controls are minimalist;
+      confidence kept as a warm-spectrum ring gauge (internals since frozen
+      by `docs/superpowers/plans/2026-07-28-two-axis-confidence.md`).
 
-- [ ] **3. Node Styling (Meta, RichNode)**:
-    - Redesign `MetaNode` and `RichNode` cards.
-    - Remove "glassmorphism" and neon borders.
-    - Use "Card" aesthetics: solid backgrounds (parchment/stone), elegant borders (double lines, classical corners), serif typography.
-    - Update icons: Replace generic Lucide icons with more classical ones (e.g., columns for pillars, scales for crux, scroll for evidence) if available, or style existing ones to look less "tech".
+## Phase 2: Functionality & Logic — DELIVERED
 
-- [ ] **4. UI Components Update (Controls, Drawer, Modal)**:
-    - **Crux Drawer**: Re-style as a "Scroll" or "Tablet" sliding out. Use serif headers.
-    - **Deep Dive Modal**: Style as a "Dialog" or "Symposium" view.
-    - **Controls**: Minimalist, perhaps mimicking stone carvings or simple geometric shapes.
-    - Remove "Confidence Meter" neon ring; replace with a classical gauge or simple text-based representation (e.g., "Certainty").
+- [x] **5. "Infinite Filler" Removed** — children come only from the
+      blueprint (`resolveChildTemplates` in `hooks/useLogicGraph.ts`);
+      childless nodes render as leaves with no expand control.
+- [x] **6. Multiple Pillars** — root supports several center-slot pillars
+      spread side-by-side (`lib/layout.ts`); solved via sibling spreading
+      and a dedicated root-inquiry lane instead of generalizing the slot
+      enum.
+- [x] **7. Title & Content Refinement** — no generated title prefixes;
+      variant labels render as small eyebrow badges.
+- [x] **8. Minimap / Navigation** — theme-aware minimap, navigation paths,
+      zoom indicator, map legend.
+- [x] **9. Animations** — organic fades/slides only; reduced-motion
+      respected at build time and in CSS.
 
-## Phase 2: Functionality & Logic Improvements
+## Phase 3: Final Polish — DONE
 
-- [ ] **5. Fix "Infinite Filler" Content**:
-    - Disable automatic generation of "fallback templates" that create repetitive garbage content.
-    - If a node has no children in the blueprint, it should be a leaf node (no "expand" button).
-    - Update `useLogicGraph.ts` to handle this logic.
+- [x] **10. Cleanup** — space assets/code removed; TypeScript strict;
+      lint/typecheck/tests green.
 
-- [ ] **6. Horizontal Expansion (Multiple Pillars)**:
-    - Update `logicBlueprint.ts` structure to allow the Root node to have multiple "center" children (Pillars) side-by-side.
-    - Update `layout.ts` (or wherever positioning is calculated) to handle sibling nodes in the same slot (e.g., multiple pillars centered). *Note: This might be complex with the current hardcoded "left/right/center" slots; we may need to relax the slot system.*
-
-- [ ] **7. Title & Content Refinement**:
-    - Remove redundant prefixes like "Skeptic Vector:" from titles.
-    - Ensure content in `logicBlueprint.ts` is concise and fits the new card designs.
-
-- [ ] **8. "Minimap" / Navigation Update**:
-    - Ensure the React Flow minimap (if used) or navigation controls match the new theme.
-    - Maybe add a "Table of Contents" or "Index" sidebar if appropriate.
-
-- [ ] **9. Animations**:
-    - Replace "tech" animations (fast slides, glitches) with "organic" ones (fades, slow unfolds, paper unfurling).
-    - Update Framer Motion transitions in `DeepDiveModal` and `CruxDrawer`.
-
-## Phase 3: Final Polish
-
-- [ ] **10. Clean Up & Git**:
-    - Remove unused "Space" assets/code.
-    - Ensure all types are strict.
-    - Verify build passes.
-    - Commit and push changes regularly.
-
+Future work is tracked in `docs/plans/`, not here.
