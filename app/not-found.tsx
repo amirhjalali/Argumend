@@ -13,7 +13,7 @@ export default function NotFound() {
     <main id="main-content" className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[#1a1916] flex flex-col items-center justify-center px-6 py-20 text-center">
       {/* Icon */}
       <div className="mb-8">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#efe9df] dark:bg-[#302e2a] border border-stone-200/60 dark:border-[var(--border-default)]">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#efe9df] dark:bg-[var(--bg-muted)] border border-stone-200/60 dark:border-[var(--border-default)]">
           <Compass className="w-9 h-9 text-deep" strokeWidth={1.5} />
         </div>
       </div>
@@ -37,21 +37,21 @@ export default function NotFound() {
       <nav aria-label="Not found navigation" className="flex flex-wrap items-center justify-center gap-3 mb-10">
         <Link
           href="/"
-          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#1a1916]"
+          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-canvas)]"
         >
           <Home className="w-4 h-4" strokeWidth={1.8} />
           Back to Home
         </Link>
         <Link
           href="/topics"
-          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#1a1916]"
+          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[var(--border-divider)] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-canvas)]"
         >
           <MessageSquare className="w-4 h-4" strokeWidth={1.8} />
           Browse Topics
         </Link>
         <Link
           href="/analyze"
-          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#1a1916]"
+          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[var(--border-divider)] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-canvas)]"
         >
           <Brain className="w-4 h-4" strokeWidth={1.8} />
           Run an Analysis

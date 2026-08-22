@@ -106,7 +106,7 @@ export function FeaturedTopicHero({
           </div>
 
           {/* Featured topic context */}
-          <div className="space-y-3 border-t border-stone-300/60 pt-5 dark:border-[#3d3a36]">
+          <div className="space-y-3 border-t border-stone-300/60 pt-5 dark:border-[var(--border-divider)]">
             <p className="text-xs font-medium uppercase tracking-widest text-deep/70 dark:text-deep-light">
               Featured analysis
             </p>
@@ -155,7 +155,7 @@ export function FeaturedTopicHero({
           {(forEvidence || againstEvidence) && (
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {forEvidence && (
-                <div className="rounded-xl border border-stone-200/60 bg-white p-4 dark:border-[#3d3a36] dark:bg-[#252420]">
+                <div className="rounded-xl border border-stone-200/60 bg-white p-4 dark:border-[var(--border-divider)] dark:bg-[var(--bg-card)]">
                   <span className="text-xs font-semibold uppercase tracking-wide text-deep dark:text-deep-light">
                     Strongest For
                   </span>
@@ -163,7 +163,7 @@ export function FeaturedTopicHero({
                     {forEvidence.title}
                   </p>
                   <div className="mt-2 flex items-center gap-2">
-                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-stone-100 dark:bg-[#302e2a]">
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-stone-100 dark:bg-[var(--bg-muted)]">
                       <div
                         className="h-full rounded-full bg-deep"
                         style={{ width: `${(forEvidence.score / 40) * 100}%` }}
@@ -179,7 +179,7 @@ export function FeaturedTopicHero({
                 </div>
               )}
               {againstEvidence && (
-                <div className="rounded-xl border border-stone-200/60 bg-white p-4 dark:border-[#3d3a36] dark:bg-[#252420]">
+                <div className="rounded-xl border border-stone-200/60 bg-white p-4 dark:border-[var(--border-divider)] dark:bg-[var(--bg-card)]">
                   <span className="text-xs font-semibold uppercase tracking-wide text-rust-600 dark:text-rust-400">
                     Strongest Against
                   </span>
@@ -187,7 +187,7 @@ export function FeaturedTopicHero({
                     {againstEvidence.title}
                   </p>
                   <div className="mt-2 flex items-center gap-2">
-                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-stone-100 dark:bg-[#302e2a]">
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-stone-100 dark:bg-[var(--bg-muted)]">
                       <div
                         className="h-full rounded-full bg-rust-500"
                         style={{ width: `${(againstEvidence.score / 40) * 100}%` }}

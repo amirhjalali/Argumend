@@ -102,7 +102,7 @@ export default async function DashboardPage() {
             </div>
 
             {savedTopicsList.length === 0 ? (
-              <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-8 text-center">
+              <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[var(--bg-card)]/60 p-8 text-center">
                 <Bookmark className="h-8 w-8 text-stone-300 dark:text-[var(--text-muted)] mx-auto mb-3" />
                 <p className="text-stone-500 dark:text-[var(--text-secondary)] mb-4">
                   No saved topics yet. Browse topics and hit the bookmark button
@@ -175,7 +175,7 @@ export default async function DashboardPage() {
             </div>
 
             {recentDebates.length === 0 ? (
-              <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-8 text-center">
+              <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[var(--bg-card)]/60 p-8 text-center">
                 <Swords className="h-8 w-8 text-stone-300 dark:text-[var(--text-muted)] mx-auto mb-3" />
                 <p className="text-stone-500 dark:text-[var(--text-secondary)] mb-4">
                   No debates yet. Start a debate on any topic to see it here.
@@ -193,7 +193,7 @@ export default async function DashboardPage() {
                 {recentDebates.map((debate) => (
                   <div
                     key={debate.id}
-                    className="flex items-center gap-4 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/80 dark:bg-[#252420]/80 p-4 hover:shadow-sm transition-shadow"
+                    className="flex items-center gap-4 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/80 dark:bg-[var(--bg-card)]/80 p-4 hover:shadow-sm transition-shadow"
                   >
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
                       <Swords className="h-5 w-5 text-deep" />

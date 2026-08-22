@@ -23,7 +23,7 @@ function getStatusStyle(status: string): string {
     case "theoretical":
       return "bg-rust-500/20 text-rust-700 dark:text-rust-300";
     default:
-      return "bg-stone-200 text-stone-600 dark:bg-[#302e2a] dark:text-stone-300";
+      return "bg-stone-200 text-stone-600 dark:bg-[var(--bg-muted)] dark:text-stone-300";
   }
 }
 
@@ -123,7 +123,7 @@ export const RichNode = memo(function RichNode({ id, data }: NodeProps<Node<Logi
 
         {/* Evidence Sources */}
         {hasReferences && (
-          <div className="mt-3 -mx-5 -mb-5 px-5 py-3 border-t border-stone-100 dark:border-[#302e2a] rounded-b-xl bg-stone-50/50 dark:bg-[#201f1c]">
+          <div className="mt-3 -mx-5 -mb-5 px-5 py-3 border-t border-stone-100 dark:border-[#302e2a] rounded-b-xl bg-stone-50/50 dark:bg-[var(--bg-surface)]">
             <div className="mb-2 flex items-center gap-1.5">
               <FileText className="h-3 w-3 text-stone-400 dark:text-[var(--text-muted)]" strokeWidth={1.8} />
               <span className="text-[11px] font-medium text-stone-500 dark:text-[var(--text-muted)]">

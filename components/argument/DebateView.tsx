@@ -243,7 +243,7 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
                       </span>
                     </h3>
                   </summary>
-                  <div className="border-t border-stone-200 dark:border-[#3d3a36] px-4 py-4 space-y-3">
+                  <div className="border-t border-stone-200 dark:border-[var(--border-divider)] px-4 py-4 space-y-3">
                     <p className="text-sm leading-relaxed text-stone-800 dark:text-stone-200">
                       {note?.fight ?? claim.statusBasis}
                     </p>
@@ -382,7 +382,7 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
               and source-interest disclosures.
             </span>
           </summary>
-          <div className="border-t border-stone-200 dark:border-[#3d3a36] p-3.5 space-y-2">
+          <div className="border-t border-stone-200 dark:border-[var(--border-divider)] p-3.5 space-y-2">
             {claims
               .filter((c) => !cruxClaimIds.has(c.id))
               .sort(byStatusSeverity)
@@ -406,7 +406,7 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
                       </span>
                     </h3>
                   </summary>
-                  <div className="border-t border-stone-200 dark:border-[#3d3a36] px-3.5 py-3.5 space-y-3">
+                  <div className="border-t border-stone-200 dark:border-[var(--border-divider)] px-3.5 py-3.5 space-y-3">
                     {claim.summary && (
                       <p className="text-sm leading-relaxed text-secondary dark:text-stone-300">
                         {claim.statement}
@@ -503,7 +503,7 @@ function Chip({
       ? "text-[#a23b3b] border-[#a23b3b]/40 dark:text-[#e66767] dark:border-[#e66767]/50"
       : tone === "warn"
         ? "text-[#8B5A3C] border-[#8B5A3C]/40 dark:text-[#d4805f] dark:border-[#d4805f]/50"
-        : "text-muted dark:text-stone-400 border-stone-300 dark:border-[#3d3a36]";
+        : "text-muted dark:text-stone-400 border-stone-300 dark:border-[var(--border-divider)]";
   return (
     <span
       className={`inline-block rounded-full border px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide ${toneClass}`}
@@ -680,7 +680,7 @@ function EvidenceItem({
         return (
           <span
             key={limit.id}
-            className="mt-1 block rounded bg-stone-100 dark:bg-[#302e2a] px-2 py-1 text-xs text-secondary dark:text-stone-300"
+            className="mt-1 block rounded bg-stone-100 dark:bg-[var(--bg-muted)] px-2 py-1 text-xs text-secondary dark:text-stone-300"
           >
             But note: {limiter.statement}
           </span>

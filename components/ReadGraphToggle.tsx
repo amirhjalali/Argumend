@@ -51,7 +51,7 @@ export function ReadGraphToggle({ current }: { current: ReadGraphView }) {
     <div
       role="group"
       aria-label="View mode"
-      className="inline-flex items-center gap-1 rounded-full border border-stone-200/70 dark:border-[#3d3a36] bg-white/80 dark:bg-[#252420] p-1 shadow-sm backdrop-blur"
+      className="inline-flex items-center gap-1 rounded-full border border-stone-200/70 dark:border-[var(--border-divider)] bg-white/80 dark:bg-[var(--bg-card)] p-1 shadow-sm backdrop-blur"
     >
       <button
         type="button"

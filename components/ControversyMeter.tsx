@@ -109,13 +109,13 @@ export function ControversyMeter({ balance, weight, verdict, status }: Controver
         {/* Header row */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <h3 className="text-xs font-medium text-stone-500 dark:text-[#8a8279] uppercase tracking-widest">
+            <h3 className="text-xs font-medium text-stone-500 dark:text-[var(--text-muted)] uppercase tracking-widest">
               Controversy Meter
             </h3>
             {/* Info dot */}
             <button
               type="button"
-              className="relative w-4 h-4 rounded-full bg-stone-200 dark:bg-[#3d3a36] text-stone-500 dark:text-[#8a8279] text-[10px] font-bold leading-none flex items-center justify-center hover:bg-stone-300 dark:hover:bg-[#4a4640] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+              className="relative w-4 h-4 rounded-full bg-stone-200 dark:bg-[#3d3a36] text-stone-500 dark:text-[var(--text-muted)] text-[10px] font-bold leading-none flex items-center justify-center hover:bg-stone-300 dark:hover:bg-[#4a4640] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
               aria-label="What does this meter mean?"
               onClick={() => setShowTooltip((v) => !v)}
             >
@@ -126,7 +126,7 @@ export function ControversyMeter({ balance, weight, verdict, status }: Controver
         </div>
 
         {/* Bar */}
-        <div className="relative h-3 sm:h-4 rounded-full bg-stone-200/80 dark:bg-[#302e2a] overflow-visible">
+        <div className="relative h-3 sm:h-4 rounded-full bg-stone-200/80 dark:bg-[var(--bg-muted)] overflow-visible">
           {/* Gradient fill */}
           <div
             className={`absolute inset-0 rounded-full bg-gradient-to-r ${config.barClass} ${config.animationClass} motion-reduce:animate-none ${config.glowClass}`}
@@ -151,10 +151,10 @@ export function ControversyMeter({ balance, weight, verdict, status }: Controver
 
         {/* Scale labels */}
         <div className="flex justify-between mt-2">
-          <span className="text-[10px] sm:text-xs text-stone-500 dark:text-[#8a8279] font-medium">
+          <span className="text-[10px] sm:text-xs text-stone-500 dark:text-[var(--text-muted)] font-medium">
             Settled
           </span>
-          <span className="text-[10px] sm:text-xs text-stone-500 dark:text-[#8a8279] font-medium">
+          <span className="text-[10px] sm:text-xs text-stone-500 dark:text-[var(--text-muted)] font-medium">
             Speculative
           </span>
         </div>

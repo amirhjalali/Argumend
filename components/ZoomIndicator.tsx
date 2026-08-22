@@ -35,7 +35,7 @@ export function ZoomIndicator() {
       <div className="flex items-center gap-1 rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] bg-[#fefcf9]/90 dark:bg-[var(--bg-card)]/90 backdrop-blur-sm p-1 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
         <button
           onClick={() => zoomOut()}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[#302e2a] hover:text-primary dark:hover:text-stone-200"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] hover:text-primary dark:hover:text-stone-200"
           aria-label="Zoom out"
           title="Zoom out"
         >
@@ -50,7 +50,7 @@ export function ZoomIndicator() {
 
         <button
           onClick={() => zoomIn()}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[#302e2a] hover:text-primary dark:hover:text-stone-200"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] hover:text-primary dark:hover:text-stone-200"
           aria-label="Zoom in"
           title="Zoom in"
         >
@@ -66,7 +66,7 @@ export function ZoomIndicator() {
               duration: reduceMotion ? 0 : GRAPH.TRANSITION_DURATION,
             })
           }
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[#302e2a] hover:text-primary dark:hover:text-stone-200"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] hover:text-primary dark:hover:text-stone-200"
           aria-label="Fit to view"
           title="Fit to view"
         >

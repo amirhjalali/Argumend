@@ -65,13 +65,13 @@ export function TopBar({
 
   return (
     <>
-      <header role="banner" className="sticky top-0 z-50 flex w-full items-center justify-between gap-1 bg-[#f4f1eb]/90 dark:bg-[#1a1917]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary dark:text-stone-200 border-b border-stone-200/40 dark:border-[#3d3a36]/60">
+      <header role="banner" className="sticky top-0 z-50 flex w-full items-center justify-between gap-1 bg-[#f4f1eb]/90 dark:bg-[var(--bg-canvas)]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary dark:text-stone-200 border-b border-stone-200/40 dark:border-[var(--border-divider)]/60">
         {/* Left: Menu + Logo */}
         <div className="flex min-w-0 flex-1 items-center gap-3 md:flex-none md:gap-5">
           <button
             ref={menuButtonRef}
             onClick={onMenuClick}
-            className="group relative flex h-11 w-11 shrink-0 items-center justify-center -ml-2 rounded-lg text-secondary dark:text-stone-400 transition-all duration-200 hover:text-primary dark:hover:text-stone-200 hover:bg-[#f0ebe3] dark:hover:bg-[#302e2a]"
+            className="group relative flex h-11 w-11 shrink-0 items-center justify-center -ml-2 rounded-lg text-secondary dark:text-stone-400 transition-all duration-200 hover:text-primary dark:hover:text-stone-200 hover:bg-[#f0ebe3] dark:hover:bg-[var(--bg-muted)]"
             aria-label="Toggle sidebar"
             aria-expanded={sidebarId ? Boolean(sidebarOpen) : undefined}
             aria-controls={sidebarId}
@@ -93,7 +93,7 @@ export function TopBar({
           {showBackToHero && onBackToHero && (
             <button
               onClick={onBackToHero}
-              className="flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm text-stone-500 transition-colors hover:bg-stone-100/60 hover:text-stone-800 dark:text-stone-400 dark:hover:bg-[#302e2a] dark:hover:text-stone-200"
+              className="flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm text-stone-500 transition-colors hover:bg-stone-100/60 hover:text-stone-800 dark:text-stone-400 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
               aria-label="Home"
             >
               <Home className="h-3.5 w-3.5" strokeWidth={1.8} />
@@ -156,7 +156,7 @@ export function TopBar({
           >
             <Search className="h-3.5 w-3.5" strokeWidth={1.8} />
             <span className="hidden sm:inline text-sm">Search</span>
-            <kbd className="hidden md:inline-flex h-5 items-center gap-0.5 rounded border border-stone-200 dark:border-[#3d3a36] bg-stone-50 dark:bg-[#252420] px-1.5 font-mono text-[10px] text-muted dark:text-stone-400">
+            <kbd className="hidden md:inline-flex h-5 items-center gap-0.5 rounded border border-stone-200 dark:border-[var(--border-divider)] bg-stone-50 dark:bg-[var(--bg-card)] px-1.5 font-mono text-[10px] text-muted dark:text-stone-400">
               <span className="text-xs">⌘</span>K
             </kbd>
           </button>
@@ -166,7 +166,7 @@ export function TopBar({
           </div>
 
           {authEntryEnabled && (
-            <div className="ml-1 border-l border-stone-200/60 pl-2 dark:border-[#3d3a36]/60">
+            <div className="ml-1 border-l border-stone-200/60 pl-2 dark:border-[var(--border-divider)]/60">
               <UserMenu />
             </div>
           )}

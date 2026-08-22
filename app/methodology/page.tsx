@@ -304,7 +304,7 @@ export default function MethodologyPage() {
         </section>
 
         {/* Evidence Weighting */}
-        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1917]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[var(--bg-canvas)]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Evidence scoring dimensions
           </h2>
@@ -478,7 +478,7 @@ export default function MethodologyPage() {
           </Link>
           <Link
             href="/topics"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-300 dark:border-[#3d3a36] text-stone-600 dark:text-stone-400 hover:border-deep/30 text-sm font-medium hover:bg-white/60 dark:hover:bg-[#302e2a] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-300 dark:border-[var(--border-divider)] text-stone-600 dark:text-stone-400 hover:border-deep/30 text-sm font-medium hover:bg-white/60 dark:hover:bg-[var(--bg-muted)] transition-colors"
           >
             Explore topics
             <Scale className="h-3.5 w-3.5" />

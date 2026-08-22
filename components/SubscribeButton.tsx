@@ -102,7 +102,7 @@ export function SubscribeButton({ topicId }: SubscribeButtonProps) {
         disabled
         aria-busy="true"
         aria-label="Loading follow status"
-        className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-stone-200/60 bg-white/60 px-3 py-2 text-sm font-medium text-stone-400 dark:border-[var(--border-default)] dark:bg-[#252420]/60 dark:text-stone-500"
+        className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-stone-200/60 bg-white/60 px-3 py-2 text-sm font-medium text-stone-400 dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]/60 dark:text-stone-500"
       >
         <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />
         <span>Loading…</span>
@@ -133,7 +133,7 @@ export function SubscribeButton({ topicId }: SubscribeButtonProps) {
     return (
       <Link
         href="/auth/signin"
-        className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-stone-200/60 bg-white/80 px-3 py-2 text-sm font-medium text-secondary dark:text-stone-400 transition-colors hover:border-stone-300/80 hover:text-primary dark:hover:text-stone-200 dark:border-[var(--border-default)] dark:bg-[#252420]/80"
+        className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-stone-200/60 bg-white/80 px-3 py-2 text-sm font-medium text-secondary dark:text-stone-400 transition-colors hover:border-stone-300/80 hover:text-primary dark:hover:text-stone-200 dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]/80"
       >
         <Eye className="h-4 w-4" aria-hidden="true" />
         <span>Sign in to follow</span>
@@ -158,7 +158,7 @@ export function SubscribeButton({ topicId }: SubscribeButtonProps) {
         className={`inline-flex min-h-11 items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors disabled:cursor-wait disabled:opacity-70 ${
           status.subscribed
             ? "border-deep bg-deep text-white hover:bg-deep-dark"
-            : "border-stone-200/60 bg-white/80 text-secondary dark:text-stone-400 hover:border-stone-300/80 hover:text-primary dark:hover:text-stone-200 dark:border-[var(--border-default)] dark:bg-[#252420]/80"
+            : "border-stone-200/60 bg-white/80 text-secondary dark:text-stone-400 hover:border-stone-300/80 hover:text-primary dark:hover:text-stone-200 dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]/80"
         }`}
       >
         {updating ? (

@@ -105,7 +105,7 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
 
           {/* Code block */}
           <div className="relative rounded-md bg-stone-50 dark:bg-[var(--bg-muted)] border border-stone-200 dark:border-[var(--border-default)] p-3">
-            <pre className="text-[11px] leading-relaxed text-stone-600 dark:text-[#b0a99f] font-mono whitespace-pre-wrap break-all select-all">
+            <pre className="text-[11px] leading-relaxed text-stone-600 dark:text-[var(--text-secondary)] font-mono whitespace-pre-wrap break-all select-all">
               {embedCode}
             </pre>
           </div>

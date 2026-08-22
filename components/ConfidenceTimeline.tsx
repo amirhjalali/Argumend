@@ -94,7 +94,7 @@ export function ConfidenceTimelineTable({
 
   return (
     <details className="group mt-3 overflow-hidden rounded-lg border border-stone-200/80 bg-white/40 dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]/40">
-      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-stone-700 transition-colors hover:bg-stone-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep dark:text-stone-300 dark:hover:bg-[#302e2a] [&::-webkit-details-marker]:hidden">
+      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-stone-700 transition-colors hover:bg-stone-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep dark:text-stone-300 dark:hover:bg-[var(--bg-muted)] [&::-webkit-details-marker]:hidden">
         <span>View timeline data</span>
         <span className="font-mono text-xs font-normal tabular-nums text-stone-500 dark:text-stone-400">
           {chronologicalEvents.length} {chronologicalEvents.length === 1 ? "event" : "events"}
@@ -105,7 +105,7 @@ export function ConfidenceTimelineTable({
           <caption className="sr-only">
             Chronological confidence history{topicTitle ? ` for ${topicTitle}` : ""}
           </caption>
-          <thead className="bg-stone-100/60 text-xs uppercase tracking-wide text-stone-500 dark:bg-[#302e2a]/70 dark:text-stone-400">
+          <thead className="bg-stone-100/60 text-xs uppercase tracking-wide text-stone-500 dark:bg-[var(--bg-muted)]/70 dark:text-stone-400">
             <tr>
               <th scope="col" className="px-4 py-2 font-medium">Year</th>
               <th scope="col" className="px-4 py-2 font-medium">Confidence</th>

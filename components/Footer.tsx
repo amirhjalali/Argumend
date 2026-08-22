@@ -6,7 +6,7 @@ export function Footer() {
   const visibleFooterColumns = footerColumns.filter((column) => column.links.length > 0);
 
   return (
-    <footer className="bg-[#f4f1eb] dark:bg-[#1a1917] border-t border-stone-200 dark:border-[#3d3a36]" role="contentinfo">
+    <footer className="bg-[#f4f1eb] dark:bg-[var(--bg-canvas)] border-t border-stone-200 dark:border-[var(--border-divider)]" role="contentinfo">
       <div className="mx-auto max-w-6xl px-6 py-12">
         {/* Top section: logo + tagline, with newsletter capture */}
         <div className="mb-10 grid gap-8 md:grid-cols-2 md:items-start">
@@ -53,7 +53,7 @@ export function Footer() {
         </nav>
 
         {/* Bottom bar */}
-        <div className="mt-10 flex items-center justify-between border-t border-stone-200 dark:border-[#3d3a36] pt-6">
+        <div className="mt-10 flex items-center justify-between border-t border-stone-200 dark:border-[var(--border-divider)] pt-6">
           <p className="text-xs text-stone-500 dark:text-stone-400">
             &copy; 2026 Argumend. Built with stubbornness and peer review.
           </p>
@@ -61,7 +61,7 @@ export function Footer() {
             href="https://github.com/amirhjalali/Argumend"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-800 dark:hover:bg-[#302e2a] dark:hover:text-stone-200"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-800 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
             aria-label="Argumend on GitHub"
           >
             <svg

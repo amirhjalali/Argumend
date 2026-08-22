@@ -92,7 +92,7 @@ export function NavigationPath() {
               onClick={() => handleNodeClick(item.id)}
               aria-label={`Navigate to: ${item.title}`}
               aria-current={index === path.length - 1 ? "location" : undefined}
-              className="group flex items-center gap-1.5 rounded-md px-2 py-1 text-xs transition-all hover:bg-stone-200 dark:hover:bg-[#302e2a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep"
+              className="group flex items-center gap-1.5 rounded-md px-2 py-1 text-xs transition-all hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep"
             >
               <div
                 className="h-2 w-2 rounded-full flex-shrink-0"

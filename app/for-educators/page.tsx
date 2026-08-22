@@ -254,7 +254,7 @@ export default function ForEducatorsPage() {
             </Link>
             <Link
               href="/topics"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-stone-300 px-5 py-2.5 text-sm font-medium text-stone-700 transition-colors hover:bg-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:border-[#3d3a36] dark:text-stone-300 dark:hover:bg-[#252420]"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-stone-300 px-5 py-2.5 text-sm font-medium text-stone-700 transition-colors hover:bg-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:border-[var(--border-divider)] dark:text-stone-300 dark:hover:bg-[var(--bg-card)]"
             >
               Browse classroom topics
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -284,7 +284,7 @@ export default function ForEducatorsPage() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-[#fefcf9] dark:bg-[#252420] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[#3d3a36]"
+                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[var(--border-divider)]"
               >
                 <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">
                   {benefit.title}
@@ -311,7 +311,7 @@ export default function ForEducatorsPage() {
             {lessonPlans.map((plan) => (
               <div
                 key={plan.number}
-                className="bg-[#fefcf9] dark:bg-[#252420] rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-5 md:p-6"
+                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-5 md:p-6"
               >
                 <div className="flex items-baseline gap-3 mb-1">
                   <span className="font-mono text-sm font-bold text-muted dark:text-stone-400">{plan.number}</span>
@@ -349,7 +349,7 @@ export default function ForEducatorsPage() {
             {worksheets.map((ws) => (
               <div
                 key={ws.id}
-                className="bg-[#fefcf9] dark:bg-[#252420] rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-5 md:p-6 flex flex-col"
+                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-5 md:p-6 flex flex-col"
               >
                 <div className="flex items-start gap-3 mb-3">
                   <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
@@ -389,7 +389,7 @@ export default function ForEducatorsPage() {
             {gradeLevels.map((level) => (
               <div
                 key={level.label}
-                className="bg-[#fefcf9] dark:bg-[#252420] rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-5 md:p-6"
+                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-5 md:p-6"
               >
                 <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 mb-1">
                   {level.label}
@@ -428,7 +428,7 @@ export default function ForEducatorsPage() {
             {subjects.map((subject) => (
               <div
                 key={subject.label}
-                className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36]"
+                className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-divider)]"
               >
                 <h3 className="font-semibold text-primary dark:text-stone-200 mb-1">
                   {subject.label}
@@ -463,7 +463,7 @@ export default function ForEducatorsPage() {
           </Link>
           <Link
             href="/how-it-works"
-            className="inline-flex items-center px-6 py-3 rounded-lg border border-stone-300 dark:border-[#3d3a36] text-stone-600 dark:text-stone-400 hover:border-deep/30 text-sm font-medium hover:bg-white/60 dark:hover:bg-[#302e2a] transition-colors"
+            className="inline-flex items-center px-6 py-3 rounded-lg border border-stone-300 dark:border-[var(--border-divider)] text-stone-600 dark:text-stone-400 hover:border-deep/30 text-sm font-medium hover:bg-white/60 dark:hover:bg-[var(--bg-muted)] transition-colors"
           >
             How it works
           </Link>

@@ -20,7 +20,7 @@ export default function EmbedLayout({
 }) {
   return (
     <div
-      className="min-h-0 bg-canvas text-primary dark:text-stone-200 dark:bg-[#1a1917]"
+      className="min-h-0 bg-canvas text-primary dark:text-stone-200 dark:bg-[var(--bg-canvas)]"
       style={{ colorScheme: "light dark" }}
     >
       {children}

@@ -379,6 +379,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
                     aria-label="Minimum balance"
                     className="h-11 flex-1 cursor-pointer bg-transparent accent-deep"
                   />
+                  <span className="w-9 text-right font-mono text-[11px] text-stone-700 dark:text-stone-300">{minBalance}%</span>
                 </label>
                 <label className="flex items-center gap-3 text-xs text-stone-500">
                   <span className="w-7">Max</span>
@@ -391,6 +392,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
                     aria-label="Maximum balance"
                     className="h-11 flex-1 cursor-pointer bg-transparent accent-deep"
                   />
+                  <span className="w-9 text-right font-mono text-[11px] text-stone-700 dark:text-stone-300">{maxBalance}%</span>
                 </label>
               </fieldset>
             </div>
@@ -443,7 +445,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
               {search && (
                 <button
                   onClick={clearSearch}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-11 w-11 rounded-lg text-muted dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-[#302e2a] hover:text-stone-600"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-11 w-11 rounded-lg text-muted dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] hover:text-stone-600"
                   aria-label="Clear search"
                 >
                   <X className="h-4 w-4" />
@@ -548,7 +550,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
             {hasFilters && (
               <button
                 onClick={clearFilters}
-                className="flex min-h-11 items-center gap-1.5 rounded-lg px-2 text-xs font-medium text-stone-500 hover:bg-stone-100 hover:text-stone-600 transition-colors dark:hover:bg-[#302e2a]"
+                className="flex min-h-11 items-center gap-1.5 rounded-lg px-2 text-xs font-medium text-stone-500 hover:bg-stone-100 hover:text-stone-600 transition-colors dark:hover:bg-[var(--bg-muted)]"
               >
                 <X className="h-3.5 w-3.5" />
                 Clear filters
@@ -599,9 +601,10 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
                       {topic.meta_claim}
                     </p>
 
-                    {/* Balance + weight */}
+                    {/* Balance + weight (verdict word omitted — the status pill
+                        below already carries the label; glyphs stay for signal) */}
                     <div className="flex items-center justify-between gap-2.5 mb-3">
-                      <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
+                      <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} />
                     </div>
 
                     {/* Footer: pills + pillar count */}

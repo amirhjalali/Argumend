@@ -17,7 +17,7 @@ export function ThemeToggle() {
   if (!mounted) {
     // Render a placeholder with the same dimensions to avoid layout shift
     return (
-      <div className="flex items-center gap-0.5 p-1 rounded-lg bg-stone-100 dark:bg-[#252420]">
+      <div className="flex items-center gap-0.5 p-1 rounded-lg bg-stone-100 dark:bg-[var(--bg-card)]">
         <div className="h-11 w-11 rounded-md" />
         <div className="h-11 w-11 rounded-md" />
         <div className="h-11 w-11 rounded-md" />
@@ -33,7 +33,7 @@ export function ThemeToggle() {
 
   return (
     <div
-      className="flex items-center gap-0.5 p-1 rounded-lg bg-stone-100 dark:bg-[#252420]"
+      className="flex items-center gap-0.5 p-1 rounded-lg bg-stone-100 dark:bg-[var(--bg-card)]"
       role="radiogroup"
       aria-label="Color theme"
     >

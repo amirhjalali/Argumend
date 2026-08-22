@@ -18,13 +18,13 @@ export function ExchangeCard({
   const contentId = useId();
 
   return (
-    <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-[#e8e0d4] dark:border-[#3d3a36] overflow-hidden hover:shadow-md transition-all duration-200">
+    <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border border-[#e8e0d4] dark:border-[var(--border-divider)] overflow-hidden hover:shadow-md transition-all duration-200">
       <button
         type="button"
         onClick={() => setIsExpanded((expanded) => !expanded)}
         aria-expanded={isExpanded}
         aria-controls={contentId}
-        className="w-full p-5 text-left hover:bg-[#faf8f5] dark:hover:bg-[#302e2a] transition-colors"
+        className="w-full p-5 text-left hover:bg-[#faf8f5] dark:hover:bg-[var(--bg-muted)] transition-colors"
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
@@ -40,7 +40,7 @@ export function ExchangeCard({
               {lesson}
             </p>
           </div>
-          <div className="flex-shrink-0 p-2 rounded-lg bg-[#f5f1ea] dark:bg-[#302e2a] border border-[#e8e0d4] dark:border-[#3d3a36]">
+          <div className="flex-shrink-0 p-2 rounded-lg bg-[#f5f1ea] dark:bg-[var(--bg-muted)] border border-[#e8e0d4] dark:border-[var(--border-divider)]">
             {isExpanded ? (
               <ChevronUp aria-hidden="true" className="h-4 w-4 text-secondary dark:text-stone-400" />
             ) : (
@@ -53,7 +53,7 @@ export function ExchangeCard({
       <div
         id={contentId}
         hidden={!isExpanded}
-        className="border-t border-[#e8e0d4] dark:border-[#3d3a36]"
+        className="border-t border-[#e8e0d4] dark:border-[var(--border-divider)]"
       >
         {children}
       </div>

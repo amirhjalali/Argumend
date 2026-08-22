@@ -433,7 +433,7 @@ function RenderGrid({
                 <th
                   key={col}
                   scope="col"
-                  className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[#302e2a]"
+                  className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[var(--bg-muted)]"
                 >
                   {col}
                 </th>
@@ -498,7 +498,7 @@ function RenderTable({
                 <th
                   key={col}
                   scope="col"
-                  className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[#302e2a]"
+                  className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-left text-sm font-semibold bg-stone-100 dark:bg-[var(--bg-muted)]"
                 >
                   {col}
                 </th>
@@ -590,7 +590,7 @@ export default async function WorksheetPage({ params }: PageProps) {
       `}</style>
 
       {/* Navigation bar (hidden when printing) */}
-      <nav aria-label="Worksheet controls" className="worksheet-nav bg-[#f4f1eb] dark:bg-[#121210] border-b border-stone-200 dark:border-[#3d3a36] px-4 py-2.5">
+      <nav aria-label="Worksheet controls" className="worksheet-nav bg-[#f4f1eb] dark:bg-[#121210] border-b border-stone-200 dark:border-[var(--border-divider)] px-4 py-2.5">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Link
             href="/for-educators"
@@ -638,7 +638,7 @@ export default async function WorksheetPage({ params }: PageProps) {
         </div>
 
         {/* Instructions */}
-        <div className="worksheet-instructions mb-8 bg-stone-50 dark:bg-[#252420] border border-stone-200 dark:border-[#3d3a36] rounded-lg p-4">
+        <div className="worksheet-instructions mb-8 bg-stone-50 dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-divider)] rounded-lg p-4">
           <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
             Instructions
           </p>

@@ -491,10 +491,23 @@ html {
   box-shadow: 0 1px 4px rgba(120, 100, 80, 0.08) !important;
 }
 
+.dark .logic-minimap {
+  border-color: #3d3a36 !important;
+  background: #201f1c !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35) !important;
+}
+
 .logic-minimap .react-flow__minimap-mask {
   fill: rgba(245, 245, 244, 0.7) !important;
   stroke: #d6d3d1;
   stroke-width: 1px;
+}
+
+/* The stylesheet forces a light mask with !important, so the component's
+   theme-aware maskColor prop can never win on its own — mirror it here. */
+.dark .logic-minimap .react-flow__minimap-mask {
+  fill: rgba(26, 25, 23, 0.78) !important;
+  stroke: #3d3a36;
 }
 
 .logic-minimap .react-flow__minimap-node {

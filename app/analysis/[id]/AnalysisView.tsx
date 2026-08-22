@@ -117,7 +117,7 @@ function StrengthBadge({ score }: { score: number }) {
   const styles = {
     strong: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/50",
     moderate: "bg-deep/10 text-deep border-deep/20",
-    weak: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 border-stone-200 dark:border-[#3d3a36]",
+    weak: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 border-stone-200 dark:border-[var(--border-divider)]",
     unsupported: "bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400 border-red-100 dark:border-red-800/40",
   };
 
@@ -221,7 +221,7 @@ function ConfidenceExplainer({ score }: { score: number }) {
   const colorMap = {
     "very-high": "border-emerald-200 dark:border-emerald-800/50 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300",
     "high": "border-emerald-200/60 dark:border-emerald-800/40 bg-emerald-50/50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400",
-    "moderate": "border-stone-200 dark:border-[#3d3a36] bg-stone-50 dark:bg-[var(--bg-overlay)] text-stone-700 dark:text-stone-300",
+    "moderate": "border-stone-200 dark:border-[var(--border-divider)] bg-stone-50 dark:bg-[var(--bg-overlay)] text-stone-700 dark:text-stone-300",
     "low": "border-red-200/60 dark:border-red-800/40 bg-red-50/50 dark:bg-red-900/20 text-red-700 dark:text-red-400",
     "very-low": "border-red-200 dark:border-red-800/50 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300",
   };
@@ -235,7 +235,7 @@ function ConfidenceExplainer({ score }: { score: number }) {
 }
 
 function BiasCard({ bias }: { bias: DetectedBias }) {
-  const impactColor = bias.impact >= 7 ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800/40" : bias.impact >= 4 ? "text-stone-600 dark:text-stone-400 bg-stone-50 dark:bg-[var(--bg-overlay)] border-stone-200 dark:border-[#3d3a36]" : "text-stone-500 dark:text-stone-400 bg-stone-50/50 dark:bg-[var(--bg-overlay)] border-stone-100 dark:border-[#3d3a36]";
+  const impactColor = bias.impact >= 7 ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800/40" : bias.impact >= 4 ? "text-stone-600 dark:text-stone-400 bg-stone-50 dark:bg-[var(--bg-overlay)] border-stone-200 dark:border-[var(--border-divider)]" : "text-stone-500 dark:text-stone-400 bg-stone-50/50 dark:bg-[var(--bg-overlay)] border-stone-100 dark:border-[var(--border-divider)]";
   const sideLabel = bias.affectedSide === "for" ? "FOR side" : bias.affectedSide === "against" ? "AGAINST side" : "Both sides";
 
   return (
@@ -285,7 +285,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls={detailsId}
-        className="w-full p-4 md:p-5 text-left hover:bg-white/40 dark:hover:bg-[#252420]/40 transition-colors"
+        className="w-full p-4 md:p-5 text-left hover:bg-white/40 dark:hover:bg-[var(--bg-card)]/40 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -332,10 +332,10 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="px-4 md:px-5 pb-4 md:pb-5 border-t border-stone-100 dark:border-[#3d3a36]">
+            <div className="px-4 md:px-5 pb-4 md:pb-5 border-t border-stone-100 dark:border-[var(--border-divider)]">
               <div className="pt-4 space-y-5">
                 {position.arguments.map((arg, idx) => {
-                  const borderAccent = isFor ? "border-rust-200 dark:border-rust-800/50" : "border-stone-300 dark:border-[#3d3a36]";
+                  const borderAccent = isFor ? "border-rust-200 dark:border-rust-800/50" : "border-stone-300 dark:border-[var(--border-divider)]";
                   return (
                     <div key={idx} className={`pl-4 border-l-2 ${borderAccent}`}>
                       <div className="flex items-start justify-between gap-2">
@@ -418,7 +418,7 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
   const severityStyles = {
     confirmed: "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800/50",
     likely: "bg-rust-100 dark:bg-rust-900/30 text-rust-700 dark:text-rust-400 border-rust-200 dark:border-rust-800/50",
-    possible: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 border-stone-200 dark:border-[#3d3a36]",
+    possible: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 border-stone-200 dark:border-[var(--border-divider)]",
   };
 
   const cardStyles = {
@@ -460,7 +460,7 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
           </div>
           <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{fallacy.explanation}</p>
           {fallacy.quote && (
-            <p className="mt-2.5 text-sm text-stone-500 dark:text-stone-400 italic border-l-2 border-stone-300 dark:border-[#3d3a36] pl-3 bg-white/60 dark:bg-[#252420]/60 py-1.5 rounded-r-md">
+            <p className="mt-2.5 text-sm text-stone-500 dark:text-stone-400 italic border-l-2 border-stone-300 dark:border-[var(--border-divider)] pl-3 bg-white/60 dark:bg-[var(--bg-card)]/60 py-1.5 rounded-r-md">
               &ldquo;{fallacy.quote}&rdquo;
             </p>
           )}

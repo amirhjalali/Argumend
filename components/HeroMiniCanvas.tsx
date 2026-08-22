@@ -319,7 +319,7 @@ export default function HeroMiniCanvas({ onClick, title }: HeroMiniCanvasProps) 
 
   return (
     <div
-      className="relative h-[300px] w-full overflow-hidden rounded-2xl border border-stone-200/70 bg-gradient-to-b from-[#faf8f3] to-[#f4f1eb] shadow-[0_2px_12px_rgba(120,100,80,0.08)] dark:border-[#3d3a36] dark:from-[#201f1c] dark:to-[#1a1917]"
+      className="relative h-[300px] w-full overflow-hidden rounded-2xl border border-stone-200/70 bg-gradient-to-b from-[#faf8f3] to-[#f4f1eb] shadow-[0_2px_12px_rgba(120,100,80,0.08)] dark:border-[var(--border-divider)] dark:from-[#201f1c] dark:to-[#1a1917]"
       role="button"
       tabIndex={0}
       aria-label="Open the interactive argument map"
@@ -364,7 +364,7 @@ export default function HeroMiniCanvas({ onClick, title }: HeroMiniCanvasProps) 
         onClick={onClick}
       />
 
-      <span className="pointer-events-none absolute bottom-2.5 right-3 z-20 rounded-full bg-white/70 px-2.5 py-1 text-[10px] font-sans font-medium text-stone-500 backdrop-blur-sm dark:bg-[#1a1917]/70 dark:text-stone-400">
+      <span className="pointer-events-none absolute bottom-2.5 right-3 z-20 rounded-full bg-white/70 px-2.5 py-1 text-[10px] font-sans font-medium text-stone-500 backdrop-blur-sm dark:bg-[var(--bg-canvas)]/70 dark:text-stone-400">
         Live preview &middot; click to explore
       </span>
     </div>

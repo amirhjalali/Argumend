@@ -93,7 +93,7 @@ export function QuestionsSearch({
           <button
             type="button"
             onClick={clearSearch}
-            className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-lg text-muted transition-colors hover:bg-stone-100 hover:text-primary dark:text-stone-400 dark:hover:bg-[#302e2a] dark:hover:text-stone-200"
+            className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-lg text-muted transition-colors hover:bg-stone-100 hover:text-primary dark:text-stone-400 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
             aria-label="Clear question search"
           >
             <X className="h-4 w-4" aria-hidden="true" />
@@ -140,7 +140,7 @@ export function QuestionsSearch({
                   <li key={q.slug}>
                     <Link
                       href={`/questions/${q.slug}`}
-                      className="block min-h-11 rounded-md px-3 py-2 font-sans text-stone-900 transition-colors hover:bg-stone-100/70 hover:text-deep dark:text-stone-200 dark:hover:bg-[#302e2a] dark:hover:text-teal-300"
+                      className="block min-h-11 rounded-md px-3 py-2 font-sans text-stone-900 transition-colors hover:bg-stone-100/70 hover:text-deep dark:text-stone-200 dark:hover:bg-[var(--bg-muted)] dark:hover:text-teal-300"
                     >
                       <span className="block">{q.question}</span>
                       <span className="block font-sans text-xs text-muted dark:text-stone-400">

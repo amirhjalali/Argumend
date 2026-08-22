@@ -79,7 +79,7 @@ export default function LibraryPage() {
               A quick shelf of {libraryTopicSampler.length} maps—three from each
               category. The complete catalog contains {TOPIC_COUNT} topics.
             </p>
-            <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden shadow-card">
+            <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden shadow-card">
               <table className="w-full">
                 <caption className="sr-only">
                   Sample argument maps with category, map size, evidence balance, and evidential weight
@@ -93,7 +93,7 @@ export default function LibraryPage() {
                 </thead>
                 <tbody className="divide-y divide-stone-200/60 dark:divide-[var(--border-default)]">
                   {libraryTopicSampler.map((topic) => (
-                    <tr key={topic.id} className="hover:bg-[#faf8f5] dark:hover:bg-[#302e2a] transition-colors">
+                    <tr key={topic.id} className="hover:bg-[#faf8f5] dark:hover:bg-[var(--bg-muted)] transition-colors">
                       <td className="px-5 py-3.5 text-sm md:text-base">
                         <Link href={`/topics/${topic.id}`} className="inline-flex min-h-11 items-center font-medium text-primary dark:text-stone-200 hover:text-deep dark:hover:text-[#9bc7c3] transition-colors">
                           {topic.title}
@@ -184,7 +184,7 @@ export default function LibraryPage() {
                             href={resource.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`group relative flex items-start gap-4 bg-white/80 dark:bg-[#252420]/80 rounded-xl px-5 py-4 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 ${presentation.animate ? "animate-card-fade-in" : ""} ${shelf.hoverBorder}`}
+                            className={`group relative flex items-start gap-4 bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl px-5 py-4 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 ${presentation.animate ? "animate-card-fade-in" : ""} ${shelf.hoverBorder}`}
                             style={presentation.style}
                           >
                             <div
@@ -223,7 +223,7 @@ export default function LibraryPage() {
           </section>
 
           {/* Explore CTA */}
-          <section className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 text-center mb-16 md:mb-24">
+          <section className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 text-center mb-16 md:mb-24">
             <h2 className="font-serif text-xl text-primary dark:text-stone-200 mb-2">
               Ready to dig deeper?
             </h2>
@@ -240,7 +240,7 @@ export default function LibraryPage() {
               </Link>
               <Link
                 href="/guides"
-                className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary dark:text-stone-200 text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[#302e2a] transition-all duration-200"
+                className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary dark:text-stone-200 text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] transition-all duration-200"
               >
                 Browse Guides
                 <ArrowRight className="h-3.5 w-3.5" />

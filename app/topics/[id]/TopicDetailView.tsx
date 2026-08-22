@@ -275,7 +275,7 @@ function CruxCard({ crux }: { crux: Crux }) {
           <span className="text-xs font-medium text-stone-500 uppercase tracking-widest">
             Methodology
           </span>
-          <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed mt-1.5 bg-white/60 dark:bg-[#252420]/60 rounded-lg p-4 border border-stone-200/50 dark:border-[#3d3a36] font-mono text-[13px] break-words">
+          <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed mt-1.5 bg-white/60 dark:bg-[var(--bg-card)]/60 rounded-lg p-4 border border-stone-200/50 dark:border-[var(--border-divider)] font-mono text-[13px] break-words">
             {crux.methodology}
           </p>
         </div>
@@ -386,7 +386,7 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
 
   return (
     <div
-      className={`group flex flex-col bg-white dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 card-hover`}
+      className={`group flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-divider)] border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 card-hover`}
     >
       <Link href={`/topics/${topic.id}`} className="block mb-1.5">
         <h3 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug">
@@ -423,7 +423,7 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
       </div>
 
       {/* Action links */}
-      <div className="flex items-center gap-3 pt-2 border-t border-stone-100 dark:border-[#3d3a36]">
+      <div className="flex items-center gap-3 pt-2 border-t border-stone-100 dark:border-[var(--border-divider)]">
         <Link
           href={`/topics/${topic.id}`}
           className="inline-flex items-center gap-1 min-h-[44px] py-2 -my-2 text-xs font-medium text-deep hover:text-deep-dark active:text-deep-dark transition-colors"
@@ -465,7 +465,7 @@ function QuickStatsBar({ topic }: { topic: Topic }) {
   );
 
   return (
-    <div className="rounded-xl border border-stone-200/60 dark:border-[#3d3a36] bg-white/60 dark:bg-[#252420]/60 p-4 mb-8">
+    <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] bg-white/60 dark:bg-[var(--bg-card)]/60 p-4 mb-8">
       <div className="flex flex-wrap items-center gap-4">
         {/* Verification breakdown */}
         <div className="flex items-center gap-2.5">
@@ -525,7 +525,7 @@ function CopyLinkButton({ url }: { url: string }) {
       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
         copied
           ? "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-700/40"
-          : "bg-white dark:bg-[#252420] text-stone-600 dark:text-stone-300 border border-stone-200/60 dark:border-[#3d3a36] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-300 dark:hover:border-[#4a4640]"
+          : "bg-white dark:bg-[var(--bg-card)] text-stone-600 dark:text-stone-300 border border-stone-200/60 dark:border-[var(--border-divider)] hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] hover:border-stone-300 dark:hover:border-[#4a4640]"
       }`}
     >
       {copied ? (
@@ -587,7 +587,7 @@ function ExploreMoreSection() {
             <Link
               key={card.href}
               href={card.href}
-              className="group flex flex-col rounded-xl border border-stone-200/60 dark:border-[#3d3a36] bg-white dark:bg-[#252420] p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+              className="group flex flex-col rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] bg-white dark:bg-[var(--bg-card)] p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
             >
               <div className="flex items-center gap-2.5 mb-3">
                 <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
@@ -625,7 +625,7 @@ function DebateMessageBubble({ message }: { message: DebateMessage }) {
     <div className="relative">
       {message.side === "for" && (
         <div className="flex justify-center mb-4">
-          <div className="px-3 py-1 bg-stone-100/80 dark:bg-[#302e2a] rounded-full border border-stone-200/50 dark:border-[#3d3a36]">
+          <div className="px-3 py-1 bg-stone-100/80 dark:bg-[var(--bg-muted)] rounded-full border border-stone-200/50 dark:border-[var(--border-divider)]">
             <span className="text-xs font-medium text-stone-500 tracking-wider uppercase">
               Round {message.round}
             </span>
@@ -701,8 +701,8 @@ function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicT
 
   if (!hasDebate) {
     return (
-      <section id="ai-debate" className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-[#302e2a] rounded-full text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider border border-stone-200/50 dark:border-[#3d3a36] mb-4">
+      <section id="ai-debate" className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-[var(--bg-muted)] rounded-full text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider border border-stone-200/50 dark:border-[var(--border-divider)] mb-4">
           <Swords className="h-3.5 w-3.5" />
           AI Debate
         </div>
@@ -738,10 +738,10 @@ function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicT
   const visibleMessages = expanded ? messages : messages.filter((m) => m.round === 1);
 
   return (
-    <section id="ai-debate" className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
+    <section id="ai-debate" className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8">
       {/* Header */}
       <div className="text-center mb-6">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-[#302e2a] rounded-full text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider border border-stone-200/50 dark:border-[#3d3a36] mb-4">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-[var(--bg-muted)] rounded-full text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider border border-stone-200/50 dark:border-[var(--border-divider)] mb-4">
           <Swords className="h-3.5 w-3.5" />
           AI Debate
         </div>
@@ -794,7 +794,7 @@ function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicT
         <div className="flex justify-center mt-6">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-200 dark:border-[#3d3a36] bg-white dark:bg-[#252420] text-sm font-medium text-stone-600 dark:text-stone-300 hover:border-stone-300 dark:hover:border-[#4a4640] hover:bg-stone-50 dark:hover:bg-[#302e2a] transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-200 dark:border-[var(--border-divider)] bg-white dark:bg-[var(--bg-card)] text-sm font-medium text-stone-600 dark:text-stone-300 hover:border-stone-300 dark:hover:border-[#4a4640] hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] transition-all"
           >
             {expanded ? (
               <>Show Round 1 only</>
@@ -810,7 +810,7 @@ function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicT
 
       {/* Judge Council Verdict */}
       {verdict && (
-        <div className="mt-8 pt-6 border-t border-stone-200/60 dark:border-[#3d3a36]">
+        <div className="mt-8 pt-6 border-t border-stone-200/60 dark:border-[var(--border-divider)]">
           <JudgingResults result={verdict} topicTitle={topicTitle} topicId={topicId} />
         </div>
       )}
@@ -853,7 +853,7 @@ function DepthSelector({
       <span className="text-xs font-medium text-stone-500 tracking-wide mr-1">
         Reading depth
       </span>
-      <div className="inline-flex bg-stone-100 dark:bg-[#252420] rounded-xl p-1 gap-0.5">
+      <div className="inline-flex bg-stone-100 dark:bg-[var(--bg-card)] rounded-xl p-1 gap-0.5">
         {DEPTH_OPTIONS.map(({ id, label, description, icon: Icon }) => (
           <button
             key={id}
@@ -861,7 +861,7 @@ function DepthSelector({
             className={`relative flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium transition-all duration-200 ${
               depth === id
                 ? "bg-deep text-white shadow-sm"
-                : "bg-transparent text-stone-500 hover:text-stone-700 dark:hover:text-stone-300 hover:bg-white/60 dark:hover:bg-[#302e2a]"
+                : "bg-transparent text-stone-500 hover:text-stone-700 dark:hover:text-stone-300 hover:bg-white/60 dark:hover:bg-[var(--bg-muted)]"
             }`}
             title={description}
           >
@@ -981,7 +981,7 @@ export default function TopicDetailView({
 
           {/* Hero */}
           <AnimateOnScroll variant="fade-up" duration={700}>
-          <header className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
+          <header className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8">
             <div className="flex flex-wrap items-center gap-2 mb-4">
               {/* Category pill */}
               <span
@@ -1102,14 +1102,14 @@ export default function TopicDetailView({
 
           {/* ── Scan View ── */}
           <AnimateOnScroll variant="fade-up" delay={100}>
-          <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8">
             {/* Section label */}
             <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-5">
               30-Second Summary
             </p>
 
             {/* Part A: Verdict Banner */}
-            <div className="relative rounded-xl bg-gradient-to-br from-stone-50 via-[#faf8f5] to-stone-100/60 dark:from-[#1a1916] dark:via-[#201f1c] dark:to-[#252420] border border-stone-200/50 dark:border-[#3d3a36] px-6 py-8 mb-8 text-center overflow-hidden">
+            <div className="relative rounded-xl bg-gradient-to-br from-stone-50 via-[#faf8f5] to-stone-100/60 dark:from-[#1a1916] dark:via-[#201f1c] dark:to-[#252420] border border-stone-200/50 dark:border-[var(--border-divider)] px-6 py-8 mb-8 text-center overflow-hidden">
               {/* Decorative corner accents */}
               <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#4f7b77]/20 rounded-tl-xl" />
               <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#4f7b77]/20 rounded-br-xl" />
@@ -1146,7 +1146,7 @@ export default function TopicDetailView({
                   <a
                     key={pillar.id}
                     href="#pillars"
-                    className="group relative rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-gradient-to-br from-white/80 to-stone-50/40 dark:from-[#252420]/80 dark:to-[#1a1916]/40 p-4 pl-5 hover:border-deep/30 hover:shadow-md transition-all no-underline card-hover"
+                    className="group relative rounded-lg border border-stone-200/60 dark:border-[var(--border-divider)] bg-gradient-to-br from-white/80 to-stone-50/40 dark:from-[#252420]/80 dark:to-[#1a1916]/40 p-4 pl-5 hover:border-deep/30 hover:shadow-md transition-all no-underline card-hover"
                   >
                     {/* Left accent border */}
                     <div className="absolute left-0 top-3 bottom-3 w-1 rounded-full bg-[#4f7b77]/30 group-hover:bg-[#4f7b77]/60 transition-colors" />
@@ -1240,7 +1240,7 @@ export default function TopicDetailView({
           </AnimateOnScroll>
 
           {/* ── Where Do You Stand? ── (2m+) */}
-          {depth !== "30s" && <AnimateOnScroll variant="fade-up" delay={50}><section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8 overflow-hidden">
+          {depth !== "30s" && <AnimateOnScroll variant="fade-up" delay={50}><section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8 overflow-hidden">
             {/* Part 1: The Prompt */}
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300/50 to-transparent" />
@@ -1276,8 +1276,8 @@ export default function TopicDetailView({
                 onClick={() => setStance("unsure")}
                 className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg text-[15px] font-medium transition-all ${
                   stance === "unsure"
-                    ? "bg-stone-100 dark:bg-[#302e2a] text-primary dark:text-stone-200 ring-2 ring-offset-2 ring-stone-400/50 border border-stone-300 dark:border-[#4a4640] shadow-md scale-[1.02]"
-                    : "bg-white dark:bg-[#252420] text-primary dark:text-stone-200 border-2 border-stone-300 dark:border-[#3d3a36] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640]"
+                    ? "bg-stone-100 dark:bg-[var(--bg-muted)] text-primary dark:text-stone-200 ring-2 ring-offset-2 ring-stone-400/50 border border-stone-300 dark:border-[#4a4640] shadow-md scale-[1.02]"
+                    : "bg-white dark:bg-[var(--bg-card)] text-primary dark:text-stone-200 border-2 border-stone-300 dark:border-[var(--border-divider)] hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] hover:border-stone-400 dark:hover:border-[#4a4640]"
                 }`}
               >
                 <HelpCircle className="h-4 w-4" />
@@ -1390,7 +1390,7 @@ export default function TopicDetailView({
           {/* Meta Claim Expanded (2m+) */}
           {depth !== "30s" && (
             <AnimateOnScroll variant="fade-up" delay={50}>
-            <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
+            <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
                 The Claim
               </h2>
@@ -1414,7 +1414,7 @@ export default function TopicDetailView({
           {/* Pillars (2m+) */}
           {depth !== "30s" && (
             <AnimateOnScroll variant="fade-up" delay={50}>
-            <section id="pillars" className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
+            <section id="pillars" className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
                 Argument Pillars
               </h2>
@@ -1494,7 +1494,7 @@ export default function TopicDetailView({
           {/* References (5m only) */}
           {depth === "5m" && topic.references && topic.references.length > 0 && (
             <AnimateOnScroll variant="fade-up" delay={50}>
-            <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
+            <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
                 References
               </h2>
@@ -1519,7 +1519,7 @@ export default function TopicDetailView({
 
           {/* CTA */}
           <AnimateOnScroll variant="fade-up" delay={50}>
-          <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8 text-center">
+          <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8 text-center">
             <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
               Explore interactively
             </h2>
@@ -1547,7 +1547,7 @@ export default function TopicDetailView({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8"
+                className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8"
               >
                 <p className="text-xs font-medium text-stone-500 uppercase tracking-widest mb-2">
                   Historical Context
@@ -1575,7 +1575,7 @@ export default function TopicDetailView({
           {/* FAQ Section */}
           {topic.questions && topic.questions.length > 0 && (
             <AnimateOnScroll variant="fade-up" delay={100}>
-            <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-6 sm:p-8 mb-8">
+            <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 sm:p-8 mb-8">
               <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-2">
                 Frequently Asked Questions
               </h2>
@@ -1586,7 +1586,7 @@ export default function TopicDetailView({
                 {topic.questions.map((q) => (
                   <details
                     key={q.id}
-                    className="group rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#1a1916] overflow-hidden transition-colors hover:border-deep/20"
+                    className="group rounded-lg border border-stone-200/60 dark:border-[var(--border-divider)] bg-[#faf8f5] dark:bg-[#1a1916] overflow-hidden transition-colors hover:border-deep/20"
                   >
                     <summary className="flex items-center gap-3 cursor-pointer px-5 py-4 text-sm font-medium text-primary dark:text-stone-200 select-none list-none [&::-webkit-details-marker]:hidden">
                       <ChevronRight className="h-4 w-4 text-muted dark:text-stone-400 group-open:rotate-90 transition-transform duration-200 flex-shrink-0" />
@@ -1687,7 +1687,7 @@ export default function TopicDetailView({
 
           {/* Methodology & Educator Callouts */}
           <section className="mb-8 space-y-3">
-            <div className="flex items-start gap-3 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-stone-50/50 dark:bg-[#1a1916]/50 px-5 py-4">
+            <div className="flex items-start gap-3 rounded-lg border border-stone-200/60 dark:border-[var(--border-divider)] bg-stone-50/50 dark:bg-[#1a1916]/50 px-5 py-4">
               <Scale className="h-4 w-4 text-deep mt-0.5 flex-shrink-0" />
               <p className="text-sm text-stone-500 leading-relaxed">
                 <span className="font-medium text-stone-600">How we analyze:</span>{" "}
@@ -1698,7 +1698,7 @@ export default function TopicDetailView({
                 explains how arguments are structured and evidence is weighted.
               </p>
             </div>
-            <div className="flex items-start gap-3 rounded-lg border border-stone-200/60 dark:border-[#3d3a36] bg-stone-50/50 dark:bg-[#1a1916]/50 px-5 py-4">
+            <div className="flex items-start gap-3 rounded-lg border border-stone-200/60 dark:border-[var(--border-divider)] bg-stone-50/50 dark:bg-[#1a1916]/50 px-5 py-4">
               <GraduationCap className="h-4 w-4 text-deep mt-0.5 flex-shrink-0" />
               <p className="text-sm text-stone-500 leading-relaxed">
                 <span className="font-medium text-stone-600">Teaching this topic?</span>{" "}
@@ -1716,7 +1716,7 @@ export default function TopicDetailView({
           </AnimateOnScroll>
 
           {/* Share CTA */}
-          <div className="mt-12 p-6 rounded-xl bg-[#faf8f5] dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] text-center mb-8">
+          <div className="mt-12 p-6 rounded-xl bg-[#faf8f5] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-divider)] text-center mb-8">
             <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">Found this analysis useful?</h3>
             <p className="text-secondary dark:text-stone-400 text-sm mb-4">Share it with someone who might see things differently.</p>
             <div className="flex items-center justify-center gap-3">
@@ -1739,7 +1739,7 @@ export default function TopicDetailView({
           </div>
 
           {/* Footer */}
-          <div className="pt-6 border-t border-stone-200/60 dark:border-[#3d3a36]">
+          <div className="pt-6 border-t border-stone-200/60 dark:border-[var(--border-divider)]">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <Link
                 href="/topics"

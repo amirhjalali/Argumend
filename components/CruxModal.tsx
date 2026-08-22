@@ -59,7 +59,7 @@ export function CruxModal() {
                                 <h2 id="crux-modal-title" className="mt-2 font-serif text-lg md:text-xl font-bold tracking-tight text-primary dark:text-stone-200">
                                     {selectedCrux.title}
                                 </h2>
-                                <p className="mt-1 font-serif text-base italic text-stone-500 dark:text-[#8a8279]">
+                                <p className="mt-1 font-serif text-base italic text-stone-500 dark:text-[var(--text-muted)]">
                                     from &ldquo;{selectedCrux.pillarTitle}&rdquo;
                                 </p>
                             </div>
@@ -79,11 +79,11 @@ export function CruxModal() {
                                 <section className="space-y-4">
                                     <div className="flex items-center gap-3 border-b border-stone-200/60 dark:border-[var(--border-default)] pb-2">
                                         <Scale className="h-4 w-4 text-deep" strokeWidth={1.5} />
-                                        <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[#8a8279]">
+                                        <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[var(--text-muted)]">
                                             The Question
                                         </span>
                                     </div>
-                                    <p id="crux-modal-description" className="font-serif text-base leading-relaxed text-stone-600 dark:text-[#b0a99f]">
+                                    <p id="crux-modal-description" className="font-serif text-base leading-relaxed text-stone-600 dark:text-[var(--text-secondary)]">
                                         {selectedCrux.description}
                                     </p>
                                 </section>
@@ -91,11 +91,11 @@ export function CruxModal() {
                                 <section className="space-y-4">
                                     <div className="flex items-center gap-3 border-b border-stone-200/60 dark:border-[var(--border-default)] pb-2">
                                         <ScrollText className="h-4 w-4 text-deep" strokeWidth={1.5} />
-                                        <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[#8a8279]">
+                                        <span className="text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[var(--text-muted)]">
                                             The Method
                                         </span>
                                     </div>
-                                    <p className="font-serif text-base leading-relaxed text-stone-600 dark:text-[#b0a99f]">
+                                    <p className="font-serif text-base leading-relaxed text-stone-600 dark:text-[var(--text-secondary)]">
                                         {selectedCrux.methodology}
                                     </p>
                                 </section>
@@ -106,7 +106,7 @@ export function CruxModal() {
                                     <p className="mb-3 text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500">
                                         Mathematical Form
                                     </p>
-                                    <div className="flex items-center justify-center rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/80 dark:bg-[#252420]/80 py-6">
+                                    <div className="flex items-center justify-center rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/80 dark:bg-[var(--bg-card)]/80 py-6">
                                         <span className="font-serif text-lg text-primary dark:text-stone-200">
                                             <InlineMath math={selectedCrux.equation} />
                                         </span>
@@ -116,7 +116,7 @@ export function CruxModal() {
 
                             <div className="mt-8 grid grid-cols-2 gap-4">
                                 <div className="rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#f4f1eb]/50 dark:bg-[var(--bg-muted)]/50 p-5 text-center">
-                                    <p className="mb-2 text-[10px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[#8a8279]">
+                                    <p className="mb-2 text-[10px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[var(--text-muted)]">
                                         Verification Status
                                     </p>
                                     <p className="font-serif text-xl font-bold capitalize text-stone-700">
@@ -124,7 +124,7 @@ export function CruxModal() {
                                     </p>
                                 </div>
                                 <div className="rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#f4f1eb]/50 dark:bg-[var(--bg-muted)]/50 p-5 text-center">
-                                    <p className="mb-2 text-[10px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[#8a8279]">
+                                    <p className="mb-2 text-[10px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[var(--text-muted)]">
                                         Cost to Verify
                                     </p>
                                     <p className="font-serif text-xl font-bold text-rust-600">

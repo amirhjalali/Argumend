@@ -34,7 +34,7 @@ function WeightBar({
     <div className="flex items-center gap-3 text-xs" role="group" aria-label={`${label}: ${value} out of ${max}`}>
       <span className="w-28 text-stone-500 font-medium">{label}</span>
       <div
-        className="flex-1 h-2 bg-stone-100 dark:bg-[#302e2a] rounded-full overflow-hidden shadow-inner"
+        className="flex-1 h-2 bg-stone-100 dark:bg-[var(--bg-muted)] rounded-full overflow-hidden shadow-inner"
         role="meter"
         aria-label={label}
         aria-valuenow={value}
@@ -71,7 +71,7 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
       initial={{ opacity: 0, x: isFor ? -20 : 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
-      className={`rounded-xl border border-stone-200/60 dark:border-[#3d3a36] border-l-4 ${cardStyles} overflow-hidden shadow-card hover:shadow-lw-hover transition-all duration-200`}
+      className={`rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] border-l-4 ${cardStyles} overflow-hidden shadow-card hover:shadow-lw-hover transition-all duration-200`}
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}

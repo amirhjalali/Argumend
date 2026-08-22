@@ -101,7 +101,7 @@ function DebaterCard({
                     ? isFor
                       ? "border-rust-400 bg-gradient-to-br from-rust-50 to-rust-100/50 shadow-md"
                       : "border-stone-400 bg-gradient-to-br from-stone-100 to-stone-50 shadow-md"
-                    : "border-stone-200 dark:border-[#3d3a36] bg-white/60 dark:bg-[#252420]/60 hover:border-stone-300 hover:bg-white/80 dark:hover:bg-[#2a2926]"
+                    : "border-stone-200 dark:border-[var(--border-divider)] bg-white/60 dark:bg-[var(--bg-card)]/60 hover:border-stone-300 hover:bg-white/80 dark:hover:bg-[#2a2926]"
                 }
               `}
             >
@@ -158,7 +158,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
       {/* Round indicator - centered between messages */}
       {message.round > 0 && message.side === "for" && (
         <div className="flex justify-center mb-6">
-          <div className="px-4 py-1.5 bg-stone-100/80 dark:bg-[#302e2a] rounded-full border border-stone-200/50 dark:border-[#3d3a36]">
+          <div className="px-4 py-1.5 bg-stone-100/80 dark:bg-[var(--bg-muted)] rounded-full border border-stone-200/50 dark:border-[var(--border-divider)]">
             <span className="text-xs font-medium text-stone-500 dark:text-stone-400 tracking-wider uppercase">
               Round {message.round}
             </span>
@@ -170,7 +170,7 @@ function ArgumentBubble({ message }: ArgumentBubbleProps) {
         {/* Avatar column */}
         <div className="flex flex-col items-center gap-2 pt-1">
           <div
-            className={`w-11 h-11 rounded-xl flex items-center justify-center shadow-md border border-stone-200/50 dark:border-[#3d3a36] ${isProgrammatic ? "bg-stone-100 dark:bg-stone-800" : ""}`}
+            className={`w-11 h-11 rounded-xl flex items-center justify-center shadow-md border border-stone-200/50 dark:border-[var(--border-divider)] ${isProgrammatic ? "bg-stone-100 dark:bg-stone-800" : ""}`}
             style={isProgrammatic ? undefined : { backgroundColor: llm?.bgLight }}
           >
             <Icon
@@ -337,7 +337,7 @@ function DebateHeader({
     <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex items-center justify-between p-4 rounded-xl bg-white/60 dark:bg-[#252420]/60 border border-stone-200/60 dark:border-[#3d3a36] shadow-sm flex-wrap"
+      className="flex items-center justify-between p-4 rounded-xl bg-white/60 dark:bg-[var(--bg-card)]/60 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-sm flex-wrap"
     >
       <div className="flex items-center gap-2 md:gap-6 flex-wrap">
         {/* Debaters */}
@@ -374,7 +374,7 @@ function DebateHeader({
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-stone-50/80 dark:bg-[#302e2a]">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-stone-50/80 dark:bg-[var(--bg-muted)]">
           <span className="text-xs text-stone-500">Round</span>
           <span className="font-serif font-bold text-primary dark:text-stone-200">
             {state.currentRound}
@@ -535,7 +535,7 @@ export function DebateView() {
             className="space-y-8"
           >
             {/* Debater Selection */}
-            <div className="bg-white/50 dark:bg-[#252420]/50 backdrop-blur-sm rounded-2xl border border-stone-200/60 dark:border-[#3d3a36] p-6 shadow-sm">
+            <div className="bg-white/50 dark:bg-[var(--bg-card)]/50 backdrop-blur-sm rounded-2xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 shadow-sm">
               <div className="flex items-center justify-center gap-8 mb-6">
                 <h3 className="font-serif text-lg text-primary dark:text-stone-200">
                   Select Your Debaters
@@ -584,7 +584,7 @@ export function DebateView() {
                     className={`w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl font-serif font-semibold transition-all ${
                       state.maxRounds === num
                         ? "bg-gradient-to-br from-rust-500 to-rust-600 text-white shadow-md"
-                        : "bg-white dark:bg-[#252420] border border-stone-200 dark:border-[#3d3a36] text-stone-600 dark:text-stone-300 hover:border-stone-300"
+                        : "bg-white dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-divider)] text-stone-600 dark:text-stone-300 hover:border-stone-300"
                     }`}
                   >
                     {num}
@@ -618,7 +618,7 @@ export function DebateView() {
                   onClick={viewMockDebate}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl font-serif font-medium text-stone-600 dark:text-stone-300 bg-white dark:bg-[#252420] border border-stone-200 dark:border-[#3d3a36] hover:border-stone-300 hover:bg-stone-50 dark:hover:bg-[#302e2a] transition-all"
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl font-serif font-medium text-stone-600 dark:text-stone-300 bg-white dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-divider)] hover:border-stone-300 hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] transition-all"
                 >
                   <Eye className="h-4 w-4" />
                   View Example

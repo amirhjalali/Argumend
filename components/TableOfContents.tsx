@@ -83,7 +83,7 @@ export function TableOfContents({
   return (
     <>
       {/* Mobile → large-desktop: collapsible disclosure, in flow. */}
-      <details className="group mb-10 rounded-xl border border-stone-200/60 bg-[#faf8f5] dark:border-[var(--border-default)] dark:bg-[#252420] 2xl:hidden">
+      <details className="group mb-10 rounded-xl border border-stone-200/60 bg-[#faf8f5] dark:border-[var(--border-default)] dark:bg-[var(--bg-card)] 2xl:hidden">
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 font-sans text-sm font-medium text-primary dark:text-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep [&::-webkit-details-marker]:hidden">
           <span className="flex items-center gap-2">
             <List className="h-4 w-4 text-deep dark:text-deep-light" strokeWidth={1.75} />

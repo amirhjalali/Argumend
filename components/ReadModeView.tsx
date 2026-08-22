@@ -284,7 +284,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             />
 
             {/* ─── Provenance strip ─── */}
-            <p className="mt-3 font-sans text-[11px] text-muted dark:text-[#8a8279]">
+            <p className="mt-3 font-sans text-[11px] text-muted dark:text-[var(--text-muted)]">
               {topic.last_updated ? (
                 <>Analyzed {formatLongDate(topic.last_updated)}</>
               ) : (
@@ -439,7 +439,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                   <li key={rt.id}>
                     <Link
                       href={`/topics/${rt.id}`}
-                      className="surface-card card-hover block rounded-lg border border-stone-200/70 dark:border-[#3d3a36] px-4 py-3 transition-colors"
+                      className="surface-card card-hover block rounded-lg border border-stone-200/70 dark:border-[var(--border-divider)] px-4 py-3 transition-colors"
                     >
                       <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-secondary dark:text-stone-400 mb-1">
                         {CATEGORY_LABELS[rt.category]}
@@ -480,7 +480,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
               <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-3">
                 On this page
               </div>
-              <ul className="space-y-1.5 list-none p-0 border-l border-stone-200/70 dark:border-[#3d3a36]">
+              <ul className="space-y-1.5 list-none p-0 border-l border-stone-200/70 dark:border-[var(--border-divider)]">
                 {tocItems.map((item) => {
                   const isActive = activeId === item.id;
                   return (
@@ -518,7 +518,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             type="button"
             onClick={() => setMobileTocOpen((v) => !v)}
             aria-expanded={mobileTocOpen}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white/90 dark:bg-[#252420]/90 backdrop-blur border border-stone-200/70 dark:border-[#3d3a36] px-3.5 py-2.5 text-sm font-sans font-medium text-primary dark:text-stone-200 shadow-lg"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white/90 dark:bg-[var(--bg-card)]/90 backdrop-blur border border-stone-200/70 dark:border-[var(--border-divider)] px-3.5 py-2.5 text-sm font-sans font-medium text-primary dark:text-stone-200 shadow-lg"
           >
             {mobileTocOpen ? <X className="h-4 w-4" aria-hidden /> : <List className="h-4 w-4" aria-hidden />}
             Contents
@@ -527,7 +527,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             <nav
               ref={tocRef}
               aria-label="Table of contents"
-              className="absolute bottom-full mb-2 left-0 w-64 max-h-[60vh] overflow-y-auto rounded-xl bg-white dark:bg-[#252420] border border-stone-200/70 dark:border-[#3d3a36] shadow-xl p-3"
+              className="absolute bottom-full mb-2 left-0 w-64 max-h-[60vh] overflow-y-auto rounded-xl bg-white dark:bg-[var(--bg-card)] border border-stone-200/70 dark:border-[var(--border-divider)] shadow-xl p-3"
             >
               <ul className="space-y-1 list-none p-0">
                 {tocItems.map((item) => {
@@ -540,7 +540,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                         className={`flex min-h-11 items-center rounded-md px-3 py-2 text-[13px] leading-snug font-sans transition-colors ${
                           isActive
                             ? "bg-deep/10 text-primary dark:text-stone-200 font-medium"
-                            : "text-secondary dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-[#302e2a]"
+                            : "text-secondary dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)]"
                         }`}
                       >
                         {item.label}

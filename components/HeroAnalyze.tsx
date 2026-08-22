@@ -45,7 +45,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
   );
 
   return (
-    <div className="px-4 md:px-8 py-10 bg-stone-50/50 dark:bg-[#1a1917]/50">
+    <div className="px-4 md:px-8 py-10 bg-stone-50/50 dark:bg-[var(--bg-canvas)]/50">
       <div className="max-w-2xl mx-auto">
         <h2 className="font-serif text-xl font-semibold text-primary dark:text-stone-200 mb-1">
           Have your own argument?
@@ -54,7 +54,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
           Paste any text and we&apos;ll map it
         </p>
 
-        <div className="bg-white dark:bg-[#252420] rounded-xl border border-stone-200/60 dark:border-[#3d3a36] p-4 shadow-sm">
+        <div className="bg-white dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-4 shadow-sm">
           <textarea
             ref={textareaRef}
             value={content}
@@ -62,7 +62,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
             onKeyDown={handleKeyDown}
             placeholder="Paste an article, argument, or any text you'd like analyzed..."
             aria-label="Text to analyze"
-            className="w-full min-h-[80px] p-3 bg-[#faf8f5] dark:bg-[#1a1917] border border-stone-200/60 dark:border-[#3d3a36] rounded-lg text-stone-700 dark:text-stone-200 text-sm leading-relaxed placeholder-stone-500/70 dark:placeholder-stone-500 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
+            className="w-full min-h-[80px] p-3 bg-[#faf8f5] dark:bg-[var(--bg-canvas)] border border-stone-200/60 dark:border-[var(--border-divider)] rounded-lg text-stone-700 dark:text-stone-200 text-sm leading-relaxed placeholder-stone-500/70 dark:placeholder-stone-500 resize-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep/20 focus:border-deep/40"
           />
 
           <div className="flex items-center justify-end mt-3 gap-2">
@@ -80,7 +80,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
               className={`flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-serif font-semibold text-sm transition-all duration-200 ${
                 content.trim()
                   ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700"
-                  : "bg-stone-100 dark:bg-[#302e2a] text-stone-400 cursor-not-allowed"
+                  : "bg-stone-100 dark:bg-[var(--bg-muted)] text-stone-400 cursor-not-allowed"
               }`}
             >
               Analyze

@@ -85,7 +85,7 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
 
         {/* Evidence Sources */}
         {data.references && data.references.length > 0 && (
-          <div className="-mx-6 -mb-6 mt-4 px-6 py-4 border-t border-stone-100 dark:border-[#302e2a] rounded-b-xl bg-stone-50/50 dark:bg-[#201f1c]">
+          <div className="-mx-6 -mb-6 mt-4 px-6 py-4 border-t border-stone-100 dark:border-[#302e2a] rounded-b-xl bg-stone-50/50 dark:bg-[var(--bg-surface)]">
             <div className="mb-2 flex items-center gap-1.5">
               <FileText className="h-3 w-3 text-stone-400 dark:text-[var(--text-muted)]" strokeWidth={1.8} />
               <span className="text-[11px] font-medium text-stone-500 dark:text-[var(--text-muted)]">

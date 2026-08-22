@@ -116,7 +116,7 @@ export default function GlossaryPage() {
               <a
                 key={letter}
                 href={`#letter-${letter}`}
-                className="flex h-11 w-11 items-center justify-center rounded-lg border border-stone-200/60 dark:border-[#3d3a36] text-sm font-mono font-medium text-stone-500 dark:text-stone-400 hover:border-deep/30 hover:text-deep dark:hover:text-[#9bc7c3] hover:bg-deep/5 dark:hover:bg-deep/10 transition-colors"
+                className="flex h-11 w-11 items-center justify-center rounded-lg border border-stone-200/60 dark:border-[var(--border-divider)] text-sm font-mono font-medium text-stone-500 dark:text-stone-400 hover:border-deep/30 hover:text-deep dark:hover:text-[#9bc7c3] hover:bg-deep/5 dark:hover:bg-deep/10 transition-colors"
               >
                 {letter}
               </a>
@@ -150,7 +150,7 @@ export default function GlossaryPage() {
                   <div
                     key={t.term}
                     id={termId}
-                    className={`group scroll-mt-24 flex items-start gap-4 rounded-xl border border-l-2 border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-5 transition-colors ${chapter.borderAccent} ${chapter.hoverBorder}`}
+                    className={`group scroll-mt-24 flex items-start gap-4 rounded-xl border border-l-2 border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[var(--bg-card)]/60 p-5 transition-colors ${chapter.borderAccent} ${chapter.hoverBorder}`}
                   >
                     {/* Alphabetical jump-link target — emitted once per letter,
                         in-flow with scroll-margin so it clears the sticky
@@ -203,7 +203,7 @@ export default function GlossaryPage() {
 
         {/* All Terms A-Z */}
         <section id="all-terms" className="mb-12 scroll-mt-24">
-          <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-6 pb-2 border-b border-stone-200/60 dark:border-[#3d3a36]">
+          <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-6 pb-2 border-b border-stone-200/60 dark:border-[var(--border-divider)]">
             All Terms A&ndash;Z
           </h2>
           <div className="columns-1 sm:columns-2 gap-6">
@@ -229,7 +229,7 @@ export default function GlossaryPage() {
         </section>
 
         {/* CTA */}
-        <div className="mt-14 p-6 rounded-xl bg-[#faf8f5] dark:bg-[#252420] border border-stone-200/60 dark:border-[#3d3a36] text-center">
+        <div className="mt-14 p-6 rounded-xl bg-[#faf8f5] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-divider)] text-center">
           <h3 className="font-serif text-xl text-primary dark:text-stone-200 mb-2">
             See These Concepts in Action
           </h3>

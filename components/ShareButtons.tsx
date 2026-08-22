@@ -161,7 +161,7 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
   // ---- shared styles ----
 
   const btnClass =
-    "inline-flex items-center justify-center h-11 w-11 rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 dark:hover:text-stone-300 dark:hover:bg-[#302e2a] transition-colors";
+    "inline-flex items-center justify-center h-11 w-11 rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 dark:hover:text-stone-300 dark:hover:bg-[var(--bg-muted)] transition-colors";
 
   return (
     <div className="flex items-center gap-1 flex-wrap">
@@ -233,7 +233,7 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
 
       {/* Share the Crux — prominent CTA when crux data is available */}
       {cruxTwitterHref && (
-        <div className="flex items-center gap-1 ml-1 pl-2 border-l border-stone-200/60 dark:border-[#3d3a36]">
+        <div className="flex items-center gap-1 ml-1 pl-2 border-l border-stone-200/60 dark:border-[var(--border-divider)]">
           <a
             href={cruxTwitterHref}
             target="_blank"
@@ -248,7 +248,7 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
           <button
             type="button"
             onClick={handleCopyCrux}
-            className="inline-flex items-center justify-center h-8 w-8 rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 dark:hover:text-stone-300 dark:hover:bg-[#302e2a] transition-colors"
+            className="inline-flex items-center justify-center h-8 w-8 rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 dark:hover:text-stone-300 dark:hover:bg-[var(--bg-muted)] transition-colors"
             aria-label={cruxCopied ? "Crux copied" : "Copy crux text"}
             title={cruxCopied ? "Copied!" : "Copy crux text"}
           >

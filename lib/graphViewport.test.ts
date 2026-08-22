@@ -10,7 +10,7 @@ const node = (id: string, variant: LogicNodeData["variant"]): Node<LogicNodeData
 });
 
 describe("getFocusFrameNodes", () => {
-  it("frames the root and pillar backbone for the initial expansion", () => {
+  it("frames the root and every first-level child (pillars + inquiries) for the initial expansion", () => {
     const nodes = [
       node("root", "meta"),
       node("question", "question"),
@@ -27,7 +27,7 @@ describe("getFocusFrameNodes", () => {
       getFocusFrameNodes(nodes, edges, ["question", "pillar-a", "pillar-b"]).map(
         ({ id }) => id,
       ),
-    ).toEqual(["root", "pillar-a", "pillar-b"]);
+    ).toEqual(["root", "question", "pillar-a", "pillar-b"]);
   });
 
   it("keeps the parent and all children for deeper expansions", () => {

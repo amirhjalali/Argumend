@@ -30,7 +30,7 @@ export interface IsCategoryGroup {
 type SortMode = "category" | "most_evidence" | "least_evidence";
 
 const inputClass =
-  "min-h-11 rounded-lg border border-stone-300 bg-panel py-2.5 font-sans text-sm text-primary dark:text-stone-200 focus:border-deep focus:outline-none focus:ring-1 focus:ring-deep dark:border-[#3d3a36] dark:focus:border-teal-400 dark:focus:ring-teal-400";
+  "min-h-11 rounded-lg border border-stone-300 bg-panel py-2.5 font-sans text-sm text-primary dark:text-stone-200 focus:border-deep focus:outline-none focus:ring-1 focus:ring-deep dark:border-[var(--border-divider)] dark:focus:border-teal-400 dark:focus:ring-teal-400";
 
 interface IsHubClientProps {
   groups: IsCategoryGroup[];
@@ -138,7 +138,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
   return (
     <>
       {/* Sticky toolbar: search + category filter + sort, with a jump-nav row */}
-      <div className="sticky top-0 z-30 -mx-4 mb-6 border-b border-stone-200/80 bg-canvas px-4 py-3 dark:border-[#3d3a36] sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+      <div className="sticky top-0 z-30 -mx-4 mb-6 border-b border-stone-200/80 bg-canvas px-4 py-3 dark:border-[var(--border-divider)] sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <div className="flex flex-wrap items-center gap-2.5">
           {/* Search */}
           <div className="relative min-w-[12rem] flex-1">
@@ -164,7 +164,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
                 type="button"
                 onClick={clearSearch}
                 aria-label="Clear search"
-                className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-lg text-muted transition-colors hover:bg-stone-100 hover:text-primary dark:text-stone-400 dark:hover:bg-[#302e2a] dark:hover:text-stone-200"
+                className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-lg text-muted transition-colors hover:bg-stone-100 hover:text-primary dark:text-stone-400 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
               >
                 <X className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
               </button>
@@ -208,7 +208,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
             <button
               type="button"
               onClick={clearFilters}
-              className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-stone-300 px-3 py-2 text-sm font-medium text-deep transition-colors hover:bg-deep/5 dark:border-[#3d3a36] dark:text-teal-300 dark:hover:bg-teal-400/10"
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-stone-300 px-3 py-2 text-sm font-medium text-deep transition-colors hover:bg-deep/5 dark:border-[var(--border-divider)] dark:text-teal-300 dark:hover:bg-teal-400/10"
             >
               <X className="h-3.5 w-3.5" aria-hidden="true" />
               Clear filters
@@ -227,7 +227,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
               <a
                 key={g.id}
                 href={`#${g.id}`}
-                className="inline-flex min-h-11 flex-shrink-0 items-center rounded-full border border-stone-200 bg-panel px-3 py-2 font-sans text-[13px] text-secondary dark:text-stone-400 transition-colors hover:border-deep/40 hover:text-deep dark:border-[#3d3a36] dark:hover:border-teal-400/60 dark:hover:text-teal-300"
+                className="inline-flex min-h-11 flex-shrink-0 items-center rounded-full border border-stone-200 bg-panel px-3 py-2 font-sans text-[13px] text-secondary dark:text-stone-400 transition-colors hover:border-deep/40 hover:text-deep dark:border-[var(--border-divider)] dark:hover:border-teal-400/60 dark:hover:text-teal-300"
               >
                 {g.label}
               </a>
@@ -263,7 +263,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
       ) : (
         visibleGroups.map((g) => (
           <section key={g.id} id={g.id} className="mt-12 scroll-mt-32 first:mt-0">
-            <div className="mb-5 flex items-baseline justify-between border-b border-stone-200 pb-3 dark:border-[#3d3a36]">
+            <div className="mb-5 flex items-baseline justify-between border-b border-stone-200 pb-3 dark:border-[var(--border-divider)]">
               <h2 className="font-serif text-2xl font-bold text-primary dark:text-stone-200">{g.label}</h2>
               <span className="font-sans text-sm text-muted dark:text-stone-400">
                 {g.entries.length} {g.entries.length === 1 ? "question" : "questions"}
@@ -275,7 +275,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
                 <li key={e.slug}>
                   <Link
                     href={`/is/${e.slug}`}
-                    className="surface-card card-hover flex items-center justify-between gap-4 rounded-lg border border-stone-200/70 px-4 py-3 transition-colors dark:border-[#3d3a36]"
+                    className="surface-card card-hover flex items-center justify-between gap-4 rounded-lg border border-stone-200/70 px-4 py-3 transition-colors dark:border-[var(--border-divider)]"
                   >
                     <span className="font-serif text-[17px] leading-snug text-primary dark:text-stone-200">
                       {e.question}

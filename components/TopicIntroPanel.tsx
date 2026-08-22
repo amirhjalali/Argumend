@@ -142,7 +142,7 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="flex h-9 w-9 items-center justify-center rounded-full text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-400 dark:hover:bg-[#302e2a] dark:hover:text-stone-200"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-400 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
                 aria-label={isMinimized ? "Show topic details" : "Hide topic details"}
                 aria-expanded={!isMinimized}
                 aria-controls={contentId}
@@ -153,7 +153,7 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
               </button>
               <button
                 onClick={() => setDismissedState(true)}
-                className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
+                className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] transition-colors"
                 aria-label="Dismiss topic panel"
               >
                 <X className="h-4 w-4" />
@@ -186,7 +186,7 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
                   </div>
 
                   {/* Brief description */}
-                  <p className="text-xs text-stone-500 dark:text-[#8a8279] leading-relaxed mb-4 line-clamp-2">
+                  <p className="text-xs text-stone-500 dark:text-[var(--text-muted)] leading-relaxed mb-4 line-clamp-2">
                     {topic.meta_claim}
                   </p>
 

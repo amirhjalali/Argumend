@@ -178,7 +178,7 @@ export default function GuidesPage() {
                     style={{ animationDelay: `${((num - 1) % 6) * 60}ms` }}
                   >
                     <div
-                      className={`relative h-full overflow-hidden bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-1 transition-all duration-200 flex flex-col ${track.hoverBorder}`}
+                      className={`relative h-full overflow-hidden bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-1 transition-all duration-200 flex flex-col ${track.hoverBorder}`}
                     >
                       {media?.hero && (
                         <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 dark:border-[var(--border-default)] dark:bg-[var(--bg-overlay)]">
@@ -208,7 +208,7 @@ export default function GuidesPage() {
                           <span className="text-[11px] font-mono tabular-nums text-muted/70 dark:text-stone-500/70">
                             No. {String(num).padStart(2, "0")}
                           </span>
-                          <span className="inline-flex items-center gap-1 bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 rounded-full text-xs text-stone-500 dark:text-stone-400">
+                          <span className="inline-flex items-center gap-1 bg-stone-100 dark:bg-[var(--bg-muted)] px-2 py-0.5 rounded-full text-xs text-stone-500 dark:text-stone-400">
                             <Clock className="h-3 w-3" />
                             {guide.readTime}
                           </span>
@@ -324,7 +324,7 @@ export default function GuidesPage() {
                       </div>
 
                       {/* Card */}
-                      <div className="flex-1 bg-white/80 dark:bg-[#252420]/80 rounded-xl p-4 sm:p-5 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card group-hover:shadow-lw-hover group-hover:-translate-y-0.5 group-hover:border-deep-light/40 transition-all duration-200">
+                      <div className="flex-1 bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl p-4 sm:p-5 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card group-hover:shadow-lw-hover group-hover:-translate-y-0.5 group-hover:border-deep-light/40 transition-all duration-200">
                         <div className="flex items-start gap-3">
                           <div
                             className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${track.iconBg}`}
@@ -343,7 +343,7 @@ export default function GuidesPage() {
                                     ? "bg-deep/10 text-deep dark:bg-deep/20 dark:text-deep-light"
                                     : isAdvanced
                                       ? "bg-rust-50 text-rust-600 dark:bg-rust-900/30 dark:text-rust-300"
-                                      : "bg-stone-100 dark:bg-[#302e2a] text-stone-500 dark:text-stone-400"
+                                      : "bg-stone-100 dark:bg-[var(--bg-muted)] text-stone-500 dark:text-stone-400"
                                 }`}
                               >
                                 {step.label}

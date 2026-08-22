@@ -4,9 +4,9 @@ export function SynopticTable({ pillars }: { pillars: Pillar[] }) {
   return (
     <section
       aria-label="At a glance: proponent vs skeptic"
-      className="my-10 overflow-hidden rounded-xl border border-stone-200/70 dark:border-[#3d3a36] bg-white/70 dark:bg-[#252420]/70"
+      className="my-10 overflow-hidden rounded-xl border border-stone-200/70 dark:border-[var(--border-divider)] bg-white/70 dark:bg-[var(--bg-card)]/70"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-stone-200/70 dark:divide-[#3d3a36]">
+      <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-stone-200/70 dark:divide-[var(--border-divider)]">
         {/* Column headers carry the side meaning on md+ (two-column layout).
             Hidden on mobile, where the single column would detach them from
             their rows — each cell repeats a compact text label instead. */}
@@ -44,7 +44,7 @@ export function SynopticTable({ pillars }: { pillars: Pillar[] }) {
         ))}
       </div>
       {pillars.length > 0 && (
-        <div className="border-t border-stone-200/70 dark:border-[#3d3a36] bg-[var(--bg-canvas)] px-5 py-3">
+        <div className="border-t border-stone-200/70 dark:border-[var(--border-divider)] bg-[var(--bg-canvas)] px-5 py-3">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-[color:var(--crux-crimson,#a23b3b)]">
               Cruxes

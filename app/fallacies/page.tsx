@@ -134,7 +134,7 @@ export default function FallaciesPage() {
                   <Link
                     key={fallacy.slug}
                     href={`/fallacies/${fallacy.slug}`}
-                    className={`group relative bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${family.hoverBorder}`}
+                    className={`group relative bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${family.hoverBorder}`}
                     style={{ animationDelay: `${((num - 1) % 10) * 50}ms` }}
                   >
                     <span className="absolute top-4 right-5 text-[11px] font-mono tabular-nums text-muted/70 dark:text-stone-500/70">
@@ -166,7 +166,7 @@ export default function FallaciesPage() {
           </section>
         ))}
 
-        <div className="mt-10 bg-white/80 dark:bg-[#252420]/80 rounded-xl p-6 border border-[#e8e0d4] dark:border-[#3d3a36]">
+        <div className="mt-10 bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl p-6 border border-[#e8e0d4] dark:border-[var(--border-divider)]">
           <div className="flex items-center gap-2 mb-3">
             <BookOpen className="h-5 w-5 text-deep dark:text-[#9bc7c3]" strokeWidth={1.8} />
             <h2 className="font-serif text-xl text-primary dark:text-stone-200">

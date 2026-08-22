@@ -152,7 +152,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                 {fallacy.aliases.map((alias) => (
                   <span
                     key={alias}
-                    className="text-[11px] text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-[#302e2a] px-2.5 py-1 rounded-full"
+                    className="text-[11px] text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-[var(--bg-muted)] px-2.5 py-1 rounded-full"
                   >
                     {alias}
                   </span>
@@ -176,7 +176,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
               <Quote className="h-5 w-5 text-rust-600 dark:text-rust-400" strokeWidth={1.8} />
               <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">Example</h2>
             </div>
-            <blockquote className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-rust-500 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
+            <blockquote className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border-l-4 border-rust-500 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
               <p className="text-primary dark:text-stone-200 leading-[1.8] italic">{fallacy.example}</p>
             </blockquote>
           </section>
@@ -190,7 +190,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
               </h2>
             </div>
             <div
-              className={`bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 ${family.borderAccent}`}
+              className={`bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 ${family.borderAccent}`}
             >
               <p className="text-primary dark:text-stone-200 leading-[1.8]">{fallacy.whyItMisleads}</p>
             </div>
@@ -204,7 +204,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                 How to Counter It
               </h2>
             </div>
-            <div className="bg-white/80 dark:bg-[#252420]/80 rounded-xl border-l-4 border-deep/40 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
+            <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border-l-4 border-deep/40 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
               <p className="text-primary dark:text-stone-200 leading-[1.8]">{fallacy.howToCounter}</p>
             </div>
           </section>
@@ -227,7 +227,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className="group flex items-center justify-between p-4 rounded-xl bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
+                    className="group flex items-center justify-between p-4 rounded-xl bg-white/80 dark:bg-[var(--bg-card)]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-deep" />
@@ -256,7 +256,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                     <Link
                       key={related.slug}
                       href={`/fallacies/${related.slug}`}
-                      className={`group bg-white/80 dark:bg-[#252420]/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm transition-all duration-200 ${relatedFamily.hoverBorder}`}
+                      className={`group bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm transition-all duration-200 ${relatedFamily.hoverBorder}`}
                     >
                       <div
                         className={`flex items-center justify-center w-8 h-8 rounded-full mb-3 ${relatedFamily.iconBg}`}
@@ -295,7 +295,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
               </Link>
               <Link
                 href="/fallacies"
-                className="inline-flex min-h-11 items-center px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary dark:text-stone-200 text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[#302e2a] transition-all duration-200"
+                className="inline-flex min-h-11 items-center px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary dark:text-stone-200 text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] transition-all duration-200"
               >
                 All Fallacies
               </Link>

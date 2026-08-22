@@ -156,14 +156,14 @@ export default function HowItWorksPage() {
                   <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200">{type.name}</h3>
                 </div>
                 <p className="text-sm text-secondary dark:text-stone-400 mb-2">{type.description}</p>
-                <p className="text-xs font-mono text-muted dark:text-stone-400 italic bg-stone-50 dark:bg-[#302e2a] inline-block px-2 py-0.5 rounded">Example: {type.example}</p>
+                <p className="text-xs font-mono text-muted dark:text-stone-400 italic bg-stone-50 dark:bg-[var(--bg-muted)] inline-block px-2 py-0.5 rounded">Example: {type.example}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Balance & Weight */}
-        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1917]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[var(--bg-canvas)]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Reading balance and weight
           </h2>

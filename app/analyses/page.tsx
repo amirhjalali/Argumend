@@ -108,7 +108,7 @@ export default async function AnalysesPage() {
 
           {/* Analyses List */}
           {analyses.length === 0 ? (
-            <div className="bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-10 md:p-14 text-center">
+            <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-10 md:p-14 text-center">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-stone-100 dark:bg-[var(--bg-overlay)] mb-5">
                 <FileSearch className="h-7 w-7 text-muted dark:text-stone-400" strokeWidth={1.5} />
               </div>
@@ -136,7 +136,7 @@ export default async function AnalysesPage() {
                   <Link
                     key={analysis.id}
                     href={`/analysis/${analysis.id}`}
-                    className="group block bg-white/80 dark:bg-[#252420]/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-5 md:p-6 shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                    className="group block bg-white/80 dark:bg-[var(--bg-card)]/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-5 md:p-6 shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <div className="flex items-start justify-between gap-4">

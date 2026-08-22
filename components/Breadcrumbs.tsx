@@ -41,7 +41,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
                   <span className="text-stone-300 dark:text-[#3d3a36] select-none">/</span>
                 )}
                 {isLast || !item.href ? (
-                  <span className="text-stone-600 dark:text-[#b0a99f]">{item.label}</span>
+                  <span className="text-stone-600 dark:text-[var(--text-secondary)]">{item.label}</span>
                 ) : (
                   <Link
                     href={item.href}

@@ -31,7 +31,7 @@ function CategoryChip({
     <Link
       href={`/blog/category/${category.slug}`}
       aria-label={`${category.label}, ${category.count} ${category.count === 1 ? "article" : "articles"}`}
-      className={`inline-flex items-center rounded-full border border-stone-200/80 dark:border-[#3d3a36] bg-[#faf8f5] dark:bg-[#252420] text-xs font-medium text-secondary dark:text-stone-400 hover:border-deep/40 hover:text-deep hover:bg-deep/5 dark:hover:bg-deep/10 transition-all duration-150 ${mobile ? "min-h-11 px-3.5 py-2" : "px-3.5 py-1.5"}`}
+      className={`inline-flex items-center rounded-full border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5] dark:bg-[var(--bg-card)] text-xs font-medium text-secondary dark:text-stone-400 hover:border-deep/40 hover:text-deep hover:bg-deep/5 dark:hover:bg-deep/10 transition-all duration-150 ${mobile ? "min-h-11 px-3.5 py-2" : "px-3.5 py-1.5"}`}
     >
       {category.label}
       <span className="ml-1.5 text-[10px] tabular-nums text-muted dark:text-stone-400" aria-hidden="true">
@@ -122,7 +122,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <JsonLd data={blogJsonLd} />
       <div className="min-h-[100svh]">
         {/* Hero */}
-        <div className="bg-[#faf8f5]/60 dark:bg-[#1a1916]/60 border-b border-[#e8e0d4] dark:border-[#3d3a36]">
+        <div className="bg-[#faf8f5]/60 dark:bg-[#1a1916]/60 border-b border-[#e8e0d4] dark:border-[var(--border-divider)]">
           <div className="mx-auto max-w-4xl px-4 md:px-8 py-10 md:py-16">
             <Breadcrumbs
               items={[
@@ -172,7 +172,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 ))}
               </ul>
 
-              <details className="group mt-3 overflow-hidden rounded-xl border border-stone-200/80 dark:border-[#3d3a36] bg-[#faf8f5]/70 dark:bg-[#252420]/70">
+              <details className="group mt-3 overflow-hidden rounded-xl border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5]/70 dark:bg-[var(--bg-card)]/70">
                 <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-secondary dark:text-stone-400 hover:text-deep [&::-webkit-details-marker]:hidden">
                   <span>Browse all categories</span>
                   <span className="flex items-center gap-2 text-xs font-normal text-muted dark:text-stone-400">
@@ -180,7 +180,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     <ChevronDown className="h-4 w-4 transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
                   </span>
                 </summary>
-                <ul className="flex flex-wrap gap-2 border-t border-stone-200/80 dark:border-[#3d3a36] p-3" aria-label="More blog categories">
+                <ul className="flex flex-wrap gap-2 border-t border-stone-200/80 dark:border-[var(--border-divider)] p-3" aria-label="More blog categories">
                   {moreCategories.map((category) => (
                     <li key={category.category}>
                       <CategoryChip category={category} mobile />
@@ -209,7 +209,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 <Link
                   key={tag}
                   href={`/blog/tag/${blogTagToSlug(tag)}`}
-                  className="inline-flex min-h-11 items-center gap-1 rounded-md bg-stone-100 px-2.5 py-2 text-[11px] text-stone-500 transition-all duration-150 hover:bg-deep/10 hover:text-deep dark:bg-[#302e2a] dark:text-stone-400"
+                  className="inline-flex min-h-11 items-center gap-1 rounded-md bg-stone-100 px-2.5 py-2 text-[11px] text-stone-500 transition-all duration-150 hover:bg-deep/10 hover:text-deep dark:bg-[var(--bg-muted)] dark:text-stone-400"
                 >
                   <Tag className="h-2.5 w-2.5" />
                   {tag}
@@ -229,7 +229,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               className="group block mb-6 md:mb-8 animate-card-fade-in"
               style={{ animationDelay: "0ms" }}
             >
-              <article className="relative overflow-hidden bg-[#faf8f5] dark:bg-[#252420] rounded-xl p-6 md:p-10 border border-stone-200/60 dark:border-[#3d3a36] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
+              <article className="relative overflow-hidden bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-10 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                 {featuredMedia?.hero && (
                   <div className="-mx-6 -mt-6 mb-6 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 md:-mx-10 md:-mt-10">
                     <Image
@@ -274,7 +274,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   {featuredArticle.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center gap-1 rounded-md bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 text-[11px] text-stone-500 dark:text-stone-400"
+                      className="inline-flex items-center gap-1 rounded-md bg-stone-100 dark:bg-[var(--bg-muted)] px-2 py-0.5 text-[11px] text-stone-500 dark:text-stone-400"
                     >
                       <Tag className="h-2.5 w-2.5" />
                       {tag}
@@ -308,7 +308,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     className={`group block ${presentation.animate ? "animate-card-fade-in" : ""}`}
                     style={presentation.style}
                   >
-                    <article className="relative h-full overflow-hidden bg-[#faf8f5] dark:bg-[#252420] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[#3d3a36] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
+                    <article className="relative h-full overflow-hidden bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                       {media?.hero && (
                         <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 md:-mx-8 md:-mt-8">
                           <Image
@@ -352,7 +352,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         {article.tags.slice(0, 3).map((tag) => (
                           <span
                             key={tag}
-                            className="inline-flex items-center gap-1 rounded-md bg-stone-100 dark:bg-[#302e2a] px-2 py-0.5 text-[11px] text-stone-500 dark:text-stone-400"
+                            className="inline-flex items-center gap-1 rounded-md bg-stone-100 dark:bg-[var(--bg-muted)] px-2 py-0.5 text-[11px] text-stone-500 dark:text-stone-400"
                           >
                             <Tag className="h-2.5 w-2.5" />
                             {tag}
@@ -384,7 +384,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           />
 
           {/* Footer note */}
-          <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[#3d3a36]">
+          <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-divider)]">
             <p className="text-sm text-secondary dark:text-stone-400">
               All articles are written by the Argumend team and reviewed for
               accuracy. We practice what we preach—every claim is backed by

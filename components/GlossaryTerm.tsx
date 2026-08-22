@@ -71,7 +71,7 @@ export function GlossaryTerm({ term, children, className }: GlossaryTermProps) {
         <span
           role="tooltip"
           id={tooltipId}
-          className="absolute left-1/2 top-full z-50 mt-1.5 w-60 max-w-[16rem] -translate-x-1/2 rounded-md border border-stone-200/80 bg-white px-3 py-2 text-left font-sans text-[12px] font-normal not-italic normal-case leading-snug tracking-normal text-[#3d3a36] shadow-lg dark:border-[#3d3a36] dark:bg-[#252420] dark:text-[#e8e3da]"
+          className="absolute left-1/2 top-full z-50 mt-1.5 w-60 max-w-[16rem] -translate-x-1/2 rounded-md border border-stone-200/80 bg-white px-3 py-2 text-left font-sans text-[12px] font-normal not-italic normal-case leading-snug tracking-normal text-[#3d3a36] shadow-lg dark:border-[var(--border-divider)] dark:bg-[var(--bg-card)] dark:text-[#e8e3da]"
         >
           <span className="block font-semibold text-deep">{entry.term}</span>
           <span className="mt-0.5 block text-[#564d45] dark:text-[#b8b0a6]">

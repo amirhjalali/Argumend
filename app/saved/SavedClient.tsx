@@ -77,7 +77,7 @@ export function SavedClient() {
           // Hydration placeholder — matches server render (no localStorage on the
           // server), so there is no hydration mismatch.
           <div
-            className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-8 text-center"
+            className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[var(--bg-card)]/60 p-8 text-center"
             role="status"
             aria-live="polite"
           >
@@ -101,7 +101,7 @@ export function SavedClient() {
             </p>
           </div>
         ) : savedTopics.length === 0 ? (
-          <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[#252420]/60 p-10 text-center">
+          <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[var(--bg-card)]/60 p-10 text-center">
             <Bookmark className="h-9 w-9 text-stone-300 dark:text-[var(--text-muted)] mx-auto mb-4" />
             <h2 className="font-serif text-xl text-primary dark:text-stone-200 mb-2">
               Nothing saved yet

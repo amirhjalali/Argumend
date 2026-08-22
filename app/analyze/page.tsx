@@ -36,7 +36,7 @@ import {
 // Heavy component — only rendered after analysis completes
 const JudgingResults = dynamic(
   () => import("@/components/JudgingResults").then((m) => ({ default: m.JudgingResults })),
-  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 dark:bg-[#302e2a] rounded-lg" /> }
+  { loading: () => <div className="animate-pulse h-40 bg-stone-200/60 dark:bg-[var(--bg-muted)] rounded-lg" /> }
 );
 import type {
   ExtractedPosition,
@@ -78,7 +78,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls={detailsId}
-        className="w-full p-3 md:p-4 text-left hover:bg-white/50 dark:hover:bg-[#302e2a]/50 transition-colors"
+        className="w-full p-3 md:p-4 text-left hover:bg-white/50 dark:hover:bg-[var(--bg-muted)]/50 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -230,7 +230,7 @@ function ShareLink({ analysisId }: { analysisId: string }) {
     <button
       onClick={handleCopy}
       aria-label={copied ? "Link copied to clipboard" : "Copy share link"}
-      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-[var(--bg-card)] border border-stone-200/80 dark:border-[var(--border-default)] rounded-lg text-xs font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-300 dark:hover:border-stone-600 transition-all shadow-sm"
+      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-[var(--bg-card)] border border-stone-200/80 dark:border-[var(--border-default)] rounded-lg text-xs font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] hover:border-stone-300 dark:hover:border-stone-600 transition-all shadow-sm"
     >
       {copied ? (
         <>
@@ -565,7 +565,7 @@ export default function AnalyzePage() {
                         className={`relative flex min-h-11 items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium transition-all duration-200 ${
                           contentType === type
                             ? "bg-deep text-white shadow-sm"
-                            : "bg-transparent text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 hover:bg-white/60 dark:hover:bg-[#302e2a]"
+                            : "bg-transparent text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 hover:bg-white/60 dark:hover:bg-[var(--bg-muted)]"
                         }`}
                       >
                         <Icon className="h-3.5 w-3.5" aria-hidden="true" />
@@ -595,7 +595,7 @@ export default function AnalyzePage() {
                         <Beaker className="h-3.5 w-3.5 text-deep" />
                         <span className="text-xs font-medium text-deep">Try an Example</span>
                       </button>
-                      <label className={`flex min-h-11 items-center gap-1.5 px-3 py-2 bg-stone-50 dark:bg-[var(--bg-surface)] hover:bg-stone-100 dark:hover:bg-[#302e2a] border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg transition-all duration-200 focus-within:ring-2 focus-within:ring-deep/30 ${isAnalyzing ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
+                      <label className={`flex min-h-11 items-center gap-1.5 px-3 py-2 bg-stone-50 dark:bg-[var(--bg-surface)] hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg transition-all duration-200 focus-within:ring-2 focus-within:ring-deep/30 ${isAnalyzing ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
                         <Upload className="h-3.5 w-3.5 text-stone-400 dark:text-stone-500" />
                         <span className="text-xs font-medium text-stone-500 dark:text-stone-400">Upload</span>
                         <input

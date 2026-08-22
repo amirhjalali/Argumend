@@ -95,7 +95,7 @@ export default function CommunityPage() {
             {principles.map((principle) => (
               <div
                 key={principle.title}
-                className="bg-[#faf8f5] dark:bg-[#252420] rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)]"
+                className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)]"
               >
                 <div className="flex items-start gap-5">
                   <span className="font-serif text-2xl font-bold text-stone-300 dark:text-stone-600 flex-shrink-0">{principle.number}</span>
@@ -119,9 +119,9 @@ export default function CommunityPage() {
             How to Contribute
           </h2>
           <p className="text-lg text-secondary dark:text-stone-400 mb-8">All contributions happen on GitHub.</p>
-          <div className="bg-white/80 dark:bg-[#252420]/80 rounded-2xl border border-[#e8e0d4] dark:border-[#3d3a36] divide-y divide-[#e8e0d4] dark:divide-[#3d3a36] overflow-hidden">
+          <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-2xl border border-[#e8e0d4] dark:border-[var(--border-divider)] divide-y divide-[#e8e0d4] dark:divide-[var(--border-divider)] overflow-hidden">
             {contributing.map((item, i) => (
-              <div key={item.title} className="p-6 hover:bg-[#faf8f5]/50 dark:hover:bg-[#302e2a]/50 transition-colors">
+              <div key={item.title} className="p-6 hover:bg-[#faf8f5]/50 dark:hover:bg-[var(--bg-muted)]/50 transition-colors">
                 <div className="flex items-start gap-4">
                   <span className="font-mono text-xs font-bold text-deep/40 mt-1">0{i + 1}</span>
                   <div>

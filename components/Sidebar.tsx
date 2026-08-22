@@ -79,14 +79,14 @@ export function Sidebar({
   const isActiveRoute = (href: string) => href === activeNavHref;
 
   return (
-    <nav aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] dark:bg-[#1a1917] md:bg-transparent text-primary dark:text-stone-200 shadow-lg md:shadow-none">
+    <nav aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] dark:bg-[var(--bg-canvas)] md:bg-transparent text-primary dark:text-stone-200 shadow-lg md:shadow-none">
       {/* Mobile close button - appears at top of sidebar */}
-      <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50 dark:border-[#3d3a36]/50">
+      <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50 dark:border-[var(--border-divider)]/50">
         <span className="text-sm font-medium text-stone-600 dark:text-stone-300">Menu</span>
         <button
           onClick={onClose}
           data-sidebar-initial-focus
-          className="flex items-center justify-center h-11 w-11 -mr-2 rounded-lg text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-[#302e2a] transition-colors"
+          className="flex items-center justify-center h-11 w-11 -mr-2 rounded-lg text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] transition-colors"
           aria-label="Close menu"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -111,7 +111,7 @@ export function Sidebar({
                     ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
                     : highlight
                     ? "text-rust-700 dark:text-rust-400 hover:text-rust-800 dark:hover:text-rust-300 hover:bg-rust-50/50 dark:hover:bg-rust-900/30 font-medium"
-                    : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50"
+                    : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[var(--bg-muted)]/50"
                 }`}
               >
                 <Icon
@@ -166,7 +166,7 @@ export function Sidebar({
                         className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                           isActive
                             ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
-                            : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50"
+                            : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[var(--bg-muted)]/50"
                         }`}
                       >
                         <Icon
@@ -205,7 +205,7 @@ export function Sidebar({
                     className={`flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-left transition-colors ${
                       isSelected
                         ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-rust-500 pl-[10px]"
-                        : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[#302e2a]/50"
+                        : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[var(--bg-muted)]/50"
                     }`}
                   >
                     <span className="font-serif text-[14px] flex-1 truncate">
@@ -238,7 +238,7 @@ export function Sidebar({
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-3 border-t border-stone-200/50 dark:border-[#3d3a36]/50 space-y-2">
+      <div className="px-4 py-3 border-t border-stone-200/50 dark:border-[var(--border-divider)]/50 space-y-2">
         <div className={`flex items-center ${hasMetaNav ? "justify-between" : "justify-end"}`}>
           {hasMetaNav && (
             <ul className="flex items-center gap-3">

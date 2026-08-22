@@ -61,7 +61,7 @@ function ExchangeDetails({ exchange }: { exchange: MoltbookExchange }) {
               className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                   msg.isResponse
                     ? "bg-gradient-to-br from-[#4f7b77] to-[#3d6360] text-white"
-                    : "bg-[#f5f1ea] dark:bg-[#302e2a] text-secondary dark:text-stone-400 border border-[#e8e0d4] dark:border-[#3d3a36]"
+                    : "bg-[#f5f1ea] dark:bg-[var(--bg-muted)] text-secondary dark:text-stone-400 border border-[#e8e0d4] dark:border-[var(--border-divider)]"
                 }`}
             >
               {msg.isResponse ? (
@@ -96,7 +96,7 @@ function ExchangeDetails({ exchange }: { exchange: MoltbookExchange }) {
       </div>
 
       {/* Lesson Box */}
-      <div className="mx-5 mb-5 p-4 bg-gradient-to-br from-[#faf8f5] to-[#f5f1ea] dark:from-[#302e2a] dark:to-[#252420] rounded-lg border border-[#e8e0d4] dark:border-[#3d3a36]">
+      <div className="mx-5 mb-5 p-4 bg-gradient-to-br from-[#faf8f5] to-[#f5f1ea] dark:from-[#302e2a] dark:to-[#252420] rounded-lg border border-[#e8e0d4] dark:border-[var(--border-divider)]">
         <div className="flex items-start gap-3">
           <Quote aria-hidden="true" className="h-4 w-4 text-rust-500 flex-shrink-0 mt-0.5" />
           <div>
@@ -113,7 +113,7 @@ function ExchangeDetails({ exchange }: { exchange: MoltbookExchange }) {
         {exchange.tags.map((tag) => (
           <span
             key={tag}
-            className="text-xs text-secondary dark:text-stone-400 bg-[#f5f1ea] dark:bg-[#302e2a] px-2 py-1 rounded-md"
+            className="text-xs text-secondary dark:text-stone-400 bg-[#f5f1ea] dark:bg-[var(--bg-muted)] px-2 py-1 rounded-md"
           >
             #{tag}
           </span>
@@ -235,14 +235,14 @@ export default function LessonsFromTheDeepPage() {
             All Moltbook Posts
           </h2>
           <p className="text-lg text-secondary dark:text-stone-400 mb-8">Every post we have shared on Moltbook, newest first.</p>
-          <div className="bg-white/80 dark:bg-[#252420]/80 rounded-2xl border border-[#e8e0d4] dark:border-[#3d3a36] divide-y divide-[#e8e0d4] dark:divide-[#3d3a36] overflow-hidden">
+          <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-2xl border border-[#e8e0d4] dark:border-[var(--border-divider)] divide-y divide-[#e8e0d4] dark:divide-[var(--border-divider)] overflow-hidden">
             {moltbookPosts.map((post) => (
               <a
                 key={post.id}
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-4 hover:bg-[#faf8f5] dark:hover:bg-[#302e2a] transition-colors group"
+                className="block p-4 hover:bg-[#faf8f5] dark:hover:bg-[var(--bg-muted)] transition-colors group"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">

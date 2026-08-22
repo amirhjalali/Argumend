@@ -35,7 +35,7 @@ export function ViewToggle() {
   };
 
   return (
-    <div className="flex items-center gap-1 p-1 bg-stone-100 dark:bg-[#252420] rounded-lg" role="group" aria-label="Argument view">
+    <div className="flex items-center gap-1 p-1 bg-stone-100 dark:bg-[var(--bg-card)] rounded-lg" role="group" aria-label="Argument view">
       {views.map((view) => {
         const Icon = view.icon;
         const isActive = currentView === view.id;
