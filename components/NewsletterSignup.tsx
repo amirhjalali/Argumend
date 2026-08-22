@@ -72,7 +72,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
       <div
         role="status"
         aria-live="polite"
-        className={`bg-[#faf8f5] border border-[#e8e0d4] rounded-xl ${
+        className={`rounded-xl bg-[var(--bg-surface)] border border-[var(--border-divider)] ${
           isCompact ? "p-5" : "p-8"
         }`}
       >
@@ -88,7 +88,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
 
   return (
     <div
-      className={`bg-[#faf8f5] border border-[#e8e0d4] rounded-xl ${
+      className={`rounded-xl bg-[var(--bg-surface)] border border-[var(--border-divider)] ${
         isCompact ? "p-5" : "p-8"
       }`}
     >

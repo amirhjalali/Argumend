@@ -19,7 +19,11 @@ describe("global not-found metadata", () => {
     );
     expect(
       notFoundSource.match(/text-deep hover:underline dark:text-\[#9bc7c3\]/g),
-    ).toHaveLength(2);
+    ).toHaveLength(1);
+    // De-linked routes (docs/PRODUCT_PRUNING_AUDIT.md) must not be re-featured
+    // on the 404: only /topics survives as an inline suggestion.
+    expect(notFoundSource).not.toContain('href="/blog"');
+    expect(notFoundSource).not.toContain('href="/guides"');
     expect(globalErrorSource.match(/minHeight: "2\.75rem"/g)).toHaveLength(3);
   });
 });

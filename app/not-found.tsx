@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Compass, Home, BookOpen, Brain, MessageSquare } from "lucide-react";
+import { Compass, Home, Brain, MessageSquare } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
@@ -50,13 +50,6 @@ export default function NotFound() {
           Browse Topics
         </Link>
         <Link
-          href="/blog"
-          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#1a1916]"
-        >
-          <BookOpen className="w-4 h-4" strokeWidth={1.8} />
-          Read the Blog
-        </Link>
-        <Link
           href="/analyze"
           className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[#3d3a36] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[#302e2a] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#1a1916]"
         >
@@ -72,11 +65,7 @@ export default function NotFound() {
           <Link href="/topics" className="text-deep hover:underline dark:text-[#9bc7c3]">
             topics
           </Link>{" "}
-          and{" "}
-          <Link href="/guides" className="text-deep hover:underline dark:text-[#9bc7c3]">
-            guides
-          </Link>{" "}
-          are good places to start.
+          are a good place to start.
         </p>
       </div>
 
