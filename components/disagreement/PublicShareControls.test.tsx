@@ -47,8 +47,16 @@ describe("PublicShareControls", () => {
 
     const xLink = view.getByRole("link", { name: "Share to X" }) as HTMLAnchorElement;
     expect(xLink.tagName).toBe("A");
+    const expectedText = [
+      "This argument appears to turn on one question:",
+      "",
+      HEADLINE,
+      "",
+      "Argumend mapped the positions, shared ground, and what changes if the major claims fail:",
+      PUBLIC_URL,
+    ].join("\n");
     expect(xLink.getAttribute("href")).toBe(
-      `https://twitter.com/intent/tweet?text=${encodeURIComponent(HEADLINE)}&url=${encodeURIComponent(PUBLIC_URL)}`,
+      `https://x.com/intent/tweet?text=${encodeURIComponent(expectedText)}`,
     );
     expect(xLink.target).toBe("_blank");
   });

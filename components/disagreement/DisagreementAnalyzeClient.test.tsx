@@ -40,12 +40,12 @@ describe("DisagreementAnalyzeClient", () => {
     } as Response);
 
     const view = render(<DisagreementAnalyzeClient />);
-    fireEvent.click(view.getByRole("button", { name: "Use example" }));
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
     expect((view.getByLabelText("Disagreement text") as HTMLTextAreaElement).value).toContain(
       DISAGREEMENT_EXAMPLE_SOURCE.slice(0, 20),
     );
 
-    fireEvent.click(view.getByRole("button", { name: "Find the crux" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
 
     await waitFor(() => {
       expect(view.getByText("ARGUMEND DIAGNOSIS")).toBeTruthy();
@@ -71,7 +71,7 @@ describe("DisagreementAnalyzeClient", () => {
     fireEvent.change(view.getByLabelText("Disagreement text"), {
       target: { value: DISAGREEMENT_EXAMPLE_SOURCE },
     });
-    fireEvent.click(view.getByRole("button", { name: "Find the crux" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
 
     await waitFor(() => {
       expect(view.getByText("The analysis timed out. Please try again.")).toBeTruthy();

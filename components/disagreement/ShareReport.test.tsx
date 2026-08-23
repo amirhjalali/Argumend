@@ -10,6 +10,7 @@ import { ShareReport } from "./ShareReport";
 
 const report = {
   diagnosis: { headline: "They agree on the goal, not the mechanism", pattern: "value-clash" },
+  cruxes: [{ question: "Does the mechanism actually deliver the goal?" }],
 } as unknown as DisagreementReportV1;
 const graph = {} as ArgumentGraph;
 
@@ -70,7 +71,11 @@ describe("ShareReport", () => {
       />,
     );
 
+    // Publication now runs through an inline confirmation panel instead of a
+    // browser confirm() dialog: the panel states what will appear publicly.
     fireEvent.click(view.getByRole("button", { name: "Create shareable link" }));
+    expect(view.getByText(/The full submitted source is not saved/)).toBeTruthy();
+    fireEvent.click(view.getByRole("button", { name: "Create unlisted link" }));
     await waitFor(() => {
       expect(view.getByRole("button", { name: "Copy link" })).toBeTruthy();
     });

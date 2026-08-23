@@ -16,14 +16,25 @@ export function PublicShareControls({
   slug,
   publicUrl,
   headline,
+  primaryCrux,
 }: {
   slug: string;
   publicUrl: string;
   headline: string;
+  /** The primary crux question, for deterministic share copy. */
+  primaryCrux?: string;
 }) {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
-  const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(headline)}&url=${encodeURIComponent(publicUrl)}`;
+  const text = [
+    "This argument appears to turn on one question:",
+    "",
+    primaryCrux ?? headline,
+    "",
+    "Argumend mapped the positions, shared ground, and what changes if the major claims fail:",
+    publicUrl,
+  ].join("\n");
+  const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}`;
 
   async function copy() {
     try {
@@ -38,7 +49,7 @@ export function PublicShareControls({
   }
 
   return (
-    <section className="space-y-3">
+    <section className="space-y-3 border-t border-[var(--border-divider)] pt-8">
       <h2 className="font-serif text-2xl">Share</h2>
       <div className="flex flex-wrap gap-2">
         <button type="button" className="min-h-11 rounded-full border px-4" onClick={copy}>

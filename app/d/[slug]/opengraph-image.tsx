@@ -19,6 +19,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
 
   const headline = truncateOgText(row.report.share.headline, 90);
   const crux = truncateOgText(row.report.cruxes[0]?.question ?? "No single crux established", 140);
+  const gapCount = row.report.accountability?.gapCount ?? 0;
 
   return new ImageResponse(
     (
@@ -37,9 +38,16 @@ export default async function Image({ params }: { params: Promise<{ slug: string
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div style={{ color: "#3a6965", fontSize: 22, letterSpacing: 4 }}>ARGUMEND</div>
-          <div style={{ color: "#C4613C", fontSize: 20, letterSpacing: 3 }}>THE REAL DISAGREEMENT</div>
+          <div style={{ color: "#C4613C", fontSize: 20, letterSpacing: 3 }}>
+            WHAT THE ARGUMENT TURNS ON
+          </div>
           <div style={{ fontSize: 48, lineHeight: 1.15, maxWidth: 1000 }}>{headline}</div>
           <div style={{ fontSize: 28, color: "#a23b3b", maxWidth: 1000 }}>{crux}</div>
+          {gapCount > 0 ? (
+            <div style={{ fontSize: 22, color: "#564d45" }}>
+              {gapCount} unstated update commitment{gapCount === 1 ? "" : "s"}
+            </div>
+          ) : null}
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 22, color: "#564d45" }}>
           <span>
