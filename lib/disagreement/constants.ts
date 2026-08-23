@@ -1,6 +1,18 @@
 export const DISAGREEMENT_REPORT_SCHEMA_VERSION = 1 as const;
 
-export const DISAGREEMENT_PROMPT_VERSION = "disagreement-extraction-v1.1.0";
+export const DISAGREEMENT_PROMPT_VERSION = "disagreement-extraction-v1.2.0";
+
+/**
+ * Every prompt version that may appear in stored or published reports. The
+ * report schema validates provenance against this list rather than a single
+ * literal so bumping the version never invalidates previously saved V1
+ * reports.
+ */
+export const KNOWN_DISAGREEMENT_PROMPT_VERSIONS = [
+  "disagreement-extraction-v1.2.0",
+  "disagreement-extraction-v1.1.0",
+  "disagreement-extraction-v1.0.0",
+] as const;
 
 export const DISAGREEMENT_SOURCE_MODE = "source-only" as const;
 
@@ -27,6 +39,9 @@ export const DISAGREEMENT_LIMITS = {
   maxCorrectionCharacters: 2_000,
   maxResolutionPaths: 8,
   maxBranchesPerCrux: 4,
+  maxClaimStakes: 16,
+  maxStakeConsequenceCharacters: 500,
+  maxStakesInLedger: 8,
 } as const;
 
 export const DISAGREEMENT_ANALYZE_RATE_LIMITS = {

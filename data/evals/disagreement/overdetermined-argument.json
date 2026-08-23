@@ -1,0 +1,230 @@
+{
+  "id": "overdetermined-argument",
+  "contentType": "conversation",
+  "source": "Vera: We should switch to the four-day week; our output per hour is already the highest in the sector.\nHugo: Output per hour is high because we cut training, not because of any schedule magic.\nVera: Even if the training cuts explain all of it, I would still switch because burnout is unsustainable.",
+  "allowedPatterns": [
+    "mixed-disagreement",
+    "causal-model-split"
+  ],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the company switch to a four-day week?",
+    "participants": [
+      {
+        "id": "vera",
+        "label": "Vera",
+        "kind": "named"
+      },
+      {
+        "id": "hugo",
+        "label": "Hugo",
+        "kind": "named"
+      }
+    ],
+    "positions": [
+      {
+        "id": "pos-switch",
+        "label": "Switch to four days",
+        "participantIds": [
+          "vera"
+        ],
+        "thesis": "The company should switch to a four-day week; productivity supports it and burnout demands it.",
+        "steelman": "Sector-leading output shows headroom, and unsustainable burnout is a reason independent of the productivity number.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "We should switch to the four-day week",
+            "participantId": "vera"
+          }
+        ]
+      },
+      {
+        "id": "pos-keep",
+        "label": "Keep five days",
+        "participantIds": [
+          "hugo"
+        ],
+        "thesis": "The output number reflects training cuts, so it is no reason to change the schedule.",
+        "steelman": "If the productivity signal is an artifact of reduced training, the schedule case collapses.",
+        "explicitness": "explicit",
+        "confidence": "medium",
+        "groundingQuotes": [
+          {
+            "quote": "Output per hour is high because we cut training, not because of any schedule magic.",
+            "participantId": "hugo"
+          }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "c-output",
+        "statement": "Output per hour is the highest in the sector.",
+        "participantIds": [
+          "vera"
+        ],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-switch",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-keep",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "vera"
+        ],
+        "disputedByParticipantIds": [
+          "hugo"
+        ],
+        "confidence": "medium",
+        "groundingQuotes": [
+          {
+            "quote": "our output per hour is already the highest in the sector",
+            "participantId": "vera"
+          }
+        ]
+      },
+      {
+        "id": "c-training",
+        "statement": "Output per hour is high because training was cut.",
+        "participantIds": [
+          "hugo"
+        ],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-keep",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-switch",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "hugo"
+        ],
+        "disputedByParticipantIds": [
+          "vera"
+        ],
+        "confidence": "medium",
+        "groundingQuotes": [
+          {
+            "quote": "because we cut training",
+            "participantId": "hugo"
+          }
+        ]
+      },
+      {
+        "id": "c-burnout",
+        "statement": "Burnout is unsustainable.",
+        "participantIds": [
+          "vera"
+        ],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-switch",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-keep",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "vera"
+        ],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "groundingQuotes": [
+          {
+            "quote": "burnout is unsustainable",
+            "participantId": "vera"
+          }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "d-output-cause",
+        "question": "Why is output per hour so high?",
+        "type": "causal",
+        "summary": "Vera reads it as schedule headroom; Hugo attributes it to training cuts.",
+        "claimIds": [
+          "c-output",
+          "c-training"
+        ],
+        "participantStances": [
+          {
+            "participantId": "vera",
+            "positionId": "pos-switch",
+            "stance": "The number shows headroom."
+          },
+          {
+            "participantId": "hugo",
+            "positionId": "pos-keep",
+            "stance": "It is a training artifact."
+          }
+        ],
+        "resolutionCondition": "Output data controlling for training changes.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "d-burnout",
+        "question": "Is current burnout unsustainable?",
+        "type": "normative",
+        "summary": "Vera treats burnout as a standalone reason to switch.",
+        "claimIds": [
+          "c-burnout"
+        ],
+        "participantStances": [
+          {
+            "participantId": "vera",
+            "positionId": "pos-switch",
+            "stance": "Unsustainable."
+          }
+        ],
+        "resolutionCondition": "Agree on a burnout threshold that would trigger a schedule change.",
+        "confidence": "medium",
+        "groundingQuotes": []
+      }
+    ],
+    "claimStakeCandidates": [
+      {
+        "id": "stake-output",
+        "claimId": "c-output",
+        "participantId": "vera",
+        "positionId": "pos-switch",
+        "targetConclusion": "The company should switch to a four-day week.",
+        "role": "material",
+        "ifFalseEffect": "no-change",
+        "consequence": "Vera says she would still switch even if the training cuts explained the entire output number.",
+        "basis": "explicit",
+        "alternativeBasis": "Burnout is unsustainable.",
+        "groundingQuotes": [
+          {
+            "quote": "Even if the training cuts explain all of it, I would still switch because burnout is unsustainable.",
+            "participantId": "vera"
+          }
+        ]
+      }
+    ],
+    "caveats": [
+      "The output ranking and burnout level are asserted, not measured."
+    ]
+  }
+}

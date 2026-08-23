@@ -1,10 +1,10 @@
 import { z } from "zod";
 import {
   DISAGREEMENT_LIMITS,
-  DISAGREEMENT_PROMPT_VERSION,
   DISAGREEMENT_REPORT_SCHEMA_VERSION,
   DISAGREEMENT_SHARE_EYEBROW,
   DISAGREEMENT_SOURCE_MODE,
+  KNOWN_DISAGREEMENT_PROMPT_VERSIONS,
 } from "@/lib/disagreement/constants";
 import type { DisagreementReferenceIssue } from "@/types/disagreement";
 
@@ -93,6 +93,35 @@ const EvidenceStateSchema = z.enum([
   "asserted-in-source",
   "no-evidence-provided",
 ]);
+
+const StakeRoleSchema = z.enum([
+  "hinge",
+  "material",
+  "supporting",
+  "context",
+  "rebuttal-only",
+  "unclear",
+]);
+
+const UpdateEffectSchema = z.enum([
+  "withdraw",
+  "substantially-weaken",
+  "somewhat-weaken",
+  "reconsider",
+  "no-change",
+  "not-stated",
+]);
+
+const StakeDiagnosticSchema = z.enum([
+  "clear-stake",
+  "commitment-gap",
+  "overdetermined",
+  "non-load-bearing",
+  "rebuttal-only",
+  "unclear",
+]);
+
+const StakeBasisSchema = z.enum(["explicit", "inferred", "unstated"]);
 
 function boundedText(max: number) {
   return z.string().trim().min(1).max(max);
@@ -219,6 +248,28 @@ export const RawDisagreementCandidateSchema = z
   })
   .strict();
 
+/**
+ * Model-proposed stake. `participantId` is required here: a stake without an
+ * owner cannot be accepted from the model — application-generated stakes (the
+ * projection fallback) are minted downstream, never ingested.
+ */
+export const RawClaimStakeCandidateSchema = z
+  .object({
+    id: NonEmptyId,
+    claimId: NonEmptyId,
+    participantId: NonEmptyId,
+    positionId: NonEmptyId.optional(),
+    targetConclusion: boundedText(L.maxThesisCharacters),
+    role: StakeRoleSchema,
+    ifFalseEffect: UpdateEffectSchema,
+    consequence: boundedText(L.maxStakeConsequenceCharacters),
+    basis: StakeBasisSchema,
+    falsificationCondition: boundedText(L.maxSummaryCharacters).optional(),
+    alternativeBasis: boundedText(L.maxSummaryCharacters).optional(),
+    groundingQuotes: z.array(RawGroundingQuoteSchema).max(L.maxGroundingPerObject),
+  })
+  .strict();
+
 export const RawDisagreementExtractionSchema = z
   .object({
     mainQuestion: boundedText(L.maxQuestionCharacters),
@@ -232,6 +283,12 @@ export const RawDisagreementExtractionSchema = z
     disagreementCandidates: z
       .array(RawDisagreementCandidateSchema)
       .max(L.maxDisagreements),
+    // Defaults to an empty array so every fixture and stored payload authored
+    // before stakes exists keeps parsing without modification.
+    claimStakeCandidates: z
+      .array(RawClaimStakeCandidateSchema)
+      .max(L.maxClaimStakes)
+      .default([]),
     caveats: z.array(boundedText(L.maxSummaryCharacters)).max(12),
   })
   .strict()
@@ -335,6 +392,40 @@ export const ResolutionPathSchema = z
   })
   .strict();
 
+/**
+ * Published claim stake. `participantId` is optional here because the
+ * projection fallback for an unstaked primary crux is an application-generated
+ * question with no participant attribution.
+ */
+export const ClaimStakeSchema = z
+  .object({
+    id: NonEmptyId,
+    claimId: NonEmptyId,
+    participantId: NonEmptyId.optional(),
+    positionId: NonEmptyId.optional(),
+    claim: boundedText(L.maxThesisCharacters),
+    targetConclusion: boundedText(L.maxThesisCharacters),
+    role: StakeRoleSchema,
+    ifFalseEffect: UpdateEffectSchema,
+    consequence: boundedText(L.maxStakeConsequenceCharacters),
+    basis: StakeBasisSchema,
+    falsificationCondition: boundedText(L.maxSummaryCharacters).optional(),
+    alternativeBasis: boundedText(L.maxSummaryCharacters).optional(),
+    diagnostic: StakeDiagnosticSchema,
+    grounding: z.array(GroundingRefSchema).max(L.maxGroundingPerObject),
+  })
+  .strict();
+
+export const ArgumentAccountabilitySchema = z
+  .object({
+    headline: boundedText(L.maxThesisCharacters),
+    summary: boundedText(L.maxSummaryCharacters),
+    stakes: z.array(ClaimStakeSchema).max(L.maxStakesInLedger),
+    gapCount: z.number().int().nonnegative(),
+    clearStakeCount: z.number().int().nonnegative(),
+  })
+  .strict();
+
 export const DisagreementReportSchema = z
   .object({
     schemaVersion: z.literal(DISAGREEMENT_REPORT_SCHEMA_VERSION),
@@ -361,6 +452,8 @@ export const DisagreementReportSchema = z
     cruxes: z.array(ReportCruxSchema).max(L.maxCruxes),
     resolutionPaths: z.array(ResolutionPathSchema).max(L.maxResolutionPaths),
     caveats: z.array(boundedText(L.maxSummaryCharacters)).max(12),
+    // Optional: every report authored before stakes exists must keep parsing.
+    accountability: ArgumentAccountabilitySchema.optional(),
     share: z
       .object({
         eyebrow: z.literal(DISAGREEMENT_SHARE_EYEBROW),
@@ -386,7 +479,9 @@ export const DisagreementReportSchema = z
       .strict(),
     provenance: z
       .object({
-        promptVersion: z.literal(DISAGREEMENT_PROMPT_VERSION),
+        // Any known historical version, so bumping the prompt version never
+        // invalidates previously stored V1 reports.
+        promptVersion: z.enum(KNOWN_DISAGREEMENT_PROMPT_VERSIONS),
         provider: boundedText(80),
         model: boundedText(120),
         generatedAt: boundedText(40),
@@ -423,9 +518,16 @@ export function collectReportQuoteCharacters(report: {
   positions: Array<{ grounding: Array<{ quote: string }> }>;
   commonGround: Array<{ grounding: Array<{ quote: string }> }>;
   disagreements: Array<{ grounding: Array<{ quote: string }> }>;
+  accountability?: { stakes: Array<{ grounding: Array<{ quote: string }> }> };
 }): number {
-  return [...report.positions, ...report.commonGround, ...report.disagreements]
+  const stakeQuotes = (report.accountability?.stakes ?? []).flatMap((stake) => stake.grounding);
+  return [
+    ...report.positions,
+    ...report.commonGround,
+    ...report.disagreements,
+  ]
     .flatMap((item) => item.grounding)
+    .concat(stakeQuotes)
     .reduce((sum, ref) => sum + ref.quote.length, 0);
 }
 
@@ -602,6 +704,37 @@ export function collectRawExtractionReferenceIssues(
     }
   }
 
+  for (const [index, stake] of extraction.claimStakeCandidates.entries()) {
+    addMissing(issues, `claimStakeCandidates.${index}.claimId`, stake.claimId, claims, "claim");
+    addMissing(
+      issues,
+      `claimStakeCandidates.${index}.participantId`,
+      stake.participantId,
+      participants,
+      "participant",
+    );
+    if (stake.positionId) {
+      addMissing(
+        issues,
+        `claimStakeCandidates.${index}.positionId`,
+        stake.positionId,
+        positions,
+        "position",
+      );
+    }
+    for (const [quoteIndex, quote] of stake.groundingQuotes.entries()) {
+      if (quote.participantId) {
+        addMissing(
+          issues,
+          `claimStakeCandidates.${index}.groundingQuotes.${quoteIndex}.participantId`,
+          quote.participantId,
+          participants,
+          "participant",
+        );
+      }
+    }
+  }
+
   return issues;
 }
 
@@ -719,6 +852,56 @@ export function collectReportReferenceIssues(
         disagreements,
         "disagreement",
       );
+    }
+  }
+
+  if (report.accountability) {
+    const stakes = report.accountability.stakes;
+    if (!uniqueIds(stakes.map((stake) => stake.id))) {
+      issues.push({ path: "accountability.stakes", message: "Duplicate stake ids" });
+    }
+    for (const [index, stake] of stakes.entries()) {
+      if (stake.participantId) {
+        addMissing(
+          issues,
+          `accountability.stakes.${index}.participantId`,
+          stake.participantId,
+          participants,
+          "participant",
+        );
+      }
+      if (stake.positionId) {
+        addMissing(
+          issues,
+          `accountability.stakes.${index}.positionId`,
+          stake.positionId,
+          positions,
+          "position",
+        );
+      }
+      for (const [quoteIndex, ref] of stake.grounding.entries()) {
+        if (ref.participantId) {
+          addMissing(
+            issues,
+            `accountability.stakes.${index}.grounding.${quoteIndex}.participantId`,
+            ref.participantId,
+            participants,
+            "participant",
+          );
+        }
+      }
+    }
+    if (report.accountability.gapCount > stakes.length) {
+      issues.push({
+        path: "accountability.gapCount",
+        message: "gapCount cannot exceed the number of stakes",
+      });
+    }
+    if (report.accountability.clearStakeCount > stakes.length) {
+      issues.push({
+        path: "accountability.clearStakeCount",
+        message: "clearStakeCount cannot exceed the number of stakes",
+      });
     }
   }
 

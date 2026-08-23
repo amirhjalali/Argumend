@@ -1,0 +1,209 @@
+{
+  "id": "normative-position-no-factual-stake",
+  "contentType": "conversation",
+  "source": "Ana: We should stay fully remote because autonomy matters more than collaboration for our work.\nRob: We should return to the office because collaboration matters more than autonomy for our work.",
+  "allowedPatterns": [
+    "mostly-common-ground",
+    "value-conflict",
+    "priority-tradeoff"
+  ],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the team stay fully remote?",
+    "participants": [
+      {
+        "id": "ana",
+        "label": "Ana",
+        "kind": "named"
+      },
+      {
+        "id": "rob",
+        "label": "Rob",
+        "kind": "named"
+      }
+    ],
+    "positions": [
+      {
+        "id": "pos-remote",
+        "label": "Stay fully remote",
+        "participantIds": [
+          "ana"
+        ],
+        "thesis": "The team should stay fully remote because autonomy matters more than collaboration for this work.",
+        "steelman": "Deep individual work is the product; protecting autonomy protects the output.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "We should stay fully remote because autonomy matters more than collaboration for our work.",
+            "participantId": "ana"
+          }
+        ]
+      },
+      {
+        "id": "pos-office",
+        "label": "Return to the office",
+        "participantIds": [
+          "rob"
+        ],
+        "thesis": "The team should return to the office because collaboration matters more than autonomy for this work.",
+        "steelman": "Shared space produces the informal coordination that individual autonomy cannot replace.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "We should return to the office because collaboration matters more than autonomy for our work.",
+            "participantId": "rob"
+          }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "c-autonomy",
+        "statement": "Autonomy matters more than collaboration for this work.",
+        "participantIds": [
+          "ana"
+        ],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-remote",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-office",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "ana"
+        ],
+        "disputedByParticipantIds": [
+          "rob"
+        ],
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "autonomy matters more than collaboration for our work",
+            "participantId": "ana"
+          }
+        ]
+      },
+      {
+        "id": "c-collaboration",
+        "statement": "Collaboration matters more than autonomy for this work.",
+        "participantIds": [
+          "rob"
+        ],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-office",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-remote",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "rob"
+        ],
+        "disputedByParticipantIds": [
+          "ana"
+        ],
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "collaboration matters more than autonomy for our work",
+            "participantId": "rob"
+          }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Both autonomy and collaboration matter for the team's work.",
+        "participantIds": [
+          "ana",
+          "rob"
+        ],
+        "basis": "strongly-implied",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "d-weighting",
+        "question": "Which matters more for this work: autonomy or collaboration?",
+        "type": "normative",
+        "summary": "A direct values weighting dispute; neither side offers facts that could settle it.",
+        "claimIds": [
+          "c-autonomy",
+          "c-collaboration"
+        ],
+        "participantStances": [
+          {
+            "participantId": "ana",
+            "positionId": "pos-remote",
+            "stance": "Autonomy first."
+          },
+          {
+            "participantId": "rob",
+            "positionId": "pos-office",
+            "stance": "Collaboration first."
+          }
+        ],
+        "resolutionCondition": "The sides make explicit what work outcomes they are optimizing for.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "claimStakeCandidates": [
+      {
+        "id": "stake-autonomy",
+        "claimId": "c-autonomy",
+        "participantId": "ana",
+        "positionId": "pos-remote",
+        "targetConclusion": "The team should stay fully remote.",
+        "role": "hinge",
+        "ifFalseEffect": "not-stated",
+        "consequence": "The value weighting is the whole argument; the source does not state what empirical finding would change Ana's weighting.",
+        "basis": "unstated",
+        "groundingQuotes": [
+          {
+            "quote": "autonomy matters more than collaboration for our work",
+            "participantId": "ana"
+          }
+        ]
+      },
+      {
+        "id": "stake-collaboration",
+        "claimId": "c-collaboration",
+        "participantId": "rob",
+        "positionId": "pos-office",
+        "targetConclusion": "The team should return to the office.",
+        "role": "hinge",
+        "ifFalseEffect": "not-stated",
+        "consequence": "The value weighting is the whole argument; the source does not state what empirical finding would change Rob's weighting.",
+        "basis": "unstated",
+        "groundingQuotes": [
+          {
+            "quote": "collaboration matters more than autonomy for our work",
+            "participantId": "rob"
+          }
+        ]
+      }
+    ],
+    "caveats": [
+      "A values weighting cannot be settled by evidence alone; the report maps it, it does not resolve it."
+    ]
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "id": "premise-accepted-conclusion-unchanged",
+  "contentType": "conversation",
+  "source": "Kai: The ranking is bogus because the survey sample was self-selected.\nMia: The ranking should stand; self-selection biases it less than you think.\nKai: Suppose I grant the sample. I would still call the ranking bogus.",
+  "allowedPatterns": [
+    "single-empirical-crux",
+    "mixed-disagreement"
+  ],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Is the ranking credible?",
+    "participants": [
+      {
+        "id": "kai",
+        "label": "Kai",
+        "kind": "named"
+      },
+      {
+        "id": "mia",
+        "label": "Mia",
+        "kind": "named"
+      }
+    ],
+    "positions": [
+      {
+        "id": "pos-bogus",
+        "label": "The ranking is bogus",
+        "participantIds": [
+          "kai"
+        ],
+        "thesis": "The ranking is bogus because the survey sample was self-selected.",
+        "steelman": "Self-selected samples overrepresent the motivated, which can manufacture any ranking.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "The ranking is bogus because the survey sample was self-selected.",
+            "participantId": "kai"
+          }
+        ]
+      },
+      {
+        "id": "pos-stand",
+        "label": "The ranking should stand",
+        "participantIds": [
+          "mia"
+        ],
+        "thesis": "The ranking should stand; self-selection biases it less than Kai thinks.",
+        "steelman": "Modest self-selection bias does not overturn an ordering that is robust across methods.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "The ranking should stand; self-selection biases it less than you think.",
+            "participantId": "mia"
+          }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "c-sample",
+        "statement": "The survey sample was self-selected.",
+        "participantIds": [
+          "kai"
+        ],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-bogus",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-stand",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "kai"
+        ],
+        "disputedByParticipantIds": [
+          "mia"
+        ],
+        "confidence": "high",
+        "groundingQuotes": [
+          {
+            "quote": "the survey sample was self-selected",
+            "participantId": "kai"
+          }
+        ]
+      },
+      {
+        "id": "c-bias-small",
+        "statement": "Self-selection biases the ranking less than critics think.",
+        "participantIds": [
+          "mia"
+        ],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          {
+            "positionId": "pos-stand",
+            "relation": "supports"
+          },
+          {
+            "positionId": "pos-bogus",
+            "relation": "opposes"
+          }
+        ],
+        "acceptedByParticipantIds": [
+          "mia"
+        ],
+        "disputedByParticipantIds": [
+          "kai"
+        ],
+        "confidence": "medium",
+        "groundingQuotes": [
+          {
+            "quote": "self-selection biases it less than you think",
+            "participantId": "mia"
+          }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "d-sample",
+        "question": "Does self-selection make the ranking bogus?",
+        "type": "empirical",
+        "summary": "Kai says the sample invalidates the ranking; Mia says the bias is small.",
+        "claimIds": [
+          "c-sample"
+        ],
+        "participantStances": [
+          {
+            "participantId": "kai",
+            "positionId": "pos-bogus",
+            "stance": "Self-selection invalidates it."
+          },
+          {
+            "participantId": "mia",
+            "positionId": "pos-stand",
+            "stance": "The bias is small."
+          }
+        ],
+        "resolutionCondition": "A probability sample run alongside the self-selected one.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "claimStakeCandidates": [
+      {
+        "id": "stake-sample",
+        "claimId": "c-sample",
+        "participantId": "kai",
+        "positionId": "pos-bogus",
+        "targetConclusion": "The ranking is bogus.",
+        "role": "material",
+        "ifFalseEffect": "no-change",
+        "consequence": "Kai says he would still call the ranking bogus even if he granted the sample, and the source states no other reason for that verdict.",
+        "basis": "explicit",
+        "groundingQuotes": [
+          {
+            "quote": "Suppose I grant the sample. I would still call the ranking bogus.",
+            "participantId": "kai"
+          }
+        ]
+      }
+    ],
+    "caveats": [
+      "The sample's composition is asserted by one side and conceded for argument only."
+    ]
+  }
+}

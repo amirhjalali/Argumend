@@ -1,0 +1,113 @@
+{
+  "id": "unstated-update-commitment",
+  "contentType": "conversation",
+  "source": "Lea: The council should reject the tower because the shadow study is outdated.\nSam: The tower should be approved; the study's method is still the accepted one.\nLea: Architects always say that.",
+  "allowedPatterns": ["single-empirical-crux", "mostly-common-ground"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the council approve the tower?",
+    "participants": [
+      { "id": "lea", "label": "Lea", "kind": "named" },
+      { "id": "sam", "label": "Sam", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-reject",
+        "label": "Reject the tower",
+        "participantIds": ["lea"],
+        "thesis": "The council should reject the tower because the shadow study is outdated.",
+        "steelman": "An outdated study cannot support a decision that turns on its shading conclusions.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The council should reject the tower because the shadow study is outdated.", "participantId": "lea" }
+        ]
+      },
+      {
+        "id": "pos-approve",
+        "label": "Approve the tower",
+        "participantIds": ["sam"],
+        "thesis": "The tower should be approved because the study's method is still the accepted one.",
+        "steelman": "Methodological acceptance is the right bar for planning evidence, not recency alone.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The tower should be approved; the study's method is still the accepted one.", "participantId": "sam" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "c-outdated",
+        "statement": "The shadow study is outdated.",
+        "participantIds": ["lea"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-reject", "relation": "supports" },
+          { "positionId": "pos-approve", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["lea"],
+        "disputedByParticipantIds": ["sam"],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "the shadow study is outdated", "participantId": "lea" }
+        ]
+      },
+      {
+        "id": "c-accepted-method",
+        "statement": "The study's method is still the accepted one.",
+        "participantIds": ["sam"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-approve", "relation": "supports" },
+          { "positionId": "pos-reject", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["sam"],
+        "disputedByParticipantIds": ["lea"],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "the study's method is still the accepted one", "participantId": "sam" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "d-study",
+        "question": "Is the shadow study adequate for the decision?",
+        "type": "empirical",
+        "summary": "Lea calls the study outdated; Sam says its method is still accepted.",
+        "claimIds": ["c-outdated"],
+        "participantStances": [
+          { "participantId": "lea", "positionId": "pos-reject", "stance": "The study is outdated." },
+          { "participantId": "sam", "positionId": "pos-approve", "stance": "The method is accepted." }
+        ],
+        "resolutionCondition": "A re-run of the shadow study with current methodology.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "claimStakeCandidates": [
+      {
+        "id": "stake-outdated",
+        "claimId": "c-outdated",
+        "participantId": "lea",
+        "positionId": "pos-reject",
+        "targetConclusion": "The council should reject the tower.",
+        "role": "hinge",
+        "ifFalseEffect": "not-stated",
+        "consequence": "The source presents the study's age as the reason for rejection but never states what would change Lea's conclusion if the study were accepted as adequate.",
+        "basis": "unstated",
+        "groundingQuotes": [
+          { "quote": "The council should reject the tower because the shadow study is outdated.", "participantId": "lea" }
+        ]
+      }
+    ],
+    "caveats": ["The study's adequacy is disputed without evidence in the source."]
+  }
+}

@@ -3,8 +3,8 @@ import { DISAGREEMENT_FEW_SHOT_EXAMPLES } from "@/lib/disagreement/prompts/v1/ex
 import { buildDisagreementUserPrompt } from "@/lib/disagreement/prompts/v1/user";
 
 describe("buildDisagreementUserPrompt", () => {
-  it("includes all six required few-shot examples (spec 8.2)", () => {
-    expect(DISAGREEMENT_FEW_SHOT_EXAMPLES).toHaveLength(6);
+  it("includes all ten few-shot examples (spec 8.2: six base + four stakes)", () => {
+    expect(DISAGREEMENT_FEW_SHOT_EXAMPLES).toHaveLength(10);
 
     const prompt = buildDisagreementUserPrompt({
       content: "Pat: The bridge should be closed for repairs.\nJo: It carried its full load fine last week.",

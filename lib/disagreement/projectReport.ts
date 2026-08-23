@@ -1,6 +1,7 @@
 import { identifyCruxes } from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
 import type {
+  ArgumentAccountability,
   CommonGroundItem,
   ConfidenceBand,
   DisagreementItem,
@@ -26,6 +27,7 @@ import {
 import { groundQuotes } from "./grounding";
 import type { NormalizedExtraction } from "./normalize";
 import { computeGroundingCoverage } from "./quality";
+import { projectClaimStakes } from "./stakes";
 
 function typeFromEpistemic(
   value: "empirical" | "predictive" | "normative" | "definitional" | "procedural",
@@ -207,9 +209,16 @@ export function projectDisagreementReport(input: {
   const warnings = [...(input.extraWarnings ?? [])];
   let expectedQuotes = 0;
   let groundedQuotes = 0;
+  // Every quote text already counted for another object. Stake quotes reuse
+  // detection: a stake re-quoting a sentence already grounded elsewhere is
+  // displayed but never counted twice toward grounding coverage.
+  const seenQuoteTexts = new Set<string>();
 
   const ground = (quotes: { quote: string; participantId?: string }[], prefix: string) => {
     expectedQuotes += quotes.length;
+    for (const item of quotes) {
+      seenQuoteTexts.add(item.quote.trim().toLowerCase().replace(/\s+/g, " "));
+    }
     const result = groundQuotes(source, quotes, prefix);
     dropped += result.dropped;
     groundedQuotes += result.refs.length;
@@ -326,6 +335,25 @@ export function projectDisagreementReport(input: {
     addCrux(candidate);
   }
 
+  // Make reasons answerable: project what each major claim is committed to
+  // changing. Deterministic — selection, diagnostics, and the fallback are
+  // all fixed rules; the model only proposed candidates. Warnings join the
+  // quality block, which the default public UI does not render.
+  let accountability: ArgumentAccountability | undefined;
+  const stakeProjection = projectClaimStakes({
+    extraction,
+    source,
+    cruxClaimIds: cruxes.map((crux) => crux.claimId),
+    seenQuoteTexts,
+  });
+  expectedQuotes += stakeProjection.expectedQuoteCount;
+  groundedQuotes += stakeProjection.groundedQuoteCount;
+  dropped += stakeProjection.expectedQuoteCount - stakeProjection.groundedQuoteCount;
+  warnings.push(...stakeProjection.warnings);
+  if (stakeProjection.accountability.stakes.length > 0) {
+    accountability = stakeProjection.accountability;
+  }
+
   const groundingCoverage = computeGroundingCoverage({ expectedQuotes, groundedQuotes });
   const inferredPositionCount = positions.filter((position) => position.explicitness === "inferred").length;
   const primaryType = disagreements[0]?.type ?? cruxes[0]?.type;
@@ -417,6 +445,7 @@ export function projectDisagreementReport(input: {
     cruxes,
     resolutionPaths,
     caveats,
+    accountability,
     share: {
       eyebrow: DISAGREEMENT_SHARE_EYEBROW,
       headline,
