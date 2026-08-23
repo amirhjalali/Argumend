@@ -21,7 +21,8 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
       "argumend-analyze-prefill",
       JSON.stringify({ content, contentType })
     );
-    router.push("/analyze");
+    // During the disagreement-diagnosis alpha, the home hero feeds V2.
+    router.push(process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true" ? "/analyze-v2" : "/analyze");
   }, [content, contentType, router]);
 
   const handleTryExample = useCallback(() => {
@@ -48,10 +49,14 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
     <div className="px-4 md:px-8 py-10 bg-stone-50/50 dark:bg-[var(--bg-canvas)]/50">
       <div className="max-w-2xl mx-auto">
         <h2 className="font-serif text-xl font-semibold text-primary dark:text-stone-200 mb-1">
-          Have your own argument?
+          {process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true"
+            ? "What is the argument really resting on?"
+            : "Have your own argument?"}
         </h2>
         <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">
-          Paste any text and we&apos;ll map it
+          {process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true"
+            ? "Paste a disagreement and find the hinge"
+            : "Paste any text and we&apos;ll map it"}
         </p>
 
         <div className="bg-white dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-4 shadow-sm">
@@ -83,7 +88,9 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
                   : "bg-stone-100 dark:bg-[var(--bg-muted)] text-stone-400 cursor-not-allowed"
               }`}
             >
-              Analyze
+              {process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true"
+                ? "Find what it turns on"
+                : "Analyze"}
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>

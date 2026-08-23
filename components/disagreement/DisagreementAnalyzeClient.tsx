@@ -30,6 +30,21 @@ export function DisagreementAnalyzeClient() {
 
   const tooShort = content.trim().length < DISAGREEMENT_LIMITS.minSourceCharacters;
 
+  // The home hero parks pasted text in sessionStorage before navigating here
+  // during the alpha, so the visitor's text survives the redirect.
+  useEffect(() => {
+    const raw = sessionStorage.getItem("argumend-analyze-prefill");
+    if (!raw) return;
+    sessionStorage.removeItem("argumend-analyze-prefill");
+    try {
+      const parsed = JSON.parse(raw) as { content?: string; contentType?: DisagreementContentType };
+      if (parsed.content) setContent(parsed.content);
+      if (parsed.contentType) setContentType(parsed.contentType);
+    } catch {
+      // Malformed prefill is stale junk; ignore it rather than block the page.
+    }
+  }, []);
+
   useEffect(() => {
     if (status !== "loading") return;
     const timer = window.setInterval(() => setStep((value) => value + 1), PROGRESS_MS);

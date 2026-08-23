@@ -7,7 +7,7 @@ import { DisagreementAnalyzeClient } from "@/components/disagreement/Disagreemen
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Diagnose a disagreement — ARGUMEND",
+  title: "Find what the argument turns on — ARGUMEND",
   robots: { index: false, follow: false },
 };
 

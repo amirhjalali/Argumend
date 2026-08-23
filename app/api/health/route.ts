@@ -9,6 +9,9 @@ function liveModeEnabled(): boolean {
     process.env.ENABLE_LIVE_ANALYZE_API,
     process.env.ENABLE_LIVE_DEBATE_API,
     process.env.ENABLE_LIVE_JUDGING_API,
+    // Not a provider check: the disagreement diagnosis is live-model work, so
+    // its runtime mode belongs in the probe's mode reporting.
+    process.env.ENABLE_DISAGREEMENT_V2,
   ].some((value) => value === "true");
 }
 
