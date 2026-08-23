@@ -1,0 +1,83 @@
+{
+  "id": "rebuttal-without-positive-case",
+  "contentType": "conversation",
+  "source": "Tess: The festival lost money last year.\nRavi: That number ignores sponsorships that landed in January.\nTess: Sponsorships are one-time patches.",
+  "allowedPatterns": ["not-a-disagreement", "insufficient-context"],
+  "expectCrux": false,
+  "minPositions": 1,
+  "maxPositions": 1,
+  "extraction": {
+    "mainQuestion": "Did the festival lose money last year?",
+    "participants": [
+      { "id": "tess", "label": "Tess", "kind": "named" },
+      { "id": "ravi", "label": "Ravi", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-lost",
+        "label": "The festival lost money",
+        "participantIds": ["tess"],
+        "thesis": "The festival lost money last year.",
+        "steelman": "The reported year-end figure is a direct accounting of festival finances.",
+        "explicitness": "explicit",
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The festival lost money last year.", "participantId": "tess" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "c-lost-money",
+        "statement": "The festival lost money last year.",
+        "participantIds": ["tess"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-lost", "relation": "supports" }
+        ],
+        "acceptedByParticipantIds": ["tess"],
+        "disputedByParticipantIds": ["ravi"],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The festival lost money last year.", "participantId": "tess" }
+        ]
+      },
+      {
+        "id": "c-sponsorships",
+        "statement": "The loss figure ignores sponsorships that landed in January.",
+        "participantIds": ["ravi"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-lost", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ravi"],
+        "disputedByParticipantIds": ["tess"],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "That number ignores sponsorships that landed in January.", "participantId": "ravi" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [],
+    "claimStakeCandidates": [
+      {
+        "id": "stake-sponsorships",
+        "claimId": "c-sponsorships",
+        "participantId": "ravi",
+        "targetConclusion": "The festival's loss figure is misleading.",
+        "role": "rebuttal-only",
+        "ifFalseEffect": "not-stated",
+        "consequence": "Ravi offers the sponsorships only to knock down the loss figure; the source states no positive conclusion of his own that the claim supports.",
+        "basis": "inferred",
+        "groundingQuotes": [
+          { "quote": "That number ignores sponsorships that landed in January.", "participantId": "ravi" }
+        ]
+      }
+    ],
+    "caveats": ["Ravi challenges the loss figure without stating a position of his own; none was invented."]
+  }
+}

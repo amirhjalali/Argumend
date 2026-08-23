@@ -1,0 +1,175 @@
+{
+  "id": "cumulative-evidence",
+  "contentType": "conversation",
+  "source": "Ivo: The dam is unsafe. The spillway concrete is crumbling. The emergency gates have not been tested in a decade. And the reservoir is sitting above its design limit.\nPia: The dam passes every federal check. It is fine.",
+  "allowedPatterns": ["single-empirical-crux", "mostly-common-ground"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Is the dam unsafe?",
+    "participants": [
+      { "id": "ivo", "label": "Ivo", "kind": "named" },
+      { "id": "pia", "label": "Pia", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-unsafe",
+        "label": "The dam is unsafe",
+        "participantIds": ["ivo"],
+        "thesis": "The dam is unsafe: crumbling spillway concrete, untested gates, and an over-limit reservoir.",
+        "steelman": "Each defect alone is serious; together they describe a dam being held together by inspections that do not test the right things.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The dam is unsafe.", "participantId": "ivo" }
+        ]
+      },
+      {
+        "id": "pos-fine",
+        "label": "The dam is fine",
+        "participantIds": ["pia"],
+        "thesis": "The dam passes every federal check and is fine.",
+        "steelman": "Federal checks are the operative safety standard, and the dam meets all of them.",
+        "explicitness": "explicit",
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The dam passes every federal check.", "participantId": "pia" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "c-spillway",
+        "statement": "The spillway concrete is crumbling.",
+        "participantIds": ["ivo"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-unsafe", "relation": "supports" },
+          { "positionId": "pos-fine", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ivo"],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The spillway concrete is crumbling.", "participantId": "ivo" }
+        ]
+      },
+      {
+        "id": "c-gates",
+        "statement": "The emergency gates have not been tested in a decade.",
+        "participantIds": ["ivo"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-unsafe", "relation": "supports" },
+          { "positionId": "pos-fine", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ivo"],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The emergency gates have not been tested in a decade.", "participantId": "ivo" }
+        ]
+      },
+      {
+        "id": "c-reservoir",
+        "statement": "The reservoir is above its design limit.",
+        "participantIds": ["ivo"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-unsafe", "relation": "supports" },
+          { "positionId": "pos-fine", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ivo"],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "the reservoir is sitting above its design limit", "participantId": "ivo" }
+        ]
+      },
+      {
+        "id": "c-passes",
+        "statement": "The dam passes every federal check.",
+        "participantIds": ["pia"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-fine", "relation": "supports" },
+          { "positionId": "pos-unsafe", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["pia"],
+        "disputedByParticipantIds": ["ivo"],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The dam passes every federal check.", "participantId": "pia" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "d-safety",
+        "question": "Do the cited defects make the dam unsafe?",
+        "type": "empirical",
+        "summary": "Ivo stacks three defects; Pia answers with the federal checks.",
+        "claimIds": ["c-spillway", "c-gates", "c-reservoir"],
+        "participantStances": [
+          { "participantId": "ivo", "positionId": "pos-unsafe", "stance": "Three defects, one conclusion." },
+          { "participantId": "pia", "positionId": "pos-fine", "stance": "It passes the checks." }
+        ],
+        "resolutionCondition": "An independent inspection weighing each defect against the federal standard.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "claimStakeCandidates": [
+      {
+        "id": "stake-spillway",
+        "claimId": "c-spillway",
+        "participantId": "ivo",
+        "positionId": "pos-unsafe",
+        "targetConclusion": "The dam is unsafe.",
+        "role": "supporting",
+        "ifFalseEffect": "somewhat-weaken",
+        "consequence": "If the spillway concrete were sound, the unsafe verdict would lose one of its three legs but the other two would remain.",
+        "basis": "inferred",
+        "groundingQuotes": [
+          { "quote": "The spillway concrete is crumbling.", "participantId": "ivo" }
+        ]
+      },
+      {
+        "id": "stake-gates",
+        "claimId": "c-gates",
+        "participantId": "ivo",
+        "positionId": "pos-unsafe",
+        "targetConclusion": "The dam is unsafe.",
+        "role": "supporting",
+        "ifFalseEffect": "somewhat-weaken",
+        "consequence": "If the gates had been tested recently, one cumulative reason would drop away without settling the question.",
+        "basis": "inferred",
+        "groundingQuotes": [
+          { "quote": "The emergency gates have not been tested in a decade.", "participantId": "ivo" }
+        ]
+      },
+      {
+        "id": "stake-reservoir",
+        "claimId": "c-reservoir",
+        "participantId": "ivo",
+        "positionId": "pos-unsafe",
+        "targetConclusion": "The dam is unsafe.",
+        "role": "supporting",
+        "ifFalseEffect": "somewhat-weaken",
+        "consequence": "If the reservoir were within its design limit, the remaining defects would still argue for caution but with less urgency.",
+        "basis": "inferred",
+        "groundingQuotes": [
+          { "quote": "the reservoir is sitting above its design limit", "participantId": "ivo" }
+        ]
+      }
+    ],
+    "caveats": ["Each defect is asserted by one side; the federal checks' scope is not stated in the source."]
+  }
+}

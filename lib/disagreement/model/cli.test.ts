@@ -159,7 +159,9 @@ describe("the schema handed to the model", () => {
     const fields = collectStringFields(RAW_EXTRACTION_TOOL.input_schema);
     // Enum-valued fields carry their own constraint; free text needs a length.
     const unbounded = fields.filter(
-      (field) => !field.hasMax && !/kind|type|relation|explicitness|confidence|basis|id$|Id$|Ids/i.test(field.path),
+      (field) =>
+        !field.hasMax &&
+        !/kind|type|relation|explicitness|confidence|basis|role|ifFalseEffect|id$|Id$|Ids/i.test(field.path),
     );
     expect(unbounded, `unbounded free-text fields: ${unbounded.map((f) => f.path).join(", ")}`).toEqual([]);
   });

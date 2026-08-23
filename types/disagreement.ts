@@ -66,6 +66,42 @@ export type ResolutionPathKind =
   | "source-trust"
   | "scope";
 
+/**
+ * What role a claim plays in the argument it is attached to — the answer to
+ * "if this claim were false, what would change?"
+ *
+ * Internal terminology only. User-facing copy lives in the stakes projection
+ * and never uses these words directly.
+ */
+export type StakeRole =
+  | "hinge"
+  | "material"
+  | "supporting"
+  | "context"
+  | "rebuttal-only"
+  | "unclear";
+
+/** What the represented argument does when the claim fails. */
+export type UpdateEffect =
+  | "withdraw"
+  | "substantially-weaken"
+  | "somewhat-weaken"
+  | "reconsider"
+  | "no-change"
+  | "not-stated";
+
+/** Deterministic classification of how the stated stake behaves. */
+export type StakeDiagnostic =
+  | "clear-stake"
+  | "commitment-gap"
+  | "overdetermined"
+  | "non-load-bearing"
+  | "rebuttal-only"
+  | "unclear";
+
+/** Whether the participant themselves stated the consequence. */
+export type StakeBasis = "explicit" | "inferred" | "unstated";
+
 export type EvidenceState =
   | "not-independently-checked"
   | "asserted-in-source"
@@ -166,6 +202,59 @@ export interface ResolutionPath {
   disagreementIds: string[];
 }
 
+/**
+ * A model-proposed answer to "if this claim is wrong, what changes?" for one
+ * claim used by one participant. Attribution is required at the raw layer: a
+ * stake without an owner is an application question, and application-generated
+ * stakes are minted only by the projection fallback — never accepted from the
+ * model.
+ */
+export interface RawClaimStakeCandidate {
+  id: string;
+  claimId: string;
+  participantId: string;
+  positionId?: string;
+  targetConclusion: string;
+  role: StakeRole;
+  ifFalseEffect: UpdateEffect;
+  consequence: string;
+  basis: StakeBasis;
+  falsificationCondition?: string;
+  alternativeBasis?: string;
+  groundingQuotes: RawGroundingQuote[];
+}
+
+/** Published form of a claim stake with grounded quotes and a derived diagnostic. */
+export interface ClaimStake {
+  id: string;
+  claimId: string;
+  participantId?: string;
+  positionId?: string;
+  claim: string;
+  targetConclusion: string;
+  role: StakeRole;
+  ifFalseEffect: UpdateEffect;
+  consequence: string;
+  basis: StakeBasis;
+  falsificationCondition?: string;
+  alternativeBasis?: string;
+  diagnostic: StakeDiagnostic;
+  grounding: GroundingRef[];
+}
+
+/**
+ * The "What is actually at stake?" section: makes reasons answerable by asking
+ * what changes when each major reason fails. Optional so every report written
+ * before this feature stays valid.
+ */
+export interface ArgumentAccountability {
+  headline: string;
+  summary: string;
+  stakes: ClaimStake[];
+  gapCount: number;
+  clearStakeCount: number;
+}
+
 export interface DisagreementReportV1 {
   schemaVersion: 1;
   title: string;
@@ -191,6 +280,9 @@ export interface DisagreementReportV1 {
   cruxes: ReportCrux[];
   resolutionPaths: ResolutionPath[];
   caveats: string[];
+
+  /** Present only when the pipeline projected claim stakes (prompt v1.2.0+). */
+  accountability?: ArgumentAccountability;
 
   share: {
     eyebrow: "THE REAL DISAGREEMENT";
@@ -305,6 +397,9 @@ export interface RawDisagreementExtractionV1 {
     confidence: ConfidenceBand;
     groundingQuotes: RawGroundingQuote[];
   }>;
+
+  /** Optional so every fixture and stored payload from v1.0/1.1 stays parseable. */
+  claimStakeCandidates?: RawClaimStakeCandidate[];
 
   caveats: string[];
 }

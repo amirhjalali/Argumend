@@ -1,8 +1,10 @@
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { analyzeDisagreement } from "../lib/disagreement/analyze";
+import { DISAGREEMENT_LIMITS } from "../lib/disagreement/constants";
 import { createDisagreementProvider } from "../lib/disagreement/model";
 import { FakeDisagreementProvider } from "../lib/disagreement/model/fake";
+import { deriveStakeDiagnostic } from "../lib/disagreement/stakes";
 import { DISAGREEMENT_FEW_SHOT_EXAMPLES } from "../lib/disagreement/prompts/v1/examples";
 import type { RawDisagreementExtractionV1 } from "../types/disagreement";
 
@@ -94,7 +96,53 @@ async function runFixture(fixture: Fixture): Promise<FixtureResult> {
     errors.push("claimed independent verification");
   }
   if ("winner" in result.report) errors.push("winner field");
+  errors.push(...stakeInvariantErrors(result.report.accountability));
   return { id: fixture.id, pattern: result.report.diagnosis.pattern, errors };
+}
+
+/**
+ * Stakes invariants (spec §15). The product's hard line: the accountability
+ * ledger makes reasons answerable, never accuses. A single accusatory label
+ * or a diagnostic that contradicts the deterministic rules is a failure even
+ * when every other check passes.
+ */
+const FORBIDDEN_LABELS = /propaganda|bad.?faith|dishonest|insincer|lying|liar|hypocrit|goalposts|motive|rationality score/i;
+
+function stakeInvariantErrors(
+  accountability: import("../types/disagreement").ArgumentAccountability | undefined,
+): string[] {
+  if (!accountability) return [];
+  const errors: string[] = [];
+  const texts = [
+    accountability.headline,
+    accountability.summary,
+    ...accountability.stakes.flatMap((stake) => [
+      stake.consequence,
+      stake.targetConclusion,
+      stake.alternativeBasis ?? "",
+      stake.falsificationCondition ?? "",
+    ]),
+  ];
+  for (const text of texts) {
+    if (FORBIDDEN_LABELS.test(text)) {
+      errors.push(`forbidden label in stakes: "${text.slice(0, 60)}"`);
+    }
+  }
+  for (const stake of accountability.stakes) {
+    if (deriveStakeDiagnostic(stake) !== stake.diagnostic) {
+      errors.push(`stake ${stake.id} diagnostic "${stake.diagnostic}" contradicts its role/effect/basis`);
+    }
+  }
+  if (accountability.stakes.length > DISAGREEMENT_LIMITS.maxStakesInLedger) {
+    errors.push(`ledger holds ${accountability.stakes.length} stakes over the cap`);
+  }
+  if (accountability.gapCount !== accountability.stakes.filter((s) => s.diagnostic === "commitment-gap").length) {
+    errors.push("gapCount does not match the ledger");
+  }
+  if (accountability.clearStakeCount !== accountability.stakes.filter((s) => s.diagnostic === "clear-stake").length) {
+    errors.push("clearStakeCount does not match the ledger");
+  }
+  return errors;
 }
 
 async function main() {

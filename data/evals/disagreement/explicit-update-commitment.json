@@ -1,0 +1,121 @@
+{
+  "id": "explicit-update-commitment",
+  "contentType": "conversation",
+  "source": "Nadia: The bakery should close its evening shift; sales after 5pm are barely a third of daytime.\nMarco: The evening regulars keep us embedded in the street. Keep it open.\nNadia: If evening sales ever climb above half of daytime, I will gladly keep the shift.",
+  "allowedPatterns": ["single-empirical-crux", "mostly-common-ground"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the bakery close its evening shift?",
+    "participants": [
+      { "id": "nadia", "label": "Nadia", "kind": "named" },
+      { "id": "marco", "label": "Marco", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-close",
+        "label": "Close the evening shift",
+        "participantIds": ["nadia"],
+        "thesis": "The bakery should close its evening shift because evening sales are barely a third of daytime.",
+        "steelman": "A shift earning a third of daytime revenue cannot cover its own staffing costs.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The bakery should close its evening shift", "participantId": "nadia" }
+        ]
+      },
+      {
+        "id": "pos-open",
+        "label": "Keep it open",
+        "participantIds": ["marco"],
+        "thesis": "The evening regulars keep the bakery embedded in the street, so the shift should stay.",
+        "steelman": "Street-level presence has value beyond a single shift's direct revenue.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The evening regulars keep us embedded in the street.", "participantId": "marco" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "c-evening-sales",
+        "statement": "Sales after 5pm are barely a third of daytime sales.",
+        "participantIds": ["nadia"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-close", "relation": "supports" },
+          { "positionId": "pos-open", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["nadia"],
+        "disputedByParticipantIds": ["marco"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Point-of-sale totals split by shift over a full season."
+        },
+        "groundingQuotes": [
+          { "quote": "sales after 5pm are barely a third of daytime", "participantId": "nadia" }
+        ]
+      },
+      {
+        "id": "c-embedded",
+        "statement": "The evening regulars keep the bakery embedded in the street.",
+        "participantIds": ["marco"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-open", "relation": "supports" },
+          { "positionId": "pos-close", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["marco"],
+        "disputedByParticipantIds": ["nadia"],
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The evening regulars keep us embedded in the street.", "participantId": "marco" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "d-evening-sales",
+        "question": "Are evening sales too low to justify the shift?",
+        "type": "empirical",
+        "summary": "Nadia says evening sales cannot carry the shift; Marco says presence justifies it.",
+        "claimIds": ["c-evening-sales"],
+        "participantStances": [
+          { "participantId": "nadia", "positionId": "pos-close", "stance": "A third of daytime is too low." },
+          { "participantId": "marco", "positionId": "pos-open", "stance": "Regulars justify the shift." }
+        ],
+        "resolutionCondition": "Season-length shift-level sales data.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "claimStakeCandidates": [
+      {
+        "id": "stake-evening-sales",
+        "claimId": "c-evening-sales",
+        "participantId": "nadia",
+        "positionId": "pos-close",
+        "targetConclusion": "The bakery should close its evening shift.",
+        "role": "hinge",
+        "ifFalseEffect": "withdraw",
+        "consequence": "Nadia states she would gladly keep the shift if evening sales climbed above half of daytime.",
+        "basis": "explicit",
+        "falsificationCondition": "Evening sales above half of daytime.",
+        "groundingQuotes": [
+          {
+            "quote": "If evening sales ever climb above half of daytime, I will gladly keep the shift.",
+            "participantId": "nadia"
+          }
+        ]
+      }
+    ],
+    "caveats": ["The sales split is asserted, not verified."]
+  }
+}

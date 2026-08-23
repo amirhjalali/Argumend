@@ -158,6 +158,36 @@ export function normalizeExtraction(
       .filter((stance): stance is NonNullable<typeof stance> => Boolean(stance)),
   }));
 
+  // Stakes are normalized by COPYING to new objects, never by mutating the raw
+  // input (the claimRelations loop above mutates in place; that pattern must
+  // not spread). A stake whose claim or participant no longer resolves is a
+  // reference to nothing and is dropped; a stake whose OPTIONAL position
+  // reference disappears still says something true about the claim, so it
+  // survives without the positionId and says so in a warning.
+  const claimStakeCandidates = (raw.claimStakeCandidates ?? []).map((stake, index) => {
+    const nextId = uniqueId(slugify(stake.id, `stake-${index + 1}`), used);
+    const claimId = claimMap.get(stake.claimId);
+    if (!claimId || !claimIds.has(claimId)) {
+      warnings.push(`Dropped stake "${stake.id}" referencing an unknown claim`);
+      return null;
+    }
+    const participantId = remapParticipant(stake.participantId);
+    if (!participantId) {
+      warnings.push(`Dropped stake "${stake.id}" referencing an unknown participant`);
+      return null;
+    }
+    let positionId: string | undefined;
+    if (stake.positionId) {
+      const mappedPosition = positionMap.get(stake.positionId);
+      if (mappedPosition) {
+        positionId = mappedPosition;
+      } else {
+        warnings.push(`Preserved stake "${stake.id}" without its dropped position reference`);
+      }
+    }
+    return { ...stake, id: nextId, claimId, participantId, positionId };
+  }).filter((stake): stake is NonNullable<typeof stake> => Boolean(stake));
+
   return {
     extraction: {
       ...raw,
@@ -167,6 +197,7 @@ export function normalizeExtraction(
       claimRelations,
       commonGroundCandidates,
       disagreementCandidates,
+      claimStakeCandidates,
     },
     warnings,
   };

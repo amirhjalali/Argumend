@@ -168,6 +168,77 @@ export const RAW_EXTRACTION_TOOL = {
           },
         },
       },
+      claimStakeCandidates: {
+        type: "array",
+        maxItems: L.maxClaimStakes,
+        // Not listed in `required`: older fixtures and providers predate
+        // stakes, and the Zod layer supplies an empty default.
+        description: `For each MAJOR claim, what conclusion it is used to affect and what changes if it is false. At most ${L.maxClaimStakes} entries; omit for minor claims.`,
+        items: {
+          type: "object",
+          additionalProperties: false,
+          required: [
+            "id",
+            "claimId",
+            "participantId",
+            "targetConclusion",
+            "role",
+            "ifFalseEffect",
+            "consequence",
+            "basis",
+            "groundingQuotes",
+          ],
+          properties: {
+            id: { type: "string" },
+            claimId: { type: "string" },
+            participantId: { type: "string" },
+            positionId: { type: "string" },
+            targetConclusion: { type: "string", maxLength: L.maxThesisCharacters },
+            role: {
+              type: "string",
+              enum: ["hinge", "material", "supporting", "context", "rebuttal-only", "unclear"],
+            },
+            ifFalseEffect: {
+              type: "string",
+              enum: [
+                "withdraw",
+                "substantially-weaken",
+                "somewhat-weaken",
+                "reconsider",
+                "no-change",
+                "not-stated",
+              ],
+            },
+            consequence: {
+              type: "string",
+              maxLength: L.maxStakeConsequenceCharacters,
+              description:
+                "What changes for the target conclusion if the claim is false, as stated or implied by the source. If the source does not say, write that no update is stated.",
+            },
+            basis: { type: "string", enum: ["explicit", "inferred", "unstated"] },
+            falsificationCondition: { type: "string", maxLength: L.maxSummaryCharacters },
+            alternativeBasis: {
+              type: "string",
+              maxLength: L.maxSummaryCharacters,
+              description:
+                "Another stated reason that would keep the conclusion standing even if this claim fails.",
+            },
+            groundingQuotes: {
+              type: "array",
+              maxItems: L.maxGroundingPerObject,
+              items: {
+                type: "object",
+                additionalProperties: false,
+                required: ["quote"],
+                properties: {
+                  quote: { type: "string", maxLength: L.maxQuoteCharacters },
+                  participantId: { type: "string" },
+                },
+              },
+            },
+          },
+        },
+      },
       commonGroundCandidates: {
         type: "array",
         maxItems: L.maxCommonGround,
