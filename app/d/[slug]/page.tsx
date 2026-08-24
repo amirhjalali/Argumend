@@ -9,16 +9,28 @@ import { RepresentationFeedback } from "@/components/disagreement/Representation
 import { isDatabaseConfigured } from "@/lib/db";
 import { getPublishedDisagreementReport } from "@/lib/db/queries";
 
+/**
+ * Loads a published report, treating every failure path the same way: an
+ * unconfigured database, an unreachable one, or an absent slug all mean "no
+ * report here" — a crawl-safe 404, never a 500.
+ */
+async function loadPublishedReport(slug: string) {
+  if (!isDatabaseConfigured()) return null;
+  try {
+    return await getPublishedDisagreementReport(slug);
+  } catch (error) {
+    console.error("Failed to load published report", { slug: Boolean(slug), error: String(error) });
+    return null;
+  }
+}
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  if (!isDatabaseConfigured()) {
-    return { title: "Report not found", robots: { index: false, follow: false } };
-  }
-  const row = await getPublishedDisagreementReport(slug);
+  const row = await loadPublishedReport(slug);
   if (!row) {
     return { title: "Report not found", robots: { index: false, follow: false } };
   }
@@ -38,8 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function PublicDisagreementPage({ params }: PageProps) {
   const { slug } = await params;
-  if (!isDatabaseConfigured()) notFound();
-  const row = await getPublishedDisagreementReport(slug);
+  const row = await loadPublishedReport(slug);
   if (!row) notFound();
 
   const sourceUrl = row.sourceUrl && /^https?:\/\//.test(row.sourceUrl) ? row.sourceUrl : null;
