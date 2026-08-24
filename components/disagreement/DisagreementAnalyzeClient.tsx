@@ -31,18 +31,28 @@ export function DisagreementAnalyzeClient() {
   const tooShort = content.trim().length < DISAGREEMENT_LIMITS.minSourceCharacters;
 
   // The home hero parks pasted text in sessionStorage before navigating here
-  // during the alpha, so the visitor's text survives the redirect.
+  // during the alpha, so the visitor's text survives the redirect. Same
+  // microtask pattern as the legacy /analyze prefill: setState runs in a
+  // callback, not synchronously in the effect body.
   useEffect(() => {
-    const raw = sessionStorage.getItem("argumend-analyze-prefill");
-    if (!raw) return;
-    sessionStorage.removeItem("argumend-analyze-prefill");
+    let cancelled = false;
     try {
-      const parsed = JSON.parse(raw) as { content?: string; contentType?: DisagreementContentType };
-      if (parsed.content) setContent(parsed.content);
-      if (parsed.contentType) setContentType(parsed.contentType);
+      const raw = sessionStorage.getItem("argumend-analyze-prefill");
+      if (raw) {
+        const parsed = JSON.parse(raw) as { content?: string; contentType?: DisagreementContentType };
+        queueMicrotask(() => {
+          if (cancelled) return;
+          if (parsed.content) setContent(parsed.content);
+          if (parsed.contentType) setContentType(parsed.contentType);
+          sessionStorage.removeItem("argumend-analyze-prefill");
+        });
+      }
     } catch {
       // Malformed prefill is stale junk; ignore it rather than block the page.
     }
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
