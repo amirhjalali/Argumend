@@ -327,3 +327,123 @@ route-unification core (what "Map" means; collapse the 3 topic renderings), Bet 
 Plus two decisions: (1) **push** the campaign's unpushed fix commits to `origin/nuclear-flagship`? (2) a
 **visual QA pass** (light/dark/mobile) is recommended once the concurrent media session settles — the 9
 cycles were verified by tsc/tests/build/curl but not yet eyeballed end-to-end.
+
+## Sprint 2026-09-14/15 — V2 checkpoint evidence, backlog engineering, citation integrity (branch `sprint-2026-09-14`)
+
+_Founder said: "I have a ton of tokens left that expire tomorrow, make a plan to use as much as possible
+and productively as possible." Approved Tiers 1-3; content tier and the immigration lab held. Stopped
+by the founder on 2026-09-15 ~09:30 EDT after the CLI lane burned ~36% of a 5h window in 15 minutes.
+Branch is off `main` @ 0bc2fc5, **12 commits, NOT pushed.** Everything committed is gated: tsc, eslint,
+vitest (216 files / 2321 tests), fixture eval 64/64._
+
+### TL;DR
+
+The V2 spec's founder checkpoints (§22) were blocked because nobody had generated review material.
+This sprint generated it: 40 authored-source diagnoses and 3 flagship map recoveries on the
+subscription `cli` lane, blind-scored by three independent reviewers against the rubric. **Mean 11.7/14,
+zero invented sources, 390/390 quotes verbatim, no winner or percentage anywhere. But the run fails
+the rubric's hard gate: 3 of 40 reports present a value dispute as empirical**, and both reviewers
+traced that to one line in the projection code (`primaryType = disagreements[0]?.type`). The evidence
+and the seven systematic defects are in `docs/reviews/2026-09-15-v2-checkpoint-evidence/README.md`.
+Alongside: four pipeline defects fixed, six fabricated Nature citations replaced, the crux-recall
+failure diagnosed (engine is fine, the answer key is not), harness defects fixed, review manifests and
+freshness diagnostics built, a `RateLimiter` interface, and 15 new golden fixtures.
+
+### Commits (oldest first)
+
+| Commit | What |
+|---|---|
+| 6fea793 | `RateLimiter` interface + `InMemoryRateLimiter`; route body moved to `createDisagreementAnalyzeHandler` so tests can inject; HTTP behavior byte-identical (spec §11.3) |
+| 38e031a | URL checker classifies Nature cookie-wall bounces honestly (2xx → bot-wall bucket, 404 → still DEAD); 2 dead links replaced |
+| b8db60c | `docs/reviews/2026-09-14-crux-recall-diagnosis.md` — why the pre-registered gate fails |
+| fece065 | 15 fixtures, corpus 38 → 53, every §16.1 category covered |
+| 71aba81 | Per-map review manifests, `freshness:argument` diagnostic, `docs/ARGUMENT_AUTHORING_CHECKLIST.md` |
+| 6450386 | Six fabricated Nature DOIs replaced with verified real papers; claim text corrected to what the papers say |
+| ee9cb3b | Crux-recall harness: truthful miss ranks, spec named test 1 added (fails honestly), Spearman implemented literally |
+| ca0d4e9 | eslint ignores `.claude/worktrees/**` and `.playwright-mcp/**` |
+| 00eb409 | V2: positions-without-claims → honest `insufficient-context` (§10.4); "Why…" questions no longer silently drop every crux; participant ids deduped; fixture floor 54 |
+| 72744de | vitest excludes agent worktrees (a worktree had doubled the suite) |
+| 6c34a2a | Checkpoint evidence: three blind scoring reports + README |
+
+Plus this handoff commit.
+
+### What the evidence says (read the README; this is the short form)
+
+- **Grounding is solid.** Every displayed quote in 46 reports is a verbatim substring with correct
+  offsets. No invented participant, source, or figure. One-sided articles and non-arguments handled
+  correctly. Prompt injection neutralised and disclosed. `independentlyVerified` false everywhere.
+- **The crux is the weak box.** In roughly 12 of every 20 reports the primary crux restates the
+  question, picks an uncontested premise, or surfaces the parties' explicit common ground; the right
+  crux is often at rank 2 or 3. This is engine/candidate territory and the spec forbids autonomous
+  changes there. **Your call.**
+- **Pattern selection is count-driven.** `mostly-common-ground` fires on counts while the same report
+  says `sharedGround: "low"`; `mixed-disagreement` is the fallthrough for "procedural";
+  `single-empirical-crux` never fired in 20 reports including two textbook cases.
+- **Run-to-run variance is large.** Two sonnet runs on identical flagship transcripts chose different
+  primary cruxes on all three maps. The engine is deterministic; the model-extracted claim set is not.
+  A repeatability metric (N runs per input, crux agreement rate) does not exist yet and should.
+- **The corpus harness can't test what it claims to on 2 of 3 maps**: `renderDebate.ts` renders every
+  engine crux as a single uncontested line, so a blind run can only echo it.
+- **Crux-recall gate:** the memo's finding is that the engine does what the spec says; the human
+  proposition lists are position-facing leaf claims, the harness's answer key is not the
+  pre-registered one, and 0.6 Recall@5 is roughly the ceiling under the current design. Six decisions
+  for you are listed in the memo.
+
+### Decisions waiting on you
+
+1. **Primary crux quality** (defect 1 above): candidate filtering of common-ground/uncontested claims
+   at projection time, or engine changes per the crux memo's two low-risk levers. Spec-frozen; not done.
+2. **Crux-recall memo decisions** (six items in `docs/reviews/2026-09-14-crux-recall-diagnosis.md`):
+   validation design, three `derived` mapping revisions, five `opposes` edges, two engine levers.
+3. **Retry-After** in the rate limiter is computed from the later of the two windows, so exhausting
+   only the hourly window advertises up to a 24h wait. Preserved as-is; one-line fix if you want it.
+4. **Review manifests** say all three flagship maps are overdue (Israel's 7-day headline check by
+   26 days). Public copy was not changed to "dated snapshot". Fast-moving node selection is a
+   judgment call listed per node in each manifest.
+5. **Spearman check** uses pre-registered list order as the human importance ranking because no such
+   ranking exists in the repo. Confirm or replace.
+6. **Model comparison never happened.** The opus flagship run directory was deleted by the
+   orchestrator by mistake (see README correction); the opus sources run was killed at the founder's
+   stop. Also: report provenance records only the model *alias* passed to the CLI, so an opus and a
+   sonnet report are indistinguishable from their JSON. Fix: have `CliDisagreementProvider` record the
+   resolved model id from the CLI envelope.
+
+### Queued, not started (all scoped, none founder-gated)
+
+- **pipeline-2** (projection-only, no crux formula): `primaryType` consistent with the primary crux;
+  placeholder resolution text removed; pattern selection consistent with `sharedGround`; ungrounded
+  common ground labelled inferred; `explicit` positions require a supporting quote; causal-model-split
+  headline conditional on shared facts; never render a participant-less stake. The agent had written
+  the failing-first tests when it was stopped; they are in **`git stash@{0}`** (four test files), not
+  in the tree, because they fail by design until the fixes land.
+- **renderDebate.ts**: emit a contesting line for every claim with `disputedBy`/`contradicts` edges so
+  the corpus harness can actually test crux recovery; rephrase the "I know the reply is that…" line.
+- **Repeatability metric** for the cli lane (N runs, crux agreement).
+- **Render sweep** (browser, every route, desktop+mobile, dark mode, the V2 page with the fake
+  provider): started twice, killed twice (rate limit, then the stop). All 294 sitemap URLs returned
+  200 before it died; nothing else recorded.
+- **Legacy corpus run** (159 maps) and **opus runs**: not completed. Before re-running, read the
+  cost note below.
+
+### Cost note (why the founder stopped it)
+
+Measured from transcripts: the `claude -p` CLI lane was ~85-90% of spend — 236 requests, 3.7M output
+tokens, 9.5M *uncached* prompt tokens, because every subprocess re-sends a ~40k-token prompt and the
+schema-repair retry fires on most cases (~2 requests per case). Agents and the orchestrator were
+cheap by comparison (nearly all cache hits). The orchestrator launched 11 subprocesses + 5 agents at
+once, twice, overshot the 80% guardrail, and hit the 100% session lockout once, which killed three
+jobs. Standing rule now in memory: max 4 CLI subprocesses total, usage check before every launch,
+stop launching at 60% of the 5h window, tell the founder the expected burn before any run over ~30
+cases. Cheaper lever worth building before the next run: cache the system prompt across cases
+(the `anthropic` lane can; the `cli` lane cannot as a subprocess-per-case design).
+
+### Verification status
+
+- `./node_modules/.bin/tsc --noEmit` exit 0
+- `./node_modules/.bin/eslint . --max-warnings=0` exit 0
+- `./node_modules/.bin/vitest run` 216 files / 2321 tests, exit 0
+- `./node_modules/.bin/tsx scripts/eval-disagreement.ts` 64/64
+- `./node_modules/.bin/tsx scripts/check-source-urls.ts` DEAD 0 of 1662 (64 Nature URLs are
+  "unverifiable (bot wall)", i.e. real articles behind a cookie wall)
+- `./node_modules/.bin/tsx scripts/validate-crux-recall.ts` exit 1 (expected; the gate fails honestly)
+- `next build` was NOT run this sprint. Run it before merging.
