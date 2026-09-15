@@ -48,3 +48,6 @@ scripts/moltbook-session*
 scripts/moltbook-posts-ready.md
 package-lock.json
 .eval-runs/
+
+# Tool artifacts
+.playwright-mcp/

@@ -11,6 +11,8 @@ export default tseslint.config(
       "build/**",
       "coverage/**",
       "drizzle/**",
+      ".claude/worktrees/**",
+      ".playwright-mcp/**",
       "next-env.d.ts",
       ".work/**",
     ],
