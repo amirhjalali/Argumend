@@ -1,0 +1,47 @@
+{
+  "id": "extreme-brevity-no-reasons",
+  "contentType": "conversation",
+  "source": "Ana: We should switch the whole fleet to the new tires this quarter. I am certain about this.\nBo: Absolutely not. We should keep the current tires until next year.\nAna: We should switch now.\nBo: We should wait.",
+  "allowedPatterns": ["insufficient-context"],
+  "expectCrux": false,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the fleet switch to the new tires this quarter?",
+    "participants": [
+      { "id": "ana", "label": "Ana", "kind": "named" },
+      { "id": "bo", "label": "Bo", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-switch-now",
+        "label": "Switch this quarter",
+        "participantIds": ["ana"],
+        "thesis": "The whole fleet should switch to the new tires this quarter.",
+        "steelman": "Ana states the conclusion firmly but gives no reason in the text.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We should switch the whole fleet to the new tires this quarter.", "participantId": "ana" }
+        ]
+      },
+      {
+        "id": "pos-wait-until-next-year",
+        "label": "Keep the current tires until next year",
+        "participantIds": ["bo"],
+        "thesis": "The fleet should keep its current tires until next year.",
+        "steelman": "Bo states the conclusion firmly but gives no reason in the text.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We should keep the current tires until next year.", "participantId": "bo" }
+        ]
+      }
+    ],
+    "claims": [],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [],
+    "caveats": ["Both speakers state opposite conclusions and repeat them. No reason, evidence, or shared premise appears, so no claim can be mapped and no crux can be established."]
+  }
+}

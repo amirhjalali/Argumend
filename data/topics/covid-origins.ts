@@ -405,11 +405,11 @@ const covidOriginsData: TopicInput = {
             "That the federal government overhauled and expanded its biosafety oversight framework in 2024 is an official action confirming the prior system was viewed as insufficient in scope, which lends weight to concerns about how risky pathogen research was reviewed. But this is a forward-looking policy statement, not an admission that a specific WIV experiment produced SARS-CoV-2; the directness is therefore low. The claim that oversight gaps make an accidental origin more plausible in hindsight is an inference, not a finding in the source itself.",
         },
         {
-          id: "bat-coronavirus-sampling-expansion-2024",
+          id: "bat-coronavirus-furin-determinants-2022",
           title:
-            "Expanded bat sampling in Southeast Asia found sarbecoviruses with partial FCS-like motifs (2024)",
+            "European bat sarbecoviruses carry genomic features that could give rise to a furin cleavage site (2022)",
           description:
-            "A 2024 study published in Nature Communications analyzing bat coronaviruses from Laos, Cambodia, and southern China identified several sarbecoviruses with short basic amino acid insertions near the S1/S2 junction, though none possessed a complete polybasic furin cleavage site equivalent to SARS-CoV-2's PRRAR motif. These findings suggest that evolutionary precursors to a furin cleavage site may exist in bat sarbecovirus diversity, though the gap between these partial motifs and the full PRRAR insertion remains significant.",
+            "A 2022 Communications Biology study (Sander et al., Charité Institute of Virology) re-assessed diverse SARS-related coronaviruses from European horseshoe bats and analyzed the spike-encoding region that harbors the furin cleavage site (FCS) in SARS-CoV-2. No sampled virus carried an FCS — the site remains unique to SARS-CoV-2 within the species — but the authors identified purine-rich sequence and RNA secondary structures resembling those that precede FCS acquisition in avian influenza viruses, and showed that a single nucleotide exchange in two European bat-associated viruses could suffice to enable furin cleavage. They further found FCS occurrence to be variable among the bat- and rodent-borne counterparts of human coronaviruses, and argue this supports a natural origin for SARS-CoV-2.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -417,11 +417,10 @@ const covidOriginsData: TopicInput = {
             replicability: 7,
             directness: 5,
           },
-          source: "Nature Communications (2024)",
-          sourceUrl:
-            "https://www.nature.com/articles/s41467-024-46394-4",
+          source: "Communications Biology (2022)",
+          sourceUrl: "https://doi.org/10.1038/s42003-022-03421-w",
           reasoning:
-            "This peer-reviewed finding from independent research groups narrows the evolutionary gap somewhat, showing that sarbecoviruses in nature have acquired short basic insertions near the FCS region. This weakens the argument that the FCS could only arise through engineering. However, the gap between short basic motifs and the full 12-nucleotide PRRAR insertion with the unusual CGG-CGG codon pair remains substantial. The finding demonstrates that nature is exploring this evolutionary space but has not yet been shown to produce the complete feature found in SARS-CoV-2.",
+            "This peer-reviewed analysis from an independent European group weakens the argument that the FCS could only arise through engineering, by showing that the molecular preconditions for acquiring one are present in wild sarbecoviruses and that FCS gain is a recurring natural mechanism in related viruses. The directness score is limited because it establishes a plausible pathway rather than an observed one: no natural sarbecovirus has been found carrying the 12-nucleotide PRRAR insertion, and the unusual CGG-CGG codon pair in SARS-CoV-2 remains unexplained by these findings.",
         },
       ],
     },
@@ -598,9 +597,9 @@ const covidOriginsData: TopicInput = {
         {
           id: "virologist-survey-zoonotic-2024",
           title:
-            "Survey of virologists and epidemiologists: 77% assessed zoonosis as most likely (2024)",
+            "Survey of 168 origin-relevant experts: 77% average probability for zoonosis (2024)",
           description:
-            "A 2024 survey of 168 epidemiologists and virologists, published in a preprint, found that respondents assessed the probability of a zoonotic origin at 77% on average versus 21% for a lab-related origin. The sample was drawn from researchers who had published on COVID-19 origins or related topics. Proponents of a lab origin noted that the survey sample was dominated by researchers in fields historically supportive of zoonotic hypotheses and excluded intelligence analysts and biosecurity experts.",
+            "A February 2024 expert survey by the Global Catastrophic Risk Institute (Ackerman et al., GCRI Technical Report 24-1) collected usable responses from 168 experts across 47 countries, drawn mainly from infectious-disease epidemiology, virology, biosafety, and evolutionary genetics. Respondents assigned a natural zoonotic origin an average probability of 77% (median 90%) and a research-related accident 21%. Four out of five said zoonosis was more than 50% likely, while one in five judged a research accident the more likely origin. Proponents of a lab origin note that a sample recruited from publishing virologists and epidemiologists underweights intelligence analysts and biosecurity specialists.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -608,9 +607,9 @@ const covidOriginsData: TopicInput = {
             replicability: 5,
             directness: 3,
           },
-          source: "Preprint survey of virologists and epidemiologists (2024)",
-          sourceUrl:
-            "https://www.nature.com/articles/d41586-024-01167-3",
+          source:
+            "Global Catastrophic Risk Institute Technical Report 24-1 (February 2024)",
+          sourceUrl: "https://gcri.org/publications/research/covid-origin/",
           reasoning:
             "Expert opinion surveys capture the state of professional consensus, which has informational value but is not itself evidence. The survey is limited by potential selection bias (the sample was not randomly drawn from all relevant experts), and expert consensus has historically been wrong on questions where institutional incentives aligned against uncomfortable conclusions. The directness score is low because expert opinion aggregation does not substitute for empirical evidence. The survey does demonstrate that the majority of domain experts still favor natural origin, which is worth noting even if it is not dispositive.",
         },

@@ -95,7 +95,7 @@ export default function ConceptsPage() {
                   <Link
                     key={concept.id}
                     href={`/concepts/${concept.id}`}
-                    className={`group bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${stage.hoverBorder}`}
+                    className={`group bg-card/80 rounded-xl p-6 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${stage.hoverBorder}`}
                     style={{ animationDelay: `${index * 60}ms` }}
                   >
                     <div className="flex items-start gap-4">
@@ -131,7 +131,7 @@ export default function ConceptsPage() {
           </section>
         ))}
 
-        <div className="mt-10 bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl p-6 border border-[#e8e0d4] dark:border-[var(--border-divider)]">
+        <div className="mt-10 bg-card/80 rounded-xl p-6 border border-[#e8e0d4] dark:border-[var(--border-divider)]">
           <h2 className="font-serif text-xl text-primary dark:text-stone-200 mb-3">
             The Methodology
           </h2>

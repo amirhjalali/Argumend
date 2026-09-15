@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { topicSummaries } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
 import { getMockVerdict } from "@/data/mockVerdicts";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 import type { Metadata } from "next";
 
@@ -104,7 +105,7 @@ function VerdictBanner({
   return (
     <div className="flex items-center justify-between rounded-lg border px-3 py-2 border-deep/20 bg-deep/5 dark:border-deep-light/30 dark:bg-deep-light/10">
       <div>
-        <span className="text-xs font-medium uppercase tracking-wide text-deep dark:text-deep-light">
+        <span className="text-xs font-medium uppercase tracking-wide text-deep dark:text-deep-bright">
           Verdict
         </span>
         <p className="text-sm font-semibold text-primary dark:text-stone-200">
@@ -129,6 +130,17 @@ function VerdictBanner({
 
 export default async function EmbedPage({ params }: PageProps) {
   const { topicId } = await params;
+
+  // Flagship ArgumentGraph topics deliberately have no embed. This widget is
+  // built from legacy-only fields (balance/weight/verdict readout, for/against
+  // pillar cards, a winner banner) that the north star forbids exposing for
+  // debate maps, and nothing on the site links flagship ids here. Keep the
+  // 404 explicit so a future loader that learns flagship ids cannot render a
+  // half-empty or fabricated widget.
+  if (argumentTopicIds.includes(topicId)) {
+    notFound();
+  }
+
   const topic = await loadTopicById(topicId);
 
   if (!topic) {

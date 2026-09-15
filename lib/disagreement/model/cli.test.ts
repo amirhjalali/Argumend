@@ -9,6 +9,7 @@ import {
   cliSystemPrompt,
   extractFirstJsonObject,
   payloadFromCliOutput,
+  resolvedModelFromCliOutput,
   type CliRunInput,
   type CliRunOutput,
 } from "./cli";
@@ -182,6 +183,39 @@ describe("cliSystemPrompt", () => {
   });
 });
 
+describe("resolvedModelFromCliOutput", () => {
+  // Shape observed from a real `claude -p --output-format json` envelope:
+  // modelUsage is keyed by the resolved model id and also lists helper calls.
+  const envelope = JSON.stringify({
+    result: "ok",
+    modelUsage: {
+      "claude-haiku-4-5-20251001": { inputTokens: 897, outputTokens: 12, canonicalModel: "claude-haiku-4-5" },
+      "claude-sonnet-5": { inputTokens: 2, outputTokens: 4, canonicalModel: "claude-sonnet-5" },
+    },
+  });
+
+  it("records the resolved model id whose entry matches the alias, not the alias", () => {
+    expect(resolvedModelFromCliOutput("claude", envelope, "sonnet")).toBe("claude-sonnet-5");
+  });
+
+  it("falls back to the model that produced the most output when no entry matches the alias", () => {
+    const stdout = JSON.stringify({
+      result: "ok",
+      modelUsage: {
+        "claude-haiku-4-5-20251001": { outputTokens: 12 },
+        "claude-opus-5": { outputTokens: 900 },
+      },
+    });
+    expect(resolvedModelFromCliOutput("claude", stdout, "default")).toBe("claude-opus-5");
+  });
+
+  it("keeps the alias when the envelope carries no model usage, or is not json", () => {
+    expect(resolvedModelFromCliOutput("claude", JSON.stringify({ result: "ok" }), "opus")).toBe("opus");
+    expect(resolvedModelFromCliOutput("claude", "not json", "opus")).toBe("opus");
+    expect(resolvedModelFromCliOutput("codex", envelope, "gpt-5")).toBe("gpt-5");
+  });
+});
+
 describe("CliDisagreementProvider", () => {
   it("returns a validated extraction and labels the provider by cli kind", async () => {
     const runner = runnerReturning([{ stdout: claudeEnvelope(EXTRACTION) }]);
@@ -197,6 +231,38 @@ describe("CliDisagreementProvider", () => {
     expect(result.meta.provider).toBe("cli:claude");
     expect(result.meta.model).toBe("sonnet");
     expect(runner.calls).toHaveLength(1);
+  });
+
+  it("records the resolved model id from the envelope in meta.model, so opus and sonnet reports differ", async () => {
+    const stdout = JSON.stringify({
+      is_error: false,
+      session_id: "s1",
+      result: JSON.stringify(EXTRACTION),
+      modelUsage: {
+        "claude-haiku-4-5-20251001": { outputTokens: 12, canonicalModel: "claude-haiku-4-5" },
+        "claude-opus-5": { outputTokens: 4000, canonicalModel: "claude-opus-5" },
+      },
+    });
+    const runner = runnerReturning([{ stdout }]);
+    const provider = new CliDisagreementProvider("req-model", {
+      kind: "claude",
+      model: "opus",
+      runner: runner.run,
+    });
+    const result = await provider.extract(REQUEST);
+    expect(result.meta.model).toBe("claude-opus-5");
+    expect(runner.calls[0].args).toContain("opus");
+  });
+
+  it("keeps the alias in meta.model when the envelope has no model usage", async () => {
+    const runner = runnerReturning([{ stdout: claudeEnvelope(EXTRACTION) }]);
+    const provider = new CliDisagreementProvider("req-alias", {
+      kind: "claude",
+      model: "sonnet",
+      runner: runner.run,
+    });
+    const result = await provider.extract(REQUEST);
+    expect(result.meta.model).toBe("sonnet");
   });
 
   it("never sends the source anywhere but the cli stdin", async () => {

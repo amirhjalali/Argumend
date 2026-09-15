@@ -1,0 +1,120 @@
+{
+  "id": "why-question-crux-survives",
+  "contentType": "conversation",
+  "source": "Maya: Why did the outage last four hours? The failover never triggered. I watched the dashboard and the standby stayed idle the whole time.\nDev: The failover did trigger. It flipped at 02:14 and the standby came up, but its replica was six hours stale, so every request it served was wrong and we had to fail back.\nMaya: If it flipped at 02:14 the standby would have taken traffic, and the traffic graph for the standby is flat until 06:00.\nDev: The traffic graph is flat because the health check rejected the stale replica and kept routing to the dead primary. The failover log has the 02:14 entry.\nMaya: Then the fix is the failover trigger, not the replica.\nDev: The fix is replica freshness. A trigger that hands traffic to stale data is worse than no trigger.\nMaya: We agree the four hours were unacceptable and that the runbook has to change before the next incident.\nDev: Agreed on that. What we disagree about is which piece failed.",
+  "allowedPatterns": ["single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Why did the outage last four hours?",
+    "participants": [
+      { "id": "maya", "label": "Maya", "kind": "named" },
+      { "id": "dev", "label": "Dev", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-failover-never-triggered",
+        "label": "The failover never triggered",
+        "participantIds": ["maya"],
+        "thesis": "The outage lasted four hours because the failover never triggered and the standby stayed idle.",
+        "steelman": "The standby's traffic graph is flat for the whole window; a failover that had fired would have put traffic on it, so the trigger is the piece that failed.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The failover never triggered.", "participantId": "maya" },
+          { "quote": "the standby stayed idle the whole time", "participantId": "maya" }
+        ]
+      },
+      {
+        "id": "pos-stale-replica",
+        "label": "The failover fired onto a stale replica",
+        "participantIds": ["dev"],
+        "thesis": "The outage lasted four hours because the failover did trigger but the standby's replica was six hours stale, forcing a fail-back.",
+        "steelman": "The failover log shows the 02:14 flip; the standby carried no traffic only because the health check rejected stale data, so replica freshness is the piece that failed.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The failover did trigger.", "participantId": "dev" },
+          { "quote": "its replica was six hours stale", "participantId": "dev" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-failover-log-entry",
+        "statement": "The failover log records a flip to the standby at 02:14.",
+        "participantIds": ["dev"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-stale-replica", "relation": "supports" },
+          { "positionId": "pos-failover-never-triggered", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["dev"],
+        "disputedByParticipantIds": ["maya"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Read the failover log for a 02:14 entry and the standby health-check log for the same window."
+        },
+        "groundingQuotes": [
+          { "quote": "The failover log has the 02:14 entry.", "participantId": "dev" },
+          { "quote": "I watched the dashboard and the standby stayed idle the whole time.", "participantId": "maya" }
+        ]
+      },
+      {
+        "id": "claim-standby-traffic-flat",
+        "statement": "The standby's traffic graph is flat until 06:00.",
+        "participantIds": ["maya"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-failover-never-triggered", "relation": "supports" },
+          { "positionId": "pos-stale-replica", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["maya", "dev"],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Check whether the health check rejected the standby during the window, which would explain a flat graph after a real flip."
+        },
+        "groundingQuotes": [
+          { "quote": "the traffic graph for the standby is flat until 06:00", "participantId": "maya" },
+          { "quote": "The traffic graph is flat because the health check rejected the stale replica", "participantId": "dev" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "The four-hour outage was unacceptable and the runbook must change before the next incident.",
+        "participantIds": ["maya", "dev"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We agree the four hours were unacceptable", "participantId": "maya" },
+          { "quote": "Agreed on that.", "participantId": "dev" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-failover-fired",
+        "question": "Did the failover trigger at 02:14?",
+        "type": "empirical",
+        "summary": "Maya reads the flat standby traffic as proof the failover never fired; Dev says the log shows a 02:14 flip and the health check kept traffic off the stale standby.",
+        "claimIds": ["claim-failover-log-entry", "claim-standby-traffic-flat"],
+        "participantStances": [
+          { "participantId": "maya", "positionId": "pos-failover-never-triggered", "stance": "No; the standby stayed idle all night." },
+          { "participantId": "dev", "positionId": "pos-stale-replica", "stance": "Yes; the log has the 02:14 entry and the health check explains the flat graph." }
+        ],
+        "resolutionCondition": "Reconcile the failover log with the standby health-check log for 02:14 to 06:00.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The main question is phrased as a why-question; both speakers accept that the outage lasted four hours."]
+  }
+}

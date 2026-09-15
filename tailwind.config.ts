@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import type { PluginUtils } from "tailwindcss/types/config";
 
 const config: Config = {
   darkMode: "class",
@@ -19,6 +20,13 @@ const config: Config = {
     "!./lib/**/*.test.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // Replaces (not extends) the shadow-colour scale: the `card` colour token
+    // would otherwise also compile `shadow-card` as a shadow-COLOUR utility and
+    // win over boxShadow.card below, turning every card shadow white.
+    boxShadowColor: ({ theme }: PluginUtils) => {
+      const { card: _card, ...rest } = theme("colors") as Record<string, string | Record<string, string>>;
+      return rest;
+    },
     extend: {
       colors: {
         // Semantic surfaces use channel variables so Tailwind's opacity
@@ -29,15 +37,24 @@ const config: Config = {
         panel: "rgb(var(--bg-panel-rgb) / <alpha-value>)", // Cards / panels
         paper: "rgb(var(--bg-paper-rgb) / <alpha-value>)", // Lightweight paper for nodes
         overlay: "rgb(var(--bg-overlay-rgb) / <alpha-value>)",
+        card: "rgb(var(--bg-card-rgb) / <alpha-value>)", // --bg-card: white in light, #252420 in .dark
+        divider: "rgb(var(--border-divider-rgb) / <alpha-value>)", // --border-divider hairlines
 
         primary: "#3d3a36",
         secondary: "#564d45",
-        muted: "#6d6058", // Darkened from #7a7068 for WCAG AA 4.5:1 on parchment (#f4f1eb)
+        muted: {
+          DEFAULT: "#6d6058", // Darkened from #7a7068 for WCAG AA 4.5:1 on parchment (#f4f1eb)
+          // `bg-muted-surface/N` — the --bg-muted panel tint as RGB channels so
+          // opacity modifiers compile while the colour still switches in .dark.
+          surface: "rgb(var(--bg-muted-rgb) / <alpha-value>)",
+        },
 
         deep: {
           DEFAULT: "#3a6965", // Deep teal — primary accent (darkened for WCAG AA 4.5:1 on parchment)
           light: "#4f7b77", // Original deep teal — decorative/large text only
           dark: "#2d524f",
+          bright: "#6fa39e", // Dark-mode text tint: 6.2:1 on the #1a1917 canvas, 5.1:1 on dark cards
+          brighter: "#b1d0cd", // Dark-mode hover tint for deep-bright text: ~9.9:1 on the #1a1917 canvas
         },
 
         // Rust palette — CTA buttons, "for" side, warm accents
@@ -65,7 +82,7 @@ const config: Config = {
         // Bold semantic colors for graph elements
         crux: {
           DEFAULT: "#a23b3b", // Deep crimson for cruxes
-          light: "#c45c5c",
+          light: "#e66767", // Dark-mode text tint: 5.4:1 on the #1a1917 canvas, 4.5:1 on dark cards
           dark: "#7a2929",
         },
         evidence: {
@@ -82,6 +99,7 @@ const config: Config = {
           DEFAULT: "#8B5A3C", // Warm brown for skeptic
           light: "#A67350", // Light brown
           dark: "#6B442C", // Dark brown
+          bright: "#c4916a", // Dark-mode text tint: 6.4:1 on the #1a1917 canvas, 5.6:1 on dark cards, 4.9:1 on the muted surface
         },
         score: {
           high: "#4f7b77", // High confidence - deep teal

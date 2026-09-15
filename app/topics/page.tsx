@@ -71,7 +71,7 @@ function FeaturedDebateMaps() {
           href={`/topics/${topic.meta.id}`}
           className="surface-card card-hover block rounded-lg border-l-4 border-[#a23b3b] p-4 sm:p-5"
         >
-          <p className="text-[11px] font-medium uppercase tracking-wider text-[#a23b3b]">
+          <p className="text-[11px] font-medium uppercase tracking-wider text-[#a23b3b] dark:text-crux-light">
             Featured debate map
           </p>
           <h2 className="mt-1.5 font-serif text-xl sm:text-2xl text-stone-900 dark:text-stone-100">

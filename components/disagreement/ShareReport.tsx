@@ -140,7 +140,7 @@ export function ShareReport({
       {shareUrl && slug ? (
         <DeleteReportControl slug={slug} onDeleted={() => setDeleted(true)} />
       ) : null}
-      {error ? <p className="text-sm text-[#a23b3b]">{error}</p> : null}
+      {error ? <p className="text-sm text-[#a23b3b] dark:text-crux-light">{error}</p> : null}
     </section>
   );
 }

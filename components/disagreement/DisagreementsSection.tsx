@@ -11,7 +11,7 @@ export function DisagreementsSection({ report }: { report: DisagreementReportV1 
         <ul className="mt-4 space-y-3">
           {report.disagreements.map((item) => (
             <li key={item.id} className="surface-card rounded-xl border border-[var(--border-default)] p-4">
-              <p className="text-xs uppercase tracking-wide text-[#3a6965]">{disagreementTypeLabel(item.type)}</p>
+              <p className="text-xs uppercase tracking-wide text-[#3a6965] dark:text-deep-bright">{disagreementTypeLabel(item.type)}</p>
               <h3 className="mt-1 font-serif text-xl">{item.question}</h3>
               <p className="mt-2 text-sm text-[var(--text-secondary)]">{item.summary}</p>
               <ul className="mt-3 space-y-1 text-sm">

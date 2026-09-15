@@ -147,7 +147,7 @@ export function DisagreementAnalyzeClient() {
           </p>
           <button
             type="button"
-            className="min-h-11 text-sm text-[#3a6965] underline"
+            className="min-h-11 text-sm text-[#3a6965] dark:text-deep-bright underline"
             onClick={() => setInputCollapsed(false)}
           >
             Edit
@@ -197,7 +197,7 @@ export function DisagreementAnalyzeClient() {
       {status === "loading" ? <AnalysisProgress step={step} /> : null}
       {status === "error" ? (
         <div className="mx-auto max-w-3xl space-y-3">
-          <p className="text-[#a23b3b]">{error}</p>
+          <p className="text-[#a23b3b] dark:text-crux-light">{error}</p>
           <Link className="text-sm underline" href="/analyze">
             Try the limited local parser
           </Link>

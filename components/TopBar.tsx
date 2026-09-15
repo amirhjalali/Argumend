@@ -65,7 +65,7 @@ export function TopBar({
 
   return (
     <>
-      <header role="banner" className="sticky top-0 z-50 flex w-full items-center justify-between gap-1 bg-[#f4f1eb]/90 dark:bg-[var(--bg-canvas)]/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary dark:text-stone-200 border-b border-stone-200/40 dark:border-[var(--border-divider)]/60">
+      <header role="banner" className="sticky top-0 z-50 flex w-full items-center justify-between gap-1 bg-canvas/90 backdrop-blur-sm px-4 md:px-6 py-3 text-primary dark:text-stone-200 border-b border-stone-200/40 dark:border-[#3d3a36]/60">
         {/* Left: Menu + Logo */}
         <div className="flex min-w-0 flex-1 items-center gap-3 md:flex-none md:gap-5">
           <button
@@ -166,7 +166,7 @@ export function TopBar({
           </div>
 
           {authEntryEnabled && (
-            <div className="ml-1 border-l border-stone-200/60 pl-2 dark:border-[var(--border-divider)]/60">
+            <div className="ml-1 border-l border-stone-200/60 pl-2 dark:border-[#3d3a36]/60">
               <UserMenu />
             </div>
           )}

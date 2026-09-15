@@ -41,7 +41,7 @@ export function Footer() {
                     <Link
                       href={link.href}
                       prefetch={false}
-                      className="inline-flex min-h-11 items-center rounded-md text-sm text-stone-500 transition-colors duration-200 hover:text-deep dark:text-stone-400"
+                      className="inline-flex min-h-11 items-center rounded-md text-sm text-stone-500 transition-colors duration-200 hover:text-deep dark:hover:text-deep-bright dark:text-stone-400"
                     >
                       {link.label}
                     </Link>

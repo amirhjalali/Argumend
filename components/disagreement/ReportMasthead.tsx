@@ -1,4 +1,4 @@
-import { bandLabel, disagreementTypeLabel } from "@/lib/disagreement/labels";
+import { bandLabel, diagnosisPatternLabel, disagreementTypeLabel } from "@/lib/disagreement/labels";
 import type { DisagreementReportV1 } from "@/types/disagreement";
 
 /**
@@ -30,9 +30,10 @@ export function ReportMasthead({ report }: { report: DisagreementReportV1 }) {
         {report.diagnosis.insight}
       </p>
       <p className="mt-6 text-[11px] font-medium tracking-[0.18em] text-[var(--text-muted)]">
-        {report.diagnosis.primaryType ? disagreementTypeLabel(report.diagnosis.primaryType).toUpperCase() : "DISAGREEMENT"}
-        {" · "}
-        {bandLabel(report.diagnosis.resolvability).toUpperCase()}
+        {report.diagnosis.primaryType
+          ? `${disagreementTypeLabel(report.diagnosis.primaryType).toUpperCase()} · ${bandLabel(report.diagnosis.resolvability).toUpperCase()}`
+          : /* No typed disagreement to name and nothing to resolve: the pattern is the label. */
+            diagnosisPatternLabel(report.diagnosis.pattern).toUpperCase()}
       </p>
     </header>
   );

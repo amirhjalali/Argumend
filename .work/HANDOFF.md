@@ -327,3 +327,260 @@ route-unification core (what "Map" means; collapse the 3 topic renderings), Bet 
 Plus two decisions: (1) **push** the campaign's unpushed fix commits to `origin/nuclear-flagship`? (2) a
 **visual QA pass** (light/dark/mobile) is recommended once the concurrent media session settles — the 9
 cycles were verified by tsc/tests/build/curl but not yet eyeballed end-to-end.
+
+## Sprint 2026-09-14/15 — V2 checkpoint evidence, backlog engineering, citation integrity (branch `sprint-2026-09-14`)
+
+_Founder said: "I have a ton of tokens left that expire tomorrow, make a plan to use as much as possible
+and productively as possible." Approved Tiers 1-3; content tier and the immigration lab held. Stopped
+by the founder on 2026-09-15 ~09:30 EDT after the CLI lane burned ~36% of a 5h window in 15 minutes.
+Branch is off `main` @ 0bc2fc5, **12 commits, NOT pushed.** Everything committed is gated: tsc, eslint,
+vitest (216 files / 2321 tests), fixture eval 64/64._
+
+### TL;DR
+
+The V2 spec's founder checkpoints (§22) were blocked because nobody had generated review material.
+This sprint generated it: 40 authored-source diagnoses and 3 flagship map recoveries on the
+subscription `cli` lane, blind-scored by three independent reviewers against the rubric. **Mean 11.7/14,
+zero invented sources, 390/390 quotes verbatim, no winner or percentage anywhere. But the run fails
+the rubric's hard gate: 3 of 40 reports present a value dispute as empirical**, and both reviewers
+traced that to one line in the projection code (`primaryType = disagreements[0]?.type`). The evidence
+and the seven systematic defects are in `docs/reviews/2026-09-15-v2-checkpoint-evidence/README.md`.
+Alongside: four pipeline defects fixed, six fabricated Nature citations replaced, the crux-recall
+failure diagnosed (engine is fine, the answer key is not), harness defects fixed, review manifests and
+freshness diagnostics built, a `RateLimiter` interface, and 15 new golden fixtures.
+
+### Commits (oldest first)
+
+| Commit | What |
+|---|---|
+| 6fea793 | `RateLimiter` interface + `InMemoryRateLimiter`; route body moved to `createDisagreementAnalyzeHandler` so tests can inject; HTTP behavior byte-identical (spec §11.3) |
+| 38e031a | URL checker classifies Nature cookie-wall bounces honestly (2xx → bot-wall bucket, 404 → still DEAD); 2 dead links replaced |
+| b8db60c | `docs/reviews/2026-09-14-crux-recall-diagnosis.md` — why the pre-registered gate fails |
+| fece065 | 15 fixtures, corpus 38 → 53, every §16.1 category covered |
+| 71aba81 | Per-map review manifests, `freshness:argument` diagnostic, `docs/ARGUMENT_AUTHORING_CHECKLIST.md` |
+| 6450386 | Six fabricated Nature DOIs replaced with verified real papers; claim text corrected to what the papers say |
+| ee9cb3b | Crux-recall harness: truthful miss ranks, spec named test 1 added (fails honestly), Spearman implemented literally |
+| ca0d4e9 | eslint ignores `.claude/worktrees/**` and `.playwright-mcp/**` |
+| 00eb409 | V2: positions-without-claims → honest `insufficient-context` (§10.4); "Why…" questions no longer silently drop every crux; participant ids deduped; fixture floor 54 |
+| 72744de | vitest excludes agent worktrees (a worktree had doubled the suite) |
+| 6c34a2a | Checkpoint evidence: three blind scoring reports + README |
+
+Plus this handoff commit.
+
+### What the evidence says (read the README; this is the short form)
+
+- **Grounding is solid.** Every displayed quote in 46 reports is a verbatim substring with correct
+  offsets. No invented participant, source, or figure. One-sided articles and non-arguments handled
+  correctly. Prompt injection neutralised and disclosed. `independentlyVerified` false everywhere.
+- **The crux is the weak box.** In roughly 12 of every 20 reports the primary crux restates the
+  question, picks an uncontested premise, or surfaces the parties' explicit common ground; the right
+  crux is often at rank 2 or 3. This is engine/candidate territory and the spec forbids autonomous
+  changes there. **Your call.**
+- **Pattern selection is count-driven.** `mostly-common-ground` fires on counts while the same report
+  says `sharedGround: "low"`; `mixed-disagreement` is the fallthrough for "procedural";
+  `single-empirical-crux` never fired in 20 reports including two textbook cases.
+- **Run-to-run variance is large.** Two sonnet runs on identical flagship transcripts chose different
+  primary cruxes on all three maps. The engine is deterministic; the model-extracted claim set is not.
+  A repeatability metric (N runs per input, crux agreement rate) does not exist yet and should.
+- **The corpus harness can't test what it claims to on 2 of 3 maps**: `renderDebate.ts` renders every
+  engine crux as a single uncontested line, so a blind run can only echo it.
+- **Crux-recall gate:** the memo's finding is that the engine does what the spec says; the human
+  proposition lists are position-facing leaf claims, the harness's answer key is not the
+  pre-registered one, and 0.6 Recall@5 is roughly the ceiling under the current design. Six decisions
+  for you are listed in the memo.
+
+### Decisions waiting on you
+
+1. **Primary crux quality** (defect 1 above): candidate filtering of common-ground/uncontested claims
+   at projection time, or engine changes per the crux memo's two low-risk levers. Spec-frozen; not done.
+2. **Crux-recall memo decisions** (six items in `docs/reviews/2026-09-14-crux-recall-diagnosis.md`):
+   validation design, three `derived` mapping revisions, five `opposes` edges, two engine levers.
+3. **Retry-After** in the rate limiter is computed from the later of the two windows, so exhausting
+   only the hourly window advertises up to a 24h wait. Preserved as-is; one-line fix if you want it.
+4. **Review manifests** say all three flagship maps are overdue (Israel's 7-day headline check by
+   26 days). Public copy was not changed to "dated snapshot". Fast-moving node selection is a
+   judgment call listed per node in each manifest.
+5. **Spearman check** uses pre-registered list order as the human importance ranking because no such
+   ranking exists in the repo. Confirm or replace.
+6. **Model comparison never happened.** The opus flagship run directory was deleted by the
+   orchestrator by mistake (see README correction); the opus sources run was killed at the founder's
+   stop. Also: report provenance records only the model *alias* passed to the CLI, so an opus and a
+   sonnet report are indistinguishable from their JSON. Fix: have `CliDisagreementProvider` record the
+   resolved model id from the CLI envelope.
+
+### Queued, not started (all scoped, none founder-gated)
+
+- **pipeline-2** (projection-only, no crux formula): `primaryType` consistent with the primary crux;
+  placeholder resolution text removed; pattern selection consistent with `sharedGround`; ungrounded
+  common ground labelled inferred; `explicit` positions require a supporting quote; causal-model-split
+  headline conditional on shared facts; never render a participant-less stake. The agent had written
+  the failing-first tests when it was stopped; they are in **`git stash@{0}`** (four test files), not
+  in the tree, because they fail by design until the fixes land.
+- **renderDebate.ts**: emit a contesting line for every claim with `disputedBy`/`contradicts` edges so
+  the corpus harness can actually test crux recovery; rephrase the "I know the reply is that…" line.
+- **Repeatability metric** for the cli lane (N runs, crux agreement).
+- **Render sweep** (browser, every route, desktop+mobile, dark mode, the V2 page with the fake
+  provider): started twice, killed twice (rate limit, then the stop). All 294 sitemap URLs returned
+  200 before it died; nothing else recorded.
+- **Legacy corpus run** (159 maps) and **opus runs**: not completed. Before re-running, read the
+  cost note below.
+
+### Cost note (why the founder stopped it)
+
+Measured from transcripts: the `claude -p` CLI lane was ~85-90% of spend — 236 requests, 3.7M output
+tokens, 9.5M *uncached* prompt tokens, because every subprocess re-sends a ~40k-token prompt and the
+schema-repair retry fires on most cases (~2 requests per case). Agents and the orchestrator were
+cheap by comparison (nearly all cache hits). The orchestrator launched 11 subprocesses + 5 agents at
+once, twice, overshot the 80% guardrail, and hit the 100% session lockout once, which killed three
+jobs. Standing rule now in memory: max 4 CLI subprocesses total, usage check before every launch,
+stop launching at 60% of the 5h window, tell the founder the expected burn before any run over ~30
+cases. Cheaper lever worth building before the next run: cache the system prompt across cases
+(the `anthropic` lane can; the `cli` lane cannot as a subprocess-per-case design).
+
+### Verification status
+
+- `./node_modules/.bin/tsc --noEmit` exit 0
+- `./node_modules/.bin/eslint . --max-warnings=0` exit 0
+- `./node_modules/.bin/vitest run` 216 files / 2321 tests, exit 0
+- `./node_modules/.bin/tsx scripts/eval-disagreement.ts` 64/64
+- `./node_modules/.bin/tsx scripts/check-source-urls.ts` DEAD 0 of 1662 (64 Nature URLs are
+  "unverifiable (bot wall)", i.e. real articles behind a cookie wall)
+- `./node_modules/.bin/tsx scripts/validate-crux-recall.ts` exit 1 (expected; the gate fails honestly)
+- `rm -rf .next && next build` clean (run 2026-09-15 13:50 EDT on the final tree, 19 commits). Full suite at that point: 218 files / 2362 tests.
+
+### Addendum — afternoon burst 2026-09-15 13:22-14:10 EDT (founder: "go hard for 40 min, then slow down")
+
+Four more commits (16 total on the branch, still not pushed):
+
+- **Projection pass 2** (the hard-gate fix): headline type follows the primary crux; placeholder
+  resolution text gone; pattern selection consistent with `sharedGround`; `single-empirical-crux` can
+  fire again; ungrounded common ground dropped, ungrounded "explicit" positions relabelled inferred;
+  participant-less stakes never rendered; corpus renderer now emits a contesting line for every crux
+  claim with a dispute edge; CLI provenance records the resolved model id. 2349/2349 tests.
+- **Model comparison, finally done** (both files blind; key in the evidence README): opus passes the
+  rubric hard gate and scores higher on 8 of 9 paired sources; crux selection is not better in either.
+  Decision for you: opus for the served lane is supported by this evidence, at ~30% more latency.
+- **Render sweep**: 47 routes x 2 widths clean for overflow/images/hydration; all 294 sitemap URLs
+  200. Two HIGH dark-mode defects (top bar stays parchment because an opacity modifier on a
+  CSS-variable colour never compiles; footer newsletter card unreadable) and flagship ids 404 on
+  `/embed` and `/topics/compare` were handed to two agents at 13:47; if their commits are on the branch
+  they landed, otherwise see `git status`.
+- **Still unverified by render:** the six-box V2 report and the stake ledger, because the fake
+  provider's keyword matcher returns the non-disagreement fixture for the trust-split source (sweep
+  finding F3). Fix `pickFixture` in `lib/disagreement/model/fake.ts` or pass a fixture id explicitly.
+
+### Addendum 2 — 14:00-14:20 EDT, the last minutes of the window plus the first of the next
+
+Four more commits (24 total):
+
+- **Fake provider fixture selection** (`lib/disagreement/model/fake.ts`): a submitted source that
+  matches an eval fixture now returns that fixture's extraction, so the six-box V2 report and the
+  stake ledger can be render-verified with `ARGUMEND_DISAGREEMENT_PROVIDER=fake`. Not yet re-rendered.
+- **Systemic dark-mode fix**: 81 sites in 43 files used `dark:*-[var(--x)]/N`, which Tailwind 3
+  silently drops. rgb-channel tokens for card/muted/divider, registered colours, every site
+  rewritten with its alpha preserved, and `lib/darkModeOpacityRatchet.test.ts` (zero ceiling +
+  in-test compile proof) so it cannot come back.
+- **`/d/[slug]` 404 is server-rendered** for malformed slugs (proxy matcher + shape check; the
+  shape module is Node-import-free because the proxy bundles it). Residual: a well-formed slug absent
+  from the DB still hits Next's client-rendered error shell, same as `/analysis/<uuid>`.
+- **Blog "Analysis" category** title-cased in the data (8 posts).
+
+Not done from the sweep: F7 (fixed-hex crux crimson / teal text fails dark-mode contrast) and the
+render re-check of the six-box report now that the fake lane can produce one.
+
+### Addendum 3 — gentle phase, 14:13-14:50 EDT (one agent at a time, no CLI runs)
+
+Commits 26-29:
+
+- **V2 report render-verified in a browser** on three fixtures at both widths, light and dark
+  (`docs/reviews/2026-09-15-v2-report-render-verification.md`): quotes verbatim, no winner/score/
+  percentage, honest disclaimers, stake ledger attributes correctly. Duplicate React key on crux
+  branches fixed.
+- **F7 dark-mode contrast**: crux crimson and deep teal text now reach AA in dark mode (4.50:1 and
+  6.20:1 measured), via `crux.light` / `deep.bright` tokens across 20 files.
+- **The spec's sixth box** (evidence state, §6.6) was never rendered; `CruxSection.tsx` was a dead
+  predecessor. New `EvidenceStateSection` mounted inside the crux panel; six boxes confirmed in a
+  browser with zero console errors.
+- **Projection pass 3**: crux branches now state the condition AND its negation (previously both
+  branches shared one condition, so "if this does not hold" never appeared); quote-offset frame of
+  reference documented and tested on CRLF; stake ledger no longer quote-marks paraphrases;
+  zero-position reports lose the positions preamble, the UNKNOWN label, and the false grounding
+  claim.
+- **FLAGGED, your call:** the same commit adds a deterministic evidence-state detection rule
+  (`lib/disagreement/evidenceState.ts`). The spec defines the three labels but no rule, and without
+  one the new box could only ever say "not independently checked". The rule is conservative and
+  keyword-based; the commit message has the one-line revert recipe if you would rather keep the box
+  to the boundary statement until you define the rule.
+
+Gates on the final tree at 34 commits: 2419 tests, tsc, eslint, eval 64/64, clean production build
+(run 16:40 EDT on commit 0c777cc, after every component and projection change).
+
+### Addendum 4 — 14:50-16:35 EDT, dark mode made measurable
+
+Commits 30-33:
+
+- **Measured dark-mode sweep of 49 routes** (`docs/reviews/2026-09-15-dark-mode-verification.md`):
+  per-route contrast walk compositing each text node against its real background. Fixed the
+  token-pattern failures it found across 24 files (verdict chips on every listing, blog image
+  placeholders, topic cards, flagship read-mode eyebrows), and the markdown renderer, whose emitted
+  prose classes had no dark variant, so every blog article body was 1.55:1.
+- **Repo-wide `text-deep` pass**: 136 sites plus 62 hover states gained a dark variant; new
+  `deep.brighter` hover tint and `skeptic.bright` (#c4916a) for the brown side; the six `lib/*Meta.ts`
+  style maps and `categoryColors.ts` swapped off the decorative tints. A third ratchet
+  (`darkModeDeepTextRatchet`) holds it at zero.
+- Light mode was not intentionally changed by any of this (only `dark:` variants added, plus chip
+  classes that resolve to the same hexes). A screenshot diff against `main` was commissioned at
+  16:35; see the last addendum or `git log` for whether it landed and what it found.
+
+Remaining dark-mode items are design judgement, listed in the verification doc: opacity-faded
+numerals, "No." card numbers, the vote buttons (fail in light mode too), inline hex numerals on
+methodology/perspectives.
+
+### Addendum 5 — 16:35-17:05 EDT
+
+Commits 35-37:
+
+- **Light-mode regression check** against `main` (15 routes, pixel diff + computed-style diff):
+  found one real regression from the dark-mode work, every card shadow turning white because the new
+  `card` colour token leaked into Tailwind's shadow-colour scale. Fixed at the config with a compile
+  proof. No text colour changed anywhere; light-mode AA identical to main. One visible change for
+  your sign-off: closed FAQ cards are now translucent white where the old class never compiled.
+- **Crux levers, flagged off** (`docs/reviews/2026-09-15-crux-levers-evidence.md`): the memo's two
+  engine levers and a projection-time "skip uncontested / common-ground crux" filter, all behind
+  flags defaulting off, flags-off output proven identical. Evidence says: keep A and B off (A
+  regresses named test 3, which the memo never checked); filter C is the one worth turning on, and
+  it changes the primary crux in 4 of 40 live reports, fixing three the reviewers named. **Decision:**
+  review the 8 diffs in the evidence doc and set `CRUX_PROJECTION_SKIP_UNCONTESTED=true` if you agree.
+
+Not started, on offer: the 12-person study kit that gates PR 9; a refresh of `docs/drafts/` around V2
+with today's measured results; a bounded crux-repeatability run (3 maps x 5 sonnet runs, ~15 CLI
+requests). Gates at 37 commits: vitest 2419+ (last full run at 34; scoped runs green since), tsc,
+eslint, eval 64/64; rebuild before merge.
+
+### Addendum 6 — 17:05-20:00 EDT, the founder's three picks plus follow-through
+
+The founder pushed the branch at 17:50 and draft **PR #4** is open; CI (lint, tests, build in a clean
+environment) is green on it. Commits 39-43:
+
+- **12-person human evaluation kit** (`docs/research/2026-09-15-v2-human-evaluation-kit/`): the
+  study that gates PR 9, ready to recruit and run. Six thresholds verbatim from §16.4, protocol,
+  screener, five fresh disagreement sources with a sealed answer key, scoring sheet, results template,
+  pilot plan.
+- **Distribution drafts refreshed** (`docs/drafts/*-2026-09.md`): essay, gatekeeper DMs, grants,
+  launch packaging, rewritten for the diagnosis product with every number traced to a repo file.
+  The essay's worked example now carries the one live run (below). Remaining [VERIFY]/[ASK]
+  placeholders are listed in each file.
+- **Crux filter C re-scored** (`docs/reviews/2026-09-15-crux-filter-c-rescoring.md`): of the 12
+  reports it changes, 8 better, 3 same, 1 worse (141 -> 149). Recommendation: turn it on. **Still
+  off; your decision.**
+- **Crux repeatability** (`docs/reviews/2026-09-15-crux-repeatability.md`, ~30 sonnet requests):
+  five identical runs of the three flagship transcripts; the primary crux matched verbatim in 2/5,
+  1/5, 2/5 runs and the pattern in 2/5, 2/5, 5/5. Positions 4/4 every run. The crux box is not
+  stable run to run at sonnet. Recorded implication: the human study's "crux is central" threshold
+  measures the run, not the product, until extraction variance is reduced or disclosed. The one
+  live dog-park run for the essay presented an agreed claim as primary crux; the essay says so.
+- **Resolution-condition fix** (commit "a crux that borrows a disagreement's question borrows its
+  resolution too"): resolves the single filter-C regression and 15+ kind clashes per run; only
+  resolution text/kind moved, primaries byte-equal.
+
+Merge brief for the review: `docs/reviews/2026-09-15-sprint-merge-brief.md` (decisions first).

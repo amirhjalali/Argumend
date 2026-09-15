@@ -247,7 +247,7 @@ export default async function IsClaimPage({ params }: PageProps) {
 
           {/* Category badge */}
           <div className="mb-6">
-            <span className="inline-block rounded-full bg-deep/10 px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wide text-deep">
+            <span className="inline-block rounded-full bg-deep/10 px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wide text-deep dark:text-deep-bright">
               {categoryLabel}
             </span>
           </div>
@@ -259,7 +259,7 @@ export default async function IsClaimPage({ params }: PageProps) {
 
           {/* Direct answer */}
           <div className="mt-8 rounded-xl border border-deep/15 bg-panel p-6 dark:border-teal-700/40">
-            <p className="font-sans text-xs font-semibold uppercase tracking-wide text-deep">
+            <p className="font-sans text-xs font-semibold uppercase tracking-wide text-deep dark:text-deep-bright">
               Evidence-based assessment
             </p>
             <p className="mt-3 font-sans text-lg leading-relaxed text-primary dark:text-stone-200">

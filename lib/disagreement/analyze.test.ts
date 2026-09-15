@@ -46,7 +46,12 @@ describe("analyzeDisagreement", () => {
     expect(result.report.sourceMode).toBe("source-only");
     expect(result.report.provenance.independentlyVerified).toBe(false);
     expect(result.report.positions).toHaveLength(2);
-    expect(result.report.diagnosis.pattern).toMatch(/causal|mixed|mostly/);
+    // The headline type follows the engine's primary crux (reviewer issue A).
+    // On this exemplar the engine ranks an empirical claim outside the causal
+    // disagreement first, so the pattern follows that crux rather than the
+    // first listed disagreement; which claim ranks first is the engine's call.
+    expect(result.report.diagnosis.primaryType).toBe(result.report.cruxes[0]?.type);
+    expect(result.report.diagnosis.pattern).toMatch(/single-empirical-crux|causal|mixed|mostly/);
     expect("winner" in result.report).toBe(false);
     expect(result.graph.question.statement.endsWith("?")).toBe(true);
     for (const position of result.report.positions) {
@@ -230,10 +235,14 @@ describe("common ground honesty", () => {
       provider: new FakeDisagreementProvider(extraction),
     });
 
-    const item = result.report.commonGround[0];
-    expect(item.grounding).toHaveLength(0);
-    expect(item.basis).toBe("strongly-implied");
-    expect(item.confidence).not.toBe("high");
+    // Once demoted to "strongly-implied"; now, with nothing from either person
+    // to show for it, the item is not shown at all and the gap is recorded
+    // (reviewer issue D). The report has no "inferred" label for common ground.
+    expect(result.report.commonGround).toHaveLength(0);
+    expect(result.report.diagnosis.sharedGround).toBe("none");
+    expect(result.report.quality.warnings).toContainEqual(
+      expect.stringMatching(/Dropped common-ground item cg-1/),
+    );
   });
 });
 
@@ -359,12 +368,20 @@ describe("crux branch direction", () => {
       });
 
       for (const crux of result.report.cruxes) {
-        const strengthened = crux.branches.filter((branch) => branch.consequence.includes("stronger"));
-        // Every strengthening branch must name a distinct set of positions;
-        // the same condition cannot make opposing positions both stronger.
-        const named = strengthened.flatMap((branch) => branch.consequence.split(" and "));
-        expect(new Set(named).size, `${example.name} repeats a strengthened position`).toBe(named.length);
-        expect(strengthened.length).toBeLessThanOrEqual(1);
+        // Each branch is one condition. Within it, the positions it makes
+        // stronger and the ones it makes weaker must not overlap, and no two
+        // branches may carry the same condition (spec §6.6: A and not-A).
+        const conditions = crux.branches.map((branch) => branch.condition);
+        expect(new Set(conditions).size, `${example.name} repeats a branch condition`).toBe(conditions.length);
+        for (const branch of crux.branches) {
+          const stronger = branch.consequence.match(/([^;.]+?) becomes? stronger/g) ?? [];
+          const weaker = branch.consequence.match(/([^;.]+?) becomes? weaker/g) ?? [];
+          const strongerNames = stronger.flatMap((part) => part.replace(/ becomes? stronger$/, "").trim().split(" and "));
+          const weakerNames = weaker.flatMap((part) => part.replace(/ becomes? weaker$/, "").trim().split(" and "));
+          for (const name of strongerNames) {
+            expect(weakerNames, `${example.name}: "${name}" is both stronger and weaker under one condition`).not.toContain(name);
+          }
+        }
       }
     }
   });
@@ -393,6 +410,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 0,
       explicitPositionCount: 0,
+      claimCount: 0,
       disagreementCount: 0,
       commonGroundCount: 0,
       groundingCoverage: 1,
@@ -403,6 +421,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 1,
       commonGroundCount: 2,
       groundingCoverage: 0.8,
@@ -414,6 +433,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 2,
       commonGroundCount: 0,
       groundingCoverage: 0.8,
@@ -425,6 +445,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 1,
       commonGroundCount: 0,
       groundingCoverage: 0.8,
@@ -436,6 +457,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 1,
       commonGroundCount: 0,
       groundingCoverage: 0.8,
@@ -447,6 +469,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 3,
       commonGroundCount: 0,
       groundingCoverage: 0.8,

@@ -80,9 +80,9 @@ export const glossaryChapters: Record<GlossaryCategory, GlossaryChapterMeta> = {
     label: "Core Concepts",
     description:
       "The building blocks of an Argumend map — the claim under test and the structure built around it.",
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
+    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-bright border-deep/20 dark:border-deep/40",
     iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-deep-light",
+    iconText: "text-deep dark:text-deep-bright",
     hoverBorder: "hover:border-deep/40",
     borderAccent: "border-l-deep/50",
   },
@@ -116,9 +116,9 @@ export const glossaryChapters: Record<GlossaryCategory, GlossaryChapterMeta> = {
     label: "Argumend Methodology",
     description:
       "How Argumend turns a pile of sources into a number you can argue with.",
-    chip: "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-light border-skeptic/25 dark:border-skeptic/40",
+    chip: "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-bright border-skeptic/25 dark:border-skeptic/40",
     iconBg: "bg-skeptic/10 dark:bg-skeptic/20",
-    iconText: "text-skeptic-dark dark:text-skeptic-light",
+    iconText: "text-skeptic-dark dark:text-skeptic-bright",
     hoverBorder: "hover:border-skeptic/40",
     borderAccent: "border-l-skeptic/50",
   },

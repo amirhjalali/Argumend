@@ -222,7 +222,7 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
                   <summary className="cursor-pointer list-none rounded-lg p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
                     <h3>
                       <span className="flex items-baseline gap-3">
-                        <span className="font-serif text-lg text-[#a23b3b] dark:text-[#e66767]">
+                        <span className="font-serif text-lg text-[#a23b3b] dark:text-crux-light">
                           {index + 1}
                         </span>
                         <span className="text-[15px] leading-snug font-medium text-stone-900 dark:text-stone-100">
@@ -296,7 +296,7 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {meta.highlights.map((highlight) => (
               <li key={highlight.fact} className="surface-card rounded-lg p-4">
-                <p className="font-serif text-3xl text-[#3a6965] dark:text-[#6fa39e]">
+                <p className="font-serif text-3xl text-[#3a6965] dark:text-deep-bright">
                   {highlight.fact}
                 </p>
                 <p className="mt-1.5 text-sm leading-snug text-secondary dark:text-stone-300">
@@ -500,7 +500,7 @@ function Chip({
 }) {
   const toneClass =
     tone === "crux"
-      ? "text-[#a23b3b] border-[#a23b3b]/40 dark:text-[#e66767] dark:border-[#e66767]/50"
+      ? "text-[#a23b3b] border-[#a23b3b]/40 dark:text-crux-light dark:border-crux-light/50"
       : tone === "warn"
         ? "text-[#8B5A3C] border-[#8B5A3C]/40 dark:text-[#d4805f] dark:border-[#d4805f]/50"
         : "text-muted dark:text-stone-400 border-stone-300 dark:border-[var(--border-divider)]";
@@ -536,7 +536,7 @@ const POLARITY_RENDER = {
   supporting: {
     glyph: "＋",
     label: "Supports",
-    className: "text-[#3a6965] dark:text-[#6fa39e]",
+    className: "text-[#3a6965] dark:text-deep-bright",
   },
   challenging: {
     glyph: "−",

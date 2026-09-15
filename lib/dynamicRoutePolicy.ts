@@ -9,6 +9,7 @@ import { isClaims } from "@/data/is-claims";
 import { CATEGORY_ORDER, topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { isAnalysisId } from "@/lib/analysisId";
+import { isReportSlug } from "@/lib/disagreement/reportSlug";
 import { getAllQuestionVariations } from "@/lib/questions";
 
 // These compact catalogs intentionally live apart from the prose-heavy source
@@ -207,6 +208,12 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
   }
   if (segments.length === 2 && segments[0] === "analysis") {
     return !isAnalysisId(segments[1]);
+  }
+  // Published disagreement reports live only in the database, so a well-formed
+  // slug must reach the page. Malformed ones are rejected here for the same
+  // reason as non-UUID analysis ids: a truthful, server-rendered 404.
+  if (segments.length === 2 && segments[0] === "d") {
+    return !isReportSlug(segments[1]);
   }
 
   return false;

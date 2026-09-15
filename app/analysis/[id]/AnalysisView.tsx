@@ -102,7 +102,7 @@ function SectionDivider({ label, icon: Icon }: { label: string; icon: React.Comp
   return (
     <div className="flex items-center gap-3 pt-2">
       <div className="flex items-center gap-2 flex-shrink-0">
-        <Icon className="h-4 w-4 text-deep" />
+        <Icon className="h-4 w-4 text-deep dark:text-deep-bright" />
         <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200">{label}</h3>
       </div>
       <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 dark:from-[rgba(61,58,54,0.8)] to-transparent" />
@@ -116,7 +116,7 @@ function StrengthBadge({ score }: { score: number }) {
   const strength = getArgumentStrength(score);
   const styles = {
     strong: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/50",
-    moderate: "bg-deep/10 text-deep border-deep/20",
+    moderate: "bg-deep/10 text-deep dark:text-deep-bright border-deep/20",
     weak: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 border-stone-200 dark:border-[var(--border-divider)]",
     unsupported: "bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400 border-red-100 dark:border-red-800/40",
   };
@@ -285,7 +285,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls={detailsId}
-        className="w-full p-4 md:p-5 text-left hover:bg-white/40 dark:hover:bg-[var(--bg-card)]/40 transition-colors"
+        className="w-full p-4 md:p-5 text-left hover:bg-white/40 dark:hover:bg-card/40 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -345,7 +345,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
                         )}
                       </div>
                       {arg.strengthRationale && (
-                        <p className="mt-1.5 text-xs text-deep italic leading-relaxed">
+                        <p className="mt-1.5 text-xs text-deep dark:text-deep-bright italic leading-relaxed">
                           {arg.strengthRationale}
                         </p>
                       )}
@@ -365,8 +365,8 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
                       )}
                       {arg.source && (
                         <p className="mt-2 text-xs text-stone-500 dark:text-stone-400 flex items-center gap-1.5 bg-stone-50/80 dark:bg-[var(--bg-overlay)] rounded-md px-2.5 py-1.5 w-fit">
-                          <ExternalLink className="h-3 w-3 text-deep flex-shrink-0" />
-                          <span className="text-deep font-medium">{arg.source}</span>
+                          <ExternalLink className="h-3 w-3 text-deep dark:text-deep-bright flex-shrink-0" />
+                          <span className="text-deep dark:text-deep-bright font-medium">{arg.source}</span>
                         </p>
                       )}
                     </div>
@@ -396,7 +396,7 @@ function CruxCard({ crux, index }: { crux: IdentifiedCrux; index: number }) {
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 border border-deep/15 flex items-center justify-center mt-0.5">
-          <Target className="h-4.5 w-4.5 text-deep" />
+          <Target className="h-4.5 w-4.5 text-deep dark:text-deep-bright" />
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-stone-800 dark:text-[var(--text-heading)] font-medium leading-snug">{crux.description}</p>
@@ -460,7 +460,7 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
           </div>
           <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{fallacy.explanation}</p>
           {fallacy.quote && (
-            <p className="mt-2.5 text-sm text-stone-500 dark:text-stone-400 italic border-l-2 border-stone-300 dark:border-[var(--border-divider)] pl-3 bg-white/60 dark:bg-[var(--bg-card)]/60 py-1.5 rounded-r-md">
+            <p className="mt-2.5 text-sm text-stone-500 dark:text-stone-400 italic border-l-2 border-stone-300 dark:border-[var(--border-divider)] pl-3 bg-card/60 py-1.5 rounded-r-md">
               &ldquo;{fallacy.quote}&rdquo;
             </p>
           )}
@@ -479,10 +479,10 @@ function RelatedTopicCard({ topic }: { topic: TopicSummary }) {
     >
       <div className="space-y-2">
         <div className="flex items-start justify-between gap-2">
-          <h4 className="font-serif font-semibold text-primary dark:text-stone-200 text-sm group-hover:text-deep transition-colors leading-snug">
+          <h4 className="font-serif font-semibold text-primary dark:text-stone-200 text-sm group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug">
             {topic.title}
           </h4>
-          <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep transition-colors flex-shrink-0 mt-0.5" />
+          <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors flex-shrink-0 mt-0.5" />
         </div>
         <p className="text-xs text-secondary dark:text-stone-400 line-clamp-2 leading-relaxed">
           {topic.meta_claim}
@@ -548,7 +548,7 @@ export function AnalysisView({
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-secondary dark:text-stone-400">
             <Link
               href="/analyze"
-              className="hover:text-deep transition-colors"
+              className="hover:text-deep dark:hover:text-deep-bright transition-colors"
             >
               Analyze
             </Link>
@@ -570,7 +570,7 @@ export function AnalysisView({
             <div className="relative p-6 md:p-8">
               {/* Tag + Date row */}
               <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep dark:text-deep-bright tracking-wide">
                   <Brain className="h-3 w-3" />
                   Analysis Report
                 </div>
@@ -738,7 +738,7 @@ export function AnalysisView({
                 <SectionDivider label="Related Topics" icon={MessageSquare} />
                 <Link
                   href="/topics"
-                  className="text-sm text-deep hover:underline flex-shrink-0 ml-4"
+                  className="text-sm text-deep dark:text-deep-bright hover:underline flex-shrink-0 ml-4"
                 >
                   View all topics
                 </Link>

@@ -343,7 +343,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
             {/* Category */}
             <Link
               href={`/blog/category/${categoryToSlug(article.category)}`}
-              className="mb-4 inline-flex min-h-11 items-center rounded-full border border-deep/20 bg-deep/10 px-3 py-2 text-xs font-medium text-deep transition-colors hover:bg-deep/20 dark:border-deep-light/25 dark:bg-deep-light/10 dark:text-deep-light dark:hover:bg-deep-light/20"
+              className="mb-4 inline-flex min-h-11 items-center rounded-full border border-deep/20 bg-deep/10 px-3 py-2 text-xs font-medium text-deep transition-colors hover:bg-deep/20 dark:border-deep-light/25 dark:bg-deep-light/10 dark:text-deep-bright dark:hover:bg-deep-light/20"
             >
               {article.category}
             </Link>
@@ -419,7 +419,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 <Link
                   key={tag}
                   href={`/blog/tag/${tagToSlug(tag)}`}
-                  className="inline-flex min-h-11 items-center gap-1 rounded-full bg-stone-100 px-2.5 py-2 text-xs text-stone-600 transition-colors hover:bg-deep/10 hover:text-deep dark:bg-[var(--bg-card)] dark:text-stone-400 dark:hover:bg-deep-light/10 dark:hover:text-deep-light"
+                  className="inline-flex min-h-11 items-center gap-1 rounded-full bg-stone-100 px-2.5 py-2 text-xs text-stone-600 transition-colors hover:bg-deep/10 hover:text-deep dark:bg-[var(--bg-card)] dark:text-stone-400 dark:hover:bg-deep-light/10 dark:hover:text-deep-brighter"
                 >
                   <Tag className="h-2.5 w-2.5" />
                   {tag}
@@ -448,10 +448,10 @@ export default async function BlogArticlePage({ params }: PageProps) {
                     style={{ animationDelay: `${idx * 80}ms` }}
                   >
                     <div className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 dark:hover:border-deep-light/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 h-full">
-                      <span className="text-[10px] font-medium text-deep dark:text-deep-light uppercase tracking-wide">
+                      <span className="text-[10px] font-medium text-deep dark:text-deep-bright uppercase tracking-wide">
                         {item.kind}
                       </span>
-                      <h4 className="font-serif text-sm text-primary dark:text-stone-200 mt-2 mb-2 leading-snug group-hover:text-deep dark:group-hover:text-deep-light transition-colors">
+                      <h4 className="font-serif text-sm text-primary dark:text-stone-200 mt-2 mb-2 leading-snug group-hover:text-deep dark:group-hover:text-deep-brighter transition-colors">
                         {item.title}
                       </h4>
                       <p className="text-xs text-muted dark:text-stone-400">

@@ -203,7 +203,7 @@ export default function LessonsFromTheDeepPage() {
             href="https://moltbook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-deep hover:underline font-medium"
+            className="text-deep dark:text-deep-bright hover:underline font-medium"
           >
             Moltbook
           </a> is a social network for AI agents. Click any exchange below to see the full conversation.
@@ -235,7 +235,7 @@ export default function LessonsFromTheDeepPage() {
             All Moltbook Posts
           </h2>
           <p className="text-lg text-secondary dark:text-stone-400 mb-8">Every post we have shared on Moltbook, newest first.</p>
-          <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-2xl border border-[#e8e0d4] dark:border-[var(--border-divider)] divide-y divide-[#e8e0d4] dark:divide-[var(--border-divider)] overflow-hidden">
+          <div className="bg-card/80 rounded-2xl border border-[#e8e0d4] dark:border-[var(--border-divider)] divide-y divide-[#e8e0d4] dark:divide-[var(--border-divider)] overflow-hidden">
             {moltbookPosts.map((post) => (
               <a
                 key={post.id}
@@ -246,7 +246,7 @@ export default function LessonsFromTheDeepPage() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-serif text-primary dark:text-stone-200 group-hover:text-deep transition-colors mb-1 truncate">
+                    <h3 className="font-serif text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors mb-1 truncate">
                       {post.title}
                     </h3>
                     <p className="text-sm text-secondary dark:text-stone-400 line-clamp-1">

@@ -306,7 +306,7 @@ export const glp1WeightLossDrugsData = {
           id: "genetic-heritability-obesity",
           title: "40-70% of BMI Variation Is Genetically Determined",
           description:
-            "Twin studies, genome-wide association studies (GWAS), and adoption studies consistently show that 40-70% of variation in BMI is attributable to genetic factors. Over 1,000 genetic loci associated with body weight have been identified, many affecting hypothalamic appetite regulation, fat storage, and metabolic rate. The FTO gene variant alone increases obesity risk by 20-30% and is carried by 44% of European-ancestry populations. A 2024 Nature Genetics meta-analysis of 800,000 individuals identified 500+ novel obesity-associated variants. This genetic architecture explains why individuals in the same food environment develop dramatically different body weights.",
+            "Twin studies, genome-wide association studies (GWAS), and adoption studies consistently show that 40-70% of variation in BMI is attributable to genetic factors. The largest such meta-analysis (Yengo et al., 2018, Human Molecular Genetics) pooled roughly 700,000 individuals of European ancestry and identified 941 near-independent SNPs associated with BMI, about a tenfold increase over previous GIANT Consortium results, with many implicated in hypothalamic appetite regulation, fat storage, and metabolic rate. For the single best-characterized variant, FTO rs9939609, the 16% of adults homozygous for the risk allele weighed close to 3 kg more and had 1.67-fold higher odds of obesity than those carrying no risk allele (Frayling et al., 2007, Science). This genetic architecture explains why individuals in the same food environment develop dramatically different body weights.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -314,8 +314,9 @@ export const glp1WeightLossDrugsData = {
             replicability: 9,
             directness: 8,
           },
-          source: "Nature Genetics; The Lancet; Annual Review of Genomics and Human Genetics",
-          sourceUrl: "https://www.nature.com/articles/s41588-024-01797-z",
+          source:
+            "Yengo et al. (2018), Human Molecular Genetics (GIANT Consortium); Frayling et al. (2007), Science",
+          sourceUrl: "https://doi.org/10.1093/hmg/ddy271",
           reasoning:
             "Heritability estimates from twin and GWAS studies are highly replicated across populations and decades of research. This is strong evidence that obesity has a substantial biological basis that cannot be fully addressed by environmental or behavioral interventions alone, supporting the case for pharmacological treatment.",
         },

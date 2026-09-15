@@ -27,13 +27,13 @@ import type { TopicCategory, TopicStatus } from "@/lib/schemas/topic";
 export const categoryColors: Record<TopicCategory, string> = {
   // Deep teal — institutional / governance
   policy:
-    "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
+    "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-bright border-deep/20 dark:border-deep/40",
   // Stone — neutral / machine
   technology:
     "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-300 border-stone-200/60 dark:border-stone-700/40",
   // Brown (skeptic = #8B5A3C) — empirical / earthy. NOT green (see decoupling note).
   science:
-    "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-light border-skeptic/25 dark:border-skeptic/40",
+    "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-bright border-skeptic/25 dark:border-skeptic/40",
   // Rust — markets / warmth
   economics:
     "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
@@ -45,7 +45,7 @@ export const categoryColors: Record<TopicCategory, string> = {
 export const statusColors: Record<TopicStatus, string> = {
   // Deep teal "resolved" — calm and settled, never green.
   settled:
-    "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
+    "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-bright border-deep/20 dark:border-deep/40",
   // Rust — an active, live disagreement.
   contested:
     "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",

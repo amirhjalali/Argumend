@@ -68,7 +68,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
     >
       <div className="flex flex-1">
         {/* Left topic */}
-        <div className="flex-1 p-4 sm:p-5 border-r border-stone-200/40 dark:border-[var(--border-divider)]/60">
+        <div className="flex-1 p-4 sm:p-5 border-r border-stone-200/40 dark:border-divider/60">
           <div className="flex items-center gap-1.5 mb-2">
             <span
               className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full border ${
@@ -114,7 +114,7 @@ function PairCard({ pair }: { pair: FeaturedPair }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-center gap-2 px-4 py-2.5 bg-stone-50/50 dark:bg-[#1a1916]/50 border-t border-stone-200/40 dark:border-[var(--border-divider)]/60">
+      <div className="flex items-center justify-center gap-2 px-4 py-2.5 bg-stone-50/50 dark:bg-[#1a1916]/50 border-t border-stone-200/40 dark:border-divider/60">
         <span className="text-xs font-medium text-stone-500 dark:text-stone-400 group-hover:text-deep dark:group-hover:text-[#7fb5b0] transition-colors">
           Compare side by side
         </span>
@@ -384,7 +384,7 @@ function TopicPicker({
       </div>
       <div
         id="compare-topic-results"
-        className="max-h-64 overflow-y-auto rounded-lg border border-stone-200/40 dark:border-[var(--border-divider)]/60 divide-y divide-stone-200/40 dark:divide-[var(--border-divider)]/60"
+        className="max-h-64 overflow-y-auto rounded-lg border border-stone-200/40 dark:border-divider/60 divide-y divide-stone-200/40 dark:divide-divider/60"
         aria-label="Topic search results"
       >
         {visibleTopics.map((topic) => {
@@ -401,7 +401,7 @@ function TopicPicker({
               className={`flex items-center gap-3 w-full px-4 py-3 text-left transition-colors ${
                 isDisabled
                   ? "bg-stone-50 dark:bg-[#1a1916] opacity-50 cursor-not-allowed"
-                  : "hover:bg-stone-50/80 dark:hover:bg-[var(--bg-muted)]/80 cursor-pointer"
+                  : "hover:bg-stone-50/80 dark:hover:bg-muted-surface/80 cursor-pointer"
               }`}
             >
               <span
@@ -427,7 +427,7 @@ function TopicPicker({
                 </span>
               )}
               {isSelectedB && (
-                <span className="text-[10px] font-bold text-deep bg-deep/10 px-1.5 py-0.5 rounded shrink-0">
+                <span className="text-[10px] font-bold text-deep dark:text-deep-bright bg-deep/10 px-1.5 py-0.5 rounded shrink-0">
                   B
                 </span>
               )}
@@ -607,7 +607,7 @@ export default function CompareIndexView({
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <Link
                 href="/topics"
-                className="text-sm text-deep hover:underline py-2 min-h-[44px] inline-flex items-center"
+                className="text-sm text-deep dark:text-deep-bright hover:underline py-2 min-h-[44px] inline-flex items-center"
               >
                 &larr; Back to all topics
               </Link>

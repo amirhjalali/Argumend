@@ -4,14 +4,14 @@ export function SynopticTable({ pillars }: { pillars: Pillar[] }) {
   return (
     <section
       aria-label="At a glance: proponent vs skeptic"
-      className="my-10 overflow-hidden rounded-xl border border-stone-200/70 dark:border-[var(--border-divider)] bg-white/70 dark:bg-[var(--bg-card)]/70"
+      className="my-10 overflow-hidden rounded-xl border border-stone-200/70 dark:border-[var(--border-divider)] bg-card/70"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-stone-200/70 dark:divide-[var(--border-divider)]">
         {/* Column headers carry the side meaning on md+ (two-column layout).
             Hidden on mobile, where the single column would detach them from
             their rows — each cell repeats a compact text label instead. */}
         <div className="hidden md:block bg-rust-50/40 dark:bg-rust-900/10 border-l-4 border-l-rust-400">
-          <div className="px-5 py-2.5 text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700">
+          <div className="px-5 py-2.5 text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 dark:text-rust-400">
             Proponent says
           </div>
         </div>
@@ -25,7 +25,7 @@ export function SynopticTable({ pillars }: { pillars: Pillar[] }) {
             <div className="px-5 py-4 bg-rust-50/20 dark:bg-rust-900/5 border-l-4 border-l-rust-400/70">
               {/* Per-cell label keeps the side legible on mobile (where the
                   column header is hidden) and conveys it by text, not color. */}
-              <span className="md:hidden mb-1.5 block text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700">
+              <span className="md:hidden mb-1.5 block text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 dark:text-rust-400">
                 Proponent says
               </span>
               <p className="font-serif text-[15px] leading-relaxed text-primary dark:text-stone-200">

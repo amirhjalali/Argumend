@@ -73,12 +73,12 @@ export function DeleteReportControl({
         type="button"
         disabled={busy}
         onClick={handleDelete}
-        className="min-h-11 rounded-full border border-[#a23b3b] px-4 text-sm text-[#a23b3b] disabled:opacity-60"
+        className="min-h-11 rounded-full border border-[#a23b3b] dark:border-crux-light px-4 text-sm text-[#a23b3b] dark:text-crux-light disabled:opacity-60"
       >
         {busy ? "Deleting…" : "Delete public report"}
       </button>
       {error ? (
-        <p className="text-sm text-[#a23b3b]" role="alert">
+        <p className="text-sm text-[#a23b3b] dark:text-crux-light" role="alert">
           {error}
         </p>
       ) : null}

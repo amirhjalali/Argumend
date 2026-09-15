@@ -31,7 +31,7 @@ function CategoryChip({
     <Link
       href={`/blog/category/${category.slug}`}
       aria-label={`${category.label}, ${category.count} ${category.count === 1 ? "article" : "articles"}`}
-      className={`inline-flex items-center rounded-full border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5] dark:bg-[var(--bg-card)] text-xs font-medium text-secondary dark:text-stone-400 hover:border-deep/40 hover:text-deep hover:bg-deep/5 dark:hover:bg-deep/10 transition-all duration-150 ${mobile ? "min-h-11 px-3.5 py-2" : "px-3.5 py-1.5"}`}
+      className={`inline-flex items-center rounded-full border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5] dark:bg-[var(--bg-card)] text-xs font-medium text-secondary dark:text-stone-400 hover:border-deep/40 hover:text-deep dark:hover:text-deep-bright hover:bg-deep/5 dark:hover:bg-deep/10 transition-all duration-150 ${mobile ? "min-h-11 px-3.5 py-2" : "px-3.5 py-1.5"}`}
     >
       {category.label}
       <span className="ml-1.5 text-[10px] tabular-nums text-muted dark:text-stone-400" aria-hidden="true">
@@ -146,7 +146,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             <div className="mt-4">
               <Link
                 href="/feed.xml"
-                className="inline-flex items-center gap-1.5 text-sm text-deep hover:text-deep-dark transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
               >
                 <Rss className="h-3.5 w-3.5" />
                 <span>RSS Feed</span>
@@ -172,8 +172,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 ))}
               </ul>
 
-              <details className="group mt-3 overflow-hidden rounded-xl border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5]/70 dark:bg-[var(--bg-card)]/70">
-                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-secondary dark:text-stone-400 hover:text-deep [&::-webkit-details-marker]:hidden">
+              <details className="group mt-3 overflow-hidden rounded-xl border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5]/70 dark:bg-card/70">
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-secondary dark:text-stone-400 hover:text-deep dark:hover:text-deep-bright [&::-webkit-details-marker]:hidden">
                   <span>Browse all categories</span>
                   <span className="flex items-center gap-2 text-xs font-normal text-muted dark:text-stone-400">
                     {moreCategories.length} more
@@ -209,7 +209,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 <Link
                   key={tag}
                   href={`/blog/tag/${blogTagToSlug(tag)}`}
-                  className="inline-flex min-h-11 items-center gap-1 rounded-md bg-stone-100 px-2.5 py-2 text-[11px] text-stone-500 transition-all duration-150 hover:bg-deep/10 hover:text-deep dark:bg-[var(--bg-muted)] dark:text-stone-400"
+                  className="inline-flex min-h-11 items-center gap-1 rounded-md bg-stone-100 px-2.5 py-2 text-[11px] text-stone-500 transition-all duration-150 hover:bg-deep/10 hover:text-deep dark:hover:text-deep-bright dark:bg-[var(--bg-muted)] dark:text-stone-400"
                 >
                   <Tag className="h-2.5 w-2.5" />
                   {tag}
@@ -231,7 +231,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             >
               <article className="relative overflow-hidden bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-10 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                 {featuredMedia?.hero && (
-                  <div className="-mx-6 -mt-6 mb-6 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 md:-mx-10 md:-mt-10">
+                  <div className="-mx-6 -mt-6 mb-6 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 dark:border-[var(--border-default)] dark:bg-[var(--bg-overlay)] md:-mx-10 md:-mt-10">
                     <Image
                       src={featuredMedia.hero.src}
                       alt={featuredMedia.hero.alt}
@@ -246,7 +246,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
                 {/* Category Badge */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
+                  <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep dark:text-deep-bright">
                     {featuredArticle.category}
                   </span>
                   <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
@@ -260,7 +260,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 </div>
 
                 {/* Title */}
-                <h2 className="font-serif text-2xl md:text-3xl tracking-tight text-primary dark:text-stone-200 group-hover:text-deep transition-colors mb-3 leading-tight">
+                <h2 className="font-serif text-2xl md:text-3xl tracking-tight text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors mb-3 leading-tight">
                   {featuredArticle.title}
                 </h2>
 
@@ -283,7 +283,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 </div>
 
                 {/* Read More */}
-                <div className="flex items-center gap-2 text-sm font-medium text-deep group-hover:text-deep-dark transition-colors">
+                <div className="flex items-center gap-2 text-sm font-medium text-deep dark:text-deep-bright group-hover:text-deep-dark dark:group-hover:text-deep-brighter transition-colors">
                   <span>Read article</span>
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -310,7 +310,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   >
                     <article className="relative h-full overflow-hidden bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                       {media?.hero && (
-                        <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 md:-mx-8 md:-mt-8">
+                        <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 dark:border-[var(--border-default)] dark:bg-[var(--bg-overlay)] md:-mx-8 md:-mt-8">
                           <Image
                             src={media.hero.src}
                             alt={media.hero.alt}
@@ -324,7 +324,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
                       {/* Category Badge */}
                       <div className="flex items-center gap-3 mb-4">
-                        <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
+                        <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep dark:text-deep-bright">
                           {article.category}
                         </span>
                         <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
@@ -338,7 +338,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       </div>
 
                       {/* Title */}
-                      <h2 className="font-serif text-xl md:text-2xl tracking-tight text-primary dark:text-stone-200 group-hover:text-deep transition-colors mb-3 leading-tight">
+                      <h2 className="font-serif text-xl md:text-2xl tracking-tight text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors mb-3 leading-tight">
                         {article.title}
                       </h2>
 
@@ -361,7 +361,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       </div>
 
                       {/* Read More */}
-                      <div className="flex items-center gap-2 text-sm font-medium text-deep group-hover:text-deep-dark transition-colors">
+                      <div className="flex items-center gap-2 text-sm font-medium text-deep dark:text-deep-bright group-hover:text-deep-dark dark:group-hover:text-deep-brighter transition-colors">
                         <span>Read article</span>
                         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                       </div>

@@ -292,7 +292,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
               <span className="flex items-center gap-2">
                 {advancedFilterCount > 0 && (
                   <span
-                    className="rounded-full bg-deep/10 px-2 py-0.5 text-xs font-mono text-deep"
+                    className="rounded-full bg-deep/10 px-2 py-0.5 text-xs font-mono text-deep dark:text-deep-bright"
                     aria-live="polite"
                     aria-atomic="true"
                   >
@@ -304,7 +304,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
             </summary>
             <div className="space-y-5 border-t border-stone-200/50 dark:border-[var(--border-subtle)] px-4 py-4">
               <fieldset>
-                <legend className="mb-2 text-xs font-medium text-stone-500">Category</legend>
+                <legend className="mb-2 text-xs font-medium text-stone-500 dark:text-stone-400">Category</legend>
                 <div className="flex flex-wrap gap-2">
                   <Link
                     href="/topics"
@@ -337,7 +337,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
               </fieldset>
 
               <fieldset>
-                <legend className="mb-2 text-xs font-medium text-stone-500">Status</legend>
+                <legend className="mb-2 text-xs font-medium text-stone-500 dark:text-stone-400">Status</legend>
                 <div className="flex flex-wrap gap-2">
                   {ALL_STATUSES.map((status) => {
                     const StatusIcon = statusIcons[status];
@@ -362,13 +362,13 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
               </fieldset>
 
               <fieldset className="space-y-2">
-                <legend className="text-xs font-medium text-stone-500">Evidence balance</legend>
+                <legend className="text-xs font-medium text-stone-500 dark:text-stone-400">Evidence balance</legend>
                 <div className="flex items-center justify-between font-mono text-xs text-stone-700 dark:text-stone-300">
                   <span>Counterclaim</span>
                   <span>{minBalance}&ndash;{maxBalance}%</span>
                   <span>Claim</span>
                 </div>
-                <label className="flex items-center gap-3 text-xs text-stone-500">
+                <label className="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400">
                   <span className="w-7">Min</span>
                   <input
                     type="range"
@@ -381,7 +381,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
                   />
                   <span className="w-9 text-right font-mono text-[11px] text-stone-700 dark:text-stone-300">{minBalance}%</span>
                 </label>
-                <label className="flex items-center gap-3 text-xs text-stone-500">
+                <label className="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400">
                   <span className="w-7">Max</span>
                   <input
                     type="range"
@@ -453,7 +453,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
               )}
             </div>
             <div className="flex items-center gap-2">
-              <label htmlFor="topics-sort-select" className="text-xs font-medium text-stone-500 whitespace-nowrap">Sort:</label>
+              <label htmlFor="topics-sort-select" className="text-xs font-medium text-stone-500 dark:text-stone-400 whitespace-nowrap">Sort:</label>
               <select
                 id="topics-sort-select"
                 value={sortBy}
@@ -473,7 +473,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
           <div className="hidden sm:flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6 mb-6">
             {/* Status chips (multi-select; none selected = any status) */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-xs font-medium text-stone-500 whitespace-nowrap">
+              <span className="text-xs font-medium text-stone-500 dark:text-stone-400 whitespace-nowrap">
                 Status:
               </span>
               {ALL_STATUSES.map((status) => {
@@ -500,13 +500,13 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
             {/* Balance range (dual slider) */}
             <div className="flex flex-col gap-1.5 w-full max-w-[260px] lg:ml-auto">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-medium text-stone-500">Balance</span>
+                <span className="text-xs font-medium text-stone-500 dark:text-stone-400">Balance</span>
                 <span className="font-mono text-xs tabular-nums text-stone-700 dark:text-stone-300">
                   {minBalance}&ndash;{maxBalance}%
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[11px] text-stone-500 w-7 flex-shrink-0">Min</span>
+                <span className="text-[11px] text-stone-500 dark:text-stone-400 w-7 flex-shrink-0">Min</span>
                 <input
                   type="range"
                   min={0}
@@ -520,7 +520,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
                 />
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[11px] text-stone-500 w-7 flex-shrink-0">Max</span>
+                <span className="text-[11px] text-stone-500 dark:text-stone-400 w-7 flex-shrink-0">Max</span>
                 <input
                   type="range"
                   min={0}
@@ -538,7 +538,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
 
           {/* Results info */}
           <div className="flex items-center justify-between mb-5">
-            <p className="text-sm text-stone-500" role="status" aria-live="polite" aria-atomic="true">
+            <p className="text-sm text-stone-500 dark:text-stone-400" role="status" aria-live="polite" aria-atomic="true">
               Showing{" "}
               <span className="font-semibold text-stone-700 dark:text-stone-300">
                 {visiblePagination.items.length > 0
@@ -550,7 +550,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
             {hasFilters && (
               <button
                 onClick={clearFilters}
-                className="flex min-h-11 items-center gap-1.5 rounded-lg px-2 text-xs font-medium text-stone-500 hover:bg-stone-100 hover:text-stone-600 transition-colors dark:hover:bg-[var(--bg-muted)]"
+                className="flex min-h-11 items-center gap-1.5 rounded-lg px-2 text-xs font-medium text-stone-500 dark:text-stone-400 hover:bg-stone-100 hover:text-stone-600 transition-colors dark:hover:bg-[var(--bg-muted)]"
               >
                 <X className="h-3.5 w-3.5" />
                 Clear filters
@@ -563,14 +563,14 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
             <div className="text-center py-20 bg-white dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-default)]">
               <SearchX className="h-10 w-10 text-stone-300 mx-auto mb-4" />
               <p className="text-stone-600 font-medium mb-1">No topics found</p>
-              <p className="text-sm text-stone-500 mb-5 max-w-xs mx-auto">
+              <p className="text-sm text-stone-500 dark:text-stone-400 mb-5 max-w-xs mx-auto">
                 No topics match your current filters. Try widening the balance
                 range, picking a different status, or clearing all filters to browse
                 all {topicSummaries.length} topics.
               </p>
               <button
                 onClick={clearFilters}
-                className="inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-deep hover:bg-deep/5 hover:text-deep-dark transition-colors"
+                className="inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-deep dark:text-deep-bright hover:bg-deep/5 hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
               >
                 <X className="h-3.5 w-3.5" />
                 Clear all filters
@@ -592,12 +592,12 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
                     style={presentation.style}
                   >
                     {/* Title */}
-                    <h2 className="font-serif text-lg text-stone-900 dark:text-[var(--text-heading)] group-hover:text-deep transition-colors leading-snug mb-3">
+                    <h2 className="font-serif text-lg text-stone-900 dark:text-[var(--text-heading)] group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug mb-3">
                       {topic.title}
                     </h2>
 
                     {/* Meta claim */}
-                    <p className="text-sm text-stone-500 leading-relaxed line-clamp-2 mb-4 flex-1">
+                    <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-2 mb-4 flex-1">
                       {topic.meta_claim}
                     </p>
 
@@ -627,7 +627,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
                       </div>
 
                       {/* Pillar count */}
-                      <span className="text-[11px] text-stone-500">
+                      <span className="text-[11px] text-stone-500 dark:text-stone-400">
                         {topic.pillarCount} pillars
                       </span>
                     </div>
@@ -647,7 +647,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
 
           {/* Footer */}
           <div className="mt-10 pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-            <p className="text-sm text-stone-500">
+            <p className="text-sm text-stone-500 dark:text-stone-400">
               {topicSummaries.length} topics mapped. Click any topic to read its full analysis
               with steel-man arguments, weighted evidence, and crux questions.
             </p>

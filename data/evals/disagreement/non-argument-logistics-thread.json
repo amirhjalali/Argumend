@@ -1,0 +1,22 @@
+{
+  "id": "non-argument-logistics-thread",
+  "contentType": "conversation",
+  "source": "Wen: The projector for Thursday is in the storage closet on the third floor. I will bring it down before nine.\nHal: Thanks. I booked the corner room from nine to eleven and added the client contacts to the invite.\nWen: Do we need the long HDMI cable or the short one?\nHal: Long. The table is far from the wall socket. I will grab coffee for eight people on the way in.\nWen: Perfect. I will print the agenda and leave copies on the chairs.\nHal: Sounds good. See you at half past eight.",
+  "allowedPatterns": ["not-a-disagreement"],
+  "expectCrux": false,
+  "minPositions": 0,
+  "maxPositions": 0,
+  "extraction": {
+    "mainQuestion": "What substantive issue is being disputed?",
+    "participants": [
+      { "id": "wen", "label": "Wen", "kind": "named" },
+      { "id": "hal", "label": "Hal", "kind": "named" }
+    ],
+    "positions": [],
+    "claims": [],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [],
+    "caveats": ["Two people coordinating logistics for a meeting. Every exchange is a request or a confirmation; nothing is asserted that the other contests."]
+  }
+}

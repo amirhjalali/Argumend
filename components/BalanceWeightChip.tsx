@@ -3,12 +3,15 @@ import type { Verdict, VerdictQuadrant } from "@/lib/schemas/topic";
 /** Quadrant → color/label. The ONLY place verdict colors are defined. */
 export const QUADRANT_STYLE: Record<
   VerdictQuadrant,
-  { color: string; bg: string; short: string }
+  { color: string; bg: string; short: string; textClass: string }
 > = {
-  settled: { color: "#3a6965", bg: "rgba(58, 105, 101, 0.10)", short: "Settled" },
-  contested: { color: "#a23b3b", bg: "rgba(162, 59, 59, 0.10)", short: "Contested" },
-  moderate: { color: "#C4613C", bg: "rgba(196, 97, 60, 0.10)", short: "Moderate" },
-  open: { color: "#7a7068", bg: "rgba(122, 112, 104, 0.12)", short: "Open" },
+  // `textClass` is the same hue as `color` in light mode plus the dark-mode text
+  // tint (deep-bright / crux-light / rust-400); the chip label reads through it
+  // so it stays AA on the dark canvas. `color` remains for SVG fills.
+  settled: { color: "#3a6965", bg: "rgba(58, 105, 101, 0.10)", short: "Settled", textClass: "text-deep dark:text-deep-bright" },
+  contested: { color: "#a23b3b", bg: "rgba(162, 59, 59, 0.10)", short: "Contested", textClass: "text-crux dark:text-crux-light" },
+  moderate: { color: "#C4613C", bg: "rgba(196, 97, 60, 0.10)", short: "Moderate", textClass: "text-rust-500 dark:text-rust-400" },
+  open: { color: "#7a7068", bg: "rgba(122, 112, 104, 0.12)", short: "Open", textClass: "text-[#7a7068] dark:text-stone-400" },
 };
 
 interface BalanceWeightChipProps {
@@ -37,8 +40,8 @@ export function BalanceWeightChip({
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2 py-1 font-sans ${className}`}
-      style={{ backgroundColor: s.bg, color: s.color }}
+      className={`inline-flex items-center gap-1.5 rounded-full px-2 py-1 font-sans ${s.textClass} ${className}`}
+      style={{ backgroundColor: s.bg }}
       title={`Balance ${balance}/100 · Weight ${weight}/100 — ${verdict.label}`}
     >
       {/* Balance: diverging track, center tick, dot at the balance position */}

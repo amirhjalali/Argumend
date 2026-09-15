@@ -192,7 +192,7 @@ export const carbonTaxEffectivenessData = {
           source:
             "High-Level Commission on Carbon Prices (Stiglitz, Stern et al.), World Bank / Carbon Pricing Leadership Coalition (2017)",
           sourceUrl:
-            "https://www.worldbank.org/en/news/press-release/2017/05/29/new-global-pathway-on-carbon-pricing-can-shift-finance-to-sustainable-investments-world-bank",
+            "https://ipdcolumbia.org/publication/report-of-the-high-level-commission-on-carbon-prices/",
           reasoning:
             "Authoritative expert commission establishing the required price corridor. It cuts against the meta-claim only in the sense that deployed prices fall short — it is a model-based normative target, so replicability is moderate. Cited honestly as showing the gap, not that pricing fails in principle.",
         },

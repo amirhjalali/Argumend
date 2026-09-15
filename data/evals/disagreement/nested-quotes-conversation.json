@@ -1,0 +1,117 @@
+{
+  "id": "nested-quotes-conversation",
+  "contentType": "conversation",
+  "source": "Nadia: You wrote \"ship it Friday, no review needed\" in the thread, and now the config change is in production with a typo in the region name.\nOwen: I wrote \"ship it Friday, no review needed\" because we had agreed in January that config changes skip review. That agreement is in the team charter.\nNadia: The charter says \"config-only changes to non-production environments skip review.\" This was production. Read your own sentence back.\nOwen: The charter line was written before we split the environments. Everyone has been treating it as covering all config for months.\nNadia: Everyone treating it that way is not the same as the charter saying it. If the rule is going to cover production, we vote on it, we do not drift into it.\nOwen: Fine. I still think the rule we have been following is the right rule, but I agree it should be voted on rather than assumed.",
+  "allowedPatterns": ["mixed-disagreement", "mostly-common-ground", "single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Was skipping review on the production config change permitted by the team charter?",
+    "participants": [
+      { "id": "nadia", "label": "Nadia", "kind": "named" },
+      { "id": "owen", "label": "Owen", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-review-was-required",
+        "label": "Review was required",
+        "participantIds": ["nadia"],
+        "thesis": "The charter exempts only non-production config changes from review, so the production change required review and any wider rule needs a vote.",
+        "steelman": "The written rule is explicit about non-production environments; informal practice cannot extend a written exemption to production without a decision.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "This was production. Read your own sentence back.", "participantId": "nadia" },
+          { "quote": "If the rule is going to cover production, we vote on it, we do not drift into it.", "participantId": "nadia" }
+        ]
+      },
+      {
+        "id": "pos-practice-covered-it",
+        "label": "Established practice covered it",
+        "participantIds": ["owen"],
+        "thesis": "The team's months-long practice of skipping review for all config changes was the operative rule, even if the charter line predates the environment split.",
+        "steelman": "A rule everyone has followed for months is the team's real agreement; the charter text simply lags the practice.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Everyone has been treating it as covering all config for months.", "participantId": "owen" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-charter-limits-to-non-production",
+        "statement": "The charter exempts only config changes to non-production environments from review.",
+        "participantIds": ["nadia"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-review-was-required", "relation": "supports" },
+          { "positionId": "pos-practice-covered-it", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["nadia", "owen"],
+        "disputedByParticipantIds": [],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Read the charter line as written."
+        },
+        "groundingQuotes": [
+          { "quote": "config-only changes to non-production environments skip review", "participantId": "nadia" }
+        ]
+      },
+      {
+        "id": "claim-practice-is-operative-rule",
+        "statement": "A rule the whole team has followed for months counts as the operative rule even where the charter text is narrower.",
+        "participantIds": ["owen"],
+        "epistemicType": "procedural",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-practice-covered-it", "relation": "supports" },
+          { "positionId": "pos-review-was-required", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["owen"],
+        "disputedByParticipantIds": ["nadia"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "authority-allocation",
+          "condition": "The team decides whether practice or written charter governs when they diverge."
+        },
+        "groundingQuotes": [
+          { "quote": "The charter line was written before we split the environments.", "participantId": "owen" },
+          { "quote": "Everyone treating it that way is not the same as the charter saying it.", "participantId": "nadia" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "Whether the exemption covers production should be decided by a vote rather than assumed.",
+        "participantIds": ["nadia", "owen"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I agree it should be voted on rather than assumed.", "participantId": "owen" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-practice-vs-charter",
+        "question": "Does established practice or the written charter govern when they diverge?",
+        "type": "procedural",
+        "summary": "Owen treats months of shared practice as the real rule; Nadia holds that only the written charter governs until the team votes to change it.",
+        "claimIds": ["claim-practice-is-operative-rule"],
+        "participantStances": [
+          { "participantId": "owen", "positionId": "pos-practice-covered-it", "stance": "Practice everyone follows is the operative rule." },
+          { "participantId": "nadia", "positionId": "pos-review-was-required", "stance": "The written charter governs until changed by vote." }
+        ],
+        "resolutionCondition": "Agree on how the team changes its own rules.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The phrase 'ship it Friday, no review needed' appears twice, once as Owen's message and once quoted back by Nadia; quotes were chosen from surrounding unique text so attribution stays unambiguous."]
+  }
+}

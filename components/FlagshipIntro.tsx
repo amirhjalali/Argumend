@@ -24,7 +24,7 @@ export function FlagshipIntro({ topic }: { topic: Topic }) {
           aria-label="Key fact"
           className="rounded-xl border border-deep/25 bg-deep/[0.06] dark:bg-deep/[0.12] px-6 py-5"
         >
-          <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-deep mb-2">
+          <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-deep dark:text-deep-bright mb-2">
             The fact that reframes this debate
           </div>
           <p className="font-serif text-[24px] sm:text-[26px] leading-[1.3] text-primary dark:text-stone-200">
@@ -61,7 +61,7 @@ export function FlagshipIntro({ topic }: { topic: Topic }) {
               <li key={i} className="flex gap-3 font-serif text-[17px] leading-relaxed text-primary dark:text-stone-200">
                 <span
                   aria-hidden
-                  className="flex-shrink-0 font-sans text-[12px] font-semibold text-deep/70 pt-1.5 tabular-nums"
+                  className="flex-shrink-0 font-sans text-[12px] font-semibold text-deep/70 dark:text-deep-bright pt-1.5 tabular-nums"
                 >
                   {i + 1}
                 </span>

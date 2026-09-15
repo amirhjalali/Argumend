@@ -7,6 +7,7 @@
  *   - MALFORMED: invalid or placeholder source URL            → must fix
  *   - REDIRECTED: live URL forwarding to a new location       → canonicalize
  *   - BLOCKED: 403 / 429 (live page, anti-bot)               → spot-check only
+ *   - BOT_WALL: 2xx behind a cookie-wall bounce (Nature)      → unverifiable, not dead
  *   - ERROR  : timeout / other network error                  → re-check
  *   - OK     : direct 2xx response
  *
@@ -18,12 +19,16 @@
  *        npm run check:sources -- --json     (machine-readable)
  */
 import { topics } from "../data/topics";
-import { isKnownSoft404Url, validateSourceUrl } from "./source-url-health";
+import {
+  classifyFetchOutcome,
+  validateSourceUrl,
+  type SourceUrlStatus,
+} from "./source-url-health";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 
 type Item = { topic: string; evidenceId: string; url: string };
-type Status = "OK" | "REDIRECTED" | "DEAD" | "MALFORMED" | "BLOCKED" | "ERROR";
+type Status = SourceUrlStatus;
 type Result = Item & {
   status: Status;
   code: number | string;
@@ -116,15 +121,12 @@ async function check(item: Item): Promise<Result> {
     // hundreds of HTTP connections alive after the report has printed.
     await res.body?.cancel();
     const code = res.status;
-    let status: Status = "OK";
-    if (code === 404 || code === 410 || isKnownSoft404Url(res.url)) {
-      status = "DEAD";
-    }
-    else if (code === 403 || code === 429) status = "BLOCKED";
-    else if (code >= 400) status = "ERROR";
-    else if (res.redirected && res.url !== validation.normalized) {
-      status = "REDIRECTED";
-    }
+    const status = classifyFetchOutcome({
+      code,
+      finalUrl: res.url,
+      redirected: res.redirected,
+      requestedUrl: validation.normalized,
+    });
     return {
       ...item,
       status,
@@ -162,19 +164,28 @@ async function main() {
   const malformed = by("MALFORMED");
   const redirected = by("REDIRECTED");
   const blocked = by("BLOCKED");
+  const botWall = by("BOT_WALL");
   const error = by("ERROR");
 
   if (process.argv.includes("--json")) {
     console.log(
       JSON.stringify(
-        { total: results.length, dead, malformed, redirected, blocked, error },
+        {
+          total: results.length,
+          dead,
+          malformed,
+          redirected,
+          blocked,
+          botWall,
+          error,
+        },
         null,
         2,
       ),
     );
   } else {
     console.log(
-      `Checked ${results.length} source URLs — OK ${by("OK").length} | REDIRECTED ${redirected.length} | DEAD ${dead.length} | MALFORMED ${malformed.length} | BLOCKED(anti-bot) ${blocked.length} | ERROR ${error.length}\n`,
+      `Checked ${results.length} source URLs — OK ${by("OK").length} | REDIRECTED ${redirected.length} | DEAD ${dead.length} | MALFORMED ${malformed.length} | BLOCKED(anti-bot) ${blocked.length} | UNVERIFIABLE(bot wall) ${botWall.length} | ERROR ${error.length}\n`,
     );
     const show = (label: string, resultSet: Result[]) => {
       if (!resultSet.length) return;
@@ -200,6 +211,7 @@ async function main() {
     if (process.argv.includes("--all")) {
       show("ERROR — re-check", error);
       show("BLOCKED — likely live (anti-bot), spot-check", blocked);
+      show("UNVERIFIABLE — alive behind a cookie wall (bot-blocked)", botWall);
     }
   }
 }

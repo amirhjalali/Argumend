@@ -234,7 +234,7 @@ function DimensionBreakdown({
       className="surface-card p-4 md:p-6"
     >
       <div className="flex items-center gap-2 mb-6">
-        <BarChart3 className="h-5 w-5 text-deep" />
+        <BarChart3 className="h-5 w-5 text-deep dark:text-deep-bright" />
         <h3 className="font-serif font-semibold text-primary dark:text-stone-200">Score Breakdown by Dimension</h3>
       </div>
 
@@ -486,7 +486,7 @@ export function JudgingResults({
       {/* Section divider with horizontal rule */}
       <div className="flex flex-wrap items-center gap-3">
         <div className="flex min-w-0 items-center gap-2">
-          <Gavel className="h-4 w-4 text-deep" />
+          <Gavel className="h-4 w-4 text-deep dark:text-deep-bright" />
           <h2 className="text-lg font-serif font-semibold text-primary dark:text-stone-200">
             {mode === "live" ? "Judge Council Verdict" : "Programmatic Rubric Verdict"}
           </h2>
@@ -540,7 +540,7 @@ export function JudgingResults({
       <div className="space-y-4">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 flex-shrink-0">
-            <Users className="h-4 w-4 text-deep" />
+            <Users className="h-4 w-4 text-deep dark:text-deep-bright" />
             <h3 className="font-serif font-semibold text-primary dark:text-stone-200">
               Individual {mode === "live" ? "Judge" : "Evaluator"} Verdicts
             </h3>

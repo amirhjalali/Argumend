@@ -174,7 +174,7 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
         title={copied ? "Copied!" : "Copy link"}
       >
         {copied ? (
-          <Check className="h-4 w-4 text-deep" />
+          <Check className="h-4 w-4 text-deep dark:text-deep-bright" />
         ) : (
           <Copy className="h-4 w-4" />
         )}
@@ -253,7 +253,7 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
             title={cruxCopied ? "Copied!" : "Copy crux text"}
           >
             {cruxCopied ? (
-              <Check className="h-3.5 w-3.5 text-deep" />
+              <Check className="h-3.5 w-3.5 text-deep dark:text-deep-bright" />
             ) : (
               <Copy className="h-3.5 w-3.5" />
             )}
@@ -263,7 +263,7 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
 
       {/* Copied toast */}
       {(copied || cruxCopied) && (
-        <span className="ml-1 text-xs font-medium text-deep animate-fade-in">
+        <span className="ml-1 text-xs font-medium text-deep dark:text-deep-bright animate-fade-in">
           {cruxCopied ? "Crux copied!" : "Link copied!"}
         </span>
       )}

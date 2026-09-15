@@ -269,7 +269,7 @@ export default function MethodologyPage() {
                   className="flex flex-col items-center p-4 rounded-xl bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] shadow-sm"
                 >
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4f7b77]/20 to-[#4f7b77]/5 flex items-center justify-center mb-2">
-                    <span className="font-serif text-sm font-bold text-deep">{judge.name[0]}</span>
+                    <span className="font-serif text-sm font-bold text-deep dark:text-deep-bright">{judge.name[0]}</span>
                   </div>
                   <p className="text-sm font-semibold text-primary dark:text-stone-200">{judge.name}</p>
                   <p className="text-[11px] text-muted dark:text-stone-400">{judge.label}</p>
@@ -304,7 +304,7 @@ export default function MethodologyPage() {
         </section>
 
         {/* Evidence Weighting */}
-        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[var(--bg-canvas)]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-canvas/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Evidence scoring dimensions
           </h2>
@@ -312,7 +312,7 @@ export default function MethodologyPage() {
             Every piece of evidence is scored on four independent dimensions.
           </p>
           <p className="text-center mb-10">
-            <span className="font-mono tabular-nums text-deep text-sm font-bold bg-deep/5 px-3 py-1 rounded-full">Total evidence score = sum of all four (max 40)</span>
+            <span className="font-mono tabular-nums text-deep dark:text-deep-bright text-sm font-bold bg-deep/5 px-3 py-1 rounded-full">Total evidence score = sum of all four (max 40)</span>
           </p>
 
           <div className="grid md:grid-cols-2 gap-4">
@@ -359,7 +359,7 @@ export default function MethodologyPage() {
               <div>
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
-                    <span className="font-mono text-sm font-bold text-deep">B</span>
+                    <span className="font-mono text-sm font-bold text-deep dark:text-deep-bright">B</span>
                   </div>
                   <p className="text-sm font-semibold text-primary dark:text-stone-200">Balance — which way it tips</p>
                 </div>
@@ -394,7 +394,7 @@ export default function MethodologyPage() {
               <p className="text-sm font-semibold text-primary dark:text-stone-200 mb-4">The verdict matrix</p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <span className="w-24 text-center text-xs font-mono font-medium text-deep">
+                  <span className="w-24 text-center text-xs font-mono font-medium text-deep dark:text-deep-bright">
                     high weight
                     <br />
                     strong lean
@@ -407,7 +407,7 @@ export default function MethodologyPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="w-24 text-center text-xs font-mono font-medium text-deep">
+                  <span className="w-24 text-center text-xs font-mono font-medium text-deep dark:text-deep-bright">
                     high weight
                     <br />
                     weak lean
@@ -431,7 +431,7 @@ export default function MethodologyPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="w-24 text-center text-xs font-mono font-medium text-[#a23b3b]">
+                  <span className="w-24 text-center text-xs font-mono font-medium text-[#a23b3b] dark:text-crux-light">
                     low weight
                   </span>
                   <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">

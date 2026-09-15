@@ -383,7 +383,7 @@ export function ShareVerdictCard({
               {/* Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-stone-100 dark:border-stone-800">
                 <div className="flex items-center gap-2">
-                  <ImageIcon className="w-4 h-4 text-deep" />
+                  <ImageIcon className="w-4 h-4 text-deep dark:text-deep-bright" />
                   <h3 id="share-verdict-title" className="font-serif font-semibold text-primary dark:text-stone-200">
                     Share Verdict
                   </h3>

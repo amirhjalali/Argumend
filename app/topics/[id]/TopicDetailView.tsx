@@ -94,7 +94,7 @@ const statusLabels: Record<TopicStatus, string> = {
 
 const verificationColors: Record<string, { bg: string; text: string; label: string }> = {
   verified: { bg: "bg-emerald-50", text: "text-emerald-700", label: "Verified" },
-  theoretical: { bg: "bg-deep/10", text: "text-deep", label: "Theoretical" },
+  theoretical: { bg: "bg-deep/10", text: "text-deep dark:text-deep-bright", label: "Theoretical" },
   impossible: { bg: "bg-stone-100", text: "text-stone-600", label: "Impossible to Verify" },
 };
 
@@ -225,7 +225,7 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
               href={evidence.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-deep hover:underline"
+              className="inline-flex items-center gap-1 text-xs text-deep dark:text-deep-bright hover:underline"
             >
               {evidence.source}
               <ExternalLink className="h-3 w-3" />
@@ -251,7 +251,7 @@ function CruxCard({ crux }: { crux: Crux }) {
     <div className="rounded-lg border border-deep/20 bg-[#4f7b77]/[0.03] p-5 shadow-sm">
       <div className="flex flex-wrap items-center gap-2.5 mb-3">
         <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center">
-          <FlaskConical className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
+          <FlaskConical className="h-4.5 w-4.5 text-deep dark:text-deep-bright" strokeWidth={1.5} />
         </div>
         <h4 className="font-serif text-base font-semibold text-primary dark:text-stone-200 flex-1 min-w-0">
           Crux: {crux.title}
@@ -275,7 +275,7 @@ function CruxCard({ crux }: { crux: Crux }) {
           <span className="text-xs font-medium text-stone-500 uppercase tracking-widest">
             Methodology
           </span>
-          <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed mt-1.5 bg-white/60 dark:bg-[var(--bg-card)]/60 rounded-lg p-4 border border-stone-200/50 dark:border-[var(--border-divider)] font-mono text-[13px] break-words">
+          <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed mt-1.5 bg-card/60 rounded-lg p-4 border border-stone-200/50 dark:border-[var(--border-divider)] font-mono text-[13px] break-words">
             {crux.methodology}
           </p>
         </div>
@@ -310,7 +310,7 @@ function PillarSection({
   return (
     <AnimateOnScroll variant="fade-up" delay={index * 80} as="section" className="mb-10">
       <div className="flex items-start gap-3 mb-4">
-        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center text-sm font-mono font-semibold text-deep">
+        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center text-sm font-mono font-semibold text-deep dark:text-deep-bright">
           {index + 1}
         </span>
         <div>
@@ -389,7 +389,7 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
       className={`group flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-divider)] border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 card-hover`}
     >
       <Link href={`/topics/${topic.id}`} className="block mb-1.5">
-        <h3 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug">
+        <h3 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug">
           {topic.title}
         </h3>
       </Link>
@@ -426,7 +426,7 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
       <div className="flex items-center gap-3 pt-2 border-t border-stone-100 dark:border-[var(--border-divider)]">
         <Link
           href={`/topics/${topic.id}`}
-          className="inline-flex items-center gap-1 min-h-[44px] py-2 -my-2 text-xs font-medium text-deep hover:text-deep-dark active:text-deep-dark transition-colors"
+          className="inline-flex items-center gap-1 min-h-[44px] py-2 -my-2 text-xs font-medium text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter active:text-deep-dark transition-colors"
         >
           Read analysis
           <ArrowRight className="h-3 w-3" />
@@ -434,7 +434,7 @@ function RelatedTopicCard({ topic, currentTopicId }: { topic: Topic; currentTopi
         {currentTopicId && (
           <Link
             href={`/topics/compare/${currentTopicId}/vs/${topic.id}`}
-            className="inline-flex items-center gap-1 min-h-[44px] py-2 -my-2 text-xs font-medium text-stone-500 hover:text-deep active:text-deep transition-colors"
+            className="inline-flex items-center gap-1 min-h-[44px] py-2 -my-2 text-xs font-medium text-stone-500 hover:text-deep dark:hover:text-deep-bright active:text-deep transition-colors"
           >
             <GitCompare className="h-3 w-3" />
             Compare
@@ -465,7 +465,7 @@ function QuickStatsBar({ topic }: { topic: Topic }) {
   );
 
   return (
-    <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] bg-white/60 dark:bg-[var(--bg-card)]/60 p-4 mb-8">
+    <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] bg-card/60 p-4 mb-8">
       <div className="flex flex-wrap items-center gap-4">
         {/* Verification breakdown */}
         <div className="flex items-center gap-2.5">
@@ -478,7 +478,7 @@ function QuickStatsBar({ topic }: { topic: Topic }) {
               </span>
             ) : null}
             {verificationCounts.theoretical ? (
-              <span className="text-xs text-deep font-medium">
+              <span className="text-xs text-deep dark:text-deep-bright font-medium">
                 {verificationCounts.verified ? ", " : ""}{verificationCounts.theoretical} theoretical
               </span>
             ) : null}
@@ -591,16 +591,16 @@ function ExploreMoreSection() {
             >
               <div className="flex items-center gap-2.5 mb-3">
                 <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
-                  <Icon className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
+                  <Icon className="h-4.5 w-4.5 text-deep dark:text-deep-bright" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug">
+                <h3 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug">
                   {card.title}
                 </h3>
               </div>
               <p className="text-xs text-stone-500 leading-relaxed flex-1 mb-3">
                 {card.description}
               </p>
-              <span className="inline-flex items-center gap-1 text-xs font-medium text-deep group-hover:text-deep-dark transition-colors">
+              <span className="inline-flex items-center gap-1 text-xs font-medium text-deep dark:text-deep-bright group-hover:text-deep-dark dark:group-hover:text-deep-brighter transition-colors">
                 {card.cta}
                 <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
               </span>
@@ -819,7 +819,7 @@ function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicT
       <div className="flex justify-center mt-6">
         <Link
           href={`/?topic=${topicId}&view=debate`}
-          className="inline-flex items-center gap-2 text-sm text-deep hover:text-deep-dark transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
         >
           Start your own debate with different models
           <ArrowRight className="h-3.5 w-3.5" />
@@ -966,11 +966,11 @@ export default function TopicDetailView({
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-stone-500 mb-6">
-            <Link href="/" className="inline-flex items-center min-h-[44px] py-2 -my-2 text-deep hover:text-deep-dark active:text-deep-dark transition-colors">
+            <Link href="/" className="inline-flex items-center min-h-[44px] py-2 -my-2 text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter active:text-deep-dark transition-colors">
               Home
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/topics" className="inline-flex items-center min-h-[44px] py-2 -my-2 text-deep hover:text-deep-dark active:text-deep-dark transition-colors">
+            <Link href="/topics" className="inline-flex items-center min-h-[44px] py-2 -my-2 text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter active:text-deep-dark transition-colors">
               Topics
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -1153,14 +1153,14 @@ export default function TopicDetailView({
 
                     <div className="flex items-start gap-2.5 mb-2.5">
                       <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 flex items-center justify-center">
-                        <PillarIcon className="h-4 w-4 text-deep" strokeWidth={1.5} />
+                        <PillarIcon className="h-4 w-4 text-deep dark:text-deep-bright" strokeWidth={1.5} />
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-xs font-mono text-deep/50 font-semibold">
+                          <span className="text-xs font-mono text-deep/50 dark:text-deep-bright/50 font-semibold">
                             {i + 1}.
                           </span>
-                          <h3 className="font-serif text-[15px] font-semibold text-primary dark:text-stone-200 leading-snug group-hover:text-deep transition-colors">
+                          <h3 className="font-serif text-[15px] font-semibold text-primary dark:text-stone-200 leading-snug group-hover:text-deep dark:group-hover:text-deep-bright transition-colors">
                             {pillar.title}
                           </h3>
                         </div>
@@ -1175,7 +1175,7 @@ export default function TopicDetailView({
                       >
                         {cruxVerif.label}
                       </span>
-                      <ArrowRight className="h-3.5 w-3.5 text-stone-300 group-hover:text-deep group-hover:translate-x-0.5 transition-all" />
+                      <ArrowRight className="h-3.5 w-3.5 text-stone-300 group-hover:text-deep dark:group-hover:text-deep-bright group-hover:translate-x-0.5 transition-all" />
                     </div>
                   </a>
                 );
@@ -1223,7 +1223,7 @@ export default function TopicDetailView({
             <div className="flex flex-col sm:flex-row items-center gap-3 pt-5 border-t border-stone-200/60">
               <a
                 href="#pillars"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-deep/30 text-deep text-sm font-medium hover:bg-deep/5 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-deep/30 text-deep dark:text-deep-bright text-sm font-medium hover:bg-deep/5 transition-colors"
               >
                 Read full analysis
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -1369,7 +1369,7 @@ export default function TopicDetailView({
                     <div className="flex flex-col sm:flex-row items-center gap-3 mt-5">
                       <a
                         href="#pillars"
-                        className="text-sm text-deep hover:underline"
+                        className="text-sm text-deep dark:text-deep-bright hover:underline"
                       >
                         Explore the full analysis below &darr;
                       </a>
@@ -1428,7 +1428,7 @@ export default function TopicDetailView({
                     {topic.pillars.map((pillar, i) => (
                       <div key={pillar.id} className="mb-4">
                         <div className="flex items-start gap-3 mb-3">
-                          <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-deep/10 flex items-center justify-center text-sm font-mono font-semibold text-deep">
+                          <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-deep/10 flex items-center justify-center text-sm font-mono font-semibold text-deep dark:text-deep-bright">
                             {i + 1}
                           </span>
                           <div>
@@ -1455,7 +1455,7 @@ export default function TopicDetailView({
                           </blockquote>
                         </div>
                         <div className="pl-10">
-                          <p className="text-xs text-deep font-medium">
+                          <p className="text-xs text-deep dark:text-deep-bright font-medium">
                             Crux: {pillar.crux.title}
                           </p>
                         </div>
@@ -1465,7 +1465,7 @@ export default function TopicDetailView({
                   <div className="mt-6 pt-4 border-t border-stone-200/60 text-center">
                     <button
                       onClick={() => setDepth("5m")}
-                      className="inline-flex items-center gap-2 text-sm text-deep hover:text-deep-dark font-medium transition-colors"
+                      className="inline-flex items-center gap-2 text-sm text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter font-medium transition-colors"
                     >
                       <Library className="h-3.5 w-3.5" />
                       Read full analysis with evidence &amp; methodology
@@ -1505,7 +1505,7 @@ export default function TopicDetailView({
                       href={ref.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-deep hover:underline"
+                      className="inline-flex items-center gap-1.5 text-sm text-deep dark:text-deep-bright hover:underline"
                     >
                       <ExternalLink className="h-3.5 w-3.5 flex-shrink-0" />
                       {ref.title}
@@ -1604,7 +1604,7 @@ export default function TopicDetailView({
                               href={ref.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-xs text-deep hover:text-deep-dark transition-colors"
+                              className="inline-flex items-center gap-1 text-xs text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
                             >
                               <ExternalLink className="h-3 w-3" />
                               {ref.title}
@@ -1688,22 +1688,22 @@ export default function TopicDetailView({
           {/* Methodology & Educator Callouts */}
           <section className="mb-8 space-y-3">
             <div className="flex items-start gap-3 rounded-lg border border-stone-200/60 dark:border-[var(--border-divider)] bg-stone-50/50 dark:bg-[#1a1916]/50 px-5 py-4">
-              <Scale className="h-4 w-4 text-deep mt-0.5 flex-shrink-0" />
+              <Scale className="h-4 w-4 text-deep dark:text-deep-bright mt-0.5 flex-shrink-0" />
               <p className="text-sm text-stone-500 leading-relaxed">
                 <span className="font-medium text-stone-600">How we analyze:</span>{" "}
                 Our{" "}
-                <Link href="/methodology" className="text-deep link-underline">
+                <Link href="/methodology" className="text-deep dark:text-deep-bright link-underline">
                   methodology
                 </Link>{" "}
                 explains how arguments are structured and evidence is weighted.
               </p>
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-stone-200/60 dark:border-[var(--border-divider)] bg-stone-50/50 dark:bg-[#1a1916]/50 px-5 py-4">
-              <GraduationCap className="h-4 w-4 text-deep mt-0.5 flex-shrink-0" />
+              <GraduationCap className="h-4 w-4 text-deep dark:text-deep-bright mt-0.5 flex-shrink-0" />
               <p className="text-sm text-stone-500 leading-relaxed">
                 <span className="font-medium text-stone-600">Teaching this topic?</span>{" "}
                 See our{" "}
-                <Link href="/for-educators" className="text-deep link-underline">
+                <Link href="/for-educators" className="text-deep dark:text-deep-bright link-underline">
                   resources for educators
                 </Link>.
               </p>
@@ -1743,7 +1743,7 @@ export default function TopicDetailView({
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <Link
                 href="/topics"
-                className="text-sm text-deep hover:underline py-2 min-h-[44px] inline-flex items-center"
+                className="text-sm text-deep dark:text-deep-bright hover:underline py-2 min-h-[44px] inline-flex items-center"
               >
                 &larr; Back to all topics
               </Link>

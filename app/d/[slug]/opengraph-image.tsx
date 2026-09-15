@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { OG_HEIGHT, OG_IMAGE_CACHE_CONTROL, OG_NOT_FOUND_CACHE_CONTROL, OG_WIDTH, truncateOgText } from "@/lib/og";
 import { isDatabaseConfigured } from "@/lib/db";
 import { getPublishedDisagreementReport } from "@/lib/db/queries";
+import { isReportSlug } from "@/lib/disagreement/reportSlug";
 
 export const runtime = "nodejs";
 export const size = { width: OG_WIDTH, height: OG_HEIGHT };
@@ -9,7 +10,7 @@ export const contentType = "image/png";
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  if (!isDatabaseConfigured()) {
+  if (!isReportSlug(slug) || !isDatabaseConfigured()) {
     return new Response("Not found", { status: 404, headers: { "cache-control": OG_NOT_FOUND_CACHE_CONTROL } });
   }
   const row = await getPublishedDisagreementReport(slug);

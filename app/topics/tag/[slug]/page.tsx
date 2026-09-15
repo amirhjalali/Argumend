@@ -248,11 +248,11 @@ export default async function TopicTagPage({ params, searchParams }: PageProps) 
                   className={`group flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] border-t-[3px] rounded-xl p-5 pb-4 shadow-card hover:border-x-deep/30 hover:border-b-deep/30 dark:hover:border-x-deep/50 dark:hover:border-b-deep/50 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in card-hover ${categoryTopBorder[topic.category]}`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <h2 className="font-serif text-lg text-stone-900 dark:text-[var(--text-heading)] group-hover:text-deep transition-colors leading-snug mb-3">
+                  <h2 className="font-serif text-lg text-stone-900 dark:text-[var(--text-heading)] group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug mb-3">
                     {topic.title}
                   </h2>
 
-                  <p className="text-sm text-stone-500 leading-relaxed line-clamp-2 mb-4 flex-1">
+                  <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-2 mb-4 flex-1">
                     {topic.meta_claim}
                   </p>
 
@@ -279,7 +279,7 @@ export default async function TopicTagPage({ params, searchParams }: PageProps) 
                         {topic.status.replace("_", " ")}
                       </span>
                     </div>
-                    <span className="text-[11px] text-stone-500">
+                    <span className="text-[11px] text-stone-500 dark:text-stone-400">
                       {topic.pillarCount} pillars
                     </span>
                   </div>
@@ -310,7 +310,7 @@ export default async function TopicTagPage({ params, searchParams }: PageProps) 
                   <Link
                     key={s}
                     href={`/topics/tag/${s}`}
-                    className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-stone-200/60 bg-white px-4 py-2 text-sm font-medium text-stone-600 transition-colors hover:border-deep/30 hover:text-deep dark:border-[var(--border-default)] dark:bg-[var(--bg-card)] dark:text-stone-400 dark:hover:border-deep/50"
+                    className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-stone-200/60 bg-white px-4 py-2 text-sm font-medium text-stone-600 transition-colors hover:border-deep/30 hover:text-deep dark:hover:text-deep-bright dark:border-[var(--border-default)] dark:bg-[var(--bg-card)] dark:text-stone-400 dark:hover:border-deep/50"
                   >
                     <Tag className="h-3 w-3" />
                     {formatTaxonomyLabel(relatedLabel)}
@@ -324,7 +324,7 @@ export default async function TopicTagPage({ params, searchParams }: PageProps) 
           <div className="mt-10 text-center">
             <Link
               href="/topics"
-              className="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium text-deep transition-colors hover:bg-deep/5 hover:text-deep-dark"
+              className="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium text-deep dark:text-deep-bright transition-colors hover:bg-deep/5 hover:text-deep-dark dark:hover:text-deep-brighter"
             >
               <ArrowRight className="h-3.5 w-3.5 rotate-180" />
               Back to all topics

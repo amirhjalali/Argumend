@@ -101,7 +101,7 @@ function DebaterCard({
                     ? isFor
                       ? "border-rust-400 bg-gradient-to-br from-rust-50 to-rust-100/50 shadow-md"
                       : "border-stone-400 bg-gradient-to-br from-stone-100 to-stone-50 shadow-md"
-                    : "border-stone-200 dark:border-[var(--border-divider)] bg-white/60 dark:bg-[var(--bg-card)]/60 hover:border-stone-300 hover:bg-white/80 dark:hover:bg-[#2a2926]"
+                    : "border-stone-200 dark:border-[var(--border-divider)] bg-card/60 hover:border-stone-300 hover:bg-white/80 dark:hover:bg-[#2a2926]"
                 }
               `}
             >
@@ -337,7 +337,7 @@ function DebateHeader({
     <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex items-center justify-between p-4 rounded-xl bg-white/60 dark:bg-[var(--bg-card)]/60 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-sm flex-wrap"
+      className="flex items-center justify-between p-4 rounded-xl bg-card/60 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-sm flex-wrap"
     >
       <div className="flex items-center gap-2 md:gap-6 flex-wrap">
         {/* Debaters */}
@@ -535,7 +535,7 @@ export function DebateView() {
             className="space-y-8"
           >
             {/* Debater Selection */}
-            <div className="bg-white/50 dark:bg-[var(--bg-card)]/50 backdrop-blur-sm rounded-2xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 shadow-sm">
+            <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-stone-200/60 dark:border-[var(--border-divider)] p-6 shadow-sm">
               <div className="flex items-center justify-center gap-8 mb-6">
                 <h3 className="font-serif text-lg text-primary dark:text-stone-200">
                   Select Your Debaters

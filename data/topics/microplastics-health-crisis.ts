@@ -97,21 +97,21 @@ export const microplasticsHealthCrisisData = {
         {
           id: "contamination-methodology-concerns",
           title:
-            "Analytical Challenges and Contamination Risks in Microplastic Detection",
+            "Interlaboratory Comparison Shows Microplastic Counts Vary Widely Between Labs",
           description:
-            "A 2023 review in Nature Reviews Methods Primers highlighted persistent methodological challenges in microplastic research. Laboratory contamination from airborne plastic fibers, clothing, and equipment can introduce false positives. Different analytical methods (FTIR spectroscopy, Raman spectroscopy, pyrolysis-GC/MS) yield varying results, and there are no universally standardized protocols for biological sample preparation. Inter-laboratory comparison studies have shown significant variability in particle counts for identical samples, with some labs reporting 10x higher concentrations than others.",
+            "The first global interlaboratory study on microplastics (van Mourik et al., 2021, Science of the Total Environment), organized by WEPAL-QUASIMEME and NORMAN, asked 34 laboratories to determine polymer type and particle number or mass in 12 prepared samples. Thirty labs submitted data using seven different identification and quantification methods of their own choosing. Polymer type was correctly identified by 53-100% of labs depending on the sample, and quantification of pre-production pellets was accurate, but agreement on the counts of the smaller particles ranged from only 29% to 91% across samples. The authors conclude that harmonization of both methods and reporting formats is urgently needed to support monitoring and decision-making. Laboratory contamination is a separate documented risk: a 2025 Nature Reviews Bioengineering review of microplastic and nanoplastic detection in biological samples records nanoplastic shedding from routine plastic labware such as microcentrifuge tubes, cryovials, and pipette tips.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 8,
             independence: 9,
             replicability: 9,
             directness: 7,
           },
-          source: "Nature Reviews Methods Primers",
-          sourceUrl:
-            "https://www.nature.com/articles/s43586-023-00235-2",
+          source:
+            "van Mourik et al. (2021), Science of the Total Environment (WEPAL-QUASIMEME/NORMAN interlaboratory study)",
+          sourceUrl: "https://doi.org/10.1016/j.scitotenv.2021.145071",
           reasoning:
-            "Nature Reviews is an authoritative source for methodological assessment. The lack of standardized protocols is a genuine limitation that introduces uncertainty into bioaccumulation estimates. However, methodological imperfection does not negate the core finding — it means the true concentrations may differ from reported values, but the presence of microplastics in tissue is confirmed across multiple independent methods.",
+            "A blinded multi-laboratory exercise on prepared samples is the strongest available evidence on measurement reliability, because it isolates method variance from real differences between samples. The lack of standardized protocols is a genuine limitation that introduces uncertainty into bioaccumulation estimates. However, methodological imperfection does not negate the core finding — it means true concentrations may differ from reported values, but the presence of microplastics in tissue is confirmed across multiple independent methods. Note: an earlier version of this entry claimed some labs reported 10x higher concentrations than others; the interlaboratory study reports 29-91% agreement on small-particle counts, and the unsupported 10x figure has been removed.",
         },
         {
           id: "placental-microplastics",

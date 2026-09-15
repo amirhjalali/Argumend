@@ -123,7 +123,7 @@ export function DiamondDiagram() {
               <span>Meta Claim</span>
             </div>
           </div>
-          <p className="mt-2 text-xs text-secondary italic">
+          <p className="mt-2 text-xs text-secondary dark:text-stone-400 italic">
             The central topic
           </p>
         </div>
@@ -140,7 +140,7 @@ export function DiamondDiagram() {
                 <span>Skeptic</span>
               </div>
             </div>
-            <p className="mt-2 text-xs text-secondary italic text-center">
+            <p className="mt-2 text-xs text-secondary dark:text-stone-400 italic text-center">
               Strongest objection
             </p>
           </div>
@@ -154,7 +154,7 @@ export function DiamondDiagram() {
                 <span>Proponent</span>
               </div>
             </div>
-            <p className="mt-2 text-xs text-secondary italic text-center">
+            <p className="mt-2 text-xs text-secondary dark:text-stone-400 italic text-center">
               Best response
             </p>
           </div>
@@ -171,7 +171,7 @@ export function DiamondDiagram() {
               <span>Crux</span>
             </div>
           </div>
-          <p className="mt-2 text-xs text-crux font-medium">
+          <p className="mt-2 text-xs text-crux dark:text-crux-light font-medium">
             What would settle this?
           </p>
         </div>

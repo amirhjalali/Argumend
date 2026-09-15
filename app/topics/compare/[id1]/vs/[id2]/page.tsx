@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { topicSummaries } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { calculateEvidenceScore } from "@/lib/schemas/topic";
 import type { Topic } from "@/lib/schemas/topic";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -138,6 +139,16 @@ function computeTopicStats(topic: Topic) {
 
 export default async function ComparisonPage({ params }: PageProps) {
   const { id1, id2 } = await params;
+
+  // Flagship ArgumentGraph topics are not comparable here. This page scores
+  // evidence weight, balance, verdicts, and pillar cruxes, none of which exist
+  // for debate maps (and the north star forbids inventing them). The compare
+  // picker and related-topic links are built from the legacy index only, so
+  // no site link lands here; the 404 is explicit for the same reason as /embed.
+  if (argumentTopicIds.includes(id1) || argumentTopicIds.includes(id2)) {
+    notFound();
+  }
+
   const [topic1, topic2] = await Promise.all([
     loadTopicById(id1),
     loadTopicById(id2),

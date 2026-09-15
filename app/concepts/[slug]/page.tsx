@@ -174,7 +174,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
               </h2>
             </div>
             <div
-              className={`bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 ${stage.borderAccent}`}
+              className={`bg-card/80 rounded-xl border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 ${stage.borderAccent}`}
             >
               <ul className="space-y-4">
                 {concept.keyPoints.map((point, i) => (
@@ -201,7 +201,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                   <Link
                     key={topic.id}
                     href={`/topics/${topic.id}`}
-                    className="group flex items-center justify-between p-4 rounded-xl bg-white/80 dark:bg-[var(--bg-card)]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
+                    className="group flex items-center justify-between p-4 rounded-xl bg-card/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-deep" />
@@ -209,7 +209,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                         {topic.title}
                       </span>
                     </div>
-                    <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep group-hover:translate-x-0.5 transition-all duration-200" />
+                    <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep dark:group-hover:text-deep-bright group-hover:translate-x-0.5 transition-all duration-200" />
                   </Link>
                 ))}
               </div>
@@ -230,7 +230,7 @@ export default async function ConceptDetailPage({ params }: PageProps) {
                     <Link
                       key={related!.id}
                       href={`/concepts/${related!.id}`}
-                      className={`group bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm transition-all duration-200 ${relatedStage.hoverBorder}`}
+                      className={`group bg-card/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm transition-all duration-200 ${relatedStage.hoverBorder}`}
                     >
                       <div
                         className={`flex items-center justify-center w-8 h-8 rounded-full mb-3 ${relatedStage.iconBg}`}

@@ -138,11 +138,11 @@ ${againstMsg?.content || "*No argument*"}
   };
 
   return (
-    <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 backdrop-blur-sm rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden">
+    <div className="bg-card/80 backdrop-blur-sm rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-stone-200/60 dark:border-[var(--border-default)]">
         <div className="flex items-center gap-2">
-          <Share2 className="w-4 h-4 text-deep" />
+          <Share2 className="w-4 h-4 text-deep dark:text-deep-bright" />
           <span className="font-serif font-semibold text-stone-800 dark:text-[var(--text-primary)]">
             Share to Moltbook
           </span>
@@ -234,7 +234,7 @@ ${againstMsg?.content || "*No argument*"}
               exit={{ opacity: 0 }}
               className="flex flex-col items-center py-6"
             >
-              <Loader2 className="w-8 h-8 animate-spin text-deep mb-3" />
+              <Loader2 className="w-8 h-8 animate-spin text-deep dark:text-deep-bright mb-3" />
               <p className="text-sm text-stone-600 dark:text-[var(--text-secondary)]">Posting to Moltbook...</p>
             </motion.div>
           )}

@@ -46,7 +46,7 @@ function TocLinks({
         <li key={`${keyPrefix}-${h.id}`} className={h.level === 3 ? "pl-3.5" : ""}>
           <a
             href={`#${h.id}`}
-            className={`flex min-h-11 items-center rounded-sm leading-snug transition-colors hover:text-deep dark:hover:text-deep-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep ${
+            className={`flex min-h-11 items-center rounded-sm leading-snug transition-colors hover:text-deep dark:hover:text-deep-brighter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep ${
               h.level === 3
                 ? "text-muted dark:text-stone-400"
                 : "text-secondary dark:text-stone-400"

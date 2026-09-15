@@ -154,7 +154,7 @@ function getLeanInfo(balance: number): { label: string; color: string } {
   if (d < BALANCE.EVEN_D) return { label: "Draw", color: "text-stone-500" };
   return balance >= 50
     ? { label: "For", color: "text-rust-600" }
-    : { label: "Against", color: "text-deep" };
+    : { label: "Against", color: "text-deep dark:text-deep-bright" };
 }
 
 const TYPE_CONFIG: Record<
@@ -169,12 +169,12 @@ const TYPE_CONFIG: Record<
   topic: {
     icon: MessageSquare,
     label: "Topics",
-    badgeClasses: "bg-deep/10 text-deep",
+    badgeClasses: "bg-deep/10 text-deep dark:text-deep-bright",
   },
   blog: {
     icon: FileText,
     label: "Blog",
-    badgeClasses: "bg-deep/5 text-deep/80",
+    badgeClasses: "bg-deep/5 text-deep/80 dark:text-deep-bright",
   },
   concept: {
     icon: Lightbulb,
@@ -473,7 +473,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
         >
           {/* Search Input */}
           <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60 dark:border-[var(--border-divider)]">
-            <Search className="h-5 w-5 text-deep flex-shrink-0" strokeWidth={1.8} />
+            <Search className="h-5 w-5 text-deep dark:text-deep-bright flex-shrink-0" strokeWidth={1.8} />
             <input
               ref={inputRef}
               data-modal-initial-focus
@@ -552,7 +552,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       router.push("/topics");
                       onClose();
                     }}
-                    className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"
+                    className="text-deep dark:text-deep-bright underline underline-offset-2 hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
                   >
                     browse all topics
                   </button>
@@ -590,7 +590,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       onMouseEnter={() => setActiveIndex(idx)}
                       className={`
                         w-full flex items-center gap-3 px-5 py-3 text-left transition-colors duration-100
-                        ${isActive ? "bg-rust-50/60 dark:bg-rust-900/30 border-l-2 border-l-rust-500 ring-2 ring-deep/20" : "bg-transparent hover:bg-stone-50/60 dark:hover:bg-[var(--bg-muted)]/60 border-l-2 border-l-transparent"}
+                        ${isActive ? "bg-rust-50/60 dark:bg-rust-900/30 border-l-2 border-l-rust-500 ring-2 ring-deep/20" : "bg-transparent hover:bg-stone-50/60 dark:hover:bg-muted-surface/60 border-l-2 border-l-transparent"}
                       `}
                       role="option"
                       aria-selected={isActive}
@@ -667,7 +667,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 dark:border-[var(--border-divider)] bg-[#f4f1eb]/50 dark:bg-[var(--bg-canvas)]/50">
+          <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 dark:border-[var(--border-divider)] bg-canvas/50">
             <div className="flex items-center gap-4 text-[11px] text-muted dark:text-stone-400">
               <span className="flex items-center gap-1">
                 <kbd className="inline-flex h-4 items-center rounded border border-stone-200 dark:border-[var(--border-divider)] bg-white dark:bg-[var(--bg-muted)] px-1 font-mono text-[10px]">

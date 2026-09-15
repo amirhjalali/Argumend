@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { generateMetadata, generateStaticParams } from "./page";
 import { CATEGORY_PAGE_SIZE } from "./_config";
+import { getArticleSummaryCategories } from "@/data/blogIndex";
 
 describe("blog category routing", () => {
   it("emits each category slug exactly once", () => {
@@ -16,6 +17,20 @@ describe("blog category routing", () => {
 
     expect(metadata.title).toBe("Category Not Found");
     expect(metadata.robots).toEqual({ index: false, follow: false });
+  });
+
+  it("title-cases the analysis category like its siblings", async () => {
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ category: "analysis" }),
+    });
+
+    expect(metadata.title).toBe("Analysis Articles");
+  });
+
+  it("stores every category label capitalized so titles and h1s match", () => {
+    for (const category of getArticleSummaryCategories()) {
+      expect(category, `category "${category}" should start uppercase`).toMatch(/^[A-Z]/);
+    }
   });
 
   it("gives paginated category pages their own canonical and navigation", async () => {

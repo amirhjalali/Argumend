@@ -1,9 +1,11 @@
 import type { DisagreementReportV1 } from "@/types/disagreement";
+import { EvidenceStateSection } from "./EvidenceStateSection";
 
 /**
  * The primary crux, rendered as one of the report's few bordered panels.
- * Secondary cruxes, when the engine ranked more than one, sit beneath as a
- * quiet list rather than sibling cards.
+ * The crux's evidence state (spec §6.6) closes the panel. Secondary cruxes,
+ * when the engine ranked more than one, sit beneath as a quiet list rather
+ * than sibling cards.
  */
 export function ArgumentHinge({ report }: { report: DisagreementReportV1 }) {
   const primary = report.cruxes[0];
@@ -15,7 +17,7 @@ export function ArgumentHinge({ report }: { report: DisagreementReportV1 }) {
       <div className="border border-[var(--border-divider)] bg-[var(--bg-paper)] p-6 sm:p-8">
         <h2
           id="argument-hinge-heading"
-          className="text-xs font-semibold tracking-[0.22em] text-[#a23b3b]"
+          className="text-xs font-semibold tracking-[0.22em] text-[#a23b3b] dark:text-crux-light"
         >
           WHAT THE ARGUMENT TURNS ON
         </h2>
@@ -24,8 +26,8 @@ export function ArgumentHinge({ report }: { report: DisagreementReportV1 }) {
         </p>
         {primary.branches.length > 0 ? (
           <dl className="mt-6 space-y-3 border-t border-[var(--border-divider)] pt-5">
-            {primary.branches.map((branch) => (
-              <div key={branch.condition} className="grid gap-1 sm:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] sm:gap-4">
+            {primary.branches.map((branch, index) => (
+              <div key={`${branch.condition}-${index}`} className="grid gap-1 sm:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] sm:gap-4">
                 <dt className="text-sm text-[var(--text-secondary)]">{branch.condition}</dt>
                 <dd className="text-sm text-[var(--text-primary)]">{branch.consequence}</dd>
               </div>
@@ -36,6 +38,7 @@ export function ArgumentHinge({ report }: { report: DisagreementReportV1 }) {
           <span className="font-medium text-[var(--text-primary)]">What could settle it: </span>
           {primary.resolution.condition}
         </p>
+        <EvidenceStateSection report={report} />
       </div>
       {secondary.length > 0 ? (
         <div className="mt-4">

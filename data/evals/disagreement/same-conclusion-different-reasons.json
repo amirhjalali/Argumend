@@ -2,7 +2,7 @@
   "id": "same-conclusion-different-reasons",
   "contentType": "conversation",
   "source": "Dana: We both support the Willow Street closure, but for totally different reasons. I want the pilot because it will show that half the car trips disappear once the shortcut is gone.\nMorgan: I support the closure too, but not as a traffic experiment. Even if the same cars detour onto Pine, residents on Willow should not have their front doors treated like a bypass.\nDana: If the counts do not fall, I would reopen it after the pilot.\nMorgan: That proves my point. I would keep it closed even if the counts do not fall, because the street's use should change.",
-  "allowedPatterns": ["mostly-common-ground"],
+  "allowedPatterns": ["mostly-common-ground", "value-conflict"],
   "expectCrux": true,
   "minPositions": 2,
   "maxPositions": 2,

@@ -2996,7 +2996,7 @@ The arguments are complex. The stakes are real. Understanding them clearly is th
     publishedAt: "2026-03-26T09:00:00Z",
     readingTime: "12 min read",
     tags: ["housing", "economics", "policy", "zoning", "rent-control"],
-    category: "analysis",
+    category: "Analysis",
     content: `## The One Issue Everyone Agrees On — Until They Don't
 
 Housing affordability might be the closest thing modern politics has to a universal grievance. Renters in Los Angeles spending 60% of their income on a one-bedroom apartment are angry. First-time buyers in Austin priced out of neighborhoods that were affordable five years ago are angry. Landlords watching property taxes and insurance costs devour their margins are angry. Even developers are angry — about permits that take three years, community meetings that kill projects, and labor costs that make affordable construction nearly impossible.
@@ -3105,7 +3105,7 @@ The housing crisis is real. The solutions are complicated. The first step toward
     publishedAt: "2026-03-26T09:00:00Z",
     readingTime: "12 min read",
     tags: ["gun-control", "policy", "research", "evidence", "violence"],
-    category: "analysis",
+    category: "Analysis",
     content: `## The Debate Where Everyone Claims the Data Supports Their Side
 
 Few policy debates generate as much heat — or as little light — as gun control. After every mass shooting, proponents of stricter gun laws cite statistics showing the US has far more gun deaths than peer nations. After every defensive gun use, opponents cite statistics showing firearms save lives. Both sides claim "the research is clear." Both sides are oversimplifying.
@@ -3259,7 +3259,7 @@ The gun control debate will not be resolved by a single study or a single blog p
     publishedAt: "2026-03-26T09:00:00Z",
     readingTime: "10 min read",
     tags: ["economics", "inequality", "wealth", "policy", "taxation"],
-    category: "analysis",
+    category: "Analysis",
     content: `## Everyone Agrees Inequality Exists. Almost Nobody Agrees on What It Means.
 
 The wealth gap in the United States is not a secret. The Federal Reserve's Distributional Financial Accounts show that the top 1% of American households hold roughly 31% of total wealth, while the bottom 50% hold just 2.6%. This concentration has widened dramatically since 1980, and the trend shows no sign of reversing.
@@ -3367,7 +3367,7 @@ Every claim is sourced, every argument is steel-manned, and the evidence is weig
     publishedAt: "2026-03-26T09:00:00Z",
     readingTime: "12 min read",
     tags: ["nuclear-energy", "climate", "safety", "science", "policy"],
-    category: "analysis",
+    category: "Analysis",
     content: `## Nuclear Energy Could Solve Climate Change. Or It Could Create the Next Chernobyl.
 
 The debate is fierce. Proponents call nuclear power the only proven technology capable of decarbonizing electricity at the speed and scale the climate crisis demands. Critics call it a slow, expensive, dangerous distraction from renewables that are already cheaper and faster to deploy. Both sides invoke science. Both sides cite data. Both sides accuse the other of ignoring inconvenient evidence.
@@ -3479,7 +3479,7 @@ The nuclear question is not simple. Anyone who tells you it is, whether they are
     publishedAt: "2026-03-26T09:00:00Z",
     readingTime: "11 min read",
     tags: ["microplastics", "health", "science", "environment", "research"],
-    category: "analysis",
+    category: "Analysis",
     content: `## The Headlines Are Terrifying. The Science Is More Complicated.
 
 Microplastics have been found in human blood. In placentas. In brains. In arterial plaque. In testicles. In breast milk. Every few months, a new study announces that tiny fragments of synthetic polymer have been discovered in yet another organ, and every few months, the headlines grow more alarming.
@@ -3707,7 +3707,7 @@ The Iran question is not one where you can afford to outsource your thinking to 
       "supply chains",
       "government spending",
     ],
-    category: "analysis",
+    category: "Analysis",
     content: `## Your Grocery Bill Is Not Lying to You
 
 You already know something happened. The eggs that cost $1.50 in 2020 hit $4.80 by early 2023. Rent in the median American city climbed 26% between 2020 and 2024. A used Honda Civic that would have sold for $15,000 in 2019 was listed at $24,000 in 2022. The Bureau of Labor Statistics reported that cumulative CPI inflation from January 2020 to December 2024 reached roughly 22% — meaning a dollar at the start of the pandemic bought only about 82 cents' worth of goods by the end of 2024.
@@ -3814,7 +3814,7 @@ Because the question is not who to blame for inflation. The question is what the
       "inflammation",
       "ultra-processed food",
     ],
-    category: "analysis",
+    category: "Analysis",
     content: `## The Great Seed Oil Panic
 
 If you spend any time on health-adjacent social media, you have encountered the seed oil discourse. It is loud, it is polarized, and it is everywhere. On one side, carnivore diet advocates, ancestral health influencers, and a growing army of wellness accounts warn that industrial seed oils — soybean, canola, corn, sunflower, safflower, cottonseed, grapeseed — are a primary driver of chronic disease. They call them "hateful eight" oils. They share infographics of rising disease rates plotted against rising seed oil consumption. They scrutinize restaurant menus and ingredient labels with the vigilance of someone avoiding a deadly allergen.
@@ -4345,7 +4345,7 @@ The loneliness question matters because it sits at the intersection of public he
       "us debt $36 trillion",
       "will the us default on debt",
     ],
-    category: "analysis",
+    category: "Analysis",
     content: `## The Numbers That Should Have Your Attention
 
 The United States national debt surpassed $36 trillion in early 2025. That number is so large it has lost its capacity to shock. So consider some numbers that might still land.

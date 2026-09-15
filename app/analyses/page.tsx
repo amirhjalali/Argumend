@@ -82,7 +82,7 @@ export default async function AnalysesPage() {
             ]}
           />
           <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-deep/10 border border-deep/20 rounded-full text-xs font-medium text-deep dark:text-deep-bright tracking-wide">
               <Brain className="h-3 w-3" />
               Analysis Archive
             </div>
@@ -108,7 +108,7 @@ export default async function AnalysesPage() {
 
           {/* Analyses List */}
           {analyses.length === 0 ? (
-            <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-10 md:p-14 text-center">
+            <div className="bg-card/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-10 md:p-14 text-center">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-stone-100 dark:bg-[var(--bg-overlay)] mb-5">
                 <FileSearch className="h-7 w-7 text-muted dark:text-stone-400" strokeWidth={1.5} />
               </div>
@@ -136,12 +136,12 @@ export default async function AnalysesPage() {
                   <Link
                     key={analysis.id}
                     href={`/analysis/${analysis.id}`}
-                    className="group block bg-white/80 dark:bg-[var(--bg-card)]/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-5 md:p-6 shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
+                    className="group block bg-card/80 border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl p-5 md:p-6 shadow-card hover:border-deep/30 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-serif text-base md:text-lg font-medium text-primary dark:text-stone-200 group-hover:text-deep transition-colors truncate">
+                        <h3 className="font-serif text-base md:text-lg font-medium text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors truncate">
                           {analysis.topic}
                         </h3>
                         {analysis.summary && (
@@ -158,7 +158,7 @@ export default async function AnalysesPage() {
                               style={{ width: `${confidencePct}%` }}
                             />
                           </div>
-                          <span className="text-xs font-mono text-deep font-medium">
+                          <span className="text-xs font-mono text-deep dark:text-deep-bright font-medium">
                             {confidencePct}%
                           </span>
                         </div>
@@ -173,7 +173,7 @@ export default async function AnalysesPage() {
                           </span>
                         </div>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-stone-300 dark:text-stone-600 group-hover:text-deep group-hover:translate-x-0.5 flex-shrink-0 mt-1 transition-all duration-200" />
+                      <ChevronRight className="h-5 w-5 text-stone-300 dark:text-stone-600 group-hover:text-deep dark:group-hover:text-deep-bright group-hover:translate-x-0.5 flex-shrink-0 mt-1 transition-all duration-200" />
                     </div>
                   </Link>
                 );

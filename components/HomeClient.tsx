@@ -295,7 +295,7 @@ function CanvasExperience() {
                       onClick={() => handleTopicSelect(topic.id)}
                       className="group text-left p-4 bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-divider)] rounded-xl hover:border-deep/30 hover:shadow-md hover:scale-[1.01] hover:-translate-y-0.5 transition-all"
                     >
-                      <h3 className="font-serif text-sm font-medium text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug line-clamp-2">
+                      <h3 className="font-serif text-sm font-medium text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug line-clamp-2">
                         {topic.title}
                       </h3>
                       <BalanceWeightChip
@@ -311,7 +311,7 @@ function CanvasExperience() {
                 <div className="mt-5 text-center">
                   <Link
                     href="/topics"
-                    className="inline-flex items-center gap-1 text-sm font-serif font-medium text-deep hover:text-deep-dark transition-colors group"
+                    className="inline-flex items-center gap-1 text-sm font-serif font-medium text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter transition-colors group"
                   >
                     Browse all topics
                     <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

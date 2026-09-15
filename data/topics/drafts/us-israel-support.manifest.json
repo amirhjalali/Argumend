@@ -1,0 +1,88 @@
+{
+  "topicId": "us-israel-support",
+  "manifestVersion": 1,
+  "owner": "founder",
+  "cadence": "ongoing-war",
+  "lastFullReview": "2026-08-12",
+  "lastHeadlineCheck": "2026-08-12",
+  "nextHeadlineCheckDue": "2026-08-19",
+  "nextFullReviewDue": "2026-09-11",
+  "fastMovingNodes": [
+    {
+      "id": "e-ocha-moh-jun2026",
+      "why": "OCHA relays Gaza Ministry of Health casualty figures on a rolling basis; the June 17, 2026 snapshot (73,016 / 71,444) is the headline number in the highlights and is superseded by every new snapshot or methodology change."
+    },
+    {
+      "id": "e-jta-idf-71000",
+      "why": "A January 2026 press-reported IDF estimate; later official or reported Israeli estimates can move the convergence claim in the top-crux note."
+    },
+    {
+      "id": "e-netanyahu-combatant-estimate",
+      "why": "May 2024 combatant/civilian split claimed by the Israeli government; newer official claims or independent codings change the combatant-share crux."
+    },
+    {
+      "id": "e-acled-militant-fatalities",
+      "why": "ACLED's independently coded militant fatality count is 'as of 2024' and is updated as the dataset grows."
+    },
+    {
+      "id": "e-un-veto-series",
+      "why": "A running list of U.S. Security Council vetoes on Gaza resolutions through September 2025; every new UNSC vote can extend or end it."
+    },
+    {
+      "id": "e-crs-nsm20-rescission",
+      "why": "Describes the current statutory landscape after NSM-20's February 2025 rescission; a new memorandum, statutory amendment, or executive action changes which authorities apply."
+    },
+    {
+      "id": "e-state-leahy-review-april2024",
+      "why": "Leahy Law review status ('one still under review'); any new determination or remediation changes the enforcement picture behind the enforce-the-law position."
+    },
+    {
+      "id": "e-dsca-2025-notifications",
+      "why": "DSCA notifies Congress of new possible sales on a rolling basis; the February 2025 $6.75B notification is one entry in a continuing series."
+    },
+    {
+      "id": "e-cfr-post-oct7-total",
+      "why": "A cumulative 'at least $16.3B' total that grows with each supplemental or MOU-year appropriation."
+    },
+    {
+      "id": "e-gallup-decline",
+      "why": "Gallup re-polls approval of Israel's military action periodically; the July 2025 reading is a dated snapshot."
+    },
+    {
+      "id": "e-pew-toomuch-aid",
+      "why": "Pew surveys on U.S. military assistance and views of Israel recur; the September 2025 and March 2025 readings are dated snapshots."
+    },
+    {
+      "id": "e-crs-saudi-conditions",
+      "why": "Saudi normalization conditions are live diplomacy; a normalization move or a change in stated conditions alters the leverage and regional-stability cruxes."
+    },
+    {
+      "id": "e-crs-hamas-fto",
+      "why": "States that Hamas has controlled Gaza since 2007; a ceasefire, governance arrangement, or disarmament agreement can change the present-tense control claim."
+    },
+    {
+      "id": "e-aipac-lobbying-spend",
+      "why": "OpenSecrets lobbying and PAC figures update annually and through the 2026 midterm cycle; the 2024 spend figure is a dated snapshot."
+    }
+  ],
+  "triggerEvents": [
+    "A ceasefire, resumption of hostilities, or change in the governance status of Gaza (north-star: immediate review after a ceasefire/status change).",
+    "A major casualty revision by the Gaza Ministry of Health, OCHA, or an independent study, or a change in casualty methodology or identification counts.",
+    "A controlling court decision: ICJ merits or new provisional-measures order in South Africa v. Israel, ICC appeals or new warrants, or a U.S. court ruling on arms-transfer authorities.",
+    "A new national security memorandum, rescission, or executive action on arms transfers, or a statutory change to Leahy, FAA section 620I, or AECA authorities.",
+    "A material U.S. policy change: an arms hold or release, conditions attached to aid, a new supplemental appropriation, or negotiation of a successor to the FY2019-28 MOU.",
+    "A DSCA congressional notification of a new sale above notification thresholds.",
+    "A UN Security Council vote on a Gaza-related resolution, whether vetoed or adopted.",
+    "A new Leahy Law determination or remediation involving Israeli units.",
+    "A Saudi or other regional normalization move, or an Iran-related escalation that bears on the regional-stability crux.",
+    "New Gallup or Pew polling on U.S. views of Israel's military action or U.S. military assistance."
+  ],
+  "correctionLog": [],
+  "notes": [
+    "lastFullReview is the date of the last commit touching us-israel-support.draft.json (ebba650, 2026-08-12). The NSM-20 nodes carry source.verifiedAt 2026-08-12, so lastHeadlineCheck is set to that date; no later check has been logged.",
+    "As of manifest creation (2026-09-14) both the seven-day headline check and the thirty-day full review are overdue. Per the north-star, the casualty highlight and any card phrased as current should be dated as a historical snapshot, demoted from the headline layer, or the map marked as awaiting review; that copy change is a founder decision and has not been made here.",
+    "Fast-moving selection rule: casualty and combatant-status figures, running lists (vetoes, DSCA notifications, cumulative aid), live legal and enforcement status, polling, and live diplomacy. Fixed historical documents are excluded even though the dispute over them is live: the 2016 MOU fact sheet, P.L. 118-50, the May 2024 NSM-20 report, the April 2024 Leahy statement's past findings, the May 2024 bomb pause, the ICJ orders, the ICC warrants, and the October 7 toll. Court proceedings are covered as trigger events instead.",
+    "Per the north-star, keep the NSM-20 review, its February 2025 rescission, current statutory authorities, the period of the '100+ sales' report, and the dates and definitions behind casualty figures separate in graph data and public copy; the correction log should record any change to those five items explicitly.",
+    "Only eleven of thirty-one evidence nodes carry source.publishedAt and only three carry source.verifiedAt. The north-star gate requires both on every time-sensitive node; backfilling them for the fast-moving list is the first item for the overdue headline check."
+  ]
+}

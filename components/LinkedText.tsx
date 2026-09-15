@@ -24,7 +24,7 @@ export function LinkedText({
           <Link
             key={i}
             href={seg.href!}
-            className="text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep"
+            className="text-deep dark:text-deep-bright underline decoration-deep/30 transition-colors hover:text-deep-dark dark:hover:text-deep-brighter hover:decoration-deep"
             title={`Explore the full analysis: ${seg.topicTitle}`}
           >
             {seg.content}

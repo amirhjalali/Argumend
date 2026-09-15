@@ -255,7 +255,7 @@ export function IsHubClient({ groups, totalCount }: IsHubClientProps) {
           <button
             type="button"
             onClick={clearFilters}
-            className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg border border-deep/30 px-4 py-2 font-sans text-sm font-medium text-deep transition-colors hover:bg-deep/5"
+            className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg border border-deep/30 px-4 py-2 font-sans text-sm font-medium text-deep dark:text-deep-bright transition-colors hover:bg-deep/5"
           >
             Clear filters
           </button>
