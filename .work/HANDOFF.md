@@ -514,3 +514,24 @@ Commits 26-29:
 
 Gates on the final tree at 29 commits: 2410 tests, tsc, eslint, eval 64/64, clean build at commit
 24 (rebuild before merge: commits 25-29 touch components and the projection).
+
+### Addendum 4 — 14:50-16:35 EDT, dark mode made measurable
+
+Commits 30-33:
+
+- **Measured dark-mode sweep of 49 routes** (`docs/reviews/2026-09-15-dark-mode-verification.md`):
+  per-route contrast walk compositing each text node against its real background. Fixed the
+  token-pattern failures it found across 24 files (verdict chips on every listing, blog image
+  placeholders, topic cards, flagship read-mode eyebrows), and the markdown renderer, whose emitted
+  prose classes had no dark variant, so every blog article body was 1.55:1.
+- **Repo-wide `text-deep` pass**: 136 sites plus 62 hover states gained a dark variant; new
+  `deep.brighter` hover tint and `skeptic.bright` (#c4916a) for the brown side; the six `lib/*Meta.ts`
+  style maps and `categoryColors.ts` swapped off the decorative tints. A third ratchet
+  (`darkModeDeepTextRatchet`) holds it at zero.
+- Light mode was not intentionally changed by any of this (only `dark:` variants added, plus chip
+  classes that resolve to the same hexes). A screenshot diff against `main` was commissioned at
+  16:35; see the last addendum or `git log` for whether it landed and what it found.
+
+Remaining dark-mode items are design judgement, listed in the verification doc: opacity-faded
+numerals, "No." card numbers, the vote buttons (fail in light mode too), inline hex numerals on
+methodology/perspectives.
