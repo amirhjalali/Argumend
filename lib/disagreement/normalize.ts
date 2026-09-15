@@ -25,6 +25,16 @@ function uniqueId(base: string, used: Set<string>): string {
   return candidate;
 }
 
+/** One stance per participant; the first stated wins, as with every other dedupe here. */
+function dedupeStances<T extends { participantId: string }>(stances: T[]): T[] {
+  const seen = new Set<string>();
+  return stances.filter((stance) => {
+    if (seen.has(stance.participantId)) return false;
+    seen.add(stance.participantId);
+    return true;
+  });
+}
+
 export function normalizeExtraction(
   raw: RawDisagreementExtractionV1,
 ): NormalizedExtraction {
@@ -57,6 +67,20 @@ export function normalizeExtraction(
   });
 
   const remapParticipant = (id: string) => participantMap.get(id);
+  // Label dedupe (§10.3) points several raw ids at one survivor, so an array
+  // that listed "priya" and "PRIYA" would otherwise come back as
+  // ["priya", "priya"]. Drop dangling references, then repeats, keeping order.
+  const remapParticipants = (ids: string[]): string[] => {
+    const seen = new Set<string>();
+    const result: string[] = [];
+    for (const id of ids) {
+      const mapped = remapParticipant(id);
+      if (!mapped || seen.has(mapped)) continue;
+      seen.add(mapped);
+      result.push(mapped);
+    }
+    return result;
+  };
 
   const positions = raw.positions.map((position, index) => {
     const nextId = uniqueId(slugify(position.id, `position-${index + 1}`), used);
@@ -64,10 +88,8 @@ export function normalizeExtraction(
       warnings.push(`Renamed position "${position.id}" to "${nextId}"`);
     }
     positionMap.set(position.id, nextId);
-    const participantIds = position.participantIds
-      .map((id) => remapParticipant(id))
-      .filter((id): id is string => Boolean(id));
-    if (participantIds.length < position.participantIds.length) {
+    const participantIds = remapParticipants(position.participantIds);
+    if (position.participantIds.some((id) => !remapParticipant(id))) {
       warnings.push(`Dropped dangling participant on position "${position.id}"`);
     }
     return { ...position, id: nextId, participantIds };
@@ -86,15 +108,9 @@ export function normalizeExtraction(
     return {
       ...claim,
       id: nextId,
-      participantIds: claim.participantIds
-        .map((id) => remapParticipant(id))
-        .filter((id): id is string => Boolean(id)),
-      acceptedByParticipantIds: claim.acceptedByParticipantIds
-        .map((id) => remapParticipant(id))
-        .filter((id): id is string => Boolean(id)),
-      disputedByParticipantIds: claim.disputedByParticipantIds
-        .map((id) => remapParticipant(id))
-        .filter((id): id is string => Boolean(id)),
+      participantIds: remapParticipants(claim.participantIds),
+      acceptedByParticipantIds: remapParticipants(claim.acceptedByParticipantIds),
+      disputedByParticipantIds: remapParticipants(claim.disputedByParticipantIds),
       stanceByPosition: claim.stanceByPosition
         .map((stance) => {
           const positionId = positionMap.get(stance.positionId);
@@ -127,9 +143,7 @@ export function normalizeExtraction(
 
   const commonGroundCandidates = raw.commonGroundCandidates.map((item) => ({
     ...item,
-    participantIds: item.participantIds
-      .map((id) => remapParticipant(id))
-      .filter((id): id is string => Boolean(id)),
+    participantIds: remapParticipants(item.participantIds),
   })).filter((item) => {
     if (item.participantIds.length === 0) {
       warnings.push("Dropped common-ground item with no participants");
@@ -145,17 +159,19 @@ export function normalizeExtraction(
       const mapped = claimMap.get(id);
       return mapped && claimIds.has(mapped) ? [mapped] : [];
     }),
-    participantStances: item.participantStances
-      .map((stance) => {
-        const participantId = remapParticipant(stance.participantId);
-        if (!participantId) return null;
-        return {
-          ...stance,
-          participantId,
-          positionId: stance.positionId ? positionMap.get(stance.positionId) : undefined,
-        };
-      })
-      .filter((stance): stance is NonNullable<typeof stance> => Boolean(stance)),
+    participantStances: dedupeStances(
+      item.participantStances
+        .map((stance) => {
+          const participantId = remapParticipant(stance.participantId);
+          if (!participantId) return null;
+          return {
+            ...stance,
+            participantId,
+            positionId: stance.positionId ? positionMap.get(stance.positionId) : undefined,
+          };
+        })
+        .filter((stance): stance is NonNullable<typeof stance> => Boolean(stance)),
+    ),
   }));
 
   // Stakes are normalized by COPYING to new objects, never by mutating the raw

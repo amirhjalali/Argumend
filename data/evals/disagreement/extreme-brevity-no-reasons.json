@@ -2,7 +2,7 @@
   "id": "extreme-brevity-no-reasons",
   "contentType": "conversation",
   "source": "Ana: We should switch the whole fleet to the new tires this quarter. I am certain about this.\nBo: Absolutely not. We should keep the current tires until next year.\nAna: We should switch now.\nBo: We should wait.",
-  "allowedPatterns": ["insufficient-context", "mixed-disagreement"],
+  "allowedPatterns": ["insufficient-context"],
   "expectCrux": false,
   "minPositions": 2,
   "maxPositions": 2,

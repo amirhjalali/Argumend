@@ -56,6 +56,7 @@ export async function analyzeDisagreement(input: {
     provider: extracted.meta.provider,
     model: extracted.meta.model,
     extraWarnings: [...normalized.warnings, ...graphResult.warnings],
+    extraCaveats: graphResult.caveats,
   });
 
   return {

@@ -393,6 +393,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 0,
       explicitPositionCount: 0,
+      claimCount: 0,
       disagreementCount: 0,
       commonGroundCount: 0,
       groundingCoverage: 1,
@@ -403,6 +404,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 1,
       commonGroundCount: 2,
       groundingCoverage: 0.8,
@@ -414,6 +416,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 2,
       commonGroundCount: 0,
       groundingCoverage: 0.8,
@@ -425,6 +428,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 1,
       commonGroundCount: 0,
       groundingCoverage: 0.8,
@@ -436,6 +440,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 1,
       commonGroundCount: 0,
       groundingCoverage: 0.8,
@@ -447,6 +452,7 @@ describe("deriveDiagnosis", () => {
     expect(deriveDiagnosis({
       positionCount: 2,
       explicitPositionCount: 2,
+      claimCount: 2,
       disagreementCount: 3,
       commonGroundCount: 0,
       groundingCoverage: 0.8,

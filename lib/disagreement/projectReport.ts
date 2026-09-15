@@ -203,6 +203,7 @@ export function projectDisagreementReport(input: {
   provider: string;
   model: string;
   extraWarnings?: string[];
+  extraCaveats?: string[];
 }): DisagreementReportV1 {
   const { extraction, graph, source } = input;
   let dropped = 0;
@@ -360,6 +361,7 @@ export function projectDisagreementReport(input: {
   const pattern = deriveDiagnosis({
     positionCount: positions.length,
     explicitPositionCount: positions.filter((position) => position.explicitness === "explicit").length,
+    claimCount: extraction.claims.length,
     disagreementCount: disagreements.length,
     commonGroundCount: commonGround.length,
     groundingCoverage,
@@ -407,13 +409,21 @@ export function projectDisagreementReport(input: {
   });
 
   const headline = diagnosisHeadline(pattern);
+  // §10.5: when positions exist but nothing load-bearing could be established,
+  // say so. Echoing the main question in that slot reads as if the diagnosis
+  // had an answer; it does not, and the reader should know why.
+  const positionsWithoutReasons =
+    pattern === "insufficient-context" && positions.length >= 2 && extraction.claims.length === 0;
   const insight =
     cruxes[0]?.question
       ? `The argument turns on: ${cruxes[0].question}`
-      : extraction.mainQuestion;
+      : positionsWithoutReasons
+        ? "The text states opposing positions, but no reason, evidence, or shared premise could be mapped, so no load-bearing proposition could be established."
+        : extraction.mainQuestion;
 
   const caveats = [
     ...extraction.caveats,
+    ...(input.extraCaveats ?? []),
     "This analysis maps the submitted text. It does not independently verify factual claims, identify hidden motives, or prove that a participant would endorse every inferred formulation.",
   ];
 

@@ -10,6 +10,8 @@ import type {
 export interface DiagnosisInputs {
   positionCount: number;
   explicitPositionCount: number;
+  /** Claims the extraction mapped, before graph building dropped any. */
+  claimCount: number;
   disagreementCount: number;
   commonGroundCount: number;
   groundingCoverage: number;
@@ -48,6 +50,15 @@ export function deriveDiagnosis(input: DiagnosisInputs): DiagnosisPattern {
     return "insufficient-context";
   }
   if (!input.graphValid && input.disagreementCount === 0 && input.commonGroundCount === 0) {
+    return "insufficient-context";
+  }
+  // Positions with nothing behind them (§10.4, §10.6): two speakers stating
+  // opposite conclusions, with no claim, typed disagreement, or shared premise
+  // mapped. The graph builder emits a valid question-only graph for this, so
+  // the guard above cannot fire, and every later branch would fall through to
+  // "mixed-disagreement" — a headline asserting several stacked disagreements
+  // where the extraction found none. There is no structure to diagnose.
+  if (input.claimCount === 0 && input.disagreementCount === 0 && input.commonGroundCount === 0) {
     return "insufficient-context";
   }
   if (input.positionCount < 2) return "not-a-disagreement";
