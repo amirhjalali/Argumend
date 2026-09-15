@@ -11,13 +11,25 @@
  * It is printed only; the pre-registration calls it "a sanity check, not a gate"
  * and names no threshold, so it never affects the exit code.
  *
- * Usage: node_modules/.bin/tsx scripts/validate-crux-recall.ts
+ * Usage: node_modules/.bin/tsx scripts/validate-crux-recall.ts [--levers a,b|off]
  * Exits 1 on hard-gate failure, a named-test failure, or a primary recall threshold miss.
+ *
+ * `--levers` switches the off-by-default engine levers in lib/crux/flags.ts for
+ * this run only: `a` = redundancy overlap over claims only, `b` = position-aware
+ * reach, `off` = pin both off regardless of the environment. Without the flag
+ * the levers follow the CRUX_LEVER_* environment variables, which default off,
+ * so a bare run is the unchanged pre-registered validation.
  */
 import { readFileSync } from "node:fs";
 import { parseArgumentGraph } from "@/lib/schemas/argument";
 import { validateArgumentGraph } from "@/lib/argument/validate";
-import { identifyCruxes } from "@/lib/crux";
+import {
+  CRUX_LEVERS_OFF,
+  anyCruxLeverOn,
+  identifyCruxes,
+  resolveCruxLeverFlags,
+  type CruxLeverFlags,
+} from "@/lib/crux";
 import type { ArgumentGraph, Claim } from "@/types/argument";
 
 export interface Proposition {
@@ -238,12 +250,18 @@ export function spearmanReport(
   return { n: pairs.length, rho, pairs };
 }
 
-export function scoreGraph(topicId: string, spec: TopicSpec, graph: ArgumentGraph): TopicOutcome {
-  const rankedIds = identifyCruxes(graph, { limit: RANK_LIMIT }).map((result) => result.claimId);
+export function scoreGraph(
+  topicId: string,
+  spec: TopicSpec,
+  graph: ArgumentGraph,
+  levers?: Partial<CruxLeverFlags>,
+): TopicOutcome {
+  const rankedIds = identifyCruxes(graph, { limit: RANK_LIMIT, levers }).map((result) => result.claimId);
   const claimCount = graph.nodes.filter((node) => node.type === "claim").length;
-  const unboundedRankedIds = identifyCruxes(graph, { limit: Math.max(RANK_LIMIT, claimCount) }).map(
-    (result) => result.claimId,
-  );
+  const unboundedRankedIds = identifyCruxes(graph, {
+    limit: Math.max(RANK_LIMIT, claimCount),
+    levers,
+  }).map((result) => result.claimId);
   const top5 = new Set(rankedIds.slice(0, 5));
   const top10 = new Set(rankedIds.slice(0, SCORED_WINDOW));
 
@@ -293,8 +311,40 @@ export function scoreGraph(topicId: string, spec: TopicSpec, graph: ArgumentGrap
   };
 }
 
-function scoreTopic(topicId: string, spec: TopicSpec): TopicOutcome {
-  return scoreGraph(topicId, spec, loadGraph(spec.draft));
+function scoreTopic(
+  topicId: string,
+  spec: TopicSpec,
+  levers?: Partial<CruxLeverFlags>,
+): TopicOutcome {
+  return scoreGraph(topicId, spec, loadGraph(spec.draft), levers);
+}
+
+/**
+ * `--levers a,b` turns the named engine levers on and the unnamed ones off;
+ * `--levers off` (or `none`) pins both off. No flag: undefined, so the levers
+ * follow the environment.
+ */
+export function parseLeverArgs(argv: readonly string[]): Partial<CruxLeverFlags> | undefined {
+  const index = argv.indexOf("--levers");
+  if (index === -1) return undefined;
+  const raw = (argv[index + 1] ?? "").trim().toLowerCase();
+  if (raw === "" || raw === "off" || raw === "none") {
+    return { redundancyClaimsOnly: false, positionAwareReach: false };
+  }
+  const names = new Set(raw.split(",").map((name) => name.trim()).filter(Boolean));
+  for (const name of names) {
+    if (name !== "a" && name !== "b") {
+      throw new Error(`--levers: unknown lever "${name}" (expected a, b, or off)`);
+    }
+  }
+  return { redundancyClaimsOnly: names.has("a"), positionAwareReach: names.has("b") };
+}
+
+export function describeLevers(flags: CruxLeverFlags): string {
+  return [
+    `A redundancy-claims-only=${flags.redundancyClaimsOnly ? "on" : "off"}`,
+    `B position-aware-reach=${flags.positionAwareReach ? "on" : "off"}`,
+  ].join(", ");
 }
 
 /** Human-readable rank of one claim, truthful about which ranking the number comes from. */
@@ -317,10 +367,12 @@ export function loadGroundTruth(path: string = GROUND_TRUTH_PATH): GroundTruth {
 
 function main(): void {
   const truth = loadGroundTruth();
+  const leverArgs = parseLeverArgs(process.argv.slice(2));
+  const levers = resolveCruxLeverFlags(leverArgs ?? {});
   const outcomes: TopicOutcome[] = [];
   for (const [topicId, spec] of Object.entries(truth.topics)) {
     try {
-      outcomes.push(scoreTopic(topicId, spec));
+      outcomes.push(scoreTopic(topicId, spec, leverArgs));
     } catch (error) {
       console.error(`FAIL ${topicId}: ${error instanceof Error ? error.message : error}`);
       process.exit(1);
@@ -330,6 +382,10 @@ function main(): void {
   let failed = false;
 
   console.log("=== Crux-engine pre-registered validation ===\n");
+  // Printed only when a lever is on, so the default run's output is unchanged.
+  if (anyCruxLeverOn({ ...CRUX_LEVERS_OFF, ...levers, projectionSkipUncontested: false })) {
+    console.log(`Engine levers (off-by-default, lib/crux/flags.ts): ${describeLevers(levers)}\n`);
+  }
   for (const outcome of outcomes) {
     const unboundedTotal = outcome.unboundedRankedIds.length;
     console.log(

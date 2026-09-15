@@ -1,4 +1,5 @@
 import type { ArgumentGraph, Claim } from "@/types/argument";
+import { resolveCruxLeverFlags, type CruxLeverFlags } from "./flags";
 import { computeCruxSignals, type CruxSignal, type DeltaTarget } from "./signals";
 
 export interface CruxResult {
@@ -32,6 +33,12 @@ export interface IdentifyCruxesOptions {
    * acceptance thresholds without changing serving behavior.
    */
   limit?: number;
+  /**
+   * Off-by-default engine levers (see lib/crux/flags.ts). An explicit value
+   * here overrides the environment; omitted keys fall back to it. Serving
+   * code passes nothing, so it follows the environment, which defaults off.
+   */
+  levers?: Partial<CruxLeverFlags>;
 }
 
 export function identifyCruxes(
@@ -39,7 +46,10 @@ export function identifyCruxes(
   options: IdentifyCruxesOptions = {},
 ): CruxResult[] {
   const limit = Math.max(1, options.limit ?? MAX_RESULTS);
-  const { signals } = computeCruxSignals(graph);
+  const levers = resolveCruxLeverFlags(options.levers);
+  const { signals } = computeCruxSignals(graph, {
+    positionAwareReach: levers.positionAwareReach,
+  });
   const unsuppressed = signals.filter((signal) => signal.claim.cruxOverride !== "suppress");
   const pinned = unsuppressed
     .filter((signal) => signal.claim.cruxOverride === "pin")
@@ -54,7 +64,7 @@ export function identifyCruxes(
 
   for (const signal of unpinned) {
     if (selected.length >= limit) break;
-    const overlap = maxOverlap(signal, selected.map((item) => item.signal));
+    const overlap = maxOverlap(signal, selected.map((item) => item.signal), levers);
     const score = signal.baseScore * (1 - REDUNDANCY_RHO * overlap);
     if (isSelectable(signal, score)) {
       selected.push({ signal, score });
@@ -82,13 +92,25 @@ function scoreSort(a: CruxSignal, b: CruxSignal): number {
   return b.baseScore - a.baseScore || a.claim.id.localeCompare(b.claim.id);
 }
 
-function maxOverlap(signal: CruxSignal, selected: CruxSignal[]): number {
+/**
+ * Jaccard overlap of affected-downstream sets. Lever A
+ * (CRUX_LEVER_REDUNDANCY_CLAIMS_ONLY, default off) drops positions from both
+ * sets, so two leaf claims that reach the same positions and no shared claim
+ * overlap 0 instead of up to 1.
+ */
+function maxOverlap(
+  signal: CruxSignal,
+  selected: CruxSignal[],
+  levers: CruxLeverFlags,
+): number {
+  const setOf = (candidate: CruxSignal) =>
+    levers.redundancyClaimsOnly ? candidate.affectedClaimSet : candidate.affectedSet;
+  const own = setOf(signal);
   return selected.reduce((max, selectedSignal) => {
-    const union = new Set([...signal.affectedSet, ...selectedSignal.affectedSet]);
+    const other = setOf(selectedSignal);
+    const union = new Set([...own, ...other]);
     if (union.size === 0) return max;
-    const intersectionSize = [...signal.affectedSet].filter((id) =>
-      selectedSignal.affectedSet.has(id)
-    ).length;
+    const intersectionSize = [...own].filter((id) => other.has(id)).length;
     return Math.max(max, intersectionSize / union.size);
   }, 0);
 }

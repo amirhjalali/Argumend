@@ -8,6 +8,7 @@ import {
   evaluateNamedTest,
   fractionalRanks,
   loadGroundTruth,
+  parseLeverArgs,
   scoreGraph,
   spearman,
   spearmanReport,
@@ -186,5 +187,27 @@ describe("ground truth file", () => {
       "c-mass-unemployment-definition-strict",
     ]);
     expect(outcome.spearman.n).toBe(4);
+  });
+});
+
+describe("parseLeverArgs", () => {
+  it("returns undefined without the flag so the levers follow the environment", () => {
+    expect(parseLeverArgs([])).toBeUndefined();
+    expect(parseLeverArgs(["--other"])).toBeUndefined();
+  });
+
+  it("turns named levers on and unnamed ones off", () => {
+    expect(parseLeverArgs(["--levers", "a"])).toEqual({ redundancyClaimsOnly: true, positionAwareReach: false });
+    expect(parseLeverArgs(["--levers", "b"])).toEqual({ redundancyClaimsOnly: false, positionAwareReach: true });
+    expect(parseLeverArgs(["--levers", "a,b"])).toEqual({ redundancyClaimsOnly: true, positionAwareReach: true });
+    expect(parseLeverArgs(["--levers", " B , A "])).toEqual({ redundancyClaimsOnly: true, positionAwareReach: true });
+  });
+
+  it("pins both off for off/none/empty and rejects unknown names", () => {
+    const off = { redundancyClaimsOnly: false, positionAwareReach: false };
+    expect(parseLeverArgs(["--levers", "off"])).toEqual(off);
+    expect(parseLeverArgs(["--levers", "none"])).toEqual(off);
+    expect(parseLeverArgs(["--levers"])).toEqual(off);
+    expect(() => parseLeverArgs(["--levers", "c"])).toThrow(/unknown lever/);
   });
 });

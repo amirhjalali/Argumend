@@ -1,4 +1,10 @@
-import { identifyCruxes } from "@/lib/crux";
+import {
+  describeUncontestedReason,
+  identifyCruxes,
+  resolveCruxLeverFlags,
+  uncontestedCruxReason,
+  type CruxLeverFlags,
+} from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
 import type {
   ArgumentAccountability,
@@ -310,6 +316,8 @@ export function projectDisagreementReport(input: {
   model: string;
   extraWarnings?: string[];
   extraCaveats?: string[];
+  /** Off-by-default levers (lib/crux/flags.ts); explicit values override the environment. */
+  cruxFlags?: Partial<CruxLeverFlags>;
 }): DisagreementReportV1 {
   const { extraction, graph, source } = input;
   let dropped = 0;
@@ -400,7 +408,8 @@ export function projectDisagreementReport(input: {
 
   const positionLabels = new Map(positions.map((position) => [position.id, position.label]));
   const properNouns = properNounsFrom(extraction.participants);
-  const ranked = input.graphValid ? identifyCruxes(graph) : [];
+  const cruxFlags = resolveCruxLeverFlags(input.cruxFlags);
+  const ranked = input.graphValid ? identifyCruxes(graph, { levers: cruxFlags }) : [];
   const claimsById = new Map(extraction.claims.map((claim) => [claim.id, claim]));
 
   // Several ranked claims can belong to one disagreement candidate. Reusing that
@@ -449,6 +458,23 @@ export function projectDisagreementReport(input: {
   for (const result of ranked) {
     if (cruxes.length >= DISAGREEMENT_LIMITS.maxCruxes) break;
     const claim = claimsById.get(result.claimId);
+    // Projection filter C (CRUX_PROJECTION_SKIP_UNCONTESTED, default off):
+    // a ranked claim that is explicit common ground in this report, or that no
+    // position disputes, is not presented; the next engine-ranked claim is
+    // taken instead. The engine's order is not touched and nothing is
+    // re-ranked; this only chooses which ranked items surface.
+    if (cruxFlags.projectionSkipUncontested && claim) {
+      const reason = uncontestedCruxReason(claim, {
+        commonGroundStatements: commonGround.map((item) => item.statement),
+        claimRelations: extraction.claimRelations,
+      });
+      if (reason) {
+        warnings.push(
+          `Projection skipped engine crux "${claim.id}" (${claim.statement}): ${describeUncontestedReason(reason)}`,
+        );
+        continue;
+      }
+    }
     const related = disagreements.find((item) => item.relatedClaimIds.includes(result.claimId));
     const claimQuestion = claim ? `Is this true: ${claim.statement}` : undefined;
     const question = [related?.question, claimQuestion].find(
