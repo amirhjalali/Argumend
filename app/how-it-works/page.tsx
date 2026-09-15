@@ -229,7 +229,7 @@ export default function HowItWorksPage() {
           </Link>
           <p className="mt-5 text-sm text-muted dark:text-stone-400">
             Or{" "}
-            <Link href="/topics" className="text-deep link-underline font-medium">
+            <Link href="/topics" className="text-deep dark:text-deep-bright link-underline font-medium">
               browse all topics
             </Link>
             .

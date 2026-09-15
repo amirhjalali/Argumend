@@ -134,8 +134,8 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-stone-200/40 dark:border-[var(--border-default)]">
             <div className="flex min-w-0 items-center gap-2">
-              <Map className="h-3.5 w-3.5 text-deep" />
-              <span className="truncate text-[11px] font-semibold uppercase tracking-wide text-deep">
+              <Map className="h-3.5 w-3.5 text-deep dark:text-deep-bright" />
+              <span className="truncate text-[11px] font-semibold uppercase tracking-wide text-deep dark:text-deep-bright">
                 {isMinimized ? topic.title : "Topic"}
               </span>
             </div>

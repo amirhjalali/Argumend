@@ -162,7 +162,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
             {/* Tip */}
             <div className="mt-4 border-t border-stone-200/60 dark:border-[var(--border-default)] pt-3">
               <p className="text-[11px] md:text-xs text-stone-500 dark:text-[var(--text-muted)] leading-relaxed">
-                <span className="font-semibold text-deep">Tip:</span> Click &ldquo;Explore&rdquo; on nodes to reveal deeper arguments.
+                <span className="font-semibold text-deep dark:text-deep-bright">Tip:</span> Click &ldquo;Explore&rdquo; on nodes to reveal deeper arguments.
               </p>
             </div>
           </motion.div>
@@ -177,7 +177,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
             aria-expanded="false"
             className="flex items-center gap-1.5 rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-card/95 backdrop-blur-sm px-3 py-2 text-xs text-stone-500 dark:text-[var(--text-muted)] shadow-lg hover:border-stone-300 dark:hover:border-[#4a4640] hover:shadow-xl transition-all"
           >
-            <Info className="h-3.5 w-3.5 text-deep" aria-hidden="true" />
+            <Info className="h-3.5 w-3.5 text-deep dark:text-deep-bright" aria-hidden="true" />
             <span className="font-medium">Legend</span>
           </motion.button>
         )}

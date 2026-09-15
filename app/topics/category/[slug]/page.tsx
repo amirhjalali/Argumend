@@ -205,7 +205,7 @@ export default async function TopicCategoryPage({ params, searchParams }: PagePr
                   className={`group flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] border-t-[3px] rounded-xl p-5 pb-4 shadow-card hover:border-x-deep/30 hover:border-b-deep/30 dark:hover:border-x-deep/50 dark:hover:border-b-deep/50 hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in card-hover ${categoryTopBorder[topic.category]}`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <h2 className="font-serif text-lg text-stone-900 dark:text-[var(--text-heading)] group-hover:text-deep transition-colors leading-snug mb-3">
+                  <h2 className="font-serif text-lg text-stone-900 dark:text-[var(--text-heading)] group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug mb-3">
                     {topic.title}
                   </h2>
 
@@ -266,7 +266,7 @@ export default async function TopicCategoryPage({ params, searchParams }: PagePr
                 <Link
                   key={cat}
                   href={`/topics/category/${categoryToSlug(cat)}`}
-                  className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-[var(--bg-card)] text-stone-600 dark:text-stone-400 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 dark:hover:border-deep/50 hover:text-deep transition-colors"
+                  className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white dark:bg-[var(--bg-card)] text-stone-600 dark:text-stone-400 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 dark:hover:border-deep/50 hover:text-deep dark:hover:text-deep-bright transition-colors"
                 >
                   {CATEGORY_LABELS[cat]}
                 </Link>
@@ -278,7 +278,7 @@ export default async function TopicCategoryPage({ params, searchParams }: PagePr
           <div className="mt-10 text-center">
             <Link
               href="/topics"
-              className="inline-flex items-center gap-2 text-sm font-medium text-deep hover:text-deep-dark transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
             >
               <ArrowRight className="h-3.5 w-3.5 rotate-180" />
               Back to all topics

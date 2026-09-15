@@ -32,7 +32,7 @@ function InlineCitation({ ids, index }: { ids: string[]; index: Map<string, numb
           <sup key={id} className="ml-[1px]">
             <a
               href={`#ref-${id}`}
-              className="text-deep hover:text-deep-dark text-[11px] font-medium no-underline hover:underline"
+              className="text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter text-[11px] font-medium no-underline hover:underline"
             >
               [{num}]
             </a>
@@ -67,7 +67,7 @@ function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) 
               href={citation.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-deep hover:text-deep-dark inline-flex items-center gap-1 hover:underline"
+              className="text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter inline-flex items-center gap-1 hover:underline"
             >
               Link
               <ExternalLink className="h-3 w-3" />
@@ -182,7 +182,7 @@ export default function ResearchPage() {
         {/* Section navigation */}
         <div className="bg-[#faf8f3]/60 dark:bg-card/60 border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg p-5 md:p-6 mb-16 md:mb-24">
           <div className="flex items-center gap-2.5 mb-4">
-            <BookOpen className="h-4 w-4 text-deep" strokeWidth={1.8} />
+            <BookOpen className="h-4 w-4 text-deep dark:text-deep-bright" strokeWidth={1.8} />
             <h3 className="text-sm font-medium text-primary dark:text-[var(--text-primary)]">In this article</h3>
           </div>
           <ol className="space-y-2">

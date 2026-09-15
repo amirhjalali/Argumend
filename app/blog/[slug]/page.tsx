@@ -419,7 +419,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 <Link
                   key={tag}
                   href={`/blog/tag/${tagToSlug(tag)}`}
-                  className="inline-flex min-h-11 items-center gap-1 rounded-full bg-stone-100 px-2.5 py-2 text-xs text-stone-600 transition-colors hover:bg-deep/10 hover:text-deep dark:bg-[var(--bg-card)] dark:text-stone-400 dark:hover:bg-deep-light/10 dark:hover:text-deep-light"
+                  className="inline-flex min-h-11 items-center gap-1 rounded-full bg-stone-100 px-2.5 py-2 text-xs text-stone-600 transition-colors hover:bg-deep/10 hover:text-deep dark:bg-[var(--bg-card)] dark:text-stone-400 dark:hover:bg-deep-light/10 dark:hover:text-deep-brighter"
                 >
                   <Tag className="h-2.5 w-2.5" />
                   {tag}
@@ -451,7 +451,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
                       <span className="text-[10px] font-medium text-deep dark:text-deep-bright uppercase tracking-wide">
                         {item.kind}
                       </span>
-                      <h4 className="font-serif text-sm text-primary dark:text-stone-200 mt-2 mb-2 leading-snug group-hover:text-deep dark:group-hover:text-deep-light transition-colors">
+                      <h4 className="font-serif text-sm text-primary dark:text-stone-200 mt-2 mb-2 leading-snug group-hover:text-deep dark:group-hover:text-deep-brighter transition-colors">
                         {item.title}
                       </h4>
                       <p className="text-xs text-muted dark:text-stone-400">

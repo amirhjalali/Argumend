@@ -167,7 +167,7 @@ export function EvidenceBalanceBar({
     >
       <div className="flex items-center justify-between mb-1.5">
         <span className="text-xs font-medium text-stone-500 dark:text-stone-400 flex items-center gap-1">
-          <ThumbsUp className="h-3 w-3 text-deep" aria-hidden="true" />
+          <ThumbsUp className="h-3 w-3 text-deep dark:text-deep-bright" aria-hidden="true" />
           {forCount} supporting
         </span>
         <span className="text-xs font-medium text-stone-500 dark:text-stone-400 flex items-center gap-1">
@@ -225,7 +225,7 @@ function CruxList({ cruxes }: { cruxes: Crux[] }) {
             className="rounded-lg border border-deep/15 bg-[#4f7b77]/[0.03] p-3.5"
           >
             <div className="flex items-start gap-2 mb-1.5">
-              <FlaskConical className="h-3.5 w-3.5 text-deep mt-0.5 flex-shrink-0" aria-hidden="true" />
+              <FlaskConical className="h-3.5 w-3.5 text-deep dark:text-deep-bright mt-0.5 flex-shrink-0" aria-hidden="true" />
               <h4 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 leading-snug flex-1">
                 {crux.title}
               </h4>
@@ -478,7 +478,7 @@ export default function ComparisonView({
                       className="rounded-lg border border-stone-200/60 dark:border-[var(--border-divider)] bg-[#faf8f5] dark:bg-[#1a1916] p-4"
                     >
                       <div className="flex items-start gap-2.5 mb-1.5">
-                        <span className="flex-shrink-0 w-6 h-6 rounded-md bg-deep/10 flex items-center justify-center text-xs font-mono font-semibold text-deep">
+                        <span className="flex-shrink-0 w-6 h-6 rounded-md bg-deep/10 flex items-center justify-center text-xs font-mono font-semibold text-deep dark:text-deep-bright">
                           {i + 1}
                         </span>
                         <h4 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 leading-snug">
@@ -514,7 +514,7 @@ export default function ComparisonView({
               </div>
               <div>
                 <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-4 text-center flex items-center justify-center gap-2">
-                  <FlaskConical className="h-4 w-4 text-deep" />
+                  <FlaskConical className="h-4 w-4 text-deep dark:text-deep-bright" />
                   {topic2.title}
                 </h3>
                 <CruxList cruxes={stats2.cruxes} />
@@ -551,7 +551,7 @@ export default function ComparisonView({
                 href={`/topics/${topic2.id}`}
                 className="group flex flex-col items-center gap-3 rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] bg-[#faf8f5] dark:bg-[#1a1916] p-6 hover:border-deep/30 hover:shadow-md transition-all card-hover"
               >
-                <span className="font-serif text-lg text-primary dark:text-stone-200 group-hover:text-deep transition-colors text-center">
+                <span className="font-serif text-lg text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors text-center">
                   {topic2.title}
                 </span>
                 <span
@@ -560,7 +560,7 @@ export default function ComparisonView({
                 >
                   {topic2.verdict.label}
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-sm text-deep font-medium">
+                <span className="inline-flex items-center gap-1.5 text-sm text-deep dark:text-deep-bright font-medium">
                   Full analysis
                   <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </span>
@@ -572,7 +572,7 @@ export default function ComparisonView({
           <div className="text-center mb-8">
             <Link
               href="/topics/compare"
-              className="inline-flex items-center gap-2 text-sm text-deep hover:text-deep-dark font-medium transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter font-medium transition-colors"
             >
               <ArrowLeftRight className="h-3.5 w-3.5" />
               Browse all comparisons
@@ -584,7 +584,7 @@ export default function ComparisonView({
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <Link
                 href="/topics"
-                className="text-sm text-deep hover:underline py-2 min-h-[44px] inline-flex items-center"
+                className="text-sm text-deep dark:text-deep-bright hover:underline py-2 min-h-[44px] inline-flex items-center"
               >
                 &larr; Back to all topics
               </Link>

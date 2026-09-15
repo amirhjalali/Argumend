@@ -79,7 +79,7 @@ export default function HomePage() {
           <div>
             <p className="font-serif text-2xl text-primary mb-4">ARGUMEND</p>
             <p className="text-secondary mb-4">JavaScript is required for the interactive argument maps.</p>
-            <Link href="/topics" className="text-deep underline">Browse all topics</Link>
+            <Link href="/topics" className="text-deep dark:text-deep-bright underline">Browse all topics</Link>
           </div>
         </div>
       </noscript>

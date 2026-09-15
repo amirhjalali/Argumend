@@ -353,7 +353,7 @@ export default function ForEducatorsPage() {
               >
                 <div className="flex items-start gap-3 mb-3">
                   <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
-                    <FileText className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
+                    <FileText className="h-4.5 w-4.5 text-deep dark:text-deep-bright" strokeWidth={1.5} />
                   </div>
                   <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 leading-snug">
                     {ws.title}

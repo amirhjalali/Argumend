@@ -162,7 +162,7 @@ export default function AboutPage() {
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-deep text-sm font-bold w-24 text-center">
+              <span className="font-mono tabular-nums text-deep dark:text-deep-bright text-sm font-bold w-24 text-center">
                 high weight
                 <br />
                 strong lean
@@ -172,7 +172,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-deep text-sm font-bold w-24 text-center">
+              <span className="font-mono tabular-nums text-deep dark:text-deep-bright text-sm font-bold w-24 text-center">
                 high weight
                 <br />
                 weak lean

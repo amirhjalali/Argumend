@@ -14,7 +14,7 @@ export default function NotFound() {
       {/* Icon */}
       <div className="mb-8">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#efe9df] dark:bg-[var(--bg-muted)] border border-stone-200/60 dark:border-[var(--border-default)]">
-          <Compass className="w-9 h-9 text-deep" strokeWidth={1.5} />
+          <Compass className="w-9 h-9 text-deep dark:text-deep-bright" strokeWidth={1.5} />
         </div>
       </div>
 

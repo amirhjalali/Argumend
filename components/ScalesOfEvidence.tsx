@@ -28,7 +28,7 @@ function WeightBar({
   const barColor = tone === "for"
     ? "bg-gradient-to-r from-deep to-deep-dark"
     : "bg-gradient-to-r from-stone-400 to-stone-500";
-  const textColor = tone === "for" ? "text-deep" : "text-stone-600";
+  const textColor = tone === "for" ? "text-deep dark:text-deep-bright" : "text-stone-600";
 
   return (
     <div className="flex items-center gap-3 text-xs" role="group" aria-label={`${label}: ${value} out of ${max}`}>
@@ -63,7 +63,7 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
     : "border-l-stone-400 bg-gradient-to-r from-stone-50/70 to-panel/80 dark:from-[#252420] dark:to-[#252420] hover:from-stone-50 hover:to-panel/90";
 
   const scoreStyles = isFor
-    ? "text-deep bg-deep/10"
+    ? "text-deep dark:text-deep-bright bg-deep/10"
     : "text-stone-600 bg-stone-100/80";
 
   return (
@@ -131,7 +131,7 @@ function EvidenceCard({ evidence, index }: EvidenceCardProps) {
               href={evidence.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-deep hover:text-deep-dark transition-colors font-medium"
+              className="inline-flex items-center gap-1.5 text-sm text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter transition-colors font-medium"
             >
               <ExternalLink className="h-3.5 w-3.5" />
               {evidence.source || "View source"}
@@ -156,7 +156,7 @@ function BalanceMeter({ forWeight, againstWeight }: {
     <div className="surface-card p-4 md:p-6">
       <div className="flex items-center justify-between gap-4 mb-4">
         <div className="flex items-center gap-2 text-xs uppercase tracking-[0.35em] text-muted dark:text-stone-400">
-          <Scale className="h-3.5 w-3.5 text-deep" />
+          <Scale className="h-3.5 w-3.5 text-deep dark:text-deep-bright" />
           <span>Balance</span>
         </div>
         <div className="text-[11px] uppercase tracking-[0.25em] text-muted dark:text-stone-400">
@@ -167,7 +167,7 @@ function BalanceMeter({ forWeight, againstWeight }: {
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-6">
         <div className="flex items-baseline gap-3">
           <span className="text-[11px] uppercase tracking-[0.25em] text-muted dark:text-stone-400">For</span>
-          <span className="font-mono text-xl md:text-3xl font-bold text-deep">{forWeight}</span>
+          <span className="font-mono text-xl md:text-3xl font-bold text-deep dark:text-deep-bright">{forWeight}</span>
           <span className="text-xs text-muted dark:text-stone-400">pts</span>
         </div>
 
@@ -305,7 +305,7 @@ function VerdictDisplay({ balance, weight, verdict, forWeight, againstWeight }: 
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-gradient-to-br from-deep to-deep-dark" />
             <span className="font-mono">
-              <span className="text-deep font-bold text-lg">{forWeight}</span>
+              <span className="text-deep dark:text-deep-bright font-bold text-lg">{forWeight}</span>
               <span className="ml-1 text-stone-500 dark:text-stone-400">FOR</span>
             </span>
           </div>
@@ -452,8 +452,8 @@ export function ScalesOfEvidence() {
                 Evidence FOR
               </h2>
               <div className="ml-auto flex items-center gap-2">
-                <span className="text-sm text-deep">{forEvidence.length} items</span>
-                <span className="px-3 py-1 rounded-full bg-deep/10 text-deep font-mono font-bold text-sm">
+                <span className="text-sm text-deep dark:text-deep-bright">{forEvidence.length} items</span>
+                <span className="px-3 py-1 rounded-full bg-deep/10 text-deep dark:text-deep-bright font-mono font-bold text-sm">
                   {forWeight} pts
                 </span>
               </div>

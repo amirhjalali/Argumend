@@ -292,7 +292,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
               <span className="flex items-center gap-2">
                 {advancedFilterCount > 0 && (
                   <span
-                    className="rounded-full bg-deep/10 px-2 py-0.5 text-xs font-mono text-deep"
+                    className="rounded-full bg-deep/10 px-2 py-0.5 text-xs font-mono text-deep dark:text-deep-bright"
                     aria-live="polite"
                     aria-atomic="true"
                   >
@@ -570,7 +570,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
               </p>
               <button
                 onClick={clearFilters}
-                className="inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-deep hover:bg-deep/5 hover:text-deep-dark transition-colors"
+                className="inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-deep dark:text-deep-bright hover:bg-deep/5 hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
               >
                 <X className="h-3.5 w-3.5" />
                 Clear all filters
@@ -592,7 +592,7 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
                     style={presentation.style}
                   >
                     {/* Title */}
-                    <h2 className="font-serif text-lg text-stone-900 dark:text-[var(--text-heading)] group-hover:text-deep transition-colors leading-snug mb-3">
+                    <h2 className="font-serif text-lg text-stone-900 dark:text-[var(--text-heading)] group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug mb-3">
                       {topic.title}
                     </h2>
 

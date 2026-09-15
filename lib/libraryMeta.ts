@@ -75,9 +75,9 @@ export const libraryShelves: Record<LibraryShelfId, LibraryShelfMeta> = {
     description:
       "Where the vocabulary comes from — what counts as an argument, a premise, or a good reason in the first place.",
     icon: Compass,
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
+    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-bright border-deep/20 dark:border-deep/40",
     iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-deep-light",
+    iconText: "text-deep dark:text-deep-bright",
     hoverBorder: "hover:border-deep/40",
   },
   evidence: {
@@ -99,9 +99,9 @@ export const libraryShelves: Record<LibraryShelfId, LibraryShelfMeta> = {
     description:
       "Why your own reasoning goes wrong, and what measurably reduces the error — bias, motivation, and forecasting track records.",
     icon: Scale,
-    chip: "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-light border-skeptic/25 dark:border-skeptic/40",
+    chip: "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-bright border-skeptic/25 dark:border-skeptic/40",
     iconBg: "bg-skeptic/10 dark:bg-skeptic/20",
-    iconText: "text-skeptic-dark dark:text-skeptic-light",
+    iconText: "text-skeptic-dark dark:text-skeptic-bright",
     hoverBorder: "hover:border-skeptic/40",
   },
 };

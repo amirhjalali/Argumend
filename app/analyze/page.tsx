@@ -160,7 +160,7 @@ function CruxCard({ crux }: { crux: IdentifiedCrux }) {
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-deep/10 flex items-center justify-center">
-          <Target className="h-4 w-4 text-deep" />
+          <Target className="h-4 w-4 text-deep dark:text-deep-bright" />
         </div>
         <div>
           <p className="text-stone-800 dark:text-[var(--text-heading)] font-medium leading-snug">{crux.description}</p>
@@ -234,8 +234,8 @@ function ShareLink({ analysisId }: { analysisId: string }) {
     >
       {copied ? (
         <>
-          <Check className="h-3.5 w-3.5 text-deep" />
-          <span className="text-deep">Copied!</span>
+          <Check className="h-3.5 w-3.5 text-deep dark:text-deep-bright" />
+          <span className="text-deep dark:text-deep-bright">Copied!</span>
         </>
       ) : (
         <>
@@ -506,7 +506,7 @@ export default function AnalyzePage() {
               className="text-center space-y-4"
             >
               <div className="flex items-center justify-center gap-2 flex-wrap">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep tracking-wide">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep dark:text-deep-bright tracking-wide">
                   <Brain className="h-3.5 w-3.5" />
                   Argument Analysis
                 </div>
@@ -592,8 +592,8 @@ export default function AnalyzePage() {
                         }}
                         className="flex min-h-11 items-center gap-1.5 px-3 py-2 bg-deep/8 hover:bg-deep/15 border border-deep/15 rounded-lg cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        <Beaker className="h-3.5 w-3.5 text-deep" />
-                        <span className="text-xs font-medium text-deep">Try an Example</span>
+                        <Beaker className="h-3.5 w-3.5 text-deep dark:text-deep-bright" />
+                        <span className="text-xs font-medium text-deep dark:text-deep-bright">Try an Example</span>
                       </button>
                       <label className={`flex min-h-11 items-center gap-1.5 px-3 py-2 bg-stone-50 dark:bg-[var(--bg-surface)] hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg transition-all duration-200 focus-within:ring-2 focus-within:ring-deep/30 ${isAnalyzing ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
                         <Upload className="h-3.5 w-3.5 text-stone-400 dark:text-stone-500" />
@@ -649,8 +649,8 @@ export default function AnalyzePage() {
                   {/* Privacy badge */}
                   <div id={ANALYZE_INPUT_HELP_ID} className="mt-3 flex flex-wrap items-center justify-between gap-2">
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-deep/6 border border-deep/10 rounded-full">
-                      <Lock className="h-3 w-3 text-deep/70" />
-                      <span className="text-[11px] font-medium text-deep/70">
+                      <Lock className="h-3 w-3 text-deep/70 dark:text-deep-bright" />
+                      <span className="text-[11px] font-medium text-deep/70 dark:text-deep-bright">
                         {liveAnalyzeEnabled
                           ? "Source text isn’t stored; live mode sends it to the configured AI provider"
                           : "Source text isn’t stored or sent to an AI model"}
@@ -680,7 +680,7 @@ export default function AnalyzePage() {
                         checked={includeJudging}
                         onChange={(e) => setIncludeJudging(e.target.checked)}
                         disabled={isAnalyzing}
-                        className="rounded border-stone-300 text-deep focus:ring-deep/30 transition-colors"
+                        className="rounded border-stone-300 text-deep dark:text-deep-bright focus:ring-deep/30 transition-colors"
                       />
                       <span className="text-xs text-stone-500 dark:text-stone-400 group-hover:text-stone-700 dark:group-hover:text-stone-200 transition-colors">
                         {liveJudgingEnabled
@@ -721,7 +721,7 @@ export default function AnalyzePage() {
                 {!content.trim() && !error && (
                   <p className="text-center text-sm text-muted dark:text-stone-400">
                     Not sure what to paste? Hit{" "}
-                    <span className="font-medium text-deep">Try an Example</span> above and
+                    <span className="font-medium text-deep dark:text-deep-bright">Try an Example</span> above and
                     watch a real debate get mapped.
                   </p>
                 )}
@@ -815,7 +815,7 @@ export default function AnalyzePage() {
                   <button
                     onClick={clearResults}
                     aria-label="Edit input or analyze another"
-                    className="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-deep transition-colors font-medium"
+                    className="inline-flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400 hover:text-deep dark:hover:text-deep-bright transition-colors font-medium"
                   >
                     &larr; Edit input or analyze another
                   </button>
@@ -836,7 +836,7 @@ export default function AnalyzePage() {
                   transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                   className="text-center bg-white dark:bg-[var(--bg-card)] rounded-2xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 shadow-sm"
                 >
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep tracking-wide">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-deep/8 border border-deep/15 rounded-full text-xs font-medium text-deep dark:text-deep-bright tracking-wide">
                     <MessageSquare className="h-3.5 w-3.5" />
                     Identified Topic
                   </div>
@@ -859,7 +859,7 @@ export default function AnalyzePage() {
                   className="space-y-4"
                 >
                   <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2 flex items-center gap-2">
-                    <FileText className="h-4 w-4 text-deep" />
+                    <FileText className="h-4 w-4 text-deep dark:text-deep-bright" />
                     Extracted Positions
                   </h3>
                   {result.extracted.positions.length > 0 ? (
@@ -884,7 +884,7 @@ export default function AnalyzePage() {
                     className="space-y-4"
                   >
                     <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2 flex items-center gap-2">
-                      <Target className="h-4 w-4 text-deep" />
+                      <Target className="h-4 w-4 text-deep dark:text-deep-bright" />
                       Key Cruxes
                       <span className="text-sm font-sans font-normal text-muted dark:text-[var(--text-muted)]">
                         Points of Disagreement

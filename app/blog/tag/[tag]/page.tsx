@@ -186,7 +186,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
                 <article className="relative h-full bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                   {/* Category Badge */}
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep">
+                    <span className="inline-flex items-center rounded-full bg-deep/10 px-3 py-1 text-xs font-medium text-deep dark:text-deep-bright">
                       {article.category}
                     </span>
                     <span className="flex items-center gap-1 text-xs text-muted dark:text-stone-400">
@@ -200,7 +200,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
                   </div>
 
                   {/* Title */}
-                  <h2 className="font-serif text-xl md:text-2xl tracking-tight text-primary dark:text-stone-200 group-hover:text-deep transition-colors mb-3 leading-tight">
+                  <h2 className="font-serif text-xl md:text-2xl tracking-tight text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors mb-3 leading-tight">
                     {article.title}
                   </h2>
 
@@ -227,7 +227,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
                   </div>
 
                   {/* Read More */}
-                  <div className="flex items-center gap-2 text-sm font-medium text-deep group-hover:text-deep-dark transition-colors">
+                  <div className="flex items-center gap-2 text-sm font-medium text-deep dark:text-deep-bright group-hover:text-deep-dark dark:group-hover:text-deep-brighter transition-colors">
                     <span>Read article</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -251,7 +251,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
           <div className="mt-10 text-center">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-medium text-deep hover:text-deep-dark transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
             >
               <ArrowRight className="h-3.5 w-3.5 rotate-180" />
               Back to all articles

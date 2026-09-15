@@ -123,7 +123,7 @@ export default function CommunityPage() {
             {contributing.map((item, i) => (
               <div key={item.title} className="p-6 hover:bg-[#faf8f5]/50 dark:hover:bg-muted-surface/50 transition-colors">
                 <div className="flex items-start gap-4">
-                  <span className="font-mono text-xs font-bold text-deep/40 mt-1">0{i + 1}</span>
+                  <span className="font-mono text-xs font-bold text-deep/40 dark:text-deep-bright/40 mt-1">0{i + 1}</span>
                   <div>
                     <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">
                       {item.title}

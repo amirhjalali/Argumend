@@ -235,7 +235,7 @@ export default async function FallacyDetailPage({ params }: PageProps) {
                         {topic.title}
                       </span>
                     </div>
-                    <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep group-hover:translate-x-0.5 transition-all duration-200" />
+                    <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep dark:group-hover:text-deep-bright group-hover:translate-x-0.5 transition-all duration-200" />
                   </Link>
                 ))}
               </div>

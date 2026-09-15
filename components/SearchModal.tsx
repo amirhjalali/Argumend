@@ -154,7 +154,7 @@ function getLeanInfo(balance: number): { label: string; color: string } {
   if (d < BALANCE.EVEN_D) return { label: "Draw", color: "text-stone-500" };
   return balance >= 50
     ? { label: "For", color: "text-rust-600" }
-    : { label: "Against", color: "text-deep" };
+    : { label: "Against", color: "text-deep dark:text-deep-bright" };
 }
 
 const TYPE_CONFIG: Record<
@@ -169,12 +169,12 @@ const TYPE_CONFIG: Record<
   topic: {
     icon: MessageSquare,
     label: "Topics",
-    badgeClasses: "bg-deep/10 text-deep",
+    badgeClasses: "bg-deep/10 text-deep dark:text-deep-bright",
   },
   blog: {
     icon: FileText,
     label: "Blog",
-    badgeClasses: "bg-deep/5 text-deep/80",
+    badgeClasses: "bg-deep/5 text-deep/80 dark:text-deep-bright",
   },
   concept: {
     icon: Lightbulb,
@@ -473,7 +473,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
         >
           {/* Search Input */}
           <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60 dark:border-[var(--border-divider)]">
-            <Search className="h-5 w-5 text-deep flex-shrink-0" strokeWidth={1.8} />
+            <Search className="h-5 w-5 text-deep dark:text-deep-bright flex-shrink-0" strokeWidth={1.8} />
             <input
               ref={inputRef}
               data-modal-initial-focus
@@ -552,7 +552,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       router.push("/topics");
                       onClose();
                     }}
-                    className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"
+                    className="text-deep dark:text-deep-bright underline underline-offset-2 hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
                   >
                     browse all topics
                   </button>

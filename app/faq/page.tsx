@@ -65,7 +65,7 @@ export default function FAQPage() {
                 {faq.linkHref && faq.linkText && (
                   <Link
                     href={faq.linkHref}
-                    className="inline-block mt-3 text-sm font-medium text-deep hover:text-deep-dark hover:underline transition-colors"
+                    className="inline-block mt-3 text-sm font-medium text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter hover:underline transition-colors"
                   >
                     {faq.linkText} &rarr;
                   </Link>
@@ -78,7 +78,7 @@ export default function FAQPage() {
         <div className="mt-12 pt-8 border-t border-[var(--border-default)]">
           <p className="text-sm text-secondary dark:text-stone-400">
             Still have questions? We probably missed something. Head to the{" "}
-            <a href="/community" className="text-deep hover:underline">Community page</a> and let us know.
+            <a href="/community" className="text-deep dark:text-deep-bright hover:underline">Community page</a> and let us know.
           </p>
         </div>
       </div>

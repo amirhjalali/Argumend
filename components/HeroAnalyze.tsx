@@ -74,7 +74,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
             <button
               type="button"
               onClick={handleTryExample}
-              className="flex min-h-11 items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-deep hover:bg-deep/5 transition-all"
+              className="flex min-h-11 items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-deep dark:text-deep-bright hover:bg-deep/5 transition-all"
             >
               Try an Example
             </button>

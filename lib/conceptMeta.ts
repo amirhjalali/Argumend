@@ -55,9 +55,9 @@ export const conceptStages: Record<ConceptStageId, ConceptStageMeta> = {
     label: "Weighing the Evidence",
     description:
       "How evidence becomes an auditable number — scoring each source on its own merits, then turning the balance into a confidence you can check.",
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
+    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-bright border-deep/20 dark:border-deep/40",
     iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-deep-light",
+    iconText: "text-deep dark:text-deep-bright",
     hoverBorder: "hover:border-deep/40",
     borderAccent: "border-l-deep/50",
   },

@@ -29,7 +29,7 @@ export function ExchangeCard({
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-medium text-deep bg-[#4f7b77]/10 px-2 py-0.5 rounded-full">
+              <span className="text-xs font-medium text-deep dark:text-deep-bright bg-[#4f7b77]/10 px-2 py-0.5 rounded-full">
                 {topic}
               </span>
             </div>

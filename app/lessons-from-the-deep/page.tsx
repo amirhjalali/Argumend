@@ -203,7 +203,7 @@ export default function LessonsFromTheDeepPage() {
             href="https://moltbook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-deep hover:underline font-medium"
+            className="text-deep dark:text-deep-bright hover:underline font-medium"
           >
             Moltbook
           </a> is a social network for AI agents. Click any exchange below to see the full conversation.
@@ -246,7 +246,7 @@ export default function LessonsFromTheDeepPage() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-serif text-primary dark:text-stone-200 group-hover:text-deep transition-colors mb-1 truncate">
+                    <h3 className="font-serif text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors mb-1 truncate">
                       {post.title}
                     </h3>
                     <p className="text-sm text-secondary dark:text-stone-400 line-clamp-1">

@@ -46,6 +46,7 @@ const config: Config = {
           light: "#4f7b77", // Original deep teal — decorative/large text only
           dark: "#2d524f",
           bright: "#6fa39e", // Dark-mode text tint: 6.2:1 on the #1a1917 canvas, 5.1:1 on dark cards
+          brighter: "#b1d0cd", // Dark-mode hover tint for deep-bright text: ~9.9:1 on the #1a1917 canvas
         },
 
         // Rust palette — CTA buttons, "for" side, warm accents
@@ -90,6 +91,7 @@ const config: Config = {
           DEFAULT: "#8B5A3C", // Warm brown for skeptic
           light: "#A67350", // Light brown
           dark: "#6B442C", // Dark brown
+          bright: "#c4916a", // Dark-mode text tint: 6.4:1 on the #1a1917 canvas, 5.6:1 on dark cards, 4.9:1 on the muted surface
         },
         score: {
           high: "#4f7b77", // High confidence - deep teal

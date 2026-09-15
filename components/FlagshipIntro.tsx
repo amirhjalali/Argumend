@@ -61,7 +61,7 @@ export function FlagshipIntro({ topic }: { topic: Topic }) {
               <li key={i} className="flex gap-3 font-serif text-[17px] leading-relaxed text-primary dark:text-stone-200">
                 <span
                   aria-hidden
-                  className="flex-shrink-0 font-sans text-[12px] font-semibold text-deep/70 pt-1.5 tabular-nums"
+                  className="flex-shrink-0 font-sans text-[12px] font-semibold text-deep/70 dark:text-deep-bright pt-1.5 tabular-nums"
                 >
                   {i + 1}
                 </span>

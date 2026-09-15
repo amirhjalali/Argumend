@@ -594,7 +594,7 @@ export default async function WorksheetPage({ params }: PageProps) {
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Link
             href="/for-educators"
-            className="inline-flex min-h-11 items-center rounded-md text-sm text-deep transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:text-[#7fb5b0]"
+            className="inline-flex min-h-11 items-center rounded-md text-sm text-deep transition-colors hover:text-deep-dark dark:hover:text-deep-brighter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:text-[#7fb5b0]"
           >
             &larr; Back to Educator Resources
           </Link>

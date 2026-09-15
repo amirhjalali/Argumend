@@ -228,7 +228,7 @@ export function Sidebar({
             <Link
               href="/topics"
               prefetch={false}
-              className="flex items-center gap-1 px-3 py-2.5 min-h-[44px] mt-1 text-[13px] font-medium text-deep hover:text-deep-dark transition-colors"
+              className="flex items-center gap-1 px-3 py-2.5 min-h-[44px] mt-1 text-[13px] font-medium text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
             >
               View all {topicSummaries.length} topics
               <ChevronRight className="h-3.5 w-3.5" />

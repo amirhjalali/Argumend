@@ -427,7 +427,7 @@ function TopicPicker({
                 </span>
               )}
               {isSelectedB && (
-                <span className="text-[10px] font-bold text-deep bg-deep/10 px-1.5 py-0.5 rounded shrink-0">
+                <span className="text-[10px] font-bold text-deep dark:text-deep-bright bg-deep/10 px-1.5 py-0.5 rounded shrink-0">
                   B
                 </span>
               )}
@@ -607,7 +607,7 @@ export default function CompareIndexView({
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <Link
                 href="/topics"
-                className="text-sm text-deep hover:underline py-2 min-h-[44px] inline-flex items-center"
+                className="text-sm text-deep dark:text-deep-bright hover:underline py-2 min-h-[44px] inline-flex items-center"
               >
                 &larr; Back to all topics
               </Link>

@@ -127,7 +127,7 @@ export default async function DashboardPage() {
                       href={`/topics/${topic.id}`}
                       className={`group flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}
                     >
-                      <h3 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug mb-1.5">
+                      <h3 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug mb-1.5">
                         {topic.title}
                       </h3>
                       <p className="text-xs text-stone-500 dark:text-[var(--text-muted)] leading-relaxed line-clamp-2 mb-4 flex-1">
@@ -153,7 +153,7 @@ export default async function DashboardPage() {
                             {statusLabels[topic.status]}
                           </span>
                         </div>
-                        <ArrowRight className="h-3.5 w-3.5 text-stone-300 dark:text-[var(--text-muted)] group-hover:text-deep group-hover:translate-x-0.5 transition-all flex-shrink-0" />
+                        <ArrowRight className="h-3.5 w-3.5 text-stone-300 dark:text-[var(--text-muted)] group-hover:text-deep dark:group-hover:text-deep-bright group-hover:translate-x-0.5 transition-all flex-shrink-0" />
                       </div>
                     </Link>
                   );
@@ -165,7 +165,7 @@ export default async function DashboardPage() {
           {/* Recent Debates */}
           <section>
             <div className="flex items-center gap-2 mb-5">
-              <Swords className="h-5 w-5 text-deep" strokeWidth={1.8} />
+              <Swords className="h-5 w-5 text-deep dark:text-deep-bright" strokeWidth={1.8} />
               <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
                 Recent Debates
               </h2>
@@ -196,7 +196,7 @@ export default async function DashboardPage() {
                     className="flex items-center gap-4 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-card/80 p-4 hover:shadow-sm transition-shadow"
                   >
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
-                      <Swords className="h-5 w-5 text-deep" />
+                      <Swords className="h-5 w-5 text-deep dark:text-deep-bright" />
                     </div>
 
                     <div className="flex-1 min-w-0">

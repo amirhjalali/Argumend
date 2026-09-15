@@ -30,7 +30,7 @@ export function CollectionPagination({
         <Link
           href={buildPageHref(basePath, currentPage - 1, params)}
           rel="prev"
-          className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-stone-200/80 px-3.5 py-2 text-sm font-medium text-deep transition-colors hover:border-deep/40 hover:bg-deep/5 dark:border-[var(--border-default)]"
+          className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-stone-200/80 px-3.5 py-2 text-sm font-medium text-deep dark:text-deep-bright transition-colors hover:border-deep/40 hover:bg-deep/5 dark:border-[var(--border-default)]"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Previous
@@ -49,7 +49,7 @@ export function CollectionPagination({
             className={`inline-flex h-11 min-w-11 items-center justify-center rounded-lg px-2 font-mono text-sm transition-colors ${
               page === currentPage
                 ? "bg-deep text-white"
-                : "text-stone-500 hover:bg-deep/5 hover:text-deep dark:text-stone-400"
+                : "text-stone-500 hover:bg-deep/5 hover:text-deep dark:hover:text-deep-bright dark:text-stone-400"
             }`}
           >
             {page}
@@ -61,7 +61,7 @@ export function CollectionPagination({
         <Link
           href={buildPageHref(basePath, currentPage + 1, params)}
           rel="next"
-          className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-stone-200/80 px-3.5 py-2 text-sm font-medium text-deep transition-colors hover:border-deep/40 hover:bg-deep/5 dark:border-[var(--border-default)]"
+          className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-stone-200/80 px-3.5 py-2 text-sm font-medium text-deep dark:text-deep-bright transition-colors hover:border-deep/40 hover:bg-deep/5 dark:border-[var(--border-default)]"
         >
           Next
           <ArrowRight className="h-4 w-4" aria-hidden="true" />

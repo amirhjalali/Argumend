@@ -152,7 +152,7 @@ export function SavedClient() {
                       href={`/topics/${topic.id}`}
                       className="flex flex-col flex-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 rounded-md"
                     >
-                      <h2 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug mb-1.5 pr-8">
+                      <h2 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-deep-bright transition-colors leading-snug mb-1.5 pr-8">
                         {topic.title}
                       </h2>
                       <p className="text-xs text-stone-500 dark:text-[var(--text-muted)] leading-relaxed line-clamp-2 mb-4 flex-1">
@@ -182,7 +182,7 @@ export function SavedClient() {
                             {statusLabels[topic.status]}
                           </span>
                         </div>
-                        <ArrowRight className="h-3.5 w-3.5 text-stone-300 dark:text-[var(--text-muted)] group-hover:text-deep group-hover:translate-x-0.5 transition-all flex-shrink-0" />
+                        <ArrowRight className="h-3.5 w-3.5 text-stone-300 dark:text-[var(--text-muted)] group-hover:text-deep dark:group-hover:text-deep-bright group-hover:translate-x-0.5 transition-all flex-shrink-0" />
                       </div>
                     </Link>
                   </div>
@@ -194,7 +194,7 @@ export function SavedClient() {
             <div className="mt-10 pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)]">
               <Link
                 href="/topics"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-deep hover:text-deep-dark transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-deep dark:text-deep-bright hover:text-deep-dark dark:hover:text-deep-brighter transition-colors"
               >
                 Browse all topics
                 <ArrowRight className="h-3.5 w-3.5" />
