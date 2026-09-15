@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import type { PluginUtils } from "tailwindcss/types/config";
 
 const config: Config = {
   darkMode: "class",
@@ -19,6 +20,13 @@ const config: Config = {
     "!./lib/**/*.test.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // Replaces (not extends) the shadow-colour scale: the `card` colour token
+    // would otherwise also compile `shadow-card` as a shadow-COLOUR utility and
+    // win over boxShadow.card below, turning every card shadow white.
+    boxShadowColor: ({ theme }: PluginUtils) => {
+      const { card: _card, ...rest } = theme("colors") as Record<string, string | Record<string, string>>;
+      return rest;
+    },
     extend: {
       colors: {
         // Semantic surfaces use channel variables so Tailwind's opacity
