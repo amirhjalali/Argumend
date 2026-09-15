@@ -1,0 +1,133 @@
+{
+  "id": "crlf-line-endings",
+  "contentType": "conversation",
+  "source": "Mira: The greenhouse tomatoes are splitting because we are watering on a fixed schedule. Three dry days then a flood, and the skins cannot keep up.\r\nOlaf: They are splitting because the night temperature is dropping below twelve degrees. The skin stiffens in the cold and cracks when the fruit swells in the morning.\r\nMira: We have had cold nights every October and the splitting only started when the timer was installed.\r\nOlaf: The timer was installed the same week the heater failed. You are looking at the wrong change.\r\nMira: Then fix the heater and keep the timer, and we will see which of us is right.\r\nOlaf: Agreed, but fix the heater first so the test is clean.\r\n",
+  "allowedPatterns": ["causal-model-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "What is causing the greenhouse tomatoes to split?",
+    "participants": [
+      { "id": "mira", "label": "Mira", "kind": "named" },
+      { "id": "olaf", "label": "Olaf", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-irregular-watering",
+        "label": "Irregular watering causes the splitting",
+        "participantIds": ["mira"],
+        "thesis": "The tomatoes split because the timer waters on a fixed schedule that alternates dry spells with floods.",
+        "steelman": "Cold Octobers are routine, but the splitting began only when the timer arrived; the new variable is the watering pattern.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The greenhouse tomatoes are splitting because we are watering on a fixed schedule.", "participantId": "mira" }
+        ]
+      },
+      {
+        "id": "pos-cold-nights",
+        "label": "Cold nights cause the splitting",
+        "participantIds": ["olaf"],
+        "thesis": "The tomatoes split because night temperatures fall below twelve degrees after the heater failed, stiffening the skins.",
+        "steelman": "The heater failed the same week the timer went in, so the timing argument points equally at the cold; the mechanism of stiff skins cracking is well understood.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "They are splitting because the night temperature is dropping below twelve degrees.", "participantId": "olaf" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-splitting-began-with-timer",
+        "statement": "The splitting began when the watering timer was installed, and cold Octobers preceded it without splitting.",
+        "participantIds": ["mira"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-irregular-watering", "relation": "supports" },
+          { "positionId": "pos-cold-nights", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["mira"],
+        "disputedByParticipantIds": ["olaf"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Repair the heater while keeping the timer and observe whether splitting continues."
+        },
+        "groundingQuotes": [
+          { "quote": "the splitting only started when the timer was installed", "participantId": "mira" },
+          { "quote": "The timer was installed the same week the heater failed.", "participantId": "olaf" }
+        ]
+      },
+      {
+        "id": "claim-heater-failure-confounds",
+        "statement": "The heater failed the same week the timer was installed, so the onset of splitting cannot be attributed to the timer alone.",
+        "participantIds": ["olaf"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-cold-nights", "relation": "supports" },
+          { "positionId": "pos-irregular-watering", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["olaf"],
+        "disputedByParticipantIds": ["mira"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Maintenance records for the heater and timer installation dates."
+        },
+        "groundingQuotes": [
+          { "quote": "You are looking at the wrong change.", "participantId": "olaf" }
+        ]
+      }
+    ],
+    "claimRelations": [
+      { "fromClaimId": "claim-heater-failure-confounds", "toClaimId": "claim-splitting-began-with-timer", "type": "qualifies" }
+    ],
+    "commonGroundCandidates": [
+      {
+        "statement": "Fixing the heater while keeping the timer would test which explanation is right.",
+        "participantIds": ["mira", "olaf"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Then fix the heater and keep the timer, and we will see which of us is right.", "participantId": "mira" },
+          { "quote": "Agreed, but fix the heater first so the test is clean.", "participantId": "olaf" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-cause-of-splitting",
+        "question": "Is the splitting caused by the watering pattern or by cold nights?",
+        "type": "causal",
+        "summary": "Both accept that the timer and the heater failure began the same week; Mira attributes the splitting to the watering pattern, Olaf to the cold.",
+        "claimIds": ["claim-splitting-began-with-timer", "claim-heater-failure-confounds"],
+        "participantStances": [
+          { "participantId": "mira", "positionId": "pos-irregular-watering", "stance": "The watering schedule; cold Octobers never split them before." },
+          { "participantId": "olaf", "positionId": "pos-cold-nights", "stance": "The cold; the heater failed the same week." }
+        ],
+        "resolutionCondition": "Change one variable at a time and observe the fruit.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-which-change-coincided",
+        "question": "Did the splitting begin with the timer, or with the heater failure in the same week?",
+        "type": "empirical",
+        "summary": "Mira dates the onset to the timer; Olaf notes the heater failed the same week, so the onset does not single out either change.",
+        "claimIds": ["claim-heater-failure-confounds"],
+        "participantStances": [
+          { "participantId": "mira", "positionId": "pos-irregular-watering", "stance": "It started with the timer." },
+          { "participantId": "olaf", "positionId": "pos-cold-nights", "stance": "The heater failed the same week; the onset is confounded." }
+        ],
+        "resolutionCondition": "Compare the timer installation date, the heater failure date, and the first split fruit.",
+        "confidence": "medium",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The source arrived with Windows line endings; quotes never span a line break so they ground after line-ending normalization."]
+  }
+}

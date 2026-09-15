@@ -1,0 +1,135 @@
+{
+  "id": "unicode-and-smart-quotes",
+  "contentType": "conversation",
+  "source": "Zoë: The café’s late licence should be renewed. It’s the only place on Rue Ségur open after 23:00, and the owner has spent €4 000 on sound insulation — that’s more than the council asked for.\nJosé: I don’t doubt the insulation. I’m saying residents on a residential street are entitled to quiet after eleven, full stop. “Only place open” is an argument for the customers, not for the people who live upstairs.\nZoë: The people upstairs signed the lease knowing there was a café below. A street isn’t a bedroom; a neighbourhood needs somewhere to be at midnight.\nJosé: Knowing there was a café is not consenting to noise until two. Nobody’s entitlement to a night out outranks somebody’s entitlement to sleep.\nZoë: And nobody’s entitlement to sleep outranks a whole street’s right to have a life after dark. That’s the trade, and I’d make it the other way.\nJosé: Then we agree on the facts and disagree on who the street is for.",
+  "allowedPatterns": ["value-conflict"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the café’s late licence on Rue Ségur be renewed?",
+    "participants": [
+      { "id": "zoe", "label": "Zoë", "kind": "named" },
+      { "id": "jose", "label": "José", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-renew-licence",
+        "label": "Renew the late licence",
+        "participantIds": ["zoe"],
+        "thesis": "The licence should be renewed because the café is the street’s only late venue and the owner has exceeded the council’s insulation requirements.",
+        "steelman": "Residents took their leases knowing a café was below, the owner has over-complied on sound, and a neighbourhood needs somewhere open after dark.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The café’s late licence should be renewed.", "participantId": "zoe" },
+          { "quote": "a neighbourhood needs somewhere to be at midnight", "participantId": "zoe" }
+        ]
+      },
+      {
+        "id": "pos-do-not-renew",
+        "label": "Do not renew",
+        "participantIds": ["jose"],
+        "thesis": "The licence should not be renewed because residents of a residential street are entitled to quiet after eleven regardless of the insulation.",
+        "steelman": "Signing a lease above a café is not consent to noise until two, and no one’s night out outranks a resident’s sleep.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "residents on a residential street are entitled to quiet after eleven, full stop", "participantId": "jose" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-sleep-outranks-nightlife",
+        "statement": "A resident’s entitlement to sleep outranks anyone’s entitlement to a night out.",
+        "participantIds": ["jose"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-do-not-renew", "relation": "supports" },
+          { "positionId": "pos-renew-licence", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["jose"],
+        "disputedByParticipantIds": ["zoe"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The council states which entitlement governs on a residential street after eleven."
+        },
+        "groundingQuotes": [
+          { "quote": "Nobody’s entitlement to a night out outranks somebody’s entitlement to sleep.", "participantId": "jose" },
+          { "quote": "I’d make it the other way", "participantId": "zoe" }
+        ]
+      },
+      {
+        "id": "claim-lease-implies-acceptance",
+        "statement": "Taking a lease above a café amounts to accepting late-night activity below.",
+        "participantIds": ["zoe"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-renew-licence", "relation": "supports" },
+          { "positionId": "pos-do-not-renew", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["zoe"],
+        "disputedByParticipantIds": ["jose"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "Agree what a tenant consents to by signing a lease above a licensed venue."
+        },
+        "groundingQuotes": [
+          { "quote": "The people upstairs signed the lease knowing there was a café below.", "participantId": "zoe" },
+          { "quote": "Knowing there was a café is not consenting to noise until two.", "participantId": "jose" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "The owner has installed sound insulation beyond what the council asked for.",
+        "participantIds": ["zoe", "jose"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "the owner has spent €4 000 on sound insulation — that’s more than the council asked for", "participantId": "zoe" },
+          { "quote": "I don’t doubt the insulation.", "participantId": "jose" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-who-the-street-is-for",
+        "question": "Does a resident’s claim to quiet after eleven outrank the neighbourhood’s claim to a late venue?",
+        "type": "normative",
+        "summary": "Both accept the insulation facts; José ranks sleep above nightlife and Zoë ranks the street’s life after dark above an individual’s quiet.",
+        "claimIds": ["claim-sleep-outranks-nightlife", "claim-lease-implies-acceptance"],
+        "participantStances": [
+          { "participantId": "jose", "positionId": "pos-do-not-renew", "stance": "Sleep outranks a night out on a residential street." },
+          { "participantId": "zoe", "positionId": "pos-renew-licence", "stance": "A street’s right to a life after dark outranks one tenant’s quiet." }
+        ],
+        "resolutionCondition": "Make the ranking explicit; no further evidence about the insulation changes it.",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Then we agree on the facts and disagree on who the street is for.", "participantId": "jose" }
+        ]
+      },
+      {
+        "id": "disagreement-lease-consent",
+        "question": "Does taking a lease above a café count as consenting to late-night activity below?",
+        "type": "normative",
+        "summary": "Zoë treats the residents’ leases as acceptance of the café; José says knowing a café exists is not consent to noise until two.",
+        "claimIds": ["claim-lease-implies-acceptance"],
+        "participantStances": [
+          { "participantId": "zoe", "positionId": "pos-renew-licence", "stance": "They signed knowing the café was there." },
+          { "participantId": "jose", "positionId": "pos-do-not-renew", "stance": "Knowing is not consenting to noise until two." }
+        ],
+        "resolutionCondition": "Agree what a tenant accepts by leasing above a licensed venue.",
+        "confidence": "medium",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The source uses curly quotes, accented names, an em dash, a euro amount with a non-breaking space, and 24-hour times; quotes are matched exactly as written."]
+  }
+}

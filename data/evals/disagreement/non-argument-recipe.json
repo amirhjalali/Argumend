@@ -1,0 +1,21 @@
+{
+  "id": "non-argument-recipe",
+  "contentType": "freeform",
+  "source": "Overnight oats for two. Combine one cup of rolled oats with one and a quarter cups of milk in a jar. Stir in a tablespoon of chia seeds, a pinch of salt, and a teaspoon of honey. Seal the jar and refrigerate for at least six hours. In the morning, loosen with a splash of milk if the oats have thickened too much, then top with sliced banana and toasted walnuts. The jar keeps for three days. If you prefer a warm bowl, microwave for ninety seconds and stir halfway through.",
+  "allowedPatterns": ["not-a-disagreement"],
+  "expectCrux": false,
+  "minPositions": 0,
+  "maxPositions": 0,
+  "extraction": {
+    "mainQuestion": "What disagreement does the text contain?",
+    "participants": [
+      { "id": "author", "label": "Author", "kind": "author" }
+    ],
+    "positions": [],
+    "claims": [],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [],
+    "caveats": ["The text is a set of cooking instructions. It states no contested claim and takes no position that anyone disputes."]
+  }
+}

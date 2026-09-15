@@ -1,0 +1,105 @@
+{
+  "id": "extreme-brevity-bare-assertions",
+  "contentType": "conversation",
+  "source": "Kim: The pump failed because the seal was installed backwards.\nLee: No, the seal was fine. It failed because the intake screen was clogged.\nKim: The seal was backwards.\nLee: The screen was clogged.",
+  "allowedPatterns": ["causal-model-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "What caused the pump to fail?",
+    "participants": [
+      { "id": "kim", "label": "Kim", "kind": "named" },
+      { "id": "lee", "label": "Lee", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-seal-backwards",
+        "label": "The seal caused the failure",
+        "participantIds": ["kim"],
+        "thesis": "The pump failed because its seal was installed backwards.",
+        "steelman": "A reversed seal is a single installation error that would explain the failure without any other fault.",
+        "explicitness": "explicit",
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The pump failed because the seal was installed backwards.", "participantId": "kim" }
+        ]
+      },
+      {
+        "id": "pos-screen-clogged",
+        "label": "The clogged screen caused the failure",
+        "participantIds": ["lee"],
+        "thesis": "The pump failed because its intake screen was clogged, and the seal was not at fault.",
+        "steelman": "A clogged intake starves the pump; if the seal was inspected and found fine, the blockage is the remaining explanation.",
+        "explicitness": "explicit",
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "It failed because the intake screen was clogged.", "participantId": "lee" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-seal-installed-backwards",
+        "statement": "The seal was installed backwards.",
+        "participantIds": ["kim"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-seal-backwards", "relation": "supports" },
+          { "positionId": "pos-screen-clogged", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["kim"],
+        "disputedByParticipantIds": ["lee"],
+        "confidence": "low",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Inspect the seal orientation on the failed pump."
+        },
+        "groundingQuotes": [
+          { "quote": "No, the seal was fine.", "participantId": "lee" }
+        ]
+      },
+      {
+        "id": "claim-intake-screen-clogged",
+        "statement": "The intake screen was clogged.",
+        "participantIds": ["lee"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-screen-clogged", "relation": "supports" },
+          { "positionId": "pos-seal-backwards", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["lee"],
+        "disputedByParticipantIds": ["kim"],
+        "confidence": "low",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Inspect the intake screen on the failed pump."
+        },
+        "groundingQuotes": [
+          { "quote": "The screen was clogged.", "participantId": "lee" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-failure-cause",
+        "question": "Was the failure caused by the seal or by the intake screen?",
+        "type": "causal",
+        "summary": "Kim blames a reversed seal; Lee says the seal was fine and blames a clogged intake screen. Neither offers evidence.",
+        "claimIds": ["claim-seal-installed-backwards", "claim-intake-screen-clogged"],
+        "participantStances": [
+          { "participantId": "kim", "positionId": "pos-seal-backwards", "stance": "The seal was backwards." },
+          { "participantId": "lee", "positionId": "pos-screen-clogged", "stance": "The screen was clogged." }
+        ],
+        "resolutionCondition": "Physically inspect the seal orientation and the intake screen.",
+        "confidence": "medium",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["Four short lines with bare assertions and no supporting reasons; the positions are clear but nothing in the text lets either be evaluated."]
+  }
+}
