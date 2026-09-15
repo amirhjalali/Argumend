@@ -556,3 +556,31 @@ Not started, on offer: the 12-person study kit that gates PR 9; a refresh of `do
 with today's measured results; a bounded crux-repeatability run (3 maps x 5 sonnet runs, ~15 CLI
 requests). Gates at 37 commits: vitest 2419+ (last full run at 34; scoped runs green since), tsc,
 eslint, eval 64/64; rebuild before merge.
+
+### Addendum 6 — 17:05-20:00 EDT, the founder's three picks plus follow-through
+
+The founder pushed the branch at 17:50 and draft **PR #4** is open; CI (lint, tests, build in a clean
+environment) is green on it. Commits 39-43:
+
+- **12-person human evaluation kit** (`docs/research/2026-09-15-v2-human-evaluation-kit/`): the
+  study that gates PR 9, ready to recruit and run. Six thresholds verbatim from §16.4, protocol,
+  screener, five fresh disagreement sources with a sealed answer key, scoring sheet, results template,
+  pilot plan.
+- **Distribution drafts refreshed** (`docs/drafts/*-2026-09.md`): essay, gatekeeper DMs, grants,
+  launch packaging, rewritten for the diagnosis product with every number traced to a repo file.
+  The essay's worked example now carries the one live run (below). Remaining [VERIFY]/[ASK]
+  placeholders are listed in each file.
+- **Crux filter C re-scored** (`docs/reviews/2026-09-15-crux-filter-c-rescoring.md`): of the 12
+  reports it changes, 8 better, 3 same, 1 worse (141 -> 149). Recommendation: turn it on. **Still
+  off; your decision.**
+- **Crux repeatability** (`docs/reviews/2026-09-15-crux-repeatability.md`, ~30 sonnet requests):
+  five identical runs of the three flagship transcripts; the primary crux matched verbatim in 2/5,
+  1/5, 2/5 runs and the pattern in 2/5, 2/5, 5/5. Positions 4/4 every run. The crux box is not
+  stable run to run at sonnet. Recorded implication: the human study's "crux is central" threshold
+  measures the run, not the product, until extraction variance is reduced or disclosed. The one
+  live dog-park run for the essay presented an agreed claim as primary crux; the essay says so.
+- **Resolution-condition fix** (commit "a crux that borrows a disagreement's question borrows its
+  resolution too"): resolves the single filter-C regression and 15+ kind clashes per run; only
+  resolution text/kind moved, primaries byte-equal.
+
+Merge brief for the review: `docs/reviews/2026-09-15-sprint-merge-brief.md` (decisions first).
