@@ -100,7 +100,7 @@ describe("blog index is in sync with data/blog", () => {
       label: "Logic & Reasoning",
       slug: "logic-reasoning",
     });
-    expect(facets.find(({ category }) => category === "analysis")).toMatchObject({
+    expect(facets.find(({ category }) => category === "Analysis")).toMatchObject({
       label: "Analysis",
       slug: "analysis",
     });
