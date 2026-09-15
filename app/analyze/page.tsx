@@ -78,7 +78,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls={detailsId}
-        className="w-full p-3 md:p-4 text-left hover:bg-white/50 dark:hover:bg-[var(--bg-muted)]/50 transition-colors"
+        className="w-full p-3 md:p-4 text-left hover:bg-white/50 dark:hover:bg-muted-surface/50 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">

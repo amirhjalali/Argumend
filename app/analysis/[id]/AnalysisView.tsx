@@ -285,7 +285,7 @@ function PositionCard({ position }: { position: ExtractedPosition }) {
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls={detailsId}
-        className="w-full p-4 md:p-5 text-left hover:bg-white/40 dark:hover:bg-[var(--bg-card)]/40 transition-colors"
+        className="w-full p-4 md:p-5 text-left hover:bg-white/40 dark:hover:bg-card/40 transition-colors"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -460,7 +460,7 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
           </div>
           <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{fallacy.explanation}</p>
           {fallacy.quote && (
-            <p className="mt-2.5 text-sm text-stone-500 dark:text-stone-400 italic border-l-2 border-stone-300 dark:border-[var(--border-divider)] pl-3 bg-white/60 dark:bg-[var(--bg-card)]/60 py-1.5 rounded-r-md">
+            <p className="mt-2.5 text-sm text-stone-500 dark:text-stone-400 italic border-l-2 border-stone-300 dark:border-[var(--border-divider)] pl-3 bg-card/60 py-1.5 rounded-r-md">
               &ldquo;{fallacy.quote}&rdquo;
             </p>
           )}

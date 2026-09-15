@@ -119,9 +119,9 @@ export default function CommunityPage() {
             How to Contribute
           </h2>
           <p className="text-lg text-secondary dark:text-stone-400 mb-8">All contributions happen on GitHub.</p>
-          <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-2xl border border-[#e8e0d4] dark:border-[var(--border-divider)] divide-y divide-[#e8e0d4] dark:divide-[var(--border-divider)] overflow-hidden">
+          <div className="bg-card/80 rounded-2xl border border-[#e8e0d4] dark:border-[var(--border-divider)] divide-y divide-[#e8e0d4] dark:divide-[var(--border-divider)] overflow-hidden">
             {contributing.map((item, i) => (
-              <div key={item.title} className="p-6 hover:bg-[#faf8f5]/50 dark:hover:bg-[var(--bg-muted)]/50 transition-colors">
+              <div key={item.title} className="p-6 hover:bg-[#faf8f5]/50 dark:hover:bg-muted-surface/50 transition-colors">
                 <div className="flex items-start gap-4">
                   <span className="font-mono text-xs font-bold text-deep/40 mt-1">0{i + 1}</span>
                   <div>

@@ -138,7 +138,7 @@ ${againstMsg?.content || "*No argument*"}
   };
 
   return (
-    <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 backdrop-blur-sm rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden">
+    <div className="bg-card/80 backdrop-blur-sm rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-stone-200/60 dark:border-[var(--border-default)]">
         <div className="flex items-center gap-2">

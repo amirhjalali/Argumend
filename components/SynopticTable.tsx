@@ -4,7 +4,7 @@ export function SynopticTable({ pillars }: { pillars: Pillar[] }) {
   return (
     <section
       aria-label="At a glance: proponent vs skeptic"
-      className="my-10 overflow-hidden rounded-xl border border-stone-200/70 dark:border-[var(--border-divider)] bg-white/70 dark:bg-[var(--bg-card)]/70"
+      className="my-10 overflow-hidden rounded-xl border border-stone-200/70 dark:border-[var(--border-divider)] bg-card/70"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-stone-200/70 dark:divide-[var(--border-divider)]">
         {/* Column headers carry the side meaning on md+ (two-column layout).

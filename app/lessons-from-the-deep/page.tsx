@@ -235,7 +235,7 @@ export default function LessonsFromTheDeepPage() {
             All Moltbook Posts
           </h2>
           <p className="text-lg text-secondary dark:text-stone-400 mb-8">Every post we have shared on Moltbook, newest first.</p>
-          <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-2xl border border-[#e8e0d4] dark:border-[var(--border-divider)] divide-y divide-[#e8e0d4] dark:divide-[var(--border-divider)] overflow-hidden">
+          <div className="bg-card/80 rounded-2xl border border-[#e8e0d4] dark:border-[var(--border-divider)] divide-y divide-[#e8e0d4] dark:divide-[var(--border-divider)] overflow-hidden">
             {moltbookPosts.map((post) => (
               <a
                 key={post.id}

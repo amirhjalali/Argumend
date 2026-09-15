@@ -518,7 +518,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             type="button"
             onClick={() => setMobileTocOpen((v) => !v)}
             aria-expanded={mobileTocOpen}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white/90 dark:bg-[var(--bg-card)]/90 backdrop-blur border border-stone-200/70 dark:border-[var(--border-divider)] px-3.5 py-2.5 text-sm font-sans font-medium text-primary dark:text-stone-200 shadow-lg"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-card/90 backdrop-blur border border-stone-200/70 dark:border-[var(--border-divider)] px-3.5 py-2.5 text-sm font-sans font-medium text-primary dark:text-stone-200 shadow-lg"
           >
             {mobileTocOpen ? <X className="h-4 w-4" aria-hidden /> : <List className="h-4 w-4" aria-hidden />}
             Contents

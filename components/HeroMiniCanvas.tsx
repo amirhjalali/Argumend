@@ -364,7 +364,7 @@ export default function HeroMiniCanvas({ onClick, title }: HeroMiniCanvasProps) 
         onClick={onClick}
       />
 
-      <span className="pointer-events-none absolute bottom-2.5 right-3 z-20 rounded-full bg-white/70 px-2.5 py-1 text-[10px] font-sans font-medium text-stone-500 backdrop-blur-sm dark:bg-[var(--bg-canvas)]/70 dark:text-stone-400">
+      <span className="pointer-events-none absolute bottom-2.5 right-3 z-20 rounded-full bg-white/70 px-2.5 py-1 text-[10px] font-sans font-medium text-stone-500 backdrop-blur-sm dark:bg-canvas/70 dark:text-stone-400">
         Live preview &middot; click to explore
       </span>
     </div>

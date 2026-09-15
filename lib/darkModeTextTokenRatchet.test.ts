@@ -26,9 +26,10 @@ import { describe, it, expect } from "vitest";
  * The CSS-var form (`dark:text-[var(--text-primary)]`) is equally acceptable —
  * `:root`/`.dark` in globals.css redefine those variables.
  *
- * The semantic `bg-canvas`/`bg-panel` tokens now adapt through RGB-channel CSS
- * variables, so they count as dark-adaptive even without an explicit
- * `dark:bg` utility. This keeps new collection and detail pages in scope.
+ * The semantic `bg-canvas`/`bg-panel`/`bg-card`/`bg-muted-surface` tokens adapt
+ * through RGB-channel CSS variables, so they count as dark-adaptive even
+ * without an explicit `dark:bg` utility. This keeps new collection and detail
+ * pages in scope.
  *
  * Because the migration is incremental, the repo-wide assertion is a RATCHET:
  * the number of unpaired instances may only go DOWN. Fixing files is expected
@@ -70,7 +71,7 @@ const collectSourceFiles = (dir: string): string[] => {
 
 /** A file "does dark mode" if it adapts at least one background. */
 const isDarkAdaptive = (src: string): boolean =>
-  /dark:bg|\bbg-(?:canvas|panel)(?:\/\d{1,3})?\b/.test(src);
+  /dark:bg|\bbg-(?:canvas|panel|card|muted-surface)(?:\/\d{1,3})?\b/.test(src);
 
 const countBare = (src: string): number => src.match(BARE_BRAND_TEXT)?.length ?? 0;
 

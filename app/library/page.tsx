@@ -79,7 +79,7 @@ export default function LibraryPage() {
               A quick shelf of {libraryTopicSampler.length} maps—three from each
               category. The complete catalog contains {TOPIC_COUNT} topics.
             </p>
-            <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden shadow-card">
+            <div className="bg-card/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden shadow-card">
               <table className="w-full">
                 <caption className="sr-only">
                   Sample argument maps with category, map size, evidence balance, and evidential weight
@@ -184,7 +184,7 @@ export default function LibraryPage() {
                             href={resource.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`group relative flex items-start gap-4 bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl px-5 py-4 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 ${presentation.animate ? "animate-card-fade-in" : ""} ${shelf.hoverBorder}`}
+                            className={`group relative flex items-start gap-4 bg-card/80 rounded-xl px-5 py-4 border border-stone-200/60 dark:border-[var(--border-default)] shadow-card hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200 ${presentation.animate ? "animate-card-fade-in" : ""} ${shelf.hoverBorder}`}
                             style={presentation.style}
                           >
                             <div
@@ -223,7 +223,7 @@ export default function LibraryPage() {
           </section>
 
           {/* Explore CTA */}
-          <section className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 text-center mb-16 md:mb-24">
+          <section className="bg-card/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 text-center mb-16 md:mb-24">
             <h2 className="font-serif text-xl text-primary dark:text-stone-200 mb-2">
               Ready to dig deeper?
             </h2>

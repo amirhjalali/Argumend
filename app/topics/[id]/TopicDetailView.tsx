@@ -275,7 +275,7 @@ function CruxCard({ crux }: { crux: Crux }) {
           <span className="text-xs font-medium text-stone-500 uppercase tracking-widest">
             Methodology
           </span>
-          <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed mt-1.5 bg-white/60 dark:bg-[var(--bg-card)]/60 rounded-lg p-4 border border-stone-200/50 dark:border-[var(--border-divider)] font-mono text-[13px] break-words">
+          <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed mt-1.5 bg-card/60 rounded-lg p-4 border border-stone-200/50 dark:border-[var(--border-divider)] font-mono text-[13px] break-words">
             {crux.methodology}
           </p>
         </div>
@@ -465,7 +465,7 @@ function QuickStatsBar({ topic }: { topic: Topic }) {
   );
 
   return (
-    <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] bg-white/60 dark:bg-[var(--bg-card)]/60 p-4 mb-8">
+    <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] bg-card/60 p-4 mb-8">
       <div className="flex flex-wrap items-center gap-4">
         {/* Verification breakdown */}
         <div className="flex items-center gap-2.5">

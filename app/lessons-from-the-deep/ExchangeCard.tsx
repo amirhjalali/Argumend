@@ -18,7 +18,7 @@ export function ExchangeCard({
   const contentId = useId();
 
   return (
-    <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border border-[#e8e0d4] dark:border-[var(--border-divider)] overflow-hidden hover:shadow-md transition-all duration-200">
+    <div className="bg-card/80 rounded-xl border border-[#e8e0d4] dark:border-[var(--border-divider)] overflow-hidden hover:shadow-md transition-all duration-200">
       <button
         type="button"
         onClick={() => setIsExpanded((expanded) => !expanded)}

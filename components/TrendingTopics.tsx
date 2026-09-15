@@ -94,7 +94,7 @@ export function TrendingTopics() {
                       href={`/topics/${item.topicId}`}
                       prefetch={false}
                       tabIndex={isOpen ? 0 : -1}
-                      className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 min-h-[40px] text-[13px] text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[var(--bg-muted)]/50 transition-colors group"
+                      className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 min-h-[40px] text-[13px] text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-muted-surface/50 transition-colors group"
                     >
                       <span
                         className={`flex-shrink-0 w-5 text-right font-mono text-[11px] tabular-nums ${

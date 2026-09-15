@@ -34,7 +34,7 @@ export default function FAQPage() {
             <details
               key={index}
               open={index === 0}
-              className="group rounded-xl border border-[var(--border-default)] bg-[var(--bg-card)]/70 transition-colors open:bg-[var(--bg-card)] open:shadow-[var(--shadow-card)]"
+              className="group rounded-xl border border-[var(--border-default)] bg-card/70 transition-colors open:bg-[var(--bg-card)] open:shadow-[var(--shadow-card)]"
               style={
                 getCollectionItemPresentation(index, {
                   intrinsicSize: "0 76px",

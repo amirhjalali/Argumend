@@ -46,7 +46,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
   );
 
   return (
-    <div className="px-4 md:px-8 py-10 bg-stone-50/50 dark:bg-[var(--bg-canvas)]/50">
+    <div className="px-4 md:px-8 py-10 bg-stone-50/50 dark:bg-canvas/50">
       <div className="max-w-2xl mx-auto">
         <h2 className="font-serif text-xl font-semibold text-primary dark:text-stone-200 mb-1">
           {process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true"

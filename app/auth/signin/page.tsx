@@ -45,7 +45,7 @@ export default async function SignInPage() {
         </div>
 
         {/* Sign-in card */}
-        <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 sm:p-8 shadow-card">
+        <div className="bg-card/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 sm:p-8 shadow-card">
           <h2 className="font-serif text-xl text-primary dark:text-stone-200 text-center mb-2">
             Welcome back
           </h2>

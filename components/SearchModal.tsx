@@ -590,7 +590,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       onMouseEnter={() => setActiveIndex(idx)}
                       className={`
                         w-full flex items-center gap-3 px-5 py-3 text-left transition-colors duration-100
-                        ${isActive ? "bg-rust-50/60 dark:bg-rust-900/30 border-l-2 border-l-rust-500 ring-2 ring-deep/20" : "bg-transparent hover:bg-stone-50/60 dark:hover:bg-[var(--bg-muted)]/60 border-l-2 border-l-transparent"}
+                        ${isActive ? "bg-rust-50/60 dark:bg-rust-900/30 border-l-2 border-l-rust-500 ring-2 ring-deep/20" : "bg-transparent hover:bg-stone-50/60 dark:hover:bg-muted-surface/60 border-l-2 border-l-transparent"}
                       `}
                       role="option"
                       aria-selected={isActive}
@@ -667,7 +667,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 dark:border-[var(--border-divider)] bg-[#f4f1eb]/50 dark:bg-[var(--bg-canvas)]/50">
+          <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 dark:border-[var(--border-divider)] bg-canvas/50">
             <div className="flex items-center gap-4 text-[11px] text-muted dark:text-stone-400">
               <span className="flex items-center gap-1">
                 <kbd className="inline-flex h-4 items-center rounded border border-stone-200 dark:border-[var(--border-divider)] bg-white dark:bg-[var(--bg-muted)] px-1 font-mono text-[10px]">

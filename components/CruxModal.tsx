@@ -106,7 +106,7 @@ export function CruxModal() {
                                     <p className="mb-3 text-[11px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500">
                                         Mathematical Form
                                     </p>
-                                    <div className="flex items-center justify-center rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/80 dark:bg-[var(--bg-card)]/80 py-6">
+                                    <div className="flex items-center justify-center rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-card/80 py-6">
                                         <span className="font-serif text-lg text-primary dark:text-stone-200">
                                             <InlineMath math={selectedCrux.equation} />
                                         </span>
@@ -115,7 +115,7 @@ export function CruxModal() {
                             )}
 
                             <div className="mt-8 grid grid-cols-2 gap-4">
-                                <div className="rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#f4f1eb]/50 dark:bg-[var(--bg-muted)]/50 p-5 text-center">
+                                <div className="rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#f4f1eb]/50 dark:bg-muted-surface/50 p-5 text-center">
                                     <p className="mb-2 text-[10px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[var(--text-muted)]">
                                         Verification Status
                                     </p>
@@ -123,7 +123,7 @@ export function CruxModal() {
                                         {selectedCrux.status}
                                     </p>
                                 </div>
-                                <div className="rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#f4f1eb]/50 dark:bg-[var(--bg-muted)]/50 p-5 text-center">
+                                <div className="rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#f4f1eb]/50 dark:bg-muted-surface/50 p-5 text-center">
                                     <p className="mb-2 text-[10px] font-sans font-semibold uppercase tracking-[0.35em] text-stone-500 dark:text-[var(--text-muted)]">
                                         Cost to Verify
                                     </p>

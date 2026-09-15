@@ -29,10 +29,17 @@ const config: Config = {
         panel: "rgb(var(--bg-panel-rgb) / <alpha-value>)", // Cards / panels
         paper: "rgb(var(--bg-paper-rgb) / <alpha-value>)", // Lightweight paper for nodes
         overlay: "rgb(var(--bg-overlay-rgb) / <alpha-value>)",
+        card: "rgb(var(--bg-card-rgb) / <alpha-value>)", // --bg-card: white in light, #252420 in .dark
+        divider: "rgb(var(--border-divider-rgb) / <alpha-value>)", // --border-divider hairlines
 
         primary: "#3d3a36",
         secondary: "#564d45",
-        muted: "#6d6058", // Darkened from #7a7068 for WCAG AA 4.5:1 on parchment (#f4f1eb)
+        muted: {
+          DEFAULT: "#6d6058", // Darkened from #7a7068 for WCAG AA 4.5:1 on parchment (#f4f1eb)
+          // `bg-muted-surface/N` — the --bg-muted panel tint as RGB channels so
+          // opacity modifiers compile while the colour still switches in .dark.
+          surface: "rgb(var(--bg-muted-rgb) / <alpha-value>)",
+        },
 
         deep: {
           DEFAULT: "#3a6965", // Deep teal — primary accent (darkened for WCAG AA 4.5:1 on parchment)
