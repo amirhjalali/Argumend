@@ -447,3 +447,24 @@ cases. Cheaper lever worth building before the next run: cache the system prompt
   "unverifiable (bot wall)", i.e. real articles behind a cookie wall)
 - `./node_modules/.bin/tsx scripts/validate-crux-recall.ts` exit 1 (expected; the gate fails honestly)
 - `next build` was NOT run this sprint. Run it before merging.
+
+### Addendum — afternoon burst 2026-09-15 13:22-14:10 EDT (founder: "go hard for 40 min, then slow down")
+
+Four more commits (16 total on the branch, still not pushed):
+
+- **Projection pass 2** (the hard-gate fix): headline type follows the primary crux; placeholder
+  resolution text gone; pattern selection consistent with `sharedGround`; `single-empirical-crux` can
+  fire again; ungrounded common ground dropped, ungrounded "explicit" positions relabelled inferred;
+  participant-less stakes never rendered; corpus renderer now emits a contesting line for every crux
+  claim with a dispute edge; CLI provenance records the resolved model id. 2349/2349 tests.
+- **Model comparison, finally done** (both files blind; key in the evidence README): opus passes the
+  rubric hard gate and scores higher on 8 of 9 paired sources; crux selection is not better in either.
+  Decision for you: opus for the served lane is supported by this evidence, at ~30% more latency.
+- **Render sweep**: 47 routes x 2 widths clean for overflow/images/hydration; all 294 sitemap URLs
+  200. Two HIGH dark-mode defects (top bar stays parchment because an opacity modifier on a
+  CSS-variable colour never compiles; footer newsletter card unreadable) and flagship ids 404 on
+  `/embed` and `/topics/compare` were handed to two agents at 13:47; if their commits are on the branch
+  they landed, otherwise see `git status`.
+- **Still unverified by render:** the six-box V2 report and the stake ledger, because the fake
+  provider's keyword matcher returns the non-disagreement fixture for the trust-split source (sweep
+  finding F3). Fix `pickFixture` in `lib/disagreement/model/fake.ts` or pass a fixture id explicitly.

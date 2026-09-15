@@ -50,3 +50,26 @@ Systematic defects both source reviewers found independently, with the mechanism
 7. Corpus-only: the renderer's "I know the reply is that X" line is parsed as an explicit update
    commitment (5 stakes), and on two of three maps every engine crux renders as a single uncontested
    line, so a blind run can only echo it, never recover it as a disagreement.
+
+## Model comparison (added 2026-09-15 afternoon)
+
+Two more blind reviews, each given "run A" and "run B" without model names:
+
+| File | What | Key |
+|---|---|---|
+| `flagship-model-comparison-runA-vs-runB.md` | the 3 flagship maps | A = `opus` (`corpus-2026-09-15T17-22-48-928Z`), B = `sonnet` run 1 |
+| `sources-model-comparison-runA-vs-runB.md` | 12 authored sources, 9 with a sonnet counterpart | A = `opus` (`sources-2026-09-15T17-22-48-*`), B = `sonnet` run 1 |
+
+Headline: opus scores higher on 8 of 9 paired sources (12.6 vs 11.8 mean) and **passes the rubric
+hard gate** where sonnet fails it; it grounds ~1.7x more quotes, attributes common ground to the right
+subsets, never turns a reply line into a stake, and has far less placeholder text. Costs: more
+participant-less fallback stakes, heavier reliance on `mixed-disagreement`, richer claim graphs that
+the V1 builder drops or rejects (one empty crux box), ~30% higher latency. On the flagship maps the
+reviewer preferred sonnet narrowly on two (its primary crux was the contested one) and opus clearly
+on one; crux selection is not systematically better in either model. Both reviewers found two
+run-independent defects not in the list above: crux branches rendered with identical condition text
+(the "if this does not hold" branch never shows), and quote offsets stored against LF-normalised text
+(a highlight hazard on CRLF sources).
+
+Provenance caveat: reports from these runs still record only the model alias. The fix (resolved id
+from the CLI envelope) landed after they were generated.
