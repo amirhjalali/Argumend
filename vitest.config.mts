@@ -12,6 +12,7 @@ export default defineConfig({
     environment: "happy-dom",
     globals: true,
     include: ["**/*.test.ts", "**/*.test.tsx"],
+    exclude: ["**/node_modules/**", "**/.next/**", ".claude/worktrees/**"],
     coverage: {
       reporter: ["text", "html"],
       exclude: [
