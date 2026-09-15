@@ -487,3 +487,30 @@ Four more commits (24 total):
 
 Not done from the sweep: F7 (fixed-hex crux crimson / teal text fails dark-mode contrast) and the
 render re-check of the six-box report now that the fake lane can produce one.
+
+### Addendum 3 — gentle phase, 14:13-14:50 EDT (one agent at a time, no CLI runs)
+
+Commits 26-29:
+
+- **V2 report render-verified in a browser** on three fixtures at both widths, light and dark
+  (`docs/reviews/2026-09-15-v2-report-render-verification.md`): quotes verbatim, no winner/score/
+  percentage, honest disclaimers, stake ledger attributes correctly. Duplicate React key on crux
+  branches fixed.
+- **F7 dark-mode contrast**: crux crimson and deep teal text now reach AA in dark mode (4.50:1 and
+  6.20:1 measured), via `crux.light` / `deep.bright` tokens across 20 files.
+- **The spec's sixth box** (evidence state, §6.6) was never rendered; `CruxSection.tsx` was a dead
+  predecessor. New `EvidenceStateSection` mounted inside the crux panel; six boxes confirmed in a
+  browser with zero console errors.
+- **Projection pass 3**: crux branches now state the condition AND its negation (previously both
+  branches shared one condition, so "if this does not hold" never appeared); quote-offset frame of
+  reference documented and tested on CRLF; stake ledger no longer quote-marks paraphrases;
+  zero-position reports lose the positions preamble, the UNKNOWN label, and the false grounding
+  claim.
+- **FLAGGED, your call:** the same commit adds a deterministic evidence-state detection rule
+  (`lib/disagreement/evidenceState.ts`). The spec defines the three labels but no rule, and without
+  one the new box could only ever say "not independently checked". The rule is conservative and
+  keyword-based; the commit message has the one-line revert recipe if you would rather keep the box
+  to the boundary statement until you define the rule.
+
+Gates on the final tree at 29 commits: 2410 tests, tsc, eslint, eval 64/64, clean build at commit
+24 (rebuild before merge: commits 25-29 touch components and the projection).
