@@ -94,7 +94,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
     >
       {/* Heading */}
       <h3
-        className={`font-serif text-primary leading-snug ${
+        className={`font-serif text-primary dark:text-[var(--text-primary)] leading-snug ${
           isCompact ? "text-base mb-1" : "text-xl mb-2"
         }`}
       >
@@ -103,7 +103,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
 
       {/* Subtitle */}
       <p
-        className={`text-secondary leading-relaxed ${
+        className={`text-secondary dark:text-[var(--text-secondary)] leading-relaxed ${
           isCompact ? "text-xs mb-3" : "text-sm mb-5"
         }`}
       >
