@@ -98,7 +98,7 @@ describe("POST /api/disagreements/analyze", () => {
     });
 
     it("rounds Retry-After up to whole seconds and echoes the remaining count", async () => {
-      const { limiter } = stubLimiter({ allowed: false, remaining: 2, resetAt: Date.now() + 1_001 });
+      const { limiter } = stubLimiter({ allowed: false, remaining: 2, resetAt: Date.now() + 1_500 });
       const handler = createDisagreementAnalyzeHandler({ rateLimiter: limiter });
 
       const response = await handler(post({ content: LONG_CONTENT }));

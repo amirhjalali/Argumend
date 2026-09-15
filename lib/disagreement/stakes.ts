@@ -134,9 +134,11 @@ function normalizeQuoteText(quote: string): string {
  *
  * Selection: every stake attached to a ranked crux claim first (in extraction
  * order), then remaining hinge/material stakes, capped at the ledger limit.
- * If the primary crux has no stake at all, one application-generated stake is
- * minted with NO participant attribution — it is our question about the
- * source, not the participant's commitment.
+ * A stake is a participant's commitment. If the primary crux has no stake,
+ * nothing is minted in its place: a stake with no participant, role "unclear"
+ * and the report's question as its conclusion is not a finding about the
+ * source, and it was reaching readers in the accountability ledger. The gap is
+ * recorded as a warning for diagnostics instead.
  *
  * Coverage accounting: a stake quote identical (after whitespace folding) to
  * one already counted for another object is grounded for display but NOT
@@ -203,29 +205,14 @@ export function projectClaimStakes(input: {
     });
   }
 
-  // The primary crux carries the report; a stake-less primary crux would leave
-  // the reader with a hinge and no question attached to it. Mint a neutral,
-  // unattributed one rather than letting the model's silence stand as data.
+  // The primary crux carries the report. When no participant's stake attaches
+  // to it, that is a fact about the extraction worth surfacing to whoever reads
+  // the diagnostics, never a row in the reader's ledger.
   const primaryStaked =
     primaryCruxClaimId !== undefined &&
     projected.some((stake) => stake.claimId === primaryCruxClaimId);
-  if (primaryCruxClaimId && !primaryStaked && projected.length < DISAGREEMENT_LIMITS.maxStakesInLedger) {
-    const claim = claimsById.get(primaryCruxClaimId);
-    if (claim) {
-      warnings.push(`Minted fallback stake for primary crux claim "${primaryCruxClaimId}"`);
-      projected.unshift({
-        id: "stake-primary-crux-fallback",
-        claimId: primaryCruxClaimId,
-        claim: claim.statement,
-        targetConclusion: extraction.mainQuestion,
-        role: "unclear",
-        ifFalseEffect: "not-stated",
-        consequence: "The source does not state what changes if this claim is false.",
-        basis: "unstated",
-        diagnostic: "unclear",
-        grounding: [],
-      });
-    }
+  if (primaryCruxClaimId && !primaryStaked) {
+    warnings.push(`No participant stake attached to primary crux claim "${primaryCruxClaimId}"`);
   }
 
   const ledger = projected.slice(0, DISAGREEMENT_LIMITS.maxStakesInLedger);

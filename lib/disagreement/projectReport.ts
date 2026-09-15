@@ -195,6 +195,76 @@ function resolutionLabel(kind: ResolutionPath["kind"]): string {
   }
 }
 
+/**
+ * What the crux panel says when neither the claim nor its disagreement carries
+ * a resolution condition. The old fallback, "Further clarification is
+ * required.", read as advice; this states the gap and nothing else, and the
+ * resolution-path list never carries it.
+ */
+export const RESOLUTION_NOT_STATED = "The source does not state what would settle this.";
+
+/**
+ * Model output that admits it has no resolution condition, phrased as one:
+ * "Not stated in the source; would require agreement on <the question>".
+ * Rendering that as a path hands the disagreement back to the reader as its
+ * own resolution.
+ */
+const UNSTATED_RESOLUTION = /further clarification|not stated in the (?:source|text)|not (?:resolvable|determinable|specified|given|stated) (?:from|in) the (?:source|text)|cannot be (?:determined|resolved|stated) from the (?:source|text)/i;
+
+function statedResolution(condition: string | undefined): string | undefined {
+  if (!condition) return undefined;
+  const trimmed = condition.trim();
+  if (!trimmed || trimmed === RESOLUTION_NOT_STATED || UNSTATED_RESOLUTION.test(trimmed)) return undefined;
+  return trimmed;
+}
+
+const VALUE_TYPES: ReadonlySet<DisagreementType> = new Set(["normative", "priority"]);
+const EVIDENCE_TYPES: ReadonlySet<DisagreementType> = new Set(["empirical", "causal", "predictive"]);
+
+/**
+ * The headline type follows the primary crux, the engine's deterministic
+ * choice, so the headline and the crux it introduces describe the same
+ * dispute. Taking the first listed disagreement instead let the two contradict
+ * each other, which is the mechanism behind every value dispute that reached
+ * readers labelled empirical.
+ *
+ * One exception, from the spec's invariants ("never treat every disagreement
+ * as empirically resolvable", "never label normative disagreement as a lack of
+ * evidence"): an evidence-typed crux may not present a source that contains a
+ * value disagreement as something evidence settles, so the value type leads.
+ * The crux keeps its own type. With no crux, the first listed disagreement
+ * stands as before.
+ */
+function derivePrimaryType(
+  cruxType: DisagreementType | undefined,
+  disagreements: Array<{ type: DisagreementType }>,
+): DisagreementType | undefined {
+  if (!cruxType) return disagreements[0]?.type;
+  if (!EVIDENCE_TYPES.has(cruxType)) return cruxType;
+  return disagreements.find((item) => VALUE_TYPES.has(item.type))?.type ?? cruxType;
+}
+
+/**
+ * Common ground is a claim about two or more people. It is attested when the
+ * grounded quotes come from at least two of the people it is attributed to
+ * (or all of them), or from someone outside that set describing them, as a
+ * reporter's "both agree that ..." does. One side's words, or no words at all,
+ * do not show that the other side holds it.
+ */
+function commonGroundAttested(
+  participantIds: string[],
+  grounding: Array<{ participantId?: string }>,
+): boolean {
+  const attributed = new Set(participantIds);
+  const quoted = new Set<string>();
+  for (const ref of grounding) {
+    if (!ref.participantId) continue;
+    if (!attributed.has(ref.participantId)) return true;
+    quoted.add(ref.participantId);
+  }
+  return quoted.size >= 2 || (attributed.size > 0 && quoted.size >= attributed.size);
+}
+
 export function projectDisagreementReport(input: {
   extraction: NormalizedExtraction["extraction"];
   graph: ArgumentGraph;
@@ -227,33 +297,56 @@ export function projectDisagreementReport(input: {
     return result.refs;
   };
 
-  const positions: ReportPosition[] = extraction.positions.map((position) => ({
-    id: position.id,
-    label: position.label,
-    participantIds: position.participantIds,
-    thesis: position.thesis,
-    steelman: position.steelman,
-    explicitness: position.explicitness,
-    confidence: position.confidence,
-    grounding: ground(position.groundingQuotes, position.id),
-  }));
-
-  const commonGround: CommonGroundItem[] = extraction.commonGroundCandidates.map((item, index) => {
-    const grounding = ground(item.groundingQuotes, `cg-${index + 1}`);
-    // "Explicit" tells the reader these people said this. When the quotes that
-    // were supposed to show it did not survive grounding — because the model
-    // invented them — the label is a claim we cannot back, and it lands on real
-    // named people taking positions on contested subjects. Demote rather than
-    // assert. Confidence follows, since the basis for it is gone.
-    const unsupported = item.basis === "explicit" && grounding.length === 0;
+  const positions: ReportPosition[] = extraction.positions.map((position) => {
+    const grounding = ground(position.groundingQuotes, position.id);
+    // "Explicit" means this person said it. That needs at least one verbatim
+    // quote from that person; a quote that did not survive grounding, or that
+    // another speaker said, is not one. Relabel rather than assert, and let
+    // the confidence follow, since the basis for "high" is gone.
+    const ownQuote = grounding.some(
+      (ref) => ref.participantId !== undefined && position.participantIds.includes(ref.participantId),
+    );
+    const unsupported = position.explicitness === "explicit" && !ownQuote;
+    if (unsupported) {
+      warnings.push(
+        `Relabelled position "${position.id}" inferred: no verbatim quote from its participant survived grounding`,
+      );
+    }
     return {
-      id: `cg-${index + 1}`,
-      statement: item.statement,
-      participantIds: item.participantIds,
-      basis: unsupported ? ("strongly-implied" as const) : item.basis,
-      confidence: unsupported && item.confidence === "high" ? ("medium" as const) : item.confidence,
+      id: position.id,
+      label: position.label,
+      participantIds: position.participantIds,
+      thesis: position.thesis,
+      steelman: position.steelman,
+      explicitness: unsupported ? ("inferred" as const) : position.explicitness,
+      confidence: unsupported && position.confidence === "high" ? ("medium" as const) : position.confidence,
       grounding,
     };
+  });
+
+  const commonGround: CommonGroundItem[] = [];
+  extraction.commonGroundCandidates.forEach((item, index) => {
+    const grounding = ground(item.groundingQuotes, `cg-${index + 1}`);
+    // Shared ground is a claim about every person it is attributed to, and it
+    // lands on real named people taking positions on contested subjects. With
+    // quotes from one side only, or none (the model invented them, or inferred
+    // the agreement), the report cannot back it for the others. The report has
+    // no "inferred" label for common ground, so the item is dropped and the
+    // gap recorded; §10.4 already refuses "uncontested" for such a claim.
+    if (!commonGroundAttested(item.participantIds, grounding)) {
+      warnings.push(
+        `Dropped common-ground item cg-${index + 1}: quoted from fewer than two of the participants it is attributed to`,
+      );
+      return;
+    }
+    commonGround.push({
+      id: `cg-${commonGround.length + 1}`,
+      statement: item.statement,
+      participantIds: item.participantIds,
+      basis: item.basis,
+      confidence: item.confidence,
+      grounding,
+    });
   });
 
   const disagreements: DisagreementItem[] = extraction.disagreementCandidates.map((item) => ({
@@ -264,7 +357,7 @@ export function projectDisagreementReport(input: {
     participantStances: item.participantStances,
     relatedClaimIds: item.claimIds,
     resolvability: "unknown",
-    resolutionCondition: item.resolutionCondition,
+    resolutionCondition: statedResolution(item.resolutionCondition) ?? RESOLUTION_NOT_STATED,
     confidence: item.confidence,
     grounding: ground(item.groundingQuotes, item.id),
   }));
@@ -304,7 +397,10 @@ export function projectDisagreementReport(input: {
       branches: cruxBranches({ claim, affectedPositionIds: affected, positionLabels }),
       resolution: {
         kind: resolutionKind,
-        condition: claim?.resolution?.condition ?? related?.resolutionCondition ?? "Further clarification is required.",
+        condition:
+          statedResolution(claim?.resolution?.condition) ??
+          statedResolution(related?.resolutionCondition) ??
+          RESOLUTION_NOT_STATED,
       },
       evidenceState: "not-independently-checked",
       confidence: (claim?.confidence ?? "medium") as ConfidenceBand,
@@ -357,7 +453,8 @@ export function projectDisagreementReport(input: {
 
   const groundingCoverage = computeGroundingCoverage({ expectedQuotes, groundedQuotes });
   const inferredPositionCount = positions.filter((position) => position.explicitness === "inferred").length;
-  const primaryType = disagreements[0]?.type ?? cruxes[0]?.type;
+  const primaryType = derivePrimaryType(cruxes[0]?.type, disagreements);
+  const sharedGround = deriveSharedGround(commonGround.length);
   const pattern = deriveDiagnosis({
     positionCount: positions.length,
     explicitPositionCount: positions.filter((position) => position.explicitness === "explicit").length,
@@ -366,6 +463,7 @@ export function projectDisagreementReport(input: {
     commonGroundCount: commonGround.length,
     groundingCoverage,
     primaryType,
+    sharedGround,
     hasCrux: cruxes.length > 0,
     graphValid: input.graphValid,
   });
@@ -393,7 +491,13 @@ export function projectDisagreementReport(input: {
     });
   }
 
-  const resolutionPaths: ResolutionPath[] = disagreements.slice(0, 4).map((item, index) => {
+  // A path is something the reader could do. A disagreement whose only
+  // "resolution" is that the source does not state one has no path; the
+  // normative template is a real statement about value disputes and stays.
+  const resolutionPaths: ResolutionPath[] = disagreements
+    .filter((item) => item.type === "normative" || item.resolutionCondition !== RESOLUTION_NOT_STATED)
+    .slice(0, 4)
+    .map((item, index) => {
     const kind = resolutionPathKind(item.type);
     const description =
       item.type === "normative"
@@ -408,7 +512,7 @@ export function projectDisagreementReport(input: {
     };
   });
 
-  const headline = diagnosisHeadline(pattern);
+  const headline = diagnosisHeadline(pattern, { sharedGround });
   // §10.5: when positions exist but nothing load-bearing could be established,
   // say so. Echoing the main question in that slot reads as if the diagnosis
   // had an answer; it does not, and the reader should know why.
@@ -440,7 +544,7 @@ export function projectDisagreementReport(input: {
       headline,
       insight,
       primaryType,
-      sharedGround: deriveSharedGround(commonGround.length),
+      sharedGround,
       resolvability,
       confidence,
       confidenceBasis:

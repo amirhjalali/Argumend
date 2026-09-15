@@ -46,7 +46,12 @@ describe("analyzeDisagreement", () => {
     expect(result.report.sourceMode).toBe("source-only");
     expect(result.report.provenance.independentlyVerified).toBe(false);
     expect(result.report.positions).toHaveLength(2);
-    expect(result.report.diagnosis.pattern).toMatch(/causal|mixed|mostly/);
+    // The headline type follows the engine's primary crux (reviewer issue A).
+    // On this exemplar the engine ranks an empirical claim outside the causal
+    // disagreement first, so the pattern follows that crux rather than the
+    // first listed disagreement; which claim ranks first is the engine's call.
+    expect(result.report.diagnosis.primaryType).toBe(result.report.cruxes[0]?.type);
+    expect(result.report.diagnosis.pattern).toMatch(/single-empirical-crux|causal|mixed|mostly/);
     expect("winner" in result.report).toBe(false);
     expect(result.graph.question.statement.endsWith("?")).toBe(true);
     for (const position of result.report.positions) {
@@ -230,10 +235,14 @@ describe("common ground honesty", () => {
       provider: new FakeDisagreementProvider(extraction),
     });
 
-    const item = result.report.commonGround[0];
-    expect(item.grounding).toHaveLength(0);
-    expect(item.basis).toBe("strongly-implied");
-    expect(item.confidence).not.toBe("high");
+    // Once demoted to "strongly-implied"; now, with nothing from either person
+    // to show for it, the item is not shown at all and the gap is recorded
+    // (reviewer issue D). The report has no "inferred" label for common ground.
+    expect(result.report.commonGround).toHaveLength(0);
+    expect(result.report.diagnosis.sharedGround).toBe("none");
+    expect(result.report.quality.warnings).toContainEqual(
+      expect.stringMatching(/Dropped common-ground item cg-1/),
+    );
   });
 });
 

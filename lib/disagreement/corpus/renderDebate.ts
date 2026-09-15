@@ -116,6 +116,62 @@ function objectionsToPosition(graph: ArgumentGraph, positionId: string): Claim[]
   return objections;
 }
 
+/** Nodes that argue for a position, or that the position rests on. */
+function positionsLeaningOn(graph: ArgumentGraph, nodeId: string): string[] {
+  const positionIds = new Set(graph.nodes.filter(isPosition).map((position) => position.id));
+  const result: string[] = [];
+  for (const edge of graph.edges) {
+    if (edge.from === nodeId && (edge.type === "supports" || edge.type === "concludes") && positionIds.has(edge.to)) {
+      result.push(edge.to);
+    }
+    if (edge.to === nodeId && (edge.type === "depends_on" || edge.type === "premise_of") && positionIds.has(edge.from)) {
+      result.push(edge.from);
+    }
+  }
+  return result;
+}
+
+interface Contester {
+  positionId: string;
+  /** The claim the contesting position answers with, when the map has one. */
+  counter?: Claim;
+}
+
+/**
+ * Positions that dispute a claim, as the map records it: the claim opposes or
+ * undercuts the position directly, or it contradicts (or is contradicted by)
+ * a claim that position leans on. Only positions wired to the dispute are
+ * returned; putting a rebuttal in the mouth of a position the map does not
+ * connect to it would corrupt the answer key.
+ */
+function contestersOf(graph: ArgumentGraph, claimId: string): Contester[] {
+  const positionIds = new Set(graph.nodes.filter(isPosition).map((position) => position.id));
+  const claimsById = new Map(graph.nodes.filter(isClaim).map((claim) => [claim.id, claim]));
+  const contesters: Contester[] = [];
+  const seen = new Set<string>();
+  const add = (positionId: string, counter?: Claim) => {
+    if (seen.has(positionId)) return;
+    seen.add(positionId);
+    contesters.push({ positionId, counter });
+  };
+
+  for (const edge of graph.edges) {
+    const disputes = edge.type === "opposes" || edge.type === "undercuts" || edge.type === "contradicts";
+    if (!disputes) continue;
+    if (edge.from === claimId && positionIds.has(edge.to)) {
+      add(edge.to);
+      continue;
+    }
+    const other = edge.from === claimId ? edge.to : edge.to === claimId ? edge.from : undefined;
+    if (!other || positionIds.has(other)) continue;
+    const counter = claimsById.get(other);
+    for (const positionId of positionsLeaningOn(graph, other)) {
+      add(positionId, counter && isSpeakable(counter.statement) ? counter : undefined);
+    }
+  }
+  return contesters;
+}
+
 export function renderDebateFromGraph(
   graph: ArgumentGraph,
   options: RenderDebateOptions = {},
@@ -176,23 +232,46 @@ export function renderDebateFromGraph(
   }
 
   // Body: each speaker argues from the claims their position actually rests on.
+  // A crux claim the map records as disputed is answered on the spot by a
+  // position that disputes it. Without that line the crux reaches the pipeline
+  // as one uncontested sentence, so a blind run can only echo it back, never
+  // recover it as the thing the parties disagree about.
+  const cruxIds = new Set(cruxClaims.map((claim) => claim.id));
+  const contested = new Set<string>();
+  const rank = new Map(positions.map((position, index) => [position.id, index]));
   const maxDepth = Math.max(...positions.map((position) => spokenClaims.get(position.id)?.length ?? 0));
   for (let depth = 0; depth < maxDepth; depth += 1) {
     for (const position of positions) {
       const claim = spokenClaims.get(position.id)?.[depth];
       if (!claim) continue;
       lines.push(`${speakerFor.get(position.id)}: ${speak(claim.statement)}`);
+      if (!cruxIds.has(claim.id) || contested.has(claim.id)) continue;
+      const contester = contestersOf(graph, claim.id)
+        .filter((item) => item.positionId !== position.id)
+        .sort((a, b) => (rank.get(a.positionId) ?? 0) - (rank.get(b.positionId) ?? 0))[0];
+      if (!contester) continue;
+      contested.add(claim.id);
+      const disputed = `I do not accept that ${speak(claim.statement)}`;
+      lines.push(
+        contester.counter
+          ? `${speakerFor.get(contester.positionId)}: ${speak(contester.counter.statement)} So ${disputed}`
+          : `${speakerFor.get(contester.positionId)}: ${disputed}`,
+      );
     }
   }
 
   // Closing round: a speaker answers the strongest thing said against them.
+  // The rebuttal disputes the objection. It must not say what follows if the
+  // objection holds: "I do not think that settles it" was read by the pipeline
+  // as an explicit commitment that the objection changes nothing, which
+  // inverted the map's load-bearing marking for the stakes it touched.
   for (const position of positions) {
     const objection = objectionsToPosition(graph, position.id)[0];
     if (!objection) continue;
     lines.push(
-      `${speakerFor.get(position.id)}: I know the reply is that ${speak(
+      `${speakerFor.get(position.id)}: The strongest objection to my view is that ${speak(
         objection.statement,
-      )} I do not think that settles it.`,
+      )} I think that objection is mistaken.`,
     );
   }
 

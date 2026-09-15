@@ -67,6 +67,16 @@ export function normalizeExtraction(
   });
 
   const remapParticipant = (id: string) => participantMap.get(id);
+  // A quote's attribution must follow the same renaming as the participant it
+  // names, or every later check of "did this person say this" compares a raw
+  // id against a normalized one and fails. A quote whose participant no longer
+  // resolves keeps its text and loses the attribution.
+  const remapQuotes = <T extends { participantId?: string }>(quotes: T[]): T[] =>
+    quotes.map((quote) => {
+      if (quote.participantId === undefined) return quote;
+      const mapped = remapParticipant(quote.participantId);
+      return mapped ? { ...quote, participantId: mapped } : { ...quote, participantId: undefined };
+    });
   // Label dedupe (§10.3) points several raw ids at one survivor, so an array
   // that listed "priya" and "PRIYA" would otherwise come back as
   // ["priya", "priya"]. Drop dangling references, then repeats, keeping order.
@@ -92,7 +102,7 @@ export function normalizeExtraction(
     if (position.participantIds.some((id) => !remapParticipant(id))) {
       warnings.push(`Dropped dangling participant on position "${position.id}"`);
     }
-    return { ...position, id: nextId, participantIds };
+    return { ...position, id: nextId, participantIds, groundingQuotes: remapQuotes(position.groundingQuotes) };
   }).filter((position) => {
     if (position.participantIds.length === 0) {
       warnings.push(`Dropped position "${position.id}" with no participants`);
@@ -111,6 +121,7 @@ export function normalizeExtraction(
       participantIds: remapParticipants(claim.participantIds),
       acceptedByParticipantIds: remapParticipants(claim.acceptedByParticipantIds),
       disputedByParticipantIds: remapParticipants(claim.disputedByParticipantIds),
+      groundingQuotes: remapQuotes(claim.groundingQuotes),
       stanceByPosition: claim.stanceByPosition
         .map((stance) => {
           const positionId = positionMap.get(stance.positionId);
@@ -144,6 +155,7 @@ export function normalizeExtraction(
   const commonGroundCandidates = raw.commonGroundCandidates.map((item) => ({
     ...item,
     participantIds: remapParticipants(item.participantIds),
+    groundingQuotes: remapQuotes(item.groundingQuotes),
   })).filter((item) => {
     if (item.participantIds.length === 0) {
       warnings.push("Dropped common-ground item with no participants");
@@ -155,6 +167,7 @@ export function normalizeExtraction(
   const disagreementCandidates = raw.disagreementCandidates.map((item, index) => ({
     ...item,
     id: uniqueId(slugify(item.id, `disagreement-${index + 1}`), used),
+    groundingQuotes: remapQuotes(item.groundingQuotes),
     claimIds: item.claimIds.flatMap((id) => {
       const mapped = claimMap.get(id);
       return mapped && claimIds.has(mapped) ? [mapped] : [];
@@ -201,7 +214,7 @@ export function normalizeExtraction(
         warnings.push(`Preserved stake "${stake.id}" without its dropped position reference`);
       }
     }
-    return { ...stake, id: nextId, claimId, participantId, positionId };
+    return { ...stake, id: nextId, claimId, participantId, positionId, groundingQuotes: remapQuotes(stake.groundingQuotes) };
   }).filter((stake): stake is NonNullable<typeof stake> => Boolean(stake));
 
   return {

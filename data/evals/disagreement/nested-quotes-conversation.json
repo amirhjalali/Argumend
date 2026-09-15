@@ -2,7 +2,7 @@
   "id": "nested-quotes-conversation",
   "contentType": "conversation",
   "source": "Nadia: You wrote \"ship it Friday, no review needed\" in the thread, and now the config change is in production with a typo in the region name.\nOwen: I wrote \"ship it Friday, no review needed\" because we had agreed in January that config changes skip review. That agreement is in the team charter.\nNadia: The charter says \"config-only changes to non-production environments skip review.\" This was production. Read your own sentence back.\nOwen: The charter line was written before we split the environments. Everyone has been treating it as covering all config for months.\nNadia: Everyone treating it that way is not the same as the charter saying it. If the rule is going to cover production, we vote on it, we do not drift into it.\nOwen: Fine. I still think the rule we have been following is the right rule, but I agree it should be voted on rather than assumed.",
-  "allowedPatterns": ["mixed-disagreement", "mostly-common-ground"],
+  "allowedPatterns": ["mixed-disagreement", "mostly-common-ground", "single-empirical-crux"],
   "expectCrux": true,
   "minPositions": 2,
   "maxPositions": 2,

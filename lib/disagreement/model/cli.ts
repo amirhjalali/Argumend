@@ -129,6 +129,45 @@ export function payloadFromCliOutput(kind: DisagreementCliKind, stdout: string):
 }
 
 /**
+ * The model id the CLI actually ran, for report provenance.
+ *
+ * The command line carries an alias ("sonnet", "opus"), so recording that made
+ * an opus run and a sonnet run indistinguishable from their artifacts. The
+ * `claude -p --output-format json` envelope carries `modelUsage`, keyed by the
+ * resolved model id, with one entry per model the turn touched: the requested
+ * model plus small helpers (a haiku call for a title, say). The entry whose id
+ * or `canonicalModel` contains the alias is the one that answered; failing
+ * that, the one that produced the most output. With no usable envelope, the
+ * alias stands.
+ */
+export function resolvedModelFromCliOutput(
+  kind: DisagreementCliKind,
+  stdout: string,
+  alias: string,
+): string {
+  if (kind !== "claude") return alias;
+  try {
+    const envelope = JSON.parse(stdout) as {
+      modelUsage?: Record<string, { outputTokens?: number; canonicalModel?: string } | undefined>;
+    };
+    const usage = envelope.modelUsage;
+    if (!usage || typeof usage !== "object") return alias;
+    const entries = Object.entries(usage).filter(([id, item]) => id && item && typeof item === "object");
+    if (entries.length === 0) return alias;
+    const needle = alias.trim().toLowerCase();
+    const matching = entries.filter(
+      ([id, item]) =>
+        id.toLowerCase().includes(needle) || (item?.canonicalModel ?? "").toLowerCase().includes(needle),
+    );
+    const pool = matching.length > 0 ? matching : entries;
+    const best = [...pool].sort((a, b) => (b[1]?.outputTokens ?? 0) - (a[1]?.outputTokens ?? 0))[0];
+    return best?.[0] || alias;
+  } catch {
+    return alias;
+  }
+}
+
+/**
  * A CLI can report a provider-level failure — an exhausted usage limit, an
  * expired login — while still exiting zero. Detecting that here keeps the
  * caller from spending a repair attempt on it and then blaming the schema.
@@ -316,7 +355,7 @@ export class CliDisagreementProvider implements DisagreementModelProvider {
           data: parsed.data as RawDisagreementExtractionV1,
           meta: {
             provider: `cli:${this.kind}`,
-            model: this.model,
+            model: resolvedModelFromCliOutput(this.kind, output.stdout, this.model),
             latencyMs: Date.now() - started,
           },
         };

@@ -2,7 +2,7 @@
   "id": "different-questions",
   "contentType": "conversation",
   "source": "Kai: We need to cut the elm on Mercer this week. The arborist said the split trunk gives it a high chance of failing in the next storm.\nLena: I am not answering the storm-risk question. I am asking whether the parks department should keep replacing mature canopy with tiny saplings every time maintenance gets hard.\nKai: That is a separate policy debate. For this tree, the question is whether it might fall onto the bus stop.\nLena: And for me the question is whether the city keeps using risk language to shrink canopy in the hottest blocks.",
-  "allowedPatterns": ["mixed-disagreement"],
+  "allowedPatterns": ["mixed-disagreement", "value-conflict"],
   "expectCrux": true,
   "minPositions": 2,
   "maxPositions": 2,

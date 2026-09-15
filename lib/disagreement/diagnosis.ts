@@ -16,6 +16,12 @@ export interface DiagnosisInputs {
   commonGroundCount: number;
   groundingCoverage: number;
   primaryType?: DisagreementType;
+  /**
+   * The report's own shared-ground band. Derived from `commonGroundCount` when
+   * omitted, so the pattern can never claim more agreement than the band the
+   * reader sees beside it.
+   */
+  sharedGround?: SharedGroundBand;
   hasCrux: boolean;
   graphValid: boolean;
 }
@@ -62,14 +68,20 @@ export function deriveDiagnosis(input: DiagnosisInputs): DiagnosisPattern {
     return "insufficient-context";
   }
   if (input.positionCount < 2) return "not-a-disagreement";
-  if (input.commonGroundCount > 0 && input.disagreementCount <= 1 && input.hasCrux) {
-    if (input.primaryType === "empirical") return "single-empirical-crux";
-    if (input.disagreementCount === 1 && input.commonGroundCount >= 1) return "mostly-common-ground";
-  }
-  if (input.commonGroundCount >= 1 && input.disagreementCount <= 1) return "mostly-common-ground";
-  if (input.primaryType === "empirical" && input.hasCrux && input.disagreementCount <= 1) {
-    return "single-empirical-crux";
-  }
+  // §10.6: "one high-reach empirical crux". The crux is the engine's choice and
+  // the primary type follows it, so an empirical primary type with a crux is
+  // that case. The old `disagreementCount <= 1` guard here was copied from the
+  // common-ground rule below; models list a second, procedural "how should we
+  // decide" disagreement almost every time, so the guard kept this pattern from
+  // ever firing on textbook inputs while the typed branches below carry no such
+  // guard.
+  if (input.primaryType === "empirical" && input.hasCrux) return "single-empirical-crux";
+  // §10.6: "high common ground and no more than one narrow disagreement". The
+  // count alone let this fire beside a `sharedGround: "low"` band in the same
+  // report; the band is the reader's measure, so it is the gate.
+  const sharedGround = input.sharedGround ?? deriveSharedGround(input.commonGroundCount);
+  const establishedSharedGround = sharedGround === "moderate" || sharedGround === "high";
+  if (establishedSharedGround && input.disagreementCount <= 1) return "mostly-common-ground";
   if (input.primaryType === "causal") return "causal-model-split";
   if (input.primaryType === "predictive") return "forecast-split";
   if (input.primaryType === "definitional") return "definition-mismatch";
@@ -79,7 +91,21 @@ export function deriveDiagnosis(input: DiagnosisInputs): DiagnosisPattern {
   return "mixed-disagreement";
 }
 
-export function diagnosisHeadline(pattern: DiagnosisPattern): string {
+/**
+ * The causal headline asserts that the facts are shared. That is only true
+ * when the report itself established shared ground; over a text where the
+ * facts are disputed or absent it must say only what the type says.
+ */
+const CAUSAL_HEADLINE_WITHOUT_SHARED_FACTS = "They disagree about what causes what.";
+
+export function diagnosisHeadline(
+  pattern: DiagnosisPattern,
+  context: { sharedGround?: SharedGroundBand } = {},
+): string {
+  if (pattern === "causal-model-split") {
+    const established = context.sharedGround === "moderate" || context.sharedGround === "high";
+    return established ? HEADLINES[pattern] : CAUSAL_HEADLINE_WITHOUT_SHARED_FACTS;
+  }
   return HEADLINES[pattern];
 }
 

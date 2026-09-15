@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import type { RawDisagreementExtractionV1 } from "@/types/disagreement";
 import { analyzeDisagreement } from "./analyze";
-import { deriveDiagnosis, type DiagnosisInputs } from "./diagnosis";
+import { deriveDiagnosis, diagnosisHeadline, type DiagnosisInputs } from "./diagnosis";
 import { FakeDisagreementProvider } from "./model/fake";
 
 const REQUEST_ID = "11111111-1111-1111-1111-111111111111";
@@ -69,5 +69,57 @@ describe("positions without reasons (extreme-brevity-no-reasons fixture)", () =>
     // No fabricated structure to make the report look fuller than the text.
     expect(result.report.commonGround).toHaveLength(0);
     expect(result.report.disagreements).toHaveLength(0);
+  });
+});
+
+describe("mostly-common-ground requires established shared ground (reviewer issue C)", () => {
+  const withCrux: DiagnosisInputs = { ...BASE, claimCount: 3, disagreementCount: 1, hasCrux: true };
+
+  it("does not claim mostly common ground when sharedGround is low", () => {
+    expect(
+      deriveDiagnosis({ ...withCrux, commonGroundCount: 1, sharedGround: "low", primaryType: "causal" }),
+    ).toBe("causal-model-split");
+    expect(
+      deriveDiagnosis({ ...withCrux, commonGroundCount: 1, sharedGround: "low", primaryType: "normative" }),
+    ).toBe("value-conflict");
+    expect(
+      deriveDiagnosis({ ...withCrux, commonGroundCount: 1, sharedGround: "low", primaryType: "priority", hasCrux: false }),
+    ).toBe("priority-tradeoff");
+  });
+
+  it("still fires with moderate shared ground and one disagreement", () => {
+    expect(
+      deriveDiagnosis({ ...withCrux, commonGroundCount: 2, sharedGround: "moderate", primaryType: "procedural" }),
+    ).toBe("mostly-common-ground");
+  });
+
+  it("derives the band from the count when the caller omits it", () => {
+    expect(deriveDiagnosis({ ...withCrux, commonGroundCount: 1, primaryType: "causal" })).toBe("causal-model-split");
+    expect(deriveDiagnosis({ ...withCrux, commonGroundCount: 2, primaryType: "procedural" })).toBe("mostly-common-ground");
+  });
+
+  it("keeps single-empirical-crux ahead of mostly-common-ground", () => {
+    expect(
+      deriveDiagnosis({ ...withCrux, commonGroundCount: 2, sharedGround: "moderate", primaryType: "empirical" }),
+    ).toBe("single-empirical-crux");
+  });
+});
+
+describe("causal headline (reviewer issue F)", () => {
+  it("claims shared facts only when shared ground is established", () => {
+    expect(diagnosisHeadline("causal-model-split", { sharedGround: "moderate" })).toBe(
+      "They agree on the facts but disagree about what causes them.",
+    );
+    for (const sharedGround of ["none", "low", "unknown"] as const) {
+      const headline = diagnosisHeadline("causal-model-split", { sharedGround });
+      expect(headline).not.toMatch(/agree on the facts/i);
+      expect(headline).toMatch(/cause/i);
+    }
+  });
+
+  it("leaves other patterns unchanged", () => {
+    expect(diagnosisHeadline("value-conflict", { sharedGround: "none" })).toBe(
+      "More evidence alone will not settle this.",
+    );
   });
 });

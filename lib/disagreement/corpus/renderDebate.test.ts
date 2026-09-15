@@ -194,8 +194,26 @@ describe("renderDebateFromGraph", () => {
 
     const speakerA = rendered.source.split("\n")[0].split(":")[0];
     expect(rendered.source).toContain(
-      `${speakerA}: I know the reply is that The objection points to a real weakness. I do not think that settles it.`,
+      `${speakerA}: The strongest objection to my view is that The objection points to a real weakness. I think that objection is mistaken.`,
     );
+  });
+
+  it("phrases the rebuttal so it cannot be read as an update commitment", () => {
+    // "I know the reply is that X. I do not think that settles it." was
+    // parsed by the pipeline as the speaker explicitly stating that X does not
+    // move them: an explicit no-change commitment, which inverted the map's
+    // load-bearing marking for five stakes across two corpus files. The
+    // rebuttal must dispute the objection, not say what happens if it holds.
+    const positions = [
+      makePosition("p-a", "A", "Position A statement.", 1),
+      makePosition("p-b", "B", "Position B statement.", 2),
+    ];
+    const claims = [makeClaim("c-obj", "The objection points to a real weakness.")];
+    const edges = [makeEdge("e1", "c-obj", "p-a", "opposes")];
+    const rendered = renderDebateFromGraph(buildGraph("rebuttal-wording", positions, claims, edges));
+    const closing = rendered.source.split("\n").at(-1) ?? "";
+    expect(closing).toContain("The objection points to a real weakness.");
+    expect(closing).not.toMatch(/settle|would still|does not change|even if|no matter/i);
   });
 
   it("produces a rebuttal turn for a claim that undercuts a position", () => {
@@ -210,8 +228,75 @@ describe("renderDebateFromGraph", () => {
 
     const speakerB = rendered.source.split("\n")[1].split(":")[0];
     expect(rendered.source).toContain(
-      `${speakerB}: I know the reply is that The mechanism does not hold the way it is claimed. I do not think that settles it.`,
+      `${speakerB}: The strongest objection to my view is that The mechanism does not hold the way it is claimed. I think that objection is mistaken.`,
     );
+  });
+
+  it("voices a contesting line for a crux claim the map records as opposed by a position", () => {
+    // On two of three flagship maps every engine crux rendered as a single
+    // uncontested sentence, so a blind run could only echo it back. A claim the
+    // map marks as disputed must be disputed in the transcript by the position
+    // that disputes it, or recovery of the crux as a disagreement is untestable.
+    const positions = [
+      makePosition("p-a", "A", "Position A statement.", 1),
+      makePosition("p-b", "B", "Position B statement.", 2),
+    ];
+    const claims = [makeClaim("c-hinge", "The alliance is what keeps the region stable.")];
+    const edges = [
+      makeEdge("e1", "p-a", "c-hinge", "depends_on"),
+      makeEdge("e2", "c-hinge", "p-b", "opposes"),
+    ];
+    const rendered = renderDebateFromGraph(buildGraph("contested", positions, claims, edges));
+    expect(rendered.truth.cruxClaimIds).toContain("c-hinge");
+
+    const lines = rendered.source.split("\n");
+    const [speakerA, speakerB] = lines.slice(0, 2).map((line) => line.split(":")[0]);
+    const claimIndex = lines.indexOf(`${speakerA}: The alliance is what keeps the region stable.`);
+    expect(claimIndex).toBeGreaterThan(-1);
+    expect(lines[claimIndex + 1]).toBe(
+      `${speakerB}: I do not accept that The alliance is what keeps the region stable.`,
+    );
+    expect(rendered.source).not.toContain("c-hinge");
+    expect(rendered.source.toLowerCase()).not.toContain("crux");
+  });
+
+  it("answers a crux claim with the contradicting claim of the position that leans on it", () => {
+    const positions = [
+      makePosition("p-a", "A", "Position A statement.", 1),
+      makePosition("p-b", "B", "Position B statement.", 2),
+    ];
+    const claims = [
+      makeClaim("c-hinge", "Ownership of the technology stays concentrated in a few firms."),
+      makeClaim("c-counter", "Open models keep lowering the cost of entry for newcomers."),
+    ];
+    const edges = [
+      makeEdge("e1", "p-a", "c-hinge", "depends_on"),
+      makeEdge("e2", "p-b", "c-counter", "depends_on"),
+      makeEdge("e3", "c-counter", "c-hinge", "contradicts"),
+    ];
+    const rendered = renderDebateFromGraph(buildGraph("contradicted", positions, claims, edges));
+    expect(rendered.truth.cruxClaimIds).toContain("c-hinge");
+
+    const lines = rendered.source.split("\n");
+    const [speakerA, speakerB] = lines.slice(0, 2).map((line) => line.split(":")[0]);
+    const claimIndex = lines.indexOf(
+      `${speakerA}: Ownership of the technology stays concentrated in a few firms.`,
+    );
+    expect(claimIndex).toBeGreaterThan(-1);
+    expect(lines[claimIndex + 1]).toBe(
+      `${speakerB}: Open models keep lowering the cost of entry for newcomers. So I do not accept that Ownership of the technology stays concentrated in a few firms.`,
+    );
+  });
+
+  it("adds no contesting line for a crux claim nothing in the map disputes", () => {
+    const positions = [
+      makePosition("p-a", "A", "Position A statement.", 1),
+      makePosition("p-b", "B", "Position B statement.", 2),
+    ];
+    const claims = [makeClaim("c-only", "An undisputed premise that only one side leans on.")];
+    const edges = [makeEdge("e1", "p-a", "c-only", "depends_on")];
+    const rendered = renderDebateFromGraph(buildGraph("uncontested", positions, claims, edges));
+    expect(rendered.source).not.toMatch(/I do not accept that/);
   });
 
   it("limits supporting claims per speaker via claimsPerSpeaker", () => {
