@@ -446,7 +446,7 @@ cases. Cheaper lever worth building before the next run: cache the system prompt
 - `./node_modules/.bin/tsx scripts/check-source-urls.ts` DEAD 0 of 1662 (64 Nature URLs are
   "unverifiable (bot wall)", i.e. real articles behind a cookie wall)
 - `./node_modules/.bin/tsx scripts/validate-crux-recall.ts` exit 1 (expected; the gate fails honestly)
-- `next build` was NOT run this sprint. Run it before merging.
+- `rm -rf .next && next build` clean (run 2026-09-15 13:50 EDT on the final tree, 19 commits). Full suite at that point: 218 files / 2362 tests.
 
 ### Addendum — afternoon burst 2026-09-15 13:22-14:10 EDT (founder: "go hard for 40 min, then slow down")
 
