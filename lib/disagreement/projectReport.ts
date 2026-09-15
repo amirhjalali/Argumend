@@ -263,6 +263,71 @@ function statedResolution(condition: string | undefined): string | undefined {
 const VALUE_TYPES: ReadonlySet<DisagreementType> = new Set(["normative", "priority"]);
 const EVIDENCE_TYPES: ReadonlySet<DisagreementType> = new Set(["empirical", "causal", "predictive"]);
 
+type CruxResolutionKind = ReportCrux["resolution"]["kind"];
+
+/**
+ * The resolution kinds that can honestly describe what settles a question of
+ * this type. An evidence question may be settled by evidence in hand, by an
+ * observation still to come, or by auditing a source; a value or priority
+ * question only by a value choice; a definitional question only by a
+ * definition; a procedural one by allocating the decision; a trust one by
+ * an audit. The first entry is the default when the claim offers none that fit.
+ */
+function kindsForType(type: DisagreementType): readonly CruxResolutionKind[] {
+  switch (type) {
+    case "normative":
+    case "priority":
+      return ["value-difference"];
+    case "definitional":
+      return ["definitional-choice"];
+    case "procedural":
+      return ["authority-allocation"];
+    case "trust":
+      return ["source-audit"];
+    case "predictive":
+      return ["future-observable", "existing-evidence", "source-audit"];
+    default:
+      return ["existing-evidence", "future-observable", "source-audit"];
+  }
+}
+
+/**
+ * Spec §10.5 maps a ranked claim to a crux using the associated disagreement
+ * candidate when available, then the claim's resolution condition. When the
+ * crux borrows the disagreement's question, the disagreement's stated
+ * condition is what would settle the question the reader sees, so it leads;
+ * the claim's condition is the fallback, then the honest not-stated sentence.
+ * The claim's kind stays when it fits the question's type (an experiment
+ * still to run is future-observable under a causal question too) and is
+ * replaced by the type's own kind when it clashes, so a weighing question is
+ * never shown as settled by an evidence check. A crux that keeps its claim's
+ * own question keeps the claim's resolution as before.
+ */
+function cruxResolution(input: {
+  borrowed: boolean;
+  type: DisagreementType;
+  claim?: { resolution?: { kind: CruxResolutionKind; condition: string } };
+  related?: { resolutionCondition: string };
+}): ReportCrux["resolution"] {
+  const { borrowed, type, claim, related } = input;
+  const claimCondition = statedResolution(claim?.resolution?.condition);
+  const relatedCondition = statedResolution(related?.resolutionCondition);
+  const claimKind: CruxResolutionKind = claim?.resolution?.kind ?? (
+    type === "normative" ? "value-difference" :
+    type === "definitional" ? "definitional-choice" :
+    type === "predictive" ? "future-observable" :
+    "existing-evidence"
+  );
+  if (!borrowed) {
+    return { kind: claimKind, condition: claimCondition ?? relatedCondition ?? RESOLUTION_NOT_STATED };
+  }
+  const fitting = kindsForType(type);
+  return {
+    kind: fitting.includes(claimKind) ? claimKind : fitting[0]!,
+    condition: relatedCondition ?? claimCondition ?? RESOLUTION_NOT_STATED,
+  };
+}
+
 /**
  * The headline type follows the primary crux, the engine's deterministic
  * choice, so the headline and the crux it introduces describe the same
@@ -418,19 +483,14 @@ export function projectDisagreementReport(input: {
   // and is dropped only when that collides too.
   const cruxes: ReportCrux[] = [];
   const seenQuestions = new Set<string>();
-  type Candidate = { result: (typeof ranked)[number]; question: string };
+  /** `borrowed`: the question is the related disagreement's, not the claim's own. */
+  type Candidate = { result: (typeof ranked)[number]; question: string; borrowed: boolean };
   const deferredRestatements: Candidate[] = [];
 
-  const addCrux = ({ result, question }: Candidate) => {
+  const addCrux = ({ result, question, borrowed }: Candidate) => {
     const claim = claimsById.get(result.claimId);
     const related = disagreements.find((item) => item.relatedClaimIds.includes(result.claimId));
     const type = related?.type ?? (claim ? typeFromEpistemic(claim.epistemicType) : "empirical");
-    const resolutionKind = claim?.resolution?.kind ?? (
-      type === "normative" ? "value-difference" :
-      type === "definitional" ? "definitional-choice" :
-      type === "predictive" ? "future-observable" :
-      "existing-evidence"
-    );
     const affected = result.affectedPositions.map((item) => item.id);
     seenQuestions.add(normalizeQuestion(question));
     cruxes.push({
@@ -441,13 +501,7 @@ export function projectDisagreementReport(input: {
       whyItMatters: whyItMatters({ related, claim, positionLabels, affected }),
       affectedPositionIds: affected,
       branches: cruxBranches({ claim, affectedPositionIds: affected, positionLabels, properNouns }),
-      resolution: {
-        kind: resolutionKind,
-        condition:
-          statedResolution(claim?.resolution?.condition) ??
-          statedResolution(related?.resolutionCondition) ??
-          RESOLUTION_NOT_STATED,
-      },
+      resolution: cruxResolution({ borrowed, type, claim, related }),
       evidenceState: claim
         ? deriveEvidenceState({ claim, relations: extraction.claimRelations, source })
         : "not-independently-checked",
@@ -481,15 +535,16 @@ export function projectDisagreementReport(input: {
       (candidate) => candidate && !seenQuestions.has(normalizeQuestion(candidate)),
     );
     if (!question) continue;
+    const borrowed = question === related?.question;
     // A crux that just restates the disagreement's own question hands the
     // reader back what they asked instead of naming what would settle it. Defer
     // rather than drop: if nothing more specific survives, it still beats
     // showing no crux at all.
     if (restatesMainQuestion(question, extraction.mainQuestion)) {
-      deferredRestatements.push({ result, question });
+      deferredRestatements.push({ result, question, borrowed });
       continue;
     }
-    addCrux({ result, question });
+    addCrux({ result, question, borrowed });
   }
 
   for (const candidate of deferredRestatements) {

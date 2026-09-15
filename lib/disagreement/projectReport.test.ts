@@ -3,8 +3,10 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import type { RawDisagreementExtractionV1 } from "@/types/disagreement";
 import { analyzeDisagreement } from "./analyze";
+import { buildArgumentGraph } from "./buildGraph";
 import { FakeDisagreementProvider } from "./model/fake";
-import { RESOLUTION_NOT_STATED } from "./projectReport";
+import { normalizeExtraction } from "./normalize";
+import { RESOLUTION_NOT_STATED, projectDisagreementReport } from "./projectReport";
 import { normalizeSourceText } from "./source";
 
 const REQUEST_ID = "11111111-1111-1111-1111-111111111111";
@@ -289,5 +291,189 @@ describe("reports with no quotes to check (zero-position honesty)", () => {
     expect(result.report.positions).toHaveLength(0);
     expect(result.report.diagnosis.confidenceBasis).not.toMatch(/found verbatim/);
     expect(result.report.diagnosis.confidenceBasis).toMatch(/no quotes to check/i);
+  });
+});
+
+/**
+ * A weighing dispute (priority) whose ranked claims are two empirical figures,
+ * one per side. The disagreement states what would settle the weighing; each
+ * claim states what would settle its own figure. The crux that borrows the
+ * disagreement's question must borrow that condition too, not its claim's
+ * evidence check; the crux left with its claim's own question keeps its own.
+ */
+const BAKERY_SOURCE = [
+  "Nadia: The bakery should close its evening shift; sales after 5pm are barely a third of daytime.",
+  "Marco: The evening regulars keep the bakery embedded in the street. Keep it open.",
+].join("\n");
+
+const SALES_CONDITION = "Sales records comparing after-5pm takings with daytime takings.";
+const EMBEDDED_CONDITION = "A count of how many evening regulars live or work on the street.";
+const WEIGHING_CONDITION = "Agree whether embeddedness counts alongside sales and how to weigh it.";
+const WEIGHING_QUESTION =
+  "Should the evening shift be judged by its sales ratio or by the embeddedness the regulars provide?";
+
+function bakeryExtraction(): RawDisagreementExtractionV1 {
+  return {
+    mainQuestion: "Should the bakery close its evening shift?",
+    participants: [
+      { id: "nadia", label: "Nadia", kind: "named" },
+      { id: "marco", label: "Marco", kind: "named" },
+    ],
+    positions: [
+      {
+        id: "pos-close",
+        label: "Close the evening shift",
+        participantIds: ["nadia"],
+        thesis: "The bakery should close its evening shift.",
+        steelman: "Evening takings do not justify the cost.",
+        explicitness: "explicit",
+        confidence: "high",
+        groundingQuotes: [{ quote: "The bakery should close its evening shift", participantId: "nadia" }],
+      },
+      {
+        id: "pos-keep",
+        label: "Keep the evening shift open",
+        participantIds: ["marco"],
+        thesis: "The evening shift should stay open.",
+        steelman: "Evening regulars anchor the bakery in the neighbourhood.",
+        explicitness: "explicit",
+        confidence: "high",
+        groundingQuotes: [{ quote: "Keep it open.", participantId: "marco" }],
+      },
+    ],
+    claims: [
+      {
+        id: "c-sales",
+        statement: "Sales after 5pm are barely a third of daytime sales.",
+        participantIds: ["nadia"],
+        epistemicType: "empirical",
+        explicitness: "explicit",
+        stanceByPosition: [
+          { positionId: "pos-close", relation: "supports" },
+          { positionId: "pos-keep", relation: "opposes" },
+        ],
+        acceptedByParticipantIds: ["nadia"],
+        disputedByParticipantIds: ["marco"],
+        confidence: "medium",
+        resolution: { kind: "existing-evidence", condition: SALES_CONDITION },
+        groundingQuotes: [{ quote: "sales after 5pm are barely a third of daytime", participantId: "nadia" }],
+      },
+      {
+        id: "c-embedded",
+        statement: "The evening regulars keep the bakery embedded in the street.",
+        participantIds: ["marco"],
+        epistemicType: "empirical",
+        explicitness: "explicit",
+        stanceByPosition: [
+          { positionId: "pos-keep", relation: "supports" },
+          { positionId: "pos-close", relation: "opposes" },
+        ],
+        acceptedByParticipantIds: ["marco"],
+        disputedByParticipantIds: ["nadia"],
+        confidence: "medium",
+        resolution: { kind: "existing-evidence", condition: EMBEDDED_CONDITION },
+        groundingQuotes: [
+          { quote: "The evening regulars keep the bakery embedded in the street.", participantId: "marco" },
+        ],
+      },
+    ],
+    claimRelations: [],
+    commonGroundCandidates: [],
+    disagreementCandidates: [
+      {
+        id: "d-criterion",
+        question: WEIGHING_QUESTION,
+        type: "priority",
+        summary: "Nadia weighs the shift by sales; Marco weighs it by embeddedness.",
+        claimIds: ["c-sales", "c-embedded"],
+        participantStances: [
+          { participantId: "nadia", positionId: "pos-close", stance: "Judge it by sales." },
+          { participantId: "marco", positionId: "pos-keep", stance: "Judge it by embeddedness." },
+        ],
+        resolutionCondition: WEIGHING_CONDITION,
+        confidence: "high",
+        groundingQuotes: [],
+      },
+    ],
+    caveats: [],
+  };
+}
+
+const CLAIM_CONDITIONS: Record<string, string> = {
+  "c-sales": SALES_CONDITION,
+  "c-embedded": EMBEDDED_CONDITION,
+};
+
+/** Returns the crux that borrowed the disagreement's question and the one left with its claim's. */
+function projectBakery(mutate?: (extraction: RawDisagreementExtractionV1) => void) {
+  const raw = bakeryExtraction();
+  mutate?.(raw);
+  const normalized = normalizeExtraction(raw);
+  const built = buildArgumentGraph(normalized.extraction);
+  expect(built.valid).toBe(true);
+  const report = projectDisagreementReport({
+    extraction: normalized.extraction,
+    graph: built.graph,
+    graphValid: built.valid,
+    source: normalizeSourceText(BAKERY_SOURCE),
+    provider: "fake",
+    model: "fake",
+  });
+  expect(report.cruxes).toHaveLength(2);
+  const borrowed = report.cruxes.find((crux) => crux.question === WEIGHING_QUESTION);
+  const own = report.cruxes.find((crux) => crux.question.startsWith("Is this true: "));
+  expect(borrowed).toBeDefined();
+  expect(own).toBeDefined();
+  return { report, borrowed: borrowed!, own: own! };
+}
+
+describe("a crux that borrows a disagreement's question borrows its resolution (spec §6.6, §10.5)", () => {
+  it("takes the disagreement's stated condition over the claim's, with a kind that fits the question", () => {
+    const { borrowed } = projectBakery();
+    expect(borrowed.type).toBe("priority");
+    expect(borrowed.resolution.condition).toBe(WEIGHING_CONDITION);
+    expect(borrowed.resolution.kind).toBe("value-difference");
+  });
+
+  it("falls back to the claim's condition when the disagreement states none", () => {
+    const { borrowed } = projectBakery((extraction) => {
+      extraction.disagreementCandidates[0]!.resolutionCondition = "Not stated in the source.";
+    });
+    expect(borrowed.resolution.condition).toBe(CLAIM_CONDITIONS[borrowed.claimId]);
+  });
+
+  it("never gives a value or priority question an evidence-check kind", () => {
+    for (const type of ["priority", "normative"] as const) {
+      const { borrowed } = projectBakery((extraction) => {
+        extraction.disagreementCandidates[0]!.type = type;
+        extraction.disagreementCandidates[0]!.resolutionCondition = "Not stated in the source.";
+      });
+      expect(borrowed.type).toBe(type);
+      expect(borrowed.resolution.kind).toBe("value-difference");
+    }
+  });
+
+  it("says the source does not state one when neither the disagreement nor the claim does", () => {
+    const { borrowed } = projectBakery((extraction) => {
+      extraction.disagreementCandidates[0]!.resolutionCondition = "Not stated in the source.";
+      for (const claim of extraction.claims) delete claim.resolution;
+    });
+    expect(borrowed.resolution.condition).toBe(RESOLUTION_NOT_STATED);
+  });
+
+  it("keeps the claim's own resolution when the crux question is the claim's", () => {
+    const { own } = projectBakery();
+    expect(own.resolution.condition).toBe(CLAIM_CONDITIONS[own.claimId]);
+    expect(own.resolution.kind).toBe("existing-evidence");
+  });
+
+  it("does not change which crux is primary or the order", () => {
+    const { report } = projectBakery();
+    const withoutConditions = projectBakery((extraction) => {
+      extraction.disagreementCandidates[0]!.resolutionCondition = "Not stated in the source.";
+    });
+    expect(withoutConditions.report.cruxes.map((crux) => crux.claimId)).toEqual(
+      report.cruxes.map((crux) => crux.claimId),
+    );
   });
 });
