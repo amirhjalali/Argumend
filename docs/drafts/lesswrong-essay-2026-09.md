@@ -71,7 +71,7 @@ Read it once as a spectator and it looks like a fight about numbers: three versu
 
 That is the diagnosis a careful human produces. It is also the diagnosis that, on this input, either settles the argument in an afternoon (call the parks office) or reveals that it cannot be settled and should be decided by the committee as a values call. Both outcomes are better than the thread.
 
-`[FOUNDER: paste the hero line and the primary crux the live build actually produced on this source during the kit dry-run, with commit and model id, and state plainly whether it matched the above. If it produced the count-only report, say so; that is the honest version of this section.]`
+From one live `sonnet` run on branch `sprint-2026-09-14` (2026-09-15, 201 s, `cli` lane): the report chose the pattern **"several disagreements stacked together"** (mixed), found both positions, grounded every quote, and presented as its primary crux: *"Is this true: Bart's opposition is specific to the morning slot, not to extending off-leash hours in general; he'd support evenings and lights."* That did not match the crux above. It is a claim both sides accept, which is the same failure the blind reviewers found in roughly half of live reports: the engine surfaces an uncontested premise ahead of the contested one. The incident-rate question the answer key names was present in the report but not first. We are publishing that as the worked example rather than a better run, because a single run is all a reader gets. (Five repeated runs on the flagship maps showed the primary crux matching verbatim in only 1 to 2 runs of 5; `docs/reviews/2026-09-15-crux-repeatability.md`.)
 
 ## 4. What does not work yet, with numbers
 
