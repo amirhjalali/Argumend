@@ -39,8 +39,8 @@ listed once.
 | `/analyze-v2` | 2.45 | 1 | 0 | - | only the disabled submit button (`disabled:opacity-60`, exempt). Clean. |
 | `/auth/signin` -> `/saved` | 2.83 | 1 | 0 | - | sidebar "View all" only |
 | `/blog` | 2.32 | 28 | **12** | 2.32 / 28 / **0** | image placeholders were `bg-stone-100` with no dark variant; fixed. Residual: category pills and "Read article" `text-deep` |
-| `/blog/did-covid-come-from-a-lab` | **1.55** | **38** | 0 | - | **article body `<p class="... text-primary">` 1.55:1 (x24 incl. `<em>`)** — see F1 |
-| `/blog/could-ai-be-conscious` | **1.55** | **37** | 0 | - | same as above |
+| `/blog/did-covid-come-from-a-lab` | **1.55** | **38** | 0 | 2.83 / 1 / 0 | **article body `<p class="... text-primary">` 1.55:1 (x24 incl. `<em>`)** — see F1, fixed in `lib/markdown.ts`; residual is the sidebar "View all" |
+| `/blog/could-ai-be-conscious` | **1.55** | **37** | 0 | (same fix) | same as above |
 | `/blog/category/analysis` | 2.32 | 45 | 0 | 2.32 / 21 / 0 | tag chips `text-stone-500` 2.82 fixed; residual `text-deep` |
 | `/blog/tag/critical-thinking` | 2.32 | 66 | 0 | (same fix) | tag chips fixed; residual `text-deep` pills/links |
 | `/community` | 1.42 | 9 | 0 | - | decorative step numerals `text-deep/40` and roman numerals; h1 accent passes large-text |
@@ -86,10 +86,14 @@ listed once.
 1. **F1 — Blog article bodies are unreadable in dark mode (1.55:1).** `lib/markdown.ts`
    emits `<p class="mb-6 leading-[1.8] text-primary">` (and the same on `<ul>`/`<ol>`),
    a fixed light-mode hex with no dark variant, inside `.prose-custom` whose own colour
-   *does* flip. Every paragraph on `/blog/[slug]` fails. Fix (out of this task's edit
-   scope, so **not applied**): append `dark:text-[var(--text-primary)]` to the three
-   class strings in `lib/markdown.ts` (lines ~91, 97, 99). Guides use a separate renderer
-   and are fine.
+   *does* flip. Every paragraph on `/blog/[slug]` failed. **Fixed** (approved scope
+   exception): `p`, `ul`, `ol`, `h2` and `h3` emitted by `lib/markdown.ts` now carry
+   `dark:text-[var(--text-primary)]`; links already had their own dark tint and
+   blockquotes are not emitted. `lib/markdown.test.ts` gained a block asserting every
+   emitted brand text alias is paired with a `dark:text-*` override. Re-measured
+   `/blog/did-covid-come-from-a-lab`: 38 failing elements -> 1 (the sidebar link);
+   body paragraphs now read through `--text-primary`. Guides use a separate renderer
+   and were already fine.
 2. **F2 — Verdict chip labels (`BalanceWeightChip`) 2.24-3.4:1 on every listing.**
    Inline `style={{ color }}` from `QUADRANT_STYLE` never flipped. **Fixed**: added a
    `textClass` per quadrant (`text-crux dark:text-crux-light`, `text-deep
@@ -150,12 +154,13 @@ listed once.
     - 404 page footer tagline `dark:text-stone-500` at 10px (3.66).
     - Sidebar/meta labels at `text-muted` 10px measure 4.11 on cards (just under).
 
-## Fixes applied (22 files, all in `components/**` and `app/**`)
+## Fixes applied (21 files in `components/**` and `app/**`, plus `lib/markdown.ts` + its test)
 
 Ratios are measured in the browser with the dark class; "before -> after".
 
 | Site | before | after |
 |---|---|---|
+| `lib/markdown.ts` blog body p / ul / ol / h2 / h3 (approved scope exception) | 1.55 | 12+ (`--text-primary` on canvas) |
 | `components/BalanceWeightChip.tsx` verdict chip text (Contested / Moderate / Settled) | 2.24 / 3.40 / 2.32 | 4.52 / 4.68 / 5.07 |
 | `app/topics/TopicsPageClient.tsx` card descriptions, counts, 13 control labels | 3.24 / 3.66 | 6.16 / 6.97 |
 | `app/topics/category/[slug]/page.tsx`, `app/topics/tag/[slug]/page.tsx` cards + status | 3.24 | 6.16 |
@@ -176,5 +181,6 @@ whose light-mode classes resolve to the identical hex values the inline style us
 
 - `./node_modules/.bin/tsc --noEmit` — exit 0
 - `./node_modules/.bin/eslint . --max-warnings=0` — exit 0
-- `./node_modules/.bin/vitest run lib components` — 146 files, 1910 tests passed
-  (includes `darkModeOpacityRatchet` and `darkModeTextTokenRatchet`)
+- `./node_modules/.bin/vitest run lib components` — 146 files, 1913 tests passed
+  (includes `darkModeOpacityRatchet`, `darkModeTextTokenRatchet` and the new
+  `renderMarkdown dark-mode text tokens` block)

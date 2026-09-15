@@ -91,18 +91,6 @@ describe("renderMarkdown", () => {
   });
 });
 
-describe("dark mode", () => {
-  it("emits a dark text variant on every prose block so article bodies are readable on the dark canvas", () => {
-    const html = renderMarkdown("## Heading\n\n### Sub\n\nA paragraph.\n\n- one\n- two\n\n1. first\n2. second\n");
-    for (const tag of ["<h2", "<h3", "<p", "<ul", "<ol"]) {
-      const open = html.indexOf(tag);
-      expect(open, `${tag} present`).toBeGreaterThanOrEqual(0);
-      const classAttr = html.slice(open, html.indexOf(">", open));
-      expect(classAttr, `${tag} carries the dark text token`).toContain("dark:text-[var(--text-primary)]");
-    }
-  });
-});
-
 describe("renderMarkdown dark-mode text tokens", () => {
   // `text-primary` is a FIXED light-mode hex (#3d3a36) in tailwind.config.ts, so any
   // block emitted with it alone renders dark-on-dark inside `.prose-custom` on the
