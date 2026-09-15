@@ -535,3 +535,24 @@ Commits 30-33:
 Remaining dark-mode items are design judgement, listed in the verification doc: opacity-faded
 numerals, "No." card numbers, the vote buttons (fail in light mode too), inline hex numerals on
 methodology/perspectives.
+
+### Addendum 5 — 16:35-17:05 EDT
+
+Commits 35-37:
+
+- **Light-mode regression check** against `main` (15 routes, pixel diff + computed-style diff):
+  found one real regression from the dark-mode work, every card shadow turning white because the new
+  `card` colour token leaked into Tailwind's shadow-colour scale. Fixed at the config with a compile
+  proof. No text colour changed anywhere; light-mode AA identical to main. One visible change for
+  your sign-off: closed FAQ cards are now translucent white where the old class never compiled.
+- **Crux levers, flagged off** (`docs/reviews/2026-09-15-crux-levers-evidence.md`): the memo's two
+  engine levers and a projection-time "skip uncontested / common-ground crux" filter, all behind
+  flags defaulting off, flags-off output proven identical. Evidence says: keep A and B off (A
+  regresses named test 3, which the memo never checked); filter C is the one worth turning on, and
+  it changes the primary crux in 4 of 40 live reports, fixing three the reviewers named. **Decision:**
+  review the 8 diffs in the evidence doc and set `CRUX_PROJECTION_SKIP_UNCONTESTED=true` if you agree.
+
+Not started, on offer: the 12-person study kit that gates PR 9; a refresh of `docs/drafts/` around V2
+with today's measured results; a bounded crux-repeatability run (3 maps x 5 sonnet runs, ~15 CLI
+requests). Gates at 37 commits: vitest 2419+ (last full run at 34; scoped runs green since), tsc,
+eslint, eval 64/64; rebuild before merge.
