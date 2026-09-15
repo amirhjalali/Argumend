@@ -468,3 +468,22 @@ Four more commits (16 total on the branch, still not pushed):
 - **Still unverified by render:** the six-box V2 report and the stake ledger, because the fake
   provider's keyword matcher returns the non-disagreement fixture for the trust-split source (sweep
   finding F3). Fix `pickFixture` in `lib/disagreement/model/fake.ts` or pass a fixture id explicitly.
+
+### Addendum 2 — 14:00-14:20 EDT, the last minutes of the window plus the first of the next
+
+Four more commits (24 total):
+
+- **Fake provider fixture selection** (`lib/disagreement/model/fake.ts`): a submitted source that
+  matches an eval fixture now returns that fixture's extraction, so the six-box V2 report and the
+  stake ledger can be render-verified with `ARGUMEND_DISAGREEMENT_PROVIDER=fake`. Not yet re-rendered.
+- **Systemic dark-mode fix**: 81 sites in 43 files used `dark:*-[var(--x)]/N`, which Tailwind 3
+  silently drops. rgb-channel tokens for card/muted/divider, registered colours, every site
+  rewritten with its alpha preserved, and `lib/darkModeOpacityRatchet.test.ts` (zero ceiling +
+  in-test compile proof) so it cannot come back.
+- **`/d/[slug]` 404 is server-rendered** for malformed slugs (proxy matcher + shape check; the
+  shape module is Node-import-free because the proxy bundles it). Residual: a well-formed slug absent
+  from the DB still hits Next's client-rendered error shell, same as `/analysis/<uuid>`.
+- **Blog "Analysis" category** title-cased in the data (8 posts).
+
+Not done from the sweep: F7 (fixed-hex crux crimson / teal text fails dark-mode contrast) and the
+render re-check of the six-box report now that the fake lane can produce one.
