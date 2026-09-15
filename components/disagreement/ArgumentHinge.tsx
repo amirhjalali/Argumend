@@ -1,9 +1,11 @@
 import type { DisagreementReportV1 } from "@/types/disagreement";
+import { EvidenceStateSection } from "./EvidenceStateSection";
 
 /**
  * The primary crux, rendered as one of the report's few bordered panels.
- * Secondary cruxes, when the engine ranked more than one, sit beneath as a
- * quiet list rather than sibling cards.
+ * The crux's evidence state (spec §6.6) closes the panel. Secondary cruxes,
+ * when the engine ranked more than one, sit beneath as a quiet list rather
+ * than sibling cards.
  */
 export function ArgumentHinge({ report }: { report: DisagreementReportV1 }) {
   const primary = report.cruxes[0];
@@ -36,6 +38,7 @@ export function ArgumentHinge({ report }: { report: DisagreementReportV1 }) {
           <span className="font-medium text-[var(--text-primary)]">What could settle it: </span>
           {primary.resolution.condition}
         </p>
+        <EvidenceStateSection report={report} />
       </div>
       {secondary.length > 0 ? (
         <div className="mt-4">
