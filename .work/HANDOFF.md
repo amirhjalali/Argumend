@@ -512,8 +512,8 @@ Commits 26-29:
   keyword-based; the commit message has the one-line revert recipe if you would rather keep the box
   to the boundary statement until you define the rule.
 
-Gates on the final tree at 29 commits: 2410 tests, tsc, eslint, eval 64/64, clean build at commit
-24 (rebuild before merge: commits 25-29 touch components and the projection).
+Gates on the final tree at 34 commits: 2419 tests, tsc, eslint, eval 64/64, clean production build
+(run 16:40 EDT on commit 0c777cc, after every component and projection change).
 
 ### Addendum 4 — 14:50-16:35 EDT, dark mode made measurable
 
