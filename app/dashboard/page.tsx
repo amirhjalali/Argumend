@@ -220,7 +220,7 @@ export default async function DashboardPage() {
                           debate.status === "completed"
                             ? "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40"
                             : debate.status === "in_progress"
-                              ? "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40"
+                              ? "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-bright border-deep/20 dark:border-deep/40"
                               : "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-300 border-stone-200/60 dark:border-stone-700/40"
                         }`}
                       >

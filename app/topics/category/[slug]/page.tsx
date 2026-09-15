@@ -209,7 +209,7 @@ export default async function TopicCategoryPage({ params, searchParams }: PagePr
                     {topic.title}
                   </h2>
 
-                  <p className="text-sm text-stone-500 leading-relaxed line-clamp-2 mb-4 flex-1">
+                  <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-2 mb-4 flex-1">
                     {topic.meta_claim}
                   </p>
 
@@ -236,7 +236,7 @@ export default async function TopicCategoryPage({ params, searchParams }: PagePr
                         {topic.status.replace("_", " ")}
                       </span>
                     </div>
-                    <span className="text-[11px] text-stone-500">
+                    <span className="text-[11px] text-stone-500 dark:text-stone-400">
                       {topic.pillarCount} pillars
                     </span>
                   </div>

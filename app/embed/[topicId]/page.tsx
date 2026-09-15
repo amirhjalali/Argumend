@@ -105,7 +105,7 @@ function VerdictBanner({
   return (
     <div className="flex items-center justify-between rounded-lg border px-3 py-2 border-deep/20 bg-deep/5 dark:border-deep-light/30 dark:bg-deep-light/10">
       <div>
-        <span className="text-xs font-medium uppercase tracking-wide text-deep dark:text-deep-light">
+        <span className="text-xs font-medium uppercase tracking-wide text-deep dark:text-deep-bright">
           Verdict
         </span>
         <p className="text-sm font-semibold text-primary dark:text-stone-200">

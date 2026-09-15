@@ -152,7 +152,7 @@ export default function ResearchPage() {
             &ldquo;It is the mark of an educated mind to be able to entertain a thought
             without accepting it.&rdquo;
           </p>
-          <cite className="block mt-3 text-sm text-stone-500 not-italic">
+          <cite className="block mt-3 text-sm text-stone-500 dark:text-stone-400 not-italic">
             — Aristotle
           </cite>
         </blockquote>
@@ -180,19 +180,19 @@ export default function ResearchPage() {
         ))}
 
         {/* Section navigation */}
-        <div className="bg-[#faf8f3]/60 border border-stone-200/60 rounded-lg p-5 md:p-6 mb-16 md:mb-24">
+        <div className="bg-[#faf8f3]/60 dark:bg-card/60 border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg p-5 md:p-6 mb-16 md:mb-24">
           <div className="flex items-center gap-2.5 mb-4">
             <BookOpen className="h-4 w-4 text-deep" strokeWidth={1.8} />
-            <h3 className="text-sm font-medium text-primary">In this article</h3>
+            <h3 className="text-sm font-medium text-primary dark:text-[var(--text-primary)]">In this article</h3>
           </div>
           <ol className="space-y-2">
             {researchSections.map((section, i) => (
               <li key={section.id}>
                 <a
                   href={`#${section.id}`}
-                  className="text-sm text-stone-500 hover:text-deep transition-colors flex items-start gap-2"
+                  className="text-sm text-stone-500 dark:text-stone-400 hover:text-deep dark:hover:text-deep-bright transition-colors flex items-start gap-2"
                 >
-                  <span className="text-muted font-mono text-xs mt-0.5">
+                  <span className="text-muted dark:text-stone-400 font-mono text-xs mt-0.5">
                     {i + 1}.
                   </span>
                   {section.title}

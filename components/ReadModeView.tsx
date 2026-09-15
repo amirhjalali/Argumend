@@ -84,7 +84,7 @@ function EvidenceItem({ ev }: { ev: Evidence }) {
       ? "border-l-rust-400 bg-rust-50/30 dark:bg-rust-900/10"
       : "border-l-stone-500 bg-stone-100/30 dark:bg-stone-900/10";
   const label = ev.side === "for" ? "Supports" : "Against";
-  const labelColor = ev.side === "for" ? "text-rust-700" : "text-stone-700 dark:text-stone-300";
+  const labelColor = ev.side === "for" ? "text-rust-700 dark:text-rust-400" : "text-stone-700 dark:text-stone-300";
   return (
     <li className={`rounded-md border-l-4 ${accent} pl-4 pr-4 py-3`}>
       <div className="flex items-baseline gap-2 mb-1 flex-wrap">
@@ -92,7 +92,7 @@ function EvidenceItem({ ev }: { ev: Evidence }) {
           {label}
         </span>
         <span
-          className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] text-deep"
+          className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] text-deep dark:text-deep-bright"
           title="Confidence tier from source reliability, independence, replicability, and directness"
         >
           {tier}
@@ -307,7 +307,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
 
             {/* ─── Bottom line ─── */}
             <p className="mt-5 font-serif text-[17px] leading-relaxed text-secondary dark:text-stone-400 border-l-2 border-deep/40 pl-4 italic">
-              <span className="not-italic font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-deep block mb-1">
+              <span className="not-italic font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-deep dark:text-deep-bright block mb-1">
                 Bottom line
               </span>
               {synthesis}
@@ -363,7 +363,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                 </blockquote>
 
                 <div className="my-5 border-l-4 border-l-rust-400/70 pl-4 py-1 bg-rust-50/30 dark:bg-rust-900/10">
-                  <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 mb-1">
+                  <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 dark:text-rust-400 mb-1">
                     The Proponent
                   </div>
                   <p className="font-serif text-[18px] leading-relaxed text-primary dark:text-stone-200">

@@ -317,7 +317,7 @@ export default function GuidesPage() {
                             ? "bg-deep text-white shadow-md"
                             : isAdvanced
                               ? "bg-rust-100 text-rust-700 border border-rust-200 dark:border-rust-800/60 dark:bg-rust-900/30 dark:text-rust-300"
-                              : "bg-deep/10 text-deep border border-deep/20 dark:border-deep/40 dark:bg-deep/20 dark:text-deep-light"
+                              : "bg-deep/10 text-deep border border-deep/20 dark:border-deep/40 dark:bg-deep/20 dark:text-deep-bright"
                         }`}
                       >
                         {idx + 1}
@@ -340,7 +340,7 @@ export default function GuidesPage() {
                               <span
                                 className={`text-xs font-medium px-2 py-0.5 rounded-full ${
                                   isStart
-                                    ? "bg-deep/10 text-deep dark:bg-deep/20 dark:text-deep-light"
+                                    ? "bg-deep/10 text-deep dark:bg-deep/20 dark:text-deep-bright"
                                     : isAdvanced
                                       ? "bg-rust-50 text-rust-600 dark:bg-rust-900/30 dark:text-rust-300"
                                       : "bg-stone-100 dark:bg-[var(--bg-muted)] text-stone-500 dark:text-stone-400"

@@ -213,7 +213,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                     {article.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center gap-1 rounded-md bg-stone-100 dark:bg-[var(--bg-muted)] px-2 py-0.5 text-[11px] text-stone-500"
+                        className="inline-flex items-center gap-1 rounded-md bg-stone-100 dark:bg-[var(--bg-muted)] px-2 py-0.5 text-[11px] text-stone-500 dark:text-stone-400"
                       >
                         <Tag className="h-2.5 w-2.5" />
                         {tag}

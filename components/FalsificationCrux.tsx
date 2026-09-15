@@ -27,7 +27,7 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
           <div className="grid gap-3 sm:grid-cols-2">
             {/* A supporter (FOR the claim) — rust/proponent tone */}
             <div className="rounded-md border-l-4 border-l-rust-400 bg-rust-50/40 dark:bg-rust-900/10 pl-3 pr-3 py-2.5">
-              <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 mb-1">
+              <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 dark:text-rust-400 mb-1">
                 A supporter changes their mind if…
               </div>
               <p className="font-serif text-[15.5px] leading-snug text-primary dark:text-stone-200">
@@ -49,7 +49,7 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
             <dl className="mt-3 space-y-1.5 text-[14px] font-serif leading-snug">
               {f.common_ground && (
                 <div className="flex gap-2">
-                  <dt className="font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-deep whitespace-nowrap pt-0.5">
+                  <dt className="font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-deep dark:text-deep-bright whitespace-nowrap pt-0.5">
                     Both agree
                   </dt>
                   <dd className="text-primary/90 dark:text-stone-200/90">{f.common_ground}</dd>

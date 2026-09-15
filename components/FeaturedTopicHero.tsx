@@ -78,7 +78,7 @@ export function FeaturedTopicHero({
         <div className="space-y-6 lg:pt-2">
           {/* Product value proposition — the first-screen "what is this?" */}
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-deep/80 dark:text-deep-light">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-deep/80 dark:text-deep-bright">
               Argument maps for difficult questions
             </p>
             <Heading
@@ -107,7 +107,7 @@ export function FeaturedTopicHero({
 
           {/* Featured topic context */}
           <div className="space-y-3 border-t border-stone-300/60 pt-5 dark:border-[var(--border-divider)]">
-            <p className="text-xs font-medium uppercase tracking-widest text-deep/70 dark:text-deep-light">
+            <p className="text-xs font-medium uppercase tracking-widest text-deep/70 dark:text-deep-bright">
               Featured analysis
             </p>
             <h2 className="font-serif text-2xl leading-[1.12] tracking-tight text-primary dark:text-stone-200 sm:text-3xl">
@@ -156,7 +156,7 @@ export function FeaturedTopicHero({
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {forEvidence && (
                 <div className="rounded-xl border border-stone-200/60 bg-white p-4 dark:border-[var(--border-divider)] dark:bg-[var(--bg-card)]">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-deep dark:text-deep-light">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-deep dark:text-deep-bright">
                     Strongest For
                   </span>
                   <p className="mt-2 text-sm font-medium leading-snug text-primary dark:text-stone-200">

@@ -174,25 +174,25 @@ export default function HowItWorksPage() {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="p-4 text-center">
                 <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Balance</h3>
-                <p className="text-sm text-stone-500">Which way the evidence leans. 50 is an even split; further from 50 means a stronger lean toward or against the claim.</p>
+                <p className="text-sm text-stone-500 dark:text-stone-400">Which way the evidence leans. 50 is an even split; further from 50 means a stronger lean toward or against the claim.</p>
               </div>
               <div className="p-4 text-center border-l border-stone-200/50 dark:border-[var(--border-default)]">
                 <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Weight</h3>
-                <p className="text-sm text-stone-500">How much we actually know&mdash;evidence volume, source quality, and whether the open questions are even resolvable.</p>
+                <p className="text-sm text-stone-500 dark:text-stone-400">How much we actually know&mdash;evidence volume, source quality, and whether the open questions are even resolvable.</p>
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-4 text-center">
                 <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Settled</h3>
-                <p className="text-sm text-stone-500">High weight, strong lean. Think: &ldquo;Did we land on the moon?&rdquo;</p>
+                <p className="text-sm text-stone-500 dark:text-stone-400">High weight, strong lean. Think: &ldquo;Did we land on the moon?&rdquo;</p>
               </div>
               <div className="p-4 text-center border-x border-stone-200/50 dark:border-[var(--border-default)]">
                 <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Well-mapped, genuinely contested</h3>
-                <p className="text-sm text-stone-500">High weight, weak lean. Richly evidenced, but reasonable people still land on different sides.</p>
+                <p className="text-sm text-stone-500 dark:text-stone-400">High weight, weak lean. Richly evidenced, but reasonable people still land on different sides.</p>
               </div>
               <div className="p-4 text-center">
                 <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Open question</h3>
-                <p className="text-sm text-stone-500">Low weight, regardless of lean. We simply don&apos;t know enough yet.</p>
+                <p className="text-sm text-stone-500 dark:text-stone-400">Low weight, regardless of lean. We simply don&apos;t know enough yet.</p>
               </div>
             </div>
           </div>

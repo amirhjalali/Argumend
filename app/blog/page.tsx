@@ -231,7 +231,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             >
               <article className="relative overflow-hidden bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-10 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                 {featuredMedia?.hero && (
-                  <div className="-mx-6 -mt-6 mb-6 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 md:-mx-10 md:-mt-10">
+                  <div className="-mx-6 -mt-6 mb-6 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 dark:border-[var(--border-default)] dark:bg-[var(--bg-overlay)] md:-mx-10 md:-mt-10">
                     <Image
                       src={featuredMedia.hero.src}
                       alt={featuredMedia.hero.alt}
@@ -310,7 +310,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   >
                     <article className="relative h-full overflow-hidden bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-divider)] shadow-card hover:border-[#c8c0b4] dark:hover:border-[#4a4640] hover:shadow-lw-hover hover:-translate-y-0.5 transition-all duration-200">
                       {media?.hero && (
-                        <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 md:-mx-8 md:-mt-8">
+                        <div className="-mx-6 -mt-6 mb-5 aspect-[1672/941] overflow-hidden border-b border-stone-200/60 bg-stone-100 dark:border-[var(--border-default)] dark:bg-[var(--bg-overlay)] md:-mx-8 md:-mt-8">
                           <Image
                             src={media.hero.src}
                             alt={media.hero.alt}

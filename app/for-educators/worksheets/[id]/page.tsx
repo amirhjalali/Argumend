@@ -417,7 +417,7 @@ function RenderGrid({
 
   return (
     <>
-      <p className="screen-only mt-3 text-xs text-stone-500 sm:hidden">
+      <p className="screen-only mt-3 text-xs text-stone-500 dark:text-stone-400 sm:hidden">
         Swipe the table left to see every column.
       </p>
       <div
@@ -449,7 +449,7 @@ function RenderGrid({
                 >
                   {row.label}
                   {row.subLabel && (
-                    <span className="text-stone-500 ml-1">{row.subLabel}</span>
+                    <span className="text-stone-500 dark:text-stone-400 ml-1">{row.subLabel}</span>
                   )}
                 </th>
                 {columns.slice(1).map((col) => (
@@ -482,7 +482,7 @@ function RenderTable({
 
   return (
     <>
-      <p className="screen-only mt-3 text-xs text-stone-500 sm:hidden">
+      <p className="screen-only mt-3 text-xs text-stone-500 dark:text-stone-400 sm:hidden">
         Swipe the table left to see every column.
       </p>
       <div
@@ -517,10 +517,10 @@ function RenderTable({
                 <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-600 dark:text-stone-400">
                   {row.subLabel}
                 </td>
-                <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500">
+                <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500 dark:text-stone-400">
                   {row.lowAnchor}
                 </td>
-                <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500">
+                <td className="border border-stone-400 dark:border-stone-600 px-3 py-2 text-xs text-stone-500 dark:text-stone-400">
                   {row.highAnchor}
                 </td>
               </tr>
@@ -606,7 +606,7 @@ export default async function WorksheetPage({ params }: PageProps) {
       <main id="main-content" className="worksheet-content">
         {/* Header */}
         <header className="worksheet-header mb-8 pb-4 border-b-2 border-stone-800 dark:border-stone-400">
-          <p className="text-xs font-mono uppercase tracking-widest text-stone-500 mb-1">
+          <p className="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400 mb-1">
             ARGUMEND &mdash; Educator Worksheet
           </p>
           <h1 className="text-3xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-1">
@@ -618,19 +618,19 @@ export default async function WorksheetPage({ params }: PageProps) {
         {/* Student info */}
         <div className="grid grid-cols-3 gap-4 mb-6 pb-4 border-b border-stone-300 dark:border-stone-600">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
+            <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400 mb-1">
               Name
             </p>
             <div className="border-b border-stone-400 h-6" />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
+            <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400 mb-1">
               Date
             </p>
             <div className="border-b border-stone-400 h-6" />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
+            <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400 mb-1">
               Topic
             </p>
             <div className="border-b border-stone-400 h-6" />
@@ -639,7 +639,7 @@ export default async function WorksheetPage({ params }: PageProps) {
 
         {/* Instructions */}
         <div className="worksheet-instructions mb-8 bg-stone-50 dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-divider)] rounded-lg p-4">
-          <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
+          <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400 mb-1">
             Instructions
           </p>
           <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">

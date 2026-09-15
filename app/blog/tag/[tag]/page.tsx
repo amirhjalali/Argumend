@@ -217,7 +217,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
                         className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] ${
                           blogTagToSlug(t) === tagSlug
                             ? "bg-deep/10 text-deep font-medium"
-                            : "bg-stone-100 dark:bg-[var(--bg-muted)] text-stone-500"
+                            : "bg-stone-100 dark:bg-[var(--bg-muted)] text-stone-500 dark:text-stone-400"
                         }`}
                       >
                         <Tag className="h-2.5 w-2.5" />
@@ -236,7 +236,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
             ))}
           </div>
 
-          <p className="mt-8 text-center text-sm text-stone-500" role="status">
+          <p className="mt-8 text-center text-sm text-stone-500 dark:text-stone-400" role="status">
             Showing {pagination.startIndex + 1}&ndash;{pagination.endIndex} of{" "}
             {pagination.total} articles
           </p>

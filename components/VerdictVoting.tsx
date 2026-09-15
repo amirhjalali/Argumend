@@ -202,7 +202,7 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
         <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-2">
           What&rsquo;s Your Verdict?
         </h2>
-        <p className="text-sm text-stone-500 leading-relaxed max-w-lg mx-auto">
+        <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed max-w-lg mx-auto">
           After reviewing the evidence, where do you stand?
         </p>
       </div>
