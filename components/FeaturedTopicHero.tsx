@@ -138,8 +138,8 @@ export function FeaturedTopicHero({
           {crux && (
             <div className="rounded-r-xl border-l-4 border-[#a23b3b] bg-[#faf5f0] p-4 dark:bg-[#1e1d1a] sm:p-5">
               <div className="mb-2 flex items-center gap-2">
-                <Crosshair className="h-4 w-4 text-[#a23b3b]" aria-hidden="true" />
-                <span className="text-xs font-semibold uppercase tracking-wide text-[#a23b3b]">
+                <Crosshair className="h-4 w-4 text-[#a23b3b] dark:text-crux-light" aria-hidden="true" />
+                <span className="text-xs font-semibold uppercase tracking-wide text-[#a23b3b] dark:text-crux-light">
                   The Crux
                 </span>
               </div>

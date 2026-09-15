@@ -27,7 +27,7 @@ export function ShareCard({ left, right, line, attribution }: ShareCardProps) {
           <dt className="order-2 mt-2 text-xs leading-snug text-secondary dark:text-stone-300">
             {left.label}
           </dt>
-          <dd className="order-1 break-words font-serif text-4xl leading-none text-[#3a6965] sm:text-5xl dark:text-[#6fa39e]">
+          <dd className="order-1 break-words font-serif text-4xl leading-none text-[#3a6965] sm:text-5xl dark:text-deep-bright">
             {left.value}
           </dd>
         </div>
@@ -35,7 +35,7 @@ export function ShareCard({ left, right, line, attribution }: ShareCardProps) {
           <dt className="order-2 mt-2 text-xs leading-snug text-secondary dark:text-stone-300">
             {right.label}
           </dt>
-          <dd className="order-1 break-words font-serif text-4xl leading-none text-[#3a6965] sm:text-5xl dark:text-[#6fa39e]">
+          <dd className="order-1 break-words font-serif text-4xl leading-none text-[#3a6965] sm:text-5xl dark:text-deep-bright">
             {right.value}
           </dd>
         </div>

@@ -431,7 +431,7 @@ export default function MethodologyPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="w-24 text-center text-xs font-mono font-medium text-[#a23b3b]">
+                  <span className="w-24 text-center text-xs font-mono font-medium text-[#a23b3b] dark:text-crux-light">
                     low weight
                   </span>
                   <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">

@@ -20,7 +20,7 @@ export function CommonGroundSection({ report }: { report: DisagreementReportV1 }
               </p>
               {item.grounding.length > 0 ? (
                 <details className="mt-2">
-                  <summary className="min-h-11 cursor-pointer text-sm text-[#3a6965]">
+                  <summary className="min-h-11 cursor-pointer text-sm text-[#3a6965] dark:text-deep-bright">
                     Source notes ({item.grounding.length})
                   </summary>
                   <ul className="mt-2 space-y-2 border-l-2 border-[var(--border-divider)] pl-4">

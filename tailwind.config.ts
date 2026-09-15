@@ -45,6 +45,7 @@ const config: Config = {
           DEFAULT: "#3a6965", // Deep teal — primary accent (darkened for WCAG AA 4.5:1 on parchment)
           light: "#4f7b77", // Original deep teal — decorative/large text only
           dark: "#2d524f",
+          bright: "#6fa39e", // Dark-mode text tint: 6.2:1 on the #1a1917 canvas, 5.1:1 on dark cards
         },
 
         // Rust palette — CTA buttons, "for" side, warm accents
@@ -72,7 +73,7 @@ const config: Config = {
         // Bold semantic colors for graph elements
         crux: {
           DEFAULT: "#a23b3b", // Deep crimson for cruxes
-          light: "#c45c5c",
+          light: "#e66767", // Dark-mode text tint: 5.4:1 on the #1a1917 canvas, 4.5:1 on dark cards
           dark: "#7a2929",
         },
         evidence: {

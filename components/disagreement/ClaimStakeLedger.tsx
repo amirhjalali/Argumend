@@ -61,7 +61,7 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
                 <p className="font-serif text-[15px] leading-snug text-[var(--text-primary)]">
                   &ldquo;{stake.claim}&rdquo;
                   {stake.grounding.map((ref, index) => (
-                    <sup key={ref.id} className="ml-0.5 text-[#3a6965]">
+                    <sup key={ref.id} className="ml-0.5 text-[#3a6965] dark:text-deep-bright">
                       {NOTE_MARKS[index] ?? "•"}
                     </sup>
                   ))}
@@ -95,7 +95,7 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
             <p className="mt-1 font-serif text-lg leading-snug text-[var(--text-primary)]">
               &ldquo;{stake.claim}&rdquo;
               {stake.grounding.map((ref, index) => (
-                <sup key={ref.id} className="ml-0.5 text-[#3a6965]">
+                <sup key={ref.id} className="ml-0.5 text-[#3a6965] dark:text-deep-bright">
                   {NOTE_MARKS[index] ?? "•"}
                 </sup>
               ))}
@@ -126,7 +126,7 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
         <ol className="mt-5 space-y-1.5 border-t border-[var(--border-divider)] pt-4">
           {notes.map((note) => (
             <li key={note.ref.id} className="text-xs leading-relaxed text-[var(--text-muted)]">
-              <span className="mr-1 text-[#3a6965]">{note.mark}</span>
+              <span className="mr-1 text-[#3a6965] dark:text-deep-bright">{note.mark}</span>
               {note.speaker ? `${note.speaker}: ` : ""}
               &ldquo;{note.ref.quote}&rdquo;
             </li>
