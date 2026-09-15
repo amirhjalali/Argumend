@@ -1,0 +1,65 @@
+{
+  "topicId": "capitalism-after-ai",
+  "manifestVersion": 1,
+  "owner": "founder",
+  "cadence": "fast-moving-statistics",
+  "lastFullReview": "2026-08-12",
+  "lastHeadlineCheck": "2026-08-12",
+  "nextHeadlineCheckDue": "2026-09-11",
+  "nextFullReviewDue": "2026-11-10",
+  "fastMovingNodes": [
+    {
+      "id": "e-labor-share-fred",
+      "why": "Quarterly BLS Productivity and Costs series (PRS85006173). The share card's -19.3 index-point figure ends at Q2 2026; each quarterly release and annual revision moves it."
+    },
+    {
+      "id": "e-menlo-model-share",
+      "why": "Annual Menlo Ventures enterprise LLM spend survey. The share card's 40% provider share is the 2025 estimate and is direct evidence on the #1 crux (ownership concentration)."
+    },
+    {
+      "id": "e-synergy-cloud-share",
+      "why": "Synergy Research publishes cloud infrastructure shares quarterly; the Q4 2025 shares and 2025 full-year spend are a dated snapshot."
+    },
+    {
+      "id": "e-oecd-nvidia-gpu-share",
+      "why": "Phrased as 'recent estimates' of one supplier's AI-GPU share; custom silicon and rival accelerators can change the concentration picture within a year."
+    },
+    {
+      "id": "e-dcd-techinsights-nvidia-98pct",
+      "why": "2023 shipment-share figure reported in trade press; already three years old relative to a market where share is the contested variable."
+    },
+    {
+      "id": "e-techinsights-ai-chip-market",
+      "why": "2023 data-center AI chip market size and shares; supports the concentration crux and is the node most likely to be quietly stale."
+    },
+    {
+      "id": "e-alaska-pfd-2024",
+      "why": "Alaska announces the Permanent Fund Dividend amount every year; the 2024 figure is superseded by each new dividend."
+    },
+    {
+      "id": "e-norway-gpfg-2025",
+      "why": "Norway's Government Pension Fund Global reports fund value and returns semi-annually; the year-end 2025 figures are a dated snapshot."
+    },
+    {
+      "id": "e-mondragon-2024-report",
+      "why": "Annual report figures used in the highlights (EUR 11.2B sales, 70,000+ employees); the 2025 annual report supersedes them."
+    }
+  ],
+  "triggerEvents": [
+    "A BLS Productivity and Costs release or annual revision changes the nonfarm-business labor-share series behind the -19.3 share-card figure.",
+    "Menlo Ventures or a comparable source publishes a new enterprise LLM spend or market-share estimate (moves the 40% share-card figure and the concentration crux).",
+    "An antitrust action, merger review, or remedy touching frontier-model, cloud, or AI-chip partnerships is decided by the FTC, DOJ, CMA, or European Commission.",
+    "A material open-weight model release, pricing collapse, or new entrant changes the concentration picture across models, compute, or chips (bears on c-ai-ownership-stays-concentrated).",
+    "Longitudinal evidence on displaced workers' re-employment time, earnings recovery, and movement into complementary jobs after broad AI adoption is published (resolution condition for c-reallocation-keeps-pace).",
+    "Alaska's annual PFD announcement, Norway GPFG's annual or half-year report, or Mondragon's annual report is released (supersedes the corresponding highlight figures).",
+    "New results from a large guaranteed-income or basic-income randomized trial are published.",
+    "Household-income data show wages ceasing to be the largest income source for non-owners, or a preregistered threshold for that is adopted (resolution condition for c-wage-channel-loses-primacy)."
+  ],
+  "correctionLog": [],
+  "notes": [
+    "lastFullReview is the date of the last commit touching capitalism-after-ai.draft.json (ebba650, 2026-08-12). No later review has been logged, so lastHeadlineCheck is the same date.",
+    "As of manifest creation (2026-09-14) the thirty-day headline check is overdue; treat the share-card statistics as dated snapshots until the check is done.",
+    "Fast-moving selection rule: recurring statistical series, annual report vintages, and market-share estimates for the concentration crux. Historical statutes (NLRA, SSA, FLSA), theory nodes (Keynes, Hobson, Mason), completed RCTs, and one-off institutional reports (FTC 2025 staff report, CMA, OECD 2026, IMF scenarios) are excluded; regulatory action on those partnerships is a trigger event instead.",
+    "Every evidence node carries source.verifiedAt (2026-08-11) but none carries source.publishedAt; backfilling publishedAt is the first item for the next headline check."
+  ]
+}
