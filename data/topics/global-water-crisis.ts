@@ -325,9 +325,9 @@ export const globalWaterCrisisData = {
         {
           id: "desalination-energy-brine",
           title:
-            "Desalination Requires Massive Energy and Produces Toxic Brine Waste",
+            "Desalination Produces 142 Million Cubic Meters of Brine Daily — 1.5x Its Freshwater Output",
           description:
-            "Global desalination plants produce approximately 142 million cubic meters of brine daily — 1.5 times the volume of freshwater produced. This hypersaline waste, often containing chemical additives and heavy metals, is typically discharged into coastal waters, increasing local salinity by up to 20% and damaging marine ecosystems. A 2019 UN study found brine discharge was significantly harming marine environments in the Persian Gulf, Red Sea, and Mediterranean. Desalination also requires 3-4 kWh of electricity per cubic meter of freshwater, meaning that scaling desalination to meet projected global water deficits would require enormous new energy generation capacity — an estimated 50-100 GW, equivalent to 50-100 nuclear power plants — creating a compounding energy-water nexus challenge, particularly in fossil-fuel-dependent regions.",
+            "A 2019 global synthesis by UN University Institute for Water, Environment and Health researchers (Jones et al., Science of the Total Environment) counted 15,906 operational desalination plants producing about 95 million cubic meters of desalinated water per day, and estimated brine production at roughly 142 million cubic meters per day — about 1.5 times the freshwater output, and some 50% higher than previous quantifications. This hypersaline concentrate requires disposal that is both costly and environmentally damaging, and is typically discharged into coastal waters. Saudi Arabia, the UAE, Kuwait, and Qatar alone account for 55% of global brine production, concentrating that discharge in the Persian Gulf and Red Sea. The authors conclude that improved brine management strategies are required to limit the negative environmental impacts and the cost of disposal. Desalination is also energy-intensive, so scaling it to close projected global water deficits compounds the energy-water nexus, particularly in fossil-fuel-dependent regions.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -335,11 +335,11 @@ export const globalWaterCrisisData = {
             replicability: 8,
             directness: 7,
           },
-          source: "United Nations University; Nature Sustainability",
-          sourceUrl:
-            "https://www.nature.com/articles/s41893-019-0235-4",
+          source:
+            "Jones et al. (2019), Science of the Total Environment; UN University Institute for Water, Environment and Health",
+          sourceUrl: "https://doi.org/10.1016/j.scitotenv.2018.12.076",
           reasoning:
-            "The energy and brine constraints on desalination are well-quantified and represent genuine limits to scaling. However, these are engineering challenges, not physical impossibilities — brine mining for mineral recovery, solar-powered desalination, and zero-liquid-discharge systems are all under active development. The question is whether these solutions can mature fast enough to keep pace with growing demand.",
+            "The brine constraint on desalination is well-quantified in this peer-reviewed global inventory and represents a genuine limit to scaling. However, it is an engineering challenge, not a physical impossibility — brine mining for mineral recovery, solar-powered desalination, and zero-liquid-discharge systems are all under active development. The question is whether these solutions can mature fast enough to keep pace with growing demand. Note: earlier versions of this entry carried a per-cubic-meter electricity figure and a derived 50-100 GW capacity estimate that the cited source does not report; both have been removed rather than attributed.",
         },
         {
           id: "smart-agriculture-adoption",
