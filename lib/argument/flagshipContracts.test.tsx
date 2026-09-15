@@ -152,6 +152,46 @@ describe("flagship debate-map contracts", () => {
     }
   });
 
+  it("never links a flagship map into the legacy embed or compare routes", async () => {
+    // /embed and /topics/compare are legacy-field widgets that 404 for flagship
+    // ids by design (see lib/dynamicRoutePolicy.ts). Every generator that emits
+    // those URLs must therefore draw from the legacy index only.
+    const readSource = (relativePath: string) =>
+      readFile(path.join(process.cwd(), relativePath), "utf8");
+
+    const flagshipSurfaces = await Promise.all(
+      ["components/argument/DebateView.tsx", "app/topics/[id]/page.tsx"].map(readSource),
+    );
+    for (const source of flagshipSurfaces) {
+      expect(source).not.toContain("EmbedButton");
+      expect(source).not.toContain("/embed/");
+      expect(source).not.toContain("/topics/compare/");
+    }
+
+    const [compareIndex, comparePicker] = await Promise.all(
+      ["app/topics/compare/page.tsx", "app/topics/compare/CompareIndexView.tsx"].map(readSource),
+    );
+    expect(compareIndex).toMatch(/from\s+["']@\/data\/topicIndex["']/);
+    for (const source of [compareIndex, comparePicker]) {
+      expect(source).not.toMatch(/lib\/argument\/(?:topicIds|draftTopics)/);
+      for (const topicId of argumentTopicIds) {
+        expect(source).not.toContain(topicId);
+      }
+    }
+
+    for (const topicId of argumentTopicIds) {
+      const topic = loadArgumentTopic(topicId)!;
+      const { container } = render(
+        <DebateView meta={topic.meta} graph={topic.graph} cruxes={topic.cruxes} />,
+      );
+      const hrefs = Array.from(container.querySelectorAll("a[href]")).map(
+        (anchor) => anchor.getAttribute("href") ?? "",
+      );
+      expect(hrefs.filter((href) => href.includes("/embed/"))).toEqual([]);
+      expect(hrefs.filter((href) => href.includes("/topics/compare/"))).toEqual([]);
+    }
+  });
+
   it("keeps dated Israel figures and the rescinded NSM-20 out of the present tense", () => {
     const israelTopic = loadArgumentTopic("us-israel-support")!;
     const israelIndex = argumentTopicIndex.find(

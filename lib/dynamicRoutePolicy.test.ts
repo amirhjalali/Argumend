@@ -4,6 +4,7 @@ import { concepts } from "@/data/concepts";
 import { fallacies } from "@/data/fallacies";
 import { guides } from "@/data/guides";
 import { topicSummaries } from "@/data/topicIndex";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
 import {
   CONCEPT_ROUTE_SLUGS,
   FALLACY_ROUTE_SLUGS,
@@ -84,6 +85,21 @@ describe("early dynamic-route 404 policy", () => {
     "/for-educators/worksheets/definitely-missing.webp",
   ])("does not let dotted dynamic ids bypass the named 404: %s", (pathname) => {
     expect(shouldServeNamedNotFound(pathname)).toBe(true);
+  });
+
+  // Flagship ArgumentGraph topics render on /topics/:id only. Embed and compare
+  // are legacy-field widgets (balance, weight, verdict, pillar scores) with no
+  // honest flagship equivalent, so the proxy must keep serving a truthful 404.
+  it.each(argumentTopicIds)("keeps flagship id %s out of the embed and compare allowlists", (id) => {
+    expect(shouldServeNamedNotFound(`/embed/${id}`)).toBe(true);
+    expect(shouldServeNamedNotFound(`/topics/compare/${id}/vs/climate-change`)).toBe(true);
+    expect(shouldServeNamedNotFound(`/topics/compare/climate-change/vs/${id}`)).toBe(true);
+    expect(shouldServeNamedNotFound(`/topics/${id}`)).toBe(false);
+  });
+
+  it("rejects a flagship-vs-flagship comparison", () => {
+    const [a, b] = argumentTopicIds;
+    expect(shouldServeNamedNotFound(`/topics/compare/${a}/vs/${b}`)).toBe(true);
   });
 
   it("rejects same-topic comparisons while allowing arbitrary distinct known pairs", () => {
