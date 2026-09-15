@@ -1,4 +1,5 @@
 import { createHmac, createHash, randomBytes, timingSafeEqual } from "node:crypto";
+import { REPORT_SLUG_BYTES } from "./reportSlug";
 import { DISAGREEMENT_PUBLICATION_TOKEN_TTL_MS } from "./constants";
 import { canPublishReport, sanitizeForPublication } from "./quality";
 import { parseDisagreementReport } from "@/lib/schemas/disagreement";
@@ -65,7 +66,7 @@ export function createManageToken(): { raw: string; hash: string } {
 }
 
 export function createReportSlug(): string {
-  return randomBytes(9).toString("base64url");
+  return randomBytes(REPORT_SLUG_BYTES).toString("base64url");
 }
 
 export function validatePublishPayload(input: unknown): {

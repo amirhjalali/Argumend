@@ -31,6 +31,8 @@ const invalidDynamicRoutes = [
   "/for-educators/worksheets/definitely-missing",
   "/embed/definitely-missing",
   "/analysis/definitely-missing",
+  "/d/definitely-missing",
+  "/d/any-slug",
 ] as const;
 
 const validDynamicRoutes = [
@@ -51,6 +53,7 @@ const validDynamicRoutes = [
   "/for-educators/worksheets/argument-map-template",
   "/embed/climate-change",
   "/analysis/123e4567-e89b-12d3-a456-426614174000",
+  "/d/AbC123_-xYz9",
 ] as const;
 
 describe("early dynamic-route 404 policy", () => {

@@ -8,14 +8,19 @@ import { PublicShareControls } from "@/components/disagreement/PublicShareContro
 import { RepresentationFeedback } from "@/components/disagreement/RepresentationFeedback";
 import { isDatabaseConfigured } from "@/lib/db";
 import { getPublishedDisagreementReport } from "@/lib/db/queries";
+import { isReportSlug } from "@/lib/disagreement/reportSlug";
 
 /**
- * Loads a published report, treating every failure path the same way: an
- * unconfigured database, an unreachable one, or an absent slug all mean "no
- * report here" — a crawl-safe 404, never a 500.
+ * Loads a published report, treating every failure path the same way: a
+ * malformed slug, an unconfigured database, an unreachable one, or an absent
+ * slug all mean "no report here" — a crawl-safe 404, never a 500.
+ *
+ * Malformed slugs normally never reach here: the proxy rewrites them to the
+ * server-rendered global 404 (see `lib/dynamicRoutePolicy.ts`). The check is
+ * kept as defense in depth so a bypass still skips the database.
  */
 async function loadPublishedReport(slug: string) {
-  if (!isDatabaseConfigured()) return null;
+  if (!isReportSlug(slug) || !isDatabaseConfigured()) return null;
   try {
     return await getPublishedDisagreementReport(slug);
   } catch (error) {
