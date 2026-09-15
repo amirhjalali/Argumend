@@ -21,10 +21,16 @@ export function PositionBriefs({
       <h2 id="positions-heading" className="font-serif text-2xl text-[var(--text-heading)] sm:text-3xl">
         The positions
       </h2>
-      <p className="mt-2 max-w-2xl text-sm text-[var(--text-secondary)]">
-        Each position is stated at its strongest. Inclusion is not endorsement, and a steelman is
-        the report&rsquo;s reconstruction, not a quote.
-      </p>
+      {report.positions.length === 0 ? (
+        <p className="mt-2 max-w-2xl text-sm text-[var(--text-secondary)]">
+          No position could be mapped from the text, so there is nothing here to state at its strongest.
+        </p>
+      ) : (
+        <p className="mt-2 max-w-2xl text-sm text-[var(--text-secondary)]">
+          Each position is stated at its strongest. Inclusion is not endorsement, and a steelman is
+          the report&rsquo;s reconstruction, not a quote.
+        </p>
+      )}
       <div className="mt-6 divide-y divide-[var(--border-divider)] border-t border-[var(--border-divider)]">
         {report.positions.map((position, index) => {
           const speaker = position.participantIds

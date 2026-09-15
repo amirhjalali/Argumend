@@ -5,6 +5,7 @@ import type { RawDisagreementExtractionV1 } from "@/types/disagreement";
 import { analyzeDisagreement } from "./analyze";
 import { FakeDisagreementProvider } from "./model/fake";
 import { RESOLUTION_NOT_STATED } from "./projectReport";
+import { normalizeSourceText } from "./source";
 
 const REQUEST_ID = "11111111-1111-1111-1111-111111111111";
 
@@ -176,5 +177,117 @@ describe("grounding quote attribution survives id normalization", () => {
         expect(ids.has(ref.participantId!)).toBe(true);
       }
     }
+  });
+});
+
+describe("crux branches state the condition and its negation (spec §6.6)", () => {
+  it("emits two branches whose conditions differ, with the consequences reversed", async () => {
+    const result = await run("claims-with-source-evidence");
+    const crux = result.report.cruxes[0];
+    expect(crux.branches).toHaveLength(2);
+    const [holds, fails] = crux.branches;
+    expect(holds.condition).not.toBe(fails.condition);
+    expect(holds.condition).toMatch(/^If .* holds$/);
+    expect(fails.condition).toMatch(/^If .* does not hold$/);
+    // The same claim, affirmed and negated, moves the positions in opposite directions.
+    expect(holds.consequence).toMatch(/Do not expand yet becomes stronger/);
+    expect(holds.consequence).toMatch(/Expand the pilot becomes weaker/);
+    expect(fails.consequence).toMatch(/Do not expand yet becomes weaker/);
+    expect(fails.consequence).toMatch(/Expand the pilot becomes stronger/);
+  });
+
+  it("lower-cases the claim's leading capital inside the condition", async () => {
+    const result = await run("claims-with-source-evidence");
+    expect(result.report.cruxes[0].branches[0].condition).toMatch(/^If only 18 of 70/);
+    const trust = await run("trust-split-traffic-study");
+    expect(trust.report.cruxes[0].branches[0].condition).toMatch(/^If a study commissioned/);
+  });
+
+  it("keeps a participant's name and an acronym capitalised", async () => {
+    const result = await run("crlf-line-endings", (extraction) => {
+      extraction.claims[0].statement = "Mira installed the timer the week the splitting began.";
+      extraction.claims[1].statement = "NASA data show cold nights split tomatoes.";
+    });
+    const conditions = result.report.cruxes.flatMap((crux) => crux.branches.map((b) => b.condition));
+    expect(conditions.some((c) => c.startsWith("If Mira installed"))).toBe(true);
+    expect(conditions.some((c) => c.startsWith("If NASA data"))).toBe(true);
+    expect(conditions.some((c) => /^If mira|^If nASA/.test(c))).toBe(false);
+  });
+
+  it("does not read 'If If' for a claim that is itself a conditional", async () => {
+    const result = await run("crlf-line-endings", (extraction) => {
+      extraction.claims[0].statement = "If the heater is fixed, the splitting will stop.";
+    });
+    const conditions = result.report.cruxes.flatMap((crux) => crux.branches.map((b) => b.condition));
+    expect(conditions.every((c) => !/^If If /.test(c))).toBe(true);
+    expect(conditions.some((c) => /^If this holds: if the heater is fixed/.test(c))).toBe(true);
+    expect(conditions.some((c) => /^If this does not hold: if the heater is fixed/.test(c))).toBe(true);
+  });
+});
+
+describe("quote offsets index the normalised source (spec §10.1, §10.2)", () => {
+  function collectRefs(report: Awaited<ReturnType<typeof run>>["report"]) {
+    return [
+      ...report.positions.flatMap((item) => item.grounding),
+      ...report.commonGround.flatMap((item) => item.grounding),
+      ...report.disagreements.flatMap((item) => item.grounding),
+      ...(report.accountability?.stakes.flatMap((item) => item.grounding) ?? []),
+    ];
+  }
+
+  it("slices every stored quote out of the line-ending-normalised text a browser textarea holds", async () => {
+    const data = fixture("crlf-line-endings");
+    expect(data.source).toContain("\r\n");
+    const result = await run("crlf-line-endings");
+    const refs = collectRefs(result.report);
+    expect(refs.length).toBeGreaterThanOrEqual(3);
+    const normalised = normalizeSourceText(data.source);
+    for (const ref of refs) {
+      expect(normalised.slice(ref.start, ref.end)).toBe(ref.quote);
+    }
+    // The raw CRLF text is not the offsets' frame of reference; the report says
+    // how long the frame is so a consumer can tell which text it has.
+    expect(refs.some((ref) => data.source.slice(ref.start, ref.end) !== ref.quote)).toBe(true);
+    expect(result.report.provenance.sourceCharacterCount).toBe(normalised.length);
+    expect(result.report.provenance.sourceCharacterCount).not.toBe(data.source.length);
+  });
+});
+
+describe("evidence state follows what the source supplied for the crux claim (spec §6.6)", () => {
+  it("says evidence was asserted when the crux claim cites figures or a report", async () => {
+    const result = await run("claims-with-source-evidence");
+    expect(result.report.cruxes[0].evidenceState).toBe("asserted-in-source");
+  });
+
+  it("says no evidence was supplied when an evidence-typed crux claim is a bare assertion", async () => {
+    const result = await run("claims-without-evidence");
+    expect(result.report.cruxes[0].evidenceState).toBe("no-evidence-provided");
+  });
+
+  it("counts a further claim that bears on the crux claim as evidence asserted", async () => {
+    const result = await run("claims-without-evidence", (extraction) => {
+      extraction.claimRelations.push({
+        fromClaimId: "claim-reduce-tickets",
+        toClaimId: "claim-confuse-users",
+        type: "undercuts",
+      });
+    });
+    const crux = result.report.cruxes.find((item) => item.claimId === "claim-confuse-users");
+    expect(crux?.evidenceState).toBe("asserted-in-source");
+  });
+
+  it("keeps the general boundary for a crux whose claim is not an evidence question", async () => {
+    const result = await run("trust-split-traffic-study");
+    expect(result.report.cruxes[0].claimId).toBe("claim-funding-undermines");
+    expect(result.report.cruxes[0].evidenceState).toBe("not-independently-checked");
+  });
+});
+
+describe("reports with no quotes to check (zero-position honesty)", () => {
+  it("does not claim quoted support was found verbatim", async () => {
+    const result = await run("non-argument-recipe");
+    expect(result.report.positions).toHaveLength(0);
+    expect(result.report.diagnosis.confidenceBasis).not.toMatch(/found verbatim/);
+    expect(result.report.diagnosis.confidenceBasis).toMatch(/no quotes to check/i);
   });
 });

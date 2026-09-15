@@ -24,6 +24,7 @@ import {
   deriveSharedGround,
   diagnosisHeadline,
 } from "./diagnosis";
+import { deriveEvidenceState } from "./evidenceState";
 import { groundQuotes } from "./grounding";
 import type { NormalizedExtraction } from "./normalize";
 import { computeGroundingCoverage } from "./quality";
@@ -102,58 +103,93 @@ function whyItMatters(input: {
   return "The positions diverge here, though the source does not say how much rests on it.";
 }
 
-/** Trims a claim so it reads as a clause inside "If ... holds". */
-function asCondition(statement: string): string {
-  return statement.trim().replace(/\s+/g, " ").replace(/[.]+$/, "");
+/**
+ * Trims a claim so it reads as a clause inside "If ... holds". The claim's
+ * sentence-initial capital comes down ("If A study ... holds" read as a title);
+ * a name from the participant list, an acronym, and "I" keep theirs. A
+ * proper noun the report cannot recognise is left lower-cased; that is the
+ * lesser artifact.
+ */
+function asCondition(statement: string, properNouns: ReadonlySet<string>): string {
+  const stated = statement.trim().replace(/\s+/g, " ").replace(/[.]+$/, "");
+  const firstWord = stated.match(/^[A-Za-z][A-Za-z'’-]*/)?.[0] ?? "";
+  if (!firstWord || properNouns.has(firstWord)) return stated;
+  const article = firstWord === "A";
+  const sentenceCase = firstWord.length > 1 && /^[A-Z][a-z]/.test(firstWord);
+  if (!article && !sentenceCase) return stated;
+  return stated.charAt(0).toLowerCase() + stated.slice(1);
+}
+
+/** Words in participant labels that read as names: kept capitalised in a condition. */
+function properNounsFrom(participants: Array<{ label: string }>): ReadonlySet<string> {
+  const words = new Set<string>();
+  for (const participant of participants) {
+    for (const word of participant.label.split(/\s+/)) {
+      if (/^[A-Z]/.test(word)) words.add(word.replace(/[^A-Za-z'’-]+$/, ""));
+    }
+  }
+  return words;
+}
+
+function joinNames(names: string[]): string {
+  if (names.length <= 1) return names[0] ?? "";
+  return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
+function moves(names: string[], direction: "stronger" | "weaker"): string {
+  return `${joinNames(names)} ${names.length > 1 ? "become" : "becomes"} ${direction}`;
 }
 
 /**
- * A crux splits the disagreement, so the same condition cannot strengthen every
- * position it touches. Direction comes from how each position stands to the
- * claim: a position the claim supports gains if it holds, a position it opposes
- * loses. Emitting "becomes stronger" for both sides states something
- * impossible, and it is the crux — the product's central object — that says it.
+ * Spec §6.6: a crux has two branches, the condition and its negation, each
+ * leading to what it does to the positions. Direction comes from how each
+ * position stands to the claim: a position the claim supports gains if the
+ * claim holds and loses if it does not; a position it opposes, the reverse.
+ * Emitting both directions under one condition (the old shape) stated the
+ * affirmed case twice and never showed the reader the negated case.
  */
 function cruxBranches(input: {
   claim?: { statement: string; stanceByPosition: Array<{ positionId: string; relation: "supports" | "opposes" }> };
   affectedPositionIds: string[];
   positionLabels: Map<string, string>;
+  properNouns: ReadonlySet<string>;
 }): Array<{ condition: string; consequence: string }> {
-  const { claim, affectedPositionIds, positionLabels } = input;
+  const { claim, affectedPositionIds, positionLabels, properNouns } = input;
   if (!claim) return [];
 
   // A claim that already opens with "If" would otherwise read "If If ...".
-  const stated = asCondition(claim.statement);
-  const condition = /^if\s/i.test(stated) ? `${stated}, and that holds` : `If ${stated} holds`;
+  const stated = asCondition(claim.statement, properNouns);
+  const conditional = /^if\s/i.test(stated);
+  const holds = conditional ? `If this holds: ${stated}` : `If ${stated} holds`;
+  const fails = conditional ? `If this does not hold: ${stated}` : `If ${stated} does not hold`;
+
   const stanceFor = new Map(claim.stanceByPosition.map((stance) => [stance.positionId, stance.relation]));
   const named = affectedPositionIds.filter((id) => stanceFor.has(id));
-  const strengthened = named.filter((id) => stanceFor.get(id) === "supports");
-  const weakened = named.filter((id) => stanceFor.get(id) === "opposes");
-
   const label = (id: string) => positionLabels.get(id) ?? id;
-  const branches: Array<{ condition: string; consequence: string }> = [];
+  const supported = named.filter((id) => stanceFor.get(id) === "supports").map(label);
+  const opposed = named.filter((id) => stanceFor.get(id) === "opposes").map(label);
 
-  if (strengthened.length > 0) {
-    branches.push({
-      condition,
-      consequence: `${strengthened.map(label).join(" and ")} becomes stronger.`,
-    });
-  }
-  if (weakened.length > 0) {
-    branches.push({
-      condition,
-      consequence: `${weakened.map(label).join(" and ")} becomes weaker.`,
-    });
+  // With no recorded stance there is no defensible direction to assert, and
+  // stating that twice would add nothing; one branch carries it.
+  if (supported.length === 0 && opposed.length === 0) {
+    if (affectedPositionIds.length === 0) return [];
+    return [
+      {
+        condition: holds,
+        consequence: "The balance between the positions shifts, but the source does not say which way.",
+      },
+    ];
   }
 
-  // With no recorded stance there is no defensible direction to assert.
-  if (branches.length === 0 && affectedPositionIds.length > 0) {
-    branches.push({
-      condition,
-      consequence: "The balance between the positions shifts, but the source does not say which way.",
-    });
-  }
-  return branches.slice(0, DISAGREEMENT_LIMITS.maxBranchesPerCrux);
+  const consequence = (gain: string[], lose: string[]) =>
+    `${[gain.length > 0 ? moves(gain, "stronger") : "", lose.length > 0 ? moves(lose, "weaker") : ""]
+      .filter(Boolean)
+      .join("; ")}.`;
+
+  return [
+    { condition: holds, consequence: consequence(supported, opposed) },
+    { condition: fails, consequence: consequence(opposed, supported) },
+  ].slice(0, DISAGREEMENT_LIMITS.maxBranchesPerCrux);
 }
 
 function resolutionPathKind(
@@ -363,6 +399,7 @@ export function projectDisagreementReport(input: {
   }));
 
   const positionLabels = new Map(positions.map((position) => [position.id, position.label]));
+  const properNouns = properNounsFrom(extraction.participants);
   const ranked = input.graphValid ? identifyCruxes(graph) : [];
   const claimsById = new Map(extraction.claims.map((claim) => [claim.id, claim]));
 
@@ -394,7 +431,7 @@ export function projectDisagreementReport(input: {
       type,
       whyItMatters: whyItMatters({ related, claim, positionLabels, affected }),
       affectedPositionIds: affected,
-      branches: cruxBranches({ claim, affectedPositionIds: affected, positionLabels }),
+      branches: cruxBranches({ claim, affectedPositionIds: affected, positionLabels, properNouns }),
       resolution: {
         kind: resolutionKind,
         condition:
@@ -402,7 +439,9 @@ export function projectDisagreementReport(input: {
           statedResolution(related?.resolutionCondition) ??
           RESOLUTION_NOT_STATED,
       },
-      evidenceState: "not-independently-checked",
+      evidenceState: claim
+        ? deriveEvidenceState({ claim, relations: extraction.claimRelations, source })
+        : "not-independently-checked",
       confidence: (claim?.confidence ?? "medium") as ConfidenceBand,
     });
   };
@@ -547,10 +586,14 @@ export function projectDisagreementReport(input: {
       sharedGround,
       resolvability,
       confidence,
+      // With nothing to ground, coverage is vacuously full; saying quotes were
+      // found verbatim would describe a check that never ran.
       confidenceBasis:
-        groundingCoverage >= 0.6
-          ? "Most quoted support was found verbatim in the source."
-          : "Many quotes could not be grounded, so representation confidence is limited.",
+        expectedQuotes === 0
+          ? "The report carries no quotes to check; nothing in the text was mapped to a quoted position."
+          : groundingCoverage >= 0.6
+            ? "Most quoted support was found verbatim in the source."
+            : "Many quotes could not be grounded, so representation confidence is limited.",
     },
     participants: extraction.participants,
     positions,

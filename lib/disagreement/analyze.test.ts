@@ -368,12 +368,20 @@ describe("crux branch direction", () => {
       });
 
       for (const crux of result.report.cruxes) {
-        const strengthened = crux.branches.filter((branch) => branch.consequence.includes("stronger"));
-        // Every strengthening branch must name a distinct set of positions;
-        // the same condition cannot make opposing positions both stronger.
-        const named = strengthened.flatMap((branch) => branch.consequence.split(" and "));
-        expect(new Set(named).size, `${example.name} repeats a strengthened position`).toBe(named.length);
-        expect(strengthened.length).toBeLessThanOrEqual(1);
+        // Each branch is one condition. Within it, the positions it makes
+        // stronger and the ones it makes weaker must not overlap, and no two
+        // branches may carry the same condition (spec §6.6: A and not-A).
+        const conditions = crux.branches.map((branch) => branch.condition);
+        expect(new Set(conditions).size, `${example.name} repeats a branch condition`).toBe(conditions.length);
+        for (const branch of crux.branches) {
+          const stronger = branch.consequence.match(/([^;.]+?) becomes? stronger/g) ?? [];
+          const weaker = branch.consequence.match(/([^;.]+?) becomes? weaker/g) ?? [];
+          const strongerNames = stronger.flatMap((part) => part.replace(/ becomes? stronger$/, "").trim().split(" and "));
+          const weakerNames = weaker.flatMap((part) => part.replace(/ becomes? weaker$/, "").trim().split(" and "));
+          for (const name of strongerNames) {
+            expect(weakerNames, `${example.name}: "${name}" is both stronger and weaker under one condition`).not.toContain(name);
+          }
+        }
       }
     }
   });

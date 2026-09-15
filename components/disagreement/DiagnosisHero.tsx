@@ -1,4 +1,4 @@
-import { bandLabel, disagreementTypeLabel } from "@/lib/disagreement/labels";
+import { bandLabel, diagnosisPatternLabel, disagreementTypeLabel } from "@/lib/disagreement/labels";
 import type { DisagreementReportV1 } from "@/types/disagreement";
 
 export function DiagnosisHero({ report }: { report: DisagreementReportV1 }) {
@@ -12,13 +12,20 @@ export function DiagnosisHero({ report }: { report: DisagreementReportV1 }) {
       <p className="mt-3 text-base text-[var(--text-secondary)]">{report.diagnosis.insight}</p>
       <dl className="mt-5 flex flex-wrap gap-2 text-sm">
         {report.diagnosis.primaryType ? (
-          <div className="rounded-full bg-[#3a6965]/10 px-3 py-1 text-[#3a6965] dark:text-deep-bright">
-            {disagreementTypeLabel(report.diagnosis.primaryType)}
+          <>
+            <div className="rounded-full bg-[#3a6965]/10 px-3 py-1 text-[#3a6965] dark:text-deep-bright">
+              {disagreementTypeLabel(report.diagnosis.primaryType)}
+            </div>
+            <div className="rounded-full bg-[var(--bg-muted)] px-3 py-1">
+              Resolvability: {bandLabel(report.diagnosis.resolvability)}
+            </div>
+          </>
+        ) : (
+          // No typed disagreement and nothing to resolve: name the pattern instead.
+          <div className="rounded-full bg-[var(--bg-muted)] px-3 py-1">
+            {diagnosisPatternLabel(report.diagnosis.pattern)}
           </div>
-        ) : null}
-        <div className="rounded-full bg-[var(--bg-muted)] px-3 py-1">
-          Resolvability: {bandLabel(report.diagnosis.resolvability)}
-        </div>
+        )}
         <div className="rounded-full bg-[var(--bg-muted)] px-3 py-1">
           Representation: {bandLabel(report.diagnosis.confidence)}
         </div>

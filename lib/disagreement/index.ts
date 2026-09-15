@@ -11,3 +11,4 @@ export {
   DISAGREEMENT_SOURCE_MODE,
   DISAGREEMENT_USER_FACING_TYPES,
 } from "./constants";
+export { normalizeSourceText } from "./source";

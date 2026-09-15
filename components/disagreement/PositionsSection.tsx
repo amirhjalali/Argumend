@@ -11,7 +11,14 @@ export function PositionsSection({
   const participants = new Map(report.participants.map((item) => [item.id, item.label]));
   return (
     <section>
-      <h2 className="font-serif text-2xl text-[var(--text-heading)]">The strongest version of each position</h2>
+      <h2 className="font-serif text-2xl text-[var(--text-heading)]">
+        {report.positions.length === 0 ? "The positions" : "The strongest version of each position"}
+      </h2>
+      {report.positions.length === 0 ? (
+        <p className="mt-2 text-sm text-[var(--text-secondary)]">
+          No position could be mapped from the text.
+        </p>
+      ) : null}
       <div className="mt-4 space-y-4">
         {report.positions.map((position) => {
           const speaker = position.participantIds
