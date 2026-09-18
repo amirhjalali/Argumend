@@ -61,7 +61,7 @@ export const openWeightAiModelsData = {
           title: "Release-Time Safety Fine-Tuning Has Proven Non-Durable Against Fine-Tuning Attacks",
           description:
             "The 'Tamper-Resistant Safeguards' paper (Tamirsa, Hendrycks, Mazeika et al.) proposed the TAR method to make refusal/unlearning safeguards survive adversarial fine-tuning, but the follow-up 'On Evaluating the Durability of Safeguards' (Qi, Henderson et al.) showed that even evaluating such durability is 'exceedingly difficult and can easily mislead,' and that purportedly robust safeguards including TAR are far weaker than claimed once tested properly. The practical upshot, consistent with the broader fine-tuning-attack literature, is that cheap downstream fine-tuning can restore harmful capabilities removed at release — so any safety conditioning a lab applies before releasing weights cannot be relied upon downstream, a structural difference from closed models served behind an API.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
@@ -78,7 +78,7 @@ export const openWeightAiModelsData = {
           title: "Current Biorisk Evaluations Show No Clear Amateur Uplift",
           description:
             "Epoch AI's analysis of AI labs' biorisk evaluations concluded they 'do not provide strong evidence that LLMs can enable amateurs to develop bioweapons.' The dominant bottlenecks identified are tacit laboratory skill, access to controlled materials and equipment, and physical synthesis — none of which a text model removes. The same author concedes the evals are weak signals in both directions, meaning absence of demonstrated uplift is not proof of safety.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,
@@ -95,7 +95,7 @@ export const openWeightAiModelsData = {
           title: "RAND Red-Team RCT Found No Significant Bioweapon-Planning Uplift From LLMs",
           description:
             "RAND's controlled red-team study assigned matched teams role-playing malicious non-state actors to plan a biological attack; one arm had an LLM plus the internet, the other only the internet. Plans were scored by eight independent judges (half biologists, half security professionals) via a Delphi process. The study found no statistically significant difference in the operational viability of plans generated with versus without LLM assistance, concluding that biological-attack planning currently lies 'beyond the capability frontier of LLMs as assistive tools.' This is the closest existing approximation of the marginal-uplift trial the crux calls for.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
@@ -112,7 +112,7 @@ export const openWeightAiModelsData = {
           title: "Elicitation Attacks Use Closed Models to Uplift Open Models",
           description:
             "Safety-research highlights from January 2026 describe 'elicitation attacks' in which an attacker uses a safeguarded frontier closed model to extract and refine knowledge that is then used to uplift an unrestricted open-weight model on dangerous tasks — without ever issuing a directly harmful prompt to the closed system. In the underlying work ('Eliciting Harmful Capabilities by Fine-Tuning On Safeguarded Outputs'), fine-tuning Llama 3.3 70B on benign chemistry responses from Claude 3.5 Sonnet recovered roughly 39% of the chemical-weapons-task performance gap to a jailbroken version of the model. This collapses the common pro-open argument that 'the closed model already knows this,' because the closed model knows it but refuses to say it, whereas the open model can be fine-tuned to comply.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 6,
             independence: 6,
@@ -129,7 +129,7 @@ export const openWeightAiModelsData = {
           title: "Open Models Are Closing the Frontier Capability Gap",
           description:
             "By April 2026, open-weight releases such as DeepSeek V4-Pro (reported as ~1.6T total / ~49B active parameters under a roughly Apache-2.0 license) were reported to be closing the gap with closed-frontier models on math, STEM, and coding. The specific 2026 figures cited for this trajectory — e.g., ~3,206 Codeforces for V4-Pro, and Alibaba's Qwen3.6-27B at ~77.2 on SWE-bench Verified versus a reported ~80.9 for a leading closed model (illustrated here against Claude 4.5 Opus) — are lab-reported/illustrative rather than independently verified, and are used to indicate direction, not as settled measurements. The restrictionist camp argues this trajectory means dangerous-capability thresholds that seemed comfortably distant for open models are now months away, not years.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
@@ -184,7 +184,7 @@ export const openWeightAiModelsData = {
           title: "NTIA Report Acknowledges Open Weights Cannot Be Recalled",
           description:
             "The U.S. Commerce Department's NTIA 'Dual-Use Foundation Models with Widely Available Weights' report and its policy-approaches analysis recognize that once model weights are openly released, the distribution cannot be reversed. The report ultimately recommended against immediate restrictions on current open models while urging the government to actively monitor for emerging risks — an explicit acknowledgment that the release decision is the binding control point.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
@@ -201,7 +201,7 @@ export const openWeightAiModelsData = {
           title: "LLaMA's 2023 Leak Demonstrated Release Cannot Be Contained",
           description:
             "Meta's original LLaMA model was distributed to approved researchers in early 2023, but the weights leaked publicly within a week and spread across torrents and mirrors, becoming permanently and freely available regardless of Meta's intent. The episode is the canonical real-world demonstration that even a deliberately gated release cannot be walked back, and it directly informed Meta's later decision to release Llama 2 onward openly by default.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
@@ -218,7 +218,7 @@ export const openWeightAiModelsData = {
           title: "Liability Frameworks Place the Duty of Care on Downstream Fine-Tuners",
           description:
             "Under the EU's revised Product Liability Directive, an actor who substantially modifies a product — including fine-tuning an AI model — can be treated as a 'manufacturer' and bear liability for the resulting harm. This is the pro-open camp's preferred regime: the original releaser ships reasonable safeguards, and a downstream actor who strips them and causes harm is the liable party. It operationalizes 'regulate use, not release' by locating responsibility at the point where intent and harm are observable.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
@@ -235,7 +235,7 @@ export const openWeightAiModelsData = {
           title: "Even Pro-Open U.S. Policy Pairs Release With Active Risk Monitoring",
           description:
             "The July 2025 'America's AI Action Plan' explicitly endorsed open-weight models as a strategic asset, yet still paired that endorsement with calls to build government capacity to evaluate and monitor frontier-model risks. The coexistence of strong pro-open language with continued investment in evaluation infrastructure (AI Security Institute, capability evals) reflects an implicit acknowledgment that irreversibility demands at least pre-release evaluation even when the policy default favors openness.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 5,
@@ -290,7 +290,7 @@ export const openWeightAiModelsData = {
           title: "Interpretability and Alignment Research Require White-Box Model Access",
           description:
             "Core safety techniques — mechanistic interpretability, activation steering, circuit-level analysis, and red-team fine-tuning — require access to model internals (weights, activations, gradients) that closed APIs do not expose. Open-weight releases such as OpenAI's gpt-oss and Meta's Llama are heavily used by the external alignment research community precisely because they permit this white-box analysis. The gpt-oss worst-case-risk study operationalized this: by adversarially fine-tuning the model to maximize bio and cyber capability before release, OpenAI found the malicious-fine-tuned model underperformed its own closed o3 and 'does not significantly advance frontier capabilities,' arguing the release adds only a small amount of net-new biorisk. White-box access thus both enables interpretability work and lets releasers measure marginal risk directly rather than guess at it.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
@@ -307,7 +307,7 @@ export const openWeightAiModelsData = {
           title: "Leading Researchers Warn of Safety-Rhetoric Regulatory Capture",
           description:
             "Andrew Ng has long argued that large AI firms may exploit safety rhetoric to drive regulatory capture, and at the January 2026 World Economic Forum he urged India to anchor its AI strategy in open-source models, warning that 'if it's open, no one can mess with it' and that openness is the most efficient guarantee of access. Yann LeCun — now backing a $1B+ open-AI venture (AMI Labs) — frames open weights as the structural safeguard against any single entity holding unilateral power over a transformative technology. This camp treats concentration of AI control as itself a first-order risk.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 5,
             independence: 4,
@@ -324,7 +324,7 @@ export const openWeightAiModelsData = {
           title: "Open Models Drive Competition and Counter Closed-Frontier Concentration",
           description:
             "The rapid 2025-2026 cadence of capable open releases — DeepSeek V4, Alibaba's Qwen 3.6, Mistral 3 — has compressed the price and availability gap with closed frontier labs, letting downstream developers worldwide build on near-frontier capability without paying API rents. Stanford HAI's analysis of China's diverse open-weight ecosystem documents how openly released models have become a primary engine of global AI competition and diffusion.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
@@ -341,7 +341,7 @@ export const openWeightAiModelsData = {
           title: "Diffuse Benefits Do Not Net Out Against Concentrated Catastrophic Tail Risk",
           description:
             "The restrictionist literature — including the 'Open Technical Problems in Open-Weight AI Model Risk Management' paper (Casper, Bengio, Hendrycks et al.) and the 'Uncensorable, Unmonitorable, Uncontrollable' biosecurity report — argues that open-weight benefits are broadly distributed and incremental while the worst-case harms are low-probability, high-consequence, and irreversible. On this view, expected-value reasoning under heavy-tailed risk favors caution even when median outcomes from openness are positive.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
@@ -396,7 +396,7 @@ export const openWeightAiModelsData = {
           title: "Capable Open Models Already Ship From Outside U.S. Jurisdiction",
           description:
             "In April 2026, China's DeepSeek released V4-Pro and V4-Flash under an Apache-2.0-style license, reported to lead prior open-weight models on math, STEM, and coding while approaching closed-frontier performance, with an R2 reasoning model expected to follow. Alibaba's Qwen 3.6 and France's Mistral 3 round out a fast-moving foreign open-weight pack. The specific 2026 model names and benchmark standings are lab-reported/illustrative, but the load-bearing point — that frontier-approaching open weights already ship from outside U.S. jurisdiction — holds regardless of U.S. policy.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
@@ -413,7 +413,7 @@ export const openWeightAiModelsData = {
           title: "U.S. AI Action Plan Endorsed Open Weights as a China-Countering Strategic Asset",
           description:
             "The July 2025 'America's AI Action Plan' explicitly stated the U.S. needs 'leading open models founded on American values,' framing domestic open-weight development as a strategic necessity in the competition with China. This marked a notable shift in U.S. policy toward treating open releases as a geopolitical asset rather than primarily a proliferation liability — the crux that, per the research, 'flipped' a chunk of pragmatic center-right opinion toward the pro-open position.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 5,
@@ -430,7 +430,7 @@ export const openWeightAiModelsData = {
           title: "Foreign Releases Raise the Risk Floor Rather Than Justify Matching It",
           description:
             "Yoshua Bengio's counter to the China argument is that Chinese open weights do not make U.S. open weights safer — they make the global open-weight equilibrium more dangerous, and adding further frontier releases worsens it. The restrictionist position holds that 'they'll release it anyway' is a race-to-the-bottom dynamic, and that the existence of one dangerous release is an argument for international coordination and restraint, not for unilaterally adding another.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 6,
             independence: 5,
@@ -447,7 +447,7 @@ export const openWeightAiModelsData = {
           title: "The Policy Menu Is a Continuum, Not 'Ban or Release'",
           description:
             "Both the NTIA report and pragmatic-camp voices such as Helen Toner stress that the real options span staged release, structured/researcher access, capability-gated release, downloadable-but-export-controlled tiers, and post-deployment liability — not a binary ban-or-release choice. Toner explicitly separates 'should the U.S. have leading open models' (she leans yes) from 'should we open-weight the most frontier model' (agnostic), illustrating that the enforceability and competitiveness goals can be pursued without releasing the most dangerous capabilities openly.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,

@@ -36,7 +36,7 @@ export const transgenderAthletesSportsData = {
           title: "Trans Women Retain ~12% Running Speed Advantage After 2 Years HRT (2020)",
           description:
             "A study by Roberts, Smalley and Ahrendt published in the British Journal of Sports Medicine analyzing US Air Force fitness test data found that transgender women retained approximately a 12% advantage in 1.5-mile run times over cisgender women after two years of hormone therapy (and ~9% after one year), compared to a ~21% pre-transition advantage. The speed advantage persisted even after testosterone had been suppressed to female-typical levels for the full period. However, push-up and sit-up performance differences disappeared, converging with cisgender female norms within two years.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
@@ -53,7 +53,7 @@ export const transgenderAthletesSportsData = {
           title: "Skeletal Advantages from Male Puberty Are Permanent and Unaffected by HRT",
           description:
             "Male puberty produces permanent skeletal changes: average height increases of 5 inches over females, broader shoulders, narrower hips (advantageous for running biomechanics), larger hands and feet (advantageous in swimming and ball sports), and greater bone density. These characteristics are established by age 18-20 and are not reversed by estrogen therapy or testosterone suppression. In sports where height, reach, or skeletal leverage confer advantage (basketball, volleyball, swimming, combat sports), these structural differences can be decisive.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
@@ -70,7 +70,7 @@ export const transgenderAthletesSportsData = {
           title: "Hemoglobin Normalizes Quickly While Muscle Declines Partially After HRT (2021)",
           description:
             "A 2021 systematic review by Harper et al. in the British Journal of Sports Medicine found that testosterone-suppressing hormone therapy brings hemoglobin and hematocrit — which affect oxygen-carrying capacity and endurance — to levels equivalent to cisgender women within about four months. Lean body mass, muscle area, and strength all decrease significantly over the first year of therapy, but the review found these values remain above those of cisgender women even after 36 months, concluding that strength 'may be well preserved' during the first three years of hormone therapy. The endurance-relevant changes are rapid; the strength-relevant changes are slower and incomplete.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
@@ -115,7 +115,7 @@ export const transgenderAthletesSportsData = {
           title: "Discrimination in Sport Linked to Worse Mental Health for Transgender Athletes (2024)",
           description:
             "A 2024 systematic review and meta-analysis in BMC Psychology (Chan et al.) pooled 12 studies covering 21,565 participants and found that roughly a third experienced discrimination in sports participation and healthcare, and that such discrimination and exclusion were associated with elevated depression, psychological distress, and suicide risk. The review reported that transgender athletes who felt welcomed and included by their teams had markedly better mental-health outcomes, framing inclusive sport participation as a protective factor and exclusion as a contributor to harm.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
@@ -132,7 +132,7 @@ export const transgenderAthletesSportsData = {
           title: "No Transgender Woman Won Olympic Gold During the Two Decades of Inclusive Eligibility (2004–2025)",
           description:
             "From the 2004 Stockholm Consensus (originally requiring genital surgery) through the 2015 shift to a 12-month testosterone-suppression standard, the IOC permitted transgender women to compete in women's events for roughly two decades. In that window, no transgender woman won an Olympic medal in any sport; the most prominent elite case, weightlifter Laurel Hubbard, failed all three of her lifts and placed last at the 2020 Tokyo Games. This cuts against predictions that inclusive eligibility would lead transgender athletes to 'dominate' women's sport at the elite level. The argument is necessarily weak as positive evidence — the number of openly transgender elite athletes is tiny, so an absence of medalists is also consistent with simple small-sample chance — and the eligibility window has since closed, with the IOC moving to exclusion from 2026 (see Pillar 3).",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
@@ -177,7 +177,7 @@ export const transgenderAthletesSportsData = {
           title: "World Athletics Tightens Eligibility Rules for Transgender Athletes (2023)",
           description:
             "In March 2023, World Athletics announced that transgender women who have experienced male puberty would be excluded from international women's track and field competitions, regardless of subsequent hormone therapy. President Sebastian Coe stated the decision prioritized 'fairness and the integrity of the female category' while acknowledging the 'tension between inclusion and fairness.' The policy applies to international competition only; national federations retain discretion for domestic events. World Athletics convened a working group to explore alternative categories including an open category.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 7,
@@ -194,7 +194,7 @@ export const transgenderAthletesSportsData = {
           title: "IOC Reverses Course: From the 2021 Inclusion Framework to a 2026 Female-Category Ban",
           description:
             "The IOC's 2021 Framework on Fairness, Inclusion and Non-Discrimination abandoned a uniform testosterone threshold and devolved eligibility to individual sports federations, stating that 'no athlete should be excluded from competition on the sole basis of their transgender identity.' That inclusion-leaning approach has since been reversed at the highest level: in March 2026, under President Kirsty Coventry, the IOC adopted a 'Policy on the Protection of the Female (Women's) Category' that bars athletes with a Y-chromosome (SRY-positive) genetic screen from the female category at IOC events, with a narrow exception for certain DSD conditions that do not confer a testosterone-driven advantage. The policy is slated to apply from the 2028 Los Angeles Games and cites evidence that male-puberty advantages persist despite testosterone suppression. The trajectory illustrates how rapidly elite policy has moved from devolved inclusion toward categorical exclusion.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 7,
@@ -211,7 +211,7 @@ export const transgenderAthletesSportsData = {
           title: "NCAA Restricts Women's College Sport to Athletes Assigned Female at Birth (2025)",
           description:
             "On 6 February 2025, the day after a US federal executive order directed that Title IX be read to bar transgender women from female sports, the NCAA replaced its prior sport-by-sport eligibility approach with a policy limiting competition in women's collegiate sports to student-athletes assigned female at birth. Transgender women may still practice with women's teams and receive associated benefits but may not compete in the women's category. The change was effective immediately for all NCAA member schools and is expected to face Title IX litigation. It marks a decisive shift in US collegiate sport from conditional inclusion toward categorical exclusion, paralleling the World Athletics (2023) and IOC (2026) moves.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 6,

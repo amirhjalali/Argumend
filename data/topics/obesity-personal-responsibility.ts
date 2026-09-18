@@ -39,7 +39,7 @@ export const obesityPersonalResponsibilityData = {
             "NIH RCT: Ultra-Processed Diets Cause 500 kcal/day Overconsumption (Hall et al. 2019)",
           description:
             "Kevin Hall's landmark NIH metabolic ward study randomized 20 adults to ultra-processed or unprocessed diets for two weeks each. On the ultra-processed diet, participants spontaneously consumed 508 more calories per day and gained 0.9 kg, despite meals being matched for available calories, macronutrients, sugar, sodium, and fiber. On the unprocessed diet, participants lost 0.9 kg. This was the first randomized evidence that ultra-processed foods causally drive overconsumption.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
@@ -58,7 +58,7 @@ export const obesityPersonalResponsibilityData = {
             "23.5 Million Americans Live in Food Deserts with Limited Healthy Options",
           description:
             "A widely-cited 2009 USDA report to Congress estimated that about 23.5 million Americans live in low-income areas more than one mile (urban) or ten miles (rural) from a supermarket — so-called 'food deserts.' Whether limited supermarket access itself causes obesity is contested. A randomized-area study in the American Journal of Preventive Medicine (Ghosh-Dastidar et al. 2014) found that in two low-income urban food deserts, distance to a supermarket was NOT independently associated with obesity once food prices were accounted for — only higher relative prices of healthy vs. junk food predicted obesity. This suggests the relevant systemic lever is food affordability and marketing rather than physical distance alone.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
@@ -78,7 +78,7 @@ export const obesityPersonalResponsibilityData = {
             "Chile's Junk Food Regulations Reduced Sugary Drink Purchases by 24%",
           description:
             "Chile implemented comprehensive food labeling laws (2016) requiring black warning labels on foods high in sugar, sodium, fat, or calories, along with bans on marketing unhealthy foods to children and removing them from schools. A before-and-after study in PLOS Medicine (Taillie et al. 2020) found the purchased volume of 'high-in' sugar-sweetened beverages fell 23.7% in the post-implementation period (comparing 2015 to 2017), one of the largest beverage-purchase changes attributed to a labeling and marketing policy. The policy's effect on population obesity rates was not yet established in this study and remains under longer-term evaluation.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
@@ -97,7 +97,7 @@ export const obesityPersonalResponsibilityData = {
             "Countries with Similar Food Industries Have Very Different Obesity Rates",
           description:
             "Japan (adult obesity ~3-4%) and South Korea (~6%) have access to many of the same global food corporations and ultra-processed products as the US (~42%) yet report dramatically lower obesity rates (World Obesity Federation / OECD data). Some critics of the systemic argument cite cultural factors — smaller portions, walking-oriented infrastructure, social norms, school lunch programs emphasizing whole foods. However, these cross-country gaps cannot cleanly isolate 'individual choice': measurement differs (East-Asian BMI thresholds and self-report vs. measured-height methods differ across countries), and Japan/Korea's outcomes are themselves shaped by strong food policy and built environment — which are systemic, not individual, factors.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 6,
@@ -145,7 +145,7 @@ export const obesityPersonalResponsibilityData = {
             "Twin Studies Show 40-70% Heritability of BMI Across Populations",
           description:
             "A systematic review and meta-regression of twin and family studies (Elks et al., Frontiers in Endocrinology, 2012), aggregating 88 twin-study estimates across roughly 140,525 twins, found high heritability of BMI. Twin-study heritability estimates ranged from 0.47 to 0.90 (median ~0.75), with family-study estimates somewhat lower. Twin studies consistently show that shared (family) environment explains relatively little of adult BMI variation, indicating that genetic influence persists largely independent of the shared childhood food environment. The commonly cited '40-70%' range is a conservative summary spanning twin and family designs.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
@@ -164,7 +164,7 @@ export const obesityPersonalResponsibilityData = {
             "Biggest Loser Study: Metabolism Slowed 500 kcal/day Six Years After Weight Loss",
           description:
             "Fothergill et al. (2016) tracked 14 Biggest Loser contestants for six years after the competition. Despite regaining most of their lost weight, participants' resting metabolic rates remained suppressed by an average of 499 kcal/day below what would be predicted for their body size. Leptin levels, which signal satiety to the brain, remained at ~60% of expected levels. The body appeared to permanently 'remember' its highest weight and actively resisted the lower weight through metabolic and hormonal adaptation.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
@@ -183,7 +183,7 @@ export const obesityPersonalResponsibilityData = {
             "Gut Microbiome Transplant from Obese to Lean Mice Causes Weight Gain",
           description:
             "Turnbaugh et al. (2006, Nature) demonstrated that colonizing germ-free mice with an 'obese' gut microbiota produced significantly greater increases in total body fat than colonizing with a 'lean' microbiota, and characterized the obese-associated microbiome as having an increased capacity to harvest energy from the diet. Ridaura et al. (2013, Science) extended this to humans: transplanting fecal microbiota from human twin pairs discordant for obesity into germ-free mice transmitted the donor's adiposity and metabolic phenotype, with the obesity phenotype being diet-dependent.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
@@ -202,7 +202,7 @@ export const obesityPersonalResponsibilityData = {
             "US Obesity Tripled in 50 Years — Genes Cannot Explain a Population-Level Shift",
           description:
             "US adult obesity rates rose from 13.4% in 1960-62 to 42.4% in 2017-18 (NHANES data). The human genome does not change meaningfully over 50 years, yet the entire population weight distribution shifted rightward. Critics of the biological determinism argument note that this population-level shift can only be explained by environmental and behavioral changes: a 500+ kcal/day increase in average caloric intake, dramatic reductions in occupational physical activity, increased sedentary leisure time, and the proliferation of hyper-palatable ultra-processed foods.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
@@ -250,7 +250,7 @@ export const obesityPersonalResponsibilityData = {
             "STEP 1 Trial: Semaglutide Produced 14.9% Weight Loss vs 2.4% Placebo",
           description:
             "The STEP 1 trial (Wilding et al., NEJM 2021) randomized 1,961 adults with obesity to semaglutide 2.4mg or placebo for 68 weeks. The semaglutide group lost 14.9% of body weight vs 2.4% in the placebo group. 86% of semaglutide participants lost >5% body weight (vs 32% placebo), and 32% lost >20% (vs 1.7% placebo). This magnitude of weight loss was previously achievable only through bariatric surgery.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 10,
             independence: 8,
@@ -269,7 +269,7 @@ export const obesityPersonalResponsibilityData = {
             "SELECT Trial: Semaglutide Reduced Cardiovascular Events by 20%",
           description:
             "The SELECT trial (Lincoff et al., NEJM 2023) randomized 17,604 adults with overweight/obesity and established cardiovascular disease to semaglutide 2.4mg or placebo. Over a median 39.8 months, semaglutide reduced major adverse cardiovascular events (heart attack, stroke, cardiovascular death) by 20%. Critically, the cardiovascular benefits appeared to exceed what would be predicted from weight loss alone, suggesting direct metabolic disease pathway effects.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 10,
             independence: 8,
@@ -288,7 +288,7 @@ export const obesityPersonalResponsibilityData = {
             "67% of Weight Regained Within One Year of GLP-1 Discontinuation",
           description:
             "The STEP 1 trial extension (Wilding et al., Diabetes, Obesity and Metabolism 2022) followed a representative subset of participants who discontinued semaglutide and lifestyle intervention after 68 weeks for an additional year. One year after withdrawal, participants regained about two-thirds (~67%) of their prior weight loss, with cardiometabolic variables reverting in parallel. Proponents argue this reflects the body's biological defense of a higher weight; skeptics argue it shows pharmaceutical dependency rather than cure.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 7,
@@ -307,7 +307,7 @@ export const obesityPersonalResponsibilityData = {
             "GLP-1 Drugs Carry ~$1,000-1,350/Month List Prices, Creating Health Equity Gaps",
           description:
             "Semaglutide (Wegovy) has carried a US list price of roughly $1,350/month and tirzepatide (Zepbound) roughly $1,060/month, though discounted cash and direct-to-consumer prices have been substantially lower and are changing rapidly. Coverage for obesity (as opposed to diabetes) indications has historically been limited: as of early 2026, only a minority of state Medicaid programs covered GLP-1s for obesity. The populations with the highest obesity rates — low-income, rural, and minority communities — are generally least able to afford treatment, raising concerns that a condition shaped by the food environment is being met with an expensive pharmaceutical fix unevenly available across income groups.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,

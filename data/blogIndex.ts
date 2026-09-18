@@ -36,6 +36,16 @@ export interface ArticleSummary {
 /** Pre-computed summaries — no `content`, so importing this stays lightweight. */
 export const articleSummaries: ArticleSummary[] = [
   {
+    slug: "we-gave-a-model-that-cant-talk-1000-arguments",
+    title: "We Gave a Model That Can't Talk 1,000 Arguments. Here Is What It Got Right.",
+    description:
+      "A new model returns typed judgments with calibrated probabilities in 200 ms and cannot write a sentence. We tested it against 156 argument maps and 1,567 weighted evidence items, and found the missing half of a referee that never names a winner.",
+    tags: ["jev", "typesafe ai", "crux", "argument mapping", "calibration", "online discourse", "methodology"],
+    category: "Methodology",
+    publishedAt: "2026-09-17T00:00:00Z",
+    readingTime: "20 min read",
+  },
+  {
     slug: "did-covid-come-from-a-lab",
     title: "Did COVID Come From a Lab? Why the Honest Answer Is 'We Can't Tell'",
     description: "Five years on, COVID's origin is still unresolved — and the reason isn't a missing experiment. It's missing data. Here's what each side's strongest evidence actually is, and what would settle it.",
