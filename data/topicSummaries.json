@@ -193,8 +193,8 @@
     "id": "scott-cost-disease",
     "title": "The Cost Disease",
     "meta_claim": "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
-    "confidence_score": 66,
-    "balance": 66,
+    "confidence_score": 67,
+    "balance": 67,
     "weight": 81,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -231,8 +231,8 @@
     "id": "ai-2027",
     "title": "AI 2027: The Recursive-Automation Timeline",
     "meta_claim": "The AI 2027 scenario forecasts that once AI systems can meaningfully automate AI research itself, a feedback loop compresses the path to superintelligence into the late 2020s — making this a decisive and dangerous period. The claim rests less on 'AI will be powerful' than on two contested quantitative bets: that the automation of R&D triggers an intelligence explosion, and that the resulting takeoff is fast (months, not decades) rather than a gradual ramp.",
-    "confidence_score": 53,
-    "balance": 53,
+    "confidence_score": 54,
+    "balance": 54,
     "weight": 77,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -784,7 +784,7 @@
     "meta_claim": "Sugar taxes on sweetened beverages are an effective public health intervention that meaningfully reduces sugar consumption and obesity rates.",
     "confidence_score": 69,
     "balance": 69,
-    "weight": 71,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
       "quadrant": "contested"
@@ -972,8 +972,8 @@
     "id": "ai-job-displacement",
     "title": "Will AI Replace Most White-Collar Jobs?",
     "meta_claim": "Artificial intelligence and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
-    "confidence_score": 52,
-    "balance": 52,
+    "confidence_score": 51,
+    "balance": 51,
     "weight": 77,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -1107,7 +1107,7 @@
     "meta_claim": "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
     "confidence_score": 63,
     "balance": 63,
-    "weight": 66,
+    "weight": 65,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
       "quadrant": "contested"
@@ -1485,8 +1485,8 @@
     "id": "obesity-personal-responsibility",
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
-    "confidence_score": 69,
-    "balance": 69,
+    "confidence_score": 31,
+    "balance": 31,
     "weight": 72,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -1829,7 +1829,7 @@
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
     "confidence_score": 58,
     "balance": 58,
-    "weight": 67,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
       "quadrant": "contested"
@@ -1846,9 +1846,9 @@
     "id": "degrowth-economics",
     "title": "Is Degrowth the Only Way to Save the Planet?",
     "meta_claim": "Endless GDP growth is incompatible with ecological survival. Rich nations must deliberately shrink their economies to stay within planetary boundaries.",
-    "confidence_score": 56,
-    "balance": 56,
-    "weight": 72,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
       "quadrant": "contested"
@@ -1903,8 +1903,8 @@
     "id": "moon-landing",
     "title": "The Moon Landing",
     "meta_claim": "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
-    "confidence_score": 90,
-    "balance": 90,
+    "confidence_score": 76,
+    "balance": 76,
     "weight": 82,
     "verdict": {
       "label": "Settled — evidence strongly favors the claim",
@@ -2245,8 +2245,8 @@
     "id": "transgender-athletes-sports",
     "title": "Transgender Athletes in Competitive Sports",
     "meta_claim": "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
-    "confidence_score": 64,
-    "balance": 64,
+    "confidence_score": 36,
+    "balance": 36,
     "weight": 66,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -2416,8 +2416,8 @@
     "id": "open-weight-ai-models",
     "title": "Releasing Open-Weight Frontier AI Models",
     "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
-    "confidence_score": 49,
-    "balance": 49,
+    "confidence_score": 51,
+    "balance": 51,
     "weight": 75,
     "verdict": {
       "label": "Well-mapped, genuinely contested",

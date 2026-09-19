@@ -12,6 +12,176 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // We Gave a Model That Can't Talk 1,000 Arguments. Here Is What It Got Right.
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "we-gave-a-model-that-cant-talk-1000-arguments",
+    title: "We Gave a Model That Can't Talk 1,000 Arguments. Here Is What It Got Right.",
+    description:
+      "A new model returns typed judgments with calibrated probabilities in 200 ms and cannot write a sentence. We tested it against 156 argument maps and 1,567 weighted evidence items, and found the missing half of a referee that never names a winner.",
+    author: "Argumend Team",
+    publishedAt: "2026-09-17T00:00:00Z",
+    readingTime: "20 min read",
+    tags: ["jev", "typesafe ai", "crux", "argument mapping", "calibration", "online discourse", "methodology"],
+    category: "Methodology",
+    content: `## A referee that cannot speak
+
+Yesterday a lab called TypeSafe AI released a model named Jev that cannot write a sentence. You hand it a piece of text and a typed question, such as "which of these four?", "yes or no?", or "where on this scale?", and it hands back an answer with a calibrated probability. No explanation, no essay, no reasoning trace. One forward pass, about 200 milliseconds, at about a two-hundredth of a cent per thousand words of input.
+
+Our first reaction was that this is useless for what we do. Argumend maps disagreements, and maps need words. But the more we looked at where our own pipeline struggles, the more Jev looked like the missing half of something we have been trying to build for a year: a referee for online arguments that is fast enough to show up while the argument is still happening, and disciplined enough never to pick a side.
+
+So we spent a day throwing everything we have ground truth for at it. About 2,900 judgments across 156 argument maps, 1,567 human-weighted pieces of evidence, five disagreements with written answer keys, three debate transcripts our blind reviewers had already picked apart, and two Piers Morgan clips. Total spend: about ten cents. Here is what happened, including the parts that did not work.
+
+## The problem we were trying to solve
+
+Every argument map on Argumend has a crux: the one unresolved question that, if settled, would move the most people. Finding it is the whole point of the site. And finding it has a defect we wrote up two days ago and have not been able to hide.
+
+We took three flagship debate transcripts and ran each through our diagnosis pipeline five times, byte-for-byte identical input, with a leading language model doing the claim extraction. On two of the three maps the primary crux the reader would see changed from run to run. On the third it was stable, but stable on the wrong thing: four of five runs surfaced a sentence about the reported Gaza death toll that nobody in the transcript actually disputed. Both of our blind reviewers had already flagged it as not a disagreement at all.
+
+The ranking engine underneath is deterministic and auditable. The variance comes from the model above it, which decides which claims exist and whether each one is contested. Language models are superb at extraction and terrible at being the same model twice. They also, left to themselves, want to narrate, and narration drifts toward a verdict.
+
+What we wanted was a second opinion that is cheap, calibrated, and identical every time you ask.
+
+## What we tested
+
+Argumend already carries more labelled data than we usually admit. Every one of our 156 topic maps is split into sections, each with a skeptic's case and a proponent's rebuttal. Every piece of evidence, all 1,567 of them, is hand-scored from 0 to 10 on four dimensions: source reliability, independence, replicability, and directness. Every map carries a computed verdict. And for the v2 diagnosis work we have five short real-style disagreements with answer keys, plus three flagship transcripts with blind reviews.
+
+That let us ask Jev questions we could actually grade:
+
+- **Routing.** Given a comment from an online discussion and the sections of the relevant map, which section is it arguing about? 150 comments, drawn from the opening sentences of our own skeptic and proponent cases so the answer is known.
+- **Stance.** Is the commenter for the claim or against it?
+- **Evidence side.** Given one piece of evidence and the topic claim, does it support or cut against the claim? 240 items.
+- **Evidence weight.** Rate that same evidence on our four dimensions. Compared by rank correlation with the human scores, with the human's written reasoning withheld.
+- **Contestedness.** Given a transcript and a candidate claim, do the speakers actually disagree about it? This is the question our pipeline got wrong on the death toll.
+- **Disagreement pattern.** Given a whole disagreement, which of our eleven patterns is it? Graded against the answer keys.
+- **Verdict.** Given a map summary, how settled is the question? Compared with the verdict we compute from evidence weights.
+- **Repeatability.** Run the 240-item evidence test twice and diff every answer.
+- **Speed.** Time an eight-comment thread through Jev, then hand the identical task to Claude Sonnet.
+- **Real clips.** Run two Piers Morgan Uncensored debates, one four minutes and one thirty-six, through the same pipeline against the maps we already have.
+
+## What it got right
+
+- **Routing: 93% correct** on 150 comments where chance was 31%. When Jev's own confidence was at least 0.7, which it was on 145 of the 150, accuracy was 95%. Several of the misses are arguable. A comment about smartphone research methodology was routed to "methodological skepticism" instead of "developmental harm evidence"; we would not bet against Jev on that one.
+- **Stance: 83%.** For or against, from one or two sentences of a comment with no other context.
+- **Evidence side: 90%**, and 94% on the 184 items where confidence was at least 0.8. That is a fast, cheap check that an evidence card is filed on the side it belongs to.
+- **Contestedness is the headline.** On the Gaza transcript, the death-toll sentence that four of five language-model runs had pushed to the top scored **7% contested**. Three claims we planted as deliberately uncontested (the size of the annual US military financing package, that AI will automate tasks, that early-career employment fell) scored 4%, 5% and 21%. Every claim the transcript genuinely argues over scored 76% or higher. That is a clean gate, and it took a quarter of a second per map to evaluate seven candidates at once.
+- **Repeatability.** Across two full runs of the 240 evidence items, the for/against choice was identical on 240 of 240. The continuous scores moved by 0.03 on average on a four-point scale, and the rank order of the composite score correlated at 0.998 between runs. Discrete choices do not move. Probabilities wobble by a point or two.
+- **Speed.** An eight-comment thread, with four questions per comment plus eleven thread-level questions, came back in about 430 milliseconds across two parallel requests, for 7,124 input tokens, which is three hundredths of a cent. Claude Sonnet doing the same classification took 22.3 seconds. Fifty times slower.
+
+## What it got wrong
+
+We think the failures are as informative as the wins, because they mark where the boundary between the two systems has to go.
+
+- **It is not a judge.** Asked how settled each of 155 topics is, given the full map summary and every evidence title on each side, Jev agreed with our evidence-weighted verdict 60% of the time, and the reason is simple: it called 139 of the 155 "genuinely contested". It cannot weigh. Give it a claim and a good rubric and it will place things on a scale; give it a whole map and ask who is winning and it shrugs. We consider that the correct behaviour for a model that cannot explain itself, and we would not want it any other way.
+- **It is not a substitute for the evidence rubric.** Its ratings of source reliability, independence, replicability and directness correlated with the human ratings at 0.50, 0.63, 0.45 and 0.45. Real signal, but not something you would publish a score from. Our evidence weights stay human.
+- **Asked directly for the crux, it contradicts itself.** On one map its "best crux" choice picked a claim its own contestedness probe had put at 9%. The pick-the-crux question rewards "would settle the main question" over "is actually disputed here". Composing the two yes/no probes in code, and letting our engine rank, works. Asking for the crux does not. TypeSafe's own guidance says the same: ask small questions, combine them yourself.
+- **Pattern classification landed 3 of 5** on the answer keys. Both misses were caught by the narrower yes/no probes we ran alongside: the definitional case had the highest "are they using a word differently" score of any item, and the control case, which is mostly agreement, had the lowest "do they genuinely disagree" score. Eleven-way choices are hard; decomposed questions are not.
+
+## Watch it work on a thread
+
+Here is a thread we wrote to look like a city subreddit the week before a rent-cap vote. The names are invented; the arguments are the ones people actually make.
+
+- **marisol_k:** Council is voting on a 3% rent cap Tuesday. Every economist on the planet says rent control destroys housing supply. This is econ 101, people.
+- **dtown_renter:** Econ 101 also says my rent going up 22% in one year is "the market clearing". I've lived here 9 years. A cap means I don't get pushed out to the suburbs. That is the whole point.
+- **marisol_k:** And then nobody builds anything and in 10 years there are fewer apartments for everyone. San Francisco literally lost 15% of its rent-controlled units after the 1994 expansion. Look it up.
+- **hn_throwaway:** The SF study also found the policy did exactly what it was meant to do: tenants in covered buildings were far less likely to be displaced. You're citing half the paper.
+- **buildmorehomes:** Both of you are arguing about the wrong thing. The cap exempts buildings under 15 years old, so the construction argument doesn't apply. The real question is whether it slows conversions of the older stock.
+- **marisol_k:** Exemptions get removed the second a council changes. Landlords know that. Nobody with money is going to trust it.
+- **dtown_renter:** Then fund upzoning AND cap rents. Vienna does both and it works. Auckland's upzoning took years to move rents. People need help before 2035.
+- **gary_1962:** Typical renter entitlement. If you can't afford the city, move. Landlords have rights too.
+
+In about 430 milliseconds Jev routed five of the eight comments to our map's "Supply Effects" section, one to "Incumbent Protection vs New Renter Harm", one to "Alternative Approaches", and gary_1962 to "not an argument", with an 85% fallacy score and a 7% chance of containing a checkable fact. The one it was unsure about was hn_throwaway, whose point about the San Francisco paper sits between two sections; it placed that comment with 41% confidence, and the routing test above says that is exactly when to stop trusting the placement. It called the thread a mixed disagreement at 97%, put a 61% probability on participants talking past each other, and a 71% probability on someone holding a values position no evidence would change.
+
+Then it did the thing we found most striking. We gave it seven factual claims that appear in the thread and asked, for each, whether anyone actually disputes it. Whether most economists think rent control reduces supply: 14%. Whether San Francisco lost 15% of controlled units: 12%. Whether the same policy reduced displacement: 12%. Whether upzoning takes years: 7%. Nobody in that thread disputes a single fact. The two claims that came closest to contested, at 56% and 46%, were whether a new-construction exemption neutralises the supply argument, and whether protecting incumbents matters more than the cost to future renters. One empirical, one about values. That is the whole thread, diagnosed.
+
+Here is what a bot built on this would post in reply. Every sentence below is either a number from Jev or a sentence that already exists on our rent control map, chosen by a number. Nothing is generated.
+
+**Argumend map: Does Rent Control Help or Hurt Renters?**
+Most of this thread (5 of 8 comments) is arguing about **Supply Effects**. gary_1962 did not make an argument about the topic. Some of you are arguing about different sections of the map while thinking you disagree.
+
+**The crux for this section:** The Construction Response Test. Measure whether rent control policies with new-construction exemptions actually reduce housing starts compared to unregulated markets. If construction rates decline even when new buildings are exempt, the supply argument holds. If construction responds primarily to zoning and land-use policy, the supply critique is overstated.
+
+**Strongest evidence on each side**, weighted on source reliability, independence, replicability and directness out of 40:
+- For the claim that caps hurt supply (34/40): Diamond, McQuade and Qian, American Economic Review 2019. San Francisco rent control reduced rental supply by 15%.
+- Against (28/40): Autor, Palmer and Pathak, Journal of Political Economy 2014. Cambridge decontrol raised property values through spillovers, not mainly new construction.
+
+**Closest to a real disagreement:** whether a cap that exempts newer buildings has little effect on construction (56% contested), and whether incumbent tenants' protection matters more than the cost to future renters (46%).
+
+**Nobody here disputes:** that most economists think rent control reduces supply, that San Francisco lost about 15% of controlled units, that the same policy reduced displacement, or that upzoning takes years to lower rents.
+
+Full map: [argumend.org/topics/rent-control-effectiveness](/topics/rent-control-effectiveness)
+
+Notice what that reply does not contain. It does not say who is right. It says what you are actually fighting about, what you already agree on, what would settle it, and what the best evidence on each side is. If marisol_k and dtown_renter read it, they would discover they agree on every fact in the thread and disagree on one value and one policy detail. That is not a small thing to learn in the middle of an argument.
+
+## Then we pointed it at Piers Morgan
+
+A thread we wrote ourselves is a fair test of the pipeline and an unfair test of the world. So we took two real clips from Piers Morgan Uncensored, the format built to produce exactly the kind of argument the internet shares, and ran them through the same steps. One housekeeping note first: television clips arrive as auto-generated captions with no speaker labels, so a language model did the speaker assignment and pulled out ten or so claims from each transcript, one call per clip. That is the System Two step. Jev never saw raw captions. It routed, typed, and gated what the model handed it.
+
+### A four-minute fight about assimilation
+
+The first clip is a [panel segment from April 2026](https://www.youtube.com/watch?v=A_Lc5gixnYU): Brian Shapiro and Priya Patel on whether immigrants have a duty to adopt American culture, with Morgan pressing both. Thirteen turns, 828 words. Three Jev requests in parallel, 685 milliseconds, ten thousand input tokens.
+
+Jev routed six of the nine substantive turns to the "Social Cohesion and Trust" section of our [immigration and national identity map](/topics/immigration-national-identity) and the rest to "not an argument", which is where a host's questions belong. It called the clip a mixed disagreement, but the numbers underneath are the interesting part: an 89% probability that the participants are using a key term to mean different things, 74% that they are arguing about different questions while believing they share one, 82% that someone holds a values position no evidence would move, and only 34% that there is any factual question either would change position on.
+
+Then the claim gate. Of eight claims made in the clip, the two that came back most contested were a value and a fact. The value: immigrants have a duty to uphold the host society's norms and this should be enforced to some degree (96% contested). The fact: the United States was built by a small, select group rather than by people from everywhere (94%). Everything else was common ground the panel never noticed it shared. That diversity is what makes America great: 16% contested. That everyone must obey the law: 6%. That only a small share of arrivals are asylum seekers: 14%. Four minutes of heat, one real value disagreement, one factual dispute that would not change anyone's vote, and a word, "culture", that meant something different to each person using it.
+
+Our map's crux for that section is the integration model comparison: whether high-immigration countries with strong integration policy keep their social trust while those without lose it. Its two strongest evidence cards, Putnam's 2007 diversity and trust study at 32 out of 40 and Canada's sustained trust at the highest foreign-born share in the G7 at 31, sit one point apart. Nobody in the clip mentioned either. That is not a criticism of the panel. It is the whole reason a map should be in the reply.
+
+### Thirty-six minutes, five voices, 3.5 million views
+
+The second clip is the [May 2024 trans athletes debate](https://www.youtube.com/watch?v=zoHyLyGfKoU) on the official channel, with Tomi Lahren, Esther Krakue, Francesca Fiorentini and James Barr. It is 139 turns and 7,253 words, and it wanders: from an Oregon sprinter to Caitlyn Jenner's golf to Caitlin Clark's pay to Harrison Butker's commencement speech. Sixteen Jev requests in parallel came back in 724 milliseconds for 93 thousand input tokens, which is four tenths of a cent.
+
+The first thing the routing shows is how little of the debate is the debate. Of 114 substantive turns, 88 were "not an argument about the topic": host questions, insults, and two long tangents about women's pay and a football player's speech. Twenty-six turns argued the question in the title, split almost evenly between "Inclusion, Dignity and Anti-Discrimination" (14) and "Retained Physiological Advantages" (12). Stance came out the way anyone who has watched the clip would expect. Krakue and Lahren against our map's claim that trans women who have completed hormone therapy should be permitted to compete, Fiorentini for, Morgan against in 11 turns and asking questions in 29.
+
+The thread-level probes agreed with the routing: mixed disagreement at 97%, talking past each other at 87%, a key term used two ways at 88%, a values position no evidence would move at 83%.
+
+The claim gate is where it gets uncomfortable in a useful way. The most contested claim in the whole 36 minutes, at 94%, was Krakue's assertion that there is no such thing as gender identity and that identifying as transgender is a mental illness. The next four were about Harrison Butker (89% and 88%), whether pay disparity in women's sport is explained by revenue (87%), and whether "biological men are replacing women" (81%). The claim the map's evidence actually turns on, that hormone therapy sufficiently reduces the advantages of male puberty, does not appear in that list, because nobody on the panel argued it as a claim. They argued around it for twelve turns. Two things were undisputed by everyone: that the Oregon sprinter is a transgender athlete who was born male (11%), and that Caitlin Clark is paid far less than her male counterparts (18%).
+
+One more thing the gate caught. The language model that extracted the claims tagged "athletes should not be compelled to wear symbols that conflict with their convictions" as a premise shared by all panelists. Jev put it at 77% contested. We went back to the transcript, and Jev is right: two of them disagree about it, in the middle of agreeing about everything around it.
+
+### What the long clip taught us about the tool
+
+The first time we ran the 36-minute debate, we put all 114 turns into one request and asked the four questions about each. Every speaker came back with a fallacy score of 74% give or take two points and a "checkable fact" score of 43%. Piers Morgan's questions, Krakue's insults, and Fiorentini's citations all scored the same. The model had not failed; the question had. With 7,000 words of state and 456 questions, each answer drifted to the average of the transcript. We split the turns into groups of eight, gave each request only its own turns, and the scores spread from 14% to 95% and started matching what a reader sees. TypeSafe's own guidance says to keep state small and questions atomic. We can now say why.
+
+The second lesson is about our own map. The composed reply for the trans athletes clip pulled the two strongest evidence cards from the inclusion section, and both were labelled as weighing against the topic claim, including one recording that no transgender woman won an Olympic gold medal in two decades of eligibility. That card supports inclusion; the label is wrong. So we ran the evidence-side check from earlier in this piece across all 1,567 cards. It took 50 seconds. Jev agreed with our label on 86%, and disagreed with at least 90% confidence on 79 cards. Thirty-two of those are single cards scattered across the library, the kind of thing a reviewer will now go through one by one. The other pattern is the embarrassing one: 11 of 17 cards on the open-weight AI map, 8 of 12 on the obesity map, and 6 of 8 on the trans athletes map were flagged, which means those three maps had their "for" and "against" labels written against the wrong framing of the claim. Reading the cards confirmed it, and turned up four more on the obesity map that Jev had agreed with and that were wrong the same way. The audit is a flag, not a verdict; a person still reads the flagged map. But a calibrated yes/no from a model that cannot talk found a labelling error in our own data that a year of reading had not. We corrected the labels on those three maps before publishing this, and the audit script now lives next to the map data so it can run on every card we add.
+
+## Two systems, one map
+
+The reason this works is that Jev and Argumend are good at opposite things, and the seam between them is clean.
+
+Jev is a System One. It makes fast, calibrated, typed judgments and it makes the same one every time: which section, which stance, is this contested, is this a fallacy, is this a fact or a value. It cannot weigh evidence, cannot rank, cannot explain, and does not try to.
+
+Argumend's engine is a System Two, and it is deterministic on purpose. It holds the map: the claims, the evidence with its four-dimension weights, the edges between them. Its crux ranking runs counterfactual propagation through that graph, asking for each claim how much the positions would move if the claim were settled true or false, and whether settling it would separate the positions or move them together. Every number on a crux card comes from that computation, and the explanation is filled from the numbers. The one input it has never been able to trust is the first term in its score: how contested each claim is, which until now came from a language model's editorial call at extraction time.
+
+Marrying them means Jev supplies the contestedness term, calibrated and repeatable, and the engine supplies reach, discrimination and tractability from the graph. Jev decides which section of the map a live comment belongs to; the map decides what the crux of that section is and what the evidence weighs. Jev says "these two people are not disputing any fact"; the map says "here is the one question that would move one of them". Neither could do the other's job, and the composition needs no generated prose at all.
+
+That last point matters more than it sounds. A bot that composes replies from a curated map and a set of calibrated numbers cannot hallucinate a study, cannot be jailbroken into a hot take, and can be audited line by line. The only creative act is choosing which existing sentence to show.
+
+## What the bot will never say
+
+It will never tell you who won. That is not a limitation we are working around; it is the design rule our whole v2 diagnosis product is built on, and the experiment that tempted us most is the one that confirmed it.
+
+We did try. On four arguments where we knew the answer, Jev was asked which speaker's central factual claim was correct. On the two where one side was plainly wrong, the retracted vaccine study and the Great Wall being visible from space, it was right with 100% probability, and it did not reward the louder speaker. On a genuinely contested economics dispute it correctly said neither side's argument was better supported, and then leaned 81% toward one side on the facts anyway. On a values dispute it split evenly on the facts, which is right, and still handed one side 85% on "better supported", which is not.
+
+Someone has already built the other thing. Within a day of the launch, the AI creator Chetaslua [strapped Jev to the 2024 presidential debate as a live "BS meter"](https://x.com/chetaslua/status/2100473581251748216): every sentence from both candidates, five yes/no questions each, 1,191 calls, a 415 millisecond median, five cents in total. It is a genuinely impressive piece of work, and to their credit they asked both candidates the same questions, picked clips by one fixed rule, and said plainly that it is not a fact-check. But look at what the meter produces: a verdict on each sentence, in real time, from a model that scored 81% on one side of an open economics question in our tests. The same model, the same speed, the same price, and a design choice that points it at the one thing it should not be asked to do.
+
+Point it the other way and the debate becomes a map. Not "was that sentence BS" but "does the other candidate actually dispute it", "is this a fact or a value", "which of the seven things they are shouting about would change a voter's mind if it were settled". That is the version we are building, and it runs on exactly the numbers the meter runs on.
+
+A referee that is right on the easy cases and confidently wrong on a fifth of the hard ones would make online discourse worse, not better. So the bot does not adjudicate. It maps. What improves an argument is not being told you lost. It is being shown that you agree on more than you thought, that the thing you are shouting about is not the thing that would change anyone's mind, and that the other side has a best piece of evidence you have not read.
+
+## Caveats, all of them
+
+Jev is one day old. Every benchmark claim about it is the vendor's, and we ran our own tests on our own ground truth, which is small in places: five answer-keyed disagreements, three transcripts, one thread we wrote ourselves. The evidence and routing tests are the ones with real sample sizes. Our human evidence weights are themselves one annotator's judgment. The verdict comparison measures agreement with our computation, not with truth. Probabilities move by a point or two between runs, so any threshold needs a margin. And sending user text to a third-party model is a policy decision we have not made yet for anything a reader pastes into Argumend; everything here ran on our own published material.
+
+## What we are building
+
+The immediate change is inside the pipeline, not on the site: a contestedness gate in front of the crux ranking, replayed against the stored runs that produced the death-toll crux, to see how much of the run-to-run variance it removes. Then the routing layer, so that any comment anywhere can be placed on a map we already have.
+
+After that, the reply above stops being a demo. If you moderate a community that argues about things we have mapped, we would like to put it in your thread. Every argument on this site, all 156 of them, is already a map with a crux, weighted evidence on both sides, and no winner. That is what a referee should hand you. Now it can do it in under half a second.
+
+Read the [methodology](/methodology) behind the evidence weights, explore the [rent control map](/topics/rent-control-effectiveness), or start with [what would change your mind](/blog/what-would-change-your-mind).`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // 0000000. Did COVID Come From a Lab?
   // ──────────────────────────────────────────────────────────────────────────
   {

@@ -48,3 +48,10 @@ scripts/moltbook-session*
 scripts/moltbook-posts-ready.md
 package-lock.json
 .eval-runs/
+
+# Tool artifacts
+.playwright-mcp/
+scripts/jev-probe/*.transcript.txt
+scripts/jev-probe/*.truth.json
+scripts/jev-probe/*.results.json
+scripts/jev-probe/*.run1.json
