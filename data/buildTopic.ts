@@ -31,7 +31,9 @@ export function buildTopic(data: TopicInput): Topic {
   const tags = Array.from(new Set([data.category, ...(data.tags ?? [])]));
 
   // A "settled" quadrant that one evidence relabel could erase is demoted to
-  // "moderate" + fragile. balance and weight are published unchanged.
+  // "moderate" + fragile — unless the topic is authored `status: "settled"`,
+  // where the editorial pin keeps the word but still flags it fragile.
+  // balance and weight are published unchanged either way.
   const sensitivity = topicVerdictSensitivity({ pillars: data.pillars, balance, weight });
 
   return TopicSchema.parse({
@@ -39,7 +41,12 @@ export function buildTopic(data: TopicInput): Topic {
     tags,
     balance,
     weight,
-    verdict: applyVerdictRobustness(getVerdict(balance, weight), balance, sensitivity),
+    verdict: applyVerdictRobustness(
+      getVerdict(balance, weight),
+      balance,
+      sensitivity,
+      data.status
+    ),
     confidence_score: balance, // @deprecated mirror — JSON-LD + unmigrated surfaces only
   });
 }

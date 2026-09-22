@@ -153,11 +153,19 @@ export const VerdictSchema = z.object({
   label: z.string(),
   quadrant: VerdictQuadrantSchema,
   /**
-   * Set when the robustness guard demoted a "settled" reading: the quadrant
-   * shown is one a single defensible relabel could have produced. Absent means
-   * the reading was not demoted, never that it is beyond question.
+   * Set when the robustness guard found the "settled" reading to rest on a
+   * single evidence `side` call — either because the quadrant was demoted to
+   * "moderate", or because an editorial pin kept the word anyway. Absent means
+   * the reading was not flagged, never that it is beyond question.
    */
   fragile: z.boolean().optional(),
+  /**
+   * Set when a map keeps "settled" only because it is authored
+   * `status: "settled"` — an editor asserting the question is settled in the
+   * world, over a map too shallow to show it. Always accompanied by `fragile`.
+   * It marks a claim the evidence on the page does not yet carry on its own.
+   */
+  pinnedByStatus: z.boolean().optional(),
 });
 export type VerdictQuadrant = z.infer<typeof VerdictQuadrantSchema>;
 export type Verdict = z.infer<typeof VerdictSchema>;
@@ -253,22 +261,35 @@ export function getVerdict(balance: number, weight: number): Verdict {
  *
  * "Settled" is a strong public claim; on a 12–16 card map one ordinary card
  * moves balance by 8–12 points against a 20-point settled threshold, so a
- * single defensible relabel can create or destroy it. A map keeps the word
- * only when no single flip could take it away and it carries at least
- * `VERDICT_ROBUSTNESS.MIN_CARDS` cards. Otherwise the quadrant drops to
- * "moderate", the label falls back to the lean alone, and `fragile` is set so
- * the surface can say so out loud.
+ * single defensible relabel can create or destroy it. A map keeps the word on
+ * its own evidence only when no single flip could take it away and it carries
+ * at least `VERDICT_ROBUSTNESS.MIN_CARDS` cards. Otherwise the quadrant drops
+ * to "moderate" and the label falls back to the lean alone.
  *
- * balance and weight are never altered, and "contested" / "open" are never
- * touched — this only ever removes a claim, never adds one.
+ * **The editorial pin.** A topic authored `status: "settled"` is an editor
+ * asserting that the question is settled in the world. That assertion outranks
+ * a thin map — `buildTopic` already treats it as a floor on both axes — so the
+ * quadrant and the settled label are kept. What it does not do is hide the
+ * measurement: the verdict is still marked `fragile`, the surface still says
+ * "One evidence card could change this reading", and `pinnedByStatus` records
+ * that the word is resting on the editor rather than on the cards. The pin is
+ * a promise to deepen the map, not a substitute for it. Only "settled" pins;
+ * no other authored status changes anything.
+ *
+ * Either way `fragile` is set, balance and weight are never altered, and
+ * "contested" / "open" are never touched — this only ever qualifies a claim.
  */
 export function applyVerdictRobustness(
   verdict: Verdict,
   balance: number,
-  sensitivity: VerdictSensitivity
+  sensitivity: VerdictSensitivity,
+  authoredStatus?: TopicStatus
 ): Verdict {
   if (verdict.quadrant !== "settled") return verdict;
   if (!isFragileSettled(sensitivity)) return verdict;
+  if (authoredStatus === "settled") {
+    return { ...verdict, fragile: true, pinnedByStatus: true };
+  }
   return { label: getLeanLabel(balance), quadrant: "moderate", fragile: true };
 }
 

@@ -325,6 +325,70 @@ describe("applyVerdictRobustness", () => {
     expect(guarded.label).toBe("Clearly favors the counterclaim");
   });
 
+  it("pins a fragile settled reading when the topic is authored settled", () => {
+    const pinned = applyVerdictRobustness(
+      getVerdict(76, 82),
+      76,
+      sensitivity({ flipsToChange: 1, cardCount: 8, balance: 76 }),
+      "settled"
+    );
+    expect(pinned.quadrant).toBe("settled");
+    expect(pinned.label).toBe("Settled — evidence strongly favors the claim");
+    // The pin keeps the word; it does not hide the measurement.
+    expect(pinned.fragile).toBe(true);
+    expect(pinned.pinnedByStatus).toBe(true);
+  });
+
+  it("does not pin a settled reading that never needed pinning", () => {
+    const robust = applyVerdictRobustness(
+      getVerdict(85, 83),
+      85,
+      sensitivity({ flipsToChange: 2, balance: 85 }),
+      "settled"
+    );
+    expect(robust.quadrant).toBe("settled");
+    expect(robust.fragile).toBeUndefined();
+    expect(robust.pinnedByStatus).toBeUndefined();
+  });
+
+  it("pins on no authored status other than settled", () => {
+    for (const status of ["contested", "highly_speculative", undefined] as const) {
+      const guarded = applyVerdictRobustness(
+        getVerdict(76, 82),
+        76,
+        sensitivity({ flipsToChange: 1, balance: 76 }),
+        status
+      );
+      expect(guarded.quadrant, `status ${status}`).toBe("moderate");
+      expect(guarded.fragile, `status ${status}`).toBe(true);
+      expect(guarded.pinnedByStatus, `status ${status}`).toBeUndefined();
+    }
+  });
+
+  it("never promotes: an authored-settled topic whose map is contested stays contested", () => {
+    const verdict = getVerdict(55, 80);
+    expect(verdict.quadrant).toBe("contested");
+    const guarded = applyVerdictRobustness(
+      verdict,
+      55,
+      sensitivity({ quadrant: "contested", flipsToChange: 1, balance: 55 }),
+      "settled"
+    );
+    expect(guarded).toEqual(verdict);
+    expect(guarded.pinnedByStatus).toBeUndefined();
+    expect(guarded.fragile).toBeUndefined();
+  });
+
+  it("a pinned verdict parses as a Verdict", () => {
+    const pinned = applyVerdictRobustness(
+      getVerdict(76, 82),
+      76,
+      sensitivity({ flipsToChange: 1 }),
+      "settled"
+    );
+    expect(VerdictSchema.safeParse(pinned).success).toBe(true);
+  });
+
   it("never touches contested, moderate or open", () => {
     for (const [balance, weight] of [
       [52, 70],

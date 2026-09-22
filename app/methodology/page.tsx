@@ -449,10 +449,13 @@ export default function MethodologyPage() {
                 Whether one piece of evidence counts for a claim or against it is a
                 judgement call, and on a map of a dozen cards one such call can move the
                 balance by ten points — half the gap &ldquo;settled&rdquo; requires. So we
-                test it: if reclassifying any single card would take the word away, we
-                don&rsquo;t use the word. Those maps show their lean instead, with a note
-                saying one card could change the reading. The balance and weight numbers
-                are never adjusted — only the verdict word is held back.
+                test it: if reclassifying any single card would take the word away, the map
+                hasn&rsquo;t earned it, and we show its lean instead. Either way those maps
+                carry a note saying one card could change the reading. A handful of
+                questions we hold to be settled in the world — the moon landing — keep the
+                word on our own editorial judgement while their maps are still too shallow
+                to show it; those say so in the same line, and deepening the map is the fix.
+                The balance and weight numbers are never adjusted; only the verdict word is.
               </p>
             </div>
           </div>

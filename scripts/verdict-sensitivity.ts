@@ -94,6 +94,7 @@ interface Row {
   rangeMax: number;
   span: number;
   fragile: boolean;
+  pinned: boolean;
 }
 
 function buildRow(topic: Topic): Row {
@@ -110,6 +111,7 @@ function buildRow(topic: Topic): Row {
     rangeMax: sensitivity.oneCardBalanceRange.max,
     span: sensitivity.oneCardBalanceRange.span,
     fragile: topic.verdict.fragile === true,
+    pinned: topic.verdict.pinnedByStatus === true,
   };
 }
 
@@ -148,17 +150,17 @@ async function main(): Promise<void> {
   const shown = changedOnly ? changed : rows;
 
   if (markdown) {
-    console.log("| topic | cards | balance | weight | before | after | flips | one-card range | fragile |");
-    console.log("| --- | ---: | ---: | ---: | --- | --- | ---: | --- | --- |");
+    console.log("| topic | cards | balance | weight | before | after | flips | one-card range | fragile | pinned |");
+    console.log("| --- | ---: | ---: | ---: | --- | --- | ---: | --- | --- | --- |");
     for (const r of shown) {
       console.log(
-        `| \`${r.id}\` | ${r.cards} | ${r.balance} | ${r.weight} | ${r.before} | ${r.after} | ${flipsText(r.flips)} | ${r.rangeMin}–${r.rangeMax} (${r.span}) | ${r.fragile ? "**yes**" : ""} |`
+        `| \`${r.id}\` | ${r.cards} | ${r.balance} | ${r.weight} | ${r.before} | ${r.after} | ${flipsText(r.flips)} | ${r.rangeMin}–${r.rangeMax} (${r.span}) | ${r.fragile ? "**yes**" : ""} | ${r.pinned ? "**pin**" : ""} |`
       );
     }
   } else {
     const idWidth = Math.max(...rows.map((r) => r.id.length));
     console.log(
-      `${"topic".padEnd(idWidth)}  cards  bal  wgt  before     after      flips  one-card range  fragile`
+      `${"topic".padEnd(idWidth)}  cards  bal  wgt  before     after      flips  one-card range  flags`
     );
     for (const r of shown) {
       console.log(
@@ -171,7 +173,7 @@ async function main(): Promise<void> {
           r.after.padEnd(10),
           flipsText(r.flips).padStart(4),
           `${String(r.rangeMin).padStart(4)}–${String(r.rangeMax).padEnd(3)} (${String(r.span).padStart(2)})`,
-          r.fragile ? "  FRAGILE" : "",
+          `${r.fragile ? "  FRAGILE" : ""}${r.pinned ? " (pinned by status)" : ""}`,
         ].join("  ")
       );
     }
@@ -189,6 +191,18 @@ async function main(): Promise<void> {
       `  ${r.id} — ${r.before} → ${r.after} (cards ${r.cards}, balance ${r.balance}, flips ${flipsText(r.flips)}, one card spans ${r.rangeMin}–${r.rangeMax})`
     );
   }
+
+  const pinned = rows.filter((r) => r.pinned);
+  console.log(
+    `\n${pinned.length} topics keep "settled" on the authored-status pin (fragile, but not demoted):`
+  );
+  for (const r of pinned) {
+    console.log(
+      `  ${r.id} — cards ${r.cards}, balance ${r.balance}, flips ${flipsText(r.flips)}, one card spans ${r.rangeMin}–${r.rangeMax}`
+    );
+  }
+  const earnedSettled = rows.filter((r) => r.after === "settled" && !r.pinned);
+  console.log(`${earnedSettled.length} topics earn "settled" on their own evidence: ${earnedSettled.map((r) => r.id).join(", ")}`);
 
   const settled = rows.filter((r) => r.before === "settled");
   console.log(`\nflipsToChange across all ${rows.length} topics:`);

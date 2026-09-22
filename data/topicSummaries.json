@@ -1914,9 +1914,10 @@
     "balance": 76,
     "weight": 82,
     "verdict": {
-      "label": "Clearly favors the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled",
+      "fragile": true,
+      "pinnedByStatus": true
     },
     "status": "settled",
     "category": "philosophy",
