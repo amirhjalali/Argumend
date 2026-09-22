@@ -49,6 +49,7 @@ import { POST as debatePost } from "./debate/route";
 import { POST as debatePersistPost } from "./debate/persist/route";
 import { POST as debateStreamPost } from "./debate/stream/route";
 import { POST as disagreementsPost } from "./disagreements/analyze/route";
+import { POST as feedbackPost } from "./disagreements/[slug]/feedback/route";
 import { POST as judgePost } from "./judge/route";
 import { POST as mapReplyPost } from "./map-reply/route";
 import { POST as moltbookPost } from "./moltbook/route";
@@ -84,6 +85,8 @@ interface Route {
   refusedStatus: number | null;
   /** The address the trusted proxy appended — the only value that may key the limit. */
   trustedIp: string;
+  /** Env this row alone needs to reach its limiter. */
+  env?: Record<string, string>;
   call: (forwardedFor: string) => Promise<Response>;
 }
 
@@ -199,6 +202,20 @@ const routes: Route[] = [
     trustedIp: "198.51.100.23",
     call: (xff) => mapReplyPost(post("/api/map-reply", xff)),
   },
+  {
+    label: "POST /api/disagreements/[slug]/feedback",
+    maxRequests: 20,
+    buckets: 1,
+    refusedStatus: 429,
+    trustedIp: "198.51.100.24",
+    // The route answers 404 before the limiter unless persistence is on. The
+    // body below is refused before any query runs, so nothing is dialled.
+    env: { DATABASE_URL: "postgres://user:pass@127.0.0.1:5432/unused" },
+    call: (xff) =>
+      feedbackPost(post("/api/disagreements/a-report/feedback", xff), {
+        params: Promise.resolve({ slug: "a-report" }),
+      }),
+  },
 ];
 
 describe("rate limits key on the address the proxy vouched for", () => {
@@ -222,6 +239,9 @@ describe("rate limits key on the address the proxy vouched for", () => {
   it.each(routes.map((route) => [route.label, route] as const))(
     "%s cannot be escaped by rotating the first x-forwarded-for entry",
     async (_label, route) => {
+      for (const [name, value] of Object.entries(route.env ?? {})) {
+        vi.stubEnv(name, value);
+      }
       const attempts = route.maxRequests + 5;
       const statuses: number[] = [];
       for (let attempt = 0; attempt < attempts; attempt += 1) {
@@ -246,6 +266,38 @@ describe("rate limits key on the address the proxy vouched for", () => {
       }
     },
   );
+
+  it("feedback cannot be escaped by rotating x-request-id either", async () => {
+    // This limiter used to key on `disagreement-feedback:${requestId}`, and
+    // `requestId` is the inbound `x-request-id` when the caller sends one. So
+    // a caller controlled the key outright and the 20/hour limit never fired
+    // even once — a fresh bucket per request, no rotation of the address
+    // needed. It now keys on the address, so the id is inert.
+    vi.stubEnv("DATABASE_URL", "postgres://user:pass@127.0.0.1:5432/unused");
+
+    const submit = (requestId: string) =>
+      feedbackPost(
+        new NextRequest(new URL("http://localhost/api/disagreements/a-report/feedback"), {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "x-forwarded-for": "spoof, 203.0.113.71",
+            "x-request-id": requestId,
+          },
+          body: "{}",
+        }),
+        { params: Promise.resolve({ slug: "a-report" }) },
+      );
+
+    const statuses: number[] = [];
+    for (let attempt = 0; attempt < 25; attempt += 1) {
+      statuses.push((await submit(`caller-chosen-${attempt}`)).status);
+    }
+
+    expect(new Set(hoisted.keys).size).toBe(1);
+    expect(hoisted.keys[0]).toBe("disagreement-feedback:203.0.113.71");
+    expect(statuses.filter((status) => status === 429)).toHaveLength(5);
+  });
 
   it("still separates two genuinely different clients", async () => {
     // The fix must not over-correct into one global bucket.

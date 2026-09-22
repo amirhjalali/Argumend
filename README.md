@@ -221,12 +221,25 @@ between the internet and the app:
 
 | Deployment | Value |
 |---|---|
-| Coolify (Traefik only) — the default | `1` |
-| Cloudflare in front of Coolify | `2` |
+| Coolify (Traefik only) | `1` — the code default |
+| **argumend.org — Cloudflare in front of Coolify** | **`2` — verified 2026-09-22** |
 | Any further proxy in the chain | add 1 for each |
 
-Setting it too high makes unrelated clients share a bucket; too low and the
-limit is bypassable. Verify it against a real request rather than guessing —
+**Production must run with `TRUSTED_PROXY_HOPS=2`.** This was verified on
+2026-09-22: `curl -sI https://argumend.org/` answers `server: cloudflare` with
+a `cf-ray` and `cf-cache-status`, so Cloudflare terminates the connection and
+Traefik sees Cloudflare's edge as its peer. Two proxies append, so the
+visitor's address is second from the end. The built-in default of `1` is the
+safe value for a bare Coolify deployment and is **wrong for this one** — at `1`
+every limit keys on a Cloudflare edge address shared by many visitors, so
+unrelated people exhaust each other's buckets. A production process that
+leaves the variable unset logs one warning to that effect on the first request
+it handles (`lib/clientIp.ts`); it warns rather than refuses to boot, because
+a wrong hop count degrades rate limiting without breaking serving.
+
+Re-verify after any CDN change. Setting it too high makes unrelated clients
+share a bucket; too low and the limit is bypassable. Verify against a real
+request rather than guessing —
 temporarily log the header from a deployed route, or add a scratch endpoint:
 
 ```ts
@@ -253,8 +266,21 @@ Then repeat the request with a spoofed prefix —
 confirm the value at your configured hop count is still your own address and
 not `1.2.3.4`. If a spoofed entry lands on that position, the number is wrong.
 
+**`cf-connecting-ip` is deliberately not read**, even though Cloudflare sets
+it. Traefik does not strip it, and the origin is not locked to Cloudflare's IP
+ranges, so anyone who finds the origin address can reach it directly with any
+`cf-connecting-ip` they like — reintroducing the exact bypass this design
+exists to close. Trusting it would first require proving the request came
+through Cloudflare (authenticated origin pull, or matching the last
+`x-forwarded-for` entry against Cloudflare's published ranges, a list that
+moves and would silently rot). It would then be redundant anyway: Cloudflare
+appends the same address to `x-forwarded-for`, which is precisely what
+`TRUSTED_PROXY_HOPS=2` reads. If the origin is ever locked to Cloudflare's
+ranges at the firewall, this is worth revisiting.
+
 The regression suite for this lives in `app/api/rate-limit-client-ip.test.ts`,
-which replays the bypass against every rate-limited route.
+which replays the bypass against every rate-limited route, and in
+`lib/clientIp.test.ts`, which covers the hop arithmetic and the warning.
 
 After any production build, verify the assembled standalone directory locally:
 
