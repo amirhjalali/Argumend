@@ -223,7 +223,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
         <h2 className="font-serif text-[1.625rem] leading-tight text-stone-900 dark:text-stone-100">
           The whole fight turns on {cruxes.length === 5 ? "five" : cruxes.length} questions
         </h2>
-        <p className="mt-2 font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300">
+        <p className="mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300">
           Settle one and whole positions move. {settleTally(cruxes, nodesById, ledger)}
         </p>
         <ol className="mt-5 surface-card overflow-hidden !rounded-lg divide-y divide-stone-200/90 dark:divide-[#3d3a36]">
