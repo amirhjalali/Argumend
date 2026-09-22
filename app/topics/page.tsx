@@ -74,7 +74,7 @@ function FeaturedDebateMaps() {
             href={`/topics/${topic.meta.id}`}
             className="group flex flex-col border-t border-stone-300/80 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50 dark:border-divider md:pb-0"
           >
-            <h3 className="font-serif text-[1.375rem] leading-snug text-primary transition-colors group-hover:text-deep dark:text-stone-200 dark:group-hover:text-[#8bb5b1]">
+            <h3 className="font-serif text-[1.375rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-[#8bb5b1]">
               {topic.meta.title}
             </h3>
             <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-secondary dark:text-stone-400 md:line-clamp-4">

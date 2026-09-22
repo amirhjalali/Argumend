@@ -111,7 +111,7 @@ function LibraryIndex() {
               <h3 className="border-b border-stone-300/70 pb-2 dark:border-divider">
                 <Link
                   href={`/topics?category=${shelf.category}`}
-                  className="flex min-h-11 items-end justify-between gap-2 text-primary transition-colors hover:text-deep dark:text-stone-200 dark:hover:text-[#8bb5b1]"
+                  className="flex min-h-11 items-end justify-between gap-2 text-primary dark:text-stone-200 transition-colors hover:text-deep dark:hover:text-[#8bb5b1]"
                 >
                   <span className="label-caps text-current">
                     {CATEGORY_LABELS[shelf.category]}
@@ -127,7 +127,7 @@ function LibraryIndex() {
                   <li key={topic.id} className={index >= 2 ? "hidden sm:block" : undefined}>
                     <Link
                       href={`/topics/${topic.id}`}
-                      className="block min-h-11 py-2 font-serif text-[1.0625rem] leading-snug text-secondary transition-colors hover:text-deep dark:text-stone-300 dark:hover:text-[#8bb5b1]"
+                      className="block min-h-11 py-2 font-serif text-[1.0625rem] leading-snug text-secondary dark:text-stone-400 transition-colors hover:text-deep dark:hover:text-[#8bb5b1]"
                     >
                       {topic.title}
                     </Link>

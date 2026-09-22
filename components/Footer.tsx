@@ -30,7 +30,7 @@ export function Footer() {
                     <Link
                       href={link.href}
                       prefetch={false}
-                      className="inline-flex min-h-11 items-center rounded-md text-sm text-secondary transition-colors duration-200 hover:text-deep dark:text-stone-400 dark:hover:text-[#8bb5b1]"
+                      className="inline-flex min-h-11 items-center rounded-md text-sm text-secondary dark:text-stone-400 transition-colors duration-200 hover:text-deep dark:hover:text-[#8bb5b1]"
                     >
                       {link.label}
                     </Link>

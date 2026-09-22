@@ -89,7 +89,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
         {/* The claim under discussion, then the crux it turns on. */}
         <div className="mt-10 md:mt-14">
           <p className="label-caps">The claim</p>
-          <p className="mt-1 max-w-3xl font-serif text-xl italic leading-snug text-secondary dark:text-stone-300 md:text-[1.375rem]">
+          <p className="mt-1 max-w-3xl font-serif text-xl italic leading-snug text-secondary dark:text-stone-400 md:text-[1.375rem]">
             {summary.meta_claim}
           </p>
         </div>
@@ -100,7 +100,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
         {crux ? (
           <div className="mt-8 border-l-2 border-crux pl-5 md:pl-6">
             <p className="label-caps text-crux dark:text-crux-light">The crux</p>
-            <h3 className="mt-1 max-w-3xl font-serif text-2xl leading-snug text-primary dark:text-stone-100 md:text-[1.875rem]">
+            <h3 className="mt-1 max-w-3xl font-serif text-2xl leading-snug text-primary dark:text-stone-200 md:text-[1.875rem]">
               {crux.title}
             </h3>
             <p className="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">

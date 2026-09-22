@@ -78,14 +78,14 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
             placeholder="Paste text here"
             aria-label="Text to analyze"
             rows={6}
-            className="block min-h-[9rem] w-full resize-y rounded-lg border border-stone-300/80 bg-card px-4 py-3 text-[0.9375rem] leading-relaxed text-primary placeholder:text-muted/80 transition-colors focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-divider dark:text-stone-200 dark:placeholder:text-stone-500"
+            className="block min-h-[9rem] w-full resize-y rounded-lg border border-stone-300/80 bg-card px-4 py-3 text-base leading-relaxed text-primary dark:text-stone-200 placeholder:text-muted/80 transition-colors focus:border-deep/50 sm:text-[0.9375rem] focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-divider dark:placeholder:text-stone-500"
           />
 
           <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
             <button
               type="button"
               onClick={handleTryExample}
-              className="inline-flex min-h-11 items-center rounded-lg px-1 text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-[#8bb5b1] dark:decoration-[#8bb5b1]/40"
+              className="inline-flex min-h-11 items-center rounded-lg text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-[#8bb5b1] dark:decoration-[#8bb5b1]/40"
             >
               Try an example
             </button>

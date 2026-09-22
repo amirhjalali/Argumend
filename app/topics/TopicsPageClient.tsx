@@ -269,8 +269,8 @@ export default function TopicsPageClient({
   const tabClass = (active: boolean) =>
     `relative inline-flex min-h-11 shrink-0 items-center gap-1 whitespace-nowrap px-1 text-sm transition-colors after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:rounded-full ${
       active
-        ? "font-medium text-primary after:bg-deep dark:text-stone-100 dark:after:bg-[#8bb5b1]"
-        : "text-secondary after:bg-transparent hover:text-primary dark:text-stone-400 dark:hover:text-stone-200"
+        ? "font-medium text-primary dark:text-stone-200 after:bg-deep dark:after:bg-[#8bb5b1]"
+        : "text-secondary dark:text-stone-400 after:bg-transparent hover:text-primary dark:hover:text-stone-200"
     }`;
 
   return (
@@ -336,7 +336,7 @@ export default function TopicsPageClient({
                 onChange={(e) => updateSearch(e.target.value)}
                 placeholder="Search by title or claim"
                 aria-label="Search topics"
-                className="min-h-11 w-full rounded-lg border border-stone-300/80 bg-card py-2.5 pl-9 pr-12 text-base text-primary placeholder:text-muted/80 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-divider dark:text-stone-200 dark:placeholder:text-stone-500 sm:text-sm"
+                className="min-h-11 w-full rounded-lg border border-stone-300/80 bg-card py-2.5 pl-9 pr-12 text-base text-primary dark:text-stone-200 placeholder:text-muted/80 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-divider dark:placeholder:text-stone-500 sm:text-sm"
               />
               {search && (
                 <button
@@ -354,7 +354,7 @@ export default function TopicsPageClient({
                 id="topics-sort-select"
                 value={sortBy}
                 onChange={(e) => { setPage(1); setSortBy(e.target.value as SortOption); }}
-                className="min-h-11 flex-1 rounded-lg border border-stone-300/80 bg-card px-3 py-2.5 text-sm text-primary focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-divider dark:text-stone-200 sm:flex-none"
+                className="min-h-11 flex-1 rounded-lg border border-stone-300/80 bg-card px-3 py-2.5 text-sm text-primary dark:text-stone-200 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-divider sm:flex-none"
               >
                 {SORT_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -369,9 +369,10 @@ export default function TopicsPageClient({
               disclosure at every width instead of taking three rows above the
               list. */}
           <details className="group mt-3">
-            <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-lg text-sm text-secondary hover:text-primary dark:text-stone-400 dark:hover:text-stone-200 marker:content-none [&::-webkit-details-marker]:hidden">
+            <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-lg text-sm text-secondary dark:text-stone-400 hover:text-primary dark:hover:text-stone-200 marker:content-none [&::-webkit-details-marker]:hidden">
               <ChevronRight className="h-4 w-4 transition-transform group-open:rotate-90" aria-hidden="true" />
               <span>Filters</span>
+              <span className="hidden text-muted dark:text-stone-500 sm:inline">status, evidence balance</span>
               {advancedFilterCount > 0 && (
                 <span
                   className="rounded-full bg-deep/10 px-2 py-0.5 text-xs font-medium text-deep dark:bg-[#8bb5b1]/15 dark:text-[#8bb5b1]"
@@ -396,7 +397,7 @@ export default function TopicsPageClient({
                         className={`inline-flex min-h-11 items-center rounded-lg border px-3.5 text-sm transition-colors ${
                           active
                             ? "border-deep bg-deep/10 font-medium text-deep dark:border-[#8bb5b1] dark:bg-[#8bb5b1]/15 dark:text-[#8bb5b1]"
-                            : "border-stone-300/80 text-secondary hover:border-deep/40 hover:text-primary dark:border-divider dark:text-stone-400 dark:hover:text-stone-200"
+                            : "border-stone-300/80 text-secondary dark:text-stone-400 hover:border-deep/40 hover:text-primary dark:border-divider dark:hover:text-stone-200"
                         }`}
                       >
                         {STATUS_LABELS[status]}
@@ -458,7 +459,7 @@ export default function TopicsPageClient({
             {hasFilters && (
               <button
                 onClick={clearFilters}
-                className="flex min-h-11 items-center gap-1.5 rounded-lg px-2 text-sm text-secondary transition-colors hover:text-primary dark:text-stone-400 dark:hover:text-stone-200"
+                className="flex min-h-11 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-2 text-sm text-secondary dark:text-stone-400 transition-colors hover:text-primary dark:hover:text-stone-200"
               >
                 <X className="h-3.5 w-3.5" aria-hidden="true" />
                 Clear filters
@@ -512,7 +513,7 @@ export default function TopicsPageClient({
                             href={`/topics/${topic.id}`}
                             className="group block py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50"
                           >
-                            <TitleTag className="font-serif text-[1.3125rem] leading-snug text-primary transition-colors group-hover:text-deep dark:text-stone-200 dark:group-hover:text-[#8bb5b1]">
+                            <TitleTag className="font-serif text-[1.3125rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-[#8bb5b1]">
                               {topic.title}
                             </TitleTag>
                             <p className="mt-1.5 line-clamp-2 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
