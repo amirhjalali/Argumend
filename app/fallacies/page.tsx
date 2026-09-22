@@ -72,7 +72,7 @@ export default function FallaciesPage() {
           ]}
         />
 
-        <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
+        <p className="label-caps mb-4">
           Field Guide
         </p>
         <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">

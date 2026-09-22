@@ -102,7 +102,7 @@ export default function GuidesPage() {
             ]}
           />
 
-          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
+          <p className="label-caps mb-4">
             Foundational Guides
           </p>
 

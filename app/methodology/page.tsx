@@ -150,7 +150,7 @@ export default function MethodologyPage() {
               { label: "Methodology" },
             ]}
           />
-          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
+          <p className="label-caps mb-4">
             Our Methodology
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 leading-[1.08]">
