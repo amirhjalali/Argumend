@@ -254,8 +254,9 @@
     "balance": 73,
     "weight": 77,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
@@ -292,8 +293,9 @@
     "balance": 71,
     "weight": 76,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -349,8 +351,9 @@
     "balance": 75,
     "weight": 65,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -444,8 +447,9 @@
     "balance": 21,
     "weight": 65,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -482,8 +486,9 @@
     "balance": 70,
     "weight": 73,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -672,8 +677,9 @@
     "balance": 30,
     "weight": 70,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -1717,8 +1723,9 @@
     "balance": 70,
     "weight": 71,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
@@ -1907,8 +1914,9 @@
     "balance": 76,
     "weight": 82,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "settled",
     "category": "philosophy",
@@ -1983,8 +1991,9 @@
     "balance": 70,
     "weight": 76,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "philosophy",
@@ -2363,8 +2372,9 @@
     "balance": 29,
     "weight": 78,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
