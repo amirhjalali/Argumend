@@ -53,9 +53,8 @@ export default function AboutPage() {
               { label: "About" },
             ]}
           />
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 mb-7 leading-[1.08]">
-            What if we could disagree<br />
-            <span className="text-stone-500 dark:text-stone-400">without destroying each other?</span>
+          <h1 className="text-balance font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 mb-7 leading-[1.08]">
+            What if we could disagree without destroying each other?
           </h1>
           <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
             Most debates generate heat, not light. We yell past each other, strawman positions we don&apos;t understand,
@@ -114,12 +113,11 @@ export default function AboutPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">Core principles</h2>
           <p className="text-lg text-secondary dark:text-stone-400 mb-8 md:mb-10">These aren&apos;t aspirational. They&apos;re how we actually work.</p>
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {principles.map((principle, i) => (
+            {principles.map((principle) => (
               <div
                 key={principle.title}
                 className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[var(--border-default)]"
               >
-                <span className="font-mono text-xs font-bold text-stone-400/80 mb-3 block">0{i + 1}</span>
                 <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">{principle.title}</h3>
                 <p className="text-[14px] md:text-[15px] text-secondary dark:text-stone-400 leading-relaxed">{principle.description}</p>
               </div>
