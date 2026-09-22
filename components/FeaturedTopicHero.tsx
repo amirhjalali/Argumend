@@ -78,12 +78,10 @@ export function FeaturedTopicHero({
         <div className="space-y-6 lg:pt-2">
           {/* Product value proposition — the first-screen "what is this?" */}
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-deep/80 dark:text-deep-light">
-              Argument maps for difficult questions
-            </p>
+            <p className="label-caps">Argument maps for difficult questions</p>
             <Heading
               id="homepage-product-promise"
-              className="max-w-xl font-serif text-4xl leading-[1.05] tracking-tight text-primary dark:text-stone-200 sm:text-5xl lg:text-[3.35rem]"
+              className="max-w-xl font-serif text-3xl leading-[1.1] tracking-tight text-primary dark:text-stone-200 sm:text-[2.5rem]"
             >
               See both sides of any controversial topic, mapped
             </Heading>
@@ -98,7 +96,7 @@ export function FeaturedTopicHero({
           <div>
             <button
               onClick={() => onTopicSelect(featuredTopicId)}
-              className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 px-6 py-3 font-serif text-sm font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-px hover:scale-[1.02] hover:from-rust-600 hover:to-rust-700 hover:shadow-lg active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4f1eb]"
+              className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-rust-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-rust-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               Open the interactive map
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -107,9 +105,7 @@ export function FeaturedTopicHero({
 
           {/* Featured topic context */}
           <div className="space-y-3 border-t border-stone-300/60 pt-5 dark:border-[var(--border-divider)]">
-            <p className="text-xs font-medium uppercase tracking-widest text-deep/70 dark:text-deep-light">
-              Featured analysis
-            </p>
+            <p className="label-caps">Featured analysis</p>
             <h2 className="font-serif text-2xl leading-[1.12] tracking-tight text-primary dark:text-stone-200 sm:text-3xl">
               {summary.title}
             </h2>
@@ -156,8 +152,8 @@ export function FeaturedTopicHero({
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {forEvidence && (
                 <div className="rounded-xl border border-stone-200/60 bg-white p-4 dark:border-[var(--border-divider)] dark:bg-[var(--bg-card)]">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-deep dark:text-deep-light">
-                    Strongest For
+                  <span className="label-caps text-rust-700 dark:text-rust-300">
+                    Strongest case for
                   </span>
                   <p className="mt-2 text-sm font-medium leading-snug text-primary dark:text-stone-200">
                     {forEvidence.title}
@@ -165,7 +161,7 @@ export function FeaturedTopicHero({
                   <div className="mt-2 flex items-center gap-2">
                     <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-stone-100 dark:bg-[var(--bg-muted)]">
                       <div
-                        className="h-full rounded-full bg-deep"
+                        className="h-full rounded-full bg-proponent"
                         style={{ width: `${(forEvidence.score / 40) * 100}%` }}
                       />
                     </div>
@@ -180,8 +176,8 @@ export function FeaturedTopicHero({
               )}
               {againstEvidence && (
                 <div className="rounded-xl border border-stone-200/60 bg-white p-4 dark:border-[var(--border-divider)] dark:bg-[var(--bg-card)]">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-rust-600 dark:text-rust-400">
-                    Strongest Against
+                  <span className="label-caps text-skeptic dark:text-skeptic-light">
+                    Strongest case against
                   </span>
                   <p className="mt-2 text-sm font-medium leading-snug text-primary dark:text-stone-200">
                     {againstEvidence.title}
@@ -189,7 +185,7 @@ export function FeaturedTopicHero({
                   <div className="mt-2 flex items-center gap-2">
                     <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-stone-100 dark:bg-[var(--bg-muted)]">
                       <div
-                        className="h-full rounded-full bg-rust-500"
+                        className="h-full rounded-full bg-skeptic"
                         style={{ width: `${(againstEvidence.score / 40) * 100}%` }}
                       />
                     </div>

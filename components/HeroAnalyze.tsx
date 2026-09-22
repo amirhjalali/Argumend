@@ -56,7 +56,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
         <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">
           {process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true"
             ? "Paste a disagreement and find the hinge"
-            : "Paste any text and we&apos;ll map it"}
+            : "Paste any text and we’ll map it"}
         </p>
 
         <div className="bg-white dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-4 shadow-sm">
