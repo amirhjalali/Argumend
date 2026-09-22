@@ -7,12 +7,12 @@ each side. No generated prose, no winner.
 
 This is the productised version of experiment C in
 `docs/reviews/2026-09-16-jev-typesafe-probe.md`, published as the blog post
-`we-gave-a-model-that-cant-talk-1000-arguments`. It is server-side only and there
-is no UI yet.
+`we-gave-a-model-that-cant-talk-1000-arguments`.
 
 - Route: `POST /api/map-reply`
 - Pipeline: `lib/mapReply/`
 - Model client: `lib/jev/`
+- UI: `/reply` — `app/reply/page.tsx` and `components/mapReply/`
 - Live smoke test: `scripts/jev-probe/map-reply-smoke.ts`
 
 ## Scope
@@ -41,6 +41,7 @@ enabling this flag is a data-sharing decision, not a performance one.
 | Variable | Default | What it does |
 |---|---|---|
 | `ENABLE_JEV_MAP_REPLY` | `false` | Turns the route on. |
+| `NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY` | `false` | Renders `/reply`. Build-time. |
 | `TYPESAFE_API_KEY` | empty | The only place the key is read. Never logged. |
 | `JEV_MODEL` | `jev-1.13.0` | Pinned model id. |
 | `JEV_DAILY_TOKEN_CEILING` | `5000000` | Per-process, per-UTC-day token ceiling. |
@@ -250,10 +251,50 @@ through an injected `fetch`; everything else runs on `FakeJevProvider`, which
 replays the recorded fixtures and deterministically synthesises anything they do
 not cover.
 
-## What a UI would need
+## UI
 
-Everything the reply object already carries. The interesting part is that the
-numbers are worth showing: the per-turn section confidence tells a reader when
-the routing is a guess (the probe review's routing test says to stop trusting a
-placement below about 0.7), and the crux touch scores are the line between "you
-are arguing about the thing that matters" and "you never got to it".
+`/reply`, gated on `NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY`. The page 404s while that
+flag is off, mirroring `/analyze-v2`. It is a separate flag from
+`ENABLE_JEV_MAP_REPLY` on purpose: rendering a page is not the decision to send
+someone's text to a third party, so both have to be on for a submit to reach the
+model. With the page on and the route off, a submit comes back with plain
+"switched off on this deployment" copy. The page is `noindex` and stays out of
+the sitemap while it is flagged (guarded in `app/sitemap.test.ts`).
+
+Files: `app/reply/page.tsx` (server shell, `TopBar` + `Footer` like
+`/analyze-v2`), `app/reply/error.tsx`, and `components/mapReply/`.
+
+**The numbers are the product.** The reply object already carries every probe
+value, and the design rule is that they are shown rather than summarised away:
+
+- **Thresholds are drawn, not applied silently.** Every meter that has a
+  threshold — topic confidence, the four thread-level signals, each crux touch
+  score — draws it as a tick on its own track, and all four signals are listed
+  whether or not they cleared it. A signal at 49% against a 50% bar is the
+  difference between "they are not talking past each other" and "we could not
+  tell", and a panel that showed only what fired would read as more certain than
+  the pipeline is.
+- **Low-confidence placements are marked.** A turn's section chip goes dashed
+  and says "low confidence" below 0.7, per the probe review's routing test.
+  `components/mapReply/confidence.ts` holds that number; it is a presentation
+  rule and deliberately not one of the pipeline's thresholds.
+- **A hedge above the whole reply** when the topic Choice itself came in below
+  0.7, because everything under it is read off that one map.
+- **"Not an argument" turns are dimmed, not dropped**, and print which of the
+  two composition rules caught them.
+- **Each evidence card carries its own side label.** Never a "for and against"
+  pair header: a section whose evidence is all one way still shows two cards.
+- **A no-map answer is a result, not an error.** It shows the bar that was
+  missed and the maps the shortlist put in front of the model.
+- **The footer prints the execution line**, redaction count included. That count
+  is the only evidence a reader has that the consent line meant what it said,
+  and the lane is named so a fixture answer can never read as a judgement.
+
+**Consent.** One line immediately above the submit button, wired to it with
+`aria-describedby`, linking to `/privacy`. The sentence is built by
+`lib/aiProviders.ts` rather than typed into the component, so the copy and the
+request path cannot name different companies.
+
+**Tests.** `components/mapReply/MapReplyClient.test.tsx` renders the real
+pipeline output on the recorded rent-control answers rather than a hand-written
+fixture, so a change to composition surfaces as a rendering failure.
