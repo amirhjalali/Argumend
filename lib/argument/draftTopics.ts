@@ -9,6 +9,8 @@
 import { parseArgumentGraph } from "@/lib/schemas/argument";
 import { identifyCruxes, type CruxResult } from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
+import type { CruxLedgerEntry } from "@/types/cruxLedger";
+import { loadCruxLedger, type LedgerReader } from "@/lib/argument/ledgerFile";
 import aiMassUnemploymentDraft from "@/data/topics/drafts/ai-mass-unemployment.draft.json";
 import capitalismAfterAiDraft from "@/data/topics/drafts/capitalism-after-ai.draft.json";
 import usIsraelSupportDraft from "@/data/topics/drafts/us-israel-support.draft.json";
@@ -371,15 +373,32 @@ export interface ArgumentTopic {
   meta: ArgumentTopicMeta;
   graph: ArgumentGraph;
   cruxes: CruxResult[];
+  /**
+   * Validated crux-ledger entries from data/argument/<id>.ledger.json, or []
+   * when the file does not exist. Includes review-queue entries: pass through
+   * `publicLedgerEntries` (lib/argument/ledger) before rendering. Week 1 of
+   * the ledger does not feed the ranking; `cruxes` is computed exactly as
+   * before (spec §4).
+   */
+  ledger: CruxLedgerEntry[];
+}
+
+export interface LoadArgumentTopicOptions {
+  /** Test seam: supply ledger text instead of reading the disk. Bypasses the cache. */
+  readLedger?: LedgerReader;
 }
 
 const cache = new Map<string, ArgumentTopic>();
 
-export function loadArgumentTopic(id: string): ArgumentTopic | null {
+export function loadArgumentTopic(
+  id: string,
+  options: LoadArgumentTopicOptions = {},
+): ArgumentTopic | null {
   const entry = DRAFTS[id];
   if (!entry) return null;
 
-  const cached = cache.get(id);
+  const useCache = options.readLedger === undefined;
+  const cached = useCache ? cache.get(id) : undefined;
   if (cached) return cached;
 
   const parsed = parseArgumentGraph(entry.raw);
@@ -397,7 +416,8 @@ export function loadArgumentTopic(id: string): ArgumentTopic | null {
     meta: entry.meta,
     graph: parsed.graph,
     cruxes: identifyCruxes(parsed.graph),
+    ledger: loadCruxLedger(id, parsed.graph, options.readLedger),
   };
-  cache.set(id, topic);
+  if (useCache) cache.set(id, topic);
   return topic;
 }

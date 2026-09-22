@@ -48,6 +48,13 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'standalone', // Required for Docker deployments
   serverExternalPackages: ['postgres'],
+  // Crux ledgers are read from disk by lib/argument/ledgerFile.ts (a missing
+  // file is an empty ledger, so they cannot be static imports). Topic pages
+  // are prerendered, but keep the files in the standalone trace so a runtime
+  // render never silently sees an empty ledger.
+  outputFileTracingIncludes: {
+    '/topics/[id]': ['./data/argument/**/*.json'],
+  },
   devIndicators: {
     appIsrStatus: false,
     buildActivity: false,
