@@ -1,5 +1,6 @@
 import type { Verdict } from "@/lib/schemas/topic";
 import { QUADRANT_STYLE } from "./BalanceWeightChip";
+import { FragileVerdictNote } from "./FragileVerdictNote";
 
 interface BalanceWeightReadoutProps {
   balance: number;
@@ -70,6 +71,7 @@ export function BalanceWeightReadout({
           <p className="mt-0.5 font-sans text-xs text-secondary dark:text-stone-400">
             Balance {balance}/100 · Weight {weight}/100
           </p>
+          <FragileVerdictNote fragile={verdict.fragile} className="mt-1" />
         </div>
       </div>
 

@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { BalanceWeightChip } from "./BalanceWeightChip";
 import { BalanceWeightReadout } from "./BalanceWeightReadout";
+import { FRAGILE_VERDICT_NOTE } from "./FragileVerdictNote";
 
 const verdict = { label: "Well-mapped, genuinely contested", quadrant: "contested" as const };
 
@@ -32,5 +33,22 @@ describe("BalanceWeightReadout", () => {
       <BalanceWeightReadout balance={46} weight={70} verdict={verdict} evidenceHref="#evidence" />
     );
     expect(screen.getByRole("link", { name: /see the evidence/i })).toBeTruthy();
+  });
+
+  it("says so under the label when the reading is one card from changing", () => {
+    const fragileVerdict = {
+      label: "Clearly favors the claim",
+      quadrant: "moderate" as const,
+      fragile: true,
+    };
+    render(<BalanceWeightReadout balance={76} weight={82} verdict={fragileVerdict} />);
+    expect(screen.getByText(FRAGILE_VERDICT_NOTE)).toBeTruthy();
+    // The numbers are never softened — only the quadrant word is guarded.
+    expect(screen.getByText(/Balance 76\/100 · Weight 82\/100/)).toBeTruthy();
+  });
+
+  it("stays quiet when the verdict is not fragile", () => {
+    render(<BalanceWeightReadout balance={46} weight={70} verdict={verdict} />);
+    expect(screen.queryByText(FRAGILE_VERDICT_NOTE)).toBeNull();
   });
 });
