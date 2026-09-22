@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Flame, ChevronDown, ChevronRight, TrendingUp } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { topicSummaries } from "@/data/topicIndex";
 
 interface TrendingTopic {
@@ -54,17 +54,15 @@ export function TrendingTopics() {
     <div className="pb-5">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-[11px] font-medium text-muted dark:text-stone-400 tracking-wide hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
+        className="label-caps flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-11 text-[0.9375rem] hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
         aria-expanded={isOpen}
-        aria-label="Trending This Week"
       >
         {isOpen ? (
-          <ChevronDown className="h-3.5 w-3.5" strokeWidth={1.8} />
+          <ChevronDown className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
         ) : (
-          <ChevronRight className="h-3.5 w-3.5" strokeWidth={1.8} />
+          <ChevronRight className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
         )}
-        <TrendingUp className="h-3.5 w-3.5 text-rust-500" strokeWidth={1.8} />
-        <span>Trending This Week</span>
+        <span>Most read this week</span>
       </button>
 
       <div
@@ -86,37 +84,24 @@ export function TrendingTopics() {
             <ul className="mt-0.5 space-y-0.5 pl-3">
               {validTrending.slice(0, 10).map((item, idx) => {
                 const title = titleMap.get(item.topicId) ?? item.topicId;
-                const isHot = idx < 3;
 
+                // A reading list, not a leaderboard: no flames, no rust on the
+                // top three, and no raw view counts. Heat is the thing the
+                // site is trying to cool (docs/plans/2026-09-22-north-star.md).
                 return (
                   <li key={item.topicId}>
                     <Link
                       href={`/topics/${item.topicId}`}
                       prefetch={false}
                       tabIndex={isOpen ? 0 : -1}
-                      className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 min-h-[40px] text-[13px] text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-subtle/50 transition-colors group"
+                      className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 min-h-11 text-[13px] text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-subtle/50 transition-colors"
                     >
-                      <span
-                        className={`flex-shrink-0 w-5 text-right font-mono text-[11px] tabular-nums ${
-                          isHot ? "text-rust-500 font-semibold" : "text-muted dark:text-stone-400"
-                        }`}
-                      >
+                      <span className="flex-shrink-0 w-4 text-right text-[11px] tabular-nums text-muted dark:text-stone-400">
                         {idx + 1}
                       </span>
 
                       <span className="font-serif flex-1 truncate">
                         {title}
-                      </span>
-
-                      {isHot && (
-                        <Flame
-                          className="h-3.5 w-3.5 flex-shrink-0 text-rust-500"
-                          strokeWidth={1.8}
-                        />
-                      )}
-
-                      <span className="flex-shrink-0 text-[10px] font-mono tabular-nums text-muted dark:text-stone-400 group-hover:text-stone-500 dark:group-hover:text-stone-300">
-                        {item.viewCount}
                       </span>
                     </Link>
                   </li>

@@ -3,57 +3,50 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { footerColumns, legalLinks } from "@/lib/nav";
 
 export function Footer() {
-  const visibleFooterColumns = footerColumns.filter((column) => column.links.length > 0);
+  // The curated columns (lib/nav.ts) hold one or two links each, so as
+  // columns they read as empty scaffolding ("Explore" above "Explore"). One
+  // row of links says the same thing without the headings.
+  const footerLinks = footerColumns.flatMap((column) => column.links);
 
   return (
-    <footer className="bg-[#f4f1eb] dark:bg-[var(--bg-canvas)] border-t border-stone-200 dark:border-[var(--border-divider)]" role="contentinfo">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        {/* Top section: logo + tagline, with newsletter capture */}
-        <div className="mb-10 grid gap-8 md:grid-cols-2 md:items-start">
+    <footer className="bg-canvas border-t border-stone-300/70 px-4 dark:border-divider md:px-8" role="contentinfo">
+      <div className="mx-auto max-w-5xl py-12 md:py-16">
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] md:gap-12">
           <div>
             <Link href="/" prefetch={false} className="inline-flex min-h-11 items-center rounded-md">
-              <span className="font-serif text-xl font-semibold text-stone-700 dark:text-stone-200">
+              <span className="font-serif text-2xl text-primary dark:text-stone-200">
                 Argumend
               </span>
             </Link>
-            <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400">
-              Disagree better.
+            <p className="mt-1 max-w-sm font-serif text-lg leading-snug text-secondary dark:text-stone-400">
+              Disagree better. Maps of hard questions, built around what
+              would change a mind, never around who won.
             </p>
-          </div>
-          <div className="md:max-w-sm md:justify-self-end">
-            <h3 className="font-serif text-base text-stone-700 dark:text-stone-200 mb-3">
-              Get new arguments in your inbox
-            </h3>
-            <NewsletterSignup variant="compact" source="footer" />
-          </div>
-        </div>
 
-        {/* Link columns */}
-        <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-          {visibleFooterColumns.map((column) => (
-            <div key={column.title}>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400">
-                {column.title}
-              </h3>
-              <ul className="mt-3">
-                {column.links.map((link) => (
-                  <li key={link.label}>
+            <nav aria-label="Footer navigation" className="mt-6">
+              <ul className="flex flex-wrap gap-x-6">
+                {footerLinks.map((link) => (
+                  <li key={link.href}>
                     <Link
                       href={link.href}
                       prefetch={false}
-                      className="inline-flex min-h-11 items-center rounded-md text-sm text-stone-500 transition-colors duration-200 hover:text-deep dark:text-stone-400"
+                      className="inline-flex min-h-11 items-center rounded-md text-sm text-secondary transition-colors duration-200 hover:text-deep dark:text-stone-400 dark:hover:text-[#8bb5b1]"
                     >
                       {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
-          ))}
-        </nav>
+            </nav>
+          </div>
+          {/* The signup card brings its own heading. */}
+          <div className="md:justify-self-end md:w-full">
+            <NewsletterSignup variant="compact" source="footer" />
+          </div>
+        </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-stone-200 dark:border-[var(--border-divider)] pt-6">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-stone-300/70 dark:border-divider pt-4">
           <div className="flex flex-wrap items-center gap-x-5">
             <p className="text-xs text-stone-500 dark:text-stone-400">
               &copy; 2026 Argumend. Built with stubbornness and peer review.
@@ -76,7 +69,7 @@ export function Footer() {
             href="https://github.com/amirhjalali/Argumend"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-800 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
+            className="-ml-3 flex h-11 w-11 shrink-0 items-center sm:-mr-3 sm:ml-0 justify-center rounded-lg text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-800 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
             aria-label="Argumend on GitHub"
           >
             <svg
