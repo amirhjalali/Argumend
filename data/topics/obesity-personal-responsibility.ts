@@ -97,7 +97,7 @@ export const obesityPersonalResponsibilityData = {
             "Countries with Similar Food Industries Have Very Different Obesity Rates",
           description:
             "Japan (adult obesity ~3-4%) and South Korea (~6%) have access to many of the same global food corporations and ultra-processed products as the US (~42%) yet report dramatically lower obesity rates (World Obesity Federation / OECD data). Some critics of the systemic argument cite cultural factors — smaller portions, walking-oriented infrastructure, social norms, school lunch programs emphasizing whole foods. However, these cross-country gaps cannot cleanly isolate 'individual choice': measurement differs (East-Asian BMI thresholds and self-report vs. measured-height methods differ across countries), and Japan/Korea's outcomes are themselves shaped by strong food policy and built environment — which are systemic, not individual, factors.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 6,
             independence: 6,
@@ -307,7 +307,7 @@ export const obesityPersonalResponsibilityData = {
             "GLP-1 Drugs Carry ~$1,000-1,350/Month List Prices, Creating Health Equity Gaps",
           description:
             "Semaglutide (Wegovy) has carried a US list price of roughly $1,350/month and tirzepatide (Zepbound) roughly $1,060/month, though discounted cash and direct-to-consumer prices have been substantially lower and are changing rapidly. Coverage for obesity (as opposed to diabetes) indications has historically been limited: as of early 2026, only a minority of state Medicaid programs covered GLP-1s for obesity. The populations with the highest obesity rates — low-income, rural, and minority communities — are generally least able to afford treatment, raising concerns that a condition shaped by the food environment is being met with an expensive pharmaceutical fix unevenly available across income groups.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,

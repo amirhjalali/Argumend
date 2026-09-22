@@ -288,3 +288,81 @@ What this shows: p1's case runs through i1 and is unfooted without c2 (`depends_
 - **Render ordering (Wave 4):** POSITIONs by `displayRank`; claims within Layer 2–3 by crux-engine rank, then `status` severity, then id. No implicit array-order semantics.
 - **Cross-topic evidence identity (Wave 5):** SOURCE gains a global registry id when the evidence subsystem lands; `Source.url` is the provisional join key. EVIDENCE `id` stays topic-scoped in v1.1.
 - **Explicitly deferred:** locale/i18n, unit normalization, multi-language sources, contributor reputation. Not v1.1 concerns.
+
+---
+
+## Conventions
+
+Rules for the **legacy topic format** (`data/topics/*.ts`, the 156 maps the site renders today).
+They are not part of the v1.1 node/edge model above; they are the authoring contract for the format
+that feeds it, and §9's migration notes depend on them being honoured.
+
+### `evidence[].side` is relative to the topic's `meta_claim`
+
+`side: "for"` means **the finding, as the card describes it, supports the topic's `meta_claim`**.
+`side: "against"` means it weighs against that claim. Nothing else.
+
+It is **not**:
+
+- relative to the pillar's thesis, or to which pillar the card sits in;
+- relative to `skeptic_premise` / `proponent_rebuttal`. **These two fields have no fixed polarity
+  across the library.** On some maps the skeptic argues *for* the meta claim (`seed-oils-health`,
+  `obesity-personal-responsibility`, `congressional-term-limits`); on others *against* it
+  (`rfk-health-policy`, `gain-of-function-research-ban`, `remote-work-permanence`,
+  `central-bank-digital-currency`). "This is the skeptic's evidence, so it is `against`" is wrong on
+  roughly half the corpus;
+- a judgment about whether the finding is good news, desirable, or well-sourced (that is `weight`);
+- relative to who *cites* the card. A fact a proponent invokes can still weigh against the claim.
+
+`side` feeds `computeBalance` in `lib/schemas/topic.ts`, which drives `balance` and the public
+`verdict`, so a single wrong label can move a live page's headline.
+
+### Three tests before writing `side`
+
+1. **Read the card's own text against the meta claim, ignoring the pillar.** If the description ends
+   by refuting its headline — a null result, a failed replication, a dose that does not apply — the
+   side follows the description, not the headline. Descriptions get hardened for accuracy long after
+   `side` is set; **any edit that adds a contrary finding to a description must re-check `side`.**
+2. **Reason vs result.** Where the meta claim asserts a policy *worked* ("has made X safer," "have
+   eliminated waste," "will improve outcomes"), evidence that the *problem is real* is not evidence
+   the policy succeeded. Ask: does this card describe a reason to act, or a result of having acted?
+3. **If both signs are arguable, the card is not atomic** (§5.7). Split it into one card per
+   direction rather than picking a side. A card whose own text says it "cuts both ways" is a split
+   candidate, not a labelling problem.
+
+### Meta-claim shapes to avoid
+
+These reliably make `side` unassignable, and every one of them is in the corpus today:
+
+- **Self-hedging tails** — "…though whether X is true remains contested." Evidence that X is
+  unresolved then confirms the claim as written while weakening the position it exists to test.
+- **Claims that assert a dispute exists** rather than a proposition ("whether A or B is disputed").
+  Both sides' evidence confirms them. State the substantive proposition instead.
+- **Compound or disjunctive claims** ("current **or near-future**…", "X dominates **and** escaping
+  requires Y"). Evidence lands on one conjunct and not the other.
+- **Pillars that do not test the claim** — an economics pillar under a cultural-identity claim, a
+  financial-inclusion pillar under a surveillance claim. No side label can rescue these.
+
+### The check to run
+
+```bash
+# needs TYPESAFE_API_KEY (in .env.local); ~1 minute, a few cents, 1,567 calls
+bun scripts/jev-probe/expF-side-audit.ts 0.8
+```
+
+Prints overall agreement, every card where the model disagrees at confidence ≥ 0.8, and per-topic
+agreement with anything under 75% marked as a whole-map candidate. Writes every scored card to
+`scripts/jev-probe/expF.results.json` (gitignored).
+
+Read it as a **flag, not a verdict**. The model's `confidence` is certainty, not class probability —
+for a binary choice `confidence ≈ 2·p_max − 1`, so a disagreement at 0.05 is a coin flip. It
+systematically misreads second-order cards (evidence about regulators, feasibility, or legal
+authority rather than about the world) and self-hedging meta claims. In the 2026-09-21 pass it was
+right on 22 of the 80 cards it flagged; a human reading the card against the pillar framing settled
+the rest. See `docs/reviews/2026-09-21-evidence-side-adjudication.md`.
+
+Run it after any batch of description edits, and regenerate summaries afterwards:
+
+```bash
+bun scripts/regen-summaries.ts   # rewrites data/topicSummaries.json
+```
