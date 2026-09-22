@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { topics } from "./topics";
+import { topicSummaries } from "./topicIndex";
 import { TopicSchema } from "@/lib/schemas/topic";
+import { topicVerdictSensitivity, VERDICT_ROBUSTNESS } from "@/lib/verdictSensitivity";
 import { validateSourceUrl } from "@/scripts/source-url-health";
 
 describe("topics data integrity", () => {
@@ -242,6 +244,40 @@ describe("weight calibration anchors (spec §2.2)", () => {
     expect(moloch!.weight).toBeGreaterThanOrEqual(60);
     expect(moloch!.verdict.quadrant).toBe("contested");
     expect(moloch!.verdict.label).toBe("Well-mapped, genuinely contested");
+  });
+
+  it("only a demoted verdict is fragile, and a demoted one is never settled", () => {
+    for (const topic of topics) {
+      if (topic.verdict.fragile) {
+        expect(topic.verdict.quadrant, `${topic.id} is fragile`).toBe("moderate");
+        expect(topic.verdict.label, `${topic.id} is fragile`).not.toMatch(/settled/i);
+      }
+      if (topic.verdict.quadrant === "settled") {
+        expect(topic.verdict.fragile, `${topic.id} is settled`).toBeUndefined();
+      }
+    }
+  });
+
+  it("every settled verdict survives any single evidence relabel", () => {
+    for (const topic of topics.filter((t) => t.verdict.quadrant === "settled")) {
+      const sensitivity = topicVerdictSensitivity(topic);
+      expect(sensitivity.cardCount, `${topic.id} card count`).toBeGreaterThanOrEqual(
+        VERDICT_ROBUSTNESS.MIN_CARDS
+      );
+      expect(sensitivity.flipsToChange, `${topic.id} flipsToChange`).not.toBe(1);
+    }
+  });
+
+  it("topicSummaries.json carries the verdicts the topics actually compute", () => {
+    // The OG route and every list page read the summaries, not the topics. A
+    // stale file publishes a verdict the map no longer supports.
+    // Fix: bun --bun tsx scripts/regen-summaries.ts
+    const summaryById = new Map(topicSummaries.map((s) => [s.id, s] as const));
+    for (const topic of topics) {
+      expect(summaryById.get(topic.id)?.verdict, `${topic.id} summary verdict`).toEqual(
+        topic.verdict
+      );
+    }
   });
 
   it("the corpus weight distribution is legible (not clustered)", () => {
