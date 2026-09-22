@@ -115,9 +115,25 @@ export function CruxMovementTrack({ movement }: { movement: CruxMovementEntry[] 
   const latest = movement[movement.length - 1].entry;
   const shown = movement.slice(-TRACK_MAX_MARKS);
   const elided = movement.length > shown.length;
+  // A state ("Open since", "Unresolvable since") dates from the first entry of
+  // the run that is still in force, not from the latest note written about it.
+  const since = STATE_STATUSES.has(latest.status) ? runStart(movement).date : latest.date;
+  const first = movement[0].entry.date;
+  // Read left to right as a timeline: where the record starts, each entry,
+  // then where it stands. The start is dropped when it would repeat the end.
+  const showStart = formatMonth(first) !== formatMonth(since);
 
   return (
-    <span className="flex items-center gap-2.5" data-testid="crux-movement-track">
+    <span className="flex items-center gap-2" data-testid="crux-movement-track">
+      {showStart && (
+        <time
+          dateTime={first}
+          className="text-xs leading-none tabular-nums text-muted dark:text-stone-400"
+        >
+          <span className="sr-only">Record starts </span>
+          {formatMonth(first)}
+        </time>
+      )}
       <span aria-hidden="true" className="flex items-center">
         {elided && <span className={`mr-1 w-2 border-t border-dotted ${THREAD}`} />}
         {shown.map(({ entry }, index) => (
@@ -133,12 +149,25 @@ export function CruxMovementTrack({ movement }: { movement: CruxMovementEntry[] 
         <span className={`font-medium ${STATUS_TEXT[latest.status]}`}>
           {STATUS_SHORT_LABEL[latest.status]}
         </span>{" "}
-        <time dateTime={latest.date} className="tabular-nums text-muted dark:text-stone-400">
-          {formatMonth(latest.date)}
+        <time dateTime={since} className="tabular-nums text-muted dark:text-stone-400">
+          {formatMonth(since)}
         </time>
       </span>
     </span>
   );
+}
+
+/** Statuses that describe a standing state rather than a dated event. */
+const STATE_STATUSES = new Set<CruxLedgerStatus>(["open", "unresolvable"]);
+
+/** The earliest entry of the trailing run that shares the latest status. */
+function runStart(movement: CruxMovementEntry[]): CruxMovementEntry["entry"] {
+  const status = movement[movement.length - 1].entry.status;
+  let start = movement[movement.length - 1].entry;
+  for (let i = movement.length - 2; i >= 0 && movement[i].entry.status === status; i--) {
+    start = movement[i].entry;
+  }
+  return start;
 }
 
 function TrackEnding({ status }: { status: CruxLedgerStatus }) {
@@ -164,10 +193,17 @@ export function CruxMovementLedger({
   movement,
   claimId,
   nodesById,
+  standingLineShown = false,
 }: {
   movement: CruxMovementEntry[];
   claimId: string;
   nodesById: Map<string, ArgumentNode>;
+  /**
+   * The surrounding card already answers "what would settle it" with
+   * STANDING_DISAGREEMENT_LINE. The thread still splits into its two horns,
+   * but the caption says when it last moved instead of repeating the line.
+   */
+  standingLineShown?: boolean;
 }) {
   if (movement.length === 0) return null;
   const latest = movement[movement.length - 1].entry;
@@ -177,6 +213,16 @@ export function CruxMovementLedger({
   // One author for the whole history is said once, under it, not on every row.
   const authors = new Set(movement.map(({ entry }) => authorLine(entry)));
   const sharedAuthor = authors.size === 1 ? [...authors][0] : null;
+  // Likewise one ingest date for every entry (a ledger written in one sitting).
+  const noticed = new Set(movement.map(({ entry }) => entry.noticedAt ?? ""));
+  const sharedNoticed =
+    movement.length > 1 && noticed.size === 1 && movement[0].entry.noticedAt
+      ? movement[0].entry.noticedAt
+      : null;
+  const footer = [
+    sharedAuthor,
+    sharedNoticed ? `Added to the map ${formatDay(sharedNoticed)}` : null,
+  ].filter(Boolean);
 
   return (
     <section
@@ -197,7 +243,12 @@ export function CruxMovementLedger({
           const evidence = entry.evidenceNodeIds
             .map((id) => nodesById.get(id))
             .filter((node): node is Evidence => node?.type === "evidence");
-          const provenance = provenanceLine(entry, corrects, sharedAuthor === null);
+          const provenance = provenanceLine(
+            entry,
+            corrects,
+            sharedAuthor === null,
+            sharedNoticed === null,
+          );
 
           return (
             <li
@@ -246,7 +297,7 @@ export function CruxMovementLedger({
                   </p>
                 )}
                 {evidence.length > 0 && (
-                  <ul className="mt-2 space-y-0.5" aria-label="Evidence behind this entry">
+                  <ul className="mt-0.5" aria-label="Evidence behind this entry">
                     {evidence.map((node) => (
                       <EvidenceCitation key={node.id} node={node} entryId={entry.id} />
                     ))}
@@ -271,16 +322,16 @@ export function CruxMovementLedger({
                   : "pb-1 font-serif text-[14.5px] italic leading-snug text-muted dark:text-stone-400"
               }
             >
-              {tail === "double"
+              {tail === "double" && !standingLineShown
                 ? STANDING_DISAGREEMENT_LINE
                 : `No recorded movement since ${formatDay(latest.date)}.`}
             </p>
           </li>
         )}
       </ol>
-      {sharedAuthor && (
+      {footer.length > 0 && (
         <p className="mt-3 pl-8 text-[11.5px] leading-relaxed text-muted dark:text-stone-400">
-          {sharedAuthor}.
+          {footer.join(". ")}.
         </p>
       )}
     </section>
@@ -343,7 +394,7 @@ function EvidenceCitation({ node, entryId }: { node: Evidence; entryId: string }
   return (
     <li id={`ledger-${domId(entryId)}--${domId(node.id)}`}>
       <details className="group/cite">
-        <summary className="-mx-1 inline-flex min-h-8 cursor-pointer list-none items-baseline gap-1.5 rounded px-1 py-1 text-[12.5px] leading-snug text-[#3a6965] hover:text-[#2d524f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-[#8fc0bb] dark:hover:text-[#b5dad6] dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
+        <summary className="-mx-1 inline-flex min-h-11 cursor-pointer list-none items-baseline gap-1.5 rounded px-1 py-3 text-[12.5px] leading-snug text-[#3a6965] hover:text-[#2d524f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-[#8fc0bb] dark:hover:text-[#b5dad6] dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
           <span
             aria-hidden="true"
             className="inline-block translate-y-px text-[11px] transition-transform group-open/cite:rotate-90 motion-reduce:transition-none"
@@ -364,7 +415,7 @@ function EvidenceCitation({ node, entryId }: { node: Evidence; entryId: string }
               href={node.source.url}
               rel="noopener noreferrer"
               target="_blank"
-              className="mt-1 inline-flex min-h-8 items-center text-xs font-medium text-stone-700 link-underline dark:text-stone-300"
+              className="mt-1 inline-flex min-h-11 items-center text-xs font-medium text-stone-700 link-underline dark:text-stone-300"
             >
               Read the source<span aria-hidden="true">&nbsp;↗</span>
               <span className="sr-only"> (opens in a new tab)</span>
@@ -388,9 +439,10 @@ function provenanceLine(
   entry: CruxMovementEntry["entry"],
   corrects: string[],
   includeAuthor: boolean,
+  includeNoticed = true,
 ): string | null {
   const parts: string[] = [];
-  if (entry.noticedAt && entry.noticedAt !== entry.date) {
+  if (includeNoticed && entry.noticedAt && entry.noticedAt !== entry.date) {
     parts.push(`Added to the map ${formatDay(entry.noticedAt)}`);
   }
   if (includeAuthor) parts.push(authorLine(entry));
