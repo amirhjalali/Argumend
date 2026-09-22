@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Network, CheckCircle, AlertCircle, HelpCircle, List, X } from "lucide-react";
-import type { Topic, TopicCategory, TopicStatus, Evidence } from "@/lib/schemas/topic";
+import { ArrowRight, ExternalLink, Network, List, X } from "lucide-react";
+import type { Topic, TopicStatus, Evidence } from "@/lib/schemas/topic";
 import { calculateEvidenceScore, confidenceTier } from "@/lib/evidenceMetrics";
 import { CATEGORY_LABELS, topicSummaries, getCrossCategoryRelatedSummaries } from "@/data/topicIndex";
 import { ReadGraphToggle } from "@/components/ReadGraphToggle";
 import { SynopticTable } from "@/components/SynopticTable";
-import { ControversyMeter } from "@/components/ControversyMeter";
 import { ConfidenceBar } from "@/components/ConfidenceBar";
 import { VerdictVoting } from "@/components/VerdictVoting";
 import { CitationCard } from "@/components/CitationCard";
@@ -19,23 +18,16 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { FalsificationCrux } from "@/components/FalsificationCrux";
 import { FlagshipIntro } from "@/components/FlagshipIntro";
-import { categoryColors, statusColors } from "@/lib/categoryColors";
 import { formatLongDate } from "@/lib/formatDate";
 import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 
-// Labels + icons are local; chip colors come from the canonical, dark-mode-aware
-// maps in lib/categoryColors so a category/status reads the same color everywhere.
-const statusMeta: Record<TopicStatus, { label: string; icon: typeof CheckCircle; chip: string }> = {
-  settled: { label: "Settled", icon: CheckCircle, chip: statusColors.settled },
-  contested: { label: "Contested", icon: AlertCircle, chip: statusColors.contested },
-  highly_speculative: {
-    label: "Highly Speculative",
-    icon: HelpCircle,
-    chip: statusColors.highly_speculative,
-  },
+// One quiet line of small caps in place of two tracked-caps pills: the
+// category and the map's status are facts about the page, not alarms.
+const statusLabel: Record<TopicStatus, string> = {
+  settled: "broadly settled",
+  contested: "contested",
+  highly_speculative: "highly speculative",
 };
-
-const categoryChip: Record<TopicCategory, string> = categoryColors;
 
 function strongest(evidence: Evidence[] | undefined, side: "for" | "against"): Evidence | null {
   if (!evidence?.length) return null;
@@ -65,14 +57,20 @@ function countSources(topic: Topic): number {
   return seen.size;
 }
 
-/** A short verdict-synthesis sentence derived from the two-axis verdict + strongest evidence. */
-function bottomLine(topic: Topic): string {
+/**
+ * The sentence under the verdict readout. The readout already prints the
+ * verdict label, so this names the heaviest card on each side instead: never
+ * one side's best card without the other's.
+ */
+function bottomLine(topic: Topic): string | null {
   const allEvidence = topic.pillars.flatMap((p) => p.evidence ?? []);
-  const topFor = strongest(allEvidence, "for");
-  const anchor = topFor?.title
-    ? `, anchored most strongly by ${topFor.title.replace(/\.$/, "")}`
-    : "";
-  return `${topic.verdict.label}${anchor}.`;
+  const title = (e: Evidence | null) => e?.title?.replace(/\.$/, "");
+  const topFor = title(strongest(allEvidence, "for"));
+  const topAgainst = title(strongest(allEvidence, "against"));
+  if (topFor && topAgainst) {
+    return `Heaviest card for: ${topFor}. Heaviest card against: ${topAgainst}.`;
+  }
+  return null;
 }
 
 function EvidenceItem({ ev }: { ev: Evidence }) {
@@ -82,22 +80,22 @@ function EvidenceItem({ ev }: { ev: Evidence }) {
   const accent =
     ev.side === "for"
       ? "border-l-rust-400 bg-rust-50/30 dark:bg-rust-900/10"
-      : "border-l-stone-500 bg-stone-100/30 dark:bg-stone-900/10";
+      : "border-l-[#8B5A3C]/70 bg-stone-100/30 dark:border-l-[#cfa88a]/60 dark:bg-stone-900/10";
   const label = ev.side === "for" ? "Supports" : "Against";
-  const labelColor = ev.side === "for" ? "text-rust-700" : "text-stone-700 dark:text-stone-300";
+  const labelColor =
+    ev.side === "for" ? "!text-rust-700 dark:!text-[#d4805f]" : "!text-[#8B5A3C] dark:!text-[#cfa88a]";
   return (
     <li className={`rounded-md border-l-4 ${accent} pl-4 pr-4 py-3`}>
       <div className="flex items-baseline gap-2 mb-1 flex-wrap">
-        <span className={`text-[10px] font-sans font-semibold uppercase tracking-[0.15em] ${labelColor}`}>
+        <span className={`label-caps !text-[0.9375rem] !leading-none ${labelColor}`}>
           {label}
         </span>
         <span
-          className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] text-deep"
+          className="text-[11px] font-sans font-medium text-deep dark:text-[#8fc0bb]"
           title="Confidence tier from source reliability, independence, replicability, and directness"
         >
-          {tier}
+          {tier}, {pct}%
         </span>
-        <span className="text-[10px] font-mono text-secondary dark:text-stone-400">{pct}%</span>
       </div>
       <p className="font-serif text-[16px] leading-snug text-primary dark:text-stone-200 mb-1">
         <span className="font-semibold">{ev.title}.</span>{" "}
@@ -179,7 +177,6 @@ function useActiveSection(ids: string[]): string | null {
 }
 
 export function ReadModeView({ topic }: { topic: Topic }) {
-  const StatusIcon = statusMeta[topic.status].icon;
   const categoryLabel = CATEGORY_LABELS[topic.category];
 
   const sourceCount = useMemo(() => countSources(topic), [topic]);
@@ -210,13 +207,14 @@ export function ReadModeView({ topic }: { topic: Topic }) {
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const tocRef = useRef<HTMLElement>(null);
 
-  // Mobile-only: auto-hide the floating controls while reading down the page and
-  // reveal them on scroll-up or near the top, so they stop permanently occluding
-  // the body text. Desktop is unaffected — the floats below keep static positions
+  // Mobile-only: the floating controls stay out of the first screen entirely
+  // (they used to land on the key fact, the most important sentence on the
+  // page), then hide while reading down and return on scroll-up, so they stop
+  // permanently occluding the body text. Desktop is unaffected — the floats below keep static positions
   // via `lg:` resets. The transition is neutralized by the global
   // prefers-reduced-motion block in globals.css, so reduced-motion users get an
   // instant (un-animated) toggle.
-  const [controlsHidden, setControlsHidden] = useState(false);
+  const [controlsHidden, setControlsHidden] = useState(true);
   useEffect(() => {
     let lastY = window.scrollY;
     let ticking = false;
@@ -225,7 +223,8 @@ export function ReadModeView({ topic }: { topic: Topic }) {
       ticking = true;
       requestAnimationFrame(() => {
         const y = window.scrollY;
-        if (y < 140 || y < lastY) setControlsHidden(false);
+        if (y < window.innerHeight * 0.9) setControlsHidden(true);
+        else if (y < lastY) setControlsHidden(false);
         else if (y > lastY + 4) setControlsHidden(true);
         lastY = y;
         ticking = false;
@@ -257,31 +256,15 @@ export function ReadModeView({ topic }: { topic: Topic }) {
         <article className="mx-auto w-full max-w-[72ch] px-5 sm:px-8 pt-6 pb-32 lg:mx-0 lg:px-0">
           {/* ─── Header ─── */}
           <header className="mb-8">
-            <div className="flex items-start justify-between gap-4 mb-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <span
-                  className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[10px] font-sans font-semibold uppercase tracking-[0.15em] ${statusMeta[topic.status].chip}`}
-                >
-                  <StatusIcon className="h-3 w-3" aria-hidden />
-                  {statusMeta[topic.status].label}
-                </span>
-                <span
-                  className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[10px] font-sans font-semibold uppercase tracking-[0.15em] ${categoryChip[topic.category]}`}
-                >
-                  {categoryLabel}
-                </span>
-              </div>
+            <div className="flex items-center justify-between gap-4 mb-4">
+              <p className="label-caps">
+                {categoryLabel}, {statusLabel[topic.status]}
+              </p>
               <ReadGraphToggle current="read" />
             </div>
             <h1 className="font-serif text-4xl sm:text-5xl leading-[1.1] tracking-tight text-primary dark:text-stone-200 mb-3">
               {topic.title}
             </h1>
-            <BalanceWeightReadout
-              balance={topic.balance}
-              weight={topic.weight}
-              verdict={topic.verdict}
-              className="mt-4"
-            />
 
             {/* ─── Provenance strip ─── */}
             <p className="mt-3 font-sans text-[11px] text-muted dark:text-[var(--text-muted)]">
@@ -304,25 +287,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             <p className="font-serif text-[22px] leading-[1.55] text-primary dark:text-stone-200 first-letter:font-serif first-letter:text-[64px] first-letter:font-semibold first-letter:float-left first-letter:leading-[0.85] first-letter:mr-2 first-letter:mt-1 first-letter:text-deep">
               {topic.meta_claim}
             </p>
-
-            {/* ─── Bottom line ─── */}
-            <p className="mt-5 font-serif text-[17px] leading-relaxed text-secondary dark:text-stone-400 border-l-2 border-deep/40 pl-4 italic">
-              <span className="not-italic font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-deep block mb-1">
-                Bottom line
-              </span>
-              {synthesis}
-            </p>
           </section>
-
-          {/* ─── Controversy meter ─── */}
-          <div className="mt-7">
-            <ControversyMeter
-              balance={topic.balance}
-              weight={topic.weight}
-              verdict={topic.verdict}
-              status={topic.status}
-            />
-          </div>
 
           {/* ─── Synoptic table ─── */}
           <SynopticTable pillars={topic.pillars} />
@@ -332,17 +297,17 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             const evFor = strongest(pillar.evidence, "for");
             const evAgainst = strongest(pillar.evidence, "against");
             return (
+              <Fragment key={pillar.id}>
               <section
-                key={pillar.id}
                 id={`pillar-${pillar.id}`}
                 aria-label={`Pillar ${idx + 1}: ${pillar.title}`}
                 className="mt-12 scroll-mt-24"
               >
                 <div className="mb-4">
-                  <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-1">
-                    <GlossaryTerm term="pillar">Pillar</GlossaryTerm> {idx + 1} of{" "}
+                  <p className="label-caps mb-1">
+                    <GlossaryTerm term="pillar" className="[font-variant-caps:inherit] [letter-spacing:inherit]">Pillar</GlossaryTerm> {idx + 1} of{" "}
                     {topic.pillars.length}
-                  </div>
+                  </p>
                   <h2 className="font-serif text-[28px] leading-tight text-primary dark:text-stone-200">
                     {pillar.title}
                   </h2>
@@ -353,19 +318,19 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                   )}
                 </div>
 
-                <blockquote className="my-5 border-l-4 border-l-stone-500/70 pl-4 py-1 bg-stone-100/30 dark:bg-stone-900/10">
-                  <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-stone-700 dark:text-stone-300 mb-1">
-                    The Skeptic
-                  </div>
+                <blockquote className="my-5 border-l-4 border-l-[#8B5A3C]/70 pl-4 py-1 bg-stone-100/30 dark:border-l-[#cfa88a]/60 dark:bg-stone-900/10">
+                  <p className="label-caps mb-1 !text-[#8B5A3C] dark:!text-[#cfa88a]">
+                    The skeptic
+                  </p>
                   <p className="font-serif text-[18px] leading-relaxed text-primary dark:text-stone-200">
                     {pillar.skeptic_premise}
                   </p>
                 </blockquote>
 
                 <div className="my-5 border-l-4 border-l-rust-400/70 pl-4 py-1 bg-rust-50/30 dark:bg-rust-900/10">
-                  <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 mb-1">
-                    The Proponent
-                  </div>
+                  <p className="label-caps mb-1 !text-rust-700 dark:!text-[#d4805f]">
+                    The proponent
+                  </p>
                   <p className="font-serif text-[18px] leading-relaxed text-primary dark:text-stone-200">
                     {pillar.proponent_rebuttal}
                   </p>
@@ -373,16 +338,14 @@ export function ReadModeView({ topic }: { topic: Topic }) {
 
                 {(evFor || evAgainst || (pillar.evidence?.length ?? 0) > 0) && (
                   <div className="mt-6">
-                    <h3 className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-3">
-                      Strongest evidence on each side
-                    </h3>
+                    <h3 className="label-caps mb-3">Strongest evidence on each side</h3>
                     <ul className="space-y-2.5 list-none p-0">
                       {evFor && <EvidenceItem ev={evFor} />}
                       {evAgainst && <EvidenceItem ev={evAgainst} />}
                     </ul>
                     {(pillar.evidence?.length ?? 0) > 2 && (
                       <details className="mt-3">
-                        <summary className="cursor-pointer text-xs text-secondary dark:text-stone-400 hover:text-primary font-sans">
+                        <summary className="inline-flex min-h-11 cursor-pointer items-center rounded text-xs text-secondary dark:text-stone-400 hover:text-primary font-sans focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep">
                           Show all {pillar.evidence!.length} evidence items
                         </summary>
                         <ul className="space-y-2.5 mt-3 list-none p-0">
@@ -400,15 +363,33 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                 {/* Crux — falsification framing when available, else the settle-test */}
                 <FalsificationCrux crux={pillar.crux} />
               </section>
+
+              {/* ─── Where the evidence stands: after the first crux, not
+                  before it. The verdict is one editorial judgment deep; the
+                  crux is what a reader should meet first. ─── */}
+              {idx === 0 && (
+                <section aria-label="Where the evidence stands" className="mt-12">
+                  <h2 className="label-caps mb-3">Where the evidence stands</h2>
+                  <BalanceWeightReadout
+                    balance={topic.balance}
+                    weight={topic.weight}
+                    verdict={topic.verdict}
+                  />
+                  {synthesis && (
+                    <p className="mt-3 font-serif text-[17px] leading-relaxed text-secondary dark:text-stone-400">
+                      {synthesis}
+                    </p>
+                  )}
+                </section>
+              )}
+              </Fragment>
             );
           })}
 
           {/* ─── Sources ─── */}
           {topic.references?.length ? (
             <section aria-label="Further reading" className="mt-14">
-              <h2 className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-3">
-                Further reading
-              </h2>
+              <h2 className="label-caps mb-3">Further reading</h2>
               <ul className="space-y-2.5 list-none p-0">
                 {topic.references.map((ref, i) => (
                   <li key={ref.url}>
@@ -431,9 +412,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
           {/* ─── Related topics ─── */}
           {relatedTopics.length > 0 && (
             <section aria-label="Related topics" className="mt-4">
-              <h2 className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-3">
-                Related topics
-              </h2>
+              <h2 className="label-caps mb-3">Related topics</h2>
               <ul className="grid gap-3 sm:grid-cols-2 list-none p-0">
                 {relatedTopics.map((rt) => (
                   <li key={rt.id}>
@@ -441,7 +420,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
                       href={`/topics/${rt.id}`}
                       className="surface-card card-hover block rounded-lg border border-stone-200/70 dark:border-[var(--border-divider)] px-4 py-3 transition-colors"
                     >
-                      <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-secondary dark:text-stone-400 mb-1">
+                      <div className="label-caps !text-[0.9375rem] mb-1">
                         {CATEGORY_LABELS[rt.category]}
                       </div>
                       <div className="font-serif text-[17px] leading-snug text-primary dark:text-stone-200">
@@ -477,9 +456,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             className="hidden lg:block w-56 flex-shrink-0"
           >
             <div className="sticky top-24 pt-6">
-              <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-secondary dark:text-stone-400 mb-3">
-                On this page
-              </div>
+              <p className="label-caps mb-3">On this page</p>
               <ul className="space-y-1.5 list-none p-0 border-l border-stone-200/70 dark:border-[var(--border-divider)]">
                 {tocItems.map((item) => {
                   const isActive = activeId === item.id;
