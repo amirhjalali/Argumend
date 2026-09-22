@@ -11,6 +11,7 @@ import {
   loadArgumentTopic,
 } from "@/lib/argument/draftTopics";
 import { DebateView } from "@/components/argument/DebateView";
+import { isPublicEntry } from "@/lib/argument/ledger";
 import {
   ARGUMENT_TOPICS_FIRST_PUBLISHED,
   ARGUMENT_TOPICS_LAST_UPDATED,
@@ -171,6 +172,9 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           meta={argumentTopic.meta}
           graph={argumentTopic.graph}
           cruxes={argumentTopic.cruxes}
+          // Drop review-queue entries, but keep superseded public ones: the
+          // strip hides them itself and needs them to say what an entry corrects.
+          ledger={argumentTopic.ledger.filter(isPublicEntry)}
         />
       </>
     );
