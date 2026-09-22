@@ -36,7 +36,9 @@ hostile" (prompt injection). Consequences for this program:
 - UI for map reply (paste a thread, see the reply and the probe values), behind the flag, with the consent line.
 - `jev/privacy-consent`: /privacy and /terms drafts for founder review, footer links, consent line on /analyze-v2, vendor-naming provider badge.
 - `jev/data-fixes` (after adjudication merges, same files): fix `housing-affordability-crisis` card `stanford-sf-rent-control` title (6% vs the study's 15%); find `sourceUrl` for the 16 cards missing one; report on `minneapolis-shooting` pillar `pattern-of-force` having no evidence and on `self-driving-car-safety` / `vaping-harm-reduction` having no two-sided pillar. Founder decision flagged: `featuredTopicId` is `consciousness-ai-systems` (moderate quadrant, 1 for / 7 against on its lead pillar), which sits awkwardly with "evidence on both sides".
-- Second-opinion code review of each wave-1 branch by a separate reviewer agent before merge.
+- `jev/verdict-robustness`: the second read found the "settled" quadrant is about two cards wide on 12-16 card maps (one card moves balance 8-12 points against a 20-point threshold; six more quadrant flips within single-card reach). New branch adds a sensitivity measure (`flipsToChange`, one-card balance range), demotes fragile "settled" readings to "moderate" with a quiet "one evidence card could change this reading" line, and measures the effect across all 156 topics.
+- `jev/evidence-drafts`: candidate evidence cards, with verified URLs, for the thin `for` sides of the five quadrant-changed maps and the empty Minneapolis pillar, for founder acceptance (docs only).
+- Second-opinion code review of each wave-1 branch by a separate reviewer agent before merge. Done so far: crux gate (7 findings, merge after fixes, fixes in progress); adjudication (20/22 flips confirmed, 1 reverted, 4 more applied, removals/splits listed for the founder).
 - Merge order: adjudication (data only) -> crux gate -> map-reply API -> UI.
 
 ## Wave 3
