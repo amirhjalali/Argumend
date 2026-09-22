@@ -80,6 +80,7 @@ Set via environment variables. All default to off (offline mode):
 - `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true` — live debate generation
 - `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true` — live multi-model judging
 - `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis at `/analyze-v2`
+- `CRUX_PROJECTION_JEV_GATE=true` — withhold a ranked crux whose calibrated contestedness (from a probe such as Jev) is below the floor. Inert unless a caller supplies probe values, which no production lane does; it sends nothing anywhere by itself.
 
 ### Disagreement Diagnosis (V2)
 
