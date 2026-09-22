@@ -58,6 +58,64 @@ Every crux card renders from the template: what's disputed (actual counter-state
 
 Forbidden: "given this graph, what are the cruxes?" — the ranking is never model-derived.
 
+## v1.2 addition: contestedness overrides from a calibrated probe
+
+Optional, off unless a caller supplies one, and never on by default. `identifyCruxes(graph, {
+contestednessOverrides, candidacyFloor })` accepts a map of claim id → 0..1 contestedness **measured
+by a calibrated external probe over the same source the claims were extracted from**. Where a value
+exists it replaces the balance modulator:
+
+```
+C'(n) = statusWeight(n.status) × override(n)                       with an override
+C (n) = statusWeight(n.status) × (0.5 + 0.5·balance(n))            without one, unchanged
+```
+
+and a claim whose override falls below `candidacyFloor` (default 0.25) leaves candidacy entirely, so
+it cannot occupy a slot, inherit scoping reach, or act as a redundancy comparison.
+
+This is a **new source for C, not a new way to rank**. Three rules keep it inside the LLM boundary
+above:
+
+1. **The probe can only lower C, and vetoes rather than nominates.** The `min` is load-bearing:
+   because the balance modulator never falls below `0.5 × statusWeight`, an unclamped override above
+   that would *raise* C — measured on ai-mass-unemployment, a 0.98 lifted a claim from rank 13 into
+   the served top-5, which is a model nominating a crux. With the clamp an override can demote a
+   claim or remove it, never promote it. Candidacy is still `status ∈ {contested, unresolved}` OR
+   `implicit` OR a pin, and the status prefactor survives the override, so an `uncontested` claim
+   scores C = 0 however confident the probe is: the probe narrows the candidate set and never widens
+   it. A claim with no override keeps its own signals exactly, though its final rank can still move,
+   since removing a claim changes who pays the redundancy penalty and renormalizes the scoping bonus.
+2. **A pin outranks the probe.** `cruxOverride: "pin"` is exempt from the floor: the editorial
+   override remains the last word, as it is for topology problems.
+3. **Silence is not a zero.** A probe that cannot see the claim in the source must withhold its
+   number rather than report a low one; `contestednessOverridesFrom` enforces this with a second
+   presence signal, and a withheld claim keeps its balance-derived C. Overrides must only ever be
+   supplied for the exact text the claims came from — a probe run on different bytes measures the
+   renderer, not the disagreement.
+
+Nothing in `lib/crux` calls the network. A probe is supplied through the `ContestednessProvider`
+interface in `lib/crux/contestedness.ts`; `scripts/jev-probe/crux-contestedness.ts` is the live
+implementation and the fixtures are offline. `CruxResult.contestednessOverride` and an
+`explanationFacts` line ("Contestedness from probe: 0.070 …") carry the number into the crux card,
+and both are absent entirely when no override was supplied.
+
+Because a floor removal is a model-supplied number changing the candidate set, it is reported rather
+than silent: `identifyCruxesWithDiagnostics` returns `droppedByFloorIds`, and a claim that gates a
+removed claim carries `gatesRemovedByProbeIds` and says so in its explanation facts instead of
+printing a bare "Gates: none".
+
+`lib/disagreement/projectReport.ts` carries a separate, presentation-only version behind
+`CRUX_PROJECTION_JEV_GATE` (default off): given a `contestedness` map it withholds a ranked crux
+below the floor and takes the next one, leaving the engine's order untouched. **The flag is inert in
+production today**: the only caller of the projection, `lib/disagreement/analyze.ts`, never passes
+`contestedness`, so turning the flag on changes nothing until something supplies probe values — and
+nothing in the app does. The flag sends no data anywhere by itself; only the probe script talks to a
+third party.
+
+Measurement, including the thresholds' instability and the effect on definitional and implicit
+cruxes, is in `docs/reviews/2026-09-21-jev-contestedness-gate.md`. Both flags are off; nothing about
+the shipped ranking has changed.
+
 ## Alternatives considered and rejected
 
 - **Pure LLM identification**: unexplainable, unstable run-to-run, and violates the auditable-over-authoritative rule. Rejected outright (all three proposals concurred).
@@ -66,6 +124,7 @@ Forbidden: "given this graph, what are the cruxes?" — the ranking is never mod
 - **Bayesian networks / value-of-information**: the conceptually perfect frame, but requires calibrated CPTs Argumend doesn't have. Revisit if the platform ever elicits probabilities.
 - **Multiplicative score form** (proposal A): punishes any zero component absolutely; with scoping propagation in place the additive form + candidacy gates achieves the filtering without silently zeroing definitional/normative cruxes.
 - **Wide tractability range / resolvability gating**: would systematically bury normative cruxes — the exact failure the platform exists to avoid.
+- **(v1.2) Multiplying the probe into the existing balance term, or taking the max, or blending the two**: the product deflates every probed map relative to an unprobed one; the max cannot veto, since the balance term never falls below 0.5·statusWeight; the blend reaches neither outcome and adds a constant with nothing to fit it on. Replacing the modulator keeps both forms on one scale under one prefactor. Dropping the prefactor instead — letting the probe *be* C — was rejected outright: it would let a model promote a claim the editors marked uncontested.
 
 ## Failure modes tracked (with mitigations)
 
