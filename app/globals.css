@@ -31,6 +31,18 @@
   --text-muted: #6d6058; /* Darkened from #7a7068 for WCAG AA 4.5:1 on parchment */
   --text-paragraph: rgba(31, 31, 29, 0.85);
   --text-heading: #1f1f1d;
+  /* Channel forms of the brand text tokens, so `text-primary`, `text-secondary`
+     and `text-muted` (and their /NN opacity forms) adapt with the theme. */
+  --text-primary-rgb: 61 58 54;
+  --text-secondary-rgb: 86 77 69;
+  --text-muted-rgb: 109 96 88;
+
+  /* Channel forms for the card, subtle-well and divider variables. Tailwind 3
+     silently drops arbitrary `bg-[var(--x)]/NN` utilities, so anything that
+     needs opacity goes through these (`bg-card/80`, `border-divider/60`). */
+  --bg-card-rgb: 255 255 255;
+  --bg-subtle-rgb: 245 242 236;
+  --border-divider-rgb: 232 224 212;
 
   --crux-crimson: #a23b3b;
 
@@ -68,9 +80,16 @@
 
   --text-primary: #e8e4de;
   --text-secondary: #b0a99f;
-  --text-muted: #8a8279;
+  --text-muted: #9a9189; /* Lifted from #8a8279 so muted text clears 4.5:1 on cards too */
   --text-paragraph: rgba(232, 228, 222, 0.85);
   --text-heading: #f0ece6;
+  --text-primary-rgb: 232 228 222;
+  --text-secondary-rgb: 176 169 159;
+  --text-muted-rgb: 154 145 137;
+
+  --bg-card-rgb: 37 36 32;
+  --bg-subtle-rgb: 48 46 42;
+  --border-divider-rgb: 61 58 54;
 
   --crux-crimson: #c45c5c; /* crux.light — brighter for dark backgrounds */
 
@@ -266,8 +285,9 @@ html {
     @apply px-5 py-2.5;
   }
 
+  /* Pinned ink: `primary` flips light in dark mode, a filled button must not. */
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary/90;
+    @apply bg-[#3d3a36] text-white hover:bg-[#3d3a36]/90 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-200/90;
   }
 
   .btn-crux {
@@ -291,6 +311,20 @@ html {
     background-color: var(--bg-panel);
   }
 
+  /* Section label. Garamond true small caps rather than tracked sans capitals:
+     the label belongs to the text face, reads as scholarship rather than
+     template chrome, and stays quieter than the heading it sits above.
+     Colour defaults to muted ink; a text-* utility overrides it. */
+  .label-caps {
+    font-family: var(--font-serif), Georgia, serif;
+    font-variant-caps: all-small-caps;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    letter-spacing: 0.045em;
+    line-height: 1.25;
+    color: rgb(var(--text-muted-rgb));
+  }
+
   .surface-paper {
     @apply rounded-lg border border-stone-200/60 dark:border-[#3d3a36];
     background-color: var(--bg-paper);
@@ -301,33 +335,65 @@ html {
    Blog / Long-form Prose Styling
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* Long-form reading text: EB Garamond, as CLAUDE.md assigns body prose to the
+   serif. Garamond has a small x-height, so it sets a step larger than the sans
+   (19–20px) with generous leading, and the measure is held near 70 characters.
+   `.reading-body` is the same treatment for blocks outside `.prose-custom`. */
+.prose-custom,
+.reading-body {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.1875rem, 1.1rem + 0.25vw, 1.25rem);
+  line-height: 1.68;
+  letter-spacing: 0;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  hanging-punctuation: first;
+}
+
 .prose-custom {
-  font-size: 1.0625rem; /* 17px */
-  line-height: 1.8;
   color: var(--text-heading);
+  max-width: 31em;
+}
+
+.prose-custom p,
+.prose-custom li,
+.reading-body {
+  font-size: inherit;
+  line-height: 1.68;
+  color: rgb(var(--text-primary-rgb));
 }
 
 .prose-custom p {
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
+  margin-bottom: 1.15em;
+}
+
+.prose-custom strong {
+  font-weight: 600;
 }
 
 .prose-custom h2 {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.6em;
+  font-weight: 500;
   color: var(--text-heading);
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  margin-top: 2.2em;
+  margin-bottom: 0.55em;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 
 .prose-custom h3 {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.25rem;
+  font-size: 1.2em;
+  font-weight: 600;
   color: var(--text-heading);
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin-top: 1.8em;
+  margin-bottom: 0.4em;
   line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.reading-body {
+  font-size: clamp(1.1875rem, 1.1rem + 0.25vw, 1.25rem);
 }
 
 .prose-custom strong {

@@ -62,7 +62,7 @@ export function MapReplyForm({
           // property of the component rather than of the input element.
           onChange={(event) => onChange(event.target.value.slice(0, maxCharacters))}
           placeholder={PLACEHOLDER}
-          className="w-full resize-y rounded-xl border border-[var(--border-default)] bg-[var(--bg-input)] p-4 font-sans text-base leading-relaxed text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-deep/30 disabled:opacity-60"
+          className="w-full resize-y rounded-xl border border-[var(--border-default)] bg-[var(--bg-input)] p-4 font-sans text-base leading-relaxed text-[var(--text-primary)] placeholder:font-serif placeholder:italic placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-deep/30 disabled:opacity-60"
         />
 
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">

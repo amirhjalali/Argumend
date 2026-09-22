@@ -105,6 +105,14 @@ describe("crux ledger schema: shape", () => {
     expect(schemaErrors(entry({ noticedAt: "2025-12-31" })).join(" ")).toMatch(/cannot precede/);
   });
 
+  it("rejects a date or noticedAt after the day the entry was written", () => {
+    expect(schemaErrors(entry({ date: "2026-09-22" }))).toEqual([]);
+    expect(schemaErrors(entry({ date: "2062-09-22" })).join(" ")).toMatch(/date .* cannot be after createdAt/);
+    expect(schemaErrors(entry({ noticedAt: "2026-09-23" })).join(" ")).toMatch(
+      /noticedAt cannot be after createdAt/,
+    );
+  });
+
   it("accepts createdAt as an ISO date or zoned date-time only", () => {
     expect(schemaErrors(entry({ createdAt: "2026-09-22T00:00:00Z" }))).toEqual([]);
     expect(schemaErrors(entry({ createdAt: "2026-09-22T10:30:00.000+02:00" }))).toEqual([]);
@@ -312,6 +320,12 @@ describe("crux ledger: supersession", () => {
 
   it("requires supersededBy to point to an entry in the ledger", () => {
     expect(rules(ledger(first))).toEqual(["superseded-by-resolves"]);
+  });
+
+  it("rejects a correction about a different claim", () => {
+    const otherClaim = entry({ claimId: "c3" });
+    const misdirected = { ...first, supersededBy: otherClaim.id };
+    expect(rules(ledger(misdirected, otherClaim))).toEqual(["superseded-by-same-claim"]);
   });
 
   it("rejects self-supersession and cycles", () => {

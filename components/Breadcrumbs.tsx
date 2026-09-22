@@ -32,7 +32,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
     <>
       <JsonLd data={jsonLd} />
       <nav aria-label="Breadcrumb" className="mb-4">
-        <ol className="flex items-center gap-1.5 text-sm">
+        <ol className="flex flex-wrap items-center gap-x-1.5 text-sm">
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
             return (

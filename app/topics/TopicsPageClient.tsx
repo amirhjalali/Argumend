@@ -69,7 +69,14 @@ export type TopicsQueryState = {
 // Component
 // ---------------------------------------------------------------------------
 
-export default function TopicsPageClient({ initialState }: { initialState: TopicsQueryState }) {
+export default function TopicsPageClient({
+  initialState,
+  featured,
+}: {
+  initialState: TopicsQueryState;
+  /** Server-rendered "start here" maps, shown inside the shell under the intro. */
+  featured?: React.ReactNode;
+}) {
   const [activeCategory, setActiveCategory] = useState<TopicCategory | "all">(initialState.category);
   const [activeStatuses, setActiveStatuses] = useState<Set<TopicStatus>>(() => new Set(initialState.statuses));
   const [minBalance, setMinBalance] = useState(initialState.minBalance);
@@ -283,6 +290,8 @@ export default function TopicsPageClient({ initialState }: { initialState: Topic
               steel-man arguments, weighted evidence, and crux questions.
             </p>
           </div>
+
+          {featured}
 
           {/* Mobile: keep discovery controls available without pushing every
               topic card below a full screen of chips and sliders. */}

@@ -150,7 +150,7 @@ export default function MethodologyPage() {
               { label: "Methodology" },
             ]}
           />
-          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
+          <p className="label-caps mb-4">
             Our Methodology
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 leading-[1.08]">
@@ -304,7 +304,7 @@ export default function MethodologyPage() {
         </section>
 
         {/* Evidence Weighting */}
-        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[var(--bg-canvas)]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
+        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-canvas/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
           <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
             Evidence scoring dimensions
           </h2>

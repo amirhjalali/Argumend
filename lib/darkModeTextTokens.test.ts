@@ -92,24 +92,18 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/SynopticTable.tsx" },
   { path: "components/nodes/MetaNode.tsx" },
   { path: "app/topics/TopicsPageClient.tsx" },
-  {
-    path: "components/VerdictVoting.tsx",
-    // The "Compare your verdict" card is a fixed `from-[#faf8f5] to-[#f4f1eb]`
-    // gradient with no dark variant, so dark text is correct in both modes.
-    exempt: ['<span className="font-medium text-primary">'],
-  },
+  // VerdictVoting's always-light "Compare" card and ShareVerdictCard's
+  // rasterized title pin literal ink (`text-[#3d3a36]`) since 2026-09-22: the
+  // brand tokens now flip in dark mode, so a bare token there would go
+  // light-on-light. They no longer need an exemption.
+  { path: "components/VerdictVoting.tsx" },
   { path: "app/methodology/page.tsx" },
   { path: "app/how-it-works/page.tsx" },
   { path: "app/lessons-from-the-deep/page.tsx" },
   { path: "app/analysis/[id]/AnalysisView.tsx" },
   { path: "app/analyze/page.tsx" },
   { path: "components/FeaturedTopicHero.tsx" },
-  {
-    path: "components/ShareVerdictCard.tsx",
-    // The share card itself is rasterized to a PNG on a hard-coded #f4f1eb
-    // background, so it is always-light by design.
-    exempt: ["font-serif font-bold text-primary leading-tight mt-3"],
-  },
+  { path: "components/ShareVerdictCard.tsx" },
   { path: "components/ScalesOfEvidence.tsx" },
   { path: "components/SearchModal.tsx" },
   { path: "components/nodes/RichNode.tsx" },

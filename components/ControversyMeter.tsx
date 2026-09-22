@@ -18,7 +18,7 @@ interface ControversyMeterProps {
 // Helpers
 // ---------------------------------------------------------------------------
 
-type HeatTier = "cool" | "warm" | "hot" | "explosive";
+type HeatTier = "cool" | "warm" | "hot" | "explosive"; // internal keys only; nothing renders heat
 
 // Quadrant → heat tier. Controversy is being well-mapped AND balanced:
 // settled maps coolest, well-mapped-contested is hottest, thin maps speculative.
@@ -34,47 +34,27 @@ const tierConfig: Record<
   {
     label: string;
     description: string;
-    barClass: string;
-    markerClass: string;
-    glowClass: string;
-    animationClass: string;
   }
 > = {
   cool: {
-    label: "Scientific Consensus",
+    label: "Broad agreement",
     description:
       "Overwhelming expert agreement. Remaining debates are at the margins.",
-    barClass: "from-[#4f7b77] via-[#6a9f9a] to-emerald-400",
-    markerClass: "bg-[#4f7b77] border-[#3a6965]",
-    glowClass: "",
-    animationClass: "animate-[pulse-subtle_4s_ease-in-out_infinite]",
   },
   warm: {
     label: "Contested",
     description:
       "Meaningful disagreement among researchers. Key evidence is debated.",
-    barClass: "from-[#C4613C] via-[#d4805f] to-[#e6a48c]",
-    markerClass: "bg-[#C4613C] border-[#b05434]",
-    glowClass: "",
-    animationClass: "animate-[pulse-medium_2.5s_ease-in-out_infinite]",
   },
   hot: {
-    label: "Highly Disputed",
+    label: "Genuinely divided",
     description:
       "Strong disagreement. Experts are divided and evidence is actively challenged.",
-    barClass: "from-[#b05434] via-[#C4613C] to-[#d4805f]",
-    markerClass: "bg-[#b05434] border-[#8b3f27]",
-    glowClass: "shadow-[0_0_12px_rgba(176,84,52,0.35)]",
-    animationClass: "animate-[pulse-hot_1.8s_ease-in-out_infinite]",
   },
   explosive: {
-    label: "Speculative",
+    label: "Thinly evidenced",
     description:
       "Little consensus exists. Claims rest on limited or conflicting evidence.",
-    barClass: "from-[#8b3f27] via-[#a23b3b] to-[#c45c5c]",
-    markerClass: "bg-[#8b3f27] border-[#6b301e]",
-    glowClass: "shadow-[0_0_18px_rgba(139,63,39,0.45)]",
-    animationClass: "animate-[pulse-explosive_1.2s_ease-in-out_infinite]",
   },
 };
 
@@ -82,7 +62,7 @@ const tierConfig: Record<
 const statusOverride: Record<TopicStatus, string | null> = {
   settled: null, // use tier label
   contested: null,
-  highly_speculative: "Highly Speculative",
+  highly_speculative: "Highly speculative",
 };
 
 // ---------------------------------------------------------------------------
@@ -102,16 +82,14 @@ export function ControversyMeter({ balance, weight, verdict, status }: Controver
   return (
     <div className="w-full mb-8">
       <div
-        className="relative bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-5 sm:p-6"
+        className="relative bg-transparent rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] px-5 py-4"
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
       >
         {/* Header row */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <h3 className="text-xs font-medium text-stone-500 dark:text-[var(--text-muted)] uppercase tracking-widest">
-              Controversy Meter
-            </h3>
+            <h3 className="label-caps">How contested</h3>
             {/* Info dot */}
             <button
               type="button"
@@ -125,11 +103,12 @@ export function ControversyMeter({ balance, weight, verdict, status }: Controver
           <span className="text-sm font-medium text-primary dark:text-stone-200">{displayLabel}</span>
         </div>
 
-        {/* Bar */}
-        <div className="relative h-3 sm:h-4 rounded-full bg-stone-200/80 dark:bg-[var(--bg-muted)] overflow-visible">
-          {/* Gradient fill */}
+        {/* Bar: one quiet stone fill. It used to be a heat gradient that
+            pulsed and glowed hotter as a topic got more contested, which made
+            disagreement read as an alarm (2026-09-22 design audit). */}
+        <div className="relative h-1.5 rounded-full bg-stone-200/80 dark:bg-[var(--bg-muted)] overflow-visible">
           <div
-            className={`absolute inset-0 rounded-full bg-gradient-to-r ${config.barClass} ${config.animationClass} motion-reduce:animate-none ${config.glowClass}`}
+            className="absolute inset-0 rounded-full bg-stone-400 dark:bg-stone-500"
             style={{ width: `${Math.max(controversyPct, 4)}%` }}
             role="meter"
             aria-valuenow={controversyPct}
@@ -140,9 +119,9 @@ export function ControversyMeter({ balance, weight, verdict, status }: Controver
 
           {/* Marker */}
           <div
-            className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 ${config.markerClass} ${config.glowClass} transition-all duration-700 ease-out`}
+            className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full border-2 border-white bg-stone-600 shadow-sm transition-all duration-700 ease-out dark:border-[#1a1917] dark:bg-stone-300"
             style={{
-              left: `clamp(0px, calc(${controversyPct}% - 10px), calc(100% - 20px))`,
+              left: `clamp(0px, calc(${controversyPct}% - 7px), calc(100% - 14px))`,
             }}
           >
             <span className="sr-only">{`Balance ${balance} of 100, weight ${weight} of 100`}</span>
@@ -151,12 +130,11 @@ export function ControversyMeter({ balance, weight, verdict, status }: Controver
 
         {/* Scale labels */}
         <div className="flex justify-between mt-2">
-          <span className="text-[10px] sm:text-xs text-stone-500 dark:text-[var(--text-muted)] font-medium">
-            Settled
-          </span>
-          <span className="text-[10px] sm:text-xs text-stone-500 dark:text-[var(--text-muted)] font-medium">
-            Speculative
-          </span>
+          {/* The fill is weight × evenness: empty when one side clearly
+              leads or the evidence is thin, full when heavy evidence splits
+              evenly. The end labels say that, not "settled/speculative". */}
+          <span className="text-xs text-muted">Little in dispute</span>
+          <span className="text-xs text-muted">Heavy evidence, evenly split</span>
         </div>
 
         {/* Tooltip */}

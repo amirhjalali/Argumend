@@ -66,4 +66,30 @@ describe("empty crux ledger reproduces today's ranking byte-for-byte", () => {
       }
     }
   });
+
+  it("week 1: a non-empty ledger does not feed the ranking yet", () => {
+    for (const topicId of argumentTopicIds) {
+      const topClaim = (baseline[topicId] as Array<{ claimId: string }>)[0].claimId;
+      const file = {
+        topicId,
+        entries: [
+          {
+            id: `${topicId}:${topClaim}:2025-06-01:1`,
+            topicId,
+            claimId: topClaim,
+            date: "2025-06-01",
+            status: "narrowed",
+            resolutionKind: "existing-evidence",
+            evidenceNodeIds: [],
+            note: "A scope limit was accepted by both sides.",
+            author: { kind: "editorial", curator: "Test", basis: "Regression fixture" },
+            createdAt: "2026-09-22",
+          },
+        ],
+      };
+      const topic = loadArgumentTopic(topicId, { readLedger: () => JSON.stringify(file) });
+      expect(ledgerStatus(topic!.ledger)).toEqual({ [topClaim]: "narrowed" });
+      expect(JSON.stringify(topic!.cruxes)).toBe(JSON.stringify(baseline[topicId]));
+    }
+  });
 });

@@ -71,7 +71,7 @@ export default function GlossaryPage() {
         />
 
         <div className="mb-10">
-          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
+          <p className="label-caps mb-4">
             Reference
           </p>
           <div className="flex items-center gap-3 mb-4">
@@ -150,7 +150,7 @@ export default function GlossaryPage() {
                   <div
                     key={t.term}
                     id={termId}
-                    className={`group scroll-mt-24 flex items-start gap-4 rounded-xl border border-l-2 border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-[var(--bg-card)]/60 p-5 transition-colors ${chapter.borderAccent} ${chapter.hoverBorder}`}
+                    className={`group scroll-mt-24 flex items-start gap-4 rounded-xl border border-l-2 border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-card/60 p-5 transition-colors ${chapter.borderAccent} ${chapter.hoverBorder}`}
                   >
                     {/* Alphabetical jump-link target — emitted once per letter,
                         in-flow with scroll-margin so it clears the sticky
