@@ -71,9 +71,9 @@ export const vaccineMandatesData = {
         },
         {
           id: "sb277-school-mandate",
-          title: "Removing Exemptions Raised MMR Coverage to Herd-Immunity Levels",
+          title: "Removing Non-Medical Exemptions Raised California's MMR Coverage",
           description:
-            "After California's SB277 eliminated non-medical exemptions (2016), a study estimated statewide MMR kindergarten coverage rose ~3% and coverage approached 95% in nearly all counties, with the largest gains in previously low-coverage counties. Medical exemptions rose only ~0.4%.",
+            "After California's SB277 eliminated non-medical exemptions (2016), a study estimated statewide MMR kindergarten coverage rose 3.3 percentage points relative to a synthetic control, with the largest gains in counties that had the lowest pre-policy coverage. Medical exemptions rose 0.4 points statewide, offset by a larger fall in non-medical exemptions.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -220,7 +220,7 @@ export const vaccineMandatesData = {
           skeptic_flip:
             "If trust measures recover with no lasting hesitancy increase (and pro-mandate governments are re-elected, as some were), the 'mandates backfire by destroying trust' thesis fails.",
           common_ground:
-            "Both sides agree courts have upheld properly-scoped mandates (Jacobson 1905; the healthcare-worker rule) while striking overbroad ones (the OSHA stay) — the limit is about which body acts.",
+            "Both sides agree courts have upheld properly-scoped mandates (Jacobson 1905; the healthcare-worker rule) while blocking overbroad ones (the OSHA stay) — the limit is about which body acts.",
           live_disagreement:
             "Whether coercion's downstream erosion of institutional trust and cooperation outweighs the lives saved — and whether that trust-erosion effect is real or overstated.",
         },
@@ -246,9 +246,9 @@ export const vaccineMandatesData = {
         },
         {
           id: "nfib-osha",
-          title: "Supreme Court Struck Down the OSHA Employer Mandate",
+          title: "Supreme Court Stayed the OSHA Employer Mandate; OSHA Then Withdrew It",
           description:
-            "In NFIB v. OSHA (2022), the Supreme Court stayed (6–3) OSHA's vaccine-or-test rule for employers with 100+ workers (80M+ employees), holding OSHA may regulate occupational hazards but not broad public-health risks of daily life absent clear congressional authorization.",
+            "In NFIB v. OSHA (2022), the Supreme Court stayed (6–3) OSHA's vaccine-or-test rule for employers with 100+ workers (80M+ employees), holding OSHA may regulate occupational hazards but not broad public-health risks of daily life absent clear congressional authorization. The stay (13 January 2022) was not a final merits ruling; OSHA withdrew the rule as an enforceable standard on 26 January 2022.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
