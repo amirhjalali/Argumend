@@ -47,7 +47,11 @@ const CONCURRENCY = 4;
 const MODEL = "jev-1.13.0";
 
 const args = process.argv.slice(2);
-const RUNS = Number(args[args.indexOf("--runs") + 1]) || 3;
+const requestedRuns = Number(args[args.indexOf("--runs") + 1]) || 3;
+if (!Number.isInteger(requestedRuns) || requestedRuns < 1) {
+  throw new Error(`--runs must be a positive integer, got ${requestedRuns}`);
+}
+const RUNS = requestedRuns;
 const REFRESH = args.includes("--refresh");
 
 interface ProbeMeta {
@@ -57,6 +61,8 @@ interface ProbeMeta {
   retries: number;
   /** Model ids the API reported answering with (should be exactly [MODEL]). */
   modelsReturned: string[];
+  /** Claims the API returned no usable contested answer for; left unprobed. */
+  unansweredClaimIds: string[];
 }
 
 interface RunRecord {
@@ -77,8 +83,30 @@ type Cache = Record<string, TopicRecord>;
 const CONTESTED_INSTRUCTION = (key: string) =>
   `Do the speakers in \`transcript\` actually disagree with one another about whether the claim in \`claims.${key}\` is true? Answer yes only if at least one speaker asserts it and at least one speaker disputes or contradicts it, explicitly or by clear implication.`;
 
+const CONTESTED_CRITERIA = {
+  true: "Speakers take opposing sides on this claim",
+  false: "Nobody disputes it, or nobody discusses it; it is common ground or background",
+} as const;
+
 const PRESENT_INSTRUCTION = (key: string) =>
   `Is the claim in \`claims.${key}\` discussed in \`transcript\` at all? Answer yes if any speaker states it, assumes it, or argues about it, in their own words or in different words.`;
+
+const PRESENT_CRITERIA = {
+  true: "Some speaker states, assumes, or argues about this claim",
+  false: "The transcript never raises this claim, in any words",
+} as const;
+
+/**
+ * Everything that determines an answer other than the transcript and the
+ * claims: reword a question and the cache must miss, or the run silently
+ * reports answers to the question it used to ask.
+ */
+const QUESTION_FINGERPRINT = JSON.stringify([
+  CONTESTED_INSTRUCTION("cN"),
+  CONTESTED_CRITERIA,
+  PRESENT_INSTRUCTION("cN"),
+  PRESENT_CRITERIA,
+]);
 
 /**
  * The live lane. Implements the engine-side interface, so everything below it
@@ -105,18 +133,12 @@ function jevProvider(meta: ProbeMeta): ContestednessProvider {
           questions[`contested_${key}`] = {
             type: "noul",
             instructions: CONTESTED_INSTRUCTION(key),
-            criteria: {
-              true: "Speakers take opposing sides on this claim",
-              false: "Nobody disputes it, or nobody discusses it; it is common ground or background",
-            },
+            criteria: { ...CONTESTED_CRITERIA },
           };
           questions[`present_${key}`] = {
             type: "noul",
             instructions: PRESENT_INSTRUCTION(key),
-            criteria: {
-              true: "Some speaker states, assumes, or argues about this claim",
-              false: "The transcript never raises this claim, in any words",
-            },
+            criteria: { ...PRESENT_CRITERIA },
           };
         }
 
@@ -129,10 +151,27 @@ function jevProvider(meta: ProbeMeta): ContestednessProvider {
 
         const out: Record<string, ContestednessProbe> = {};
         for (const { key, claim } of keyed) {
+          // A missing answer is not a zero. `?? 0` here would turn a dropped
+          // field into a maximal veto and silently remove the claim from
+          // candidacy; leave it unprobed instead and say so.
+          const contested = response.answers[`contested_${key}`]?.noul;
+          const present = response.answers[`present_${key}`]?.noul;
+          if (typeof contested !== "number" || !Number.isFinite(contested)) {
+            meta.unansweredClaimIds.push(claim.id);
+            process.stderr.write(
+              `  WARNING: no contested answer for ${claim.id}; left unprobed (no override).\n`,
+            );
+            continue;
+          }
           out[claim.id] = {
-            contested: response.answers[`contested_${key}`]?.noul ?? 0,
-            present: response.answers[`present_${key}`]?.noul ?? 0,
+            contested,
+            ...(typeof present === "number" && Number.isFinite(present) ? { present } : {}),
           };
+          if (present === undefined) {
+            process.stderr.write(
+              `  WARNING: no presence answer for ${claim.id}; its contested value is taken at face value.\n`,
+            );
+          }
         }
         return out;
       });
@@ -152,10 +191,12 @@ function spokenVerbatim(transcript: string, statement: string): boolean {
   return normalize(transcript).includes(normalize(statement));
 }
 
+/** Everything an answer depends on: the text, the claims, and the questions. */
 function hashState(source: string, claims: Claim[]): string {
   return createHash("sha256")
     .update(source)
     .update(claims.map((claim) => `${claim.id}:${claim.statement}`).join("\n"))
+    .update(QUESTION_FINGERPRINT)
     .digest("hex")
     .slice(0, 16);
 }
@@ -193,7 +234,7 @@ function mean(values: number[]): number {
 
 async function main() {
   const cache = loadCache();
-  const totals: ProbeMeta = { requests: 0, inputTokens: 0, latenciesMs: [], retries: 0, modelsReturned: [] };
+  const totals: ProbeMeta = { requests: 0, inputTokens: 0, latenciesMs: [], retries: 0, modelsReturned: [], unansweredClaimIds: [] };
 
   for (const topicId of argumentTopicIds) {
     const topic = loadArgumentTopic(topicId);
@@ -211,7 +252,7 @@ async function main() {
         : { stateHash, model: MODEL, question, runs: [] };
 
     while (record.runs.length < RUNS) {
-      const meta: ProbeMeta = { requests: 0, inputTokens: 0, latenciesMs: [], retries: 0, modelsReturned: [] };
+      const meta: ProbeMeta = { requests: 0, inputTokens: 0, latenciesMs: [], retries: 0, modelsReturned: [], unansweredClaimIds: [] };
       const probes = await jevProvider(meta).probe({
         source: debate.source,
         question,
@@ -233,6 +274,7 @@ async function main() {
       for (const model of run.meta.modelsReturned) {
         if (!totals.modelsReturned.includes(model)) totals.modelsReturned.push(model);
       }
+      totals.unansweredClaimIds.push(...(run.meta.unansweredClaimIds ?? []));
     }
 
     const before = identifyCruxes(graph);
@@ -286,7 +328,9 @@ async function main() {
       const presentCells = runs.map((run) => pct(run.probes[claim.id]?.present)).join(" ");
       const override = derivations[0].overrides[claim.id];
       const gate =
-        override === undefined
+        runs[0].probes[claim.id] === undefined
+          ? "withheld (no answer)"
+          : override === undefined
           ? "withheld (absent)"
           : override < DEFAULT_CANDIDACY_FLOOR
             ? `DROPPED (< ${DEFAULT_CANDIDACY_FLOOR})`
@@ -362,6 +406,7 @@ async function main() {
   console.log(
     `\n\ntotals: model requested ${MODEL}, answered by ${totals.modelsReturned.join("/") || "?"}, ` +
       `${totals.requests} requests, ${totals.inputTokens} input tokens, ${totals.retries} retries, ` +
+      `${totals.unansweredClaimIds.length} unanswered claims, ` +
       `latency min/median/max ${latencies[0]}/${latencies[Math.floor(latencies.length / 2)]}/${latencies[latencies.length - 1]} ms`,
   );
   console.log(`cache: ${CACHE_PATH}`);
