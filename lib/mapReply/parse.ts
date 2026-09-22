@@ -40,6 +40,19 @@ export interface ParseThreadOptions {
 
 const LIST_MARKER = /^\s*(?:[-*+]\s+|>\s*)+/;
 
+/**
+ * Labels a single author uses to annotate their own post. They look exactly
+ * like a speaker line, and treating them as one turns one Reddit post into a
+ * conversation between "Unattributed", "Edit" and "Update". They belong to the
+ * turn above them.
+ */
+const ANNOTATION_LABEL =
+  /^(?:edit|update|eta|tl;?dr|note|source|sources|ref|refs|correction|clarification|disclaimer|ps|p\.s\.)\s*\d*$/i;
+
+export function isAnnotationLabel(candidate: string): boolean {
+  return ANNOTATION_LABEL.test(candidate.trim());
+}
+
 /** `**name:** text`, `**name**: text`, `__name__: text`, `name: text`. */
 const SPEAKER_PATTERNS: RegExp[] = [
   /^\*\*([^*\n]{1,40}?)\s*:\s*\*\*\s*(.*)$/,
@@ -63,6 +76,7 @@ export function isSpeakerLabel(candidate: string): boolean {
   const name = candidate.trim();
   if (name.length === 0 || name.length > 40) return false;
   if (!/[A-Za-z]/.test(name)) return false;
+  if (isAnnotationLabel(name)) return false;
   if (/[.!?,;"']$/.test(name)) return false;
   if (/https?$/i.test(name)) return false;
   if (countWords(name) > 4) return false;
@@ -122,8 +136,14 @@ function parseSpeakerMode(lines: string[]): SpeakerLine[] {
   return turns;
 }
 
+/** Does this block open with "Edit:", "Update:", "PS:" and friends? */
+function opensWithAnnotation(block: string): boolean {
+  const head = block.replace(LIST_MARKER, "").match(/^([^:\n]{1,40}):/);
+  return head !== null && isAnnotationLabel(head[1]);
+}
+
 function parseParagraphMode(text: string): SpeakerLine[] {
-  return text
+  const blocks = text
     .split(/\n\s*\n+/)
     .map((block) =>
       block
@@ -133,8 +153,19 @@ function parseParagraphMode(text: string): SpeakerLine[] {
         .join(" ")
         .trim(),
     )
-    .filter(Boolean)
-    .map((body, index) => ({ speaker: `Paragraph ${index + 1}`, text: body }));
+    .filter(Boolean);
+
+  // An author's own "Edit:" is part of their post, not a new voice.
+  const merged: string[] = [];
+  for (const block of blocks) {
+    if (merged.length > 0 && opensWithAnnotation(block)) {
+      merged[merged.length - 1] = `${merged[merged.length - 1]} ${block}`;
+      continue;
+    }
+    merged.push(block);
+  }
+
+  return merged.map((body, index) => ({ speaker: `Paragraph ${index + 1}`, text: body }));
 }
 
 export function parseThread(input: string, options: ParseThreadOptions = {}): ParsedThread {
