@@ -282,14 +282,15 @@ describe("identifyCruxes with crux-ledger status (v1.3, spec §1.3)", () => {
     );
   });
 
-  it("rule 2: unresolvable is selected on its own base score, ahead of unpinned claims", () => {
+  it("rule 2: an unresolvable claim that would miss the set takes the lowest unpinned slot", () => {
     const graph = workedExampleGraph();
     const defaultC1 = identifyCruxes(graph).find((result) => result.claimId === "c1");
     const c1Base = Number((baseScoreOf(graph, "c1") ?? 0).toFixed(3));
     // c1's downstream set is c4's, so redundancy control cuts its score by default...
     expect(defaultC1?.score).toBeLessThan(c1Base);
     // ...and at limit 2 it does not make the set.
-    expect(ids({}, 2)).toEqual(["c4", "c3"]);
+    const withoutLedger = identifyCruxes(graph, { limit: 2 });
+    expect(withoutLedger.map((result) => result.claimId)).toEqual(["c4", "c3"]);
 
     const results = identifyCruxes(graph, {
       limit: 2,
@@ -302,11 +303,55 @@ describe("identifyCruxes with crux-ledger status (v1.3, spec §1.3)", () => {
       },
     });
 
-    expect(results.map((result) => result.claimId)).toEqual(["c1", "c4"]);
-    expect(results[0]?.score).toBe(c1Base);
-    expect(results[0]?.ledgerStatus).toBe("unresolvable");
-    expect(results[0]?.explanationFacts).toContain(
+    // c1 takes the lowest unpinned slot from c3 at the score the ranking
+    // gives it anyway; c4 keeps its place and its score.
+    expect(results.map((result) => result.claimId)).toEqual(["c4", "c1"]);
+    expect(results[0]).toEqual(withoutLedger[0]);
+    expect(results[1]?.score).toBe(defaultC1?.score);
+    expect(results[1]?.ledgerStatus).toBe("unresolvable");
+    expect(results[1]?.explanationFacts).toContain(
       "Ledger: unresolvable on 2026-04-02 — Both sides accept the cohort data; they weigh early-career harm against aggregate output differently."
+    );
+  });
+
+  it("rule 2: an unresolvable claim redundancy would cut below the floor is kept on its base score", () => {
+    // c9 and c8 reach the same claims; a zero contestedness probe keeps c8's
+    // base score just above the floor, so c9's redundancy penalty sinks it.
+    const graph = workedExampleGraph();
+    graph.nodes.push(
+      claim("c8", "The Stanford/ADP cohort is representative of the labor market", "empirical"),
+      claim("c9", "The exposed-occupation cohorts are defined consistently across years", "empirical")
+    );
+    graph.edges.push(
+      { id: "edge-c8-e1", from: "c8", to: "e1", type: "supports" },
+      { id: "edge-c9-c1", from: "c9", to: "c1", type: "supports" }
+    );
+    const options = { limit: 10, contestednessOverrides: { c8: 0 }, candidacyFloor: 0 };
+    const c8Base = computeCruxSignals(graph, options).signals.find((signal) => signal.claim.id === "c8")
+      ?.baseScore;
+    expect(c8Base).toBeGreaterThanOrEqual(0.15);
+    const withoutLedger = identifyCruxes(graph, options);
+    expect(withoutLedger.map((result) => result.claimId)).toContain("c9");
+    expect(withoutLedger.map((result) => result.claimId)).not.toContain("c8");
+
+    const results = identifyCruxes(graph, { ...options, ledgerStatus: { c8: "unresolvable" } });
+
+    expect(results.find((result) => result.claimId === "c8")?.score).toBe(Number(c8Base?.toFixed(3)));
+    // Kept outside the redundancy comparison: every other claim is untouched.
+    expect(
+      results.filter((result) => result.claimId !== "c8").map((result) => [result.claimId, result.score])
+    ).toEqual(withoutLedger.map((result) => [result.claimId, result.score]));
+  });
+
+  it("rule 2: an unresolvable claim already in the set moves no claim and no score", () => {
+    const graph = workedExampleGraph();
+    const withoutLedger = identifyCruxes(graph);
+    expect(withoutLedger.map((result) => result.claimId)).toContain("c1");
+
+    const results = identifyCruxes(graph, { ledgerStatus: { c1: "unresolvable" } });
+
+    expect(results.map((result) => [result.claimId, result.score])).toEqual(
+      withoutLedger.map((result) => [result.claimId, result.score])
     );
   });
 

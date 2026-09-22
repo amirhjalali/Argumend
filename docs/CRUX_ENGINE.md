@@ -143,11 +143,14 @@ score(n) = I(n) · (0.30·C + 0.20·R + 0.35·D + 0.05·T) + 0.15·S(n)
    graph edit (claim `status` → `broadly_accepted`/`superseded`, required by the ledger validator)
    would do anyway. The ledger makes the drop legible.
 2. **`unresolvable` stays a candidate and is held in the set.** If its own base score clears the
-   floor (the same `isSelectable` test every crux passes), it is selected on that base score, with no
-   redundancy penalty, after pins and ahead of every unpinned claim, and it is listed in that order.
-   Pins plus held claims never exceed `limit`; when there are more held claims than slots, the
-   highest base scores win. Below the floor it is not forced in. Rationale: the T-band already
-   refuses to bury value cruxes; redundancy control must not bury them by the back door.
+   floor (the same `isSelectable` test every crux passes), it is in the emitted set. The rule only
+   adds: a held claim the ranking selects anyway is selected exactly as without a ledger (same score,
+   same place); one that would miss the set takes the lowest unpinned slot, at the score the greedy
+   pass gives it, or on its base score if redundancy control would have cut it below the floor, in
+   which case it also stays out of every other claim's redundancy comparison. No other claim's score
+   or order changes. Pins plus held claims never exceed `limit`; when there are more held claims than
+   slots, the highest base scores win. Below the floor it is not forced in. Rationale: the T-band
+   already refuses to bury value cruxes; redundancy control must not bury them by the back door.
 3. **`narrowed` changes no number.** It clears the "evidence-starved crux" annotation
    (`evidenceStarved: false`; the arriving evidence is why it narrowed) and adds an explanation fact
    `Ledger: narrowed on <date> — <note>`. Held `unresolvable` and pinned `resolved` cards carry the
