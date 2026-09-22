@@ -3,6 +3,7 @@ import {
   describeProbeSkip,
   identifyCruxes,
   jevProjectionGateEnabled,
+  normalizeContestednessOverrides,
 } from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
 import type {
@@ -336,14 +337,17 @@ export function projectDisagreementReport(input: {
   // from the engine-level `contestednessOverrides`, so the two can be
   // measured apart.
   const jevGate = jevProjectionGateEnabled(input.jevGate);
-  const contestedness = input.contestedness ?? {};
+  // Same validation as the engine: non-finite values are absent rather than
+  // zero, values are clamped to 0..1, and the lookup is a Map so a claim id
+  // like "__proto__" cannot resolve off the prototype chain.
+  const contestedness = normalizeContestednessOverrides(input.contestedness);
   const contestednessFloor = input.contestednessFloor ?? DEFAULT_CANDIDACY_FLOOR;
 
   for (const result of ranked) {
     if (cruxes.length >= DISAGREEMENT_LIMITS.maxCruxes) break;
     const claim = claimsById.get(result.claimId);
     if (jevGate && claim) {
-      const probe = contestedness[result.claimId];
+      const probe = contestedness.get(result.claimId);
       if (probe !== undefined && probe < contestednessFloor) {
         warnings.push(
           `Projection skipped engine crux "${claim.id}" (${claim.statement}): ${describeProbeSkip(probe, contestednessFloor)}.`,

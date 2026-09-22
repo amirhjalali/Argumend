@@ -9,23 +9,31 @@
  * measurement of the same quantity, so it replaces the proxy rather than the
  * status.
  *
- * Two rules keep that honest:
+ * Three rules keep that honest:
  *
- *  - **The probe can veto, never nominate.** Candidacy still comes from the
- *    editorial status (or `implicit`, or a pin). A claim the extraction marked
- *    `uncontested` does not become a crux because a probe scored it 0.98; a
- *    claim the extraction marked `contested` does drop out when the probe says
- *    the speakers never argued about it. Ranking stays deterministic and the
- *    model never chooses a crux.
+ *  - **The probe can only lower C.** `C' = min(statusWeight x probe, the
+ *    balance-derived C)`. The first draft of this module dropped the min and
+ *    was wrong: because the balance modulator never falls below
+ *    `0.5 x statusWeight`, any probe above it *raised* C, and on
+ *    ai-mass-unemployment a 0.98 lifted a claim from rank 13 into the served
+ *    top-5. A model that can lift a claim into the served set is a model
+ *    nominating a crux, which `docs/CRUX_ENGINE.md` forbids. With the clamp
+ *    the probe is a veto and nothing else: it can demote a claim, it can drop
+ *    one out of candidacy, and it can never promote one.
+ *  - **Candidacy is still editorial.** `status ∈ {contested, unresolved}` OR
+ *    `implicit` OR a pin, unchanged; the status prefactor survives the
+ *    override, so an `uncontested` claim scores 0 however confident the probe
+ *    is. The probe narrows the candidate set and never widens it.
  *  - **Silence is not a zero.** A probe that cannot see a claim in the source
  *    must withhold its number, not report a low one. `contestednessOverridesFrom`
  *    enforces that with the presence signal; a claim judged absent gets no
- *    override at all and keeps today's balance-derived contestedness.
+ *    override at all and keeps today's balance-derived contestedness. A probe
+ *    that returned no answer at all is likewise absent, never a zero.
  *
  * Nothing in this module calls the network. A probe is supplied through
- * `ContestednessProvider`, which the offline fixtures and the live
- * `scripts/jev-probe/crux-contestedness.ts` script both satisfy, so the engine
- * stays testable with no API key.
+ * `ContestednessProvider`; `lib/crux/contestedness.test.ts` implements it with
+ * a fixture and `scripts/jev-probe/crux-contestedness.ts` implements it live,
+ * so the engine stays testable with no API key.
  */
 
 /** A claim as a probe sees it: an id to key the answer by, and the proposition. */
@@ -89,8 +97,30 @@ export interface OverrideDerivation {
 }
 
 function clamp01(value: number): number {
-  if (!Number.isFinite(value)) return 0;
   return Math.min(1, Math.max(0, value));
+}
+
+/**
+ * Validates a caller-supplied override map into something the engine can
+ * index safely.
+ *
+ * A non-finite value is treated as **absent**, not as zero: `NaN < floor` is
+ * false, so an unvalidated NaN would slip past the candidacy floor and then
+ * land at C = 0 — the worst of both, a silent maximal demotion that the gate
+ * never reports. Values outside 0..1 are clamped. A Map is returned rather
+ * than the plain object so a claim id like `constructor` or `__proto__`
+ * cannot resolve to something off the prototype chain.
+ */
+export function normalizeContestednessOverrides(
+  overrides: Readonly<Record<string, number>> | undefined,
+): Map<string, number> {
+  const normalized = new Map<string, number>();
+  if (overrides === undefined) return normalized;
+  for (const [claimId, value] of Object.entries(overrides)) {
+    if (typeof value !== "number" || !Number.isFinite(value)) continue;
+    normalized.set(claimId, clamp01(value));
+  }
+  return normalized;
 }
 
 /**
@@ -106,7 +136,14 @@ export function contestednessOverridesFrom(
   const absentClaimIds: string[] = [];
 
   for (const [claimId, probe] of Object.entries(probes)) {
-    if (probe.present !== undefined && clamp01(probe.present) < presenceFloor) {
+    // A non-finite presence reading is "not measured", so it must not be read
+    // as "absent"; a non-finite contested reading is no answer at all.
+    const present = Number.isFinite(probe.present) ? clamp01(probe.present as number) : undefined;
+    if (present !== undefined && present < presenceFloor) {
+      absentClaimIds.push(claimId);
+      continue;
+    }
+    if (!Number.isFinite(probe.contested)) {
       absentClaimIds.push(claimId);
       continue;
     }
@@ -117,15 +154,22 @@ export function contestednessOverridesFrom(
 }
 
 /**
- * The combination rule: `C' = statusWeight(status) x override`.
+ * The combination rule: `C' = min(statusWeight(status) x override, balanceC)`.
  *
- * The status prefactor is kept so an editorially uncontested claim still
- * scores zero however confident the probe is, and the probe replaces the
- * balance modulator `(0.5 + 0.5 x balance)` rather than multiplying it — see
- * the alternatives in `docs/reviews/2026-09-21-jev-contestedness-gate.md`.
+ * The probe replaces the balance modulator `(0.5 + 0.5 x balance)` rather than
+ * multiplying it, so both forms sit on one scale under one prefactor — see the
+ * alternatives in `docs/reviews/2026-09-21-jev-contestedness-gate.md`. The
+ * status prefactor is kept so an editorially uncontested claim still scores
+ * zero however confident the probe is, and the `min` against the existing
+ * balance-derived value makes the override strictly a veto: it can lower C,
+ * never raise it, so the probe can never promote a claim into the served set.
  */
-export function overriddenContestedness(statusWeight: number, override: number): number {
-  return statusWeight * clamp01(override);
+export function overriddenContestedness(
+  statusWeight: number,
+  override: number,
+  balanceContestedness: number,
+): number {
+  return Math.min(statusWeight * clamp01(override), balanceContestedness);
 }
 
 /**

@@ -1,5 +1,9 @@
 import type { ArgumentEdge, ArgumentGraph, Claim, ResolutionKind } from "@/types/argument";
-import { DEFAULT_CANDIDACY_FLOOR, overriddenContestedness } from "./contestedness";
+import {
+  DEFAULT_CANDIDACY_FLOOR,
+  normalizeContestednessOverrides,
+  overriddenContestedness,
+} from "./contestedness";
 import { buildInfluenceGraph, evidenceWeight, type InfluenceGraph } from "./influence";
 import { propagate } from "./propagate";
 
@@ -32,12 +36,25 @@ export interface CruxSignal {
   affectedClaims: DeltaTarget[];
   affectedSet: Set<string>;
   gatesClaimIds: string[];
+  /**
+   * Claims this one gates that the candidacy floor removed. They are gone
+   * from `gatesClaimIds` and from the scoping bonus by design, but a card
+   * that just printed "Gates: none" would be asserting something false about
+   * the graph, so the removal is carried through to the explanation.
+   */
+  gatesRemovedByProbeIds: string[];
   cycleWarnings: string[];
 }
 
 export interface CruxSignalResult {
   influenceGraph: InfluenceGraph;
   signals: CruxSignal[];
+  /**
+   * Claim ids that met editorial candidacy but were removed by the probe
+   * floor, sorted. Judgment-as-data: a model-supplied number changed the
+   * candidate set, so the change is reported rather than silent.
+   */
+  droppedByFloorIds: string[];
 }
 
 export interface CruxSignalOptions {
@@ -70,23 +87,27 @@ export function computeCruxSignals(
   graph: ArgumentGraph,
   options: CruxSignalOptions = {}
 ): CruxSignalResult {
-  const overrides = options.contestednessOverrides ?? {};
+  const overrides = normalizeContestednessOverrides(options.contestednessOverrides);
   const candidacyFloor = options.candidacyFloor ?? DEFAULT_CANDIDACY_FLOOR;
   const influenceGraph = buildInfluenceGraph(graph);
   const activeClaims = graph.nodes.filter(
     (node): node is Claim =>
       node.type === "claim" && !influenceGraph.excludedNodeIds.has(node.id)
   );
-  const candidates = activeClaims.filter(
-    (claim) => isCandidate(claim) && !belowCandidacyFloor(claim, overrides, candidacyFloor)
+  const editorialCandidates = activeClaims.filter((claim) => isCandidate(claim));
+  const candidates = editorialCandidates.filter(
+    (claim) => !belowCandidacyFloor(claim, overrides, candidacyFloor)
   );
   const candidateIds = new Set(candidates.map((claim) => claim.id));
+  const droppedIds = new Set(
+    editorialCandidates.filter((claim) => !candidateIds.has(claim.id)).map((claim) => claim.id)
+  );
   const claimCount = activeClaims.length;
   const positionIds = graph.nodes
     .filter((node) => node.type === "position" && !influenceGraph.excludedNodeIds.has(node.id))
     .map((node) => node.id);
   const rawSignals = candidates.map((claim) =>
-    directSignal(graph, influenceGraph, claim, claimCount, positionIds, overrides[claim.id])
+    directSignal(graph, influenceGraph, claim, claimCount, positionIds, overrides.get(claim.id))
   );
   const rawById = new Map(rawSignals.map((signal) => [signal.claim.id, signal]));
   const directMassById = new Map(
@@ -127,10 +148,11 @@ export function computeCruxSignals(
       directScoreMass,
       baseScore: directScoreMass + 0.15 * scopingBonus,
       gatesClaimIds: gatedIds,
+      gatesRemovedByProbeIds: gatedCandidateIds(graph.edges, signal.claim.id, droppedIds),
     };
   });
 
-  return { influenceGraph, signals };
+  return { influenceGraph, signals, droppedByFloorIds: [...droppedIds].sort() };
 }
 
 function isCandidate(claim: Claim): boolean {
@@ -151,11 +173,11 @@ function isCandidate(claim: Claim): boolean {
  */
 function belowCandidacyFloor(
   claim: Claim,
-  overrides: Readonly<Record<string, number>>,
+  overrides: ReadonlyMap<string, number>,
   floor: number
 ): boolean {
   if (claim.cruxOverride === "pin") return false;
-  const override = overrides[claim.id];
+  const override = overrides.get(claim.id);
   return override !== undefined && override < floor;
 }
 
@@ -239,6 +261,7 @@ function directSignal(
     affectedClaims,
     affectedSet,
     gatesClaimIds: [],
+    gatesRemovedByProbeIds: [],
     cycleWarnings: [...new Set([...plus.cycleWarnings, ...minus.cycleWarnings])],
   };
 }
@@ -255,15 +278,18 @@ function contestednessFor(
       : status === "broadly_accepted"
         ? 0.3
         : 0;
-  // v1.2: a calibrated probe of the source replaces the structural balance
-  // proxy. The status prefactor survives, so an editorially uncontested claim
-  // still scores zero however contested the probe thinks it is.
-  if (override !== undefined) return overriddenContestedness(statusWeight, override);
   const { support, opposition } = supportOppositionInflow(graph, claimId);
   const max = Math.max(support, opposition);
   const balance = max > 0 ? Math.min(support, opposition) / max : 0;
+  const balanceContestedness = statusWeight * (0.5 + 0.5 * balance);
 
-  return statusWeight * (0.5 + 0.5 * balance);
+  // v1.2: a calibrated probe of the source replaces the structural balance
+  // proxy, clamped so it can only ever lower the value. The status prefactor
+  // survives, so an editorially uncontested claim still scores zero however
+  // contested the probe thinks it is.
+  return override === undefined
+    ? balanceContestedness
+    : overriddenContestedness(statusWeight, override, balanceContestedness);
 }
 
 function supportOppositionInflow(graph: ArgumentGraph, claimId: string) {

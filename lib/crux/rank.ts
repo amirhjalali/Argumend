@@ -22,6 +22,11 @@ export interface CruxResult {
   affectedPositions: DeltaTarget[];
   affectedClaims: DeltaTarget[];
   gatesClaimIds: string[];
+  /**
+   * Claims this one gates that the probe floor removed from candidacy.
+   * Omitted when empty, so an unprobed topic's serialized shape is unchanged.
+   */
+  gatesRemovedByProbeIds?: string[];
   evidenceStarved: boolean;
   cycleWarnings: string[];
   explanationFacts: string[];
@@ -41,9 +46,17 @@ export interface IdentifyCruxesOptions {
   /**
    * Crux engine v1.2: claim id -> 0..1 contestedness from a calibrated probe
    * of the same source the claims came from. Where supplied it replaces the
-   * balance modulator inside C; the editorial status prefactor is kept, and
-   * claims with no entry rank exactly as they do today. See
-   * `./contestedness.ts` and `docs/CRUX_ENGINE.md` §v1.2.
+   * balance modulator inside C, clamped so it can only lower the value; the
+   * editorial status prefactor is kept.
+   *
+   * A claim with no entry keeps its own signals exactly — same contestedness,
+   * reach, discrimination — but its final rank can still move, because
+   * removing or demoting another claim changes which claims are selected
+   * first and therefore who pays the redundancy penalty, and because dropping
+   * a claim from candidacy renormalizes the scoping bonus. Only a call with
+   * no overrides at all is guaranteed identical to today.
+   *
+   * See `./contestedness.ts` and `docs/CRUX_ENGINE.md` §v1.2.
    */
   contestednessOverrides?: Readonly<Record<string, number>>;
   /**
@@ -53,12 +66,34 @@ export interface IdentifyCruxesOptions {
   candidacyFloor?: number;
 }
 
+export interface CruxRanking {
+  cruxes: CruxResult[];
+  /**
+   * Claim ids that passed editorial candidacy but were removed by the
+   * contestedness floor, sorted. Empty unless overrides were supplied.
+   * Judgment-as-data: when a model-supplied number narrows the candidate set,
+   * the caller can see exactly which claims it took out.
+   */
+  droppedByFloorIds: string[];
+}
+
 export function identifyCruxes(
   graph: ArgumentGraph,
   options: IdentifyCruxesOptions = {},
 ): CruxResult[] {
+  return identifyCruxesWithDiagnostics(graph, options).cruxes;
+}
+
+/**
+ * `identifyCruxes` plus what the probe removed. Same computation; callers
+ * that need to audit or display the gate's effect use this one.
+ */
+export function identifyCruxesWithDiagnostics(
+  graph: ArgumentGraph,
+  options: IdentifyCruxesOptions = {},
+): CruxRanking {
   const limit = Math.max(1, options.limit ?? MAX_RESULTS);
-  const { signals } = computeCruxSignals(graph, {
+  const { signals, droppedByFloorIds } = computeCruxSignals(graph, {
     contestednessOverrides: options.contestednessOverrides,
     candidacyFloor: options.candidacyFloor,
   });
@@ -91,9 +126,12 @@ export function identifyCruxes(
     .filter((item) => isSelectable(item.signal, item.score))
     .sort((a, b) => b.score - a.score || a.signal.claim.id.localeCompare(b.signal.claim.id));
 
-  return [...pinnedResults, ...regularResults]
-    .slice(0, limit)
-    .map((item) => toResult(item.signal, item.score));
+  return {
+    cruxes: [...pinnedResults, ...regularResults]
+      .slice(0, limit)
+      .map((item) => toResult(item.signal, item.score)),
+    droppedByFloorIds,
+  };
 }
 
 function isSelectable(signal: CruxSignal, score: number): boolean {
@@ -134,6 +172,9 @@ function toResult(signal: CruxSignal, score: number): CruxResult {
     affectedPositions: signal.affectedPositions.map(roundTarget),
     affectedClaims: signal.affectedClaims.map(roundTarget),
     gatesClaimIds: signal.gatesClaimIds,
+    ...(signal.gatesRemovedByProbeIds.length === 0
+      ? {}
+      : { gatesRemovedByProbeIds: signal.gatesRemovedByProbeIds }),
     evidenceStarved: signal.evidenceStarved,
     cycleWarnings: signal.cycleWarnings,
     explanationFacts: explanationFacts(signal, round(score)),
@@ -159,7 +200,15 @@ function explanationFacts(signal: CruxSignal, score: number): string[] {
     .join(", ");
   facts.push(`Position deltas: ${positionText.length > 0 ? positionText : "none"}.`);
   facts.push(`Resolution: ${resolutionText(claim)}.`);
-  facts.push(`Gates: ${signal.gatesClaimIds.length > 0 ? signal.gatesClaimIds.join(", ") : "none"}.`);
+  // A bare "Gates: none" after the probe removed a gated claim would assert
+  // something false about the graph: the edge is still there, the claim it
+  // points at was taken out of candidacy by a model-supplied number. Say so.
+  const gatesText = signal.gatesClaimIds.length > 0 ? signal.gatesClaimIds.join(", ") : "none";
+  facts.push(
+    signal.gatesRemovedByProbeIds.length > 0
+      ? `Gates: ${gatesText}; removed from candidacy by the contestedness probe: ${signal.gatesRemovedByProbeIds.join(", ")}.`
+      : `Gates: ${gatesText}.`,
+  );
   return facts;
 }
 
