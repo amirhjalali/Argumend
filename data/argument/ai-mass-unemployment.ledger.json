@@ -1,0 +1,269 @@
+{
+  "topicId": "ai-mass-unemployment",
+  "entries": [
+    {
+      "id": "ai-mass-unemployment:c-firms-cut-hiring-not-output:2025-02-20:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-firms-cut-hiring-not-output",
+      "date": "2025-02-20",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": ["e-hampole-firm-reallocation"],
+      "note": "Firm-level NBER study: AI-exposed tasks lose labor demand, but adopting firms grow and shift workers to other tasks, so net employment effects are modest. It does not separate output from hiring firm by firm.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Hampole, Papanikolaou, Schmidt and Seegmiller, 'Artificial Intelligence and the Labor Market', NBER Working Paper 33509, issued 2025-02-20 (revised 2025-09-18). Abstract read on nber.org 2026-09-22. The map's statusBasis already records it as not decisive either way."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-firms-cut-hiring-not-output:2025-09-01:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-firms-cut-hiring-not-output",
+      "date": "2025-09-01",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": ["e-hosseini-lichtinger-seniority"],
+      "note": "U.S. résumé data: firms that began hiring generative-AI integrators slowed junior hiring from early 2023 while senior headcount kept rising. Output was not measured, so expansion versus cutback stays open.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Hosseini Maasoum and Lichtinger, 'Generative AI as Seniority-Biased Technological Change', SSRN 5425555. SSRN was bot-blocked; findings read from the Stanford Digital Economy Lab seminar abstract and the co-author's announcement post, dated 2025-09-01 from its post id."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-firms-cut-hiring-not-output:2026-09-01:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-firms-cut-hiring-not-output",
+      "date": "2026-09-01",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-humlum-vestergaard-denmark",
+        "e-census-btos-ai-supplement-2026",
+        "e-hosseini-lichtinger-seniority"
+      ],
+      "note": "Firm data now agree AI-linked headcount cuts are rare (2% of U.S. firms; NY Fed firms retrain far more often than they lay off). Still split: whether adopters slow junior hiring. U.S. résumé data say yes; Danish registers say no.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Narrowed from 'how firms respond' to one margin, junior hiring at adopters. Census CES-WP-26-25 (April 2026); Humlum and Vestergaard, NBER w33777 rev. 2026-03-16; NY Fed Liberty Street Economics survey post of 2026-09-01 (4% of service firms cut staff, about a third retrained)."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-targeted-programs-can-help:2025-09-15:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-targeted-programs-can-help",
+      "date": "2025-09-15",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": ["e-mdrc-workadvance-10yr"],
+      "note": "Ten-year randomized evaluation: four sector-training programs each raised earnings at some point, but only one still did in year 10. Targeted programs can pay; whether gains last or scale to AI displacement is untested.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Yusim, Schaberg, Tessler and Ubalijoro, 'Effects of Sector-Focused Training After 10 Years', MDRC, 2025-09-15. Report PDF read 2026-09-22. Participants were low-income adults enrolled 2011-2013, so the AI-displacement resolution condition is not met."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-targeted-programs-can-help:2026-08-28:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-targeted-programs-can-help",
+      "date": "2026-08-28",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": ["e-hyman-wioa-ai-retraining", "e-mdrc-workadvance-10yr"],
+      "note": "National WIOA records: training returns for workers from AI-exposed jobs rose to about $3,000 a quarter by 2022-24. Still open: returns in a slack labor market, at displacement scale, and for AI-specific programs.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Hyman, Lahey, Ni and Pilossoph, NBER w34174 revised 2026-08-28. Whether training can raise earnings for AI-exposed workers at national scale is no longer untested; the result is matched, not randomized, and from tight-market years."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-displaced-workers-can-retrain-costlessly:2025-08-25:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-displaced-workers-can-retrain-costlessly",
+      "date": "2025-08-25",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [],
+      "note": "A national study of retraining for AI-exposed workers: positive earnings returns (about $1,470 a quarter), a 29% smaller return for those training into AI-intensive work, and gains driven by the tightest-labor-market years.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "First version of Hyman, Lahey, Ni and Pilossoph, NBER w34174 (citation date 2025-08-25) and NY Fed Staff Report 1165 (August 2025); figures from the staff-report abstract. The graph node e-hyman-wioa-ai-retraining carries the August 2026 revision, so this entry cites no node."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-displaced-workers-can-retrain-costlessly:2026-01-21:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-displaced-workers-can-retrain-costlessly",
+      "date": "2026-01-21",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": ["e-manning-aguirre-adaptive-capacity"],
+      "note": "About 70% of the most AI-exposed workers hold jobs with above-median capacity to absorb a job switch; 6.1 million, mostly clerical and 86% women, do not. The cost question now centers on that group.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Manning, Aguirre, Muro and Methkupally, Brookings, 2026-01-21 (also NBER w34705, 2026-01-15). Narrowed in scope, not settled: the index predicts adjustment capacity and does not observe realized reemployment costs."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-displaced-workers-can-retrain-costlessly:2026-08-28:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-displaced-workers-can-retrain-costlessly",
+      "date": "2026-08-28",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": ["e-hyman-wioa-ai-retraining"],
+      "note": "Revised national estimates: AI-exposed trainees gained about $3,000 a quarter by 2022-24, mostly by moving into less-exposed jobs rather than new AI tasks. Still open: what the switch costs in a slack market.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Hyman, Lahey, Ni and Pilossoph, NBER w34174 revised 2026-08-28 (PDF read 2026-09-22). Narrows the claim's 'newly created tasks' route: measured gains run mainly through exit from exposed work, in historically tight labor markets."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-mass-unemployment-definition-strict:2025-05-28:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-mass-unemployment-definition-strict",
+      "date": "2025-05-28",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [],
+      "note": "Anthropic's CEO warned AI could push unemployment to 10-20% within one to five years, a U-3 yardstick; others track young-worker employment or occupational churn. No shared threshold for 'mass unemployment' has emerged.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Axios, 'Behind the Curtain: A white-collar bloodbath', VandeHei and Allen, 2025-05-28 (read 2026-09-22). Interest: the speaker leads an AI developer. Cited only as a public yardstick in use, not as evidence about the forecast."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-mass-unemployment-definition-strict:2026-09-15:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-mass-unemployment-definition-strict",
+      "date": "2026-09-15",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [],
+      "note": "Yale Budget Lab's tracker judges disruption by occupational churn and the AI exposure of the unemployed, not a U-3 threshold, and finds no AI footprint yet. The sides still measure with different yardsticks.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "The Budget Lab at Yale, 'Tracking the Impact of AI on the Labor Market', published 2026-07-16, updated 2026-09-15 with August 2026 CPS data (read 2026-09-22). Definitional crux: evidence cannot settle it; only agreement on a metric can."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-credential-pathway-narrows:2025-07-28:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-credential-pathway-narrows",
+      "date": "2025-07-28",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [],
+      "note": "Burning Glass Institute: the share of postings asking under three years of experience dipped where AI can do junior tasks, and young graduates' unemployment rose faster than any other group's. It names AI as one of four causes.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Levanon, Sigelman, Mamertino, de Zeeuw and Guilford, 'No Country for Young Grads', Burning Glass Institute, July 2025 (site date July 28; PDF read 2026-09-22). Not added as a graph node; it bears on the pathway without measuring the wage premium."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-credential-pathway-narrows:2025-08-10:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-credential-pathway-narrows",
+      "date": "2025-08-10",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": ["e-eig-young-grads-exposure"],
+      "note": "Economic Innovation Group: unemployment rose for young workers and recent graduates in exposed and unexposed occupations alike through mid-2025, so the entry-level squeeze may be general rather than AI-specific.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Eckhardt and Goldschlag, 'AI and Jobs: The Final Word (Until the Next One)', Economic Innovation Group, 2025-08-10 (read 2026-09-22). Five exposure measures; the authors state they lack causal identification."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-credential-pathway-narrows:2026-02-24:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-credential-pathway-narrows",
+      "date": "2026-02-24",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": ["e-dallas-fed-wage-growth"],
+      "note": "Dallas Fed: AI exposure goes with slower wage growth where experience earns no premium and faster growth where it does. The lifetime credential premium the claim is about has not been measured yet.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Scott Davis, 'AI is simultaneously aiding and replacing workers, wage data suggest', Federal Reserve Bank of Dallas, 2026-02-24 (read 2026-09-22). The graph node's source title differs from the published title; flagged for review."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-credential-pathway-narrows:2026-08-12:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-credential-pathway-narrows",
+      "date": "2026-08-12",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": ["e-stanford-canaries-2026-update"],
+      "note": "Stanford/ADP update: young workers in AI-exposed jobs are 19% below trend, experienced workers are not. The gap shrinks with education controls, which may be AI's channel or a confound. Reemployment earnings data are still missing.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Brynjolfsson, Chandar and Chen, 'Canaries in the Coal Mine?', August 2026 update dated 2026-08-12, ADP data through June 2026 (PDF read 2026-09-22). The resolution condition, reemployment earnings and duration data, is still unmet."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-productivity-above-trend:2026-02-11:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-productivity-above-trend",
+      "date": "2026-02-11",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": ["e-kcfed-industry-productivity-ai", "e-bls-macro-series"],
+      "note": "Kansas City Fed: labor productivity is above its pre-pandemic trend, but AI adoption explains little of which industries drove it; manufacturing gained more than information despite less reported AI use.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Çakır Melek and Miller, 'A New U.S. Productivity Chapter? What Industry Data Say About AI', Federal Reserve Bank of Kansas City Economic Bulletin, 2026-02-11 (read 2026-09-22). A partial industry decomposition, not the AI-attributable split the claim's resolution asks for."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-productivity-above-trend:2026-05-26:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-productivity-above-trend",
+      "date": "2026-05-26",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": ["e-sffed-productivity-regime-2026"],
+      "note": "San Francisco Fed: odds of a high-growth regime are 57% on labor productivity but 21% on total factor productivity. Gains so far look like workers with better tools; whether broad efficiency follows is open.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "Abdelrahman and Foerster, 'Have We Entered an Era of High Productivity Growth?', FRBSF Economic Letter 2026-14, 2026-05-26 (PDF read 2026-09-22). No AI-attributable share is estimated, so the resolution condition is unmet."
+      },
+      "createdAt": "2026-09-22T00:00:00Z"
+    }
+  ]
+}
