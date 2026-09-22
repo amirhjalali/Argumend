@@ -226,9 +226,12 @@ The rate-limit key is the client address `TRUSTED_PROXY_HOPS` entries back from
 the **end** of `x-forwarded-for` (`lib/clientIp.ts`), not the first entry. A
 proxy appends what it saw; it does not replace what arrived, so the first entry
 is whatever the caller wrote and keying on it hands a rotating header a fresh
-bucket every request. The default of 1 assumes exactly one trusted proxy — on
-Coolify, Traefik. Put another in front and raise the number. (Other API routes
-still read the first entry; they predate this helper.)
+bucket every request. The code default of 1 assumes exactly one trusted proxy.
+**argumend.org runs Cloudflare in front of Coolify/Traefik — two proxies
+append — so production must set `TRUSTED_PROXY_HOPS=2`** (verified
+2026-09-22). Every other rate-limited route keys the same way; the "Trusted
+proxy hops" section of `README.md` covers how to verify the count against a
+real deployment request, and why `cf-connecting-ip` is not read.
 
 An inbound `x-request-id` is adopted only when it is a well-formed UUID.
 Anything else is replaced with a generated one, because it would otherwise be

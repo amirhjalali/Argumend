@@ -6,6 +6,7 @@ import { createJudgeCouncil } from "@/lib/judge/council";
 import { judgeDebateOffline } from "@/lib/judge/offline";
 import { saveAnalysis, saveJudgment, listAnalyses } from "@/lib/db/queries";
 import { isDatabaseConfigured } from "@/lib/db";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 import { modelsToAgents } from "@/lib/agents/types";
@@ -52,7 +53,7 @@ async function hasAuthenticatedUser(): Promise<boolean> {
  */
 export async function POST(request: NextRequest) {
   // Rate limit: 10 requests per hour per IP
-  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const ip = clientIp(request);
   const limit = rateLimit(`analyze:${ip}`, { maxRequests: 10, windowMs: 60 * 60 * 1000 });
   if (!limit.success) {
     return NextResponse.json(
@@ -220,7 +221,7 @@ export async function POST(request: NextRequest) {
  */
 export async function GET(request: NextRequest) {
   // Rate limit: 30 requests per minute per IP
-  const getIp = request.headers.get("x-forwarded-for") || "unknown";
+  const getIp = clientIp(request);
   const getLimit = rateLimit(`analyze-list:${getIp}`, { maxRequests: 30, windowMs: 60 * 1000 });
   if (!getLimit.success) {
     return NextResponse.json(

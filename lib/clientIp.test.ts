@@ -62,4 +62,76 @@ describe("clientIp", () => {
       expect(trustedProxyHops()).toBe(1);
     }
   });
+
+  it("never reads cf-connecting-ip, which is spoofable straight at the origin", () => {
+    // Cloudflare sets it, but Traefik does not strip it, so a request that
+    // skips Cloudflare can carry any value. hops=2 reads the same address out
+    // of x-forwarded-for, where Cloudflare's own entry vouches for it.
+    expect(
+      clientIp(
+        request({ "cf-connecting-ip": "1.2.3.4", "x-forwarded-for": "spoof, 203.0.113.9" }),
+      ),
+    ).toBe("203.0.113.9");
+    expect(clientIp(request({ "cf-connecting-ip": "1.2.3.4" }))).toBe("unknown");
+  });
+});
+
+describe("the production hop-count warning", () => {
+  // A fresh module per case: the warning is once-per-process by design.
+  async function load() {
+    vi.resetModules();
+    return import("./clientIp");
+  }
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.restoreAllMocks();
+  });
+
+  it("warns once when production never set a hop count", async () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("TRUSTED_PROXY_HOPS", "");
+    const { clientIp: derive } = await load();
+
+    derive(request({ "x-forwarded-for": "203.0.113.9" }));
+    derive(request({ "x-forwarded-for": "203.0.113.9" }));
+    derive(request({ "x-forwarded-for": "203.0.113.9" }));
+
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0][0]).toContain("TRUSTED_PROXY_HOPS is unset");
+    expect(warn.mock.calls[0][0]).toContain("Cloudflare");
+  });
+
+  it("stays quiet once production configures the hop count", async () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("TRUSTED_PROXY_HOPS", "2");
+    const { clientIp: derive } = await load();
+
+    derive(request({ "x-forwarded-for": "spoof, 203.0.113.9, 10.0.0.1" }));
+
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it("stays quiet outside production", async () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    vi.stubEnv("NODE_ENV", "development");
+    vi.stubEnv("TRUSTED_PROXY_HOPS", "");
+    const { clientIp: derive } = await load();
+
+    derive(request({ "x-forwarded-for": "203.0.113.9" }));
+
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it("warns but still serves — it never throws", async () => {
+    vi.spyOn(console, "warn").mockImplementation(() => {});
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("TRUSTED_PROXY_HOPS", "");
+    const { clientIp: derive, trustedProxyHops: hops } = await load();
+
+    expect(hops()).toBe(1);
+    expect(derive(request({ "x-forwarded-for": "spoof, 203.0.113.9" }))).toBe("203.0.113.9");
+  });
 });
