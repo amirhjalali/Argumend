@@ -123,6 +123,13 @@ describe("projectDisagreementReport Jev contestedness gate", () => {
     const withData = project({ contestedness: { "c-congested": 0.01, "c-delay": 0.01 } });
     expect(withData.cruxes.map((crux) => crux.claimId)).toEqual(BASELINE_CRUXES);
     expect(withData.quality.warnings).toEqual(baseline.quality.warnings);
+
+    // An explicit false also wins over an environment that turned it on.
+    const pinnedOff = project({
+      jevGate: false,
+      contestedness: { "c-congested": 0.01, "c-delay": 0.01 },
+    });
+    expect(pinnedOff.cruxes.map((crux) => crux.claimId)).toEqual(BASELINE_CRUXES);
   });
 
   it("skips a ranked crux the probe puts below the floor and takes the next one", () => {
