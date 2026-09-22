@@ -61,24 +61,26 @@ function FeaturedDebateMaps() {
   if (featured.length === 0) return null;
 
   return (
-    <section aria-labelledby="featured-maps-heading" className="mb-10">
-      <h2 id="featured-maps-heading" className="label-caps mb-3">
+    <section aria-labelledby="featured-maps-heading" className="mb-12 md:mb-16">
+      <h2 id="featured-maps-heading" className="label-caps">
         Start here: the full debate maps
       </h2>
-      <div className="grid gap-3 sm:grid-cols-3">
+      {/* Ruled columns, the same treatment as the home page's flagship maps,
+          so the two entry points read as one set. */}
+      <div className="mt-3 grid gap-x-8 md:grid-cols-3">
         {featured.map((topic) => (
           <Link
             key={topic.meta.id}
             href={`/topics/${topic.meta.id}`}
-            className="surface-card group flex flex-col rounded-lg p-4 sm:p-5 transition-colors hover:border-deep/40 dark:hover:border-deep-light/50"
+            className="group flex flex-col border-t border-stone-300/80 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50 dark:border-divider md:pb-0"
           >
-            <h3 className="font-serif text-xl sm:text-[1.375rem] leading-snug text-primary">
+            <h3 className="font-serif text-[1.375rem] leading-snug text-primary transition-colors group-hover:text-deep dark:text-stone-200 dark:group-hover:text-[#8bb5b1]">
               {topic.meta.title}
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-secondary">
+            <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-secondary dark:text-stone-400 md:line-clamp-4">
               {topic.meta.tagline}
             </p>
-            <p className="mt-auto pt-3 text-sm font-medium text-deep dark:text-[#8bb5b1]">
+            <p className="mt-auto inline-flex min-h-11 items-center pt-3 text-sm font-medium text-deep dark:text-[#8bb5b1]">
               Open the debate map
             </p>
           </Link>
