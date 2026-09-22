@@ -1,11 +1,12 @@
 "use client";
 
+import { AiConsentLine } from "@/components/AiConsentLine";
+import { buildMapReplyConsentLine } from "@/lib/aiProviders";
 import { MAP_REPLY_LIMITS } from "@/lib/mapReply/constants";
 // The demo thread lives with the recorded model answers so the example a
 // visitor loads is byte-identical to the one the pipeline tests replay. It is
 // a plain exported string; importing it here does not pull in the fixture JSON.
 import { RENT_CONTROL_THREAD } from "@/lib/mapReply/__fixtures__/rentControlThread";
-import { MapReplyConsent } from "./MapReplyConsent";
 
 const INPUT_ID = "map-reply-thread";
 const CONSENT_ID = "map-reply-consent";
@@ -85,7 +86,11 @@ export function MapReplyForm({
         </div>
       </div>
 
-      <MapReplyConsent id={CONSENT_ID} />
+      <AiConsentLine
+        id={CONSENT_ID}
+        consent={buildMapReplyConsentLine()}
+        className="max-w-prose"
+      />
 
       <div className="flex flex-wrap items-center gap-4">
         <button

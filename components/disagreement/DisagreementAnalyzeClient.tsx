@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { AiConsentLine } from "@/components/AiConsentLine";
 import { trackEvent } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE, DISAGREEMENT_LIMITS } from "@/lib/disagreement/constants";
 import { characterBucket, latencyBucket } from "@/lib/disagreement/labels";
@@ -14,6 +15,7 @@ import { RepresentationFeedback } from "./RepresentationFeedback";
 import { ShareReport } from "./ShareReport";
 
 const PROGRESS_MS = 1800;
+const CONSENT_ID = "disagreement-consent";
 
 export function DisagreementAnalyzeClient() {
   const [content, setContent] = useState("");
@@ -163,10 +165,14 @@ export function DisagreementAnalyzeClient() {
             onTypeChange={setContentType}
           />
 
+          {/* The disclosure sits at the click, not in a banner further up. */}
+          <AiConsentLine id={CONSENT_ID} className="-mb-4" />
+
           <div className="flex flex-wrap items-center gap-3">
             <button
               type="button"
               onClick={submit}
+              aria-describedby={CONSENT_ID}
               disabled={status === "loading" || tooShort}
               className="min-h-11 rounded-full bg-[#C4613C] px-6 text-white disabled:opacity-60"
             >

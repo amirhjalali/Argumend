@@ -1,6 +1,7 @@
 import "@/test/setup-dom";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { buildMapReplyConsentLine } from "@/lib/aiProviders";
 import { FakeJevProvider } from "@/lib/jev/fake";
 import { MAP_REPLY_LIMITS } from "@/lib/mapReply/constants";
 import {
@@ -79,9 +80,12 @@ describe("MapReplyClient", () => {
     const view = render(<MapReplyClient />);
 
     const consent = view.getByRole("note", { name: "How your text is handled" });
+    // The exact sentence, spelled out rather than read from the builder, so a
+    // change to the builder cannot quietly reword the disclosure.
     expect(consent.textContent).toContain(
       "By submitting, you agree that this text is sent to TypeSafe AI (processed in the United States) and is not stored. Identifiers are removed first. Don't paste private information about other people.",
     );
+    expect(consent.textContent).toBe(buildMapReplyConsentLine().text);
 
     const policyLink = view.getByRole("link", { name: "Privacy" });
     expect(policyLink.getAttribute("href")).toBe("/privacy");

@@ -87,7 +87,7 @@ export const longevityAntiAgingData = {
           title: "Senolytic Drugs Tested in Early Human Trials for Pulmonary Fibrosis (2019/2023)",
           description:
             "An open-label, single-arm pilot study (2019, n=14) of the senolytic combination dasatinib + quercetin in patients with idiopathic pulmonary fibrosis (IPF) reported improvements in physical function (6-minute walk distance, gait speed) — but it had no placebo control, so the result cannot be attributed to the drug. A subsequent randomized, placebo-controlled Phase I pilot (2023, n=12), powered for feasibility and tolerability, found the intervention feasible and well tolerated but found NO statistically significant changes in frailty, pulmonary, or physical function. Senolytic clinical evidence in aging therefore remains preliminary and, in the only controlled IPF trial to date, did not demonstrate functional benefit.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 6,
             independence: 7,

@@ -1,4 +1,10 @@
-import { identifyCruxes } from "@/lib/crux";
+import {
+  DEFAULT_CANDIDACY_FLOOR,
+  describeProbeSkip,
+  identifyCruxes,
+  jevProjectionGateEnabled,
+  normalizeContestednessOverrides,
+} from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
 import type {
   ArgumentAccountability,
@@ -203,6 +209,19 @@ export function projectDisagreementReport(input: {
   provider: string;
   model: string;
   extraWarnings?: string[];
+  /**
+   * Claim id -> 0..1 contestedness measured by a calibrated probe over this
+   * same source (crux engine v1.2). Supplied by the caller; the projection
+   * never calls out to anything. Without the gate flag it is inert.
+   */
+  contestedness?: Readonly<Record<string, number>>;
+  /**
+   * The projection's Jev gate (CRUX_PROJECTION_JEV_GATE, default off). An
+   * explicit value wins over the environment.
+   */
+  jevGate?: boolean;
+  /** Floor the gate compares against; defaults to the engine's 0.25. */
+  contestednessFloor?: number;
 }): DisagreementReportV1 {
   const { extraction, graph, source } = input;
   let dropped = 0;
@@ -310,9 +329,32 @@ export function projectDisagreementReport(input: {
     });
   };
 
+  // Projection gate (CRUX_PROJECTION_JEV_GATE, default off): when the caller
+  // supplies calibrated contestedness for this source, a ranked claim the
+  // probe scores below the floor is not presented and the next engine-ranked
+  // claim is taken. Like filter C this is presentation only — the engine's
+  // order is untouched and nothing is re-ranked. It is deliberately separate
+  // from the engine-level `contestednessOverrides`, so the two can be
+  // measured apart.
+  const jevGate = jevProjectionGateEnabled(input.jevGate);
+  // Same validation as the engine: non-finite values are absent rather than
+  // zero, values are clamped to 0..1, and the lookup is a Map so a claim id
+  // like "__proto__" cannot resolve off the prototype chain.
+  const contestedness = normalizeContestednessOverrides(input.contestedness);
+  const contestednessFloor = input.contestednessFloor ?? DEFAULT_CANDIDACY_FLOOR;
+
   for (const result of ranked) {
     if (cruxes.length >= DISAGREEMENT_LIMITS.maxCruxes) break;
     const claim = claimsById.get(result.claimId);
+    if (jevGate && claim) {
+      const probe = contestedness.get(result.claimId);
+      if (probe !== undefined && probe < contestednessFloor) {
+        warnings.push(
+          `Projection skipped engine crux "${claim.id}" (${claim.statement}): ${describeProbeSkip(probe, contestednessFloor)}.`,
+        );
+        continue;
+      }
+    }
     const related = disagreements.find((item) => item.relatedClaimIds.includes(result.claimId));
     const claimQuestion = claim ? `Is this true: ${claim.statement}` : undefined;
     const question = [related?.question, claimQuestion].find(

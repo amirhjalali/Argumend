@@ -218,7 +218,7 @@ export const aiRegulationData = {
           title: "NIST AI Risk Management Framework: A Non-Binding Middle Path (2023)",
           description:
             "NIST released the Artificial Intelligence Risk Management Framework (AI RMF 1.0) on January 26, 2023 — a voluntary, rights-preserving, sector-agnostic framework for identifying, measuring, and managing AI risk across the lifecycle (the 'Govern, Map, Measure, Manage' functions). It was developed through an open, consensus-driven process with public comment. Unlike the EU AI Act, it carries no penalties and mandates nothing, yet it has been widely adopted by US agencies and companies as a common vocabulary for AI risk. It demonstrates a 'third option' between heavy pre-deployment licensing and no governance at all: standards-based, voluntary risk management that scales without freezing deployment.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,

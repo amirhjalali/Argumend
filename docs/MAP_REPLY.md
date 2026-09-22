@@ -291,9 +291,22 @@ value, and the design rule is that they are shown rather than summarised away:
   and the lane is named so a fixture answer can never read as a judgement.
 
 **Consent.** One line immediately above the submit button, wired to it with
-`aria-describedby`, linking to `/privacy`. The sentence is built by
-`lib/aiProviders.ts` rather than typed into the component, so the copy and the
-request path cannot name different companies.
+`aria-describedby`, linking to `/privacy`. Rendered by the shared
+`components/AiConsentLine.tsx`; the sentence comes from
+`buildMapReplyConsentLine()` in `lib/aiProviders.ts` rather than being typed
+into the component, so the copy and the request path cannot name different
+companies.
+
+It is a different sentence from the diagnosis lane's `buildConsentLine()`, off
+the same provider registry, for three reasons. `MAP_REPLY_PROVIDER_IDS` is
+`["typesafe"]` — one live lane, so naming the vendor outright beats linking the
+phrase "our AI provider". It adds "Identifiers are removed first", which is true
+here because of `lib/mapReply/scrub.ts` and false of `/analyze` and
+`/analyze-v2`, which send the paste through unaltered. And its `/privacy` link
+is the trailing word "Privacy" rather than a phrase inside the sentence.
+`lib/aiProviders.test.ts` pins both sentences verbatim and asserts the redaction
+clause never leaks onto an analyze lane. `/privacy` carries the same
+distinction, and `docs/PRIVACY_AND_CONSENT.md` maps each claim to its code path.
 
 **Tests.** `components/mapReply/MapReplyClient.test.tsx` renders the real
 pipeline output on the recorded rent-control answers rather than a hand-written

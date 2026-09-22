@@ -145,7 +145,9 @@ describe("content-route graph import boundaries", () => {
 
     expect(topBarSource.match(/prefetch=\{false\}/g)).toHaveLength(4);
     expect(sidebarSource.match(/prefetch=\{false\}/g)).toHaveLength(4);
-    expect(footerSource.match(/prefetch=\{false\}/g)).toHaveLength(2);
+    // Wordmark, the curated columns, and the legal links — the last of which
+    // are on every page and almost never followed, so they must not prefetch.
+    expect(footerSource.match(/prefetch=\{false\}/g)).toHaveLength(3);
     expect(trendingSource.match(/prefetch=\{false\}/g)).toHaveLength(1);
   });
 });

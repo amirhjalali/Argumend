@@ -215,7 +215,7 @@ export const deathPenaltyDeterrenceData = {
           title: "Victim Family 'Closure' Claims",
           description:
             "Proponents argue execution gives murder victims' families closure and a sense of justice. However, empirical research finds little support for the closure claim: studies of co-victims who witnessed executions found only a minority reported closure, and some scholars conclude executions do not aid healing and can be retraumatizing. Victims' families are not unified — many actively oppose the death penalty.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 2,
             independence: 2,

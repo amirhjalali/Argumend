@@ -27,6 +27,7 @@ import { useSidebarState } from "@/hooks/useSidebarState";
 import { useMobileSidebarA11y } from "@/hooks/useMobileSidebarA11y";
 import dynamic from "next/dynamic";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
+import { analyzeSourceBadge } from "@/lib/aiProviders";
 import { AnalyzeExecutionNotice } from "@/components/AnalyzeExecutionNotice";
 import {
   parseAnalyzeSuccessResponse,
@@ -652,7 +653,7 @@ export default function AnalyzePage() {
                       <Lock className="h-3 w-3 text-deep/70" />
                       <span className="text-[11px] font-medium text-deep/70">
                         {liveAnalyzeEnabled
-                          ? "Source text isn’t stored; live mode sends it to the configured AI provider"
+                          ? analyzeSourceBadge()
                           : "Source text isn’t stored or sent to an AI model"}
                       </span>
                     </div>

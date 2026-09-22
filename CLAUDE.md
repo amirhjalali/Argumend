@@ -88,6 +88,7 @@ Set via environment variables. All default to off (offline mode):
   build time like every `NEXT_PUBLIC_` variable; `/reply` 404s while it is off.
   Independent of the flag above: rendering a page is not the decision to send
   text to a third party, so both have to be on for a submit to reach the model.
+- `CRUX_PROJECTION_JEV_GATE=true` — withhold a ranked crux whose calibrated contestedness (from a probe such as Jev) is below the floor. Inert unless a caller supplies probe values, which no production lane does; it sends nothing anywhere by itself.
 
 ### Disagreement Diagnosis (V2)
 
