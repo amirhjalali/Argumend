@@ -39,6 +39,7 @@ describe(".env.example", () => {
 
   it("keeps the Jev map reply off and its model pinned", () => {
     expect(example.ENABLE_JEV_MAP_REPLY).toBe("false");
+    expect(example.NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY).toBe("false");
     expect(example.JEV_MODEL).toBe("jev-1.13.0");
     expect(example.JEV_DAILY_TOKEN_CEILING).toBe("5000000");
     expect(example.ARGUMEND_JEV_PROVIDER).toBe("");

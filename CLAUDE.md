@@ -85,6 +85,10 @@ Set via environment variables. All default to off (offline mode):
   topic map via TypeSafe AI's Jev. **Sends the pasted text to a third party**
   (scrubbed and speaker-renamed first); keep off unless that is acceptable. Needs
   `TYPESAFE_API_KEY`. See `docs/MAP_REPLY.md`.
+- `NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY=true` — renders the `/reply` page. Read at
+  build time like every `NEXT_PUBLIC_` variable; `/reply` 404s while it is off.
+  Independent of the flag above: rendering a page is not the decision to send
+  text to a third party, so both have to be on for a submit to reach the model.
 
 ### Disagreement Diagnosis (V2)
 
@@ -105,9 +109,16 @@ harness that evaluates the pipeline against the flagship ArgumentGraphs.
 section, who did not make an argument, which cruxes the thread touched, and the
 strongest weighted evidence per side. Composed entirely from probe numbers and
 sentences that already exist in the topic data — no generated prose, no winner.
-Pipeline in `lib/mapReply/`, typed client in `lib/jev/`. Off by default and
+Pipeline in `lib/mapReply/`, typed client in `lib/jev/`, UI at `/reply`
+(`app/reply/page.tsx` plus `components/mapReply/`). Off by default and
 documented in `docs/MAP_REPLY.md`, which also covers the scope limit (pasted
 text only, never scraped community comments) and the prompt-injection boundary.
+
+The UI shows the probe numbers rather than hiding them: every threshold is
+drawn as a tick on its own meter, so a signal that just missed the bar is
+visible instead of absent, and a section placement under 70% confidence is
+marked as a guess. The consent line above the submit button is built from
+`lib/aiProviders.ts`.
 
 ### Dynamic Imports
 

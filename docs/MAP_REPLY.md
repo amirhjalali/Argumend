@@ -7,12 +7,12 @@ each side. No generated prose, no winner.
 
 This is the productised version of experiment C in
 `docs/reviews/2026-09-16-jev-typesafe-probe.md`, published as the blog post
-`we-gave-a-model-that-cant-talk-1000-arguments`. It is server-side only and there
-is no UI yet.
+`we-gave-a-model-that-cant-talk-1000-arguments`.
 
 - Route: `POST /api/map-reply`
 - Pipeline: `lib/mapReply/`
 - Model client: `lib/jev/`
+- UI: `/reply` — `app/reply/page.tsx` and `components/mapReply/`
 - Live smoke test: `scripts/jev-probe/map-reply-smoke.ts`
 
 ## Scope
@@ -41,6 +41,7 @@ enabling this flag is a data-sharing decision, not a performance one.
 | Variable | Default | What it does |
 |---|---|---|
 | `ENABLE_JEV_MAP_REPLY` | `false` | Turns the route on. |
+| `NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY` | `false` | Renders `/reply`. Build-time. |
 | `TYPESAFE_API_KEY` | empty | The only place the key is read. Never logged. |
 | `JEV_MODEL` | `jev-1.13.0` | Pinned model id. |
 | `JEV_DAILY_TOKEN_CEILING` | `5000000` | Per-process, per-UTC-day token ceiling. |
@@ -347,10 +348,87 @@ through an injected `fetch`; everything else runs on `FakeJevProvider`, which
 replays the recorded fixtures and deterministically synthesises anything they do
 not cover.
 
-## What a UI would need
+## UI
 
-Everything the reply object already carries. The interesting part is that the
-numbers are worth showing: the per-turn section confidence tells a reader when
-the routing is a guess (the probe review's routing test says to stop trusting a
-placement below about 0.7), and the crux touch scores are the line between "you
-are arguing about the thing that matters" and "you never got to it".
+`/reply`, gated on `NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY`. The page 404s while that
+flag is off, mirroring `/analyze-v2`. It is a separate flag from
+`ENABLE_JEV_MAP_REPLY` on purpose: rendering a page is not the decision to send
+someone's text to a third party, so both have to be on for a submit to reach the
+model. With the page on and the route off, a submit comes back with plain
+"switched off on this deployment" copy. The page is `noindex` and stays out of
+the sitemap while it is flagged (guarded in `app/sitemap.test.ts`).
+
+Files: `app/reply/page.tsx` (server shell, `TopBar` + `Footer` like
+`/analyze-v2`), `app/reply/error.tsx`, and `components/mapReply/`.
+
+**The numbers are the product.** The reply object already carries every probe
+value, and the design rule is that they are shown rather than summarised away:
+
+- **Thresholds are drawn, not applied silently.** Every meter that has a
+  threshold — topic confidence, the four thread-level signals, each crux touch
+  score — draws it as a tick on its own track, and all four signals are listed
+  whether or not they cleared it. A signal at 49% against a 50% bar is the
+  difference between "they are not talking past each other" and "we could not
+  tell", and a panel that showed only what fired would read as more certain than
+  the pipeline is.
+- **The page reads the thresholds off the result.** `thresholds` arrives on
+  every reply and the UI uses it: the section floor is printed from
+  `thresholds.sectionConfidence`, the crux heading from
+  `thresholds.cruxTouched`, the signal ticks from `signals.threshold`, the
+  topic tick from `topicChoice.threshold`. No copy of a gate lives in the
+  components, so retuning the pipeline retunes the wording.
+- **A tentative placement is drawn as one, not counted as one.** A turn with
+  `placement: "tentative"` gets a dashed chip reading "not placed", keeps its
+  probability, and says in full underneath what the best guess was and which
+  floor it missed. It is counted in the `unplaced` row of the section bar and
+  annotated on its own section's legend row as "+ N too weak to count" —
+  annotated rather than added, because those turns are already inside the
+  unplaced segment and drawing them twice would inflate the thread.
+- **`dominantSection.tentative` changes the tag,** from "largest share" to
+  "best guess only", with a sentence saying nothing on the page rests on it.
+- **The coverage sentence appears whenever `thread.unprobedCount > 0`** —
+  "Only the first 48 of 60 turns were checked." when truncated, otherwise
+  "N shorter turns were too brief to check."
+- **"Not an argument" turns are dimmed, not dropped**, and print which of the
+  two composition rules caught them. A speaker in `notArguingInProbedTurns`
+  gets the qualified sentence rather than the flat one, because the pipeline
+  did not look at everything they said.
+- **Two hedges are presentation-only**, and `components/mapReply/confidence.ts`
+  says so: the topic Choice between the 0.5 gate and 0.7, and the pattern
+  Choice, which has no threshold anywhere. Everything else defers to the
+  pipeline.
+- **Each evidence card carries its own side label.** Never a "for and against"
+  pair header: a section whose evidence is all one way still shows two cards.
+- **A no-map answer is a result, not an error.** It shows the bar that was
+  missed and the maps the shortlist put in front of the model.
+- **The footer prints the execution line**, redaction count included. That count
+  is the only evidence a reader has that the consent line meant what it said,
+  and the lane is named so a fixture answer can never read as a judgement.
+
+**Consent.** One line immediately above the submit button, wired to it with
+`aria-describedby`, linking to `/privacy`. Rendered by the shared
+`components/AiConsentLine.tsx`; the sentence comes from
+`buildMapReplyConsentLine()` in `lib/aiProviders.ts` rather than being typed
+into the component, so the copy and the request path cannot name different
+companies.
+
+It is a different sentence from the diagnosis lane's `buildConsentLine()`, off
+the same provider registry, for three reasons. `MAP_REPLY_PROVIDER_IDS` is
+`["typesafe"]` — one live lane, so naming the vendor outright beats linking the
+phrase "our AI provider". It adds "Identifiers are removed first", which is true
+here because of `lib/mapReply/scrub.ts` and false of `/analyze` and
+`/analyze-v2`, which send the paste through unaltered. And its `/privacy` link
+is the trailing word "Privacy" rather than a phrase inside the sentence.
+`lib/aiProviders.test.ts` pins both sentences verbatim and asserts the redaction
+clause never leaks onto an analyze lane. `/privacy` carries the same
+distinction, and `docs/PRIVACY_AND_CONSENT.md` maps each claim to its code path.
+
+**Tests.** `components/mapReply/MapReplyClient.test.tsx` renders the real
+pipeline output on the recorded rent-control answers rather than a hand-written
+fixture, so a change to composition surfaces as a rendering failure. That
+thread is a clean one — everything clears the floor, nothing is skipped — so
+the harder branches (a tentative placement, a tentative dominant section, a
+truncated thread, a partially-checked speaker) are exercised by moving one
+field at a time on the real result. One test renders a result carrying fields
+the page has never heard of, because the route is on its own release cadence
+and an unknown field must not take the page down.

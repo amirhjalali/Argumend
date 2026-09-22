@@ -63,6 +63,19 @@ describe("/privacy", () => {
     expect(text).toContain("private information");
   });
 
+  it("exempts the map reply lane from that warning without overclaiming for it", () => {
+    const text = render(<PrivacyPage />).container.textContent ?? "";
+
+    // The blanket claim is true of the analyze lanes and false of the map
+    // reply lane, which scrubs (lib/mapReply/scrub.ts). The page has to say
+    // which is which, and has to stop short of calling it anonymisation.
+    expect(text).toContain("This is about the analysis tools.");
+    expect(text).toContain("The map reply tool above is the one exception");
+    expect(text).toContain("redaction of the obvious rather than anonymisation");
+    expect(text).toContain("renames every speaker");
+    expect(text).not.toMatch(/\banonymised\b|\banonymized\b/i);
+  });
+
   it("covers analytics, accounts, the newsletter, retention, and a contact route", () => {
     const view = render(<PrivacyPage />);
     const text = view.container.textContent ?? "";

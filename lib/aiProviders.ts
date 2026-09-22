@@ -3,9 +3,11 @@
  *
  * Consent copy, the /analyze privacy badge and the privacy policy all read
  * from this module so a provider can never be added to a code path while a
- * surface still tells visitors something older and narrower. The forthcoming
- * map-reply tool reuses `DIAGNOSIS_PROVIDER_IDS` and `buildConsentLine` rather
- * than writing its own sentence.
+ * surface still tells visitors something older and narrower. The map-reply
+ * tool reuses this registry and the `ConsentLine` shape, but not the diagnosis
+ * sentence: it reaches exactly one provider and it scrubs before sending, so
+ * `buildMapReplyConsentLine` names TypeSafe AI outright and carries a
+ * redaction clause the diagnosis lane cannot truthfully make.
  *
  * This module is pure data plus string formatting: no environment reads, no
  * server imports. Client components import it directly.
@@ -16,6 +18,10 @@
  *   `lib/disagreement/model/index.ts`. The hosted lane is Anthropic. TypeSafe AI
  *   is listed because the Jev lane is the reason this disclosure exists; the
  *   sentence is a disjunction, so it stays true before that lane lands.
+ * - `MAP_REPLY_PROVIDER_IDS` — `/reply` posts to `/api/map-reply`, which builds
+ *   a provider via `getJevProvider()` in `lib/jev/client.ts`. The only live
+ *   lane is TypeSafe AI's Jev; the other lane is local fixtures and sends
+ *   nothing anywhere.
  * - `ANALYZE_SOURCE_PROVIDER_IDS` — `/analyze` live extraction runs
  *   `DEFAULT_EXTRACTION_AGENT` (`model: "claude"`) in `lib/analyze/extractor.ts`.
  * - `ANALYZE_JUDGING_PROVIDER_IDS` — the judge council in `app/api/analyze/route.ts`
@@ -92,6 +98,15 @@ export const DIAGNOSIS_PROVIDER_IDS: readonly AiProviderId[] = [
   "anthropic",
 ];
 
+/**
+ * Providers a paste on `/reply` may be sent to.
+ *
+ * One, not a disjunction: the map-reply route has exactly one live lane. The
+ * other lane replays local fixtures and makes no request at all, so there is
+ * nothing to disclose for it.
+ */
+export const MAP_REPLY_PROVIDER_IDS: readonly AiProviderId[] = ["typesafe"];
+
 /** Providers that receive the raw source text from live `/analyze`. */
 export const ANALYZE_SOURCE_PROVIDER_IDS: readonly AiProviderId[] = ["anthropic"];
 
@@ -123,13 +138,15 @@ export function formatProviderList(
 }
 
 /**
- * The parenthetical used in consent copy:
- * "TypeSafe AI or Anthropic, processed in the United States".
+ * The one region every provider in a roster processes in.
  *
  * Providers whose stated processing region differs would make a single shared
- * phrase false, so this refuses to flatten them.
+ * phrase false, so this refuses to flatten them. Every sentence that names a
+ * region goes through here rather than reaching into a provider record, so a
+ * provider moving to another region breaks loudly instead of silently making
+ * a disclosure wrong.
  */
-export function providerDisclosure(ids: readonly AiProviderId[]): string {
+export function sharedProcessingRegion(ids: readonly AiProviderId[]): string {
   const regions = new Set(providers(ids).map((provider) => provider.processingRegion));
   if (regions.size > 1) {
     throw new Error(
@@ -137,7 +154,15 @@ export function providerDisclosure(ids: readonly AiProviderId[]): string {
     );
   }
   const [region] = regions.size === 1 ? [...regions] : [AI_PROCESSING_REGION];
-  return `${formatProviderList(ids)}, processed in ${region}`;
+  return region;
+}
+
+/**
+ * The parenthetical used in consent copy:
+ * "TypeSafe AI or Anthropic, processed in the United States".
+ */
+export function providerDisclosure(ids: readonly AiProviderId[]): string {
+  return `${formatProviderList(ids)}, processed in ${sharedProcessingRegion(ids)}`;
 }
 
 export interface ConsentLine {
@@ -164,6 +189,40 @@ export function buildConsentLine(
   const after =
     ` (${providerDisclosure(ids)}) and is not stored.` +
     " Don't paste private information about other people.";
+  return { before, linkText, after, text: `${before}${linkText}${after}` };
+}
+
+/**
+ * The map-reply lane's own consent line, for the paste box on `/reply`.
+ *
+ * Three things make it a different sentence rather than a parameter of
+ * `buildConsentLine`:
+ *
+ * 1. It names the vendor outright instead of linking the phrase "our AI
+ *    provider". One provider, so the disjunction the diagnosis sentence needs
+ *    would be a hedge with nothing behind it.
+ * 2. It adds "Identifiers are removed first." — true here because
+ *    `lib/mapReply/scrub.ts` replaces emails, phone numbers and @handles and
+ *    renames every speaker before anything is sent, and NOT true of the
+ *    analyze lanes, which send the paste through unaltered. A shared sentence
+ *    would have to either drop the clause or make a false claim for /analyze.
+ * 3. The link is the trailing word "Privacy" rather than a phrase inside the
+ *    sentence, so the sentence reads as one statement of fact.
+ *
+ * Scrubbing is redaction of obvious identifiers, not anonymisation — prose can
+ * identify a person without containing a single handle — which is why the
+ * clause says what was removed and claims nothing more.
+ */
+export function buildMapReplyConsentLine(
+  ids: readonly AiProviderId[] = MAP_REPLY_PROVIDER_IDS,
+): ConsentLine {
+  const before =
+    `By submitting, you agree that this text is sent to ${formatProviderList(ids)} ` +
+    `(processed in ${sharedProcessingRegion(ids)}) and is not stored.` +
+    " Identifiers are removed first." +
+    " Don't paste private information about other people. ";
+  const linkText = "Privacy";
+  const after = ".";
   return { before, linkText, after, text: `${before}${linkText}${after}` };
 }
 

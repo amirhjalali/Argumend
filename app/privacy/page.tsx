@@ -196,14 +196,25 @@ export default function PrivacyPage() {
             Map replies — not live yet
           </h3>
           <p>
-            A tool that maps a reply against an existing argument map is in development. It will
-            handle text the same way the diagnosis tool does, and it will carry the same disclosure
-            above its submit button before it accepts anything from the public.
+            A tool that maps a reply against an existing argument map is in development and
+            switched off by default. It carries its own disclosure above its submit button, naming
+            TypeSafe AI directly because that is the only company it can reach. It is also the one
+            tool here that redacts before it sends: email addresses, phone numbers and @handles are
+            replaced with placeholders, and every speaker is renamed &ldquo;Speaker 1&rdquo;,
+            &ldquo;Speaker 2&rdquo; and so on. Nothing it produces is written down — no database
+            row, no file, no cache.
           </p>
 
           <h3 className="pt-2 font-semibold text-primary dark:text-stone-200">
             What we do not do to your text
           </h3>
+          <p>
+            This is about the analysis tools. The map reply tool above is the one exception: it
+            replaces email addresses, phone numbers and @handles and renames every speaker before
+            it sends anything, which is redaction of the obvious rather than anonymisation —
+            prose can identify a person without containing a single handle — so the warning below
+            applies to it too.
+          </p>
           <p>
             We do not strip names, handles, email addresses, or any other identifier out of what
             you paste. It reaches the provider as you wrote it. So please do not paste other

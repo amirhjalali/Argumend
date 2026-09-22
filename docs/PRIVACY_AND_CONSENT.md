@@ -68,7 +68,11 @@ and the privacy table all narrow together.
 | A published report is stored and served at an unlisted URL | `disagreementReports` table (`visibility` defaults to `"unlisted"`); served by `app/d/[slug]` |
 | The publisher can delete it from their own browser | `manageTokenHash` column; `DeleteReportControl.tsx` reads the raw token from `localStorage`; `DELETE app/api/disagreements/[slug]/route.ts` verifies it with `tokensMatch` |
 | Feedback stores a rating, correction, section, and a hashed session id | `app/api/disagreements/[slug]/feedback/route.ts` calls `hashOpaque(sessionId)`; `disagreementFeedback` table |
-| Identifiers are **not** stripped from pasted text | Nothing in `lib/disagreement/source.ts` (`normalizeSourceText` only strips control characters) or anywhere else redacts names. Verified by search: the only redaction in the codebase is `lib/sanitizeServerLog.ts`, which is for logs, not model input. |
+| Identifiers are **not** stripped from pasted text, in the analysis lanes | Nothing in `lib/disagreement/source.ts` (`normalizeSourceText` only strips control characters) or anywhere else on those paths redacts names. The only other redaction in the codebase is `lib/sanitizeServerLog.ts`, which is for logs, not model input. |
+| The map reply lane is the exception: it redacts emails, phone numbers and @handles and renames speakers before sending | `lib/mapReply/scrub.ts` — `scrubText` replaces each with `[email]`, `[phone]`, `[handle]`; `scrubThread` renames every speaker to `Speaker 1`, `Speaker 2`, … including where a name appears inside another speaker's turn. Real names are held in the request's memory and restored when the reply is composed. |
+| That is redaction, not anonymisation, and /privacy says so | The clause on the page and in `buildMapReplyConsentLine` claims only that identifiers are removed; `docs/MAP_REPLY.md` states the limit (prose can identify a person without containing a handle). |
+| The map reply consent sentence names TypeSafe AI outright | `buildMapReplyConsentLine` in `lib/aiProviders.ts`, rendered by `components/AiConsentLine.tsx` from `components/mapReply/MapReplyForm.tsx`; `MAP_REPLY_PROVIDER_IDS` is `["typesafe"]` because `getJevProvider()` in `lib/jev/client.ts` has one live lane |
+| The map reply lane stores nothing at all | `app/api/map-reply/route.ts` — no database write, no file, no cache; the log line carries lengths, timings and counts only, asserted by a test in `lib/mapReply/` |
 
 ### Accounts, newsletter, and product data
 
@@ -149,15 +153,18 @@ here so nothing hides.
   contract in `docs/plans/2026-08-18-argumend-v2-disagreement-diagnosis-spec.md`.
 - They do not promise deletion timelines, uptime, or that a provider will not
   retain the text.
-- They do not claim anonymisation, pseudonymisation, or identifier stripping,
-  because none of that exists in the code.
+- They do not claim anonymisation or pseudonymisation anywhere, and they claim
+  identifier stripping in exactly one place: the map reply lane, which really
+  does scrub emails, phone numbers and @handles and rename speakers
+  (`lib/mapReply/scrub.ts`). The pages say that is redaction of the obvious and
+  nothing more. For every other lane the text reaches the provider as written.
 
 ## Tests that hold this together
 
 | Test | What it stops |
 | --- | --- |
-| `lib/aiProviders.test.ts` | A provider losing its name, region, or policy link; the consent sentence changing silently |
+| `lib/aiProviders.test.ts` | A provider losing its name, region, or policy link; either approved consent sentence being reworded; the redaction clause leaking onto an analyze lane; the map reply roster growing past TypeSafe AI without the sentence following it |
 | `components/AiConsentLine.test.tsx` | The disclosure disappearing from `/analyze-v2`, losing its `/privacy` link, moving below the button, or the `/analyze` badge going back to "the configured AI provider" |
-| `app/legalPages.test.tsx` | Either page losing its draft banner, its provider table, the "we do not strip names" warning, the no-winner framing, or a `[Pending founder decision]` flag |
+| `app/legalPages.test.tsx` | Either page losing its draft banner, its provider table, the "we do not strip names" warning, the scoping sentence that exempts the map reply lane from it, the no-winner framing, or a `[Pending founder decision]` flag |
 | `components/Footer.test.tsx` | The legal links vanishing from the footer or drifting into the pruned discovery columns |
 | `app/sitemap.test.ts`, `app/canonicalUrls.test.ts` | The legal pages falling out of the sitemap or their canonicals drifting |

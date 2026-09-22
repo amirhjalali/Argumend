@@ -3,6 +3,7 @@ import {
   buildConsentLine,
   DIAGNOSIS_PROVIDER_IDS,
   type AiProviderId,
+  type ConsentLine,
 } from "@/lib/aiProviders";
 
 /**
@@ -17,17 +18,26 @@ import {
  * Pass the same `id` to the button's `aria-describedby` so the disclosure is
  * announced with the button rather than being read minutes earlier and
  * forgotten.
+ *
+ * A surface whose sentence genuinely differs passes its own built line
+ * instead of a roster: `/reply` does, because the map-reply lane scrubs
+ * identifiers before sending and says so, which the analyze lanes cannot
+ * truthfully claim. The markup is the same either way, so there is one place
+ * where a consent line is rendered.
  */
 export function AiConsentLine({
   id,
   providerIds = DIAGNOSIS_PROVIDER_IDS,
+  consent,
   className = "",
 }: {
   id?: string;
   providerIds?: readonly AiProviderId[];
+  /** Overrides `providerIds`; see `buildMapReplyConsentLine`. */
+  consent?: ConsentLine;
   className?: string;
 }) {
-  const line = buildConsentLine(providerIds);
+  const line = consent ?? buildConsentLine(providerIds);
 
   return (
     <p

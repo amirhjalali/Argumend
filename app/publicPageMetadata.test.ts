@@ -3,6 +3,7 @@ import { metadata as analysesMetadata } from "./analyses/page";
 import { metadata as isMetadata } from "./is/page";
 import { metadata as privacyMetadata } from "./privacy/page";
 import { metadata as questionsMetadata } from "./questions/page";
+import { metadata as replyMetadata } from "./reply/page";
 import { metadata as termsMetadata } from "./terms/page";
 
 describe("public page title metadata", () => {
@@ -11,6 +12,9 @@ describe("public page title metadata", () => {
     ["is", isMetadata],
     ["privacy", privacyMetadata],
     ["questions", questionsMetadata],
+    // /reply is noindex while it is flagged, but it still renders a <title>
+    // through the root template and must not double the brand.
+    ["reply", replyMetadata],
     ["terms", termsMetadata],
   ])("lets the root template add the brand once for %s", (_route, metadata) => {
     expect(metadata.title).toEqual(expect.any(String));
