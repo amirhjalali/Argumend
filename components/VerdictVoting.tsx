@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Vote, RotateCcw, Users, BarChart3 } from "lucide-react";
+import { RotateCcw, Users, BarChart3 } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -30,13 +30,27 @@ interface AggregateData {
 // Constants
 // ---------------------------------------------------------------------------
 
+// One neutral scale. The options used to run charcoal (disagree) to rust
+// (agree, the proponent colour), which made one end of the scale look like the
+// warm, right answer. Every option now gets the same treatment; only the
+// reader's own choice is marked, in deep teal (2026-09-22 design audit).
+const NEUTRAL_OPTION = {
+  color: "bg-transparent border border-stone-300 dark:border-stone-600",
+  hoverColor: "hover:border-deep hover:bg-deep/5 dark:hover:border-[#8bb5b1] dark:hover:bg-deep/10",
+  textColor: "text-stone-700 dark:text-stone-200",
+  ringColor: "focus-visible:ring-deep/40",
+  barColor: "bg-stone-400 dark:bg-stone-500",
+} as const;
+
 const VOTE_OPTIONS = [
-  { min: 0, max: 20, label: "Strong disagree", color: "bg-stone-600", hoverColor: "hover:bg-stone-700", textColor: "text-white", ringColor: "ring-stone-500/50", barColor: "bg-stone-600" },
-  { min: 20, max: 40, label: "Lean disagree", color: "bg-stone-400", hoverColor: "hover:bg-stone-500", textColor: "text-white", ringColor: "ring-stone-400/50", barColor: "bg-stone-400" },
-  { min: 40, max: 60, label: "Undecided", color: "bg-stone-300", hoverColor: "hover:bg-stone-400", textColor: "text-stone-700", ringColor: "ring-stone-300/50", barColor: "bg-stone-300" },
-  { min: 60, max: 80, label: "Lean agree", color: "bg-rust-400", hoverColor: "hover:bg-rust-500", textColor: "text-white", ringColor: "ring-rust-400/50", barColor: "bg-rust-400" },
-  { min: 80, max: 100, label: "Strong agree", color: "bg-rust-600", hoverColor: "hover:bg-rust-700", textColor: "text-white", ringColor: "ring-rust-600/50", barColor: "bg-rust-600" },
+  { min: 0, max: 20, label: "Strong disagree", ...NEUTRAL_OPTION },
+  { min: 20, max: 40, label: "Lean disagree", ...NEUTRAL_OPTION },
+  { min: 40, max: 60, label: "Undecided", ...NEUTRAL_OPTION },
+  { min: 60, max: 80, label: "Lean agree", ...NEUTRAL_OPTION },
+  { min: 80, max: 100, label: "Strong agree", ...NEUTRAL_OPTION },
 ] as const;
+
+const CHOSEN_OPTION_CLASS = "bg-deep text-white";
 
 const VOTE_KEY_PREFIX = "argumend-verdict-";
 const AGGREGATE_KEY = "argumend-verdicts";
@@ -195,15 +209,12 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
     <section className="bg-transparent rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 sm:p-8 mb-8">
       {/* Header */}
       <div className="text-center mb-6">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-stone-800/80 rounded-full text-xs font-medium text-stone-600 dark:text-stone-300 uppercase tracking-wider border border-stone-200/50 dark:border-[var(--border-default)] mb-4">
-          <Vote className="h-3.5 w-3.5" />
-          Community Verdict
-        </div>
-        <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-2">
-          What&rsquo;s Your Verdict?
+        <h2 className="font-serif text-2xl text-primary dark:text-stone-200 mb-2">
+          Where do you land, for now?
         </h2>
-        <p className="text-sm text-stone-500 leading-relaxed max-w-lg mx-auto">
-          After reviewing the evidence, where do you stand?
+        <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed max-w-lg mx-auto">
+          There is no right answer to pick here. Change it whenever the
+          evidence changes your mind.
         </p>
       </div>
 
@@ -224,7 +235,7 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
                   key={option.label}
                   type="button"
                   onClick={() => handleVote(i)}
-                  className={`flex-1 px-3 py-3 sm:py-3.5 rounded-lg text-sm font-medium transition-all duration-200 ${option.color} ${option.hoverColor} ${option.textColor} shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 focus-visible:ring-2 focus-visible:ring-offset-2 ${option.ringColor}`}
+                  className={`flex-1 min-h-11 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 ${option.color} ${option.hoverColor} ${option.textColor} focus-visible:ring-2 focus-visible:ring-offset-2 ${option.ringColor}`}
                 >
                   {option.label}
                 </button>
@@ -249,11 +260,9 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.1, type: "spring", stiffness: 200 }}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold ${
-                  votedOptionIndex !== null ? VOTE_OPTIONS[votedOptionIndex].color : "bg-stone-300"
-                } ${votedOptionIndex !== null ? VOTE_OPTIONS[votedOptionIndex].textColor : "text-stone-700"}`}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold ${CHOSEN_OPTION_CLASS}`}
               >
-                Your verdict: {votedLabel}
+                For now: {votedLabel}
               </motion.div>
             </div>
 
@@ -291,8 +300,8 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
                         </span>
                         <div className="flex-1 h-6 rounded-md bg-stone-100 dark:bg-stone-800 overflow-hidden relative">
                           <motion.div
-                            className={`h-full rounded-md ${option.barColor} ${
-                              isUserChoice ? "ring-2 ring-inset ring-white/30" : ""
+                            className={`h-full rounded-md ${
+                              isUserChoice ? "bg-deep" : option.barColor
                             }`}
                             initial={{ width: 0 }}
                             animate={{
@@ -338,24 +347,24 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
               <p className="text-sm text-stone-600 leading-relaxed">
                 {/* Always-light card (fixed #faf8f5→#f4f1eb gradient, no dark
                     variant), so the fixed-light brand token is correct here. */}
-                <span className="font-medium text-primary">
+                <span className="font-medium text-[#3d3a36]">
                   Compare your verdict with our evidence-based analysis:
                 </span>{" "}
                 The evidence balance for this topic is{" "}
                 <span className="font-mono font-semibold text-deep tabular-nums">{balance}/100</span>{" "}
                 (0 = against, 100 = for).
                 {userVote !== null && Math.abs(userVote - balance) <= 15 && (
-                  <span className="text-emerald-700 font-medium">
+                  <span className="font-medium">
                     {" "}Your verdict aligns closely with the evidence-based analysis.
                   </span>
                 )}
                 {userVote !== null && Math.abs(userVote - balance) > 15 && userVote > balance && (
-                  <span className="text-rust-700 font-medium">
+                  <span className="font-medium">
                     {" "}You seem more convinced than the evidence alone suggests -- explore the counterarguments in the analysis above.
                   </span>
                 )}
                 {userVote !== null && Math.abs(userVote - balance) > 15 && userVote < balance && (
-                  <span className="text-deep font-medium">
+                  <span className="font-medium">
                     {" "}You seem more skeptical than the evidence indicates -- the supporting evidence above may offer a new perspective.
                   </span>
                 )}

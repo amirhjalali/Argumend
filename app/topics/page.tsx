@@ -46,10 +46,7 @@ export default async function TopicsPage({ searchParams }: TopicsPageProps) {
     notFound();
   }
   return (
-    <>
-      <FeaturedDebateMaps />
-      <TopicsPageClient initialState={state} />
-    </>
+    <TopicsPageClient initialState={state} featured={<FeaturedDebateMaps />} />
   );
 }
 
@@ -64,28 +61,29 @@ function FeaturedDebateMaps() {
   if (featured.length === 0) return null;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-8 grid gap-3 sm:grid-cols-3">
-      {featured.map((topic) => (
-        <Link
-          key={topic.meta.id}
-          href={`/topics/${topic.meta.id}`}
-          className="surface-card card-hover block rounded-lg border-l-4 border-[#a23b3b] p-4 sm:p-5"
-        >
-          <p className="text-[11px] font-medium uppercase tracking-wider text-[#a23b3b]">
-            Featured debate map
-          </p>
-          <h2 className="mt-1.5 font-serif text-xl sm:text-2xl text-stone-900 dark:text-stone-100">
-            {topic.meta.title}
-          </h2>
-          <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-300">
-            {topic.meta.tagline}
-          </p>
-          <p className="mt-2 text-xs text-muted dark:text-stone-400">
-            Both sides at full strength · five minutes to see what the fight
-            actually turns on
-          </p>
-        </Link>
-      ))}
-    </div>
+    <section aria-labelledby="featured-maps-heading" className="mb-10">
+      <h2 id="featured-maps-heading" className="label-caps mb-3">
+        Start here: the full debate maps
+      </h2>
+      <div className="grid gap-3 sm:grid-cols-3">
+        {featured.map((topic) => (
+          <Link
+            key={topic.meta.id}
+            href={`/topics/${topic.meta.id}`}
+            className="surface-card group flex flex-col rounded-lg p-4 sm:p-5 transition-colors hover:border-deep/40 dark:hover:border-deep-light/50"
+          >
+            <h3 className="font-serif text-xl sm:text-[1.375rem] leading-snug text-primary">
+              {topic.meta.title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-secondary">
+              {topic.meta.tagline}
+            </p>
+            <p className="mt-auto pt-3 text-sm font-medium text-deep dark:text-[#8bb5b1]">
+              Open the debate map
+            </p>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }

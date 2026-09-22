@@ -179,7 +179,7 @@ export default async function TopicCategoryPage({ params, searchParams }: PagePr
                 { label },
               ]}
             />
-            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-3">
+            <p className="label-caps mb-3">
               Category
             </p>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
@@ -258,7 +258,7 @@ export default async function TopicCategoryPage({ params, searchParams }: PagePr
 
           {/* Browse other categories */}
           <div className="mt-12 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
+            <p className="label-caps mb-4">
               Browse other categories
             </p>
             <div className="flex flex-wrap gap-2">

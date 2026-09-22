@@ -30,9 +30,17 @@ const config: Config = {
         paper: "rgb(var(--bg-paper-rgb) / <alpha-value>)", // Lightweight paper for nodes
         overlay: "rgb(var(--bg-overlay-rgb) / <alpha-value>)",
 
-        primary: "#3d3a36",
-        secondary: "#564d45",
-        muted: "#6d6058", // Darkened from #7a7068 for WCAG AA 4.5:1 on parchment (#f4f1eb)
+        // Brand text tokens adapt with the theme through RGB channels
+        // (light: #3d3a36 / #564d45 / #6d6058; dark: #e8e4de / #b0a99f / #9a9189).
+        // A bare `text-primary` is therefore safe on dark surfaces; existing
+        // `dark:text-stone-*` pairs still win as explicit overrides.
+        primary: "rgb(var(--text-primary-rgb) / <alpha-value>)",
+        secondary: "rgb(var(--text-secondary-rgb) / <alpha-value>)",
+        muted: "rgb(var(--text-muted-rgb) / <alpha-value>)", // #6d6058 light: WCAG AA 4.5:1 on parchment
+        // Surfaces behind CSS variables that also need opacity modifiers.
+        card: "rgb(var(--bg-card-rgb) / <alpha-value>)",
+        subtle: "rgb(var(--bg-subtle-rgb) / <alpha-value>)",
+        divider: "rgb(var(--border-divider-rgb) / <alpha-value>)",
 
         deep: {
           DEFAULT: "#3a6965", // Deep teal — primary accent (darkened for WCAG AA 4.5:1 on parchment)

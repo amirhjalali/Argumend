@@ -269,7 +269,7 @@ export default async function GuidePage({ params }: PageProps) {
 
                 {/* Main section content (inline markdown: bold/italic/links) */}
                 <div
-                  className="mb-6 whitespace-pre-line text-[15px] leading-[1.8] text-primary dark:text-stone-200 md:text-base"
+                  className="reading-body mb-6 whitespace-pre-line text-primary dark:text-stone-200"
                   dangerouslySetInnerHTML={{
                     __html: renderInlineMarkdown(section.content),
                   }}
@@ -290,7 +290,7 @@ export default async function GuidePage({ params }: PageProps) {
                           {subsection.title}
                         </h3>
                         <div
-                          className="whitespace-pre-line text-[15px] leading-[1.75] text-primary dark:text-stone-200"
+                          className="reading-body whitespace-pre-line text-primary dark:text-stone-200"
                           dangerouslySetInnerHTML={{
                             __html: renderInlineMarkdown(subsection.content),
                           }}
@@ -335,7 +335,7 @@ export default async function GuidePage({ params }: PageProps) {
               {guide.furtherReading.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start justify-between gap-3 rounded-xl border border-stone-200/60 bg-white/80 p-4 transition-all duration-200 hover:border-deep/30 hover:shadow-sm dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]/80 dark:hover:border-teal-400/50 sm:items-center"
+                  className="flex items-start justify-between gap-3 rounded-xl border border-stone-200/60 bg-white/80 p-4 transition-all duration-200 hover:border-deep/30 hover:shadow-sm dark:border-[var(--border-default)] dark:bg-card/80 dark:hover:border-teal-400/50 sm:items-center"
                 >
                   <div className="min-w-0 text-sm sm:text-base">
                     <span className="font-medium text-primary dark:text-stone-200">{item.title}</span>
@@ -377,7 +377,7 @@ export default async function GuidePage({ params }: PageProps) {
                   <Link
                     key={otherGuide.id}
                     href={`/guides/${otherGuide.id}`}
-                    className={`group flex items-center gap-3 p-4 rounded-xl bg-white/80 dark:bg-[var(--bg-card)]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${otherTrack.hoverBorder}`}
+                    className={`group flex items-center gap-3 p-4 rounded-xl bg-white/80 dark:bg-card/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 animate-card-fade-in ${otherTrack.hoverBorder}`}
                     style={{ animationDelay: `${(idx % 6) * 60}ms` }}
                   >
                     <div

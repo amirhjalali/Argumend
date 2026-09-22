@@ -130,7 +130,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 { label: "Blog" },
               ]}
             />
-            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
+            <p className="label-caps mb-4">
               Insights &amp; Analysis
             </p>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
@@ -159,11 +159,15 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <div className="mx-auto max-w-4xl px-4 md:px-8 pt-8 md:pt-10">
           {/* Categories */}
           <nav className="mb-6" aria-labelledby="blog-categories-heading">
-            <h2 id="blog-categories-heading" className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-3">
-              Browse by Category
+            <h2 id="blog-categories-heading" className="label-caps mb-3">
+              Browse by category
             </h2>
 
-            <div className="md:hidden">
+            {/* Same on every width: the largest categories, then the rest
+                behind a disclosure. Desktop used to show all ~30 chips, many
+                with a single post, before the first article (2026-09-22
+                design audit). Every category stays in the DOM, so crawlable. */}
+            <div>
               <ul className="flex flex-wrap gap-2" aria-label="Top blog categories">
                 {topCategories.map((category) => (
                   <li key={category.category}>
@@ -172,7 +176,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 ))}
               </ul>
 
-              <details className="group mt-3 overflow-hidden rounded-xl border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5]/70 dark:bg-[var(--bg-card)]/70">
+              <details className="group mt-3 overflow-hidden rounded-xl border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5]/70 dark:bg-card/70">
                 <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-secondary dark:text-stone-400 hover:text-deep [&::-webkit-details-marker]:hidden">
                   <span>Browse all categories</span>
                   <span className="flex items-center gap-2 text-xs font-normal text-muted dark:text-stone-400">
@@ -190,19 +194,12 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               </details>
             </div>
 
-            <ul className="hidden flex-wrap gap-2 md:flex" aria-label="All blog categories">
-              {categories.map((category) => (
-                <li key={category.category}>
-                  <CategoryChip category={category} />
-                </li>
-              ))}
-            </ul>
           </nav>
 
           {/* Popular Tags */}
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-3">
-              Popular Tags
+            <p className="label-caps mb-3">
+              Popular tags
             </p>
             <div className="flex flex-wrap gap-1.5">
               {popularTags.map((tag) => (

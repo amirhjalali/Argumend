@@ -8,7 +8,6 @@ import { getVisiblePrimaryNav, learnNav, metaNav } from "@/lib/nav";
 import { topicSummaries } from "@/data/topicIndex";
 import { TrendingTopics } from "@/components/TrendingTopics";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 const DESKTOP_QUERY = "(min-width: 768px)";
 const authEntryEnabled = process.env.NEXT_PUBLIC_ENABLE_AUTH === "true";
@@ -81,7 +80,7 @@ export function Sidebar({
   return (
     <nav aria-label="Main navigation" className="relative flex h-full w-[260px] flex-col bg-[#f4f1eb] dark:bg-[var(--bg-canvas)] md:bg-transparent text-primary dark:text-stone-200 shadow-lg md:shadow-none">
       {/* Mobile close button - appears at top of sidebar */}
-      <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50 dark:border-[var(--border-divider)]/50">
+      <div className="flex md:hidden items-center justify-between px-4 py-3 border-b border-stone-200/50 dark:border-divider/50">
         <span className="text-sm font-medium text-stone-600 dark:text-stone-300">Menu</span>
         <button
           onClick={onClose}
@@ -111,7 +110,7 @@ export function Sidebar({
                     ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
                     : highlight
                     ? "text-rust-700 dark:text-rust-400 hover:text-rust-800 dark:hover:text-rust-300 hover:bg-rust-50/50 dark:hover:bg-rust-900/30 font-medium"
-                    : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[var(--bg-muted)]/50"
+                    : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-subtle/50"
                 }`}
               >
                 <Icon
@@ -166,7 +165,7 @@ export function Sidebar({
                         className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                           isActive
                             ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
-                            : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[var(--bg-muted)]/50"
+                            : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-subtle/50"
                         }`}
                       >
                         <Icon
@@ -190,7 +189,7 @@ export function Sidebar({
 
         {/* Featured Topics (limited to 8) */}
         <section className="pb-5" aria-labelledby="sidebar-topics-heading">
-          <h2 id="sidebar-topics-heading" className="text-[11px] font-medium text-muted dark:text-stone-400 px-3 mb-3 tracking-wide">
+          <h2 id="sidebar-topics-heading" className="label-caps px-3 mb-2">
             Topics
           </h2>
 
@@ -205,19 +204,16 @@ export function Sidebar({
                     className={`flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-left transition-colors ${
                       isSelected
                         ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-rust-500 pl-[10px]"
-                        : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-[var(--bg-muted)]/50"
+                        : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-subtle/50"
                     }`}
                   >
-                    <span className="font-serif text-[14px] flex-1 truncate">
+                    {/* Titles only. Each row used to carry a balance/weight
+                        glyph; most maps are "contested", so the nav read as a
+                        column of red meters, a scoreboard rather than a way in
+                        (2026-09-22 design audit, finding 6). */}
+                    <span className="font-serif text-[15px] leading-snug flex-1 line-clamp-2">
                       {topic.title}
                     </span>
-
-                    <BalanceWeightChip
-                      balance={topic.balance}
-                      weight={topic.weight}
-                      verdict={topic.verdict}
-                      className="flex-shrink-0"
-                    />
                   </button>
                 </li>
               );
@@ -238,7 +234,7 @@ export function Sidebar({
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-3 border-t border-stone-200/50 dark:border-[var(--border-divider)]/50 space-y-2">
+      <div className="px-4 py-3 border-t border-stone-200/50 dark:border-divider/50 space-y-2">
         <div className={`flex items-center ${hasMetaNav ? "justify-between" : "justify-end"}`}>
           {hasMetaNav && (
             <ul className="flex items-center gap-3">
