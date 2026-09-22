@@ -241,5 +241,29 @@ hairline border so the image sits on the canvas instead of glowing.
 
 ## Fixes in this pass
 
-Each fix has before and after screenshots in `docs/reviews/2026-09-22-design-audit/after/`. See
-the log below.
+The after screenshots are in `docs/reviews/2026-09-22-design-audit/after/` and use the same file
+names as the matching `before/` captures.
+
+| # | Finding | Commit | Before → after |
+|---|---|---|---|
+| 1, 2 | Dark-mode text tokens and dropped `bg-[var()]/NN` classes: the text tokens now resolve through RGB channel variables; about 90 classes codemodded to the new `card`, `subtle` and `divider` tokens; a test stops the pattern returning | `d0efcf7`, `518aaf9` | `blog-post-*-dark`, `home-desktop-dark` (top bar and the grey band) |
+| 3 | Featured debate maps now render inside the shell, with a small-caps label and no crimson | `a9149de` | `explore-*` |
+| 4, 5, 6 | Verdict readout toned down, controversy meter no longer pulses with a heat gradient, neutral vote scale, meters removed from the sidebar | `af2606d` | `topic-nuclear-safety-*` |
+| 8 | Blog and guide prose set in EB Garamond at 19–20 px with a 31em measure | `3de7c67` | `blog-post-*`, `guide-*` (after only) |
+| 10, 11, 13 | Home page has one hero; the second headline is now a section; "Strongest case for/against" uses the side tokens; chip overflow and `&apos;` fixed | `0b6e18d` | `home-*` |
+| 9, 18 | Flagship header lede set in the serif, teal summary rules, hero image dimmed in dark mode; the legacy topic breadcrumb gets a gutter | `719e632` | `topic-ai-unemployment-*`, `topic-nuclear-safety-mobile-*` |
+| 15, 16 | /about headline accent and "01"–"04" markers removed; /reply placeholder set in italic serif | `1788c0b` | (not captured) |
+| 7, 17 | `.label-caps` applied across the content pages; blog categories moved behind a disclosure | `2ae0b70` | `blog-*` |
+
+Still open, highest impact first:
+
+1. Label clutter and the floating pills that cover the key fact on mobile, both in `ReadModeView`,
+   plus reordering the verdict below the first crux. Deferred because the crux-ledger work owns
+   that file.
+2. Colour for the "contested" verdict (founder decision; the proposal is stone `#564d45`).
+3. Replace the community vote with the north-star one-tap question (founder decision).
+4. White text on `bg-rust-500` fails AA at 14 px (3.9:1). Move CTA fills to `rust-600` site-wide.
+5. The crux-card items listed above.
+6. Duplicate newsletter signup on topic pages; thin footer columns. The footer was pruned
+   deliberately (`lib/nav.ts`), so this needs a founder decision.
+7. "Analyze" nav link permanently rust; theme toggle appears twice.
