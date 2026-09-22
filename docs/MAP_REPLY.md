@@ -1,0 +1,259 @@
+# Map reply
+
+Paste an argument, get the Argumend map it belongs to: which section people are
+actually arguing in, who did not make an argument, which of the map's cruxes the
+thread touched and which it never reached, and the strongest weighted evidence on
+each side. No generated prose, no winner.
+
+This is the productised version of experiment C in
+`docs/reviews/2026-09-16-jev-typesafe-probe.md`, published as the blog post
+`we-gave-a-model-that-cant-talk-1000-arguments`. It is server-side only and there
+is no UI yet.
+
+- Route: `POST /api/map-reply`
+- Pipeline: `lib/mapReply/`
+- Model client: `lib/jev/`
+- Live smoke test: `scripts/jev-probe/map-reply-smoke.ts`
+
+## Scope
+
+**This endpoint is for text the user pastes themselves.** A consent line belongs
+next to the paste box before any UI ships, because the live lane sends that text
+to a third party.
+
+**It is not to be pointed at third-party community comments.** Scraping a
+subreddit, a comment section or anyone else's thread and posting it here is out
+of scope: the vendor contract's consent warranty is one we cannot satisfy for
+text whose authors never agreed to anything. The same applies to a moderation
+bot that reads a channel by itself. If that product is ever built, it needs a
+different agreement first, not a different flag.
+
+## The flag
+
+`ENABLE_JEV_MAP_REPLY=true` turns the route on. It is off by default and the
+route returns `404 FEATURE_DISABLED` while it is off.
+
+**The live lane sends the pasted text to TypeSafe AI** (`api.typesafe.ai`), a
+third party, so that it can answer typed questions about it. Before anything is
+sent, the text is scrubbed (below) — but scrubbing is not anonymisation, and
+enabling this flag is a data-sharing decision, not a performance one.
+
+| Variable | Default | What it does |
+|---|---|---|
+| `ENABLE_JEV_MAP_REPLY` | `false` | Turns the route on. |
+| `TYPESAFE_API_KEY` | empty | The only place the key is read. Never logged. |
+| `JEV_MODEL` | `jev-1.13.0` | Pinned model id. |
+| `JEV_DAILY_TOKEN_CEILING` | `5000000` | Per-process, per-UTC-day token ceiling. |
+| `ARGUMEND_JEV_PROVIDER` | empty | `http` or `fake`; empty means http when the flag is on and a key exists. |
+| `MAP_REPLY_TOPIC_CONFIDENCE` | `0.5` | Confidence a topic Choice must clear. |
+
+The model is **pinned, not aliased**. `jev-latest` moves without notice and every
+threshold below was tuned against `jev-1.13.0`; a silent model bump would move
+the numbers out from under them. The model id the API actually reports comes back
+in `execution.model` and is logged on every request — if it stops matching the
+pin, the thresholds need re-checking.
+
+### Lanes
+
+`getJevProvider()` returns the `fake` lane whenever the flag is off or no key is
+set, so a misconfigured deployment degrades to fixtures instead of crashing at
+import time. The route refuses to serve fixture answers in production
+(`503 PROVIDER_NOT_CONFIGURED`); in development it runs on them and says so in
+`execution.lane`.
+
+## What it does, stage by stage
+
+**Parse.** `lib/mapReply/parse.ts` reads `name: text` lines, markdown bullets
+with a bold name, and plain paragraphs. Consecutive turns by one speaker are
+merged. Turns under 12 words get no per-turn questions — a one-line interjection
+routes to noise and drags its chunk's answers with it — but they stay in the
+transcript the thread-level probes see.
+
+**Scrub.** `lib/mapReply/scrub.ts` replaces emails, phone numbers and @handles
+with `[email]`, `[phone]` and `[handle]`, and renames every speaker to
+`Speaker 1`, `Speaker 2` and so on, including where a speaker's name appears
+inside someone else's turn. The real names are kept in this process and put back
+when the reply is composed. This is redaction of obvious identifiers, not
+anonymisation: prose can identify a person without containing a single handle.
+
+**A. Topic selection.** 156 maps is not a question a Choice can answer well, so a
+BM25 shortlist (`lib/mapReply/prefilter.ts`) picks eight candidates and Jev makes
+one Choice among those eight plus `none`. Below the confidence threshold, or on
+`none`, the result is `ok: false` with `reason: "low_confidence"` — a clear "no
+map", never a wrong map.
+
+The prefilter scores title (weighted twice), meta_claim, tags, id, and the
+search phrasings in `lib/questions.ts` and `data/is-claims.ts`, with light suffix
+stemming. Both of those earn their place on real material: without them the
+Piers Morgan immigration clip ranked 17th and never reached the Choice; with them
+it ranks 7th. The rent-control thread, the trans-athletes clip and the
+AI-unemployment transcript rank 1st either way.
+
+**B. Per-turn routing.** Section Choice over the map's pillars plus `none`,
+stance Choice (for / against / neither the meta_claim), a fallacy Noul and a
+factual Noul. Chunked eight turns per request, with **only that chunk's turns in
+the state**. This is not an optimisation: putting a 114-turn debate in one state
+collapsed every speaker's fallacy score to the transcript mean (74% ± 2);
+chunking spread the same scores from 14% to 95%.
+
+**C. Thread-level shape.** One request: the eight-way pattern Choice, plus Nouls
+for `empirical_lever`, `value_residual`, `talking_past` and `definitional`.
+
+**D. Crux touch.** One Noul per section crux: do the participants actually argue
+about this question? This is what lets the reply say which of the map's cruxes a
+thread reached and which it never got to.
+
+B, C and D run in parallel. A typical thread is four requests and under a second.
+
+## Composition rules
+
+The product rule is that **every sentence in the reply is either a number from
+Jev or a string that already exists in the topic data**. The composition code
+chooses which existing sentence to show; it never writes one.
+
+- **"Not an argument" is composed, not asked.** `section === "none"`, or
+  `fallacy >= 0.8 && factual <= 0.2`. The section Choice alone placed the insult
+  comment differently across runs at 16–40% confidence, so it is not trusted on
+  its own.
+- **A speaker is only named as not arguing** when *every* one of their probed
+  turns is "not an argument".
+- **The dominant section** is the one with the most probed turns, ties going to
+  map order. The reply says "most of this thread" only when the count is actually
+  a majority; otherwise it says "the largest share".
+- **Talking-past and definitional lines appear at or above 0.5**, and are simply
+  absent below it.
+- **Evidence** is the strongest `for` item and the strongest `against` item of
+  the dominant section, by `calculateEvidenceScore` (0–40). Where a section's
+  evidence is all on one side, the two strongest items are shown and each is
+  labelled with its own side. The same item is never shown twice.
+- **No winner.** Jev is never asked who is right, who won, or whose argument is
+  better supported. The probe review's round 3 found it confident and correct on
+  easy cases and confidently wrong on a fifth of hard ones; that is exactly the
+  question this product does not ask.
+
+## Thresholds
+
+All in `lib/mapReply/constants.ts`. Probabilities wobble by a point or two
+between runs, so every threshold needs a margin — "deterministic" was overstated
+in the first probe write-up.
+
+| Threshold | Value | Meaning |
+|---|---|---|
+| `topicConfidence` | 0.5 | Below this, no map is shown. `MAP_REPLY_TOPIC_CONFIDENCE` overrides. |
+| `fallacy` / `factual` | 0.8 / 0.2 | The composed "not an argument" rule. |
+| `threadSignal` | 0.5 | Talking-past and definitional lines. |
+| `cruxTouched` | 0.5 | A crux counts as touched. |
+| `minTurnWords` | 12 | Below this, no per-turn questions. |
+| `turnsPerRequest` | 8 | Chunk size. |
+| `maxCharacters` | 12,000 | About 3,000 tokens, well under the vendor's 32k state limit. |
+| `prefilterCandidates` | 8 | Shortlist size. |
+
+## The API
+
+`POST /api/map-reply`, body `{ "text": "..." }`.
+
+Rate limited to 10 requests an hour and 40 a day per IP, on top of the daily
+token ceiling enforced inside the client.
+
+A **match** returns `200` with `ok: true` and: `topic` (id, title, metaClaim,
+path, url), `thread` counts, `candidates` and `topicChoice` from stage A,
+`sectionCounts`, `dominantSection` (with its crux), `turns` (every per-turn probe
+value including full probability maps), `notArguing`, `pattern`, `signals`,
+`cruxes`, `evidence`, the rendered `markdown`, and `execution` (version, lane,
+model, redaction counts, request count, retries, token usage, per-stage timings).
+
+A **no-map** result also returns `200`, with `ok: false`, a `reason`
+(`no_turns`, `no_candidates`, `low_confidence`, `map_unavailable`), a `message`,
+the `candidates` considered, and the `topicChoice` that fell short. It is a
+result, not an error.
+
+Errors return `{ error, code, requestId }` with `x-request-id`:
+`FEATURE_DISABLED` 404, `PROVIDER_NOT_CONFIGURED` 503, `INVALID_REQUEST` 400,
+`CONTENT_TOO_SHORT` 400, `CONTENT_TOO_LONG` 400, `RATE_LIMITED` 429,
+`SPEND_LIMIT_REACHED` 503, `PROVIDER_TIMEOUT` 504, `PROVIDER_UNAVAILABLE` 503,
+`INTERNAL_ERROR` 500.
+
+## Data handling
+
+- **Nothing is persisted.** No database write, no file, no cache. The pasted text
+  lives in one request's memory.
+- **Nothing is logged.** The log line carries lengths, turn counts, timings, the
+  model, token usage, redaction counts and the chosen topic id. There is a test
+  that fails if the pasted text reaches the log.
+- **The key** is read from `process.env.TYPESAFE_API_KEY` in exactly one function
+  and never appears in an error message. Upstream error bodies are cancelled
+  unread, because they can echo the request.
+- **The third party** receives the scrubbed, speaker-renamed text. Their
+  retention and training terms are theirs, not ours; the founder's decision to
+  enable the flag is the decision to accept them.
+
+## Prompt injection
+
+TypeSafe documents that injected instructions and misleading framing in the state
+can influence outputs. The pipeline keeps the two channels apart:
+
+- Every `instructions` string is built from fixed text and map data. Nothing read
+  from the paste is ever interpolated into one. `lib/mapReply/questions.test.ts`
+  asserts this.
+- The paste appears only under the state keys `pasted_thread` and `pasted_turns`,
+  which are named so that a question can refer to them as data.
+- Questions reference turns by path (`pasted_turns.t3`), never by quoting them.
+
+**The residual risk is real.** Separating the channels stops a thread from
+issuing an instruction; it does not stop a thread from being written so as to
+tilt a probe — a comment that loudly frames itself as being about a different
+section can still move the section Choice, and a confident assertion can still
+move a contestedness Noul. What limits the damage is what the output can be: the
+reply can only ever show a section of an existing map, an existing crux, and
+existing evidence, with numbers attached. A successful injection changes which
+true sentence is shown. It cannot introduce a false one, invent a study, or
+produce a verdict, because no part of the composition can emit text that is not
+already in the map.
+
+## Running the smoke test
+
+```bash
+export TYPESAFE_API_KEY="$(grep '^TYPESAFE_API_KEY=' .env.local | tail -1 | cut -d= -f2)"
+bun scripts/jev-probe/map-reply-smoke.ts
+bun scripts/jev-probe/map-reply-smoke.ts --clip clips/piers-immigration.diarized.json
+bun scripts/jev-probe/map-reply-smoke.ts --record
+```
+
+It runs the real pipeline against the live API on the experiment C rent-control
+thread, and on a debate clip if one is on disk (see `scripts/jev-probe/CLIPS.md`
+for how to produce one; transcripts are not stored in the repo). It prints the
+per-turn probes, the thread-level probes, the crux touch scores, the composed
+reply, the per-stage timings and the token usage.
+
+`--record` rewrites `lib/mapReply/__fixtures__/rentControl.jev.json`, the
+recorded answers behind the pipeline tests and the markdown snapshot. Those are
+the only real model judgements pinned in the test suite, so re-record whenever a
+question's wording changes and read the diff before committing it.
+
+Reference run, 2026-09-21, `jev-1.13.0`:
+
+| thread | requests | wall | tokens in / out | result |
+|---|---|---|---|---|
+| expC rent-control, 8 turns, 1,334 chars | 4 | 721 ms | 9,510 / 1,469 | rent-control-effectiveness at 95% |
+| Piers Morgan immigration clip, 9 turns, 4,353 chars | 5 | 476 ms | 12,725 / 1,607 | immigration-national-identity at 99% |
+
+## Tests
+
+```bash
+bun run test        # vitest; the full suite via bun's own `bun test` hangs
+bunx tsc --noEmit
+bun run lint
+```
+
+No test touches the network. `lib/jev/client.test.ts` drives the HTTP provider
+through an injected `fetch`; everything else runs on `FakeJevProvider`, which
+replays the recorded fixtures and deterministically synthesises anything they do
+not cover.
+
+## What a UI would need
+
+Everything the reply object already carries. The interesting part is that the
+numbers are worth showing: the per-turn section confidence tells a reader when
+the routing is a guess (the probe review's routing test says to stop trusting a
+placement below about 0.7), and the crux touch scores are the line between "you
+are arguing about the thing that matters" and "you never got to it".

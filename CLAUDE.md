@@ -80,6 +80,10 @@ Set via environment variables. All default to off (offline mode):
 - `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true` — live debate generation
 - `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true` — live multi-model judging
 - `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis at `/analyze-v2`
+- `ENABLE_JEV_MAP_REPLY=true` — `POST /api/map-reply`: route a pasted thread to a
+  topic map via TypeSafe AI's Jev. **Sends the pasted text to a third party**
+  (scrubbed and speaker-renamed first); keep off unless that is acceptable. Needs
+  `TYPESAFE_API_KEY`. See `docs/MAP_REPLY.md`.
 
 ### Disagreement Diagnosis (V2)
 
@@ -93,6 +97,16 @@ verification, never names a winner, and shows no agreement percentage.
 `fake` (fixtures, for tests). The `cli` lane exists so diagnosis quality can be
 reviewed offline; see `docs/DISAGREEMENT_LOOP.md`, which also covers the map-recovery
 harness that evaluates the pipeline against the flagship ArgumentGraphs.
+
+### Map Reply (Jev)
+
+`POST /api/map-reply` turns a pasted thread into an Argumend map reply: dominant
+section, who did not make an argument, which cruxes the thread touched, and the
+strongest weighted evidence per side. Composed entirely from probe numbers and
+sentences that already exist in the topic data — no generated prose, no winner.
+Pipeline in `lib/mapReply/`, typed client in `lib/jev/`. Off by default and
+documented in `docs/MAP_REPLY.md`, which also covers the scope limit (pasted
+text only, never scraped community comments) and the prompt-injection boundary.
 
 ### Dynamic Imports
 
