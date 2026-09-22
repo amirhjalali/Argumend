@@ -76,9 +76,15 @@ it cannot occupy a slot, inherit scoping reach, or act as a redundancy compariso
 This is a **new source for C, not a new way to rank**. Three rules keep it inside the LLM boundary
 above:
 
-1. **The probe vetoes, never nominates.** Candidacy is still `status ∈ {contested, unresolved}` OR
-   `implicit` OR a pin, and the status prefactor survives the override — an `uncontested` claim
-   scores C = 0 however confident the probe is. No claim enters the ranking because a model said so.
+1. **The probe can only lower C, and vetoes rather than nominates.** The `min` is load-bearing:
+   because the balance modulator never falls below `0.5 × statusWeight`, an unclamped override above
+   that would *raise* C — measured on ai-mass-unemployment, a 0.98 lifted a claim from rank 13 into
+   the served top-5, which is a model nominating a crux. With the clamp an override can demote a
+   claim or remove it, never promote it. Candidacy is still `status ∈ {contested, unresolved}` OR
+   `implicit` OR a pin, and the status prefactor survives the override, so an `uncontested` claim
+   scores C = 0 however confident the probe is: the probe narrows the candidate set and never widens
+   it. A claim with no override keeps its own signals exactly, though its final rank can still move,
+   since removing a claim changes who pays the redundancy penalty and renormalizes the scoping bonus.
 2. **A pin outranks the probe.** `cruxOverride: "pin"` is exempt from the floor: the editorial
    override remains the last word, as it is for topology problems.
 3. **Silence is not a zero.** A probe that cannot see the claim in the source must withhold its
@@ -93,9 +99,18 @@ implementation and the fixtures are offline. `CruxResult.contestednessOverride` 
 `explanationFacts` line ("Contestedness from probe: 0.070 …") carry the number into the crux card,
 and both are absent entirely when no override was supplied.
 
+Because a floor removal is a model-supplied number changing the candidate set, it is reported rather
+than silent: `identifyCruxesWithDiagnostics` returns `droppedByFloorIds`, and a claim that gates a
+removed claim carries `gatesRemovedByProbeIds` and says so in its explanation facts instead of
+printing a bare "Gates: none".
+
 `lib/disagreement/projectReport.ts` carries a separate, presentation-only version behind
 `CRUX_PROJECTION_JEV_GATE` (default off): given a `contestedness` map it withholds a ranked crux
-below the floor and takes the next one, leaving the engine's order untouched.
+below the floor and takes the next one, leaving the engine's order untouched. **The flag is inert in
+production today**: the only caller of the projection, `lib/disagreement/analyze.ts`, never passes
+`contestedness`, so turning the flag on changes nothing until something supplies probe values — and
+nothing in the app does. The flag sends no data anywhere by itself; only the probe script talks to a
+third party.
 
 Measurement, including the thresholds' instability and the effect on definitional and implicit
 cruxes, is in `docs/reviews/2026-09-21-jev-contestedness-gate.md`. Both flags are off; nothing about
