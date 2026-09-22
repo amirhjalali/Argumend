@@ -104,7 +104,7 @@ export const scottCostDiseaseData = {
           title: "The haircut counterexample",
           description:
             "Personal services like haircuts and restaurant meals are just as labor-bound as teaching, yet their real prices grew only modestly — implying Baumol alone can't explain the outliers.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 5,
             independence: 7,

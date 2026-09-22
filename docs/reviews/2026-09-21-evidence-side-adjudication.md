@@ -5,11 +5,15 @@ Reviewer: Fable. Branch `jev/evidence-adjudication`. Follows the 2026-09-17 side
 maps. This pass widened the net to confidence 0.8, added per-topic agreement to the harness, and
 adjudicated every flagged card plus every card on every topic below 75% agreement.
 
-**Result:** 235 cards read in full against their pillar framing and meta claim. 22 labels were wrong
+**Result:** 236 cards read in full against their pillar framing and meta claim. 23 labels were wrong
 and are fixed. 27 were judged genuinely ambiguous (two-directional cards that should be split, not
 relabelled). The remaining 186 were correct — Jev's disagreements on them are model artifacts, not
-data errors. Five topics change verdict quadrant; `housing-affordability-crisis` turns on a single
-card and is the one worth a second look.
+data errors. Four topics change verdict quadrant.
+
+An independent second reader reviewed the flips; §2 records the four changes that came out of that
+exchange (two of my calls reverted, three further flips applied, one declined). §11 lists the cards
+that should be removed or split rather than relabelled, and §12 records how little separates
+"contested" from "settled" on these maps.
 
 ---
 
@@ -28,17 +32,48 @@ the finding is good news. The site computes `balance` (and through it the public
    whole-map candidates, and persist every scored card (not just the flagged ones) so adjudication
    and false-negative sampling could run off one API pass.
 2. Adjudication set = the 80 cards where Jev disagreed at confidence ≥ 0.8, **plus** all 185 cards on
-   the 18 topics below 75% agreement. Union: 235 cards.
+   the 18 topics below 75% agreement, **plus** one card referred by the second reader
+   (`scott-cost-disease` / `haircut-counterexample`, which Jev flagged only at 0.43). Union: 236 cards.
 3. Each card was read in full — title, description, source — alongside its pillar's `skeptic_premise`
    and `proponent_rebuttal` and the topic's `meta_claim`, then judged **label correct / label wrong /
    genuinely ambiguous**. Jev is a flag, not a verdict: 58 of the 80 flagged labels survived —
-   31 outright correct, 27 defensible-but-two-directional — and only 22 were changed.
+   31 outright correct, 27 defensible-but-two-directional — and 22 were changed; the 23rd change came
+   from outside the flagged set.
 4. Bonus: 60 cards where Jev and the label agree, sampled one-per-topic with a fixed seed, read for
    false negatives (§8).
 
+### Second reader
+
+An independent reader agreed with 20 of the original 22 flips. Four changes came out of that
+exchange, each re-read from the card text before acting:
+
+- **Reverted `housing-affordability-crisis` / `minneapolis-mixed-results` to `against`.** It was my
+  lowest-confidence call and the reader is right that the card is two-directional: the title and the
+  "1% of new units" finding point one way, the rent outcome the other. Reclassified `AMB`. This
+  restores the topic to "contested."
+- **Reverted `rfk-health-policy` / `ntp-fluoride-monograph` to `for`.** My own inconsistency. Both the
+  pillar's `skeptic_premise` and its `proponent_rebuttal` explicitly invoke the NTP monograph — the
+  skeptic as "harm only above twice the US dose," the proponent as "a documented dose-dependent risk"
+  justifying fresh review. That is the identical shared-fact structure I left alone on the PFAS GenX
+  card, and the "Crucially… more than twice" clause is a scope qualifier, which elsewhere in this
+  review I treated as limiting force without reversing direction. Reclassified `AMB`.
+- **Applied three further flips** (`scott-cost-disease` / `haircut-counterexample`,
+  `obesity-personal-responsibility` / `personal-agency-cross-cultural`, `pandemic-preparedness` /
+  `strategic-national-stockpile-depletion`). Rationale for each is in the §5 table.
+- **Declined one.** The reader also proposed `pandemic-preparedness` / `cdc-test-failure` → `for`, on
+  the ground that the cards' own reasoning concedes the investment argument. That is true of the
+  stockpile card, whose `reasoning` field ends "However, proponents argue this demonstrates the need
+  for institutional reforms… rather than against investment itself," and whose core finding is a
+  quantified under-investment (12M N95 masks against a projected need of 3.5 billion — a purchasable
+  gap). It is not true of the test-kit card, whose `reasoning` field reads "Directly demonstrates that
+  institutional failure can negate preparedness investment," and whose failure modes — a contaminated
+  reagent at a CDC facility and an FDA authorisation bottleneck — are capability failures that no
+  budget line buys. The two cards look alike and are not: one is a shortfall, the other is a botch.
+  `cdc-test-failure` stays `AMB`.
+
 ### Decision rule used
 
-To keep 235 judgments consistent:
+To keep 236 judgments consistent:
 
 - **Wrong** — no available reading of the card's own text supports its label. Typically the
   description was later hardened for accuracy and now refutes its own headline, or the card records
@@ -75,11 +110,11 @@ see §6).
 | decision | count |
 |---|---|
 | label correct | 186 |
-| label wrong (fixed) | 22 |
+| label wrong (fixed) | 23 |
 | genuinely ambiguous (left; card should be split) | 27 |
 
-All 27 ambiguous cards and all 22 wrong labels were in the flagged 80; the 155 non-flagged cards on
-the sub-75% topics were all correct.
+All 27 ambiguous cards and 22 of the 23 wrong labels were in the flagged 80; of the 156 non-flagged
+cards read (155 on the sub-75% topics plus the second reader's referral), one was wrong.
 
 ## 4. Per-topic agreement, topics under 90%
 
@@ -170,7 +205,7 @@ meta-claim wording (§7), not systematic authoring error.
 
 ---
 
-## 5. Adjudication — the 80 flagged cards (Jev disagrees at ≥ 0.8)
+## 5. Adjudication — the 80 flagged cards, plus one referral
 
 `WRONG` = fixed in this branch. `AMB` = genuinely ambiguous, left unchanged. `OK` = label correct,
 Jev wrong.
@@ -189,9 +224,9 @@ Jev wrong.
 | us-iran-conflict | sanctions-effectiveness | Iran's GDP Halved and Currency Collapsed | for | against 0.85 | AMB | Coherent both ways: an adversary's economy halved is a strategic interest advanced (pro), and it is the core of the humanitarian objection (anti). The map already carries the humanitarian reading separately as `medicine-shortages`, so the pro label is not double-counting. Left. |
 | obesity-personal-responsibility | glp1-revolution | GLP-1 Drugs Carry ~$1,000-1,350/Month List Prices | for | against 1.00 | **WRONG → against** | Drug pricing says nothing about what causes obesity; the only causal language in the card is "a condition shaped by the food environment," which is the counterclaim, and the access-inequity argument is a structural-determinants argument. |
 | obesity-personal-responsibility | glp1-revolution | 67% of Weight Regained After Discontinuation | for | against 0.99 | AMB | The card itself states both readings ("Proponents argue… biological defense; skeptics argue… pharmaceutical dependency"). A shared fact, not a mislabel. |
-| obesity-personal-responsibility | food-environment-design | Countries with Similar Food Industries Differ | for | against 1.00 | AMB | Headline (Japan 3-4% vs US 42%) is the personal-responsibility case's strongest cross-national datum; the body reassigns the gap to Japanese/Korean food policy and built environment. Headline supports the label; the body should be its own `against` card. |
+| obesity-personal-responsibility | food-environment-design | Countries with Similar Food Industries Differ | for | against 1.00 | **WRONG → against** | *Initially marked AMB; changed on second reading, after reading the `reasoning` field.* The author already downgraded this card for false balance — `directness` cut to 3, and the reasoning states outright that "as evidence for the 'personal choice' thesis they are weak," that Japan and Korea's outcomes reflect "themselves systemic solutions," and that "the comparison cannot support the inference that personal choice dominates." Description, reasoning and weight were all corrected; only `side` was left, and the 2026-09-17 whole-map flip then moved it the wrong way. |
 | obesity-personal-responsibility | genetics-and-biology | US Obesity Tripled in 50 Years | for | against 0.80 | OK | Anti-genetic-determinism evidence supports the meta claim's second clause ("framing it as a disease… undermines personal responsibility"). Jev reads "environmental change" as systemic and misses that the claim is partly about the disease framing. |
-| rfk-health-policy | fluoridation | 2024 NTP Monograph: Harm Above 1.5 mg/L | for | against 0.82 | **WRONG → against** | The card's own emphasis — "Crucially, that threshold is more than twice the US community-fluoridation level of 0.7 mg/L" — is the anti-MAHA argument, reproduced almost verbatim from the pillar's `skeptic_premise`. It cannot support "ending US fluoridation will improve health." |
+| rfk-health-policy | fluoridation | 2024 NTP Monograph: Harm Above 1.5 mg/L | for | against 0.82 | AMB | *Initially marked WRONG; reverted on second reading.* Both pillar texts explicitly claim the monograph — the skeptic as "harm only above 1.5 mg/L, more than double the US recommendation," the proponent as "a real inverse association… at higher doses" justifying fresh review. Same shared-fact structure as the PFAS GenX card. The "Crucially… more than twice" clause limits the finding's scope without reversing it. |
 | rfk-health-policy | institutional-reform | Two-Thirds of MAHA Reviewers Had Industry Ties | for | against 1.00 | **WRONG → against** | Ends "MAHA's own process replicated rather than cured them." The same Nestlé finding is cited by the sibling `nestle-no-policy`, correctly labelled `against` — an internal contradiction within one map. |
 | doge-federal-cuts | service-disruption | Congress and Courts Blocked the Deepest Cuts | for | against 0.98 | **WRONG → against** | The factual content is that DOGE's proposals were rejected as excessive. The pro reading is a spin the card attributes to proponents, not a finding. |
 | doge-federal-cuts | claimed-vs-verified-savings | GAO Estimates $233-521B Annual Fraud Losses | for | against 1.00 | AMB | Off-claim rather than mis-signed. The card's own caveat says the figure "cannot be read as money DOGE actually identified or recovered," so it establishes the problem, not the achievement — but it is not evidence against the achievement either. Recommend reframe or removal. |
@@ -226,7 +261,7 @@ Jev wrong.
 | epstein-files | accountability-gap | Maxwell Convicted, Sentenced to 20 Years | against | for 0.89 | OK | A conviction is the accountability the claim says was not achieved; "only one person was held accountable" is carried separately by `no-further-prosecutions`. |
 | facial-recognition-policing | accuracy-and-bias | Near-Perfect Algorithms, Bias Not Erased | against | for 0.95 | AMB | Title is literally "X, but Y": threefold error reduction (anti-restriction) and persistent relative disparity (pro-restriction). |
 | global-housing-bubble | institutional-foreign-investment | Short-Term Rentals Pushing Up Rents | for | against 0.97 | OK | Speculation-driven rent pressure is one of the three drivers the meta claim names; "real but localized" limits magnitude, not direction. |
-| housing-affordability-crisis | zoning-supply-constraints | Ending Single-Family Zoning Had Modest Impact | against | for 0.87 | **WRONG → for** | The decisive empirical content is pro-intervention: 12% housing-stock growth with 1% rent growth against 14% for the rest of Minnesota, and the card's own conclusion calls the reform "necessary but far from sufficient." "Modest impact" describes one sub-lever within the package, not the package. *Marginal — see §9.* |
+| housing-affordability-crisis | zoning-supply-constraints | Ending Single-Family Zoning Had Modest Impact | against | for 0.87 | AMB | *Initially marked WRONG; reverted on second reading.* Two-directional: the title and the "only about 1% of new units" finding support the label, the rent outcome (12% stock growth, 1% rent growth against 14% statewide) supports the flip. Split it. Topic stays "contested." |
 | immigration-border-crisis | border-security-enforcement | Record 2.47M Encounters in FY2023 | for | against 0.99 | AMB | FY2023 precedes the asylum restrictions the meta claim bundles in, so this is the baseline the companion card measures against — a problem-statement card, like the DOGE GAO card, rather than a mis-signed one. |
 | immigration-border-crisis | humanitarian-concerns | Only 14% of Asylum Cases Granted | for | against 0.89 | AMB | Headline supports the exploitation argument; the caveats (5%-to-90% judge variation, 5× representation effect) undercut the inference that grant rates measure merit. |
 | iran-war-justification | diplomatic-alternatives | Post-JCPOA Initiatives Have Stalled | for | against 0.90 | OK | Exhausted diplomatic alternatives is the justification argument this pillar exists to test. Note the contrast with `us-iran-conflict` above: that map asks whether the policy *worked*, this one whether force is *justified*, so the same facts legitimately take opposite sides. |
@@ -240,8 +275,8 @@ Jev wrong.
 | minneapolis-shooting | conflicting-accounts | DHS Claims Self-Defense | against | for 0.99 | OK | Correct under the operative reading (excessive force vs justified). Jev is right on the literal meta claim, which asserts *that a dispute exists* — so the federal account confirms it. The meta claim needs rewording (§7). |
 | moloch | cooperation-has-expanded | Arms-Control Treaties Reversed a Race | against | for 0.96 | AMB | The compound meta claim makes coordination successes unassignable: a counterexample to "systematically pushes toward bad equilibria" (anti) *and* an instance of "a coordination mechanism strong enough to override the incentives" (pro). |
 | nuclear-renaissance-smr | smr-economics | Vendors Claim Factory Fabrication Will Cut Costs | for | against 0.89 | OK (weak) | Vendor marketing, explicitly flagged unvalidated. Correctly signed but low-value; the right fix is its `weight`, not its `side`. |
-| pandemic-preparedness | institutional-readiness | CDC Botched Initial COVID Test Kit | against | for 0.99 | AMB | The failure mode described (reagent contamination, an FDA authorisation bottleneck) is not a funding failure, which is the pillar's point. But "we were unprepared" reads naturally as an argument to invest. Category mismatch (§7). |
-| pandemic-preparedness | institutional-readiness | Strategic National Stockpile Depleted | against | for 0.99 | AMB | Same. "Lacks political constituency" is an argument about feasibility of sustained investment; 12M masks against a 3.5B need is an argument for it. |
+| pandemic-preparedness | institutional-readiness | CDC Botched Initial COVID Test Kit | against | for 0.99 | AMB *(flip declined)* | The failure modes are a contaminated reagent at a CDC facility and an FDA authorisation bottleneck — capability failures no budget line buys, which is exactly the pillar's point and the card's own stated reasoning ("Directly demonstrates that institutional failure can negate preparedness investment"). Unlike the stockpile card above, nothing here describes a shortfall money would have closed. But "we were unprepared" still reads naturally as an argument to invest, so: ambiguous, not correct. |
+| pandemic-preparedness | institutional-readiness | Strategic National Stockpile Depleted | against | for 0.99 | **WRONG → for** | *Initially marked AMB; changed on second reading.* The core finding is a quantified under-investment — 12M N95 masks against a projected need of 3.5 billion, with the HHS OIG finding the SNS "had not maintained adequate supplies." Under a claim that governments *should* invest heavily, a 290-fold shortfall is the canonical argument for. "Lacks political constituency" is about the difficulty of sustaining investment, not its desirability, and the card's own reasoning concedes the proponent reading. |
 | pfas-forever-chemicals | cleanup-bans-feasibility-cost | GenX: Replacement EPA Judged More Toxic | against | for 0.87 | AMB | Both pillar texts explicitly claim this fact — the skeptic as futility, the proponent as "the strongest argument *for* regulating PFAS as a class." A shared fact by the map's own admission. |
 | police-reform | use-of-force-accountability | Body Camera RCT Results | for | against 0.93 | AMB | Rialto's 50% reduction (pro) against the DC null (anti), in one card. |
 | psychedelic-therapy-hype | clinical-evidence | Psilocybin Efficacy Signals, Head-to-Head Missed | for | against 0.97 | AMB | Four trials in one card with opposite signs, and a title that says so. The clearest split candidate in the library. |
@@ -250,6 +285,7 @@ Jev wrong.
 | school-phone-bans | academic-performance | Norway: Girls' Grades Improve, Boys' Don't | for | against 0.93 | OK | Real gains on three of the meta claim's outcomes (grades, wellbeing, 46% less bullying) for half the population. "Significantly" is qualified; the direction is not. |
 | scott-cost-disease | baumol-effect | Flat Output Breaks the Pure-Baumol Story | against | for 0.85 | **WRONG → for** | Flat NAEP against doubled real per-pupil spending *is* the meta claim ("cost rose several-fold with little or no matching gain in measured output"), and "Baumol alone doesn't explain it" is the meta claim's second clause ("a stack of reinforcing causes rather than any single villain"). Labelled against the pillar's sub-hypothesis instead of the topic claim. |
 | scott-cost-disease | bennett-hypothesis | K-12 Has the Disease Without the Subsidy | against | for 0.97 | **WRONG → for** | Same error. It affirms cost disease in a named sector and affirms multi-causality. |
+| scott-cost-disease | baumol-effect | The Haircut Counterexample *(not flagged — Jev 0.43; referred by the second reader)* | against | for 0.43 | **WRONG → for** | The third instance of the same pillar-relative error, which I had skipped on scope grounds rather than substance. The card says "Baumol alone can't explain the outliers" — verbatim the meta claim's second clause ("a stack of reinforcing causes rather than any single villain") — and says nothing against the first clause, since haircuts are not among the named sectors. |
 | tiktok-brain-rot | educational-outcomes | Largest-Ever Drop in PISA Reading | for | against 0.92 | OK | Documents the degradation the meta claim asserts; the COVID confound is carried as its own `against` card, so the pairing is coherent. |
 | tiktok-brain-rot | educational-outcomes | Meta-Analysis Shows Small Negative Association | for | against 0.97 | OK | r = −0.07 with a CI excluding zero is small but correctly signed; the card reports its own modesty honestly. |
 | transgender-athletes-sports | retained-physiological | Hemoglobin Normalizes, Muscle Declines Partly | for | against 1.00 | AMB | Deliberately two-directional: endurance markers converge in four months (pro), strength and muscle area remain above cisgender-female levels at 36 months (anti). Split, don't flip — the map was already wholesale-corrected on 2026-09-17 and re-inverting one card would undo part of that. |
@@ -343,7 +379,7 @@ rather than the written one. Recommend rewriting the meta claim or re-scoping th
 
 Four causes, in descending order of how much damage they do.
 
-### (a) Labelled by who cites the card, not by what it shows — 12 of 22 fixes
+### (a) Labelled by who cites the card, not by what it shows — 13 of 23 fixes
 
 The dominant error. An author writing a pillar puts each card on the side of whichever voice invokes
 it, which produces two systematic failures:
@@ -352,8 +388,11 @@ it, which produces two systematic failures:
   ("has made the Middle East safer," "have eliminated waste," "will improve American health
   outcomes"), evidence that the problem is real gets filed as `for`. Iran's post-withdrawal
   enrichment, Tower 22, the June 2025 strikes, and DOGE's blocked cuts are all outcomes *under* the
-  policy that were filed as arguments *for* it. Test: **does the card describe a reason to act, or a
-  result of having acted?** Only results bear on a "has worked" claim.
+  policy that were filed as arguments *for* it. The Strategic National Stockpile card is the mirror
+  image: under a claim that governments *should* invest, a documented 290-fold shortfall was filed as
+  evidence against investing, because the pillar's skeptic uses it to argue that investment decays.
+  Test: **does the card describe a reason to act, or a result of having acted?** Only results bear on
+  a "has worked" claim; only desirability bears on a "should" claim.
 - **`skeptic_premise` has no fixed polarity.** This is the trap. On `seed-oils-health`,
   `obesity-personal-responsibility` and `congressional-term-limits`, the `skeptic_premise` argues
   *for* the meta claim; on `rfk-health-policy`, `gain-of-function-research-ban`,
@@ -362,7 +401,7 @@ it, which produces two systematic failures:
   and inverted on the other half. The three maps fixed in September and several fixed here are that
   habit leaving a trace.
 
-### (b) Card corrected, label left stale — 7 of 22 fixes
+### (b) Card corrected, label left stale — 7 of 23 fixes
 
 Someone hardened a description for accuracy — added the null result, the failed replication, the dose
 that does not apply — and did not revisit `side`. The card now refutes its own headline while still
@@ -371,14 +410,22 @@ found nothing, the NTP fluoride finding that applies only above twice the US dos
 that cuts against RTO, the hexane residues that are orders of magnitude below harm. **Any edit that
 adds a contrary finding to a description must re-check `side`.**
 
-### (c) Labelled against the pillar's sub-hypothesis — 3 of 22 fixes
+The sharpest case is `obesity-personal-responsibility` / `personal-agency-cross-cultural`, where the
+description, the `reasoning` field and the `directness` weight were all revised for false balance —
+the reasoning says in terms that the data "cannot support the inference that personal choice
+dominates" — and `side` alone was left behind, then moved the *wrong* way by the September whole-map
+flip. A whole-map inversion can over-correct individual cards just as a per-card pass can
+under-correct them. **`reasoning` is the field to read when `side` is in doubt: it records what the
+author thought the card showed, and when it contradicts `side`, `side` is usually the stale one.**
+
+### (c) Labelled against the pillar's sub-hypothesis — 3 of 23 fixes
 
 `scott-cost-disease` runs each pillar as "is *this* the cause?" and signs cards for and against that
-sub-hypothesis. Both fixed cards affirm the topic claim (cost disease is real, and multi-causal) while
-denying a single pillar's explanation. `housing-affordability-crisis`'s Minneapolis card is the same
-shape one level down: it is signed against the sub-lever it names in its title (ending single-family
-zoning) rather than against the meta claim its body supports. Any map whose pillars are competing
-explanations rather than competing positions is exposed to this.
+sub-hypothesis. All three fixed cards — `flat-output`, `k12-counterexample` and
+`haircut-counterexample` — affirm the topic claim (cost disease is real, and multi-causal) while
+denying a single pillar's explanation, so all three were signed backwards. Any map whose pillars are
+competing explanations rather than competing positions is exposed to this, and the exposure is
+total: on `scott-cost-disease` it hit every counterexample card in the map.
 
 ### (d) Meta-claim wording, which produces low agreement without producing errors
 
@@ -445,14 +492,16 @@ justified, the other whether the policy worked. `side` is meta-claim-relative, e
 
 ## 9. Before/after, every topic changed
 
+Sixteen topics move. Four change verdict quadrant.
+
 | topic | balance | weight | for/against | quadrant | verdict after |
 |---|---|---|---|---|---|
 | us-iran-conflict | 48 → **23** | 76 | 6/6 → 3/9 | contested → **settled** | Settled — evidence strongly favors the counterclaim |
-| obesity-personal-responsibility | 31 → **24** | 72 | 4/8 → 3/9 | contested → **settled** | Settled — evidence strongly favors the counterclaim |
+| obesity-personal-responsibility | 31 → **18** | 72 | 4/8 → 2/10 | contested → **settled** | Settled — evidence strongly favors the counterclaim |
 | doge-federal-cuts | 31 → **25** | 78 | 5/11 → 4/12 | contested → **settled** | Settled — evidence strongly favors the counterclaim |
-| scott-cost-disease | 67 → **80** | 81 | 10/6 → 12/4 | contested → **settled** | Settled — evidence strongly favors the claim |
-| housing-affordability-crisis | 66 → **74** | 73 | 8/4 → 9/3 | contested → **settled** | Settled — evidence strongly favors the claim |
-| rfk-health-policy | 44 → 32 | 72 | 7/9 → 5/11 | contested | Well-mapped, genuinely contested |
+| scott-cost-disease | 67 → **85** | 81 | 10/6 → 13/3 | contested → **settled** | Settled — evidence strongly favors the claim |
+| pandemic-preparedness | 57 → 65 | 75 | 6/8 → 9/5 | contested | Well-mapped, genuinely contested |
+| rfk-health-policy | 44 → 39 | 72 | 7/9 → 6/10 | contested | Well-mapped, genuinely contested |
 | seed-oils-health | 46 → 40 | 66 | 6/6 → 5/7 | contested | Well-mapped, genuinely contested |
 | ai-regulation | 59 → 51 | 75 | 7/5 → 6/6 | contested | Well-mapped, genuinely contested |
 | lab-diamonds-ethics | 60 → 52 | 69 | 7/5 → 6/6 | contested | Well-mapped, genuinely contested |
@@ -465,32 +514,120 @@ justified, the other whether the policy worked. `side` is meta-claim-relative, e
 | return-to-office-productivity | 36 → 27 | 64 | 4/8 → 3/9 | moderate | Leans toward the counterclaim — moderately evidenced |
 | death-penalty-deterrence | 22 → 17 | 56 | 3/5 → 2/6 | moderate | Leans toward the counterclaim — moderately evidenced |
 
+`housing-affordability-crisis` appears in no row: its one change was reverted and the topic is
+unmodified at balance 66, "contested."
+
 ### Founder calls worth making
 
-1. **`housing-affordability-crisis` is the marginal one.** It sat at balance 66 (d = 16, four points
-   short of the settled threshold) and a single card's flip carried it to 74. The card is genuinely
-   two-sided in emphasis — a title that says "modest impact" over a body reporting 12% stock growth
-   against 1% rent growth — and I flipped it on the body. Calling a live policy dispute "settled" on
-   one card's margin deserves a human decision. Reverting that one card restores "contested."
+1. **The hottest surviving quadrant change hangs on a single card.** `us-iran-conflict` moved on
+   three flips, and the weakest of them — `june-2025-strikes-nuclear`, the one the second reader
+   agreed with least readily — is load-bearing. The card is an account of a strike with one pro
+   clause (surface infrastructure and centrifuge halls destroyed) against three anti (damage to the
+   deepest halls disputed, a DIA assessment of "months rather than years," IAEA continuity of
+   knowledge lost). I keep the flip: the title is a neutral event name rather than a pro claim, and
+   the later, stronger findings all cut against a safety gain. But it is the one card to re-read
+   before this map ships as "settled."
 2. **Three maps now read "Settled — evidence strongly favors the counterclaim" on politically hot
    topics** (`us-iran-conflict`, `obesity-personal-responsibility`, `doge-federal-cuts`). Each is
-   arithmetically correct given the evidence sets (9-12 `against` cards to 3-4 `for`), and the fixes
-   behind them are the ones I am most confident in. But three of the library's most contested subjects
-   turning "settled" in one pass is a presentation question as much as a data question. The honest
-   reading is that these maps' `for` sides were being propped up by mislabelled cards; the remedy is
-   to commission stronger `for` evidence, not to restore the wrong labels.
-3. **`mandatory-voting` at balance 86 and `minneapolis-shooting` at 86** are one-sided enough to read
-   as advocacy. Both are weight < 65 so the verdict stays "moderate," but they need more
-   counter-evidence rather than relabelling.
+   arithmetically correct given the evidence sets (9-12 `against` cards against 2-4 `for`). But three
+   of the library's most contested subjects turning "settled" in one pass is a presentation question
+   as much as a data question. The honest reading is that these maps' `for` sides were propped up by
+   mislabelled cards; the remedy is to commission stronger `for` evidence, not to restore wrong
+   labels. `obesity-personal-responsibility` is now at balance 18 with 2 `for` cards out of 12, which
+   is less a verdict than a statement that the map was never built to steelman its own claim.
+3. **`scott-cost-disease` at 85 is the least troubling of the four.** "Costs rose several-fold with
+   little matching output gain, from several reinforcing causes" is close to consensus; the map read
+   as contested only because every counterexample card in it was signed against the pillar it sat in
+   rather than against the topic claim.
+4. **`mandatory-voting` at 86 and `minneapolis-shooting` at 86** are one-sided enough to read as
+   advocacy. Both are weight < 65 so the verdict stays "moderate," but they need counter-evidence,
+   not relabelling.
 
 ## 10. Recommendations
 
 1. Adopt the `## Conventions` section added to `docs/ARGUMENT_MODEL.md` and run its check in review.
-2. Split the 27 two-directional cards listed `AMB` in §5 (content change, separate pass).
+2. Act on §11 — the removals and splits are a bigger quality win than any remaining relabelling.
 3. Sweep for legal-authority cards scored as substantive evidence (§8) — at least
    `student-debt-forgiveness` and `net-neutrality`.
 4. Reword four meta claims: `minneapolis-shooting` (asserts a dispute rather than a proposition),
-   `central-bank-digital-currency` (surveillance claim, inclusion pillars), and the self-hedging tails
-   on `simulation-hypothesis` and `death-penalty-deterrence`.
-5. Re-run the audit after any batch of description edits. It costs about a minute and a few cents, and
-   §7(b) shows description edits are how labels go stale.
+   `central-bank-digital-currency` (surveillance claim, inclusion pillars), and the self-hedging
+   tails on `simulation-hypothesis` and `death-penalty-deterrence`.
+5. Re-run the audit after any batch of description edits — it costs about a minute and a few cents,
+   and §7(b) shows description edits are how labels go stale. Read `reasoning` alongside `side`.
+
+## 11. Recommended removals and splits (founder decision)
+
+Nothing was removed or split in this pass — both are content changes beyond a labelling audit. These
+are the candidates. For the first group **removal is the right fix, not relabelling**: the cards bear
+on something other than the meta claim, so neither side value is correct and either one distorts
+`balance`.
+
+**Remove — off-claim (5).**
+
+- `doge-federal-cuts` / `gao-improper-payments` — a modelled estimate of the federal fraud pool. It
+  establishes the problem was real; its own caveat says the figure "cannot be read as money DOGE
+  actually identified or recovered." Not evidence the cuts worked, nor evidence they did not.
+- `doge-federal-cuts` / `performance-review-anomaly` — 99.8% positive performance reviews. Same
+  shape: evidence the reform was warranted, not that it succeeded.
+- `immigration-border-crisis` / `record-encounters-fy2023` — FY2023 precedes the asylum restrictions
+  the meta claim bundles in, so it is the baseline its companion card measures against, not an
+  outcome of the policy.
+- `remote-work-permanence` / `patent-innovation-data` — aggregate patent counts the card itself calls
+  "only suggestive," with the link to remote work "not established," plus an appended Nature finding
+  pointing the other way.
+- `obesity-personal-responsibility` / `glp1-cost-equity-barrier` — flipped to `against` in this pass,
+  but dropping it is arguably better than relabelling it: drug list prices say nothing about what
+  *causes* obesity. It reads as `against` only through the incidental phrase "a condition shaped by
+  the food environment," which is doing all the work.
+
+**Flip or split — genuinely two-directional, currently scoring one way (2).**
+
+- `transgender-athletes-sports` / `muscle-mass-convergence` — currently `for`. Hemoglobin reaches
+  cisgender-female levels in about four months (pro), but the same review finds strength and muscle
+  area still above cisgender-female levels at 36 months and strength "may be well preserved" (anti),
+  which contradicts the meta claim's "sufficiently reduces **any** physiological advantages." I left
+  it because the map was wholesale-corrected on 2026-09-17 and I did not want to partially re-invert
+  that fix, but splitting endurance from strength is the right answer and would move this map (§12).
+- `ai-risk` / `current-ai-narrow` — currently `against`. The card annotates itself ("this 'against'
+  claim is now contested") and its source line reads "now partly contradicted by Meinke et al." The
+  Apollo in-context-scheming result deserves its own `for` card.
+
+**Dedupe (1).**
+
+- `rfk-health-policy` double-counts one source. `dietary-guidelines-conflicts` and `nestle-no-policy`
+  both rest on Marion Nestlé's January 2026 finding that roughly two-thirds of the MAHA
+  dietary-guidelines reviewers had industry ties, from the same Food Politics source. Both are now
+  `against`, so one finding is counted twice on the same side of `balance`. This is what §5.5 of
+  `docs/ARGUMENT_MODEL.md` warns about — "five citations tracing to one paper is not corroboration."
+  Merge them or drop the weaker.
+
+## 12. Verdict fragility
+
+The second reader's sharpest finding, verified here against the live scoring functions: **these maps
+are too small for the verdict thresholds they feed.**
+
+Flipping one card moves `balance` by a **median of 9 points** across all 1,567 cards (p25 7, p75 12,
+max 31), while the gap between "contested" and "settled" is 20 points of `|balance − 50|`. On a
+12-to-16-card map, one ordinary card is roughly half the distance between a genuinely contested
+verdict and a settled one.
+
+**Thirty topics** with `weight ≥ 65` currently sit within 8 points of the settled threshold — inside
+one card's reach. Simulating the flip of cards this review deliberately left `AMB`:
+
+| topic | card left `AMB` | balance now | if flipped | quadrant |
+|---|---|---|---|---|
+| pandemic-preparedness | cdc-test-failure | 65 | 73 | contested → **settled (claim)** |
+| transgender-athletes-sports | muscle-mass-convergence | 36 | 24 | contested → **settled (counterclaim)** |
+| immigration-border-crisis | record-encounters-fy2023 | 40 | 29 | contested → **settled (counterclaim)** |
+
+So three further quadrant flips sit behind judgment calls this review declined, and the near-threshold
+list (`pfas-forever-chemicals` d=18, `global-housing-bubble` d=18, `sugar-tax-effectiveness` d=19,
+`consciousness-hard-problem` d=19, `daylight-saving-time-abolition` d=19, `social-media-elections`
+d=19, `sex-work-decriminalization` d=19, `artificial-reproduction-ethics` d=19, and 22 others) means
+routine editorial work will keep tipping verdicts in both directions.
+
+This is not an argument for different labels. It is an argument that a headline as strong as "Settled
+— evidence strongly favors the claim" should not turn on a dozen cards. A separate branch is
+addressing the verdict computation; until it lands, treat every "settled" verdict on a map with fewer
+than about 20 cards as provisional, and read §9 and this section together before shipping any of the
+four quadrant changes.

@@ -97,7 +97,7 @@ export const obesityPersonalResponsibilityData = {
             "Countries with Similar Food Industries Have Very Different Obesity Rates",
           description:
             "Japan (adult obesity ~3-4%) and South Korea (~6%) have access to many of the same global food corporations and ultra-processed products as the US (~42%) yet report dramatically lower obesity rates (World Obesity Federation / OECD data). Some critics of the systemic argument cite cultural factors — smaller portions, walking-oriented infrastructure, social norms, school lunch programs emphasizing whole foods. However, these cross-country gaps cannot cleanly isolate 'individual choice': measurement differs (East-Asian BMI thresholds and self-report vs. measured-height methods differ across countries), and Japan/Korea's outcomes are themselves shaped by strong food policy and built environment — which are systemic, not individual, factors.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 6,
             independence: 6,

@@ -112,7 +112,7 @@ export const housingAffordabilityCrisisData = {
           title: "Ending Single-Family Zoning Alone Had Modest Impact in Minneapolis (Pew, 2024)",
           description:
             "Minneapolis became the first major US city to eliminate single-family-only zoning in its Minneapolis 2040 plan, effective January 2020. A 2024 Pew Charitable Trusts analysis found that legalizing duplexes and triplexes on former single-family lots accounted for only about 1% of new units — most new supply (roughly 87%) came from buildings with 20+ units, driven by allowing apartments along commercial and transit corridors and eliminating parking minimums. From 2017 to 2022, Minneapolis grew its housing stock 12% while rents rose just 1%, versus 14% rent growth in the rest of Minnesota. The evidence suggests ending single-family zoning is, on its own, necessary but far from sufficient.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,

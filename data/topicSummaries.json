@@ -193,8 +193,8 @@
     "id": "scott-cost-disease",
     "title": "The Cost Disease",
     "meta_claim": "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
-    "confidence_score": 80,
-    "balance": 80,
+    "confidence_score": 85,
+    "balance": 85,
     "weight": 81,
     "verdict": {
       "label": "Settled — evidence strongly favors the claim",
@@ -706,8 +706,8 @@
     "id": "pandemic-preparedness",
     "title": "Pandemic Preparedness Investment",
     "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
-    "confidence_score": 57,
-    "balance": 57,
+    "confidence_score": 65,
+    "balance": 65,
     "weight": 75,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -1485,8 +1485,8 @@
     "id": "obesity-personal-responsibility",
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
-    "confidence_score": 24,
-    "balance": 24,
+    "confidence_score": 18,
+    "balance": 18,
     "weight": 72,
     "verdict": {
       "label": "Settled — evidence strongly favors the counterclaim",
@@ -1675,12 +1675,12 @@
     "id": "housing-affordability-crisis",
     "title": "The Housing Affordability Crisis",
     "meta_claim": "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, as the free market alone cannot provide adequate affordable housing.",
-    "confidence_score": 74,
-    "balance": 74,
+    "confidence_score": 66,
+    "balance": 66,
     "weight": 73,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Well-mapped, genuinely contested",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
@@ -2378,8 +2378,8 @@
     "id": "rfk-health-policy",
     "title": "RFK Jr's Health Policy Agenda (MAHA)",
     "meta_claim": "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
-    "confidence_score": 32,
-    "balance": 32,
+    "confidence_score": 39,
+    "balance": 39,
     "weight": 72,
     "verdict": {
       "label": "Well-mapped, genuinely contested",

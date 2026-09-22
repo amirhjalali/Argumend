@@ -228,7 +228,7 @@ export const rfkHealthPolicyData = {
           title: "2024 NTP Monograph: Neurodevelopmental Harm Found Above 1.5 mg/L",
           description:
             "The National Toxicology Program's August 2024 monograph concluded with 'moderate confidence' that fluoride exposures above 1.5 mg/L are associated with lower IQ in children. Crucially, that threshold is more than twice the US community-fluoridation level of 0.7 mg/L, and the underlying studies were largely from regions with naturally high fluoride. The January 2025 JAMA Pediatrics meta-analysis of more than 70 studies reported a similar inverse association concentrated at higher exposures.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
