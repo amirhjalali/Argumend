@@ -502,15 +502,28 @@ function currentPublicEntry(
 }
 
 /**
- * The latest non-superseded public entry's status per claim — the value
- * `identifyCruxes` will consume in week 2 (spec §1.3). Claims with no public
- * entry are absent; absent means today's behavior exactly.
+ * The latest non-superseded public entry per claim — what `identifyCruxes`
+ * consumes as its `ledgerStatus` option (spec §1.3; the entry carries the
+ * date and note a narrowed card cites). Claims with no public entry are
+ * absent; absent means today's behavior exactly. Unreviewed judgment entries
+ * never appear here, so they cannot move the ranking.
  */
-export function ledgerStatus(entries: readonly CruxLedgerEntry[]): LedgerStatusByClaim {
-  const status: Record<string, CruxLedgerStatus> = {};
+export function currentLedgerEntries(
+  entries: readonly CruxLedgerEntry[],
+): Readonly<Record<string, CruxLedgerEntry>> {
+  const current: Record<string, CruxLedgerEntry> = {};
   for (const entry of publicLedgerEntries(entries)) {
     // Chronological order, so the last write per claim is the latest.
-    status[entry.claimId] = entry.status;
+    current[entry.claimId] = entry;
+  }
+  return current;
+}
+
+/** The status of `currentLedgerEntries` per claim. */
+export function ledgerStatus(entries: readonly CruxLedgerEntry[]): LedgerStatusByClaim {
+  const status: Record<string, CruxLedgerStatus> = {};
+  for (const [claimId, entry] of Object.entries(currentLedgerEntries(entries))) {
+    status[claimId] = entry.status;
   }
   return status;
 }

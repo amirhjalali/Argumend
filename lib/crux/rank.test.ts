@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
 import type { ArgumentGraph, Claim, EpistemicType } from "@/types/argument";
-import { baseNode, evidence, workedExampleGraph } from "@/lib/argument/fixtures";
-import { identifyCruxes } from "./rank";
+import type { CruxLedgerEntry, LedgerInputByClaim } from "@/types/cruxLedger";
+import { baseNode, claim, evidence, workedExampleGraph } from "@/lib/argument/fixtures";
+import { loadArgumentTopic } from "@/lib/argument/draftTopics";
+import { currentLedgerEntries } from "@/lib/argument/ledger";
+import { identifyCruxes, identifyCruxesWithDiagnostics } from "./rank";
+import { computeCruxSignals } from "./signals";
 
 function makeClaim(
   id: string,
@@ -193,5 +197,222 @@ describe("identifyCruxes", () => {
     expect(results.map((result) => result.claimId)).not.toContain("c6");
     expect(c2Result?.score ?? 1).toBeLessThan(c5Result?.score ?? 0);
     expect(numberTokens.every((value) => computedNumbers.has(value.toFixed(3)))).toBe(true);
+  });
+});
+
+describe("identifyCruxes with crux-ledger status (v1.3, spec §1.3)", () => {
+  const ids = (ledgerStatus: LedgerInputByClaim, limit?: number) =>
+    identifyCruxes(workedExampleGraph(), { ledgerStatus, limit }).map((result) => result.claimId);
+  const baseScoreOf = (graph: ArgumentGraph, claimId: string) =>
+    computeCruxSignals(graph).signals.find((signal) => signal.claim.id === claimId)?.baseScore;
+  const setOverride = (graph: ArgumentGraph, claimId: string, cruxOverride: "pin" | "suppress") => {
+    const node = graph.nodes.find(
+      (candidate): candidate is Claim => candidate.id === claimId && candidate.type === "claim"
+    );
+    if (node === undefined) throw new Error(`fixture has no claim ${claimId}`);
+    node.cruxOverride = cruxOverride;
+    node.overrideBasis = "Curator override for the ledger test.";
+  };
+
+  it("reproduces the default ranking exactly with an empty ledger", () => {
+    const graph = workedExampleGraph();
+    const expected = JSON.stringify(identifyCruxes(graph));
+
+    expect(JSON.stringify(identifyCruxes(graph, { ledgerStatus: {} }))).toBe(expected);
+    const diagnostics = identifyCruxesWithDiagnostics(graph, { ledgerStatus: {} });
+    expect(JSON.stringify(diagnostics.cruxes)).toBe(expected);
+    expect(diagnostics.droppedByLedgerIds).toEqual([]);
+  });
+
+  it("rule 4: open changes nothing but the reported status", () => {
+    const graph = workedExampleGraph();
+    const expected = identifyCruxes(graph);
+    const open = identifyCruxes(graph, {
+      ledgerStatus: { c1: "open", c2: "open", c3: "open", c4: "open" },
+    });
+
+    expect(open.map((result) => result.ledgerStatus)).toEqual(["open", "open", "open", "open"]);
+    expect(
+      JSON.stringify(
+        open.map((result) => {
+          const { ledgerStatus, ...rest } = result;
+          void ledgerStatus;
+          return rest;
+        })
+      )
+    ).toBe(JSON.stringify(expected));
+  });
+
+  it("rule 1: resolved leaves candidacy and is reported, and gates say so", () => {
+    expect(ids({})).toContain("c2");
+    const ranking = identifyCruxesWithDiagnostics(workedExampleGraph(), {
+      ledgerStatus: { c2: "resolved" },
+    });
+    const c4 = ranking.cruxes.find((result) => result.claimId === "c4");
+
+    expect(ranking.cruxes.map((result) => result.claimId)).not.toContain("c2");
+    expect(ranking.droppedByLedgerIds).toEqual(["c2"]);
+    expect(ranking.droppedByFloorIds).toEqual([]);
+    // c3 (the definition of "mass unemployment") had reach only through the
+    // claim it scopes; with c2 settled there is nothing left for it to gate.
+    expect(ranking.cruxes.map((result) => result.claimId)).not.toContain("c3");
+    expect(c4?.gatesClaimIds).toEqual([]);
+    expect(c4?.explanationFacts).toContain(
+      "Gates: none; removed from candidacy as resolved in the crux ledger: c2."
+    );
+  });
+
+  it("rule 2: unresolvable is selected on its own base score, ahead of unpinned claims", () => {
+    const graph = workedExampleGraph();
+    const defaultC1 = identifyCruxes(graph).find((result) => result.claimId === "c1");
+    const c1Base = Number((baseScoreOf(graph, "c1") ?? 0).toFixed(3));
+    // c1's downstream set is c4's, so redundancy control cuts its score by default...
+    expect(defaultC1?.score).toBeLessThan(c1Base);
+    // ...and at limit 2 it does not make the set.
+    expect(ids({}, 2)).toEqual(["c4", "c3"]);
+
+    const results = identifyCruxes(graph, {
+      limit: 2,
+      ledgerStatus: {
+        c1: {
+          status: "unresolvable",
+          date: "2026-04-02",
+          note: "Both sides accept the cohort data; they weigh early-career harm against aggregate output differently",
+        },
+      },
+    });
+
+    expect(results.map((result) => result.claimId)).toEqual(["c1", "c4"]);
+    expect(results[0]?.score).toBe(c1Base);
+    expect(results[0]?.ledgerStatus).toBe("unresolvable");
+    expect(results[0]?.explanationFacts).toContain(
+      "Ledger: unresolvable on 2026-04-02 — Both sides accept the cohort data; they weigh early-career harm against aggregate output differently."
+    );
+  });
+
+  it("rule 2: an unresolvable claim below the floor is not forced into the set", () => {
+    const graph = workedExampleGraph();
+    graph.nodes.push(
+      claim("c7", "A weakly connected implicit assumption", "empirical", true, "broadly_accepted")
+    );
+    graph.edges.push({ id: "edge-c7-e3", from: "c7", to: "e3", type: "supports" });
+    expect(baseScoreOf(graph, "c7")).toBeLessThan(0.15);
+
+    const results = identifyCruxes(graph, { limit: 10, ledgerStatus: { c7: "unresolvable" } });
+
+    expect(results.map((result) => result.claimId)).not.toContain("c7");
+    expect(JSON.stringify(results)).toBe(JSON.stringify(identifyCruxes(graph, { limit: 10 })));
+  });
+
+  it("rule 2: pins plus unresolvable claims never exceed the limit", () => {
+    const graph = workedExampleGraph();
+    setOverride(graph, "c4", "pin");
+
+    const results = identifyCruxes(graph, {
+      limit: 2,
+      ledgerStatus: { c1: "unresolvable", c2: "unresolvable", c3: "unresolvable" },
+    });
+
+    // One slot is left after the pin; the held claim with the highest base score takes it.
+    expect(results.map((result) => result.claimId)).toEqual(["c4", "c3"]);
+  });
+
+  it("rule 3: narrowed drops the evidence-starved annotation and cites the entry, score unchanged", () => {
+    const graph = workedExampleGraph();
+    const before = identifyCruxes(graph);
+    const after = identifyCruxes(graph, {
+      ledgerStatus: {
+        c3: {
+          status: "narrowed",
+          date: "2026-05-01",
+          note: "BLS added a U-3-by-cohort series, so the threshold question now has one agreed measure.",
+        },
+      },
+    });
+    const beforeC3 = before.find((result) => result.claimId === "c3");
+    const afterC3 = after.find((result) => result.claimId === "c3");
+
+    expect(beforeC3?.evidenceStarved).toBe(true);
+    expect(afterC3?.evidenceStarved).toBe(false);
+    expect(afterC3?.ledgerStatus).toBe("narrowed");
+    expect(afterC3?.explanationFacts.at(-1)).toBe(
+      "Ledger: narrowed on 2026-05-01 — BLS added a U-3-by-cohort series, so the threshold question now has one agreed measure."
+    );
+    expect(after.map((result) => [result.claimId, result.score])).toEqual(
+      before.map((result) => [result.claimId, result.score])
+    );
+  });
+
+  it("cruxOverride wins: suppress beats unresolvable", () => {
+    const graph = workedExampleGraph();
+    setOverride(graph, "c1", "suppress");
+
+    const results = identifyCruxes(graph, { ledgerStatus: { c1: "unresolvable" } });
+
+    expect(results.map((result) => result.claimId)).not.toContain("c1");
+  });
+
+  it("cruxOverride wins: a pin keeps a resolved claim", () => {
+    const graph = workedExampleGraph();
+    setOverride(graph, "c2", "pin");
+
+    const ranking = identifyCruxesWithDiagnostics(graph, { ledgerStatus: { c2: "resolved" } });
+
+    expect(ranking.cruxes[0]?.claimId).toBe("c2");
+    expect(ranking.cruxes[0]?.ledgerStatus).toBe("resolved");
+    expect(ranking.droppedByLedgerIds).toEqual([]);
+  });
+
+  it("unreviewed judgment entries can never move the ranking", () => {
+    const topicId = "ai-mass-unemployment";
+    const claimId = "c-firms-cut-hiring-not-output";
+    const proposal: CruxLedgerEntry = {
+      id: `${topicId}:${claimId}:2026-05-01:1`,
+      topicId,
+      claimId,
+      date: "2026-05-01",
+      status: "narrowed",
+      resolutionKind: "existing-evidence",
+      evidenceNodeIds: ["e-stanford-adp-16pct"],
+      note: "A model proposal that new cohort data narrows the hiring-versus-output question.",
+      author: {
+        kind: "judgment",
+        modelId: "fixture-model",
+        promptVersion: "ledger-v1",
+        contentHash: "sha256:fixture",
+        validator: "pass",
+      },
+      createdAt: "2026-05-02",
+    };
+    const reviewed: CruxLedgerEntry = {
+      ...proposal,
+      author: {
+        kind: "judgment",
+        modelId: "fixture-model",
+        promptVersion: "ledger-v1",
+        contentHash: "sha256:fixture",
+        validator: "pass",
+        reviewedBy: "curator",
+      },
+    };
+    const load = (entries: CruxLedgerEntry[]) => {
+      const topic = loadArgumentTopic(topicId, {
+        readLedger: () => JSON.stringify({ topicId, entries }),
+      });
+      if (topic === null) throw new Error(`${topicId} is not registered`);
+      return topic;
+    };
+    const baseline = load([]);
+    const unreviewed = load([proposal]);
+
+    expect(unreviewed.ledger).toHaveLength(1);
+    expect(currentLedgerEntries(unreviewed.ledger)).toEqual({});
+    expect(JSON.stringify(unreviewed.cruxes)).toBe(JSON.stringify(baseline.cruxes));
+
+    // The same entry, once reviewed, does move the card: review is the gate.
+    const afterReview = load([reviewed]).cruxes.find((result) => result.claimId === claimId);
+    expect(baseline.cruxes.find((result) => result.claimId === claimId)?.evidenceStarved).toBe(true);
+    expect(afterReview?.evidenceStarved).toBe(false);
+    expect(afterReview?.ledgerStatus).toBe("narrowed");
   });
 });
