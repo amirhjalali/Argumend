@@ -1,4 +1,5 @@
 import type { ArgumentGraph, Claim } from "@/types/argument";
+import type { LedgerStatusByClaim } from "@/types/cruxLedger";
 import { computeCruxSignals, type CruxSignal, type DeltaTarget } from "./signals";
 
 export interface CruxResult {
@@ -64,6 +65,14 @@ export interface IdentifyCruxesOptions {
    * (default 0.25). Pinned claims are exempt.
    */
   candidacyFloor?: number;
+  /**
+   * Crux ledger status per claim (`ledgerStatus` in lib/argument/ledger.ts).
+   * RESERVED — typed now, consumed in ledger week 2 (spec §1.3: resolved
+   * leaves candidacy, unresolvable pins, narrowed drops the evidence-starved
+   * annotation). Today it is ignored, and an empty map must reproduce the
+   * ranking byte-for-byte (lib/crux/ledgerRegression.test.ts).
+   */
+  ledgerStatus?: LedgerStatusByClaim;
 }
 
 export interface CruxRanking {
