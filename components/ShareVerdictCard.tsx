@@ -164,7 +164,7 @@ function VerdictCardPreview({
           {/* Topic title. Always-light: this card is rasterized to a PNG on the
               fixed #f4f1eb canvas, so no dark: pairing here. */}
           <h2
-            className={`font-serif font-bold text-primary leading-tight mt-3 ${
+            className={`font-serif font-bold text-[#3d3a36] leading-tight mt-3 ${
               isTwitter ? "text-lg" : "text-xl"
             }`}
           >

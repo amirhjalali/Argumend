@@ -338,7 +338,7 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
               <p className="text-sm text-stone-600 leading-relaxed">
                 {/* Always-light card (fixed #faf8f5→#f4f1eb gradient, no dark
                     variant), so the fixed-light brand token is correct here. */}
-                <span className="font-medium text-primary">
+                <span className="font-medium text-[#3d3a36]">
                   Compare your verdict with our evidence-based analysis:
                 </span>{" "}
                 The evidence balance for this topic is{" "}
