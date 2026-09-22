@@ -43,8 +43,16 @@ hostile" (prompt injection). Consequences for this program:
 
 ## Wave 3
 
-- PRs against `main`, one per branch, with verification output.
-- Program report in this file.
+- One PR from `jev-program` against `main` (the branches are interdependent: UI needs the API and the privacy pages; the verdict rule needs the corrected labels), with a section per branch and its verification output.
+- Program report below.
+
+## Status at wrap-up (2026-09-22)
+
+Merged into `jev-program`, in order: typesafe-policy, social-launch-kit, plan, privacy-consent, vitest exclude fix, crux-contestedness-gate (after 7 review findings fixed), evidence-adjudication (after a second read: 20/22 confirmed, 2 reverted, 3 more applied, 1 declined), map-reply-api (after 13 review findings fixed), verdict-robustness (with the editorial pin), evidence-drafts, summaries regenerated on the corrected labels. Pending at time of writing: map-reply-ui (reconciling `lib/aiProviders.ts` with the privacy branch and adapting to the API fixes), client-ip-fix (the forwarded-header bypass on the other twelve routes).
+
+Verdict rule effect on the corrected data: 17 settled -> 6 (5 earned, moon-landing pinned by authored status and marked fragile), 11 demoted to a lean label with "One evidence card could change this reading". 47 of 86 contested topics are one card from settled; 34 topics have fewer than 8 cards.
+
+Founder decisions collected (see the final report): the four adjudication quadrant changes and the one-card margins on us-iran-conflict; the 20 drafted evidence cards; the five off-claim cards recommended for removal and the two for splitting; the Nestle duplicate; the Minneapolis pillar's factual error (H.Res. 996 predates the Pretti shooting); the blog post's "bot in your thread" paragraph vs the policy finding; the public /analyses listing and stored quotes in published reports; the 14 unverifiable privacy-page claims and the placeholder contact address; the moon-landing map depth.
 
 ## Rules for every agent
 
