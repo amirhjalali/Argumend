@@ -213,6 +213,16 @@ export const CruxLedgerEntrySchema = z
       issue("noticedAt (when we picked the source up) cannot precede date (the source's date)", "noticedAt");
     }
 
+    // The latest-dated entry sets the claim's status, so a typo'd future date
+    // would pin it there. Nothing can be dated after the day it was written.
+    const writtenOn = entry.createdAt.slice(0, 10);
+    if (entry.date > writtenOn) {
+      issue("date (the source's date) cannot be after createdAt (when the entry was written)", "date");
+    }
+    if (entry.noticedAt !== undefined && entry.noticedAt > writtenOn) {
+      issue("noticedAt cannot be after createdAt (when the entry was written)", "noticedAt");
+    }
+
     if (entry.supersededBy !== undefined && entry.supersededBy === entry.id) {
       issue("an entry cannot supersede itself", "supersededBy");
     }
@@ -342,12 +352,22 @@ export function validateCruxLedger(ledger: CruxLedgerFile, graph: ArgumentGraph)
     }
 
     if (entry.supersededBy !== undefined && entry.supersededBy !== entry.id) {
-      if (!entriesById.has(entry.supersededBy)) {
+      const correction = entriesById.get(entry.supersededBy);
+      if (correction === undefined) {
         issues.push({
           rule: "superseded-by-resolves",
           severity: "error",
           entryId: entry.id,
           message: `supersededBy "${entry.supersededBy}" is not an entry in this ledger.`,
+        });
+      } else if (correction.claimId !== entry.claimId) {
+        // Otherwise one claim's history silently vanishes and turns up as a
+        // "correction" on another claim's card.
+        issues.push({
+          rule: "superseded-by-same-claim",
+          severity: "error",
+          entryId: entry.id,
+          message: `supersededBy "${entry.supersededBy}" is an entry for claim "${correction.claimId}", not "${entry.claimId}"; a correction must be about the same claim.`,
         });
       }
     }
