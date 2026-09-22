@@ -371,14 +371,32 @@ value, and the design rule is that they are shown rather than summarised away:
   difference between "they are not talking past each other" and "we could not
   tell", and a panel that showed only what fired would read as more certain than
   the pipeline is.
-- **Low-confidence placements are marked.** A turn's section chip goes dashed
-  and says "low confidence" below 0.7, per the probe review's routing test.
-  `components/mapReply/confidence.ts` holds that number; it is a presentation
-  rule and deliberately not one of the pipeline's thresholds.
-- **A hedge above the whole reply** when the topic Choice itself came in below
-  0.7, because everything under it is read off that one map.
+- **The page reads the thresholds off the result.** `thresholds` arrives on
+  every reply and the UI uses it: the section floor is printed from
+  `thresholds.sectionConfidence`, the crux heading from
+  `thresholds.cruxTouched`, the signal ticks from `signals.threshold`, the
+  topic tick from `topicChoice.threshold`. No copy of a gate lives in the
+  components, so retuning the pipeline retunes the wording.
+- **A tentative placement is drawn as one, not counted as one.** A turn with
+  `placement: "tentative"` gets a dashed chip reading "not placed", keeps its
+  probability, and says in full underneath what the best guess was and which
+  floor it missed. It is counted in the `unplaced` row of the section bar and
+  annotated on its own section's legend row as "+ N too weak to count" —
+  annotated rather than added, because those turns are already inside the
+  unplaced segment and drawing them twice would inflate the thread.
+- **`dominantSection.tentative` changes the tag,** from "largest share" to
+  "best guess only", with a sentence saying nothing on the page rests on it.
+- **The coverage sentence appears whenever `thread.unprobedCount > 0`** —
+  "Only the first 48 of 60 turns were checked." when truncated, otherwise
+  "N shorter turns were too brief to check."
 - **"Not an argument" turns are dimmed, not dropped**, and print which of the
-  two composition rules caught them.
+  two composition rules caught them. A speaker in `notArguingInProbedTurns`
+  gets the qualified sentence rather than the flat one, because the pipeline
+  did not look at everything they said.
+- **Two hedges are presentation-only**, and `components/mapReply/confidence.ts`
+  says so: the topic Choice between the 0.5 gate and 0.7, and the pattern
+  Choice, which has no threshold anywhere. Everything else defers to the
+  pipeline.
 - **Each evidence card carries its own side label.** Never a "for and against"
   pair header: a section whose evidence is all one way still shows two cards.
 - **A no-map answer is a result, not an error.** It shows the bar that was
@@ -407,4 +425,10 @@ distinction, and `docs/PRIVACY_AND_CONSENT.md` maps each claim to its code path.
 
 **Tests.** `components/mapReply/MapReplyClient.test.tsx` renders the real
 pipeline output on the recorded rent-control answers rather than a hand-written
-fixture, so a change to composition surfaces as a rendering failure.
+fixture, so a change to composition surfaces as a rendering failure. That
+thread is a clean one — everything clears the floor, nothing is skipped — so
+the harder branches (a tentative placement, a tentative dominant section, a
+truncated thread, a partially-checked speaker) are exercised by moving one
+field at a time on the real result. One test renders a result carrying fields
+the page has never heard of, because the route is on its own release cadence
+and an unknown field must not take the page down.

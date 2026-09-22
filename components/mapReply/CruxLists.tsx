@@ -1,4 +1,4 @@
-import type { MapReplyCruxTouch } from "@/lib/mapReply/types";
+import type { MapReplyCruxTouch, MapReplyThresholds } from "@/lib/mapReply/types";
 import { Meter, percentLabel } from "./meters";
 import { ResultSection } from "./ResultSection";
 
@@ -80,11 +80,19 @@ function CruxColumn({
   );
 }
 
-export function CruxLists({ cruxes }: { cruxes: MapReplyCruxTouch[] }) {
+export function CruxLists({
+  cruxes,
+  thresholds,
+}: {
+  cruxes: MapReplyCruxTouch[];
+  thresholds: MapReplyThresholds;
+}) {
   const byTouch = [...cruxes].sort((a, b) => b.touched - a.touched);
   const touched = byTouch.filter((crux) => crux.touched >= crux.touchedThreshold);
   const missed = byTouch.filter((crux) => crux.touched < crux.touchedThreshold);
-  const threshold = cruxes[0]?.touchedThreshold ?? 0.5;
+  // Each crux carries its own bar; this is only for the heading, and comes
+  // from the result rather than a copy of the number kept in the UI.
+  const threshold = thresholds.cruxTouched;
 
   return (
     <ResultSection

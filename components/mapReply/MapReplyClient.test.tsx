@@ -9,7 +9,7 @@ import {
   RENT_CONTROL_THREAD,
 } from "@/lib/mapReply/__fixtures__";
 import { runMapReply } from "@/lib/mapReply/pipeline";
-import type { MapReplyMatch, MapReplyNoMatch } from "@/lib/mapReply/types";
+import type { MapReplyMatch, MapReplyNoMatch, MapReplyTurn } from "@/lib/mapReply/types";
 import { MapReplyClient } from "./MapReplyClient";
 import { MapReplyResult } from "./MapReplyResult";
 
@@ -134,6 +134,12 @@ describe("MapReplyClient", () => {
     expect(view.getByText("Not an argument about the topic")).toBeTruthy();
     expect(view.getAllByText("gary_1962").length).toBe(2);
     expect(view.getAllByText("Not an argument").length).toBe(1);
+    expect(view.getByText("8 turns checked")).toBeTruthy();
+    expect(view.getByText("every placement above the 70% floor")).toBeTruthy();
+    // Nothing was skipped and nothing fell below the floor on this thread, so
+    // neither caveat should appear.
+    expect(view.queryByText(/too weak to count/)).toBeNull();
+    expect(view.queryByText(/too brief to check/)).toBeNull();
 
     // Pattern, signals, cruxes, evidence.
     expect(view.getByText("Mixed disagreement")).toBeTruthy();
@@ -235,5 +241,121 @@ describe("MapReplyResult", () => {
     const view = render(<MapReplyResult match={match} onReset={() => undefined} />);
 
     expect(view.queryByText(/treat the map itself as a guess/)).toBeNull();
+  });
+});
+
+/**
+ * The recorded rent-control run is a clean thread: every turn clears the
+ * section floor, nothing was skipped, nobody spoke off-camera. The cases
+ * below start from that real result and move one field at a time, so the
+ * shapes stay the ones the route sends while the branches get exercised.
+ */
+function withTentativeTurn(base: MapReplyMatch): MapReplyMatch {
+  const target = base.turns.find((turn) => turn.speaker === "hn_throwaway");
+  if (!target) throw new Error("expected the recorded thread to contain hn_throwaway");
+
+  const tentative: MapReplyTurn = { ...target, placement: "tentative", sectionConfidence: 0.62 };
+  return {
+    ...base,
+    turns: base.turns.map((turn) => (turn.index === target.index ? tentative : turn)),
+    unplacedCount: 1,
+    sectionCounts: base.sectionCounts.map((section) => {
+      if (section.id === target.section) {
+        return { ...section, count: section.count - 1, tentative: section.tentative + 1 };
+      }
+      if (section.id === "unplaced") return { ...section, count: 1 };
+      return section;
+    }),
+  };
+}
+
+describe("MapReplyResult on the contract's harder branches", () => {
+  afterEach(cleanup);
+
+  it("hedges a placement below the section floor instead of counting it", () => {
+    const view = render(
+      <MapReplyResult match={withTentativeTurn(match)} onReset={() => undefined} />,
+    );
+
+    expect(view.getByText("1 placement below the 70% floor")).toBeTruthy();
+    expect(view.getByText("not placed")).toBeTruthy();
+    expect(view.getByText(/under the 70% floor/)).toBeTruthy();
+    // It is reported as unplaced, annotated on its own section, and never
+    // added to that section's count.
+    expect(view.getByText(/1 turn the model placed too weakly to count/)).toBeTruthy();
+    expect(view.getByText("Too ambiguous to place")).toBeTruthy();
+    expect(view.getByText("+ 1 too weak to count")).toBeTruthy();
+  });
+
+  it("says the leading section is a guess when nothing cleared the floor", () => {
+    const dominant = match.dominantSection;
+    if (!dominant) throw new Error("expected a dominant section");
+    const view = render(
+      <MapReplyResult
+        match={{ ...match, dominantSection: { ...dominant, tentative: true } }}
+        onReset={() => undefined}
+      />,
+    );
+
+    expect(view.getByText("best guess only")).toBeTruthy();
+    expect(view.queryByText("largest share")).toBeNull();
+    expect(view.getByText(/No turn was placed on the map with confidence/)).toBeTruthy();
+  });
+
+  it("owns up to turns it never checked", () => {
+    const short = render(
+      <MapReplyResult
+        match={{ ...match, thread: { ...match.thread, turnCount: 11, unprobedCount: 3 } }}
+        onReset={() => undefined}
+      />,
+    );
+    expect(short.getByText("3 shorter turns were too brief to check.")).toBeTruthy();
+    cleanup();
+
+    const capped = render(
+      <MapReplyResult
+        match={{
+          ...match,
+          thread: {
+            ...match.thread,
+            turnCount: 60,
+            substantiveCount: 48,
+            unprobedCount: 12,
+            truncated: true,
+          },
+        }}
+        onReset={() => undefined}
+      />,
+    );
+    expect(capped.getByText("Only the first 48 of 60 turns were checked.")).toBeTruthy();
+  });
+
+  it("qualifies a silent speaker who also said things nobody checked", () => {
+    const view = render(
+      <MapReplyResult
+        match={{ ...match, notArguing: [], notArguingInProbedTurns: ["gary_1962"] }}
+        onReset={() => undefined}
+      />,
+    );
+
+    expect(
+      view.getByText(/made no argument in the turns that were checked, but also said things/),
+    ).toBeTruthy();
+    expect(view.queryByText(/made no argument about the topic in any turn/)).toBeNull();
+  });
+
+  it("ignores fields it does not know about", () => {
+    // The API is on its own release cadence; a field this page has never
+    // heard of must not take the page down.
+    const forwardCompatible = {
+      ...match,
+      someFutureField: { nested: [1, 2, 3] },
+      turns: match.turns.map((turn) => ({ ...turn, futureProbe: 0.42 })),
+    } as unknown as MapReplyMatch;
+
+    const view = render(<MapReplyResult match={forwardCompatible} onReset={() => undefined} />);
+
+    expect(view.getByRole("link", { name: match.topic.title })).toBeTruthy();
+    expect(view.getByText("Mixed disagreement")).toBeTruthy();
   });
 });

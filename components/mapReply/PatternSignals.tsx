@@ -1,6 +1,6 @@
 import { MAP_REPLY_PATTERNS, type MapReplyPatternId } from "@/lib/mapReply/constants";
 import type { MapReplyPattern, MapReplySignals } from "@/lib/mapReply/types";
-import { isHedged } from "./confidence";
+import { DISPLAY_CONFIDENCE_HEDGE, isHedged } from "./confidence";
 import { LabelledMeter, Meter, percentLabel } from "./meters";
 import { ResultSection } from "./ResultSection";
 import type { MeterTone } from "./meters";
@@ -86,7 +86,8 @@ export function PatternSignals({
         </div>
         {hedged ? (
           <p className="mt-2 font-sans text-xs text-[var(--text-muted)]">
-            Below 70%: the pattern is the most likely of eight, not a settled reading.
+            Below {percentLabel(DISPLAY_CONFIDENCE_HEDGE)}: the pattern is the most likely of
+            eight, not a settled reading. The pipeline applies no threshold here.
           </p>
         ) : null}
       </div>

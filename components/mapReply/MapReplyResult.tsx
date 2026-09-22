@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { MapReplyMatch } from "@/lib/mapReply/types";
 import { CruxLists } from "./CruxLists";
-import { isHedged } from "./confidence";
+import { DISPLAY_CONFIDENCE_HEDGE, isHedged } from "./confidence";
 import { EvidenceCards } from "./EvidenceCards";
 import { MapReplyFooter } from "./MapReplyFooter";
 import { Meter, percentLabel } from "./meters";
@@ -20,7 +20,7 @@ import { TurnList } from "./TurnList";
  */
 
 function MapReplyHeader({ match }: { match: MapReplyMatch }) {
-  const { topic, topicChoice, thread } = match;
+  const { topic, topicChoice } = match;
   const hedged = isHedged(topicChoice.confidence);
 
   return (
@@ -57,15 +57,9 @@ function MapReplyHeader({ match }: { match: MapReplyMatch }) {
 
       {hedged ? (
         <p className="max-w-prose rounded-lg border-l-2 border-crux bg-[var(--bg-paper)] px-4 py-3 text-sm leading-relaxed text-[var(--text-secondary)] dark:border-crux-light">
-          Below 70%, treat the map itself as a guess. Everything under this heading is read off
-          this map and no other, so check it is the argument you meant before you use the reply.
-        </p>
-      ) : null}
-
-      {thread.truncated ? (
-        <p className="max-w-prose font-sans text-sm text-[var(--text-muted)]">
-          Only the first {thread.substantiveCount} substantive turns were probed; the rest of the
-          paste was left out.
+          Below {percentLabel(DISPLAY_CONFIDENCE_HEDGE)}, treat the map itself as a guess.
+          Everything under this heading is read off this map and no other, so check it is the
+          argument you meant before you use the reply.
         </p>
       ) : null}
 
@@ -90,14 +84,21 @@ export function MapReplyResult({
       <SectionBar
         sectionCounts={match.sectionCounts}
         dominantSectionId={match.dominantSection?.id ?? null}
-        substantiveCount={match.thread.substantiveCount}
+        dominantIsTentative={match.dominantSection?.tentative ?? false}
+        unplacedCount={match.unplacedCount}
+        thread={match.thread}
       />
 
-      <TurnList turns={match.turns} notArguing={match.notArguing} />
+      <TurnList
+        turns={match.turns}
+        notArguing={match.notArguing}
+        notArguingInProbedTurns={match.notArguingInProbedTurns}
+        thresholds={match.thresholds}
+      />
 
       <PatternSignals pattern={match.pattern} signals={match.signals} />
 
-      <CruxLists cruxes={match.cruxes} />
+      <CruxLists cruxes={match.cruxes} thresholds={match.thresholds} />
 
       <EvidenceCards
         evidence={match.evidence}

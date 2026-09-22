@@ -1,12 +1,24 @@
 /**
- * The line below which a Jev placement is shown as a guess.
+ * Presentation-only hedging, for the two numbers the pipeline does not gate.
  *
- * `docs/reviews/2026-09-16-jev-typesafe-probe.md` found the routing reliable
- * well above this and unreliable below it — the comment that sat between two
- * sections of the rent-control map was placed at 41% and placed differently
- * on a rerun. The pipeline does not act on this number (its own thresholds
- * live in `lib/mapReply/constants.ts`); it is purely a presentation rule, so
- * it lives with the presentation.
+ * Every threshold the reply actually applies now travels with the result, in
+ * `thresholds` and on each crux and signal, so the UI reads those rather than
+ * keeping its own copy. Two numbers are left over:
+ *
+ * - **Topic confidence.** The pipeline's gate is `thresholds.topicConfidence`
+ *   (0.5): below it there is no map at all. Above it the map is shown, and
+ *   between 0.5 and 0.7 it is shown on evidence the routing experiment says is
+ *   weak, so the page hedges where the pipeline does not.
+ * - **Pattern confidence.** The eight-way Choice has no threshold anywhere; the
+ *   reply prints whichever pattern won.
+ *
+ * 0.7 is the line `docs/reviews/2026-09-16-jev-typesafe-probe.md` drew for
+ * routing — the same number the pipeline now uses for its section floor — and
+ * it is reused here for want of a better-measured one, not because those two
+ * questions were calibrated together.
+ *
+ * Per-turn placement is NOT decided here. It comes from `turn.placement`,
+ * which the pipeline computes against `thresholds.sectionConfidence`.
  */
 export const DISPLAY_CONFIDENCE_HEDGE = 0.7;
 
