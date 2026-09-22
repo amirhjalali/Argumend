@@ -65,6 +65,7 @@ import { getLLMOption, ClaudeIcon } from "@/components/icons/LLMIcons";
 import { trackEvent } from "@/lib/analytics";
 import { DebateHighlight } from "@/components/DebateHighlight";
 import { ControversyMeter } from "@/components/ControversyMeter";
+import { FragileVerdictNote } from "@/components/FragileVerdictNote";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { hasTimeline, getTimeline } from "@/lib/topicTimelines";
 import { ConfidenceTimeline } from "@/components/ConfidenceTimeline";
@@ -1121,6 +1122,7 @@ export default function TopicDetailView({
                 >
                   {topic.verdict.label}
                 </span>
+                <FragileVerdictNote fragile={topic.verdict.fragile} className="-mt-1" />
                 <div className="flex flex-col items-center gap-1.5">
                   <span
                     className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium border ${statusColors[topic.status]}`}
