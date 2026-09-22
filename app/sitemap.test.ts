@@ -73,6 +73,8 @@ describe("sitemap", () => {
       "/how-it-works",
       "/methodology",
       "/lessons-from-the-deep",
+      // Behind NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY and noindex while flagged.
+      "/reply",
     ];
     for (const prefix of deLinkedPrefixes) {
       const offending = urls.filter((url) =>
