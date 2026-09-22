@@ -206,6 +206,56 @@ the standalone server. Coolify supplies `PORT`; both deployment paths bind to
 migrations as a separate, explicit release operation when persistence is
 enabled.
 
+### Trusted proxy hops
+
+Every rate-limited API route keys its bucket on the client address, and that
+address comes from `lib/clientIp.ts`, not from the raw header. A proxy
+**appends** the peer it saw to `x-forwarded-for`; it does not replace what
+arrived. The first entry is therefore whatever the caller wrote, and keying on
+it lets anyone clear a limit by rotating a header value. The helper counts
+`TRUSTED_PROXY_HOPS` entries back from the **end** instead, and falls back to
+`x-real-ip`.
+
+`TRUSTED_PROXY_HOPS` must equal the number of proxies that append a value
+between the internet and the app:
+
+| Deployment | Value |
+|---|---|
+| Coolify (Traefik only) — the default | `1` |
+| Cloudflare in front of Coolify | `2` |
+| Any further proxy in the chain | add 1 for each |
+
+Setting it too high makes unrelated clients share a bucket; too low and the
+limit is bypassable. Verify it against a real request rather than guessing —
+temporarily log the header from a deployed route, or add a scratch endpoint:
+
+```ts
+// app/api/whoami/route.ts — remove before merging.
+export function GET(request: Request) {
+  return Response.json({
+    forwarded: request.headers.get("x-forwarded-for"),
+    realIp: request.headers.get("x-real-ip"),
+  });
+}
+```
+
+Hit it from outside the network (`curl https://argumend.org/api/whoami`) and
+count the entries:
+
+- `"203.0.113.9"` — one entry, appended by Traefik. Your real address, so
+  `TRUSTED_PROXY_HOPS=1`.
+- `"203.0.113.9, 172.18.0.4"` — Cloudflare appended your address, Traefik
+  appended Cloudflare's. Your address is second from the end:
+  `TRUSTED_PROXY_HOPS=2`.
+
+Then repeat the request with a spoofed prefix —
+`curl -H 'x-forwarded-for: 1.2.3.4' https://argumend.org/api/whoami` — and
+confirm the value at your configured hop count is still your own address and
+not `1.2.3.4`. If a spoofed entry lands on that position, the number is wrong.
+
+The regression suite for this lives in `app/api/rate-limit-client-ip.test.ts`,
+which replays the bypass against every rate-limited route.
+
 After any production build, verify the assembled standalone directory locally:
 
 ```bash
