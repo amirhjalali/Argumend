@@ -3,12 +3,15 @@ import {
   TopicSchema,
   EvidenceSchema,
   PillarSchema,
+  VerdictSchema,
+  applyVerdictRobustness,
   computeBalance,
   getVerdict,
   calculateEvidenceScore,
   parseTopic,
   safeParseTopics,
 } from "./topic";
+import type { VerdictSensitivity } from "@/lib/verdictSensitivity";
 
 describe("EvidenceSchema", () => {
   it("validates a valid evidence object", () => {
@@ -272,6 +275,80 @@ describe("getVerdict", () => {
     expect(getVerdict(52, 70).quadrant).toBe("contested");
     expect(getVerdict(60, 50).quadrant).toBe("moderate");
     expect(getVerdict(60, 20).quadrant).toBe("open");
+  });
+
+  it("never sets fragile on its own — that is the guard's job", () => {
+    expect(getVerdict(80, 80).fragile).toBeUndefined();
+  });
+});
+
+describe("applyVerdictRobustness", () => {
+  const sensitivity = (over: Partial<VerdictSensitivity>): VerdictSensitivity => ({
+    quadrant: "settled",
+    balance: 80,
+    cardCount: 12,
+    flipsToChange: 2,
+    oneCardBalanceRange: { min: 72, max: 88, span: 16 },
+    ...over,
+  });
+
+  it("leaves a robust settled verdict alone", () => {
+    const verdict = getVerdict(80, 80);
+    expect(applyVerdictRobustness(verdict, 80, sensitivity({}))).toEqual(verdict);
+  });
+
+  it("demotes a settled verdict that one card could undo", () => {
+    const guarded = applyVerdictRobustness(
+      getVerdict(80, 80),
+      80,
+      sensitivity({ flipsToChange: 1 })
+    );
+    expect(guarded.quadrant).toBe("moderate");
+    expect(guarded.fragile).toBe(true);
+    expect(guarded.label).toBe("Clearly favors the claim");
+    expect(guarded.label).not.toMatch(/settled/i);
+  });
+
+  it("demotes a settled verdict on a map with too few cards", () => {
+    const guarded = applyVerdictRobustness(getVerdict(95, 80), 95, sensitivity({ cardCount: 4 }));
+    expect(guarded.quadrant).toBe("moderate");
+    expect(guarded.fragile).toBe(true);
+    expect(guarded.label).toBe("Strongly favors the claim");
+  });
+
+  it("keeps the direction of the lean when it demotes", () => {
+    const guarded = applyVerdictRobustness(
+      getVerdict(20, 80),
+      20,
+      sensitivity({ flipsToChange: 1, balance: 20 })
+    );
+    expect(guarded.label).toBe("Clearly favors the counterclaim");
+  });
+
+  it("never touches contested, moderate or open", () => {
+    for (const [balance, weight] of [
+      [52, 70],
+      [60, 50],
+      [60, 20],
+    ] as const) {
+      const verdict = getVerdict(balance, weight);
+      const guarded = applyVerdictRobustness(
+        verdict,
+        balance,
+        sensitivity({ quadrant: verdict.quadrant, flipsToChange: 1, cardCount: 2 })
+      );
+      expect(guarded).toEqual(verdict);
+      expect(guarded.fragile).toBeUndefined();
+    }
+  });
+
+  it("parses as a Verdict once fragile is set", () => {
+    const guarded = applyVerdictRobustness(
+      getVerdict(80, 80),
+      80,
+      sensitivity({ flipsToChange: 1 })
+    );
+    expect(VerdictSchema.safeParse(guarded).success).toBe(true);
   });
 });
 

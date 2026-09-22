@@ -223,7 +223,17 @@ describe("weight calibration anchors (spec §2.2)", () => {
 
   it("moon-landing (settled) has high weight", () => {
     expect(moonLanding?.weight).toBeGreaterThan(80);
-    expect(moonLanding?.verdict.quadrant).toBe("settled");
+  });
+
+  // The map is 8 cards (3 for + 1 steelmanned against per pillar), which puts
+  // balance at 76 — six points from the settled line. Relabelling either
+  // "against" card drops it to 61, so the robustness guard demotes it and
+  // flags it fragile. The reading is true of *this map*, not of the moon
+  // landing: the fix is more evidence cards, not a looser rule.
+  // See docs/reviews/2026-09-21-verdict-robustness.md.
+  it("moon-landing is demoted by the robustness guard until its map is deeper", () => {
+    expect(moonLanding?.verdict.quadrant).toBe("moderate");
+    expect(moonLanding?.verdict.fragile).toBe(true);
   });
 
   it("moloch is well-mapped and genuinely contested — never 'insufficient'", () => {

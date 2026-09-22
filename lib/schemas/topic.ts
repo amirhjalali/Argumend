@@ -1,6 +1,13 @@
 import { z } from "zod";
-import { BALANCE, VERDICT, WEIGHT } from "@/lib/constants";
+import { BALANCE, WEIGHT } from "@/lib/constants";
 import { calculateEvidenceScore } from "@/lib/evidenceMetrics";
+import {
+  balanceOfCards,
+  isFragileSettled,
+  topicCards,
+  verdictQuadrant,
+  type VerdictSensitivity,
+} from "@/lib/verdictSensitivity";
 
 export {
   calculateEvidenceScore,
@@ -145,6 +152,12 @@ export const VerdictQuadrantSchema = z.enum(["settled", "contested", "moderate",
 export const VerdictSchema = z.object({
   label: z.string(),
   quadrant: VerdictQuadrantSchema,
+  /**
+   * Set when the robustness guard demoted a "settled" reading: the quadrant
+   * shown is one a single defensible relabel could have produced. Absent means
+   * the reading was not demoted, never that it is beyond question.
+   */
+  fragile: z.boolean().optional(),
 });
 export type VerdictQuadrant = z.infer<typeof VerdictQuadrantSchema>;
 export type Verdict = z.infer<typeof VerdictSchema>;
@@ -154,16 +167,7 @@ export type Verdict = z.infer<typeof VerdictSchema>;
  * forStrength / (forStrength + againstStrength) over the 0–40 evidence scores.
  */
 export function computeBalance(pillars: Pillar[]): number {
-  const allEvidence = pillars.flatMap((p) => p.evidence ?? []);
-  const forScore = allEvidence
-    .filter((e) => e.side === "for")
-    .reduce((sum, e) => sum + calculateEvidenceScore(e.weight), 0);
-  const againstScore = allEvidence
-    .filter((e) => e.side === "against")
-    .reduce((sum, e) => sum + calculateEvidenceScore(e.weight), 0);
-  const total = forScore + againstScore;
-  if (total === 0) return 50;
-  return Math.round((forScore / total) * 100);
+  return balanceOfCards(topicCards(pillars));
 }
 
 const RESOLVABILITY: Record<Crux["verification_status"], number> = {
@@ -214,28 +218,58 @@ export function getLeanLabel(balance: number): string {
   return `Strongly favors ${favoredSide(balance)}`;
 }
 
-/** 2-D verdict from both axes. Replaces the old 1-D getVerdictLabel. */
+/**
+ * 2-D verdict from both axes, before the robustness guard. Replaces the old
+ * 1-D getVerdictLabel. `buildTopic` runs the result through
+ * `applyVerdictRobustness` — use that for anything a reader sees.
+ */
 export function getVerdict(balance: number, weight: number): Verdict {
-  const d = Math.abs(balance - 50);
-  if (weight >= VERDICT.HIGH_WEIGHT && d >= VERDICT.SETTLED_D) {
+  const quadrant = verdictQuadrant(balance, weight);
+  if (quadrant === "settled") {
     return {
       label: `Settled — evidence strongly favors ${favoredSide(balance)}`,
-      quadrant: "settled",
+      quadrant,
     };
   }
-  if (weight >= VERDICT.HIGH_WEIGHT) {
-    return { label: "Well-mapped, genuinely contested", quadrant: "contested" };
+  if (quadrant === "contested") {
+    return { label: "Well-mapped, genuinely contested", quadrant };
   }
-  if (weight >= VERDICT.LOW_WEIGHT) {
+  if (quadrant === "moderate") {
+    const d = Math.abs(balance - 50);
     const lean =
       d < BALANCE.EVEN_D
         ? "Balanced"
         : balance >= 50
           ? "Leans toward the claim"
           : "Leans toward the counterclaim";
-    return { label: `${lean} — moderately evidenced`, quadrant: "moderate" };
+    return { label: `${lean} — moderately evidenced`, quadrant };
   }
-  return { label: "Open question — limited evidence so far", quadrant: "open" };
+  return { label: "Open question — limited evidence so far", quadrant };
+}
+
+/**
+ * Guard the displayed verdict against measurement noise in the evidence
+ * `side` labels.
+ *
+ * "Settled" is a strong public claim; on a 12–16 card map one ordinary card
+ * moves balance by 8–12 points against a 20-point settled threshold, so a
+ * single defensible relabel can create or destroy it. A map keeps the word
+ * only when no single flip could take it away and it carries at least
+ * `VERDICT_ROBUSTNESS.MIN_CARDS` cards. Otherwise the quadrant drops to
+ * "moderate", the label falls back to the lean alone, and `fragile` is set so
+ * the surface can say so out loud.
+ *
+ * balance and weight are never altered, and "contested" / "open" are never
+ * touched — this only ever removes a claim, never adds one.
+ */
+export function applyVerdictRobustness(
+  verdict: Verdict,
+  balance: number,
+  sensitivity: VerdictSensitivity
+): Verdict {
+  if (verdict.quadrant !== "settled") return verdict;
+  if (!isFragileSettled(sensitivity)) return verdict;
+  return { label: getLeanLabel(balance), quadrant: "moderate", fragile: true };
 }
 
 // ============================================================================
