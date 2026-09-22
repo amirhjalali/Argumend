@@ -307,7 +307,7 @@ export const obesityPersonalResponsibilityData = {
             "GLP-1 Drugs Carry ~$1,000-1,350/Month List Prices, Creating Health Equity Gaps",
           description:
             "Semaglutide (Wegovy) has carried a US list price of roughly $1,350/month and tirzepatide (Zepbound) roughly $1,060/month, though discounted cash and direct-to-consumer prices have been substantially lower and are changing rapidly. Coverage for obesity (as opposed to diabetes) indications has historically been limited: as of early 2026, only a minority of state Medicaid programs covered GLP-1s for obesity. The populations with the highest obesity rates — low-income, rural, and minority communities — are generally least able to afford treatment, raising concerns that a condition shaped by the food environment is being met with an expensive pharmaceutical fix unevenly available across income groups.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,

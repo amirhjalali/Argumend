@@ -257,7 +257,7 @@ export const seedOilsHealthData = {
             "Industrial Seed Oil Extraction Uses Hexane Solvent with Trace Residues in Final Product",
           description:
             "Most commercial seed oils are extracted with n-hexane, a petroleum-derived solvent; refining removes almost all of it (separating ~99.5% of oil from meal, then deodorizing). The EU caps hexane residue at 1 mg/kg (1 ppm) for vegetable oils (Directive 2009/32/EC); the US FDA treats hexane as a processing aid and does not set a maximum residue limit for oils, so routine US residue figures are not officially published. High chronic hexane exposure (occupational) causes peripheral neuropathy, but food-oil residues are orders of magnitude lower. Critics argue any solvent residue is undesirable given expeller-pressed alternatives.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 5,
             independence: 6,

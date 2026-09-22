@@ -120,7 +120,7 @@ export const scottCostDiseaseData = {
           title: "Flat output breaks the pure-Baumol story",
           description:
             "NAEP long-term-trend scores for 17-year-olds are essentially flat since the 1970s while real per-pupil spending rose dramatically — Baumol predicts higher prices, not stagnant results.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
@@ -269,7 +269,7 @@ export const scottCostDiseaseData = {
           title: "K–12 has the disease without the subsidy",
           description:
             "Public schooling is tax-funded, not demand-subsidized through a tuition market, yet still shows cost disease — so subsidy capture can't be the universal explanation.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 7,

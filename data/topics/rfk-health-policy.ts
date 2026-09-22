@@ -228,7 +228,7 @@ export const rfkHealthPolicyData = {
           title: "2024 NTP Monograph: Neurodevelopmental Harm Found Above 1.5 mg/L",
           description:
             "The National Toxicology Program's August 2024 monograph concluded with 'moderate confidence' that fluoride exposures above 1.5 mg/L are associated with lower IQ in children. Crucially, that threshold is more than twice the US community-fluoridation level of 0.7 mg/L, and the underlying studies were largely from regions with naturally high fluoride. The January 2025 JAMA Pediatrics meta-analysis of more than 70 studies reported a similar inverse association concentrated at higher exposures.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
@@ -342,7 +342,7 @@ export const rfkHealthPolicyData = {
           title: "Two-Thirds of MAHA Dietary-Guidelines Reviewers Had Industry Ties",
           description:
             "Marion Nestle's January 2026 analysis found that roughly two-thirds of the reviewers for the MAHA dietary guidelines had industry ties — the very conflict-of-interest problem MAHA invokes against prior committees. Combined with the documented industry-funding history of past advisory bodies, this shows that conflicts of interest in health-policy panels are real, but also that MAHA's own process replicated rather than cured them.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
