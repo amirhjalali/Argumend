@@ -57,7 +57,7 @@ export function ArrivedGroupView({
   const headingId = `arrived-${domId(group.topicId)}-${domId(group.claimId)}`;
   return (
     <li aria-labelledby={headingId} className="py-7 first:pt-2">
-      <p className="text-[12.5px] text-muted dark:text-stone-400">
+      <p className="text-[12.5px] leading-snug text-muted dark:text-stone-400">
         <Link
           href={`/topics/${group.topicId}#cruxes`}
           className="font-medium text-stone-800 underline decoration-stone-400/60 underline-offset-[3px] hover:decoration-stone-700 dark:text-stone-200 dark:decoration-stone-500"
@@ -159,7 +159,7 @@ function EvidenceItem({ node, full }: { node: Evidence; full: boolean }) {
         {byline && <span className="text-muted dark:text-stone-400">. {byline}</span>}
       </p>
       {full && (
-        <p className="mt-0.5 text-[11.5px] text-muted dark:text-stone-400">
+        <p className="mt-0.5 text-[11.5px] leading-snug text-muted dark:text-stone-400">
           {VERIFICATION_LINE[source.verification]}
           {source.verifiedAt ? `, ${formatDay(source.verifiedAt)}` : ""}.
         </p>

@@ -130,7 +130,7 @@ function ChangelogRow({ item, map }: { item: ChangelogItem; map: IndexedMap }) {
         {entry.note}
       </p>
       {correctedBy && (
-        <p className="mt-1 text-[12px] text-muted dark:text-stone-400">
+        <p className="mt-1 text-[12px] leading-snug text-muted dark:text-stone-400">
           Corrected by{" "}
           <a
             href={`#${changelogAnchor(correctedBy.id)}`}

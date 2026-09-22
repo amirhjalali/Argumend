@@ -216,7 +216,7 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
             })}
           </ol>
         ) : (
-          <p className="mt-8 font-serif text-[1.125rem] italic text-muted dark:text-stone-400">
+          <p className="mt-8 font-serif text-[1.125rem] leading-relaxed italic text-muted dark:text-stone-400">
             No source dated in this window has been recorded. Widen the window to see earlier
             movement.
           </p>
@@ -227,7 +227,10 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
       <section aria-labelledby="movement" className="mt-24">
         <SectionHeading id="movement">How much moved</SectionHeading>
         <div className="mt-5 max-w-[36rem] space-y-4 font-serif text-[1.1875rem] leading-[1.6] text-stone-800 dark:text-stone-200">
-          <p data-testid="ai-movement-summary">
+          <p
+            data-testid="ai-movement-summary"
+            className="font-serif text-[1.25rem] leading-[1.6] text-stone-800 dark:text-stone-200"
+          >
             Between {formatDay(since)} and {formatDay(asOf)},{" "}
             {movedCount === 0 ? (
               <>none of the {countWords(summary.tracked)} questions these maps track recorded a dated source.</>
@@ -240,7 +243,7 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
           </p>
           {summary.still.length > 0 && (
             <div>
-              <p className="text-stone-700 dark:text-stone-300">
+              <p className="font-serif text-[1.0625rem] leading-[1.6] text-stone-700 dark:text-stone-300">
                 {summary.still.length === 1
                   ? "One question recorded nothing in this window:"
                   : `${capitalize(countWords(summary.still.length))} questions recorded nothing in this window:`}
@@ -254,7 +257,7 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
                       <p className="text-[1.0625rem] leading-snug text-stone-800 dark:text-stone-200">
                         {cruxQuestion(map, item.claimId)}
                       </p>
-                      <p className="mt-0.5 font-sans text-[12.5px] text-muted dark:text-stone-400">
+                      <p className="mt-0.5 font-sans text-[12.5px] leading-snug text-muted dark:text-stone-400">
                         {map.label}. No movement recorded since{" "}
                         {formatDay(item.lastDate ?? ARGUMENT_TOPICS_FIRST_PUBLISHED)}
                         {item.lastDate ? "." : ", when the map was drawn."}
@@ -281,13 +284,13 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
         </div>
       </section>
 
-      <footer className="mt-20 border-t border-divider pt-6 text-[12.5px] leading-relaxed text-muted dark:text-stone-400">
-        <p className="max-w-[36rem]">
+      <div className="mt-20 border-t border-divider pt-6 text-[12.5px] leading-relaxed text-muted dark:text-stone-400">
+        <p className="max-w-[36rem] text-[12.5px] leading-relaxed text-muted dark:text-stone-400">
           Entries are written by Argumend&rsquo;s editors. A model may propose an entry, but it
           stays off this page until an editor reviews it. Each entry keeps two dates: the
           source&rsquo;s own, and the day the map recorded it.
         </p>
-      </footer>
+      </div>
     </main>
   );
 }

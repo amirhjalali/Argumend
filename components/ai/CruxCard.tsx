@@ -107,7 +107,7 @@ export function CruxCard({
       <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-divider/60 pt-3.5">
         {movement.length > 0 && <CruxMovementTrack movement={movement} />}
         {quiet && (
-          <p className="text-xs italic text-muted dark:text-stone-400">
+          <p className="text-xs leading-snug italic text-muted dark:text-stone-400">
             No movement recorded since {formatDay(latest?.date ?? mapDrawnOn)}
             {latest ? "." : ", when the map was drawn."}
           </p>
