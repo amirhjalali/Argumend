@@ -4,6 +4,7 @@ import { argumentTopicIds } from "@/lib/argument/topicIds";
 import {
   ARGUMENT_TOPICS_LAST_UPDATED,
   CONTENT_LAST_UPDATED,
+  LEGAL_LAST_UPDATED,
   SITE_URL,
 } from "@/lib/site";
 
@@ -16,10 +17,11 @@ function tagToTopicSlug(tag: string): string {
 
 /**
  * The sitemap advertises only the pruned CORE surface (see
- * docs/PRODUCT_PRUNING_AUDIT.md): home, Explore/topics, Analyze, and About.
- * Hidden and merge-pending routes still serve when visited directly but are
- * deliberately kept out of the crawlable index so they do not compete with
- * the core pages.
+ * docs/PRODUCT_PRUNING_AUDIT.md): home, Explore/topics, Analyze, and About,
+ * plus the two legal pages, which are not discovery surfaces but must be
+ * findable. Hidden and merge-pending routes still serve when visited directly
+ * but are deliberately kept out of the crawlable index so they do not compete
+ * with the core pages.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL;
@@ -84,6 +86,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // ── Legal (priority 0.3) ──────────────────────────────────────────────
+  // Not discovery surfaces, but they must be crawlable and citable: a policy
+  // nobody can find is the same problem as no policy. They carry their own
+  // revision date rather than the content corpus date.
+  const legalLastUpdated = new Date(`${LEGAL_LAST_UPDATED}T00:00:00Z`);
+  const legalPages: MetadataRoute.Sitemap = ["/privacy", "/terms"].map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: legalLastUpdated,
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
+  }));
+
   // ── Topic category landing pages (priority 0.7) ───────────────────────
   const topicCategoryPages: MetadataRoute.Sitemap = CATEGORY_ORDER.map(
     (cat) => ({
@@ -113,6 +127,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...topicPages,
     ...argumentTopicPages,
     ...aboutPage,
+    ...legalPages,
     ...topicCategoryPages,
     ...topicTagPages,
   ];
