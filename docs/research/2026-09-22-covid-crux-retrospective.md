@@ -6,6 +6,8 @@ actually opened (journal abstracts, agency releases, court opinions, inquiry rep
 are listed row by row in the **Verification log** at the end. Nothing below is written from memory
 any more; where a claim could not be checked, the log says so.
 
+**Machine-readable form:** the 15 rows are CLAIMs in `data/topics/drafts/covid-what-ended.draft.json` (a v1.1 draft graph, deliberately not registered as a page), and their dated movement is in `data/argument/covid-what-ended.ledger.json`; `lib/argument/covidLedger.test.ts` checks that both validate.
+
 ## Why this document exists
 
 Argumend's premise is that disagreements can end, and that it is possible to say *how*. Covid is the
